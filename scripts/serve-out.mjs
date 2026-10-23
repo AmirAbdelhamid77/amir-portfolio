@@ -1,5 +1,5 @@
-// Minimal static server for `out/`, used to check the export exactly as GitHub
-// Pages serves it (trailing slashes, 404 page, correct MIME types).
+// Minimal static server for `out/`, used to check the export the way a static
+// host serves it (trailing slashes, 404 page, correct MIME types).
 //   node scripts/serve-out.mjs [port]
 import { createReadStream } from "node:fs";
 import { stat } from "node:fs/promises";

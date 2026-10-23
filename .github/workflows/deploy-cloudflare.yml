@@ -1,0 +1,53 @@
+name: Deploy to Cloudflare Workers
+
+# Builds the static export and deploys it to the `hansa` Worker.
+#
+# Required repository configuration (Settings -> Secrets and variables -> Actions):
+#   secrets.CLOUDFLARE_API_TOKEN   scoped token: "Workers Scripts: Edit" for this account
+#   secrets.CLOUDFLARE_ACCOUNT_ID  b84c4bfbf06e399ceb5f5267f87cb37e
+#   vars.NEXT_PUBLIC_SITE_URL      optional custom domain (falls back to the workers.dev URL)
+#   vars.NEXT_PUBLIC_CONTACT_ENDPOINT optional form endpoint (falls back to mailto)
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: cloudflare-workers
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Lint
+        run: npm run lint
+
+      - name: Build static export
+        run: npm run build
+        env:
+          NEXT_PUBLIC_SITE_URL: ${{ vars.NEXT_PUBLIC_SITE_URL }}
+          NEXT_PUBLIC_CONTACT_ENDPOINT: ${{ vars.NEXT_PUBLIC_CONTACT_ENDPOINT }}
+
+      - name: Deploy to Cloudflare Workers
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          # Keep in step with the `wrangler` devDependency in package.json.
+          wranglerVersion: "4.152.0"
+          command: deploy

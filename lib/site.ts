@@ -1,5 +1,12 @@
+// Canonical origin for metadata, the sitemap and robots.txt. Set
+// NEXT_PUBLIC_SITE_URL at build time when the site moves to a custom domain;
+// otherwise it falls back to the Cloudflare Workers URL.
+const siteUrl = (
+  process.env.NEXT_PUBLIC_SITE_URL?.trim() || "https://hansa.amir-portfolio.workers.dev"
+).replace(/\/+$/, "");
+
 export const SITE = {
-  url: "https://amirabdelhamid77.github.io",
+  url: siteUrl,
   name: "Amir Abdelhamid",
   role: "Data Analyst",
   title: "Amir Abdelhamid — Data Analyst & BI Developer",

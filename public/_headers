@@ -1,0 +1,27 @@
+# Response headers for Cloudflare Workers Static Assets.
+# https://developers.cloudflare.com/workers/static-assets/headers/
+# This file is copied from public/ into out/ by `next build`.
+
+/*
+  X-Content-Type-Options: nosniff
+  X-Frame-Options: DENY
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: camera=(), microphone=(), geolocation=(), payment=()
+  Cross-Origin-Opener-Policy: same-origin
+  Strict-Transport-Security: max-age=31536000
+
+# Next.js fingerprints everything under /_next/static, so it can be cached
+# forever. All of these files also carry an ETag from Cloudflare.
+/_next/static/*
+  Cache-Control: public, max-age=31536000, immutable
+
+# Pre-sized screenshots are stable but not fingerprinted. Cache for a week and
+# let a stale copy be served while the new one downloads.
+/images/*
+  Cache-Control: public, max-age=604800, stale-while-revalidate=86400
+
+/og.png
+  Cache-Control: public, max-age=604800
+
+/icon-512.png
+  Cache-Control: public, max-age=604800

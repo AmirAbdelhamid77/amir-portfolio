@@ -1,0 +1,17 @@
+{
+  "$schema": "./node_modules/wrangler/config-schema.json",
+  "name": "hansa",
+  // Static export only: Next.js writes the whole site to ./out and Workers
+  // Static Assets serves it directly. There is no Worker script and no
+  // server-side runtime, so this stays on the Workers Free plan.
+  "compatibility_date": "2026-10-23",
+  "assets": {
+    "directory": "./out",
+    // Next uses trailingSlash: true, so every route is a directory holding an
+    // index.html. "auto-trailing-slash" serves those at /path/ and redirects
+    // /path to /path/ without any custom routing.
+    "html_handling": "auto-trailing-slash",
+    // Serve the real app/not-found.tsx export (out/404.html) for unknown paths.
+    "not_found_handling": "404-page"
+  }
+}

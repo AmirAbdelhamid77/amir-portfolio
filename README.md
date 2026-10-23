@@ -1,10 +1,10 @@
-# amirabdelhamid77.github.io
+# Amir Abdelhamid — portfolio
 
 Personal site for **Amir Abdelhamid** — data analyst and BI builder. Case studies,
 experience, services, and the **Data Lab**: free, browser-scored practice exams for
 SQL, Power BI/DAX, Excel, Python/Pandas, statistics, and analytics fundamentals.
 
-Live at <https://amirabdelhamid77.github.io/>.
+Live at <https://hansa.amir-portfolio.workers.dev/>.
 
 The design language (neutral oklch surfaces, `#0285f7` primary, cyan→violet accent,
 Geist, hairline borders, glass header, BeUI colour presets) is ported from the BeUI
@@ -21,7 +21,7 @@ project tokens, not from a template.
 | Styling | Tailwind CSS 4 + BeUI design tokens in `app/globals.css` |
 | Icons | `lucide-react` + two hand-written brand SVGs in `components/icons.tsx` |
 | Content | Typed TS modules + JSON exam banks validated with Zod |
-| Hosting | GitHub Pages (static `out/`, deployed by Actions) |
+| Hosting | Cloudflare Workers Static Assets (Free plan, `out/` uploaded by Wrangler) |
 | Images | Pre-optimised WebP via `sharp` — no server-side optimiser |
 
 There is no database, no auth, and no backend. Exam results live in `localStorage`;
@@ -42,14 +42,16 @@ npm run build    # writes the static site to out/
 `trailingSlash: true`, and `images.unoptimized: true`. It also registers the
 `@tailwindcss/turbopack` CSS loader — Tailwind 4 directives fail to parse without it.
 
-To preview the exported site exactly as Pages will serve it:
+To preview the exported site with the same trailing-slash and 404 behaviour as
+production:
 
 ```bash
-npm run preview   # http://localhost:4173
+npm run preview        # http://localhost:4173 - plain static file server
+npm run preview:worker # http://localhost:8787 - Wrangler, applies _headers + asset routing
 ```
 
-(`scripts/serve-out.mjs` mirrors Pages: trailing-slash redirects, 404 fallback,
-correct MIME types.)
+(`scripts/serve-out.mjs` mirrors the hosted routing: trailing-slash redirects, 404
+fallback, correct MIME types.)
 
 ---
 
@@ -123,9 +125,11 @@ The form never silently discards a message:
 - **Without** it, it validates, then opens the visitor's email client with the
   message pre-filled, and shows the address as a fallback.
 
-To enable delivery, create a GitHub repository variable named
-`NEXT_PUBLIC_CONTACT_ENDPOINT` (Settings → Secrets and variables → Actions →
-Variables). The deploy workflow passes it to the build.
+To enable delivery, set `NEXT_PUBLIC_CONTACT_ENDPOINT` in the environment that runs
+the build (a GitHub Actions repository variable, or a local `.env`). It is inlined
+into the static bundle by design, so use a public form endpoint — never a secret.
+`NEXT_PUBLIC_SITE_URL` works the same way and updates canonical, Open Graph,
+sitemap, and robots URLs.
 
 There is a honeypot field (`company`) and client-side validation, but no server-side
 spam protection — add that at the endpoint if the form gets abused.
@@ -134,30 +138,82 @@ spam protection — add that at the endpoint if the form gets abused.
 
 ## Deployment
 
-The workflow in `.github/workflows/deploy.yml` runs on every push to `main`:
-install → lint → build → upload `out/` → deploy to Pages.
+Hosted on **Cloudflare Workers Static Assets** (Free plan). There is no Worker
+script: `wrangler.jsonc` points Wrangler at `out/`, and Cloudflare serves the files
+from its edge network.
 
-First-time setup for a **root** Pages site (`https://amirabdelhamid77.github.io/`):
+| Setting | Value |
+| --- | --- |
+| Worker name | `hansa` |
+| Live URL | <https://hansa.amir-portfolio.workers.dev/> |
+| Account ID | `b84c4bfbf06e399ceb5f5267f87cb37e` |
+| Asset directory | `./out` |
+| HTML handling | `auto-trailing-slash` |
+| Unknown paths | `404-page` → real `out/404.html` |
+| Response headers | `public/_headers` (copied to `out/_headers`) |
 
-1. Create the repository **`AmirAbdelhamid77.github.io`** (public).
-2. Push this project to `main`.
-3. Settings → Pages → **Source: GitHub Actions**.
-4. Run the workflow (or push again). The first deploy publishes the site.
+### Deploying
 
-No `basePath` is needed for a root repository. If the site is ever served from a
-subpath (e.g. a project repo at `/portfolio/`), set
-`NEXT_PUBLIC_BASE_PATH=/portfolio` at build time — `next.config.ts` wires it into
-both `basePath` and `assetPrefix`.
+```bash
+npx wrangler login   # once; OAuth, no token stored in the repo
+npm run deploy       # build + wrangler deploy
+```
 
-`public/.nojekyll` is copied into `out/` so Pages does not strip the `_next`
-directory.
+`npm run deploy` regenerates `out/` and uploads only changed assets. Wrangler
+prints the live URL and version ID. Roll back from the dashboard (Workers → hansa
+→ Deployments) or with `npx wrangler rollback`.
+
+### Custom domain
+
+Workers Free supports custom domains on a Cloudflare-hosted zone. Add one under
+Workers → hansa → Settings → Domains & Routes, then rebuild with the canonical
+origin:
+
+```bash
+NEXT_PUBLIC_SITE_URL=https://your-domain.com npm run deploy
+```
+
+That keeps canonical links, Open Graph URLs, `sitemap.xml`, and `robots.txt` in
+step. No `basePath` change is needed at the root of a domain.
+
+### CI
+
+`.github/workflows/deploy-cloudflare.yml` runs lint → build → `wrangler deploy` on
+every push to `main`. Add these repository secrets:
+
+- `CLOUDFLARE_API_TOKEN` — least privilege: **Workers Scripts: Edit**
+- `CLOUDFLARE_ACCOUNT_ID` — `b84c4bfbf06e399ceb5f5267f87cb37e`
+
+Optional repository variables: `NEXT_PUBLIC_SITE_URL` and
+`NEXT_PUBLIC_CONTACT_ENDPOINT`. The older GitHub Pages workflow
+(`.github/workflows/deploy.yml`) is not used by this host.
+
+### Caching and headers
+
+`public/_headers` sets security headers on every route and immutable, one-year
+caching for fingerprinted `/_next/static/*` files. HTML keeps Cloudflare's default
+`Cache-Control: public, max-age=0, must-revalidate` plus an ETag, so a deploy is
+visible immediately without forcing a full re-download.
+
+Everything used here is on the Cloudflare Free plan: no paid add-ons, no KV/D1/R2
+bindings, and no server-side runtime.
+
+### Static export note
+
+Next 16.4 writes per-segment RSC payloads to nested folders (for example
+`out/work/__next.work/$d$slug/__PAGE__.txt`) while its client router requests the
+flat dotted name (`/work/__next.work.$d$slug.__PAGE__.txt`). The `postbuild` step
+(`scripts/export-segment-aliases.mjs`) copies each payload to the requested path, so
+Link prefetching succeeds and navigation stays client-side. It is idempotent and can
+be removed once `next build` emits both names.
 
 ### Redirecting the old repository
 
-`legacy-redirect/index.html` is a standalone redirect page. Copy it over the
-`index.html` of the old `AmirAbdelhamidStats.github.io` repository (and delete the
-old assets if you want the repo to stop serving 21 MB of images). It uses a canonical
-link, `meta refresh`, and `location.replace`, so it works with or without JavaScript.
+`legacy-redirect/index.html` is a standalone redirect page pointing at
+`https://hansa.amir-portfolio.workers.dev/`. Copy it over the `index.html` of the
+old `AmirAbdelhamidStats.github.io` repository (and delete the old assets if you
+want the repo to stop serving 21 MB of images). It uses a canonical link,
+`meta refresh`, and `location.replace`, so it works with or without JavaScript.
 
 ---
 
@@ -182,7 +238,10 @@ content/exams/            six JSON question banks
 lib/                      site config, case studies, exams (Zod), experience, services,
                           lab-storage (useSyncExternalStore wrapper)
 scripts/prepare-images.mjs   Sharp resize/WebP + social card
-scripts/serve-out.mjs        Pages-like static preview server
+scripts/serve-out.mjs        Static preview server (trailing slash + 404)
+scripts/export-segment-aliases.mjs  Post-build RSC payload aliases for prefetching
+public/_headers              Cloudflare response headers (security + caching)
+wrangler.jsonc               Workers Static Assets config (worker `hansa`, ./out)
 ```
 
 ## Accessibility & behaviour notes

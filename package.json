@@ -5,9 +5,12 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
+    "postbuild": "node scripts/export-segment-aliases.mjs",
     "start": "next start",
     "lint": "eslint",
-    "preview": "node scripts/serve-out.mjs"
+    "preview": "node scripts/serve-out.mjs",
+    "preview:worker": "wrangler dev",
+    "deploy": "npm run build && wrangler deploy"
   },
   "dependencies": {
     "clsx": "^2.1.1",
@@ -27,6 +30,7 @@
     "eslint": "^9",
     "eslint-config-next": "16.4.3",
     "tailwindcss": "^4",
-    "typescript": "^5"
+    "typescript": "^5",
+    "wrangler": "^4.152.0"
   }
 }
