@@ -1,0 +1,125 @@
+{
+  "slug": "sql",
+  "title": "SQL for Analysts",
+  "topic": "SQL",
+  "level": "intermediate",
+  "description": "Joins, aggregation, NULL semantics, subqueries, and window functions — the SQL you actually write during analysis.",
+  "durationMinutes": 18,
+  "passMark": 70,
+  "questions": [
+    {
+      "id": "sql-01",
+      "type": "single",
+      "topic": "Filtering",
+      "prompt": "Which clause filters individual rows before grouping happens?",
+      "options": ["WHERE", "HAVING", "ORDER BY", "LIMIT"],
+      "answer": 0,
+      "explanation": "WHERE runs before GROUP BY, so it filters rows. HAVING filters the groups produced by GROUP BY."
+    },
+    {
+      "id": "sql-02",
+      "type": "single",
+      "topic": "Joins",
+      "prompt": "In a LEFT JOIN from customers to orders, which rows are guaranteed to appear in the result?",
+      "options": [
+        "Only customers with at least one order",
+        "Every customer, with NULLs where no order matches",
+        "Only orders with a matching customer",
+        "Every row from both tables"
+      ],
+      "answer": 1,
+      "explanation": "A LEFT JOIN preserves the left table. Customers without orders appear once with NULLs in the order columns."
+    },
+    {
+      "id": "sql-03",
+      "type": "multi",
+      "topic": "Aggregation",
+      "prompt": "Which of these are aggregate functions? Select all that apply.",
+      "options": ["COUNT", "SUM", "ROW_NUMBER", "AVG"],
+      "answer": [0, 1, 3],
+      "explanation": "COUNT, SUM, and AVG collapse many rows into one value. ROW_NUMBER is a window function and returns a value per row."
+    },
+    {
+      "id": "sql-04",
+      "type": "single",
+      "topic": "Aggregation",
+      "prompt": "You want only regions whose total sales exceed 1,000,000. Where does that condition belong?",
+      "options": [
+        "In WHERE, before grouping",
+        "In HAVING, after grouping",
+        "In ORDER BY",
+        "In a CASE expression inside SELECT only"
+      ],
+      "answer": 1,
+      "explanation": "The condition depends on an aggregate (SUM), so it must run after grouping. That is HAVING's job."
+    },
+    {
+      "id": "sql-05",
+      "type": "numeric",
+      "topic": "Joins",
+      "prompt": "How many rows does this return?\n\nSELECT * FROM (VALUES (1),(2),(3)) AS t(x)\nCROSS JOIN (VALUES ('a'),('b')) AS u(y);",
+      "answer": 6,
+      "tolerance": 0,
+      "explanation": "A CROSS JOIN produces the Cartesian product: 3 rows × 2 rows = 6 rows."
+    },
+    {
+      "id": "sql-06",
+      "type": "boolean",
+      "topic": "NULLs",
+      "prompt": "In standard SQL, the expression NULL = NULL evaluates to TRUE.",
+      "answer": false,
+      "explanation": "Comparisons with NULL produce UNKNOWN, not TRUE. Use IS NULL or IS NOT DISTINCT FROM to test for NULL."
+    },
+    {
+      "id": "sql-07",
+      "type": "single",
+      "topic": "Window functions",
+      "prompt": "Which expression numbers employees 1, 2, 3… within each department by descending salary?",
+      "options": [
+        "ROW_NUMBER() OVER (PARTITION BY department ORDER BY salary DESC)",
+        "ROW_NUMBER() OVER (ORDER BY department, salary DESC)",
+        "RANK() OVER (ORDER BY salary DESC)",
+        "COUNT(*) OVER (PARTITION BY department)"
+      ],
+      "answer": 0,
+      "explanation": "PARTITION BY restarts the numbering per department, and ORDER BY salary DESC defines the sequence. Without PARTITION BY the numbering is global."
+    },
+    {
+      "id": "sql-08",
+      "type": "single",
+      "topic": "Aggregation",
+      "prompt": "Which statement returns exactly one row per group?",
+      "options": [
+        "SELECT * FROM sales",
+        "SELECT region, SUM(amount) FROM sales GROUP BY region",
+        "SELECT region, amount FROM sales ORDER BY region",
+        "SELECT DISTINCT region, amount FROM sales"
+      ],
+      "answer": 1,
+      "explanation": "GROUP BY region produces one row per region. DISTINCT still returns one row per unique combination, not per group."
+    },
+    {
+      "id": "sql-09",
+      "type": "multi",
+      "topic": "Readability",
+      "prompt": "Which practices make a production query easier to review? Select all that apply.",
+      "options": [
+        "Using CTEs to name each logical step",
+        "Aliasing tables with meaningful short names",
+        "Using SELECT * in every CTE",
+        "Writing explicit JOIN ... ON conditions"
+      ],
+      "answer": [0, 1, 3],
+      "explanation": "Named steps, meaningful aliases, and explicit joins make intent visible. SELECT * hides schema changes and drags unnecessary columns through the plan."
+    },
+    {
+      "id": "sql-10",
+      "type": "single",
+      "topic": "NULLs",
+      "prompt": "A column has 100 rows, 12 of which are NULL. What does COUNT(column) return?",
+      "options": ["100", "88", "12", "NULL"],
+      "answer": 1,
+      "explanation": "COUNT(column) ignores NULLs, so it returns 88. COUNT(*) would return 100."
+    }
+  ]
+}

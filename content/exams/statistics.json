@@ -1,0 +1,129 @@
+{
+  "slug": "statistics",
+  "title": "Statistics for Analysts",
+  "topic": "Statistics",
+  "level": "intermediate",
+  "description": "Descriptive measures, distributions, sampling, confidence intervals, and hypothesis tests — the reasoning behind the number.",
+  "durationMinutes": 18,
+  "passMark": 70,
+  "questions": [
+    {
+      "id": "stat-01",
+      "type": "single",
+      "topic": "Descriptives",
+      "prompt": "Income data is strongly right-skewed. Which statement is true?",
+      "options": [
+        "The mean is higher than the median",
+        "The median is higher than the mean",
+        "Mean and median are always equal",
+        "The mode is higher than both"
+      ],
+      "answer": 0,
+      "explanation": "A long right tail pulls the mean upward while the median stays near the middle of the ordered values."
+    },
+    {
+      "id": "stat-02",
+      "type": "single",
+      "topic": "Hypothesis testing",
+      "prompt": "A p-value of 0.03 means:",
+      "options": [
+        "There is a 3% chance the null hypothesis is true",
+        "If the null were true, data at least this extreme would occur about 3% of the time",
+        "The effect size is 3%",
+        "The result is practically important"
+      ],
+      "answer": 1,
+      "explanation": "The p-value is the probability of the observed (or more extreme) data under the null. It is not the probability that the null is true."
+    },
+    {
+      "id": "stat-03",
+      "type": "boolean",
+      "topic": "Correlation",
+      "prompt": "A strong correlation between two variables proves that one causes the other.",
+      "answer": false,
+      "explanation": "Correlation is association. Confounding, reverse causation, and coincidence all produce correlation without causation."
+    },
+    {
+      "id": "stat-04",
+      "type": "single",
+      "topic": "Confidence intervals",
+      "prompt": "A 95% confidence interval means:",
+      "options": [
+        "95% of the sample lies inside the interval",
+        "If the study were repeated many times, about 95% of such intervals would contain the true parameter",
+        "There is a 95% chance the sample mean is correct",
+        "The interval contains 95% of the population"
+      ],
+      "answer": 1,
+      "explanation": "The confidence level describes the long-run coverage of the procedure, not the probability that a particular interval contains the parameter."
+    },
+    {
+      "id": "stat-05",
+      "type": "numeric",
+      "topic": "Standardisation",
+      "prompt": "A value is 70 in a distribution with mean 50 and standard deviation 10. What is its z-score?",
+      "answer": 2,
+      "tolerance": 0,
+      "explanation": "z = (x − mean) / SD = (70 − 50) / 10 = 2."
+    },
+    {
+      "id": "stat-06",
+      "type": "multi",
+      "topic": "Sampling",
+      "prompt": "Which choices reduce sampling bias? Select all that apply.",
+      "options": [
+        "Random sampling from the target population",
+        "A larger sample drawn from the same representative frame",
+        "Surveying only colleagues who are easy to reach",
+        "Stratified sampling across known subgroups"
+      ],
+      "answer": [0, 1, 3],
+      "explanation": "Randomness and stratification improve representativeness, and a larger representative sample reduces error. Convenience sampling adds bias regardless of size."
+    },
+    {
+      "id": "stat-07",
+      "type": "single",
+      "topic": "Errors",
+      "prompt": "A Type I error is:",
+      "options": [
+        "Failing to reject a false null hypothesis",
+        "Rejecting a true null hypothesis",
+        "Using the wrong test statistic",
+        "Collecting too few observations"
+      ],
+      "answer": 1,
+      "explanation": "Type I is a false positive: concluding there is an effect when there is none. Type II is failing to detect a real effect."
+    },
+    {
+      "id": "stat-08",
+      "type": "single",
+      "topic": "Distributions",
+      "prompt": "What does the central limit theorem say about the sample mean?",
+      "options": [
+        "Its sampling distribution approaches normality as sample size grows",
+        "It is always normally distributed for any sample size",
+        "It equals the population mean for every sample",
+        "It removes the need for random sampling"
+      ],
+      "answer": 0,
+      "explanation": "For reasonably large samples, the distribution of the sample mean approaches normality regardless of the population's shape (with finite variance)."
+    },
+    {
+      "id": "stat-09",
+      "type": "single",
+      "topic": "Descriptives",
+      "prompt": "Which measure is most resistant to extreme outliers?",
+      "options": ["Mean", "Median", "Range", "Standard deviation"],
+      "answer": 1,
+      "explanation": "The median depends on position, not magnitude, so a single extreme value moves it far less than the mean or SD."
+    },
+    {
+      "id": "stat-10",
+      "type": "boolean",
+      "topic": "Experiments",
+      "prompt": "Repeatedly checking an A/B test and stopping when it becomes significant inflates the false-positive rate.",
+      "answer": true,
+      "explanation": "Optional stopping without correction gives the test many chances to cross the threshold, raising Type I error. Fix the sample size or use a sequential method."
+    }
+  ]
+}

@@ -1,0 +1,135 @@
+{
+  "slug": "python",
+  "title": "Python & Pandas",
+  "topic": "Python",
+  "level": "beginner",
+  "description": "Loading, inspecting, cleaning, grouping, and joining tabular data — plus the mistakes that make a notebook impossible to reproduce.",
+  "durationMinutes": 18,
+  "passMark": 70,
+  "questions": [
+    {
+      "id": "py-01",
+      "type": "single",
+      "topic": "Grouping",
+      "prompt": "What does df.groupby(\"region\")[\"sales\"].sum() return?",
+      "options": [
+        "One total sales value for the whole dataframe",
+        "Total sales per region, indexed by region",
+        "The rows with the highest sales",
+        "A new column added to df"
+      ],
+      "answer": 1,
+      "explanation": "groupby splits the rows by region, the column selection keeps sales, and sum aggregates each group."
+    },
+    {
+      "id": "py-02",
+      "type": "single",
+      "topic": "Joins",
+      "prompt": "In pd.merge(orders, customers, how=\"left\"), which keys are kept?",
+      "options": [
+        "Only keys present in both frames",
+        "All keys from orders",
+        "All keys from customers",
+        "The union of both key sets"
+      ],
+      "answer": 1,
+      "explanation": "A left merge keeps every row from the left frame (orders) and attaches matches from customers."
+    },
+    {
+      "id": "py-03",
+      "type": "multi",
+      "topic": "Missing data",
+      "prompt": "Which expressions help you inspect missing values? Select all that apply.",
+      "options": [
+        "df.isna().sum()",
+        "df.info()",
+        "df.sort_values()",
+        "df.isnull().mean()"
+      ],
+      "answer": [0, 1, 3],
+      "explanation": "isna().sum() counts nulls per column, info() shows non-null counts and dtypes, and isnull().mean() gives the null share. sort_values does not report missingness."
+    },
+    {
+      "id": "py-04",
+      "type": "single",
+      "topic": "Indexing",
+      "prompt": "What is the difference between .loc and .iloc?",
+      "options": [
+        ".loc uses labels, .iloc uses integer positions",
+        ".loc uses positions, .iloc uses labels",
+        "They are aliases",
+        ".loc only works on columns"
+      ],
+      "answer": 0,
+      "explanation": ".loc selects by index/column label; .iloc selects by zero-based integer position."
+    },
+    {
+      "id": "py-05",
+      "type": "numeric",
+      "topic": "Cleaning",
+      "prompt": "A dataframe has 10 rows. df.dropna(subset=[\"revenue\"]) removes 3 rows. What does len(df_clean) return?",
+      "answer": 7,
+      "tolerance": 0,
+      "explanation": "Only rows with a missing revenue value are dropped: 10 − 3 = 7."
+    },
+    {
+      "id": "py-06",
+      "type": "boolean",
+      "topic": "Cleaning",
+      "prompt": "Calling df.drop_duplicates() modifies df in place by default.",
+      "answer": false,
+      "explanation": "drop_duplicates returns a new dataframe unless you pass inplace=True or reassign the result."
+    },
+    {
+      "id": "py-07",
+      "type": "single",
+      "topic": "Exploration",
+      "prompt": "What does df[\"channel\"].value_counts() return?",
+      "options": [
+        "The number of rows per unique channel, sorted by count",
+        "The unique channels in alphabetical order only",
+        "The mean of the channel column",
+        "A boolean mask of duplicates"
+      ],
+      "answer": 0,
+      "explanation": "value_counts counts occurrences of each unique value and sorts descending by default."
+    },
+    {
+      "id": "py-08",
+      "type": "single",
+      "topic": "Types",
+      "prompt": "What does df[\"amount\"].astype(float) do?",
+      "options": [
+        "Rounds the values to two decimals",
+        "Returns the column converted to float dtype",
+        "Removes non-numeric rows",
+        "Renames the column"
+      ],
+      "answer": 1,
+      "explanation": "astype converts the dtype. It does not clean invalid strings — those raise an error unless handled first."
+    },
+    {
+      "id": "py-09",
+      "type": "multi",
+      "topic": "Missing data",
+      "prompt": "Which are reasonable ways to handle missing numeric values? Select all that apply.",
+      "options": [
+        "Fill with the median and document the choice",
+        "Drop the affected rows when they are few and missing at random",
+        "Interpolate when the value is part of an ordered time series",
+        "Replace every missing value with a random UUID"
+      ],
+      "answer": [0, 1, 2],
+      "explanation": "Median imputation, row removal, and interpolation are defensible when justified. A UUID is a string and destroys the numeric meaning."
+    },
+    {
+      "id": "py-10",
+      "type": "single",
+      "topic": "Reshaping",
+      "prompt": "What is the default aggregation for pd.pivot_table?",
+      "options": ["sum", "mean", "count", "median"],
+      "answer": 1,
+      "explanation": "pivot_table aggregates with mean by default; pass aggfunc to change it."
+    }
+  ]
+}
