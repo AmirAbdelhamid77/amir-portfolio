@@ -1,0 +1,18 @@
+{
+  "lesson_id": "dp600-c7-s04",
+  "source_sections": [
+    40
+  ],
+  "blocks": [
+    {
+      "id": "dp600-c7-s04-p040",
+      "kind": "source_fragment",
+      "source_page": 40,
+      "source_start_line": 21,
+      "source_text": "7.4 Calculation groups, dynamic format strings, field parameters\nThese three features remove combinatorial explosion from models, and all three are named in the outline.\nCalculation groups apply one set of calculation items to any measure. Instead of writing Sales YTD ,\nCost YTD , Margin YTD , Sales PY , Cost PY …, you write one Time intelligence  group:\n-- Calculation item: YTD\nCALCULATE ( SELECTEDMEASURE (), DATESYTD ( DimDate[Date] ) )\n-- Calculation item: PY\nCALCULATE ( SELECTEDMEASURE (), SAMEPERIODLASTYEAR ( DimDate[Date] ) )\n-- Calculation item: YoY %\nVAR Cur = SELECTEDMEASURE ()\nVAR Pri = CALCULATE ( SELECTEDMEASURE (), SAMEPERIODLASTYEAR ( DimDate[Date] ) )\nRETURN DIVIDE ( Cur - Pri, Pri )\nReference: calculation groups.",
+      "presentation_status": "needs-editorial-layout-conversion",
+      "recommended_renderer": "SourceFragment"
+    }
+  ],
+  "warning": "Source fragments are NOT native formatted prose, tables or runnable code."
+}

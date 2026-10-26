@@ -1,0 +1,18 @@
+{
+  "lesson_id": "dp600-c3-s04",
+  "source_sections": [
+    21
+  ],
+  "blocks": [
+    {
+      "id": "dp600-c3-s04-p021",
+      "kind": "source_fragment",
+      "source_page": 21,
+      "source_start_line": 25,
+      "source_text": "3.4 Impact analysis and lineage\nBefore you change a table, you need to know what breaks.\nLineage view draws the graph of a workspace: sources → dataflows → lakehouses/warehouses →\nsemantic models → reports and dashboards.\nImpact analysis starts from one item and lists every downstream dependent, across workspaces, with\nthe number of affected reports and workspaces. It also lets you notify the contacts of those items.\nImpact analysis is available from lakehouses, warehouses, dataflows, and semantic models — exactly\nthe four the skills outline names.\nTIP\nFor programmatic dependency analysis, semantic link ( sempy ) in a notebook can list measures,\nrelationships, and dependencies of a semantic model — useful for auditing large estates and for\nautomated documentation.",
+      "presentation_status": "needs-editorial-layout-conversion",
+      "recommended_renderer": "SourceFragment"
+    }
+  ],
+  "warning": "Source fragments are NOT native formatted prose, tables or runnable code."
+}

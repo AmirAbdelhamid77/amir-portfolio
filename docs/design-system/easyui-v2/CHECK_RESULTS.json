@@ -1,0 +1,56 @@
+[
+  {
+    "check": "build",
+    "command": "rtk npm run build",
+    "exitCode": 0,
+    "status": "PASS",
+    "log": "checks/build.txt"
+  },
+  {
+    "check": "lint",
+    "command": "rtk npm run lint",
+    "exitCode": 0,
+    "status": "PASS",
+    "log": "checks/lint.txt"
+  },
+  {
+    "check": "test-all",
+    "command": "rtk npm run test:all",
+    "exitCode": 0,
+    "status": "PASS",
+    "log": "checks/test-all.txt",
+    "testSummaries": [
+      "# tests 62",
+      "# pass 62",
+      "# fail 0",
+      "# tests 18",
+      "# pass 18",
+      "# fail 0",
+      "# tests 29",
+      "# pass 29",
+      "# fail 0",
+      "# tests 20",
+      "# pass 20",
+      "# fail 0"
+    ]
+  },
+  {
+    "check": "academy",
+    "command": "rtk proxy node --experimental-strip-types --test tests/academy/*.test.mjs",
+    "exitCode": 1,
+    "status": "FAIL",
+    "log": "checks/academy.txt",
+    "testSummaries": [
+      "# tests 11",
+      "# pass 10",
+      "# fail 1"
+    ]
+  },
+  {
+    "check": "browser",
+    "command": "rtk proxy node tests/academy/pattern-comparison.e2e.mjs",
+    "exitCode": 0,
+    "status": "PASS",
+    "log": "checks/browser.txt"
+  }
+]

@@ -1,0 +1,18 @@
+{
+  "lesson_id": "dp600-c2-s01",
+  "source_sections": [
+    13
+  ],
+  "blocks": [
+    {
+      "id": "dp600-c2-s01-p013",
+      "kind": "source_fragment",
+      "source_page": 13,
+      "source_start_line": 7,
+      "source_text": "2.1 The mental model: every gate must open\nUser or\nservice principal\nWorkspace role?\nAdmin/Member/Contributor\n→ full item access\nItem permission?\nRead / ReadData /\nReadAll / Build\nEngine grant?\nSQL GRANT, OneLake\nsecurity role\nRow/column rule?\nRLS predicate, CLS\ndeny, OLS, DDM mask\nData\nEvery gate must allow the request; the most restrictive rule always wins\nA request is authorised at four gates. The most restrictive rule always wins — there is no \"allow\" that overrides a \"deny\".\nMicrosoft Entra ID\nIdentity, MFA, conditional access, service principals\nTenant settings\nAdmin portal switches: who can create, share, export\nCapacity\nWhich workspaces run where; who administers the F SKU\nWorkspace roles\nAdmin · Member · Contributor · Viewer\nItem permissions\nShare a single lakehouse / warehouse / semantic model / report\nCompute engine security\nOneLake security, SQL GRANT, RLS · CLS · OLS · DDM\nData itself\nSensitivity labels, encryption, Purview classification\nBroadest scope at the top — each layer narrows what the layer above allowed\nThe full stack of controls, from identity down to the data itself.",
+      "presentation_status": "needs-editorial-layout-conversion",
+      "recommended_renderer": "SourceFragment"
+    }
+  ],
+  "warning": "Source fragments are NOT native formatted prose, tables or runnable code."
+}

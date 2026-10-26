@@ -1,0 +1,68 @@
+5.4 Data quality: duplicates, nulls, types
+Problem
+Power Query (M)
+PySpark
+T-SQL
+Duplicates
+Remove duplicates
+on key columns
+dropDuplicates(["Id"]) , or
+row_number()  filter to keep the
+latest
+ROW_NUMBER() OVER (PARTITION
+BY Id ORDER BY ModifiedDate
+DESC) = 1
+Nulls
+Replace values / Fill
+down
+fillna({"Qty": 0}) ,
+na.drop()
+COALESCE(col, 0) , ISNULL()
+Wrong
+types
+Change type (with
+locale)
+withColumn("d",
+F.to_date("d", "yyyy-MM-
+dd"))
+TRY_CAST(col AS DATE)
+Bad rows
+Keep errors /
+Remove errors
+filter()  to a quarantine table
+WHERE TRY_CAST(...) IS NULL
+into a reject table
+Filtering
+Filter rows (folds to
+source)
+.filter()  / .where()
+WHERE
+Deduplicating while keeping the newest version of each record:
+WITH ranked AS (
+    SELECT *, ROW_NUMBER() OVER (PARTITION BY CustomerId ORDER BY ModifiedDate DESC) AS rn
+    FROM   stg.Customer
+)
+SELECT * FROM ranked WHERE rn = 1;
+WATCH OUT
+CAST  fails the whole batch on one bad value; TRY_CAST  returns NULL  instead. In a load that must
+not break at 3 a.m., use TRY_CAST  and route the nulls to a quarantine table so the bad rows are visible
+rather than silently dropped.
+5.5 Views, functions, and stored procedures
+Object
+Warehouse
+Lakehouse SQL analytics endpoint
+View
+✔ Created with CREATE VIEW
+✔ Read-only views over Delta tables
+Inline table-valued function
+✔
+✔
+Scalar function
+✔
+✔
+Stored procedure
+✔
+✖ — the endpoint is read-only
+INSERT / UPDATE / DELETE / MERGE
+✔
+✖

@@ -1,0 +1,18 @@
+{
+  "lesson_id": "dp600-c1-s02",
+  "source_sections": [
+    9
+  ],
+  "blocks": [
+    {
+      "id": "dp600-c1-s02-p009",
+      "kind": "source_fragment",
+      "source_page": 9,
+      "source_start_line": 1,
+      "source_text": "1.2 Tenant, capacity, workspace, item\nLevel\nWhat it is\nWho administers it\nTenant\nYour whole Microsoft Entra organisation. Tenant settings switch\nfeatures on or off globally\nFabric administrator, in the\nadmin portal\nCapacity\nThe compute resource, sold as an F SKU (F2 up to F2048). Each\nworkspace is assigned to exactly one capacity\nCapacity administrator, via\ncapacity settings\nDomain\nA logical grouping of workspaces by business area (Finance, Sales)\nused for federated governance\nDomain admin, see domains\nWorkspace\nThe container for items and the main unit of access control\nWorkspace Admin, see\nworkspaces\nItem\nA lakehouse, warehouse, notebook, pipeline, semantic model,\nreport, eventhouse, and so on\nItem permissions, on top of\nworkspace roles\nCapacity behaviour you should recognise:\nCU consumption is smoothed over time; sustained overuse leads to throttling, which delays interactive\nqueries and background jobs differently.\nCapacities can be paused and resumed (pause and resume) — pausing stops billing but also stops\neverything running on it.\nYou monitor consumption with the Microsoft Fabric Capacity Metrics app.\nYou can scale a capacity up or down; some features (for example large semantic models and certain\nDirect Lake guardrails) depend on the SKU size.",
+      "presentation_status": "needs-editorial-layout-conversion",
+      "recommended_renderer": "SourceFragment"
+    }
+  ],
+  "warning": "Source fragments are NOT native formatted prose, tables or runnable code."
+}

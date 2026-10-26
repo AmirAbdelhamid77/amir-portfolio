@@ -1,0 +1,28 @@
+3. Direct Lake. Import would need a huge refresh, and DirectQuery would be slow. Direct Lake gives
+Import-class speed with near-real-time data through framing.
+4. The table outgrew a Direct Lake guardrail, so queries fall back to DirectQuery. Verify with the
+model's fallback behaviour, then reduce the table, move to a larger SKU, or set DirectLakeOnly  to
+surface the problem.
+5. A calculation group with three calculation items using SELECTEDMEASURE() .
+6. A field parameter. A calculation group changes how a measure is evaluated, not which measure is
+shown.
+7. View and inline TVF. The endpoint is read-only: no stored procedures, no MERGE .
+8. Query folding broke at that step. Everything downstream now runs in the mashup engine instead of
+the source.
+9. A deployment pipeline (to promote) plus deployment rules or a variable library (to re-point the data
+source per stage).
+10. Framing — metadata is updated to the current Delta version and affected cached columns are
+invalidated; no rows are imported. The next query pages the new data in.
+11. Two relationships: one active on order date, one inactive on ship date, activated inside a measure with
+USERELATIONSHIP .
+12. Impact analysis (with lineage view) from the warehouse item.
+13. Certified (and Master data). Promoted can be applied by anyone with Write on the item.
+14. top 10 by ErrorCount desc . take 10  returns an arbitrary ten rows.
+15. Incremental refresh with RangeStart / RangeEnd , archiving history and refreshing the last 7–10 days,
+ideally with Detect data changes.
+16. Set the dimension table's storage mode to Dual in a composite model.
+17. Warehouse (and Fabric SQL database for OLTP). The lakehouse SQL endpoint is read-only.
+18. It writes a Delta copy of the KQL data into OneLake, so Spark, T-SQL, shortcuts, and Direct Lake
+models can read it while KQL performance is unaffected.
+19. .pbip  — the Power BI project format, with the model in TMDL text files.
+20. DIVIDE() , which returns blank (or a supplied alternate) instead of erroring.

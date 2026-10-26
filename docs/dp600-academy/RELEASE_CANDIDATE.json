@@ -1,0 +1,127 @@
+{
+  "release_id": "hansa-dp600-ingestion-d1eb29b03dd3",
+  "status": "DEPLOYED AND LIVE VERIFIED",
+  "account_id": "b84c4bfbf06e399ceb5f5267f87cb37e",
+  "worker": "hansa",
+  "production_url": "https://hansa.amir-portfolio.workers.dev/",
+  "rollback_version_at_last_read": "2e8528b1-8fed-4be7-9ebd-728c17c7f5ce",
+  "baseline_checked_at": "2026-10-25T17:12:58.244Z",
+  "refresh_live_baseline_before_deployment": true,
+  "source_files_checked": 345,
+  "artifact_sha256": "d1eb29b03dd3e413433443270e2e0d8cd22b6327e42e6cc63c8bfbf4e1220935",
+  "asset_count": 1052,
+  "asset_bytes": 45013814,
+  "assets_directory": "D:\\BeUI\\amir-portfolio\\build\\releases\\hansa-dp600-ingestion-d1eb29b03dd3\\assets",
+  "new_routes": [
+    "/learn/dp-600/",
+    "/learn/dp-600/ingestion/"
+  ],
+  "added_dependencies": [],
+  "added_runtime_services": [],
+  "production_deployment_authorized": true,
+  "validation": {
+    "checked_at": "2026-10-25T17:18:26.072Z",
+    "results": [
+      {
+        "check": "unit-tests",
+        "status": "PASS",
+        "exit_code": 0,
+        "log": "docs/dp600-academy/qa/unit-tests.log"
+      },
+      {
+        "check": "typecheck",
+        "status": "PASS",
+        "exit_code": 0,
+        "log": "docs/dp600-academy/qa/typecheck.log"
+      },
+      {
+        "check": "lint-feature",
+        "status": "PASS",
+        "exit_code": 0,
+        "log": "docs/dp600-academy/qa/lint-feature.log"
+      },
+      {
+        "check": "source-integrity",
+        "status": "PASS",
+        "exit_code": 0,
+        "log": "docs/dp600-academy/qa/source-integrity.log"
+      },
+      {
+        "check": "reference-integrity",
+        "status": "PASS",
+        "exit_code": 0,
+        "log": "docs/dp600-academy/qa/reference-integrity.log"
+      },
+      {
+        "check": "export",
+        "status": "PASS",
+        "exit_code": 0,
+        "log": "docs/dp600-academy/qa/export.log"
+      },
+      {
+        "check": "browser",
+        "status": "PASS",
+        "exit_code": 0,
+        "log": "docs/dp600-academy/qa/browser.log"
+      },
+      {
+        "check": "legacy-browser",
+        "status": "PASS",
+        "exit_code": 0,
+        "log": "docs/dp600-academy/qa/legacy-browser.log"
+      },
+      {
+        "check": "wrangler-dry-run",
+        "status": "PASS",
+        "exit_code": 0,
+        "log": "docs/dp600-academy/qa/wrangler-dry-run.log"
+      }
+    ],
+    "browser_transport": "Chrome rendering actual export through static-file interception; not a delivery test",
+    "limitations": [],
+    "human_screen_reader": "NOT RUN",
+    "physical_mobile_device": "NOT RUN",
+    "live_delivery": "NOT RUN",
+    "standard_turbopack_build": "BLOCKED by baseline sandbox child-process failure; isolated webpack export validated"
+  },
+  "files": "1052 entries in D:\\BeUI\\amir-portfolio\\build\\releases\\hansa-dp600-ingestion-d1eb29b03dd3\\RELEASE_MANIFEST.json",
+  "deployment": {
+    "status": "DEPLOYED AND LIVE VERIFIED",
+    "release_id": "hansa-dp600-ingestion-d1eb29b03dd3",
+    "artifact_sha256": "d1eb29b03dd3e413433443270e2e0d8cd22b6327e42e6cc63c8bfbf4e1220935",
+    "approved": true,
+    "approval_text": "I approve",
+    "worker": "hansa",
+    "account_id": "b84c4bfbf06e399ceb5f5267f87cb37e",
+    "production_url": "https://hansa.amir-portfolio.workers.dev/",
+    "new_version_id": "937389a8-3e03-403d-a7a4-a75910c972c0",
+    "deployment_id": "f91e0a62-802c-4ad3-9aac-93bfdde57c89",
+    "traffic_percentage": 100,
+    "deployed_at": "2026-10-25T17:31:33.33732Z",
+    "cloudflare_verified_at": "2026-10-25T17:35:37.301Z",
+    "rollback_version": "2e8528b1-8fed-4be7-9ebd-728c17c7f5ce",
+    "wrangler_exit_code": 0,
+    "uploaded_assets": 630,
+    "reused_assets": 421,
+    "artifact_files": 1052,
+    "artifact_bytes": 45013814,
+    "verified_html_routes": 115,
+    "verified_html_and_referenced_assets": 209,
+    "live_browser_checks": 16,
+    "live_legacy_checks": 4,
+    "custom_404": "PASS",
+    "canonical_redirect": {
+      "status": 307,
+      "location": "/learn/dp-600/ingestion/"
+    },
+    "raw_source_exclusion": "PASS: three live URLs returned404",
+    "new_bindings": [],
+    "git_pushed": false,
+    "remaining_qa": [
+      "Human screen reader NOT RUN",
+      "Physical mobile/touch NOT RUN",
+      "CWV/Lighthouse NOT RUN",
+      "Full-book scientific conversion not complete"
+    ]
+  }
+}

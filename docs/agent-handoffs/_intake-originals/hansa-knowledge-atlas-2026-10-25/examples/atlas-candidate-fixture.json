@@ -1,0 +1,81 @@
+{
+  "schemaVersion": "1.0.0",
+  "datasetStatus": "test-fixture",
+  "scopeId": "dp600-guide-example-unreviewed",
+  "sourceRefs": [
+    {
+      "id": "source:official-dp600-skills-2026-10",
+      "title": "Microsoft DP-600 official skills outline (example reference)",
+      "sourceType": "official-documentation",
+      "version": "October 2026",
+      "url": "https://learn.microsoft.com/en-us/credentials/certifications/resources/study-guides/dp-600",
+      "verificationState": "verified",
+      "licenseNote": "Reference link only; no source text reproduced"
+    },
+    {
+      "id": "source:uploaded-guide-unresolved",
+      "title": "Original user's DP-600 guide — exact file and edition to be verified in repository",
+      "sourceType": "uploaded-guide",
+      "verificationState": "unverified",
+      "licenseNote": "No guide content embedded in this fixture"
+    }
+  ],
+  "concepts": [
+    {
+      "id": "concept:fabric:onelake-shortcut",
+      "title": "OneLake shortcut",
+      "kind": "technology_mechanism",
+      "definition": "A shortcut provides a reference-based access path to supported data without necessarily importing a new physical copy first.",
+      "aliases": ["Shortcut"],
+      "subjectIds": ["fabric", "data-ingestion"],
+      "editorialState": "candidate",
+      "sourceRefs": []
+    },
+    {
+      "id": "concept:fabric:database-mirroring",
+      "title": "Database mirroring",
+      "kind": "technology_mechanism",
+      "definition": "Mirroring is a synchronization approach used to replicate data from supported source systems into an analytics environment.",
+      "aliases": ["Mirroring"],
+      "subjectIds": ["fabric", "data-ingestion"],
+      "editorialState": "candidate",
+      "sourceRefs": []
+    }
+  ],
+  "semanticEdges": [
+    {
+      "id": "edge:sample-shortcut-vs-mirroring",
+      "from": "concept:fabric:onelake-shortcut",
+      "to": "concept:fabric:database-mirroring",
+      "relationType": "tradeoff_with",
+      "direction": "symmetric",
+      "claim": "These techniques may be considered in some data-access decisions but are not universally interchangeable.",
+      "rationale": "Both appear in data-access planning, yet supported sources, replication needs, freshness, governance and operational constraints must be examined separately.",
+      "conditions": "Only within a relevant, technically supported solution decision.",
+      "evidenceRefs": [],
+      "editorialState": "candidate",
+      "revisionNote": "TEST DATA ONLY. Must be evidence-reviewed before publishing; not authorized for public export."
+    }
+  ],
+  "contentEntities": [
+    {
+      "id": "content:book:dp600-guide-source-pending",
+      "kind": "book",
+      "title": "DP-600 guide (source not yet inventoried in repository)",
+      "sourceId": "source:uploaded-guide-unresolved",
+      "editorialState": "unverified",
+      "conceptIds": ["concept:fabric:onelake-shortcut", "concept:fabric:database-mirroring"]
+    }
+  ],
+  "coverage": [
+    {
+      "sourceId": "source:uploaded-guide-unresolved",
+      "contentId": "content:book:dp600-guide-source-pending",
+      "extractionStatus": "not-started",
+      "mappingStatus": "candidate",
+      "scientificReviewStatus": "not-started",
+      "publishStatus": "not-published",
+      "notes": "Placeholder only; real coverage requires original guide and edition, section-by-section source audit."
+    }
+  ]
+}

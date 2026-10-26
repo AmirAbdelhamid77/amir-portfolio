@@ -1,0 +1,1269 @@
+{
+  "concepts": [
+    {
+      "id": "concept:fabric:lakehouse",
+      "title": "Lakehouse",
+      "definition": "A Fabric data store combining files and Delta tables with Spark and SQL access.",
+      "aliases": [
+        "ليك هاوس"
+      ],
+      "kind": "technology_mechanism",
+      "sourceIds": [
+        "lakehouse"
+      ],
+      "editorialState": "technical_review",
+      "position": [
+        130,
+        90
+      ],
+      "mapLabel": [
+        "Lakehouse"
+      ]
+    },
+    {
+      "id": "concept:fabric:warehouse",
+      "title": "Data Warehouse",
+      "definition": "A SQL-first Fabric store for structured analytics and multi-table transactions.",
+      "aliases": [
+        "مستودع البيانات"
+      ],
+      "kind": "technology_mechanism",
+      "sourceIds": [
+        "data-store",
+        "lakehouse"
+      ],
+      "editorialState": "technical_review",
+      "position": [
+        360,
+        90
+      ],
+      "mapLabel": [
+        "Data Warehouse"
+      ]
+    },
+    {
+      "id": "concept:fabric:pipeline",
+      "title": "Data pipeline",
+      "definition": "Orchestration that coordinates movement, transformation and control-flow activities.",
+      "aliases": [
+        "خط أنابيب البيانات"
+      ],
+      "kind": "technology_mechanism",
+      "sourceIds": [
+        "factory"
+      ],
+      "editorialState": "technical_review",
+      "position": [
+        590,
+        90
+      ],
+      "mapLabel": [
+        "Data pipeline"
+      ]
+    },
+    {
+      "id": "concept:fabric:dataflow-gen2",
+      "title": "Dataflow Gen2",
+      "definition": "Low-code data preparation using transformations such as joins and cleansing.",
+      "aliases": [
+        "تدفق البيانات الجيل الثاني"
+      ],
+      "kind": "technology_mechanism",
+      "sourceIds": [
+        "factory"
+      ],
+      "editorialState": "technical_review",
+      "position": [
+        820,
+        90
+      ],
+      "mapLabel": [
+        "Dataflow Gen2"
+      ]
+    },
+    {
+      "id": "concept:fabric:notebook",
+      "title": "Spark notebook",
+      "definition": "Code-based preparation and exploration of lakehouse data with Spark languages.",
+      "aliases": [
+        "دفتر سبارك"
+      ],
+      "kind": "technology_mechanism",
+      "sourceIds": [
+        "lakehouse"
+      ],
+      "editorialState": "technical_review",
+      "position": [
+        130,
+        185
+      ],
+      "mapLabel": [
+        "Spark notebook"
+      ]
+    },
+    {
+      "id": "concept:fabric:direct-lake",
+      "title": "Direct Lake",
+      "definition": "A semantic-table storage mode reading eligible OneLake Delta data into the VertiPaq engine.",
+      "aliases": [
+        "دايركت ليك"
+      ],
+      "kind": "technology_mechanism",
+      "sourceIds": [
+        "direct-lake"
+      ],
+      "editorialState": "technical_review",
+      "position": [
+        360,
+        185
+      ],
+      "mapLabel": [
+        "Direct Lake"
+      ]
+    },
+    {
+      "id": "concept:fabric:directquery",
+      "title": "DirectQuery",
+      "definition": "A storage mode translating model queries into queries executed by the underlying source.",
+      "aliases": [
+        "الاستعلام المباشر"
+      ],
+      "kind": "technology_mechanism",
+      "sourceIds": [
+        "direct-lake"
+      ],
+      "editorialState": "technical_review",
+      "position": [
+        590,
+        185
+      ],
+      "mapLabel": [
+        "DirectQuery"
+      ]
+    },
+    {
+      "id": "concept:fabric:import",
+      "title": "Import mode",
+      "definition": "A storage mode keeping a copied model dataset for in-memory queries.",
+      "aliases": [
+        "وضع الاستيراد"
+      ],
+      "kind": "technology_mechanism",
+      "sourceIds": [
+        "direct-lake"
+      ],
+      "editorialState": "technical_review",
+      "position": [
+        820,
+        185
+      ],
+      "mapLabel": [
+        "Import mode"
+      ]
+    },
+    {
+      "id": "concept:fabric:star-schema",
+      "title": "Star schema",
+      "definition": "Dimensional design distinguishing descriptive dimensions from event or observation facts.",
+      "aliases": [
+        "المخطط النجمي"
+      ],
+      "kind": "technology_mechanism",
+      "sourceIds": [
+        "star-schema"
+      ],
+      "editorialState": "technical_review",
+      "position": [
+        130,
+        280
+      ],
+      "mapLabel": [
+        "Star schema"
+      ]
+    },
+    {
+      "id": "concept:fabric:grain",
+      "title": "Fact-table grain",
+      "definition": "The business detail represented by a fact row, determined by its dimensional keys.",
+      "aliases": [
+        "مستوى تفاصيل جدول الحقائق"
+      ],
+      "kind": "technology_mechanism",
+      "sourceIds": [
+        "star-schema"
+      ],
+      "editorialState": "technical_review",
+      "position": [
+        360,
+        280
+      ],
+      "mapLabel": [
+        "Fact-table grain"
+      ]
+    },
+    {
+      "id": "concept:fabric:rls",
+      "title": "Row-level security",
+      "definition": "Model role filters restricting visible rows for consumers; workspace editing roles bypass this restriction.",
+      "aliases": [
+        "أمان مستوى الصف"
+      ],
+      "kind": "technology_mechanism",
+      "sourceIds": [
+        "rls"
+      ],
+      "editorialState": "technical_review",
+      "position": [
+        590,
+        280
+      ],
+      "mapLabel": [
+        "Row-level security"
+      ]
+    },
+    {
+      "id": "concept:fabric:git",
+      "title": "Git integration",
+      "definition": "Workspace-scoped version control of supported Fabric item definitions.",
+      "aliases": [
+        "إدارة الإصدارات"
+      ],
+      "kind": "technology_mechanism",
+      "sourceIds": [
+        "git"
+      ],
+      "editorialState": "technical_review",
+      "position": [
+        820,
+        280
+      ],
+      "mapLabel": [
+        "Git integration"
+      ]
+    },
+    {
+      "id": "concept:fabric:deployment",
+      "title": "Deployment pipeline",
+      "definition": "A mechanism for developing, testing and deploying supported content between stages.",
+      "aliases": [
+        "مسار النشر"
+      ],
+      "kind": "technology_mechanism",
+      "sourceIds": [
+        "deployment"
+      ],
+      "editorialState": "technical_review",
+      "position": [
+        130,
+        375
+      ],
+      "mapLabel": [
+        "Deployment pipeline"
+      ]
+    },
+    {
+      "id": "concept:fabric:eventhouse",
+      "title": "Eventhouse",
+      "definition": "An analytics engine for time-based event, log and semi-structured workloads.",
+      "aliases": [
+        "إيفنت هاوس"
+      ],
+      "kind": "technology_mechanism",
+      "sourceIds": [
+        "eventhouse"
+      ],
+      "editorialState": "technical_review",
+      "position": [
+        360,
+        375
+      ],
+      "mapLabel": [
+        "Eventhouse"
+      ]
+    },
+    {
+      "id": "concept:fabric:optimize",
+      "title": "OPTIMIZE compaction",
+      "definition": "Rewrites fragmented small Delta files into more suitable file sizes.",
+      "aliases": [
+        "دمج ملفات دلتا"
+      ],
+      "kind": "technology_mechanism",
+      "sourceIds": [
+        "compaction"
+      ],
+      "editorialState": "technical_review",
+      "position": [
+        590,
+        375
+      ],
+      "mapLabel": [
+        "OPTIMIZE compaction"
+      ]
+    },
+    {
+      "id": "concept:fabric:z-order",
+      "title": "Z-Order",
+      "definition": "Colocates values during OPTIMIZE to improve file skipping for selective multi-column predicates.",
+      "aliases": [
+        "ترتيب زد"
+      ],
+      "kind": "technology_mechanism",
+      "sourceIds": [
+        "compaction"
+      ],
+      "editorialState": "technical_review",
+      "position": [
+        820,
+        375
+      ],
+      "mapLabel": [
+        "Z-Order"
+      ]
+    },
+    {
+      "id": "concept:fabric:calculate",
+      "title": "DAX CALCULATE",
+      "definition": "Evaluates an expression after modifying its filter context.",
+      "aliases": [
+        "دالة كالكوليت"
+      ],
+      "kind": "technology_mechanism",
+      "sourceIds": [
+        "calculate"
+      ],
+      "editorialState": "technical_review",
+      "position": [
+        130,
+        470
+      ],
+      "mapLabel": [
+        "DAX CALCULATE"
+      ]
+    },
+    {
+      "id": "concept:fabric:filter-context",
+      "title": "DAX filter context",
+      "definition": "The filters affecting which data contributes to evaluation of a DAX expression.",
+      "aliases": [
+        "سياق التصفية"
+      ],
+      "kind": "technology_mechanism",
+      "sourceIds": [
+        "calculate"
+      ],
+      "editorialState": "technical_review",
+      "position": [
+        360,
+        470
+      ],
+      "mapLabel": [
+        "DAX filter context"
+      ]
+    },
+    {
+      "id": "concept:fabric:monitoring",
+      "title": "Monitoring hub",
+      "definition": "A centralized view of job activity and diagnostics within the viewer’s access scope.",
+      "aliases": [
+        "مركز المراقبة"
+      ],
+      "kind": "technology_mechanism",
+      "sourceIds": [
+        "monitor"
+      ],
+      "editorialState": "technical_review",
+      "position": [
+        590,
+        470
+      ],
+      "mapLabel": [
+        "Monitoring hub"
+      ]
+    },
+    {
+      "id": "concept:fabric:endorsement",
+      "title": "Item endorsement",
+      "definition": "Governance badges communicating promoted, certified or master-data status.",
+      "aliases": [
+        "اعتماد عناصر البيانات"
+      ],
+      "kind": "technology_mechanism",
+      "sourceIds": [
+        "endorsement"
+      ],
+      "editorialState": "technical_review",
+      "position": [
+        820,
+        470
+      ],
+      "mapLabel": [
+        "Item endorsement"
+      ]
+    }
+  ],
+  "semanticEdges": [
+    {
+      "id": "edge:fabric:exp-lakehouse-warehouse",
+      "to": "concept:fabric:warehouse",
+      "relationType": "contrasts_with",
+      "direction": "symmetric",
+      "claim": "Lakehouse and Warehouse offer different development and transaction choices.",
+      "conditions": "Compare Spark/file-oriented preparation with SQL-first structured analytics.",
+      "rationale": "Choose according to tools, data shape and multi-table transaction requirements.",
+      "sourceIds": [
+        "lakehouse",
+        "data-store"
+      ],
+      "supportKind": "direct",
+      "revision": 1,
+      "checkedAt": "2026-10-26",
+      "reviewer": "Codex documentation review; not human approval",
+      "editorialState": "technical_review",
+      "from": "concept:fabric:lakehouse"
+    },
+    {
+      "id": "edge:fabric:exp-lakehouse-delta",
+      "to": "concept:fabric:delta",
+      "relationType": "part_of_mechanism",
+      "direction": "directed",
+      "claim": "Lakehouse table management uses Delta Lake.",
+      "conditions": "Tables, rather than arbitrary files in Files.",
+      "rationale": "The file area and managed table behavior are distinct.",
+      "sourceIds": [
+        "lakehouse"
+      ],
+      "supportKind": "direct",
+      "revision": 1,
+      "checkedAt": "2026-10-26",
+      "reviewer": "Codex documentation review; not human approval",
+      "editorialState": "technical_review",
+      "from": "concept:fabric:lakehouse"
+    },
+    {
+      "id": "edge:fabric:exp-notebook-lakehouse",
+      "to": "concept:fabric:lakehouse",
+      "relationType": "enables",
+      "direction": "directed",
+      "claim": "Spark notebooks can transform and write lakehouse data.",
+      "conditions": "Use supported Spark languages and authorized access.",
+      "rationale": "Code preparation complements SQL analysis without promising identical write capabilities.",
+      "sourceIds": [
+        "lakehouse"
+      ],
+      "supportKind": "direct",
+      "revision": 1,
+      "checkedAt": "2026-10-26",
+      "reviewer": "Codex documentation review; not human approval",
+      "editorialState": "technical_review",
+      "from": "concept:fabric:notebook"
+    },
+    {
+      "id": "edge:fabric:exp-pipeline-dataflow-gen2",
+      "to": "concept:fabric:dataflow-gen2",
+      "relationType": "complements",
+      "direction": "symmetric",
+      "claim": "Pipelines can coordinate data preparation tasks that use dataflows.",
+      "conditions": "Configure activities and dependencies for the actual workflow.",
+      "rationale": "Orchestration is distinct from the transformation implementation.",
+      "sourceIds": [
+        "factory"
+      ],
+      "supportKind": "inference",
+      "revision": 1,
+      "checkedAt": "2026-10-26",
+      "reviewer": "Codex documentation review; not human approval",
+      "editorialState": "technical_review",
+      "from": "concept:fabric:pipeline"
+    },
+    {
+      "id": "edge:fabric:exp-pipeline-notebook",
+      "to": "concept:fabric:notebook",
+      "relationType": "enables",
+      "direction": "directed",
+      "claim": "Pipeline activities can run notebook transformations.",
+      "conditions": "Notebook activity and permissions must be configured.",
+      "rationale": "Scheduling and dependencies do not turn copy operations into transformations.",
+      "sourceIds": [
+        "factory"
+      ],
+      "supportKind": "direct",
+      "revision": 1,
+      "checkedAt": "2026-10-26",
+      "reviewer": "Codex documentation review; not human approval",
+      "editorialState": "technical_review",
+      "from": "concept:fabric:pipeline"
+    },
+    {
+      "id": "edge:fabric:exp-pipeline-copy-job",
+      "to": "concept:fabric:copy-job",
+      "relationType": "related_in_decision",
+      "direction": "directed",
+      "claim": "Complex orchestration and simplified movement address different delivery requirements.",
+      "conditions": "Choose using required control flow and movement capability, not a universal replacement rule.",
+      "rationale": "A simple movement requirement may not need an orchestrated workflow.",
+      "sourceIds": [
+        "factory"
+      ],
+      "supportKind": "inference",
+      "revision": 1,
+      "checkedAt": "2026-10-26",
+      "reviewer": "Codex documentation review; not human approval",
+      "editorialState": "technical_review",
+      "from": "concept:fabric:pipeline"
+    },
+    {
+      "id": "edge:fabric:exp-direct-lake-delta",
+      "to": "concept:fabric:delta",
+      "relationType": "requires_understanding_of",
+      "direction": "directed",
+      "claim": "Direct Lake source eligibility depends on Delta tables in OneLake.",
+      "conditions": "Respect supported sources, capacity and access requirements.",
+      "rationale": "Understanding source layout prevents treating arbitrary files as Direct Lake tables.",
+      "sourceIds": [
+        "direct-lake"
+      ],
+      "supportKind": "direct",
+      "revision": 1,
+      "checkedAt": "2026-10-26",
+      "reviewer": "Codex documentation review; not human approval",
+      "editorialState": "technical_review",
+      "from": "concept:fabric:direct-lake"
+    },
+    {
+      "id": "edge:fabric:exp-direct-lake-directquery",
+      "to": "concept:fabric:directquery",
+      "relationType": "contrasts_with",
+      "direction": "symmetric",
+      "claim": "Direct Lake and DirectQuery execute model queries through different paths.",
+      "conditions": "Distinguish Direct Lake on OneLake from the SQL endpoint variant.",
+      "rationale": "Only the SQL endpoint variant supports the documented DirectQuery fallback path.",
+      "sourceIds": [
+        "direct-lake"
+      ],
+      "supportKind": "direct",
+      "revision": 1,
+      "checkedAt": "2026-10-26",
+      "reviewer": "Codex documentation review; not human approval",
+      "editorialState": "technical_review",
+      "from": "concept:fabric:direct-lake"
+    },
+    {
+      "id": "edge:fabric:exp-direct-lake-import",
+      "to": "concept:fabric:import",
+      "relationType": "contrasts_with",
+      "direction": "symmetric",
+      "claim": "Direct Lake framing differs from importing an entire copied dataset.",
+      "conditions": "This compares refresh semantics, not a guarantee of zero memory use.",
+      "rationale": "Both use VertiPaq; their source-data loading and refresh behavior differ.",
+      "sourceIds": [
+        "direct-lake"
+      ],
+      "supportKind": "direct",
+      "revision": 1,
+      "checkedAt": "2026-10-26",
+      "reviewer": "Codex documentation review; not human approval",
+      "editorialState": "technical_review",
+      "from": "concept:fabric:direct-lake"
+    },
+    {
+      "id": "edge:fabric:exp-direct-lake-sql-endpoint",
+      "to": "concept:fabric:sql-endpoint",
+      "relationType": "related_in_decision",
+      "direction": "directed",
+      "claim": "Choose the Direct Lake variant before reasoning about SQL endpoint fallback.",
+      "conditions": "Direct Lake on OneLake does not fall back via the SQL analytics endpoint.",
+      "rationale": "The SQL variant can fall back when direct Delta loading is unavailable, subject to behavior settings.",
+      "sourceIds": [
+        "direct-lake"
+      ],
+      "supportKind": "direct",
+      "revision": 1,
+      "checkedAt": "2026-10-26",
+      "reviewer": "Codex documentation review; not human approval",
+      "editorialState": "technical_review",
+      "from": "concept:fabric:direct-lake"
+    },
+    {
+      "id": "edge:fabric:exp-star-schema-grain",
+      "to": "concept:fabric:grain",
+      "relationType": "requires_understanding_of",
+      "direction": "directed",
+      "claim": "Consistent fact grain is necessary to reason about dimensional observations.",
+      "conditions": "Inspect keys and business events before aggregating.",
+      "rationale": "Mixing levels can repeat totals and distort analytical results.",
+      "sourceIds": [
+        "star-schema"
+      ],
+      "supportKind": "inference",
+      "revision": 1,
+      "checkedAt": "2026-10-26",
+      "reviewer": "Codex documentation review; not human approval",
+      "editorialState": "technical_review",
+      "from": "concept:fabric:star-schema"
+    },
+    {
+      "id": "edge:fabric:exp-warehouse-star-schema",
+      "to": "concept:fabric:star-schema",
+      "relationType": "enables",
+      "direction": "directed",
+      "claim": "A warehouse can prepare dimensional data for semantic models.",
+      "conditions": "ETL must preserve the intended fact grain and dimensions.",
+      "rationale": "Dimensional preparation can precede the semantic model connection.",
+      "sourceIds": [
+        "star-schema"
+      ],
+      "supportKind": "direct",
+      "revision": 1,
+      "checkedAt": "2026-10-26",
+      "reviewer": "Codex documentation review; not human approval",
+      "editorialState": "technical_review",
+      "from": "concept:fabric:warehouse"
+    },
+    {
+      "id": "edge:fabric:exp-rls-permissions",
+      "to": "concept:fabric:permissions",
+      "relationType": "related_in_decision",
+      "direction": "directed",
+      "claim": "Model RLS must be evaluated with workspace role permissions.",
+      "conditions": "Power BI semantic-model RLS restricts Viewers, not Admin, Member or Contributor roles.",
+      "rationale": "A role rule alone does not constrain editing-role users.",
+      "sourceIds": [
+        "rls"
+      ],
+      "supportKind": "direct",
+      "revision": 1,
+      "checkedAt": "2026-10-26",
+      "reviewer": "Codex documentation review; not human approval",
+      "editorialState": "technical_review",
+      "from": "concept:fabric:rls"
+    },
+    {
+      "id": "edge:fabric:exp-rls-direct-lake",
+      "to": "concept:fabric:direct-lake",
+      "relationType": "complements",
+      "direction": "symmetric",
+      "claim": "Direct Lake semantic models can apply model row-level security.",
+      "conditions": "Distinguish model RLS from source security and variant-specific fallback.",
+      "rationale": "Validate the effective identity and query behavior, rather than inferring security from storage mode.",
+      "sourceIds": [
+        "rls"
+      ],
+      "supportKind": "direct",
+      "revision": 1,
+      "checkedAt": "2026-10-26",
+      "reviewer": "Codex documentation review; not human approval",
+      "editorialState": "technical_review",
+      "from": "concept:fabric:rls"
+    },
+    {
+      "id": "edge:fabric:exp-git-deployment",
+      "to": "concept:fabric:deployment",
+      "relationType": "complements",
+      "direction": "symmetric",
+      "claim": "Version control and staged content deployment solve complementary lifecycle tasks.",
+      "conditions": "Only supported items and configured workspaces/stages are in scope.",
+      "rationale": "Committing definitions is different from promoting content to consumers.",
+      "sourceIds": [
+        "git",
+        "deployment"
+      ],
+      "supportKind": "inference",
+      "revision": 1,
+      "checkedAt": "2026-10-26",
+      "reviewer": "Codex documentation review; not human approval",
+      "editorialState": "technical_review",
+      "from": "concept:fabric:git"
+    },
+    {
+      "id": "edge:fabric:exp-eventhouse-lakehouse",
+      "to": "concept:fabric:lakehouse",
+      "relationType": "related_in_decision",
+      "direction": "directed",
+      "claim": "Event-focused analytics and general data engineering require different store choices.",
+      "conditions": "Compare time-based event query needs with file and Spark preparation requirements.",
+      "rationale": "The workload, rather than a global ranking, determines the choice.",
+      "sourceIds": [
+        "data-store"
+      ],
+      "supportKind": "direct",
+      "revision": 1,
+      "checkedAt": "2026-10-26",
+      "reviewer": "Codex documentation review; not human approval",
+      "editorialState": "technical_review",
+      "from": "concept:fabric:eventhouse"
+    },
+    {
+      "id": "edge:fabric:exp-eventhouse-direct-lake",
+      "to": "concept:fabric:direct-lake",
+      "relationType": "enables",
+      "direction": "directed",
+      "claim": "OneLake-enabled KQL data can serve eligible Direct Lake on OneLake models.",
+      "conditions": "Enable OneLake availability; do not assume SQL-variant support from OneLake support.",
+      "rationale": "The storage-mode source matrix distinguishes the two variants.",
+      "sourceIds": [
+        "direct-lake",
+        "eventhouse"
+      ],
+      "supportKind": "direct",
+      "revision": 1,
+      "checkedAt": "2026-10-26",
+      "reviewer": "Codex documentation review; not human approval",
+      "editorialState": "technical_review",
+      "from": "concept:fabric:eventhouse"
+    },
+    {
+      "id": "edge:fabric:exp-optimize-delta",
+      "to": "concept:fabric:delta",
+      "relationType": "enables",
+      "direction": "directed",
+      "claim": "OPTIMIZE changes Delta file layout through compaction.",
+      "conditions": "Measure fragmented files and workload impact; it is not a row deletion operation.",
+      "rationale": "Fewer suitable files can reduce read overhead.",
+      "sourceIds": [
+        "compaction"
+      ],
+      "supportKind": "direct",
+      "revision": 1,
+      "checkedAt": "2026-10-26",
+      "reviewer": "Codex documentation review; not human approval",
+      "editorialState": "technical_review",
+      "from": "concept:fabric:optimize"
+    },
+    {
+      "id": "edge:fabric:exp-z-order-optimize",
+      "to": "concept:fabric:optimize",
+      "relationType": "part_of_mechanism",
+      "direction": "directed",
+      "claim": "OPTIMIZE with ZORDER BY colocates values during the rewrite.",
+      "conditions": "Selective predicates on relevant columns must benefit from skipping.",
+      "rationale": "Compaction alone does not imply a particular clustering policy.",
+      "sourceIds": [
+        "compaction"
+      ],
+      "supportKind": "direct",
+      "revision": 1,
+      "checkedAt": "2026-10-26",
+      "reviewer": "Codex documentation review; not human approval",
+      "editorialState": "technical_review",
+      "from": "concept:fabric:z-order"
+    },
+    {
+      "id": "edge:fabric:exp-calculate-filter-context",
+      "to": "concept:fabric:filter-context",
+      "relationType": "enables",
+      "direction": "directed",
+      "claim": "CALCULATE modifies the filter context of expression evaluation.",
+      "conditions": "Filter arguments and modifiers follow documented context rules.",
+      "rationale": "Existing column filters may be replaced unless modifiers preserve them.",
+      "sourceIds": [
+        "calculate"
+      ],
+      "supportKind": "direct",
+      "revision": 1,
+      "checkedAt": "2026-10-26",
+      "reviewer": "Codex documentation review; not human approval",
+      "editorialState": "technical_review",
+      "from": "concept:fabric:calculate"
+    },
+    {
+      "id": "edge:fabric:exp-monitoring-permissions",
+      "to": "concept:fabric:permissions",
+      "relationType": "related_in_decision",
+      "direction": "directed",
+      "claim": "Monitoring activity visibility is limited by item permissions.",
+      "conditions": "Opening the hub is not tenant-wide authorization.",
+      "rationale": "Investigate access scope before interpreting an incomplete activity list.",
+      "sourceIds": [
+        "monitor"
+      ],
+      "supportKind": "direct",
+      "revision": 1,
+      "checkedAt": "2026-10-26",
+      "reviewer": "Codex documentation review; not human approval",
+      "editorialState": "technical_review",
+      "from": "concept:fabric:monitoring"
+    },
+    {
+      "id": "edge:fabric:exp-endorsement-permissions",
+      "to": "concept:fabric:permissions",
+      "relationType": "related_in_decision",
+      "direction": "directed",
+      "claim": "Promotion and formal certification require different authorization.",
+      "conditions": "Write access permits promotion; designated reviewers perform certification.",
+      "rationale": "A quality badge is not a data-access grant.",
+      "sourceIds": [
+        "endorsement"
+      ],
+      "supportKind": "direct",
+      "revision": 1,
+      "checkedAt": "2026-10-26",
+      "reviewer": "Codex documentation review; not human approval",
+      "editorialState": "technical_review",
+      "from": "concept:fabric:endorsement"
+    }
+  ],
+  "sources": [
+    {
+      "id": "data-store",
+      "title": "Choose a Fabric data store",
+      "url": "https://learn.microsoft.com/en-us/fabric/fundamentals/decision-guide-data-store",
+      "locator": "Ideal use case; Personas and skillsets",
+      "checkedAt": "2026-10-26",
+      "kind": "official-documentation",
+      "visibility": "public-link"
+    },
+    {
+      "id": "lakehouse",
+      "title": "Lakehouse overview",
+      "url": "https://learn.microsoft.com/en-us/fabric/data-engineering/lakehouse-overview",
+      "locator": "Lakehouse vs warehouse; Work with lakehouse data",
+      "checkedAt": "2026-10-26",
+      "kind": "official-documentation",
+      "visibility": "public-link"
+    },
+    {
+      "id": "factory",
+      "title": "Data Factory overview",
+      "url": "https://learn.microsoft.com/en-us/fabric/data-factory/data-factory-overview",
+      "locator": "Move data; Transform; Orchestrate",
+      "checkedAt": "2026-10-26",
+      "kind": "official-documentation",
+      "visibility": "public-link"
+    },
+    {
+      "id": "direct-lake",
+      "title": "Direct Lake overview",
+      "url": "https://learn.microsoft.com/en-us/fabric/fundamentals/direct-lake-overview",
+      "locator": "Key concepts and terminology; Direct Lake options; Comparison of storage modes",
+      "checkedAt": "2026-10-26",
+      "kind": "official-documentation",
+      "visibility": "public-link"
+    },
+    {
+      "id": "star-schema",
+      "title": "Star schema guidance",
+      "url": "https://learn.microsoft.com/en-us/power-bi/guidance/star-schema",
+      "locator": "Dimension tables; Fact tables; Slowly changing dimensions",
+      "checkedAt": "2026-10-26",
+      "kind": "official-documentation",
+      "visibility": "public-link"
+    },
+    {
+      "id": "rls",
+      "title": "Power BI row-level security",
+      "url": "https://learn.microsoft.com/en-us/fabric/security/service-admin-row-level-security",
+      "locator": "Role definitions; Viewer restriction; Direct Lake support",
+      "checkedAt": "2026-10-26",
+      "kind": "official-documentation",
+      "visibility": "public-link"
+    },
+    {
+      "id": "git",
+      "title": "Fabric Git integration",
+      "url": "https://learn.microsoft.com/en-us/fabric/cicd/git-integration/intro-to-git-integration",
+      "locator": "Workspace integration; Supported Git providers",
+      "checkedAt": "2026-10-26",
+      "kind": "official-documentation",
+      "visibility": "public-link"
+    },
+    {
+      "id": "deployment",
+      "title": "Fabric deployment pipelines",
+      "url": "https://learn.microsoft.com/en-us/fabric/cicd/deployment-pipelines/intro-to-deployment-pipelines",
+      "locator": "Introduction; Supported item types",
+      "checkedAt": "2026-10-26",
+      "kind": "official-documentation",
+      "visibility": "public-link"
+    },
+    {
+      "id": "eventhouse",
+      "title": "Eventhouse overview",
+      "url": "https://learn.microsoft.com/en-us/fabric/real-time-intelligence/eventhouse",
+      "locator": "Time-based events; OneLake availability",
+      "checkedAt": "2026-10-26",
+      "kind": "official-documentation",
+      "visibility": "public-link"
+    },
+    {
+      "id": "compaction",
+      "title": "Delta table compaction",
+      "url": "https://learn.microsoft.com/en-us/fabric/data-engineering/table-compaction",
+      "locator": "OPTIMIZE; Z-Order; V-Order",
+      "checkedAt": "2026-10-26",
+      "kind": "official-documentation",
+      "visibility": "public-link"
+    },
+    {
+      "id": "calculate",
+      "title": "DAX CALCULATE",
+      "url": "https://learn.microsoft.com/en-us/dax/calculate-function-dax/",
+      "locator": "Parameters; Filter modifier functions; Remarks",
+      "checkedAt": "2026-10-26",
+      "kind": "official-documentation",
+      "visibility": "public-link"
+    },
+    {
+      "id": "monitor",
+      "title": "Fabric monitoring hub",
+      "url": "https://learn.microsoft.com/en-us/fabric/admin/monitoring-hub",
+      "locator": "Job execution activity; Permission scope",
+      "checkedAt": "2026-10-26",
+      "kind": "official-documentation",
+      "visibility": "public-link"
+    },
+    {
+      "id": "endorsement",
+      "title": "Fabric endorsement",
+      "url": "https://learn.microsoft.com/en-us/fabric/governance/endorsement-overview",
+      "locator": "Promoted, Certified and Master data badges",
+      "checkedAt": "2026-10-26",
+      "kind": "official-documentation",
+      "visibility": "public-link"
+    }
+  ],
+  "catalog": [
+    {
+      "id": "content:question:fb-v01",
+      "title": "Onboard an invoice file",
+      "href": "/lab/dp-600/explore/?question=fb-v01",
+      "kind": "question",
+      "questionId": "fb-v01",
+      "conceptIds": [
+        "concept:fabric:lakehouse",
+        "concept:fabric:sql-endpoint",
+        "concept:fabric:delta"
+      ],
+      "sourcePages": [],
+      "mappingEvidence": "A supplier uploads invoices.csv to Files/landing in a lakehouse. Finance needs a governed, typed table accessible through the SQL analytics endpoint. The original file must remain unchanged. Which implementation meets all requirements?",
+      "mappingReview": "Documentation-reviewed association; not answer validation",
+      "checkedAt": "2026-10-26"
+    },
+    {
+      "id": "content:question:fb-w01",
+      "title": "Assess an analytics platform",
+      "href": "/lab/dp-600/explore/?question=fb-w01",
+      "kind": "question",
+      "questionId": "fb-w01",
+      "conceptIds": [
+        "concept:fabric:warehouse",
+        "concept:fabric:star-schema"
+      ],
+      "sourcePages": [],
+      "mappingEvidence": "A SQL team must maintain a curated star schema with T-SQL writes and multi-table transactions. A separate engineering team must preserve original PDF invoices and parse them with Spark. They want one Fabric storage foundation. Which design best satisfies all constraints?",
+      "mappingReview": "Documentation-reviewed association; not answer validation",
+      "checkedAt": "2026-10-26"
+    },
+    {
+      "id": "content:question:fb-p01",
+      "title": "Separate movement from transformation",
+      "href": "/lab/dp-600/explore/?question=fb-p01",
+      "kind": "question",
+      "questionId": "fb-p01",
+      "conceptIds": [
+        "concept:fabric:pipeline",
+        "concept:fabric:dataflow-gen2",
+        "concept:fabric:notebook"
+      ],
+      "sourcePages": [],
+      "mappingEvidence": "A nightly flow copies ERP rows, joins a reference table, computes grouped totals in Power Query, and runs a validation notebook only after preparation succeeds. The team wants low-code ownership for the joins. Which design meets all requirements with the fewest custom components?",
+      "mappingReview": "Documentation-reviewed association; not answer validation",
+      "checkedAt": "2026-10-26"
+    },
+    {
+      "id": "content:question:fb-f07",
+      "title": "Design an IoT analytics path",
+      "href": "/lab/dp-600/explore/?question=fb-f07",
+      "kind": "question",
+      "questionId": "fb-f07",
+      "conceptIds": [
+        "concept:fabric:eventhouse"
+      ],
+      "sourcePages": [],
+      "mappingEvidence": "A supported IoT source emits continuous events. The solution must filter events before routing and retain them for KQL time-series analysis. Select TWO complementary components.",
+      "mappingReview": "Documentation-reviewed association; not answer validation",
+      "checkedAt": "2026-10-26"
+    },
+    {
+      "id": "content:question:fb-s01",
+      "title": "Choose grain before columns",
+      "href": "/lab/dp-600/explore/?question=fb-s01",
+      "kind": "question",
+      "questionId": "fb-s01",
+      "conceptIds": [
+        "concept:fabric:grain",
+        "concept:fabric:star-schema"
+      ],
+      "sourcePages": [],
+      "mappingEvidence": "A source export repeats order header totals on every line. Analysts need quantity and net revenue by product and customer. You must retain line-level detail and avoid double counting. Which fact design is appropriate?",
+      "mappingReview": "Documentation-reviewed association; not answer validation",
+      "checkedAt": "2026-10-26"
+    },
+    {
+      "id": "content:question:fb-v7-ddm-022",
+      "title": "Diagnose fallback with DAX",
+      "href": "/lab/dp-600/explore/?question=fb-v7-ddm-022",
+      "kind": "question",
+      "questionId": "fb-v7-ddm-022",
+      "conceptIds": [
+        "concept:fabric:direct-lake",
+        "concept:fabric:directquery",
+        "concept:fabric:sql-endpoint"
+      ],
+      "sourcePages": [],
+      "mappingEvidence": "A report became slower after a SQL security update. The Direct Lake on SQL analytics endpoint semantic model is configured Automatic. Which DAX-based diagnostic is explicitly documented for investigating fallback reasons?",
+      "mappingReview": "Documentation-reviewed association; not answer validation",
+      "checkedAt": "2026-10-26"
+    },
+    {
+      "id": "content:question:fb-v9-git-001",
+      "title": "Cross-region Azure Repos",
+      "href": "/lab/dp-600/explore/?question=fb-v9-git-001",
+      "kind": "question",
+      "questionId": "fb-v9-git-001",
+      "conceptIds": [
+        "concept:fabric:git"
+      ],
+      "sourcePages": [],
+      "mappingEvidence": "A workspace is hosted in Central US and its Azure DevOps repository in West Europe. The security team has approved the repository, but metadata commits remain blocked. Git synchronization itself is allowed for the developers. Which change targets the blocking policy?",
+      "mappingReview": "Documentation-reviewed association; not answer validation",
+      "checkedAt": "2026-10-26"
+    },
+    {
+      "id": "content:question:fb-v8-gov-001",
+      "title": "Promotion vs formal certification",
+      "href": "/lab/dp-600/explore/?question=fb-v8-gov-001",
+      "kind": "question",
+      "questionId": "fb-v8-gov-001",
+      "conceptIds": [
+        "concept:fabric:endorsement",
+        "concept:fabric:permissions"
+      ],
+      "sourcePages": [],
+      "mappingEvidence": "A data engineer owns a lakehouse and can edit it, but certification is enabled only for the Data Steward security group. The engineer is outside that group. Which action can the engineer take immediately without administrator intervention?",
+      "mappingReview": "Documentation-reviewed association; not answer validation",
+      "checkedAt": "2026-10-26"
+    },
+    {
+      "id": "content:question:fb-v12-mon-001",
+      "title": "Monitor hub",
+      "href": "/lab/dp-600/explore/?question=fb-v12-mon-001",
+      "kind": "question",
+      "questionId": "fb-v12-mon-001",
+      "conceptIds": [
+        "concept:fabric:monitoring",
+        "concept:fabric:permissions"
+      ],
+      "sourcePages": [],
+      "mappingEvidence": "A BI operator has access to the Sales workspace but not Payroll. Both contain scheduled semantic model refresh jobs. Management asks for a tenant-wide list of every job without granting additional permissions. Which outcome is consistent with the Monitor hub security model?",
+      "mappingReview": "Documentation-reviewed association; not answer validation",
+      "checkedAt": "2026-10-26"
+    },
+    {
+      "id": "content:question:fb-v6-sec-001",
+      "title": "SQL column grants",
+      "href": "/lab/dp-600/explore/?question=fb-v6-sec-001",
+      "kind": "question",
+      "questionId": "fb-v6-sec-001",
+      "conceptIds": [
+        "concept:fabric:permissions",
+        "concept:fabric:warehouse"
+      ],
+      "sourcePages": [],
+      "mappingEvidence": "A contractor has Warehouse item Read, no workspace role, and no SQL grants. They must query EmployeeID and Department from hr.Employees but must never read Salary. Which change meets the requirement with the fewest privileges?",
+      "mappingReview": "Documentation-reviewed association; not answer validation",
+      "checkedAt": "2026-10-26"
+    },
+    {
+      "id": "content:question:new-json-t1q1",
+      "title": "Imported json question",
+      "href": "/lab/dp-600/explore/?question=new-json-t1q1",
+      "kind": "question",
+      "questionId": "new-json-t1q1",
+      "conceptIds": [
+        "concept:fabric:git"
+      ],
+      "sourcePages": [],
+      "mappingEvidence": "<pre>You need to ensure that Contoso can use version control to meet the data analytics requirements and the general requirements.\nWhat should you do?</pre>",
+      "mappingReview": "Documentation-reviewed association; not answer validation",
+      "checkedAt": "2026-10-26"
+    },
+    {
+      "id": "content:question:new-litware-2",
+      "title": "Imported litware question",
+      "href": "/lab/dp-600/explore/?question=new-litware-2",
+      "kind": "question",
+      "questionId": "new-litware-2",
+      "conceptIds": [
+        "concept:fabric:calculate",
+        "concept:fabric:filter-context"
+      ],
+      "sourcePages": [],
+      "mappingEvidence": "<p>You need to create a DAX measure to calculate the average overall satisfaction score.</p><p>How should you complete the DAX code? To answer, select the appropriate options in the answer area.</p><p>NOTE: Each correct selection is worth one point.</p>",
+      "mappingReview": "Documentation-reviewed association; not answer validation",
+      "checkedAt": "2026-10-26"
+    },
+    {
+      "id": "content:notes:delta",
+      "title": "Existing learning notes: delta",
+      "href": "/lab/dp-600/resources/?pack=delta#study-notes",
+      "kind": "lesson-notes",
+      "conceptIds": [
+        "concept:fabric:lakehouse",
+        "concept:fabric:delta",
+        "concept:fabric:onelake"
+      ],
+      "sourcePages": [],
+      "mappingEvidence": "Reviewed existing note chapters: Lakehouse, OneLake, and access layers; Internal/external shortcuts and caching; Delta files, transaction logs, and controlled changes; VACUUM, OPTIMIZE, and V-Order have different goals",
+      "mappingReview": "Pack-level learning context, not proof that every chapter teaches every listed concept",
+      "checkedAt": "2026-10-26"
+    },
+    {
+      "id": "content:notes:warehouse",
+      "title": "Existing learning notes: warehouse",
+      "href": "/lab/dp-600/resources/?pack=warehouse#study-notes",
+      "kind": "lesson-notes",
+      "conceptIds": [
+        "concept:fabric:warehouse"
+      ],
+      "sourcePages": [],
+      "mappingEvidence": "Reviewed existing note chapters: Warehouse architecture and workload selection; Schemas, tables, views, functions, and procedures; Pipelines, Dataflow Gen2, notebooks, and connectors; Reading data through SQL, Power BI, and clients",
+      "mappingReview": "Pack-level learning context, not proof that every chapter teaches every listed concept",
+      "checkedAt": "2026-10-26"
+    },
+    {
+      "id": "content:notes:pipelines",
+      "title": "Existing learning notes: pipelines",
+      "href": "/lab/dp-600/resources/?pack=pipelines#study-notes",
+      "kind": "lesson-notes",
+      "conceptIds": [
+        "concept:fabric:pipeline",
+        "concept:fabric:dataflow-gen2"
+      ],
+      "sourcePages": [],
+      "mappingEvidence": "Reviewed existing note chapters: Source scope and exam alignment; Movement, orchestration, and transformation; Activity families and nested workflows; Connections, gateways, and directional support",
+      "mappingReview": "Pack-level learning context, not proof that every chapter teaches every listed concept",
+      "checkedAt": "2026-10-26"
+    },
+    {
+      "id": "content:notes:scd",
+      "title": "Existing learning notes: scd",
+      "href": "/lab/dp-600/resources/?pack=scd#study-notes",
+      "kind": "lesson-notes",
+      "conceptIds": [
+        "concept:fabric:star-schema",
+        "concept:fabric:grain"
+      ],
+      "sourcePages": [],
+      "mappingEvidence": "Reviewed existing note chapters: Episode scope and the DP-600 connection; Why modeling matters: structure and trustworthy totals; Customers, orders, and key semantics; Separate event rows from descriptive entities",
+      "mappingReview": "Pack-level learning context, not proof that every chapter teaches every listed concept",
+      "checkedAt": "2026-10-26"
+    },
+    {
+      "id": "content:notes:eventhouse",
+      "title": "Existing learning notes: eventhouse",
+      "href": "/lab/dp-600/resources/?pack=eventhouse#study-notes",
+      "kind": "lesson-notes",
+      "conceptIds": [
+        "concept:fabric:eventhouse"
+      ],
+      "sourcePages": [],
+      "mappingEvidence": "Reviewed existing note chapters: Episode scope and exam alignment; Eventhouse, KQL databases, and cross-engine access; Workload strengths and measurable requirements; Relational requirements and retention tradeoffs",
+      "mappingReview": "Pack-level learning context, not proof that every chapter teaches every listed concept",
+      "checkedAt": "2026-10-26"
+    },
+    {
+      "id": "content:notes:video06",
+      "title": "Existing learning notes: video06",
+      "href": "/lab/dp-600/resources/?pack=video06#study-notes",
+      "kind": "lesson-notes",
+      "conceptIds": [
+        "concept:fabric:permissions",
+        "concept:fabric:rls"
+      ],
+      "sourcePages": [],
+      "mappingEvidence": "Reviewed existing note chapters: SQL column grants; SELECT star and CLS; SQL REVOKE semantics; schema/table inheritance",
+      "mappingReview": "Pack-level learning context, not proof that every chapter teaches every listed concept",
+      "checkedAt": "2026-10-26"
+    },
+    {
+      "id": "content:notes:video07",
+      "title": "Existing learning notes: video07",
+      "href": "/lab/dp-600/resources/?pack=video07#study-notes",
+      "kind": "lesson-notes",
+      "conceptIds": [
+        "concept:fabric:direct-lake"
+      ],
+      "sourcePages": [],
+      "mappingEvidence": "Reviewed existing note chapters: Inference despite masking; Multiple controls; Nonprivileged NULL behavior; Audit inference incidents",
+      "mappingReview": "Pack-level learning context, not proof that every chapter teaches every listed concept",
+      "checkedAt": "2026-10-26"
+    },
+    {
+      "id": "content:notes:video08",
+      "title": "Existing learning notes: video08",
+      "href": "/lab/dp-600/resources/?pack=video08#study-notes",
+      "kind": "lesson-notes",
+      "conceptIds": [
+        "concept:fabric:endorsement"
+      ],
+      "sourcePages": [],
+      "mappingEvidence": "Reviewed existing note chapters: Promotion vs formal certification; Mutually exclusive endorsement; Eligible items and badge constraints; Certification reviewer design",
+      "mappingReview": "Pack-level learning context, not proof that every chapter teaches every listed concept",
+      "checkedAt": "2026-10-26"
+    },
+    {
+      "id": "content:notes:video09",
+      "title": "Existing learning notes: video09",
+      "href": "/lab/dp-600/resources/?pack=video09#study-notes",
+      "kind": "lesson-notes",
+      "conceptIds": [
+        "concept:fabric:git",
+        "concept:fabric:deployment"
+      ],
+      "sourcePages": [],
+      "mappingEvidence": "Reviewed existing note chapters: Cross-region Azure Repos; Scoped tenant settings; Labeled item export; GitHub versus cross-geo enforcement",
+      "mappingReview": "Pack-level learning context, not proof that every chapter teaches every listed concept",
+      "checkedAt": "2026-10-26"
+    },
+    {
+      "id": "content:notes:video10",
+      "title": "Existing learning notes: video10",
+      "href": "/lab/dp-600/resources/?pack=video10#study-notes",
+      "kind": "lesson-notes",
+      "conceptIds": [
+        "concept:fabric:optimize",
+        "concept:fabric:z-order"
+      ],
+      "sourcePages": [],
+      "mappingEvidence": "Reviewed existing note chapters: Git-free pipeline; Uncommitted workspace changes; Stage count; Workspace assignment permission",
+      "mappingReview": "Pack-level learning context, not proof that every chapter teaches every listed concept",
+      "checkedAt": "2026-10-26"
+    },
+    {
+      "id": "content:notes:video12",
+      "title": "Existing learning notes: video12",
+      "href": "/lab/dp-600/resources/?pack=video12#study-notes",
+      "kind": "lesson-notes",
+      "conceptIds": [
+        "concept:fabric:monitoring"
+      ],
+      "sourcePages": [],
+      "mappingEvidence": "Reviewed existing note chapters: Monitor hub / cross-workspace job observability; Monitor hub / cross-workspace job observability; Monitor hub / cross-workspace job observability; Monitor hub / cross-workspace job observability",
+      "mappingReview": "Pack-level learning context, not proof that every chapter teaches every listed concept",
+      "checkedAt": "2026-10-26"
+    }
+  ],
+  "toc": [],
+  "coverage": {
+    "basis": "Skills measured as of October 19, 2026; checked 2026-10-26",
+    "officialGuide": "https://learn.microsoft.com/en-us/credentials/certifications/resources/study-guides/dp-600",
+    "scope": "Representative expansion across all three domains; not exhaustive coverage of every objective or question.",
+    "remaining": [
+      "Complete question-by-question reviewed mapping",
+      "SQL/KQL operator-level relations",
+      "Calculation groups, dynamic formats, composite models, incremental refresh, XMLA and advanced security",
+      "Human publication review; missing 98 question exhibits"
+    ]
+  }
+}

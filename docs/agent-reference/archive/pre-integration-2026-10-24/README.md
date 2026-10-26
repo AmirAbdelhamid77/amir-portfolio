@@ -1,0 +1,1 @@
+Historical pre-integration evidence only. Do not execute these entry points or use this router/manifest as current policy. Active instructions: repository AGENTS.md and docs/agent-reference/START_HERE.md.

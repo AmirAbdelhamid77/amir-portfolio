@@ -1,0 +1,119 @@
+# Machine-readable routing aid, NOT a guarantee of installed/compatible libraries.
+# Always inspect existing code and official documentation first.
+version: '1.1'
+strategy: content_first
+# The entries under routes are candidates, not mandates or priority rankings.
+# First determine whether a visual is justified, then choose representation,
+# THEN compare actual candidate components by semantic correctness, learning,
+# interaction, accessibility, performance, reuse, and maintenance.
+selection_policy: docs/agent-reference/HANSA_ADAPTIVE_VISUALIZATION_AGENT_POLICY.md
+master_reference: docs/agent-reference/HANSA_MASTER_AGENT_REFERENCE_v1.0.md
+preferred_entries_are_nonbinding_candidates: true
+library_precedence:
+  - already_installed_fit_for_purpose_component
+  - free_beui_fit_for_purpose_component
+  - native_or_small_svg_solution
+  - specialist_library_if_materially_justified
+statistical_and_visual_candidates:
+  standard_dashboard: [recharts, shadcn_chart, existing_beui_chart, echarts]
+  advanced_exploration: [echarts, observable_plot, perspective]
+  statistical_facets: [observable_plot, echarts, recharts]
+  custom_react_visual: [visx, native_svg]
+  mathematical_model: [mafs, katex, native_svg]
+  diagrams_and_pipelines: [mermaid, react_flow, native_svg]
+scoring_policy:
+  correctness: 30
+  teaching_clarity: 25
+  essential_interaction: 15
+  performance_mobile: 15
+  accessibility: 10
+  maintenance_reuse: 5
+  hard_disqualifiers_override_score: true
+  compare_with_simple_or_no_visual_option: true
+  install_only_after_repo_and_docs_audit: true
+precedence:
+  - semantic_html_and_css
+  - existing_hansa_components
+  - free_beui_registry
+  - lightweight_svg_or_build_rendered_diagram
+  - specialist_open_source_library_after_justification
+never_use_visualization_without_source_or_labeled_synthetic_model: true
+avoid_unnecessary_dependencies: true
+free_only_by_default: true
+
+routes:
+  definition:
+    preferred: [semantic_html, beui]
+    learning_action: explain_with_example
+  comparison:
+    preferred: [semantic_table, beui]
+    learning_action: contrast_same_conditions
+  sequence:
+    preferred: [ordered_steps, mermaid, beui_timeline]
+    learning_action: step_through
+  process:
+    preferred: [mermaid, accessible_svg, react_flow]
+    learning_action: trace_inputs_outputs
+  hierarchy:
+    preferred: [semantic_tree, mermaid, react_flow]
+    learning_action: expand_parent_child
+  relationship:
+    preferred: [mermaid, react_flow, echarts]
+    learning_action: inspect_edges
+  categorical_comparison:
+    preferred: [existing_beui_chart, recharts, echarts, semantic_table]
+    learning_action: compare_categories
+  time_series:
+    preferred: [existing_beui_chart, recharts, echarts]
+    learning_action: inspect_temporal_change
+  distribution:
+    preferred: [observable_plot, echarts, recharts, mafs, semantic_table]
+    learning_action: inspect_spread_outliers
+  probability_function:
+    preferred: [mafs, katex, observable_plot, echarts]
+    learning_action: adjust_parameters
+  uncertainty:
+    preferred: [echarts, observable_plot, mafs, katex]
+    learning_action: compare_intervals_or_sampling
+  weighted_flow:
+    preferred: [existing_beui_sankey, echarts]
+    learning_action: inspect_valid_flow_weights
+  decision:
+    preferred: [semantic_table, mermaid, react_flow]
+    learning_action: test_constraints_and_consequences
+  narrative:
+    preferred: [semantic_article, beui, recharts, echarts, scrollama]
+    learning_action: follow_evidence_beats
+  formula:
+    preferred: [katex, mafs]
+    learning_action: inspect_symbols_and_parameter_changes
+  code:
+    preferred: [code_block, sandpack]
+    learning_action: trace_and_test
+    caution: 'Sandpack does not natively run Fabric SQL or DAX.'
+  exploratory_analytics:
+    preferred: [perspective, echarts]
+    learning_action: filter_pivot_drill_into_data
+  assessment:
+    preferred: [existing_hansa_exercise_components, beui]
+    learning_action: submit_answer_and_review_reasoning
+  three_dimensional_spatial:
+    preferred: [accessible_static_3d_image, react_three_fiber]
+    learning_action: inspect_spatial_relationships
+    caution: 'Use 3D only when it materially clarifies spatial meaning.'
+
+library_docs:
+  beui: https://beui.dev/docs/ai-agents
+  echarts: https://echarts.apache.org/
+  recharts: https://recharts.github.io/
+  shadcn_chart: https://ui.shadcn.com/docs/components/chart
+  observable_plot: https://observablehq.com/plot/
+  visx: https://visx.airbnb.tech/
+  mafs: https://mafs.dev/
+  react_flow: https://reactflow.dev/
+  scrollama: https://github.com/russellsamora/scrollama
+  perspective: https://perspective-dev.github.io/
+  sandpack: https://sandpack.codesandbox.io/docs
+  mermaid: https://mermaid.js.org/
+  katex: https://katex.org/
+  react_three_fiber: https://r3f.docs.pmnd.rs/

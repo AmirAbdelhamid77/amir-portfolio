@@ -1,0 +1,624 @@
+{
+  "version": "1.0-local",
+  "date": "2026-10-25",
+  "scope": "easyui-v2-native-ingestion-comparison",
+  "modifiedExisting": [
+    "app/learn/dp-600/ingestion/page.tsx",
+    "scripts/verify-knowledge-atlas.mjs",
+    "AGENTS.md",
+    "docs/agent-reference/PACKAGE_MANIFEST.json",
+    "docs/knowledge-atlas/INTEGRATION_MANIFEST.json"
+  ],
+  "createdFiles": [
+    "HANSA_EASYUI_V2_START_HERE.md",
+    "components/academy/pattern-comparison.tsx",
+    "docs/agent-handoffs/HANSA_EASYUI_V2_KICKOFF.md",
+    "docs/agent-handoffs/easyui-v2-2026-10-25/Hansa_EasyUI_Validated_Integration_Pack_V2_2026-10-25.zip",
+    "docs/design-system/HANSA_EASYUI_V2_ADOPTION_LOG.md",
+    "docs/design-system/HANSA_EASYUI_V2_COMPONENT_MATRIX.json",
+    "docs/design-system/HANSA_EASYUI_V2_COMPONENT_MATRIX.md",
+    "docs/design-system/easyui-v2/BEUI_LICENSE.txt",
+    "docs/design-system/easyui-v2/BUNDLE_BEFORE.json",
+    "docs/design-system/easyui-v2/BUNDLE_COMPARISON.json",
+    "docs/design-system/easyui-v2/CHECK_RESULTS.json",
+    "docs/design-system/easyui-v2/COMPARISON_SPEC.md",
+    "docs/design-system/easyui-v2/CONTEXTUAL_COMPONENT_REGISTRY.json",
+    "docs/design-system/easyui-v2/EASYUI_LICENSE.txt",
+    "docs/design-system/easyui-v2/ENDPOINT_EVIDENCE.json",
+    "docs/design-system/easyui-v2/INTEGRATION_MANIFEST.json",
+    "docs/design-system/easyui-v2/INTEGRATION_REPORT.md",
+    "docs/design-system/easyui-v2/LEGACY_ATLAS_PATH_AUDIT.json",
+    "docs/design-system/easyui-v2/PACKAGE_PROVENANCE.json",
+    "docs/design-system/easyui-v2/PRESERVATION_BASELINE.json",
+    "docs/design-system/easyui-v2/QA_RESULTS.json",
+    "docs/design-system/easyui-v2/ROLLBACK_EXISTING_FILES.json",
+    "docs/design-system/easyui-v2/UPSTREAM_CAPABILITIES.json",
+    "docs/design-system/easyui-v2/VALIDATION.md",
+    "docs/design-system/easyui-v2/beui-scroll-progress.json",
+    "docs/design-system/easyui-v2/checks/academy.txt",
+    "docs/design-system/easyui-v2/checks/browser.txt",
+    "docs/design-system/easyui-v2/checks/build.txt",
+    "docs/design-system/easyui-v2/checks/lint.txt",
+    "docs/design-system/easyui-v2/checks/test-all.txt",
+    "docs/design-system/easyui-v2/comparison-1280-light.png",
+    "docs/design-system/easyui-v2/comparison-320-light.png",
+    "docs/design-system/easyui-v2/comparison-390-dark.png",
+    "lib/academy/pattern-comparison.ts",
+    "scripts/verify-easyui-integration.mjs",
+    "tests/academy/pattern-comparison.e2e.mjs",
+    "tests/academy/pattern-comparison.test.mjs"
+  ],
+  "files": [
+    {
+      "path": "AGENTS.md",
+      "bytes": 5470,
+      "sha256": "806c749ff9cea0eeda69ef65bef5c5eee8809e3f59f8904779907ebff1039c4c"
+    },
+    {
+      "path": "HANSA_EASYUI_V2_START_HERE.md",
+      "bytes": 1649,
+      "sha256": "5aa235a12a8e47f91aa6a17abe64b85f29809402d531f8ab8091910e39a3ab2b"
+    },
+    {
+      "path": "app/learn/dp-600/ingestion/page.tsx",
+      "bytes": 5991,
+      "sha256": "397558a667e3e13ec449a85ab8f8ca218e12f9d81fbf90b214e33b61ab129029"
+    },
+    {
+      "path": "components/academy/pattern-comparison.tsx",
+      "bytes": 5137,
+      "sha256": "4aefe260de89924a2f0cef240a0c6639f3b8c26832439bf3577d938070e61830"
+    },
+    {
+      "path": "docs/agent-handoffs/HANSA_EASYUI_V2_KICKOFF.md",
+      "bytes": 4090,
+      "sha256": "8559c0b91a9052a88b54768d27dfee0d2d05348b7d08427e7ed2d9ba8c6cc320"
+    },
+    {
+      "path": "docs/agent-handoffs/easyui-v2-2026-10-25/Hansa_EasyUI_Validated_Integration_Pack_V2_2026-10-25.zip",
+      "bytes": 10526,
+      "sha256": "323db96ad79723f84564796b1dbea35be5e676dde887cdb3dc1a0683b0746a19"
+    },
+    {
+      "path": "docs/agent-reference/PACKAGE_MANIFEST.json",
+      "bytes": 3669,
+      "sha256": "ed2a35961af77751f9da45b9744e2775c1e20068c905fb1949f5aee2efc15d79"
+    },
+    {
+      "path": "docs/design-system/HANSA_EASYUI_V2_ADOPTION_LOG.md",
+      "bytes": 5206,
+      "sha256": "93a740462462bd88c2086a02970ac17f75530add4c774a7970bcb972d2bf765a"
+    },
+    {
+      "path": "docs/design-system/HANSA_EASYUI_V2_COMPONENT_MATRIX.json",
+      "bytes": 10183,
+      "sha256": "e7013f433c9fba69b64abe77c1e50740670728d260d8d2ff5287f5695319b0d4"
+    },
+    {
+      "path": "docs/design-system/HANSA_EASYUI_V2_COMPONENT_MATRIX.md",
+      "bytes": 9288,
+      "sha256": "4913f8a2371d0c69d2a06cd4ae85e898fbd8d26da068c2ea93257a9ce12b9eef"
+    },
+    {
+      "path": "docs/design-system/easyui-v2/BEUI_LICENSE.txt",
+      "bytes": 1072,
+      "sha256": "9e27b491d5691a1bd95708e79de23beb2962f33fe6c1ee31ab639f43009a0b20"
+    },
+    {
+      "path": "docs/design-system/easyui-v2/BUNDLE_BEFORE.json",
+      "bytes": 1219,
+      "sha256": "2148b8b3f3eaa895cb706e9a14c6c24191d6093fea81abcb3a205b18e72c2804"
+    },
+    {
+      "path": "docs/design-system/easyui-v2/BUNDLE_COMPARISON.json",
+      "bytes": 2944,
+      "sha256": "bfe2fd1f4ca948bc76a4d61d195060c9c0ccaeca951c50eaab460d5aa5b011f5"
+    },
+    {
+      "path": "docs/design-system/easyui-v2/CHECK_RESULTS.json",
+      "bytes": 1198,
+      "sha256": "819c87cabc9996184bbe1d5e22a0e6d6dc92793121bccc1812667a6fae3c949e"
+    },
+    {
+      "path": "docs/design-system/easyui-v2/COMPARISON_SPEC.md",
+      "bytes": 2897,
+      "sha256": "65736da149fc144a681ce49f2ffa3a7690aa608716d56f2d4cf51a544975271b"
+    },
+    {
+      "path": "docs/design-system/easyui-v2/CONTEXTUAL_COMPONENT_REGISTRY.json",
+      "bytes": 30657,
+      "sha256": "7b8507190f8a6537565b24169939179db1ec26d77e3376d406c2c8d0cdf4320d"
+    },
+    {
+      "path": "docs/design-system/easyui-v2/EASYUI_LICENSE.txt",
+      "bytes": 1069,
+      "sha256": "44812848f920dd3a9bbe27918ae4e92d548ac788846955fe88b953e57e716e22"
+    },
+    {
+      "path": "docs/design-system/easyui-v2/ENDPOINT_EVIDENCE.json",
+      "bytes": 728,
+      "sha256": "58e672e2d0315f2d0f934df5457578f77bcd87fc64c0cdf34cf02d6741d6e166"
+    },
+    {
+      "path": "docs/design-system/easyui-v2/INTEGRATION_REPORT.md",
+      "bytes": 14905,
+      "sha256": "cbf15c323f656d4b2eb6e33fbe58004030fc4c3863a872ae1f3ac973e6c9d810"
+    },
+    {
+      "path": "docs/design-system/easyui-v2/LEGACY_ATLAS_PATH_AUDIT.json",
+      "bytes": 31267,
+      "sha256": "4844900facc827f0b8a7ef79f131130964f0936c938d3c63d6bfe7fde595f6b2"
+    },
+    {
+      "path": "docs/design-system/easyui-v2/PACKAGE_PROVENANCE.json",
+      "bytes": 1211,
+      "sha256": "1cd8a52e972ca052665e52cabe35ce4fa053d85737f53ccf4b3276b42299c9f4"
+    },
+    {
+      "path": "docs/design-system/easyui-v2/PRESERVATION_BASELINE.json",
+      "bytes": 180953,
+      "sha256": "86d4e02a363dc14b08dacfd3704bc495001c518a37323dc9cea30f8658164408"
+    },
+    {
+      "path": "docs/design-system/easyui-v2/QA_RESULTS.json",
+      "bytes": 1117,
+      "sha256": "f37f0442dbcff34db9beec458978f2ac174a04847ece0ba18f5979070c99b925"
+    },
+    {
+      "path": "docs/design-system/easyui-v2/ROLLBACK_EXISTING_FILES.json",
+      "bytes": 45106,
+      "sha256": "96a5729e5f4b55c2b2fadee202968c6d7e1c7e82080845bde93b5385994e8be8"
+    },
+    {
+      "path": "docs/design-system/easyui-v2/UPSTREAM_CAPABILITIES.json",
+      "bytes": 36024,
+      "sha256": "6b6a6ca99b51b6fb0edbdac9b96b409a6ab3066aa0393f61feea5c5999fd1942"
+    },
+    {
+      "path": "docs/design-system/easyui-v2/VALIDATION.md",
+      "bytes": 4271,
+      "sha256": "150a1d8b8abd1c7ec1908ff041494e0c03adbc5bc3dc80244b6d803d274568d8"
+    },
+    {
+      "path": "docs/design-system/easyui-v2/beui-scroll-progress.json",
+      "bytes": 12705,
+      "sha256": "591bfc568d8c21125884b4132e2ff44b07443d60d4cc4af864aa4d7424352998"
+    },
+    {
+      "path": "docs/design-system/easyui-v2/checks/academy.txt",
+      "bytes": 4547,
+      "sha256": "26b8de194603d8fd58e79f96fb2f8500148e4ea05736b64f69c01eca7bdfc20d"
+    },
+    {
+      "path": "docs/design-system/easyui-v2/checks/browser.txt",
+      "bytes": 803,
+      "sha256": "56c5b46477d801d1bb4115e044bccb260b8b6cb3369830676ee6a1fdce484348"
+    },
+    {
+      "path": "docs/design-system/easyui-v2/checks/build.txt",
+      "bytes": 3189,
+      "sha256": "2b64d8b2c1cc1ef73849c2202e27e71d33015b7dc34b9c51f4900a04ad1e49bb"
+    },
+    {
+      "path": "docs/design-system/easyui-v2/checks/lint.txt",
+      "bytes": 10,
+      "sha256": "844046a5268272fdc4430bcd571682889af6008aa44e36a6945bdd3c04f0e8f9"
+    },
+    {
+      "path": "docs/design-system/easyui-v2/checks/test-all.txt",
+      "bytes": 29229,
+      "sha256": "79ae795ac3bbe2df92f3e27f2b4a9c38ae150d61b06d743fa92ee6d7a6dec809"
+    },
+    {
+      "path": "docs/design-system/easyui-v2/comparison-1280-light.png",
+      "bytes": 97638,
+      "sha256": "ed4157263438a6c27eab1cdc7f1352fcb24b55a54bf087383d2aad921a495b1c"
+    },
+    {
+      "path": "docs/design-system/easyui-v2/comparison-320-light.png",
+      "bytes": 119613,
+      "sha256": "220cc1e623f771b1055fe7ec299c2e7ab6df7e4a9eda83067a8fc8daf02f6b68"
+    },
+    {
+      "path": "docs/design-system/easyui-v2/comparison-390-dark.png",
+      "bytes": 114208,
+      "sha256": "19aa6aafda3040ef841f515702d9e174cf5956dfd9a024cd244c5ecbc717e9e2"
+    },
+    {
+      "path": "docs/knowledge-atlas/INTEGRATION_MANIFEST.json",
+      "bytes": 9402,
+      "sha256": "119702fbf75beeaffd0394f1eab720bf10ebedf68692f7e5a17beac9cdb0c325"
+    },
+    {
+      "path": "lib/academy/pattern-comparison.ts",
+      "bytes": 1426,
+      "sha256": "e0b9d85c70c44ac134767ac7a53ced1518e41df91e3a5caaaeca43c5eab28f45"
+    },
+    {
+      "path": "scripts/verify-easyui-integration.mjs",
+      "bytes": 3871,
+      "sha256": "7f6d2742c8dfc0e5590178ee9bf2219c8e8155226c74e9c184463863a74c73f2"
+    },
+    {
+      "path": "scripts/verify-knowledge-atlas.mjs",
+      "bytes": 10081,
+      "sha256": "134ab43c9ab301868c41b781394f8f1132d55e87cf3a2d882d6364d557913e73"
+    },
+    {
+      "path": "tests/academy/pattern-comparison.e2e.mjs",
+      "bytes": 6086,
+      "sha256": "dd340356929b4c1a7b6aa562584bf32fd2329dbae629fefec00837f1646bbefb"
+    },
+    {
+      "path": "tests/academy/pattern-comparison.test.mjs",
+      "bytes": 1629,
+      "sha256": "2a36d3bf3fb245b07699107a87772ee23511f81b0abf0ca39c7ba2d8a62a1379"
+    }
+  ],
+  "runtimeChanges": [
+    {
+      "path": "app/learn/dp-600/ingestion/page.tsx",
+      "beforeSha256": "d2e36855a9282e704bb0e6441a25441fd561f79629d3aace83592babd34e2a42",
+      "sha256": "397558a667e3e13ec449a85ab8f8ca218e12f9d81fbf90b214e33b61ab129029"
+    },
+    {
+      "path": "components/academy/pattern-comparison.tsx",
+      "beforeSha256": null,
+      "sha256": "4aefe260de89924a2f0cef240a0c6639f3b8c26832439bf3577d938070e61830"
+    },
+    {
+      "path": "lib/academy/pattern-comparison.ts",
+      "beforeSha256": null,
+      "sha256": "e0b9d85c70c44ac134767ac7a53ced1518e41df91e3a5caaaeca43c5eab28f45"
+    },
+    {
+      "path": "tests/academy/pattern-comparison.e2e.mjs",
+      "beforeSha256": null,
+      "sha256": "dd340356929b4c1a7b6aa562584bf32fd2329dbae629fefec00837f1646bbefb"
+    },
+    {
+      "path": "tests/academy/pattern-comparison.test.mjs",
+      "beforeSha256": null,
+      "sha256": "2a36d3bf3fb245b07699107a87772ee23511f81b0abf0ca39c7ba2d8a62a1379"
+    }
+  ],
+  "legacyAtlasPathAliases": [
+    {
+      "path": "Comprehensive Statistics Reference/📚 Comprehensive Statistics Reference — من الصفر إل 3ca3906c5d6c81439567c45c6a6e2643.html",
+      "currentPath": "intake/source-exports/statistics/📚 Comprehensive Statistics Reference — من الصفر إل 3ca3906c5d6c81439567c45c6a6e2643.html",
+      "sha256": "b16602340db52697bc7ed6ccab72eced7698c409594e3f8dac8e65b1aa04eaf7"
+    },
+    {
+      "path": "Data Visualization/Accessibility, Contrast & Color QA 3cd3906c5d6c819ab08ac1f7717dc4c2.html",
+      "currentPath": "intake/source-exports/data-visualization/Accessibility, Contrast & Color QA 3cd3906c5d6c819ab08ac1f7717dc4c2.html",
+      "sha256": "cfdd6efcf495953350b5c488f3f2561654d5733ece68f3e7a0da18b4c6cab190"
+    },
+    {
+      "path": "Data Visualization/Advanced & Multivariate Techniques 3cd3906c5d6c815996b1ca4687c3808b.html",
+      "currentPath": "intake/source-exports/data-visualization/Advanced & Multivariate Techniques 3cd3906c5d6c815996b1ca4687c3808b.html",
+      "sha256": "5620e98392c212c912ff7cc50a04aa608e1c175d276ffd60f172df535a0bf708"
+    },
+    {
+      "path": "Data Visualization/bar_baseline.svg",
+      "currentPath": "intake/source-exports/data-visualization/bar_baseline.svg",
+      "sha256": "25e42775d3ace2adc5b11c7f9a68225f77e8afe542a6512bd534395e1f679d01"
+    },
+    {
+      "path": "Data Visualization/Chart Selection Matrix & Anti-Patterns 3cd3906c5d6c81219916c1029b5aecd5.html",
+      "currentPath": "intake/source-exports/data-visualization/Chart Selection Matrix & Anti-Patterns 3cd3906c5d6c81219916c1029b5aecd5.html",
+      "sha256": "83606055219d0b175c86d9266ed49b378674c5442cb97b2dd8a69827f151e66e"
+    },
+    {
+      "path": "Data Visualization/Color Theory for Data Visualization 3cd3906c5d6c81c19cadc4d11b657ffd.html",
+      "currentPath": "intake/source-exports/data-visualization/Color Theory for Data Visualization 3cd3906c5d6c81c19cadc4d11b657ffd.html",
+      "sha256": "3bd601e621ad8a96160e7f96f9bf0783e8e1d41fd1aca2ba01e6e14b1df49007"
+    },
+    {
+      "path": "Data Visualization/color_families.svg",
+      "currentPath": "intake/source-exports/data-visualization/color_families.svg",
+      "sha256": "1c3ddfab23c6715e2f9b96a0c2842dce0674736279d1fa6f3d1091a79a8d2f9f"
+    },
+    {
+      "path": "Data Visualization/Core Chart Types & Scales 3cd3906c5d6c816fb3e9d8809b4dbe8e.html",
+      "currentPath": "intake/source-exports/data-visualization/Core Chart Types & Scales 3cd3906c5d6c816fb3e9d8809b4dbe8e.html",
+      "sha256": "9bb0962c11e06eb74460444e54cba2e2a0db5cf8df84ef282eee17531db327b5"
+    },
+    {
+      "path": "Data Visualization/Dashboard Design, Composition & Cognitive Load 3cd3906c5d6c81b793aaf1036705960f.html",
+      "currentPath": "intake/source-exports/data-visualization/Dashboard Design, Composition & Cognitive Load 3cd3906c5d6c81b793aaf1036705960f.html",
+      "sha256": "9f9e9bb2518060e34adbb6d3f75b8d2ded7bb612eca5fcc2fde986795decce42"
+    },
+    {
+      "path": "Data Visualization/dashboard_hierarchy.svg",
+      "currentPath": "intake/source-exports/data-visualization/dashboard_hierarchy.svg",
+      "sha256": "923c293c8ff3ecee2f2be79fdc92e897c7e9b49619487607b4e217b131a374cd"
+    },
+    {
+      "path": "Data Visualization/Data Visualization Interview Master Bank 3cd3906c5d6c81f49e4cc8ca53d6e812.html",
+      "currentPath": "intake/source-exports/data-visualization/Data Visualization Interview Master Bank 3cd3906c5d6c81f49e4cc8ca53d6e812.html",
+      "sha256": "0f3832fc40df005bb593341545c90d6e999341a08505d931437b0c71830931bd"
+    },
+    {
+      "path": "Data Visualization/dual_vs_panels.svg",
+      "currentPath": "intake/source-exports/data-visualization/dual_vs_panels.svg",
+      "sha256": "c2d28f8ffb09e6b6c155768810fe4f0ed97f691ad5680709cee65ce32f3d098f"
+    },
+    {
+      "path": "Data Visualization/encoding_strength.svg",
+      "currentPath": "intake/source-exports/data-visualization/encoding_strength.svg",
+      "sha256": "357222e84507d5b49d5d1cc4711ea2bd2fff0f1354d59af03c49488e098e1f5f"
+    },
+    {
+      "path": "Data Visualization/Foundations & Decision Framework 3cd3906c5d6c8191959ef2ecc8c0ca59.html",
+      "currentPath": "intake/source-exports/data-visualization/Foundations & Decision Framework 3cd3906c5d6c8191959ef2ecc8c0ca59.html",
+      "sha256": "1258e27aa32d11cd297d6630881e6991504352a10159000f8878119877ade059"
+    },
+    {
+      "path": "Data Visualization/hist_shapes.svg",
+      "currentPath": "intake/source-exports/data-visualization/hist_shapes.svg",
+      "sha256": "a57a6d1620f090f28a43a57b500a41478c40976b171a88fa6aa38c77803679de"
+    },
+    {
+      "path": "Data Visualization/kpi_card_anatomy.svg",
+      "currentPath": "intake/source-exports/data-visualization/kpi_card_anatomy.svg",
+      "sha256": "7f9d1d80845429c68cf754ba9162d1e169f9f75e1223b8ff1053617d5d0622d8"
+    },
+    {
+      "path": "Data Visualization/mean_hides_dist.svg",
+      "currentPath": "intake/source-exports/data-visualization/mean_hides_dist.svg",
+      "sha256": "5b000a0850f073eefbc86e359282e38c570c01da103e34dc5ec28abca575354c"
+    },
+    {
+      "path": "Data Visualization/os_pipeline_full.svg",
+      "currentPath": "intake/source-exports/data-visualization/os_pipeline_full.svg",
+      "sha256": "18b7b57b0124091e179ea1457486bafe1d413d5698ea24052633228099ff5197"
+    },
+    {
+      "path": "Data Visualization/Power BI Visualization Playbook 3cd3906c5d6c81b583dadccead758b3c.html",
+      "currentPath": "intake/source-exports/data-visualization/Power BI Visualization Playbook 3cd3906c5d6c81b583dadccead758b3c.html",
+      "sha256": "cfd6a448842b9545ef3aca2cb0158b109d67e9ac2a0afc91017a316d45adf211"
+    },
+    {
+      "path": "Data Visualization/Quick Reference & Exam Prep 3cd3906c5d6c813ea34dc5e5e4870d71.html",
+      "currentPath": "intake/source-exports/data-visualization/Quick Reference & Exam Prep 3cd3906c5d6c813ea34dc5e5e4870d71.html",
+      "sha256": "ebce7d23274019dd6fbe240e1728523b0389da6721ab3341dc15f0f7d08281eb"
+    },
+    {
+      "path": "Data Visualization/simpson_paradox.svg",
+      "currentPath": "intake/source-exports/data-visualization/simpson_paradox.svg",
+      "sha256": "9f8ae51e07d67a7489a2068ed5a2ad390c5e674381e60bd10f591de8d26a0798"
+    },
+    {
+      "path": "Data Visualization/Statistical Interpretation Traps for Visualization 3cd3906c5d6c81febadef001c3adffc8.html",
+      "currentPath": "intake/source-exports/data-visualization/Statistical Interpretation Traps for Visualization 3cd3906c5d6c81febadef001c3adffc8.html",
+      "sha256": "c6d0d767463f76f317ce3bc969de4c9a9051c95136f3f07f158455421b8bc87b"
+    },
+    {
+      "path": "Data Visualization/summary_stats_trap.svg",
+      "currentPath": "intake/source-exports/data-visualization/summary_stats_trap.svg",
+      "sha256": "02e6e3bcdf9dddfdde91e804172989d1acc719459d8687edb590d8d75dbdd179"
+    },
+    {
+      "path": "Data Visualization/uncertainty_bars.svg",
+      "currentPath": "intake/source-exports/data-visualization/uncertainty_bars.svg",
+      "sha256": "2ce8c27a7a0607cb6db3c9673c5861c2c91ac5ef2226fd8cbb79731b3ff47a33"
+    },
+    {
+      "path": "Data Visualization/Visual Atlas — Teaching Charts & Figure Pack 3e53906c5d6c81e588dee386862fecac.html",
+      "currentPath": "intake/source-exports/data-visualization/Visual Atlas — Teaching Charts & Figure Pack 3e53906c5d6c81e588dee386862fecac.html",
+      "sha256": "5b6855c7bde7a678c3eab4769c089946149c0fc2d1bd797b00b12056d07ffd83"
+    },
+    {
+      "path": "Data Visualization/Visual Integrity, Pitfalls & Ethics 3cd3906c5d6c81809fa1ea9a9146aea0.html",
+      "currentPath": "intake/source-exports/data-visualization/Visual Integrity, Pitfalls & Ethics 3cd3906c5d6c81809fa1ea9a9146aea0.html",
+      "sha256": "2d9178ff28a802988ab97b7fa10b9698801956bc50b490ee29241410985434a9"
+    },
+    {
+      "path": "Data Visualization/أفضل المراجع العالمية (Curated References) 4ceee50e87384884a9f663de5eb7e521.html",
+      "currentPath": "intake/source-exports/data-visualization/أفضل المراجع العالمية (Curated References) 4ceee50e87384884a9f663de5eb7e521.html",
+      "sha256": "7c6f3237ae0833bbcb288c192a53cb160001f4685d4e6752a5f93622698660d8"
+    },
+    {
+      "path": "Data Visualization/مسارات قراءة مقترحة (Beginner → Advanced) e93dca8916a5445e9d0f8ca3192d01dc.html",
+      "currentPath": "intake/source-exports/data-visualization/مسارات قراءة مقترحة (Beginner → Advanced) e93dca8916a5445e9d0f8ca3192d01dc.html",
+      "sha256": "b5a07fc72f8c43c845061c40d88931b1657e7eda248e29df2bf104331935e0d6"
+    },
+    {
+      "path": "Data Visualization/🎨 الجزء 6 الألوان في Data Visualization 3cd3906c5d6c8101aa91eb72bc14c030.html",
+      "currentPath": "intake/source-exports/data-visualization/🎨 الجزء 6 الألوان في Data Visualization 3cd3906c5d6c8101aa91eb72bc14c030.html",
+      "sha256": "5eeb1bb148b7869d1679341e78b6b00c9890f725787ddb26d16e481612119cbc"
+    },
+    {
+      "path": "Data Visualization/🎯 نصائح وTricks عملية + بنك أسئلة المقابلات (BI Po 3cd3906c5d6c8109a01fc02be38ff15a.html",
+      "currentPath": "intake/source-exports/data-visualization/🎯 نصائح وTricks عملية + بنك أسئلة المقابلات (BI Po 3cd3906c5d6c8109a01fc02be38ff15a.html",
+      "sha256": "ab3824c8cfca38903a8bd9257168aebe340f9ac8c6c0fcce06fd9d362a898dda"
+    },
+    {
+      "path": "Data Visualization/📊 Bar Plot — مخطط الأعمدة 3cd3906c5d6c817682b0d6ec864e154e.html",
+      "currentPath": "intake/source-exports/data-visualization/📊 Bar Plot — مخطط الأعمدة 3cd3906c5d6c817682b0d6ec864e154e.html",
+      "sha256": "c6032d2aaf3677dd7557c5e8d3f8e82c33e59c30224c2b7635d59be1f3609497"
+    },
+    {
+      "path": "Data Visualization/📊 Box Plot — مخطط الصندوق 3cd3906c5d6c8159a9a9ce758a6e26e2.html",
+      "currentPath": "intake/source-exports/data-visualization/📊 Box Plot — مخطط الصندوق 3cd3906c5d6c8159a9a9ce758a6e26e2.html",
+      "sha256": "422660e6d814d751fa03bce6649a879f72c05a078733736670baea18abb7235a"
+    },
+    {
+      "path": "Data Visualization/📊 Data Visualization — Comprehensive & Deep Refere 3cd3906c5d6c817a8116e9e1b38d216f.html",
+      "currentPath": "intake/source-exports/data-visualization/📊 Data Visualization — Comprehensive & Deep Refere 3cd3906c5d6c817a8116e9e1b38d216f.html",
+      "sha256": "bdb8ffe642b96cde5dc5f57a7f8fab88329b0ecdb8411799d4a7cbb27f5790ca"
+    },
+    {
+      "path": "Data Visualization/📊 Dot Plot — مخطط النقاط 3cd3906c5d6c8185b9c4e5d2d80ca4fe.html",
+      "currentPath": "intake/source-exports/data-visualization/📊 Dot Plot — مخطط النقاط 3cd3906c5d6c8185b9c4e5d2d80ca4fe.html",
+      "sha256": "847167a1a80306e9eb359d0f2d09005640a6b0eab9df5a15dedb19146a2379c7"
+    },
+    {
+      "path": "Data Visualization/📊 Histogram — المدرج التكراري 3cd3906c5d6c81299255f295d7b2434d.html",
+      "currentPath": "intake/source-exports/data-visualization/📊 Histogram — المدرج التكراري 3cd3906c5d6c81299255f295d7b2434d.html",
+      "sha256": "45c129ec40e063e99abe07bf2cc30c6294b493c437b654ea95769f91783647bd"
+    },
+    {
+      "path": "Data Visualization/📊 Line Plot — الرسم الخطي 3cd3906c5d6c81a1b557e07b0d15bca7.html",
+      "currentPath": "intake/source-exports/data-visualization/📊 Line Plot — الرسم الخطي 3cd3906c5d6c81a1b557e07b0d15bca7.html",
+      "sha256": "540c808a0bc80d8724c50ba17193091a932a61632760ed3fe79265388bf889ce"
+    },
+    {
+      "path": "Data Visualization/📊 Scatter Plot — مخطط التشتت 3cd3906c5d6c8103bf02edeecfa351fc.html",
+      "currentPath": "intake/source-exports/data-visualization/📊 Scatter Plot — مخطط التشتت 3cd3906c5d6c8103bf02edeecfa351fc.html",
+      "sha256": "f933b3eeb621d5fe9b6eae4ad4d15c279838baeba2fee755099c80f44fa304c5"
+    },
+    {
+      "path": "Data Visualization/📊 الجزء 3 الرسوم الأساسية (Univariate & Bivariate  3cd3906c5d6c81ee9070c16e5c6be1ed.html",
+      "currentPath": "intake/source-exports/data-visualization/📊 الجزء 3 الرسوم الأساسية (Univariate & Bivariate  3cd3906c5d6c81ee9070c16e5c6be1ed.html",
+      "sha256": "28350e46539057278235835f79b7ff08a6a659cf7a44ada01014f8138c661cfc"
+    },
+    {
+      "path": "Hansa_Knowledge_Atlas_Handoff_2026-10-25/docs/AGENTS_MD_ADDENDUM.md",
+      "currentPath": "docs/agent-handoffs/hansa-knowledge-atlas-2026-10-25/docs/AGENTS_MD_ADDENDUM.md",
+      "sha256": "d1af61ffc9dbc144d2fdd440e2313df5f6b9fca5dd539ca53a4bf5704b343bce"
+    },
+    {
+      "path": "Hansa_Knowledge_Atlas_Handoff_2026-10-25/docs/AGENT_KICKOFF_PROMPT.md",
+      "currentPath": "docs/agent-handoffs/hansa-knowledge-atlas-2026-10-25/docs/AGENT_KICKOFF_PROMPT.md",
+      "sha256": "67faf20639f5fac61c5b886cbbfe5be5ea6e7efb53722bda5fd291e5c689e7ff"
+    },
+    {
+      "path": "Hansa_Knowledge_Atlas_Handoff_2026-10-25/docs/CONTENT_MODEL_AND_GOVERNANCE.md",
+      "currentPath": "docs/agent-handoffs/hansa-knowledge-atlas-2026-10-25/docs/CONTENT_MODEL_AND_GOVERNANCE.md",
+      "sha256": "6751914b71a6cf52ff92b55c1e74e4d3262d4c8aa8d6a8aefa63319996eebd7c"
+    },
+    {
+      "path": "Hansa_Knowledge_Atlas_Handoff_2026-10-25/docs/DECISIONS_AND_CREATIVE_BRIEF.md",
+      "currentPath": "docs/agent-handoffs/hansa-knowledge-atlas-2026-10-25/docs/DECISIONS_AND_CREATIVE_BRIEF.md",
+      "sha256": "f6406f9659b5503024fbc94beb7cdae81bdf3acd383759bf05bf5398343663b6"
+    },
+    {
+      "path": "Hansa_Knowledge_Atlas_Handoff_2026-10-25/docs/IMPLEMENTATION_ROADMAP.md",
+      "currentPath": "docs/agent-handoffs/hansa-knowledge-atlas-2026-10-25/docs/IMPLEMENTATION_ROADMAP.md",
+      "sha256": "b982af01007344d70aa753412dee635f65e56a2bc67f4405ceab5ed04a1384ef"
+    },
+    {
+      "path": "Hansa_Knowledge_Atlas_Handoff_2026-10-25/docs/MASTER_SPEC_EN.md",
+      "currentPath": "docs/agent-handoffs/hansa-knowledge-atlas-2026-10-25/docs/MASTER_SPEC_EN.md",
+      "sha256": "e8a00d952db91bc04f0d7ab5d6cf89b46fb4fe06ef42a09427edaa1c0970b0f6"
+    },
+    {
+      "path": "Hansa_Knowledge_Atlas_Handoff_2026-10-25/docs/QUALITY_GATES_AND_TESTS.md",
+      "currentPath": "docs/agent-handoffs/hansa-knowledge-atlas-2026-10-25/docs/QUALITY_GATES_AND_TESTS.md",
+      "sha256": "72f52fcf85f730c706b6fe020d96d24886c96055c18c94b762fa1c2b74a34d3e"
+    },
+    {
+      "path": "Hansa_Knowledge_Atlas_Handoff_2026-10-25/docs/UX_VISUAL_SYSTEM.md",
+      "currentPath": "docs/agent-handoffs/hansa-knowledge-atlas-2026-10-25/docs/UX_VISUAL_SYSTEM.md",
+      "sha256": "fc4e107ab2a8263dce209fe23ba21f22529b0ccb8489a8ecd5ba6758f2feb9c0"
+    },
+    {
+      "path": "Hansa_Knowledge_Atlas_Handoff_2026-10-25/examples/atlas-candidate-fixture.json",
+      "currentPath": "docs/agent-handoffs/hansa-knowledge-atlas-2026-10-25/examples/atlas-candidate-fixture.json",
+      "sha256": "84604fcbf0b00ff8de1b447c23dd82b6dfce2bad28c99ec9564a1b4dec98189e"
+    },
+    {
+      "path": "Hansa_Knowledge_Atlas_Handoff_2026-10-25/examples/guide-coverage-template.csv",
+      "currentPath": "docs/agent-handoffs/hansa-knowledge-atlas-2026-10-25/examples/guide-coverage-template.csv",
+      "sha256": "a181bcdb8e738f8ead3a0afa14a771114524925ba1ae53325f7e36aff168ef83"
+    },
+    {
+      "path": "Hansa_Knowledge_Atlas_Handoff_2026-10-25/HANDOFF_MANIFEST.json",
+      "currentPath": "docs/agent-handoffs/hansa-knowledge-atlas-2026-10-25/HANDOFF_MANIFEST.json",
+      "sha256": "379493035ab45da0c87e48fc93d7d8db9e86b11f9b4b7907971192a23e223d12"
+    },
+    {
+      "path": "Hansa_Knowledge_Atlas_Handoff_2026-10-25/README_AR.md",
+      "currentPath": "docs/agent-handoffs/hansa-knowledge-atlas-2026-10-25/README_AR.md",
+      "sha256": "0d7db77ccfbf2a1ac8ab96f1a19994e5292ed4de4c333eb7d366f85903bc451f"
+    },
+    {
+      "path": "Hansa_Knowledge_Atlas_Handoff_2026-10-25/references/NotebookLM_guide_mindmap_reference.png",
+      "currentPath": "docs/agent-handoffs/hansa-knowledge-atlas-2026-10-25/references/NotebookLM_guide_mindmap_reference.png",
+      "sha256": "7b7a0b508e3ca78523aaf99c8b7a1f1dea0f50785b32dc5ae4cbfb30bf4f11e5"
+    },
+    {
+      "path": "Hansa_Knowledge_Atlas_Handoff_2026-10-25/schemas/atlas-content.schema.json",
+      "currentPath": "docs/agent-handoffs/hansa-knowledge-atlas-2026-10-25/schemas/atlas-content.schema.json",
+      "sha256": "55072960806c17df730f2d90b2f2219ea7116cf7ab22a6bd24b7f8cd8a53730f"
+    },
+    {
+      "path": "Hansa_Knowledge_Atlas_Handoff_2026-10-25/START_HERE.md",
+      "currentPath": "docs/agent-handoffs/hansa-knowledge-atlas-2026-10-25/START_HERE.md",
+      "sha256": "fa338595451fae2f6decafb4d82acf90e7aa87098c095e43e8060a13cd250c0c"
+    },
+    {
+      "path": "Hansa_Knowledge_Atlas_Handoff_2026-10-25/tools/build_manifest_and_zip.py",
+      "currentPath": "docs/agent-handoffs/hansa-knowledge-atlas-2026-10-25/tools/build_manifest_and_zip.py",
+      "sha256": "bf6b109e5db227c50d7af011be4790bf14a6f1db52a869e4f9dd6d0c190b4fff"
+    },
+    {
+      "path": "Hansa_Knowledge_Atlas_Handoff_2026-10-25/tools/verify_handoff.py",
+      "currentPath": "docs/agent-handoffs/hansa-knowledge-atlas-2026-10-25/tools/verify_handoff.py",
+      "sha256": "19e883fde4a73212881c94ea5ec44eab3cef5a19f69885f49eb9a2b125b33412"
+    },
+    {
+      "path": "inputs/HANSA_DP600_LEARNING_ACADEMY_ANALYSIS_HANDOFF_2026-10-25.zip",
+      "currentPath": "docs/agent-handoffs/dp600-learning-academy-2026-10-25/delivery/inputs/HANSA_DP600_LEARNING_ACADEMY_ANALYSIS_HANDOFF_2026-10-25.zip",
+      "sha256": "e97a970f5ef120a02686980dd84e11d57d07a9edc0d73158f60e6a4a75b83232"
+    },
+    {
+      "path": "inputs/HANSA_DP600_WEB_CONTENT_PACK_v1.zip",
+      "currentPath": "docs/agent-handoffs/dp600-learning-academy-2026-10-25/delivery/inputs/HANSA_DP600_WEB_CONTENT_PACK_v1.zip",
+      "sha256": "9af6e393eb7e59e33f53c29e836cb76cca4a617a9bf9e9389f3f456e5c74ce5b"
+    },
+    {
+      "path": "inputs/ingestion-pattern-interactive-demo.html",
+      "currentPath": "docs/agent-handoffs/dp600-learning-academy-2026-10-25/delivery/inputs/ingestion-pattern-interactive-demo.html",
+      "sha256": "230dfb0a3e89f25b0fc3101631f38f714fb13e0f5e22d0ca097387939f7a5305"
+    },
+    {
+      "path": "instructions/AGENT_KICKOFF_PROMPT_EN.md",
+      "currentPath": "docs/agent-handoffs/dp600-learning-academy-2026-10-25/delivery/instructions/AGENT_KICKOFF_PROMPT_EN.md",
+      "sha256": "9c68ef15a78108a5df4082fabf9a09030ab585dbdd2677bbdaafd39259c92786"
+    },
+    {
+      "path": "instructions/SOURCE_GOVERNANCE_AND_UIUX_POLICY.md",
+      "currentPath": "docs/agent-handoffs/dp600-learning-academy-2026-10-25/delivery/instructions/SOURCE_GOVERNANCE_AND_UIUX_POLICY.md",
+      "sha256": "62687d11936d81ff0a34cdf087aefa2cb63153ed9eec41023090247e1147e1b5"
+    },
+    {
+      "path": "MANIFEST.json",
+      "currentPath": "docs/agent-handoffs/dp600-learning-academy-2026-10-25/delivery/MANIFEST.json",
+      "sha256": "cb56803125314d3df13a277d83ac4437413840bfd32b372757693d076c46808d"
+    },
+    {
+      "path": "reference_snapshots/AGENTS.md",
+      "currentPath": "docs/agent-handoffs/dp600-learning-academy-2026-10-25/delivery/reference_snapshots/AGENTS.md",
+      "sha256": "06748f4d2af2ac4faab7b340a671ebdbfb45033b611b29f8a605dbbf9ef6ba80"
+    },
+    {
+      "path": "reference_snapshots/CONTENT_BRIEF_TEMPLATE.yaml",
+      "currentPath": "docs/agent-handoffs/dp600-learning-academy-2026-10-25/delivery/reference_snapshots/CONTENT_BRIEF_TEMPLATE.yaml",
+      "sha256": "001a419deb0814ef5a3d336b5ca57db7263a4c71c2245fb5fba0795c52fe4dcf"
+    },
+    {
+      "path": "reference_snapshots/HANSA_MASTER_AGENT_REFERENCE_v1.0.md",
+      "currentPath": "docs/agent-handoffs/dp600-learning-academy-2026-10-25/delivery/reference_snapshots/HANSA_MASTER_AGENT_REFERENCE_v1.0.md",
+      "sha256": "dba9e96e7f4ae160ad1acb68cbf119e0bfacb85774a584c5ed72a392e39c26c0"
+    },
+    {
+      "path": "scripts/STAGE_INTO_HANSA.ps1",
+      "currentPath": "docs/agent-handoffs/dp600-learning-academy-2026-10-25/delivery/scripts/STAGE_INTO_HANSA.ps1",
+      "sha256": "0f02ed45d0630ccd12a6f5eea01752500a4618ba7273920a31b26c3fe645b182"
+    },
+    {
+      "path": "SHA256_MANIFEST.txt",
+      "currentPath": "docs/agent-handoffs/dp600-learning-academy-2026-10-25/delivery/SHA256_MANIFEST.txt",
+      "sha256": "149410033d8e0c4789324b5222c9670c2a534d74a61a6bafee5764459d0fd69b"
+    },
+    {
+      "path": "START_HERE.md",
+      "currentPath": "docs/agent-handoffs/dp600-learning-academy-2026-10-25/delivery/START_HERE.md",
+      "sha256": "2a7b65f986acdec4dba626109a4bb16ea95aa36cd14957a902abefdf25682061"
+    }
+  ],
+  "manifestExcludesSelf": true,
+  "preservationRepair": "docs/preservation-history/2026-10-25/RECONCILIATION.json"
+}

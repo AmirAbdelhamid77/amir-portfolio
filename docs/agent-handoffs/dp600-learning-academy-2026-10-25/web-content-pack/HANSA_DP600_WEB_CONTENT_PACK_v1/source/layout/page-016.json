@@ -1,0 +1,1227 @@
+{
+  "page": 16,
+  "width": 594.9599609375,
+  "height": 841.9199829101562,
+  "blocks": [
+    {
+      "bbox": [
+        44.25,
+        44.7,
+        347.79,
+        57.1
+      ],
+      "lines": [
+        {
+          "bbox": [
+            44.25,
+            44.7,
+            347.79,
+            57.1
+          ],
+          "spans": [
+            {
+              "text": "▸",
+              "bbox": [
+                44.25,
+                45.99,
+                49.81,
+                57.09
+              ],
+              "font": "Unnamed-T3",
+              "size": 11.1,
+              "flags": 0,
+              "color": 0
+            },
+            {
+              "text": " ",
+              "bbox": [
+                49.93,
+                44.7,
+                53.02,
+                57.1
+              ],
+              "font": "LiberationSans-Bold",
+              "size": 11.1,
+              "flags": 16,
+              "color": 1010877
+            },
+            {
+              "text": "RLS in a warehouse or SQL analytics endpoint (T-SQL)",
+              "bbox": [
+                53.13,
+                44.7,
+                347.79,
+                57.1
+              ],
+              "font": "LiberationSans-Bold",
+              "size": 11.1,
+              "flags": 16,
+              "color": 1776415
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "bbox": [
+        44.25,
+        69.16,
+        401.66,
+        81.0
+      ],
+      "lines": [
+        {
+          "bbox": [
+            44.25,
+            69.16,
+            401.66,
+            81.0
+          ],
+          "spans": [
+            {
+              "text": "A security predicate function plus a security policy, exactly as in SQL Server:",
+              "bbox": [
+                44.25,
+                69.16,
+                401.66,
+                81.0
+              ],
+              "font": "LiberationSans",
+              "size": 10.6,
+              "flags": 0,
+              "color": 1776415
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "bbox": [
+        57.0,
+        100.01,
+        177.02,
+        122.61
+      ],
+      "lines": [
+        {
+          "bbox": [
+            57.0,
+            100.01,
+            177.02,
+            109.86
+          ],
+          "spans": [
+            {
+              "text": "CREATE SCHEMA Security;",
+              "bbox": [
+                57.0,
+                100.01,
+                177.02,
+                109.86
+              ],
+              "font": "LiberationMono",
+              "size": 8.7,
+              "flags": 8,
+              "color": 15330805
+            }
+          ]
+        },
+        {
+          "bbox": [
+            57.0,
+            112.76,
+            67.44,
+            122.61
+          ],
+          "spans": [
+            {
+              "text": "GO",
+              "bbox": [
+                57.0,
+                112.76,
+                67.44,
+                122.61
+              ],
+              "font": "LiberationMono",
+              "size": 8.7,
+              "flags": 8,
+              "color": 15330805
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "bbox": [
+        57.0,
+        126.26,
+        432.7,
+        161.61
+      ],
+      "lines": [
+        {
+          "bbox": [
+            57.0,
+            126.26,
+            432.7,
+            136.11
+          ],
+          "spans": [
+            {
+              "text": "CREATE FUNCTION Security.fn_SalesRepPredicate(@SalesRep AS varchar(100))",
+              "bbox": [
+                57.0,
+                126.26,
+                432.7,
+                136.11
+              ],
+              "font": "LiberationMono",
+              "size": 8.7,
+              "flags": 8,
+              "color": 15330805
+            }
+          ]
+        },
+        {
+          "bbox": [
+            57.0,
+            139.01,
+            145.72,
+            148.86
+          ],
+          "spans": [
+            {
+              "text": "    RETURNS TABLE",
+              "bbox": [
+                57.0,
+                139.01,
+                145.72,
+                148.86
+              ],
+              "font": "LiberationMono",
+              "size": 8.7,
+              "flags": 8,
+              "color": 15330805
+            }
+          ]
+        },
+        {
+          "bbox": [
+            57.0,
+            151.76,
+            171.81,
+            161.61
+          ],
+          "spans": [
+            {
+              "text": "    WITH SCHEMABINDING",
+              "bbox": [
+                57.0,
+                151.76,
+                171.81,
+                161.61
+              ],
+              "font": "LiberationMono",
+              "size": 8.7,
+              "flags": 8,
+              "color": 15330805
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "bbox": [
+        57.0,
+        165.26,
+        265.72,
+        200.61
+      ],
+      "lines": [
+        {
+          "bbox": [
+            57.0,
+            165.26,
+            67.44,
+            175.11
+          ],
+          "spans": [
+            {
+              "text": "AS",
+              "bbox": [
+                57.0,
+                165.26,
+                67.44,
+                175.11
+              ],
+              "font": "LiberationMono",
+              "size": 8.7,
+              "flags": 8,
+              "color": 15330805
+            }
+          ]
+        },
+        {
+          "bbox": [
+            57.0,
+            178.01,
+            213.55,
+            187.86
+          ],
+          "spans": [
+            {
+              "text": "    RETURN SELECT 1 AS granted",
+              "bbox": [
+                57.0,
+                178.01,
+                213.55,
+                187.86
+              ],
+              "font": "LiberationMono",
+              "size": 8.7,
+              "flags": 8,
+              "color": 15330805
+            }
+          ]
+        },
+        {
+          "bbox": [
+            57.0,
+            190.76,
+            265.72,
+            200.61
+          ],
+          "spans": [
+            {
+              "text": "           WHERE @SalesRep = USER_NAME()",
+              "bbox": [
+                57.0,
+                190.76,
+                265.72,
+                200.61
+              ],
+              "font": "LiberationMono",
+              "size": 8.7,
+              "flags": 8,
+              "color": 15330805
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "bbox": [
+        57.0,
+        204.26,
+        328.34,
+        226.86
+      ],
+      "lines": [
+        {
+          "bbox": [
+            57.0,
+            204.26,
+            328.34,
+            214.11
+          ],
+          "spans": [
+            {
+              "text": "              OR IS_ROLEMEMBER('SalesManagers') = 1;",
+              "bbox": [
+                57.0,
+                204.26,
+                328.34,
+                214.11
+              ],
+              "font": "LiberationMono",
+              "size": 8.7,
+              "flags": 8,
+              "color": 15330805
+            }
+          ]
+        },
+        {
+          "bbox": [
+            57.0,
+            217.01,
+            67.44,
+            226.86
+          ],
+          "spans": [
+            {
+              "text": "GO",
+              "bbox": [
+                57.0,
+                217.01,
+                67.44,
+                226.86
+              ],
+              "font": "LiberationMono",
+              "size": 8.7,
+              "flags": 8,
+              "color": 15330805
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "bbox": [
+        57.0,
+        230.51,
+        479.67,
+        265.86
+      ],
+      "lines": [
+        {
+          "bbox": [
+            57.0,
+            230.51,
+            297.03,
+            240.36
+          ],
+          "spans": [
+            {
+              "text": "CREATE SECURITY POLICY Security.SalesRepFilter",
+              "bbox": [
+                57.0,
+                230.51,
+                297.03,
+                240.36
+              ],
+              "font": "LiberationMono",
+              "size": 8.7,
+              "flags": 8,
+              "color": 15330805
+            }
+          ]
+        },
+        {
+          "bbox": [
+            57.0,
+            243.26,
+            479.67,
+            253.11
+          ],
+          "spans": [
+            {
+              "text": "    ADD FILTER PREDICATE Security.fn_SalesRepPredicate(SalesRep) ON dbo.FactSales",
+              "bbox": [
+                57.0,
+                243.26,
+                479.67,
+                253.11
+              ],
+              "font": "LiberationMono",
+              "size": 8.7,
+              "flags": 8,
+              "color": 15330805
+            }
+          ]
+        },
+        {
+          "bbox": [
+            57.0,
+            256.01,
+            171.81,
+            265.86
+          ],
+          "spans": [
+            {
+              "text": "    WITH (STATE = ON);",
+              "bbox": [
+                57.0,
+                256.01,
+                171.81,
+                265.86
+              ],
+              "font": "LiberationMono",
+              "size": 8.7,
+              "flags": 8,
+              "color": 15330805
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "bbox": [
+        44.25,
+        286.66,
+        292.91,
+        298.5
+      ],
+      "lines": [
+        {
+          "bbox": [
+            44.25,
+            286.66,
+            292.91,
+            298.5
+          ],
+          "spans": [
+            {
+              "text": "Details: ",
+              "bbox": [
+                44.25,
+                286.66,
+                82.52,
+                298.5
+              ],
+              "font": "LiberationSans",
+              "size": 10.6,
+              "flags": 0,
+              "color": 1776415
+            },
+            {
+              "text": "row-level security in Fabric Data Warehouse",
+              "bbox": [
+                82.52,
+                286.66,
+                289.96,
+                298.5
+              ],
+              "font": "LiberationSans",
+              "size": 10.6,
+              "flags": 0,
+              "color": 1010877
+            },
+            {
+              "text": ".",
+              "bbox": [
+                289.97,
+                286.66,
+                292.91,
+                298.5
+              ],
+              "font": "LiberationSans",
+              "size": 10.6,
+              "flags": 0,
+              "color": 1776415
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "bbox": [
+        44.25,
+        316.2,
+        206.97,
+        328.6
+      ],
+      "lines": [
+        {
+          "bbox": [
+            44.25,
+            316.2,
+            206.97,
+            328.6
+          ],
+          "spans": [
+            {
+              "text": "▸",
+              "bbox": [
+                44.25,
+                317.49,
+                49.81,
+                328.59
+              ],
+              "font": "Unnamed-T3",
+              "size": 11.1,
+              "flags": 0,
+              "color": 0
+            },
+            {
+              "text": " ",
+              "bbox": [
+                49.93,
+                316.2,
+                53.02,
+                328.6
+              ],
+              "font": "LiberationSans-Bold",
+              "size": 11.1,
+              "flags": 16,
+              "color": 1010877
+            },
+            {
+              "text": "RLS in an Eventhouse (KQL)",
+              "bbox": [
+                53.13,
+                316.2,
+                206.97,
+                328.6
+              ],
+              "font": "LiberationSans-Bold",
+              "size": 11.1,
+              "flags": 16,
+              "color": 1776415
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "bbox": [
+        44.25,
+        340.66,
+        469.01,
+        352.5
+      ],
+      "lines": [
+        {
+          "bbox": [
+            44.25,
+            340.66,
+            469.01,
+            352.5
+          ],
+          "spans": [
+            {
+              "text": "KQL databases enforce row level security with a policy on the table that rewrites the query:",
+              "bbox": [
+                44.25,
+                340.66,
+                469.01,
+                352.5
+              ],
+              "font": "LiberationSans",
+              "size": 10.6,
+              "flags": 0,
+              "color": 1776415
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "bbox": [
+        57.0,
+        371.51,
+        464.01,
+        394.11
+      ],
+      "lines": [
+        {
+          "bbox": [
+            57.0,
+            371.51,
+            343.99,
+            381.36
+          ],
+          "spans": [
+            {
+              "text": ".alter table Telemetry policy row_level_security enable",
+              "bbox": [
+                57.0,
+                371.51,
+                343.99,
+                381.36
+              ],
+              "font": "LiberationMono",
+              "size": 8.7,
+              "flags": 8,
+              "color": 15330805
+            }
+          ]
+        },
+        {
+          "bbox": [
+            57.0,
+            384.26,
+            464.01,
+            394.11
+          ],
+          "spans": [
+            {
+              "text": "\"Telemetry | where Region == current_principal_details()['UserPrincipalName']\"",
+              "bbox": [
+                57.0,
+                384.26,
+                464.01,
+                394.11
+              ],
+              "font": "LiberationMono",
+              "size": 8.7,
+              "flags": 8,
+              "color": 15330805
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "bbox": [
+        57.75,
+        423.04,
+        172.33,
+        434.1
+      ],
+      "lines": [
+        {
+          "bbox": [
+            57.75,
+            423.04,
+            172.33,
+            434.1
+          ],
+          "spans": [
+            {
+              "text": "COMMON EXAM TRAP",
+              "bbox": [
+                57.75,
+                423.04,
+                172.33,
+                434.1
+              ],
+              "font": "LiberationSans-Bold",
+              "size": 9.9,
+              "flags": 16,
+              "color": 11545143
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "bbox": [
+        57.75,
+        440.41,
+        536.44,
+        452.25
+      ],
+      "lines": [
+        {
+          "bbox": [
+            57.75,
+            440.41,
+            536.44,
+            452.25
+          ],
+          "spans": [
+            {
+              "text": "Semantic-model RLS is ",
+              "bbox": [
+                57.75,
+                440.41,
+                171.38,
+                452.25
+              ],
+              "font": "LiberationSans",
+              "size": 10.6,
+              "flags": 0,
+              "color": 1776415
+            },
+            {
+              "text": "ignored",
+              "bbox": [
+                171.39,
+                440.41,
+                210.23,
+                452.25
+              ],
+              "font": "LiberationSans-Bold",
+              "size": 10.6,
+              "flags": 16,
+              "color": 1184282
+            },
+            {
+              "text": " for a user who has Admin, Member, or Contributor on the workspace,",
+              "bbox": [
+                210.23,
+                440.41,
+                536.44,
+                452.25
+              ],
+              "font": "LiberationSans",
+              "size": 10.6,
+              "flags": 0,
+              "color": 1776415
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "bbox": [
+        57.75,
+        457.66,
+        512.55,
+        469.5
+      ],
+      "lines": [
+        {
+          "bbox": [
+            57.75,
+            457.66,
+            512.55,
+            469.5
+          ],
+          "spans": [
+            {
+              "text": "and for anyone with Write permission on the model. Always test with ",
+              "bbox": [
+                57.75,
+                457.66,
+                379.64,
+                469.5
+              ],
+              "font": "LiberationSans",
+              "size": 10.6,
+              "flags": 0,
+              "color": 1776415
+            },
+            {
+              "text": "View as role",
+              "bbox": [
+                379.64,
+                457.66,
+                440.69,
+                469.5
+              ],
+              "font": "LiberationSans-Bold",
+              "size": 10.6,
+              "flags": 16,
+              "color": 1184282
+            },
+            {
+              "text": ", and put report",
+              "bbox": [
+                440.7,
+                457.66,
+                512.55,
+                469.5
+              ],
+              "font": "LiberationSans",
+              "size": 10.6,
+              "flags": 0,
+              "color": 1776415
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "bbox": [
+        57.75,
+        474.91,
+        158.24,
+        486.75
+      ],
+      "lines": [
+        {
+          "bbox": [
+            57.75,
+            474.91,
+            158.24,
+            486.75
+          ],
+          "spans": [
+            {
+              "text": "consumers in Viewer.",
+              "bbox": [
+                57.75,
+                474.91,
+                158.24,
+                486.75
+              ],
+              "font": "LiberationSans",
+              "size": 10.6,
+              "flags": 0,
+              "color": 1776415
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "bbox": [
+        44.25,
+        521.3,
+        306.78,
+        536.05
+      ],
+      "lines": [
+        {
+          "bbox": [
+            44.25,
+            521.3,
+            306.78,
+            536.05
+          ],
+          "spans": [
+            {
+              "text": "2.6 Column-level and object-level security",
+              "bbox": [
+                44.25,
+                521.3,
+                306.78,
+                536.05
+              ],
+              "font": "LiberationSans-Bold",
+              "size": 13.2,
+              "flags": 16,
+              "color": 949350
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "bbox": [
+        44.25,
+        547.66,
+        494.69,
+        559.5
+      ],
+      "lines": [
+        {
+          "bbox": [
+            44.25,
+            547.66,
+            494.69,
+            559.5
+          ],
+          "spans": [
+            {
+              "text": "Column-level security (CLS)",
+              "bbox": [
+                44.25,
+                547.66,
+                185.53,
+                559.5
+              ],
+              "font": "LiberationSans-Bold",
+              "size": 10.6,
+              "flags": 16,
+              "color": 1184282
+            },
+            {
+              "text": " hides columns. In a warehouse or SQL endpoint it is plain T-SQL:",
+              "bbox": [
+                185.53,
+                547.66,
+                494.69,
+                559.5
+              ],
+              "font": "LiberationSans",
+              "size": 10.6,
+              "flags": 0,
+              "color": 1776415
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "bbox": [
+        57.0,
+        578.51,
+        229.2,
+        588.36
+      ],
+      "lines": [
+        {
+          "bbox": [
+            57.0,
+            578.51,
+            229.2,
+            588.36
+          ],
+          "spans": [
+            {
+              "text": "-- Grant only the safe columns...",
+              "bbox": [
+                57.0,
+                578.51,
+                229.2,
+                588.36
+              ],
+              "font": "LiberationMono",
+              "size": 8.7,
+              "flags": 8,
+              "color": 15330805
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "bbox": [
+        57.0,
+        592.01,
+        469.23,
+        627.36
+      ],
+      "lines": [
+        {
+          "bbox": [
+            57.0,
+            592.01,
+            469.23,
+            601.86
+          ],
+          "spans": [
+            {
+              "text": "GRANT SELECT ON dbo.DimCustomer(CustomerKey, CustomerName, City) TO [Analysts];",
+              "bbox": [
+                57.0,
+                592.01,
+                469.23,
+                601.86
+              ],
+              "font": "LiberationMono",
+              "size": 8.7,
+              "flags": 8,
+              "color": 15330805
+            }
+          ]
+        },
+        {
+          "bbox": [
+            57.0,
+            604.76,
+            281.38,
+            614.61
+          ],
+          "spans": [
+            {
+              "text": "-- ...or explicitly deny the sensitive one.",
+              "bbox": [
+                57.0,
+                604.76,
+                281.38,
+                614.61
+              ],
+              "font": "LiberationMono",
+              "size": 8.7,
+              "flags": 8,
+              "color": 15330805
+            }
+          ]
+        },
+        {
+          "bbox": [
+            57.0,
+            617.51,
+            354.43,
+            627.36
+          ],
+          "spans": [
+            {
+              "text": "DENY SELECT ON dbo.DimCustomer(NationalId) TO [Analysts];",
+              "bbox": [
+                57.0,
+                617.51,
+                354.43,
+                627.36
+              ],
+              "font": "LiberationMono",
+              "size": 8.7,
+              "flags": 8,
+              "color": 15330805
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "bbox": [
+        44.25,
+        648.16,
+        200.1,
+        660.0
+      ],
+      "lines": [
+        {
+          "bbox": [
+            44.25,
+            648.16,
+            200.1,
+            660.0
+          ],
+          "spans": [
+            {
+              "text": "Reference: ",
+              "bbox": [
+                44.25,
+                648.16,
+                99.02,
+                660.0
+              ],
+              "font": "LiberationSans",
+              "size": 10.6,
+              "flags": 0,
+              "color": 1776415
+            },
+            {
+              "text": "column-level security",
+              "bbox": [
+                99.02,
+                648.16,
+                197.93,
+                660.0
+              ],
+              "font": "LiberationSans",
+              "size": 10.6,
+              "flags": 0,
+              "color": 1010877
+            },
+            {
+              "text": ".",
+              "bbox": [
+                197.16,
+                648.16,
+                200.1,
+                660.0
+              ],
+              "font": "LiberationSans",
+              "size": 10.6,
+              "flags": 0,
+              "color": 1776415
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "bbox": [
+        44.25,
+        671.41,
+        537.69,
+        683.25
+      ],
+      "lines": [
+        {
+          "bbox": [
+            44.25,
+            671.41,
+            537.69,
+            683.25
+          ],
+          "spans": [
+            {
+              "text": "Object-level security (OLS)",
+              "bbox": [
+                44.25,
+                671.41,
+                179.66,
+                683.25
+              ],
+              "font": "LiberationSans-Bold",
+              "size": 10.6,
+              "flags": 16,
+              "color": 1184282
+            },
+            {
+              "text": " hides an entire table or column ",
+              "bbox": [
+                179.66,
+                671.41,
+                330.42,
+                683.25
+              ],
+              "font": "LiberationSans",
+              "size": 10.6,
+              "flags": 0,
+              "color": 1776415
+            },
+            {
+              "text": "in the semantic model",
+              "bbox": [
+                330.42,
+                671.41,
+                433.47,
+                683.25
+              ],
+              "font": "LiberationSans-Italic",
+              "size": 10.6,
+              "flags": 2,
+              "color": 1776415
+            },
+            {
+              "text": ", so it disappears from",
+              "bbox": [
+                433.48,
+                671.41,
+                537.69,
+                683.25
+              ],
+              "font": "LiberationSans",
+              "size": 10.6,
+              "flags": 0,
+              "color": 1776415
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "bbox": [
+        44.25,
+        688.66,
+        514.72,
+        700.5
+      ],
+      "lines": [
+        {
+          "bbox": [
+            44.25,
+            688.66,
+            514.72,
+            700.5
+          ],
+          "spans": [
+            {
+              "text": "the field list and from metadata. It is configured with external tooling (Tabular Editor, or a TMSL script",
+              "bbox": [
+                44.25,
+                688.66,
+                514.72,
+                700.5
+              ],
+              "font": "LiberationSans",
+              "size": 10.6,
+              "flags": 0,
+              "color": 1776415
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "bbox": [
+        44.25,
+        705.91,
+        382.27,
+        717.75
+      ],
+      "lines": [
+        {
+          "bbox": [
+            44.25,
+            705.91,
+            382.27,
+            717.75
+          ],
+          "spans": [
+            {
+              "text": "through the XMLA endpoint) because Power BI Desktop has no OLS UI.",
+              "bbox": [
+                44.25,
+                705.91,
+                382.27,
+                717.75
+              ],
+              "font": "LiberationSans",
+              "size": 10.6,
+              "flags": 0,
+              "color": 1776415
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

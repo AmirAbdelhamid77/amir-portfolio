@@ -21,6 +21,13 @@
     --danger: oklch(62% 0.22 25);
     --success: oklch(70% 0.18 155);
     --warning: oklch(78% 0.18 75);
+    /* Qualitative data palette (Okabe–Ito subset). Deliberately independent of
+       the brand ramp so a theme change never alters the meaning of a series. */
+    --chart-1: #0072b2;
+    --chart-2: #009e73;
+    --chart-3: #e69f00;
+    --chart-4: #cc79a7;
+    --chart-5: #d55e00;
     --glass-bg: oklch(99% 0 0 / 0.55);
     --glass-border: oklch(15% 0 0 / 0.08);
     --glass-strong-bg: rgb(255 255 255 / 0.7);
@@ -38,7 +45,10 @@
     --card-foreground: var(--foreground);
     --popover: var(--card);
     --popover-foreground: var(--foreground);
-    --primary: #0285f7;
+    /* `#0285f7` against white is 3.68:1 — below the 4.5:1 AA threshold for the
+       small text that sits on these buttons, chips and `text-primary` labels.
+       The brand ramp stays blue; it is simply deep enough to be readable. */
+    --primary: #0b62b5;
     --primary-foreground: #ffffff;
     --secondary: var(--card);
     --secondary-foreground: var(--foreground);
@@ -47,7 +57,9 @@
     --accent-foreground: var(--accent-fg);
     --destructive: var(--danger);
     --input: var(--border);
-    --ring: var(--border-strong);
+    /* A 12%-alpha border is not a visible focus indicator (WCAG 2.4.7 / 1.4.11).
+       The ring uses the brand colour at full strength instead. */
+    --ring: var(--primary);
 }
 
 /* BeUI design tokens — dark */
@@ -55,9 +67,22 @@
     --background: #151515;
     --foreground: oklch(96% 0 0);
     --card: #1c1c1c;
-    --muted-foreground: oklch(62% 0 0);
+    /* 62% landed at 4.48:1 on the tinted dark card surfaces — a hair under AA.
+       66% clears it with margin while staying visually secondary. */
+    --muted-foreground: oklch(66% 0 0);
     --border: rgb(255 255 255 / 0.05);
     --border-strong: rgb(255 255 255 / 0.1);
+    /* Light brand ramp on a dark surface, with dark text on the solid fills —
+       the same inversion the colour presets already use. */
+    --primary: oklch(74% 0.12 250);
+    --primary-foreground: oklch(15% 0 0);
+    --ring: var(--primary);
+    /* Same qualitative families, lifted for a dark surface. */
+    --chart-1: #56b4e9;
+    --chart-2: #34d399;
+    --chart-3: #fbbf24;
+    --chart-4: #f0a6ca;
+    --chart-5: #fb923c;
     --accent: oklch(80% 0.18 195);
     --accent-fg: #151515;
     --glass-bg: rgb(28 28 28 / 0.55);
@@ -429,13 +454,127 @@
     }
 }
 
+/* KaTeX is rendered at build time; keep its math in the page's ink colour and
+   let long display formulas scroll rather than break the layout. */
+.katex {
+    color: var(--foreground);
+    font-size: 1.03em;
+}
+.katex-display {
+    margin: 0.25rem 0;
+    padding: 0.1rem 0;
+}
+.katex-display > .katex {
+    white-space: normal;
+}
+
+/* BeUI treemap: the tile name is full-opacity ink, but the value under it is
+   dimmed to 80%. White-on-teal at 10–12px then falls to ~4.1:1, under the 4.5:1
+   WCAG AA floor (axe reports `color-contrast` on the largest tile). The registry
+   file must stay byte-identical, so this is a site-level override of the
+   embedded chart rather than a fork of the component. */
+[data-treemap-tile] .opacity-80 {
+    opacity: 1;
+}
+
 /* Print-friendly exam review */
 @media print {
-    .no-print {
+    .no-print,
+    body > header,
+    body > footer {
         display: none !important;
     }
     body {
         background: #fff;
         color: #000;
+    }
+    .print-sheet {
+        color: #000;
+        background: #fff;
+    }
+    .print-sheet a,
+    .print-sheet .katex {
+        color: #000;
+        text-decoration: none;
+    }
+    @page {
+        margin: 12mm;
+    }
+}
+
+/* ---------------------------------------------------------------------------
+   Prototype C — knowledge stage
+   Local stage aliases over the semantic tokens. Nothing here replaces a global
+   token: the rest of the site keeps its own palette. Depth comes from layered
+   planes, occlusion and a directional shadow, not from blur on reading text.
+--------------------------------------------------------------------------- */
+.hansa-stage {
+    --stage-wash: color-mix(in oklch, var(--primary) 10%, transparent);
+    --stage-wash-warm: color-mix(in oklch, var(--accent) 14%, transparent);
+    --stage-dot: color-mix(in oklch, var(--foreground) 14%, transparent);
+    --stage-floor: color-mix(in oklch, var(--foreground) 9%, transparent);
+    background:
+        radial-gradient(
+            120% 70% at 62% -8%,
+            var(--stage-wash-warm) 0%,
+            transparent 58%
+        ),
+        radial-gradient(
+            90% 60% at 18% 4%,
+            var(--stage-wash) 0%,
+            transparent 62%
+        ),
+        var(--background);
+}
+.dark .hansa-stage {
+    --stage-wash: color-mix(in oklch, var(--primary) 16%, transparent);
+    --stage-wash-warm: color-mix(in oklch, var(--accent) 10%, transparent);
+    --stage-dot: color-mix(in oklch, var(--foreground) 16%, transparent);
+    --stage-floor: color-mix(in oklch, var(--foreground) 12%, transparent);
+}
+
+.hansa-wash {
+    background:
+        radial-gradient(
+            58% 52% at 66% 22%,
+            color-mix(in oklch, var(--primary) 9%, transparent),
+            transparent 70%
+        ),
+        radial-gradient(
+            46% 44% at 26% 12%,
+            color-mix(in oklch, var(--accent) 8%, transparent),
+            transparent 72%
+        );
+}
+
+.hansa-dots {
+    background-image: radial-gradient(var(--stage-dot) 1px, transparent 1px);
+    background-size: 22px 22px;
+    opacity: 0.5;
+    mask-image: radial-gradient(
+        80% 70% at 50% 10%,
+        black 0%,
+        transparent 72%
+    );
+}
+
+.hansa-floor {
+    background-image:
+        linear-gradient(to right, var(--stage-floor) 1px, transparent 1px),
+        linear-gradient(to bottom, var(--stage-floor) 1px, transparent 1px);
+    background-size: 64px 40px;
+    opacity: 0.35;
+    transform: perspective(560px) rotateX(62deg) scale(1.5);
+    transform-origin: bottom center;
+    mask-image: linear-gradient(to top, black, transparent 78%);
+}
+
+/* Phones keep the depth cues but spend less fill rate on them. */
+@media (max-width: 480px) {
+    .hansa-dots {
+        opacity: 0.35;
+    }
+    .hansa-floor {
+        opacity: 0.22;
     }
 }

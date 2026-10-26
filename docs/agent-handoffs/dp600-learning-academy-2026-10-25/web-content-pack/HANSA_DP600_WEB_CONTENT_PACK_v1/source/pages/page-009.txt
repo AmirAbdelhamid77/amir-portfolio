@@ -1,0 +1,57 @@
+1.2 Tenant, capacity, workspace, item
+Level
+What it is
+Who administers it
+Tenant
+Your whole Microsoft Entra organisation. Tenant settings switch
+features on or off globally
+Fabric administrator, in the
+admin portal
+Capacity
+The compute resource, sold as an F SKU (F2 up to F2048). Each
+workspace is assigned to exactly one capacity
+Capacity administrator, via
+capacity settings
+Domain
+A logical grouping of workspaces by business area (Finance, Sales)
+used for federated governance
+Domain admin, see domains
+Workspace
+The container for items and the main unit of access control
+Workspace Admin, see
+workspaces
+Item
+A lakehouse, warehouse, notebook, pipeline, semantic model,
+report, eventhouse, and so on
+Item permissions, on top of
+workspace roles
+Capacity behaviour you should recognise:
+CU consumption is smoothed over time; sustained overuse leads to throttling, which delays interactive
+queries and background jobs differently.
+Capacities can be paused and resumed (pause and resume) — pausing stops billing but also stops
+everything running on it.
+You monitor consumption with the Microsoft Fabric Capacity Metrics app.
+You can scale a capacity up or down; some features (for example large semantic models and certain
+Direct Lake guardrails) depend on the SKU size.
+1.3 OneLake and shortcuts
+OneLake is a single logical data lake for the entire tenant, built on ADLS Gen2, automatically provisioned,
+and organised as tenant / workspace / item / Files or Tables . You cannot opt out of it, and you do
+not size it.
+A shortcut is a pointer to data that lives somewhere else — another lakehouse, another workspace, ADLS
+Gen2, Amazon S3, Google Cloud Storage, Dataverse, or an on-premises location via a gateway. Reading
+through a shortcut looks exactly like reading a local folder.
+WITHOUT shortcuts — copy the data
+ADLS Gen2
+S3 / GCS
+ETL copy
+OneLake
+duplicate
+2 copies · drift · extra cost · extra latency
+WITH shortcuts — point at the data
+ADLS Gen2
+S3 / GCS
+shortcut
+OneLake
+reference
+1 copy · always current · no movement
+A shortcut removes the copy, the copy job, and the drift between the two copies.

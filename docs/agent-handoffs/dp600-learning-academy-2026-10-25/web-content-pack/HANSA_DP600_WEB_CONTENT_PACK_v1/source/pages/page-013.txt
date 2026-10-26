@@ -1,0 +1,43 @@
+Chapter 2 — Maintain a data analytics solution, part 1:
+security and governance
+EXAM FOCUS
+Implement security and governance — implement workspace-level access controls · implement
+item-level access controls · implement row-level, column-level, object-level, and file-level access
+control · apply sensitivity labels to items · endorse items.
+2.1 The mental model: every gate must open
+User or
+service principal
+Workspace role?
+Admin/Member/Contributor
+→ full item access
+Item permission?
+Read / ReadData /
+ReadAll / Build
+Engine grant?
+SQL GRANT, OneLake
+security role
+Row/column rule?
+RLS predicate, CLS
+deny, OLS, DDM mask
+Data
+Every gate must allow the request; the most restrictive rule always wins
+A request is authorised at four gates. The most restrictive rule always wins — there is no "allow" that overrides a "deny".
+Microsoft Entra ID
+Identity, MFA, conditional access, service principals
+Tenant settings
+Admin portal switches: who can create, share, export
+Capacity
+Which workspaces run where; who administers the F SKU
+Workspace roles
+Admin · Member · Contributor · Viewer
+Item permissions
+Share a single lakehouse / warehouse / semantic model / report
+Compute engine security
+OneLake security, SQL GRANT, RLS · CLS · OLS · DDM
+Data itself
+Sensitivity labels, encryption, Purview classification
+Broadest scope at the top — each layer narrows what the layer above allowed
+The full stack of controls, from identity down to the data itself.
+2.2 Workspace-level access control
+A workspace role grants a blanket level of access to every item in the workspace. Assign roles to Microsoft
+Entra security groups, never to individuals — this is both best practice and a common correct answer.

@@ -1,0 +1,37 @@
+7.6 Composite models
+Composite semantic model
+one model, mixed sources
+Direct Lake
+lakehouse table
+Import
+Excel budget
+DirectQuery
+Azure SQL
+Shared model
+(DirectQuery to AS)
+Watch out: mixed modes create limited relationships and can leak source latency into every visual
+A composite model mixes storage modes, and can chain onto another published semantic model.
+Composite models let one model combine Import tables, DirectQuery tables, Direct Lake tables, and even a
+DirectQuery connection to another semantic model.
+Use them when:
+A large fact table must stay at the source but small dimensions should be fast → DirectQuery fact + Dual
+dimensions.
+A central certified model must be extended locally with a team's own measures or a spreadsheet.
+Two Direct Lake sources in different workspaces must appear as one model.
+Watch for: limited relationships (many-to-many or cross-source) that behave differently around blanks,
+source latency leaking into visuals, and RLS that must be reasoned about per source. Guidance: composite
+model guidance.
+7.7 Chapter 7 self-check
+1. A model needs YTD, PY, and YoY for 14 measures. What do you build?
+2. Users want to switch a chart between Sales, Margin, and Quantity from a slicer. What do you build?
+3. Two date columns must both filter one date dimension. How?
+4. A slicer on a DirectQuery model is painfully slow, but the dimension is small. What do you change?
+5. Why must a Direct Lake model use large semantic model storage format?
+Answers. 1. A calculation group with three calculation items. 2. A field parameter. 3. One active
+relationship plus an inactive one activated per measure with USERELATIONSHIP . 4. Set the dimension
+table's storage mode to Dual. 5. Direct Lake requires it; Fabric enables it automatically when the model
+is created.
+7.8 Learn more
+Direct Lake overview · storage mode · composite models
+Star schema guidance · date tables · many-to-many
+Calculation groups · field parameters · dynamic format strings

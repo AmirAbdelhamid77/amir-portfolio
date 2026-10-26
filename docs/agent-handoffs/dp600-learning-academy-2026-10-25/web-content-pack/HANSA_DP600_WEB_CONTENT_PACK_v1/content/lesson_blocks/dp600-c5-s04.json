@@ -1,0 +1,18 @@
+{
+  "lesson_id": "dp600-c5-s04",
+  "source_sections": [
+    31
+  ],
+  "blocks": [
+    {
+      "id": "dp600-c5-s04-p031",
+      "kind": "source_fragment",
+      "source_page": 31,
+      "source_start_line": 1,
+      "source_text": "5.4 Data quality: duplicates, nulls, types\nProblem\nPower Query (M)\nPySpark\nT-SQL\nDuplicates\nRemove duplicates\non key columns\ndropDuplicates([\"Id\"]) , or\nrow_number()  filter to keep the\nlatest\nROW_NUMBER() OVER (PARTITION\nBY Id ORDER BY ModifiedDate\nDESC) = 1\nNulls\nReplace values / Fill\ndown\nfillna({\"Qty\": 0}) ,\nna.drop()\nCOALESCE(col, 0) , ISNULL()\nWrong\ntypes\nChange type (with\nlocale)\nwithColumn(\"d\",\nF.to_date(\"d\", \"yyyy-MM-\ndd\"))\nTRY_CAST(col AS DATE)\nBad rows\nKeep errors /\nRemove errors\nfilter()  to a quarantine table\nWHERE TRY_CAST(...) IS NULL\ninto a reject table\nFiltering\nFilter rows (folds to\nsource)\n.filter()  / .where()\nWHERE\nDeduplicating while keeping the newest version of each record:\nWITH ranked AS (\n    SELECT *, ROW_NUMBER() OVER (PARTITION BY CustomerId ORDER BY ModifiedDate DESC) AS rn\n    FROM   stg.Customer\n)\nSELECT * FROM ranked WHERE rn = 1;\nWATCH OUT\nCAST  fails the whole batch on one bad value; TRY_CAST  returns NULL  instead. In a load that must\nnot break at 3 a.m., use TRY_CAST  and route the nulls to a quarantine table so the bad rows are visible\nrather than silently dropped.",
+      "presentation_status": "needs-editorial-layout-conversion",
+      "recommended_renderer": "SourceFragment"
+    }
+  ],
+  "warning": "Source fragments are NOT native formatted prose, tables or runnable code."
+}

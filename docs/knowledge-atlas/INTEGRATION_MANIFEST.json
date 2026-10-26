@@ -1,0 +1,213 @@
+{
+  "version": "1.0-local-preparation",
+  "date": "2026-10-25",
+  "scope": "documentation-only",
+  "modifiedExisting": [
+    "AGENTS.md",
+    "README.md",
+    "docs/agent-reference/START_HERE.md",
+    "docs/agent-reference/PACKAGE_MANIFEST.json"
+  ],
+  "addedFiles": [
+    "docs/knowledge-atlas/ARCHITECTURE.md",
+    "docs/knowledge-atlas/COMPATIBILITY_AND_CONFLICTS.md",
+    "docs/knowledge-atlas/EXECUTION_PLAN.md",
+    "docs/knowledge-atlas/NEXT_AGENT_START_HERE.md",
+    "docs/knowledge-atlas/PRESERVATION_BASELINE.json",
+    "docs/knowledge-atlas/REPOSITORY_INVENTORY.json",
+    "docs/knowledge-atlas/SOURCE_COVERAGE.md",
+    "docs/knowledge-atlas/START_HERE.md",
+    "docs/knowledge-atlas/VALIDATION.md",
+    "docs/knowledge-atlas/ZIP_VERIFICATION.json",
+    "docs/agent-handoffs/hansa-knowledge-atlas-2026-10-25/docs/AGENTS_MD_ADDENDUM.md",
+    "docs/agent-handoffs/hansa-knowledge-atlas-2026-10-25/docs/AGENT_KICKOFF_PROMPT.md",
+    "docs/agent-handoffs/hansa-knowledge-atlas-2026-10-25/docs/CONTENT_MODEL_AND_GOVERNANCE.md",
+    "docs/agent-handoffs/hansa-knowledge-atlas-2026-10-25/docs/DECISIONS_AND_CREATIVE_BRIEF.md",
+    "docs/agent-handoffs/hansa-knowledge-atlas-2026-10-25/docs/IMPLEMENTATION_ROADMAP.md",
+    "docs/agent-handoffs/hansa-knowledge-atlas-2026-10-25/docs/MASTER_SPEC_EN.md",
+    "docs/agent-handoffs/hansa-knowledge-atlas-2026-10-25/docs/QUALITY_GATES_AND_TESTS.md",
+    "docs/agent-handoffs/hansa-knowledge-atlas-2026-10-25/docs/UX_VISUAL_SYSTEM.md",
+    "docs/agent-handoffs/hansa-knowledge-atlas-2026-10-25/examples/atlas-candidate-fixture.json",
+    "docs/agent-handoffs/hansa-knowledge-atlas-2026-10-25/examples/guide-coverage-template.csv",
+    "docs/agent-handoffs/hansa-knowledge-atlas-2026-10-25/HANDOFF_MANIFEST.json",
+    "docs/agent-handoffs/hansa-knowledge-atlas-2026-10-25/README_AR.md",
+    "docs/agent-handoffs/hansa-knowledge-atlas-2026-10-25/references/NotebookLM_guide_mindmap_reference.png",
+    "docs/agent-handoffs/hansa-knowledge-atlas-2026-10-25/schemas/atlas-content.schema.json",
+    "docs/agent-handoffs/hansa-knowledge-atlas-2026-10-25/START_HERE.md",
+    "docs/agent-handoffs/hansa-knowledge-atlas-2026-10-25/tools/build_manifest_and_zip.py",
+    "docs/agent-handoffs/hansa-knowledge-atlas-2026-10-25/tools/verify_handoff.py",
+    "scripts/verify-knowledge-atlas.mjs",
+    "docs/knowledge-atlas/CHANGES.md",
+    "docs/knowledge-atlas/INTEGRATION_MANIFEST.json"
+  ],
+  "manifestExcludesSelf": true,
+  "files": [
+    {
+      "path": "AGENTS.md",
+      "bytes": 5470,
+      "sha256": "806c749ff9cea0eeda69ef65bef5c5eee8809e3f59f8904779907ebff1039c4c"
+    },
+    {
+      "path": "README.md",
+      "bytes": 16674,
+      "sha256": "4de46bccc4b5108600427bc031db21c8a1e961e3a2be437dc3495842ae4fede5"
+    },
+    {
+      "path": "docs/agent-handoffs/hansa-knowledge-atlas-2026-10-25/HANDOFF_MANIFEST.json",
+      "bytes": 3605,
+      "sha256": "379493035ab45da0c87e48fc93d7d8db9e86b11f9b4b7907971192a23e223d12"
+    },
+    {
+      "path": "docs/agent-handoffs/hansa-knowledge-atlas-2026-10-25/README_AR.md",
+      "bytes": 7962,
+      "sha256": "0d7db77ccfbf2a1ac8ab96f1a19994e5292ed4de4c333eb7d366f85903bc451f"
+    },
+    {
+      "path": "docs/agent-handoffs/hansa-knowledge-atlas-2026-10-25/START_HERE.md",
+      "bytes": 1370,
+      "sha256": "fa338595451fae2f6decafb4d82acf90e7aa87098c095e43e8060a13cd250c0c"
+    },
+    {
+      "path": "docs/agent-handoffs/hansa-knowledge-atlas-2026-10-25/docs/AGENTS_MD_ADDENDUM.md",
+      "bytes": 1850,
+      "sha256": "d1af61ffc9dbc144d2fdd440e2313df5f6b9fca5dd539ca53a4bf5704b343bce"
+    },
+    {
+      "path": "docs/agent-handoffs/hansa-knowledge-atlas-2026-10-25/docs/AGENT_KICKOFF_PROMPT.md",
+      "bytes": 5948,
+      "sha256": "67faf20639f5fac61c5b886cbbfe5be5ea6e7efb53722bda5fd291e5c689e7ff"
+    },
+    {
+      "path": "docs/agent-handoffs/hansa-knowledge-atlas-2026-10-25/docs/CONTENT_MODEL_AND_GOVERNANCE.md",
+      "bytes": 10238,
+      "sha256": "6751914b71a6cf52ff92b55c1e74e4d3262d4c8aa8d6a8aefa63319996eebd7c"
+    },
+    {
+      "path": "docs/agent-handoffs/hansa-knowledge-atlas-2026-10-25/docs/DECISIONS_AND_CREATIVE_BRIEF.md",
+      "bytes": 5290,
+      "sha256": "f6406f9659b5503024fbc94beb7cdae81bdf3acd383759bf05bf5398343663b6"
+    },
+    {
+      "path": "docs/agent-handoffs/hansa-knowledge-atlas-2026-10-25/docs/IMPLEMENTATION_ROADMAP.md",
+      "bytes": 3654,
+      "sha256": "b982af01007344d70aa753412dee635f65e56a2bc67f4405ceab5ed04a1384ef"
+    },
+    {
+      "path": "docs/agent-handoffs/hansa-knowledge-atlas-2026-10-25/docs/MASTER_SPEC_EN.md",
+      "bytes": 39237,
+      "sha256": "e8a00d952db91bc04f0d7ab5d6cf89b46fb4fe06ef42a09427edaa1c0970b0f6"
+    },
+    {
+      "path": "docs/agent-handoffs/hansa-knowledge-atlas-2026-10-25/docs/QUALITY_GATES_AND_TESTS.md",
+      "bytes": 8274,
+      "sha256": "72f52fcf85f730c706b6fe020d96d24886c96055c18c94b762fa1c2b74a34d3e"
+    },
+    {
+      "path": "docs/agent-handoffs/hansa-knowledge-atlas-2026-10-25/docs/UX_VISUAL_SYSTEM.md",
+      "bytes": 6740,
+      "sha256": "fc4e107ab2a8263dce209fe23ba21f22529b0ccb8489a8ecd5ba6758f2feb9c0"
+    },
+    {
+      "path": "docs/agent-handoffs/hansa-knowledge-atlas-2026-10-25/examples/atlas-candidate-fixture.json",
+      "bytes": 3388,
+      "sha256": "84604fcbf0b00ff8de1b447c23dd82b6dfce2bad28c99ec9564a1b4dec98189e"
+    },
+    {
+      "path": "docs/agent-handoffs/hansa-knowledge-atlas-2026-10-25/examples/guide-coverage-template.csv",
+      "bytes": 167,
+      "sha256": "a181bcdb8e738f8ead3a0afa14a771114524925ba1ae53325f7e36aff168ef83"
+    },
+    {
+      "path": "docs/agent-handoffs/hansa-knowledge-atlas-2026-10-25/references/NotebookLM_guide_mindmap_reference.png",
+      "bytes": 376747,
+      "sha256": "7b7a0b508e3ca78523aaf99c8b7a1f1dea0f50785b32dc5ae4cbfb30bf4f11e5"
+    },
+    {
+      "path": "docs/agent-handoffs/hansa-knowledge-atlas-2026-10-25/schemas/atlas-content.schema.json",
+      "bytes": 6447,
+      "sha256": "55072960806c17df730f2d90b2f2219ea7116cf7ab22a6bd24b7f8cd8a53730f"
+    },
+    {
+      "path": "docs/agent-handoffs/hansa-knowledge-atlas-2026-10-25/tools/build_manifest_and_zip.py",
+      "bytes": 2018,
+      "sha256": "bf6b109e5db227c50d7af011be4790bf14a6f1db52a869e4f9dd6d0c190b4fff"
+    },
+    {
+      "path": "docs/agent-handoffs/hansa-knowledge-atlas-2026-10-25/tools/verify_handoff.py",
+      "bytes": 2993,
+      "sha256": "19e883fde4a73212881c94ea5ec44eab3cef5a19f69885f49eb9a2b125b33412"
+    },
+    {
+      "path": "docs/agent-reference/PACKAGE_MANIFEST.json",
+      "bytes": 3669,
+      "sha256": "ed2a35961af77751f9da45b9744e2775c1e20068c905fb1949f5aee2efc15d79"
+    },
+    {
+      "path": "docs/agent-reference/START_HERE.md",
+      "bytes": 6674,
+      "sha256": "043c6317214cdd125b268d2fcfadaa5763a6f13d3b787d7729a33fc7d365a67c"
+    },
+    {
+      "path": "docs/knowledge-atlas/ARCHITECTURE.md",
+      "bytes": 8405,
+      "sha256": "230d61d256fcb4cb38e45ec3d6f9df6469aa89ac4ef962e200ecfd6cfdbc3eec"
+    },
+    {
+      "path": "docs/knowledge-atlas/CHANGES.md",
+      "bytes": 5007,
+      "sha256": "ec906437b902184d4bc08bfbca7f0be2c06411673e42d0da654ad14adab3dfbf"
+    },
+    {
+      "path": "docs/knowledge-atlas/COMPATIBILITY_AND_CONFLICTS.md",
+      "bytes": 4682,
+      "sha256": "75dc6172559470fa0caa2620dc09d19c55e60749485ed50fb84fedaa8265c379"
+    },
+    {
+      "path": "docs/knowledge-atlas/EXECUTION_PLAN.md",
+      "bytes": 3033,
+      "sha256": "b780661e1e58168d3a9709d11913409f0d046f643fd5f3f72e4215a2e9db5c84"
+    },
+    {
+      "path": "docs/knowledge-atlas/NEXT_AGENT_START_HERE.md",
+      "bytes": 1549,
+      "sha256": "075d3602253f4f4a7fa4d2390864b010c5ec5e7b3d4a74ddff5fd030dffc4ea5"
+    },
+    {
+      "path": "docs/knowledge-atlas/PRESERVATION_BASELINE.json",
+      "bytes": 175331,
+      "sha256": "f30a345c31680db4a35693de897c466cbe4b8ea33ac05be2875e25a17629a40d"
+    },
+    {
+      "path": "docs/knowledge-atlas/REPOSITORY_INVENTORY.json",
+      "bytes": 87873,
+      "sha256": "aff5e8269049ce6b145b3b478937b5c0e66fcdc673ed1a434067a1f0fde3dd41"
+    },
+    {
+      "path": "docs/knowledge-atlas/SOURCE_COVERAGE.md",
+      "bytes": 3034,
+      "sha256": "d67caa18543bb26cf900e50e7ffd056af735839f9436fdcfdd70fbe8a01dfaee"
+    },
+    {
+      "path": "docs/knowledge-atlas/START_HERE.md",
+      "bytes": 2264,
+      "sha256": "00c1f471ec10bf941225dded0e01a7269851592f390a5eba416fe8fcdb5069a0"
+    },
+    {
+      "path": "docs/knowledge-atlas/VALIDATION.md",
+      "bytes": 3978,
+      "sha256": "92b9a06b64507d6dd11f06e04d88dc50df69debdd4f9f9ca1bcba493777e65c0"
+    },
+    {
+      "path": "docs/knowledge-atlas/ZIP_VERIFICATION.json",
+      "bytes": 106,
+      "sha256": "82dfee3b61dfc1963684621bf84e74461d5d8822a96ed246550c6a83781fc097"
+    },
+    {
+      "path": "scripts/verify-knowledge-atlas.mjs",
+      "bytes": 10081,
+      "sha256": "134ab43c9ab301868c41b781394f8f1132d55e87cf3a2d882d6364d557913e73"
+    }
+  ],
+  "successorAmendment": "2026-10-25: EasyUI native comparison; only owned reference hashes refreshed. Immutable Atlas/preflight baselines retained. See docs/design-system/easyui-v2/INTEGRATION_MANIFEST.json.",
+  "preservationRepair": "docs/preservation-history/2026-10-25/RECONCILIATION.json"
+}

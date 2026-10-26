@@ -1,0 +1,28 @@
+{
+  "lesson_id": "dp600-10-intro",
+  "source_sections": [
+    50,
+    51
+  ],
+  "blocks": [
+    {
+      "id": "dp600-10-intro-p050",
+      "kind": "source_fragment",
+      "source_page": 50,
+      "source_start_line": 1,
+      "source_text": "Chapter 10 — Practice questions\nAnswer these closed-book. Full explanations follow the last question.\n1. Analysts must query warehouse tables with T-SQL but must never read the underlying Parquet files with\nSpark. Which combination do you grant?\n2. You must hide the Salary  column from all roles except HR, enforced identically for Spark, T-SQL, and a\nDirect Lake model. Which feature?\n3. A lakehouse table is 900 GB and grows daily. Reports must be near real time and fast. Which storage\nmode?\n4. A Direct Lake report worked for months and is now consistently slow. Queries are hitting the SQL\nanalytics endpoint. What happened?\n5. You need YTD, PY, and YoY variants of 20 measures without writing 60 measures. What do you\nimplement?\n6. A business user must switch a chart between three different measures from a slicer. What do you\nimplement?\n7. Which two objects can you create in a lakehouse SQL analytics endpoint: view, stored procedure, inline\nTVF, MERGE  statement?\n8. A dataflow suddenly takes ten times longer after adding a step. What is the most likely cause?\n9. You must promote a tested set of items from Test to Production and re-point them at the Production\nlakehouse. Which two features?\n10. What exactly happens when a Direct Lake semantic model is \"refreshed\"?\n11. Sales must be analysed by both order date and ship date against a single date dimension. How?\n12. You need to know every report that breaks if you drop a column from a Gold warehouse table. Which\nfeature?\n13. Which endorsement level can only be applied by reviewers the tenant admin nominates?\n14. A KQL query must return the ten devices with the most errors. Which operator?\n15. An Import model refresh takes 6 hours; only the last 7 days of data ever change. What do you configure?\n16. A slicer over a small dimension on a DirectQuery model is slow. What is the standard fix?\n17. Which Fabric store supports multi-table transactions with T-SQL writes?\n18. What does turning on OneLake availability for an eventhouse achieve?\n19. Which file format lets a report and its semantic model be code-reviewed in a pull request?\n20. A measure divides two measures and errors when the denominator is zero. What do you use?\n▸ Answers and explanations\n1. Workspace Viewer + ReadData  item permission. ReadAll  would grant Spark/OneLake file access,\nwhich the requirement forbids. Contributor would grant far too much.\n2. OneLake security data access roles. T-SQL DENY  only covers callers through the SQL endpoint; a\nSpark notebook would bypass it. OneLake security is enforced at the lake layer for every engine.",
+      "presentation_status": "needs-editorial-layout-conversion",
+      "recommended_renderer": "SourceFragment"
+    },
+    {
+      "id": "dp600-10-intro-p051",
+      "kind": "source_fragment",
+      "source_page": 51,
+      "source_start_line": 1,
+      "source_text": "3. Direct Lake. Import would need a huge refresh, and DirectQuery would be slow. Direct Lake gives\nImport-class speed with near-real-time data through framing.\n4. The table outgrew a Direct Lake guardrail, so queries fall back to DirectQuery. Verify with the\nmodel's fallback behaviour, then reduce the table, move to a larger SKU, or set DirectLakeOnly  to\nsurface the problem.\n5. A calculation group with three calculation items using SELECTEDMEASURE() .\n6. A field parameter. A calculation group changes how a measure is evaluated, not which measure is\nshown.\n7. View and inline TVF. The endpoint is read-only: no stored procedures, no MERGE .\n8. Query folding broke at that step. Everything downstream now runs in the mashup engine instead of\nthe source.\n9. A deployment pipeline (to promote) plus deployment rules or a variable library (to re-point the data\nsource per stage).\n10. Framing — metadata is updated to the current Delta version and affected cached columns are\ninvalidated; no rows are imported. The next query pages the new data in.\n11. Two relationships: one active on order date, one inactive on ship date, activated inside a measure with\nUSERELATIONSHIP .\n12. Impact analysis (with lineage view) from the warehouse item.\n13. Certified (and Master data). Promoted can be applied by anyone with Write on the item.\n14. top 10 by ErrorCount desc . take 10  returns an arbitrary ten rows.\n15. Incremental refresh with RangeStart / RangeEnd , archiving history and refreshing the last 7–10 days,\nideally with Detect data changes.\n16. Set the dimension table's storage mode to Dual in a composite model.\n17. Warehouse (and Fabric SQL database for OLTP). The lakehouse SQL endpoint is read-only.\n18. It writes a Delta copy of the KQL data into OneLake, so Spark, T-SQL, shortcuts, and Direct Lake\nmodels can read it while KQL performance is unaffected.\n19. .pbip  — the Power BI project format, with the model in TMDL text files.\n20. DIVIDE() , which returns blank (or a supplied alternate) instead of erroring.",
+      "presentation_status": "needs-editorial-layout-conversion",
+      "recommended_renderer": "SourceFragment"
+    }
+  ],
+  "warning": "Source fragments are NOT native formatted prose, tables or runnable code."
+}

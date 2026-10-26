@@ -1,0 +1,58 @@
+{
+  "lesson_id": "dp600-7-intro",
+  "source_sections": [
+    38,
+    39,
+    40,
+    41,
+    43
+  ],
+  "blocks": [
+    {
+      "id": "dp600-7-intro-p038",
+      "kind": "source_fragment",
+      "source_page": 38,
+      "source_start_line": 1,
+      "source_text": "Chapter 7 — Implement and manage semantic models,\npart 1: design and build\nEXAM FOCUS\nDesign and build semantic models — choose a storage mode · implement a star schema for a\nsemantic model · implement relationships, such as bridge tables and many-to-many relationships ·\nwrite calculations that use DAX variables and functions, such as iterators, table filtering, windowing,\nand information functions · implement calculation groups, dynamic format strings, and field parameters\n· identify use cases for and configure large semantic model storage format · design and build\ncomposite models.",
+      "presentation_status": "needs-editorial-layout-conversion",
+      "recommended_renderer": "SourceFragment"
+    },
+    {
+      "id": "dp600-7-intro-p039",
+      "kind": "source_fragment",
+      "source_page": 39,
+      "source_start_line": 1,
+      "source_text": "KNOW THE DIFFERENCE\nDual is not a fourth independent mode — it is a property you set on a table (usually a dimension)\ninside a composite model so the engine can satisfy a query from memory when possible and push\ndown to the source when a DirectQuery fact table is involved. Setting dimensions to Dual is the\nstandard fix for slow DirectQuery slicers.",
+      "presentation_status": "needs-editorial-layout-conversion",
+      "recommended_renderer": "SourceFragment"
+    },
+    {
+      "id": "dp600-7-intro-p040",
+      "kind": "source_fragment",
+      "source_page": 40,
+      "source_start_line": 1,
+      "source_text": "Margin % =\nVAR Sales = SUM ( FactSales[SalesAmount] )\nVAR Cost  = SUM ( FactSales[TotalProductCost] )\nRETURN DIVIDE ( Sales - Cost, Sales )\nIterators ( SUMX , AVERAGEX , MAXX , RANKX , CONCATENATEX ) evaluate an expression row by row over a\ntable and then aggregate:\nSales Amount = SUMX ( FactSales, FactSales[Quantity] * FactSales[UnitPrice] )\nTable filtering — pass a table expression to CALCULATE :\nHigh Value Sales =\nCALCULATE ( [Total Sales], FILTER ( VALUES ( FactSales[OrderValue] ), FactSales[OrderValue] \n> 1000 ) )\nWindowing functions ( INDEX , OFFSET , WINDOW , RANK , ROWNUMBER ) operate over an ordered result set\n— much simpler than the old EARLIER  patterns:\nSales vs Previous Month =\nVAR Prior = CALCULATE ( [Total Sales], OFFSET ( -1, , ORDERBY ( DimDate[MonthKey] ) ) )\nRETURN [Total Sales] - Prior\nInformation functions answer \"what is the current state?\" — ISBLANK , ISFILTERED , ISCROSSFILTERED ,\nISINSCOPE , HASONEVALUE , SELECTEDVALUE , USERPRINCIPALNAME , USERNAME :\nSelected Region Label =\nIF ( HASONEVALUE ( DimRegion[Region] ), SELECTEDVALUE ( DimRegion[Region] ), \"All regions\" )",
+      "presentation_status": "needs-editorial-layout-conversion",
+      "recommended_renderer": "SourceFragment"
+    },
+    {
+      "id": "dp600-7-intro-p041",
+      "kind": "source_fragment",
+      "source_page": 41,
+      "source_start_line": 1,
+      "source_text": "Dynamic format strings let one measure change its own format — percentage for a ratio item, currency for\nan amount item, or a currency that follows the selected country:\n-- Format string expression on a measure or calculation item\nSELECTEDVALUE ( DimCurrency[FormatString], \"#,##0.00\" )\nReference: dynamic format strings.\nField parameters let the user choose which measure or which dimension a visual shows, from a slicer,\nwithout bookmarks:\nMeasure selection = {\n    (\"Sales\",   NAMEOF('Measures'[Total Sales]),  0),\n    (\"Margin\",  NAMEOF('Measures'[Margin]),       1),\n    (\"Quantity\",NAMEOF('Measures'[Total Qty]),    2)\n}\nReference: field parameters.\nKNOW THE DIFFERENCE\nCalculation group vs field parameter. A calculation group changes how a measure is evaluated\n(YTD, PY, YoY) and is authored by the modeller. A field parameter changes which field or measure a\nvisual displays and is driven by the report user. They are frequently combined.",
+      "presentation_status": "needs-editorial-layout-conversion",
+      "recommended_renderer": "SourceFragment"
+    },
+    {
+      "id": "dp600-7-intro-p043",
+      "kind": "source_fragment",
+      "source_page": 43,
+      "source_start_line": 1,
+      "source_text": "Large semantic model storage format · calculated tables\nTraining: Design semantic models for scale · Design and manage semantic models in Fabric",
+      "presentation_status": "needs-editorial-layout-conversion",
+      "recommended_renderer": "SourceFragment"
+    }
+  ],
+  "warning": "Source fragments are NOT native formatted prose, tables or runnable code."
+}

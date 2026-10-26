@@ -1,0 +1,18 @@
+{
+  "lesson_id": "dp600-c7-s02",
+  "source_sections": [
+    39
+  ],
+  "blocks": [
+    {
+      "id": "dp600-c7-s02-p039",
+      "kind": "source_fragment",
+      "source_page": 39,
+      "source_start_line": 6,
+      "source_text": "7.2 Relationships\nProperty\nOptions\nWhat to know\nCardinality\nOne-to-many, one-to-one,\nmany-to-many\nOne-to-many from dimension to fact is the default and the\ngoal\nCross-filter\ndirection\nSingle, Both\nSingle is safer; Both can create ambiguity and slow queries\nActive\nOne active path per pair of\ntables\nExtra paths are inactive; activate them per measure with\nUSERELATIONSHIP\nIntegrity\nAssume referential integrity\nOnly for DirectQuery, and only when it is genuinely true\nTwo date relationships (order date and ship date) to one date table:\nSales by Ship Date =\nCALCULATE ( [Total Sales], USERELATIONSHIP ( FactSales[ShipDateKey], DimDate[DateKey] ) )\nMany-to-many situations have two solutions:\n1. A bridge table (also called a factless fact or a junction table) containing the distinct combinations, with\none-to-many relationships from each dimension into it. This is the recommended, predictable design.\n2. A many-to-many relationship directly between two tables. Simpler to set up, but it introduces limited\nrelationships and blank-member behaviour that surprises people.\nGuidance: many-to-many relationship guidance and bi-directional filtering guidance.\nCOMMON EXAM TRAP\nTurning on bi-directional filtering to \"make a slicer work\" is the most common self-inflicted modelling\nwound: it can create ambiguous filter paths, break RLS expectations, and degrade performance. The\nexam-correct alternatives are a bridge table, CROSSFILTER  inside a specific measure, or TREATAS .",
+      "presentation_status": "needs-editorial-layout-conversion",
+      "recommended_renderer": "SourceFragment"
+    }
+  ],
+  "warning": "Source fragments are NOT native formatted prose, tables or runnable code."
+}

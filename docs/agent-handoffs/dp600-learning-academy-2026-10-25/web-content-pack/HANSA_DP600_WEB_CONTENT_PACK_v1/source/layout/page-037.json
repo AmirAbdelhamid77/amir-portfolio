@@ -1,0 +1,1003 @@
+{
+  "page": 37,
+  "width": 594.9599609375,
+  "height": 841.9199829101562,
+  "blocks": [
+    {
+      "bbox": [
+        57.0,
+        52.76,
+        359.65,
+        75.36
+      ],
+      "lines": [
+        {
+          "bbox": [
+            57.0,
+            52.76,
+            98.75,
+            62.61
+          ],
+          "spans": [
+            {
+              "text": "-- T-SQL",
+              "bbox": [
+                57.0,
+                52.76,
+                98.75,
+                62.61
+              ],
+              "font": "LiberationMono",
+              "size": 8.7,
+              "flags": 8,
+              "color": 15330805
+            }
+          ]
+        },
+        {
+          "bbox": [
+            57.0,
+            65.51,
+            359.65,
+            75.36
+          ],
+          "spans": [
+            {
+              "text": "SELECT TOP (5) c.CategoryName, SUM(f.SalesAmount) AS Sales",
+              "bbox": [
+                57.0,
+                65.51,
+                359.65,
+                75.36
+              ],
+              "font": "LiberationMono",
+              "size": 8.7,
+              "flags": 8,
+              "color": 15330805
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "bbox": [
+        57.0,
+        79.01,
+        328.34,
+        101.61
+      ],
+      "lines": [
+        {
+          "bbox": [
+            57.0,
+            79.01,
+            161.36,
+            88.86
+          ],
+          "spans": [
+            {
+              "text": "FROM dbo.FactSales f",
+              "bbox": [
+                57.0,
+                79.01,
+                161.36,
+                88.86
+              ],
+              "font": "LiberationMono",
+              "size": 8.7,
+              "flags": 8,
+              "color": 15330805
+            }
+          ]
+        },
+        {
+          "bbox": [
+            57.0,
+            91.76,
+            328.34,
+            101.61
+          ],
+          "spans": [
+            {
+              "text": "JOIN dbo.DimProduct c ON c.ProductKey = f.ProductKey",
+              "bbox": [
+                57.0,
+                91.76,
+                328.34,
+                101.61
+              ],
+              "font": "LiberationMono",
+              "size": 8.7,
+              "flags": 8,
+              "color": 15330805
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "bbox": [
+        57.0,
+        105.26,
+        312.69,
+        140.61
+      ],
+      "lines": [
+        {
+          "bbox": [
+            57.0,
+            105.26,
+            312.69,
+            115.11
+          ],
+          "spans": [
+            {
+              "text": "JOIN dbo.DimDate d    ON d.DateKey    = f.DateKey",
+              "bbox": [
+                57.0,
+                105.26,
+                312.69,
+                115.11
+              ],
+              "font": "LiberationMono",
+              "size": 8.7,
+              "flags": 8,
+              "color": 15330805
+            }
+          ]
+        },
+        {
+          "bbox": [
+            57.0,
+            118.01,
+            197.89,
+            127.86
+          ],
+          "spans": [
+            {
+              "text": "WHERE d.CalendarYear = 2026",
+              "bbox": [
+                57.0,
+                118.01,
+                197.89,
+                127.86
+              ],
+              "font": "LiberationMono",
+              "size": 8.7,
+              "flags": 8,
+              "color": 15330805
+            }
+          ]
+        },
+        {
+          "bbox": [
+            57.0,
+            130.76,
+            177.02,
+            140.61
+          ],
+          "spans": [
+            {
+              "text": "GROUP BY c.CategoryName",
+              "bbox": [
+                57.0,
+                130.76,
+                177.02,
+                140.61
+              ],
+              "font": "LiberationMono",
+              "size": 8.7,
+              "flags": 8,
+              "color": 15330805
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "bbox": [
+        57.0,
+        144.26,
+        161.36,
+        154.11
+      ],
+      "lines": [
+        {
+          "bbox": [
+            57.0,
+            144.26,
+            161.36,
+            154.11
+          ],
+          "spans": [
+            {
+              "text": "ORDER BY Sales DESC;",
+              "bbox": [
+                57.0,
+                144.26,
+                161.36,
+                154.11
+              ],
+              "font": "LiberationMono",
+              "size": 8.7,
+              "flags": 8,
+              "color": 15330805
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "bbox": [
+        57.0,
+        182.51,
+        88.31,
+        205.11
+      ],
+      "lines": [
+        {
+          "bbox": [
+            57.0,
+            182.51,
+            88.31,
+            192.36
+          ],
+          "spans": [
+            {
+              "text": "// KQL",
+              "bbox": [
+                57.0,
+                182.51,
+                88.31,
+                192.36
+              ],
+              "font": "LiberationMono",
+              "size": 8.7,
+              "flags": 8,
+              "color": 15330805
+            }
+          ]
+        },
+        {
+          "bbox": [
+            57.0,
+            195.26,
+            83.09,
+            205.11
+          ],
+          "spans": [
+            {
+              "text": "Sales",
+              "bbox": [
+                57.0,
+                195.26,
+                83.09,
+                205.11
+              ],
+              "font": "LiberationMono",
+              "size": 8.7,
+              "flags": 8,
+              "color": 15330805
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "bbox": [
+        57.0,
+        208.76,
+        328.34,
+        244.11
+      ],
+      "lines": [
+        {
+          "bbox": [
+            57.0,
+            208.76,
+            161.36,
+            218.61
+          ],
+          "spans": [
+            {
+              "text": "| where Year == 2026",
+              "bbox": [
+                57.0,
+                208.76,
+                161.36,
+                218.61
+              ],
+              "font": "LiberationMono",
+              "size": 8.7,
+              "flags": 8,
+              "color": 15330805
+            }
+          ]
+        },
+        {
+          "bbox": [
+            57.0,
+            221.51,
+            328.34,
+            231.36
+          ],
+          "spans": [
+            {
+              "text": "| summarize Sales = sum(SalesAmount) by CategoryName",
+              "bbox": [
+                57.0,
+                221.51,
+                328.34,
+                231.36
+              ],
+              "font": "LiberationMono",
+              "size": 8.7,
+              "flags": 8,
+              "color": 15330805
+            }
+          ]
+        },
+        {
+          "bbox": [
+            57.0,
+            234.26,
+            166.58,
+            244.11
+          ],
+          "spans": [
+            {
+              "text": "| top 5 by Sales desc",
+              "bbox": [
+                57.0,
+                234.26,
+                166.58,
+                244.11
+              ],
+              "font": "LiberationMono",
+              "size": 8.7,
+              "flags": 8,
+              "color": 15330805
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "bbox": [
+        57.0,
+        272.51,
+        88.31,
+        282.36
+      ],
+      "lines": [
+        {
+          "bbox": [
+            57.0,
+            272.51,
+            88.31,
+            282.36
+          ],
+          "spans": [
+            {
+              "text": "// DAX",
+              "bbox": [
+                57.0,
+                272.51,
+                88.31,
+                282.36
+              ],
+              "font": "LiberationMono",
+              "size": 8.7,
+              "flags": 8,
+              "color": 15330805
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "bbox": [
+        57.0,
+        286.01,
+        161.36,
+        321.36
+      ],
+      "lines": [
+        {
+          "bbox": [
+            57.0,
+            286.01,
+            161.36,
+            295.86
+          ],
+          "spans": [
+            {
+              "text": "Top5Categories2026 =",
+              "bbox": [
+                57.0,
+                286.01,
+                161.36,
+                295.86
+              ],
+              "font": "LiberationMono",
+              "size": 8.7,
+              "flags": 8,
+              "color": 15330805
+            }
+          ]
+        },
+        {
+          "bbox": [
+            57.0,
+            298.76,
+            88.31,
+            308.61
+          ],
+          "spans": [
+            {
+              "text": "TOPN (",
+              "bbox": [
+                57.0,
+                298.76,
+                88.31,
+                308.61
+              ],
+              "font": "LiberationMono",
+              "size": 8.7,
+              "flags": 8,
+              "color": 15330805
+            }
+          ]
+        },
+        {
+          "bbox": [
+            57.0,
+            311.51,
+            88.32,
+            321.36
+          ],
+          "spans": [
+            {
+              "text": "    5,",
+              "bbox": [
+                57.0,
+                311.51,
+                88.32,
+                321.36
+              ],
+              "font": "LiberationMono",
+              "size": 8.7,
+              "flags": 8,
+              "color": 15330805
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "bbox": [
+        57.0,
+        325.01,
+        229.21,
+        347.61
+      ],
+      "lines": [
+        {
+          "bbox": [
+            57.0,
+            325.01,
+            171.81,
+            334.86
+          ],
+          "spans": [
+            {
+              "text": "    SUMMARIZECOLUMNS (",
+              "bbox": [
+                57.0,
+                325.01,
+                171.81,
+                334.86
+              ],
+              "font": "LiberationMono",
+              "size": 8.7,
+              "flags": 8,
+              "color": 15330805
+            }
+          ]
+        },
+        {
+          "bbox": [
+            57.0,
+            337.76,
+            229.21,
+            347.61
+          ],
+          "spans": [
+            {
+              "text": "        DimProduct[CategoryName],",
+              "bbox": [
+                57.0,
+                337.76,
+                229.21,
+                347.61
+              ],
+              "font": "LiberationMono",
+              "size": 8.7,
+              "flags": 8,
+              "color": 15330805
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "bbox": [
+        57.0,
+        351.26,
+        328.35,
+        386.61
+      ],
+      "lines": [
+        {
+          "bbox": [
+            57.0,
+            351.26,
+            328.35,
+            361.11
+          ],
+          "spans": [
+            {
+              "text": "        TREATAS ( { 2026 }, DimDate[CalendarYear] ),",
+              "bbox": [
+                57.0,
+                351.26,
+                328.35,
+                361.11
+              ],
+              "font": "LiberationMono",
+              "size": 8.7,
+              "flags": 8,
+              "color": 15330805
+            }
+          ]
+        },
+        {
+          "bbox": [
+            57.0,
+            364.01,
+            213.55,
+            373.86
+          ],
+          "spans": [
+            {
+              "text": "        \"Sales\", [Total Sales]",
+              "bbox": [
+                57.0,
+                364.01,
+                213.55,
+                373.86
+              ],
+              "font": "LiberationMono",
+              "size": 8.7,
+              "flags": 8,
+              "color": 15330805
+            }
+          ]
+        },
+        {
+          "bbox": [
+            57.0,
+            376.76,
+            88.32,
+            386.61
+          ],
+          "spans": [
+            {
+              "text": "    ),",
+              "bbox": [
+                57.0,
+                376.76,
+                88.32,
+                386.61
+              ],
+              "font": "LiberationMono",
+              "size": 8.7,
+              "flags": 8,
+              "color": 15330805
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "bbox": [
+        57.0,
+        390.26,
+        145.72,
+        412.86
+      ],
+      "lines": [
+        {
+          "bbox": [
+            57.0,
+            390.26,
+            145.72,
+            400.11
+          ],
+          "spans": [
+            {
+              "text": "    [Sales], DESC",
+              "bbox": [
+                57.0,
+                390.26,
+                145.72,
+                400.11
+              ],
+              "font": "LiberationMono",
+              "size": 8.7,
+              "flags": 8,
+              "color": 15330805
+            }
+          ]
+        },
+        {
+          "bbox": [
+            57.0,
+            403.01,
+            62.22,
+            412.86
+          ],
+          "spans": [
+            {
+              "text": ")",
+              "bbox": [
+                57.0,
+                403.01,
+                62.22,
+                412.86
+              ],
+              "font": "LiberationMono",
+              "size": 8.7,
+              "flags": 8,
+              "color": 15330805
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "bbox": [
+        44.25,
+        445.55,
+        138.13,
+        460.3
+      ],
+      "lines": [
+        {
+          "bbox": [
+            44.25,
+            445.55,
+            138.13,
+            460.3
+          ],
+          "spans": [
+            {
+              "text": "6.6 Learn more",
+              "bbox": [
+                44.25,
+                445.55,
+                138.13,
+                460.3
+              ],
+              "font": "LiberationSans-Bold",
+              "size": 13.2,
+              "flags": 16,
+              "color": 949350
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "bbox": [
+        58.56,
+        471.91,
+        247.99,
+        483.75
+      ],
+      "lines": [
+        {
+          "bbox": [
+            58.56,
+            471.91,
+            247.99,
+            483.75
+          ],
+          "spans": [
+            {
+              "text": "Query a warehouse",
+              "bbox": [
+                58.56,
+                471.91,
+                151.01,
+                483.75
+              ],
+              "font": "LiberationSans",
+              "size": 10.6,
+              "flags": 0,
+              "color": 1010877
+            },
+            {
+              "text": " · ",
+              "bbox": [
+                151.02,
+                471.91,
+                160.44,
+                483.75
+              ],
+              "font": "LiberationSans",
+              "size": 10.6,
+              "flags": 0,
+              "color": 1776415
+            },
+            {
+              "text": "Visual query editor",
+              "bbox": [
+                160.44,
+                471.91,
+                247.99,
+                483.75
+              ],
+              "font": "LiberationSans",
+              "size": 10.6,
+              "flags": 0,
+              "color": 1010877
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "bbox": [
+        58.56,
+        492.16,
+        363.61,
+        504.0
+      ],
+      "lines": [
+        {
+          "bbox": [
+            58.56,
+            492.16,
+            363.61,
+            504.0
+          ],
+          "spans": [
+            {
+              "text": "KQL query language",
+              "bbox": [
+                58.56,
+                492.16,
+                155.35,
+                504.0
+              ],
+              "font": "LiberationSans",
+              "size": 10.6,
+              "flags": 0,
+              "color": 1010877
+            },
+            {
+              "text": " · ",
+              "bbox": [
+                155.36,
+                492.16,
+                164.77,
+                504.0
+              ],
+              "font": "LiberationSans",
+              "size": 10.6,
+              "flags": 0,
+              "color": 1776415
+            },
+            {
+              "text": "Work with real-time data in an Eventhouse",
+              "bbox": [
+                164.78,
+                492.16,
+                363.61,
+                504.0
+              ],
+              "font": "LiberationSans",
+              "size": 10.6,
+              "flags": 0,
+              "color": 1010877
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "bbox": [
+        58.56,
+        511.66,
+        348.66,
+        523.5
+      ],
+      "lines": [
+        {
+          "bbox": [
+            58.56,
+            511.66,
+            348.66,
+            523.5
+          ],
+          "spans": [
+            {
+              "text": "DAX function reference",
+              "bbox": [
+                58.56,
+                511.66,
+                168.09,
+                523.5
+              ],
+              "font": "LiberationSans",
+              "size": 10.6,
+              "flags": 0,
+              "color": 1010877
+            },
+            {
+              "text": " · ",
+              "bbox": [
+                168.09,
+                511.66,
+                177.51,
+                523.5
+              ],
+              "font": "LiberationSans",
+              "size": 10.6,
+              "flags": 0,
+              "color": 1776415
+            },
+            {
+              "text": "CALCULATE",
+              "bbox": [
+                177.52,
+                511.66,
+                239.14,
+                523.5
+              ],
+              "font": "LiberationSans",
+              "size": 10.6,
+              "flags": 0,
+              "color": 1010877
+            },
+            {
+              "text": " · ",
+              "bbox": [
+                239.14,
+                511.66,
+                248.56,
+                523.5
+              ],
+              "font": "LiberationSans",
+              "size": 10.6,
+              "flags": 0,
+              "color": 1776415
+            },
+            {
+              "text": "Use variables in DAX",
+              "bbox": [
+                248.57,
+                511.66,
+                348.66,
+                523.5
+              ],
+              "font": "LiberationSans",
+              "size": 10.6,
+              "flags": 0,
+              "color": 1010877
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "bbox": [
+        58.56,
+        531.16,
+        466.0,
+        543.0
+      ],
+      "lines": [
+        {
+          "bbox": [
+            58.56,
+            531.16,
+            466.0,
+            543.0
+          ],
+          "spans": [
+            {
+              "text": "Training: ",
+              "bbox": [
+                58.56,
+                531.16,
+                102.33,
+                543.0
+              ],
+              "font": "LiberationSans",
+              "size": 10.6,
+              "flags": 0,
+              "color": 1776415
+            },
+            {
+              "text": "Write DAX formulas",
+              "bbox": [
+                102.33,
+                531.16,
+                195.14,
+                543.0
+              ],
+              "font": "LiberationSans",
+              "size": 10.6,
+              "flags": 0,
+              "color": 1010877
+            },
+            {
+              "text": " · ",
+              "bbox": [
+                195.15,
+                531.16,
+                204.57,
+                543.0
+              ],
+              "font": "LiberationSans",
+              "size": 10.6,
+              "flags": 0,
+              "color": 1776415
+            },
+            {
+              "text": "Create DAX calculations",
+              "bbox": [
+                204.57,
+                531.16,
+                319.4,
+                543.0
+              ],
+              "font": "LiberationSans",
+              "size": 10.6,
+              "flags": 0,
+              "color": 1010877
+            },
+            {
+              "text": " · ",
+              "bbox": [
+                319.39,
+                531.16,
+                328.81,
+                543.0
+              ],
+              "font": "LiberationSans",
+              "size": 10.6,
+              "flags": 0,
+              "color": 1776415
+            },
+            {
+              "text": "Use DAX in semantic models",
+              "bbox": [
+                328.82,
+                531.16,
+                466.0,
+                543.0
+              ],
+              "font": "LiberationSans",
+              "size": 10.6,
+              "flags": 0,
+              "color": 1010877
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

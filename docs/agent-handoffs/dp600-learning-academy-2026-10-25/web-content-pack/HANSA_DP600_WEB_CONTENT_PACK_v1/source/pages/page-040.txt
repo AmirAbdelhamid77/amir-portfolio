@@ -1,0 +1,33 @@
+Margin % =
+VAR Sales = SUM ( FactSales[SalesAmount] )
+VAR Cost  = SUM ( FactSales[TotalProductCost] )
+RETURN DIVIDE ( Sales - Cost, Sales )
+Iterators ( SUMX , AVERAGEX , MAXX , RANKX , CONCATENATEX ) evaluate an expression row by row over a
+table and then aggregate:
+Sales Amount = SUMX ( FactSales, FactSales[Quantity] * FactSales[UnitPrice] )
+Table filtering — pass a table expression to CALCULATE :
+High Value Sales =
+CALCULATE ( [Total Sales], FILTER ( VALUES ( FactSales[OrderValue] ), FactSales[OrderValue] 
+> 1000 ) )
+Windowing functions ( INDEX , OFFSET , WINDOW , RANK , ROWNUMBER ) operate over an ordered result set
+— much simpler than the old EARLIER  patterns:
+Sales vs Previous Month =
+VAR Prior = CALCULATE ( [Total Sales], OFFSET ( -1, , ORDERBY ( DimDate[MonthKey] ) ) )
+RETURN [Total Sales] - Prior
+Information functions answer "what is the current state?" — ISBLANK , ISFILTERED , ISCROSSFILTERED ,
+ISINSCOPE , HASONEVALUE , SELECTEDVALUE , USERPRINCIPALNAME , USERNAME :
+Selected Region Label =
+IF ( HASONEVALUE ( DimRegion[Region] ), SELECTEDVALUE ( DimRegion[Region] ), "All regions" )
+7.4 Calculation groups, dynamic format strings, field parameters
+These three features remove combinatorial explosion from models, and all three are named in the outline.
+Calculation groups apply one set of calculation items to any measure. Instead of writing Sales YTD ,
+Cost YTD , Margin YTD , Sales PY , Cost PY …, you write one Time intelligence  group:
+-- Calculation item: YTD
+CALCULATE ( SELECTEDMEASURE (), DATESYTD ( DimDate[Date] ) )
+-- Calculation item: PY
+CALCULATE ( SELECTEDMEASURE (), SAMEPERIODLASTYEAR ( DimDate[Date] ) )
+-- Calculation item: YoY %
+VAR Cur = SELECTEDMEASURE ()
+VAR Pri = CALCULATE ( SELECTEDMEASURE (), SAMEPERIODLASTYEAR ( DimDate[Date] ) )
+RETURN DIVIDE ( Cur - Pri, Pri )
+Reference: calculation groups.

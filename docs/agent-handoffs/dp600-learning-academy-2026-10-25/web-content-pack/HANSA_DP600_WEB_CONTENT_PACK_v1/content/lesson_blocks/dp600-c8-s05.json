@@ -1,0 +1,18 @@
+{
+  "lesson_id": "dp600-c8-s05",
+  "source_sections": [
+    47
+  ],
+  "blocks": [
+    {
+      "id": "dp600-c8-s05-p047",
+      "kind": "source_fragment",
+      "source_page": 47,
+      "source_start_line": 1,
+      "source_text": "8.5 Direct Lake on OneLake vs Direct Lake on SQL analytics endpoint\nDirect Lake on SQL analytics endpoint\nDirect Lake on OneLake\nPoints at\nThe lakehouse/warehouse SQL\nanalytics endpoint\nDelta tables in OneLake directly\nTable sources\nThe tables exposed by that one endpoint\nTables from multiple lakehouses/warehouses,\nincluding via shortcuts\nDirectQuery\nfallback\nSupported — degrades instead of failing\nNot supported — no SQL endpoint to fall back to\nSecurity\nenforced by\nSQL endpoint permissions, T-SQL\nRLS/CLS\nOneLake security data access roles\nMetadata sync\nDepends on the endpoint's sync of new\ntables/columns\nReads the Delta log directly\nAuthoring\nDefault model, or a new model over the\nendpoint\nFull model authoring in Power BI Desktop\nKNOW THE DIFFERENCE\nPick Direct Lake on SQL analytics endpoint when you rely on T-SQL security objects or want\nautomatic fallback. Pick Direct Lake on OneLake when the model must combine tables from several\nitems, when you want OneLake security enforced everywhere, or when you want authoring in Desktop\nwith no endpoint sync delay in the middle.\nFurther reading: Direct Lake overview · develop Direct Lake models · understand Direct Lake storage ·\nDirect Lake in Power BI Desktop.",
+      "presentation_status": "needs-editorial-layout-conversion",
+      "recommended_renderer": "SourceFragment"
+    }
+  ],
+  "warning": "Source fragments are NOT native formatted prose, tables or runnable code."
+}

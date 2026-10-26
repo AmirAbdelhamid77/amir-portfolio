@@ -11,6 +11,7 @@ import {
 } from "lucide-react";
 import { CASE_STUDIES, getCaseStudy } from "@/lib/case-studies";
 import { DashboardGallery } from "@/components/dashboard-gallery";
+import { HseRateBasisExplainer } from "@/components/hse/rate-basis-explainer";
 import { ButtonLink, Container, Eyebrow } from "@/components/ui";
 import { SITE } from "@/lib/site";
 
@@ -297,6 +298,14 @@ export default async function CaseStudyPage({ params }: Params) {
                       </li>
                     ))}
                   </ul>
+                ) : null}
+                {/* The rate-basis explainer sits with the safety section it
+                    clarifies: that is where a reader meets TRIR and LTIFR side by
+                    side, not in a generic appendix. */}
+                {study.slug === "hse-analytics" && section.heading === "Safety performance" ? (
+                  <div className="mt-6">
+                    <HseRateBasisExplainer />
+                  </div>
                 ) : null}
               </div>
             ))}

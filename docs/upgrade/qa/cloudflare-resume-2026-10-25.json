@@ -1,0 +1,94 @@
+{
+  "checkedAt": "2026-10-25T13:59:15.033Z",
+  "accountId": "b84c4bfbf06e399ceb5f5267f87cb37e",
+  "latestDeployment": {
+    "id": "797cac48-1375-48df-a796-1aa99cfb9fc7",
+    "source": "wrangler",
+    "strategy": "percentage",
+    "author_email": "amirabdelhamid227@gmail.com",
+    "annotations": {
+      "workers/triggered_by": "deployment"
+    },
+    "versions": [
+      {
+        "version_id": "9ead92a4-7a95-444a-8b2c-7bebaa2bc6a2",
+        "percentage": 100
+      }
+    ],
+    "created_on": "2026-10-25T13:24:26.524577Z"
+  },
+  "activeVersion": {
+    "id": "9ead92a4-7a95-444a-8b2c-7bebaa2bc6a2",
+    "number": 10,
+    "metadata": {
+      "created_on": "2026-10-25T13:24:24.676282Z",
+      "source": "wrangler",
+      "author_id": "4ac4fc792c47c981f226b6ae73ce08b9",
+      "author_email": "amirabdelhamid227@gmail.com",
+      "has_preview": true
+    },
+    "annotations": {
+      "workers/triggered_by": "version_upload"
+    },
+    "resources": {
+      "script": {
+        "etag": "",
+        "handlers": null,
+        "last_deployed_from": ""
+      },
+      "script_runtime": {
+        "assets": {
+          "html_handling": "auto-trailing-slash",
+          "not_found_handling": "404-page",
+          "headers": {
+            "version": 2,
+            "rules": {
+              "/*": {
+                "set": {
+                  "cross-origin-opener-policy": "same-origin",
+                  "permissions-policy": "camera=(), microphone=(), geolocation=(), payment=()",
+                  "referrer-policy": "strict-origin-when-cross-origin",
+                  "strict-transport-security": "max-age=31536000",
+                  "x-content-type-options": "nosniff",
+                  "x-frame-options": "DENY"
+                },
+                "unset": []
+              },
+              "/_next/static/*": {
+                "set": {
+                  "cache-control": "public, max-age=31536000, immutable"
+                },
+                "unset": []
+              },
+              "/icon-512.png": {
+                "set": {
+                  "cache-control": "public, max-age=604800"
+                },
+                "unset": []
+              },
+              "/images/*": {
+                "set": {
+                  "cache-control": "public, max-age=604800, stale-while-revalidate=86400"
+                },
+                "unset": []
+              },
+              "/og.png": {
+                "set": {
+                  "cache-control": "public, max-age=604800"
+                },
+                "unset": []
+              }
+            }
+          },
+          "raw_headers": "# Response headers for Cloudflare Workers Static Assets.\n# https://developers.cloudflare.com/workers/static-assets/headers/\n# This file is copied from public/ into out/ by `next build`.\n\n/*\n  X-Content-Type-Options: nosniff\n  X-Frame-Options: DENY\n  Referrer-Policy: strict-origin-when-cross-origin\n  Permissions-Policy: camera=(), microphone=(), geolocation=(), payment=()\n  Cross-Origin-Opener-Policy: same-origin\n  Strict-Transport-Security: max-age=31536000\n\n# Next.js fingerprints everything under /_next/static, so it can be cached\n# forever. All of these files also carry an ETag from Cloudflare.\n/_next/static/*\n  Cache-Control: public, max-age=31536000, immutable\n\n# Pre-sized screenshots are stable but not fingerprinted. Cache for a week and\n# let a stale copy be served while the new one downloads.\n/images/*\n  Cache-Control: public, max-age=604800, stale-while-revalidate=86400\n\n/og.png\n  Cache-Control: public, max-age=604800\n\n/icon-512.png\n  Cache-Control: public, max-age=604800\n",
+          "serve_directly": true,
+          "raw_run_worker_first": false,
+          "base_path": "/"
+        },
+        "compatibility_date": "2026-10-23",
+        "usage_model": "standard"
+      },
+      "bindings": []
+    }
+  }
+}

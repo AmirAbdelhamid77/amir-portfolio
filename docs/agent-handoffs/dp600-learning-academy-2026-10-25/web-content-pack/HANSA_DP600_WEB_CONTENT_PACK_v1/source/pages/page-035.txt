@@ -1,0 +1,46 @@
+6.3 KQL essentials for the exam
+KQL reads left to right: start with a table, pipe it through operators. Reference: KQL overview.
+// Errors per hour for the last 24 hours, worst devices first
+Telemetry
+| where Timestamp > ago(24h) and Level == "Error"
+| summarize ErrorCount = count() by DeviceId, bin(Timestamp, 1h)
+| top 20 by ErrorCount desc
+| render timechart
+Task
+KQL
+T-SQL analogue
+Filter rows
+where
+WHERE
+Choose columns
+project , project-away
+SELECT
+Add a column
+extend
+computed column in SELECT
+Aggregate
+summarize … by
+GROUP BY
+Time buckets
+summarize … by bin(T, 1h)
+DATE_BUCKET  / DATEPART
+First N
+take , top … by
+TOP
+Latest row per key
+summarize arg_max(Timestamp, *) by DeviceId
+ROW_NUMBER() … = 1
+Distinct
+distinct
+SELECT DISTINCT
+Variables
+let x = …;
+DECLARE  / CTE
+Visualise
+render
+—
+Useful references: summarize operator · bin() · common operators tutorial.
+COMMON EXAM TRAP
+take 10  returns any 10 rows with no ordering guarantee and is for sampling; top 10 by Column
+desc  returns the actual top 10. Choosing take  where the question says "the ten highest" is a classic
+wrong answer.

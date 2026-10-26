@@ -1,0 +1,104 @@
+# Hansa content-aware page brief — fill one copy per page or cohesive module.
+# This is a template, not verified site metadata. Do not replace TODO values by guesses.
+schema_version: '1.0'
+page_id: TODO-stable-id
+canonical_route: TODO-current-or-proposed-route
+page_title: TODO
+status: planned # planned | source_audited | designed | implemented | validated
+language: en # en | ar | mixed | other
+reading_direction: ltr # ltr | rtl | mixed
+audience: TODO
+learning_level: TODO # beginner | intermediate | advanced | mixed
+
+sources:
+  - source_id: SRC-TODO
+    original_path: TODO-relative-path-to-source-html
+    subpage: false
+    verified_access: false
+    destination_sections: [TODO-anchor]
+    preserve: [headings, prose, code, equations, tables, images, citations]
+    unresolved: []
+
+concept_model:
+  primary_concept: TODO
+  prerequisites: []
+  introduces: []
+  reinforces: []
+  misconceptions: []
+  related_pages: []
+
+learning_objectives:
+  - id: OBJ-1
+    observable_verb: explain
+    statement: 'TODO: After this lesson, learner can ...'
+    assessment_id: TASK-TODO
+
+sections:
+  - section_id: sec-1
+    title: TODO
+    source_ids: [SRC-TODO]
+    content_forms: [definition] # See ontology in master reference.
+    primary_learning_objective: OBJ-1
+    representation:
+      type: prose # prose | table | chart | flowchart | graph | formula | simulator | code_trace | story | assessment
+      why_this_representation: TODO
+      static_alternative: accessible_text
+      data_kind: source_backed # source_backed | mathematical_model | synthetic | none
+      data_provenance: TODO-source-or-explicitly-none
+      metric_units: []
+      semantic_checks: []
+    interaction:
+      enabled: false
+      purpose: none
+      controls: []
+      outputs: []
+      reset: false
+      invalid_input_behavior: not_applicable
+    library:
+      preferred: existing_local_or_beui
+      exact_component_or_package: TODO-after-discovery
+      beui_registry_checked_at: null
+      why_complementary_tool_needed: not_applicable
+      license_verified: false
+      external_runtime_service: none
+    accessibility:
+      keyboard_equivalent: TODO
+      descriptive_text: TODO
+      data_table_if_chart: not_applicable
+      reduced_motion: not_applicable
+      mobile_behavior: TODO
+      rtl_behavior: TODO
+    references: []
+
+assessments:
+  - assessment_id: TASK-TODO
+    objective_ids: [OBJ-1]
+    question_type: scenario
+    source_ids: [SRC-TODO]
+    answer_key_verified: false
+    explanation_verified: false
+
+quality:
+  source_units_found: 0
+  source_units_mapped: 0
+  source_units_verified: 0
+  formulas_checked: false
+  chart_math_checked: false
+  accessibility_tested: false
+  mobile_tested: false
+  static_build_tested: false
+  existing_behavior_regression_checked: false
+  overall_score_out_of_100: null
+  release_blockers: []
+  evidence_links_or_paths: []
+
+handoff:
+  inspected_paths: []
+  changed_paths: []
+  added_dependencies_with_versions: []
+  external_services_and_costs: []
+  tests_passed: []
+  tests_failed: []
+  tests_not_run: []
+  unresolved_questions: []
+  next_atomic_task: TODO

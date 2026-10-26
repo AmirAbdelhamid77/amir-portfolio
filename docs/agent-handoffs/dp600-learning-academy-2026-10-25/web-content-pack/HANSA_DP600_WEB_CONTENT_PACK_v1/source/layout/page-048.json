@@ -1,0 +1,1283 @@
+{
+  "page": 48,
+  "width": 594.9599609375,
+  "height": 841.9199829101562,
+  "blocks": [
+    {
+      "bbox": [
+        46.77,
+        45.16,
+        549.08,
+        57.0
+      ],
+      "lines": [
+        {
+          "bbox": [
+            46.77,
+            45.16,
+            549.08,
+            57.0
+          ],
+          "spans": [
+            {
+              "text": "3. In the model, set the policy: **Archive data starting ",
+              "bbox": [
+                46.77,
+                45.16,
+                298.22,
+                57.0
+              ],
+              "font": "LiberationSans",
+              "size": 10.6,
+              "flags": 0,
+              "color": 1776415
+            },
+            {
+              "text": "n",
+              "bbox": [
+                298.23,
+                45.16,
+                304.12,
+                57.0
+              ],
+              "font": "LiberationSans-Italic",
+              "size": 10.6,
+              "flags": 2,
+              "color": 1776415
+            },
+            {
+              "text": " years before refresh date",
+              "bbox": [
+                304.12,
+                45.16,
+                425.43,
+                57.0
+              ],
+              "font": "LiberationSans",
+              "size": 10.6,
+              "flags": 0,
+              "color": 1776415
+            },
+            {
+              "text": " and ",
+              "bbox": [
+                425.44,
+                45.16,
+                450.16,
+                57.0
+              ],
+              "font": "LiberationSans-Bold",
+              "size": 10.6,
+              "flags": 16,
+              "color": 1184282
+            },
+            {
+              "text": "Incrementally refresh",
+              "bbox": [
+                450.16,
+                45.16,
+                549.08,
+                57.0
+              ],
+              "font": "LiberationSans",
+              "size": 10.6,
+              "flags": 0,
+              "color": 1776415
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "bbox": [
+        58.56,
+        62.41,
+        257.62,
+        74.25
+      ],
+      "lines": [
+        {
+          "bbox": [
+            58.56,
+            62.41,
+            257.62,
+            74.25
+          ],
+          "spans": [
+            {
+              "text": "data starting ",
+              "bbox": [
+                58.56,
+                62.41,
+                119.81,
+                74.25
+              ],
+              "font": "LiberationSans",
+              "size": 10.6,
+              "flags": 0,
+              "color": 1776415
+            },
+            {
+              "text": "m",
+              "bbox": [
+                119.81,
+                62.41,
+                128.64,
+                74.25
+              ],
+              "font": "LiberationSans-Italic",
+              "size": 10.6,
+              "flags": 2,
+              "color": 1776415
+            },
+            {
+              "text": " days before refresh date**.",
+              "bbox": [
+                128.65,
+                62.41,
+                257.62,
+                74.25
+              ],
+              "font": "LiberationSans",
+              "size": 10.6,
+              "flags": 0,
+              "color": 1776415
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "bbox": [
+        46.77,
+        81.91,
+        458.99,
+        93.75
+      ],
+      "lines": [
+        {
+          "bbox": [
+            46.77,
+            81.91,
+            458.99,
+            93.75
+          ],
+          "spans": [
+            {
+              "text": "4. Publish and run the first refresh — that one is long, because it builds all the partitions.",
+              "bbox": [
+                46.77,
+                81.91,
+                458.99,
+                93.75
+              ],
+              "font": "LiberationSans",
+              "size": 10.6,
+              "flags": 0,
+              "color": 1776415
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "bbox": [
+        44.25,
+        106.66,
+        137.28,
+        118.5
+      ],
+      "lines": [
+        {
+          "bbox": [
+            44.25,
+            106.66,
+            137.28,
+            118.5
+          ],
+          "spans": [
+            {
+              "text": "Options that matter:",
+              "bbox": [
+                44.25,
+                106.66,
+                137.28,
+                118.5
+              ],
+              "font": "LiberationSans",
+              "size": 10.6,
+              "flags": 0,
+              "color": 1776415
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "bbox": [
+        58.56,
+        129.53,
+        528.93,
+        141.83
+      ],
+      "lines": [
+        {
+          "bbox": [
+            58.56,
+            129.53,
+            528.93,
+            141.83
+          ],
+          "spans": [
+            {
+              "text": "Detect data changes",
+              "bbox": [
+                58.56,
+                129.91,
+                161.59,
+                141.75
+              ],
+              "font": "LiberationSans-Bold",
+              "size": 10.6,
+              "flags": 16,
+              "color": 1184282
+            },
+            {
+              "text": " — nominate a ",
+              "bbox": [
+                161.59,
+                129.91,
+                233.43,
+                141.75
+              ],
+              "font": "LiberationSans",
+              "size": 10.6,
+              "flags": 0,
+              "color": 1776415
+            },
+            {
+              "text": "LastModified",
+              "bbox": [
+                237.19,
+                131.63,
+                301.99,
+                141.83
+              ],
+              "font": "LiberationMono",
+              "size": 9.0,
+              "flags": 8,
+              "color": 1122867
+            },
+            {
+              "text": "  column so a partition is only reprocessed when",
+              "bbox": [
+                301.99,
+                129.53,
+                528.93,
+                141.75
+              ],
+              "font": "LiberationSans",
+              "size": 10.6,
+              "flags": 0,
+              "color": 1776415
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "bbox": [
+        58.56,
+        147.16,
+        212.26,
+        159.0
+      ],
+      "lines": [
+        {
+          "bbox": [
+            58.56,
+            147.16,
+            212.26,
+            159.0
+          ],
+          "spans": [
+            {
+              "text": "something in it actually changed.",
+              "bbox": [
+                58.56,
+                147.16,
+                212.26,
+                159.0
+              ],
+              "font": "LiberationSans",
+              "size": 10.6,
+              "flags": 0,
+              "color": 1776415
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "bbox": [
+        58.56,
+        166.66,
+        446.0,
+        178.5
+      ],
+      "lines": [
+        {
+          "bbox": [
+            58.56,
+            166.66,
+            446.0,
+            178.5
+          ],
+          "spans": [
+            {
+              "text": "Only refresh complete periods",
+              "bbox": [
+                58.56,
+                166.66,
+                211.63,
+                178.5
+              ],
+              "font": "LiberationSans-Bold",
+              "size": 10.6,
+              "flags": 16,
+              "color": 1184282
+            },
+            {
+              "text": " — avoids publishing a half-finished day or month.",
+              "bbox": [
+                211.63,
+                166.66,
+                446.0,
+                178.5
+              ],
+              "font": "LiberationSans",
+              "size": 10.6,
+              "flags": 0,
+              "color": 1776415
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "bbox": [
+        58.56,
+        186.91,
+        521.97,
+        198.75
+      ],
+      "lines": [
+        {
+          "bbox": [
+            58.56,
+            186.91,
+            521.97,
+            198.75
+          ],
+          "spans": [
+            {
+              "text": "The source query ",
+              "bbox": [
+                58.56,
+                186.91,
+                143.94,
+                198.75
+              ],
+              "font": "LiberationSans",
+              "size": 10.6,
+              "flags": 0,
+              "color": 1776415
+            },
+            {
+              "text": "must fold",
+              "bbox": [
+                143.94,
+                186.91,
+                191.61,
+                198.75
+              ],
+              "font": "LiberationSans-Bold",
+              "size": 10.6,
+              "flags": 16,
+              "color": 1184282
+            },
+            {
+              "text": ", otherwise every partition scans the whole source and you have made",
+              "bbox": [
+                191.61,
+                186.91,
+                521.97,
+                198.75
+              ],
+              "font": "LiberationSans",
+              "size": 10.6,
+              "flags": 0,
+              "color": 1776415
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "bbox": [
+        58.56,
+        204.16,
+        120.98,
+        216.0
+      ],
+      "lines": [
+        {
+          "bbox": [
+            58.56,
+            204.16,
+            120.98,
+            216.0
+          ],
+          "spans": [
+            {
+              "text": "things worse.",
+              "bbox": [
+                58.56,
+                204.16,
+                120.98,
+                216.0
+              ],
+              "font": "LiberationSans",
+              "size": 10.6,
+              "flags": 0,
+              "color": 1776415
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "bbox": [
+        57.75,
+        237.79,
+        172.33,
+        248.85
+      ],
+      "lines": [
+        {
+          "bbox": [
+            57.75,
+            237.79,
+            172.33,
+            248.85
+          ],
+          "spans": [
+            {
+              "text": "COMMON EXAM TRAP",
+              "bbox": [
+                57.75,
+                237.79,
+                172.33,
+                248.85
+              ],
+              "font": "LiberationSans-Bold",
+              "size": 9.9,
+              "flags": 16,
+              "color": 11545143
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "bbox": [
+        57.75,
+        255.16,
+        535.14,
+        267.0
+      ],
+      "lines": [
+        {
+          "bbox": [
+            57.75,
+            255.16,
+            535.14,
+            267.0
+          ],
+          "spans": [
+            {
+              "text": "Incremental refresh is not a Direct Lake feature — a Direct Lake table is never \"refreshed\" row by row,",
+              "bbox": [
+                57.75,
+                255.16,
+                535.14,
+                267.0
+              ],
+              "font": "LiberationSans",
+              "size": 10.6,
+              "flags": 0,
+              "color": 1776415
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "bbox": [
+        57.75,
+        272.41,
+        538.83,
+        284.25
+      ],
+      "lines": [
+        {
+          "bbox": [
+            57.75,
+            272.41,
+            538.83,
+            284.25
+          ],
+          "spans": [
+            {
+              "text": "it is framed. If a question sets up a Direct Lake model and asks how to reduce refresh time, the answer",
+              "bbox": [
+                57.75,
+                272.41,
+                538.83,
+                284.25
+              ],
+              "font": "LiberationSans",
+              "size": 10.6,
+              "flags": 0,
+              "color": 1776415
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "bbox": [
+        57.75,
+        289.28,
+        502.69,
+        301.95
+      ],
+      "lines": [
+        {
+          "bbox": [
+            57.75,
+            289.28,
+            502.69,
+            301.95
+          ],
+          "spans": [
+            {
+              "text": "involves framing, table maintenance, and partitioned Delta writes, not ",
+              "bbox": [
+                57.75,
+                289.66,
+                384.57,
+                301.5
+              ],
+              "font": "LiberationSans",
+              "size": 10.6,
+              "flags": 0,
+              "color": 1776415
+            },
+            {
+              "text": "RangeStart",
+              "bbox": [
+                388.32,
+                291.38,
+                442.32,
+                301.58
+              ],
+              "font": "LiberationMono",
+              "size": 9.0,
+              "flags": 8,
+              "color": 1122867
+            },
+            {
+              "text": " /",
+              "bbox": [
+                442.32,
+                289.28,
+                449.03,
+                301.5
+              ],
+              "font": "LiberationSans",
+              "size": 10.6,
+              "flags": 0,
+              "color": 1776415
+            },
+            {
+              "text": " RangeEnd",
+              "bbox": [
+                449.03,
+                291.38,
+                495.99,
+                301.95
+              ],
+              "font": "LiberationMono",
+              "size": 9.0,
+              "flags": 8,
+              "color": 1122867
+            },
+            {
+              "text": " .",
+              "bbox": [
+                495.99,
+                289.28,
+                502.69,
+                301.5
+              ],
+              "font": "LiberationSans",
+              "size": 10.6,
+              "flags": 0,
+              "color": 1776415
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "bbox": [
+        44.25,
+        336.05,
+        195.33,
+        350.8
+      ],
+      "lines": [
+        {
+          "bbox": [
+            44.25,
+            336.05,
+            195.33,
+            350.8
+          ],
+          "spans": [
+            {
+              "text": "8.7 Chapter 8 self-check",
+              "bbox": [
+                44.25,
+                336.05,
+                195.33,
+                350.8
+              ],
+              "font": "LiberationSans-Bold",
+              "size": 13.2,
+              "flags": 16,
+              "color": 949350
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "bbox": [
+        46.77,
+        362.41,
+        469.36,
+        374.25
+      ],
+      "lines": [
+        {
+          "bbox": [
+            46.77,
+            362.41,
+            469.36,
+            374.25
+          ],
+          "spans": [
+            {
+              "text": "1. Performance Analyzer shows 90 ms DAX and 4,500 ms visual display. What do you fix?",
+              "bbox": [
+                46.77,
+                362.41,
+                469.36,
+                374.25
+              ],
+              "font": "LiberationSans",
+              "size": 10.6,
+              "flags": 0,
+              "color": 1776415
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "bbox": [
+        46.77,
+        382.66,
+        461.33,
+        394.5
+      ],
+      "lines": [
+        {
+          "bbox": [
+            46.77,
+            382.66,
+            461.33,
+            394.5
+          ],
+          "spans": [
+            {
+              "text": "2. A Direct Lake report suddenly slowed with no model change. What do you check first?",
+              "bbox": [
+                46.77,
+                382.66,
+                461.33,
+                394.5
+              ],
+              "font": "LiberationSans",
+              "size": 10.6,
+              "flags": 0,
+              "color": 1776415
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "bbox": [
+        46.77,
+        402.16,
+        454.86,
+        414.0
+      ],
+      "lines": [
+        {
+          "bbox": [
+            46.77,
+            402.16,
+            454.86,
+            414.0
+          ],
+          "spans": [
+            {
+              "text": "3. Which model property makes a guardrail breach raise an error instead of degrading?",
+              "bbox": [
+                46.77,
+                402.16,
+                454.86,
+                414.0
+              ],
+              "font": "LiberationSans",
+              "size": 10.6,
+              "flags": 0,
+              "color": 1776415
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "bbox": [
+        46.77,
+        421.66,
+        432.07,
+        433.5
+      ],
+      "lines": [
+        {
+          "bbox": [
+            46.77,
+            421.66,
+            432.07,
+            433.5
+          ],
+          "spans": [
+            {
+              "text": "4. Your incremental refresh runs as long as a full refresh. What is the likely cause?",
+              "bbox": [
+                46.77,
+                421.66,
+                432.07,
+                433.5
+              ],
+              "font": "LiberationSans",
+              "size": 10.6,
+              "flags": 0,
+              "color": 1776415
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "bbox": [
+        46.77,
+        441.91,
+        539.06,
+        453.75
+      ],
+      "lines": [
+        {
+          "bbox": [
+            46.77,
+            441.91,
+            539.06,
+            453.75
+          ],
+          "spans": [
+            {
+              "text": "5. You must combine Gold tables from two different lakehouses in one Direct Lake model. Which flavour?",
+              "bbox": [
+                46.77,
+                441.91,
+                539.06,
+                453.75
+              ],
+              "font": "LiberationSans",
+              "size": 10.6,
+              "flags": 0,
+              "color": 1776415
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "bbox": [
+        57.75,
+        475.66,
+        532.78,
+        487.5
+      ],
+      "lines": [
+        {
+          "bbox": [
+            57.75,
+            475.66,
+            532.78,
+            487.5
+          ],
+          "spans": [
+            {
+              "text": "Answers.",
+              "bbox": [
+                57.75,
+                475.66,
+                104.86,
+                487.5
+              ],
+              "font": "LiberationSans-Bold",
+              "size": 10.6,
+              "flags": 16,
+              "color": 1184282
+            },
+            {
+              "text": " 1. The visual — too many data points or too many visuals on the page, not the measure. 2.",
+              "bbox": [
+                104.86,
+                475.66,
+                532.78,
+                487.5
+              ],
+              "font": "LiberationSans",
+              "size": 10.6,
+              "flags": 0,
+              "color": 3816004
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "bbox": [
+        57.75,
+        492.91,
+        462.3,
+        504.75
+      ],
+      "lines": [
+        {
+          "bbox": [
+            57.75,
+            492.91,
+            462.3,
+            504.75
+          ],
+          "spans": [
+            {
+              "text": "Whether queries are falling back to DirectQuery because a guardrail was exceeded. 3.",
+              "bbox": [
+                57.75,
+                492.91,
+                462.3,
+                504.75
+              ],
+              "font": "LiberationSans",
+              "size": 10.6,
+              "flags": 0,
+              "color": 3816004
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "bbox": [
+        61.5,
+        509.78,
+        512.8,
+        522.08
+      ],
+      "lines": [
+        {
+          "bbox": [
+            61.5,
+            509.78,
+            512.8,
+            522.08
+          ],
+          "spans": [
+            {
+              "text": "DirectLakeBehavior = DirectLakeOnly",
+              "bbox": [
+                61.5,
+                511.88,
+                250.5,
+                522.08
+              ],
+              "font": "LiberationMono",
+              "size": 9.0,
+              "flags": 8,
+              "color": 1122867
+            },
+            {
+              "text": " . 4. Query folding is broken, so each partition scans the",
+              "bbox": [
+                250.5,
+                509.78,
+                512.8,
+                522.0
+              ],
+              "font": "LiberationSans",
+              "size": 10.6,
+              "flags": 0,
+              "color": 3816004
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "bbox": [
+        57.75,
+        527.41,
+        253.85,
+        539.25
+      ],
+      "lines": [
+        {
+          "bbox": [
+            57.75,
+            527.41,
+            253.85,
+            539.25
+          ],
+          "spans": [
+            {
+              "text": "entire source. 5. Direct Lake on OneLake.",
+              "bbox": [
+                57.75,
+                527.41,
+                253.85,
+                539.25
+              ],
+              "font": "LiberationSans",
+              "size": 10.6,
+              "flags": 0,
+              "color": 3816004
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "bbox": [
+        44.25,
+        573.05,
+        138.13,
+        587.8
+      ],
+      "lines": [
+        {
+          "bbox": [
+            44.25,
+            573.05,
+            138.13,
+            587.8
+          ],
+          "spans": [
+            {
+              "text": "8.8 Learn more",
+              "bbox": [
+                44.25,
+                573.05,
+                138.13,
+                587.8
+              ],
+              "font": "LiberationSans-Bold",
+              "size": 13.2,
+              "flags": 16,
+              "color": 949350
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "bbox": [
+        58.56,
+        600.16,
+        239.9,
+        612.0
+      ],
+      "lines": [
+        {
+          "bbox": [
+            58.56,
+            600.16,
+            239.9,
+            612.0
+          ],
+          "spans": [
+            {
+              "text": "Optimize semantic model performance",
+              "bbox": [
+                58.56,
+                600.16,
+                239.9,
+                612.0
+              ],
+              "font": "LiberationSans",
+              "size": 10.6,
+              "flags": 0,
+              "color": 1010877
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "bbox": [
+        58.56,
+        619.66,
+        181.65,
+        631.5
+      ],
+      "lines": [
+        {
+          "bbox": [
+            58.56,
+            619.66,
+            181.65,
+            631.5
+          ],
+          "spans": [
+            {
+              "text": "Data reduction techniques",
+              "bbox": [
+                58.56,
+                619.66,
+                181.65,
+                631.5
+              ],
+              "font": "LiberationSans",
+              "size": 10.6,
+              "flags": 0,
+              "color": 1010877
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "bbox": [
+        58.56,
+        639.16,
+        149.82,
+        651.0
+      ],
+      "lines": [
+        {
+          "bbox": [
+            58.56,
+            639.16,
+            149.82,
+            651.0
+          ],
+          "spans": [
+            {
+              "text": "Incremental refresh",
+              "bbox": [
+                58.56,
+                639.16,
+                149.82,
+                651.0
+              ],
+              "font": "LiberationSans",
+              "size": 10.6,
+              "flags": 0,
+              "color": 1010877
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "bbox": [
+        58.56,
+        659.41,
+        162.78,
+        671.25
+      ],
+      "lines": [
+        {
+          "bbox": [
+            58.56,
+            659.41,
+            162.78,
+            671.25
+          ],
+          "spans": [
+            {
+              "text": "Performance Analyzer",
+              "bbox": [
+                58.56,
+                659.41,
+                162.78,
+                671.25
+              ],
+              "font": "LiberationSans",
+              "size": 10.6,
+              "flags": 0,
+              "color": 1010877
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "bbox": [
+        58.56,
+        678.91,
+        255.24,
+        690.75
+      ],
+      "lines": [
+        {
+          "bbox": [
+            58.56,
+            678.91,
+            255.24,
+            690.75
+          ],
+          "spans": [
+            {
+              "text": "Delta Lake table optimization and V-Order",
+              "bbox": [
+                58.56,
+                678.91,
+                255.24,
+                690.75
+              ],
+              "font": "LiberationSans",
+              "size": 10.6,
+              "flags": 0,
+              "color": 1010877
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "bbox": [
+        58.56,
+        698.41,
+        367.89,
+        710.25
+      ],
+      "lines": [
+        {
+          "bbox": [
+            58.56,
+            698.41,
+            367.89,
+            710.25
+          ],
+          "spans": [
+            {
+              "text": "Warehouse performance guidelines",
+              "bbox": [
+                58.56,
+                698.41,
+                225.41,
+                710.25
+              ],
+              "font": "LiberationSans",
+              "size": 10.6,
+              "flags": 0,
+              "color": 1010877
+            },
+            {
+              "text": " · ",
+              "bbox": [
+                225.41,
+                698.41,
+                234.83,
+                710.25
+              ],
+              "font": "LiberationSans",
+              "size": 10.6,
+              "flags": 0,
+              "color": 1776415
+            },
+            {
+              "text": "statistics",
+              "bbox": [
+                234.83,
+                698.41,
+                275.45,
+                710.25
+              ],
+              "font": "LiberationSans",
+              "size": 10.6,
+              "flags": 0,
+              "color": 1010877
+            },
+            {
+              "text": " · ",
+              "bbox": [
+                275.45,
+                698.41,
+                284.87,
+                710.25
+              ],
+              "font": "LiberationSans",
+              "size": 10.6,
+              "flags": 0,
+              "color": 1776415
+            },
+            {
+              "text": "result-set caching",
+              "bbox": [
+                284.87,
+                698.41,
+                367.89,
+                710.25
+              ],
+              "font": "LiberationSans",
+              "size": 10.6,
+              "flags": 0,
+              "color": 1010877
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

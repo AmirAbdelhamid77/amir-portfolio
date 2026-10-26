@@ -1,0 +1,708 @@
+{
+  "page": 33,
+  "width": 594.9599609375,
+  "height": 841.9199829101562,
+  "blocks": [
+    {
+      "bbox": [
+        57.75,
+        53.41,
+        538.26,
+        65.25
+      ],
+      "lines": [
+        {
+          "bbox": [
+            57.75,
+            53.41,
+            538.26,
+            65.25
+          ],
+          "spans": [
+            {
+              "text": "Answers.",
+              "bbox": [
+                57.75,
+                53.41,
+                104.86,
+                65.25
+              ],
+              "font": "LiberationSans-Bold",
+              "size": 10.6,
+              "flags": 16,
+              "color": 1184282
+            },
+            {
+              "text": " 1. Query folding broke at that step, so all downstream work moved to the mashup engine. 2.",
+              "bbox": [
+                104.86,
+                53.41,
+                538.26,
+                65.25
+              ],
+              "font": "LiberationSans",
+              "size": 10.6,
+              "flags": 0,
+              "color": 3816004
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "bbox": [
+        61.5,
+        70.28,
+        537.82,
+        82.58
+      ],
+      "lines": [
+        {
+          "bbox": [
+            61.5,
+            70.28,
+            537.82,
+            82.58
+          ],
+          "spans": [
+            {
+              "text": "ROW_NUMBER()",
+              "bbox": [
+                61.5,
+                72.38,
+                126.3,
+                82.58
+              ],
+              "font": "LiberationMono",
+              "size": 9.0,
+              "flags": 8,
+              "color": 1122867
+            },
+            {
+              "text": "  (or a hash/sequence pattern) — there is no ",
+              "bbox": [
+                126.3,
+                70.28,
+                337.94,
+                82.5
+              ],
+              "font": "LiberationSans",
+              "size": 10.6,
+              "flags": 0,
+              "color": 3816004
+            },
+            {
+              "text": "IDENTITY",
+              "bbox": [
+                341.7,
+                72.38,
+                384.9,
+                82.58
+              ],
+              "font": "LiberationMono",
+              "size": 9.0,
+              "flags": 8,
+              "color": 1122867
+            },
+            {
+              "text": "  in Fabric Warehouse. 3. Stored",
+              "bbox": [
+                384.9,
+                70.28,
+                537.82,
+                82.5
+              ],
+              "font": "LiberationSans",
+              "size": 10.6,
+              "flags": 0,
+              "color": 3816004
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "bbox": [
+        57.75,
+        87.91,
+        491.01,
+        100.58
+      ],
+      "lines": [
+        {
+          "bbox": [
+            57.75,
+            87.91,
+            491.01,
+            100.58
+          ],
+          "spans": [
+            {
+              "text": "procedure. 4. ",
+              "bbox": [
+                57.75,
+                87.91,
+                123.12,
+                99.75
+              ],
+              "font": "LiberationSans",
+              "size": 10.6,
+              "flags": 0,
+              "color": 3816004
+            },
+            {
+              "text": "ROW_NUMBER() OVER (PARTITION BY key ORDER BY timestamp DESC) = 1",
+              "bbox": [
+                126.88,
+                90.38,
+                472.48,
+                100.58
+              ],
+              "font": "LiberationMono",
+              "size": 9.0,
+              "flags": 8,
+              "color": 1122867
+            },
+            {
+              "text": " . 5.",
+              "bbox": [
+                472.48,
+                87.91,
+                491.01,
+                100.12
+              ],
+              "font": "LiberationSans",
+              "size": 10.6,
+              "flags": 0,
+              "color": 3816004
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "bbox": [
+        61.5,
+        105.53,
+        342.53,
+        117.83
+      ],
+      "lines": [
+        {
+          "bbox": [
+            61.5,
+            105.53,
+            342.53,
+            117.83
+          ],
+          "spans": [
+            {
+              "text": "TRY_CAST",
+              "bbox": [
+                61.5,
+                107.63,
+                104.7,
+                117.83
+              ],
+              "font": "LiberationMono",
+              "size": 9.0,
+              "flags": 8,
+              "color": 1122867
+            },
+            {
+              "text": "  and route the ",
+              "bbox": [
+                104.7,
+                105.53,
+                176.78,
+                117.75
+              ],
+              "font": "LiberationSans",
+              "size": 10.6,
+              "flags": 0,
+              "color": 3816004
+            },
+            {
+              "text": "NULL",
+              "bbox": [
+                180.54,
+                107.63,
+                202.14,
+                117.83
+              ],
+              "font": "LiberationMono",
+              "size": 9.0,
+              "flags": 8,
+              "color": 1122867
+            },
+            {
+              "text": "  results to a quarantine table.",
+              "bbox": [
+                202.14,
+                105.53,
+                342.53,
+                117.75
+              ],
+              "font": "LiberationSans",
+              "size": 10.6,
+              "flags": 0,
+              "color": 3816004
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "bbox": [
+        44.25,
+        152.3,
+        138.13,
+        167.05
+      ],
+      "lines": [
+        {
+          "bbox": [
+            44.25,
+            152.3,
+            138.13,
+            167.05
+          ],
+          "spans": [
+            {
+              "text": "5.7 Learn more",
+              "bbox": [
+                44.25,
+                152.3,
+                138.13,
+                167.05
+              ],
+              "font": "LiberationSans-Bold",
+              "size": 13.2,
+              "flags": 16,
+              "color": 949350
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "bbox": [
+        58.56,
+        178.66,
+        361.84,
+        190.5
+      ],
+      "lines": [
+        {
+          "bbox": [
+            58.56,
+            178.66,
+            361.84,
+            190.5
+          ],
+          "spans": [
+            {
+              "text": "Dimensional modeling in Fabric",
+              "bbox": [
+                58.56,
+                178.66,
+                206.35,
+                190.5
+              ],
+              "font": "LiberationSans",
+              "size": 10.6,
+              "flags": 0,
+              "color": 1010877
+            },
+            {
+              "text": " · ",
+              "bbox": [
+                206.36,
+                178.66,
+                215.77,
+                190.5
+              ],
+              "font": "LiberationSans",
+              "size": 10.6,
+              "flags": 0,
+              "color": 1776415
+            },
+            {
+              "text": "dimensions",
+              "bbox": [
+                215.78,
+                178.66,
+                269.36,
+                190.5
+              ],
+              "font": "LiberationSans",
+              "size": 10.6,
+              "flags": 0,
+              "color": 1010877
+            },
+            {
+              "text": " · ",
+              "bbox": [
+                269.37,
+                178.66,
+                278.78,
+                190.5
+              ],
+              "font": "LiberationSans",
+              "size": 10.6,
+              "flags": 0,
+              "color": 1776415
+            },
+            {
+              "text": "facts",
+              "bbox": [
+                278.79,
+                178.66,
+                301.16,
+                190.5
+              ],
+              "font": "LiberationSans",
+              "size": 10.6,
+              "flags": 0,
+              "color": 1010877
+            },
+            {
+              "text": " · ",
+              "bbox": [
+                301.17,
+                178.66,
+                310.59,
+                190.5
+              ],
+              "font": "LiberationSans",
+              "size": 10.6,
+              "flags": 0,
+              "color": 1776415
+            },
+            {
+              "text": "load tables",
+              "bbox": [
+                310.59,
+                178.66,
+                361.84,
+                190.5
+              ],
+              "font": "LiberationSans",
+              "size": 10.6,
+              "flags": 0,
+              "color": 1010877
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "bbox": [
+        58.56,
+        198.16,
+        235.2,
+        210.0
+      ],
+      "lines": [
+        {
+          "bbox": [
+            58.56,
+            198.16,
+            235.2,
+            210.0
+          ],
+          "spans": [
+            {
+              "text": "Understand star schema for Power BI",
+              "bbox": [
+                58.56,
+                198.16,
+                235.2,
+                210.0
+              ],
+              "font": "LiberationSans",
+              "size": 10.6,
+              "flags": 0,
+              "color": 1010877
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "bbox": [
+        58.56,
+        218.41,
+        334.95,
+        230.25
+      ],
+      "lines": [
+        {
+          "bbox": [
+            58.56,
+            218.41,
+            334.95,
+            230.25
+          ],
+          "spans": [
+            {
+              "text": "Tables in Fabric Warehouse",
+              "bbox": [
+                58.56,
+                218.41,
+                189.47,
+                230.25
+              ],
+              "font": "LiberationSans",
+              "size": 10.6,
+              "flags": 0,
+              "color": 1010877
+            },
+            {
+              "text": " · ",
+              "bbox": [
+                189.48,
+                218.41,
+                198.9,
+                230.25
+              ],
+              "font": "LiberationSans",
+              "size": 10.6,
+              "flags": 0,
+              "color": 1776415
+            },
+            {
+              "text": "Ingest data into a warehouse",
+              "bbox": [
+                198.9,
+                218.41,
+                334.95,
+                230.25
+              ],
+              "font": "LiberationSans",
+              "size": 10.6,
+              "flags": 0,
+              "color": 1010877
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "bbox": [
+        58.56,
+        237.91,
+        292.96,
+        249.75
+      ],
+      "lines": [
+        {
+          "bbox": [
+            58.56,
+            237.91,
+            292.96,
+            249.75
+          ],
+          "spans": [
+            {
+              "text": "Lakehouse and Delta tables",
+              "bbox": [
+                58.56,
+                237.91,
+                189.9,
+                249.75
+              ],
+              "font": "LiberationSans",
+              "size": 10.6,
+              "flags": 0,
+              "color": 1010877
+            },
+            {
+              "text": " · ",
+              "bbox": [
+                189.9,
+                237.91,
+                199.32,
+                249.75
+              ],
+              "font": "LiberationSans",
+              "size": 10.6,
+              "flags": 0,
+              "color": 1776415
+            },
+            {
+              "text": "lakehouse schemas",
+              "bbox": [
+                199.32,
+                237.91,
+                292.96,
+                249.75
+              ],
+              "font": "LiberationSans",
+              "size": 10.6,
+              "flags": 0,
+              "color": 1010877
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "bbox": [
+        58.56,
+        257.41,
+        516.89,
+        269.25
+      ],
+      "lines": [
+        {
+          "bbox": [
+            58.56,
+            257.41,
+            516.89,
+            269.25
+          ],
+          "spans": [
+            {
+              "text": "Training: ",
+              "bbox": [
+                58.56,
+                257.41,
+                102.33,
+                269.25
+              ],
+              "font": "LiberationSans",
+              "size": 10.6,
+              "flags": 0,
+              "color": 1776415
+            },
+            {
+              "text": "Transform data with Dataflows Gen2",
+              "bbox": [
+                102.14,
+                257.41,
+                273.67,
+                269.25
+              ],
+              "font": "LiberationSans",
+              "size": 10.6,
+              "flags": 0,
+              "color": 1010877
+            },
+            {
+              "text": " · ",
+              "bbox": [
+                273.68,
+                257.41,
+                283.1,
+                269.25
+              ],
+              "font": "LiberationSans",
+              "size": 10.6,
+              "flags": 0,
+              "color": 1776415
+            },
+            {
+              "text": "with notebooks",
+              "bbox": [
+                283.1,
+                257.41,
+                353.77,
+                269.25
+              ],
+              "font": "LiberationSans",
+              "size": 10.6,
+              "flags": 0,
+              "color": 1010877
+            },
+            {
+              "text": " · ",
+              "bbox": [
+                353.78,
+                257.41,
+                363.19,
+                269.25
+              ],
+              "font": "LiberationSans",
+              "size": 10.6,
+              "flags": 0,
+              "color": 1776415
+            },
+            {
+              "text": "with T-SQL",
+              "bbox": [
+                363.2,
+                257.41,
+                415.4,
+                269.25
+              ],
+              "font": "LiberationSans",
+              "size": 10.6,
+              "flags": 0,
+              "color": 1010877
+            },
+            {
+              "text": " · ",
+              "bbox": [
+                415.02,
+                257.41,
+                424.44,
+                269.25
+              ],
+              "font": "LiberationSans",
+              "size": 10.6,
+              "flags": 0,
+              "color": 1776415
+            },
+            {
+              "text": "Design dimensional",
+              "bbox": [
+                424.44,
+                257.41,
+                516.89,
+                269.25
+              ],
+              "font": "LiberationSans",
+              "size": 10.6,
+              "flags": 0,
+              "color": 1010877
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "bbox": [
+        58.56,
+        274.66,
+        92.71,
+        286.5
+      ],
+      "lines": [
+        {
+          "bbox": [
+            58.56,
+            274.66,
+            92.71,
+            286.5
+          ],
+          "spans": [
+            {
+              "text": "models",
+              "bbox": [
+                58.56,
+                274.66,
+                92.71,
+                286.5
+              ],
+              "font": "LiberationSans",
+              "size": 10.6,
+              "flags": 0,
+              "color": 1010877
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

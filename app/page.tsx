@@ -1,64 +1,115 @@
-/* eslint-disable @next/next/no-img-element -- screenshots are pre-optimised
-   WebP files with hand-written srcset; the Next image optimiser needs a server
-   and this site is a static export. */
 import type { Metadata } from "next";
+import { PrototypeC } from "@/components/knowledge/prototype-c";
 import Link from "next/link";
 import {
   ArrowRight,
-  ArrowUpRight,
   BarChart3,
+  BookOpen,
+  Boxes,
+  Compass,
   Database,
   GraduationCap,
   Sparkles,
+  Target,
 } from "lucide-react";
-import { CASE_STUDIES } from "@/lib/case-studies";
-import { EXAM_SUMMARIES, TOPIC_META } from "@/lib/exams";
-import { SERVICES } from "@/lib/services";
 import { SITE } from "@/lib/site";
-import { CaseStudyCard } from "@/components/case-study-card";
-import { ButtonLink, Container, Eyebrow, SectionHeading } from "@/components/ui";
-import { cn } from "@/lib/utils";
+import { SITE_METRICS } from "@/lib/site-metrics";
+import { ButtonLink, Container, Eyebrow, SectionHeading, Stat } from "@/components/ui";
 
 export const metadata: Metadata = {
+  title: "Hansa — Learn connected ideas",
+  description: "Source-backed data learning, documented concept connections and independent practice.",
   alternates: { canonical: "/" },
 };
 
-const ICONS = {
-  chart: BarChart3,
-  database: Database,
-  graduation: GraduationCap,
-} as const;
+/**
+ * Learning-first home: the owner removed prior experience and portfolio material.
+ * Existing professional routes remain available outside this landing page.
+ */
+const DOORS = [
+  {
+    id: "atlas",
+    href: "/learn/dp-600/atlas/",
+    label: "Atlas",
+    title: "Connect the concepts",
+    body: "Follow the conditions and evidence that connect a reference, a replica and the query surface.",
+    action: "Open the Knowledge Atlas",
+    meta: "Fabric ingestion · documented relationships",
+    icon: Compass,
+  },
+  {
+    id: "learn",
+    href: "/learn/catalogue",
+    label: "Learn",
+    title: "Learn the craft",
+    body: "A ten-chapter visualization course, a 43-section statistics reference, and the labs that sit between reading and doing.",
+    action: "Open the learning catalogue",
+    meta: `${SITE_METRICS.dataViz.chapters} chapters · ${SITE_METRICS.statistics.sections} statistics sections`,
+    icon: GraduationCap,
+  },
+  {
+    id: "practice",
+    href: "/practice/catalogue",
+    label: "Practice",
+    title: "Test the skill",
+    body: "Question banks with answer keys and rationales, including the Fabric DP-600 hub and its coverage report.",
+    action: "Open the practice catalogue",
+    meta: `${SITE_METRICS.practice.generalQuestions + SITE_METRICS.practice.fabricQuestions + SITE_METRICS.dataViz.scenarios} questions · 3 banks`,
+    icon: Target,
+  },
+] as const;
 
-const LAB_PREVIEW = ["sql", "power-bi", "statistics"];
+const LEARNING_ROUTES = [
+  {
+    kind: "Course",
+    title: "Data Visualization",
+    href: "/learn",
+    body: "From the analytical question to the encoding, the scale, the dashboard and the sentence you say out loud in a review.",
+    meta: `${SITE_METRICS.dataViz.chapters} chapters · ${SITE_METRICS.dataViz.sourcePages} source pages · ${SITE_METRICS.dataViz.arabicLessons} Arabic lessons`,
+    action: "Start the course",
+    icon: BookOpen,
+  },
+  {
+    kind: "Reference",
+    title: "Comprehensive Statistics",
+    href: "/learn/statistics",
+    body: "Sampling, intervals, p-values, correlation and the traps around them — with labs that recompute, not illustrate.",
+    meta: `${SITE_METRICS.statistics.sections} sections · ${SITE_METRICS.statistics.journeys} journeys · ${SITE_METRICS.statistics.labs} labs`,
+    action: "Open the reference",
+    icon: BarChart3,
+  },
+  {
+    kind: "Assessment",
+    title: "Microsoft Fabric / DP-600",
+    href: "/lab/dp-600",
+    body: "Guided study, topic practice, cases and a timed simulation — plus an honest coverage report against the official objectives.",
+    meta: `${SITE_METRICS.practice.fabricQuestions} questions · ${SITE_METRICS.practice.fabricPacks} source packs`,
+    action: "Open the Fabric hub",
+    icon: Boxes,
+  },
+] as const;
+
+const QUICK_LINKS: {
+  href: string;
+  label: string;
+  icon: typeof BarChart3;
+  rtl?: boolean;
+}[] = [
+  { href: "/explore/charts", label: "Six chart labs", icon: BarChart3 },
+  { href: "/explore/choose", label: "Chart decision assistant", icon: Compass },
+  { href: "/explore/integrity", label: "Integrity lab", icon: Sparkles },
+  { href: "/practice", label: "Visualization scenarios", icon: Target },
+  { href: "/lab", label: "Analyst bank (60)", icon: Database },
+  { href: "/learn/ar", label: "المسار العربي", icon: BookOpen, rtl: true },
+];
 
 export default function HomePage() {
-  const featured = CASE_STUDIES[0];
-  const others = CASE_STUDIES.slice(1);
-  const labExams = EXAM_SUMMARIES.filter((exam) => LAB_PREVIEW.includes(exam.slug));
+
+  if (process.env.NEXT_PUBLIC_HANSA_PROTOTYPE_C === "1") return <PrototypeC />;
 
   const jsonLd = {
-    "@context": "https://schema.org",
-    "@type": "Person",
-    name: SITE.name,
-    url: SITE.url,
-    email: `mailto:${SITE.email}`,
-    jobTitle: SITE.role,
-    description: SITE.description,
-    sameAs: [SITE.socials.github, SITE.socials.linkedin],
-    knowsAbout: [
-      "Power BI",
-      "DAX",
-      "SQL",
-      "Python",
-      "Pandas",
-      "Excel",
-      "Data visualisation",
-      "Statistics",
-    ],
-    alumniOf: {
-      "@type": "CollegeOrUniversity",
-      name: "Sohag University",
-    },
+    "@context": "https://schema.org", "@type": "WebSite", name: "Hansa Learning",
+    url: SITE.url, description: "Source-backed learning, documented concept connections and independent data practice.",
   };
 
   return (
@@ -85,8 +136,7 @@ export default function HomePage() {
 
         <Container className="relative pb-10 pt-20 text-center md:pt-28">
           <Eyebrow dot>
-            <span className="sm:hidden">Open to roles &amp; freelance</span>
-            <span className="hidden sm:inline">{SITE.availability}</span>
+            <span>Hansa · Learn connected ideas</span>
           </Eyebrow>
 
           <h1 className="mx-auto mt-6 max-w-4xl text-balance text-[2.6rem] font-medium leading-[1.05] tracking-tight sm:text-6xl md:text-7xl">
@@ -97,265 +147,134 @@ export default function HomePage() {
           </h1>
 
           <p className="mx-auto mt-6 max-w-2xl text-pretty text-sm leading-7 text-muted-foreground sm:text-base sm:leading-8">
-            I&apos;m Amir Abdelhamid, a data analyst building decision-ready
-            dashboards with <strong className="font-medium text-foreground">Power BI, SQL, Python, and Excel</strong> — and
-            teaching the craft through a free practice lab.
+            Learn the concepts behind data decisions. Read a worked lesson,
+            follow a documented connection, and test the reasoning in a practical scenario.
           </p>
 
+          {/* Two primary tasks and one quieter third, per the task-led home spec. */}
           <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
-            <ButtonLink href="/work" size="lg" icon>
-              See the work
+            <ButtonLink href="/learn/dp-600/atlas/" size="lg" icon>
+              Explore the Knowledge Atlas
             </ButtonLink>
-            <ButtonLink href="/lab" size="lg" variant="secondary">
-              <Sparkles className="h-4 w-4" aria-hidden="true" />
-              Try the Data Lab
+            <ButtonLink href="/learn/catalogue" size="lg" variant="secondary">
+              Start learning
             </ButtonLink>
           </div>
+          <p className="mt-4 text-xs text-muted-foreground">
+            Here to test yourself instead?{" "}
+            <Link
+              href="/practice/catalogue"
+              className="font-medium text-foreground underline decoration-border-strong underline-offset-4 hover:decoration-foreground"
+            >
+              Practice questions
+            </Link>
+          </p>
 
-          <p className="mt-5 font-mono text-[10px] uppercase tracking-[0.18em] text-muted-foreground">
+          <p className="mt-6 font-mono text-[10px] uppercase tracking-[0.18em] text-muted-foreground">
             Power BI · DAX · SQL · Python · Excel
           </p>
 
-          {/* Evidence panel */}
-          <div className="mx-auto mt-12 max-w-5xl text-left md:mt-16">
-            <div className="overflow-hidden rounded-3xl border border-border bg-card/70 shadow-[0_30px_80px_-40px_rgb(0_0_0/0.35)] backdrop-blur">
-              <div className="flex flex-wrap items-center justify-between gap-2 border-b border-border px-4 py-3">
-                <div className="flex items-center gap-2">
-                  <span className="flex gap-1" aria-hidden="true">
-                    <span className="h-2 w-2 rounded-full bg-foreground/15" />
-                    <span className="h-2 w-2 rounded-full bg-foreground/15" />
-                    <span className="h-2 w-2 rounded-full bg-foreground/15" />
-                  </span>
-                  <p className="ml-1 font-mono text-[10px] uppercase tracking-[0.14em] text-muted-foreground">
-                    HSE Analytics / Executive overview
-                  </p>
-                </div>
-                <span className="rounded-full border border-border px-2 py-0.5 font-mono text-[9px] uppercase tracking-[0.14em] text-muted-foreground">
-                  <span className="sm:hidden">Synthetic</span>
-                  <span className="hidden sm:inline">Synthetic data</span>
-                </span>
-              </div>
-
-              <div className="grid grid-cols-2 gap-px border-b border-border bg-border sm:grid-cols-4">
-                {featured.metrics.map((metric) => (
-                  <div key={metric.label} className="bg-background/80 px-4 py-3">
-                    <p className="font-mono text-lg font-medium tracking-tight sm:text-xl">
-                      {metric.value}
-                    </p>
-                    <p className="mt-0.5 text-[11px] font-medium text-foreground/75">
-                      {metric.label}
-                    </p>
-                    <p className="mt-0.5 hidden text-[10px] text-muted-foreground sm:block">
-                      {metric.note}
-                    </p>
-                  </div>
-                ))}
-              </div>
-
-              <Link href="/work/hse-analytics" className="group block">
-                <img
-                  src="/images/hse/executive-overview-1200.webp"
-                  srcSet="/images/hse/executive-overview-1200.webp 1200w, /images/hse/executive-overview-2000.webp 2000w"
-                  sizes="(min-width: 1024px) 1000px, 100vw"
-                  alt="Executive overview of the HSE dashboard showing safety rate KPIs and status cards"
-                  width={1200}
-                  height={681}
-                  className="h-auto w-full transition-transform duration-700 ease-[var(--ease-out)] group-hover:scale-[1.01]"
-                />
-              </Link>
-
-              <div className="flex flex-wrap items-center justify-between gap-2 px-4 py-3">
-                <p className="font-mono text-[10px] uppercase tracking-[0.14em] text-muted-foreground">
-                  24 sites · 50+ tables · 229+ measures
-                </p>
-                <Link
-                  href="/work/hse-analytics"
-                  className="inline-flex items-center gap-1 text-xs font-medium text-foreground"
-                >
-                  Read the case study
-                  <ArrowRight className="h-3.5 w-3.5" aria-hidden="true" />
-                </Link>
-              </div>
-            </div>
-          </div>
         </Container>
       </section>
 
-      {/* Proof strip */}
-      <section className="border-y border-border bg-card/30">
-        <Container className="grid grid-cols-2 gap-px py-0 sm:grid-cols-4">
-          {[
-            { value: "229+", label: "DAX measures", note: "documented logic" },
-            { value: "50+", label: "modelled tables", note: "constellation schema" },
-            { value: "24", label: "operating sites", note: "synthetic HSE data" },
-            { value: "60", label: "practice questions", note: "six data topics" },
-          ].map((stat) => (
-            <div key={stat.label} className="px-1 py-6 sm:px-4">
-              <p className="font-mono text-2xl font-medium tracking-tight">{stat.value}</p>
-              <p className="mt-1 text-xs font-medium">{stat.label}</p>
-              <p className="text-[11px] text-muted-foreground">{stat.note}</p>
-            </div>
-          ))}
-        </Container>
-      </section>
-
-      {/* Selected work */}
-      <section className="py-16 md:py-20">
+      {/* Three doors */}
+      <section className="py-14 md:py-16">
         <Container>
-          <SectionHeading
-            eyebrow="01 — Selected work"
-            title="Proof, not a tool list."
-            description="Three projects, each showing a different part of the analyst job: model the operation, run the analysis, validate the data."
-            action={{ href: "/work", label: "All case studies" }}
-          />
-
-          <div className="mt-8 grid gap-4 md:grid-cols-2">
-            <CaseStudyCard study={featured} variant="feature" />
-            {others.map((study) => (
-              <CaseStudyCard key={study.slug} study={study} />
+          <h2 className="text-sm font-medium text-muted-foreground">
+            Three ways to use this site
+          </h2>
+          <div className="mt-5 grid gap-4 md:grid-cols-3">
+            {DOORS.map((door) => (
+              <Link
+                key={door.id}
+                href={door.href}
+                className="group flex flex-col rounded-3xl border border-border bg-card/50 p-6 transition-colors hover:border-border-strong hover:bg-card/80"
+              >
+                <span className="flex items-center gap-2">
+                  <span className="flex h-9 w-9 items-center justify-center rounded-xl bg-primary/10 text-primary">
+                    <door.icon className="h-4 w-4" aria-hidden="true" />
+                  </span>
+                  <span className="font-mono text-[10px] uppercase tracking-[0.14em] text-muted-foreground">
+                    {door.label}
+                  </span>
+                </span>
+                <h3 className="mt-4 text-lg font-medium tracking-tight">{door.title}</h3>
+                <p className="mt-2 flex-1 text-sm leading-6 text-muted-foreground">{door.body}</p>
+                <p className="mt-4 font-mono text-[10px] uppercase tracking-[0.12em] text-muted-foreground">
+                  {door.meta}
+                </p>
+                <span className="mt-3 inline-flex items-center gap-1.5 text-sm font-medium text-foreground">
+                  {door.action}
+                  <ArrowRight
+                    className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5 motion-reduce:transition-none"
+                    aria-hidden="true"
+                  />
+                </span>
+              </Link>
             ))}
           </div>
         </Container>
       </section>
 
-      {/* Services */}
-      <section className="border-t border-border bg-card/30 py-16 md:py-20">
+      {/* Learning routes, labelled by what they are */}
+      <section className="border-y border-border bg-card/30 py-14 md:py-16">
         <Container>
           <SectionHeading
-            eyebrow="02 — What I do"
-            title="From raw tables to a room that agrees."
-            description="The deliverable is a decision. The model, measures, and visuals exist to make that decision defensible."
-            action={{ href: "/services", label: "Services & process" }}
+            eyebrow="02 — Learn & practise"
+            title="A course, a reference, and an assessment bank."
+            description="Each one is labelled, because reading a chapter and sitting a timed simulation are not the same activity. Everything is free, needs no account, and keeps its progress in this browser."
+            action={{ href: "/learn/catalogue", label: "See everything to learn" }}
           />
 
           <div className="mt-8 grid gap-4 md:grid-cols-3">
-            {SERVICES.map((service) => {
-              const Icon = ICONS[service.icon];
-              return (
+            {LEARNING_ROUTES.map((route) => (
+              <Link
+                key={route.href}
+                href={route.href}
+                className="group flex flex-col rounded-3xl border border-border bg-background/70 p-5 transition-colors hover:border-border-strong"
+              >
+                <span className="flex items-center justify-between gap-2">
+                  <span className="rounded-full border border-border px-2.5 py-1 font-mono text-[10px] uppercase tracking-[0.12em] text-muted-foreground">
+                    {route.kind}
+                  </span>
+                  <route.icon className="h-4 w-4 text-muted-foreground" aria-hidden="true" />
+                </span>
+                <h3 className="mt-4 text-base font-medium">{route.title}</h3>
+                <p className="mt-2 flex-1 text-xs leading-6 text-muted-foreground">{route.body}</p>
+                <p className="mt-3 font-mono text-[10px] uppercase tracking-[0.12em] text-muted-foreground">
+                  {route.meta}
+                </p>
+                <span className="mt-3 inline-flex items-center gap-1.5 text-xs font-medium text-foreground">
+                  {route.action}
+                  <ArrowRight
+                    className="h-3 w-3 transition-transform group-hover:translate-x-0.5 motion-reduce:transition-none"
+                    aria-hidden="true"
+                  />
+                </span>
+              </Link>
+            ))}
+          </div>
+
+          <ul className="mt-5 flex flex-wrap gap-2">
+            {QUICK_LINKS.map((link) => (
+              <li key={link.href}>
                 <Link
-                  key={service.slug}
-                  href="/services"
-                  className="group flex flex-col rounded-3xl border border-border bg-background/70 p-6 transition-colors hover:border-border-strong"
+                  href={link.href}
+                  dir={link.rtl ? "rtl" : undefined}
+                  lang={link.rtl ? "ar" : undefined}
+                  className="inline-flex min-h-9 items-center gap-1.5 rounded-full border border-border bg-background px-3 text-xs text-muted-foreground transition-colors hover:border-border-strong hover:text-foreground"
                 >
-                  <span className="flex h-10 w-10 items-center justify-center rounded-2xl bg-primary/10 text-primary">
-                    <Icon className="h-4 w-4" aria-hidden="true" />
-                  </span>
-                  <h3 className="mt-4 text-base font-medium">{service.name}</h3>
-                  <p className="mt-1 text-sm font-medium text-foreground/70">{service.tagline}</p>
-                  <p className="mt-3 flex-1 text-xs leading-6 text-muted-foreground">
-                    {service.description}
-                  </p>
-                  <span className="mt-4 inline-flex items-center gap-1 text-xs text-foreground">
-                    Details
-                    <ArrowUpRight className="h-3 w-3 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" aria-hidden="true" />
-                  </span>
+                  <link.icon className="h-3.5 w-3.5" aria-hidden="true" />
+                  {link.label}
                 </Link>
-              );
-            })}
-          </div>
-        </Container>
-      </section>
-
-      {/* Data Lab */}
-      <section className="py-16 md:py-20">
-        <Container>
-          <div className="relative overflow-hidden rounded-3xl border border-border bg-card/50 p-6 sm:p-8 md:p-10">
-            <div
-              aria-hidden="true"
-              className="grid-noise absolute inset-0 opacity-50"
-            />
-            <div className="relative">
-              <SectionHeading
-                eyebrow="03 — Data Lab"
-                title="Practise the reasoning, not just the syntax."
-                description="Sixty questions across SQL, Power BI, Excel, Pandas, statistics, and fundamentals. Practice mode explains every answer; mock mode runs the clock."
-                action={{ href: "/lab", label: "Browse all exams" }}
-              />
-
-              <div className="mt-8 grid gap-3 md:grid-cols-3">
-                {labExams.map((exam) => (
-                  <Link
-                    key={exam.slug}
-                    href={`/lab/${exam.slug}`}
-                    className="group rounded-2xl border border-border bg-background/80 p-4 transition-colors hover:border-border-strong"
-                  >
-                    <div className="flex items-center justify-between gap-2">
-                      <span
-                        className={cn(
-                          "rounded-full px-2 py-0.5 font-mono text-[10px] uppercase tracking-[0.12em]",
-                          TOPIC_META[exam.topic]?.ring ?? "bg-card",
-                        )}
-                      >
-                        {exam.topic}
-                      </span>
-                      <span className="font-mono text-[10px] text-muted-foreground">
-                        {exam.questionCount} Q
-                      </span>
-                    </div>
-                    <h3 className="mt-3 text-sm font-medium">{exam.title}</h3>
-                    <p className="mt-1 line-clamp-2 text-xs leading-5 text-muted-foreground">
-                      {exam.description}
-                    </p>
-                    <span className="mt-3 inline-flex items-center gap-1 text-xs text-foreground">
-                      Start
-                      <ArrowRight className="h-3 w-3 transition-transform group-hover:translate-x-0.5" aria-hidden="true" />
-                    </span>
-                  </Link>
-                ))}
-              </div>
-            </div>
-          </div>
-        </Container>
-      </section>
-
-      {/* About strip */}
-      <section className="border-t border-border bg-card/30 py-16 md:py-20">
-        <Container className="grid items-center gap-8 md:grid-cols-[0.8fr_1.2fr]">
-          <div className="relative aspect-[4/3] overflow-hidden rounded-3xl border border-border bg-gradient-to-br from-sky-100 via-background to-violet-100 dark:from-sky-950/50 dark:via-background dark:to-violet-950/40">
-            <div className="grid-noise absolute inset-0 opacity-60" aria-hidden="true" />
-            <div className="absolute inset-0 flex flex-col items-center justify-center gap-3">
-              <span className="flex h-20 w-20 items-center justify-center rounded-3xl border border-white/40 bg-background/70 font-mono text-2xl font-medium tracking-tight shadow-sm backdrop-blur">
-                AA
-              </span>
-              <p className="font-mono text-[10px] uppercase tracking-[0.18em] text-foreground/60">
-                Analyst · Builder · Teacher
-              </p>
-            </div>
-            <span className="absolute bottom-3 left-3 rounded-full bg-background/80 px-2 py-0.5 font-mono text-[9px] uppercase tracking-[0.12em] text-muted-foreground backdrop-blur">
-              Portrait coming soon
-            </span>
-          </div>
-
-          <div>
-            <Eyebrow>04 — About</Eyebrow>
-            <h2 className="mt-4 text-3xl font-medium tracking-tight md:text-4xl">
-              An engineer&apos;s habit of asking &ldquo;how do we know?&rdquo;
-            </h2>
-            <p className="mt-4 text-sm leading-7 text-muted-foreground sm:text-base sm:leading-8">
-              I started in electronics, where a sensor reading is only useful if
-              you can defend how it was captured. That instinct carried into
-              analytics: define the grain, validate at the boundary, document the
-              assumption, then build the chart.
-            </p>
-            <p className="mt-3 text-sm leading-7 text-muted-foreground sm:text-base sm:leading-8">
-              Today I build BI products end to end — from synthetic data
-              generation and dimensional modelling to DAX, visual design, and the
-              handover document nobody reads until something breaks.
-            </p>
-            <div className="mt-6 flex flex-wrap gap-2">
-              <ButtonLink href="/about" variant="secondary" size="sm">
-                More about me
-              </ButtonLink>
-              <ButtonLink href="/experience" variant="ghost" size="sm" icon>
-                Experience & skills
-              </ButtonLink>
-            </div>
-          </div>
+              </li>
+            ))}
+          </ul>
         </Container>
       </section>
 
       {/* CTA */}
-      <section className="py-16 md:py-20">
+      <section className="py-14 md:py-20">
         <Container>
           <div className="relative overflow-hidden rounded-3xl border border-border p-8 text-center md:p-14">
             <div
@@ -370,25 +289,24 @@ export default function HomePage() {
             <div className="relative">
               <Eyebrow>Next step</Eyebrow>
               <h2 className="mx-auto mt-4 max-w-2xl text-3xl font-medium tracking-tight md:text-4xl">
-                Have a decision that needs evidence?
+                Choose a concept. Follow its evidence.
               </h2>
               <p className="mx-auto mt-3 max-w-xl text-sm leading-7 text-muted-foreground">
-                Tell me the question, the data you have, and the decision it
-                feeds. I&apos;ll tell you honestly whether a dashboard is the
-                right answer.
+                Start with the ingestion journey: learn, explore, practise and reflect.
+                Your existing lesson and question-bank progress stays in this browser.
               </p>
               <div className="mt-6 flex flex-wrap items-center justify-center gap-3">
-                <ButtonLink href="/contact" size="lg" icon>
-                  Start a conversation
+                <ButtonLink href="/learn/dp-600/atlas/journey/" size="lg" icon>
+                  Start the guided journey
                 </ButtonLink>
-                <ButtonLink
-                  href={`mailto:${SITE.email}`}
-                  size="lg"
-                  variant="secondary"
-                  external={false}
-                >
-                  {SITE.email}
+                <ButtonLink href="/learn/dp-600/" size="lg" variant="secondary">
+                  Open the DP-600 Academy
                 </ButtonLink>
+              </div>
+              <div className="mx-auto mt-8 grid max-w-lg grid-cols-3 gap-3 text-left">
+                <Stat value={String(SITE_METRICS.practice.generalQuestions)} label="Analyst questions" />
+                <Stat value={String(SITE_METRICS.practice.fabricQuestions)} label="Fabric questions" />
+                <Stat value={String(SITE_METRICS.dataViz.scenarios)} label="Scenarios" />
               </div>
             </div>
           </div>

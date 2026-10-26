@@ -1,0 +1,84 @@
+TAP version 13
+# (node:6556) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///D:/BeUI/amir-portfolio/lib/academy/ingestion.ts is not specified and it doesn't parse as CommonJS.
+# Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+# To eliminate this warning, add "type": "module" to D:\\BeUI\\amir-portfolio\\package.json.
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# Subtest: decision oracle: reference, managed replica, and transformed retained batch
+ok 1 - decision oracle: reference, managed replica, and transformed retained batch
+  ---
+  duration_ms: 2.1459
+  type: 'test'
+  ...
+# Subtest: constraints fail closed; unsupported replication never silently becomes batch copy
+ok 2 - constraints fail closed; unsupported replication never silently becomes batch copy
+  ---
+  duration_ms: 0.4429
+  type: 'test'
+  ...
+# Subtest: exhaustive truth table preserves requirements in all 72 states
+ok 3 - exhaustive truth table preserves requirements in all 72 states
+  ---
+  duration_ms: 3.1041
+  type: 'test'
+  ...
+# Subtest: all three original transfer cases have distinct IDs and complete alternative reasoning
+ok 4 - all three original transfer cases have distinct IDs and complete alternative reasoning
+  ---
+  duration_ms: 0.3514
+  type: 'test'
+  ...
+# Subtest: stored progress round trips without trusting stored success flags
+ok 5 - stored progress round trips without trusting stored success flags
+  ---
+  duration_ms: 1.587
+  type: 'test'
+  ...
+# Subtest: corrupt, mismatched, oversized or unknown-ID state is rejected
+ok 6 - corrupt, mismatched, oversized or unknown-ID state is rejected
+  ---
+  duration_ms: 0.4864
+  type: 'test'
+  ...
+# Subtest: guide references resolve, no raw source asset is imported by academy UI
+ok 7 - guide references resolve, no raw source asset is imported by academy UI
+  ---
+  duration_ms: 2.7679
+  type: 'test'
+  ...
+# Subtest: pre-existing working files are byte-preserved except three additive integration points
+ok 8 - pre-existing working files are byte-preserved except three additive integration points
+  ---
+  duration_ms: 107.7273
+  type: 'test'
+  ...
+# (node:14416) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///D:/BeUI/amir-portfolio/lib/academy/pattern-comparison.ts is not specified and it doesn't parse as CommonJS.
+# Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+# To eliminate this warning, add "type": "module" to D:\\BeUI\\amir-portfolio\\package.json.
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# Subtest: comparison keeps every canonical mechanism, freshness caveat and limitation unchanged
+ok 9 - comparison keeps every canonical mechanism, freshness caveat and limitation unchanged
+  ---
+  duration_ms: 2.5391
+  type: 'test'
+  ...
+# Subtest: search keeps all three alternatives and requires every word
+ok 10 - search keeps all three alternatives and requires every word
+  ---
+  duration_ms: 1.3061
+  type: 'test'
+  ...
+# Subtest: differences hide the common access requirement without mutating source rows
+ok 11 - differences hide the common access requirement without mutating source rows
+  ---
+  duration_ms: 0.9249
+  type: 'test'
+  ...
+1..11
+# tests 11
+# suites 0
+# pass 11
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 456.8095

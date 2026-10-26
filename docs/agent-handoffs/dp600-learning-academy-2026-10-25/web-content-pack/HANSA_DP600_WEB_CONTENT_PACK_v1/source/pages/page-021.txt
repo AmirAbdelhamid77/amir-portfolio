@@ -1,0 +1,36 @@
+Deployment compares stages and shows what is new, different, or missing; you choose which items to
+deploy.
+Backward deployment is allowed (Production → Test) when the target stage's workspace is empty of
+that item.
+Deploying does not move data; it moves item definitions. A warehouse deploys as an empty schema
+unless you also run a load.
+Deployment rules re-point content per stage, so a report in Test does not read Development data:
+Rule type
+Typical use
+Data source rule
+Swap the lakehouse or SQL endpoint a semantic model reads
+Parameter rule
+Change a Power Query parameter such as a server or database name
+Default lakehouse rule
+Point a notebook at the stage's own lakehouse
+For values shared by many items, a variable library holds one named variable with a different value per
+stage — cleaner than repeating rules item by item.
+For fully automated releases, drive the same operations through the Fabric REST APIs from Azure DevOps
+or GitHub Actions. See CI/CD in Fabric and CI/CD best practices.
+COMMON EXAM TRAP
+Git integration and deployment pipelines solve different problems and are frequently confused. Git =
+version history, branching, code review, and recovery. Deployment pipelines = promoting a tested set
+of items to the next environment with stage-specific bindings. Enterprise answers usually use both: Git
+for Dev, pipelines for Dev → Test → Prod.
+3.4 Impact analysis and lineage
+Before you change a table, you need to know what breaks.
+Lineage view draws the graph of a workspace: sources → dataflows → lakehouses/warehouses →
+semantic models → reports and dashboards.
+Impact analysis starts from one item and lists every downstream dependent, across workspaces, with
+the number of affected reports and workspaces. It also lets you notify the contacts of those items.
+Impact analysis is available from lakehouses, warehouses, dataflows, and semantic models — exactly
+the four the skills outline names.
+TIP
+For programmatic dependency analysis, semantic link ( sempy ) in a notebook can list measures,
+relationships, and dependencies of a semantic model — useful for auditing large estates and for
+automated documentation.

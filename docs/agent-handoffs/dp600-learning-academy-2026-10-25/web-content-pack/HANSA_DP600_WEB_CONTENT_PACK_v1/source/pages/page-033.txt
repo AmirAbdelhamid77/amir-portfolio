@@ -1,0 +1,11 @@
+Answers. 1. Query folding broke at that step, so all downstream work moved to the mashup engine. 2.
+ROW_NUMBER()  (or a hash/sequence pattern) — there is no IDENTITY  in Fabric Warehouse. 3. Stored
+procedure. 4. ROW_NUMBER() OVER (PARTITION BY key ORDER BY timestamp DESC) = 1 . 5.
+TRY_CAST  and route the NULL  results to a quarantine table.
+5.7 Learn more
+Dimensional modeling in Fabric · dimensions · facts · load tables
+Understand star schema for Power BI
+Tables in Fabric Warehouse · Ingest data into a warehouse
+Lakehouse and Delta tables · lakehouse schemas
+Training: Transform data with Dataflows Gen2 · with notebooks · with T-SQL · Design dimensional
+models

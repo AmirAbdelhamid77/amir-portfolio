@@ -1,0 +1,35 @@
+schema_version: '1.0'
+page_id: dp600-r11-question-enrichment
+canonical_route: /lab/dp-600/explore/
+page_title: Image-free DP-600 source questions
+status: implemented
+audience: DP-600 learners
+language: en
+learning_objectives:
+  - Distinguish source answer keys from documentation-approved corrections.
+  - Read source tables and code through semantic text and accessible native controls.
+sources:
+  - source_id: Warren-530-V3-R11
+    verified_access: true
+    preserve: [all_222_source_ids, original_keys, case_studies, semantic_exhibits, previous_source_records, saved_progress]
+representation:
+  selected: native semantic tables, code blocks, labelled forms
+  alternative: standalone HTML iframe
+  decision: Native forms reuse Hansa tokens and navigation; iframe would create a second search/progress boundary. No chart or new dependency is needed.
+  rubric_weights: [30, 25, 15, 15, 10, 5]
+  native_scores: [5, 5, 5, 4, 5, 4]
+  iframe_scores: [5, 3, 3, 3, 3, 3]
+  scores_kind: design heuristics, not measured educational outcomes
+accessibility:
+  controls: radio, checkbox, dropdown matching instead of drag-only
+  overflow: labelled focusable table/code regions, wrapping text
+  motion: none introduced
+validation:
+  source_mapping: required
+  science_gate: fail closed outside 11 approved candidates
+  prior_source_progress: read-only with no automatic grading migration
+  browser: desktop, mobile, dark, keyboard, storage safety, sampled axe
+limitations:
+  - No Microsoft Fabric, SQL, DAX, KQL or Spark execution.
+  - 59 original scientific blockers remain unresolved.
+  - The other 152 R10 approval candidates were not revalidated in R11.

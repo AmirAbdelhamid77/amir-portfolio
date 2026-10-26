@@ -1,0 +1,34 @@
+4.4 OneLake integration for Eventhouse and semantic models
+Two settings that turn an isolated store into part of the lake — the skills outline names them explicitly.
+Eventhouse OneLake availability. Turn this on for a KQL database or table and the engine writes a Delta
+copy of the data into OneLake. The data stays queryable with KQL at full speed and becomes readable by
+Spark, T-SQL, shortcuts, and Direct Lake semantic models. Without it, the data is reachable only through
+KQL endpoints. See Eventhouse.
+Semantic model OneLake integration. Turn this on for an Import-mode semantic model and its tables are
+written to OneLake as Delta on refresh. That lets Spark notebooks, shortcuts, and SQL read the modelled
+tables without rebuilding the logic.
+COMMON EXAM TRAP
+These two settings point in opposite directions. Eventhouse OneLake availability publishes KQL data
+out to the lake. Semantic model OneLake integration publishes model tables out to the lake. Neither
+one pulls data in, and neither one is how you make a Direct Lake model — for that you point a new
+semantic model at Delta tables that already exist in a lakehouse or warehouse.
+4.5 Chapter 4 self-check
+1. A nightly load from an on-premises SQL Server needs to reach a lakehouse. What is required beyond a
+pipeline?
+2. The finance team wants Gold tables from the Sales workspace without duplicating them. What do you
+create?
+3. A team needs Power BI reports over telemetry that lives in an eventhouse, with Direct Lake. What must
+be enabled?
+4. Which discovery surface lists existing eventstreams?
+5. A source database must appear in Fabric within seconds of a change, with no ETL to maintain. What do
+you choose?
+Answers. 1. An on-premises data gateway plus a connection that uses it. 2. A OneLake shortcut to
+those tables. 3. OneLake availability on the eventhouse/KQL database. 4. The Real-Time hub. 5.
+Mirroring.
+4.6 Learn more
+What is OneLake? · OneLake shortcuts · Create a shortcut
+OneLake catalog · Real-Time hub
+Mirroring in Fabric
+Data Factory in Fabric · Copy activity · Copy job
+Dataflow Gen2 · Fast Copy
+Choose a data store

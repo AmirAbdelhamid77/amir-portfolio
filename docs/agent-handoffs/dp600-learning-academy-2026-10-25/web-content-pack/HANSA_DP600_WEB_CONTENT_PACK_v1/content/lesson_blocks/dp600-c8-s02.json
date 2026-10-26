@@ -1,0 +1,18 @@
+{
+  "lesson_id": "dp600-c8-s02",
+  "source_sections": [
+    44
+  ],
+  "blocks": [
+    {
+      "id": "dp600-c8-s02-p044",
+      "kind": "source_fragment",
+      "source_page": 44,
+      "source_start_line": 30,
+      "source_text": "8.2 Report and query-level improvements\nKeep pages to roughly 8 visuals or fewer; every visual is at least one DAX query.\nTurn off unnecessary interactions between visuals (Format → Edit interactions).\nPrefer slicers with \"Apply\" buttons or the filter pane over many always-on slicers.\nAvoid bi-directional filters and unnecessary many-to-many relationships.\nUse aggregation tables for high-grain fact data, with a detailed table behind them.\nEnable query caching for Import models on a capacity when the same report is opened repeatedly with\nthe same filters.\nReduce cardinality: split datetime  into date and time; round floats you never analyse at full precision;\ndelete surrogate keys that no visual uses.\nSwitch off Auto date/time and use a proper date dimension.",
+      "presentation_status": "needs-editorial-layout-conversion",
+      "recommended_renderer": "SourceFragment"
+    }
+  ],
+  "warning": "Source fragments are NOT native formatted prose, tables or runnable code."
+}

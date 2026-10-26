@@ -1,0 +1,48 @@
+{
+  "lesson_id": "dp600-3-intro",
+  "source_sections": [
+    19,
+    20,
+    21,
+    23
+  ],
+  "blocks": [
+    {
+      "id": "dp600-3-intro-p019",
+      "kind": "source_fragment",
+      "source_page": 19,
+      "source_start_line": 1,
+      "source_text": "Chapter 3 — Maintain a data analytics solution, part 2:\nthe development lifecycle\nEXAM FOCUS\nMaintain the analytics development lifecycle — configure version control for a workspace · create\nand manage a Power BI Desktop project (.pbip) · create and configure deployment pipelines · perform\nimpact analysis of downstream dependencies from lakehouses, warehouses, dataflows, and semantic\nmodels · deploy and manage semantic models by using the XMLA endpoint · create and update\nreusable assets, including Power BI template (.pbit) files, Power BI data source (.pbids) files, and\nshared semantic models.\nAzure DevOps /\nGitHub repo\n(branches, PRs)\nDev workspace\nfeature branches\ndeploy\nTest workspace\nUAT + rules\ndeploy\nProd workspace\nend users\nsync\ncommit\nDeployment rules & Variable library: repoint connections, lakehouse IDs and parameters per stage\nCompare stages → select items → deploy · backward deployment allowed · history kept\nGit holds the source of truth; deployment pipelines move content between stages; rules and variable libraries re-point it at the right\ndata for each stage.",
+      "presentation_status": "needs-editorial-layout-conversion",
+      "recommended_renderer": "SourceFragment"
+    },
+    {
+      "id": "dp600-3-intro-p020",
+      "kind": "source_fragment",
+      "source_page": 20,
+      "source_start_line": 1,
+      "source_text": "Rule\nDetail\nOne branch per\nworkspace\nA workspace connects to exactly one branch at a time\nIdentity\nThe commit is made with the identity of the person who clicks Commit\nNot everything is\nsupported\nSupported item types expand over time; unsupported items stay in the workspace but\nare not serialised\nConflicts\nResolved in the Source control pane, or in Git before updating\nCOMMON EXAM TRAP\nGit integration syncs item definitions, not data. Committing a lakehouse commits its metadata and\nshortcuts — not the Delta files. A question describing \"we need the tables and their rows in the test\nworkspace\" is describing a data-loading pipeline, not a Git update.",
+      "presentation_status": "needs-editorial-layout-conversion",
+      "recommended_renderer": "SourceFragment"
+    },
+    {
+      "id": "dp600-3-intro-p021",
+      "kind": "source_fragment",
+      "source_page": 21,
+      "source_start_line": 1,
+      "source_text": "Deployment compares stages and shows what is new, different, or missing; you choose which items to\ndeploy.\nBackward deployment is allowed (Production → Test) when the target stage's workspace is empty of\nthat item.\nDeploying does not move data; it moves item definitions. A warehouse deploys as an empty schema\nunless you also run a load.\nDeployment rules re-point content per stage, so a report in Test does not read Development data:\nRule type\nTypical use\nData source rule\nSwap the lakehouse or SQL endpoint a semantic model reads\nParameter rule\nChange a Power Query parameter such as a server or database name\nDefault lakehouse rule\nPoint a notebook at the stage's own lakehouse\nFor values shared by many items, a variable library holds one named variable with a different value per\nstage — cleaner than repeating rules item by item.\nFor fully automated releases, drive the same operations through the Fabric REST APIs from Azure DevOps\nor GitHub Actions. See CI/CD in Fabric and CI/CD best practices.\nCOMMON EXAM TRAP\nGit integration and deployment pipelines solve different problems and are frequently confused. Git =\nversion history, branching, code review, and recovery. Deployment pipelines = promoting a tested set\nof items to the next environment with stage-specific bindings. Enterprise answers usually use both: Git\nfor Dev, pipelines for Dev → Test → Prod.",
+      "presentation_status": "needs-editorial-layout-conversion",
+      "recommended_renderer": "SourceFragment"
+    },
+    {
+      "id": "dp600-3-intro-p023",
+      "kind": "source_fragment",
+      "source_page": 23,
+      "source_start_line": 1,
+      "source_text": "{\n  \"version\": \"0.1\",\n  \"connections\": [\n    {\n      \"details\": {\n        \"protocol\": \"tds\",\n        \"address\": { \"server\": \"<workspace>.datawarehouse.fabric.microsoft.com\", \"database\": \n\"SalesDW\" }\n      },\n      \"mode\": \"DirectQuery\"\n    }\n  ]\n}",
+      "presentation_status": "needs-editorial-layout-conversion",
+      "recommended_renderer": "SourceFragment"
+    }
+  ],
+  "warning": "Source fragments are NOT native formatted prose, tables or runnable code."
+}

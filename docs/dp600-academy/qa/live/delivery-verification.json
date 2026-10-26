@@ -1,0 +1,1692 @@
+{
+  "checked_at": "2026-10-25T17:35:13.396Z",
+  "base": "https://hansa.amir-portfolio.workers.dev",
+  "release_id": "hansa-dp600-ingestion-d1eb29b03dd3",
+  "artifact_sha256": "d1eb29b03dd3e413433443270e2e0d8cd22b6327e42e6cc63c8bfbf4e1220935",
+  "html_routes": 115,
+  "total_html_and_referenced_assets": 209,
+  "matched": 209,
+  "failures": [],
+  "not_found": {
+    "status": 404,
+    "custom_404_matches": true
+  },
+  "trailing_slash": {
+    "status": 307,
+    "location": "/learn/dp-600/ingestion/"
+  },
+  "checks": [
+    {
+      "route": "/",
+      "status": 200,
+      "bytes": 154640,
+      "hash_matches": true,
+      "expected_sha256": "89108386278c01e6729b785d27af9e5579071009495a29698ad54ed6640c99fd",
+      "actual_sha256": "89108386278c01e6729b785d27af9e5579071009495a29698ad54ed6640c99fd"
+    },
+    {
+      "route": "/_next/static/chunks/1027.4efaf95e5db16f07.js",
+      "status": 200,
+      "bytes": 9442,
+      "hash_matches": true,
+      "expected_sha256": "60449a3a2f62e6fd7fcb4fc65a92a66544dc023dac581cd313d7290e5223fe2b",
+      "actual_sha256": "60449a3a2f62e6fd7fcb4fc65a92a66544dc023dac581cd313d7290e5223fe2b"
+    },
+    {
+      "route": "/_next/static/chunks/1368-e0ddc1ac1abc3497.js",
+      "status": 200,
+      "bytes": 15682,
+      "hash_matches": true,
+      "expected_sha256": "f304cf26e5424aeb2e3db7571085b5c407990128e3e48cea6f37519629277a73",
+      "actual_sha256": "f304cf26e5424aeb2e3db7571085b5c407990128e3e48cea6f37519629277a73"
+    },
+    {
+      "route": "/_next/static/chunks/1847.10d3ef14b80df3ba.js",
+      "status": 200,
+      "bytes": 13135,
+      "hash_matches": true,
+      "expected_sha256": "0137546b02a3341968ff691eff9ceb9e823ba910f3526c7c1c42f80fe660d8c7",
+      "actual_sha256": "0137546b02a3341968ff691eff9ceb9e823ba910f3526c7c1c42f80fe660d8c7"
+    },
+    {
+      "route": "/_next/static/chunks/1968-45fed92e69e42b6c.js",
+      "status": 200,
+      "bytes": 243679,
+      "hash_matches": true,
+      "expected_sha256": "aedfff965cca517ae771bf2bfc4bf6e580c2f9d8484deeb933b79f14cdaf7152",
+      "actual_sha256": "aedfff965cca517ae771bf2bfc4bf6e580c2f9d8484deeb933b79f14cdaf7152"
+    },
+    {
+      "route": "/_next/static/chunks/2193-2e4e087c5fd1598b.js",
+      "status": 200,
+      "bytes": 103880,
+      "hash_matches": true,
+      "expected_sha256": "e9d55e676e8142fdbae6550a7e2659ea045008610bcd984e360e8ac29a9f8a52",
+      "actual_sha256": "e9d55e676e8142fdbae6550a7e2659ea045008610bcd984e360e8ac29a9f8a52"
+    },
+    {
+      "route": "/_next/static/chunks/2661-818c170d67215dd0.js",
+      "status": 200,
+      "bytes": 81342,
+      "hash_matches": true,
+      "expected_sha256": "e1b67e7a830d6fda851c4de76749432839dd6e6db763d363b29e9cc0669f12aa",
+      "actual_sha256": "e1b67e7a830d6fda851c4de76749432839dd6e6db763d363b29e9cc0669f12aa"
+    },
+    {
+      "route": "/_next/static/chunks/2677-7dad40313de3e4a3.js",
+      "status": 200,
+      "bytes": 6232,
+      "hash_matches": true,
+      "expected_sha256": "c192d06e614ef82474a5f0e7d49b8a2a04e28a3cd29d59fb8d70e3a79b6a4d90",
+      "actual_sha256": "c192d06e614ef82474a5f0e7d49b8a2a04e28a3cd29d59fb8d70e3a79b6a4d90"
+    },
+    {
+      "route": "/_next/static/chunks/2884-dc9745c4e62742e6.js",
+      "status": 200,
+      "bytes": 18530,
+      "hash_matches": true,
+      "expected_sha256": "1af37cb8cca7bd29707779b09d2adcffe9fb561f10b3737330c05cb92c5c2542",
+      "actual_sha256": "1af37cb8cca7bd29707779b09d2adcffe9fb561f10b3737330c05cb92c5c2542"
+    },
+    {
+      "route": "/_next/static/chunks/2930-bce6fde1827ffc59.js",
+      "status": 200,
+      "bytes": 17652,
+      "hash_matches": true,
+      "expected_sha256": "71a4bff458af0ece1dc94791016e56ce530020f9d8c3d75985dcc20df6a72402",
+      "actual_sha256": "71a4bff458af0ece1dc94791016e56ce530020f9d8c3d75985dcc20df6a72402"
+    },
+    {
+      "route": "/_next/static/chunks/3110-52e8e41b5a0303a3.js",
+      "status": 200,
+      "bytes": 16040,
+      "hash_matches": true,
+      "expected_sha256": "e06afa2361de8d95802a9420fc6eb7288e5b9c5060914233eaa4d50958ad1974",
+      "actual_sha256": "e06afa2361de8d95802a9420fc6eb7288e5b9c5060914233eaa4d50958ad1974"
+    },
+    {
+      "route": "/_next/static/chunks/3357-03ca62d2d4f10056.js",
+      "status": 200,
+      "bytes": 27685,
+      "hash_matches": true,
+      "expected_sha256": "5bb6f955fa6314b67b7e4d2ee7800764bd2fc58bbbbba5c6ef8b674764984224",
+      "actual_sha256": "5bb6f955fa6314b67b7e4d2ee7800764bd2fc58bbbbba5c6ef8b674764984224"
+    },
+    {
+      "route": "/_next/static/chunks/3817.1e054ae3af69916d.js",
+      "status": 200,
+      "bytes": 11425,
+      "hash_matches": true,
+      "expected_sha256": "28802fa176a8875f1c409a557341b886b61173eda6855269ae339e857e65fc40",
+      "actual_sha256": "28802fa176a8875f1c409a557341b886b61173eda6855269ae339e857e65fc40"
+    },
+    {
+      "route": "/_next/static/chunks/4151-d80a9dc7546363e6.js",
+      "status": 200,
+      "bytes": 10379,
+      "hash_matches": true,
+      "expected_sha256": "be9102e32bda5c534aa6220aac2dbe2b91639853da127765f376e9aafc283871",
+      "actual_sha256": "be9102e32bda5c534aa6220aac2dbe2b91639853da127765f376e9aafc283871"
+    },
+    {
+      "route": "/_next/static/chunks/4207.b59bb8bd83713d23.js",
+      "status": 200,
+      "bytes": 13106,
+      "hash_matches": true,
+      "expected_sha256": "f0f1a805bdc08bcdc5995a8a895d4ea7b0f08f3531678001194c6e2146a0f55f",
+      "actual_sha256": "f0f1a805bdc08bcdc5995a8a895d4ea7b0f08f3531678001194c6e2146a0f55f"
+    },
+    {
+      "route": "/_next/static/chunks/4460.f444bd2a91789fc1.js",
+      "status": 200,
+      "bytes": 12833,
+      "hash_matches": true,
+      "expected_sha256": "29544b1ff6ed1b68cd19a6ec723e17e6f6ea7351d8886eabd1fe5b69d4db6924",
+      "actual_sha256": "29544b1ff6ed1b68cd19a6ec723e17e6f6ea7351d8886eabd1fe5b69d4db6924"
+    },
+    {
+      "route": "/_next/static/chunks/4480-8f6c367290d5741a.js",
+      "status": 200,
+      "bytes": 15437,
+      "hash_matches": true,
+      "expected_sha256": "4b8d9f10c5071528a6a347f184a63ba27aefe01c76cdc8bfdb17cc89e63c058f",
+      "actual_sha256": "4b8d9f10c5071528a6a347f184a63ba27aefe01c76cdc8bfdb17cc89e63c058f"
+    },
+    {
+      "route": "/_next/static/chunks/4537.88b6c71a03a454d5.js",
+      "status": 200,
+      "bytes": 10131,
+      "hash_matches": true,
+      "expected_sha256": "50ed6722d6b066f3a53659e5e70fb96ea1346d1d48dcd462c4df03349c1c4215",
+      "actual_sha256": "50ed6722d6b066f3a53659e5e70fb96ea1346d1d48dcd462c4df03349c1c4215"
+    },
+    {
+      "route": "/_next/static/chunks/4863-2334cb7b34dd383e.js",
+      "status": 200,
+      "bytes": 15688,
+      "hash_matches": true,
+      "expected_sha256": "5903d7232d400209c22e887f820fc570808985869f2644e9fecf06ee593d150c",
+      "actual_sha256": "5903d7232d400209c22e887f820fc570808985869f2644e9fecf06ee593d150c"
+    },
+    {
+      "route": "/_next/static/chunks/5309.b6dbe71175974dfe.js",
+      "status": 200,
+      "bytes": 9342,
+      "hash_matches": true,
+      "expected_sha256": "1b78a138809f32d55a9b4da32b557841dcd7b68e877a2b7e98e5068b61618348",
+      "actual_sha256": "1b78a138809f32d55a9b4da32b557841dcd7b68e877a2b7e98e5068b61618348"
+    },
+    {
+      "route": "/_next/static/chunks/5326-71fe7b7f37f7e33a.js",
+      "status": 200,
+      "bytes": 10055,
+      "hash_matches": true,
+      "expected_sha256": "17cbd0f23a5fafb4b6a56557bde7aab39862532160fc4307c3bda67da237919e",
+      "actual_sha256": "17cbd0f23a5fafb4b6a56557bde7aab39862532160fc4307c3bda67da237919e"
+    },
+    {
+      "route": "/_next/static/chunks/548.2637ab0b5dffa271.js",
+      "status": 200,
+      "bytes": 11912,
+      "hash_matches": true,
+      "expected_sha256": "69980630027b027c0ee849f8b4d2ddd0ae930272235d10dcf07a49c6695f6d73",
+      "actual_sha256": "69980630027b027c0ee849f8b4d2ddd0ae930272235d10dcf07a49c6695f6d73"
+    },
+    {
+      "route": "/_next/static/chunks/5624.37edc207cace6166.js",
+      "status": 200,
+      "bytes": 4358,
+      "hash_matches": true,
+      "expected_sha256": "4a79edafa69664f2348255416c383c2cbb02b2eaf00eee62fb8ea037f0c0c4dc",
+      "actual_sha256": "4a79edafa69664f2348255416c383c2cbb02b2eaf00eee62fb8ea037f0c0c4dc"
+    },
+    {
+      "route": "/_next/static/chunks/5657-21c8686f4654f43d.js",
+      "status": 200,
+      "bytes": 18098,
+      "hash_matches": true,
+      "expected_sha256": "ea9b6a34d980a3969443ab1a34b6e5338a45cd5a36b32c372faebddca78a943d",
+      "actual_sha256": "ea9b6a34d980a3969443ab1a34b6e5338a45cd5a36b32c372faebddca78a943d"
+    },
+    {
+      "route": "/_next/static/chunks/5825-446c73cc3ccf10b6.js",
+      "status": 200,
+      "bytes": 151522,
+      "hash_matches": true,
+      "expected_sha256": "b22abcee334c69a701526cb06ae10240e6d72a241a34c7a66addf2e53917c283",
+      "actual_sha256": "b22abcee334c69a701526cb06ae10240e6d72a241a34c7a66addf2e53917c283"
+    },
+    {
+      "route": "/_next/static/chunks/6003.32300441ebad736c.js",
+      "status": 200,
+      "bytes": 11277,
+      "hash_matches": true,
+      "expected_sha256": "7b3a5bd02a02b0d640c2193c679731065bce99eeba9106472a0e4e48d66344d7",
+      "actual_sha256": "7b3a5bd02a02b0d640c2193c679731065bce99eeba9106472a0e4e48d66344d7"
+    },
+    {
+      "route": "/_next/static/chunks/6418-be05be29e71d6a09.js",
+      "status": 200,
+      "bytes": 92095,
+      "hash_matches": true,
+      "expected_sha256": "2589000d465794a87ef66f006d841c2965503357c4fc50344211821f8ccc8158",
+      "actual_sha256": "2589000d465794a87ef66f006d841c2965503357c4fc50344211821f8ccc8158"
+    },
+    {
+      "route": "/_next/static/chunks/6507-c4ed99c093d4ff89.js",
+      "status": 200,
+      "bytes": 66404,
+      "hash_matches": true,
+      "expected_sha256": "bae258a31a0eafc6b3e6b2067f5bc88b1753df32ab285807425fe828740b12c4",
+      "actual_sha256": "bae258a31a0eafc6b3e6b2067f5bc88b1753df32ab285807425fe828740b12c4"
+    },
+    {
+      "route": "/_next/static/chunks/6544-020935cef9d99a5e.js",
+      "status": 200,
+      "bytes": 12001,
+      "hash_matches": true,
+      "expected_sha256": "2f0944c853694ba635a6ec162594a2a359eb5802ca1b2d8bad409812f1bb1711",
+      "actual_sha256": "2f0944c853694ba635a6ec162594a2a359eb5802ca1b2d8bad409812f1bb1711"
+    },
+    {
+      "route": "/_next/static/chunks/6753-93067c52e6159339.js",
+      "status": 200,
+      "bytes": 35771,
+      "hash_matches": true,
+      "expected_sha256": "164fab1747089fb759f982502c7a90e7e129e350485cad7cd96087dbc891cffd",
+      "actual_sha256": "164fab1747089fb759f982502c7a90e7e129e350485cad7cd96087dbc891cffd"
+    },
+    {
+      "route": "/_next/static/chunks/7079-8ac56d760a40eac2.js",
+      "status": 200,
+      "bytes": 6511,
+      "hash_matches": true,
+      "expected_sha256": "202e4718b97a1552f6108e4b2cf0771d074d0714eaae554aa90f99d6e5040cb7",
+      "actual_sha256": "202e4718b97a1552f6108e4b2cf0771d074d0714eaae554aa90f99d6e5040cb7"
+    },
+    {
+      "route": "/_next/static/chunks/7116.c1e2c36a8ac47424.js",
+      "status": 200,
+      "bytes": 3225,
+      "hash_matches": true,
+      "expected_sha256": "12d2143543b9ba2ffdd93845359c8d263121a537df4d7af722b9f891e294be8f",
+      "actual_sha256": "12d2143543b9ba2ffdd93845359c8d263121a537df4d7af722b9f891e294be8f"
+    },
+    {
+      "route": "/_next/static/chunks/7207-33b9c7a4a8234f40.js",
+      "status": 200,
+      "bytes": 8608,
+      "hash_matches": true,
+      "expected_sha256": "0b0a6ced94f81a53869897587e02959ed06df5cb854ce425d8d0618d584fc74c",
+      "actual_sha256": "0b0a6ced94f81a53869897587e02959ed06df5cb854ce425d8d0618d584fc74c"
+    },
+    {
+      "route": "/_next/static/chunks/73-10a6ba87f3bc7466.js",
+      "status": 200,
+      "bytes": 62614,
+      "hash_matches": true,
+      "expected_sha256": "f0391b37b6ada24c43869402dd58ea75a9e7d90fd7c2d08f38c1b978540a368c",
+      "actual_sha256": "f0391b37b6ada24c43869402dd58ea75a9e7d90fd7c2d08f38c1b978540a368c"
+    },
+    {
+      "route": "/_next/static/chunks/7355-881767037f46cc9d.js",
+      "status": 200,
+      "bytes": 19771,
+      "hash_matches": true,
+      "expected_sha256": "b7c6399c22e0aaa6d312ff0e1f9ffc1556111501436b76388105cec928cc42c5",
+      "actual_sha256": "b7c6399c22e0aaa6d312ff0e1f9ffc1556111501436b76388105cec928cc42c5"
+    },
+    {
+      "route": "/_next/static/chunks/7601-a82d91f4d59053a6.js",
+      "status": 200,
+      "bytes": 4833,
+      "hash_matches": true,
+      "expected_sha256": "7db255beced0ae122fe1e49434dcfbdef81c34f28bdb8424298449b4d79e96e3",
+      "actual_sha256": "7db255beced0ae122fe1e49434dcfbdef81c34f28bdb8424298449b4d79e96e3"
+    },
+    {
+      "route": "/_next/static/chunks/8129.1015bda5ab43a924.js",
+      "status": 200,
+      "bytes": 8237,
+      "hash_matches": true,
+      "expected_sha256": "06fb0cbdb1564bdd412267412d8f5add0fdac868d082fa63df66c57a8b0e8ec6",
+      "actual_sha256": "06fb0cbdb1564bdd412267412d8f5add0fdac868d082fa63df66c57a8b0e8ec6"
+    },
+    {
+      "route": "/_next/static/chunks/816-cf9b5449b15e105d.js",
+      "status": 200,
+      "bytes": 17334,
+      "hash_matches": true,
+      "expected_sha256": "2823585d7cfa6b88b3e93be24e478aee0f509cf4560fe41baf26d80659010c5e",
+      "actual_sha256": "2823585d7cfa6b88b3e93be24e478aee0f509cf4560fe41baf26d80659010c5e"
+    },
+    {
+      "route": "/_next/static/chunks/8331-8a1fcf4a90eb0155.js",
+      "status": 200,
+      "bytes": 12979,
+      "hash_matches": true,
+      "expected_sha256": "345d8a3628bf047fdc73608c753f9580b1d18ef8fe48a903be89450bbcf0e753",
+      "actual_sha256": "345d8a3628bf047fdc73608c753f9580b1d18ef8fe48a903be89450bbcf0e753"
+    },
+    {
+      "route": "/_next/static/chunks/8584.cc7d67541d92b723.js",
+      "status": 200,
+      "bytes": 7909,
+      "hash_matches": true,
+      "expected_sha256": "81f0c1ae932e839e771a28e6001ea8c3ecc47ca9142db27346b45e245c503dac",
+      "actual_sha256": "81f0c1ae932e839e771a28e6001ea8c3ecc47ca9142db27346b45e245c503dac"
+    },
+    {
+      "route": "/_next/static/chunks/87c73c54-6890e5aad4d9e16a.js",
+      "status": 200,
+      "bytes": 203725,
+      "hash_matches": true,
+      "expected_sha256": "b61d529b088b3cee79dd72419d04e3e391acbb63b87d1a64118248b4fd259a5f",
+      "actual_sha256": "b61d529b088b3cee79dd72419d04e3e391acbb63b87d1a64118248b4fd259a5f"
+    },
+    {
+      "route": "/_next/static/chunks/9395-7be96d696dbe2845.js",
+      "status": 200,
+      "bytes": 11495,
+      "hash_matches": true,
+      "expected_sha256": "e238855cd29dfbd76e463d726c7b68f75f1f1a61694b84d18e80800ced2fc488",
+      "actual_sha256": "e238855cd29dfbd76e463d726c7b68f75f1f1a61694b84d18e80800ced2fc488"
+    },
+    {
+      "route": "/_next/static/chunks/9859.df55e0afeba3c2ae.js",
+      "status": 200,
+      "bytes": 10043,
+      "hash_matches": true,
+      "expected_sha256": "29767a6ea5193c89edf1895adceb55e7787bf8b1071be78e0b0a96a51b741592",
+      "actual_sha256": "29767a6ea5193c89edf1895adceb55e7787bf8b1071be78e0b0a96a51b741592"
+    },
+    {
+      "route": "/_next/static/chunks/app/about/page-fbc60c5ba207f096.js",
+      "status": 200,
+      "bytes": 301,
+      "hash_matches": true,
+      "expected_sha256": "59e990aa6647659f3542769a2a2a36758c47813d6f901f184ff068f0dc8935fb",
+      "actual_sha256": "59e990aa6647659f3542769a2a2a36758c47813d6f901f184ff068f0dc8935fb"
+    },
+    {
+      "route": "/_next/static/chunks/app/contact/page-5115934fbb67e309.js",
+      "status": 200,
+      "bytes": 10896,
+      "hash_matches": true,
+      "expected_sha256": "765ab9b353e9143064689cdbbf4250cd8b5591e49016ea1bdf65259007837c4f",
+      "actual_sha256": "765ab9b353e9143064689cdbbf4250cd8b5591e49016ea1bdf65259007837c4f"
+    },
+    {
+      "route": "/_next/static/chunks/app/experience/page-fbc60c5ba207f096.js",
+      "status": 200,
+      "bytes": 301,
+      "hash_matches": true,
+      "expected_sha256": "59e990aa6647659f3542769a2a2a36758c47813d6f901f184ff068f0dc8935fb",
+      "actual_sha256": "59e990aa6647659f3542769a2a2a36758c47813d6f901f184ff068f0dc8935fb"
+    },
+    {
+      "route": "/_next/static/chunks/app/explore/charts/bar/page-f9202c6a04dc688e.js",
+      "status": 200,
+      "bytes": 11228,
+      "hash_matches": true,
+      "expected_sha256": "dcdefc83f9a8b785873262f987105862eca7e95f88645d28f9ad2847782eec8c",
+      "actual_sha256": "dcdefc83f9a8b785873262f987105862eca7e95f88645d28f9ad2847782eec8c"
+    },
+    {
+      "route": "/_next/static/chunks/app/explore/charts/box/page-907788e38078c285.js",
+      "status": 200,
+      "bytes": 11733,
+      "hash_matches": true,
+      "expected_sha256": "2a639d3e6fc5c98f8e8ff25c8cfe5c20ab7f7264d260f37883265c9a22bbdc65",
+      "actual_sha256": "2a639d3e6fc5c98f8e8ff25c8cfe5c20ab7f7264d260f37883265c9a22bbdc65"
+    },
+    {
+      "route": "/_next/static/chunks/app/explore/charts/dot/page-4ae3cabfbff23277.js",
+      "status": 200,
+      "bytes": 10730,
+      "hash_matches": true,
+      "expected_sha256": "087c7ba6fbebe9afa303d748d18a91af5fb599d77f232068e042c7716831b7f6",
+      "actual_sha256": "087c7ba6fbebe9afa303d748d18a91af5fb599d77f232068e042c7716831b7f6"
+    },
+    {
+      "route": "/_next/static/chunks/app/explore/charts/histogram/page-a3a491bcd886778a.js",
+      "status": 200,
+      "bytes": 11592,
+      "hash_matches": true,
+      "expected_sha256": "c29d92382c5c3e5847ce34291e86a046a6ea652c335417946595017ef374dd97",
+      "actual_sha256": "c29d92382c5c3e5847ce34291e86a046a6ea652c335417946595017ef374dd97"
+    },
+    {
+      "route": "/_next/static/chunks/app/explore/charts/line/page-2a3aeea6d2758cca.js",
+      "status": 200,
+      "bytes": 11641,
+      "hash_matches": true,
+      "expected_sha256": "3a9dc8eea46f1983d4229259a74edd77409f0b387ed499c6b6dc80a99b4f198e",
+      "actual_sha256": "3a9dc8eea46f1983d4229259a74edd77409f0b387ed499c6b6dc80a99b4f198e"
+    },
+    {
+      "route": "/_next/static/chunks/app/explore/charts/page-fbc60c5ba207f096.js",
+      "status": 200,
+      "bytes": 301,
+      "hash_matches": true,
+      "expected_sha256": "59e990aa6647659f3542769a2a2a36758c47813d6f901f184ff068f0dc8935fb",
+      "actual_sha256": "59e990aa6647659f3542769a2a2a36758c47813d6f901f184ff068f0dc8935fb"
+    },
+    {
+      "route": "/_next/static/chunks/app/explore/charts/scatter/page-a86414b0167b99a7.js",
+      "status": 200,
+      "bytes": 11858,
+      "hash_matches": true,
+      "expected_sha256": "869cc730531f1a4e9f65b3be074412b96003c11b2757ec0f8cca676c5845cce4",
+      "actual_sha256": "869cc730531f1a4e9f65b3be074412b96003c11b2757ec0f8cca676c5845cce4"
+    },
+    {
+      "route": "/_next/static/chunks/app/explore/choose/page-188ad33c1ddd0048.js",
+      "status": 200,
+      "bytes": 110064,
+      "hash_matches": true,
+      "expected_sha256": "cefd46d9c4cb98a240c5fbef0b9668520d4c0ca87f174f28a2b67520fcccb928",
+      "actual_sha256": "cefd46d9c4cb98a240c5fbef0b9668520d4c0ca87f174f28a2b67520fcccb928"
+    },
+    {
+      "route": "/_next/static/chunks/app/explore/dashboards/page-832febffc46f4921.js",
+      "status": 200,
+      "bytes": 29029,
+      "hash_matches": true,
+      "expected_sha256": "fc4b10ff7cbc9d1069c26dbcc71bd6276de124bdecac6ed6ddd138b014f820fb",
+      "actual_sha256": "fc4b10ff7cbc9d1069c26dbcc71bd6276de124bdecac6ed6ddd138b014f820fb"
+    },
+    {
+      "route": "/_next/static/chunks/app/explore/integrity/page-1f400557b30e92fa.js",
+      "status": 200,
+      "bytes": 29691,
+      "hash_matches": true,
+      "expected_sha256": "7827a8d8e24b7ea31dc86acf680c122bfe1d6bb3ff9a5339fa0d6220b359d4eb",
+      "actual_sha256": "7827a8d8e24b7ea31dc86acf680c122bfe1d6bb3ff9a5339fa0d6220b359d4eb"
+    },
+    {
+      "route": "/_next/static/chunks/app/explore/page-fbc60c5ba207f096.js",
+      "status": 200,
+      "bytes": 301,
+      "hash_matches": true,
+      "expected_sha256": "59e990aa6647659f3542769a2a2a36758c47813d6f901f184ff068f0dc8935fb",
+      "actual_sha256": "59e990aa6647659f3542769a2a2a36758c47813d6f901f184ff068f0dc8935fb"
+    },
+    {
+      "route": "/_next/static/chunks/app/explore/specialty/page-3a96cf6c467feabb.js",
+      "status": 200,
+      "bytes": 55181,
+      "hash_matches": true,
+      "expected_sha256": "2cb206685e27a78d146b0089556ed0538aed47cfa28a469e483d1e26776fa7a8",
+      "actual_sha256": "2cb206685e27a78d146b0089556ed0538aed47cfa28a469e483d1e26776fa7a8"
+    },
+    {
+      "route": "/_next/static/chunks/app/lab/dp-600/cases/page-48547d1771165997.js",
+      "status": 200,
+      "bytes": 159,
+      "hash_matches": true,
+      "expected_sha256": "fccf461399bda684a07bd3abacca39d9705dc00cc14948137ba8164011880d01",
+      "actual_sha256": "fccf461399bda684a07bd3abacca39d9705dc00cc14948137ba8164011880d01"
+    },
+    {
+      "route": "/_next/static/chunks/app/lab/dp-600/explore/page-77e6c6c7f1d8f95c.js",
+      "status": 200,
+      "bytes": 15641,
+      "hash_matches": true,
+      "expected_sha256": "096ce73352c5da9a1b69f5d4234dd809a09ae4a0f7082404ec9ef51e210dad0a",
+      "actual_sha256": "096ce73352c5da9a1b69f5d4234dd809a09ae4a0f7082404ec9ef51e210dad0a"
+    },
+    {
+      "route": "/_next/static/chunks/app/lab/dp-600/mock/page-0f46c61defdd9d61.js",
+      "status": 200,
+      "bytes": 159,
+      "hash_matches": true,
+      "expected_sha256": "36e29cbb4193f4a372f93f7fdd4ae7dc2aa305464b0a6fe2259f4c95516e749a",
+      "actual_sha256": "36e29cbb4193f4a372f93f7fdd4ae7dc2aa305464b0a6fe2259f4c95516e749a"
+    },
+    {
+      "route": "/_next/static/chunks/app/lab/dp-600/page-e1bb389b747744e2.js",
+      "status": 200,
+      "bytes": 289,
+      "hash_matches": true,
+      "expected_sha256": "ac2711dc6f846bcfd64c3da7fa8021df4b31948f54e9d58d06108351445925be",
+      "actual_sha256": "ac2711dc6f846bcfd64c3da7fa8021df4b31948f54e9d58d06108351445925be"
+    },
+    {
+      "route": "/_next/static/chunks/app/lab/dp-600/practice/page-ff744ccdf50fa199.js",
+      "status": 200,
+      "bytes": 159,
+      "hash_matches": true,
+      "expected_sha256": "e289031e36c90d986ee09133a5d244d2425b4e167b9d1819666afd8fe162055f",
+      "actual_sha256": "e289031e36c90d986ee09133a5d244d2425b4e167b9d1819666afd8fe162055f"
+    },
+    {
+      "route": "/_next/static/chunks/app/lab/dp-600/progress/page-9478f5b9a20a1334.js",
+      "status": 200,
+      "bytes": 10679,
+      "hash_matches": true,
+      "expected_sha256": "a81329ed8f453349347c1b3a7980a25791f39d9d79b7c8ffff230aa5e07b783c",
+      "actual_sha256": "a81329ed8f453349347c1b3a7980a25791f39d9d79b7c8ffff230aa5e07b783c"
+    },
+    {
+      "route": "/_next/static/chunks/app/lab/dp-600/resources/page-3285168eecd18bb4.js",
+      "status": 200,
+      "bytes": 5619,
+      "hash_matches": true,
+      "expected_sha256": "007d2d9a125a9c27a2605e692410157f9fa4eeba64ba1621d91bb9347b686c96",
+      "actual_sha256": "007d2d9a125a9c27a2605e692410157f9fa4eeba64ba1621d91bb9347b686c96"
+    },
+    {
+      "route": "/_next/static/chunks/app/lab/dp-600/review/page-d76ef76f8924ea77.js",
+      "status": 200,
+      "bytes": 159,
+      "hash_matches": true,
+      "expected_sha256": "1b2acfec813f3eb8bb7b44a494a6dffc03d6152868e3cce5598aa071475914d8",
+      "actual_sha256": "1b2acfec813f3eb8bb7b44a494a6dffc03d6152868e3cce5598aa071475914d8"
+    },
+    {
+      "route": "/_next/static/chunks/app/lab/dp-600/study/page-3055cb28198f211f.js",
+      "status": 200,
+      "bytes": 158,
+      "hash_matches": true,
+      "expected_sha256": "f30a46719cacd5f7d6995a396828d53c2f3a8476a108e9d7549900f6dd157e9e",
+      "actual_sha256": "f30a46719cacd5f7d6995a396828d53c2f3a8476a108e9d7549900f6dd157e9e"
+    },
+    {
+      "route": "/_next/static/chunks/app/lab/page-fb5c97b32e0d7036.js",
+      "status": 200,
+      "bytes": 8691,
+      "hash_matches": true,
+      "expected_sha256": "1604380e907ea7ad89d3b0f6355bc7a79a37532fd760a05f75f4259c94460fc3",
+      "actual_sha256": "1604380e907ea7ad89d3b0f6355bc7a79a37532fd760a05f75f4259c94460fc3"
+    },
+    {
+      "route": "/_next/static/chunks/app/layout-0836d6d80be167c2.js",
+      "status": 200,
+      "bytes": 14049,
+      "hash_matches": true,
+      "expected_sha256": "7577d4a3b4645f15f6d15ef36cf21aff9277e5f948f77d66b639fbc71f1db187",
+      "actual_sha256": "7577d4a3b4645f15f6d15ef36cf21aff9277e5f948f77d66b639fbc71f1db187"
+    },
+    {
+      "route": "/_next/static/chunks/app/learn/ar/page-fbc60c5ba207f096.js",
+      "status": 200,
+      "bytes": 301,
+      "hash_matches": true,
+      "expected_sha256": "59e990aa6647659f3542769a2a2a36758c47813d6f901f184ff068f0dc8935fb",
+      "actual_sha256": "59e990aa6647659f3542769a2a2a36758c47813d6f901f184ff068f0dc8935fb"
+    },
+    {
+      "route": "/_next/static/chunks/app/learn/catalogue/page-fbc60c5ba207f096.js",
+      "status": 200,
+      "bytes": 301,
+      "hash_matches": true,
+      "expected_sha256": "59e990aa6647659f3542769a2a2a36758c47813d6f901f184ff068f0dc8935fb",
+      "actual_sha256": "59e990aa6647659f3542769a2a2a36758c47813d6f901f184ff068f0dc8935fb"
+    },
+    {
+      "route": "/_next/static/chunks/app/learn/dp-600/ingestion/page-71a72011c15e7c42.js",
+      "status": 200,
+      "bytes": 24969,
+      "hash_matches": true,
+      "expected_sha256": "c24dfe0fa1966bb492385d3fd2fb6b6ba3831f9171c9772473ecf89ee4f8f0ee",
+      "actual_sha256": "c24dfe0fa1966bb492385d3fd2fb6b6ba3831f9171c9772473ecf89ee4f8f0ee"
+    },
+    {
+      "route": "/_next/static/chunks/app/learn/dp-600/page-fbc60c5ba207f096.js",
+      "status": 200,
+      "bytes": 301,
+      "hash_matches": true,
+      "expected_sha256": "59e990aa6647659f3542769a2a2a36758c47813d6f901f184ff068f0dc8935fb",
+      "actual_sha256": "59e990aa6647659f3542769a2a2a36758c47813d6f901f184ff068f0dc8935fb"
+    },
+    {
+      "route": "/_next/static/chunks/app/learn/method/page-fbc60c5ba207f096.js",
+      "status": 200,
+      "bytes": 301,
+      "hash_matches": true,
+      "expected_sha256": "59e990aa6647659f3542769a2a2a36758c47813d6f901f184ff068f0dc8935fb",
+      "actual_sha256": "59e990aa6647659f3542769a2a2a36758c47813d6f901f184ff068f0dc8935fb"
+    },
+    {
+      "route": "/_next/static/chunks/app/learn/page-fbc60c5ba207f096.js",
+      "status": 200,
+      "bytes": 301,
+      "hash_matches": true,
+      "expected_sha256": "59e990aa6647659f3542769a2a2a36758c47813d6f901f184ff068f0dc8935fb",
+      "actual_sha256": "59e990aa6647659f3542769a2a2a36758c47813d6f901f184ff068f0dc8935fb"
+    },
+    {
+      "route": "/_next/static/chunks/app/learn/statistics/atlas/page-2d8fe2699dfa595b.js",
+      "status": 200,
+      "bytes": 10402,
+      "hash_matches": true,
+      "expected_sha256": "9d704334d1eb04221dc810629b513999a5a5843559d9ffd8f4d391993fcda1ac",
+      "actual_sha256": "9d704334d1eb04221dc810629b513999a5a5843559d9ffd8f4d391993fcda1ac"
+    },
+    {
+      "route": "/_next/static/chunks/app/learn/statistics/cheatsheet/page-226e1e1561980f59.js",
+      "status": 200,
+      "bytes": 1738,
+      "hash_matches": true,
+      "expected_sha256": "811ae1123d1f94b664ceb9d864776d2ac8dab985979ff5f335df55b6d3a57d08",
+      "actual_sha256": "811ae1123d1f94b664ceb9d864776d2ac8dab985979ff5f335df55b6d3a57d08"
+    },
+    {
+      "route": "/_next/static/chunks/app/learn/statistics/decision/page-f144e19c46a53fc5.js",
+      "status": 200,
+      "bytes": 8469,
+      "hash_matches": true,
+      "expected_sha256": "9396cc676b178f30fa4a51d29c0b2cfaca374e739d90cecb1b3446fe1445bb1e",
+      "actual_sha256": "9396cc676b178f30fa4a51d29c0b2cfaca374e739d90cecb1b3446fe1445bb1e"
+    },
+    {
+      "route": "/_next/static/chunks/app/learn/statistics/formulas/page-72835a4f55a66a5d.js",
+      "status": 200,
+      "bytes": 10531,
+      "hash_matches": true,
+      "expected_sha256": "733715b5c41c846319be5f1a7f79c3a1c21a12e57b876c4df747aadc00b67b54",
+      "actual_sha256": "733715b5c41c846319be5f1a7f79c3a1c21a12e57b876c4df747aadc00b67b54"
+    },
+    {
+      "route": "/_next/static/chunks/app/learn/statistics/glossary/page-35ac2c046e2a5806.js",
+      "status": 200,
+      "bytes": 4184,
+      "hash_matches": true,
+      "expected_sha256": "5405281054b279438a9c9dad3cd30aaa30d3d0f84014fb87b40741c204f52568",
+      "actual_sha256": "5405281054b279438a9c9dad3cd30aaa30d3d0f84014fb87b40741c204f52568"
+    },
+    {
+      "route": "/_next/static/chunks/app/learn/statistics/labs/page-fbc60c5ba207f096.js",
+      "status": 200,
+      "bytes": 301,
+      "hash_matches": true,
+      "expected_sha256": "59e990aa6647659f3542769a2a2a36758c47813d6f901f184ff068f0dc8935fb",
+      "actual_sha256": "59e990aa6647659f3542769a2a2a36758c47813d6f901f184ff068f0dc8935fb"
+    },
+    {
+      "route": "/_next/static/chunks/app/learn/statistics/page-786172db8893fe54.js",
+      "status": 200,
+      "bytes": 14642,
+      "hash_matches": true,
+      "expected_sha256": "830706757a5998a9e9e91e49dd8cfa81cb5440258da446688a683f1ff0723ce7",
+      "actual_sha256": "830706757a5998a9e9e91e49dd8cfa81cb5440258da446688a683f1ff0723ce7"
+    },
+    {
+      "route": "/_next/static/chunks/app/learn/statistics/source/page-b374b32bcdfcc3fd.js",
+      "status": 200,
+      "bytes": 1000,
+      "hash_matches": true,
+      "expected_sha256": "cf14b378a4f53b7021190f9b384be31ae59dfe0f5044d59acda33f4258239062",
+      "actual_sha256": "cf14b378a4f53b7021190f9b384be31ae59dfe0f5044d59acda33f4258239062"
+    },
+    {
+      "route": "/_next/static/chunks/app/page-fbc60c5ba207f096.js",
+      "status": 200,
+      "bytes": 301,
+      "hash_matches": true,
+      "expected_sha256": "59e990aa6647659f3542769a2a2a36758c47813d6f901f184ff068f0dc8935fb",
+      "actual_sha256": "59e990aa6647659f3542769a2a2a36758c47813d6f901f184ff068f0dc8935fb"
+    },
+    {
+      "route": "/_next/static/chunks/app/practice/catalogue/page-fbc60c5ba207f096.js",
+      "status": 200,
+      "bytes": 301,
+      "hash_matches": true,
+      "expected_sha256": "59e990aa6647659f3542769a2a2a36758c47813d6f901f184ff068f0dc8935fb",
+      "actual_sha256": "59e990aa6647659f3542769a2a2a36758c47813d6f901f184ff068f0dc8935fb"
+    },
+    {
+      "route": "/_next/static/chunks/app/practice/page-2c5b6779f59f73c4.js",
+      "status": 200,
+      "bytes": 21730,
+      "hash_matches": true,
+      "expected_sha256": "3be5950d1bcfd260e596e1e4f290fdc6bf9c0543a314aadf23f9dee1ce29fa0b",
+      "actual_sha256": "3be5950d1bcfd260e596e1e4f290fdc6bf9c0543a314aadf23f9dee1ce29fa0b"
+    },
+    {
+      "route": "/_next/static/chunks/app/search/page-a40721ff5ce4662b.js",
+      "status": 200,
+      "bytes": 11509,
+      "hash_matches": true,
+      "expected_sha256": "82c574522a5b0b52b7abe20ec26212409337ce54c4f08a1bf47343d6f12c80ad",
+      "actual_sha256": "82c574522a5b0b52b7abe20ec26212409337ce54c4f08a1bf47343d6f12c80ad"
+    },
+    {
+      "route": "/_next/static/chunks/app/services/page-fbc60c5ba207f096.js",
+      "status": 200,
+      "bytes": 301,
+      "hash_matches": true,
+      "expected_sha256": "59e990aa6647659f3542769a2a2a36758c47813d6f901f184ff068f0dc8935fb",
+      "actual_sha256": "59e990aa6647659f3542769a2a2a36758c47813d6f901f184ff068f0dc8935fb"
+    },
+    {
+      "route": "/_next/static/chunks/app/work/page-fbc60c5ba207f096.js",
+      "status": 200,
+      "bytes": 301,
+      "hash_matches": true,
+      "expected_sha256": "59e990aa6647659f3542769a2a2a36758c47813d6f901f184ff068f0dc8935fb",
+      "actual_sha256": "59e990aa6647659f3542769a2a2a36758c47813d6f901f184ff068f0dc8935fb"
+    },
+    {
+      "route": "/_next/static/chunks/main-app-d621274178122cde.js",
+      "status": 200,
+      "bytes": 525,
+      "hash_matches": true,
+      "expected_sha256": "987407bbc958349c7d1a62ccc426d9a0f91e9311b9171fecc33299668d04bca3",
+      "actual_sha256": "987407bbc958349c7d1a62ccc426d9a0f91e9311b9171fecc33299668d04bca3"
+    },
+    {
+      "route": "/_next/static/chunks/polyfills-42372ed130431b0a.js",
+      "status": 200,
+      "bytes": 112594,
+      "hash_matches": true,
+      "expected_sha256": "0973c1d64c88adc8e3c950410cb58b288f72118d5965b78049438deb8f2f9683",
+      "actual_sha256": "0973c1d64c88adc8e3c950410cb58b288f72118d5965b78049438deb8f2f9683"
+    },
+    {
+      "route": "/_next/static/chunks/webpack-6040d2ad074ff6b5.js",
+      "status": 200,
+      "bytes": 4645,
+      "hash_matches": true,
+      "expected_sha256": "208bb38f36dff2510e92c3df48480d2f0c81037064b5461c46250bbcd761de70",
+      "actual_sha256": "208bb38f36dff2510e92c3df48480d2f0c81037064b5461c46250bbcd761de70"
+    },
+    {
+      "route": "/_next/static/css/19d4383ef4b03bda.css",
+      "status": 200,
+      "bytes": 127434,
+      "hash_matches": true,
+      "expected_sha256": "68c42659e9275e426cd7d217edd20ea0a6ad59954969f8d4a53d37c7e92e6805",
+      "actual_sha256": "68c42659e9275e426cd7d217edd20ea0a6ad59954969f8d4a53d37c7e92e6805"
+    },
+    {
+      "route": "/_next/static/css/75fc7e897e52fce5.css",
+      "status": 200,
+      "bytes": 25128,
+      "hash_matches": true,
+      "expected_sha256": "330d0280ffd1c8dd36da7b53e87a8b18e530dd77c004957ab0653253b16b5b62",
+      "actual_sha256": "330d0280ffd1c8dd36da7b53e87a8b18e530dd77c004957ab0653253b16b5b62"
+    },
+    {
+      "route": "/_next/static/css/abbf900a41ad1262.css",
+      "status": 200,
+      "bytes": 3580,
+      "hash_matches": true,
+      "expected_sha256": "6cf995518bfff1b524039213d2f2bceff51773471d4f20a0069eff2805a273c2",
+      "actual_sha256": "6cf995518bfff1b524039213d2f2bceff51773471d4f20a0069eff2805a273c2"
+    },
+    {
+      "route": "/about/",
+      "status": 200,
+      "bytes": 82632,
+      "hash_matches": true,
+      "expected_sha256": "28f3f9f723d837f6a08ea46d4813e564950a2f6fa4fef479b1133ecc0e365976",
+      "actual_sha256": "28f3f9f723d837f6a08ea46d4813e564950a2f6fa4fef479b1133ecc0e365976"
+    },
+    {
+      "route": "/contact/",
+      "status": 200,
+      "bytes": 78664,
+      "hash_matches": true,
+      "expected_sha256": "db28892a363bbb60be8b2074da16f76e801f278313d5bec6ddc9de34dc6d8564",
+      "actual_sha256": "db28892a363bbb60be8b2074da16f76e801f278313d5bec6ddc9de34dc6d8564"
+    },
+    {
+      "route": "/experience/",
+      "status": 200,
+      "bytes": 125573,
+      "hash_matches": true,
+      "expected_sha256": "981f6ab53a3b30308fbee97f8c8cd74488780e9054af0eb21430ae3741e78a6d",
+      "actual_sha256": "981f6ab53a3b30308fbee97f8c8cd74488780e9054af0eb21430ae3741e78a6d"
+    },
+    {
+      "route": "/explore/",
+      "status": 200,
+      "bytes": 78104,
+      "hash_matches": true,
+      "expected_sha256": "39111e5ce8cf212ec869372ac43e79b3e3c1503fc4c6f7cdb930128589e74a55",
+      "actual_sha256": "39111e5ce8cf212ec869372ac43e79b3e3c1503fc4c6f7cdb930128589e74a55"
+    },
+    {
+      "route": "/explore/charts/",
+      "status": 200,
+      "bytes": 79613,
+      "hash_matches": true,
+      "expected_sha256": "2ef892e9db1d927b24b519c33208df265e21c86c3ac9ffa7a0639656b8c7a970",
+      "actual_sha256": "2ef892e9db1d927b24b519c33208df265e21c86c3ac9ffa7a0639656b8c7a970"
+    },
+    {
+      "route": "/explore/charts/bar/",
+      "status": 200,
+      "bytes": 81714,
+      "hash_matches": true,
+      "expected_sha256": "df395cf6baf849544bc33d5f3063f0087cb0ac3d5047e23c41b884e4f073b2f3",
+      "actual_sha256": "df395cf6baf849544bc33d5f3063f0087cb0ac3d5047e23c41b884e4f073b2f3"
+    },
+    {
+      "route": "/explore/charts/box/",
+      "status": 200,
+      "bytes": 84789,
+      "hash_matches": true,
+      "expected_sha256": "5e9acde74f124ff9d7514434077215aff5d86d36d498ceb4199c28a75b73142b",
+      "actual_sha256": "5e9acde74f124ff9d7514434077215aff5d86d36d498ceb4199c28a75b73142b"
+    },
+    {
+      "route": "/explore/charts/dot/",
+      "status": 200,
+      "bytes": 86514,
+      "hash_matches": true,
+      "expected_sha256": "2459c0f131769c892efdbb0b00df1f5ca009ff91c8ad581c8a0b17cbf0804978",
+      "actual_sha256": "2459c0f131769c892efdbb0b00df1f5ca009ff91c8ad581c8a0b17cbf0804978"
+    },
+    {
+      "route": "/explore/charts/histogram/",
+      "status": 200,
+      "bytes": 81180,
+      "hash_matches": true,
+      "expected_sha256": "baddc9f0d55c954a245ffb4ef8a8439e1f21db6182cc2b6e2ef4a95bde145c6c",
+      "actual_sha256": "baddc9f0d55c954a245ffb4ef8a8439e1f21db6182cc2b6e2ef4a95bde145c6c"
+    },
+    {
+      "route": "/explore/charts/line/",
+      "status": 200,
+      "bytes": 101870,
+      "hash_matches": true,
+      "expected_sha256": "1e6154f759885f5ff814b420b8373b93434dcaf8a615d2187dd762801567eee3",
+      "actual_sha256": "1e6154f759885f5ff814b420b8373b93434dcaf8a615d2187dd762801567eee3"
+    },
+    {
+      "route": "/explore/charts/scatter/",
+      "status": 200,
+      "bytes": 111422,
+      "hash_matches": true,
+      "expected_sha256": "bbbf1e328a7c0acc6e7c5b1b86d9a565f3b9391512e01cf7145ce89f770cce3d",
+      "actual_sha256": "bbbf1e328a7c0acc6e7c5b1b86d9a565f3b9391512e01cf7145ce89f770cce3d"
+    },
+    {
+      "route": "/explore/choose/",
+      "status": 200,
+      "bytes": 80242,
+      "hash_matches": true,
+      "expected_sha256": "607f1f62e2423fb23e6840e0c4f7c16984069f4e040e3c150ed853bc344b1785",
+      "actual_sha256": "607f1f62e2423fb23e6840e0c4f7c16984069f4e040e3c150ed853bc344b1785"
+    },
+    {
+      "route": "/explore/dashboards/",
+      "status": 200,
+      "bytes": 124330,
+      "hash_matches": true,
+      "expected_sha256": "5245f70435d03c5c477058968b706d35a43073d04e13a8bf7a1ba2587ddf61ea",
+      "actual_sha256": "5245f70435d03c5c477058968b706d35a43073d04e13a8bf7a1ba2587ddf61ea"
+    },
+    {
+      "route": "/explore/integrity/",
+      "status": 200,
+      "bytes": 186572,
+      "hash_matches": true,
+      "expected_sha256": "c550c606283cb0e2756988c6db03db723925bdef5c09d1987be54a92dc03dce7",
+      "actual_sha256": "c550c606283cb0e2756988c6db03db723925bdef5c09d1987be54a92dc03dce7"
+    },
+    {
+      "route": "/explore/specialty/",
+      "status": 200,
+      "bytes": 192883,
+      "hash_matches": true,
+      "expected_sha256": "a7d04ea0553028ac8968a619b0dfb7faed6ac23dee9ba4844b3aa8849073c036",
+      "actual_sha256": "a7d04ea0553028ac8968a619b0dfb7faed6ac23dee9ba4844b3aa8849073c036"
+    },
+    {
+      "route": "/lab/",
+      "status": 200,
+      "bytes": 88214,
+      "hash_matches": true,
+      "expected_sha256": "1183ade3db38a99202344e63e38297a1ba778ca824168ab85afe47c567125257",
+      "actual_sha256": "1183ade3db38a99202344e63e38297a1ba778ca824168ab85afe47c567125257"
+    },
+    {
+      "route": "/lab/dp-600/",
+      "status": 200,
+      "bytes": 185018,
+      "hash_matches": true,
+      "expected_sha256": "c525cc1f6e16cbc524eafb853ef0313d2001bef721c3102eb1761a7f1cd753b4",
+      "actual_sha256": "c525cc1f6e16cbc524eafb853ef0313d2001bef721c3102eb1761a7f1cd753b4"
+    },
+    {
+      "route": "/lab/dp-600/cases/",
+      "status": 200,
+      "bytes": 219339,
+      "hash_matches": true,
+      "expected_sha256": "20f0b1be41a1a0d15e773c87b913f31f7ffde82bb061fd0b1be085d01d25f205",
+      "actual_sha256": "20f0b1be41a1a0d15e773c87b913f31f7ffde82bb061fd0b1be085d01d25f205"
+    },
+    {
+      "route": "/lab/dp-600/explore/",
+      "status": 200,
+      "bytes": 61048,
+      "hash_matches": true,
+      "expected_sha256": "38f2ecb779b29dd95a5777b20e6c036b6b379b244883e2fb0156204c36ee2052",
+      "actual_sha256": "38f2ecb779b29dd95a5777b20e6c036b6b379b244883e2fb0156204c36ee2052"
+    },
+    {
+      "route": "/lab/dp-600/mock/",
+      "status": 200,
+      "bytes": 70006,
+      "hash_matches": true,
+      "expected_sha256": "fa33bd6647253e1cd9270d3f77b50095580d621f78cd1a83451cdbfc91e84d79",
+      "actual_sha256": "fa33bd6647253e1cd9270d3f77b50095580d621f78cd1a83451cdbfc91e84d79"
+    },
+    {
+      "route": "/lab/dp-600/practice/",
+      "status": 200,
+      "bytes": 72443,
+      "hash_matches": true,
+      "expected_sha256": "60cd0998d8b4343cb0e2b113be406bceb2d2eb6c8369611a50550768e2ebb257",
+      "actual_sha256": "60cd0998d8b4343cb0e2b113be406bceb2d2eb6c8369611a50550768e2ebb257"
+    },
+    {
+      "route": "/lab/dp-600/progress/",
+      "status": 200,
+      "bytes": 66934,
+      "hash_matches": true,
+      "expected_sha256": "dfc81be02af74a081696fd243e19b614007d3616eae0df5f412a59341fa2a166",
+      "actual_sha256": "dfc81be02af74a081696fd243e19b614007d3616eae0df5f412a59341fa2a166"
+    },
+    {
+      "route": "/lab/dp-600/resources/",
+      "status": 200,
+      "bytes": 436827,
+      "hash_matches": true,
+      "expected_sha256": "763aa7c371fa64103d72a161d7397994a781a6b5a3245a79beaee0b876d0703d",
+      "actual_sha256": "763aa7c371fa64103d72a161d7397994a781a6b5a3245a79beaee0b876d0703d"
+    },
+    {
+      "route": "/lab/dp-600/review/",
+      "status": 200,
+      "bytes": 66683,
+      "hash_matches": true,
+      "expected_sha256": "3649df7d3c1043b45db67a0550a9e726d376221bf08aa5d3baf0564b0ed8eab9",
+      "actual_sha256": "3649df7d3c1043b45db67a0550a9e726d376221bf08aa5d3baf0564b0ed8eab9"
+    },
+    {
+      "route": "/lab/dp-600/study/",
+      "status": 200,
+      "bytes": 69843,
+      "hash_matches": true,
+      "expected_sha256": "3b0d692f3fbd5a32388341b0091f900860e5da4b560aa94636f87fa26929637b",
+      "actual_sha256": "3b0d692f3fbd5a32388341b0091f900860e5da4b560aa94636f87fa26929637b"
+    },
+    {
+      "route": "/lab/excel/",
+      "status": 200,
+      "bytes": 72550,
+      "hash_matches": true,
+      "expected_sha256": "c7d4b152aefc14a7ea1a451475005a6186439e6c7977d9470eb7669168726cb8",
+      "actual_sha256": "c7d4b152aefc14a7ea1a451475005a6186439e6c7977d9470eb7669168726cb8"
+    },
+    {
+      "route": "/lab/fundamentals/",
+      "status": 200,
+      "bytes": 72655,
+      "hash_matches": true,
+      "expected_sha256": "6db28dce277098f619562bff72ab245193661514f3e42ed72859fe2219af2be7",
+      "actual_sha256": "6db28dce277098f619562bff72ab245193661514f3e42ed72859fe2219af2be7"
+    },
+    {
+      "route": "/lab/power-bi/",
+      "status": 200,
+      "bytes": 72837,
+      "hash_matches": true,
+      "expected_sha256": "4274c52243a9b1de8f9258a225cc19a4d91e0d5309d5c4544570dfdea53f2999",
+      "actual_sha256": "4274c52243a9b1de8f9258a225cc19a4d91e0d5309d5c4544570dfdea53f2999"
+    },
+    {
+      "route": "/lab/python/",
+      "status": 200,
+      "bytes": 72724,
+      "hash_matches": true,
+      "expected_sha256": "6df4593aad227c78bb6915c52e7e6a9374689b8a9cdc1fe393a5cdc7dabef0d6",
+      "actual_sha256": "6df4593aad227c78bb6915c52e7e6a9374689b8a9cdc1fe393a5cdc7dabef0d6"
+    },
+    {
+      "route": "/lab/sql/",
+      "status": 200,
+      "bytes": 72601,
+      "hash_matches": true,
+      "expected_sha256": "332b3bc2e38c9447fae0831b88f17864e28b5d1975cd8e59dc05c12a51c22c6f",
+      "actual_sha256": "332b3bc2e38c9447fae0831b88f17864e28b5d1975cd8e59dc05c12a51c22c6f"
+    },
+    {
+      "route": "/lab/statistics/",
+      "status": 200,
+      "bytes": 73171,
+      "hash_matches": true,
+      "expected_sha256": "a5cc39821f774c51c73caa6f6434b9749079cad9578ff4ec527140a04a37a384",
+      "actual_sha256": "a5cc39821f774c51c73caa6f6434b9749079cad9578ff4ec527140a04a37a384"
+    },
+    {
+      "route": "/learn/",
+      "status": 200,
+      "bytes": 206758,
+      "hash_matches": true,
+      "expected_sha256": "ae6bae3028d3fec9e9bf3df6e60fe7a491e6e7ad4f2d75926bb19007f93b8fce",
+      "actual_sha256": "ae6bae3028d3fec9e9bf3df6e60fe7a491e6e7ad4f2d75926bb19007f93b8fce"
+    },
+    {
+      "route": "/learn/accessibility-color-qa/",
+      "status": 200,
+      "bytes": 91065,
+      "hash_matches": true,
+      "expected_sha256": "b4ca92131201d205834712b16f8940fffab6f0e04a153060859c568aa81577e4",
+      "actual_sha256": "b4ca92131201d205834712b16f8940fffab6f0e04a153060859c568aa81577e4"
+    },
+    {
+      "route": "/learn/advanced-multivariate/",
+      "status": 200,
+      "bytes": 130408,
+      "hash_matches": true,
+      "expected_sha256": "05ffffbaab0ff56146a618011534f52815727ad45f11fa595c6e51d824a4e6eb",
+      "actual_sha256": "05ffffbaab0ff56146a618011534f52815727ad45f11fa595c6e51d824a4e6eb"
+    },
+    {
+      "route": "/learn/applied-cases/",
+      "status": 200,
+      "bytes": 95442,
+      "hash_matches": true,
+      "expected_sha256": "67cdce63cf1b977fab81bb898a83e01179f08993be35e174eab25333ded5c54f",
+      "actual_sha256": "67cdce63cf1b977fab81bb898a83e01179f08993be35e174eab25333ded5c54f"
+    },
+    {
+      "route": "/learn/ar/",
+      "status": 200,
+      "bytes": 104222,
+      "hash_matches": true,
+      "expected_sha256": "f30860bba56bdfcf8cd9a210ffe51f78eb9fb401c716830ccb3bfb82c090fb2d",
+      "actual_sha256": "f30860bba56bdfcf8cd9a210ffe51f78eb9fb401c716830ccb3bfb82c090fb2d"
+    },
+    {
+      "route": "/learn/ar/bar-plot/",
+      "status": 200,
+      "bytes": 95560,
+      "hash_matches": true,
+      "expected_sha256": "072d019137a9c9cd2700fc74a9e948eca45503c2c098378c1437f1bf560ee7ba",
+      "actual_sha256": "072d019137a9c9cd2700fc74a9e948eca45503c2c098378c1437f1bf560ee7ba"
+    },
+    {
+      "route": "/learn/ar/box-plot/",
+      "status": 200,
+      "bytes": 93805,
+      "hash_matches": true,
+      "expected_sha256": "7279b52d77e11814f6e4b077deccb8b3a3922542d409df5c2833285960144918",
+      "actual_sha256": "7279b52d77e11814f6e4b077deccb8b3a3922542d409df5c2833285960144918"
+    },
+    {
+      "route": "/learn/ar/color/",
+      "status": 200,
+      "bytes": 92287,
+      "hash_matches": true,
+      "expected_sha256": "750ba1c9c73a53d0bd6736a474c6c08a2b7e16a2f23c5076caff570b8e43340e",
+      "actual_sha256": "750ba1c9c73a53d0bd6736a474c6c08a2b7e16a2f23c5076caff570b8e43340e"
+    },
+    {
+      "route": "/learn/ar/core-charts/",
+      "status": 200,
+      "bytes": 85113,
+      "hash_matches": true,
+      "expected_sha256": "4c09aa361e28d850c8e2de27d971f47786fa045c1230491c6875b3eabb74dbf7",
+      "actual_sha256": "4c09aa361e28d850c8e2de27d971f47786fa045c1230491c6875b3eabb74dbf7"
+    },
+    {
+      "route": "/learn/ar/dot-plot/",
+      "status": 200,
+      "bytes": 88748,
+      "hash_matches": true,
+      "expected_sha256": "78a968b7bf97172c8eda5308176235eff941f75def2d4f3bc0172af3a24d45de",
+      "actual_sha256": "78a968b7bf97172c8eda5308176235eff941f75def2d4f3bc0172af3a24d45de"
+    },
+    {
+      "route": "/learn/ar/histogram/",
+      "status": 200,
+      "bytes": 101855,
+      "hash_matches": true,
+      "expected_sha256": "b3927717a6d80573fb4528048d660f2c23528f21dfec552a764dbf465448bf4a",
+      "actual_sha256": "b3927717a6d80573fb4528048d660f2c23528f21dfec552a764dbf465448bf4a"
+    },
+    {
+      "route": "/learn/ar/line-plot/",
+      "status": 200,
+      "bytes": 90976,
+      "hash_matches": true,
+      "expected_sha256": "b04126be1cdecb618755f98c1b5137ed0a7548ff36e013c3224903fb76c41d9c",
+      "actual_sha256": "b04126be1cdecb618755f98c1b5137ed0a7548ff36e013c3224903fb76c41d9c"
+    },
+    {
+      "route": "/learn/ar/reading-paths/",
+      "status": 200,
+      "bytes": 109513,
+      "hash_matches": true,
+      "expected_sha256": "931dafea75972f84457dc1e824d0f976dd611418f62742f3f55870a7163979e0",
+      "actual_sha256": "931dafea75972f84457dc1e824d0f976dd611418f62742f3f55870a7163979e0"
+    },
+    {
+      "route": "/learn/ar/references/",
+      "status": 200,
+      "bytes": 92798,
+      "hash_matches": true,
+      "expected_sha256": "88b29a83657f96846b8ee2ab305b357773484fb2c98483448348f1d73ea40754",
+      "actual_sha256": "88b29a83657f96846b8ee2ab305b357773484fb2c98483448348f1d73ea40754"
+    },
+    {
+      "route": "/learn/ar/scatter-plot/",
+      "status": 200,
+      "bytes": 97001,
+      "hash_matches": true,
+      "expected_sha256": "fa62196e534dd8ea25b54a2ac8b27119996f7e45804f75ce6b26b22d8f6bd5ca",
+      "actual_sha256": "fa62196e534dd8ea25b54a2ac8b27119996f7e45804f75ce6b26b22d8f6bd5ca"
+    },
+    {
+      "route": "/learn/ar/tips/",
+      "status": 200,
+      "bytes": 133695,
+      "hash_matches": true,
+      "expected_sha256": "b4131e98c72c4b6afff37e4f372f1636d6af2d3e8bbc176c971c155ff7492beb",
+      "actual_sha256": "b4131e98c72c4b6afff37e4f372f1636d6af2d3e8bbc176c971c155ff7492beb"
+    },
+    {
+      "route": "/learn/audience-story/",
+      "status": 200,
+      "bytes": 114672,
+      "hash_matches": true,
+      "expected_sha256": "879e45607b271f85566ddfdcce74ea4bd08bf363b2dcaf7067ca7171dbfcd8dd",
+      "actual_sha256": "879e45607b271f85566ddfdcce74ea4bd08bf363b2dcaf7067ca7171dbfcd8dd"
+    },
+    {
+      "route": "/learn/catalogue/",
+      "status": 200,
+      "bytes": 149292,
+      "hash_matches": true,
+      "expected_sha256": "5f18d423ecf74988c0c69f6d8917ae72e57e9ea59d2bb27970729cd0e8abec34",
+      "actual_sha256": "5f18d423ecf74988c0c69f6d8917ae72e57e9ea59d2bb27970729cd0e8abec34"
+    },
+    {
+      "route": "/learn/chapter/01/",
+      "status": 200,
+      "bytes": 65718,
+      "hash_matches": true,
+      "expected_sha256": "2734623aad6e9d257a3a7231189557a2a64a07b83d8f07d49a2661081e77f233",
+      "actual_sha256": "2734623aad6e9d257a3a7231189557a2a64a07b83d8f07d49a2661081e77f233"
+    },
+    {
+      "route": "/learn/chapter/02/",
+      "status": 200,
+      "bytes": 69409,
+      "hash_matches": true,
+      "expected_sha256": "6b111e557018956907fafb77472787ed4bc78657aeeee26779cca3886192b44f",
+      "actual_sha256": "6b111e557018956907fafb77472787ed4bc78657aeeee26779cca3886192b44f"
+    },
+    {
+      "route": "/learn/chapter/03/",
+      "status": 200,
+      "bytes": 86739,
+      "hash_matches": true,
+      "expected_sha256": "7df9aa9babf2b14b0cb394a8bdad67ed09182d234166b8569a581fa0033fb8a0",
+      "actual_sha256": "7df9aa9babf2b14b0cb394a8bdad67ed09182d234166b8569a581fa0033fb8a0"
+    },
+    {
+      "route": "/learn/chapter/04/",
+      "status": 200,
+      "bytes": 66886,
+      "hash_matches": true,
+      "expected_sha256": "6b4e3ad8d62b3020bda392c746550fa52e6f7b17a10bcdb141a913876128503a",
+      "actual_sha256": "6b4e3ad8d62b3020bda392c746550fa52e6f7b17a10bcdb141a913876128503a"
+    },
+    {
+      "route": "/learn/chapter/05/",
+      "status": 200,
+      "bytes": 69913,
+      "hash_matches": true,
+      "expected_sha256": "799c52ed64705622c08b962bf766bebe7017bd698504f30e9508da9802187d27",
+      "actual_sha256": "799c52ed64705622c08b962bf766bebe7017bd698504f30e9508da9802187d27"
+    },
+    {
+      "route": "/learn/chapter/06/",
+      "status": 200,
+      "bytes": 66729,
+      "hash_matches": true,
+      "expected_sha256": "0e3ef02f927fb9727e18d7070994661e73d57d19756c161ec33aecf1fa28c8e5",
+      "actual_sha256": "0e3ef02f927fb9727e18d7070994661e73d57d19756c161ec33aecf1fa28c8e5"
+    },
+    {
+      "route": "/learn/chapter/07/",
+      "status": 200,
+      "bytes": 71917,
+      "hash_matches": true,
+      "expected_sha256": "ac523f1633556af1369f88fceadc5d50c0acbd3fbf8ced9ef7fda2440c495af0",
+      "actual_sha256": "ac523f1633556af1369f88fceadc5d50c0acbd3fbf8ced9ef7fda2440c495af0"
+    },
+    {
+      "route": "/learn/chapter/08/",
+      "status": 200,
+      "bytes": 69306,
+      "hash_matches": true,
+      "expected_sha256": "b104b00ea279f6f68bed5ac417fef20efe3b1661b7fa6664dde05f97037c4614",
+      "actual_sha256": "b104b00ea279f6f68bed5ac417fef20efe3b1661b7fa6664dde05f97037c4614"
+    },
+    {
+      "route": "/learn/chapter/09/",
+      "status": 200,
+      "bytes": 66687,
+      "hash_matches": true,
+      "expected_sha256": "fae2ceaf844f666c6fb50efad2f13f3efca6c2b5087b054eeb9b4862f2bf4ba4",
+      "actual_sha256": "fae2ceaf844f666c6fb50efad2f13f3efca6c2b5087b054eeb9b4862f2bf4ba4"
+    },
+    {
+      "route": "/learn/chapter/10/",
+      "status": 200,
+      "bytes": 79597,
+      "hash_matches": true,
+      "expected_sha256": "e0e085d9518a9129c215c03d5c94ac4c68f41a5e9a4beb0049b9d454d0cbf903",
+      "actual_sha256": "e0e085d9518a9129c215c03d5c94ac4c68f41a5e9a4beb0049b9d454d0cbf903"
+    },
+    {
+      "route": "/learn/chart-selection/",
+      "status": 200,
+      "bytes": 142213,
+      "hash_matches": true,
+      "expected_sha256": "260430e0bbe6801d0335d971e31e294d5485fd049f2a5077a3530ffbfdbbd403",
+      "actual_sha256": "260430e0bbe6801d0335d971e31e294d5485fd049f2a5077a3530ffbfdbbd403"
+    },
+    {
+      "route": "/learn/color-perception/",
+      "status": 200,
+      "bytes": 108530,
+      "hash_matches": true,
+      "expected_sha256": "93ea06f91d1ecfbc29280a4ee9fa893536f0563b807ce6e4f9514295d43ba6d3",
+      "actual_sha256": "93ea06f91d1ecfbc29280a4ee9fa893536f0563b807ce6e4f9514295d43ba6d3"
+    },
+    {
+      "route": "/learn/core-chart-types/",
+      "status": 200,
+      "bytes": 214234,
+      "hash_matches": true,
+      "expected_sha256": "b0cb1814aaa48f77f2f49fab346e58155c5da0c29973207d91f20504d4a441b2",
+      "actual_sha256": "b0cb1814aaa48f77f2f49fab346e58155c5da0c29973207d91f20504d4a441b2"
+    },
+    {
+      "route": "/learn/dashboard-design/",
+      "status": 200,
+      "bytes": 140088,
+      "hash_matches": true,
+      "expected_sha256": "e65d3dad3ea77ce712b2913f379fb9a6d37f76ed32a957368fe4ffddf67bfd3e",
+      "actual_sha256": "e65d3dad3ea77ce712b2913f379fb9a6d37f76ed32a957368fe4ffddf67bfd3e"
+    },
+    {
+      "route": "/learn/dp-600/",
+      "status": 200,
+      "bytes": 62133,
+      "hash_matches": true,
+      "expected_sha256": "e3a2154f595ddb992ced19ead4b42d729760fd2e4b09666c13cb6a34c9fc44d0",
+      "actual_sha256": "e3a2154f595ddb992ced19ead4b42d729760fd2e4b09666c13cb6a34c9fc44d0"
+    },
+    {
+      "route": "/learn/dp-600/ingestion/",
+      "status": 200,
+      "bytes": 95363,
+      "hash_matches": true,
+      "expected_sha256": "8c932bb219fc52711651a478dafd21350caa291bfa61f5716039713cc380cb6a",
+      "actual_sha256": "8c932bb219fc52711651a478dafd21350caa291bfa61f5716039713cc380cb6a"
+    },
+    {
+      "route": "/learn/foundations/",
+      "status": 200,
+      "bytes": 150948,
+      "hash_matches": true,
+      "expected_sha256": "d984348362235a3a9ffba6575960964dd5ccdffe1d42a8296dde7d3f55f07d77",
+      "actual_sha256": "d984348362235a3a9ffba6575960964dd5ccdffe1d42a8296dde7d3f55f07d77"
+    },
+    {
+      "route": "/learn/interview-bank/",
+      "status": 200,
+      "bytes": 100795,
+      "hash_matches": true,
+      "expected_sha256": "65268627e6865848c65e2f774c761954b740d8eaea130d93d6479da022dc5a5e",
+      "actual_sha256": "65268627e6865848c65e2f774c761954b740d8eaea130d93d6479da022dc5a5e"
+    },
+    {
+      "route": "/learn/method/",
+      "status": 200,
+      "bytes": 121772,
+      "hash_matches": true,
+      "expected_sha256": "79d15d65eb2426304d054ef44ac21ee91b444d99baeac3594821768e44044d8a",
+      "actual_sha256": "79d15d65eb2426304d054ef44ac21ee91b444d99baeac3594821768e44044d8a"
+    },
+    {
+      "route": "/learn/overview/",
+      "status": 200,
+      "bytes": 165832,
+      "hash_matches": true,
+      "expected_sha256": "a270a8dd51bd85cdedb87daa37f063da430e5a3f238a9b2fe66b15677d023825",
+      "actual_sha256": "a270a8dd51bd85cdedb87daa37f063da430e5a3f238a9b2fe66b15677d023825"
+    },
+    {
+      "route": "/learn/power-bi-playbook/",
+      "status": 200,
+      "bytes": 129141,
+      "hash_matches": true,
+      "expected_sha256": "c796c362abe3132925612b7a11351708c73da614681eabc51dd7796064c15b73",
+      "actual_sha256": "c796c362abe3132925612b7a11351708c73da614681eabc51dd7796064c15b73"
+    },
+    {
+      "route": "/learn/quick-reference/",
+      "status": 200,
+      "bytes": 128472,
+      "hash_matches": true,
+      "expected_sha256": "36b306701663ca8893e60a9f9492aed84e5f11dbdac422904f7c001aa09ec01a",
+      "actual_sha256": "36b306701663ca8893e60a9f9492aed84e5f11dbdac422904f7c001aa09ec01a"
+    },
+    {
+      "route": "/learn/statistical-traps/",
+      "status": 200,
+      "bytes": 144646,
+      "hash_matches": true,
+      "expected_sha256": "5523787b9f4a89c3a958800a89dd738d6b7295a9d51b1e1a4a9a3c933ff60b64",
+      "actual_sha256": "5523787b9f4a89c3a958800a89dd738d6b7295a9d51b1e1a4a9a3c933ff60b64"
+    },
+    {
+      "route": "/learn/statistics/",
+      "status": 200,
+      "bytes": 332293,
+      "hash_matches": true,
+      "expected_sha256": "ff7a058f58c18658c97d77d79f7309713f06129a174f2f76a9d346997abc56dc",
+      "actual_sha256": "ff7a058f58c18658c97d77d79f7309713f06129a174f2f76a9d346997abc56dc"
+    },
+    {
+      "route": "/learn/statistics/atlas/",
+      "status": 200,
+      "bytes": 82138,
+      "hash_matches": true,
+      "expected_sha256": "8ae10b44fed1f7823fb80daacb0799714774885dba84f21164211767fa4fdd48",
+      "actual_sha256": "8ae10b44fed1f7823fb80daacb0799714774885dba84f21164211767fa4fdd48"
+    },
+    {
+      "route": "/learn/statistics/cheatsheet/",
+      "status": 200,
+      "bytes": 208791,
+      "hash_matches": true,
+      "expected_sha256": "3ac0a6679c35bf5023e410e3fa53774015d31333883940985601a248b9a3bf86",
+      "actual_sha256": "3ac0a6679c35bf5023e410e3fa53774015d31333883940985601a248b9a3bf86"
+    },
+    {
+      "route": "/learn/statistics/decision/",
+      "status": 200,
+      "bytes": 95417,
+      "hash_matches": true,
+      "expected_sha256": "8c011dfac3044bef9c584f2d11dc3f84a8e204b79fb68b4def6aaba7a831755d",
+      "actual_sha256": "8c011dfac3044bef9c584f2d11dc3f84a8e204b79fb68b4def6aaba7a831755d"
+    },
+    {
+      "route": "/learn/statistics/formulas/",
+      "status": 200,
+      "bytes": 374661,
+      "hash_matches": true,
+      "expected_sha256": "45d5d6fa3254ee6663390900890642a2af1e52b6a05538aee87fb6c63bb78066",
+      "actual_sha256": "45d5d6fa3254ee6663390900890642a2af1e52b6a05538aee87fb6c63bb78066"
+    },
+    {
+      "route": "/learn/statistics/glossary/",
+      "status": 200,
+      "bytes": 110045,
+      "hash_matches": true,
+      "expected_sha256": "590677098bfe38dae60d04d81e9487bbf12911ff10d41f3bcbf8a75e1f91f4d7",
+      "actual_sha256": "590677098bfe38dae60d04d81e9487bbf12911ff10d41f3bcbf8a75e1f91f4d7"
+    },
+    {
+      "route": "/learn/statistics/journey/describe/",
+      "status": 200,
+      "bytes": 200182,
+      "hash_matches": true,
+      "expected_sha256": "0e27fb884bacfcfb3fec760297b0c8ff47197238fb6e4f000d29f03c3e978310",
+      "actual_sha256": "0e27fb884bacfcfb3fec760297b0c8ff47197238fb6e4f000d29f03c3e978310"
+    },
+    {
+      "route": "/learn/statistics/journey/distributions/",
+      "status": 200,
+      "bytes": 325786,
+      "hash_matches": true,
+      "expected_sha256": "2aa069aa7a4190352144b4d6a8c80cbb901f42118aa463179d5e566713d913fa",
+      "actual_sha256": "2aa069aa7a4190352144b4d6a8c80cbb901f42118aa463179d5e566713d913fa"
+    },
+    {
+      "route": "/learn/statistics/journey/experiments/",
+      "status": 200,
+      "bytes": 211208,
+      "hash_matches": true,
+      "expected_sha256": "74b54a6803b3dbf4f3f927510442c20e557ac0871e5ea87aa31e3c4b42b0b172",
+      "actual_sha256": "74b54a6803b3dbf4f3f927510442c20e557ac0871e5ea87aa31e3c4b42b0b172"
+    },
+    {
+      "route": "/learn/statistics/journey/foundations/",
+      "status": 200,
+      "bytes": 148780,
+      "hash_matches": true,
+      "expected_sha256": "3d6249a9fb9d8e6c963f6545fcb77dc426d3e8716127fae351030b6275586b7c",
+      "actual_sha256": "3d6249a9fb9d8e6c963f6545fcb77dc426d3e8716127fae351030b6275586b7c"
+    },
+    {
+      "route": "/learn/statistics/journey/hypothesis/",
+      "status": 200,
+      "bytes": 524117,
+      "hash_matches": true,
+      "expected_sha256": "09f4c032d7857ecc388818442485ad8b959764ebe2c09358fcdb3bbd032a8998",
+      "actual_sha256": "09f4c032d7857ecc388818442485ad8b959764ebe2c09358fcdb3bbd032a8998"
+    },
+    {
+      "route": "/learn/statistics/journey/probability/",
+      "status": 200,
+      "bytes": 203871,
+      "hash_matches": true,
+      "expected_sha256": "366a93d1c306edce9d8012c6d391d5f3aa637bfb78597e115d476cc5f5be8d89",
+      "actual_sha256": "366a93d1c306edce9d8012c6d391d5f3aa637bfb78597e115d476cc5f5be8d89"
+    },
+    {
+      "route": "/learn/statistics/journey/relationships/",
+      "status": 200,
+      "bytes": 304134,
+      "hash_matches": true,
+      "expected_sha256": "8e1b5bf546206cb13c8dcbf7bdb5ef259bdb219a4d9ef15a942ca0d736788334",
+      "actual_sha256": "8e1b5bf546206cb13c8dcbf7bdb5ef259bdb219a4d9ef15a942ca0d736788334"
+    },
+    {
+      "route": "/learn/statistics/journey/sampling/",
+      "status": 200,
+      "bytes": 309265,
+      "hash_matches": true,
+      "expected_sha256": "c5fe14140472bc1338085d054190981be13b841c0b18a24d9cab80dc83980a7a",
+      "actual_sha256": "c5fe14140472bc1338085d054190981be13b841c0b18a24d9cab80dc83980a7a"
+    },
+    {
+      "route": "/learn/statistics/journey/synthesis/",
+      "status": 200,
+      "bytes": 532389,
+      "hash_matches": true,
+      "expected_sha256": "d295b3a31c734cf3f8987c9742bbdb1d37798f200c12c23d3bf96d8ab27e833f",
+      "actual_sha256": "d295b3a31c734cf3f8987c9742bbdb1d37798f200c12c23d3bf96d8ab27e833f"
+    },
+    {
+      "route": "/learn/statistics/labs/",
+      "status": 200,
+      "bytes": 121047,
+      "hash_matches": true,
+      "expected_sha256": "b2d125260ab07fd91fd3619b87048570c3413b0d687dd932d04324ec973ee4c0",
+      "actual_sha256": "b2d125260ab07fd91fd3619b87048570c3413b0d687dd932d04324ec973ee4c0"
+    },
+    {
+      "route": "/learn/statistics/labs/binomial/",
+      "status": 200,
+      "bytes": 112722,
+      "hash_matches": true,
+      "expected_sha256": "cde0f0d22d20d89b40521f0361ebbe62bfae2bb7b6acbdc096c2aed7fdb05d75",
+      "actual_sha256": "cde0f0d22d20d89b40521f0361ebbe62bfae2bb7b6acbdc096c2aed7fdb05d75"
+    },
+    {
+      "route": "/learn/statistics/labs/business-decision/",
+      "status": 200,
+      "bytes": 109684,
+      "hash_matches": true,
+      "expected_sha256": "521f806ab6a2d81a2e7975221253de80cbeed07f1f53126de149bf849e27d6ba",
+      "actual_sha256": "521f806ab6a2d81a2e7975221253de80cbeed07f1f53126de149bf849e27d6ba"
+    },
+    {
+      "route": "/learn/statistics/labs/center-spread/",
+      "status": 200,
+      "bytes": 102009,
+      "hash_matches": true,
+      "expected_sha256": "49e6e5cbd4a21843dfbd018db4f063c86ed2dde6ba8b1562c94ef30225d42a4d",
+      "actual_sha256": "49e6e5cbd4a21843dfbd018db4f063c86ed2dde6ba8b1562c94ef30225d42a4d"
+    },
+    {
+      "route": "/learn/statistics/labs/confidence/",
+      "status": 200,
+      "bytes": 104663,
+      "hash_matches": true,
+      "expected_sha256": "5d27b0f14901b870d18c5bcba77e1c3bf7be71fa0f696460552acb54da569c9c",
+      "actual_sha256": "5d27b0f14901b870d18c5bcba77e1c3bf7be71fa0f696460552acb54da569c9c"
+    },
+    {
+      "route": "/learn/statistics/labs/correlation/",
+      "status": 200,
+      "bytes": 105065,
+      "hash_matches": true,
+      "expected_sha256": "c94c0740a8d8e355f81887b6240ced5a337dd562e653eb4390684c8c731fbe4c",
+      "actual_sha256": "c94c0740a8d8e355f81887b6240ced5a337dd562e653eb4390684c8c731fbe4c"
+    },
+    {
+      "route": "/learn/statistics/labs/distributions/",
+      "status": 200,
+      "bytes": 109202,
+      "hash_matches": true,
+      "expected_sha256": "96f6b80a8dfea7e051b3319c530e67f324b6a7aa9bc36ace7e9b7fd189bb4e96",
+      "actual_sha256": "96f6b80a8dfea7e051b3319c530e67f324b6a7aa9bc36ace7e9b7fd189bb4e96"
+    },
+    {
+      "route": "/learn/statistics/labs/dot-to-decision/",
+      "status": 200,
+      "bytes": 107691,
+      "hash_matches": true,
+      "expected_sha256": "5b7d0386645263074468ce1a7650d51b923ea141f3e760bfb0952728f2f279fe",
+      "actual_sha256": "5b7d0386645263074468ce1a7650d51b923ea141f3e760bfb0952728f2f279fe"
+    },
+    {
+      "route": "/learn/statistics/labs/errors/",
+      "status": 200,
+      "bytes": 116327,
+      "hash_matches": true,
+      "expected_sha256": "08aeb14ae57692c23670bf008a4bd3f11b06b7cdc78477747f9515304c087ff2",
+      "actual_sha256": "08aeb14ae57692c23670bf008a4bd3f11b06b7cdc78477747f9515304c087ff2"
+    },
+    {
+      "route": "/learn/statistics/labs/experiments/",
+      "status": 200,
+      "bytes": 115073,
+      "hash_matches": true,
+      "expected_sha256": "a06030fe635301c56b13b57edfe7769838be459a294c774fb7646b5265c121f0",
+      "actual_sha256": "a06030fe635301c56b13b57edfe7769838be459a294c774fb7646b5265c121f0"
+    },
+    {
+      "route": "/learn/statistics/labs/normal/",
+      "status": 200,
+      "bytes": 108740,
+      "hash_matches": true,
+      "expected_sha256": "1da762802b3db22d87b74f7412f63ca94c3952cb931ae59b88891a43019aa2ec",
+      "actual_sha256": "1da762802b3db22d87b74f7412f63ca94c3952cb931ae59b88891a43019aa2ec"
+    },
+    {
+      "route": "/learn/statistics/labs/p-value/",
+      "status": 200,
+      "bytes": 113462,
+      "hash_matches": true,
+      "expected_sha256": "fbd69de1e2bf70ee9bb9fdd5c36231388ff33845358dfdd0f9f75d75f3eceaec",
+      "actual_sha256": "fbd69de1e2bf70ee9bb9fdd5c36231388ff33845358dfdd0f9f75d75f3eceaec"
+    },
+    {
+      "route": "/learn/statistics/labs/poisson/",
+      "status": 200,
+      "bytes": 140278,
+      "hash_matches": true,
+      "expected_sha256": "2fdff1c9d8419ab07ef7251ea9423949fcb7826c166f6e1c7ab05a0edb87f106",
+      "actual_sha256": "2fdff1c9d8419ab07ef7251ea9423949fcb7826c166f6e1c7ab05a0edb87f106"
+    },
+    {
+      "route": "/learn/statistics/labs/practical-significance/",
+      "status": 200,
+      "bytes": 96028,
+      "hash_matches": true,
+      "expected_sha256": "ebea79b9dd7b23e983c5aa0c0bc663c421e1117461da6d8ae322368a98592bb9",
+      "actual_sha256": "ebea79b9dd7b23e983c5aa0c0bc663c421e1117461da6d8ae322368a98592bb9"
+    },
+    {
+      "route": "/learn/statistics/labs/probability/",
+      "status": 200,
+      "bytes": 113912,
+      "hash_matches": true,
+      "expected_sha256": "89859a4d55139bcac6b3def94fc3de876e26c37e8e8f5010effb0ca93dc9a32c",
+      "actual_sha256": "89859a4d55139bcac6b3def94fc3de876e26c37e8e8f5010effb0ca93dc9a32c"
+    },
+    {
+      "route": "/learn/statistics/labs/sampling/",
+      "status": 200,
+      "bytes": 118286,
+      "hash_matches": true,
+      "expected_sha256": "64b718424b05256d1cbd0d04bcb22b91fff9ee2755616d17c52f3b8ab1c059d3",
+      "actual_sha256": "64b718424b05256d1cbd0d04bcb22b91fff9ee2755616d17c52f3b8ab1c059d3"
+    },
+    {
+      "route": "/learn/statistics/source/",
+      "status": 200,
+      "bytes": 215403,
+      "hash_matches": true,
+      "expected_sha256": "114f7af4eb6b8da58ce136bd05eccdd0de26ebb3e347ee5e4e013038edcaa1f3",
+      "actual_sha256": "114f7af4eb6b8da58ce136bd05eccdd0de26ebb3e347ee5e4e013038edcaa1f3"
+    },
+    {
+      "route": "/learn/visual-atlas/",
+      "status": 200,
+      "bytes": 338665,
+      "hash_matches": true,
+      "expected_sha256": "02fa848138d88d208f51fd1ddcfecb6906c4777221c48b39ced9c25f89882371",
+      "actual_sha256": "02fa848138d88d208f51fd1ddcfecb6906c4777221c48b39ced9c25f89882371"
+    },
+    {
+      "route": "/learn/visual-integrity/",
+      "status": 200,
+      "bytes": 163203,
+      "hash_matches": true,
+      "expected_sha256": "6f9401061bad1757d27b9c48b58961434228baa936ba44e458184c2e8c1ba7b2",
+      "actual_sha256": "6f9401061bad1757d27b9c48b58961434228baa936ba44e458184c2e8c1ba7b2"
+    },
+    {
+      "route": "/practice/",
+      "status": 200,
+      "bytes": 98673,
+      "hash_matches": true,
+      "expected_sha256": "fd8207c5b086a19abc36c64c95f91b4827b31e7a8e8ae61158f062df0ac49017",
+      "actual_sha256": "fd8207c5b086a19abc36c64c95f91b4827b31e7a8e8ae61158f062df0ac49017"
+    },
+    {
+      "route": "/practice/catalogue/",
+      "status": 200,
+      "bytes": 93289,
+      "hash_matches": true,
+      "expected_sha256": "5daefb076dbecd2e082557a88d26299fe8105a5ec39afadec84509a162954c7a",
+      "actual_sha256": "5daefb076dbecd2e082557a88d26299fe8105a5ec39afadec84509a162954c7a"
+    },
+    {
+      "route": "/search/",
+      "status": 200,
+      "bytes": 250721,
+      "hash_matches": true,
+      "expected_sha256": "36ca993f605ff3967ded990b21162a5b348ff4a8aa4275727cf3611fc161b8a8",
+      "actual_sha256": "36ca993f605ff3967ded990b21162a5b348ff4a8aa4275727cf3611fc161b8a8"
+    },
+    {
+      "route": "/services/",
+      "status": 200,
+      "bytes": 99966,
+      "hash_matches": true,
+      "expected_sha256": "86418104cfa77619cbdc91292c2d1e5931c10b0533748ea6ee66075b998a690f",
+      "actual_sha256": "86418104cfa77619cbdc91292c2d1e5931c10b0533748ea6ee66075b998a690f"
+    },
+    {
+      "route": "/work/",
+      "status": 200,
+      "bytes": 82697,
+      "hash_matches": true,
+      "expected_sha256": "2d44ebdf982532e67019aee9a5c3478bcaf930c66e14caf25f833e26a1871b78",
+      "actual_sha256": "2d44ebdf982532e67019aee9a5c3478bcaf930c66e14caf25f833e26a1871b78"
+    },
+    {
+      "route": "/work/adas/",
+      "status": 200,
+      "bytes": 90984,
+      "hash_matches": true,
+      "expected_sha256": "eaa7ed78fbfb5808d32152066c0aa91ea69cac6a7f8e0fceb681d90816fe01ad",
+      "actual_sha256": "eaa7ed78fbfb5808d32152066c0aa91ea69cac6a7f8e0fceb681d90816fe01ad"
+    },
+    {
+      "route": "/work/hse-analytics/",
+      "status": 200,
+      "bytes": 141392,
+      "hash_matches": true,
+      "expected_sha256": "10e4c78cc22043c506ea263b3e5c2dd9526aa8589ad88fcafc780a641a8106e5",
+      "actual_sha256": "10e4c78cc22043c506ea263b3e5c2dd9526aa8589ad88fcafc780a641a8106e5"
+    },
+    {
+      "route": "/work/ibm-capstone/",
+      "status": 200,
+      "bytes": 96715,
+      "hash_matches": true,
+      "expected_sha256": "59f5278c69bb11913b7af2ef3f76982e4cb657d994216bd38d4fc4e62c862021",
+      "actual_sha256": "59f5278c69bb11913b7af2ef3f76982e4cb657d994216bd38d4fc4e62c862021"
+    }
+  ]
+}

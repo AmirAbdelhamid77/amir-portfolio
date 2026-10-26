@@ -1,0 +1,18 @@
+{
+  "lesson_id": "dp600-c2-s03",
+  "source_sections": [
+    14
+  ],
+  "blocks": [
+    {
+      "id": "dp600-c2-s03-p014",
+      "kind": "source_fragment",
+      "source_page": 14,
+      "source_start_line": 41,
+      "source_text": "2.3 Item-level access control\nItem permissions let you share a single item with someone who has no workspace role at all. They are\nadditive to workspace roles: you can grant more, never less.\nPermission\nMeaning\nApplies to\nRead\nSee the item exists and open its metadata\nAll items\nReadData\nQuery data through the SQL analytics endpoint\nLakehouse, warehouse\nReadAll\nRead the underlying OneLake files (Spark, OneLake APIs)\nLakehouse, warehouse\nBuild\nCreate new content on top of a semantic model\nSemantic model\nReshare\nPass the permission on to someone else\nShared items\nWrite\nModify the item definition\nAll items\nExecute\nRun the item (for example a notebook or pipeline)\nExecutable items\nSharing a lakehouse shows exactly these switches: Read all Apache Spark ( ReadAll ), Read all SQL\nendpoint data ( ReadData ), and Build reports on the default semantic model ( Build ). Reference: Fabric\npermission model.",
+      "presentation_status": "needs-editorial-layout-conversion",
+      "recommended_renderer": "SourceFragment"
+    }
+  ],
+  "warning": "Source fragments are NOT native formatted prose, tables or runnable code."
+}

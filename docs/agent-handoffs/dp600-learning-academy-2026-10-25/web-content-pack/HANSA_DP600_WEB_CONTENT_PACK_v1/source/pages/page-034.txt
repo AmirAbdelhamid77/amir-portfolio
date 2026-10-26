@@ -1,0 +1,37 @@
+Chapter 6 — Prepare data, part 3: query and analyse
+EXAM FOCUS
+Query and analyze data — select, filter, and aggregate data by using the Visual query editor · by
+using SQL · by using KQL · by using DAX.
+DP-600 expects you to read and write four query surfaces. You will not be asked to write 50 lines of
+anything, but you will be asked to pick the correct expression out of four plausible ones.
+6.1 The Visual query editor
+Open a warehouse or a lakehouse SQL analytics endpoint and switch to the Visual query tab. It is a drag-
+and-drop, Power Query-style diagram: combine tables, merge, group by, filter, reduce columns — and
+Fabric generates the SQL for you.
+Great for analysts and for quickly prototyping a transformation.
+The result can be saved as a view so it becomes a reusable object.
+The generated T-SQL is visible, which makes it a good learning tool.
+See visual query editor and SQL query editor.
+6.2 T-SQL essentials for the exam
+-- Top 10 products by sales in the current year, with a running total
+WITH sales AS (
+    SELECT p.ProductName,
+           SUM(f.SalesAmount) AS SalesAmount
+    FROM   dbo.FactSales   AS f
+    JOIN   dbo.DimProduct  AS p ON p.ProductKey = f.ProductKey
+    JOIN   dbo.DimDate     AS d ON d.DateKey    = f.DateKey
+    WHERE  d.CalendarYear = YEAR(GETDATE())
+    GROUP  BY p.ProductName
+)
+SELECT TOP (10)
+       ProductName,
+       SalesAmount,
+       SUM(SalesAmount) OVER (ORDER BY SalesAmount DESC
+                              ROWS BETWEEN UNBOUNDED PRECEDING AND CURRENT ROW) AS 
+RunningTotal,
+       RANK() OVER (ORDER BY SalesAmount DESC) AS SalesRank
+FROM   sales
+ORDER  BY SalesAmount DESC;
+Constructs worth having at your fingertips: CTEs, ROW_NUMBER / RANK / DENSE_RANK , SUM() OVER ,
+LAG / LEAD , TRY_CAST , COALESCE , STRING_AGG , OFFSET … FETCH , EXISTS / NOT EXISTS , MERGE
+(warehouse only), CTAS .

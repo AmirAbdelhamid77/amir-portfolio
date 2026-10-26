@@ -1,0 +1,18 @@
+{
+  "lesson_id": "dp600-c3-s02",
+  "source_sections": [
+    20
+  ],
+  "blocks": [
+    {
+      "id": "dp600-c3-s02-p020",
+      "kind": "source_fragment",
+      "source_page": 20,
+      "source_start_line": 18,
+      "source_text": "3.2 Power BI Desktop projects (.pbip)\nA Power BI project saves a report and its semantic model as a folder of plain-text files instead of one\nopaque .pbix :\nMySolution.Report/        report definition (PBIR)\nMySolution.SemanticModel/ model definition in TMDL (.tmdl files)\nMySolution.pbip           the small pointer file you open in Desktop\n.gitignore / .platform    supporting metadata\nWhy it matters for the exam:\nIt makes semantic models and reports diffable and mergeable — the prerequisite for meaningful code\nreview.\nTMDL (Tabular Model Definition Language) is the human-readable format for the model; you can edit\nmeasures in VS Code.\nIt is the recommended way to put Power BI content under source control alongside Fabric items.\nKNOW THE DIFFERENCE\n.pbix vs .pbip vs .pbit — .pbix  is the classic single binary (report + model + cached data). .pbip\nis the project folder format for source control. .pbit  is a template: report and model definition with no\ndata, used to hand a starting point to someone else, who supplies parameters on open.",
+      "presentation_status": "needs-editorial-layout-conversion",
+      "recommended_renderer": "SourceFragment"
+    }
+  ],
+  "warning": "Source fragments are NOT native formatted prose, tables or runnable code."
+}

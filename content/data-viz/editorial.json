@@ -1,0 +1,384 @@
+{
+  "audience-story": [
+    {
+      "type": "callout",
+      "tone": "purple",
+      "icon": "",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "inline": [
+            { "text": "Provenance: this chapter is editorial. The exported corpus points to a separate storytelling library that was not included, so nothing below is presented as a transcription. The reasoning follows the duties named in the exported hub: audience, message, evidence, action.", "strong": false }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "The sequence",
+      "anchor": "the-sequence"
+    },
+    {
+      "type": "paragraph",
+      "inline": [
+        { "text": "A visualization is an evidence layer. Storytelling is a separate communication layer. The failure mode is jumping straight from data to chart and hoping the message assembles itself in the reader's head." }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "inline": [
+        { "text": "Work the sequence in order. Each step constrains the next one, which is what keeps the final view small." }
+      ]
+    },
+    {
+      "type": "list",
+      "ordered": true,
+      "items": [
+        [ { "text": "Decision — what changes if this view works?", "strong": true } ],
+        [ { "text": "Audience — who makes that decision, and what do they already know?", "strong": true } ],
+        [ { "text": "Evidence — which comparison, distribution, or trend would change their mind?", "strong": true } ],
+        [ { "text": "Message — one sentence the reader should be able to repeat.", "strong": true } ],
+        [ { "text": "Action — the next step, and the caveat that limits it.", "strong": true } ]
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Who is actually in the room",
+      "anchor": "who-is-actually-in-the-room"
+    },
+    {
+      "type": "paragraph",
+      "inline": [
+        { "text": "“Executives” and “stakeholders” are not audiences. The useful distinction is what the person is allowed to decide and how much detail they can act on." }
+      ]
+    },
+    {
+      "type": "table",
+      "headers": [
+        [ { "text": "Audience" } ],
+        [ { "text": "What they decide" } ],
+        [ { "text": "Evidence they need" } ],
+        [ { "text": "What fails them" } ]
+      ],
+      "rows": [
+        [
+          [ { "text": "Executive sponsor" } ],
+          [ { "text": "Whether to fund, stop, or re-prioritise" } ],
+          [ { "text": "One headline metric, its direction, and the exception" } ],
+          [ { "text": "A wall of filters and no recommendation" } ]
+        ],
+        [
+          [ { "text": "Operational manager" } ],
+          [ { "text": "Which queue, site, or shift to change this week" } ],
+          [ { "text": "Breakdown by the unit they control, with a baseline" } ],
+          [ { "text": "Company-wide averages with no drill-down" } ]
+        ],
+        [
+          [ { "text": "Analyst peer" } ],
+          [ { "text": "Whether the method and the data support the claim" } ],
+          [ { "text": "Grain, definitions, uncertainty, and the excluded cases" } ],
+          [ { "text": "A polished chart with no methodology" } ]
+        ],
+        [
+          [ { "text": "Skeptical reviewer" } ],
+          [ { "text": "Whether to trust the number at all" } ],
+          [ { "text": "Source, denominator, window, and what would falsify it" } ],
+          [ { "text": "Confident adjectives instead of caveats" } ]
+        ]
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "One big idea",
+      "anchor": "one-big-idea"
+    },
+    {
+      "type": "paragraph",
+      "inline": [
+        { "text": "A view should argue one thing. “One thing” does not mean one number — it means one claim that the rest of the page supports. If two claims compete, split the page or make one of them the headline and the other the detail." }
+      ]
+    },
+    {
+      "type": "quote",
+      "inline": [
+        { "text": "Weak: “Hiring dashboard.” Stronger: “Screening removes more than half of applicants, so the interview stage cannot be the constraint.”" }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "inline": [
+        { "text": "The strong version names a stage, a size, and a consequence. It is also falsifiable: another cut of the data could show the opposite." }
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "A message is a sentence",
+      "anchor": "a-message-is-a-sentence"
+    },
+    {
+      "type": "table",
+      "headers": [
+        [ { "text": "Chart title" } ],
+        [ { "text": "Message instead" } ],
+        [ { "text": "Why it is better" } ]
+      ],
+      "rows": [
+        [
+          [ { "text": "“Monthly revenue”" } ],
+          [ { "text": "“Revenue grew 6% after the March launch — entirely from the Growth tier.”" } ],
+          [ { "text": "Names the size, the cause, and where to look." } ]
+        ],
+        [
+          [ { "text": "“Delivery times by depot”" } ],
+          [ { "text": "“South depot is 13 minutes slower at the median than West, with a wider spread.”" } ],
+          [ { "text": "Turns a category comparison into an actionable gap." } ]
+        ],
+        [
+          [ { "text": "“Conversion funnel”" } ],
+          [ { "text": "“Screening loses 61% of applicants; later stages lose far less.”" } ],
+          [ { "text": "Directs attention to the constraint, not the whole pipeline." } ]
+        ]
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Worked example: a hiring story",
+      "anchor": "worked-example-a-hiring-story"
+    },
+    {
+      "type": "paragraph",
+      "inline": [
+        { "text": "The synthetic funnel in the " },
+        { "text": "specialty lab", "link": { "kind": "route", "href": "/explore/specialty" } },
+        { "text": " starts with 12,400 applications. Screening passes 5,400 (43.5%). Interviews pass 2,100 (38.9% of screened, 16.9% of all applicants). Offers go to 640, and 512 are hired." }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "inline": [
+        { "text": "Two true statements compete. By absolute volume, screening loses 7,000 people — the largest drop. By pass-through rate, the interview stage is the tightest gate at 30.5% from interview to offer. A single view cannot headline both. For a hiring manager who controls interview scheduling, the rate is the actionable fact; for a budget owner looking at cost per hire, the volume is. Same data, different audience, different headline." }
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Failure modes",
+      "anchor": "failure-modes"
+    },
+    {
+      "type": "table",
+      "headers": [
+        [ { "text": "Symptom" } ],
+        [ { "text": "What is missing" } ],
+        [ { "text": "Fix" } ]
+      ],
+      "rows": [
+        [
+          [ { "text": "The dashboard is a data dump" } ],
+          [ { "text": "A decision" } ],
+          [ { "text": "Delete every visual that does not support the headline." } ]
+        ],
+        [
+          [ { "text": "Two charts tell different stories" } ],
+          [ { "text": "A hierarchy of claims" } ],
+          [ { "text": "Promote one; demote the other to supporting detail." } ]
+        ],
+        [
+          [ { "text": "The audience asks “so what?”" } ],
+          [ { "text": "A sentence, not a title" } ],
+          [ { "text": "Rewrite the title as the claim, then check the chart supports it." } ]
+        ],
+        [
+          [ { "text": "The page ends with no next step" } ],
+          [ { "text": "An action and an owner" } ],
+          [ { "text": "Close with the decision requested and the caveat." } ]
+        ]
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Checklist",
+      "anchor": "checklist"
+    },
+    {
+      "type": "list",
+      "ordered": false,
+      "items": [
+        [ { "text": "Can I name the person and the decision in one sentence?" } ],
+        [ { "text": "Does the headline claim survive a skeptical reading of the chart?" } ],
+        [ { "text": "Have I removed every view that does not support the claim?" } ],
+        [ { "text": "Is the action explicit, with an owner and a caveat?" } ],
+        [ { "text": "Would a different audience need a different headline from the same evidence?" } ]
+      ]
+    },
+    {
+      "type": "paragraph",
+      "inline": [
+        { "text": "Continue with the " },
+        { "text": "chart decision assistant", "link": { "kind": "route", "href": "/explore/choose" } },
+        { "text": " to turn the evidence question into a specific encoding." }
+      ]
+    }
+  ],
+  "applied-cases": [
+    {
+      "type": "callout",
+      "tone": "yellow",
+      "icon": "",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "inline": [
+            { "text": "All numbers in these cases come from the locally generated synthetic datasets. They are teaching examples, not real employers, customers, patients, or campaigns. The canonical Applied Use Cases page was not part of the export; this lesson is new material, not a transcription." }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "inline": [
+        { "text": "Each case follows the same frame: the decision, the grain, the encoding, what the chart shows, what it cannot show, and the next action. The chart choice is justified by the task, not by the domain." }
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Case 1 — Delivery performance",
+      "anchor": "case-1-delivery-performance"
+    },
+    {
+      "type": "paragraph",
+      "inline": [
+        { "text": "Decision: whether to renegotiate the service-level agreement for one depot. Grain: one delivery. Task: compare a continuous variable across four categories." }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "inline": [
+        { "text": "The " },
+        { "text": "box plot lab", "link": { "kind": "route", "href": "/explore/charts/box" } },
+        { "text": " shows South depot at a 38.0-minute median against West at 24.5 minutes, with a wider interquartile range (35.8–42.0 versus 21.8–27.3). East has two high outliers; South has one." }
+      ]
+    },
+    {
+      "type": "list",
+      "ordered": false,
+      "items": [
+        [ { "text": "Shows: the typical delay and the spread, on one shared scale.", "strong": true } ],
+        [ { "text": "Cannot show: distance, order volume, traffic, or whether the SLA was breached — none of those columns exist.", "strong": true } ],
+        [ { "text": "Action: inspect South's route mix and staffing before changing the target; a median gap is a question, not a verdict.", "strong": true } ]
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Case 2 — Campaign efficiency",
+      "anchor": "case-2-campaign-efficiency"
+    },
+    {
+      "type": "paragraph",
+      "inline": [
+        { "text": "Decision: where to move the next increment of budget. Grain: one campaign. Task: relationship between spend and sign-ups, split by channel." }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "inline": [
+        { "text": "Across 48 synthetic campaigns, Search returns about 0.74 sign-ups per unit of spend and Social about 0.45; the pooled ratio is 0.58. The " },
+        { "text": "scatter lab", "link": { "kind": "route", "href": "/explore/charts/scatter" } },
+        { "text": " makes the two clusters visible; a single trend line through both would understate Search and overstate Social." }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "inline": [
+        { "text": "The causal claim is still not licensed. Targeting, auction seasonality, attribution windows, and saturation could all produce the same pattern. The honest action is a controlled budget shift with a pre-registered success measure, not “move everything to Search”." }
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Case 3 — Hiring funnel",
+      "anchor": "case-3-hiring-funnel"
+    },
+    {
+      "type": "paragraph",
+      "inline": [
+        { "text": "Decision: which stage to audit first. Grain: one applicant. Task: ordered subsets of a starting population." }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "inline": [
+        { "text": "From 12,400 applications to 512 hires, overall conversion is 4.1%. The largest absolute loss is screening (7,000 people), while the lowest stage-to-stage pass-through is interview → offer (30.5%). The " },
+        { "text": "specialty lab", "link": { "kind": "route", "href": "/explore/specialty" } },
+        { "text": " lets you read both numbers and the table beside the funnel." }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "inline": [
+        { "text": "Caveat: stage definitions change the rates. If “screened” includes auto-rejections, the screening loss is partly a policy artefact. Audit the definition before auditing the people." }
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Case 4 — Revenue mix",
+      "anchor": "case-4-revenue-mix"
+    },
+    {
+      "type": "paragraph",
+      "inline": [
+        { "text": "Decision: how concentrated the business is. Grain: one product line. Task: nested parts of a whole." }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "inline": [
+        { "text": "Subscriptions contribute 71.9% of the 1,960 total, with Growth alone at 610. The " },
+        { "text": "treemap", "link": { "kind": "route", "href": "/explore/specialty" } },
+        { "text": " shows that concentration in one tile; the accompanying table gives the exact values because area is a weaker encoding than length." }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "inline": [
+        { "text": "Caveat: revenue is not margin. A large, low-margin line can look dominant here and contribute little to profit. Do not make a portfolio decision from this view alone." }
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "What makes a case reusable",
+      "anchor": "what-makes-a-case-reusable"
+    },
+    {
+      "type": "list",
+      "ordered": false,
+      "items": [
+        [ { "text": "A named decision and the person who owns it." } ],
+        [ { "text": "An explicit grain: what one row means." } ],
+        [ { "text": "A chart justified by the task, not by the tool." } ],
+        [ { "text": "At least one stated limitation that could reverse the recommendation." } ],
+        [ { "text": "A next action that is smaller than the original ambition." } ]
+      ]
+    },
+    {
+      "type": "paragraph",
+      "inline": [
+        { "text": "Test yourself against the " },
+        { "text": "interview bank", "link": { "kind": "route", "href": "/learn/interview-bank" } },
+        { "text": " or run the " },
+        { "text": "integrity lab", "link": { "kind": "route", "href": "/explore/integrity" } },
+        { "text": " on the same data." }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,2151 @@
+{
+  "as_of": "2026-10-24",
+  "scope": "Recursive file inventory, not a full semantic audit",
+  "excluded_directories": [
+    "node_modules",
+    ".git",
+    ".next",
+    ".wrangler",
+    "out"
+  ],
+  "workspace_files": 720,
+  "repository_files": 381,
+  "page_templates": [
+    "app/about/page.tsx",
+    "app/contact/page.tsx",
+    "app/experience/page.tsx",
+    "app/explore/charts/bar/page.tsx",
+    "app/explore/charts/box/page.tsx",
+    "app/explore/charts/dot/page.tsx",
+    "app/explore/charts/histogram/page.tsx",
+    "app/explore/charts/line/page.tsx",
+    "app/explore/charts/scatter/page.tsx",
+    "app/explore/charts/page.tsx",
+    "app/explore/choose/page.tsx",
+    "app/explore/dashboards/page.tsx",
+    "app/explore/integrity/page.tsx",
+    "app/explore/specialty/page.tsx",
+    "app/explore/page.tsx",
+    "app/lab/[slug]/page.tsx",
+    "app/lab/dp-600/cases/page.tsx",
+    "app/lab/dp-600/explore/page.tsx",
+    "app/lab/dp-600/mock/page.tsx",
+    "app/lab/dp-600/practice/page.tsx",
+    "app/lab/dp-600/progress/page.tsx",
+    "app/lab/dp-600/resources/page.tsx",
+    "app/lab/dp-600/review/page.tsx",
+    "app/lab/dp-600/study/page.tsx",
+    "app/lab/dp-600/page.tsx",
+    "app/lab/page.tsx",
+    "app/learn/[slug]/page.tsx",
+    "app/learn/ar/[slug]/page.tsx",
+    "app/learn/ar/page.tsx",
+    "app/learn/chapter/[number]/page.tsx",
+    "app/learn/method/page.tsx",
+    "app/learn/statistics/atlas/page.tsx",
+    "app/learn/statistics/cheatsheet/page.tsx",
+    "app/learn/statistics/decision/page.tsx",
+    "app/learn/statistics/formulas/page.tsx",
+    "app/learn/statistics/glossary/page.tsx",
+    "app/learn/statistics/journey/[slug]/page.tsx",
+    "app/learn/statistics/labs/[slug]/page.tsx",
+    "app/learn/statistics/labs/page.tsx",
+    "app/learn/statistics/source/page.tsx",
+    "app/learn/statistics/page.tsx",
+    "app/learn/page.tsx",
+    "app/practice/page.tsx",
+    "app/services/page.tsx",
+    "app/work/[slug]/page.tsx",
+    "app/work/page.tsx",
+    "app/page.tsx"
+  ],
+  "html_sources": [
+    {
+      "path": "amir-portfolio/Comprehensive Statistics Reference/📚 Comprehensive Statistics Reference — من الصفر إل 3ca3906c5d6c81439567c45c6a6e2643.html",
+      "bytes": 114015,
+      "sha256": "b16602340db52697bc7ed6ccab72eced7698c409594e3f8dac8e65b1aa04eaf7"
+    },
+    {
+      "path": "amir-portfolio/Data Visualization/🎨 الجزء 6 الألوان في Data Visualization 3cd3906c5d6c8101aa91eb72bc14c030.html",
+      "bytes": 21786,
+      "sha256": "5eeb1bb148b7869d1679341e78b6b00c9890f725787ddb26d16e481612119cbc"
+    },
+    {
+      "path": "amir-portfolio/Data Visualization/🎯 نصائح وTricks عملية + بنك أسئلة المقابلات (BI Po 3cd3906c5d6c8109a01fc02be38ff15a.html",
+      "bytes": 34804,
+      "sha256": "ab3824c8cfca38903a8bd9257168aebe340f9ac8c6c0fcce06fd9d362a898dda"
+    },
+    {
+      "path": "amir-portfolio/Data Visualization/📊 Bar Plot — مخطط الأعمدة 3cd3906c5d6c817682b0d6ec864e154e.html",
+      "bytes": 24198,
+      "sha256": "c6032d2aaf3677dd7557c5e8d3f8e82c33e59c30224c2b7635d59be1f3609497"
+    },
+    {
+      "path": "amir-portfolio/Data Visualization/📊 Box Plot — مخطط الصندوق 3cd3906c5d6c8159a9a9ce758a6e26e2.html",
+      "bytes": 23166,
+      "sha256": "422660e6d814d751fa03bce6649a879f72c05a078733736670baea18abb7235a"
+    },
+    {
+      "path": "amir-portfolio/Data Visualization/📊 Data Visualization — Comprehensive & Deep Refere 3cd3906c5d6c817a8116e9e1b38d216f.html",
+      "bytes": 43599,
+      "sha256": "bdb8ffe642b96cde5dc5f57a7f8fab88329b0ecdb8411799d4a7cbb27f5790ca"
+    },
+    {
+      "path": "amir-portfolio/Data Visualization/📊 Dot Plot — مخطط النقاط 3cd3906c5d6c8185b9c4e5d2d80ca4fe.html",
+      "bytes": 21694,
+      "sha256": "847167a1a80306e9eb359d0f2d09005640a6b0eab9df5a15dedb19146a2379c7"
+    },
+    {
+      "path": "amir-portfolio/Data Visualization/📊 Histogram — المدرج التكراري 3cd3906c5d6c81299255f295d7b2434d.html",
+      "bytes": 24339,
+      "sha256": "45c129ec40e063e99abe07bf2cc30c6294b493c437b654ea95769f91783647bd"
+    },
+    {
+      "path": "amir-portfolio/Data Visualization/📊 Line Plot — الرسم الخطي 3cd3906c5d6c81a1b557e07b0d15bca7.html",
+      "bytes": 21383,
+      "sha256": "540c808a0bc80d8724c50ba17193091a932a61632760ed3fe79265388bf889ce"
+    },
+    {
+      "path": "amir-portfolio/Data Visualization/📊 Scatter Plot — مخطط التشتت 3cd3906c5d6c8103bf02edeecfa351fc.html",
+      "bytes": 22418,
+      "sha256": "f933b3eeb621d5fe9b6eae4ad4d15c279838baeba2fee755099c80f44fa304c5"
+    },
+    {
+      "path": "amir-portfolio/Data Visualization/📊 الجزء 3 الرسوم الأساسية (Univariate & Bivariate  3cd3906c5d6c81ee9070c16e5c6be1ed.html",
+      "bytes": 20624,
+      "sha256": "28350e46539057278235835f79b7ff08a6a659cf7a44ada01014f8138c661cfc"
+    },
+    {
+      "path": "amir-portfolio/Data Visualization/Accessibility, Contrast & Color QA 3cd3906c5d6c819ab08ac1f7717dc4c2.html",
+      "bytes": 20819,
+      "sha256": "cfdd6efcf495953350b5c488f3f2561654d5733ece68f3e7a0da18b4c6cab190"
+    },
+    {
+      "path": "amir-portfolio/Data Visualization/Advanced & Multivariate Techniques 3cd3906c5d6c815996b1ca4687c3808b.html",
+      "bytes": 32372,
+      "sha256": "5620e98392c212c912ff7cc50a04aa608e1c175d276ffd60f172df535a0bf708"
+    },
+    {
+      "path": "amir-portfolio/Data Visualization/Chart Selection Matrix & Anti-Patterns 3cd3906c5d6c81219916c1029b5aecd5.html",
+      "bytes": 24870,
+      "sha256": "83606055219d0b175c86d9266ed49b378674c5442cb97b2dd8a69827f151e66e"
+    },
+    {
+      "path": "amir-portfolio/Data Visualization/Color Theory for Data Visualization 3cd3906c5d6c81c19cadc4d11b657ffd.html",
+      "bytes": 24055,
+      "sha256": "3bd601e621ad8a96160e7f96f9bf0783e8e1d41fd1aca2ba01e6e14b1df49007"
+    },
+    {
+      "path": "amir-portfolio/Data Visualization/Core Chart Types & Scales 3cd3906c5d6c816fb3e9d8809b4dbe8e.html",
+      "bytes": 60557,
+      "sha256": "9bb0962c11e06eb74460444e54cba2e2a0db5cf8df84ef282eee17531db327b5"
+    },
+    {
+      "path": "amir-portfolio/Data Visualization/Dashboard Design, Composition & Cognitive Load 3cd3906c5d6c81b793aaf1036705960f.html",
+      "bytes": 23989,
+      "sha256": "9f9e9bb2518060e34adbb6d3f75b8d2ded7bb612eca5fcc2fde986795decce42"
+    },
+    {
+      "path": "amir-portfolio/Data Visualization/Data Visualization Interview Master Bank 3cd3906c5d6c81f49e4cc8ca53d6e812.html",
+      "bytes": 23681,
+      "sha256": "0f3832fc40df005bb593341545c90d6e999341a08505d931437b0c71830931bd"
+    },
+    {
+      "path": "amir-portfolio/Data Visualization/Foundations & Decision Framework 3cd3906c5d6c8191959ef2ecc8c0ca59.html",
+      "bytes": 27438,
+      "sha256": "1258e27aa32d11cd297d6630881e6991504352a10159000f8878119877ade059"
+    },
+    {
+      "path": "amir-portfolio/Data Visualization/Power BI Visualization Playbook 3cd3906c5d6c81b583dadccead758b3c.html",
+      "bytes": 26401,
+      "sha256": "cfd6a448842b9545ef3aca2cb0158b109d67e9ac2a0afc91017a316d45adf211"
+    },
+    {
+      "path": "amir-portfolio/Data Visualization/Quick Reference & Exam Prep 3cd3906c5d6c813ea34dc5e5e4870d71.html",
+      "bytes": 31169,
+      "sha256": "ebce7d23274019dd6fbe240e1728523b0389da6721ab3341dc15f0f7d08281eb"
+    },
+    {
+      "path": "amir-portfolio/Data Visualization/Statistical Interpretation Traps for Visualization 3cd3906c5d6c81febadef001c3adffc8.html",
+      "bytes": 23890,
+      "sha256": "c6d0d767463f76f317ce3bc969de4c9a9051c95136f3f07f158455421b8bc87b"
+    },
+    {
+      "path": "amir-portfolio/Data Visualization/Visual Atlas — Teaching Charts & Figure Pack 3e53906c5d6c81e588dee386862fecac.html",
+      "bytes": 37169,
+      "sha256": "5b6855c7bde7a678c3eab4769c089946149c0fc2d1bd797b00b12056d07ffd83"
+    },
+    {
+      "path": "amir-portfolio/Data Visualization/Visual Integrity, Pitfalls & Ethics 3cd3906c5d6c81809fa1ea9a9146aea0.html",
+      "bytes": 32688,
+      "sha256": "2d9178ff28a802988ab97b7fa10b9698801956bc50b490ee29241410985434a9"
+    },
+    {
+      "path": "amir-portfolio/Data Visualization/أفضل المراجع العالمية (Curated References) 4ceee50e87384884a9f663de5eb7e521.html",
+      "bytes": 21779,
+      "sha256": "7c6f3237ae0833bbcb288c192a53cb160001f4685d4e6752a5f93622698660d8"
+    },
+    {
+      "path": "amir-portfolio/Data Visualization/مسارات قراءة مقترحة (Beginner → Advanced) e93dca8916a5445e9d0f8ca3192d01dc.html",
+      "bytes": 25877,
+      "sha256": "b5a07fc72f8c43c845061c40d88931b1657e7eda248e29df2bf104331935e0d6"
+    },
+    {
+      "path": "amir-portfolio/legacy-redirect/index.html",
+      "bytes": 2003,
+      "sha256": "ca9a72589e6d7b92f06bb1dc799f604593a13872e61fa2d26a0535e621979c8b"
+    },
+    {
+      "path": "Amirs_Fabric_Lab_Merged_834_Deployment_Package/website/PACK_SELECT_OPTIONS.html",
+      "bytes": 2091,
+      "sha256": "accb56b8568aaf5071112118b2b1f9ad30f61de4a82a20db50547c9d847d4e29"
+    },
+    {
+      "path": "storytelling/Case 1 — Food Company Profit Decline 3cd3906c5d6c81059aabf5d845448a87.html",
+      "bytes": 20036,
+      "sha256": "e3ed3de9c574250674c95f0c406bb59fd97bbca52e85ff3b4c80823a3e6ba2d4"
+    },
+    {
+      "path": "storytelling/Case 2 — Supply Chain Forecast Accuracy & Data Qua 3cd3906c5d6c81ebb299d3c847888570.html",
+      "bytes": 19951,
+      "sha256": "8bb0c399ad487cafad533a74392fc9afe6c6df7d994546ee08f10ce5fd5e01cb"
+    },
+    {
+      "path": "storytelling/Case 3 — Supply Chain Stockouts by SKU Supplier 3cd3906c5d6c8165a191ff0830ac4aad.html",
+      "bytes": 19644,
+      "sha256": "ef8eb720f94b195aeb0d62f722fa1d468e9ae2fc586dafb17af8e5c01dc35f9b"
+    },
+    {
+      "path": "storytelling/Case 4 — E-Commerce Mobile Conversion Drop 3cd3906c5d6c81eabba5d67252e87971.html",
+      "bytes": 20970,
+      "sha256": "f32f363f299fcc112b20315734a324f1222cbf608c913257a9fa7250b405b0fc"
+    },
+    {
+      "path": "storytelling/Case 5 — HR People Analytics Attrition 3cd3906c5d6c816f96e0e46dada38f65.html",
+      "bytes": 19925,
+      "sha256": "91e0ded0ad2961faafda00fa97e79da277ba5161d90216a6db7d16c23797a385"
+    },
+    {
+      "path": "storytelling/Case 6 — BI Dashboard → Executive Story 3cd3906c5d6c81499cf9d027156bb863.html",
+      "bytes": 20309,
+      "sha256": "f1ad70ad834ee82a54de580b06730a2d0be910e8d8960b121c142c227d74874a"
+    },
+    {
+      "path": "storytelling/Case 7 — Credit Risk Loanme 3cd3906c5d6c81c6aa23e720b811c495.html",
+      "bytes": 22555,
+      "sha256": "09b2b735a174d19fe129882bfac3397ba3110340bbe2f233387a6ccea3857c62"
+    },
+    {
+      "path": "storytelling/Case 8 — Customer Support Ticket Volume 3cd3906c5d6c81dfbc72cf4495ac1e3b.html",
+      "bytes": 19650,
+      "sha256": "8878009e8145bd5a34977203837e8c85d38b3cb0046c8b433707d20bacf421d2"
+    },
+    {
+      "path": "storytelling/Case 9 — Product Reviews Sentiment & Shipping Dela 3cd3906c5d6c81a99112c9bdd87a75d9.html",
+      "bytes": 19698,
+      "sha256": "72be549f8dac70f08b59b4122349410793927eda6176e5a827689121864e3889"
+    },
+    {
+      "path": "storytelling/Data Storytelling — Master Reference 3cc3906c5d6c812eb350e21cdf116fbe.html",
+      "bytes": 45230,
+      "sha256": "5fbd2e9a78026e2bd220866906a2c66ff1e20b24d9dd6be7e49e4cd0a8372a27"
+    },
+    {
+      "path": "storytelling/Framework Selector — Knaflic, Dykes, Duarte, SCQA 3e53906c5d6c81ee8722c4edd5cb00a7.html",
+      "bytes": 34232,
+      "sha256": "2cfaf7e63fb59e09191f2e2069b734c4a93860a1e1c4a745227c828d887340e1"
+    },
+    {
+      "path": "storytelling/Part I — Foundations 3cc3906c5d6c81a6be90d8eb7091ab29.html",
+      "bytes": 26937,
+      "sha256": "78e8e8c5ceaa7d61ed74ba96b1c6f7e49df0665b0b112cfe5aa870d0ea33e987"
+    },
+    {
+      "path": "storytelling/Part II — Know Your Audience 3cc3906c5d6c81648b09d864b2e398fc.html",
+      "bytes": 28265,
+      "sha256": "160448966cc95136efe0a1bb769e115ec78a0d0b40bdae12eab103ff8ba64365"
+    },
+    {
+      "path": "storytelling/Part III — Building the Narrative 3cc3906c5d6c815d8554e720c7efa2eb.html",
+      "bytes": 24246,
+      "sha256": "f17c75466961378da204d0e689c55f12fc113e099f4385a57145d7d2154f8d11"
+    },
+    {
+      "path": "storytelling/Part IV — Metrics & Statistics 3cc3906c5d6c81818eded3f5cef2fb3f.html",
+      "bytes": 32446,
+      "sha256": "2d9dcd480c3c39188238169e177b9840795cff8ccfb788d35dbaddf8a592d5c1"
+    },
+    {
+      "path": "storytelling/Part IX — Oral Presentations in Practice 3cc3906c5d6c8122a573def0f7514611.html",
+      "bytes": 25491,
+      "sha256": "1a67c051efac87ad992d3ad1ee7d1f68e3cd233c60c23992ab37c2da1e0b076a"
+    },
+    {
+      "path": "storytelling/Part V — Visualization 3cc3906c5d6c813bad84faae28c302f0.html",
+      "bytes": 30140,
+      "sha256": "987edbb4a4a411ac13eecaf770f4c17eb39e669d59cae6e4c52a9bd54181b43f"
+    },
+    {
+      "path": "storytelling/Part VI — Choosing the Communication Format 3cc3906c5d6c810a8671e7775ce085c6.html",
+      "bytes": 26149,
+      "sha256": "23d1a8eba2ebb82aabeea4c86e4099d8302ca69908790bd7388cde02098976b7"
+    },
+    {
+      "path": "storytelling/Part VII — Written Reports 3cc3906c5d6c813dacedee18b6f4deaf.html",
+      "bytes": 27990,
+      "sha256": "c8c170ae9bf7bbcb717c736f8509a7837c8d604d181613e982583ec2bd7ffac7"
+    },
+    {
+      "path": "storytelling/Part VIII — Reproducibility & Rigor 3cc3906c5d6c816f8725c25300a54ca1.html",
+      "bytes": 23016,
+      "sha256": "2d7ebc2329c98b6e9af7abb2bda5c2fcf5d80983155f2b8a4cb289f90bc70e87"
+    },
+    {
+      "path": "storytelling/Part X — Applied Case Studies 3cc3906c5d6c81c4988ac5e5ee490f3d.html",
+      "bytes": 23735,
+      "sha256": "2a3f4b506dc555fc5f47758cfadf0ff15e9bfd6c4f5e8009e1150c2376d852e9"
+    },
+    {
+      "path": "storytelling/Part XI — Checklists & Templates 3cc3906c5d6c81d89750ddde26edda95.html",
+      "bytes": 38353,
+      "sha256": "af7cfdf3a0efe7aa2db0e4b54e802cb16d2701e233da2a946e371aefef5bda68"
+    },
+    {
+      "path": "storytelling/Part XII — Quick Reference 3cc3906c5d6c81bd8d7ec82b186708a5.html",
+      "bytes": 27212,
+      "sha256": "8d1ce2d164ba811f8946e40e4fe099e95a5654815b278188a738a8fb64d128bf"
+    },
+    {
+      "path": "storytelling/Story Atlas — Teaching Figures 3e53906c5d6c8173b0aefba217c805d9.html",
+      "bytes": 25579,
+      "sha256": "a8a25ff387a57c1594f8f05517cdfdfaadd0af1a4d6bb6eee0a123ea2f80e816"
+    }
+  ],
+  "protected_repository_files": [
+    {
+      "path": ".github/workflows/deploy-cloudflare.yml",
+      "bytes": 1545,
+      "sha256": "b245ad50b7fc60db69ed739e446634cdee97cfc00eac56478865e1765eb7a2ed"
+    },
+    {
+      "path": ".github/workflows/deploy.yml",
+      "bytes": 1333,
+      "sha256": "7d14ee2e5941dee33f575543d26ef94d521bd516f0a651609bc8610c58e1dd8a"
+    },
+    {
+      "path": "app/about/page.tsx",
+      "bytes": 10163,
+      "sha256": "05500df4943759a1ae0e4a2351f5c4c885be3b96aa54b08c0bd313e1ef714da7"
+    },
+    {
+      "path": "app/contact/page.tsx",
+      "bytes": 6256,
+      "sha256": "270f5e1a148a95600f92c121127ed0da9207eaa75a5d27254164a70f568fc96d"
+    },
+    {
+      "path": "app/experience/page.tsx",
+      "bytes": 10862,
+      "sha256": "5c0aa11a2b5b14e166aa7c49a389d3e2184ddba988ba620011d24726b05b5780"
+    },
+    {
+      "path": "app/explore/charts/bar/page.tsx",
+      "bytes": 773,
+      "sha256": "f3a1ab13f94105e902b946572c6be00a45f76036c2607cb8c298546acf616e5b"
+    },
+    {
+      "path": "app/explore/charts/box/page.tsx",
+      "bytes": 773,
+      "sha256": "538b08f65e1e1a06da7933b1f476e9ad527b8a7c00d34f9152c1f3f1dd5a9145"
+    },
+    {
+      "path": "app/explore/charts/dot/page.tsx",
+      "bytes": 773,
+      "sha256": "4ca9ba23fc6c634277c5ee08ec1d5081c275ef9327953e2b5323ccc7ccef06b8"
+    },
+    {
+      "path": "app/explore/charts/histogram/page.tsx",
+      "bytes": 809,
+      "sha256": "5f159d33f89d4c7fca20f4cf20d24c41ef21ce112e709bf6ae8340e0172cd3c0"
+    },
+    {
+      "path": "app/explore/charts/line/page.tsx",
+      "bytes": 779,
+      "sha256": "7a3a030cd65eacfcd6301f1bb21e156a9177153d1a32f465b178bfd03f4a2805"
+    },
+    {
+      "path": "app/explore/charts/scatter/page.tsx",
+      "bytes": 797,
+      "sha256": "b11aaca5b46e4a18004534587e2e80f3da5a1bfd8ded8c43950f6dbf304e8046"
+    },
+    {
+      "path": "app/explore/charts/page.tsx",
+      "bytes": 5695,
+      "sha256": "3f9408cbec0ca0719a2ef20cb5cacb3db40842c5ec992a8f570653500bd79238"
+    },
+    {
+      "path": "app/explore/choose/page.tsx",
+      "bytes": 5033,
+      "sha256": "4615b60dde8f95cf28044446258c12e9b7d060d3f9ad928ca0b8fd98bdff065e"
+    },
+    {
+      "path": "app/explore/dashboards/page.tsx",
+      "bytes": 4201,
+      "sha256": "2d4ca6a8e63c3a33ce054a12d479d6a7761374faf7f32befae572155370f806a"
+    },
+    {
+      "path": "app/explore/integrity/page.tsx",
+      "bytes": 4946,
+      "sha256": "3f423db92f163d2e335f45633a2614ddeb6a047349a7662c76f4fa5cfdd75bc5"
+    },
+    {
+      "path": "app/explore/specialty/page.tsx",
+      "bytes": 16954,
+      "sha256": "75e073863f349704e84be1b857eb211632191d3cf72f5e9d0de5192111700ea9"
+    },
+    {
+      "path": "app/explore/page.tsx",
+      "bytes": 5193,
+      "sha256": "20184bb18117096e780dca519574ea3a2f98e5ca8ce80233f4dd2e4126003361"
+    },
+    {
+      "path": "app/lab/[slug]/page.tsx",
+      "bytes": 5532,
+      "sha256": "94a152a3d080eb061037472b5f6f5f6e6264dd2fdd7e1945e257f5dfb264099a"
+    },
+    {
+      "path": "app/lab/dp-600/cases/page.tsx",
+      "bytes": 3513,
+      "sha256": "9cb00a0288972b7537ccabdca498f3281e3c2809c3c7e3c4570663d93cfb3873"
+    },
+    {
+      "path": "app/lab/dp-600/explore/page.tsx",
+      "bytes": 1440,
+      "sha256": "74ae2d7492c0b4ff3ff9406702f87f64b266c72dfcc743b78ac43d12772c5014"
+    },
+    {
+      "path": "app/lab/dp-600/mock/page.tsx",
+      "bytes": 2179,
+      "sha256": "062a65f19439f69a1ac9b4ffe6027780842f057e7d980d331d31ee281d40d895"
+    },
+    {
+      "path": "app/lab/dp-600/practice/page.tsx",
+      "bytes": 1622,
+      "sha256": "17225a957bfce94ba9cf9fc18b532d28fbd391f8a3b275bf9378d3e9c751a89e"
+    },
+    {
+      "path": "app/lab/dp-600/progress/page.tsx",
+      "bytes": 1516,
+      "sha256": "2d18dc25e09d8151af167791bcffb6512a986133b43e9a4361a2016499b6f9c3"
+    },
+    {
+      "path": "app/lab/dp-600/resources/page.tsx",
+      "bytes": 10007,
+      "sha256": "3d068a73889c5f45ced3bbff5754c2c61141d9e1bc4e53c88ad25e39c16e29c5"
+    },
+    {
+      "path": "app/lab/dp-600/review/page.tsx",
+      "bytes": 1553,
+      "sha256": "209c3b4a61cb1b090747fa4c61568908d58bcd0c1a7873c9715df0efa833fb7c"
+    },
+    {
+      "path": "app/lab/dp-600/study/page.tsx",
+      "bytes": 1531,
+      "sha256": "446ad7cd571433ed38702d30cd5b2af61ace23df28e4ac0b8cc319ce6b5c6655"
+    },
+    {
+      "path": "app/lab/dp-600/page.tsx",
+      "bytes": 21088,
+      "sha256": "47384af0a04c7b06ee85df43409840118116dc824bb5370b0029fb428399bd92"
+    },
+    {
+      "path": "app/lab/page.tsx",
+      "bytes": 7395,
+      "sha256": "a2fc0ffb9ab905b19b3270f7ab3c1e3337d4b774f3b0d0cc05a621ac1cdaacfa"
+    },
+    {
+      "path": "app/learn/[slug]/page.tsx",
+      "bytes": 2367,
+      "sha256": "ed884199a7507c670930366b77a29d558ce78b9e0f0475cfffd992d5f63a82a3"
+    },
+    {
+      "path": "app/learn/ar/[slug]/page.tsx",
+      "bytes": 2172,
+      "sha256": "9fb87f2d84d8e524b7f5c564e16714f227d0259357de1902b97bf7f6478e42c2"
+    },
+    {
+      "path": "app/learn/ar/page.tsx",
+      "bytes": 8911,
+      "sha256": "96a39f16e40e603a1a6a02b4a4c9b6843dc6faa90a1b4d8de346a60c6be63648"
+    },
+    {
+      "path": "app/learn/chapter/[number]/page.tsx",
+      "bytes": 10308,
+      "sha256": "00a82c13afd52c255a69841c088ae923b097b82743e971a3840df141751ca3a8"
+    },
+    {
+      "path": "app/learn/method/page.tsx",
+      "bytes": 13534,
+      "sha256": "e9c160e577c02db71cdaae4adb99107d66c3594fcfa39a77eba6bc483415cbde"
+    },
+    {
+      "path": "app/learn/statistics/atlas/page.tsx",
+      "bytes": 2361,
+      "sha256": "32f63dcfaae5e745531be3937eff5eac4c057dd21d0ae0f214d6218308cd460e"
+    },
+    {
+      "path": "app/learn/statistics/cheatsheet/page.tsx",
+      "bytes": 10202,
+      "sha256": "89bc87d5dbdbc21b32d5f42db4e3eff7c7e413a3ea450775fb4b299297c9c3bc"
+    },
+    {
+      "path": "app/learn/statistics/decision/page.tsx",
+      "bytes": 4880,
+      "sha256": "9599d032246e742b16f03717a769aa7fc657c15ce8869460b6ad3e25d08ab350"
+    },
+    {
+      "path": "app/learn/statistics/formulas/page.tsx",
+      "bytes": 5341,
+      "sha256": "fee589f8dd51d47ba7a018f3ebd640381a76559360ff47a41d46f700396d1d9c"
+    },
+    {
+      "path": "app/learn/statistics/glossary/page.tsx",
+      "bytes": 1900,
+      "sha256": "99f6105bb27456b1362ffe2e3a5dc661c4cb46ff21d9b7d69f06b05a8c445b91"
+    },
+    {
+      "path": "app/learn/statistics/journey/[slug]/page.tsx",
+      "bytes": 10691,
+      "sha256": "fde84d0bfc684a7600efdea8f66520cdea9044d34e7bb5afe6c1e79e42a636be"
+    },
+    {
+      "path": "app/learn/statistics/labs/[slug]/page.tsx",
+      "bytes": 8402,
+      "sha256": "2bf1b42429007a95f50979259450ac810e7e97cb0ccf5bc07eecfdd5aa21ef63"
+    },
+    {
+      "path": "app/learn/statistics/labs/page.tsx",
+      "bytes": 7903,
+      "sha256": "bb24487aa7283f436d83f24db92705cc99ba5a53215055409da1215e102b13be"
+    },
+    {
+      "path": "app/learn/statistics/source/page.tsx",
+      "bytes": 21072,
+      "sha256": "eee36208b8cd477e81ea22ac1f42a1f87c6b52cd61897e4eb674036e34562fb4"
+    },
+    {
+      "path": "app/learn/statistics/page.tsx",
+      "bytes": 22208,
+      "sha256": "c694233c8b0151581ac99b52ca7c10dc349cc2445461a3c6ede3e7bc49b5e8d6"
+    },
+    {
+      "path": "app/learn/page.tsx",
+      "bytes": 15218,
+      "sha256": "054232a0959c4fbbf813ca19fd9f5c7971ed877b7ae212086f0ae889f7b3e41b"
+    },
+    {
+      "path": "app/practice/page.tsx",
+      "bytes": 3932,
+      "sha256": "51a9de3824680487323e255f2cda387b06c584bffc370276f674e75bd5ab468d"
+    },
+    {
+      "path": "app/services/page.tsx",
+      "bytes": 8205,
+      "sha256": "05d469562f46cd106ac6818b774fe5d0fc8e38e79a7be4cc11052c0860ae89b2"
+    },
+    {
+      "path": "app/work/[slug]/page.tsx",
+      "bytes": 15560,
+      "sha256": "e8ea0134c520040b8e32da7c13e251c8191b8428d34d526a051f454dc1941f82"
+    },
+    {
+      "path": "app/work/page.tsx",
+      "bytes": 3357,
+      "sha256": "fe32e6c3cec01810041705515bfc2cb490bb0b276c77aa91f2aa47d48767f95b"
+    },
+    {
+      "path": "app/apple-icon.png",
+      "bytes": 3615,
+      "sha256": "9b3701232efd27630ed048cd07765eb5dc1e405ed2d6846d2d8080695a5b70ca"
+    },
+    {
+      "path": "app/globals.css",
+      "bytes": 13919,
+      "sha256": "998c15e36306dac7b7eb1995de875a2782c74bd4d033245a5e6f9ff4d6589ade"
+    },
+    {
+      "path": "app/icon.svg",
+      "bytes": 296,
+      "sha256": "e2c673a86ee0bdb8c8eac8136c821c7709f568510ed9d8cbba8c33f4e1b6f8c9"
+    },
+    {
+      "path": "app/layout.tsx",
+      "bytes": 3050,
+      "sha256": "96a4bfd73e1180e6923ec4acd3aaee49663a26f6c6bbd17147fdaa8b8618049e"
+    },
+    {
+      "path": "app/not-found.tsx",
+      "bytes": 1522,
+      "sha256": "1096a78d73f9f89333df23f6b0b16d05f975c6892f19d378eeeeb7a5fd604096"
+    },
+    {
+      "path": "app/page.tsx",
+      "bytes": 24024,
+      "sha256": "b28d5e6d9d9e4d8f2f74c0161ba152f58b9cde532688358576c9de2d2575e5be"
+    },
+    {
+      "path": "app/robots.ts",
+      "bytes": 314,
+      "sha256": "9b413d29c549cb093ccafd476887971fdfe01fc7843336f0072a28b25e3990eb"
+    },
+    {
+      "path": "app/sitemap.ts",
+      "bytes": 3505,
+      "sha256": "61f62addbe5530e8d2bb224e14b6d31f3cc949bd3aae69e0c482fabd77554a38"
+    },
+    {
+      "path": "components/charts/funnel-chart/model.ts",
+      "bytes": 2566,
+      "sha256": "793509ccd9fbfcb671d7ac70d41eb7c6d86ec47e7494e566c6e2d625d087904c"
+    },
+    {
+      "path": "components/charts/treemap/context.ts",
+      "bytes": 3233,
+      "sha256": "fbd0b680758dafbcb330035721db9e21f675a5df7042e32691a073eb3b1bdb4b"
+    },
+    {
+      "path": "components/charts/treemap/legend.tsx",
+      "bytes": 989,
+      "sha256": "d86cfb7a12e037055985188ae23955f48be9b47be498ff68fed0f8b9572628f4"
+    },
+    {
+      "path": "components/charts/treemap/model.ts",
+      "bytes": 4577,
+      "sha256": "30146e6cc38d4da835dde047bf6540c7e79847ec1cc2841255099e18e0143f39"
+    },
+    {
+      "path": "components/charts/treemap/plot.tsx",
+      "bytes": 4872,
+      "sha256": "0d28cda010209dcdf24d3a26ecfc2b26316840f4e3c0975186a40404d89fd11d"
+    },
+    {
+      "path": "components/charts/treemap/tile.tsx",
+      "bytes": 4417,
+      "sha256": "42272393de61f9dce11bdcdc3bab6daf2dc94c7589cb758a104c9a3cdd6c1ad4"
+    },
+    {
+      "path": "components/charts/treemap/tooltip.tsx",
+      "bytes": 2852,
+      "sha256": "6bdebda8997749322d6c6865b09bdd3a830a0e54ed32c43e3caea7b77379eda8"
+    },
+    {
+      "path": "components/charts/funnel-chart.tsx",
+      "bytes": 7337,
+      "sha256": "1dc1160b34a2b973151cd0fc4c46cbf6d26c4beba6225550a89b6821b1ade29e"
+    },
+    {
+      "path": "components/charts/treemap.tsx",
+      "bytes": 2548,
+      "sha256": "f18a97c751d4cd3a110a23b9f22cd7bd21b597ba68d4cc2b5610786adfcf3b63"
+    },
+    {
+      "path": "components/data-viz/labs/bar-lab.tsx",
+      "bytes": 8367,
+      "sha256": "7404be5cc5b3c4826cb21421c1a36b1e3be2ee3d875bf3e1ea42f58c1e7aa4ab"
+    },
+    {
+      "path": "components/data-viz/labs/box-lab.tsx",
+      "bytes": 10104,
+      "sha256": "b05df7c40d06b5e52e29b1ad33be904954f01d9e934a02f3de928843d753fc55"
+    },
+    {
+      "path": "components/data-viz/labs/dot-lab.tsx",
+      "bytes": 7768,
+      "sha256": "a3e507b247d001b8644ac2c888d1757b201437b9e3704811ad0519502ac66fff"
+    },
+    {
+      "path": "components/data-viz/labs/histogram-lab.tsx",
+      "bytes": 9407,
+      "sha256": "b74a96e7ad5bab64d5f05cd185910f4bd650374dd5b530023209993a3a7cc0d4"
+    },
+    {
+      "path": "components/data-viz/labs/line-lab.tsx",
+      "bytes": 9259,
+      "sha256": "4408450b4b034e56a62bf11e5569ddbdaf20e93b24f2d280be486bc5f434b363"
+    },
+    {
+      "path": "components/data-viz/labs/scatter-lab.tsx",
+      "bytes": 10219,
+      "sha256": "848dd92c6d4f9f16ce3802dc95263d300c6a3dad19c6ca6a59ac1222e916e409"
+    },
+    {
+      "path": "components/data-viz/chapter-card.tsx",
+      "bytes": 4320,
+      "sha256": "b15fbad4139bb6f1cee06cb09dcff8d123e5cc166b221fa7a579e50299b72fc7"
+    },
+    {
+      "path": "components/data-viz/chart-lab-shell.tsx",
+      "bytes": 5152,
+      "sha256": "9f7a32cbcefea3f475ea71ab1056b6b306aebece25d5fca8b8d1af7c8a8c0ea2"
+    },
+    {
+      "path": "components/data-viz/choose-assistant.tsx",
+      "bytes": 8036,
+      "sha256": "3f17294b74ed52a2b40a47d623287b226c2be45a8f32a3839ba10a3702d0c066"
+    },
+    {
+      "path": "components/data-viz/dashboard-anatomy.tsx",
+      "bytes": 21587,
+      "sha256": "34a50fd904be50619999924b5778971153c6770431dd7061db490fd4224b2541"
+    },
+    {
+      "path": "components/data-viz/integrity-lab.tsx",
+      "bytes": 37396,
+      "sha256": "6c0e9a8ea7ceed0694d95e46813356a68203b4aadf443bba33a89f63b5e8cc6e"
+    },
+    {
+      "path": "components/data-viz/lab-ui.tsx",
+      "bytes": 8447,
+      "sha256": "855d09e36bcfa5494f5ad8a5775d7ec95e7f6f0637b637bacaa1f9cba7ee6057"
+    },
+    {
+      "path": "components/data-viz/lesson-view.tsx",
+      "bytes": 15496,
+      "sha256": "b7cdbbc89ff0c0af4f4914eda24d1ca601eaade88bdf23305019e290f3f78a51"
+    },
+    {
+      "path": "components/data-viz/practice-bank.tsx",
+      "bytes": 9897,
+      "sha256": "1463c36d65199643dee1f084afdab62ffe7eb20f0777da60a0a3adb497e37d6a"
+    },
+    {
+      "path": "components/data-viz/source-blocks.tsx",
+      "bytes": 11773,
+      "sha256": "6262d5e9197366119a4e661789cd1d28843e8dbb31b78e015f7643838ff72330"
+    },
+    {
+      "path": "components/data-viz/specialty-charts.tsx",
+      "bytes": 1949,
+      "sha256": "adcde3f0141f616dbfff48e926d51a9819d7c05df177d2c861fd728ec441c47c"
+    },
+    {
+      "path": "components/fabric/explorer.tsx",
+      "bytes": 26577,
+      "sha256": "e31dd2f29647badfc940b3f0404d0ffa25ddd737510100a122a625873377d7c5"
+    },
+    {
+      "path": "components/fabric/hub-panels.tsx",
+      "bytes": 11784,
+      "sha256": "011fbc98d5ebd0e27635d6dcfba0428c2d8ed12a9032fd1b525ed362702c4f01"
+    },
+    {
+      "path": "components/fabric/pack-notes.tsx",
+      "bytes": 6079,
+      "sha256": "8c6456be4f71d9959de08a2c1765187c980f5f222fcf79205d9c091936bf1504"
+    },
+    {
+      "path": "components/fabric/progress-panel.tsx",
+      "bytes": 13818,
+      "sha256": "c3b9de26b1f5cad8cc6386c6f5434e5b9ee9d306a7da4ac80b98dbe9dd2deada"
+    },
+    {
+      "path": "components/fabric/question-view.tsx",
+      "bytes": 21255,
+      "sha256": "2558f25b1fecb941e6fbf6c90837cc534001c3939bf75e50d004cb10f14d7e4c"
+    },
+    {
+      "path": "components/fabric/session-results.tsx",
+      "bytes": 13278,
+      "sha256": "f122881e63d538d9d29e6a65664d3bb8520b3ea9ea29c64ce049204d157e4d84"
+    },
+    {
+      "path": "components/fabric/session-runner.tsx",
+      "bytes": 28774,
+      "sha256": "dcc03ebf15a89a8d55d514d511d298915c47856370c7aa88295d82249a831471"
+    },
+    {
+      "path": "components/fabric/session-setup.tsx",
+      "bytes": 17539,
+      "sha256": "d6221dee57f46bb3829b21a71538c8450108d79e8e8ce809e7e6e0d561993dd6"
+    },
+    {
+      "path": "components/fabric/ui.tsx",
+      "bytes": 9960,
+      "sha256": "7d0b5c650c14700e886eac2c1e7914d8e4d1305caafb5e841253beb5a7585b6e"
+    },
+    {
+      "path": "components/lab/exam-catalog.tsx",
+      "bytes": 6501,
+      "sha256": "90726354310e9280649d80987bbc5bc43da138a8c7615fb5a7763b60de009f0b"
+    },
+    {
+      "path": "components/lab/exam-player.tsx",
+      "bytes": 39508,
+      "sha256": "80c485d5b807dfc2a30010963ecf794724e9e147c3c64e7f8261b4aa580dfc70"
+    },
+    {
+      "path": "components/motion/tooltip/grace.ts",
+      "bytes": 3145,
+      "sha256": "a79f94a822560008bd903da1a939a6b76f8a2678daaf4733079afdb47d58f568"
+    },
+    {
+      "path": "components/motion/tooltip/positioner.tsx",
+      "bytes": 2364,
+      "sha256": "822fdab7bbe3767b3a78485be8351fb59518f53085a9294b2504a2d49e77e3fb"
+    },
+    {
+      "path": "components/motion/tooltip/use-position.ts",
+      "bytes": 8910,
+      "sha256": "219252b6c13d8a9d320fee90155285a051716594aae89020679bc22069bb4ee9"
+    },
+    {
+      "path": "components/motion/command-palette.tsx",
+      "bytes": 14202,
+      "sha256": "fdc4f20c702a573dfeab139ed6bdc5582998a30cb2ef0e687600e7981d9d1c63"
+    },
+    {
+      "path": "components/motion/number-ticker.tsx",
+      "bytes": 6069,
+      "sha256": "122fe951f13aa06357eef56c4acb6c5f665caa87f8ac37c86b55f61d1f232975"
+    },
+    {
+      "path": "components/motion/tooltip-surface.tsx",
+      "bytes": 1405,
+      "sha256": "d082ccbc58b0ad10a4372245a6254f9a70095a55d869595d6bba778b23aba3f8"
+    },
+    {
+      "path": "components/motion/tooltip.tsx",
+      "bytes": 22172,
+      "sha256": "05aa29e1cac3ac96d2ea5f1320e48cc65f905b26ccee8044971d6a0318c776b4"
+    },
+    {
+      "path": "components/statistics/charts/bars.tsx",
+      "bytes": 5410,
+      "sha256": "0299c7718eb009561b8145db9a62c51c5c645a75d162a15066f923f662872f19"
+    },
+    {
+      "path": "components/statistics/charts/density.tsx",
+      "bytes": 6827,
+      "sha256": "f6af20da876c2767c317c17a657d8ace05710941ce265934fbfcbbd605aa3988"
+    },
+    {
+      "path": "components/statistics/charts/dot-strip.tsx",
+      "bytes": 6161,
+      "sha256": "63272b49d13be035c3e31a05bd4feb176864d572385235ed075472d9a94b53f2"
+    },
+    {
+      "path": "components/statistics/charts/histogram.tsx",
+      "bytes": 3381,
+      "sha256": "fe8a991cf70af9a3dd8aff17b1d0cc577f2977eda54d379dc5d7fbdbf175a5ed"
+    },
+    {
+      "path": "components/statistics/charts/interval.tsx",
+      "bytes": 3102,
+      "sha256": "b79a62a35e25da56b3545ba8f6f571ab255699d2eb34e0ef1dd5adc1fc4cd884"
+    },
+    {
+      "path": "components/statistics/charts/pmf.tsx",
+      "bytes": 3590,
+      "sha256": "16a71661b3e4ed51b7b57cf1ba30dd72e4e07eb908f865475d6c06ecf6a74d7b"
+    },
+    {
+      "path": "components/statistics/charts/scatter.tsx",
+      "bytes": 3390,
+      "sha256": "90f501a62e7d745ef9e5fc5d1d27a86f31fc8a2d27a6e86a7d0a647f5d8d4051"
+    },
+    {
+      "path": "components/statistics/charts/two-dist.tsx",
+      "bytes": 10887,
+      "sha256": "021d3bb58091f945f6674cd1ebb13f136fee8bde2bb52de51a808e1ac7439a05"
+    },
+    {
+      "path": "components/statistics/exhibits/interactive.tsx",
+      "bytes": 21241,
+      "sha256": "52e8ef26b6eca9d98a7721febd8ea22785c710e5bbd9578f660eaa0eaa8271ef"
+    },
+    {
+      "path": "components/statistics/exhibits/static.tsx",
+      "bytes": 24003,
+      "sha256": "37309f25970a971c3173efccc11b99b5a1a9fb4d0eab5030dc25429f3bcf345c"
+    },
+    {
+      "path": "components/statistics/labs/binomial-lab.tsx",
+      "bytes": 9118,
+      "sha256": "71b88e3a9c83ed0354a2e1e10b3dde0f116bb2a85edacf223f990377600549e9"
+    },
+    {
+      "path": "components/statistics/labs/business-lab.tsx",
+      "bytes": 13689,
+      "sha256": "197d3b8fac094b2a7caa2328e9796ce7f96d6979889a361b5947823c4d4313de"
+    },
+    {
+      "path": "components/statistics/labs/center-spread-lab.tsx",
+      "bytes": 10654,
+      "sha256": "78062c32c35b2e0a8dc0cf570d451c503d6a5f3738666b997337a42f7669dce9"
+    },
+    {
+      "path": "components/statistics/labs/confidence-lab.tsx",
+      "bytes": 13913,
+      "sha256": "dd33f4e0644c83b6512fac46775085f088b551ac6b53f8d6cfdf67ebf7b4cdbf"
+    },
+    {
+      "path": "components/statistics/labs/correlation-lab.tsx",
+      "bytes": 13468,
+      "sha256": "094f69da43876234d45b9dc1f113c30039f3b19694b1e592e59bf9141e1f8a6d"
+    },
+    {
+      "path": "components/statistics/labs/distributions-lab.tsx",
+      "bytes": 11529,
+      "sha256": "726e2b3043cfdab55a15ec30440e7ccf7273796dd51527b1608717608ac82e94"
+    },
+    {
+      "path": "components/statistics/labs/dot-to-decision.tsx",
+      "bytes": 23912,
+      "sha256": "e608cfa5ea2d07a65854dbcf08a93be8202fdc008ef37f12d23fbccf9d11bab9"
+    },
+    {
+      "path": "components/statistics/labs/errors-lab.tsx",
+      "bytes": 8971,
+      "sha256": "0cb208228957d4c6c361bfcdfad862b135bca3da7511d65caf91cbfd04ab30f4"
+    },
+    {
+      "path": "components/statistics/labs/experiments-lab.tsx",
+      "bytes": 12685,
+      "sha256": "cc650056dbdeaf27b5a104d732dea82935799b23224d478eae225c24e9359873"
+    },
+    {
+      "path": "components/statistics/labs/normal-lab.tsx",
+      "bytes": 10747,
+      "sha256": "a8454dc81f773f60949171f90aa7231467501beeeb08ff1ff83f5ddb1e274766"
+    },
+    {
+      "path": "components/statistics/labs/poisson-lab.tsx",
+      "bytes": 11543,
+      "sha256": "d5ac0d53e85fdab5f2fa8ed45033f01faf0f339ec20b7bb72db028687b570d27"
+    },
+    {
+      "path": "components/statistics/labs/practical-lab.tsx",
+      "bytes": 8178,
+      "sha256": "5f9c04dd61d2a88c7e4417ff32d27c2337df5d71c48e690f0e10d079bc3655ad"
+    },
+    {
+      "path": "components/statistics/labs/probability-lab.tsx",
+      "bytes": 13338,
+      "sha256": "f861dc5c6bae2cdb1e9d8d0c54d2e623a94bc1b486427ec4a9b48dd20f35d9db"
+    },
+    {
+      "path": "components/statistics/labs/pvalue-lab.tsx",
+      "bytes": 9761,
+      "sha256": "7818bc5b889981d40dbef97acf3df9134ea27abea941349c950c4dea637a9d76"
+    },
+    {
+      "path": "components/statistics/labs/sampling-lab.tsx",
+      "bytes": 16315,
+      "sha256": "3b062e7a2381ad955a1f271dfff25c427db48e527d8e1ba4a5ba1fabdecc42d3"
+    },
+    {
+      "path": "components/statistics/chart-kit.tsx",
+      "bytes": 11433,
+      "sha256": "fad6ca663951329b1a61a554bf449bd118a3ad09c616a2a3c82240226242da63"
+    },
+    {
+      "path": "components/statistics/concept-atlas.tsx",
+      "bytes": 11939,
+      "sha256": "55ee9d77e84a97da4a47f37bd4f7b19b6560761cb474e98409a1bf4ac6e1dc5c"
+    },
+    {
+      "path": "components/statistics/concept-search.tsx",
+      "bytes": 2507,
+      "sha256": "bb9d51a9a21a69d0b31051e68d9a6136655e959cec14591f75d72aae5f7b4d83"
+    },
+    {
+      "path": "components/statistics/formula-calculator.tsx",
+      "bytes": 10481,
+      "sha256": "ebaf216a6e8f058f3c99b0a19b1ba222feda10b90acf40b5c4634d8131d41f01"
+    },
+    {
+      "path": "components/statistics/glossary-search.tsx",
+      "bytes": 3976,
+      "sha256": "c8c029c206a519586c84f3d0bd7e8bbf485a365900e9761e6a0de4ae29cfbbf3"
+    },
+    {
+      "path": "components/statistics/info-tip.tsx",
+      "bytes": 860,
+      "sha256": "198df59776f509293d32378b943a196b9be861286cfe5f84356c022a77df69d0"
+    },
+    {
+      "path": "components/statistics/lab-kit.tsx",
+      "bytes": 16022,
+      "sha256": "358502773631a230519076ca426f73b6d6e5f054023ac18d7164239e1276b08c"
+    },
+    {
+      "path": "components/statistics/math.tsx",
+      "bytes": 4133,
+      "sha256": "6e675789a1418dc8daf04d92c73b3c87fbd71c60932a2b4b1a7cfb350a33a843"
+    },
+    {
+      "path": "components/statistics/page-header.tsx",
+      "bytes": 3852,
+      "sha256": "ed13e76a85e18c8480d00ceace1ebc13ba26bbfdc0ce76a797ee485d545441f4"
+    },
+    {
+      "path": "components/statistics/print-button.tsx",
+      "bytes": 444,
+      "sha256": "8d3153a43555682394505bfd33030a976d3e848f774f5eb9d3d83912ee142146"
+    },
+    {
+      "path": "components/statistics/reading-progress.tsx",
+      "bytes": 1258,
+      "sha256": "61b4aeba7b5dc4f8d7b8194c85c51f0da69ac83e655e35e0fee7296b197a478a"
+    },
+    {
+      "path": "components/statistics/source-blocks.tsx",
+      "bytes": 14299,
+      "sha256": "d0bc9cec9afa791777d4816713fcd9e0bff8244d581dcec4bdb941f039070cf1"
+    },
+    {
+      "path": "components/statistics/tool-navigator.tsx",
+      "bytes": 7900,
+      "sha256": "d3b11c0871ed62ccbbf5627c85201b7e7950dc93d0b0110d022e257629b76d09"
+    },
+    {
+      "path": "components/statistics/visual-registry.tsx",
+      "bytes": 5612,
+      "sha256": "8e9206894cbdf862ece27fa0440283d8f82cd871909944fe2952c085e7aca047"
+    },
+    {
+      "path": "components/case-study-card.tsx",
+      "bytes": 5314,
+      "sha256": "33e43e876397756ff2a3f7178314202e97c97b0866939b4d5520b08d39b23755"
+    },
+    {
+      "path": "components/contact-form.tsx",
+      "bytes": 10641,
+      "sha256": "e84cbff5fe79b041b3bdb2b15c0722f3b06fbdfa6df3967d3aded8d75951511d"
+    },
+    {
+      "path": "components/dashboard-gallery.tsx",
+      "bytes": 6413,
+      "sha256": "2eee36241c7b8893e3df5d0b17c5e9b842cf4505b78efd089ac90bbf5cdc40d4"
+    },
+    {
+      "path": "components/icons.tsx",
+      "bytes": 1384,
+      "sha256": "b29ab78056275026e2a44af0c586a0ba5a9138a820481408e5a2231b9c1b9e0e"
+    },
+    {
+      "path": "components/site-footer.tsx",
+      "bytes": 4031,
+      "sha256": "75ee8b7b5bbe4dc07e073b2732d3bb2fc2d39f3e634ecc0efcfffede087f8188"
+    },
+    {
+      "path": "components/site-header.tsx",
+      "bytes": 6812,
+      "sha256": "0f72c8622c9b2e45aef38d881264ace481dfab338ed5acd30a8b087f55d1fc25"
+    },
+    {
+      "path": "components/theme-controls.tsx",
+      "bytes": 5137,
+      "sha256": "c583aa6ade3b4862fa1e4c1d397566c5bd8dd85733a6634e033ff853f4990a3d"
+    },
+    {
+      "path": "components/ui.tsx",
+      "bytes": 5221,
+      "sha256": "dbfa575cf71abf98800105d49c4bd32c0b6e1ebd3e903de2a5253606e4c0c67b"
+    },
+    {
+      "path": "Comprehensive Statistics Reference/📚 Comprehensive Statistics Reference — من الصفر إل 3ca3906c5d6c81439567c45c6a6e2643.html",
+      "bytes": 114015,
+      "sha256": "b16602340db52697bc7ed6ccab72eced7698c409594e3f8dac8e65b1aa04eaf7"
+    },
+    {
+      "path": "content/data-viz/curriculum.json",
+      "bytes": 22178,
+      "sha256": "9a897d84397f8a0f2050de788d6a33e907bd4a50f40cf4d0d0eddd9ec00fb6c8"
+    },
+    {
+      "path": "content/data-viz/datasets.json",
+      "bytes": 27715,
+      "sha256": "d6b000a2815d0a684c777e728f18dcf9cfb04cec6bc3adb163e5b83fd35428a3"
+    },
+    {
+      "path": "content/data-viz/editorial.json",
+      "bytes": 15137,
+      "sha256": "8e6b512ba893a42acdde606005a80cbb26617d85e0f17b7a6d9c260e29126661"
+    },
+    {
+      "path": "content/data-viz/manifest.json",
+      "bytes": 52581,
+      "sha256": "19b9ac43796b69d10128a42d810120a9f89fff15b2b9f6ff37bc348eaba51fdb"
+    },
+    {
+      "path": "content/data-viz/pages.json",
+      "bytes": 356166,
+      "sha256": "afbf29de53202b81f2000d4fa23b813be18077279e15a351d8250d02ba6ce433"
+    },
+    {
+      "path": "content/exams/excel.json",
+      "bytes": 4728,
+      "sha256": "f786484cd222876b6adf7142701fc357039a5b2ff12d44b81cf4f52e5718432a"
+    },
+    {
+      "path": "content/exams/fundamentals.json",
+      "bytes": 4852,
+      "sha256": "1a2c4c94653f8306e5cdd30410c6cfeb78f3a9b1c52f2f88dd9c6f00c1bcb446"
+    },
+    {
+      "path": "content/exams/power-bi.json",
+      "bytes": 5023,
+      "sha256": "ea6d4fc0229925aabf0b59903181f245f8d29386903ca07ce0da493fc55d6de1"
+    },
+    {
+      "path": "content/exams/python.json",
+      "bytes": 4953,
+      "sha256": "1d283eae19f9c99f34e29bb4c2e05254580ff90349a851d60856634d705dc62a"
+    },
+    {
+      "path": "content/exams/sql.json",
+      "bytes": 4968,
+      "sha256": "8584b699cca1f3e179df10ef66fd5dc59b0ac45ec32de6da75d3cfc6accc3aef"
+    },
+    {
+      "path": "content/exams/statistics.json",
+      "bytes": 5319,
+      "sha256": "6aa7a10a1d6c79387212348c7b6452fc1aa3112aa9639dd9cbfda5b975d8844e"
+    },
+    {
+      "path": "content/fabric/questions/delta.json",
+      "bytes": 60668,
+      "sha256": "c45ffb6c1773a44c745e7db0dd2efed4a50f109622dc4f5ee160cd619e0a291f"
+    },
+    {
+      "path": "content/fabric/questions/eventhouse.json",
+      "bytes": 64709,
+      "sha256": "bd1560bb29f3ab466217333694ab228ca59622eaa33f52f72437f3fc81aae843"
+    },
+    {
+      "path": "content/fabric/questions/pipelines.json",
+      "bytes": 61146,
+      "sha256": "671eba3759834e470b66ec6dfcaa41ddb4c4c2fd019347649395d81677c82596"
+    },
+    {
+      "path": "content/fabric/questions/scd.json",
+      "bytes": 56588,
+      "sha256": "d661c174549ca7266763a6310789a52da74ff1a2c7f7382fe3543efec901e257"
+    },
+    {
+      "path": "content/fabric/questions/video06.json",
+      "bytes": 81039,
+      "sha256": "f9ca67bef2ff02cbd56c7ffe2866dc30b882a9becb116298fa5ea3e61b4ffb60"
+    },
+    {
+      "path": "content/fabric/questions/video07.json",
+      "bytes": 60307,
+      "sha256": "e683291190a80059b9d5dfe4efee4b328ca7274f5051feed95c7cd648c4177c6"
+    },
+    {
+      "path": "content/fabric/questions/video08.json",
+      "bytes": 81577,
+      "sha256": "2262faae8516f5041ca01377e4b35e5d0231078ba899cd271557c030c91379b5"
+    },
+    {
+      "path": "content/fabric/questions/video09.json",
+      "bytes": 81559,
+      "sha256": "9d848c4339b095ef54f9e60a2fb739d1b1df56a752a9d45d12205b2c0a79313e"
+    },
+    {
+      "path": "content/fabric/questions/video10.json",
+      "bytes": 87754,
+      "sha256": "7da176a301158e5267d461874b2e5dc3cff37ab8632839c8cd5fdbe93412df72"
+    },
+    {
+      "path": "content/fabric/questions/video11.json",
+      "bytes": 93348,
+      "sha256": "58e45f85a1d0f551509824b2897c39da072e861315a7bf9d7ecf2f996df088c9"
+    },
+    {
+      "path": "content/fabric/questions/video12.json",
+      "bytes": 90051,
+      "sha256": "125b29c9d0a29ad0b03f6f28e060131c247b14dd74c2997f870db6ef0a5e023f"
+    },
+    {
+      "path": "content/fabric/questions/video14.json",
+      "bytes": 186658,
+      "sha256": "fc6b561c1c11278e10f9ca516c055e156dd4b7384a5ff8d09c5381589757b61c"
+    },
+    {
+      "path": "content/fabric/questions/video15.json",
+      "bytes": 104364,
+      "sha256": "6ae430186f0dec91ca640b601a1a401e4b79b8d8bdfe2c56685e2fc5379625bc"
+    },
+    {
+      "path": "content/fabric/questions/video16.json",
+      "bytes": 85279,
+      "sha256": "488520efbfc7495b2c590fa0e283b0e844f4cb34b56120091bf315a61e140fab"
+    },
+    {
+      "path": "content/fabric/questions/video19.json",
+      "bytes": 70324,
+      "sha256": "b73e74c49a8d848f18bfda4fa3877bd66521525cc849dbdb4c85b9879012cc41"
+    },
+    {
+      "path": "content/fabric/questions/video20.json",
+      "bytes": 61344,
+      "sha256": "c738975628512cb2cdd92a86e86c415a30d6dddb65c8e9eb037c7d6aa79f11d4"
+    },
+    {
+      "path": "content/fabric/questions/video21.json",
+      "bytes": 50359,
+      "sha256": "cfacb74a22c58fa502b48999c0aac1cf3b25073c4df8347cd75dce3f7d77c29c"
+    },
+    {
+      "path": "content/fabric/questions/warehouse.json",
+      "bytes": 49508,
+      "sha256": "4cbcd13a9c9e17ff8d4bb0f64318c9fe52efc7ec6f6618336b88ee9b6a5ebf8c"
+    },
+    {
+      "path": "content/fabric/cases.json",
+      "bytes": 31968,
+      "sha256": "c4c28f9fe16031875a3d0be6407f542674a3e5399564fbeec74bda5c203f1d19"
+    },
+    {
+      "path": "content/fabric/id-map.json",
+      "bytes": 81720,
+      "sha256": "524aaadc37c6e12ccdbaa62b7d501dfeb9037b612950cdcbaf31af80b163f517"
+    },
+    {
+      "path": "content/fabric/index.json",
+      "bytes": 540066,
+      "sha256": "db181400b6acc733e155d68a46cd77ce693e2c111ecb95afd2f568c23786c7f2"
+    },
+    {
+      "path": "content/fabric/meta.json",
+      "bytes": 15756,
+      "sha256": "3080e8fbdb56477eb89c9127a6e3a1d121a6bddb9c852bde70e696ea545c164c"
+    },
+    {
+      "path": "content/fabric/notes.json",
+      "bytes": 311433,
+      "sha256": "708e75dd414011f6cf4bfefcaed5bbf6f32af7b36bc92d38e728a6d3953753bb"
+    },
+    {
+      "path": "content/fabric/packs.json",
+      "bytes": 9198,
+      "sha256": "9c5124642f0f32bcfcfda408465d7ad141d76909990da1adc80e6023948f436a"
+    },
+    {
+      "path": "content/fabric/sources.json",
+      "bytes": 34406,
+      "sha256": "3f2a744f128d275c55bc085d6a79f42b653a22cdcaf8dbf711b2c9bbba57a0c5"
+    },
+    {
+      "path": "content/statistics/source.json",
+      "bytes": 187720,
+      "sha256": "000e350e3fd9fd0372897f4d970e7ce089bb9260ecbcf6968ba54bf5f1896b9d"
+    },
+    {
+      "path": "Data Visualization/🎨 الجزء 6 الألوان في Data Visualization 3cd3906c5d6c8101aa91eb72bc14c030.html",
+      "bytes": 21786,
+      "sha256": "5eeb1bb148b7869d1679341e78b6b00c9890f725787ddb26d16e481612119cbc"
+    },
+    {
+      "path": "Data Visualization/🎯 نصائح وTricks عملية + بنك أسئلة المقابلات (BI Po 3cd3906c5d6c8109a01fc02be38ff15a.html",
+      "bytes": 34804,
+      "sha256": "ab3824c8cfca38903a8bd9257168aebe340f9ac8c6c0fcce06fd9d362a898dda"
+    },
+    {
+      "path": "Data Visualization/📊 Bar Plot — مخطط الأعمدة 3cd3906c5d6c817682b0d6ec864e154e.html",
+      "bytes": 24198,
+      "sha256": "c6032d2aaf3677dd7557c5e8d3f8e82c33e59c30224c2b7635d59be1f3609497"
+    },
+    {
+      "path": "Data Visualization/📊 Box Plot — مخطط الصندوق 3cd3906c5d6c8159a9a9ce758a6e26e2.html",
+      "bytes": 23166,
+      "sha256": "422660e6d814d751fa03bce6649a879f72c05a078733736670baea18abb7235a"
+    },
+    {
+      "path": "Data Visualization/📊 Data Visualization — Comprehensive & Deep Refere 3cd3906c5d6c817a8116e9e1b38d216f.html",
+      "bytes": 43599,
+      "sha256": "bdb8ffe642b96cde5dc5f57a7f8fab88329b0ecdb8411799d4a7cbb27f5790ca"
+    },
+    {
+      "path": "Data Visualization/📊 Dot Plot — مخطط النقاط 3cd3906c5d6c8185b9c4e5d2d80ca4fe.html",
+      "bytes": 21694,
+      "sha256": "847167a1a80306e9eb359d0f2d09005640a6b0eab9df5a15dedb19146a2379c7"
+    },
+    {
+      "path": "Data Visualization/📊 Histogram — المدرج التكراري 3cd3906c5d6c81299255f295d7b2434d.html",
+      "bytes": 24339,
+      "sha256": "45c129ec40e063e99abe07bf2cc30c6294b493c437b654ea95769f91783647bd"
+    },
+    {
+      "path": "Data Visualization/📊 Line Plot — الرسم الخطي 3cd3906c5d6c81a1b557e07b0d15bca7.html",
+      "bytes": 21383,
+      "sha256": "540c808a0bc80d8724c50ba17193091a932a61632760ed3fe79265388bf889ce"
+    },
+    {
+      "path": "Data Visualization/📊 Scatter Plot — مخطط التشتت 3cd3906c5d6c8103bf02edeecfa351fc.html",
+      "bytes": 22418,
+      "sha256": "f933b3eeb621d5fe9b6eae4ad4d15c279838baeba2fee755099c80f44fa304c5"
+    },
+    {
+      "path": "Data Visualization/📊 الجزء 3 الرسوم الأساسية (Univariate & Bivariate  3cd3906c5d6c81ee9070c16e5c6be1ed.html",
+      "bytes": 20624,
+      "sha256": "28350e46539057278235835f79b7ff08a6a659cf7a44ada01014f8138c661cfc"
+    },
+    {
+      "path": "Data Visualization/Accessibility, Contrast & Color QA 3cd3906c5d6c819ab08ac1f7717dc4c2.html",
+      "bytes": 20819,
+      "sha256": "cfdd6efcf495953350b5c488f3f2561654d5733ece68f3e7a0da18b4c6cab190"
+    },
+    {
+      "path": "Data Visualization/Advanced & Multivariate Techniques 3cd3906c5d6c815996b1ca4687c3808b.html",
+      "bytes": 32372,
+      "sha256": "5620e98392c212c912ff7cc50a04aa608e1c175d276ffd60f172df535a0bf708"
+    },
+    {
+      "path": "Data Visualization/bar_baseline.svg",
+      "bytes": 2117,
+      "sha256": "25e42775d3ace2adc5b11c7f9a68225f77e8afe542a6512bd534395e1f679d01"
+    },
+    {
+      "path": "Data Visualization/Chart Selection Matrix & Anti-Patterns 3cd3906c5d6c81219916c1029b5aecd5.html",
+      "bytes": 24870,
+      "sha256": "83606055219d0b175c86d9266ed49b378674c5442cb97b2dd8a69827f151e66e"
+    },
+    {
+      "path": "Data Visualization/Color Theory for Data Visualization 3cd3906c5d6c81c19cadc4d11b657ffd.html",
+      "bytes": 24055,
+      "sha256": "3bd601e621ad8a96160e7f96f9bf0783e8e1d41fd1aca2ba01e6e14b1df49007"
+    },
+    {
+      "path": "Data Visualization/color_families.svg",
+      "bytes": 2349,
+      "sha256": "1c3ddfab23c6715e2f9b96a0c2842dce0674736279d1fa6f3d1091a79a8d2f9f"
+    },
+    {
+      "path": "Data Visualization/Core Chart Types & Scales 3cd3906c5d6c816fb3e9d8809b4dbe8e.html",
+      "bytes": 60557,
+      "sha256": "9bb0962c11e06eb74460444e54cba2e2a0db5cf8df84ef282eee17531db327b5"
+    },
+    {
+      "path": "Data Visualization/Dashboard Design, Composition & Cognitive Load 3cd3906c5d6c81b793aaf1036705960f.html",
+      "bytes": 23989,
+      "sha256": "9f9e9bb2518060e34adbb6d3f75b8d2ded7bb612eca5fcc2fde986795decce42"
+    },
+    {
+      "path": "Data Visualization/dashboard_hierarchy.svg",
+      "bytes": 2082,
+      "sha256": "923c293c8ff3ecee2f2be79fdc92e897c7e9b49619487607b4e217b131a374cd"
+    },
+    {
+      "path": "Data Visualization/Data Visualization Interview Master Bank 3cd3906c5d6c81f49e4cc8ca53d6e812.html",
+      "bytes": 23681,
+      "sha256": "0f3832fc40df005bb593341545c90d6e999341a08505d931437b0c71830931bd"
+    },
+    {
+      "path": "Data Visualization/dual_vs_panels.svg",
+      "bytes": 1710,
+      "sha256": "c2d28f8ffb09e6b6c155768810fe4f0ed97f691ad5680709cee65ce32f3d098f"
+    },
+    {
+      "path": "Data Visualization/encoding_strength.svg",
+      "bytes": 1949,
+      "sha256": "357222e84507d5b49d5d1cc4711ea2bd2fff0f1354d59af03c49488e098e1f5f"
+    },
+    {
+      "path": "Data Visualization/Foundations & Decision Framework 3cd3906c5d6c8191959ef2ecc8c0ca59.html",
+      "bytes": 27438,
+      "sha256": "1258e27aa32d11cd297d6630881e6991504352a10159000f8878119877ade059"
+    },
+    {
+      "path": "Data Visualization/hist_shapes.svg",
+      "bytes": 2579,
+      "sha256": "a57a6d1620f090f28a43a57b500a41478c40976b171a88fa6aa38c77803679de"
+    },
+    {
+      "path": "Data Visualization/kpi_card_anatomy.svg",
+      "bytes": 959,
+      "sha256": "7f9d1d80845429c68cf754ba9162d1e169f9f75e1223b8ff1053617d5d0622d8"
+    },
+    {
+      "path": "Data Visualization/mean_hides_dist.svg",
+      "bytes": 1998,
+      "sha256": "5b000a0850f073eefbc86e359282e38c570c01da103e34dc5ec28abca575354c"
+    },
+    {
+      "path": "Data Visualization/os_pipeline_full.svg",
+      "bytes": 2197,
+      "sha256": "18b7b57b0124091e179ea1457486bafe1d413d5698ea24052633228099ff5197"
+    },
+    {
+      "path": "Data Visualization/Power BI Visualization Playbook 3cd3906c5d6c81b583dadccead758b3c.html",
+      "bytes": 26401,
+      "sha256": "cfd6a448842b9545ef3aca2cb0158b109d67e9ac2a0afc91017a316d45adf211"
+    },
+    {
+      "path": "Data Visualization/Quick Reference & Exam Prep 3cd3906c5d6c813ea34dc5e5e4870d71.html",
+      "bytes": 31169,
+      "sha256": "ebce7d23274019dd6fbe240e1728523b0389da6721ab3341dc15f0f7d08281eb"
+    },
+    {
+      "path": "Data Visualization/simpson_paradox.svg",
+      "bytes": 1908,
+      "sha256": "9f8ae51e07d67a7489a2068ed5a2ad390c5e674381e60bd10f591de8d26a0798"
+    },
+    {
+      "path": "Data Visualization/Statistical Interpretation Traps for Visualization 3cd3906c5d6c81febadef001c3adffc8.html",
+      "bytes": 23890,
+      "sha256": "c6d0d767463f76f317ce3bc969de4c9a9051c95136f3f07f158455421b8bc87b"
+    },
+    {
+      "path": "Data Visualization/summary_stats_trap.svg",
+      "bytes": 2741,
+      "sha256": "02e6e3bcdf9dddfdde91e804172989d1acc719459d8687edb590d8d75dbdd179"
+    },
+    {
+      "path": "Data Visualization/uncertainty_bars.svg",
+      "bytes": 1501,
+      "sha256": "2ce8c27a7a0607cb6db3c9673c5861c2c91ac5ef2226fd8cbb79731b3ff47a33"
+    },
+    {
+      "path": "Data Visualization/Visual Atlas — Teaching Charts & Figure Pack 3e53906c5d6c81e588dee386862fecac.html",
+      "bytes": 37169,
+      "sha256": "5b6855c7bde7a678c3eab4769c089946149c0fc2d1bd797b00b12056d07ffd83"
+    },
+    {
+      "path": "Data Visualization/Visual Integrity, Pitfalls & Ethics 3cd3906c5d6c81809fa1ea9a9146aea0.html",
+      "bytes": 32688,
+      "sha256": "2d9178ff28a802988ab97b7fa10b9698801956bc50b490ee29241410985434a9"
+    },
+    {
+      "path": "Data Visualization/أفضل المراجع العالمية (Curated References) 4ceee50e87384884a9f663de5eb7e521.html",
+      "bytes": 21779,
+      "sha256": "7c6f3237ae0833bbcb288c192a53cb160001f4685d4e6752a5f93622698660d8"
+    },
+    {
+      "path": "Data Visualization/مسارات قراءة مقترحة (Beginner → Advanced) e93dca8916a5445e9d0f8ca3192d01dc.html",
+      "bytes": 25877,
+      "sha256": "b5a07fc72f8c43c845061c40d88931b1657e7eda248e29df2bf104331935e0d6"
+    },
+    {
+      "path": "docs/data-visualization/beui-chart-mapping.md",
+      "bytes": 7956,
+      "sha256": "06ac08800c271d9cecff17987d67f2dfb67cac01d446d76bb8beea83af9b5277"
+    },
+    {
+      "path": "docs/data-visualization/beui-component-decision-matrix.md",
+      "bytes": 12223,
+      "sha256": "5626a4d699b4b2ffdb36e244b8f13c8e68cbab366fbfce7e09a2727637efaf84"
+    },
+    {
+      "path": "docs/data-visualization/beui-install-log.json",
+      "bytes": 4492,
+      "sha256": "8a25305194f791a7219827dfa6dfe3fee748ab9682f619cb723af4735373c014"
+    },
+    {
+      "path": "docs/data-visualization/beui-integration-qa.md",
+      "bytes": 10429,
+      "sha256": "57a9e899e1e0460e98aa29fabc4c93d23e46f6db08e965ea884023bce1322fae"
+    },
+    {
+      "path": "docs/data-visualization/content-provenance.md",
+      "bytes": 11857,
+      "sha256": "4a960982aae56e07c126ccac96348dbcc2495e5e5290baf57a7e1bd43e0c20b4"
+    },
+    {
+      "path": "docs/data-visualization/html-export-inventory.json",
+      "bytes": 76555,
+      "sha256": "40cae0908efe7d86472624d1a8f2b7e8812242e88f124611b1d0e141f162b056"
+    },
+    {
+      "path": "docs/data-visualization/implementation-report.md",
+      "bytes": 12803,
+      "sha256": "8a88e472d13142d9b4574c3726e9d4ade093803adf0a61a550816dd9773d17af"
+    },
+    {
+      "path": "docs/data-visualization/local-source-audit.md",
+      "bytes": 7583,
+      "sha256": "ff1b455ae6289cbce6ce1a5f6ace79f6c08dffba7cbb89f0d0be8b4678bb3ee0"
+    },
+    {
+      "path": "docs/fabric/screenshots/desktop-hub-dark.png",
+      "bytes": 117381,
+      "sha256": "6cf6fb461bc0f25371ed4ead8e87f1bd21a2acdbd918e12f04dbc48ca765fe11"
+    },
+    {
+      "path": "docs/fabric/screenshots/desktop-hub.png",
+      "bytes": 117895,
+      "sha256": "3bc0df2484ba6911678e329bebd513bf4f17029fbe648cef82f91f9d968c5f6f"
+    },
+    {
+      "path": "docs/fabric/screenshots/desktop-results.png",
+      "bytes": 130685,
+      "sha256": "555aa342ff10f598fd3932e77044e07a35888a945ac6f603412d798791dd1c98"
+    },
+    {
+      "path": "docs/fabric/screenshots/exported-progress.json",
+      "bytes": 28093,
+      "sha256": "4ff032371505ff98e3542da47142bbda695fe68750c30eb20412ab894a0904e2"
+    },
+    {
+      "path": "docs/fabric/screenshots/mobile-hub.png",
+      "bytes": 69094,
+      "sha256": "5c1b9f93047ae4b316e2fe32db982e064e9b7be3bcb4091e786fa608fa08f17c"
+    },
+    {
+      "path": "docs/fabric/screenshots/mobile-question.png",
+      "bytes": 53282,
+      "sha256": "0a8848eecd666b4aa1c7741d0e04025bfefc37b6587e589c84364a53ecb2b1dd"
+    },
+    {
+      "path": "docs/fabric/01-architecture-audit.md",
+      "bytes": 7256,
+      "sha256": "e2e7bf6e2583b97997e432d73cd5a4104bace1265650741e1794e508b415414b"
+    },
+    {
+      "path": "docs/fabric/02-import-report.md",
+      "bytes": 7763,
+      "sha256": "69bf65d4b40af6118bc5dc9e7b254416f019b735f472900fe13e17f79a881080"
+    },
+    {
+      "path": "docs/fabric/03-coverage-report.md",
+      "bytes": 4549,
+      "sha256": "74d6328525563cb52bb9c4b355cf8c0ffdb306e1212d8b4f34ec35281cfe1e42"
+    },
+    {
+      "path": "docs/fabric/04-ui-ux-report.md",
+      "bytes": 8446,
+      "sha256": "0f1635f8dc851a435a41df91587c9b837c6acd1f95919a3d8e664653870a23ca"
+    },
+    {
+      "path": "docs/fabric/05-testing-evidence.md",
+      "bytes": 10359,
+      "sha256": "0afb6b3f2cf5691849baab8de5afecf0be617b1fb3b474a6d63ab0508ffc3d6c"
+    },
+    {
+      "path": "docs/fabric/06-deployment.md",
+      "bytes": 4364,
+      "sha256": "b229c55a1fe406af768cf9976f732c7baf18a68cbba7d7b947f9909e4467ce67"
+    },
+    {
+      "path": "docs/fabric/07-future-expansion.md",
+      "bytes": 5774,
+      "sha256": "12a8c21c0a8ef3df9d6ddd5a5409c6d053170020cd1b5f372651b8f671c738e5"
+    },
+    {
+      "path": "docs/fabric/classification-confidence.json",
+      "bytes": 3815,
+      "sha256": "f560ddb0896bb0e306bc687c38e1be1101823868bfbca517d293b74988231371"
+    },
+    {
+      "path": "docs/fabric/coverage-matrix.csv",
+      "bytes": 122057,
+      "sha256": "f42a42a9d454733919f18f9cf8c9dc25e4a95f161520d07d9f4899fbbc65281d"
+    },
+    {
+      "path": "docs/fabric/coverage-matrix.json",
+      "bytes": 660589,
+      "sha256": "56d07a1207d04632ce5d95acdfbfedf6f625098b44163db7b024432859397160"
+    },
+    {
+      "path": "docs/fabric/dp700-adjacency.json",
+      "bytes": 20807,
+      "sha256": "2b475837c16b97ac39e6bbb867e5e1fae97e19c2fd95683e0fee89e1cfcfa83c"
+    },
+    {
+      "path": "docs/fabric/README.md",
+      "bytes": 2748,
+      "sha256": "da90756c1a5a02e8dab90263d1cd2d31ba5f26b083ed46f594c02563a8a07d83"
+    },
+    {
+      "path": "docs/statistics/screenshots/cheatsheet-print.pdf",
+      "bytes": 298869,
+      "sha256": "4d7ba39635a162d511bbf059313129c6fad3b206e8c35a16db706da030706921"
+    },
+    {
+      "path": "docs/statistics/screenshots/dark-confidence.png",
+      "bytes": 143715,
+      "sha256": "07097f0b6889f93972a095521a1faac606597884d977f458c726b77c4ea576ec"
+    },
+    {
+      "path": "docs/statistics/screenshots/desktop-atlas.png",
+      "bytes": 77251,
+      "sha256": "62c998c8211e6e1d1a955e61199217cea12255caa39fc06442c5f97139c93688"
+    },
+    {
+      "path": "docs/statistics/screenshots/desktop-business.png",
+      "bytes": 148020,
+      "sha256": "b58b9e1b346b86fd5632c693ead2d9846379ad56f3ac4838aef7bcbd4300eb89"
+    },
+    {
+      "path": "docs/statistics/screenshots/desktop-center-spread.png",
+      "bytes": 146711,
+      "sha256": "3057e9cec7b147e2e124f537b50c791bc0622c65a5d32f2a0bebb303b5f2e047"
+    },
+    {
+      "path": "docs/statistics/screenshots/desktop-cheatsheet.png",
+      "bytes": 105600,
+      "sha256": "83a4dc51a610e3ad3e1d3978f814db28efa3ecdc3d273df67ac9a361c968ffb5"
+    },
+    {
+      "path": "docs/statistics/screenshots/desktop-correlation.png",
+      "bytes": 148507,
+      "sha256": "0d2e706838355948cfaca10887e40283915c5464a78f68e3480279c34f583745"
+    },
+    {
+      "path": "docs/statistics/screenshots/desktop-hub.png",
+      "bytes": 154171,
+      "sha256": "18d78c9973ca1c30fcc12658aadc38ec5899afbdf57c0806c473b8bd530c0374"
+    },
+    {
+      "path": "docs/statistics/screenshots/desktop-poisson-section.png",
+      "bytes": 148739,
+      "sha256": "d886c1f9636c391eb6ec9218bae84c50a6225f600159fae40fc4c5867ed299aa"
+    },
+    {
+      "path": "docs/statistics/screenshots/desktop-pvalue.png",
+      "bytes": 157144,
+      "sha256": "ae8aeb3741501ecca281a0482fd7ad647e77ac28a75267b8688b0dd24177b473"
+    },
+    {
+      "path": "docs/statistics/screenshots/desktop-sampling.png",
+      "bytes": 122171,
+      "sha256": "32746097529d1e18b225f34b1c36ed26eacd4bdd9c1e0585ba79463027e10f15"
+    },
+    {
+      "path": "docs/statistics/screenshots/desktop-source.png",
+      "bytes": 125315,
+      "sha256": "f6edbe77cb685040b9a7210c5e25c702090bbd50e6a0b7155cdd73739b588033"
+    },
+    {
+      "path": "docs/statistics/screenshots/mobile-hub.png",
+      "bytes": 63310,
+      "sha256": "120dd2f73544f26c078f1cb0a107f9acc3a9446578c7bb7355d5a8071171ee52"
+    },
+    {
+      "path": "docs/statistics/screenshots/mobile-pvalue.png",
+      "bytes": 53078,
+      "sha256": "29a9c2e45d1b34959fbf6c12cd7097a0ad3a3e849076fb659dbd9b3d52a81f26"
+    },
+    {
+      "path": "docs/statistics/beui-component-decisions.md",
+      "bytes": 8949,
+      "sha256": "e34a1eff6e6ec3b32b2b3b77fc4f6ef52252e2055a56b6b7716fa29703c19f78"
+    },
+    {
+      "path": "docs/statistics/coverage-matrix.md",
+      "bytes": 34568,
+      "sha256": "045b672d5a4fafa34771c9cc03c22f4bc9b102b8d8425a60bc72a378302b8e2b"
+    },
+    {
+      "path": "docs/statistics/implementation-report.md",
+      "bytes": 20450,
+      "sha256": "24a7fc40dc9b45cc054b00774e2bc279ed0dcaa6a748ac5910959a7a92d108ec"
+    },
+    {
+      "path": "docs/statistics/math-errata.md",
+      "bytes": 10909,
+      "sha256": "86a8acb161b178fe64a0d2a6007074b0169993301afc29d6504d03781ad4a93c"
+    },
+    {
+      "path": "docs/statistics/source-inventory.md",
+      "bytes": 10799,
+      "sha256": "eb457b38bdae939a95dd9154eda0e7f94edd8c77ad1789fbbf7639f22efbca8e"
+    },
+    {
+      "path": "docs/statistics/source-manifest.json",
+      "bytes": 92828,
+      "sha256": "fdfc22f42f771c3e60c543fd7bc9248f7aaf9eeaa18917ed204934d3cdad5ead"
+    },
+    {
+      "path": "docs/statistics/visual-opportunity-audit.md",
+      "bytes": 41301,
+      "sha256": "0f44a2ace071e435ac79de5bc0b573cfa4633ed60257a3fc776bf2b5cd8c4ce4"
+    },
+    {
+      "path": "docs/statistics/visual-storyboards.md",
+      "bytes": 22235,
+      "sha256": "2aadb4d0e105595e8eaf8dd59ef884a077c30dd6aa47593aa7ec8406c5d99eff"
+    },
+    {
+      "path": "docs/statistics/visualization-spec.md",
+      "bytes": 10776,
+      "sha256": "db29644f6d183311a04ba0b9b37fa7ca8cc4ea116a49f9fb33f6907665aeee55"
+    },
+    {
+      "path": "legacy-redirect/index.html",
+      "bytes": 2003,
+      "sha256": "ca9a72589e6d7b92f06bb1dc799f604593a13872e61fa2d26a0535e621979c8b"
+    },
+    {
+      "path": "lib/data-viz/chart-math.ts",
+      "bytes": 8387,
+      "sha256": "3be2a7b125e50f306be2c96384ec6095126054dbc03193f79d14954e82e2f951"
+    },
+    {
+      "path": "lib/data-viz/content.ts",
+      "bytes": 5781,
+      "sha256": "f369b11ed7e7da56c2a9f8a775d6cdb420f8e57937c4d355dbc5ed4f39b61108"
+    },
+    {
+      "path": "lib/data-viz/datasets.ts",
+      "bytes": 2958,
+      "sha256": "a49f1f07cdf1eb0f32cd8e6fc241139534a4652a421b59bdc6a97d97bb8191f6"
+    },
+    {
+      "path": "lib/data-viz/decision.ts",
+      "bytes": 10539,
+      "sha256": "49b5a8c8c4717b72f0006b7eaedb01d9acf336d595650ea21346cdf42534d70e"
+    },
+    {
+      "path": "lib/data-viz/labs.ts",
+      "bytes": 4330,
+      "sha256": "8e9a26712511b9b4f1cc914aaaddbb37c19264ee69effd49465c415d430ac596"
+    },
+    {
+      "path": "lib/data-viz/practice.ts",
+      "bytes": 10325,
+      "sha256": "276882d48adf9c9d96e187ef10741d8e00772d5e2d0ad725180b9aab4ce8559a"
+    },
+    {
+      "path": "lib/data-viz/types.ts",
+      "bytes": 3065,
+      "sha256": "50e08d8dd7294055e58346874c4a953cb3a3a74654b6015a85cd1b52189acd41"
+    },
+    {
+      "path": "lib/fabric/classify.ts",
+      "bytes": 15345,
+      "sha256": "c8f4f0313e8d402ad776328170d6aa585e2289b02d05f8627d684fe7183dafa8"
+    },
+    {
+      "path": "lib/fabric/data.ts",
+      "bytes": 5427,
+      "sha256": "ec1a18646f1d40e64864cfef475e18735c1973306e3d22b7b250446a9a1df609"
+    },
+    {
+      "path": "lib/fabric/engine.ts",
+      "bytes": 11805,
+      "sha256": "8dc971fdf30debbaafde4876c15e9458d36c5ce9f73eeae284f21e68b6edcac4"
+    },
+    {
+      "path": "lib/fabric/nav.ts",
+      "bytes": 1298,
+      "sha256": "a4b6c89bcf6d037574acd6a883450f4c2a25d24c65f8eb8796cfa5edd4cea8d4"
+    },
+    {
+      "path": "lib/fabric/pack-loaders.generated.ts",
+      "bytes": 3531,
+      "sha256": "3dfb0bbf50a59422519d0de04f51d8d06b9b7de1d39b532cf20e436872040559"
+    },
+    {
+      "path": "lib/fabric/storage.ts",
+      "bytes": 18990,
+      "sha256": "16471c3b98c2b660d4fa20ba70c09a58360b358ec6f26616add5e551c88f5141"
+    },
+    {
+      "path": "lib/fabric/taxonomy.ts",
+      "bytes": 13400,
+      "sha256": "58ac40cdf3d011b8bb42e0290db384657f65ad8d4da9ede2769d1825561b0ce5"
+    },
+    {
+      "path": "lib/fabric/types.ts",
+      "bytes": 6318,
+      "sha256": "1e790ce1402bdf37752493e81668ade768580a6bbe4aa3d249d817c65d3abdd4"
+    },
+    {
+      "path": "lib/hooks/use-dismiss.ts",
+      "bytes": 4729,
+      "sha256": "b3243c39f363c9f9b33b528a2e720d5d48370e964b8c6c80747da423a4269a2a"
+    },
+    {
+      "path": "lib/hooks/use-hover-capable.ts",
+      "bytes": 747,
+      "sha256": "b5b9397bfa03859e04673c8f1817cf13ff55d2a9688955d6e0459ae70db90d06"
+    },
+    {
+      "path": "lib/hooks/use-hover-gesture.ts",
+      "bytes": 2215,
+      "sha256": "d381531c81668faf22cada58671451f4e7b53cf8d8718d6768e485139810755d"
+    },
+    {
+      "path": "lib/hooks/use-on-open.ts",
+      "bytes": 914,
+      "sha256": "40fe63a564880b119063066621dac972ad01da73481fc26996377565f82c0083"
+    },
+    {
+      "path": "lib/hooks/use-row-cursor.ts",
+      "bytes": 3755,
+      "sha256": "95afe34ad19661c405bbec11da7d32a7a84343e660492f46f578ead2aed8c750"
+    },
+    {
+      "path": "lib/hooks/use-tap-gesture.ts",
+      "bytes": 2446,
+      "sha256": "b91954bf9f1cdc1771b2a6eac815d2f4e2493cb2cde5f508b2d96509dd71aeee"
+    },
+    {
+      "path": "lib/hooks/use-touch-capable.ts",
+      "bytes": 1191,
+      "sha256": "7b9ad8640b0d775057826ba7d3121e3f670c49a41f0cea2db211eca94274d720"
+    },
+    {
+      "path": "lib/statistics/content.ts",
+      "bytes": 88869,
+      "sha256": "309e17e5cd71cfdeecefc222504c1b7c74fd9ce3726520b6dfdaa4b567f7ed9b"
+    },
+    {
+      "path": "lib/statistics/flagship.ts",
+      "bytes": 1377,
+      "sha256": "b9bd377612018a8f8dbe7db2740929a2bdb7f000b1be50764e3b5741de194c14"
+    },
+    {
+      "path": "lib/statistics/math.ts",
+      "bytes": 30316,
+      "sha256": "8c0ba7493dd73254eda2aae72a86ebefd3bf0de8c70dc5cdebeece64f6c8db47"
+    },
+    {
+      "path": "lib/statistics/source.ts",
+      "bytes": 4825,
+      "sha256": "a222427372635c32e5e712487df545bfefb26c5d638b6f79cb5f398cd4fc608c"
+    },
+    {
+      "path": "lib/case-studies.ts",
+      "bytes": 18632,
+      "sha256": "aab1166b7c1a799f1c7a5daa8f2c58ccca4fdb631c7bc20124b42a62cf84fc5a"
+    },
+    {
+      "path": "lib/command-search.ts",
+      "bytes": 1978,
+      "sha256": "ea60ead0c33849bec3f9878085f82dd6d6293c17ffbd92a3de4f8cbb5645a2d5"
+    },
+    {
+      "path": "lib/ease.ts",
+      "bytes": 1670,
+      "sha256": "bdfa2814cffaa4d974a5fc8614868ddb89e0310a0ead9e7105f2e8132b219ff3"
+    },
+    {
+      "path": "lib/exams.ts",
+      "bytes": 4329,
+      "sha256": "5837769bc5a42e16ceea806ff4940ba854965c35c247e27e850d1bf67106d3e0"
+    },
+    {
+      "path": "lib/experience.ts",
+      "bytes": 5364,
+      "sha256": "f00e7a0c8c5e864a390e316de9d35f9dc34f01a23c7725607cef824f345b6793"
+    },
+    {
+      "path": "lib/lab-storage.ts",
+      "bytes": 1695,
+      "sha256": "505e67cf5c342031b5ddf6bab3d7ef27a177cf890bbe2d3c88f896cc78d8fa12"
+    },
+    {
+      "path": "lib/presence-gate.tsx",
+      "bytes": 1868,
+      "sha256": "f3c3911933dda28679c108281da9acc37e8f98bc28d7bb79ff63bc0e3aaa9c74"
+    },
+    {
+      "path": "lib/services.ts",
+      "bytes": 3146,
+      "sha256": "2b683b5bb54098562215d3ac407316e408fbc33d5615d93fa24239ce293684ef"
+    },
+    {
+      "path": "lib/site.ts",
+      "bytes": 2476,
+      "sha256": "bed8bdfa966eaeba25fb5d21afb3ea1d087edbf6669a8a60c7b85a61ab7cb509"
+    },
+    {
+      "path": "lib/touch.ts",
+      "bytes": 5736,
+      "sha256": "f2a15c243c86c8bd1abb6e2e65a423b3a4c45cc1d797ebd83997f21cd1beadb9"
+    },
+    {
+      "path": "lib/utils.ts",
+      "bytes": 331,
+      "sha256": "b29401af97b0a82e1a61d79c3f60333b29616043e24f428d3dc686de23379050"
+    },
+    {
+      "path": "public/data-viz/figures/bar_baseline.svg",
+      "bytes": 2117,
+      "sha256": "25e42775d3ace2adc5b11c7f9a68225f77e8afe542a6512bd534395e1f679d01"
+    },
+    {
+      "path": "public/data-viz/figures/color_families.svg",
+      "bytes": 2349,
+      "sha256": "1c3ddfab23c6715e2f9b96a0c2842dce0674736279d1fa6f3d1091a79a8d2f9f"
+    },
+    {
+      "path": "public/data-viz/figures/dashboard_hierarchy.svg",
+      "bytes": 2082,
+      "sha256": "923c293c8ff3ecee2f2be79fdc92e897c7e9b49619487607b4e217b131a374cd"
+    },
+    {
+      "path": "public/data-viz/figures/dual_vs_panels.svg",
+      "bytes": 1710,
+      "sha256": "c2d28f8ffb09e6b6c155768810fe4f0ed97f691ad5680709cee65ce32f3d098f"
+    },
+    {
+      "path": "public/data-viz/figures/encoding_strength.svg",
+      "bytes": 1949,
+      "sha256": "357222e84507d5b49d5d1cc4711ea2bd2fff0f1354d59af03c49488e098e1f5f"
+    },
+    {
+      "path": "public/data-viz/figures/hist_shapes.svg",
+      "bytes": 2579,
+      "sha256": "a57a6d1620f090f28a43a57b500a41478c40976b171a88fa6aa38c77803679de"
+    },
+    {
+      "path": "public/data-viz/figures/kpi_card_anatomy.svg",
+      "bytes": 959,
+      "sha256": "7f9d1d80845429c68cf754ba9162d1e169f9f75e1223b8ff1053617d5d0622d8"
+    },
+    {
+      "path": "public/data-viz/figures/mean_hides_dist.svg",
+      "bytes": 1998,
+      "sha256": "5b000a0850f073eefbc86e359282e38c570c01da103e34dc5ec28abca575354c"
+    },
+    {
+      "path": "public/data-viz/figures/os_pipeline_full.svg",
+      "bytes": 2197,
+      "sha256": "18b7b57b0124091e179ea1457486bafe1d413d5698ea24052633228099ff5197"
+    },
+    {
+      "path": "public/data-viz/figures/simpson_paradox.svg",
+      "bytes": 1908,
+      "sha256": "9f8ae51e07d67a7489a2068ed5a2ad390c5e674381e60bd10f591de8d26a0798"
+    },
+    {
+      "path": "public/data-viz/figures/summary_stats_trap.svg",
+      "bytes": 2741,
+      "sha256": "02e6e3bcdf9dddfdde91e804172989d1acc719459d8687edb590d8d75dbdd179"
+    },
+    {
+      "path": "public/data-viz/figures/uncertainty_bars.svg",
+      "bytes": 1501,
+      "sha256": "2ce8c27a7a0607cb6db3c9673c5861c2c91ac5ef2226fd8cbb79731b3ff47a33"
+    },
+    {
+      "path": "public/images/hse/environmental-performance-1200.webp",
+      "bytes": 36372,
+      "sha256": "662b34227ca8463ac8808b383f08df87db2df20cf1e25b42b299a2646fc93a2e"
+    },
+    {
+      "path": "public/images/hse/environmental-performance-2000.webp",
+      "bytes": 73364,
+      "sha256": "4f82f6d1d52481c1e5a7bd4e8037b35bef677df349a5003487c1eec6bf1ee9ab"
+    },
+    {
+      "path": "public/images/hse/executive-overview-1200.webp",
+      "bytes": 47252,
+      "sha256": "7ace6d42c1808efb6ae17722b100e2a46614c8bce3d21d64af461d195d8e4554"
+    },
+    {
+      "path": "public/images/hse/executive-overview-2000.webp",
+      "bytes": 92266,
+      "sha256": "a5d8902ee3b9a7e14a85b122d0372f95e7ac68ad11765c9a69fa823548841899"
+    },
+    {
+      "path": "public/images/hse/incident-tracking-1200.webp",
+      "bytes": 43070,
+      "sha256": "498ba2618c9ce8cf9a52023acb24adfc89d03f27152eaf7646738ebeecf9305f"
+    },
+    {
+      "path": "public/images/hse/incident-tracking-2000.webp",
+      "bytes": 87672,
+      "sha256": "5912f5eb8a821ede31adcf7c7c72b54c793654fd42bf46e02052c0f0ea74f311"
+    },
+    {
+      "path": "public/images/hse/observations-actions-1200.webp",
+      "bytes": 56700,
+      "sha256": "7185acb34c0ab91923aff6463456704ec2904faca3085f927ffb62dde1d0ad0e"
+    },
+    {
+      "path": "public/images/hse/observations-actions-2000.webp",
+      "bytes": 119340,
+      "sha256": "5d455c48be4712ce74036b47fea3ab0678eed63589ad8d97ae665c4532458ed8"
+    },
+    {
+      "path": "public/images/hse/operational-excellence-1200.webp",
+      "bytes": 55310,
+      "sha256": "dc9e5d560da06ca67df6091e976a872b534d5c650eb1de902b83f394a35619d7"
+    },
+    {
+      "path": "public/images/hse/operational-excellence-2000.webp",
+      "bytes": 111246,
+      "sha256": "7dd4ca3acb12689d1ac5af51af46b0a32c65740055a56c91552c637691da27ef"
+    },
+    {
+      "path": "public/_headers",
+      "bytes": 995,
+      "sha256": "b2b995cfb615a36d1f2c72ff7edcfbbd3d41c348bef5c398b39e671c54d7d946"
+    },
+    {
+      "path": "public/.nojekyll",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "public/icon-512.png",
+      "bytes": 14627,
+      "sha256": "5393d655614b25aad032e87fba47bca466fd57c0bfe7f58cfe4a6e3965e6d490"
+    },
+    {
+      "path": "public/og.png",
+      "bytes": 38255,
+      "sha256": "fd60f77a5d835a8849f7f2e302888d5d0f3a1605acc4330ebb65a3f094e4ab14"
+    },
+    {
+      "path": "scripts/build-datasets.mjs",
+      "bytes": 14471,
+      "sha256": "0ff9f6a9e95e24aee3c867d888203dd57d0b70e3b361c5a27b27d433b4be97bb"
+    },
+    {
+      "path": "scripts/export-segment-aliases.mjs",
+      "bytes": 1692,
+      "sha256": "17845d079fce389c33a73aa03b32eff58b8515a4342e67ab8de3dd79cbac8a47"
+    },
+    {
+      "path": "scripts/fabric-report.mjs",
+      "bytes": 16123,
+      "sha256": "2398bb644ad8a3276352048f5daf282468f356510afd3c8cf2e8887dac26b026"
+    },
+    {
+      "path": "scripts/generate-statistics-docs.mjs",
+      "bytes": 23119,
+      "sha256": "1199ba3bd51af2a1de7c71b77ae50a35b783cacdcca67efb22ed44efa255d3ff"
+    },
+    {
+      "path": "scripts/import-fabric-bank.mjs",
+      "bytes": 21916,
+      "sha256": "a45d1dfe70b6abe50ad50bbb2a7282be0a391d705c6648f4c5b410c7db883876"
+    },
+    {
+      "path": "scripts/import-notion-data-viz.mjs",
+      "bytes": 32707,
+      "sha256": "42c3181a0dcc36c8053ba5036674b46a350349822256fd43c1e271742719b56f"
+    },
+    {
+      "path": "scripts/import-notion-statistics.mjs",
+      "bytes": 35750,
+      "sha256": "1f86db40a4ea2aabd15169786e0ccc5f27946bc63acedc8d21260e6412eafabf"
+    },
+    {
+      "path": "scripts/install-beui.mjs",
+      "bytes": 3857,
+      "sha256": "8a6018942b251092ca418a4f363b9cbbf2449642b6f8fb21950008f0f620f349"
+    },
+    {
+      "path": "scripts/measure-payload.mjs",
+      "bytes": 1922,
+      "sha256": "fc5c0c44a3669a39926c8a9e89b92967b090d56e69c57e73888de4e57ae5b0d2"
+    },
+    {
+      "path": "scripts/prepare-images.mjs",
+      "bytes": 4026,
+      "sha256": "9d2023600f11f6db19baa19ac7f5307f8c800009131294e34c047a3e6ba273e2"
+    },
+    {
+      "path": "scripts/serve-out.mjs",
+      "bytes": 2753,
+      "sha256": "d6436aef97b1a04dc3bd8d5354cd5453757ef97c0ce2d446582b21f5cb1ab515"
+    },
+    {
+      "path": "scripts/validate-data-viz.mjs",
+      "bytes": 18442,
+      "sha256": "5865663ef4b9ae5a1b873fdcc30b291441483458a27990ee63d15f384be7d755"
+    },
+    {
+      "path": "scripts/verify-statistics.mjs",
+      "bytes": 11145,
+      "sha256": "4d786e03d79a78a792a94d060dc11ff194e428cbe4ecfc8ee7fede77b9c3975d"
+    },
+    {
+      "path": "tests/data-viz/chart-math.test.mjs",
+      "bytes": 5175,
+      "sha256": "265cd8a1589f0a1b5989796c4e151bbbe08881dd4d661bc308548891fb4dbbea"
+    },
+    {
+      "path": "tests/data-viz/content.test.mjs",
+      "bytes": 7990,
+      "sha256": "e1ba49f88993dbff290e4b5611ab4f007e5f5e4db9fe8b4353a08746e2c2390b"
+    },
+    {
+      "path": "tests/data-viz/decision.test.mjs",
+      "bytes": 5558,
+      "sha256": "633c19739b07979d23200b21987d9a6b758eb4944a3619ca1305e5e545fab3c6"
+    },
+    {
+      "path": "tests/data-viz/practice.test.mjs",
+      "bytes": 2041,
+      "sha256": "dbfc4971357bd5f4626c1cdc83c87f15042d35751b23d052ed759669f3e990ca"
+    },
+    {
+      "path": "tests/fabric/bank.test.mjs",
+      "bytes": 11864,
+      "sha256": "8cac881decab7c5c31ff8723547c3bc1513fa8047261240dad28608441c27f43"
+    },
+    {
+      "path": "tests/fabric/e2e.mjs",
+      "bytes": 23196,
+      "sha256": "f0a7e5432882780da37371cee28e98b1c68200e4568a1ab42fa9542f5a341b1b"
+    },
+    {
+      "path": "tests/fabric/scoring.test.mjs",
+      "bytes": 11903,
+      "sha256": "f394098035324eb0ed14ae3c68d042fe597e38308e4398cdd01800cf8c756a07"
+    },
+    {
+      "path": "tests/statistics/e2e.mjs",
+      "bytes": 20215,
+      "sha256": "90d214a2dd893e843d488cfc5892df7d6e582594eb625174a9230486312b891a"
+    },
+    {
+      "path": "tests/statistics/math.test.mjs",
+      "bytes": 12160,
+      "sha256": "c1615b7e310c8da54fb185cd496da9a4d660e30cd12e73fa6d7b4841fe034a72"
+    },
+    {
+      "path": ".gitignore",
+      "bytes": 530,
+      "sha256": "e6f49595e098e06bbce8d48ae707fd31eda8da46b394b540e697091e83246aef"
+    },
+    {
+      "path": "eslint.config.mjs",
+      "bytes": 947,
+      "sha256": "17e2391997761da594d68d9ebcf484e62024a97829b193e838591ab78da73c64"
+    },
+    {
+      "path": "next-env.d.ts",
+      "bytes": 288,
+      "sha256": "1862ac4bbbc5192d4bf562161df66ea547ed3e67173100656ab606ae9797db2b"
+    },
+    {
+      "path": "next.config.ts",
+      "bytes": 713,
+      "sha256": "41b1839253f03e60ae77dbca7b82929d3715bc4c41f5a136a7963b315065ba99"
+    },
+    {
+      "path": "package-lock.json",
+      "bytes": 274153,
+      "sha256": "abf3b07600dabd4255c1d6e7d3afb72ab54c91396122a8dd6903546aedbdaf62"
+    },
+    {
+      "path": "package.json",
+      "bytes": 2279,
+      "sha256": "ab36433d4a4d6a85e06cd3d8c01756e40db5900b815011d99bb03745acb96035"
+    },
+    {
+      "path": "tsconfig.json",
+      "bytes": 754,
+      "sha256": "fb3bc95e08fa35e38f04af07cc11bd82098cf1835764c3f9461fc3905e42b4f1"
+    },
+    {
+      "path": "tsconfig.tsbuildinfo",
+      "bytes": 168681,
+      "sha256": "34b3c940dc588a1dfc0610bde7604979104644a6b3a82c836ee72bf702f0c010"
+    },
+    {
+      "path": "wrangler.jsonc",
+      "bytes": 748,
+      "sha256": "ee60e9418b9bc043c284dc79dadbcc01ae2103865e9950ec58fdf8e3b6f3d380"
+    }
+  ]
+}

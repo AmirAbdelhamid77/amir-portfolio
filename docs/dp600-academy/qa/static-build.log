@@ -1,0 +1,113 @@
+▲ Next.js 16.4.3 (webpack)
+✓ Running next.config.ts took 85ms
+- Experiments (use with caution):
+  · cpus: 1
+  ⨯ webpackBuildWorker
+  ✓ workerThreads
+
+  Creating an optimized production build ...
+✓ Compiled successfully in 26.0s
+  Running TypeScript ...
+  Finished TypeScript in 22.6s ...
+  Collecting page data using 1 worker ...
+  Generating static pages using 1 worker (0/121) ...
+  Finalizing page optimization ...
+  Collecting build traces ...
+
+Route (app)
+┌ ○ /
+├ ○ /_not-found
+├ ○ /about
+├ ○ /apple-icon.png
+├ ○ /contact
+├ ○ /experience
+├ ○ /explore
+├ ○ /explore/charts
+├ ○ /explore/charts/bar
+├ ○ /explore/charts/box
+├ ○ /explore/charts/dot
+├ ○ /explore/charts/histogram
+├ ○ /explore/charts/line
+├ ○ /explore/charts/scatter
+├ ○ /explore/choose
+├ ○ /explore/dashboards
+├ ○ /explore/integrity
+├ ○ /explore/specialty
+├ ○ /icon.svg
+├ ○ /lab
+├   /lab/[slug]
+│ ├ ● /lab/sql
+│ ├ ● /lab/power-bi
+│ ├ ● /lab/excel
+│ └ ● [+3 more paths]
+├ ○ /lab/dp-600
+├ ○ /lab/dp-600/cases
+├ ○ /lab/dp-600/explore
+├ ○ /lab/dp-600/mock
+├ ○ /lab/dp-600/practice
+├ ○ /lab/dp-600/progress
+├ ○ /lab/dp-600/resources
+├ ○ /lab/dp-600/review
+├ ○ /lab/dp-600/study
+├ ○ /learn
+├   /learn/[slug]
+│ ├ ● /learn/overview
+│ ├ ● /learn/foundations
+│ ├ ● /learn/audience-story
+│ └ ● [+13 more paths]
+├ ○ /learn/ar
+├   /learn/ar/[slug]
+│ ├ ● /learn/ar/histogram
+│ ├ ● /learn/ar/box-plot
+│ ├ ● /learn/ar/scatter-plot
+│ └ ● [+8 more paths]
+├ ○ /learn/catalogue
+├   /learn/chapter/[number]
+│ ├ ● /learn/chapter/01
+│ ├ ● /learn/chapter/02
+│ ├ ● /learn/chapter/03
+│ └ ● [+7 more paths]
+├ ○ /learn/dp-600
+├ ○ /learn/dp-600/ingestion
+├ ○ /learn/method
+├ ○ /learn/statistics
+├ ○ /learn/statistics/atlas
+├ ○ /learn/statistics/cheatsheet
+├ ○ /learn/statistics/decision
+├ ○ /learn/statistics/formulas
+├ ○ /learn/statistics/glossary
+├   /learn/statistics/journey/[slug]
+│ ├ ● /learn/statistics/journey/foundations
+│ ├ ● /learn/statistics/journey/describe
+│ ├ ● /learn/statistics/journey/probability
+│ └ ● [+6 more paths]
+├ ○ /learn/statistics/labs
+├   /learn/statistics/labs/[slug]
+│ ├ ● /learn/statistics/labs/center-spread
+│ ├ ● /learn/statistics/labs/binomial
+│ ├ ● /learn/statistics/labs/normal
+│ └ ● [+12 more paths]
+├ ○ /learn/statistics/source
+├ ○ /practice
+├ ○ /practice/catalogue
+├ ○ /robots.txt
+├ ○ /search
+├ ○ /services
+├ ○ /sitemap.xml
+├ ○ /work
+└   /work/[slug]
+  ├ ● /work/hse-analytics
+  ├ ● /work/ibm-capstone
+  └ ● /work/adas
+
+
+○  (Static)  prerendered as static content
+●  (SSG)     prerendered as static HTML (uses generateStaticParams)
+
+⚠ Warning: Next.js inferred your workspace root, but it may not be correct.
+ We detected multiple lockfiles and selected the directory of D:\BeUI\amir-portfolio\package-lock.json as the root directory.
+ To silence this warning, set `outputFileTracingRoot` in your Next.js config, or consider removing one of the lockfiles if it's not needed.
+   See https://nextjs.org/docs/app/api-reference/config/next-config-js/output#caveats for more information.
+ Detected additional lockfiles: 
+   * D:\BeUI\amir-portfolio\build\dp600-academy-preview\package-lock.json
+

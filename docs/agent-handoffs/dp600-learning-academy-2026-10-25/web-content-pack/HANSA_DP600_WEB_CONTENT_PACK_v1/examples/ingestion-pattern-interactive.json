@@ -1,0 +1,85 @@
+{
+  "id": "dp600-interaction-shortcut-mirroring-copy",
+  "origin": "curated-interactive-example-derived-from-user-pdf",
+  "source_pages": [
+    10
+  ],
+  "source_section_id": "dp600-c1-s03",
+  "language": "en",
+  "publish_status": "demo-only-scientific-review-pending",
+  "blocks": [
+    {
+      "kind": "learning_objective",
+      "text": "Choose the right Fabric data-access or replication pattern based on the scenario."
+    },
+    {
+      "kind": "comparison_table",
+      "columns": [
+        "Pattern",
+        "Movement",
+        "Freshness",
+        "Typical use"
+      ],
+      "rows": [
+        {
+          "id": "shortcut",
+          "cells": [
+            "Shortcut",
+            "No — points to existing data",
+            "Reads current accessible source state",
+            "Reuse across workspaces or external cloud sources"
+          ]
+        },
+        {
+          "id": "mirroring",
+          "cells": [
+            "Mirroring",
+            "Managed replication into OneLake",
+            "Near-real-time",
+            "Replica of an operational database"
+          ]
+        },
+        {
+          "id": "copy",
+          "cells": [
+            "Copy (pipeline/dataflow)",
+            "Physical copy",
+            "As of last successful run",
+            "Transform or land source data on a schedule"
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "single_choice_scenario",
+      "id": "dp600-demo-quiz-1",
+      "question": "A team must use Gold tables already stored in another workspace without creating a duplicate. Which pattern fits best?",
+      "options": [
+        {
+          "id": "shortcut",
+          "label": "Shortcut"
+        },
+        {
+          "id": "mirroring",
+          "label": "Mirroring"
+        },
+        {
+          "id": "copy",
+          "label": "Copy activity"
+        }
+      ],
+      "correct_option_id": "shortcut",
+      "feedback": {
+        "shortcut": "Correct. A shortcut references the existing tables without copying them.",
+        "mirroring": "Mirroring creates and maintains a replica, which is not needed when tables can be referenced in place.",
+        "copy": "Copy creates a second physical copy, contrary to the no-duplication requirement."
+      }
+    },
+    {
+      "kind": "source_reference",
+      "pdf_path": "source/DP-600-Study-Guide-EN.pdf",
+      "page": 10,
+      "source_section_id": "dp600-c1-s03"
+    }
+  ]
+}

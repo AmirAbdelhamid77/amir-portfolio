@@ -1,0 +1,590 @@
+{
+  "version": "1.0-local",
+  "date": "2026-10-25",
+  "authority": "Current owner request > AGENTS/master/adaptive/Atlas > actual code > this registry > supplied recommendation scores",
+  "selectionOrder": [
+    "plain text/table",
+    "existing Hansa components",
+    "appropriate free beUI",
+    "small native implementation",
+    "specialist library with evidence"
+  ],
+  "notARuntimeLoader": true,
+  "existingRuntimeRegistries": [
+    "components/statistics/visual-registry.tsx"
+  ],
+  "atlasGate": "Only reviewed published semantic assertions; TOC/sequence separate; no renderer installed",
+  "items": [
+    {
+      "id": "dependency-trace",
+      "name": "Dependency Trace",
+      "context": "semantic-connections",
+      "upstreamRecommendation": "adopt-pilot",
+      "heuristicFitNotBenchmark": 9,
+      "localDecision": "defer",
+      "implementation": "not-installed",
+      "route": null,
+      "localPaths": [
+        "components/statistics/concept-atlas.tsx",
+        "docs/knowledge-atlas/ARCHITECTURE.md"
+      ],
+      "reason": "Radial fallback exists, correcting manual-only claim. SVG nodes lack keyboard selection; connection label/type are unused; no evidence/publication gate. No eligible published Atlas edge set.",
+      "sourceUrl": "https://easyui.site/components/dependency-trace",
+      "registryTarget": null,
+      "registryDependencies": [
+        "framer-motion"
+      ],
+      "sourceSha256": "e9036a8b10c428a3381b4a1765922733f9ac7e332dc9300ccd2ea31450069fa1",
+      "license": "MIT upstream; no upstream implementation copied",
+      "runtimeCompatibility": "not runtime-tested upstream; requires client boundary, token adaptation and framer-motion import resolution",
+      "a11yStatus": "See QA_RESULTS.json for native pilot only; upstream source inspection is not certification",
+      "sourceEndpoint": "https://easyui.site/source/dependency-trace.json",
+      "installStatus": "No installer executed; use inspected source. /r/{slug}.json is not an established EasyUI endpoint."
+    },
+    {
+      "id": "smart-comparison",
+      "name": "Smart Comparison",
+      "context": "decision-comparison",
+      "upstreamRecommendation": "adopt-pilot",
+      "heuristicFitNotBenchmark": 9,
+      "localDecision": "implemented-native-pilot",
+      "implementation": "original-native-pattern",
+      "route": "/learn/dp-600/ingestion/",
+      "localPaths": [
+        "components/academy/pattern-comparison.tsx",
+        "lib/academy/pattern-comparison.ts",
+        "app/learn/dp-600/ingestion/page.tsx"
+      ],
+      "reason": "Original Hansa implementation of search/differences pattern; preserves PATTERNS text, exposes caveats and evidence. Native semantic table wins over pricing-oriented upstream or virtualized beUI table.",
+      "sourceUrl": "https://easyui.site/components/smart-comparison",
+      "registryTarget": null,
+      "registryDependencies": [
+        "framer-motion",
+        "lucide-react"
+      ],
+      "sourceSha256": "08d4dd9fb267b52d04bf40b7692d99b39204ba142f1c02bfc4d1365839fa3e7b",
+      "license": "MIT upstream; no upstream implementation copied",
+      "runtimeCompatibility": "not runtime-tested upstream; requires client boundary, token adaptation and framer-motion import resolution",
+      "a11yStatus": "See QA_RESULTS.json for native pilot only; upstream source inspection is not certification",
+      "sourceEndpoint": "https://easyui.site/source/smart-comparison.json",
+      "installStatus": "No installer executed; use inspected source. /r/{slug}.json is not an established EasyUI endpoint."
+    },
+    {
+      "id": "code-snippet-deck",
+      "name": "Code Snippet Deck",
+      "context": "code-variants",
+      "upstreamRecommendation": "adopt-pilot",
+      "heuristicFitNotBenchmark": 9,
+      "localDecision": "proposed-content-gated",
+      "implementation": "not-installed",
+      "route": null,
+      "localPaths": [
+        "components/data-viz/source-blocks.tsx",
+        "lib/academy/ingestion.ts"
+      ],
+      "reason": "No validated SQL/DAX/PySpark side-by-side lesson in the ingestion pilot. Existing static code display suffices elsewhere. Upstream clipboard success is optimistic; adapt syntax labels and error handling before use.",
+      "sourceUrl": "https://easyui.site/components/code-snippet-deck",
+      "registryTarget": null,
+      "registryDependencies": [
+        "framer-motion",
+        "lucide-react"
+      ],
+      "sourceSha256": "9e5fa89be1904aaef2f5c2c057a11c8da159ad04f356f9dbb08112b00f9a8262",
+      "license": "MIT upstream; no upstream implementation copied",
+      "runtimeCompatibility": "not runtime-tested upstream; requires client boundary, token adaptation and framer-motion import resolution",
+      "a11yStatus": "See QA_RESULTS.json for native pilot only; upstream source inspection is not certification",
+      "sourceEndpoint": "https://easyui.site/source/code-snippet-deck.json",
+      "installStatus": "No installer executed; use inspected source. /r/{slug}.json is not an established EasyUI endpoint."
+    },
+    {
+      "id": "product-tour",
+      "name": "Product Tour",
+      "context": "user-invoked-onboarding",
+      "upstreamRecommendation": "adopt-pilot",
+      "heuristicFitNotBenchmark": 8,
+      "localDecision": "proposed-need-gated",
+      "implementation": "not-installed",
+      "route": null,
+      "localPaths": [
+        "components/academy/ingestion-lab.tsx",
+        "docs/knowledge-atlas/ARCHITECTURE.md"
+      ],
+      "reason": "Upstream has focus return, Escape and reduced-motion; Tab trap queries buttons only, custom links/inputs need auditing. No demonstrated need in four-section lab; Atlas unbuilt.",
+      "sourceUrl": "https://easyui.site/components/product-tour",
+      "registryTarget": null,
+      "registryDependencies": [
+        "framer-motion",
+        "lucide-react"
+      ],
+      "sourceSha256": "207912b1711904ff4ce4b749ffba2d7520e88a9f35619b47001574bcf514ce76",
+      "license": "MIT upstream; no upstream implementation copied",
+      "runtimeCompatibility": "not runtime-tested upstream; requires client boundary, token adaptation and framer-motion import resolution",
+      "a11yStatus": "See QA_RESULTS.json for native pilot only; upstream source inspection is not certification",
+      "sourceEndpoint": "https://easyui.site/source/product-tour.json",
+      "installStatus": "No installer executed; use inspected source. /r/{slug}.json is not an established EasyUI endpoint."
+    },
+    {
+      "id": "scroll-progress-nav",
+      "name": "Scroll Progress Navigation",
+      "context": "article-navigation",
+      "upstreamRecommendation": "adopt-pilot",
+      "heuristicFitNotBenchmark": 8,
+      "localDecision": "prefer-local",
+      "implementation": "not-installed",
+      "route": null,
+      "localPaths": [
+        "app/learn/dp-600/ingestion/page.tsx",
+        "components/data-viz/lesson-view.tsx",
+        "components/statistics/reading-progress.tsx"
+      ],
+      "reason": "Correct slug scroll-progress-nav; existing lesson anchors and course shell are sufficient here. Upstream forces smooth scrolling and has no local reduced-motion hook. Existing Statistics ReadingProgress already supplies a scroll indicator without Lenis.",
+      "sourceUrl": "https://easyui.site/components/scroll-progress-navigation",
+      "registryTarget": null,
+      "registryDependencies": [
+        "framer-motion",
+        "lucide-react"
+      ],
+      "sourceSha256": "2fbeaf4551d4319a35e63dd2e81912de8dc1a6c2444269b89dd0440ef7bd0052",
+      "license": "MIT upstream; no upstream implementation copied",
+      "runtimeCompatibility": "not runtime-tested upstream; requires client boundary, token adaptation and framer-motion import resolution",
+      "a11yStatus": "See QA_RESULTS.json for native pilot only; upstream source inspection is not certification",
+      "sourceEndpoint": "https://easyui.site/source/scroll-progress-nav.json",
+      "installStatus": "No installer executed; use inspected source. /r/{slug}.json is not an established EasyUI endpoint."
+    },
+    {
+      "id": "activity-heatmap",
+      "name": "Activity Heatmap",
+      "context": "hourly-activity",
+      "upstreamRecommendation": "conditional",
+      "heuristicFitNotBenchmark": 8,
+      "localDecision": "conditional",
+      "implementation": "not-installed",
+      "route": null,
+      "localPaths": [
+        "components/fabric/progress-panel.tsx"
+      ],
+      "reason": "Daily calendar overlaps beUI heat-calendar; hourly mode is distinct only with truthful timestamped activity and privacy/retention rules.",
+      "sourceUrl": "https://easyui.site/components/activity-heatmap",
+      "registryTarget": null,
+      "registryDependencies": [
+        "framer-motion"
+      ],
+      "sourceSha256": "dc35d0b7c5c8463365a4e63869d49532641034b468705409412b7b9be9707a82",
+      "license": "MIT upstream; no upstream implementation copied",
+      "runtimeCompatibility": "not runtime-tested upstream; requires client boundary, token adaptation and framer-motion import resolution",
+      "a11yStatus": "See QA_RESULTS.json for native pilot only; upstream source inspection is not certification",
+      "sourceEndpoint": "https://easyui.site/source/activity-heatmap.json",
+      "installStatus": "No installer executed; use inspected source. /r/{slug}.json is not an established EasyUI endpoint."
+    },
+    {
+      "id": "stepper",
+      "name": "Stepper",
+      "context": "guided-process",
+      "upstreamRecommendation": "conditional",
+      "heuristicFitNotBenchmark": 8,
+      "localDecision": "prefer-local",
+      "implementation": "not-installed",
+      "route": null,
+      "localPaths": [
+        "components/academy/ingestion-lab.tsx"
+      ],
+      "reason": "Multi-stage workflow differs from numeric beUI adaptive-stepper, but existing lesson already has numbered stages and progress. Not a scoring/session engine.",
+      "sourceUrl": "https://easyui.site/components/stepper",
+      "registryTarget": null,
+      "registryDependencies": [
+        "framer-motion"
+      ],
+      "sourceSha256": "90bfe777445e559a8df104a6bd6ec9867bd8ed529800f3d3d60955d36b3eb46c",
+      "license": "MIT upstream; no upstream implementation copied",
+      "runtimeCompatibility": "not runtime-tested upstream; requires client boundary, token adaptation and framer-motion import resolution",
+      "a11yStatus": "See QA_RESULTS.json for native pilot only; upstream source inspection is not certification",
+      "sourceEndpoint": "https://easyui.site/source/stepper.json",
+      "installStatus": "No installer executed; use inspected source. /r/{slug}.json is not an established EasyUI endpoint."
+    },
+    {
+      "id": "focus-mode",
+      "name": "Focus Mode",
+      "context": "focused-reading",
+      "upstreamRecommendation": "conditional",
+      "heuristicFitNotBenchmark": 7,
+      "localDecision": "defer",
+      "implementation": "not-installed",
+      "route": null,
+      "localPaths": [
+        "components/academy/ingestion-lab.tsx"
+      ],
+      "reason": "No demonstrated distraction issue; requires focus/inert/content-equivalence audit before isolating content.",
+      "sourceUrl": "https://easyui.site/components/focus-mode",
+      "registryTarget": null,
+      "registryDependencies": [
+        "framer-motion",
+        "lucide-react"
+      ],
+      "sourceSha256": "a29e48373a92e4d3fc364cd174001f5440abc75ad32bb7ae1589366526d5eb45",
+      "license": "MIT upstream; no upstream implementation copied",
+      "runtimeCompatibility": "not runtime-tested upstream; requires client boundary, token adaptation and framer-motion import resolution",
+      "a11yStatus": "See QA_RESULTS.json for native pilot only; upstream source inspection is not certification",
+      "sourceEndpoint": "https://easyui.site/source/focus-mode.json",
+      "installStatus": "No installer executed; use inspected source. /r/{slug}.json is not an established EasyUI endpoint."
+    },
+    {
+      "id": "activity-feed",
+      "name": "Activity Feed",
+      "context": "event-log",
+      "upstreamRecommendation": "conditional",
+      "heuristicFitNotBenchmark": 7,
+      "localDecision": "conditional",
+      "implementation": "not-installed",
+      "route": null,
+      "localPaths": [
+        "components/agents/agent-activity/index.tsx"
+      ],
+      "reason": "beUI Agent Activity supports structured execution traces and chronological mixes, narrowing claimed gap. Only add for specific non-agent categories with real or labeled simulated events.",
+      "sourceUrl": "https://easyui.site/components/activity-feed",
+      "registryTarget": null,
+      "registryDependencies": [
+        "framer-motion",
+        "lucide-react"
+      ],
+      "sourceSha256": "f8699647b7611e06fbb3b3e55b8a42d3468d8ebbcfe698594a1ebb90e066b5fe",
+      "license": "MIT upstream; no upstream implementation copied",
+      "runtimeCompatibility": "not runtime-tested upstream; requires client boundary, token adaptation and framer-motion import resolution",
+      "a11yStatus": "See QA_RESULTS.json for native pilot only; upstream source inspection is not certification",
+      "sourceEndpoint": "https://easyui.site/source/activity-feed.json",
+      "installStatus": "No installer executed; use inspected source. /r/{slug}.json is not an established EasyUI endpoint."
+    },
+    {
+      "id": "live-line-chart",
+      "name": "Live Line Chart",
+      "context": "streaming-simulation",
+      "upstreamRecommendation": "conditional",
+      "heuristicFitNotBenchmark": 7,
+      "localDecision": "conditional",
+      "implementation": "not-installed",
+      "route": null,
+      "localPaths": [
+        "components/statistics/chart-kit.tsx"
+      ],
+      "reason": "Distinct pause/scrub stream pattern; no live source in current lesson. Subscription cleanup, deterministic labeling and table fallback required.",
+      "sourceUrl": "https://easyui.site/components/live-line-chart",
+      "registryTarget": null,
+      "registryDependencies": [
+        "framer-motion"
+      ],
+      "sourceSha256": "fadf78c95541831a2b33aec37801d44bba528bdda4147885ac4b0b675f20b6ed",
+      "license": "MIT upstream; no upstream implementation copied",
+      "runtimeCompatibility": "not runtime-tested upstream; requires client boundary, token adaptation and framer-motion import resolution",
+      "a11yStatus": "See QA_RESULTS.json for native pilot only; upstream source inspection is not certification",
+      "sourceEndpoint": "https://easyui.site/source/live-line-chart.json",
+      "installStatus": "No installer executed; use inspected source. /r/{slug}.json is not an established EasyUI endpoint."
+    },
+    {
+      "id": "interactive-area-chart",
+      "name": "Interactive Area Chart",
+      "context": "time-series",
+      "upstreamRecommendation": "conditional",
+      "heuristicFitNotBenchmark": 6,
+      "localDecision": "prefer-local",
+      "implementation": "not-installed",
+      "route": null,
+      "localPaths": [
+        "components/statistics/charts/density.tsx",
+        "components/data-viz/figures/baseline.tsx"
+      ],
+      "reason": "Morphing does not alone improve learning; existing SVG/chart wrappers preferred. No current validated time-horizon dataset requires this.",
+      "sourceUrl": "https://easyui.site/components/interactive-area-chart",
+      "registryTarget": null,
+      "registryDependencies": [
+        "framer-motion"
+      ],
+      "sourceSha256": "3b53006b54e95c40bf6b69fc479310486b1b864ec61d4ea073b8698ee2a2b8a9",
+      "license": "MIT upstream; no upstream implementation copied",
+      "runtimeCompatibility": "not runtime-tested upstream; requires client boundary, token adaptation and framer-motion import resolution",
+      "a11yStatus": "See QA_RESULTS.json for native pilot only; upstream source inspection is not certification",
+      "sourceEndpoint": "https://easyui.site/source/interactive-area-chart.json",
+      "installStatus": "No installer executed; use inspected source. /r/{slug}.json is not an established EasyUI endpoint."
+    },
+    {
+      "id": "advanced-data-table",
+      "name": "Advanced Data Table",
+      "context": "large-reference-table",
+      "upstreamRecommendation": "evaluate-parity",
+      "heuristicFitNotBenchmark": 6,
+      "localDecision": "evaluate-parity",
+      "implementation": "not-installed",
+      "route": null,
+      "localPaths": [
+        "components/fabric/explorer.tsx",
+        "components/statistics/chart-kit.tsx"
+      ],
+      "reason": "beUI table adds virtualization, sort/select/resize/reorder. EasyUI facets/pagination/subrows distinct; neither installed. Benchmark actual 1,000+ row task before replacement.",
+      "sourceUrl": "https://easyui.site/components/advanced-data-table",
+      "registryTarget": null,
+      "registryDependencies": [
+        "framer-motion",
+        "lucide-react"
+      ],
+      "sourceSha256": "f13330fc655e6d95aa130a568753093d1f0f9d3db0d2b6752c1c9ec99b61e23e",
+      "license": "MIT upstream; no upstream implementation copied",
+      "runtimeCompatibility": "not runtime-tested upstream; requires client boundary, token adaptation and framer-motion import resolution",
+      "a11yStatus": "See QA_RESULTS.json for native pilot only; upstream source inspection is not certification",
+      "sourceEndpoint": "https://easyui.site/source/advanced-data-table.json",
+      "installStatus": "No installer executed; use inspected source. /r/{slug}.json is not an established EasyUI endpoint."
+    },
+    {
+      "id": "selection-basket",
+      "name": "Selection Basket",
+      "context": "multi-selection",
+      "upstreamRecommendation": "optional",
+      "heuristicFitNotBenchmark": 6,
+      "localDecision": "defer",
+      "implementation": "not-installed",
+      "route": null,
+      "localPaths": [
+        "components/fabric/explorer.tsx"
+      ],
+      "reason": "Existing selection/action state first; no proven compare-queue task.",
+      "sourceUrl": "https://easyui.site/components/selection-basket",
+      "registryTarget": null,
+      "registryDependencies": [
+        "framer-motion",
+        "lucide-react"
+      ],
+      "sourceSha256": "920536f5864895da0664c2aeee13cc824c2df16ab262ffa6679346816b6e2792",
+      "license": "MIT upstream; no upstream implementation copied",
+      "runtimeCompatibility": "not runtime-tested upstream; requires client boundary, token adaptation and framer-motion import resolution",
+      "a11yStatus": "See QA_RESULTS.json for native pilot only; upstream source inspection is not certification",
+      "sourceEndpoint": "https://easyui.site/source/selection-basket.json",
+      "installStatus": "No installer executed; use inspected source. /r/{slug}.json is not an established EasyUI endpoint."
+    },
+    {
+      "id": "expandable-data-row",
+      "name": "Expandable Data Row",
+      "context": "evidence-details",
+      "upstreamRecommendation": "optional",
+      "heuristicFitNotBenchmark": 5,
+      "localDecision": "prefer-local",
+      "implementation": "not-installed",
+      "route": null,
+      "localPaths": [
+        "components/fabric/explorer.tsx"
+      ],
+      "reason": "Native details or existing rows first; avoid second nested table system.",
+      "sourceUrl": "https://easyui.site/components/expandable-data-row",
+      "registryTarget": null,
+      "registryDependencies": [
+        "framer-motion",
+        "lucide-react"
+      ],
+      "sourceSha256": "d2dc66306e915e63189938c3e052fa3cdcaefed3f7c287c71a299705c8a6b0f0",
+      "license": "MIT upstream; no upstream implementation copied",
+      "runtimeCompatibility": "not runtime-tested upstream; requires client boundary, token adaptation and framer-motion import resolution",
+      "a11yStatus": "See QA_RESULTS.json for native pilot only; upstream source inspection is not certification",
+      "sourceEndpoint": "https://easyui.site/source/expandable-data-row.json",
+      "installStatus": "No installer executed; use inspected source. /r/{slug}.json is not an established EasyUI endpoint."
+    },
+    {
+      "id": "metric-hud",
+      "name": "Metric HUD",
+      "context": "metric-drilldown",
+      "upstreamRecommendation": "optional",
+      "heuristicFitNotBenchmark": 5,
+      "localDecision": "prefer-local",
+      "implementation": "not-installed",
+      "route": null,
+      "localPaths": [
+        "components/fabric/ui.tsx"
+      ],
+      "reason": "Existing Meter/BarList covers current metrics; no scrub/time-window requirement.",
+      "sourceUrl": "https://easyui.site/components/metric-hud",
+      "registryTarget": null,
+      "registryDependencies": [
+        "framer-motion",
+        "lucide-react"
+      ],
+      "sourceSha256": "ed1f57f5f5ab45c00ae3b42c483e59f9ee971c5b044da6c9f3d30fa57b7a38bf",
+      "license": "MIT upstream; no upstream implementation copied",
+      "runtimeCompatibility": "not runtime-tested upstream; requires client boundary, token adaptation and framer-motion import resolution",
+      "a11yStatus": "See QA_RESULTS.json for native pilot only; upstream source inspection is not certification",
+      "sourceEndpoint": "https://easyui.site/source/metric-hud.json",
+      "installStatus": "No installer executed; use inspected source. /r/{slug}.json is not an established EasyUI endpoint."
+    },
+    {
+      "id": "density-lens",
+      "name": "Density Lens",
+      "context": "dense-detail",
+      "upstreamRecommendation": "experimental",
+      "heuristicFitNotBenchmark": 4,
+      "localDecision": "defer",
+      "implementation": "not-installed",
+      "route": null,
+      "localPaths": [
+        "docs/knowledge-atlas/ARCHITECTURE.md"
+      ],
+      "reason": "Pointer lens not essential information channel; mobile drill-down/Inspector better initial approach.",
+      "sourceUrl": "https://easyui.site/components/density-lens",
+      "registryTarget": null,
+      "registryDependencies": [
+        "framer-motion"
+      ],
+      "sourceSha256": "8f820dbc636aad74114dff3799e5a593dbe80a72eef8ef298f8d44b29df5aa3c",
+      "license": "MIT upstream; no upstream implementation copied",
+      "runtimeCompatibility": "not runtime-tested upstream; requires client boundary, token adaptation and framer-motion import resolution",
+      "a11yStatus": "See QA_RESULTS.json for native pilot only; upstream source inspection is not certification",
+      "sourceEndpoint": "https://easyui.site/source/density-lens.json",
+      "installStatus": "No installer executed; use inspected source. /r/{slug}.json is not an established EasyUI endpoint."
+    },
+    {
+      "id": "interactive-timeline",
+      "name": "Interactive Timeline",
+      "context": "chronology",
+      "upstreamRecommendation": "prefer-beui",
+      "heuristicFitNotBenchmark": 3,
+      "localDecision": "prefer-beui",
+      "implementation": "not-installed",
+      "route": null,
+      "localPaths": [
+        "docs/data-visualization/beui-component-decision-matrix.md"
+      ],
+      "reason": "Available beUI timeline already draggable/keyboard/reduced-motion; no telemetry-only gap established.",
+      "sourceUrl": "https://easyui.site/components/interactive-timeline",
+      "registryTarget": null,
+      "registryDependencies": [
+        "framer-motion",
+        "lucide-react"
+      ],
+      "sourceSha256": "e939d420579f018674e9f4cef9ffcbea596c41a1d7270d1e7d863e93281a66fb",
+      "license": "MIT upstream; no upstream implementation copied",
+      "runtimeCompatibility": "not runtime-tested upstream; requires client boundary, token adaptation and framer-motion import resolution",
+      "a11yStatus": "See QA_RESULTS.json for native pilot only; upstream source inspection is not certification",
+      "sourceEndpoint": "https://easyui.site/source/interactive-timeline.json",
+      "installStatus": "No installer executed; use inspected source. /r/{slug}.json is not an established EasyUI endpoint."
+    },
+    {
+      "id": "ai-agent-activity",
+      "name": "AI Agent Activity",
+      "context": "agent-trace",
+      "upstreamRecommendation": "prefer-beui",
+      "heuristicFitNotBenchmark": 2,
+      "localDecision": "prefer-beui",
+      "implementation": "not-installed",
+      "route": null,
+      "localPaths": [
+        "components/agents/agent-activity/index.tsx"
+      ],
+      "reason": "Existing agent activity covers structured traces. No duplicate installed.",
+      "sourceUrl": "https://easyui.site/components/ai-agent-activity",
+      "registryTarget": null,
+      "registryDependencies": [
+        "framer-motion",
+        "lucide-react"
+      ],
+      "sourceSha256": "12a2c2a5cac62225011c487b18ff143d975180bd1a4c95312bcc0d77c6768b7d",
+      "license": "MIT upstream; no upstream implementation copied",
+      "runtimeCompatibility": "not runtime-tested upstream; requires client boundary, token adaptation and framer-motion import resolution",
+      "a11yStatus": "See QA_RESULTS.json for native pilot only; upstream source inspection is not certification",
+      "sourceEndpoint": "https://easyui.site/source/ai-agent-activity.json",
+      "installStatus": "No installer executed; use inspected source. /r/{slug}.json is not an established EasyUI endpoint."
+    },
+    {
+      "id": "stat-card",
+      "name": "Stat Card",
+      "context": "metric-summary",
+      "upstreamRecommendation": "prefer-beui",
+      "heuristicFitNotBenchmark": 2,
+      "localDecision": "prefer-local",
+      "implementation": "not-installed",
+      "route": null,
+      "localPaths": [
+        "components/fabric/ui.tsx"
+      ],
+      "reason": "Existing Hansa metric primitives; do not use Pro as free alternative.",
+      "sourceUrl": "https://easyui.site/components/stat-card",
+      "registryTarget": null,
+      "registryDependencies": [
+        "framer-motion"
+      ],
+      "sourceSha256": "e4b948296b3cb0981fb93a439f77f23df45d33c4a7ffc63db93d265cdf864e5e",
+      "license": "MIT upstream; no upstream implementation copied",
+      "runtimeCompatibility": "not runtime-tested upstream; requires client boundary, token adaptation and framer-motion import resolution",
+      "a11yStatus": "See QA_RESULTS.json for native pilot only; upstream source inspection is not certification",
+      "sourceEndpoint": "https://easyui.site/source/stat-card.json",
+      "installStatus": "No installer executed; use inspected source. /r/{slug}.json is not an established EasyUI endpoint."
+    },
+    {
+      "id": "donut-chart",
+      "name": "Donut/Bar/Funnel Chart",
+      "context": "quantitative-comparison",
+      "upstreamRecommendation": "prefer-beui",
+      "heuristicFitNotBenchmark": 2,
+      "localDecision": "prefer-local-beui",
+      "implementation": "not-installed",
+      "route": null,
+      "localPaths": [
+        "components/charts/funnel-chart.tsx",
+        "components/statistics/charts/bars.tsx"
+      ],
+      "reason": "Already available source/wrappers; animation alone is not incremental capability.",
+      "sourceUrl": "https://easyui.site/components/donut-chart",
+      "registryTarget": null,
+      "registryDependencies": [
+        "framer-motion"
+      ],
+      "sourceSha256": "b6f9b59639eeff473b3ccfbba5417a13988a97f9c7c6365c3a307f2a39113f66",
+      "license": "MIT upstream; no upstream implementation copied",
+      "runtimeCompatibility": "not runtime-tested upstream; requires client boundary, token adaptation and framer-motion import resolution",
+      "a11yStatus": "See QA_RESULTS.json for native pilot only; upstream source inspection is not certification",
+      "sourceEndpoint": "https://easyui.site/source/donut-chart.json",
+      "installStatus": "No installer executed; use inspected source. /r/{slug}.json is not an established EasyUI endpoint."
+    },
+    {
+      "id": "sticky-pages",
+      "name": "Sticky Pages",
+      "context": "narrative-scroll",
+      "upstreamRecommendation": "design-experiment",
+      "heuristicFitNotBenchmark": 4,
+      "localDecision": "defer",
+      "implementation": "not-installed",
+      "route": null,
+      "localPaths": [
+        "docs/agent-reference/HANSA_ADAPTIVE_VISUALIZATION_AGENT_POLICY.md"
+      ],
+      "reason": "No source-backed narrative need. Landing redesign outside scope.",
+      "sourceUrl": "https://easyui.site/components/sticky-pages",
+      "registryTarget": null,
+      "registryDependencies": [],
+      "sourceSha256": "890bd2736404508030c7ccba06a11b6482c32bb4a5c16c24ac25719b0634b917",
+      "license": "MIT upstream; no upstream implementation copied",
+      "runtimeCompatibility": "not runtime-tested upstream; requires client boundary, token adaptation and framer-motion import resolution",
+      "a11yStatus": "See QA_RESULTS.json for native pilot only; upstream source inspection is not certification",
+      "sourceEndpoint": "https://easyui.site/source/sticky-pages.json",
+      "installStatus": "No installer executed; use inspected source. /r/{slug}.json is not an established EasyUI endpoint."
+    },
+    {
+      "id": "recovery-ledger",
+      "name": "Recovery Ledger",
+      "context": "version-history",
+      "upstreamRecommendation": "defer",
+      "heuristicFitNotBenchmark": 4,
+      "localDecision": "defer",
+      "implementation": "not-installed",
+      "route": null,
+      "localPaths": [
+        "components/academy/ingestion-lab.tsx"
+      ],
+      "reason": "No backend snapshot contract; cannot pretend UI rollback is actual recovery.",
+      "sourceUrl": "https://easyui.site/components/recovery-ledger",
+      "registryTarget": null,
+      "registryDependencies": [
+        "framer-motion",
+        "lucide-react"
+      ],
+      "sourceSha256": "26595c92c794dc4f9904ae2ab4748cce8a8c7a9397f7e46893c089ea89d71eec",
+      "license": "MIT upstream; no upstream implementation copied",
+      "runtimeCompatibility": "not runtime-tested upstream; requires client boundary, token adaptation and framer-motion import resolution",
+      "a11yStatus": "See QA_RESULTS.json for native pilot only; upstream source inspection is not certification",
+      "sourceEndpoint": "https://easyui.site/source/recovery-ledger.json",
+      "installStatus": "No installer executed; use inspected source. /r/{slug}.json is not an established EasyUI endpoint."
+    }
+  ]
+}

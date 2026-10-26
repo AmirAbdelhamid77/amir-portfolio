@@ -1,0 +1,20 @@
+{
+  "checkedAt": "2026-10-26",
+  "sourceDiscovery": [
+    {"slug":"timeline","provider":"live beUI MCP","result":"search + get_component succeeded","source":"https://beui.dev/components/motion/timeline","inspected":"event identity, focused date card, drag/selection and motion model"},
+    {"slug":"card-dealer","provider":"live beUI MCP","result":"search + get_component succeeded","source":"https://beui.dev/components/blocks/card-dealer","dependencies":["clsx","lucide-react","motion","react","tailwind-merge"],"inspected":"deck/hand/pile, measured card geometry, motion arcs, aria-labelled hand overlay, reduced-motion handling"}
+  ],
+  "scoreMeaning": "Agent design judgments, 0–5; not measured learner outcomes or accessibility certification",
+  "weights": {"semantic":30,"teaching":25,"interaction":15,"mobilePerformance":15,"accessibility":10,"maintenance":5},
+  "decisions": [
+    {"visual":"condensed Timeline","selected":"native ordered dated links","scores":[5,5,4,5,5,5],"weightedScore":97,"alternative":"beUI draggable focused-event Timeline","alternativeScores":[5,4,5,3,3,3],"alternativeWeightedScore":83,"reason":"Three short editions need legible direct choice and a no-JS anchor equivalent; drag geometry does not improve their meaning."},
+    {"visual":"Daily Insight","selected":"native details + prose + explicit caveat/source","scores":[5,5,5,5,5,5],"weightedScore":100,"alternative":"custom animated multi-step answer modal","alternativeScores":[5,4,4,3,3,3],"alternativeWeightedScore":80,"reason":"Prediction/reveal occurs in reading context with native keyboard and static rendering; a modal adds focus and navigation burden."},
+    {"visual":"Card Dealer","selected":"original readable one-card stack + ordered next/reset","scores":[5,5,4,5,5,5],"weightedScore":97,"alternative":"upstream beUI fanned playing-card dealer","alternativeScores":[4,3,5,3,3,3],"alternativeWeightedScore":72,"reason":"Knowledge paragraphs and caveats need room on 320px screens; retain deal/reset discovery without importing playing-card choreography."},
+    {"visual":"Atlas Peek","selected":"existing canonical semantic text Peek","scores":[5,5,4,5,5,5],"weightedScore":97,"alternative":"new compact graph renderer on homepage","alternativeScores":[4,3,4,2,2,2],"alternativeWeightedScore":63,"reason":"Existing Peek already links evidence and handles no published edges honestly; graph engine adds cost without publishable relationships."}
+  ],
+  "librariesInstalled": [],
+  "copiedUpstreamSource": false,
+  "licenseBoundary": "Original Hansa implementation; existing repository dependencies reused. No Pro or remote component installation.",
+  "runtimeServicesAdded": [],
+  "costAdded": "none"
+}

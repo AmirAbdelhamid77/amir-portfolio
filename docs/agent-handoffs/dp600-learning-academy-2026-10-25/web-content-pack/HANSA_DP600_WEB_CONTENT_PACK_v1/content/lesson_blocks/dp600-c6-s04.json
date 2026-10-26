@@ -1,0 +1,18 @@
+{
+  "lesson_id": "dp600-c6-s04",
+  "source_sections": [
+    36
+  ],
+  "blocks": [
+    {
+      "id": "dp600-c6-s04-p036",
+      "kind": "source_fragment",
+      "source_page": 36,
+      "source_start_line": 1,
+      "source_text": "6.4 DAX essentials for the exam\nTotal Sales = SUM ( FactSales[SalesAmount] )\nSales LY =\nCALCULATE ( [Total Sales], SAMEPERIODLASTYEAR ( DimDate[Date] ) )\nYoY % =\nVAR Current = [Total Sales]\nVAR Prior   = [Sales LY]\nRETURN DIVIDE ( Current - Prior, Prior )     -- DIVIDE handles the divide-by-zero\nTop 10 Product Sales =\nCALCULATE (\n    [Total Sales],\n    KEEPFILTERS ( TOPN ( 10, VALUES ( DimProduct[ProductName] ), [Total Sales], DESC ) )\n)\nThe three things DAX questions test most often:\n1. Measure or calculated column? A calculated column is computed at refresh, stored in the model, and\nhas a row context. A measure is computed at query time from the current filter context. Default to\nmeasures — they cost no storage and respond to slicers.\n2. What is CALCULATE  doing to the filter context? It replaces filters on the same column by default;\nKEEPFILTERS  intersects instead; REMOVEFILTERS / ALL  clears them.\n3. Context transition. Referencing a measure inside an iterator wraps it in an implicit CALCULATE , turning\nthe current row into a filter.\nFilter context\nSet by slicers, rows/columns of a visual,\npage filters, and CALCULATE modifiers.\nAnswers: which rows are visible right now?\nRow context\nExists in calculated columns and inside\niterators (SUMX, FILTER, ADDCOLUMNS).\nAnswers: which single row am I on?\nCALCULATE / CALCULATETABLE\nmodify filter context; context transition turns row → filter\nFilter context and row context are different things. CALCULATE is the bridge between them.",
+      "presentation_status": "needs-editorial-layout-conversion",
+      "recommended_renderer": "SourceFragment"
+    }
+  ],
+  "warning": "Source fragments are NOT native formatted prose, tables or runnable code."
+}

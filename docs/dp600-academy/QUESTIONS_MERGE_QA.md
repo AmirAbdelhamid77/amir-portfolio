@@ -1,0 +1,5 @@
+# Question merge QA
+
+No guide question was merged, replaced, renumbered or publicly promoted. All 834 existing Fabric question records and answer/rationale files retain their exact Phase 0 hashes. The 20 source practice stems and 30 self-checks remain internal pending parsing, correctness review and semantic deduplication. Their preservation is not answer-key approval.
+
+New original lesson-only IDs: academy-ingest-reuse, academy-ingest-replicate, academy-ingest-history. They are not added to bank totals or existing exam sessions. Each has three pattern alternatives and explicit feedback; complete keys tested. New local storage key hansa-academy-ingestion-v1 is independent; legacy keys are not written by lesson code. Runtime preservation now passes the Chrome legacy regression suite: genuine guided answers/bookmarks and mock deadlines/answers/order survive academy use and refresh. No promise of semantic non-overlap between every question stem; related topics are intentionally reinforced.

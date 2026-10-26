@@ -1,0 +1,435 @@
+{
+  "schemaVersion": "1.1",
+  "buildVersion": "atlas-ingestion-2026-10-25.1",
+  "editorialState": "technical_review",
+  "reviewNotice": "Documentation-reviewed local preview. Human publication review is pending; these relations are excluded from the default public export.",
+  "sources": [
+    {
+      "id": "shortcuts",
+      "title": "OneLake shortcuts",
+      "url": "https://learn.microsoft.com/en-us/fabric/onelake/onelake-shortcuts",
+      "locator": "What are shortcuts?; Where can I access shortcuts?",
+      "checkedAt": "2026-10-25",
+      "kind": "official-documentation",
+      "visibility": "public-link"
+    },
+    {
+      "id": "security",
+      "title": "OneLake shortcut security",
+      "url": "https://learn.microsoft.com/en-us/fabric/onelake/onelake-shortcut-security",
+      "locator": "Accessing shortcuts; Shortcut authentication models",
+      "checkedAt": "2026-10-25",
+      "kind": "official-documentation",
+      "visibility": "public-link"
+    },
+    {
+      "id": "mirroring",
+      "title": "Mirroring in Fabric",
+      "url": "https://learn.microsoft.com/en-us/fabric/mirroring/overview",
+      "locator": "Types of mirroring; Mirroring objects; How does database mirroring work?",
+      "checkedAt": "2026-10-25",
+      "kind": "official-documentation",
+      "visibility": "public-link"
+    },
+    {
+      "id": "movement",
+      "title": "Choose a data movement strategy",
+      "url": "https://learn.microsoft.com/en-us/fabric/data-factory/decision-guide-data-movement",
+      "locator": "Key concepts; Detailed feature comparison",
+      "checkedAt": "2026-10-25",
+      "kind": "official-documentation",
+      "visibility": "public-link"
+    }
+  ],
+  "concepts": [
+    {
+      "id": "concept:fabric:shortcut",
+      "title": "OneLake shortcuts",
+      "aliases": [
+        "Shortcuts",
+        "اختصار"
+      ],
+      "definition": "Reference an existing supported storage target through a OneLake path, rather than maintaining a separate ingestion replica.",
+      "kind": "technology_mechanism",
+      "sourceIds": [
+        "shortcuts",
+        "security"
+      ],
+      "editorialState": "technical_review",
+      "position": [
+        480,
+        265
+      ],
+      "mapLabel": [
+        "OneLake",
+        "shortcuts"
+      ]
+    },
+    {
+      "id": "concept:fabric:database-mirroring",
+      "title": "Database Mirroring",
+      "aliases": [
+        "replication",
+        "نسخ متماثل"
+      ],
+      "definition": "Continuously replicate supported operational database data into an analytical representation in OneLake; latency and prerequisites still apply.",
+      "kind": "technology_mechanism",
+      "sourceIds": [
+        "mirroring"
+      ],
+      "editorialState": "technical_review",
+      "position": [
+        815,
+        265
+      ],
+      "mapLabel": [
+        "Database",
+        "Mirroring"
+      ]
+    },
+    {
+      "id": "concept:fabric:metadata-mirroring",
+      "title": "Metadata mirroring",
+      "aliases": [
+        "catalog",
+        "كتالوج"
+      ],
+      "definition": "Synchronize metadata and reference underlying source data through shortcuts, instead of replicating the underlying data.",
+      "kind": "technology_mechanism",
+      "sourceIds": [
+        "mirroring"
+      ],
+      "editorialState": "technical_review",
+      "position": [
+        170,
+        85
+      ],
+      "mapLabel": [
+        "Metadata",
+        "mirroring"
+      ]
+    },
+    {
+      "id": "concept:fabric:copy-job",
+      "title": "Copy job",
+      "aliases": [
+        "CDC",
+        "نسخ البيانات"
+      ],
+      "definition": "Move data with supported bulk, incremental or CDC delivery and explicit destination and load choices. Source and connector capabilities matter.",
+      "kind": "method",
+      "sourceIds": [
+        "movement"
+      ],
+      "editorialState": "technical_review",
+      "position": [
+        815,
+        85
+      ],
+      "mapLabel": [
+        "Copy job",
+        "load policy"
+      ]
+    },
+    {
+      "id": "concept:fabric:onelake",
+      "title": "OneLake",
+      "aliases": [
+        "storage",
+        "بحيرة واحدة"
+      ],
+      "definition": "The common storage layer and namespace used by Fabric experiences; a storage platform is different from a particular ingestion method.",
+      "kind": "fundamental_concept",
+      "sourceIds": [
+        "shortcuts",
+        "mirroring"
+      ],
+      "editorialState": "technical_review",
+      "position": [
+        480,
+        65
+      ],
+      "mapLabel": [
+        "OneLake",
+        "storage"
+      ]
+    },
+    {
+      "id": "concept:fabric:delta",
+      "title": "Delta table",
+      "aliases": [
+        "Delta Lake",
+        "دلتا"
+      ],
+      "definition": "The table representation used for the mirrored analytical data described in the Fabric mirroring documentation. A file format does not determine an ingestion choice alone.",
+      "kind": "technology_mechanism",
+      "sourceIds": [
+        "mirroring"
+      ],
+      "editorialState": "technical_review",
+      "position": [
+        815,
+        465
+      ],
+      "mapLabel": [
+        "Delta",
+        "table"
+      ]
+    },
+    {
+      "id": "concept:fabric:sql-endpoint",
+      "title": "SQL analytics endpoint",
+      "aliases": [
+        "SQL",
+        "نقطة نهاية"
+      ],
+      "definition": "A SQL query surface for supported table data. In this scope it can query a mirrored database or eligible shortcuts in a lakehouse Tables section.",
+      "kind": "technology_mechanism",
+      "sourceIds": [
+        "shortcuts",
+        "mirroring"
+      ],
+      "editorialState": "technical_review",
+      "position": [
+        480,
+        465
+      ],
+      "mapLabel": [
+        "SQL analytics",
+        "endpoint"
+      ]
+    },
+    {
+      "id": "concept:fabric:permissions",
+      "title": "Identity and permissions",
+      "aliases": [
+        "security",
+        "صلاحيات"
+      ],
+      "definition": "Access depends on the shortcut path, target path and the applicable passthrough or delegated identity model; do not assume a universal user identity.",
+      "kind": "decision_principle",
+      "sourceIds": [
+        "security"
+      ],
+      "editorialState": "technical_review",
+      "position": [
+        145,
+        350
+      ],
+      "mapLabel": [
+        "Identity &",
+        "permissions"
+      ]
+    }
+  ],
+  "semanticEdges": [
+    {
+      "id": "edge:fabric:reference-replica",
+      "from": "concept:fabric:shortcut",
+      "to": "concept:fabric:database-mirroring",
+      "relationType": "contrasts_with",
+      "direction": "symmetric",
+      "claim": "A shortcut references a target; Database Mirroring maintains a replica.",
+      "conditions": "Compare reuse of supported existing storage with supported operational-database replication; they are not universally interchangeable.",
+      "rationale": "The distinction is reference versus replicated analytical data, not merely a difference in freshness. Metadata mirroring is a different case.",
+      "sourceIds": [
+        "shortcuts",
+        "mirroring"
+      ],
+      "supportKind": "inference",
+      "revision": 1,
+      "checkedAt": "2026-10-25",
+      "reviewer": "Codex documentation review; not human approval",
+      "editorialState": "technical_review"
+    },
+    {
+      "id": "edge:fabric:two-mirroring-types",
+      "from": "concept:fabric:database-mirroring",
+      "to": "concept:fabric:metadata-mirroring",
+      "relationType": "contrasts_with",
+      "direction": "symmetric",
+      "claim": "Database and metadata mirroring have different data-movement semantics.",
+      "conditions": "Database mirroring replicates data; metadata mirroring references underlying data through shortcuts.",
+      "rationale": "The word mirroring alone is insufficient to infer a physical replica.",
+      "sourceIds": [
+        "mirroring"
+      ],
+      "supportKind": "direct",
+      "revision": 1,
+      "checkedAt": "2026-10-25",
+      "reviewer": "Codex documentation review; not human approval",
+      "editorialState": "technical_review"
+    },
+    {
+      "id": "edge:fabric:metadata-reference",
+      "from": "concept:fabric:shortcut",
+      "to": "concept:fabric:metadata-mirroring",
+      "relationType": "part_of_mechanism",
+      "direction": "directed",
+      "claim": "Shortcuts underpin metadata mirroring.",
+      "conditions": "This claim is about metadata mirroring, not all mirroring types.",
+      "rationale": "The mechanism exposes source data through references while synchronizing catalog metadata.",
+      "sourceIds": [
+        "mirroring"
+      ],
+      "supportKind": "direct",
+      "revision": 1,
+      "checkedAt": "2026-10-25",
+      "reviewer": "Codex documentation review; not human approval",
+      "editorialState": "technical_review"
+    },
+    {
+      "id": "edge:fabric:replica-delta",
+      "from": "concept:fabric:delta",
+      "to": "concept:fabric:database-mirroring",
+      "relationType": "part_of_mechanism",
+      "direction": "directed",
+      "claim": "Mirrored analytical data is represented as Delta tables.",
+      "conditions": "Supported Database Mirroring after replication setup; no guarantee of zero latency.",
+      "rationale": "The table representation participates in the replication mechanism; this is not a book-containment edge.",
+      "sourceIds": [
+        "mirroring"
+      ],
+      "supportKind": "direct",
+      "revision": 1,
+      "checkedAt": "2026-10-25",
+      "reviewer": "Codex documentation review; not human approval",
+      "editorialState": "technical_review"
+    },
+    {
+      "id": "edge:fabric:mirror-sql",
+      "from": "concept:fabric:database-mirroring",
+      "to": "concept:fabric:sql-endpoint",
+      "relationType": "enables",
+      "direction": "directed",
+      "claim": "A mirrored database provides a SQL analytics endpoint.",
+      "conditions": "A supported database mirror with configured access; this is an analytics query surface.",
+      "rationale": "Fabric creates the SQL endpoint alongside the mirrored database so the replicated tables can be queried.",
+      "sourceIds": [
+        "mirroring"
+      ],
+      "supportKind": "direct",
+      "revision": 1,
+      "checkedAt": "2026-10-25",
+      "reviewer": "Codex documentation review; not human approval",
+      "editorialState": "technical_review"
+    },
+    {
+      "id": "edge:fabric:shortcut-sql",
+      "from": "concept:fabric:shortcut",
+      "to": "concept:fabric:sql-endpoint",
+      "relationType": "enables",
+      "direction": "directed",
+      "claim": "Eligible table shortcuts can be queried through a lakehouse SQL endpoint.",
+      "conditions": "The shortcut is in the lakehouse Tables section and targets a supported table format; permissions still apply.",
+      "rationale": "A Files shortcut alone is not a promise of automatic SQL table discovery.",
+      "sourceIds": [
+        "shortcuts"
+      ],
+      "supportKind": "direct",
+      "revision": 1,
+      "checkedAt": "2026-10-25",
+      "reviewer": "Codex documentation review; not human approval",
+      "editorialState": "technical_review"
+    },
+    {
+      "id": "edge:fabric:permission-reference",
+      "from": "concept:fabric:permissions",
+      "to": "concept:fabric:shortcut",
+      "relationType": "enables",
+      "direction": "directed",
+      "claim": "Authorized identities and permissions govern shortcut access.",
+      "conditions": "Check the specific shortcut type and passthrough/delegated model, plus access at the applicable paths.",
+      "rationale": "The effective connection identity can differ from the calling user; the shortcut does not grant access automatically.",
+      "sourceIds": [
+        "security"
+      ],
+      "supportKind": "direct",
+      "revision": 1,
+      "checkedAt": "2026-10-25",
+      "reviewer": "Codex documentation review; not human approval",
+      "editorialState": "technical_review"
+    },
+    {
+      "id": "edge:fabric:replication-choice",
+      "from": "concept:fabric:copy-job",
+      "to": "concept:fabric:database-mirroring",
+      "relationType": "related_in_decision",
+      "direction": "symmetric",
+      "claim": "Copy job and Mirroring can both matter in a replication decision.",
+      "conditions": "Supported sources and connectors; compare destination, scheduling and incremental/CDC requirements.",
+      "rationale": "The official comparison includes continuous replication for both; there is no universal winner based on freshness alone.",
+      "sourceIds": [
+        "movement"
+      ],
+      "supportKind": "direct",
+      "revision": 1,
+      "checkedAt": "2026-10-25",
+      "reviewer": "Codex documentation review; not human approval",
+      "editorialState": "technical_review"
+    },
+    {
+      "id": "edge:fabric:replica-storage",
+      "from": "concept:fabric:onelake",
+      "to": "concept:fabric:database-mirroring",
+      "relationType": "part_of_mechanism",
+      "direction": "directed",
+      "claim": "OneLake provides the storage destination of the mirrored representation.",
+      "conditions": "Database mirroring as described in the official overview.",
+      "rationale": "This is a functional storage role in replication, not a workspace/chapter membership claim.",
+      "sourceIds": [
+        "mirroring"
+      ],
+      "supportKind": "direct",
+      "revision": 1,
+      "checkedAt": "2026-10-25",
+      "reviewer": "Codex documentation review; not human approval",
+      "editorialState": "technical_review"
+    }
+  ],
+  "catalog": [
+    {
+      "id": "content:lesson:dp600-ingestion-decisions",
+      "title": "Shortcut, Mirroring or Copy?",
+      "href": "/learn/dp-600/ingestion/",
+      "kind": "lesson",
+      "conceptIds": [
+        "concept:fabric:shortcut",
+        "concept:fabric:database-mirroring",
+        "concept:fabric:copy-job",
+        "concept:fabric:permissions"
+      ],
+      "sourcePages": [
+        9,
+        10,
+        25,
+        56
+      ]
+    },
+    {
+      "id": "content:practice:ingestion-transfer",
+      "title": "Three ingestion transfer cases",
+      "href": "/learn/dp-600/ingestion/#experiment",
+      "kind": "practice",
+      "conceptIds": [
+        "concept:fabric:shortcut",
+        "concept:fabric:database-mirroring",
+        "concept:fabric:copy-job"
+      ],
+      "sourcePages": []
+    }
+  ],
+  "toc": [
+    {
+      "id": "guide-ingestion",
+      "title": "Ingestion concepts — guide pages 9–10, 25, 56",
+      "resourceId": "content:lesson:dp600-ingestion-decisions",
+      "conceptIds": [
+        "concept:fabric:shortcut",
+        "concept:fabric:database-mirroring",
+        "concept:fabric:copy-job",
+        "concept:fabric:permissions"
+      ]
+    }
+  ]
+}

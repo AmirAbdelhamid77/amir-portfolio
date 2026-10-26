@@ -1,0 +1,39 @@
+Rule
+Detail
+One branch per
+workspace
+A workspace connects to exactly one branch at a time
+Identity
+The commit is made with the identity of the person who clicks Commit
+Not everything is
+supported
+Supported item types expand over time; unsupported items stay in the workspace but
+are not serialised
+Conflicts
+Resolved in the Source control pane, or in Git before updating
+COMMON EXAM TRAP
+Git integration syncs item definitions, not data. Committing a lakehouse commits its metadata and
+shortcuts — not the Delta files. A question describing "we need the tables and their rows in the test
+workspace" is describing a data-loading pipeline, not a Git update.
+3.2 Power BI Desktop projects (.pbip)
+A Power BI project saves a report and its semantic model as a folder of plain-text files instead of one
+opaque .pbix :
+MySolution.Report/        report definition (PBIR)
+MySolution.SemanticModel/ model definition in TMDL (.tmdl files)
+MySolution.pbip           the small pointer file you open in Desktop
+.gitignore / .platform    supporting metadata
+Why it matters for the exam:
+It makes semantic models and reports diffable and mergeable — the prerequisite for meaningful code
+review.
+TMDL (Tabular Model Definition Language) is the human-readable format for the model; you can edit
+measures in VS Code.
+It is the recommended way to put Power BI content under source control alongside Fabric items.
+KNOW THE DIFFERENCE
+.pbix vs .pbip vs .pbit — .pbix  is the classic single binary (report + model + cached data). .pbip
+is the project folder format for source control. .pbit  is a template: report and model definition with no
+data, used to hand a starting point to someone else, who supplies parameters on open.
+3.3 Deployment pipelines
+Deployment pipelines move content between workspaces in ordered stages (classically Development →
+Test → Production; up to 10 stages are supported).
+Key behaviours:
+Each stage is bound to one workspace. You must be an Admin of the workspace to assign it.

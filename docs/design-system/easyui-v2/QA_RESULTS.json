@@ -1,0 +1,33 @@
+{
+  "date": "2026-10-25",
+  "environment": "Local exported out/; isolated headless Edge, emulated touch/viewports",
+  "checks": [
+    {
+      "name": "1280px light, no-preference: search/reset/keyboard/difference/empty state, unchanged storage, reflow, scoped axe, existing prediction, full print table",
+      "status": "PASS"
+    },
+    {
+      "name": "320px light, reduce: search/reset/keyboard/difference/empty state, unchanged storage, reflow, scoped axe, existing prediction, full print table",
+      "status": "PASS"
+    },
+    {
+      "name": "390px dark, reduce: search/reset/keyboard/difference/empty state, unchanged storage, reflow, scoped axe, existing prediction, full print table",
+      "status": "PASS"
+    },
+    {
+      "name": "No JavaScript: all comparison definitions and evidence remain in exported HTML at 320px",
+      "status": "PASS"
+    },
+    {
+      "name": "No browser runtime errors",
+      "status": "PASS"
+    }
+  ],
+  "notRun": [
+    "Human screen-reader",
+    "Physical mobile/touch",
+    "Upstream EasyUI runtime suite",
+    "CWV/Lighthouse",
+    "Live Cloudflare delivery"
+  ]
+}

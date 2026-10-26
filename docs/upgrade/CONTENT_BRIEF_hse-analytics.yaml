@@ -1,0 +1,187 @@
+# Filled page brief — HSE Analytics case study (revised 2026-10-24)
+#
+# CONTENT_BRIEF_TEMPLATE.yaml instance. Values marked `verified` were checked
+# against the repository or the shipped dashboard artifact during this work.
+# Values marked `NOT RUN` are honest gaps, not placeholders to be guessed.
+schema_version: '1.0'
+page_id: work-hse-analytics
+canonical_route: /work/hse-analytics/
+page_title: 'HSE Analytics Dashboard — safety, environment and operational KPIs'
+status: implemented
+language: en
+reading_direction: ltr
+audience: 'Hiring manager or analyst reviewing a BI build; secondary: safety practitioner reading the KPI definitions.'
+learning_level: advanced
+
+sources:
+  - source_id: SRC-HSE-DASHBOARD
+    original_path: public/images/hse/executive-overview-1200.webp
+    subpage: false
+    verified_access: true
+    destination_sections: [section-0-metrics, section-1-safety, 'rate-basis']
+    preserve: [kpi values, hour-base labels, filter controls, anomaly callouts]
+    unresolved:
+      - 'No fact-level dataset ships with the repository; the KPI values are the
+         snapshot the rendered dashboard shows, not a recomputation from records.'
+  - source_id: SRC-HSE-COPY
+    original_path: lib/case-studies.ts
+    subpage: false
+    verified_access: true
+    destination_sections: [section-0-metrics, section-1-safety, section-4-operations]
+    preserve: [problem statement, approach, outcome, limitations]
+    unresolved:
+      - 'Institution/operator identity is not claimed; locations are anonymised.'
+      - 'The 885-day streak is quoted from the 16 Dec 2025 dashboard snapshot.'
+
+concept_model:
+  primary_concept: 'Normalised safety rates are only comparable on a common hour base.'
+  prerequisites: [numerator_denominator, rate_normalisation]
+  introduces: [osha_200k_base, million_hour_base, subset_relationship_of_LTI_and_recordables]
+  reinforces: [synthetic_data_disclosure, denominator_discipline]
+  misconceptions:
+    - 'Two rates printed side by side can be compared without checking their base.'
+    - 'A lower printed number always means a safer operation.'
+    - 'TRIR and LTIFR use the same hour denominator by convention.'
+  related_pages: [/work/, /learn/statistics/, /lab/]
+
+learning_objectives:
+  - id: OBJ-HSE-1
+    observable_verb: explain
+    statement: 'After this section, the reader can explain why TRIR (per 200,000 h) and LTIFR (per 1,000,000 h) are not comparable until converted to one base.'
+    assessment_id: TASK-HSE-RATE-BASIS
+  - id: OBJ-HSE-2
+    observable_verb: compute
+    statement: 'After using the explainer, the reader can convert a rate between the 200,000-hour and 1,000,000-hour bases from counts and hours worked.'
+    assessment_id: TASK-HSE-RATE-BASIS
+  - id: OBJ-HSE-3
+    observable_verb: identify
+    statement: 'Given two rates on a common base, the reader can identify an impossible pair where the lost-time rate exceeds the recordable rate.'
+    assessment_id: TASK-HSE-RATE-BASIS
+
+sections:
+  - section_id: section-0-metrics
+    title: 'Headline metrics'
+    source_ids: [SRC-HSE-DASHBOARD]
+    content_forms: [quantity_comparison]
+    primary_learning_objective: null
+    representation:
+      type: table
+      why_this_representation: 'Four numbers with units and a qualifying note are a table, not a chart.'
+      static_alternative: accessible_text
+      data_kind: synthetic
+      data_provenance: 'SRC-HSE-DASHBOARD snapshot, synthetic fixture'
+      metric_units: ['cases per 200,000 hours', 'cases per 1,000,000 hours', 'days', 'actions']
+      semantic_checks: ['TRIR base declared', 'LTIFR base declared', 'streak date declared']
+    interaction:
+      enabled: false
+      purpose: none
+      controls: []
+      outputs: []
+      reset: false
+      invalid_input_behavior: not_applicable
+    library:
+      preferred: existing_local
+      exact_component_or_package: 'components/ui.tsx Stat + case-study metric grid'
+      beui_registry_checked_at: '2026-10-24'
+      why_complementary_tool_needed: not_applicable
+      license_verified: true
+      external_runtime_service: none
+    accessibility:
+      keyboard_equivalent: 'Static text; no controls.'
+      descriptive_text: 'Each metric states value, label and unit in the DOM.'
+      data_table_if_chart: not_applicable
+      reduced_motion: 'No motion.'
+      mobile_behavior: 'Two-column grid at 320 px, no overflow (axe/overflow run recorded).'
+      rtl_behavior: 'Not applicable; English LTR page.'
+    references: ['SRC-HSE-DASHBOARD']
+
+  - section_id: section-1-safety
+    title: 'Safety performance'
+    source_ids: [SRC-HSE-COPY, SRC-HSE-DASHBOARD]
+    content_forms: [definition, quantity_comparison]
+    primary_learning_objective: OBJ-HSE-1
+    representation:
+      type: simulator
+      why_this_representation: 'The mechanism is a change of denominator; only manipulation makes it concrete.'
+      static_alternative: 'The exact-value table inside the explainer, plus the two formulas in prose.'
+      data_kind: synthetic
+      data_provenance: 'Illustrative counts (24 recordables, 7 lost-time, 25,000,000 hours) chosen to reproduce the published display values after rounding.'
+      metric_units: ['cases', 'hours', 'cases per 200,000 hours', 'cases per 1,000,000 hours']
+      semantic_checks: ['counts are integers', 'hours > 0', 'lost-time ≤ recordables', 'common-base recordable rate ≥ lost-time rate']
+    interaction:
+      enabled: true
+      purpose: 'Reveal that a base change rescales a rate without changing any count.'
+      controls: [recordables, lost_time, hours_worked, reading_base, reset]
+      outputs: [trir_selected_base, ltifr_selected_base, trir_both_bases, ltifr_both_bases, consistency_check, recordable_per_lti_ratio]
+      reset: true
+      invalid_input_behavior: 'role="alert" text listing every invalid field; no rate is printed for invalid input.'
+    library:
+      preferred: existing_local
+      exact_component_or_package: 'components/hse/rate-basis-explainer.tsx (native React + HTML number inputs/select/table)'
+      beui_registry_checked_at: '2026-10-24'
+      why_complementary_tool_needed: 'None needed: no chart, no third-party math, ~0 KB added to the route.'
+      license_verified: true
+      external_runtime_service: none
+    accessibility:
+      keyboard_equivalent: 'Native number inputs and select; reset is a button; every derived value is in the table.'
+      descriptive_text: 'Interpretation sentence changes with the numbers and is plain text, never colour-only.'
+      data_table_if_chart: 'Captioned table with scoped row/column headers, both bases.'
+      reduced_motion: 'No animation; no motion dependency.'
+      mobile_behavior: 'Single column below sm; table scrolls in its own container; verified at 320/390 px.'
+      rtl_behavior: 'Not applicable; units and numbers stay LTR.'
+    references: ['SRC-HSE-DASHBOARD', 'OSHA recordkeeping base 200,000 hours']
+
+assessments:
+  - assessment_id: TASK-HSE-RATE-BASIS
+    objective_ids: [OBJ-HSE-1, OBJ-HSE-2, OBJ-HSE-3]
+    question_type: scenario
+    source_ids: [SRC-HSE-COPY]
+    answer_key_verified: true
+    explanation_verified: true
+
+quality:
+  source_units_found: 2
+  source_units_mapped: 2
+  source_units_verified: 2
+  formulas_checked: true
+  chart_math_checked: true
+  accessibility_tested: true
+  mobile_tested: true
+  static_build_tested: true
+  existing_behavior_regression_checked: true
+  overall_score_out_of_100: 86
+  release_blockers: []
+  evidence_links_or_paths:
+    - docs/upgrade/qa/hse-rate-basis-1280.png
+    - docs/upgrade/qa/report.json
+    - tests/content/hse-rates.test.mjs
+    - scripts/qa-hse-explainer.mjs
+
+handoff:
+  inspected_paths:
+    - lib/case-studies.ts
+    - app/work/[slug]/page.tsx
+    - components/dashboard-gallery.tsx
+    - public/images/hse/executive-overview-1200.webp
+  changed_paths:
+    - lib/case-studies.ts
+    - app/work/[slug]/page.tsx
+    - components/hse/rate-basis-explainer.tsx
+    - lib/hse/rates.ts
+    - tests/content/hse-rates.test.mjs
+    - scripts/qa-hse-explainer.mjs
+  added_dependencies_with_versions: []
+  external_services_and_costs: []
+  tests_passed:
+    - 'tests/content/hse-rates.test.mjs (9 tests)'
+    - 'tests/content/case-studies.test.mjs (4 tests)'
+    - 'scripts/qa-hse-explainer.mjs (7 checks)'
+    - 'scripts/qa-browser.mjs axe light+dark (0 violations)'
+  tests_failed: []
+  tests_not_run:
+    - 'Screen-reader session (NVDA/VoiceOver)'
+    - '200% and 400% zoom'
+    - 'Touch-only device run'
+  unresolved_questions:
+    - 'Owner confirmation that the 16 Dec 2025 snapshot is the intended public KPI set.'
+  next_atomic_task: 'Add an owner-approved fact-table export (CSV) behind the same model so the rates can be recomputed rather than quoted.'

@@ -1,0 +1,53 @@
+[
+  {
+    "severity": "high",
+    "pages": [
+      29,
+      30,
+      33,
+      53
+    ],
+    "topic": "Fabric Warehouse IDENTITY",
+    "reason": "Claim appears outdated according to earlier review; verify Microsoft current behavior before teaching."
+  },
+  {
+    "severity": "high",
+    "pages": [
+      12
+    ],
+    "topic": "Automatic default semantic model",
+    "reason": "Historical default model creation behavior; verify official current state."
+  },
+  {
+    "severity": "high",
+    "pages": [
+      32
+    ],
+    "topic": "MERGE SQL example",
+    "reason": "Example may fail when non-null surrogate key has no supplied value."
+  },
+  {
+    "severity": "medium",
+    "pages": [
+      7
+    ],
+    "topic": "Fabric trial capacity SKU",
+    "reason": "Trial SKUs vary; confirm prerequisites and eligibility."
+  },
+  {
+    "severity": "medium",
+    "pages": [
+      17
+    ],
+    "topic": "Sensitivity label inheritance",
+    "reason": "Behavior is conditional; avoid unconditional generalizations."
+  },
+  {
+    "severity": "medium",
+    "pages": [
+      29
+    ],
+    "topic": "Date table time intelligence",
+    "reason": "Support for classic vs calendar based behavior must be distinguished."
+  }
+]

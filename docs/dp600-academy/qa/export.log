@@ -1,0 +1,34 @@
+{
+  "results": [
+    {
+      "check": "/learn/dp-600/ HTML, links, anchors and referenced assets",
+      "status": "PASS"
+    },
+    {
+      "check": "/learn/dp-600/ingestion/ HTML, links, anchors and referenced assets",
+      "status": "PASS"
+    },
+    {
+      "check": "Catalogue/sitemap discovery and no raw guide assets in export",
+      "status": "PASS"
+    },
+    {
+      "check": "116 pre-existing exported HTML paths retained (dated out/ baseline, not live verification)",
+      "status": "PASS"
+    }
+  ],
+  "payload": [
+    {
+      "route": "/learn/dp-600/",
+      "html_bytes": 62133,
+      "initial_script_bytes": 617258,
+      "initial_script_gzip_sum": 193018
+    },
+    {
+      "route": "/learn/dp-600/ingestion/",
+      "html_bytes": 95363,
+      "initial_script_bytes": 641926,
+      "initial_script_gzip_sum": 200932
+    }
+  ]
+}

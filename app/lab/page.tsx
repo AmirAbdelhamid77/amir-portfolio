@@ -1,5 +1,14 @@
 import type { Metadata } from "next";
-import { BookOpenCheck, Clock, ListChecks, ShieldCheck, Target } from "lucide-react";
+import Link from "next/link";
+import {
+  ArrowRight,
+  BookOpenCheck,
+  Boxes,
+  Clock,
+  ListChecks,
+  ShieldCheck,
+  Target,
+} from "lucide-react";
 import { EXAM_SUMMARIES } from "@/lib/exams";
 import { ExamCatalog } from "@/components/lab/exam-catalog";
 import { ButtonLink, Container, Eyebrow } from "@/components/ui";
@@ -7,7 +16,7 @@ import { ButtonLink, Container, Eyebrow } from "@/components/ui";
 export const metadata: Metadata = {
   title: "Data Lab",
   description:
-    "Free data-analyst practice exams for SQL, Power BI/DAX, Excel, Python/Pandas, statistics, and analytics fundamentals. Practice or timed mock mode, with explanations.",
+    "Free data-analyst practice exams for SQL, Power BI/DAX, Excel, Python/Pandas, statistics, and analytics fundamentals — plus a separate 834-question Microsoft Fabric DP-600 lab. Practice or timed mock mode, with explanations.",
   alternates: { canonical: "/lab" },
   openGraph: {
     title: "Data Lab — free data-analyst practice exams",
@@ -98,7 +107,38 @@ export default function LabPage() {
             <ExamCatalog exams={EXAM_SUMMARIES} />
           </div>
 
-          <div className="mt-10 grid gap-4 rounded-3xl border border-border bg-card/40 p-6 sm:grid-cols-[1.4fr_1fr] md:p-8">
+          <Link
+            href="/lab/dp-600"
+            className="group mt-6 flex flex-col gap-4 rounded-3xl border border-primary/25 bg-primary/[0.04] p-5 transition-colors hover:border-primary/45 sm:flex-row sm:items-center sm:justify-between sm:p-6"
+          >
+            <div className="flex items-start gap-4">
+              <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-primary/15 text-primary">
+                <Boxes className="h-5 w-5" aria-hidden="true" />
+              </span>
+              <div className="min-w-0">
+                <p className="font-mono text-[10px] uppercase tracking-[0.14em] text-primary">
+                  Microsoft Fabric · DP-600
+                </p>
+                <h2 className="mt-1 text-base font-medium tracking-tight">
+                  834 Fabric questions, 18 source packs, one hub
+                </h2>
+                <p className="mt-1.5 max-w-xl text-xs leading-6 text-muted-foreground">
+                  Guided study, topic practice, case studies and a custom timed simulation — with
+                  option-level rationales, source-video timestamps and an honest coverage report
+                  against the official DP-600 objectives.
+                </p>
+              </div>
+            </div>
+            <span className="inline-flex shrink-0 items-center gap-1.5 rounded-full border border-border-strong bg-background px-4 py-2 text-xs text-foreground">
+              Open the hub
+              <ArrowRight
+                className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5"
+                aria-hidden="true"
+              />
+            </span>
+          </Link>
+
+          <div className="mt-6 grid gap-4 rounded-3xl border border-border bg-card/40 p-6 sm:grid-cols-[1.4fr_1fr] md:p-8">
             <div>
               <div className="flex items-center gap-2">
                 <ShieldCheck className="h-4 w-4 text-success" aria-hidden="true" />

@@ -1,0 +1,34 @@
+Chapter 4 — Prepare data, part 1: get data
+EXAM FOCUS
+Get data — create a data connection · discover data by using OneLake catalog and Real-Time hub ·
+ingest or access data as needed · choose between different data stores · implement OneLake
+integration for Eventhouse and semantic models.
+4.1 Connections and gateways
+A connection stores where a source is and how to authenticate to it. It is created once and reused by
+pipelines, dataflows, and semantic models. Manage them under Settings → Manage connections and
+gateways.
+Source location
+What you need
+Cloud SaaS or PaaS reachable from the
+internet
+A cloud connection — no gateway
+On-premises server, or a private network
+An on-premises data gateway installed on a machine that can reach
+the source
+Azure resource locked to a virtual network
+A VNet data gateway (managed, no VM to patch)
+Many users sharing one credential
+A shareable cloud connection owned by a service account
+Authentication choices you should recognise: organisational account (Microsoft Entra), service principal,
+account key, SAS, workspace identity, and basic. Prefer service principals or workspace identity for
+unattended jobs, so a pipeline does not break when a person leaves.
+TIP
+Privacy levels still matter in Power Query. If two sources have incompatible privacy levels, Power
+Query refuses to fold the query and may run it in a slower, memory-heavy way — or fail outright. See
+connector overview.
+4.2 Discovering data: OneLake catalog and Real-Time hub
+The OneLake catalog is the tenant-wide place to find data you are allowed to see. It shows items with their
+endorsement, sensitivity label, owner, and lineage, and it lets you filter by domain and item type.
+Governance views help admins see coverage of labels and endorsements.
+The Real-Time hub is the equivalent for data in motion: every eventstream, Fabric event, and streaming
+source in the tenant, with previews and one-click actions to send a stream to an eventhouse or set an alert.

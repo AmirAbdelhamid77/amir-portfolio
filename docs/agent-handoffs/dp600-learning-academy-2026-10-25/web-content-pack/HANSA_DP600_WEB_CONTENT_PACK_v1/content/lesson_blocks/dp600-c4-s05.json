@@ -1,0 +1,18 @@
+{
+  "lesson_id": "dp600-c4-s05",
+  "source_sections": [
+    26
+  ],
+  "blocks": [
+    {
+      "id": "dp600-c4-s05-p026",
+      "kind": "source_fragment",
+      "source_page": 26,
+      "source_start_line": 15,
+      "source_text": "4.5 Chapter 4 self-check\n1. A nightly load from an on-premises SQL Server needs to reach a lakehouse. What is required beyond a\npipeline?\n2. The finance team wants Gold tables from the Sales workspace without duplicating them. What do you\ncreate?\n3. A team needs Power BI reports over telemetry that lives in an eventhouse, with Direct Lake. What must\nbe enabled?\n4. Which discovery surface lists existing eventstreams?\n5. A source database must appear in Fabric within seconds of a change, with no ETL to maintain. What do\nyou choose?\nAnswers. 1. An on-premises data gateway plus a connection that uses it. 2. A OneLake shortcut to\nthose tables. 3. OneLake availability on the eventhouse/KQL database. 4. The Real-Time hub. 5.\nMirroring.",
+      "presentation_status": "needs-editorial-layout-conversion",
+      "recommended_renderer": "SourceFragment"
+    }
+  ],
+  "warning": "Source fragments are NOT native formatted prose, tables or runnable code."
+}

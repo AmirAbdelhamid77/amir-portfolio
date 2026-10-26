@@ -1,21 +1,25 @@
+"use client";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { ArrowUpRight, Mail } from "lucide-react";
 import { GithubIcon, LinkedinIcon } from "@/components/icons";
 import { FOOTER_LINKS, SITE } from "@/lib/site";
 
 export function SiteFooter() {
+  const pathname = usePathname();
+  const isHome = pathname === "/" || pathname === "/prototype-c" || pathname === "/prototype-c/";
   return (
     <footer className="border-t border-border bg-card/40">
-      <div className="mx-auto grid max-w-6xl gap-10 px-4 py-14 md:px-6 lg:grid-cols-[1.4fr_1fr_1fr]">
+      <div className="mx-auto grid max-w-6xl gap-10 px-4 py-14 md:px-6 lg:grid-cols-[1.2fr_1fr_1fr_1fr]">
         <div>
           <Link href="/" className="inline-flex items-center gap-2.5 text-sm font-semibold">
-            <span className="flex h-7 w-7 items-center justify-center rounded-[9px] bg-primary text-[11px] font-bold text-primary-foreground">
+            <span className="flex h-7 w-7 items-center justify-center rounded-[9px] bg-[color-mix(in_oklch,var(--primary)_78%,black)] text-[11px] font-bold text-primary-foreground">
               AA
             </span>
             {SITE.name}
           </Link>
           <p className="mt-4 max-w-sm text-sm leading-6 text-muted-foreground">
-            {SITE.shortDescription} Based in {SITE.location}.
+            {isHome ? "Source-backed learning, documented connections and independent practice. Progress stays in your browser." : `${SITE.shortDescription} Based in ${SITE.location}.`}
           </p>
           <div className="mt-5 flex items-center gap-2">
             <a
@@ -25,7 +29,7 @@ export function SiteFooter() {
               <Mail className="h-3.5 w-3.5" aria-hidden="true" />
               Email
             </a>
-            <a
+            {!isHome && <a
               href={SITE.socials.linkedin}
               target="_blank"
               rel="noreferrer noopener"
@@ -34,7 +38,7 @@ export function SiteFooter() {
               <LinkedinIcon className="h-3.5 w-3.5" aria-hidden="true" />
               LinkedIn
               <span className="sr-only"> (opens in a new tab)</span>
-            </a>
+            </a>}
             <a
               href={SITE.socials.github}
               target="_blank"
@@ -48,7 +52,7 @@ export function SiteFooter() {
           </div>
         </div>
 
-        {FOOTER_LINKS.map((group) => (
+        {FOOTER_LINKS.filter(group => !isHome || group.heading !== "Work").map((group) => (
           <nav key={group.heading} aria-label={group.heading}>
             <h2 className="font-mono text-[10px] uppercase tracking-[0.16em] text-muted-foreground">
               {group.heading}
@@ -80,7 +84,7 @@ export function SiteFooter() {
               <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-success opacity-60" />
               <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-success" />
             </span>
-            Open to data roles and freelance projects
+            {isHome ? "Learn · Explore · Practise" : "Open to data roles and freelance projects"}
           </p>
         </div>
       </div>

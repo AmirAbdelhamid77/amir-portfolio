@@ -1,0 +1,36 @@
+{
+  "schema_version": "1.0",
+  "page_id": "hansa-prototype-c-knowledge-stage",
+  "canonical_route": "/prototype-c/",
+  "page_title": "Hansa Prototype C — Hybrid Knowledge Stage",
+  "status": "implemented-local-preview",
+  "language": "en",
+  "reading_direction": "ltr",
+  "audience": "data learner seeking one explainable decision",
+  "learning_level": "beginner-to-intermediate",
+  "sources": [
+    {"source_id":"MS-SHORTCUTS-REF","original_path":"https://learn.microsoft.com/en-us/fabric/onelake/onelake-shortcuts","verified_access":true,"destination_sections":["daily-title","dealer-title","insight-archive"],"preserve":["claim","conditions","caveats","source locator"],"unresolved":["human publication review"]},
+    {"source_id":"HANSA-ATLAS","original_path":"lib/atlas/server.ts","verified_access":true,"destination_sections":["atlas-peek-title"],"preserve":["canonical IDs","public projection","Peek behavior"],"unresolved":["existing semantic assertions await their separate human publication process"]}
+  ],
+  "concept_model": {
+    "primary_concept": "concept:fabric:shortcut",
+    "prerequisites": ["basic storage awareness"],
+    "introduces": ["reference object versus target data"],
+    "reinforces": ["permissions","Files versus Tables"],
+    "misconceptions": ["a shortcut is always a retained copy","deleting a shortcut equals deleting through it","all Files shortcuts become tables"],
+    "related_pages": ["/learn/dp-600/ingestion/","/lab/dp-600/explore/","/learn/dp-600/atlas/"]
+  },
+  "learning_objectives": [
+    {"id":"OBJ-C-1","observable_verb":"explain","statement":"Distinguish a reference from a retained transformed result and name a caveat.","assessment_id":"unscored-reflection"},
+    {"id":"OBJ-C-2","observable_verb":"identify","statement":"Identify the relevant official source and choose a lesson or independent practice destination.","assessment_id":"navigation-observation"}
+  ],
+  "sections": [
+    {"section_id":"timeline","content_forms":["chronology","reference"],"representation":{"type":"ordered_list","data_kind":"editorial-preview-edition-metadata"},"interaction":{"enabled":true,"purpose":"choose a dated edition","controls":["edition links"],"outputs":["scenario","edition permalink"],"reset":false}},
+    {"section_id":"daily","content_forms":["decision","definition"],"representation":{"type":"prose","data_kind":"source_backed_claim_in_hypothetical_scenario"},"interaction":{"enabled":true,"purpose":"predict then compare with reasoning","controls":["native details summary"],"outputs":["takeaway","caveat","source"],"reset":"close or choose another edition"}},
+    {"section_id":"dealer","content_forms":["reference"],"representation":{"type":"prose_card","data_kind":"same_canonical_claims"},"interaction":{"enabled":true,"purpose":"discover alternate reasoning lenses","controls":["next","reset","native details"],"outputs":["next canonical card"],"reset":true}},
+    {"section_id":"peek","content_forms":["semantic_relationship"],"representation":{"type":"existing_atlas_peek","data_kind":"canonical_public_projection"},"interaction":{"enabled":true,"purpose":"inspect conditions/evidence in full Atlas","controls":["existing links"],"outputs":["canonical destination"],"reset":false}},
+    {"section_id":"archive","content_forms":["reference"],"representation":{"type":"searchable_list","data_kind":"same_canonical_insights"},"interaction":{"enabled":true,"purpose":"recover an edition by topic or wording","controls":["query","topic","clear","details","permalink"],"outputs":["filtered editions","count","empty recovery"],"reset":true}}
+  ],
+  "quality": {"source_units_found":3,"source_units_mapped":3,"source_units_verified":3,"human_publication_approved":false,"overall_score_out_of_100":null,"evidence_links_or_paths":["VALIDATION.md","qa/browser-results.json","preservation/verification.json"]},
+  "handoff": {"added_dependencies_with_versions":[],"external_services_and_costs":[],"next_atomic_task":"review local design and human editorial sign-off before a public composition"}
+}

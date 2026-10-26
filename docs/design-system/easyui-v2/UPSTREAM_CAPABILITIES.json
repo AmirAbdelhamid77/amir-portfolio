@@ -1,0 +1,1111 @@
+{
+  "checkedAt": "2026-10-25",
+  "easyuiCommit": "7c106d4a195f9ce566ffbbc672fc48bed68d30bd",
+  "easyuiRegistryItems": 131,
+  "beuiRegistryItems": 146,
+  "beuiMcpFamilies": 110,
+  "coverage": "Source/API/dependency inspection for 22 candidate rows; not 131 runtime audits. Grouped Donut/Bar/Funnel row inspected donut source plus existing local bar/funnel families.",
+  "easyui": [
+    {
+      "name": "Dependency Trace",
+      "slug": "dependency-trace",
+      "registry": {
+        "name": "dependency-trace",
+        "type": "registry:ui",
+        "title": "Dependency Trace",
+        "description": "An interactive SVG node graph that maps and dynamically traces relationship connections with directional bezier curves.",
+        "dependencies": [
+          "framer-motion"
+        ],
+        "files": [
+          {
+            "path": "src/components/ui/DependencyTrace.tsx",
+            "type": "registry:ui",
+            "target": "components/ui/dependency-trace.tsx"
+          },
+          {
+            "path": "src/lib/utils.ts",
+            "type": "registry:lib",
+            "target": "lib/utils.ts"
+          },
+          {
+            "path": "src/lib/motion-tokens.ts",
+            "type": "registry:lib",
+            "target": "lib/motion-tokens.ts"
+          }
+        ]
+      },
+      "sourcePresent": true,
+      "sourceSha256": "e9036a8b10c428a3381b4a1765922733f9ac7e332dc9300ccd2ea31450069fa1",
+      "lines": 219,
+      "imports": [
+        "react",
+        "framer-motion",
+        "../../lib/utils",
+        "../../lib/motion-tokens"
+      ],
+      "reducedMotionHook": false,
+      "hasKeyboardHandler": false,
+      "hasTable": false
+    },
+    {
+      "name": "Smart Comparison",
+      "slug": "smart-comparison",
+      "registry": {
+        "name": "smart-comparison",
+        "type": "registry:ui",
+        "title": "Smart Comparison",
+        "description": "An interactive feature matrix and SaaS tier comparison component featuring live difference filtering, collapsible specification categories, search indexing, and mobile card toggle.",
+        "dependencies": [
+          "framer-motion",
+          "lucide-react"
+        ],
+        "files": [
+          {
+            "path": "src/components/ui/SmartComparison.tsx",
+            "type": "registry:ui",
+            "target": "components/ui/smart-comparison.tsx"
+          },
+          {
+            "path": "src/lib/utils.ts",
+            "type": "registry:lib",
+            "target": "lib/utils.ts"
+          },
+          {
+            "path": "src/lib/motion-tokens.ts",
+            "type": "registry:lib",
+            "target": "lib/motion-tokens.ts"
+          }
+        ]
+      },
+      "sourcePresent": true,
+      "sourceSha256": "08d4dd9fb267b52d04bf40b7692d99b39204ba142f1c02bfc4d1365839fa3e7b",
+      "lines": 375,
+      "imports": [
+        "react",
+        "framer-motion",
+        "lucide-react",
+        "../../lib/utils",
+        "../../lib/motion-tokens"
+      ],
+      "reducedMotionHook": false,
+      "hasKeyboardHandler": false,
+      "hasTable": false
+    },
+    {
+      "name": "Code Snippet Deck",
+      "slug": "code-snippet-deck",
+      "registry": {
+        "name": "code-snippet-deck",
+        "type": "registry:ui",
+        "title": "Code Snippet Deck",
+        "description": "An interactive multi-runtime developer code snippet deck with runtime switching (cURL, TypeScript, Python, Go, Rust), live dynamic parameter customizations, and line highlighting.",
+        "dependencies": [
+          "framer-motion",
+          "lucide-react"
+        ],
+        "files": [
+          {
+            "path": "src/components/ui/CodeSnippetDeck.tsx",
+            "type": "registry:ui",
+            "target": "components/ui/code-snippet-deck.tsx"
+          },
+          {
+            "path": "src/lib/utils.ts",
+            "type": "registry:lib",
+            "target": "lib/utils.ts"
+          },
+          {
+            "path": "src/lib/motion-tokens.ts",
+            "type": "registry:lib",
+            "target": "lib/motion-tokens.ts"
+          }
+        ]
+      },
+      "sourcePresent": true,
+      "sourceSha256": "9e5fa89be1904aaef2f5c2c057a11c8da159ad04f356f9dbb08112b00f9a8262",
+      "lines": 275,
+      "imports": [
+        "react",
+        "framer-motion",
+        "lucide-react",
+        "../../lib/utils",
+        "../../lib/motion-tokens"
+      ],
+      "reducedMotionHook": false,
+      "hasKeyboardHandler": false,
+      "hasTable": false
+    },
+    {
+      "name": "Product Tour",
+      "slug": "product-tour",
+      "registry": {
+        "name": "product-tour",
+        "type": "registry:ui",
+        "title": "Product Tour",
+        "description": "An interactive product walkthrough with spring-animated spotlight cutout, auto-scrolling targets, responsive bottom-sheet docking, and keyboard navigation.",
+        "dependencies": [
+          "framer-motion",
+          "lucide-react"
+        ],
+        "files": [
+          {
+            "path": "src/components/ui/ProductTour.tsx",
+            "type": "registry:ui",
+            "target": "components/ui/product-tour.tsx"
+          }
+        ]
+      },
+      "sourcePresent": true,
+      "sourceSha256": "207912b1711904ff4ce4b749ffba2d7520e88a9f35619b47001574bcf514ce76",
+      "lines": 621,
+      "imports": [
+        "react",
+        "react-dom",
+        "framer-motion",
+        "lucide-react"
+      ],
+      "reducedMotionHook": true,
+      "hasKeyboardHandler": true,
+      "hasTable": false
+    },
+    {
+      "name": "Scroll Progress Navigation",
+      "slug": "scroll-progress-nav",
+      "registry": {
+        "name": "scroll-progress-nav",
+        "type": "registry:ui",
+        "title": "Scroll Progress Navigation",
+        "description": "A floating table-of-contents navigation pill that tracks scroll depth, dynamically morphs between resting and floating states, highlights active sections, and enables smooth scrolling.",
+        "dependencies": [
+          "framer-motion",
+          "lucide-react"
+        ],
+        "files": [
+          {
+            "path": "src/components/ui/ScrollProgressNav.tsx",
+            "type": "registry:ui",
+            "target": "components/ui/scroll-progress-nav.tsx"
+          },
+          {
+            "path": "src/lib/utils.ts",
+            "type": "registry:lib",
+            "target": "lib/utils.ts"
+          },
+          {
+            "path": "src/lib/motion-tokens.ts",
+            "type": "registry:lib",
+            "target": "lib/motion-tokens.ts"
+          }
+        ]
+      },
+      "sourcePresent": true,
+      "sourceSha256": "2fbeaf4551d4319a35e63dd2e81912de8dc1a6c2444269b89dd0440ef7bd0052",
+      "lines": 256,
+      "imports": [
+        "react",
+        "framer-motion",
+        "lucide-react",
+        "../../lib/utils",
+        "../../lib/motion-tokens"
+      ],
+      "reducedMotionHook": false,
+      "hasKeyboardHandler": false,
+      "hasTable": false
+    },
+    {
+      "name": "Activity Heatmap",
+      "slug": "activity-heatmap",
+      "registry": {
+        "name": "activity-heatmap",
+        "type": "registry:ui",
+        "title": "Activity Heatmap",
+        "description": "A GitHub-style contribution calendar and weekday-by-hour activity grid with automatic column fitting, quarterly color levels, hover tooltips, and keyboard navigation.",
+        "dependencies": [
+          "framer-motion"
+        ],
+        "files": [
+          {
+            "path": "src/components/ui/ActivityHeatmap.tsx",
+            "type": "registry:ui",
+            "target": "components/ui/activity-heatmap.tsx"
+          },
+          {
+            "path": "src/lib/chart-primitives.tsx",
+            "type": "registry:lib",
+            "target": "lib/chart-primitives.tsx"
+          }
+        ]
+      },
+      "sourcePresent": true,
+      "sourceSha256": "dc35d0b7c5c8463365a4e63869d49532641034b468705409412b7b9be9707a82",
+      "lines": 357,
+      "imports": [
+        "react",
+        "framer-motion",
+        "../../lib/chart-primitives"
+      ],
+      "reducedMotionHook": true,
+      "hasKeyboardHandler": true,
+      "hasTable": false
+    },
+    {
+      "name": "Stepper",
+      "slug": "stepper",
+      "registry": {
+        "name": "stepper",
+        "type": "registry:ui",
+        "title": "Stepper",
+        "description": "A multi-step progress indicator with line fills, gliding active rings, drawing checkmarks, and direction-aware sliding step panels.",
+        "dependencies": [
+          "framer-motion"
+        ],
+        "files": [
+          {
+            "path": "src/components/ui/stepper.tsx",
+            "type": "registry:ui",
+            "target": "components/ui/stepper.tsx"
+          },
+          {
+            "path": "src/lib/utils.ts",
+            "type": "registry:lib",
+            "target": "lib/utils.ts"
+          }
+        ]
+      },
+      "sourcePresent": true,
+      "sourceSha256": "90bfe777445e559a8df104a6bd6ec9867bd8ed529800f3d3d60955d36b3eb46c",
+      "lines": 205,
+      "imports": [
+        "react",
+        "framer-motion",
+        "../../lib/utils"
+      ],
+      "reducedMotionHook": false,
+      "hasKeyboardHandler": false,
+      "hasTable": false
+    },
+    {
+      "name": "Focus Mode",
+      "slug": "focus-mode",
+      "registry": {
+        "name": "focus-mode",
+        "type": "registry:ui",
+        "title": "Focus Mode",
+        "description": "An atmospheric focus-mode interaction that isolates selected cards or sections by smoothly dimming surrounding distractions with zero layout shift, tactile spring scaling, and Escape key dismissal.",
+        "dependencies": [
+          "framer-motion",
+          "lucide-react"
+        ],
+        "files": [
+          {
+            "path": "src/components/ui/FocusMode.tsx",
+            "type": "registry:ui",
+            "target": "components/ui/focus-mode.tsx"
+          },
+          {
+            "path": "src/lib/utils.ts",
+            "type": "registry:lib",
+            "target": "lib/utils.ts"
+          },
+          {
+            "path": "src/lib/motion-tokens.ts",
+            "type": "registry:lib",
+            "target": "lib/motion-tokens.ts"
+          }
+        ]
+      },
+      "sourcePresent": true,
+      "sourceSha256": "a29e48373a92e4d3fc364cd174001f5440abc75ad32bb7ae1589366526d5eb45",
+      "lines": 262,
+      "imports": [
+        "react",
+        "framer-motion",
+        "lucide-react",
+        "../../lib/utils",
+        "../../lib/motion-tokens"
+      ],
+      "reducedMotionHook": false,
+      "hasKeyboardHandler": false,
+      "hasTable": false
+    },
+    {
+      "name": "Activity Feed",
+      "slug": "activity-feed",
+      "registry": {
+        "name": "activity-feed",
+        "type": "registry:ui",
+        "title": "Activity Feed",
+        "description": "A developer telemetry and audit log stream featuring category filtering, live real-time event simulation with Framer Motion slide insertions, and expandable JSON payloads.",
+        "dependencies": [
+          "framer-motion",
+          "lucide-react"
+        ],
+        "files": [
+          {
+            "path": "src/components/ui/ActivityFeed.tsx",
+            "type": "registry:ui",
+            "target": "components/ui/activity-feed.tsx"
+          },
+          {
+            "path": "src/lib/utils.ts",
+            "type": "registry:lib",
+            "target": "lib/utils.ts"
+          },
+          {
+            "path": "src/lib/motion-tokens.ts",
+            "type": "registry:lib",
+            "target": "lib/motion-tokens.ts"
+          }
+        ]
+      },
+      "sourcePresent": true,
+      "sourceSha256": "f8699647b7611e06fbb3b3e55b8a42d3468d8ebbcfe698594a1ebb90e066b5fe",
+      "lines": 432,
+      "imports": [
+        "react",
+        "framer-motion",
+        "lucide-react",
+        "../../lib/utils",
+        "../../lib/motion-tokens"
+      ],
+      "reducedMotionHook": false,
+      "hasKeyboardHandler": false,
+      "hasTable": false
+    },
+    {
+      "name": "Live Line Chart",
+      "slug": "live-line-chart",
+      "registry": {
+        "name": "live-line-chart",
+        "type": "registry:ui",
+        "title": "Live Line Chart",
+        "description": "A real-time line chart that scrolls right-to-left, with a large current-value readout, a live delta, and a pause control. Hover or touch the chart to freeze the stream and scrub it with a crosshair tooltip.",
+        "dependencies": [
+          "framer-motion"
+        ],
+        "files": [
+          {
+            "path": "src/components/ui/LiveLineChart.tsx",
+            "type": "registry:ui",
+            "target": "components/ui/live-line-chart.tsx"
+          },
+          {
+            "path": "src/lib/chart-primitives.tsx",
+            "type": "registry:lib",
+            "target": "lib/chart-primitives.tsx"
+          },
+          {
+            "path": "src/lib/dashboard-chart-utils.ts",
+            "type": "registry:lib",
+            "target": "lib/dashboard-chart-utils.ts"
+          }
+        ]
+      },
+      "sourcePresent": true,
+      "sourceSha256": "fadf78c95541831a2b33aec37801d44bba528bdda4147885ac4b0b675f20b6ed",
+      "lines": 425,
+      "imports": [
+        "react",
+        "framer-motion",
+        "../../lib/chart-primitives",
+        "../../lib/dashboard-chart-utils",
+        "../../lib/dashboard-chart-utils"
+      ],
+      "reducedMotionHook": true,
+      "hasKeyboardHandler": false,
+      "hasTable": false
+    },
+    {
+      "name": "Interactive Area Chart",
+      "slug": "interactive-area-chart",
+      "registry": {
+        "name": "interactive-area-chart",
+        "type": "registry:ui",
+        "title": "Interactive Area Chart",
+        "description": "A hand-written, dependency-free interactive SVG area chart with interruptible dataset morphing, Catmull-Rom spline resampling, scrubbing tooltip, and keyboard accessibility.",
+        "dependencies": [
+          "framer-motion"
+        ],
+        "files": [
+          {
+            "path": "src/components/ui/InteractiveAreaChart.tsx",
+            "type": "registry:ui",
+            "target": "components/ui/interactive-area-chart.tsx"
+          }
+        ]
+      },
+      "sourcePresent": true,
+      "sourceSha256": "3b53006b54e95c40bf6b69fc479310486b1b864ec61d4ea073b8698ee2a2b8a9",
+      "lines": 482,
+      "imports": [
+        "react",
+        "framer-motion"
+      ],
+      "reducedMotionHook": true,
+      "hasKeyboardHandler": true,
+      "hasTable": false
+    },
+    {
+      "name": "Advanced Data Table",
+      "slug": "advanced-data-table",
+      "registry": {
+        "name": "advanced-data-table",
+        "type": "registry:ui",
+        "title": "Advanced Data Table",
+        "description": "A powerful, accessible data table component with multi-column sorting, faceted filters, global search, row selection, bulk actions, expandable sub-rows, and pagination.",
+        "dependencies": [
+          "framer-motion",
+          "lucide-react"
+        ],
+        "files": [
+          {
+            "path": "src/components/ui/AdvancedDataTable.tsx",
+            "type": "registry:ui",
+            "target": "components/ui/advanced-data-table.tsx"
+          },
+          {
+            "path": "src/lib/utils.ts",
+            "type": "registry:lib",
+            "target": "lib/utils.ts"
+          }
+        ]
+      },
+      "sourcePresent": true,
+      "sourceSha256": "f13330fc655e6d95aa130a568753093d1f0f9d3db0d2b6752c1c9ec99b61e23e",
+      "lines": 1078,
+      "imports": [
+        "react",
+        "framer-motion",
+        "lucide-react",
+        "../../lib/utils"
+      ],
+      "reducedMotionHook": true,
+      "hasKeyboardHandler": false,
+      "hasTable": true
+    },
+    {
+      "name": "Selection Basket",
+      "slug": "selection-basket",
+      "registry": {
+        "name": "selection-basket",
+        "type": "registry:ui",
+        "title": "Selection Basket",
+        "description": "A floating bulk-action toolbar that smoothly rises from the bottom of the screen when multiple dataset items are selected, supporting batch operations, horizontal scrolling, and clear triggers.",
+        "dependencies": [
+          "framer-motion",
+          "lucide-react"
+        ],
+        "files": [
+          {
+            "path": "src/components/ui/SelectionBasket.tsx",
+            "type": "registry:ui",
+            "target": "components/ui/selection-basket.tsx"
+          },
+          {
+            "path": "src/lib/utils.ts",
+            "type": "registry:lib",
+            "target": "lib/utils.ts"
+          },
+          {
+            "path": "src/lib/motion-tokens.ts",
+            "type": "registry:lib",
+            "target": "lib/motion-tokens.ts"
+          }
+        ]
+      },
+      "sourcePresent": true,
+      "sourceSha256": "920536f5864895da0664c2aeee13cc824c2df16ab262ffa6679346816b6e2792",
+      "lines": 147,
+      "imports": [
+        "react",
+        "framer-motion",
+        "lucide-react",
+        "../../lib/utils",
+        "../../lib/motion-tokens"
+      ],
+      "reducedMotionHook": false,
+      "hasKeyboardHandler": false,
+      "hasTable": false
+    },
+    {
+      "name": "Expandable Data Row",
+      "slug": "expandable-data-row",
+      "registry": {
+        "name": "expandable-data-row",
+        "type": "registry:ui",
+        "title": "Expandable Data Row",
+        "description": "A polished table component with fluid accordion row unfolding, revealing deep metadata, audit activity feeds, and quick actions, with automatic card restructuring on mobile viewports.",
+        "dependencies": [
+          "framer-motion",
+          "lucide-react"
+        ],
+        "files": [
+          {
+            "path": "src/components/ui/ExpandableDataRow.tsx",
+            "type": "registry:ui",
+            "target": "components/ui/expandable-data-row.tsx"
+          },
+          {
+            "path": "src/lib/utils.ts",
+            "type": "registry:lib",
+            "target": "lib/utils.ts"
+          },
+          {
+            "path": "src/lib/motion-tokens.ts",
+            "type": "registry:lib",
+            "target": "lib/motion-tokens.ts"
+          }
+        ]
+      },
+      "sourcePresent": true,
+      "sourceSha256": "d2dc66306e915e63189938c3e052fa3cdcaefed3f7c287c71a299705c8a6b0f0",
+      "lines": 419,
+      "imports": [
+        "react",
+        "framer-motion",
+        "lucide-react",
+        "../../lib/utils",
+        "../../lib/motion-tokens"
+      ],
+      "reducedMotionHook": false,
+      "hasKeyboardHandler": false,
+      "hasTable": false
+    },
+    {
+      "name": "Metric HUD",
+      "slug": "metric-hud",
+      "registry": {
+        "name": "metric-hud",
+        "type": "registry:ui",
+        "title": "Metric HUD",
+        "description": "An interactive developer telemetry card featuring hardware-accelerated SVG sparklines, pointer-scrubbing point inspection, spring-animated time range morphing, and delta indicators.",
+        "dependencies": [
+          "framer-motion",
+          "lucide-react"
+        ],
+        "files": [
+          {
+            "path": "src/components/ui/MetricHUD.tsx",
+            "type": "registry:ui",
+            "target": "components/ui/metric-hud.tsx"
+          },
+          {
+            "path": "src/lib/utils.ts",
+            "type": "registry:lib",
+            "target": "lib/utils.ts"
+          },
+          {
+            "path": "src/lib/motion-tokens.ts",
+            "type": "registry:lib",
+            "target": "lib/motion-tokens.ts"
+          }
+        ]
+      },
+      "sourcePresent": true,
+      "sourceSha256": "ed1f57f5f5ab45c00ae3b42c483e59f9ee971c5b044da6c9f3d30fa57b7a38bf",
+      "lines": 371,
+      "imports": [
+        "react",
+        "framer-motion",
+        "lucide-react",
+        "../../lib/utils",
+        "../../lib/motion-tokens"
+      ],
+      "reducedMotionHook": false,
+      "hasKeyboardHandler": false,
+      "hasTable": false
+    },
+    {
+      "name": "Density Lens",
+      "slug": "density-lens",
+      "registry": {
+        "name": "density-lens",
+        "type": "registry:ui",
+        "title": "Density Lens",
+        "description": "An interactive floating lens that tracks pointer movement to reveal high-density data, magnified details, or alternative views.",
+        "dependencies": [
+          "framer-motion"
+        ],
+        "files": [
+          {
+            "path": "src/components/ui/DensityLens.tsx",
+            "type": "registry:ui",
+            "target": "components/ui/density-lens.tsx"
+          },
+          {
+            "path": "src/lib/utils.ts",
+            "type": "registry:lib",
+            "target": "lib/utils.ts"
+          }
+        ]
+      },
+      "sourcePresent": true,
+      "sourceSha256": "8f820dbc636aad74114dff3799e5a593dbe80a72eef8ef298f8d44b29df5aa3c",
+      "lines": 115,
+      "imports": [
+        "react",
+        "framer-motion",
+        "../../lib/utils"
+      ],
+      "reducedMotionHook": false,
+      "hasKeyboardHandler": false,
+      "hasTable": false
+    },
+    {
+      "name": "Interactive Timeline",
+      "slug": "interactive-timeline",
+      "registry": {
+        "name": "interactive-timeline",
+        "type": "registry:ui",
+        "title": "Interactive Timeline",
+        "description": "A developer-focused milestone and deployment timeline featuring dynamic progress lines, pulsating status nodes, expandable telemetry cards, and commit hash copy.",
+        "dependencies": [
+          "framer-motion",
+          "lucide-react"
+        ],
+        "files": [
+          {
+            "path": "src/components/ui/InteractiveTimeline.tsx",
+            "type": "registry:ui",
+            "target": "components/ui/interactive-timeline.tsx"
+          },
+          {
+            "path": "src/lib/utils.ts",
+            "type": "registry:lib",
+            "target": "lib/utils.ts"
+          },
+          {
+            "path": "src/lib/motion-tokens.ts",
+            "type": "registry:lib",
+            "target": "lib/motion-tokens.ts"
+          }
+        ]
+      },
+      "sourcePresent": true,
+      "sourceSha256": "e939d420579f018674e9f4cef9ffcbea596c41a1d7270d1e7d863e93281a66fb",
+      "lines": 315,
+      "imports": [
+        "react",
+        "framer-motion",
+        "lucide-react",
+        "../../lib/utils",
+        "../../lib/motion-tokens"
+      ],
+      "reducedMotionHook": false,
+      "hasKeyboardHandler": false,
+      "hasTable": false
+    },
+    {
+      "name": "AI Agent Activity",
+      "slug": "ai-agent-activity",
+      "registry": {
+        "name": "ai-agent-activity",
+        "type": "registry:ui",
+        "title": "AI Agent Activity",
+        "description": "A timeline component for tracking AI agent reasoning, tool calls, API queries, database fetches, and execution states with inspectable parameters and results.",
+        "dependencies": [
+          "framer-motion",
+          "lucide-react"
+        ],
+        "files": [
+          {
+            "path": "src/components/ui/AIAgentActivity.tsx",
+            "type": "registry:ui",
+            "target": "components/ui/ai-agent-activity.tsx"
+          },
+          {
+            "path": "src/lib/utils.ts",
+            "type": "registry:lib",
+            "target": "lib/utils.ts"
+          }
+        ]
+      },
+      "sourcePresent": true,
+      "sourceSha256": "12a2c2a5cac62225011c487b18ff143d975180bd1a4c95312bcc0d77c6768b7d",
+      "lines": 443,
+      "imports": [
+        "react",
+        "framer-motion",
+        "lucide-react",
+        "../../lib/utils"
+      ],
+      "reducedMotionHook": true,
+      "hasKeyboardHandler": false,
+      "hasTable": false
+    },
+    {
+      "name": "Stat Card",
+      "slug": "stat-card",
+      "registry": {
+        "name": "stat-card",
+        "type": "registry:ui",
+        "title": "Stat Card",
+        "description": "A KPI tile with a count-up headline number, a direction-aware delta pill, and a scrubable sparkline. Pair several with StatGrid for a responsive metrics row that works from phones to wide dashboards.",
+        "dependencies": [
+          "framer-motion"
+        ],
+        "files": [
+          {
+            "path": "src/components/ui/StatCard.tsx",
+            "type": "registry:ui",
+            "target": "components/ui/stat-card.tsx"
+          },
+          {
+            "path": "src/lib/chart-primitives.tsx",
+            "type": "registry:lib",
+            "target": "lib/chart-primitives.tsx"
+          },
+          {
+            "path": "src/lib/dashboard-chart-utils.ts",
+            "type": "registry:lib",
+            "target": "lib/dashboard-chart-utils.ts"
+          }
+        ]
+      },
+      "sourcePresent": true,
+      "sourceSha256": "e4b948296b3cb0981fb93a439f77f23df45d33c4a7ffc63db93d265cdf864e5e",
+      "lines": 265,
+      "imports": [
+        "react",
+        "framer-motion",
+        "../../lib/chart-primitives",
+        "../../lib/dashboard-chart-utils"
+      ],
+      "reducedMotionHook": true,
+      "hasKeyboardHandler": true,
+      "hasTable": false
+    },
+    {
+      "name": "Donut/Bar/Funnel Chart",
+      "slug": "donut-chart",
+      "registry": {
+        "name": "donut-chart",
+        "type": "registry:ui",
+        "title": "Donut Chart",
+        "description": "A hand-written SVG donut and half-ring gauge with animated arcs, a live center readout, hover highlighting, and a legend that filters slices without collapsing the ring.",
+        "dependencies": [
+          "framer-motion"
+        ],
+        "files": [
+          {
+            "path": "src/components/ui/DonutChart.tsx",
+            "type": "registry:ui",
+            "target": "components/ui/donut-chart.tsx"
+          },
+          {
+            "path": "src/lib/chart-primitives.tsx",
+            "type": "registry:lib",
+            "target": "lib/chart-primitives.tsx"
+          }
+        ]
+      },
+      "sourcePresent": true,
+      "sourceSha256": "b6f9b59639eeff473b3ccfbba5417a13988a97f9c7c6365c3a307f2a39113f66",
+      "lines": 276,
+      "imports": [
+        "react",
+        "framer-motion",
+        "../../lib/chart-primitives"
+      ],
+      "reducedMotionHook": true,
+      "hasKeyboardHandler": false,
+      "hasTable": false
+    },
+    {
+      "name": "Sticky Pages",
+      "slug": "sticky-pages",
+      "registry": {
+        "name": "sticky-pages",
+        "type": "registry:ui",
+        "title": "Sticky Pages",
+        "description": "A pure static full-page sticky stacking scroll component where pages slide up and stack cleanly one over another without any tilting or distortion, before releasing smoothly into natural page scrolling.",
+        "files": [
+          {
+            "path": "src/components/ui/StickyPages.tsx",
+            "type": "registry:ui",
+            "target": "components/ui/sticky-pages.tsx"
+          },
+          {
+            "path": "src/lib/utils.ts",
+            "type": "registry:lib",
+            "target": "lib/utils.ts"
+          }
+        ]
+      },
+      "sourcePresent": true,
+      "sourceSha256": "890bd2736404508030c7ccba06a11b6482c32bb4a5c16c24ac25719b0634b917",
+      "lines": 210,
+      "imports": [
+        "react",
+        "../../lib/utils"
+      ],
+      "reducedMotionHook": false,
+      "hasKeyboardHandler": false,
+      "hasTable": false
+    },
+    {
+      "name": "Recovery Ledger",
+      "slug": "recovery-ledger",
+      "registry": {
+        "name": "recovery-ledger",
+        "type": "registry:ui",
+        "title": "Recovery Ledger",
+        "description": "An archival audit timeline and state recovery ledger with chronological snapshot markers, diff inspection, and one-click rollback triggers.",
+        "dependencies": [
+          "framer-motion",
+          "lucide-react"
+        ],
+        "files": [
+          {
+            "path": "src/components/ui/RecoveryLedger.tsx",
+            "type": "registry:ui",
+            "target": "components/ui/recovery-ledger.tsx"
+          },
+          {
+            "path": "src/lib/utils.ts",
+            "type": "registry:lib",
+            "target": "lib/utils.ts"
+          },
+          {
+            "path": "src/lib/motion-tokens.ts",
+            "type": "registry:lib",
+            "target": "lib/motion-tokens.ts"
+          }
+        ]
+      },
+      "sourcePresent": true,
+      "sourceSha256": "26595c92c794dc4f9904ae2ab4748cce8a8c7a9397f7e46893c089ea89d71eec",
+      "lines": 215,
+      "imports": [
+        "react",
+        "framer-motion",
+        "lucide-react",
+        "../../lib/utils",
+        "../../lib/motion-tokens"
+      ],
+      "reducedMotionHook": false,
+      "hasKeyboardHandler": false,
+      "hasTable": false
+    }
+  ],
+  "beui": [
+    {
+      "name": "timeline",
+      "dependencies": [
+        "clsx",
+        "motion",
+        "tailwind-merge"
+      ],
+      "files": [
+        "components/motion/timeline.tsx",
+        "lib/touch.ts",
+        "lib/utils.ts"
+      ]
+    },
+    {
+      "name": "smooth-scroll",
+      "dependencies": [
+        "lenis",
+        "motion"
+      ],
+      "files": [
+        "components/motion/smooth-scroll.tsx"
+      ]
+    },
+    {
+      "name": "scroll-progress",
+      "dependencies": [
+        "clsx",
+        "lenis",
+        "motion",
+        "tailwind-merge"
+      ],
+      "files": [
+        "components/motion/scroll-progress.tsx",
+        "components/motion/smooth-scroll.tsx",
+        "lib/utils.ts"
+      ]
+    },
+    {
+      "name": "table",
+      "dependencies": [
+        "@tanstack/react-virtual",
+        "clsx",
+        "lucide-react",
+        "motion",
+        "tailwind-merge"
+      ],
+      "files": [
+        "components/motion/table/index.tsx",
+        "components/motion/table/editable-cell.tsx",
+        "components/motion/table/row-handle.tsx",
+        "components/motion/table/skeleton-rows.tsx",
+        "components/motion/table/table-header.tsx",
+        "components/motion/table/types.ts",
+        "components/motion/table/use-column-reorder.ts",
+        "components/motion/table/use-column-resize.ts",
+        "components/motion/table/use-column-sort.ts",
+        "components/motion/table/use-row-selection.ts",
+        "components/motion/table/utils.ts",
+        "components/motion/checkbox.tsx",
+        "lib/utils.ts",
+        "components/motion/table/table-menu.tsx",
+        "lib/ease.ts",
+        "lib/touch.ts"
+      ]
+    },
+    {
+      "name": "sankey-chart",
+      "dependencies": [
+        "@floating-ui/dom",
+        "clsx",
+        "motion",
+        "tailwind-merge"
+      ],
+      "files": [
+        "components/charts/sankey-chart.tsx",
+        "components/charts/sankey-chart/context.tsx",
+        "components/charts/sankey-chart/model.ts",
+        "components/charts/sankey-chart/plot.tsx",
+        "components/charts/sankey-chart/tooltip.tsx",
+        "lib/utils.ts",
+        "lib/hooks/use-hover-capable.ts",
+        "lib/hooks/use-row-cursor.ts",
+        "lib/ease.ts",
+        "components/motion/number-ticker.tsx",
+        "components/motion/tooltip.tsx",
+        "components/motion/tooltip/grace.ts",
+        "components/motion/tooltip/positioner.tsx",
+        "components/motion/tooltip/use-position.ts",
+        "components/motion/tooltip-surface.tsx",
+        "lib/hooks/use-dismiss.ts",
+        "lib/hooks/use-hover-gesture.ts",
+        "lib/hooks/use-tap-gesture.ts",
+        "lib/touch.ts"
+      ]
+    },
+    {
+      "name": "composition-chart",
+      "dependencies": [
+        "@floating-ui/dom",
+        "clsx",
+        "motion",
+        "tailwind-merge"
+      ],
+      "files": [
+        "components/charts/composition-chart.tsx",
+        "components/charts/composition-chart/context.tsx",
+        "components/charts/composition-chart/legend.tsx",
+        "components/charts/composition-chart/model.ts",
+        "components/charts/composition-chart/plot.tsx",
+        "lib/utils.ts",
+        "lib/hooks/use-hover-capable.ts",
+        "components/charts/composition-chart/tooltip-content.tsx",
+        "components/motion/tooltip.tsx",
+        "lib/ease.ts",
+        "components/motion/number-ticker.tsx",
+        "components/motion/tooltip/grace.ts",
+        "components/motion/tooltip/positioner.tsx",
+        "components/motion/tooltip/use-position.ts",
+        "components/motion/tooltip-surface.tsx",
+        "lib/hooks/use-dismiss.ts",
+        "lib/hooks/use-hover-gesture.ts",
+        "lib/hooks/use-tap-gesture.ts",
+        "lib/touch.ts"
+      ]
+    },
+    {
+      "name": "funnel-chart",
+      "dependencies": [
+        "@floating-ui/dom",
+        "clsx",
+        "motion",
+        "tailwind-merge"
+      ],
+      "files": [
+        "components/charts/funnel-chart.tsx",
+        "components/charts/funnel-chart/model.ts",
+        "components/motion/number-ticker.tsx",
+        "components/motion/tooltip.tsx",
+        "lib/ease.ts",
+        "lib/utils.ts",
+        "components/motion/tooltip/grace.ts",
+        "components/motion/tooltip/positioner.tsx",
+        "components/motion/tooltip/use-position.ts",
+        "components/motion/tooltip-surface.tsx",
+        "lib/hooks/use-dismiss.ts",
+        "lib/hooks/use-hover-gesture.ts",
+        "lib/hooks/use-tap-gesture.ts",
+        "lib/touch.ts"
+      ]
+    },
+    {
+      "name": "heat-calendar",
+      "dependencies": [
+        "@floating-ui/dom",
+        "clsx",
+        "motion",
+        "tailwind-merge"
+      ],
+      "files": [
+        "components/charts/heat-calendar.tsx",
+        "components/charts/heat-calendar/context.ts",
+        "components/charts/heat-calendar/grid.tsx",
+        "components/charts/heat-calendar/legend.tsx",
+        "components/charts/heat-calendar/tooltip.tsx",
+        "components/charts/heat-calendar/types.ts",
+        "lib/utils.ts",
+        "components/charts/heat-calendar/utils.ts",
+        "lib/hooks/use-hover-capable.ts",
+        "lib/ease.ts",
+        "components/motion/number-ticker.tsx",
+        "components/motion/tooltip.tsx",
+        "components/motion/tooltip/grace.ts",
+        "components/motion/tooltip/positioner.tsx",
+        "components/motion/tooltip/use-position.ts",
+        "components/motion/tooltip-surface.tsx",
+        "lib/hooks/use-dismiss.ts",
+        "lib/hooks/use-hover-gesture.ts",
+        "lib/hooks/use-tap-gesture.ts",
+        "lib/touch.ts"
+      ]
+    },
+    {
+      "name": "code-block",
+      "dependencies": [
+        "clsx",
+        "lucide-react",
+        "motion",
+        "shiki",
+        "tailwind-merge"
+      ],
+      "files": [
+        "components/agents/code-block.tsx",
+        "components/agents/agent-code.tsx",
+        "lib/ease.ts",
+        "lib/utils.ts"
+      ]
+    },
+    {
+      "name": "agent-activity",
+      "dependencies": [
+        "clsx",
+        "lucide-react",
+        "motion",
+        "tailwind-merge"
+      ],
+      "files": [
+        "components/agents/agent-activity/index.tsx",
+        "components/agents/agent-activity/activity-row.tsx",
+        "components/agents/agent-activity/types.ts",
+        "components/agents/agent-disclosure.tsx",
+        "components/agents/loading-states/thinking-shimmer.tsx",
+        "lib/ease.ts",
+        "lib/utils.ts",
+        "components/motion/text-shimmer.tsx",
+        "lib/text-shimmer.ts"
+      ]
+    }
+  ]
+}

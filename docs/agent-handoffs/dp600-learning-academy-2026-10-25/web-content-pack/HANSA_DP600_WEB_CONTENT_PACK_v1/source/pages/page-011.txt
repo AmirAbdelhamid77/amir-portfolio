@@ -1,0 +1,90 @@
+What is the workload?
+Lakehouse
+Spark / files
+unstructured +
+Delta tables
+read-only SQL
+Warehouse
+Full T-SQL
+multi-table
+transactions
+writes via SQL
+Eventhouse
+High-volume
+telemetry, logs
+KQL, seconds
+time series
+SQL database
+OLTP app data
+low latency
+auto-mirrored
+to OneLake
+All four persist to OneLake in Delta/Parquet, so any engine can read the result
+The four analytical stores. All of them land data in OneLake in Delta/Parquet.
+Lakehouse
+Warehouse
+Eventhouse (KQL)
+SQL database
+Primary
+language
+PySpark, Spark
+SQL
+T-SQL
+KQL (T-SQL subset for
+reads)
+T-SQL
+Writes
+Spark, pipelines,
+Dataflows Gen2
+T-SQL
+INSERT / UPDATE / DE
+LETE / MERGE , COPY
+INTO
+Streaming ingestion,
+.ingest
+Full OLTP
+transactions
+Multi-table
+transactions
+No
+Yes
+No
+Yes
+Unstructured
+files
+Yes (Files area)
+No
+No
+No
+Best at
+Data engineering,
+ML, mixed file
+types
+Dimensional models,
+SQL-first teams,
+complex joins
+Telemetry, logs, IoT, time
+series, sub-second over
+huge volumes
+Operational apps,
+low-latency point
+reads
+SQL endpoint
+Read-only
+Read/write
+—
+Read/write
+Auto-mirrors to
+OneLake
+Native
+Native
+Yes, via OneLake
+availability
+Yes, automatically
+KNOW THE DIFFERENCE
+Lakehouse vs Warehouse is the single most common "choose a store" question. Decide with two
+questions: (1) Does the team need to write with T-SQL, including multi-table transactions? →
+Warehouse. (2) Does the workload involve files, Spark, or ML? → Lakehouse. If both, use both: a
+lakehouse for Bronze/Silver and a warehouse for Gold, joined through shortcuts or cross-database
+queries.
+Full decision guidance: choose a data store and choose between pipeline, dataflow, and Spark.

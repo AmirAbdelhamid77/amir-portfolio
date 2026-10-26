@@ -1,3 +1,10 @@
+> **AI agents:** begin with [AGENTS.md](AGENTS.md) and
+> [the active reference map](docs/agent-reference/START_HERE.md).
+> The v2 reorganization plan governs structure/UX; the integrated adaptive
+> visualization policy governs charts, simulations, visual interactions and motion.
+> Older implementation reports are historical evidence. Verify references with
+> `node scripts/verify-agent-reference.mjs`. This integration does not deploy or
+> implement the site reorganization.
 # Amir Abdelhamid — portfolio
 
 Personal site for **Amir Abdelhamid** — data analyst and BI builder. Case studies,
@@ -53,6 +60,44 @@ npm run preview:worker # http://localhost:8787 - Wrangler, applies _headers + as
 (`scripts/serve-out.mjs` mirrors the hosted routing: trailing-slash redirects, 404
 fallback, correct MIME types.)
 
+### Comprehensive Statistics Reference
+
+`/learn/statistics` is the visual-first statistics hub built from the owner's local Notion export.
+It is a separate learning surface from the ten-chapter Data Visualization path at `/learn`, but the
+two cross-link rather than duplicating each other.
+
+- **Source:** one Notion HTML export, 43 numbered sections, 102 formula occurrences, 0 figures.
+  The importer is `scripts/import-notion-statistics.mjs`; the typed output is
+  `content/statistics/source.json`. No raw exported HTML is injected.
+- **Routes:** the hub; nine journey routes (`/learn/statistics/journey/<slug>`); fifteen lab routes
+  (`/learn/statistics/labs/<slug>`); a concept atlas, formula workbench, bilingual glossary, tool
+  finder, printable field guide and a public source audit.
+- **Math:** every probability, interval, test and correlation value lives in
+  `lib/statistics/math.ts`; charts draw it but never compute it. KaTeX renders repaired formulas at
+  build time with `trust:false`.
+- **Content conventions:** source Arabic explanations and English statistical terms are preserved.
+  Technical notation stays LTR inside Arabic prose. Formulae that the export stripped of backslashes
+  are repaired from a verified lexicon; corrections (notably the Poisson λ=20 tail) are visible in
+  the section and recorded in `docs/statistics/math-errata.md`.
+- **Labs:** client islands with seeded randomness, visible reset/presets, exact-value tables, and a
+  reduced-motion path. Synthetic data is labelled; no live traffic, patients, customers or revenue
+  is implied.
+
+```bash
+npm run import:statistics     # re-import the export; idempotent
+npm run docs:statistics       # regenerate coverage matrix + visual audit
+npm run test:statistics       # 18 numerical tests
+npm run verify:statistics     # coverage, formulas, routes, links, numeric gate
+npm run build
+node scripts/serve-out.mjs 4174
+npm run test:e2e:statistics   # Edge via playwright-core; writes docs/statistics/screenshots
+```
+
+The `e2e` script expects the static export on `http://127.0.0.1:4174` and a local Edge installation
+(`EDGE_PATH` can override). It does not download a browser. The documentation set is under
+`docs/statistics/`: source inventory, coverage matrix, errata, beUI decisions, visual audit,
+storyboards, visualization spec and the implementation report.
+
 ---
 
 ## Editing content
@@ -94,6 +139,32 @@ full-width treatment.
 Every question needs `id`, `topic`, `prompt`, and `explanation`. To add a topic,
 drop in a new JSON file and register it in `RAW_BANKS`; the catalogue, filters,
 sitemap, and stats update themselves.
+
+### Microsoft Fabric / DP-600 hub
+`/lab/dp-600/` is a separate question bank from the six `content/exams/*.json` sets:
+834 practice questions in 18 source packs, with per-option rationales, case studies,
+source-video timestamps and DP-600 objective coverage.
+
+- **Content** lives in `content/fabric/` and is generated — do not hand-edit it.
+  `scripts/import-fabric-bank.mjs` reads the supplied package
+  (`LAB_PACKS.merged.json` + `SOURCES.merged.json`), verifies every record, and writes
+  the catalog, the 527 KB searchable index, 18 lazy question chunks, the case-study
+  groups and the reference registry. `content/fabric/meta.json` carries the audit and
+  coverage figures the site displays.
+- **Classification** (`lib/fabric/classify.ts`) maps each question to an official
+  DP-600 sub-objective and a browsable Fabric subject. It is pure and deterministic;
+  the importer, the UI and the tests all use the same function.
+- **Routes**: overview, explorer, guided study, topic practice, mock, case studies,
+  review, progress, resources. Every one is statically exported; a session is resumed
+  with `?session=<id>`.
+- **Persistence**: `localStorage["amir-fabric-v1"]`, versioned and normalised, with
+  JSON export/import de-duplicated by session id. It never touches
+  `amir-lab-v1`, which keeps the six original exams' history intact.
+- **Scripts**: `npm run import:fabric`, `npm run test:fabric`, `npm run report:fabric`,
+  `npm run test:e2e:fabric`.
+
+Reports and evidence are in `docs/fabric/`; start with
+`docs/fabric/01-architecture-audit.md`.
 
 ### Experience, skills, services
 `lib/experience.ts` (timeline, skill groups, facts) and `lib/services.ts`
@@ -227,9 +298,12 @@ app/
   experience/             timeline, skill groups, education, certification
   services/               three services, process, FAQ
   lab/                    catalogue + [slug] exam player
+  learn/statistics/       visual-first statistics hub, 9 journeys, 15 labs, atlas,
+                          formula workbench, glossary, tool finder, field guide, source audit
   about/  contact/        narrative and contact channels
   sitemap.ts  robots.ts   generated at build time
 components/
+  statistics/              chart primitives, labs, exhibits, source renderer, search
   site-header/footer, theme-controls, ui primitives
   case-study-card, dashboard-gallery (native <dialog> viewer)
   contact-form
@@ -282,3 +356,6 @@ These are deliberately visible rather than faked:
 - **IBM capstone / ADAS detail** — both pages are honest summaries; expand with
   notebooks, charts, and project photos when available.
 - **Contact endpoint** — unset, so the form falls back to email.
+
+## Knowledge Atlas preparation
+Atlas documentation and the repository compatibility amendment start at [docs/knowledge-atlas/START_HERE.md](docs/knowledge-atlas/START_HERE.md). The Contextual Hybrid semantic Atlas is prepared for future implementation; no Atlas feature or deployment is included. Continuation: [NEXT_AGENT_START_HERE.md](docs/knowledge-atlas/NEXT_AGENT_START_HERE.md).

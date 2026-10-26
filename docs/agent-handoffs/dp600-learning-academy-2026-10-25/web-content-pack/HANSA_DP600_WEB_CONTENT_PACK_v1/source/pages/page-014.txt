@@ -1,0 +1,70 @@
+Capability
+Admin
+Member
+Contributor
+Viewer
+Delete the workspace, change its capacity
+✔
+Add or remove people in any role
+✔
+Add people as Contributor or Viewer
+✔
+✔
+Share items and re-share with others
+✔
+✔
+Publish and update an app
+✔
+✔
+Create, edit, delete items
+✔
+✔
+✔
+Schedule and run refreshes and jobs
+✔
+✔
+✔
+View and interact with items, read data through the SQL endpoint
+✔
+✔
+✔
+✔
+Read raw files through Spark / OneLake APIs
+✔
+✔
+✔
+COMMON EXAM TRAP
+Viewer does not mean "can read all the data." A Viewer can query a warehouse or lakehouse
+through the SQL analytics endpoint and open reports, but cannot read the underlying files with Spark
+or OneLake APIs. If a scenario says "analysts must query tables with SQL but must not read the raw
+files," Viewer plus ReadData  is the answer — not Contributor.
+2.3 Item-level access control
+Item permissions let you share a single item with someone who has no workspace role at all. They are
+additive to workspace roles: you can grant more, never less.
+Permission
+Meaning
+Applies to
+Read
+See the item exists and open its metadata
+All items
+ReadData
+Query data through the SQL analytics endpoint
+Lakehouse, warehouse
+ReadAll
+Read the underlying OneLake files (Spark, OneLake APIs)
+Lakehouse, warehouse
+Build
+Create new content on top of a semantic model
+Semantic model
+Reshare
+Pass the permission on to someone else
+Shared items
+Write
+Modify the item definition
+All items
+Execute
+Run the item (for example a notebook or pipeline)
+Executable items
+Sharing a lakehouse shows exactly these switches: Read all Apache Spark ( ReadAll ), Read all SQL
+endpoint data ( ReadData ), and Build reports on the default semantic model ( Build ). Reference: Fabric
+permission model.

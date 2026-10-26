@@ -1,0 +1,65 @@
+{
+  "checked_at": "2026-10-25T17:18:26.072Z",
+  "results": [
+    {
+      "check": "unit-tests",
+      "status": "PASS",
+      "exit_code": 0,
+      "log": "docs/dp600-academy/qa/unit-tests.log"
+    },
+    {
+      "check": "typecheck",
+      "status": "PASS",
+      "exit_code": 0,
+      "log": "docs/dp600-academy/qa/typecheck.log"
+    },
+    {
+      "check": "lint-feature",
+      "status": "PASS",
+      "exit_code": 0,
+      "log": "docs/dp600-academy/qa/lint-feature.log"
+    },
+    {
+      "check": "source-integrity",
+      "status": "PASS",
+      "exit_code": 0,
+      "log": "docs/dp600-academy/qa/source-integrity.log"
+    },
+    {
+      "check": "reference-integrity",
+      "status": "PASS",
+      "exit_code": 0,
+      "log": "docs/dp600-academy/qa/reference-integrity.log"
+    },
+    {
+      "check": "export",
+      "status": "PASS",
+      "exit_code": 0,
+      "log": "docs/dp600-academy/qa/export.log"
+    },
+    {
+      "check": "browser",
+      "status": "PASS",
+      "exit_code": 0,
+      "log": "docs/dp600-academy/qa/browser.log"
+    },
+    {
+      "check": "legacy-browser",
+      "status": "PASS",
+      "exit_code": 0,
+      "log": "docs/dp600-academy/qa/legacy-browser.log"
+    },
+    {
+      "check": "wrangler-dry-run",
+      "status": "PASS",
+      "exit_code": 0,
+      "log": "docs/dp600-academy/qa/wrangler-dry-run.log"
+    }
+  ],
+  "browser_transport": "Chrome rendering actual export through static-file interception; not a delivery test",
+  "limitations": [],
+  "human_screen_reader": "NOT RUN",
+  "physical_mobile_device": "NOT RUN",
+  "live_delivery": "NOT RUN",
+  "standard_turbopack_build": "BLOCKED by baseline sandbox child-process failure; isolated webpack export validated"
+}

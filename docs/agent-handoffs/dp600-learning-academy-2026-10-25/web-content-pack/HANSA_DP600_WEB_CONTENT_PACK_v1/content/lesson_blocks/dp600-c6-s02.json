@@ -1,0 +1,18 @@
+{
+  "lesson_id": "dp600-c6-s02",
+  "source_sections": [
+    34
+  ],
+  "blocks": [
+    {
+      "id": "dp600-c6-s02-p034",
+      "kind": "source_fragment",
+      "source_page": 34,
+      "source_start_line": 15,
+      "source_text": "6.2 T-SQL essentials for the exam\n-- Top 10 products by sales in the current year, with a running total\nWITH sales AS (\n    SELECT p.ProductName,\n           SUM(f.SalesAmount) AS SalesAmount\n    FROM   dbo.FactSales   AS f\n    JOIN   dbo.DimProduct  AS p ON p.ProductKey = f.ProductKey\n    JOIN   dbo.DimDate     AS d ON d.DateKey    = f.DateKey\n    WHERE  d.CalendarYear = YEAR(GETDATE())\n    GROUP  BY p.ProductName\n)\nSELECT TOP (10)\n       ProductName,\n       SalesAmount,\n       SUM(SalesAmount) OVER (ORDER BY SalesAmount DESC\n                              ROWS BETWEEN UNBOUNDED PRECEDING AND CURRENT ROW) AS \nRunningTotal,\n       RANK() OVER (ORDER BY SalesAmount DESC) AS SalesRank\nFROM   sales\nORDER  BY SalesAmount DESC;\nConstructs worth having at your fingertips: CTEs, ROW_NUMBER / RANK / DENSE_RANK , SUM() OVER ,\nLAG / LEAD , TRY_CAST , COALESCE , STRING_AGG , OFFSET … FETCH , EXISTS / NOT EXISTS , MERGE\n(warehouse only), CTAS .",
+      "presentation_status": "needs-editorial-layout-conversion",
+      "recommended_renderer": "SourceFragment"
+    }
+  ],
+  "warning": "Source fragments are NOT native formatted prose, tables or runnable code."
+}

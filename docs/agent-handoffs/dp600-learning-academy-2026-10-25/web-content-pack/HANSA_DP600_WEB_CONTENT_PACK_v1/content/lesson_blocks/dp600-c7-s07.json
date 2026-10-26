@@ -1,0 +1,18 @@
+{
+  "lesson_id": "dp600-c7-s07",
+  "source_sections": [
+    42
+  ],
+  "blocks": [
+    {
+      "id": "dp600-c7-s07-p042",
+      "kind": "source_fragment",
+      "source_page": 42,
+      "source_start_line": 24,
+      "source_text": "7.7 Chapter 7 self-check\n1. A model needs YTD, PY, and YoY for 14 measures. What do you build?\n2. Users want to switch a chart between Sales, Margin, and Quantity from a slicer. What do you build?\n3. Two date columns must both filter one date dimension. How?\n4. A slicer on a DirectQuery model is painfully slow, but the dimension is small. What do you change?\n5. Why must a Direct Lake model use large semantic model storage format?\nAnswers. 1. A calculation group with three calculation items. 2. A field parameter. 3. One active\nrelationship plus an inactive one activated per measure with USERELATIONSHIP . 4. Set the dimension\ntable's storage mode to Dual. 5. Direct Lake requires it; Fabric enables it automatically when the model\nis created.",
+      "presentation_status": "needs-editorial-layout-conversion",
+      "recommended_renderer": "SourceFragment"
+    }
+  ],
+  "warning": "Source fragments are NOT native formatted prose, tables or runnable code."
+}

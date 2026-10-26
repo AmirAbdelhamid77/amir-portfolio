@@ -1,0 +1,38 @@
+{
+  "lesson_id": "dp600-8-intro",
+  "source_sections": [
+    44,
+    46,
+    48
+  ],
+  "blocks": [
+    {
+      "id": "dp600-8-intro-p044",
+      "kind": "source_fragment",
+      "source_page": 44,
+      "source_start_line": 1,
+      "source_text": "Chapter 8 — Implement and manage semantic models,\npart 2: optimise at enterprise scale\nEXAM FOCUS\nOptimize enterprise-scale semantic models — implement performance improvements in queries\nand report visuals · improve DAX performance · configure Direct Lake, including default fallback and\nrefresh behavior · choose between Direct Lake on OneLake and Direct Lake on SQL analytics\nendpoint · implement incremental refresh for semantic models.",
+      "presentation_status": "needs-editorial-layout-conversion",
+      "recommended_renderer": "SourceFragment"
+    },
+    {
+      "id": "dp600-8-intro-p046",
+      "kind": "source_fragment",
+      "source_page": 46,
+      "source_start_line": 1,
+      "source_text": "Framing (the \"refresh\"). A Direct Lake model has no data refresh in the Import sense. A refresh performs\nframing: it updates model metadata to point at the current version of each Delta table and invalidates\ncached columns whose files changed. The next query re-pages the new data. Framing is fast because it\nmoves metadata, not rows.\nSet the model to update automatically when source data changes, or frame on a schedule, or frame from\na pipeline at the end of a load.\nRunning OPTIMIZE  on a Delta table rewrites files, so the next query must re-page those columns —\nexpect a cold-ish first query after maintenance.\nFallback. If a query cannot be served from Direct Lake, the engine silently falls back to DirectQuery\nagainst the SQL analytics endpoint. Common triggers: the table exceeds the per-SKU guardrails (row\ncounts and file sizes scale with the F SKU), the object is a SQL view rather than a table, or an unsupported\nconstruct is used.\nControl it with the DirectLakeBehavior  model property:\nValue\nBehaviour\nAutomatic  (default)\nUse Direct Lake where possible, fall back to DirectQuery silently\nDirectLakeOnly\nNever fall back — raise an error instead, so you find out that you exceeded a guardrail\nDirectQueryOnly\nAlways use DirectQuery, useful for comparison testing\nCOMMON EXAM TRAP\n\"The report was fast yesterday and slow today, and nothing changed in the model\" is the classic\nfallback symptom: the table grew past a guardrail and every query is now DirectQuery. Set\nDirectLakeOnly  in development so a guardrail breach fails loudly instead of silently degrading in\nproduction.",
+      "presentation_status": "needs-editorial-layout-conversion",
+      "recommended_renderer": "SourceFragment"
+    },
+    {
+      "id": "dp600-8-intro-p048",
+      "kind": "source_fragment",
+      "source_page": 48,
+      "source_start_line": 1,
+      "source_text": "3. In the model, set the policy: **Archive data starting n years before refresh date and Incrementally refresh\ndata starting m days before refresh date**.\n4. Publish and run the first refresh — that one is long, because it builds all the partitions.\nOptions that matter:\nDetect data changes — nominate a LastModified  column so a partition is only reprocessed when\nsomething in it actually changed.\nOnly refresh complete periods — avoids publishing a half-finished day or month.\nThe source query must fold, otherwise every partition scans the whole source and you have made\nthings worse.\nCOMMON EXAM TRAP\nIncremental refresh is not a Direct Lake feature — a Direct Lake table is never \"refreshed\" row by row,\nit is framed. If a question sets up a Direct Lake model and asks how to reduce refresh time, the answer\ninvolves framing, table maintenance, and partitioned Delta writes, not RangeStart / RangeEnd .",
+      "presentation_status": "needs-editorial-layout-conversion",
+      "recommended_renderer": "SourceFragment"
+    }
+  ],
+  "warning": "Source fragments are NOT native formatted prose, tables or runnable code."
+}

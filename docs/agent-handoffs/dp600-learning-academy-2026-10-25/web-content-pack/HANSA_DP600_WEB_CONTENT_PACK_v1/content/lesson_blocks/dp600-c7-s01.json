@@ -1,0 +1,18 @@
+{
+  "lesson_id": "dp600-c7-s01",
+  "source_sections": [
+    38
+  ],
+  "blocks": [
+    {
+      "id": "dp600-c7-s01-p038",
+      "kind": "source_fragment",
+      "source_page": 38,
+      "source_start_line": 10,
+      "source_text": "7.1 Storage modes\nImport\nData copied into\nVertiPaq memory\nFastest queries\nStale until refresh\nDirectQuery\nQuery pushed to\nthe source\nAlways current\nSlower, source load\nDirect Lake\nReads Delta files\nin OneLake directly\nImport speed +\nnear-real-time\nDual\nImport or DQ,\nchosen per query\nFlexible for\ndimension tables\nFour storage modes. Direct Lake is the Fabric-native option and the one the exam cares about most.\nImport\nDirectQuery\nDirect Lake\nDual\nWhere data sits\nat query time\nIn VertiPaq\nmemory\nAt the source\nDelta files in OneLake, paged\ninto memory\nEither\nData freshness\nAs of last\nrefresh\nLive\nNear real time after framing\nMixed\nQuery speed\nFastest\nDepends on\nsource\nClose to Import\nFastest available\nRefresh needed\nYes, full or\nincremental\nNo\nFraming only (metadata)\nYes for the Import\npart\nAll DAX\nsupported\nYes\nLimited\nYes\nYes\nTypical use\nMost models\nHuge or highly\nvolatile sources\nLakehouse/warehouse-based\nmodels\nDimension tables in\na composite model\nReferences: storage mode · Direct Lake overview.",
+      "presentation_status": "needs-editorial-layout-conversion",
+      "recommended_renderer": "SourceFragment"
+    }
+  ],
+  "warning": "Source fragments are NOT native formatted prose, tables or runnable code."
+}

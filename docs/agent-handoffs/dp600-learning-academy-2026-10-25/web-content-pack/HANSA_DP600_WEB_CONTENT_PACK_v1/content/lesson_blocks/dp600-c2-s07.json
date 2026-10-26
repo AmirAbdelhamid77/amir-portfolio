@@ -1,0 +1,18 @@
+{
+  "lesson_id": "dp600-c2-s07",
+  "source_sections": [
+    17
+  ],
+  "blocks": [
+    {
+      "id": "dp600-c2-s07-p017",
+      "kind": "source_fragment",
+      "source_page": 17,
+      "source_start_line": 12,
+      "source_text": "2.7 Sensitivity labels\nInformation protection applies Microsoft Purview sensitivity labels to Fabric items.\nLabels are defined in the Microsoft Purview compliance portal, not in Fabric.\nLabels flow downstream automatically: label a lakehouse and the semantic models and reports built\nfrom it inherit the label.\nLabels persist on export to Excel, PowerPoint, PDF, and Power BI Desktop files, where they enforce\nencryption and access.\nTenant settings control who can apply and change labels.\nCOMMON EXAM TRAP\nA sensitivity label is not an access control on its own. It classifies and can encrypt exported files, but it\ndoes not stop a user who already has Read from querying the data inside Fabric. Questions that pair\n\"must not be able to open the exported file\" with \"must still see the report\" are testing exactly this.",
+      "presentation_status": "needs-editorial-layout-conversion",
+      "recommended_renderer": "SourceFragment"
+    }
+  ],
+  "warning": "Source fragments are NOT native formatted prose, tables or runnable code."
+}

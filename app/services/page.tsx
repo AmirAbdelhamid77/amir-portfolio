@@ -75,7 +75,8 @@ export default function ServicesPage() {
             return (
               <article
                 key={service.slug}
-                className="grid gap-6 rounded-3xl border border-border bg-card/40 p-6 md:grid-cols-[1fr_1fr] md:p-8"
+                id={service.slug}
+                className="scroll-mt-24 grid gap-6 rounded-3xl border border-border bg-card/40 p-6 md:grid-cols-[1fr_1fr] md:p-8"
               >
                 <div>
                   <div className="flex items-center gap-3">

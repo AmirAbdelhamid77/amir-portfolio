@@ -1,0 +1,18 @@
+{
+  "lesson_id": "dp600-c3-s05",
+  "source_sections": [
+    22
+  ],
+  "blocks": [
+    {
+      "id": "dp600-c3-s05-p022",
+      "kind": "source_fragment",
+      "source_page": 22,
+      "source_start_line": 1,
+      "source_text": "3.5 The XMLA endpoint\nThe XMLA endpoint exposes a Fabric semantic model with the same protocol as Azure Analysis Services,\nso professional tools can connect to it.\nMode\nWhat you can do\nRead\nConnect DAX Studio, Excel, SSMS, or Tabular Editor to query and profile the model\nRead/Write\nDeploy, alter, script, refresh, and manage partitions from external tools\nTurn read/write on in the capacity settings, then connect with a workspace connection string of the form\npowerbi://api.powerbi.com/v1.0/myorg/<workspace> .\nWhat the XMLA endpoint unlocks that Desktop cannot do:\nDeploy metadata-only changes (add a measure without republishing the whole model)\nConfigure object-level security and advanced role definitions\nManage partitions and trigger targeted refreshes, including refreshType  options\nRun TMSL scripts and ALM Toolkit schema comparisons in a release pipeline\nWATCH OUT\nAfter a model is modified through the XMLA endpoint, it can no longer be downloaded as a .pbix .\nKeep the .pbip  project in Git as your source of truth.",
+      "presentation_status": "needs-editorial-layout-conversion",
+      "recommended_renderer": "SourceFragment"
+    }
+  ],
+  "warning": "Source fragments are NOT native formatted prose, tables or runnable code."
+}

@@ -1,0 +1,58 @@
+{
+  "lesson_id": "dp600-5-intro",
+  "source_sections": [
+    28,
+    29,
+    30,
+    32,
+    33
+  ],
+  "blocks": [
+    {
+      "id": "dp600-5-intro-p028",
+      "kind": "source_fragment",
+      "source_page": 28,
+      "source_start_line": 1,
+      "source_text": "Chapter 5 — Prepare data, part 2: transform data\nEXAM FOCUS\nTransform data — create views, functions, and stored procedures · enrich data by adding new\ncolumns or tables · implement a star schema for a lakehouse or warehouse · denormalize data ·\naggregate data · merge or join data · identify and resolve duplicate data, missing data, or null values ·\nconvert column data types · filter data.",
+      "presentation_status": "needs-editorial-layout-conversion",
+      "recommended_renderer": "SourceFragment"
+    },
+    {
+      "id": "dp600-5-intro-p029",
+      "kind": "source_fragment",
+      "source_page": 29,
+      "source_start_line": 1,
+      "source_text": "DimDate\nDateKey (PK)\nDimProduct\nProductKey (PK)\nDimCustomer\nCustomerKey (PK)\nDimStore\nStoreKey (PK)\nFactSales\n— — — — —\nDateKey · ProductKey\nCustomerKey · StoreKey\nQuantity · SalesAmount\n1:*\n1:*\n1:*\n1:*\nOne-to-many, single-direction filters flowing from dimensions to the fact table\nOne fact table surrounded by dimensions, joined by surrogate keys. Filters flow one way: dimension to fact.\nRules worth memorising:\nFact tables hold measurements plus foreign keys. Keep them narrow and long; store the key, not the\ndescription.\nDimension tables hold descriptive attributes and one surrogate key. Keep them wide and short.\nGrain is declared first. \"One row per order line per day\" determines everything else.\nSurrogate keys (integer, meaningless) beat natural/business keys: they survive source system changes\nand make SCD Type 2 possible.\nConformed dimensions (a single DimDate , a single DimCustomer ) let two fact tables be analysed side\nby side.\nA date dimension is mandatory for time intelligence. Mark it as a date table in the semantic model.\nCreating a dimension with a surrogate key in a warehouse:\nCREATE TABLE dbo.DimProduct (\n    ProductKey      INT           NOT NULL,   -- surrogate\n    ProductId       VARCHAR(20)   NOT NULL,   -- natural/business key\n    ProductName     VARCHAR(200)  NULL,\n    Category        VARCHAR(100)  NULL,\n    ListPrice       DECIMAL(10,2) NULL\n);\n-- Generate surrogate keys with a window function (Fabric Warehouse has no IDENTITY)\nINSERT INTO dbo.DimProduct\nSELECT ROW_NUMBER() OVER (ORDER BY s.ProductId) + COALESCE((SELECT MAX(ProductKey) FROM \ndbo.DimProduct), 0),\n       s.ProductId, s.ProductName, s.Category, s.ListPrice\nFROM   stg.Product AS s\nWHERE  NOT EXISTS (SELECT 1 FROM dbo.DimProduct d WHERE d.ProductId = s.ProductId);\nThe same idea in PySpark for a lakehouse:",
+      "presentation_status": "needs-editorial-layout-conversion",
+      "recommended_renderer": "SourceFragment"
+    },
+    {
+      "id": "dp600-5-intro-p030",
+      "kind": "source_fragment",
+      "source_page": 30,
+      "source_start_line": 1,
+      "source_text": "from pyspark.sql import functions as F\nfrom pyspark.sql.window import Window\nstg = spark.read.table(\"bronze.product\")\nw   = Window.orderBy(\"ProductId\")\ndim = (stg.dropDuplicates([\"ProductId\"])\n          .withColumn(\"ProductKey\", F.row_number().over(w))\n          .select(\"ProductKey\", \"ProductId\", \"ProductName\", \"Category\", \"ListPrice\"))\ndim.write.mode(\"overwrite\").format(\"delta\").saveAsTable(\"silver.DimProduct\")\nCOMMON EXAM TRAP\nFabric Warehouse does not support IDENTITY  columns, and it does not enforce PRIMARY\nKEY / FOREIGN KEY  constraints — they can be declared as NOT ENFORCED  for metadata and optimiser\nhints only. Your load process is responsible for key uniqueness and referential integrity. Expect a\nquestion where the \"obvious\" IDENTITY  answer is wrong.",
+      "presentation_status": "needs-editorial-layout-conversion",
+      "recommended_renderer": "SourceFragment"
+    },
+    {
+      "id": "dp600-5-intro-p032",
+      "kind": "source_fragment",
+      "source_page": 32,
+      "source_start_line": 1,
+      "source_text": "CREATE VIEW dbo.vSalesCurrentYear AS\nSELECT f.*, d.CalendarYear\nFROM   dbo.FactSales AS f\nJOIN   dbo.DimDate   AS d ON d.DateKey = f.DateKey\nWHERE  d.CalendarYear = YEAR(GETDATE());\nGO\nCREATE PROCEDURE dbo.usp_LoadDimProduct\nAS\nBEGIN\n    MERGE dbo.DimProduct AS tgt\n    USING stg.Product     AS src ON tgt.ProductId = src.ProductId\n    WHEN MATCHED AND tgt.ListPrice <> src.ListPrice\n        THEN UPDATE SET tgt.ListPrice = src.ListPrice\n    WHEN NOT MATCHED BY TARGET\n        THEN INSERT (ProductId, ProductName, ListPrice)\n             VALUES (src.ProductId, src.ProductName, src.ListPrice);\nEND;\nCall the procedure from a pipeline with a Stored procedure activity, or from a notebook. Check the\nsupported surface area before you assume a T-SQL feature exists: T-SQL surface area in Fabric.\nCOMMON EXAM TRAP\nThe lakehouse SQL analytics endpoint is read-only. Any scenario requiring MERGE , a stored\nprocedure, or a multi-table transaction over lakehouse tables must either move the logic into a Spark\nnotebook ( MERGE INTO  in Spark SQL works on Delta tables) or move the Gold layer into a warehouse.\nThe Spark equivalent of an upsert:\n%%sql\nMERGE INTO silver.DimProduct AS tgt\nUSING bronze.product          AS src\n   ON tgt.ProductId = src.ProductId\nWHEN MATCHED AND tgt.ListPrice <> src.ListPrice THEN UPDATE SET tgt.ListPrice = \nsrc.ListPrice\nWHEN NOT MATCHED THEN INSERT *;",
+      "presentation_status": "needs-editorial-layout-conversion",
+      "recommended_renderer": "SourceFragment"
+    },
+    {
+      "id": "dp600-5-intro-p033",
+      "kind": "source_fragment",
+      "source_page": 33,
+      "source_start_line": 1,
+      "source_text": "Answers. 1. Query folding broke at that step, so all downstream work moved to the mashup engine. 2.\nROW_NUMBER()  (or a hash/sequence pattern) — there is no IDENTITY  in Fabric Warehouse. 3. Stored\nprocedure. 4. ROW_NUMBER() OVER (PARTITION BY key ORDER BY timestamp DESC) = 1 . 5.\nTRY_CAST  and route the NULL  results to a quarantine table.",
+      "presentation_status": "needs-editorial-layout-conversion",
+      "recommended_renderer": "SourceFragment"
+    }
+  ],
+  "warning": "Source fragments are NOT native formatted prose, tables or runnable code."
+}

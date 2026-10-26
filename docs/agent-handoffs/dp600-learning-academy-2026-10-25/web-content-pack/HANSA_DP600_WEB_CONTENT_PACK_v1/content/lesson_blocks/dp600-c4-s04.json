@@ -1,0 +1,18 @@
+{
+  "lesson_id": "dp600-c4-s04",
+  "source_sections": [
+    26
+  ],
+  "blocks": [
+    {
+      "id": "dp600-c4-s04-p026",
+      "kind": "source_fragment",
+      "source_page": 26,
+      "source_start_line": 1,
+      "source_text": "4.4 OneLake integration for Eventhouse and semantic models\nTwo settings that turn an isolated store into part of the lake — the skills outline names them explicitly.\nEventhouse OneLake availability. Turn this on for a KQL database or table and the engine writes a Delta\ncopy of the data into OneLake. The data stays queryable with KQL at full speed and becomes readable by\nSpark, T-SQL, shortcuts, and Direct Lake semantic models. Without it, the data is reachable only through\nKQL endpoints. See Eventhouse.\nSemantic model OneLake integration. Turn this on for an Import-mode semantic model and its tables are\nwritten to OneLake as Delta on refresh. That lets Spark notebooks, shortcuts, and SQL read the modelled\ntables without rebuilding the logic.\nCOMMON EXAM TRAP\nThese two settings point in opposite directions. Eventhouse OneLake availability publishes KQL data\nout to the lake. Semantic model OneLake integration publishes model tables out to the lake. Neither\none pulls data in, and neither one is how you make a Direct Lake model — for that you point a new\nsemantic model at Delta tables that already exist in a lakehouse or warehouse.",
+      "presentation_status": "needs-editorial-layout-conversion",
+      "recommended_renderer": "SourceFragment"
+    }
+  ],
+  "warning": "Source fragments are NOT native formatted prose, tables or runnable code."
+}

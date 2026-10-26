@@ -1,0 +1,18 @@
+{
+  "lesson_id": "dp600-c1-s03",
+  "source_sections": [
+    9
+  ],
+  "blocks": [
+    {
+      "id": "dp600-c1-s03-p009",
+      "kind": "source_fragment",
+      "source_page": 9,
+      "source_start_line": 36,
+      "source_text": "1.3 OneLake and shortcuts\nOneLake is a single logical data lake for the entire tenant, built on ADLS Gen2, automatically provisioned,\nand organised as tenant / workspace / item / Files or Tables . You cannot opt out of it, and you do\nnot size it.\nA shortcut is a pointer to data that lives somewhere else — another lakehouse, another workspace, ADLS\nGen2, Amazon S3, Google Cloud Storage, Dataverse, or an on-premises location via a gateway. Reading\nthrough a shortcut looks exactly like reading a local folder.\nWITHOUT shortcuts — copy the data\nADLS Gen2\nS3 / GCS\nETL copy\nOneLake\nduplicate\n2 copies · drift · extra cost · extra latency\nWITH shortcuts — point at the data\nADLS Gen2\nS3 / GCS\nshortcut\nOneLake\nreference\n1 copy · always current · no movement\nA shortcut removes the copy, the copy job, and the drift between the two copies.",
+      "presentation_status": "needs-editorial-layout-conversion",
+      "recommended_renderer": "SourceFragment"
+    }
+  ],
+  "warning": "Source fragments are NOT native formatted prose, tables or runnable code."
+}

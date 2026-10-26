@@ -1,0 +1,56 @@
+Concept
+Data movement
+Freshness
+Typical use
+Shortcut
+None — read in place
+Always
+current
+Reuse a Gold table across workspaces; read
+S3/ADLS without ETL
+Mirroring
+Managed replication into
+OneLake
+Near real
+time
+Bring Azure SQL, Cosmos DB, Snowflake into
+Fabric with no ETL
+Copy
+(pipeline/dataflow)
+Physical copy
+As of last run
+You need to reshape, cleanse, or land history
+COMMON EXAM TRAP
+A shortcut does not carry the source's permissions into Fabric automatically. Access through a shortcut
+is evaluated by the shortcut's own connection and by OneLake security in the target workspace.
+Shortcuts to external clouds use the stored credential of the connection, not the caller's identity (unless
+the connection uses a pass-through identity). Expect a question that hinges on "who can see this data
+after I create the shortcut?"
+1.4 The medallion architecture
+Fabric does not force a layout, but every Microsoft reference architecture and most exam scenarios use
+medallion:
+BRONZE
+Raw landing
+as-ingested
+no schema change
+SILVER
+Cleansed &
+conformed
+dedup · types · SCD
+GOLD
+Business-ready
+star schema
+aggregates
+Sources: SaaS · databases · files · streams → ingest with pipelines, Dataflows Gen2, shortcuts, mirroring
+Direct Lake semantic model → Power BI reports · Excel · notebooks · SQL endpoint
+Bronze keeps the raw truth, Silver makes it correct, Gold makes it useful. Report from Gold.
+Bronze — land the source data as-is. No business logic. You can always replay from here.
+Silver — cleansed and conformed: types fixed, duplicates removed, late-arriving rows handled, slowly
+changing dimensions maintained.
+Gold — business-ready star schemas and aggregates, shaped for the semantic model.
+Each layer can be a separate lakehouse, a separate schema, or a separate workspace. Separate
+workspaces give the cleanest security boundary; separate schemas in one lakehouse give the simplest
+development experience.
+1.5 Choosing a data store
+This is an explicit exam objective in both "Get data" and "Ingest and transform data", and it appears in case
+studies.

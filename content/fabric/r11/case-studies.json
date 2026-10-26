@@ -1,0 +1,102 @@
+[
+  {
+    "id": "cs_contoso",
+    "name": "Contoso, Ltd.",
+    "text": "HOTSPOT\n-\nCase study\n-\nThis is a case study. Case studies are not timed separately. You can use as much exam time as you would like to complete each case. However,\nthere may be additional case studies and sections on this exam. You must manage your time to ensure that you are able to complete all questions\nincluded on this exam in the time provided.\nTo answer the questions included in a case study, you will need to reference information that is provided in the case study. Case studies might\ncontain exhibits and other resources that provide more information about the scenario that is described in the case study. Each question is\nindependent of the other questions in this case study.\nAt the end of this case study, a review screen will appear. This screen allows you to review your answers and to make changes before you move to\nthe next section of the exam. After you begin a new section, you cannot return to this section.\nTo start the case study\n-\nTo display the first question in this case study, click the Next button. Use the buttons in the left pane to explore the content of the case study\nbefore you answer the questions. Clicking these buttons displays information such as business requirements, existing environment, and problem\nstatements. If the case study has an All Information tab, note that the information displayed is identical to the information displayed on the\nsubsequent tabs. When you are ready to answer a question, click the Question button to return to the question.\nOverview\n-\nContoso, Ltd. is a US-based health supplements company. Contoso has two divisions named Sales and Research. The Sales division contains two\ndepartments named Online Sales and Retail Sales. The Research division assigns internally developed product lines to individual teams of\nresearchers and analysts.\nExisting Environment\n-\nIdentity Environment\n-\nContoso has a Microsoft Entra tenant named contoso.com. The tenant contains two groups named ResearchReviewersGroup1 and\nResearchReviewersGroup2.\nData Environment\n-\nContoso has the following data environment:\n• The Sales division uses a Microsoft Power BI Premium capacity.\n• The semantic model of the Online Sales department includes a fact table named Orders that uses Import made. In the system of origin, the\nOrderID value represents the sequence in which orders are created.\n• The Research department uses an on-premises, third-party data warehousing product.\n• Fabric is enabled for contoso.com.\n• An Azure Data Lake Storage Gen2 storage account named storage1 contains Research division data for a product line named Productline1. The\ndata is in the delta format.\n• A Data Lake Storage Gen2 storage account named storage2 contains Research division data for a product line named Productline2. The data is\nin the CSV format.\nRequirements\n-\nPlanned Changes\n-\nContoso plans to make the following changes:\n• Enable support for Fabric in the Power BI Premium capacity used by the Sales division.\n• Make all the data for the Sales division and the Research division available in Fabric.\n• For the Research division, create two Fabric workspaces named Productline1ws and Productline2ws.\n• In Productline1ws, create a lakehouse named Lakehouse1.\n• In Lakehouse1, create a shortcut to storage1 named ResearchProduct.\nData Analytics Requirements\n-\nContoso identifies the following data analytics requirements:\n• All the workspaces for the Sales division and the Research division must support all Fabric experiences.\n• The Research division workspaces must use a dedicated, on-demand capacity that has per-minute billing.\n• The Research division workspaces must be grouped together logically to support OneLake data hub filtering based on the department name.\n• For the Research division workspaces, the members of ResearchReviewersGroup1 must be able to read lakehouse and warehouse data and\nshortcuts by using SQL endpoints.\n• For the Research division workspaces, the members of ResearchReviewersGroup2 must be able to read lakehouse data by using Lakehouse\nexplorer.\n• All the semantic models and reports for the Research division must use version control that supports branching.\nData Preparation Requirements\n-\nContoso identifies the following data preparation requirements:\n• The Research division data for Productline1 must be retrieved from Lakehouse1 by using Fabric notebooks.\n• All the Research division data in the lakehouses must be presented as managed tables in Lakehouse explorer.\nSemantic Model Requirements\n-\nContoso identifies the following requirements for implementing and managing semantic models:\n• The number of rows added to the Orders table during refreshes must be minimized.\n• The semantic models in the Research division workspaces must use Direct Lake mode.\nGeneral Requirements\n-\nContoso identifies the following high-level requirements that must be considered for all solutions:\n• Follow the principle of least privilege when applicable.\n• Minimize implementation and maintenance effort when possible.",
+    "questions": [
+      "T1Q1",
+      "T1Q2",
+      "T1Q3",
+      "T1Q4",
+      "T1Q64",
+      "T1Q65",
+      "T1Q66",
+      "T1Q67",
+      "T1Q110",
+      "T1Q111",
+      "T1Q119",
+      "T1Q126",
+      "T1Q148"
+    ],
+    "images": [],
+    "sourceVisualReferences": [],
+    "semanticVisuals": [],
+    "visualResolution": "verified_transcription"
+  },
+  {
+    "id": "cs_litware",
+    "name": "Litware, Inc.",
+    "text": "HOTSPOT\n-\nCase study\n-\nThis is a case study. Case studies are not timed separately. You can use as much exam time as you would like to complete each case. However,\nthere may be additional case studies and sections on this exam. You must manage your time to ensure that you are able to complete all questions\nincluded on this exam in the time provided.\nTo answer the questions included in a case study, you will need to reference information that is provided in the case study. Case studies might\ncontain exhibits and other resources that provide more information about the scenario that is described in the case study. Each question is\nindependent of the other questions in this case study.\nAt the end of this case study, a review screen will appear. This screen allows you to review your answers and to make changes before you move to\nthe next section of the exam. After you begin a new section, you cannot return to this section.\nTo start the case study\n-\nTo display the first question in this case study, click the Next button. Use the buttons in the left pane to explore the content of the case study\nbefore you answer the questions. Clicking these buttons displays information such as business requirements, existing environment, and problem\nstatements. If the case study has an All Information tab, note that the information displayed is identical to the information displayed on the\nsubsequent tabs. When you are ready to answer a question, click the Question button to return to the question.\nOverview\n-\nLitware, Inc. is a manufacturing company that has offices throughout North America. The analytics team at Litware contains data engineers,\nanalytics engineers, data analysts, and data scientists.\nExisting Environment\n-\nFabric Environment\n-\nLitware has been using a Microsoft Power BI tenant for three years. Litware has NOT enabled any Fabric capacities and features.\nAvailable Data\n-\nLitware has data that must be analyzed as shown in the following table.\nThe Product data contains a single table and the following columns.\nThe customer satisfaction data contains the following tables:\n• Survey\n• Question\n• Response\nFor each survey submitted, the following occurs:\n• One row is added to the Survey table.\n• One row is added to the Response table for each question in the survey.\nThe Question table contains the text of each survey question. The third question in each survey response is an overall satisfaction score.\nCustomers can submit a survey after each purchase.\nUser Problems\n-\nThe analytics team has large volumes of data, some of which is semi-structured. The team wants to use Fabric to create a new data store.\n\nProduct data is often classified into three pricing groups: high, medium, and low. This logic is implemented in several databases and semantic\nmodels, but the logic does NOT always match across implementations.\nRequirements\n-\nPlanned Changes\n-\nLitware plans to enable Fabric features in the existing tenant. The analytics team will create a new data store as a proof of concept (PoC). The\nremaining Liware users will only get access to the Fabric features once the PoC is complete. The PoC will be completed by using a Fabric trial\ncapacity\nThe following three workspaces will be created:\n• AnalyticsPOC: Will contain the data store, semantic models, reports pipelines, dataflow, and notebooks used to populate the data store\n• DataEngPOC: Will contain all the pipelines, dataflows, and notebooks used to populate OneLake\n• DataSciPOC: Will contain all the notebooks and reports created by the data scientists\nThe following will be created in the AnalyticsPOC workspace:\n• A data store (type to be decided)\n• A custom semantic model\n• A default semantic model\n• Interactive reports\nThe data engineers will create data pipelines to load data to OneLake either hourly or daily depending on the data source. The analytics engineers\nwill create processes to ingest, transform, and load the data to the data store in the AnalyticsPOC workspace daily. Whenever possible, the data\nengineers will use low-code tools for data ingestion. The choice of which data cleansing and transformation tools to use will be at the data\nengineers’ discretion.\nAll the semantic models and reports in the Analytics POC workspace will use the data store as the sole data source.\nTechnical Requirements\n-\nThe data store must support the following:\n• Read access by using T-SQL or Python\n• Semi-structured and unstructured data\n• Row-level security (RLS) for users executing T-SQL queries\nFiles loaded by the data engineers to OneLake will be stored in the Parquet format and will meet Delta Lake specifications.\nData will be loaded without transformation in one area of the AnalyticsPOC data store. The data will then be cleansed, merged, and transformed\ninto a dimensional model\nThe data load process must ensure that the raw and cleansed data is updated completely before populating the dimensional model\nThe dimensional model must contain a date dimension. There is no existing data source for the date dimension. The Litware fiscal year matches\nthe calendar year. The date dimension must always contain dates from 2010 through the end of the current year.\n\nThe product pricing group logic must be maintained by the analytics engineers in a single location. The pricing group data must be made available\nin the data store for T-SOL. queries and in the default semantic model. The following logic must be used:\n• List prices that are less than or equal to 50 are in the low pricing group.\n• List prices that are greater than 50 and less than or equal to 1,000 are in the medium pricing group.\n• List prices that are greater than 1,000 are in the high pricing group.\nSecurity Requirements\n-\nOnly Fabric administrators and the analytics team must be able to see the Fabric items created as part of the PoC.\nLitware identifies the following security requirements for the Fabric items in the AnalyticsPOC workspace:\n• Fabric administrators will be the workspace administrators.\n• The data engineers must be able to read from and write to the data store. No access must be granted to datasets or reports.\n• The analytics engineers must be able to read from, write to, and create schemas in the data store. They also must be able to create and share\nsemantic models with the data analysts and view and modify all reports in the workspace.\n• The data scientists must be able to read from the data store, but not write to it. They will access the data by using a Spark notebook\n• The data analysts must have read access to only the dimensional model objects in the data store. They also must have access to create Power\nBI reports by using the semantic models created by the analytics engineers.\n• The date dimension must be available to all users of the data store.\n• The principle of least privilege must be followed.\nBoth the default and custom semantic models must include only tables or views from the dimensional model in the data store. Litware already\nhas the following Microsoft Entra security groups:\n• FabricAdmins: Fabric administrators\n• AnalyticsTeam: All the members of the analytics team\n• DataAnalysts: The data analysts on the analytics team\n• DataScientists: The data scientists on the analytics team\n• DataEngineers: The data engineers on the analytics team\n• AnalyticsEngineers: The analytics engineers on the analytics team\nReport Requirements\n-\nThe data analysts must create a customer satisfaction report that meets the following requirements:\n• Enables a user to select a product to filter customer survey responses to only those who have purchased that product.\n• Displays the average overall satisfaction score of all the surveys submitted during the last 12 months up to a selected dat.\n• Shows data as soon as the data is updated in the data store.\n• Ensures that the report and the semantic model only contain data from the current and previous year.\n• Ensures that the report respects any table-level security specified in the source data store.\n• Minimizes the execution time of report queries.",
+    "questions": [
+      "T1Q5",
+      "T1Q6",
+      "T1Q7",
+      "T1Q8",
+      "T1Q9",
+      "T1Q60",
+      "T1Q61",
+      "T1Q62",
+      "T1Q63"
+    ],
+    "images": [],
+    "sourceVisualReferences": [
+      "p019_i1.png",
+      "p019_i2.png"
+    ],
+    "semanticVisuals": [
+      {
+        "kind": "table",
+        "title": "Available data, size and source",
+        "headers": [
+          "Description",
+          "Original source",
+          "Total size"
+        ],
+        "rows": [
+          [
+            "Customer data",
+            "Customer relationship management (CRM) system",
+            "50 MB"
+          ],
+          [
+            "Product data",
+            "Customer relationship management (CRM) system",
+            "200 MB"
+          ],
+          [
+            "Customer satisfaction surveys",
+            "SurveyMonkey",
+            "500 GB"
+          ]
+        ]
+      },
+      {
+        "kind": "table",
+        "title": "Product table columns",
+        "headers": [
+          "Name",
+          "Data type"
+        ],
+        "rows": [
+          [
+            "ProductID",
+            "Integer"
+          ],
+          [
+            "ProductName",
+            "String"
+          ],
+          [
+            "ProductCategory",
+            "String"
+          ],
+          [
+            "ListPrice",
+            "Decimal"
+          ]
+        ]
+      }
+    ],
+    "visualResolution": "verified_transcription"
+  }
+]

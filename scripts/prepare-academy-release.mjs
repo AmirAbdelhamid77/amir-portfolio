@@ -1,0 +1,30 @@
+// Prepares a reviewable local artifact. This script has no network or deployment calls.
+import assert from 'node:assert/strict';
+import {readFileSync,writeFileSync,readdirSync,mkdirSync,cpSync,existsSync,statSync} from 'node:fs';
+import {createHash} from 'node:crypto';
+import path from 'node:path';
+const root=process.cwd(),qa='docs/dp600-academy/qa';
+const readJSON=p=>JSON.parse(readFileSync(p,'utf8').replace(/^\uFEFF/,''));
+const hash=p=>createHash('sha256').update(readFileSync(p)).digest('hex');
+const validation=readJSON(`${qa}/release-validation.json`);
+assert.ok(validation.results.length>=9&&validation.results.every(r=>r.status==='PASS'),'Complete the release validation first');
+const source=readJSON(`${qa}/build-source-manifest.json`);
+for(const f of source.files)assert.equal(hash(f.path),f.sha256,`Stale artifact: ${f.path}`);
+const checks=['browser-results.json','legacy-browser-results.json','export-results.json'];
+for(const f of checks){const r=readJSON(`${qa}/${f}`);assert.ok(r.results.length&&r.results.every(x=>x.status==='PASS'),f);}
+const walk=d=>readdirSync(d,{withFileTypes:true}).flatMap(e=>e.isDirectory()?walk(path.join(d,e.name)):[path.join(d,e.name)]);
+const out=path.resolve(root,'build/dp600-academy-preview/out');
+const files=walk(out).sort().map(f=>({path:path.relative(out,f).replaceAll('\\','/'),bytes:statSync(f).size,sha256:hash(f)}));
+assert.ok(!files.some(f=>/DP-600-Study-Guide|source_content\.json|source_line_map\.json|page-0\d\d\.(txt|webp)/.test(f.path)),'Raw guide asset found');
+const digest=createHash('sha256').update(JSON.stringify(files)).digest('hex');
+const dir=path.resolve(root,'build/releases',`hansa-dp600-ingestion-${digest.slice(0,12)}`);
+assert.ok(dir.startsWith(path.resolve(root,'build/releases')+path.sep));
+const assets=path.join(dir,'assets');
+if(!existsSync(assets))cpSync(out,assets,{recursive:true});
+for(const f of files)assert.equal(hash(path.join(assets,f.path)),f.sha256,f.path);
+assert.equal(walk(assets).length,files.length,'Unexpected extra release file');
+const baseline=readJSON(`${qa}/cloudflare-before-release.json`);
+const manifest={release_id:path.basename(dir),status:'PREPARED FOR OWNER REVIEW; NOT DEPLOYED',account_id:baseline.account_id,worker:'hansa',production_url:'https://hansa.amir-portfolio.workers.dev/',rollback_version_at_last_read:baseline.active_version_id,baseline_checked_at:baseline.checked_at,refresh_live_baseline_before_deployment:true,source_files_checked:source.files.length,artifact_sha256:digest,asset_count:files.length,asset_bytes:files.reduce((n,f)=>n+f.bytes,0),assets_directory:assets,new_routes:['/learn/dp-600/','/learn/dp-600/ingestion/'],added_dependencies:[],added_runtime_services:[],production_deployment_authorized:false,validation,files};
+mkdirSync(dir,{recursive:true});writeFileSync(path.join(dir,'RELEASE_MANIFEST.json'),JSON.stringify(manifest,null,2));
+writeFileSync('docs/dp600-academy/RELEASE_CANDIDATE.json',JSON.stringify({...manifest,files:`${files.length} entries in ${path.join(dir,'RELEASE_MANIFEST.json')}`},null,2));
+console.log(JSON.stringify({release_id:manifest.release_id,status:manifest.status,asset_count:manifest.asset_count,asset_bytes:manifest.asset_bytes,artifact_sha256:digest,assets_directory:assets,rollback_version:manifest.rollback_version_at_last_read},null,2));

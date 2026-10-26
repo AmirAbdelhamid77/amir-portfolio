@@ -1,0 +1,3553 @@
+{
+  "generatedBy": "scripts/import-notion-statistics.mjs",
+  "schemaVersion": 1,
+  "sourceRoot": "Comprehensive Statistics Reference",
+  "originalTitle": "📚 Comprehensive Statistics Reference — من الصفر إلى Hypothesis Testing & Correlation",
+  "sourceId": "3ca3906c5d6c81439567c45c6a6e2643",
+  "language": "ar-en",
+  "snapshot": {
+    "file": "📚 Comprehensive Statistics Reference — من الصفر إل 3ca3906c5d6c81439567c45c6a6e2643.html",
+    "relativePath": "📚 Comprehensive Statistics Reference — من الصفر إل 3ca3906c5d6c81439567c45c6a6e2643.html",
+    "sha256": "b16602340db52697bc7ed6ccab72eced7698c409594e3f8dac8e65b1aa04eaf7",
+    "bytes": 114015,
+    "observedModified": "2026-10-23T20:45:30.773Z",
+    "notionId": "3ca3906c5d6c81439567c45c6a6e2643",
+    "canonicalUrl": "https://app.notion.com/p/3ca3906c5d6c81439567c45c6a6e2643",
+    "exportShape": "single-page"
+  },
+  "totals": {
+    "htmlFiles": 1,
+    "sections": 43,
+    "headings": 91,
+    "subsections": 48,
+    "paragraphs": 226,
+    "lists": 81,
+    "listItems": 81,
+    "tables": 3,
+    "tableRows": 32,
+    "toggles": 14,
+    "formulas": 102,
+    "uniqueFormulas": 78,
+    "codeBlocks": 1,
+    "textCharacters": 22053,
+    "figures": 0,
+    "assets": 0
+  },
+  "assets": [],
+  "duplicates": [],
+  "omissions": [],
+  "unresolved": [],
+  "sections": [
+    {
+      "id": "s1",
+      "number": 1,
+      "title": "1. الصورة الكبيرة: ما هو Statistics؟",
+      "originalTitle": "1. الصورة الكبيرة: ما هو Statistics؟",
+      "sourceRelativePath": "📚 Comprehensive Statistics Reference — من الصفر إل 3ca3906c5d6c81439567c45c6a6e2643.html",
+      "parentId": null,
+      "parentPath": "root",
+      "language": "ar-en",
+      "proposedSlug": "s1",
+      "canonicalUrl": null,
+      "destinationRoute": "/learn/statistics/journey/foundations",
+      "destinationAnchor": "s1",
+      "anchor": "s1",
+      "counts": {
+        "paragraphs": 5,
+        "lists": 4,
+        "listItems": 4,
+        "tables": 0,
+        "tableRows": 0,
+        "formulas": 0,
+        "headings": 2,
+        "toggles": 0,
+        "callouts": 0,
+        "code": 0
+      },
+      "textLength": 740,
+      "subsections": [
+        {
+          "level": 2,
+          "text": "1.1 Population vs Sample",
+          "anchor": "s1-1-1-population-vs-sample"
+        }
+      ],
+      "parsingStatus": "parsed",
+      "assetCount": 0,
+      "diagramCount": 0,
+      "headings": [
+        {
+          "level": 1,
+          "text": "1. الصورة الكبيرة: ما هو Statistics؟",
+          "anchor": "s1"
+        },
+        {
+          "level": 2,
+          "text": "1.1 Population vs Sample",
+          "anchor": "s1-1-1-population-vs-sample"
+        }
+      ],
+      "formulas": [
+        {
+          "section": "s1",
+          "raw": "mu",
+          "tex": "\\mu",
+          "matched": true
+        },
+        {
+          "section": "s1",
+          "raw": "bar{x}",
+          "tex": "\\bar{x}",
+          "matched": true
+        }
+      ],
+      "outboundLinks": []
+    },
+    {
+      "id": "s2",
+      "number": 2,
+      "title": "2. Data Types",
+      "originalTitle": "2. Data Types",
+      "sourceRelativePath": "📚 Comprehensive Statistics Reference — من الصفر إل 3ca3906c5d6c81439567c45c6a6e2643.html",
+      "parentId": null,
+      "parentPath": "root",
+      "language": "ar-en",
+      "proposedSlug": "s2",
+      "canonicalUrl": null,
+      "destinationRoute": "/learn/statistics/journey/foundations",
+      "destinationAnchor": "s2",
+      "anchor": "s2",
+      "counts": {
+        "paragraphs": 3,
+        "lists": 4,
+        "listItems": 4,
+        "tables": 0,
+        "tableRows": 0,
+        "formulas": 0,
+        "headings": 3,
+        "toggles": 0,
+        "callouts": 0,
+        "code": 0
+      },
+      "textLength": 502,
+      "subsections": [
+        {
+          "level": 2,
+          "text": "2.1 Numerical / Quantitative Data",
+          "anchor": "s2-2-1-numerical-quantitative-data"
+        },
+        {
+          "level": 2,
+          "text": "2.2 Categorical / Qualitative Data",
+          "anchor": "s2-2-2-categorical-qualitative-data"
+        }
+      ],
+      "parsingStatus": "parsed",
+      "assetCount": 0,
+      "diagramCount": 0,
+      "headings": [
+        {
+          "level": 1,
+          "text": "2. Data Types",
+          "anchor": "s2"
+        },
+        {
+          "level": 2,
+          "text": "2.1 Numerical / Quantitative Data",
+          "anchor": "s2-2-1-numerical-quantitative-data"
+        },
+        {
+          "level": 2,
+          "text": "2.2 Categorical / Qualitative Data",
+          "anchor": "s2-2-2-categorical-qualitative-data"
+        }
+      ],
+      "formulas": [],
+      "outboundLinks": []
+    },
+    {
+      "id": "s3",
+      "number": 3,
+      "title": "3. Branches of Statistics",
+      "originalTitle": "3. Branches of Statistics",
+      "sourceRelativePath": "📚 Comprehensive Statistics Reference — من الصفر إل 3ca3906c5d6c81439567c45c6a6e2643.html",
+      "parentId": null,
+      "parentPath": "root",
+      "language": "ar-en",
+      "proposedSlug": "s3",
+      "canonicalUrl": null,
+      "destinationRoute": "/learn/statistics/journey/foundations",
+      "destinationAnchor": "s3",
+      "anchor": "s3",
+      "counts": {
+        "paragraphs": 4,
+        "lists": 0,
+        "listItems": 0,
+        "tables": 0,
+        "tableRows": 0,
+        "formulas": 0,
+        "headings": 3,
+        "toggles": 0,
+        "callouts": 0,
+        "code": 0
+      },
+      "textLength": 347,
+      "subsections": [
+        {
+          "level": 2,
+          "text": "3.1 Descriptive Statistics",
+          "anchor": "s3-3-1-descriptive-statistics"
+        },
+        {
+          "level": 2,
+          "text": "3.2 Inferential Statistics",
+          "anchor": "s3-3-2-inferential-statistics"
+        }
+      ],
+      "parsingStatus": "parsed",
+      "assetCount": 0,
+      "diagramCount": 0,
+      "headings": [
+        {
+          "level": 1,
+          "text": "3. Branches of Statistics",
+          "anchor": "s3"
+        },
+        {
+          "level": 2,
+          "text": "3.1 Descriptive Statistics",
+          "anchor": "s3-3-1-descriptive-statistics"
+        },
+        {
+          "level": 2,
+          "text": "3.2 Inferential Statistics",
+          "anchor": "s3-3-2-inferential-statistics"
+        }
+      ],
+      "formulas": [],
+      "outboundLinks": []
+    },
+    {
+      "id": "s4",
+      "number": 4,
+      "title": "4. Measures of Center — مقاييس النزعة المركزية",
+      "originalTitle": "4. Measures of Center — مقاييس النزعة المركزية",
+      "sourceRelativePath": "📚 Comprehensive Statistics Reference — من الصفر إل 3ca3906c5d6c81439567c45c6a6e2643.html",
+      "parentId": null,
+      "parentPath": "root",
+      "language": "ar-en",
+      "proposedSlug": "s4",
+      "canonicalUrl": null,
+      "destinationRoute": "/learn/statistics/journey/describe",
+      "destinationAnchor": "s4",
+      "anchor": "s4",
+      "counts": {
+        "paragraphs": 5,
+        "lists": 0,
+        "listItems": 0,
+        "tables": 0,
+        "tableRows": 0,
+        "formulas": 1,
+        "headings": 5,
+        "toggles": 0,
+        "callouts": 0,
+        "code": 0
+      },
+      "textLength": 514,
+      "subsections": [
+        {
+          "level": 2,
+          "text": "4.1 Mean",
+          "anchor": "s4-4-1-mean"
+        },
+        {
+          "level": 2,
+          "text": "4.2 Median",
+          "anchor": "s4-4-2-median"
+        },
+        {
+          "level": 2,
+          "text": "4.3 Mode",
+          "anchor": "s4-4-3-mode"
+        },
+        {
+          "level": 2,
+          "text": "4.4 Mean vs Median",
+          "anchor": "s4-4-4-mean-vs-median"
+        }
+      ],
+      "parsingStatus": "parsed",
+      "assetCount": 0,
+      "diagramCount": 0,
+      "headings": [
+        {
+          "level": 1,
+          "text": "4. Measures of Center — مقاييس النزعة المركزية",
+          "anchor": "s4"
+        },
+        {
+          "level": 2,
+          "text": "4.1 Mean",
+          "anchor": "s4-4-1-mean"
+        },
+        {
+          "level": 2,
+          "text": "4.2 Median",
+          "anchor": "s4-4-2-median"
+        },
+        {
+          "level": 2,
+          "text": "4.3 Mode",
+          "anchor": "s4-4-3-mode"
+        },
+        {
+          "level": 2,
+          "text": "4.4 Mean vs Median",
+          "anchor": "s4-4-4-mean-vs-median"
+        }
+      ],
+      "formulas": [
+        {
+          "section": "s4",
+          "raw": "bar{x}=frac{sum x_i}{n}",
+          "tex": "\\bar{x} = \\frac{\\sum x_i}{n}",
+          "matched": true
+        }
+      ],
+      "outboundLinks": []
+    },
+    {
+      "id": "s5",
+      "number": 5,
+      "title": "5. Measures of Spread — مقاييس التشتت",
+      "originalTitle": "5. Measures of Spread — مقاييس التشتت",
+      "sourceRelativePath": "📚 Comprehensive Statistics Reference — من الصفر إل 3ca3906c5d6c81439567c45c6a6e2643.html",
+      "parentId": null,
+      "parentPath": "root",
+      "language": "ar-en",
+      "proposedSlug": "s5",
+      "canonicalUrl": null,
+      "destinationRoute": "/learn/statistics/journey/describe",
+      "destinationAnchor": "s5",
+      "anchor": "s5",
+      "counts": {
+        "paragraphs": 8,
+        "lists": 0,
+        "listItems": 0,
+        "tables": 0,
+        "tableRows": 0,
+        "formulas": 5,
+        "headings": 5,
+        "toggles": 0,
+        "callouts": 0,
+        "code": 0
+      },
+      "textLength": 588,
+      "subsections": [
+        {
+          "level": 2,
+          "text": "5.1 Range",
+          "anchor": "s5-5-1-range"
+        },
+        {
+          "level": 2,
+          "text": "5.2 Variance",
+          "anchor": "s5-5-2-variance"
+        },
+        {
+          "level": 2,
+          "text": "5.3 Standard Deviation",
+          "anchor": "s5-5-3-standard-deviation"
+        },
+        {
+          "level": 2,
+          "text": "5.4 IQR",
+          "anchor": "s5-5-4-iqr"
+        }
+      ],
+      "parsingStatus": "parsed",
+      "assetCount": 0,
+      "diagramCount": 0,
+      "headings": [
+        {
+          "level": 1,
+          "text": "5. Measures of Spread — مقاييس التشتت",
+          "anchor": "s5"
+        },
+        {
+          "level": 2,
+          "text": "5.1 Range",
+          "anchor": "s5-5-1-range"
+        },
+        {
+          "level": 2,
+          "text": "5.2 Variance",
+          "anchor": "s5-5-2-variance"
+        },
+        {
+          "level": 2,
+          "text": "5.3 Standard Deviation",
+          "anchor": "s5-5-3-standard-deviation"
+        },
+        {
+          "level": 2,
+          "text": "5.4 IQR",
+          "anchor": "s5-5-4-iqr"
+        }
+      ],
+      "formulas": [
+        {
+          "section": "s5",
+          "raw": "Range=Maximum-Minimum",
+          "tex": "\\text{Range} = \\text{Maximum} - \\text{Minimum}",
+          "matched": true
+        },
+        {
+          "section": "s5",
+          "raw": "sigma^2=frac{sum (x_i-mu)^2}{N}",
+          "tex": "\\sigma^2 = \\frac{\\sum (x_i - \\mu)^2}{N}",
+          "matched": true
+        },
+        {
+          "section": "s5",
+          "raw": "s^2=frac{sum (x_i-bar{x})^2}{n-1}",
+          "tex": "s^2 = \\frac{\\sum (x_i - \\bar{x})^2}{n-1}",
+          "matched": true
+        },
+        {
+          "section": "s5",
+          "raw": "SD=sqrt{Variance}",
+          "tex": "\\operatorname{SD} = \\sqrt{\\operatorname{Variance}}",
+          "matched": true
+        },
+        {
+          "section": "s5",
+          "raw": "IQR=Q_3-Q_1",
+          "tex": "\\operatorname{IQR} = Q_3 - Q_1",
+          "matched": true
+        }
+      ],
+      "outboundLinks": []
+    },
+    {
+      "id": "s6",
+      "number": 6,
+      "title": "6. Probability — الاحتمالات",
+      "originalTitle": "6. Probability — الاحتمالات",
+      "sourceRelativePath": "📚 Comprehensive Statistics Reference — من الصفر إل 3ca3906c5d6c81439567c45c6a6e2643.html",
+      "parentId": null,
+      "parentPath": "root",
+      "language": "ar-en",
+      "proposedSlug": "s6",
+      "canonicalUrl": null,
+      "destinationRoute": "/learn/statistics/journey/probability",
+      "destinationAnchor": "s6",
+      "anchor": "s6",
+      "counts": {
+        "paragraphs": 7,
+        "lists": 4,
+        "listItems": 4,
+        "tables": 0,
+        "tableRows": 0,
+        "formulas": 4,
+        "headings": 5,
+        "toggles": 0,
+        "callouts": 0,
+        "code": 0
+      },
+      "textLength": 759,
+      "subsections": [
+        {
+          "level": 2,
+          "text": "6.1 Complement",
+          "anchor": "s6-6-1-complement"
+        },
+        {
+          "level": 2,
+          "text": "6.2 Independent Events",
+          "anchor": "s6-6-2-independent-events"
+        },
+        {
+          "level": 2,
+          "text": "6.3 Conditional Probability",
+          "anchor": "s6-6-3-conditional-probability"
+        },
+        {
+          "level": 2,
+          "text": "6.4 Independent vs Dependent",
+          "anchor": "s6-6-4-independent-vs-dependent"
+        }
+      ],
+      "parsingStatus": "parsed",
+      "assetCount": 0,
+      "diagramCount": 0,
+      "headings": [
+        {
+          "level": 1,
+          "text": "6. Probability — الاحتمالات",
+          "anchor": "s6"
+        },
+        {
+          "level": 2,
+          "text": "6.1 Complement",
+          "anchor": "s6-6-1-complement"
+        },
+        {
+          "level": 2,
+          "text": "6.2 Independent Events",
+          "anchor": "s6-6-2-independent-events"
+        },
+        {
+          "level": 2,
+          "text": "6.3 Conditional Probability",
+          "anchor": "s6-6-3-conditional-probability"
+        },
+        {
+          "level": 2,
+          "text": "6.4 Independent vs Dependent",
+          "anchor": "s6-6-4-independent-vs-dependent"
+        }
+      ],
+      "formulas": [
+        {
+          "section": "s6",
+          "raw": "0le P(A)le1",
+          "tex": "0 \\le P(A) \\le 1",
+          "matched": true
+        },
+        {
+          "section": "s6",
+          "raw": "P(A^c)=1-P(A)",
+          "tex": "P(A^c) = 1 - P(A)",
+          "matched": true
+        },
+        {
+          "section": "s6",
+          "raw": "P(Acap B)=P(A)P(B)",
+          "tex": "P(A \\cap B) = P(A)P(B)",
+          "matched": true
+        },
+        {
+          "section": "s6",
+          "raw": "P(Amid B)=frac{P(Acap B)}{P(B)}",
+          "tex": "P(A \\mid B) = \\frac{P(A \\cap B)}{P(B)}",
+          "matched": true
+        },
+        {
+          "section": "s6",
+          "raw": "P(A)=0",
+          "tex": "P(A) = 0",
+          "matched": true
+        },
+        {
+          "section": "s6",
+          "raw": "P(A)=1",
+          "tex": "P(A) = 1",
+          "matched": true
+        }
+      ],
+      "outboundLinks": []
+    },
+    {
+      "id": "s7",
+      "number": 7,
+      "title": "7. Probability Distributions",
+      "originalTitle": "7. Probability Distributions",
+      "sourceRelativePath": "📚 Comprehensive Statistics Reference — من الصفر إل 3ca3906c5d6c81439567c45c6a6e2643.html",
+      "parentId": null,
+      "parentPath": "root",
+      "language": "ar-en",
+      "proposedSlug": "s7",
+      "canonicalUrl": null,
+      "destinationRoute": "/learn/statistics/journey/probability",
+      "destinationAnchor": "s7",
+      "anchor": "s7",
+      "counts": {
+        "paragraphs": 2,
+        "lists": 2,
+        "listItems": 2,
+        "tables": 0,
+        "tableRows": 0,
+        "formulas": 0,
+        "headings": 1,
+        "toggles": 0,
+        "callouts": 0,
+        "code": 0
+      },
+      "textLength": 354,
+      "subsections": [],
+      "parsingStatus": "parsed",
+      "assetCount": 0,
+      "diagramCount": 0,
+      "headings": [
+        {
+          "level": 1,
+          "text": "7. Probability Distributions",
+          "anchor": "s7"
+        }
+      ],
+      "formulas": [],
+      "outboundLinks": []
+    },
+    {
+      "id": "s8",
+      "number": 8,
+      "title": "8. Binomial Distribution",
+      "originalTitle": "8. Binomial Distribution",
+      "sourceRelativePath": "📚 Comprehensive Statistics Reference — من الصفر إل 3ca3906c5d6c81439567c45c6a6e2643.html",
+      "parentId": null,
+      "parentPath": "root",
+      "language": "ar-en",
+      "proposedSlug": "s8",
+      "canonicalUrl": null,
+      "destinationRoute": "/learn/statistics/journey/distributions",
+      "destinationAnchor": "s8",
+      "anchor": "s8",
+      "counts": {
+        "paragraphs": 7,
+        "lists": 3,
+        "listItems": 3,
+        "tables": 0,
+        "tableRows": 0,
+        "formulas": 3,
+        "headings": 2,
+        "toggles": 0,
+        "callouts": 0,
+        "code": 0
+      },
+      "textLength": 428,
+      "subsections": [
+        {
+          "level": 2,
+          "text": "متى أفكر في Binomial؟",
+          "anchor": "s8-binomial"
+        }
+      ],
+      "parsingStatus": "parsed",
+      "assetCount": 0,
+      "diagramCount": 0,
+      "headings": [
+        {
+          "level": 1,
+          "text": "8. Binomial Distribution",
+          "anchor": "s8"
+        },
+        {
+          "level": 2,
+          "text": "متى أفكر في Binomial؟",
+          "anchor": "s8-binomial"
+        }
+      ],
+      "formulas": [
+        {
+          "section": "s8",
+          "raw": "P(X=k)=binom{n}{k}p^k(1-p)^{n-k}",
+          "tex": "P(X = k) = \\binom{n}{k} p^k (1-p)^{n-k}",
+          "matched": true
+        },
+        {
+          "section": "s8",
+          "raw": "E(X)=np",
+          "tex": "E(X) = np",
+          "matched": true
+        },
+        {
+          "section": "s8",
+          "raw": "Var(X)=np(1-p)",
+          "tex": "\\operatorname{Var}(X) = np(1-p)",
+          "matched": true
+        }
+      ],
+      "outboundLinks": []
+    },
+    {
+      "id": "s9",
+      "number": 9,
+      "title": "9. Normal Distribution",
+      "originalTitle": "9. Normal Distribution",
+      "sourceRelativePath": "📚 Comprehensive Statistics Reference — من الصفر إل 3ca3906c5d6c81439567c45c6a6e2643.html",
+      "parentId": null,
+      "parentPath": "root",
+      "language": "ar-en",
+      "proposedSlug": "s9",
+      "canonicalUrl": null,
+      "destinationRoute": "/learn/statistics/journey/distributions",
+      "destinationAnchor": "s9",
+      "anchor": "s9",
+      "counts": {
+        "paragraphs": 5,
+        "lists": 9,
+        "listItems": 9,
+        "tables": 0,
+        "tableRows": 0,
+        "formulas": 1,
+        "headings": 3,
+        "toggles": 0,
+        "callouts": 0,
+        "code": 0
+      },
+      "textLength": 554,
+      "subsections": [
+        {
+          "level": 2,
+          "text": "9.1 Empirical Rule",
+          "anchor": "s9-9-1-empirical-rule"
+        },
+        {
+          "level": 2,
+          "text": "9.2 Standardization / Z-score",
+          "anchor": "s9-9-2-standardization-z-score"
+        }
+      ],
+      "parsingStatus": "parsed",
+      "assetCount": 0,
+      "diagramCount": 0,
+      "headings": [
+        {
+          "level": 1,
+          "text": "9. Normal Distribution",
+          "anchor": "s9"
+        },
+        {
+          "level": 2,
+          "text": "9.1 Empirical Rule",
+          "anchor": "s9-9-1-empirical-rule"
+        },
+        {
+          "level": 2,
+          "text": "9.2 Standardization / Z-score",
+          "anchor": "s9-9-2-standardization-z-score"
+        }
+      ],
+      "formulas": [
+        {
+          "section": "s9",
+          "raw": "z=frac{x-mu}{sigma}",
+          "tex": "z = \\frac{x - \\mu}{\\sigma}",
+          "matched": true
+        },
+        {
+          "section": "s9",
+          "raw": "mu",
+          "tex": "\\mu",
+          "matched": true
+        },
+        {
+          "section": "s9",
+          "raw": "sigma",
+          "tex": "\\sigma",
+          "matched": true
+        },
+        {
+          "section": "s9",
+          "raw": "mupm1sigma",
+          "tex": "\\mu \\pm 1\\sigma",
+          "matched": true
+        },
+        {
+          "section": "s9",
+          "raw": "mupm2sigma",
+          "tex": "\\mu \\pm 2\\sigma",
+          "matched": true
+        },
+        {
+          "section": "s9",
+          "raw": "mupm3sigma",
+          "tex": "\\mu \\pm 3\\sigma",
+          "matched": true
+        }
+      ],
+      "outboundLinks": []
+    },
+    {
+      "id": "s10",
+      "number": 10,
+      "title": "10. Poisson Distribution",
+      "originalTitle": "10. Poisson Distribution",
+      "sourceRelativePath": "📚 Comprehensive Statistics Reference — من الصفر إل 3ca3906c5d6c81439567c45c6a6e2643.html",
+      "parentId": null,
+      "parentPath": "root",
+      "language": "ar-en",
+      "proposedSlug": "s10",
+      "canonicalUrl": null,
+      "destinationRoute": "/learn/statistics/journey/distributions",
+      "destinationAnchor": "s10",
+      "anchor": "s10",
+      "counts": {
+        "paragraphs": 12,
+        "lists": 3,
+        "listItems": 3,
+        "tables": 0,
+        "tableRows": 0,
+        "formulas": 5,
+        "headings": 5,
+        "toggles": 0,
+        "callouts": 0,
+        "code": 0
+      },
+      "textLength": 1267,
+      "subsections": [
+        {
+          "level": 2,
+          "text": "10.1 Poisson Process",
+          "anchor": "s10-10-1-poisson-process"
+        },
+        {
+          "level": 2,
+          "text": "10.2 Poisson Distribution",
+          "anchor": "s10-10-2-poisson-distribution"
+        },
+        {
+          "level": 2,
+          "text": "10.3 Lambda",
+          "anchor": "s10-10-3-lambda"
+        },
+        {
+          "level": 2,
+          "text": "10.4 Shape of Poisson",
+          "anchor": "s10-10-4-shape-of-poisson"
+        }
+      ],
+      "parsingStatus": "parsed",
+      "assetCount": 0,
+      "diagramCount": 0,
+      "headings": [
+        {
+          "level": 1,
+          "text": "10. Poisson Distribution",
+          "anchor": "s10"
+        },
+        {
+          "level": 2,
+          "text": "10.1 Poisson Process",
+          "anchor": "s10-10-1-poisson-process"
+        },
+        {
+          "level": 2,
+          "text": "10.2 Poisson Distribution",
+          "anchor": "s10-10-2-poisson-distribution"
+        },
+        {
+          "level": 2,
+          "text": "10.3 Lambda",
+          "anchor": "s10-10-3-lambda"
+        },
+        {
+          "level": 2,
+          "text": "10.4 Shape of Poisson",
+          "anchor": "s10-10-4-shape-of-poisson"
+        }
+      ],
+      "formulas": [
+        {
+          "section": "s10",
+          "raw": "P(X=k)=frac{e^{-lambda}lambda^k}{k!}",
+          "tex": "P(X = k) = \\frac{e^{-\\lambda}\\lambda^k}{k!}",
+          "matched": true
+        },
+        {
+          "section": "s10",
+          "raw": "E(X)=lambda",
+          "tex": "E(X) = \\lambda",
+          "matched": true
+        },
+        {
+          "section": "s10",
+          "raw": "Var(X)=lambda",
+          "tex": "\\operatorname{Var}(X) = \\lambda",
+          "matched": true
+        },
+        {
+          "section": "s10",
+          "raw": "SD(X)=sqrt{lambda}",
+          "tex": "\\operatorname{SD}(X) = \\sqrt{\\lambda}",
+          "matched": true
+        },
+        {
+          "section": "s10",
+          "raw": "lambda=20",
+          "tex": "\\lambda = 20",
+          "matched": true
+        },
+        {
+          "section": "s10",
+          "raw": "lambda",
+          "tex": "\\lambda",
+          "matched": true
+        },
+        {
+          "section": "s10",
+          "raw": "lambda",
+          "tex": "\\lambda",
+          "matched": true
+        },
+        {
+          "section": "s10",
+          "raw": "lambda=20",
+          "tex": "\\lambda = 20",
+          "matched": true
+        },
+        {
+          "section": "s10",
+          "raw": "lambda",
+          "tex": "\\lambda",
+          "matched": true
+        },
+        {
+          "section": "s10",
+          "raw": "lambda",
+          "tex": "\\lambda",
+          "matched": true
+        },
+        {
+          "section": "s10",
+          "raw": "lambda",
+          "tex": "\\lambda",
+          "matched": true
+        }
+      ],
+      "outboundLinks": []
+    },
+    {
+      "id": "s11",
+      "number": 11,
+      "title": "11. Central Limit Theorem — CLT",
+      "originalTitle": "11. Central Limit Theorem — CLT",
+      "sourceRelativePath": "📚 Comprehensive Statistics Reference — من الصفر إل 3ca3906c5d6c81439567c45c6a6e2643.html",
+      "parentId": null,
+      "parentPath": "root",
+      "language": "ar-en",
+      "proposedSlug": "s11",
+      "canonicalUrl": null,
+      "destinationRoute": "/learn/statistics/journey/sampling",
+      "destinationAnchor": "s11",
+      "anchor": "s11",
+      "counts": {
+        "paragraphs": 5,
+        "lists": 0,
+        "listItems": 0,
+        "tables": 0,
+        "tableRows": 0,
+        "formulas": 1,
+        "headings": 1,
+        "toggles": 0,
+        "callouts": 0,
+        "code": 0
+      },
+      "textLength": 455,
+      "subsections": [],
+      "parsingStatus": "parsed",
+      "assetCount": 0,
+      "diagramCount": 0,
+      "headings": [
+        {
+          "level": 1,
+          "text": "11. Central Limit Theorem — CLT",
+          "anchor": "s11"
+        }
+      ],
+      "formulas": [
+        {
+          "section": "s11",
+          "raw": "E(bar X)=mu",
+          "tex": "E(\\bar{X}) = \\mu",
+          "matched": true
+        }
+      ],
+      "outboundLinks": []
+    },
+    {
+      "id": "s12",
+      "number": 12,
+      "title": "12. Sampling Distribution",
+      "originalTitle": "12. Sampling Distribution",
+      "sourceRelativePath": "📚 Comprehensive Statistics Reference — من الصفر إل 3ca3906c5d6c81439567c45c6a6e2643.html",
+      "parentId": null,
+      "parentPath": "root",
+      "language": "ar-en",
+      "proposedSlug": "s12",
+      "canonicalUrl": null,
+      "destinationRoute": "/learn/statistics/journey/sampling",
+      "destinationAnchor": "s12",
+      "anchor": "s12",
+      "counts": {
+        "paragraphs": 2,
+        "lists": 3,
+        "listItems": 3,
+        "tables": 0,
+        "tableRows": 0,
+        "formulas": 0,
+        "headings": 1,
+        "toggles": 0,
+        "callouts": 0,
+        "code": 0
+      },
+      "textLength": 310,
+      "subsections": [],
+      "parsingStatus": "parsed",
+      "assetCount": 0,
+      "diagramCount": 0,
+      "headings": [
+        {
+          "level": 1,
+          "text": "12. Sampling Distribution",
+          "anchor": "s12"
+        }
+      ],
+      "formulas": [
+        {
+          "section": "s12",
+          "raw": "bar X",
+          "tex": "\\bar{X}",
+          "matched": true
+        }
+      ],
+      "outboundLinks": []
+    },
+    {
+      "id": "s13",
+      "number": 13,
+      "title": "13. Standard Error — SE",
+      "originalTitle": "13. Standard Error — SE",
+      "sourceRelativePath": "📚 Comprehensive Statistics Reference — من الصفر إل 3ca3906c5d6c81439567c45c6a6e2643.html",
+      "parentId": null,
+      "parentPath": "root",
+      "language": "ar-en",
+      "proposedSlug": "s13",
+      "canonicalUrl": null,
+      "destinationRoute": "/learn/statistics/journey/sampling",
+      "destinationAnchor": "s13",
+      "anchor": "s13",
+      "counts": {
+        "paragraphs": 6,
+        "lists": 2,
+        "listItems": 2,
+        "tables": 0,
+        "tableRows": 0,
+        "formulas": 4,
+        "headings": 2,
+        "toggles": 0,
+        "callouts": 0,
+        "code": 0
+      },
+      "textLength": 518,
+      "subsections": [
+        {
+          "level": 2,
+          "text": "13.1 الفرق بين SD وSE",
+          "anchor": "s13-13-1-sd-se"
+        }
+      ],
+      "parsingStatus": "parsed",
+      "assetCount": 0,
+      "diagramCount": 0,
+      "headings": [
+        {
+          "level": 1,
+          "text": "13. Standard Error — SE",
+          "anchor": "s13"
+        },
+        {
+          "level": 2,
+          "text": "13.1 الفرق بين SD وSE",
+          "anchor": "s13-13-1-sd-se"
+        }
+      ],
+      "formulas": [
+        {
+          "section": "s13",
+          "raw": "SE_{bar X}=frac{sigma}{sqrt n}",
+          "tex": "\\operatorname{SE}_{\\bar{X}} = \\frac{\\sigma}{\\sqrt{n}}",
+          "matched": true
+        },
+        {
+          "section": "s13",
+          "raw": "SE_{bar X}approxfrac{s}{sqrt n}",
+          "tex": "\\operatorname{SE}_{\\bar{X}} \\approx \\frac{s}{\\sqrt{n}}",
+          "matched": true
+        },
+        {
+          "section": "s13",
+          "raw": "nuparrowRightarrow SEdownarrow",
+          "tex": "n \\uparrow \\Rightarrow \\operatorname{SE} \\downarrow",
+          "matched": true
+        },
+        {
+          "section": "s13",
+          "raw": "SEproptofrac{1}{sqrt n}",
+          "tex": "\\operatorname{SE} \\propto \\frac{1}{\\sqrt{n}}",
+          "matched": true
+        },
+        {
+          "section": "s13",
+          "raw": "sigma",
+          "tex": "\\sigma",
+          "matched": true
+        },
+        {
+          "section": "s13",
+          "raw": "sigma",
+          "tex": "\\sigma",
+          "matched": true
+        }
+      ],
+      "outboundLinks": []
+    },
+    {
+      "id": "s14",
+      "number": 14,
+      "title": "14. Confidence Intervals",
+      "originalTitle": "14. Confidence Intervals",
+      "sourceRelativePath": "📚 Comprehensive Statistics Reference — من الصفر إل 3ca3906c5d6c81439567c45c6a6e2643.html",
+      "parentId": null,
+      "parentPath": "root",
+      "language": "ar-en",
+      "proposedSlug": "s14",
+      "canonicalUrl": null,
+      "destinationRoute": "/learn/statistics/journey/sampling",
+      "destinationAnchor": "s14",
+      "anchor": "s14",
+      "counts": {
+        "paragraphs": 7,
+        "lists": 3,
+        "listItems": 3,
+        "tables": 0,
+        "tableRows": 0,
+        "formulas": 3,
+        "headings": 3,
+        "toggles": 0,
+        "callouts": 0,
+        "code": 0
+      },
+      "textLength": 724,
+      "subsections": [
+        {
+          "level": 2,
+          "text": "14.1 مثال مفاهيمي",
+          "anchor": "s14-14-1"
+        },
+        {
+          "level": 2,
+          "text": "14.2 ما الذي يجعل CI أوسع أو أضيق؟",
+          "anchor": "s14-14-2-ci"
+        }
+      ],
+      "parsingStatus": "parsed",
+      "assetCount": 0,
+      "diagramCount": 0,
+      "headings": [
+        {
+          "level": 1,
+          "text": "14. Confidence Intervals",
+          "anchor": "s14"
+        },
+        {
+          "level": 2,
+          "text": "14.1 مثال مفاهيمي",
+          "anchor": "s14-14-1"
+        },
+        {
+          "level": 2,
+          "text": "14.2 ما الذي يجعل CI أوسع أو أضيق؟",
+          "anchor": "s14-14-2-ci"
+        }
+      ],
+      "formulas": [
+        {
+          "section": "s14",
+          "raw": "Estimatepm Margin of Error",
+          "tex": "\\text{Estimate} \\pm \\text{Margin of Error}",
+          "matched": true
+        },
+        {
+          "section": "s14",
+          "raw": "Margin of Error=Critical Valuetimes SE",
+          "tex": "\\text{Margin of Error} = \\text{Critical Value} \\times \\text{SE}",
+          "matched": true
+        },
+        {
+          "section": "s14",
+          "raw": "CI=Estimatepm Critical Valuetimes SE",
+          "tex": "\\text{CI} = \\text{Estimate} \\pm \\text{Critical Value} \\times \\text{SE}",
+          "matched": true
+        }
+      ],
+      "outboundLinks": []
+    },
+    {
+      "id": "s15",
+      "number": 15,
+      "title": "15. Hypothesis Testing",
+      "originalTitle": "15. Hypothesis Testing",
+      "sourceRelativePath": "📚 Comprehensive Statistics Reference — من الصفر إل 3ca3906c5d6c81439567c45c6a6e2643.html",
+      "parentId": null,
+      "parentPath": "root",
+      "language": "ar-en",
+      "proposedSlug": "s15",
+      "canonicalUrl": null,
+      "destinationRoute": "/learn/statistics/journey/hypothesis",
+      "destinationAnchor": "s15",
+      "anchor": "s15",
+      "counts": {
+        "paragraphs": 8,
+        "lists": 3,
+        "listItems": 3,
+        "tables": 0,
+        "tableRows": 0,
+        "formulas": 1,
+        "headings": 3,
+        "toggles": 0,
+        "callouts": 0,
+        "code": 0
+      },
+      "textLength": 658,
+      "subsections": [
+        {
+          "level": 2,
+          "text": "15.1 Null Hypothesis — H₀",
+          "anchor": "s15-15-1-null-hypothesis-h0"
+        },
+        {
+          "level": 2,
+          "text": "15.2 Alternative Hypothesis — Hₐ",
+          "anchor": "s15-15-2-alternative-hypothesis-ha"
+        }
+      ],
+      "parsingStatus": "parsed",
+      "assetCount": 0,
+      "diagramCount": 0,
+      "headings": [
+        {
+          "level": 1,
+          "text": "15. Hypothesis Testing",
+          "anchor": "s15"
+        },
+        {
+          "level": 2,
+          "text": "15.1 Null Hypothesis — H₀",
+          "anchor": "s15-15-1-null-hypothesis-h0"
+        },
+        {
+          "level": 2,
+          "text": "15.2 Alternative Hypothesis — Hₐ",
+          "anchor": "s15-15-2-alternative-hypothesis-ha"
+        }
+      ],
+      "formulas": [
+        {
+          "section": "s15",
+          "raw": "H_0:mu_C=mu_B",
+          "tex": "H_0: \\mu_C = \\mu_B",
+          "matched": true
+        },
+        {
+          "section": "s15",
+          "raw": "mu_Cnemu_B",
+          "tex": "\\mu_C \\neq \\mu_B",
+          "matched": true
+        },
+        {
+          "section": "s15",
+          "raw": "mu_C>mu_B",
+          "tex": "\\mu_C > \\mu_B",
+          "matched": true
+        },
+        {
+          "section": "s15",
+          "raw": "mu_C<mu_B",
+          "tex": "\\mu_C < \\mu_B",
+          "matched": true
+        }
+      ],
+      "outboundLinks": []
+    },
+    {
+      "id": "s16",
+      "number": 16,
+      "title": "16. Hypothesis Testing Workflow",
+      "originalTitle": "16. Hypothesis Testing Workflow",
+      "sourceRelativePath": "📚 Comprehensive Statistics Reference — من الصفر إل 3ca3906c5d6c81439567c45c6a6e2643.html",
+      "parentId": null,
+      "parentPath": "root",
+      "language": "ar-en",
+      "proposedSlug": "s16",
+      "canonicalUrl": null,
+      "destinationRoute": "/learn/statistics/journey/hypothesis",
+      "destinationAnchor": "s16",
+      "anchor": "s16",
+      "counts": {
+        "paragraphs": 0,
+        "lists": 7,
+        "listItems": 7,
+        "tables": 0,
+        "tableRows": 0,
+        "formulas": 0,
+        "headings": 1,
+        "toggles": 0,
+        "callouts": 0,
+        "code": 0
+      },
+      "textLength": 261,
+      "subsections": [],
+      "parsingStatus": "parsed",
+      "assetCount": 0,
+      "diagramCount": 0,
+      "headings": [
+        {
+          "level": 1,
+          "text": "16. Hypothesis Testing Workflow",
+          "anchor": "s16"
+        }
+      ],
+      "formulas": [
+        {
+          "section": "s16",
+          "raw": "H_0",
+          "tex": "H_0",
+          "matched": true
+        },
+        {
+          "section": "s16",
+          "raw": "H_a",
+          "tex": "H_a",
+          "matched": true
+        },
+        {
+          "section": "s16",
+          "raw": "alpha",
+          "tex": "\\alpha",
+          "matched": true
+        }
+      ],
+      "outboundLinks": []
+    },
+    {
+      "id": "s17",
+      "number": 17,
+      "title": "17. Sampling Variability داخل Hypothesis Testing",
+      "originalTitle": "17. Sampling Variability داخل Hypothesis Testing",
+      "sourceRelativePath": "📚 Comprehensive Statistics Reference — من الصفر إل 3ca3906c5d6c81439567c45c6a6e2643.html",
+      "parentId": null,
+      "parentPath": "root",
+      "language": "ar-en",
+      "proposedSlug": "s17",
+      "canonicalUrl": null,
+      "destinationRoute": "/learn/statistics/journey/hypothesis",
+      "destinationAnchor": "s17",
+      "anchor": "s17",
+      "counts": {
+        "paragraphs": 3,
+        "lists": 0,
+        "listItems": 0,
+        "tables": 0,
+        "tableRows": 0,
+        "formulas": 3,
+        "headings": 1,
+        "toggles": 0,
+        "callouts": 0,
+        "code": 0
+      },
+      "textLength": 335,
+      "subsections": [],
+      "parsingStatus": "parsed",
+      "assetCount": 0,
+      "diagramCount": 0,
+      "headings": [
+        {
+          "level": 1,
+          "text": "17. Sampling Variability داخل Hypothesis Testing",
+          "anchor": "s17"
+        }
+      ],
+      "formulas": [
+        {
+          "section": "s17",
+          "raw": "bar x_C=79.3",
+          "tex": "\\bar{x}_C = 79.3",
+          "matched": true
+        },
+        {
+          "section": "s17",
+          "raw": "bar x_B=73.9",
+          "tex": "\\bar{x}_B = 73.9",
+          "matched": true
+        },
+        {
+          "section": "s17",
+          "raw": "79.3-73.9=5.4",
+          "tex": "79.3 - 73.9 = 5.4",
+          "matched": true
+        }
+      ],
+      "outboundLinks": []
+    },
+    {
+      "id": "s18",
+      "number": 18,
+      "title": "18. Test Statistic وSE",
+      "originalTitle": "18. Test Statistic وSE",
+      "sourceRelativePath": "📚 Comprehensive Statistics Reference — من الصفر إل 3ca3906c5d6c81439567c45c6a6e2643.html",
+      "parentId": null,
+      "parentPath": "root",
+      "language": "ar-en",
+      "proposedSlug": "s18",
+      "canonicalUrl": null,
+      "destinationRoute": "/learn/statistics/journey/hypothesis",
+      "destinationAnchor": "s18",
+      "anchor": "s18",
+      "counts": {
+        "paragraphs": 6,
+        "lists": 0,
+        "listItems": 0,
+        "tables": 0,
+        "tableRows": 0,
+        "formulas": 3,
+        "headings": 1,
+        "toggles": 0,
+        "callouts": 0,
+        "code": 0
+      },
+      "textLength": 475,
+      "subsections": [],
+      "parsingStatus": "parsed",
+      "assetCount": 0,
+      "diagramCount": 0,
+      "headings": [
+        {
+          "level": 1,
+          "text": "18. Test Statistic وSE",
+          "anchor": "s18"
+        }
+      ],
+      "formulas": [
+        {
+          "section": "s18",
+          "raw": "Test Statistic=frac{Observed Difference-Hypothesized Difference}{SE of Difference}",
+          "tex": "\\text{Test Statistic} = \\frac{\\text{Observed Difference} - \\text{Hypothesized Difference}}{\\text{SE of Difference}}",
+          "matched": true
+        },
+        {
+          "section": "s18",
+          "raw": "Hypothesized Difference=0",
+          "tex": "\\text{Hypothesized Difference} = 0",
+          "matched": true
+        },
+        {
+          "section": "s18",
+          "raw": "Test Statistic=frac{5.4}{1.5}=3.6",
+          "tex": "\\text{Test Statistic} = \\frac{5.4}{1.5} = 3.6",
+          "matched": true
+        }
+      ],
+      "outboundLinks": []
+    },
+    {
+      "id": "s19",
+      "number": 19,
+      "title": "19. p-value",
+      "originalTitle": "19. p-value",
+      "sourceRelativePath": "📚 Comprehensive Statistics Reference — من الصفر إل 3ca3906c5d6c81439567c45c6a6e2643.html",
+      "parentId": null,
+      "parentPath": "root",
+      "language": "ar-en",
+      "proposedSlug": "s19",
+      "canonicalUrl": null,
+      "destinationRoute": "/learn/statistics/journey/hypothesis",
+      "destinationAnchor": "s19",
+      "anchor": "s19",
+      "counts": {
+        "paragraphs": 8,
+        "lists": 0,
+        "listItems": 0,
+        "tables": 0,
+        "tableRows": 0,
+        "formulas": 2,
+        "headings": 3,
+        "toggles": 0,
+        "callouts": 0,
+        "code": 0
+      },
+      "textLength": 940,
+      "subsections": [
+        {
+          "level": 2,
+          "text": "19.1 مثال",
+          "anchor": "s19-19-1"
+        },
+        {
+          "level": 2,
+          "text": "19.2 p-value ليست overlap ببساطة",
+          "anchor": "s19-19-2-p-value-overlap"
+        }
+      ],
+      "parsingStatus": "parsed",
+      "assetCount": 0,
+      "diagramCount": 0,
+      "headings": [
+        {
+          "level": 1,
+          "text": "19. p-value",
+          "anchor": "s19"
+        },
+        {
+          "level": 2,
+          "text": "19.1 مثال",
+          "anchor": "s19-19-1"
+        },
+        {
+          "level": 2,
+          "text": "19.2 p-value ليست overlap ببساطة",
+          "anchor": "s19-19-2-p-value-overlap"
+        }
+      ],
+      "formulas": [
+        {
+          "section": "s19",
+          "raw": "ptext{-value}=P(text{result at least as extreme as observed}mid H_0text{ is true})",
+          "tex": "p\\text{-value} = P(\\text{result at least as extreme as observed} \\mid H_0 \\text{ is true})",
+          "matched": true
+        },
+        {
+          "section": "s19",
+          "raw": "p=0.037",
+          "tex": "p = 0.037",
+          "matched": true
+        }
+      ],
+      "outboundLinks": []
+    },
+    {
+      "id": "s20",
+      "number": 20,
+      "title": "20. Significance Level — α",
+      "originalTitle": "20. Significance Level — α",
+      "sourceRelativePath": "📚 Comprehensive Statistics Reference — من الصفر إل 3ca3906c5d6c81439567c45c6a6e2643.html",
+      "parentId": null,
+      "parentPath": "root",
+      "language": "ar-en",
+      "proposedSlug": "s20",
+      "canonicalUrl": null,
+      "destinationRoute": "/learn/statistics/journey/hypothesis",
+      "destinationAnchor": "s20",
+      "anchor": "s20",
+      "counts": {
+        "paragraphs": 3,
+        "lists": 0,
+        "listItems": 0,
+        "tables": 0,
+        "tableRows": 0,
+        "formulas": 1,
+        "headings": 1,
+        "toggles": 0,
+        "callouts": 0,
+        "code": 0
+      },
+      "textLength": 266,
+      "subsections": [],
+      "parsingStatus": "parsed",
+      "assetCount": 0,
+      "diagramCount": 0,
+      "headings": [
+        {
+          "level": 1,
+          "text": "20. Significance Level — α",
+          "anchor": "s20"
+        }
+      ],
+      "formulas": [
+        {
+          "section": "s20",
+          "raw": "alpha=0.05",
+          "tex": "\\alpha = 0.05",
+          "matched": true
+        },
+        {
+          "section": "s20",
+          "raw": "alpha",
+          "tex": "\\alpha",
+          "matched": true
+        }
+      ],
+      "outboundLinks": []
+    },
+    {
+      "id": "s21",
+      "number": 21,
+      "title": "21. قاعدة القرار",
+      "originalTitle": "21. قاعدة القرار",
+      "sourceRelativePath": "📚 Comprehensive Statistics Reference — من الصفر إل 3ca3906c5d6c81439567c45c6a6e2643.html",
+      "parentId": null,
+      "parentPath": "root",
+      "language": "ar-en",
+      "proposedSlug": "s21",
+      "canonicalUrl": null,
+      "destinationRoute": "/learn/statistics/journey/hypothesis",
+      "destinationAnchor": "s21",
+      "anchor": "s21",
+      "counts": {
+        "paragraphs": 8,
+        "lists": 0,
+        "listItems": 0,
+        "tables": 0,
+        "tableRows": 0,
+        "formulas": 2,
+        "headings": 1,
+        "toggles": 0,
+        "callouts": 0,
+        "code": 0
+      },
+      "textLength": 231,
+      "subsections": [],
+      "parsingStatus": "parsed",
+      "assetCount": 0,
+      "diagramCount": 0,
+      "headings": [
+        {
+          "level": 1,
+          "text": "21. قاعدة القرار",
+          "anchor": "s21"
+        }
+      ],
+      "formulas": [
+        {
+          "section": "s21",
+          "raw": "plealpha",
+          "tex": "p \\le \\alpha",
+          "matched": true
+        },
+        {
+          "section": "s21",
+          "raw": "p>alpha",
+          "tex": "p > \\alpha",
+          "matched": true
+        },
+        {
+          "section": "s21",
+          "raw": "alpha",
+          "tex": "\\alpha",
+          "matched": true
+        }
+      ],
+      "outboundLinks": []
+    },
+    {
+      "id": "s22",
+      "number": 22,
+      "title": "22. Type I and Type II Errors",
+      "originalTitle": "22. Type I and Type II Errors",
+      "sourceRelativePath": "📚 Comprehensive Statistics Reference — من الصفر إل 3ca3906c5d6c81439567c45c6a6e2643.html",
+      "parentId": null,
+      "parentPath": "root",
+      "language": "ar-en",
+      "proposedSlug": "s22",
+      "canonicalUrl": null,
+      "destinationRoute": "/learn/statistics/journey/hypothesis",
+      "destinationAnchor": "s22",
+      "anchor": "s22",
+      "counts": {
+        "paragraphs": 5,
+        "lists": 0,
+        "listItems": 0,
+        "tables": 1,
+        "tableRows": 4,
+        "formulas": 0,
+        "headings": 3,
+        "toggles": 0,
+        "callouts": 0,
+        "code": 0
+      },
+      "textLength": 408,
+      "subsections": [
+        {
+          "level": 2,
+          "text": "22.1 Type I Error",
+          "anchor": "s22-22-1-type-i-error"
+        },
+        {
+          "level": 2,
+          "text": "22.2 Type II Error",
+          "anchor": "s22-22-2-type-ii-error"
+        }
+      ],
+      "parsingStatus": "parsed",
+      "assetCount": 0,
+      "diagramCount": 0,
+      "headings": [
+        {
+          "level": 1,
+          "text": "22. Type I and Type II Errors",
+          "anchor": "s22"
+        },
+        {
+          "level": 2,
+          "text": "22.1 Type I Error",
+          "anchor": "s22-22-1-type-i-error"
+        },
+        {
+          "level": 2,
+          "text": "22.2 Type II Error",
+          "anchor": "s22-22-2-type-ii-error"
+        }
+      ],
+      "formulas": [],
+      "outboundLinks": []
+    },
+    {
+      "id": "s23",
+      "number": 23,
+      "title": "23. Statistical Significance vs Practical Significance",
+      "originalTitle": "23. Statistical Significance vs Practical Significance",
+      "sourceRelativePath": "📚 Comprehensive Statistics Reference — من الصفر إل 3ca3906c5d6c81439567c45c6a6e2643.html",
+      "parentId": null,
+      "parentPath": "root",
+      "language": "ar-en",
+      "proposedSlug": "s23",
+      "canonicalUrl": null,
+      "destinationRoute": "/learn/statistics/journey/hypothesis",
+      "destinationAnchor": "s23",
+      "anchor": "s23",
+      "counts": {
+        "paragraphs": 3,
+        "lists": 0,
+        "listItems": 0,
+        "tables": 0,
+        "tableRows": 0,
+        "formulas": 0,
+        "headings": 1,
+        "toggles": 0,
+        "callouts": 0,
+        "code": 0
+      },
+      "textLength": 344,
+      "subsections": [],
+      "parsingStatus": "parsed",
+      "assetCount": 0,
+      "diagramCount": 0,
+      "headings": [
+        {
+          "level": 1,
+          "text": "23. Statistical Significance vs Practical Significance",
+          "anchor": "s23"
+        }
+      ],
+      "formulas": [],
+      "outboundLinks": []
+    },
+    {
+      "id": "s24",
+      "number": 24,
+      "title": "24. Experiments",
+      "originalTitle": "24. Experiments",
+      "sourceRelativePath": "📚 Comprehensive Statistics Reference — من الصفر إل 3ca3906c5d6c81439567c45c6a6e2643.html",
+      "parentId": null,
+      "parentPath": "root",
+      "language": "ar-en",
+      "proposedSlug": "s24",
+      "canonicalUrl": null,
+      "destinationRoute": "/learn/statistics/journey/experiments",
+      "destinationAnchor": "s24",
+      "anchor": "s24",
+      "counts": {
+        "paragraphs": 3,
+        "lists": 2,
+        "listItems": 2,
+        "tables": 0,
+        "tableRows": 0,
+        "formulas": 0,
+        "headings": 1,
+        "toggles": 0,
+        "callouts": 0,
+        "code": 0
+      },
+      "textLength": 362,
+      "subsections": [],
+      "parsingStatus": "parsed",
+      "assetCount": 0,
+      "diagramCount": 0,
+      "headings": [
+        {
+          "level": 1,
+          "text": "24. Experiments",
+          "anchor": "s24"
+        }
+      ],
+      "formulas": [],
+      "outboundLinks": []
+    },
+    {
+      "id": "s25",
+      "number": 25,
+      "title": "25. Controlled Experiments",
+      "originalTitle": "25. Controlled Experiments",
+      "sourceRelativePath": "📚 Comprehensive Statistics Reference — من الصفر إل 3ca3906c5d6c81439567c45c6a6e2643.html",
+      "parentId": null,
+      "parentPath": "root",
+      "language": "ar-en",
+      "proposedSlug": "s25",
+      "canonicalUrl": null,
+      "destinationRoute": "/learn/statistics/journey/experiments",
+      "destinationAnchor": "s25",
+      "anchor": "s25",
+      "counts": {
+        "paragraphs": 4,
+        "lists": 2,
+        "listItems": 2,
+        "tables": 0,
+        "tableRows": 0,
+        "formulas": 0,
+        "headings": 1,
+        "toggles": 0,
+        "callouts": 0,
+        "code": 0
+      },
+      "textLength": 472,
+      "subsections": [],
+      "parsingStatus": "parsed",
+      "assetCount": 0,
+      "diagramCount": 0,
+      "headings": [
+        {
+          "level": 1,
+          "text": "25. Controlled Experiments",
+          "anchor": "s25"
+        }
+      ],
+      "formulas": [],
+      "outboundLinks": []
+    },
+    {
+      "id": "s26",
+      "number": 26,
+      "title": "26. Randomization",
+      "originalTitle": "26. Randomization",
+      "sourceRelativePath": "📚 Comprehensive Statistics Reference — من الصفر إل 3ca3906c5d6c81439567c45c6a6e2643.html",
+      "parentId": null,
+      "parentPath": "root",
+      "language": "ar-en",
+      "proposedSlug": "s26",
+      "canonicalUrl": null,
+      "destinationRoute": "/learn/statistics/journey/experiments",
+      "destinationAnchor": "s26",
+      "anchor": "s26",
+      "counts": {
+        "paragraphs": 3,
+        "lists": 0,
+        "listItems": 0,
+        "tables": 0,
+        "tableRows": 0,
+        "formulas": 0,
+        "headings": 1,
+        "toggles": 0,
+        "callouts": 0,
+        "code": 0
+      },
+      "textLength": 277,
+      "subsections": [],
+      "parsingStatus": "parsed",
+      "assetCount": 0,
+      "diagramCount": 0,
+      "headings": [
+        {
+          "level": 1,
+          "text": "26. Randomization",
+          "anchor": "s26"
+        }
+      ],
+      "formulas": [],
+      "outboundLinks": []
+    },
+    {
+      "id": "s27",
+      "number": 27,
+      "title": "27. Blinding وPlacebo",
+      "originalTitle": "27. Blinding وPlacebo",
+      "sourceRelativePath": "📚 Comprehensive Statistics Reference — من الصفر إل 3ca3906c5d6c81439567c45c6a6e2643.html",
+      "parentId": null,
+      "parentPath": "root",
+      "language": "ar-en",
+      "proposedSlug": "s27",
+      "canonicalUrl": null,
+      "destinationRoute": "/learn/statistics/journey/experiments",
+      "destinationAnchor": "s27",
+      "anchor": "s27",
+      "counts": {
+        "paragraphs": 7,
+        "lists": 0,
+        "listItems": 0,
+        "tables": 0,
+        "tableRows": 0,
+        "formulas": 0,
+        "headings": 4,
+        "toggles": 0,
+        "callouts": 0,
+        "code": 0
+      },
+      "textLength": 556,
+      "subsections": [
+        {
+          "level": 2,
+          "text": "Blind Trial",
+          "anchor": "s27-blind-trial"
+        },
+        {
+          "level": 2,
+          "text": "Placebo",
+          "anchor": "s27-placebo"
+        },
+        {
+          "level": 2,
+          "text": "Double-Blind Randomized Controlled Trial",
+          "anchor": "s27-double-blind-randomized-controlled-trial"
+        }
+      ],
+      "parsingStatus": "parsed",
+      "assetCount": 0,
+      "diagramCount": 0,
+      "headings": [
+        {
+          "level": 1,
+          "text": "27. Blinding وPlacebo",
+          "anchor": "s27"
+        },
+        {
+          "level": 2,
+          "text": "Blind Trial",
+          "anchor": "s27-blind-trial"
+        },
+        {
+          "level": 2,
+          "text": "Placebo",
+          "anchor": "s27-placebo"
+        },
+        {
+          "level": 2,
+          "text": "Double-Blind Randomized Controlled Trial",
+          "anchor": "s27-double-blind-randomized-controlled-trial"
+        }
+      ],
+      "formulas": [],
+      "outboundLinks": []
+    },
+    {
+      "id": "s28",
+      "number": 28,
+      "title": "28. RCT vs A/B Testing",
+      "originalTitle": "28. RCT vs A/B Testing",
+      "sourceRelativePath": "📚 Comprehensive Statistics Reference — من الصفر إل 3ca3906c5d6c81439567c45c6a6e2643.html",
+      "parentId": null,
+      "parentPath": "root",
+      "language": "ar-en",
+      "proposedSlug": "s28",
+      "canonicalUrl": null,
+      "destinationRoute": "/learn/statistics/journey/experiments",
+      "destinationAnchor": "s28",
+      "anchor": "s28",
+      "counts": {
+        "paragraphs": 4,
+        "lists": 2,
+        "listItems": 2,
+        "tables": 0,
+        "tableRows": 0,
+        "formulas": 0,
+        "headings": 1,
+        "toggles": 0,
+        "callouts": 0,
+        "code": 0
+      },
+      "textLength": 344,
+      "subsections": [],
+      "parsingStatus": "parsed",
+      "assetCount": 0,
+      "diagramCount": 0,
+      "headings": [
+        {
+          "level": 1,
+          "text": "28. RCT vs A/B Testing",
+          "anchor": "s28"
+        }
+      ],
+      "formulas": [],
+      "outboundLinks": []
+    },
+    {
+      "id": "s29",
+      "number": 29,
+      "title": "29. Independent and Dependent Variables",
+      "originalTitle": "29. Independent and Dependent Variables",
+      "sourceRelativePath": "📚 Comprehensive Statistics Reference — من الصفر إل 3ca3906c5d6c81439567c45c6a6e2643.html",
+      "parentId": null,
+      "parentPath": "root",
+      "language": "ar-en",
+      "proposedSlug": "s29",
+      "canonicalUrl": null,
+      "destinationRoute": "/learn/statistics/journey/experiments",
+      "destinationAnchor": "s29",
+      "anchor": "s29",
+      "counts": {
+        "paragraphs": 2,
+        "lists": 4,
+        "listItems": 4,
+        "tables": 0,
+        "tableRows": 0,
+        "formulas": 0,
+        "headings": 1,
+        "toggles": 0,
+        "callouts": 0,
+        "code": 0
+      },
+      "textLength": 475,
+      "subsections": [],
+      "parsingStatus": "parsed",
+      "assetCount": 0,
+      "diagramCount": 0,
+      "headings": [
+        {
+          "level": 1,
+          "text": "29. Independent and Dependent Variables",
+          "anchor": "s29"
+        }
+      ],
+      "formulas": [],
+      "outboundLinks": []
+    },
+    {
+      "id": "s30",
+      "number": 30,
+      "title": "30. Correlation",
+      "originalTitle": "30. Correlation",
+      "sourceRelativePath": "📚 Comprehensive Statistics Reference — من الصفر إل 3ca3906c5d6c81439567c45c6a6e2643.html",
+      "parentId": null,
+      "parentPath": "root",
+      "language": "ar-en",
+      "proposedSlug": "s30",
+      "canonicalUrl": null,
+      "destinationRoute": "/learn/statistics/journey/relationships",
+      "destinationAnchor": "s30",
+      "anchor": "s30",
+      "counts": {
+        "paragraphs": 8,
+        "lists": 8,
+        "listItems": 8,
+        "tables": 0,
+        "tableRows": 0,
+        "formulas": 2,
+        "headings": 4,
+        "toggles": 0,
+        "callouts": 0,
+        "code": 0
+      },
+      "textLength": 759,
+      "subsections": [
+        {
+          "level": 2,
+          "text": "30.1 Pearson Correlation Coefficient",
+          "anchor": "s30-30-1-pearson-correlation-coefficient"
+        },
+        {
+          "level": 3,
+          "text": "Direction",
+          "anchor": "s30-direction"
+        },
+        {
+          "level": 3,
+          "text": "Strength",
+          "anchor": "s30-strength"
+        }
+      ],
+      "parsingStatus": "parsed",
+      "assetCount": 0,
+      "diagramCount": 0,
+      "headings": [
+        {
+          "level": 1,
+          "text": "30. Correlation",
+          "anchor": "s30"
+        },
+        {
+          "level": 2,
+          "text": "30.1 Pearson Correlation Coefficient",
+          "anchor": "s30-30-1-pearson-correlation-coefficient"
+        },
+        {
+          "level": 3,
+          "text": "Direction",
+          "anchor": "s30-direction"
+        },
+        {
+          "level": 3,
+          "text": "Strength",
+          "anchor": "s30-strength"
+        }
+      ],
+      "formulas": [
+        {
+          "section": "s30",
+          "raw": "-1le rle1",
+          "tex": "-1 \\le r \\le 1",
+          "matched": true
+        },
+        {
+          "section": "s30",
+          "raw": "|r|",
+          "tex": "|r|",
+          "matched": true
+        },
+        {
+          "section": "s30",
+          "raw": "r>0",
+          "tex": "r > 0",
+          "matched": true
+        },
+        {
+          "section": "s30",
+          "raw": "r<0",
+          "tex": "r < 0",
+          "matched": true
+        },
+        {
+          "section": "s30",
+          "raw": "rapprox0",
+          "tex": "r \\approx 0",
+          "matched": true
+        },
+        {
+          "section": "s30",
+          "raw": "r=0.99",
+          "tex": "r = 0.99",
+          "matched": true
+        },
+        {
+          "section": "s30",
+          "raw": "r=0.75",
+          "tex": "r = 0.75",
+          "matched": true
+        },
+        {
+          "section": "s30",
+          "raw": "r=0.56",
+          "tex": "r = 0.56",
+          "matched": true
+        },
+        {
+          "section": "s30",
+          "raw": "rapprox0.20",
+          "tex": "r \\approx 0.20",
+          "matched": true
+        },
+        {
+          "section": "s30",
+          "raw": "rapprox0",
+          "tex": "r \\approx 0",
+          "matched": true
+        }
+      ],
+      "outboundLinks": []
+    },
+    {
+      "id": "s31",
+      "number": 31,
+      "title": "31. Pearson Correlation وLinear Relationships",
+      "originalTitle": "31. Pearson Correlation وLinear Relationships",
+      "sourceRelativePath": "📚 Comprehensive Statistics Reference — من الصفر إل 3ca3906c5d6c81439567c45c6a6e2643.html",
+      "parentId": null,
+      "parentPath": "root",
+      "language": "ar-en",
+      "proposedSlug": "s31",
+      "canonicalUrl": null,
+      "destinationRoute": "/learn/statistics/journey/relationships",
+      "destinationAnchor": "s31",
+      "anchor": "s31",
+      "counts": {
+        "paragraphs": 4,
+        "lists": 0,
+        "listItems": 0,
+        "tables": 0,
+        "tableRows": 0,
+        "formulas": 0,
+        "headings": 1,
+        "toggles": 0,
+        "callouts": 0,
+        "code": 0
+      },
+      "textLength": 272,
+      "subsections": [],
+      "parsingStatus": "parsed",
+      "assetCount": 0,
+      "diagramCount": 0,
+      "headings": [
+        {
+          "level": 1,
+          "text": "31. Pearson Correlation وLinear Relationships",
+          "anchor": "s31"
+        }
+      ],
+      "formulas": [],
+      "outboundLinks": []
+    },
+    {
+      "id": "s32",
+      "number": 32,
+      "title": "32. Correlation ≠ Causation",
+      "originalTitle": "32. Correlation ≠ Causation",
+      "sourceRelativePath": "📚 Comprehensive Statistics Reference — من الصفر إل 3ca3906c5d6c81439567c45c6a6e2643.html",
+      "parentId": null,
+      "parentPath": "root",
+      "language": "ar-en",
+      "proposedSlug": "s32",
+      "canonicalUrl": null,
+      "destinationRoute": "/learn/statistics/journey/relationships",
+      "destinationAnchor": "s32",
+      "anchor": "s32",
+      "counts": {
+        "paragraphs": 4,
+        "lists": 0,
+        "listItems": 0,
+        "tables": 0,
+        "tableRows": 0,
+        "formulas": 2,
+        "headings": 1,
+        "toggles": 0,
+        "callouts": 0,
+        "code": 0
+      },
+      "textLength": 238,
+      "subsections": [],
+      "parsingStatus": "parsed",
+      "assetCount": 0,
+      "diagramCount": 0,
+      "headings": [
+        {
+          "level": 1,
+          "text": "32. Correlation ≠ Causation",
+          "anchor": "s32"
+        }
+      ],
+      "formulas": [
+        {
+          "section": "s32",
+          "raw": "Xleftrightarrow Y",
+          "tex": "X \\leftrightarrow Y",
+          "matched": true
+        },
+        {
+          "section": "s32",
+          "raw": "Xrightarrow Y",
+          "tex": "X \\rightarrow Y",
+          "matched": true
+        },
+        {
+          "section": "s32",
+          "raw": "r=0.61",
+          "tex": "r = 0.61",
+          "matched": true
+        }
+      ],
+      "outboundLinks": []
+    },
+    {
+      "id": "s33",
+      "number": 33,
+      "title": "33. Confounding Variables",
+      "originalTitle": "33. Confounding Variables",
+      "sourceRelativePath": "📚 Comprehensive Statistics Reference — من الصفر إل 3ca3906c5d6c81439567c45c6a6e2643.html",
+      "parentId": null,
+      "parentPath": "root",
+      "language": "ar-en",
+      "proposedSlug": "s33",
+      "canonicalUrl": null,
+      "destinationRoute": "/learn/statistics/journey/relationships",
+      "destinationAnchor": "s33",
+      "anchor": "s33",
+      "counts": {
+        "paragraphs": 8,
+        "lists": 0,
+        "listItems": 0,
+        "tables": 0,
+        "tableRows": 0,
+        "formulas": 0,
+        "headings": 1,
+        "toggles": 0,
+        "callouts": 0,
+        "code": 0
+      },
+      "textLength": 410,
+      "subsections": [],
+      "parsingStatus": "parsed",
+      "assetCount": 0,
+      "diagramCount": 0,
+      "headings": [
+        {
+          "level": 1,
+          "text": "33. Confounding Variables",
+          "anchor": "s33"
+        }
+      ],
+      "formulas": [],
+      "outboundLinks": []
+    },
+    {
+      "id": "s34",
+      "number": 34,
+      "title": "34. Correlation vs Experiment",
+      "originalTitle": "34. Correlation vs Experiment",
+      "sourceRelativePath": "📚 Comprehensive Statistics Reference — من الصفر إل 3ca3906c5d6c81439567c45c6a6e2643.html",
+      "parentId": null,
+      "parentPath": "root",
+      "language": "ar-en",
+      "proposedSlug": "s34",
+      "canonicalUrl": null,
+      "destinationRoute": "/learn/statistics/journey/relationships",
+      "destinationAnchor": "s34",
+      "anchor": "s34",
+      "counts": {
+        "paragraphs": 1,
+        "lists": 0,
+        "listItems": 0,
+        "tables": 1,
+        "tableRows": 3,
+        "formulas": 0,
+        "headings": 1,
+        "toggles": 0,
+        "callouts": 0,
+        "code": 0
+      },
+      "textLength": 372,
+      "subsections": [],
+      "parsingStatus": "parsed",
+      "assetCount": 0,
+      "diagramCount": 0,
+      "headings": [
+        {
+          "level": 1,
+          "text": "34. Correlation vs Experiment",
+          "anchor": "s34"
+        }
+      ],
+      "formulas": [],
+      "outboundLinks": []
+    },
+    {
+      "id": "s35",
+      "number": 35,
+      "title": "35. Correlation vs Regression",
+      "originalTitle": "35. Correlation vs Regression",
+      "sourceRelativePath": "📚 Comprehensive Statistics Reference — من الصفر إل 3ca3906c5d6c81439567c45c6a6e2643.html",
+      "parentId": null,
+      "parentPath": "root",
+      "language": "ar-en",
+      "proposedSlug": "s35",
+      "canonicalUrl": null,
+      "destinationRoute": "/learn/statistics/journey/relationships",
+      "destinationAnchor": "s35",
+      "anchor": "s35",
+      "counts": {
+        "paragraphs": 4,
+        "lists": 3,
+        "listItems": 3,
+        "tables": 0,
+        "tableRows": 0,
+        "formulas": 1,
+        "headings": 1,
+        "toggles": 0,
+        "callouts": 0,
+        "code": 0
+      },
+      "textLength": 328,
+      "subsections": [],
+      "parsingStatus": "parsed",
+      "assetCount": 0,
+      "diagramCount": 0,
+      "headings": [
+        {
+          "level": 1,
+          "text": "35. Correlation vs Regression",
+          "anchor": "s35"
+        }
+      ],
+      "formulas": [
+        {
+          "section": "s35",
+          "raw": "Y=beta_0+beta_1X",
+          "tex": "Y = \\beta_0 + \\beta_1 X",
+          "matched": true
+        },
+        {
+          "section": "s35",
+          "raw": "beta_1",
+          "tex": "\\beta_1",
+          "matched": true
+        }
+      ],
+      "outboundLinks": []
+    },
+    {
+      "id": "s36",
+      "number": 36,
+      "title": "36. كيف تتصل كل الموضوعات معًا؟",
+      "originalTitle": "36. كيف تتصل كل الموضوعات معًا؟",
+      "sourceRelativePath": "📚 Comprehensive Statistics Reference — من الصفر إل 3ca3906c5d6c81439567c45c6a6e2643.html",
+      "parentId": null,
+      "parentPath": "root",
+      "language": "ar-en",
+      "proposedSlug": "s36",
+      "canonicalUrl": null,
+      "destinationRoute": "/learn/statistics/journey/synthesis",
+      "destinationAnchor": "s36",
+      "anchor": "s36",
+      "counts": {
+        "paragraphs": 0,
+        "lists": 0,
+        "listItems": 0,
+        "tables": 0,
+        "tableRows": 0,
+        "formulas": 0,
+        "headings": 1,
+        "toggles": 0,
+        "callouts": 0,
+        "code": 1
+      },
+      "textLength": 499,
+      "subsections": [],
+      "parsingStatus": "parsed",
+      "assetCount": 0,
+      "diagramCount": 1,
+      "headings": [
+        {
+          "level": 1,
+          "text": "36. كيف تتصل كل الموضوعات معًا؟",
+          "anchor": "s36"
+        }
+      ],
+      "formulas": [],
+      "outboundLinks": []
+    },
+    {
+      "id": "s37",
+      "number": 37,
+      "title": "37. أهم العلاقات الرياضية التي يجب تذكرها",
+      "originalTitle": "37. أهم العلاقات الرياضية التي يجب تذكرها",
+      "sourceRelativePath": "📚 Comprehensive Statistics Reference — من الصفر إل 3ca3906c5d6c81439567c45c6a6e2643.html",
+      "parentId": null,
+      "parentPath": "root",
+      "language": "ar-en",
+      "proposedSlug": "s37",
+      "canonicalUrl": null,
+      "destinationRoute": "/learn/statistics/journey/synthesis",
+      "destinationAnchor": "s37",
+      "anchor": "s37",
+      "counts": {
+        "paragraphs": 2,
+        "lists": 0,
+        "listItems": 0,
+        "tables": 0,
+        "tableRows": 0,
+        "formulas": 17,
+        "headings": 10,
+        "toggles": 0,
+        "callouts": 0,
+        "code": 0
+      },
+      "textLength": 637,
+      "subsections": [
+        {
+          "level": 3,
+          "text": "Probability",
+          "anchor": "s37-probability"
+        },
+        {
+          "level": 3,
+          "text": "Variability",
+          "anchor": "s37-variability"
+        },
+        {
+          "level": 3,
+          "text": "Binomial",
+          "anchor": "s37-binomial"
+        },
+        {
+          "level": 3,
+          "text": "Poisson",
+          "anchor": "s37-poisson"
+        },
+        {
+          "level": 3,
+          "text": "Z-score",
+          "anchor": "s37-z-score"
+        },
+        {
+          "level": 3,
+          "text": "Standard Error of Mean",
+          "anchor": "s37-standard-error-of-mean"
+        },
+        {
+          "level": 3,
+          "text": "Confidence Interval",
+          "anchor": "s37-confidence-interval"
+        },
+        {
+          "level": 3,
+          "text": "Test Statistic",
+          "anchor": "s37-test-statistic"
+        },
+        {
+          "level": 3,
+          "text": "Hypothesis Decision",
+          "anchor": "s37-hypothesis-decision"
+        }
+      ],
+      "parsingStatus": "parsed",
+      "assetCount": 0,
+      "diagramCount": 0,
+      "headings": [
+        {
+          "level": 1,
+          "text": "37. أهم العلاقات الرياضية التي يجب تذكرها",
+          "anchor": "s37"
+        },
+        {
+          "level": 3,
+          "text": "Probability",
+          "anchor": "s37-probability"
+        },
+        {
+          "level": 3,
+          "text": "Variability",
+          "anchor": "s37-variability"
+        },
+        {
+          "level": 3,
+          "text": "Binomial",
+          "anchor": "s37-binomial"
+        },
+        {
+          "level": 3,
+          "text": "Poisson",
+          "anchor": "s37-poisson"
+        },
+        {
+          "level": 3,
+          "text": "Z-score",
+          "anchor": "s37-z-score"
+        },
+        {
+          "level": 3,
+          "text": "Standard Error of Mean",
+          "anchor": "s37-standard-error-of-mean"
+        },
+        {
+          "level": 3,
+          "text": "Confidence Interval",
+          "anchor": "s37-confidence-interval"
+        },
+        {
+          "level": 3,
+          "text": "Test Statistic",
+          "anchor": "s37-test-statistic"
+        },
+        {
+          "level": 3,
+          "text": "Hypothesis Decision",
+          "anchor": "s37-hypothesis-decision"
+        }
+      ],
+      "formulas": [
+        {
+          "section": "s37",
+          "raw": "P(A^c)=1-P(A)",
+          "tex": "P(A^c) = 1 - P(A)",
+          "matched": true
+        },
+        {
+          "section": "s37",
+          "raw": "P(Amid B)=frac{P(Acap B)}{P(B)}",
+          "tex": "P(A \\mid B) = \\frac{P(A \\cap B)}{P(B)}",
+          "matched": true
+        },
+        {
+          "section": "s37",
+          "raw": "SD=sqrt{Variance}",
+          "tex": "\\operatorname{SD} = \\sqrt{\\operatorname{Variance}}",
+          "matched": true
+        },
+        {
+          "section": "s37",
+          "raw": "IQR=Q_3-Q_1",
+          "tex": "\\operatorname{IQR} = Q_3 - Q_1",
+          "matched": true
+        },
+        {
+          "section": "s37",
+          "raw": "P(X=k)=binom{n}{k}p^k(1-p)^{n-k}",
+          "tex": "P(X = k) = \\binom{n}{k} p^k (1-p)^{n-k}",
+          "matched": true
+        },
+        {
+          "section": "s37",
+          "raw": "E(X)=np",
+          "tex": "E(X) = np",
+          "matched": true
+        },
+        {
+          "section": "s37",
+          "raw": "Var(X)=np(1-p)",
+          "tex": "\\operatorname{Var}(X) = np(1-p)",
+          "matched": true
+        },
+        {
+          "section": "s37",
+          "raw": "P(X=k)=frac{e^{-lambda}lambda^k}{k!}",
+          "tex": "P(X = k) = \\frac{e^{-\\lambda}\\lambda^k}{k!}",
+          "matched": true
+        },
+        {
+          "section": "s37",
+          "raw": "E(X)=Var(X)=lambda",
+          "tex": "E(X) = \\operatorname{Var}(X) = \\lambda",
+          "matched": true
+        },
+        {
+          "section": "s37",
+          "raw": "SD(X)=sqrtlambda",
+          "tex": "\\operatorname{SD}(X) = \\sqrt{\\lambda}",
+          "matched": true
+        },
+        {
+          "section": "s37",
+          "raw": "z=frac{x-mu}{sigma}",
+          "tex": "z = \\frac{x - \\mu}{\\sigma}",
+          "matched": true
+        },
+        {
+          "section": "s37",
+          "raw": "SE=frac{sigma}{sqrt n}",
+          "tex": "\\operatorname{SE} = \\frac{\\sigma}{\\sqrt{n}}",
+          "matched": true
+        },
+        {
+          "section": "s37",
+          "raw": "SEapproxfrac{s}{sqrt n}",
+          "tex": "\\operatorname{SE}_{\\bar{X}} \\approx \\frac{s}{\\sqrt{n}}",
+          "matched": true
+        },
+        {
+          "section": "s37",
+          "raw": "Estimatepm Critical Valuetimes SE",
+          "tex": "\\text{Estimate} \\pm \\text{Critical Value} \\times \\text{SE}",
+          "matched": true
+        },
+        {
+          "section": "s37",
+          "raw": "Test Statistic=frac{Observed-Hypothesized}{SE}",
+          "tex": "\\text{Test Statistic} = \\frac{\\text{Observed} - \\text{Hypothesized}}{\\text{SE}}",
+          "matched": true
+        },
+        {
+          "section": "s37",
+          "raw": "plealphaRightarrow Reject H_0",
+          "tex": "p \\le \\alpha \\Rightarrow \\text{Reject } H_0",
+          "matched": true
+        },
+        {
+          "section": "s37",
+          "raw": "p>alphaRightarrow Fail to Reject H_0",
+          "tex": "p > \\alpha \\Rightarrow \\text{Fail to Reject } H_0",
+          "matched": true
+        },
+        {
+          "section": "s37",
+          "raw": "P(Acap B)=P(A)P(B)",
+          "tex": "P(A \\cap B) = P(A)P(B)",
+          "matched": true
+        }
+      ],
+      "outboundLinks": []
+    },
+    {
+      "id": "s38",
+      "number": 38,
+      "title": "38. Decision Rules — إذا تغير السؤال، ماذا أفعل؟",
+      "originalTitle": "38. Decision Rules — إذا تغير السؤال، ماذا أفعل؟",
+      "sourceRelativePath": "📚 Comprehensive Statistics Reference — من الصفر إل 3ca3906c5d6c81439567c45c6a6e2643.html",
+      "parentId": null,
+      "parentPath": "root",
+      "language": "ar-en",
+      "proposedSlug": "s38",
+      "canonicalUrl": null,
+      "destinationRoute": "/learn/statistics/journey/synthesis",
+      "destinationAnchor": "s38",
+      "anchor": "s38",
+      "counts": {
+        "paragraphs": 14,
+        "lists": 0,
+        "listItems": 0,
+        "tables": 0,
+        "tableRows": 0,
+        "formulas": 0,
+        "headings": 1,
+        "toggles": 14,
+        "callouts": 0,
+        "code": 0
+      },
+      "textLength": 671,
+      "subsections": [],
+      "parsingStatus": "parsed",
+      "assetCount": 0,
+      "diagramCount": 0,
+      "headings": [
+        {
+          "level": 1,
+          "text": "38. Decision Rules — إذا تغير السؤال، ماذا أفعل؟",
+          "anchor": "s38"
+        }
+      ],
+      "formulas": [],
+      "outboundLinks": []
+    },
+    {
+      "id": "s39",
+      "number": 39,
+      "title": "39. أهم الأخطاء التي يجب تجنبها",
+      "originalTitle": "39. أهم الأخطاء التي يجب تجنبها",
+      "sourceRelativePath": "📚 Comprehensive Statistics Reference — من الصفر إل 3ca3906c5d6c81439567c45c6a6e2643.html",
+      "parentId": null,
+      "parentPath": "root",
+      "language": "ar-en",
+      "proposedSlug": "s39",
+      "canonicalUrl": null,
+      "destinationRoute": "/learn/statistics/journey/synthesis",
+      "destinationAnchor": "s39",
+      "anchor": "s39",
+      "counts": {
+        "paragraphs": 0,
+        "lists": 10,
+        "listItems": 10,
+        "tables": 0,
+        "tableRows": 0,
+        "formulas": 0,
+        "headings": 1,
+        "toggles": 0,
+        "callouts": 0,
+        "code": 0
+      },
+      "textLength": 509,
+      "subsections": [],
+      "parsingStatus": "parsed",
+      "assetCount": 0,
+      "diagramCount": 0,
+      "headings": [
+        {
+          "level": 1,
+          "text": "39. أهم الأخطاء التي يجب تجنبها",
+          "anchor": "s39"
+        }
+      ],
+      "formulas": [
+        {
+          "section": "s39",
+          "raw": "alpha",
+          "tex": "\\alpha",
+          "matched": true
+        }
+      ],
+      "outboundLinks": []
+    },
+    {
+      "id": "s40",
+      "number": 40,
+      "title": "40. مثال متكامل يربط الكورس",
+      "originalTitle": "40. مثال متكامل يربط الكورس",
+      "sourceRelativePath": "📚 Comprehensive Statistics Reference — من الصفر إل 3ca3906c5d6c81439567c45c6a6e2643.html",
+      "parentId": null,
+      "parentPath": "root",
+      "language": "ar-en",
+      "proposedSlug": "s40",
+      "canonicalUrl": null,
+      "destinationRoute": "/learn/statistics/journey/synthesis",
+      "destinationAnchor": "s40",
+      "anchor": "s40",
+      "counts": {
+        "paragraphs": 20,
+        "lists": 3,
+        "listItems": 3,
+        "tables": 0,
+        "tableRows": 0,
+        "formulas": 0,
+        "headings": 1,
+        "toggles": 0,
+        "callouts": 0,
+        "code": 0
+      },
+      "textLength": 862,
+      "subsections": [],
+      "parsingStatus": "parsed",
+      "assetCount": 0,
+      "diagramCount": 0,
+      "headings": [
+        {
+          "level": 1,
+          "text": "40. مثال متكامل يربط الكورس",
+          "anchor": "s40"
+        }
+      ],
+      "formulas": [
+        {
+          "section": "s40",
+          "raw": "H_0",
+          "tex": "H_0",
+          "matched": true
+        },
+        {
+          "section": "s40",
+          "raw": "H_a",
+          "tex": "H_a",
+          "matched": true
+        },
+        {
+          "section": "s40",
+          "raw": "p>0.05",
+          "tex": "p > 0.05",
+          "matched": true
+        }
+      ],
+      "outboundLinks": []
+    },
+    {
+      "id": "s41",
+      "number": 41,
+      "title": "41. Final Mental Model",
+      "originalTitle": "41. Final Mental Model",
+      "sourceRelativePath": "📚 Comprehensive Statistics Reference — من الصفر إل 3ca3906c5d6c81439567c45c6a6e2643.html",
+      "parentId": null,
+      "parentPath": "root",
+      "language": "ar-en",
+      "proposedSlug": "s41",
+      "canonicalUrl": null,
+      "destinationRoute": "/learn/statistics/journey/synthesis",
+      "destinationAnchor": "s41",
+      "anchor": "s41",
+      "counts": {
+        "paragraphs": 13,
+        "lists": 0,
+        "listItems": 0,
+        "tables": 0,
+        "tableRows": 0,
+        "formulas": 0,
+        "headings": 1,
+        "toggles": 0,
+        "callouts": 0,
+        "code": 0
+      },
+      "textLength": 698,
+      "subsections": [],
+      "parsingStatus": "parsed",
+      "assetCount": 0,
+      "diagramCount": 0,
+      "headings": [
+        {
+          "level": 1,
+          "text": "41. Final Mental Model",
+          "anchor": "s41"
+        }
+      ],
+      "formulas": [],
+      "outboundLinks": []
+    },
+    {
+      "id": "s42",
+      "number": 42,
+      "title": "42. One-page Cheat Sheet",
+      "originalTitle": "42. One-page Cheat Sheet",
+      "sourceRelativePath": "📚 Comprehensive Statistics Reference — من الصفر إل 3ca3906c5d6c81439567c45c6a6e2643.html",
+      "parentId": null,
+      "parentPath": "root",
+      "language": "ar-en",
+      "proposedSlug": "s42",
+      "canonicalUrl": null,
+      "destinationRoute": "/learn/statistics/journey/synthesis",
+      "destinationAnchor": "s42",
+      "anchor": "s42",
+      "counts": {
+        "paragraphs": 0,
+        "lists": 0,
+        "listItems": 0,
+        "tables": 1,
+        "tableRows": 25,
+        "formulas": 0,
+        "headings": 1,
+        "toggles": 0,
+        "callouts": 0,
+        "code": 0
+      },
+      "textLength": 973,
+      "subsections": [],
+      "parsingStatus": "parsed",
+      "assetCount": 0,
+      "diagramCount": 0,
+      "headings": [
+        {
+          "level": 1,
+          "text": "42. One-page Cheat Sheet",
+          "anchor": "s42"
+        }
+      ],
+      "formulas": [],
+      "outboundLinks": []
+    },
+    {
+      "id": "s43",
+      "number": 43,
+      "title": "43. خلاصة الكورس",
+      "originalTitle": "43. خلاصة الكورس",
+      "sourceRelativePath": "📚 Comprehensive Statistics Reference — من الصفر إل 3ca3906c5d6c81439567c45c6a6e2643.html",
+      "parentId": null,
+      "parentPath": "root",
+      "language": "ar-en",
+      "proposedSlug": "s43",
+      "canonicalUrl": null,
+      "destinationRoute": "/learn/statistics/journey/synthesis",
+      "destinationAnchor": "s43",
+      "anchor": "s43",
+      "counts": {
+        "paragraphs": 3,
+        "lists": 0,
+        "listItems": 0,
+        "tables": 0,
+        "tableRows": 0,
+        "formulas": 0,
+        "headings": 1,
+        "toggles": 0,
+        "callouts": 0,
+        "code": 0
+      },
+      "textLength": 361,
+      "subsections": [],
+      "parsingStatus": "parsed",
+      "assetCount": 0,
+      "diagramCount": 0,
+      "headings": [
+        {
+          "level": 1,
+          "text": "43. خلاصة الكورس",
+          "anchor": "s43"
+        }
+      ],
+      "formulas": [],
+      "outboundLinks": []
+    }
+  ],
+  "formulas": [
+    {
+      "section": "s1",
+      "raw": "mu",
+      "tex": "\\mu",
+      "matched": true
+    },
+    {
+      "section": "s1",
+      "raw": "bar{x}",
+      "tex": "\\bar{x}",
+      "matched": true
+    },
+    {
+      "section": "s4",
+      "raw": "bar{x}=frac{sum x_i}{n}",
+      "tex": "\\bar{x} = \\frac{\\sum x_i}{n}",
+      "matched": true
+    },
+    {
+      "section": "s5",
+      "raw": "Range=Maximum-Minimum",
+      "tex": "\\text{Range} = \\text{Maximum} - \\text{Minimum}",
+      "matched": true
+    },
+    {
+      "section": "s5",
+      "raw": "sigma^2=frac{sum (x_i-mu)^2}{N}",
+      "tex": "\\sigma^2 = \\frac{\\sum (x_i - \\mu)^2}{N}",
+      "matched": true
+    },
+    {
+      "section": "s5",
+      "raw": "s^2=frac{sum (x_i-bar{x})^2}{n-1}",
+      "tex": "s^2 = \\frac{\\sum (x_i - \\bar{x})^2}{n-1}",
+      "matched": true
+    },
+    {
+      "section": "s5",
+      "raw": "SD=sqrt{Variance}",
+      "tex": "\\operatorname{SD} = \\sqrt{\\operatorname{Variance}}",
+      "matched": true
+    },
+    {
+      "section": "s5",
+      "raw": "IQR=Q_3-Q_1",
+      "tex": "\\operatorname{IQR} = Q_3 - Q_1",
+      "matched": true
+    },
+    {
+      "section": "s6",
+      "raw": "0le P(A)le1",
+      "tex": "0 \\le P(A) \\le 1",
+      "matched": true
+    },
+    {
+      "section": "s6",
+      "raw": "P(A^c)=1-P(A)",
+      "tex": "P(A^c) = 1 - P(A)",
+      "matched": true
+    },
+    {
+      "section": "s6",
+      "raw": "P(Acap B)=P(A)P(B)",
+      "tex": "P(A \\cap B) = P(A)P(B)",
+      "matched": true
+    },
+    {
+      "section": "s6",
+      "raw": "P(Amid B)=frac{P(Acap B)}{P(B)}",
+      "tex": "P(A \\mid B) = \\frac{P(A \\cap B)}{P(B)}",
+      "matched": true
+    },
+    {
+      "section": "s6",
+      "raw": "P(A)=0",
+      "tex": "P(A) = 0",
+      "matched": true
+    },
+    {
+      "section": "s6",
+      "raw": "P(A)=1",
+      "tex": "P(A) = 1",
+      "matched": true
+    },
+    {
+      "section": "s8",
+      "raw": "P(X=k)=binom{n}{k}p^k(1-p)^{n-k}",
+      "tex": "P(X = k) = \\binom{n}{k} p^k (1-p)^{n-k}",
+      "matched": true
+    },
+    {
+      "section": "s8",
+      "raw": "E(X)=np",
+      "tex": "E(X) = np",
+      "matched": true
+    },
+    {
+      "section": "s8",
+      "raw": "Var(X)=np(1-p)",
+      "tex": "\\operatorname{Var}(X) = np(1-p)",
+      "matched": true
+    },
+    {
+      "section": "s9",
+      "raw": "z=frac{x-mu}{sigma}",
+      "tex": "z = \\frac{x - \\mu}{\\sigma}",
+      "matched": true
+    },
+    {
+      "section": "s9",
+      "raw": "mu",
+      "tex": "\\mu",
+      "matched": true
+    },
+    {
+      "section": "s9",
+      "raw": "sigma",
+      "tex": "\\sigma",
+      "matched": true
+    },
+    {
+      "section": "s9",
+      "raw": "mupm1sigma",
+      "tex": "\\mu \\pm 1\\sigma",
+      "matched": true
+    },
+    {
+      "section": "s9",
+      "raw": "mupm2sigma",
+      "tex": "\\mu \\pm 2\\sigma",
+      "matched": true
+    },
+    {
+      "section": "s9",
+      "raw": "mupm3sigma",
+      "tex": "\\mu \\pm 3\\sigma",
+      "matched": true
+    },
+    {
+      "section": "s10",
+      "raw": "P(X=k)=frac{e^{-lambda}lambda^k}{k!}",
+      "tex": "P(X = k) = \\frac{e^{-\\lambda}\\lambda^k}{k!}",
+      "matched": true
+    },
+    {
+      "section": "s10",
+      "raw": "E(X)=lambda",
+      "tex": "E(X) = \\lambda",
+      "matched": true
+    },
+    {
+      "section": "s10",
+      "raw": "Var(X)=lambda",
+      "tex": "\\operatorname{Var}(X) = \\lambda",
+      "matched": true
+    },
+    {
+      "section": "s10",
+      "raw": "SD(X)=sqrt{lambda}",
+      "tex": "\\operatorname{SD}(X) = \\sqrt{\\lambda}",
+      "matched": true
+    },
+    {
+      "section": "s10",
+      "raw": "lambda=20",
+      "tex": "\\lambda = 20",
+      "matched": true
+    },
+    {
+      "section": "s10",
+      "raw": "lambda",
+      "tex": "\\lambda",
+      "matched": true
+    },
+    {
+      "section": "s10",
+      "raw": "lambda",
+      "tex": "\\lambda",
+      "matched": true
+    },
+    {
+      "section": "s10",
+      "raw": "lambda=20",
+      "tex": "\\lambda = 20",
+      "matched": true
+    },
+    {
+      "section": "s10",
+      "raw": "lambda",
+      "tex": "\\lambda",
+      "matched": true
+    },
+    {
+      "section": "s10",
+      "raw": "lambda",
+      "tex": "\\lambda",
+      "matched": true
+    },
+    {
+      "section": "s10",
+      "raw": "lambda",
+      "tex": "\\lambda",
+      "matched": true
+    },
+    {
+      "section": "s11",
+      "raw": "E(bar X)=mu",
+      "tex": "E(\\bar{X}) = \\mu",
+      "matched": true
+    },
+    {
+      "section": "s12",
+      "raw": "bar X",
+      "tex": "\\bar{X}",
+      "matched": true
+    },
+    {
+      "section": "s13",
+      "raw": "SE_{bar X}=frac{sigma}{sqrt n}",
+      "tex": "\\operatorname{SE}_{\\bar{X}} = \\frac{\\sigma}{\\sqrt{n}}",
+      "matched": true
+    },
+    {
+      "section": "s13",
+      "raw": "SE_{bar X}approxfrac{s}{sqrt n}",
+      "tex": "\\operatorname{SE}_{\\bar{X}} \\approx \\frac{s}{\\sqrt{n}}",
+      "matched": true
+    },
+    {
+      "section": "s13",
+      "raw": "nuparrowRightarrow SEdownarrow",
+      "tex": "n \\uparrow \\Rightarrow \\operatorname{SE} \\downarrow",
+      "matched": true
+    },
+    {
+      "section": "s13",
+      "raw": "SEproptofrac{1}{sqrt n}",
+      "tex": "\\operatorname{SE} \\propto \\frac{1}{\\sqrt{n}}",
+      "matched": true
+    },
+    {
+      "section": "s13",
+      "raw": "sigma",
+      "tex": "\\sigma",
+      "matched": true
+    },
+    {
+      "section": "s13",
+      "raw": "sigma",
+      "tex": "\\sigma",
+      "matched": true
+    },
+    {
+      "section": "s14",
+      "raw": "Estimatepm Margin of Error",
+      "tex": "\\text{Estimate} \\pm \\text{Margin of Error}",
+      "matched": true
+    },
+    {
+      "section": "s14",
+      "raw": "Margin of Error=Critical Valuetimes SE",
+      "tex": "\\text{Margin of Error} = \\text{Critical Value} \\times \\text{SE}",
+      "matched": true
+    },
+    {
+      "section": "s14",
+      "raw": "CI=Estimatepm Critical Valuetimes SE",
+      "tex": "\\text{CI} = \\text{Estimate} \\pm \\text{Critical Value} \\times \\text{SE}",
+      "matched": true
+    },
+    {
+      "section": "s15",
+      "raw": "H_0:mu_C=mu_B",
+      "tex": "H_0: \\mu_C = \\mu_B",
+      "matched": true
+    },
+    {
+      "section": "s15",
+      "raw": "mu_Cnemu_B",
+      "tex": "\\mu_C \\neq \\mu_B",
+      "matched": true
+    },
+    {
+      "section": "s15",
+      "raw": "mu_C>mu_B",
+      "tex": "\\mu_C > \\mu_B",
+      "matched": true
+    },
+    {
+      "section": "s15",
+      "raw": "mu_C<mu_B",
+      "tex": "\\mu_C < \\mu_B",
+      "matched": true
+    },
+    {
+      "section": "s16",
+      "raw": "H_0",
+      "tex": "H_0",
+      "matched": true
+    },
+    {
+      "section": "s16",
+      "raw": "H_a",
+      "tex": "H_a",
+      "matched": true
+    },
+    {
+      "section": "s16",
+      "raw": "alpha",
+      "tex": "\\alpha",
+      "matched": true
+    },
+    {
+      "section": "s17",
+      "raw": "bar x_C=79.3",
+      "tex": "\\bar{x}_C = 79.3",
+      "matched": true
+    },
+    {
+      "section": "s17",
+      "raw": "bar x_B=73.9",
+      "tex": "\\bar{x}_B = 73.9",
+      "matched": true
+    },
+    {
+      "section": "s17",
+      "raw": "79.3-73.9=5.4",
+      "tex": "79.3 - 73.9 = 5.4",
+      "matched": true
+    },
+    {
+      "section": "s18",
+      "raw": "Test Statistic=frac{Observed Difference-Hypothesized Difference}{SE of Difference}",
+      "tex": "\\text{Test Statistic} = \\frac{\\text{Observed Difference} - \\text{Hypothesized Difference}}{\\text{SE of Difference}}",
+      "matched": true
+    },
+    {
+      "section": "s18",
+      "raw": "Hypothesized Difference=0",
+      "tex": "\\text{Hypothesized Difference} = 0",
+      "matched": true
+    },
+    {
+      "section": "s18",
+      "raw": "Test Statistic=frac{5.4}{1.5}=3.6",
+      "tex": "\\text{Test Statistic} = \\frac{5.4}{1.5} = 3.6",
+      "matched": true
+    },
+    {
+      "section": "s19",
+      "raw": "ptext{-value}=P(text{result at least as extreme as observed}mid H_0text{ is true})",
+      "tex": "p\\text{-value} = P(\\text{result at least as extreme as observed} \\mid H_0 \\text{ is true})",
+      "matched": true
+    },
+    {
+      "section": "s19",
+      "raw": "p=0.037",
+      "tex": "p = 0.037",
+      "matched": true
+    },
+    {
+      "section": "s20",
+      "raw": "alpha=0.05",
+      "tex": "\\alpha = 0.05",
+      "matched": true
+    },
+    {
+      "section": "s20",
+      "raw": "alpha",
+      "tex": "\\alpha",
+      "matched": true
+    },
+    {
+      "section": "s21",
+      "raw": "plealpha",
+      "tex": "p \\le \\alpha",
+      "matched": true
+    },
+    {
+      "section": "s21",
+      "raw": "p>alpha",
+      "tex": "p > \\alpha",
+      "matched": true
+    },
+    {
+      "section": "s21",
+      "raw": "alpha",
+      "tex": "\\alpha",
+      "matched": true
+    },
+    {
+      "section": "s30",
+      "raw": "-1le rle1",
+      "tex": "-1 \\le r \\le 1",
+      "matched": true
+    },
+    {
+      "section": "s30",
+      "raw": "|r|",
+      "tex": "|r|",
+      "matched": true
+    },
+    {
+      "section": "s30",
+      "raw": "r>0",
+      "tex": "r > 0",
+      "matched": true
+    },
+    {
+      "section": "s30",
+      "raw": "r<0",
+      "tex": "r < 0",
+      "matched": true
+    },
+    {
+      "section": "s30",
+      "raw": "rapprox0",
+      "tex": "r \\approx 0",
+      "matched": true
+    },
+    {
+      "section": "s30",
+      "raw": "r=0.99",
+      "tex": "r = 0.99",
+      "matched": true
+    },
+    {
+      "section": "s30",
+      "raw": "r=0.75",
+      "tex": "r = 0.75",
+      "matched": true
+    },
+    {
+      "section": "s30",
+      "raw": "r=0.56",
+      "tex": "r = 0.56",
+      "matched": true
+    },
+    {
+      "section": "s30",
+      "raw": "rapprox0.20",
+      "tex": "r \\approx 0.20",
+      "matched": true
+    },
+    {
+      "section": "s30",
+      "raw": "rapprox0",
+      "tex": "r \\approx 0",
+      "matched": true
+    },
+    {
+      "section": "s32",
+      "raw": "Xleftrightarrow Y",
+      "tex": "X \\leftrightarrow Y",
+      "matched": true
+    },
+    {
+      "section": "s32",
+      "raw": "Xrightarrow Y",
+      "tex": "X \\rightarrow Y",
+      "matched": true
+    },
+    {
+      "section": "s32",
+      "raw": "r=0.61",
+      "tex": "r = 0.61",
+      "matched": true
+    },
+    {
+      "section": "s35",
+      "raw": "Y=beta_0+beta_1X",
+      "tex": "Y = \\beta_0 + \\beta_1 X",
+      "matched": true
+    },
+    {
+      "section": "s35",
+      "raw": "beta_1",
+      "tex": "\\beta_1",
+      "matched": true
+    },
+    {
+      "section": "s37",
+      "raw": "P(A^c)=1-P(A)",
+      "tex": "P(A^c) = 1 - P(A)",
+      "matched": true
+    },
+    {
+      "section": "s37",
+      "raw": "P(Amid B)=frac{P(Acap B)}{P(B)}",
+      "tex": "P(A \\mid B) = \\frac{P(A \\cap B)}{P(B)}",
+      "matched": true
+    },
+    {
+      "section": "s37",
+      "raw": "SD=sqrt{Variance}",
+      "tex": "\\operatorname{SD} = \\sqrt{\\operatorname{Variance}}",
+      "matched": true
+    },
+    {
+      "section": "s37",
+      "raw": "IQR=Q_3-Q_1",
+      "tex": "\\operatorname{IQR} = Q_3 - Q_1",
+      "matched": true
+    },
+    {
+      "section": "s37",
+      "raw": "P(X=k)=binom{n}{k}p^k(1-p)^{n-k}",
+      "tex": "P(X = k) = \\binom{n}{k} p^k (1-p)^{n-k}",
+      "matched": true
+    },
+    {
+      "section": "s37",
+      "raw": "E(X)=np",
+      "tex": "E(X) = np",
+      "matched": true
+    },
+    {
+      "section": "s37",
+      "raw": "Var(X)=np(1-p)",
+      "tex": "\\operatorname{Var}(X) = np(1-p)",
+      "matched": true
+    },
+    {
+      "section": "s37",
+      "raw": "P(X=k)=frac{e^{-lambda}lambda^k}{k!}",
+      "tex": "P(X = k) = \\frac{e^{-\\lambda}\\lambda^k}{k!}",
+      "matched": true
+    },
+    {
+      "section": "s37",
+      "raw": "E(X)=Var(X)=lambda",
+      "tex": "E(X) = \\operatorname{Var}(X) = \\lambda",
+      "matched": true
+    },
+    {
+      "section": "s37",
+      "raw": "SD(X)=sqrtlambda",
+      "tex": "\\operatorname{SD}(X) = \\sqrt{\\lambda}",
+      "matched": true
+    },
+    {
+      "section": "s37",
+      "raw": "z=frac{x-mu}{sigma}",
+      "tex": "z = \\frac{x - \\mu}{\\sigma}",
+      "matched": true
+    },
+    {
+      "section": "s37",
+      "raw": "SE=frac{sigma}{sqrt n}",
+      "tex": "\\operatorname{SE} = \\frac{\\sigma}{\\sqrt{n}}",
+      "matched": true
+    },
+    {
+      "section": "s37",
+      "raw": "SEapproxfrac{s}{sqrt n}",
+      "tex": "\\operatorname{SE}_{\\bar{X}} \\approx \\frac{s}{\\sqrt{n}}",
+      "matched": true
+    },
+    {
+      "section": "s37",
+      "raw": "Estimatepm Critical Valuetimes SE",
+      "tex": "\\text{Estimate} \\pm \\text{Critical Value} \\times \\text{SE}",
+      "matched": true
+    },
+    {
+      "section": "s37",
+      "raw": "Test Statistic=frac{Observed-Hypothesized}{SE}",
+      "tex": "\\text{Test Statistic} = \\frac{\\text{Observed} - \\text{Hypothesized}}{\\text{SE}}",
+      "matched": true
+    },
+    {
+      "section": "s37",
+      "raw": "plealphaRightarrow Reject H_0",
+      "tex": "p \\le \\alpha \\Rightarrow \\text{Reject } H_0",
+      "matched": true
+    },
+    {
+      "section": "s37",
+      "raw": "p>alphaRightarrow Fail to Reject H_0",
+      "tex": "p > \\alpha \\Rightarrow \\text{Fail to Reject } H_0",
+      "matched": true
+    },
+    {
+      "section": "s37",
+      "raw": "P(Acap B)=P(A)P(B)",
+      "tex": "P(A \\cap B) = P(A)P(B)",
+      "matched": true
+    },
+    {
+      "section": "s39",
+      "raw": "alpha",
+      "tex": "\\alpha",
+      "matched": true
+    },
+    {
+      "section": "s40",
+      "raw": "H_0",
+      "tex": "H_0",
+      "matched": true
+    },
+    {
+      "section": "s40",
+      "raw": "H_a",
+      "tex": "H_a",
+      "matched": true
+    },
+    {
+      "section": "s40",
+      "raw": "p>0.05",
+      "tex": "p > 0.05",
+      "matched": true
+    }
+  ],
+  "unmappedFormulas": []
+}

@@ -1,0 +1,34 @@
+{
+ "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+ "name": "agent-progress",
+ "type": "registry:component",
+ "title": "Agent Loading States Agent Progress",
+ "description": "A compact activity glyph, action verb, and live tabular timer for longer-running agent work.",
+ "author": "Saurabh <saurabh10102@gmail.com>",
+ "dependencies": [
+  "clsx",
+  "motion",
+  "tailwind-merge"
+ ],
+ "registryDependencies": [],
+ "files": [
+  {
+   "path": "components/agents/loading-states/agent-progress.tsx",
+   "type": "registry:component",
+   "target": "@components/agents/loading-states/agent-progress.tsx",
+   "content": "\"use client\";\n// beui.dev/components/agents/loading-states\n\nimport { motion, useReducedMotion } from \"motion/react\";\nimport { useEffect, useState } from \"react\";\nimport { EASE_IN_OUT } from \"@/lib/ease\";\nimport { cn } from \"@/lib/utils\";\n\nconst GRID_CELLS = [\n  { id: \"top-left\", delay: 0 },\n  { id: \"top-center\", delay: 0.14 },\n  { id: \"top-right\", delay: 0.28 },\n  { id: \"middle-left\", delay: 0.42 },\n  { id: \"middle-center\", delay: 0.56 },\n  { id: \"middle-right\", delay: 0.7 },\n  { id: \"bottom-left\", delay: 0.84 },\n  { id: \"bottom-center\", delay: 0.98 },\n  { id: \"bottom-right\", delay: 1.12 },\n];\n\nexport interface AgentProgressProps {\n  /** Verb describing the agent's current activity. */\n  label?: string;\n  /** Controlled elapsed time in seconds. */\n  elapsedSeconds?: number;\n  /** Starting time for the internal timer, in seconds. */\n  initialSeconds?: number;\n  /** Whether the internal timer should advance. Ignored when elapsedSeconds is provided. */\n  running?: boolean;\n  className?: string;\n}\n\nfunction formatElapsed(totalSeconds: number) {\n  const safeSeconds = Math.max(0, totalSeconds);\n  const minutes = Math.floor(safeSeconds / 60);\n  const seconds = (safeSeconds % 60).toFixed(1);\n  return minutes > 0 ? `${minutes}m ${seconds}s` : `${seconds}s`;\n}\n\nexport function AgentProgress({\n  label = \"Churning\",\n  elapsedSeconds,\n  initialSeconds = 0,\n  running = true,\n  className,\n}: AgentProgressProps) {\n  const reduce = useReducedMotion() ?? false;\n  const [internalSeconds, setInternalSeconds] = useState(initialSeconds);\n\n  useEffect(() => {\n    if (elapsedSeconds !== undefined || !running) return;\n\n    const startedAt = performance.now() - initialSeconds * 1000;\n    const timer = window.setInterval(() => {\n      setInternalSeconds((performance.now() - startedAt) / 1000);\n    }, 100);\n\n    return () => window.clearInterval(timer);\n  }, [elapsedSeconds, initialSeconds, running]);\n\n  const elapsed = elapsedSeconds ?? internalSeconds;\n\n  return (\n    <span\n      role=\"status\"\n      aria-label={`${label}, in progress`}\n      className={cn(\n        \"inline-flex items-center gap-3 font-mono text-sm text-muted-foreground\",\n        className,\n      )}\n    >\n      <span\n        aria-hidden=\"true\"\n        className=\"grid size-5 shrink-0 grid-cols-3 gap-[2px]\"\n      >\n        {GRID_CELLS.map(({ id, delay }) => (\n          <motion.span\n            key={id}\n            className=\"rounded-[1px] bg-current\"\n            animate={\n              reduce\n                ? { opacity: [0.35, 0.8, 0.35] }\n                : {\n                    opacity: [0.28, 1, 0.28],\n                    scale: [0.72, 1, 0.72],\n                  }\n            }\n            transition={{\n              duration: 1.55,\n              ease: EASE_IN_OUT,\n              repeat: Infinity,\n              delay,\n            }}\n          />\n        ))}\n      </span>\n      <span className=\"font-sans font-medium\">{label}</span>\n      <span\n        aria-hidden=\"true\"\n        className=\"tabular-nums text-muted-foreground/70\"\n      >\n        {formatElapsed(elapsed)}\n      </span>\n    </span>\n  );\n}\n"
+  },
+  {
+   "path": "lib/ease.ts",
+   "type": "registry:lib",
+   "target": "@lib/ease.ts",
+   "content": "// Shared motion tokens. Easing curves mirror the CSS custom properties in\n// globals.css; springs are the canonical physics used across components.\n// Strong custom variants — defaults like `ease-in`/`ease-out` feel weak.\n\nexport const EASE_OUT = [0.16, 1, 0.3, 1] as const;\nexport const EASE_IN_OUT = [0.77, 0, 0.175, 1] as const;\nexport const EASE_DRAWER = [0.32, 0.72, 0, 1] as const;\n\n/** CSS string form of EASE_OUT for inline style transitions. */\nexport const EASE_OUT_CSS = \"cubic-bezier(0.16, 1, 0.3, 1)\";\n\n/** Press feedback on buttons and other tappable surfaces. */\nexport const SPRING_PRESS = {\n  type: \"spring\",\n  stiffness: 500,\n  damping: 30,\n  mass: 0.6,\n} as const;\n\n/** Content swaps — label/icon slots trading places inside a control. */\nexport const SPRING_SWAP = {\n  type: \"spring\",\n  stiffness: 460,\n  damping: 30,\n  mass: 0.55,\n} as const;\n\n/** Overlay panel entrances — modals and sheets summoned by pointer. */\nexport const SPRING_PANEL = {\n  type: \"spring\",\n  stiffness: 420,\n  damping: 40,\n  mass: 0.5,\n} as const;\n\n/** Shared-layout glides — pills, indicators and panels morphing between positions. */\nexport const SPRING_LAYOUT = {\n  type: \"spring\",\n  stiffness: 360,\n  damping: 32,\n  mass: 0.6,\n} as const;\n\n/** Cursor-follow physics for decorative mouse tracking (magnetic, tilt, dock). */\nexport const SPRING_MOUSE = {\n  stiffness: 200,\n  damping: 15,\n  mass: 0.3,\n} as const;\n\n/** Dragged handles and fills (sliders) — critically damped `useSpring` config,\n * so the value follows the pointer butterily and never rebounds off an end. */\nexport const SPRING_GLIDE = {\n  stiffness: 700,\n  damping: 50,\n  mass: 0.5,\n} as const;\n"
+  },
+  {
+   "path": "lib/utils.ts",
+   "type": "registry:lib",
+   "target": "@lib/utils.ts",
+   "content": "import { clsx, type ClassValue } from \"clsx\"\nimport { twMerge } from \"tailwind-merge\"\n\nexport function cn(...inputs: ClassValue[]) {\n  return twMerge(clsx(inputs))\n}\n"
+  }
+ ]
+}

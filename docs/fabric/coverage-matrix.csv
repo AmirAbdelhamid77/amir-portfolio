@@ -1,0 +1,835 @@
+internal_id,source_id,pack,type,subject,domain,objective_id,scope,confidence,source_objective,video_seconds,difficulty,option_count,answer_count,case_study_id
+fb-v01,V01,delta,single,lakehouse,2,2.2,support,medium,,96,,4,1,
+fb-v02,V02,delta,multi,lakehouse,2,2.2,support,medium,,109,,4,2,
+fb-v03,V03,delta,single,lakehouse,2,2.2,support,medium,,493,,4,1,
+fb-v04,V04,delta,single,lakehouse,2,2.2,support,medium,,522,,4,1,
+fb-v05,V05,delta,single,lakehouse,,,review,low,,541,,4,1,
+fb-v06,V06,delta,multi,lakehouse,2,2.2,support,medium,,584,,4,2,
+fb-v07,V07,delta,single,lakehouse,2,2.2,support,medium,,595,,4,1,
+fb-v08,V08,delta,single,lakehouse,,,review,low,,630,,4,1,
+fb-v09,V09,delta,multi,lakehouse,,,review,low,,644,,4,2,
+fb-v10,V10,delta,single,optimization,,,review,low,,657,,4,1,
+fb-v11,V11,delta,single,lakehouse,2,2.2,support,medium,,663,,4,1,
+fb-v12,V12,delta,sequence,lakehouse,,,review,low,,1220,,4,4,
+fb-v13,V13,delta,single,optimization,,,review,low,,705,,4,1,
+fb-v14,V14,delta,multi,lakehouse,,,review,low,,683,,4,2,
+fb-v15,V15,delta,single,lakehouse,,,review,low,,684,,4,1,
+fb-v16,V16,delta,single,lakehouse,2,2.2,support,medium,,711,,4,1,
+fb-v17,V17,delta,single,lakehouse,2,2.2,support,medium,,793,,4,1,
+fb-v18,V18,delta,single,lakehouse,2,2.2,support,medium,,805,,4,1,
+fb-v19,V19,delta,multi,lakehouse,2,2.2,support,medium,,1165,,4,2,
+fb-v20,V20,delta,single,lakehouse,2,2.2,support,medium,,1120,,4,1,
+fb-v21,V21,delta,single,lakehouse,2,2.2,support,medium,,1374,,4,1,
+fb-v22,V22,delta,single,lakehouse,2,2.2,support,medium,,1300,,4,1,
+fb-v23,V23,delta,single,lakehouse,2,2.2,support,medium,,1347,,4,1,
+fb-v24,V24,delta,single,lakehouse,2,2.2,support,medium,,448,,4,1,
+fb-v25,V25,delta,single,lakehouse,2,2.2,support,medium,,451,,4,1,
+fb-v26,V26,delta,multi,lakehouse,2,2.2,support,medium,,475,,4,3,
+fb-v27,V27,delta,multi,lakehouse,2,2.2,support,medium,,1020,,4,2,
+fb-v28,V28,delta,multi,lakehouse,2,2.2,support,medium,,1510,,4,3,
+fb-v29,V29,delta,single,lakehouse,2,2.2,support,medium,,1512,,4,1,
+fb-v30,V30,delta,single,lakehouse,2,2.2,support,medium,,1618,,4,1,
+fb-v31,V31,delta,multi,lakehouse,2,2.2,support,medium,,877,,4,2,
+fb-v32,V32,delta,single,lakehouse,2,2.2,support,medium,,278,,4,1,
+fb-f01,F01,delta,multi,ingestion,,,review,low,,,,4,2,
+fb-f02,F02,delta,single,lakehouse,2,2.2,support,medium,,,,4,1,
+fb-f03,F03,delta,multi,ingestion,,,review,low,,,,4,2,
+fb-f04,F04,delta,single,lakehouse,,,review,low,,,,4,1,
+fb-f05,F05,delta,single,lakehouse,2,2.2,support,medium,,,,4,1,
+fb-f06,F06,delta,single,lakehouse,2,2.2,support,medium,,,,4,1,
+fb-f07,F07,delta,multi,eventhouse,2,2.3,support,medium,,,,4,2,
+fb-f08,F08,delta,single,eventhouse,2,2.3,support,medium,,,,4,1,
+fb-w01,W01,warehouse,single,warehouse,2,2.2,support,medium,,40,,4,1,
+fb-w02,W02,warehouse,multi,warehouse,2,2.2,support,medium,,103,,4,2,
+fb-w03,W03,warehouse,single,warehouse,2,2.2,support,medium,,154,,4,1,
+fb-w04,W04,warehouse,single,warehouse,2,2.2,support,medium,,179,,4,1,
+fb-w05,W05,warehouse,multi,warehouse,2,2.2,support,medium,,183,,4,2,
+fb-w06,W06,warehouse,multi,warehouse,2,2.2,support,medium,,674,,4,2,
+fb-w07,W07,warehouse,single,warehouse,2,2.2,support,medium,,692,,4,1,
+fb-w08,W08,warehouse,single,warehouse,2,2.2,support,medium,,123,,4,1,
+fb-w09,W09,warehouse,single,warehouse,2,2.2,support,medium,,495,,4,1,
+fb-w10,W10,warehouse,single,warehouse,2,2.2,support,medium,,840,,4,1,
+fb-w11,W11,warehouse,single,warehouse,2,2.2,support,medium,,953,,4,1,
+fb-w12,W12,warehouse,single,warehouse,2,2.2,support,medium,,973,,4,1,
+fb-w13,W13,warehouse,single,warehouse,2,2.2,support,medium,,934,,4,1,
+fb-w14,W14,warehouse,multi,warehouse,2,2.2,support,medium,,630,,4,2,
+fb-w15,W15,warehouse,single,warehouse,2,2.2,support,medium,,1050,,4,1,
+fb-w16,W16,warehouse,single,warehouse,2,2.2,support,medium,,1050,,4,1,
+fb-w17,W17,warehouse,single,warehouse,2,2.2,support,medium,,1140,,4,1,
+fb-w18,W18,warehouse,single,warehouse,2,2.2,support,medium,,1168,,4,1,
+fb-w19,W19,warehouse,single,warehouse,2,2.2,support,medium,,1231,,4,1,
+fb-w20,W20,warehouse,multi,warehouse,2,2.2,support,medium,,1273,,4,2,
+fb-w21,W21,warehouse,single,warehouse,2,2.2,support,medium,,1290,,4,1,
+fb-w22,W22,warehouse,single,warehouse,2,2.2,support,medium,,1290,,4,1,
+fb-w23,W23,warehouse,single,warehouse,2,2.2,support,medium,,1300,,4,1,
+fb-w24,W24,warehouse,single,warehouse,2,2.2,support,medium,,1300,,4,1,
+fb-w25,W25,warehouse,single,warehouse,2,2.2,support,medium,,1450,,4,1,
+fb-w26,W26,warehouse,single,warehouse,2,2.2,support,medium,,1453,,4,1,
+fb-w27,W27,warehouse,single,warehouse,2,2.2,support,medium,,1340,,4,1,
+fb-w28,W28,warehouse,single,warehouse,2,2.2,support,medium,,1611,,4,1,
+fb-w29,W29,warehouse,single,warehouse,2,2.2,support,medium,,1561,,4,1,
+fb-w30,W30,warehouse,multi,warehouse,2,2.2,support,medium,,380,,4,2,
+fb-w31,W31,warehouse,single,warehouse,2,2.2,support,medium,,1710,,4,1,
+fb-w32,W32,warehouse,sequence,warehouse,2,2.2,support,medium,,1720,,4,4,
+fb-p01,P01,pipelines,single,pipelines,2,2.1,support,medium,,125,,4,1,
+fb-p02,P02,pipelines,multi,pipelines,2,2.1,support,medium,,1013,,4,2,
+fb-p03,P03,pipelines,sequence,pipelines,2,2.1,support,medium,,973,,4,4,
+fb-p04,P04,pipelines,multi,pipelines,2,2.1,support,medium,,1148,,4,2,
+fb-p05,P05,pipelines,single,pipelines,2,2.1,support,medium,,1030,,4,1,
+fb-p06,P06,pipelines,single,pipelines,2,2.1,support,medium,,1134,,4,1,
+fb-p07,P07,pipelines,single,pipelines,2,2.1,support,medium,,1137,,4,1,
+fb-p08,P08,pipelines,single,pipelines,2,2.1,support,medium,,379,,4,1,
+fb-p09,P09,pipelines,single,pipelines,2,2.1,support,medium,,1615,,4,1,
+fb-p10,P10,pipelines,single,pipelines,2,2.1,support,medium,,1599,,4,1,
+fb-p11,P11,pipelines,single,pipelines,2,2.1,support,medium,,1525,,4,1,
+fb-p12,P12,pipelines,single,pipelines,2,2.1,support,medium,,147,,4,1,
+fb-p13,P13,pipelines,single,pipelines,2,2.1,support,medium,,1510,,4,1,
+fb-p14,P14,pipelines,single,pipelines,2,2.1,support,medium,,1610,,4,1,
+fb-p15,P15,pipelines,single,pipelines,2,2.1,support,medium,,923,,4,1,
+fb-p16,P16,pipelines,single,pipelines,2,2.1,support,medium,,1275,,4,1,
+fb-p17,P17,pipelines,multi,pipelines,2,2.1,support,medium,,1326,,4,2,
+fb-p18,P18,pipelines,single,pipelines,2,2.1,support,medium,,1413,,4,1,
+fb-p19,P19,pipelines,single,pipelines,2,2.1,support,medium,,1405,,4,1,
+fb-p20,P20,pipelines,single,pipelines,2,2.1,support,medium,,402,,4,1,
+fb-p21,P21,pipelines,single,pipelines,2,2.1,support,medium,,408,,4,1,
+fb-p22,P22,pipelines,single,pipelines,2,2.1,support,medium,,408,,4,1,
+fb-p23,P23,pipelines,single,pipelines,2,2.1,support,medium,,475,,4,1,
+fb-p24,P24,pipelines,single,pipelines,2,2.1,support,medium,,306,,4,1,
+fb-p25,P25,pipelines,single,pipelines,2,2.1,support,medium,,477,,4,1,
+fb-p26,P26,pipelines,single,pipelines,2,2.1,support,medium,,839,,4,1,
+fb-p27,P27,pipelines,single,pipelines,2,2.1,support,medium,,1275,,4,1,
+fb-p28,P28,pipelines,single,pipelines,,,review,low,,1207,,4,1,
+fb-p29,P29,pipelines,sequence,pipelines,2,2.1,support,medium,,369,,4,4,
+fb-p30,P30,pipelines,single,pipelines,2,2.1,support,medium,,852,,4,1,
+fb-p31,P31,pipelines,single,pipelines,2,2.1,support,medium,,125,,4,1,case-study-northstar-retail
+fb-p32,P32,pipelines,single,pipelines,2,2.1,support,medium,,1134,,4,1,case-study-northstar-retail
+fb-p33,P33,pipelines,multi,pipelines,2,2.1,support,medium,,1275,,4,2,case-study-northstar-retail
+fb-p34,P34,pipelines,single,pipelines,2,2.1,support,medium,,475,,4,1,case-study-northstar-retail
+fb-p35,P35,pipelines,single,pipelines,2,2.1,support,medium,,402,,4,1,case-study-contoso-finance
+fb-p36,P36,pipelines,sequence,pipelines,2,2.1,support,medium,,402,,4,4,case-study-contoso-finance
+fb-p37,P37,pipelines,single,pipelines,2,2.1,support,medium,,923,,4,1,case-study-contoso-finance
+fb-p38,P38,pipelines,single,pipelines,2,2.1,support,medium,,923,,4,1,case-study-contoso-finance
+fb-p39,P39,pipelines,multi,pipelines,2,2.1,support,medium,,852,,4,2,case-study-alpine-analytics
+fb-p40,P40,pipelines,single,pipelines,2,2.1,support,medium,,306,,4,1,case-study-alpine-analytics
+fb-s01,S01,scd,single,modeling,2,2.2,support,medium,,268,,4,1,
+fb-s02,S02,scd,single,modeling,2,2.2,support,medium,,348,,4,1,
+fb-s03,S03,scd,single,modeling,2,2.2,support,medium,,348,,4,1,
+fb-s04,S04,scd,multi,modeling,2,2.2,support,medium,,268,,4,2,
+fb-s05,S05,scd,multi,modeling,2,2.2,support,medium,,540,,4,2,
+fb-s06,S06,scd,single,modeling,2,2.2,support,medium,,152,,4,1,
+fb-s07,S07,scd,single,modeling,2,2.2,support,medium,,445,,4,1,
+fb-s08,S08,scd,single,modeling,2,2.2,support,medium,,498,,4,1,
+fb-s09,S09,scd,single,modeling,2,2.2,support,medium,,498,,4,1,
+fb-s10,S10,scd,single,modeling,2,2.2,support,medium,,540,,4,1,
+fb-s11,S11,scd,single,modeling,2,2.2,support,medium,,975,,4,1,
+fb-s12,S12,scd,single,modeling,2,2.2,support,medium,,540,,4,1,
+fb-s13,S13,scd,single,modeling,2,2.2,support,medium,,852,,4,1,
+fb-s14,S14,scd,single,modeling,2,2.2,support,medium,,540,,4,1,
+fb-s15,S15,scd,single,modeling,2,2.2,support,medium,,975,,4,1,
+fb-s16,S16,scd,single,modeling,2,2.2,support,medium,,540,,4,1,
+fb-s17,S17,scd,single,modeling,2,2.2,support,medium,,975,,4,1,
+fb-s18,S18,scd,sequence,modeling,2,2.2,support,medium,,975,,4,4,
+fb-s19,S19,scd,single,modeling,2,2.2,support,medium,,975,,4,1,
+fb-s20,S20,scd,single,modeling,2,2.2,support,medium,,975,,4,1,
+fb-s21,S21,scd,single,modeling,2,2.2,support,medium,,975,,4,1,
+fb-s22,S22,scd,single,modeling,2,2.2,support,medium,,975,,4,1,
+fb-s23,S23,scd,single,modeling,2,2.2,support,medium,,852,,4,1,
+fb-s24,S24,scd,single,modeling,2,2.2,support,medium,,701,,4,1,
+fb-s25,S25,scd,single,modeling,2,2.2,support,medium,,1041,,4,1,
+fb-s26,S26,scd,single,modeling,2,2.2,support,medium,,1041,,4,1,
+fb-s27,S27,scd,single,modeling,2,2.2,support,medium,,1262,,4,1,
+fb-s28,S28,scd,single,modeling,2,2.2,support,medium,,751,,4,1,
+fb-s29,S29,scd,single,modeling,2,2.2,support,medium,,268,,4,1,
+fb-s30,S30,scd,single,modeling,2,2.2,support,medium,,540,,4,1,
+fb-s31,S31,scd,single,modeling,2,2.2,support,medium,,975,,4,1,case-study-northwind-regional-sales
+fb-s32,S32,scd,single,modeling,2,2.2,support,medium,,498,,4,1,case-study-northwind-regional-sales
+fb-s33,S33,scd,multi,modeling,2,2.2,support,medium,,540,,4,2,case-study-northwind-regional-sales
+fb-s34,S34,scd,single,modeling,2,2.2,support,medium,,498,,4,1,case-study-northwind-regional-sales
+fb-s35,S35,scd,single,modeling,2,2.2,support,medium,,751,,4,1,case-study-fabrikam-product-pricing
+fb-s36,S36,scd,single,modeling,2,2.2,support,medium,,1041,,4,1,case-study-fabrikam-product-pricing
+fb-s37,S37,scd,single,modeling,2,2.2,support,medium,,540,,4,1,case-study-fabrikam-product-pricing
+fb-s38,S38,scd,multi,modeling,2,2.2,support,medium,,975,,4,2,case-study-alpine-dimension-loader
+fb-s39,S39,scd,single,modeling,2,2.2,support,medium,,975,,4,1,case-study-alpine-dimension-loader
+fb-s40,S40,scd,multi,modeling,2,2.2,support,medium,,975,,4,2,case-study-alpine-dimension-loader
+fb-e01,E01,eventhouse,single,eventhouse,2,2.3,support,medium,,64,,4,1,
+fb-e02,E02,eventhouse,single,eventhouse,,,review,low,,246,,4,1,
+fb-e03,E03,eventhouse,single,eventhouse,2,2.3,support,medium,,269,,4,1,
+fb-e04,E04,eventhouse,single,eventhouse,2,2.3,support,medium,,813,,4,1,
+fb-e05,E05,eventhouse,single,eventhouse,2,2.3,support,medium,,1520,,4,1,
+fb-e06,E06,eventhouse,single,eventhouse,2,2.3,support,medium,,404,,4,1,
+fb-e07,E07,eventhouse,multi,eventhouse,2,2.3,support,medium,,404,,4,2,
+fb-e08,E08,eventhouse,single,eventhouse,2,2.3,support,medium,,434,,4,1,
+fb-e09,E09,eventhouse,single,eventhouse,2,2.3,support,medium,,1001,,4,1,
+fb-e10,E10,eventhouse,single,eventhouse,2,2.3,support,medium,,434,,4,1,
+fb-e11,E11,eventhouse,single,eventhouse,2,2.3,support,medium,,1334,,4,1,
+fb-e12,E12,eventhouse,single,eventhouse,2,2.3,support,medium,,497,,4,1,
+fb-e13,E13,eventhouse,single,eventhouse,2,2.3,support,medium,,497,,4,1,
+fb-e14,E14,eventhouse,single,eventhouse,2,2.3,support,medium,,497,,4,1,
+fb-e15,E15,eventhouse,single,eventhouse,2,2.3,support,medium,,549,,4,1,
+fb-e16,E16,eventhouse,single,eventhouse,2,2.3,support,medium,,1380,,4,1,
+fb-e17,E17,eventhouse,sequence,eventhouse,2,2.3,support,medium,,575,,4,4,
+fb-e18,E18,eventhouse,single,eventhouse,2,2.3,support,medium,,1295,,4,1,
+fb-e19,E19,eventhouse,single,eventhouse,2,2.3,support,medium,,1490,,4,1,
+fb-e20,E20,eventhouse,single,eventhouse,2,2.3,support,medium,,1490,,4,1,
+fb-e21,E21,eventhouse,single,eventhouse,2,2.3,support,medium,,90,,4,1,
+fb-e22,E22,eventhouse,single,eventhouse,2,2.3,support,medium,,1540,,4,1,
+fb-e23,E23,eventhouse,single,eventhouse,2,2.3,support,medium,,1334,,4,1,
+fb-e24,E24,eventhouse,single,eventhouse,2,2.3,support,medium,,1334,,4,1,
+fb-e25,E25,eventhouse,multi,eventhouse,2,2.3,support,medium,,1520,,4,2,
+fb-e26,E26,eventhouse,single,eventhouse,2,2.3,support,medium,,510,,4,1,
+fb-e27,E27,eventhouse,single,eventhouse,2,2.3,support,medium,,410,,4,1,
+fb-e28,E28,eventhouse,single,eventhouse,2,2.3,support,medium,,660,,4,1,
+fb-e29,E29,eventhouse,single,eventhouse,2,2.3,support,medium,,660,,4,1,
+fb-e30,E30,eventhouse,multi,eventhouse,2,2.3,support,medium,,734,,4,2,
+fb-e31,E31,eventhouse,single,eventhouse,2,2.3,support,medium,,1380,,4,1,case-study-contoso-web-operations
+fb-e32,E32,eventhouse,single,eventhouse,2,2.3,support,medium,,1478,,4,1,case-study-contoso-web-operations
+fb-e33,E33,eventhouse,sequence,eventhouse,2,2.3,support,medium,,575,,4,4,case-study-contoso-web-operations
+fb-e34,E34,eventhouse,single,eventhouse,2,2.3,support,medium,,1478,,4,1,case-study-contoso-web-operations
+fb-e35,E35,eventhouse,multi,eventhouse,2,2.3,support,medium,,660,,4,2,case-study-fabrikam-fleet-analytics
+fb-e36,E36,eventhouse,single,eventhouse,2,2.3,support,medium,,720,,4,1,case-study-fabrikam-fleet-analytics
+fb-e37,E37,eventhouse,single,eventhouse,2,2.3,support,medium,,734,,4,1,case-study-fabrikam-fleet-analytics
+fb-e38,E38,eventhouse,single,eventhouse,2,2.3,support,medium,,510,,4,1,case-study-alpine-equipment-monitoring
+fb-e39,E39,eventhouse,single,eventhouse,2,2.3,support,medium,,410,,4,1,case-study-alpine-equipment-monitoring
+fb-e40,E40,eventhouse,single,eventhouse,2,2.3,support,medium,,1540,,4,1,case-study-alpine-equipment-monitoring
+fb-v6-sec-001,V6-SEC-001,video06,single,security,2,1.1,core,medium,Prepare data,425,5,4,1,
+fb-v6-sec-002,V6-SEC-002,video06,single,security,2,1.1,core,medium,Prepare data,1065,4,4,1,explicit-prerequisite-from-v6-sec-001
+fb-v6-sec-003,V6-SEC-003,video06,single,security,2,1.1,core,medium,Prepare data,318,5,4,1,
+fb-v6-sec-004,V6-SEC-004,video06,single,security,2,1.1,core,medium,Prepare data,295,5,4,1,
+fb-v6-sec-005,V6-SEC-005,video06,single,security,2,1.1,core,medium,Prepare data,306,5,4,1,
+fb-v6-sec-006,V6-SEC-006,video06,single,security,2,1.1,core,medium,Prepare data,255,4,4,1,
+fb-v6-sec-007,V6-SEC-007,video06,multi,security,2,1.1,core,medium,Prepare data,940,5,5,2,
+fb-v6-sec-008,V6-SEC-008,video06,single,security,2,1.1,core,medium,Prepare data,238,4,4,1,
+fb-v6-sec-009,V6-SEC-009,video06,single,security,2,1.1,core,medium,Prepare data,520,5,4,1,
+fb-v6-sec-010,V6-SEC-010,video06,single,security,2,1.1,core,medium,Prepare data,1150,5,4,1,
+fb-v6-sec-011,V6-SEC-011,video06,single,security,2,1.1,core,medium,Prepare data,530,5,4,1,
+fb-v6-sec-012,V6-SEC-012,video06,single,security,2,1.1,core,medium,Prepare data,527,5,4,1,
+fb-v6-sec-013,V6-SEC-013,video06,single,security,2,1.1,core,medium,Prepare data,559,5,4,1,
+fb-v6-sec-014,V6-SEC-014,video06,single,security,2,1.1,core,medium,Prepare data,546,5,4,1,
+fb-v6-sec-015,V6-SEC-015,video06,multi,security,2,1.1,core,medium,Prepare data,574,5,5,3,
+fb-v6-sec-016,V6-SEC-016,video06,single,security,2,1.1,core,medium,Prepare data,565,5,4,1,
+fb-v6-sec-017,V6-SEC-017,video06,single,security,2,1.1,core,medium,Prepare data,570,5,4,1,
+fb-v6-sec-018,V6-SEC-018,video06,single,security,2,1.1,core,medium,Prepare data,550,4,4,1,
+fb-v6-sec-019,V6-SEC-019,video06,single,security,2,1.1,core,medium,Prepare data,690,5,4,1,
+fb-v6-sec-020,V6-SEC-020,video06,single,security,2,1.1,core,medium,Prepare data,722,5,4,1,
+fb-v6-sec-021,V6-SEC-021,video06,single,security,2,1.1,core,medium,Prepare data,701,5,4,1,
+fb-v6-sec-022,V6-SEC-022,video06,single,security,2,1.1,core,medium,Prepare data,740,5,4,1,
+fb-v6-sec-023,V6-SEC-023,video06,single,security,2,1.1,core,medium,Prepare data,747,5,4,1,
+fb-v6-sec-024,V6-SEC-024,video06,single,security,2,1.1,core,medium,Prepare data,757,5,4,1,
+fb-v6-sec-025,V6-SEC-025,video06,single,security,2,1.1,core,medium,Prepare data,716,4,4,1,
+fb-v6-sec-026,V6-SEC-026,video06,single,security,2,1.1,core,medium,Prepare data,725,5,4,1,
+fb-v6-sec-027,V6-SEC-027,video06,multi,security,2,1.1,core,medium,Prepare data,725,5,5,3,
+fb-v6-sec-028,V6-SEC-028,video06,single,security,2,1.1,core,medium,Prepare data,542,5,4,1,
+fb-v6-sec-029,V6-SEC-029,video06,single,security,2,1.1,core,medium,Prepare data,703,5,4,1,
+fb-v6-sec-030,V6-SEC-030,video06,single,security,2,1.1,core,medium,Prepare data,732,5,4,1,
+fb-v6-sec-031,V6-SEC-031,video06,single,security,2,1.1,core,medium,Prepare data,726,5,4,1,
+fb-v6-sec-032,V6-SEC-032,video06,single,security,2,1.1,core,medium,Prepare data,733,5,4,1,
+fb-v6-sec-033,V6-SEC-033,video06,single,security,2,1.1,core,medium,Prepare data,901,5,4,1,
+fb-v6-sec-034,V6-SEC-034,video06,multi,security,2,1.1,core,medium,Prepare data,735,5,5,3,
+fb-v6-sec-035,V6-SEC-035,video06,single,security,3,1.1,core,medium,Implement and manage semantic models,716,5,4,1,
+fb-v6-sec-036,V6-SEC-036,video06,single,security,3,1.1,core,medium,Implement and manage semantic models,721,5,4,1,
+fb-v6-sec-037,V6-SEC-037,video06,single,security,3,1.1,core,medium,Implement and manage semantic models,712,5,4,1,
+fb-v6-sec-038,V6-SEC-038,video06,single,security,2,1.1,core,medium,Prepare data,710,5,4,1,
+fb-v6-sec-039,V6-SEC-039,video06,single,security,2,1.1,core,medium,Prepare data,719,5,4,1,
+fb-v6-sec-040,V6-SEC-040,video06,single,security,2,1.1,core,medium,Prepare data,235,5,4,1,
+fb-v6-sec-041,V6-SEC-041,video06,single,security,2,1.1,core,medium,Prepare data,340,5,4,1,
+fb-v6-sec-042,V6-SEC-042,video06,single,security,2,1.1,core,medium,Prepare data,728,5,4,1,
+fb-v6-sec-043,V6-SEC-043,video06,multi,security,2,1.1,core,medium,Prepare data,737,5,5,2,
+fb-v6-sec-044,V6-SEC-044,video06,multi,security,2,1.1,core,medium,Prepare data,736,5,5,2,
+fb-v6-sec-045,V6-SEC-045,video06,single,security,2,1.1,core,medium,Prepare data,689,5,4,1,
+fb-v6-sec-046,V6-SEC-046,video06,single,security,3,1.1,core,medium,Implement and manage semantic models,731,5,4,1,
+fb-v6-sec-047,V6-SEC-047,video06,multi,security,2,1.1,core,medium,Prepare data,830,5,5,3,
+fb-v6-sec-048,V6-SEC-048,video06,single,security,3,1.1,core,medium,Implement and manage semantic models,720,5,4,1,
+fb-v6-sec-049,V6-SEC-049,video06,single,security,2,1.1,core,medium,Prepare data,852,5,4,1,
+fb-v6-sec-050,V6-SEC-050,video06,multi,security,2,1.1,core,medium,Prepare data,596,5,5,2,
+fb-v7-ddm-001,V7-DDM-001,video07,single,security,1,1.1,core,high,Maintain a data analytics solution — Implement security and governance,1077,5,4,1,
+fb-v7-ddm-002,V7-DDM-002,video07,multi,security,1,1.1,core,high,Maintain a data analytics solution — Implement security and governance,691,5,5,3,
+fb-v7-ddm-003,V7-DDM-003,video07,single,security,1,1.1,core,high,Maintain a data analytics solution — Implement security and governance,421,5,4,1,
+fb-v7-ddm-004,V7-DDM-004,video07,single,security,1,1.1,core,high,Maintain a data analytics solution — Implement security and governance,1077,5,4,1,
+fb-v7-ddm-005,V7-DDM-005,video07,single,security,1,1.1,core,high,Maintain a data analytics solution — Implement security and governance,720,5,4,1,
+fb-v7-ddm-006,V7-DDM-006,video07,multi,security,1,1.1,core,high,Maintain a data analytics solution — Implement security and governance,180,5,5,2,
+fb-v7-ddm-007,V7-DDM-007,video07,single,security,1,1.1,core,high,Maintain a data analytics solution — Implement security and governance,630,5,4,1,
+fb-v7-ddm-008,V7-DDM-008,video07,single,security,1,1.1,core,high,Maintain a data analytics solution — Implement security and governance,1033,5,4,1,
+fb-v7-ddm-009,V7-DDM-009,video07,single,security,1,1.1,core,high,Maintain a data analytics solution — Implement security and governance,641,5,4,1,
+fb-v7-ddm-010,V7-DDM-010,video07,single,security,1,1.1,core,high,Maintain a data analytics solution — Implement security and governance,586,5,4,1,
+fb-v7-ddm-011,V7-DDM-011,video07,single,security,1,1.1,core,high,Maintain a data analytics solution — Implement security and governance,1058,5,4,1,
+fb-v7-ddm-012,V7-DDM-012,video07,multi,security,1,1.1,core,high,Maintain a data analytics solution — Implement security and governance,646,5,5,3,
+fb-v7-ddm-013,V7-DDM-013,video07,single,security,1,1.1,core,high,Maintain a data analytics solution — Implement security and governance,646,5,4,1,
+fb-v7-ddm-014,V7-DDM-014,video07,single,security,1,1.1,core,high,Maintain a data analytics solution — Implement security and governance,775,5,4,1,
+fb-v7-ddm-015,V7-DDM-015,video07,multi,security,1,1.1,core,high,Maintain a data analytics solution — Implement security and governance,708,5,5,2,
+fb-v7-ddm-016,V7-DDM-016,video07,single,security,1,1.1,core,high,Maintain a data analytics solution — Implement security and governance,707,5,4,1,
+fb-v7-ddm-017,V7-DDM-017,video07,multi,security,1,1.1,core,high,Maintain a data analytics solution — Implement security and governance,775,5,5,3,
+fb-v7-ddm-018,V7-DDM-018,video07,single,security,1,1.1,core,high,Maintain a data analytics solution — Implement security and governance,579,5,4,1,
+fb-v7-ddm-019,V7-DDM-019,video07,single,security,3,3.2,core,high,Implement and manage semantic models — Configure Direct Lake and security,1077,5,4,1,
+fb-v7-ddm-020,V7-DDM-020,video07,single,security,3,3.2,core,high,Implement and manage semantic models — Configure Direct Lake and security,1077,5,4,1,
+fb-v7-ddm-021,V7-DDM-021,video07,multi,security,3,3.2,core,high,Implement and manage semantic models — Configure Direct Lake and security,1077,5,5,3,
+fb-v7-ddm-022,V7-DDM-022,video07,single,semantic-models,3,3.2,core,high,Implement and manage semantic models — Configure Direct Lake and security,1077,5,4,1,
+fb-v7-ddm-023,V7-DDM-023,video07,single,security,3,3.2,core,high,Implement and manage semantic models — Configure Direct Lake and security,751,5,4,1,
+fb-v7-ddm-024,V7-DDM-024,video07,multi,security,3,3.2,core,high,Implement and manage semantic models — Configure Direct Lake and security,668,5,4,2,
+fb-v7-ddm-025,V7-DDM-025,video07,single,security,1,1.1,core,high,Maintain a data analytics solution — Implement security and governance,1280,5,4,1,
+fb-v7-ddm-026,V7-DDM-026,video07,single,security,1,1.1,core,high,Maintain a data analytics solution — Implement security and governance,368,5,4,1,
+fb-v7-ddm-027,V7-DDM-027,video07,single,security,1,1.1,core,high,Maintain a data analytics solution — Implement security and governance,579,5,4,1,
+fb-v7-ddm-028,V7-DDM-028,video07,single,security,1,1.1,core,high,Maintain a data analytics solution — Implement security and governance,515,5,4,1,
+fb-v7-ddm-029,V7-DDM-029,video07,single,security,1,1.1,core,high,Maintain a data analytics solution — Implement security and governance,1023,5,4,1,
+fb-v7-ddm-030,V7-DDM-030,video07,multi,security,1,1.1,core,high,Maintain a data analytics solution — Implement security and governance,216,5,5,3,
+fb-v7-ddm-031,V7-DDM-031,video07,single,security,1,1.1,core,high,Maintain a data analytics solution — Implement security and governance,1077,5,4,1,
+fb-v7-ddm-032,V7-DDM-032,video07,multi,security,1,1.1,core,high,Maintain a data analytics solution — Implement security and governance,742,5,5,2,
+fb-v7-ddm-033,V7-DDM-033,video07,single,security,1,1.1,core,high,Maintain a data analytics solution — Implement security and governance,946,5,4,1,
+fb-v7-ddm-034,V7-DDM-034,video07,multi,security,1,1.1,core,high,Maintain a data analytics solution — Implement security and governance,646,5,5,3,
+fb-v7-ddm-035,V7-DDM-035,video07,single,security,1,1.1,core,high,Maintain a data analytics solution — Implement security and governance,1077,5,4,1,
+fb-v7-ddm-036,V7-DDM-036,video07,multi,security,1,1.1,core,high,Maintain a data analytics solution — Implement security and governance,718,5,5,3,
+fb-v8-gov-001,V8-GOV-001,video08,single,governance,1,1.1,core,high,Maintain a data analytics solution — Implement security and governance,107,5,4,1,
+fb-v8-gov-002,V8-GOV-002,video08,single,governance,1,1.1,core,high,Maintain a data analytics solution — Implement security and governance,160,5,4,1,
+fb-v8-gov-003,V8-GOV-003,video08,multi,governance,1,1.1,core,high,Maintain a data analytics solution — Implement security and governance,188,5,4,2,
+fb-v8-gov-004,V8-GOV-004,video08,single,governance,1,1.1,core,high,Maintain a data analytics solution — Implement security and governance,562,5,4,1,
+fb-v8-gov-005,V8-GOV-005,video08,multi,governance,1,1.1,core,high,Maintain a data analytics solution — Implement security and governance,562,5,4,3,
+fb-v8-gov-006,V8-GOV-006,video08,single,governance,1,1.1,core,high,Maintain a data analytics solution — Implement security and governance,653,5,4,1,
+fb-v8-gov-007,V8-GOV-007,video08,single,governance,1,1.1,core,high,Maintain a data analytics solution — Implement security and governance,612,5,4,1,
+fb-v8-gov-008,V8-GOV-008,video08,multi,governance,1,1.1,core,high,Maintain a data analytics solution — Implement security and governance,612,5,4,2,
+fb-v8-gov-009,V8-GOV-009,video08,single,governance,1,1.1,core,high,Maintain a data analytics solution — Implement security and governance,612,5,4,1,
+fb-v8-gov-010,V8-GOV-010,video08,single,governance,1,1.2,core,high,Maintain a data analytics solution — Maintain the analytics development lifecycle (impact analysis),107,5,4,1,
+fb-v8-gov-011,V8-GOV-011,video08,single,governance,1,1.1,core,high,Maintain a data analytics solution — Implement security and governance,612,5,4,1,
+fb-v8-gov-012,V8-GOV-012,video08,multi,governance,1,1.1,core,high,Maintain a data analytics solution — Implement security and governance,612,5,4,2,
+fb-v8-gov-013,V8-GOV-013,video08,single,governance,1,1.1,core,high,Maintain a data analytics solution — Implement security and governance,734,5,4,1,
+fb-v8-gov-014,V8-GOV-014,video08,single,governance,1,1.1,core,high,Maintain a data analytics solution — Implement security and governance,262,5,4,1,
+fb-v8-gov-015,V8-GOV-015,video08,single,governance,1,1.1,core,high,Maintain a data analytics solution — Implement security and governance,289,5,4,1,
+fb-v8-gov-016,V8-GOV-016,video08,single,governance,1,1.1,core,high,Maintain a data analytics solution — Implement security and governance,734,5,4,1,
+fb-v8-gov-017,V8-GOV-017,video08,single,governance,1,1.1,core,high,Maintain a data analytics solution — Implement security and governance,286,5,4,1,
+fb-v8-gov-018,V8-GOV-018,video08,multi,governance,1,1.1,core,high,Maintain a data analytics solution — Implement security and governance,771,5,4,2,
+fb-v8-gov-019,V8-GOV-019,video08,single,governance,1,1.1,core,high,Maintain a data analytics solution — Implement security and governance,310,5,4,1,
+fb-v8-gov-020,V8-GOV-020,video08,multi,governance,1,1.1,core,high,Maintain a data analytics solution — Implement security and governance,348,5,4,3,
+fb-v8-gov-021,V8-GOV-021,video08,single,governance,1,1.1,core,high,Maintain a data analytics solution — Implement security and governance,310,5,4,1,
+fb-v8-gov-022,V8-GOV-022,video08,single,governance,1,1.1,core,high,Maintain a data analytics solution — Implement security and governance,310,5,4,1,
+fb-v8-gov-023,V8-GOV-023,video08,single,governance,1,1.1,core,high,Maintain a data analytics solution — Implement security and governance,310,5,4,1,
+fb-v8-gov-024,V8-GOV-024,video08,single,governance,1,1.1,core,high,Maintain a data analytics solution — Implement security and governance,310,5,4,1,
+fb-v8-gov-025,V8-GOV-025,video08,single,governance,1,1.1,core,high,Maintain a data analytics solution — Implement security and governance,310,5,4,1,
+fb-v8-gov-026,V8-GOV-026,video08,single,governance,1,1.1,core,high,Maintain a data analytics solution — Implement security and governance,310,5,4,1,
+fb-v8-gov-027,V8-GOV-027,video08,multi,governance,1,1.1,core,high,Maintain a data analytics solution — Implement security and governance,310,5,4,2,
+fb-v8-gov-028,V8-GOV-028,video08,single,governance,1,1.1,core,high,Maintain a data analytics solution — Implement security and governance,310,5,4,1,
+fb-v8-gov-029,V8-GOV-029,video08,single,governance,1,1.1,core,high,Maintain a data analytics solution — Implement security and governance,310,5,4,1,
+fb-v8-gov-030,V8-GOV-030,video08,multi,governance,1,1.1,core,high,Maintain a data analytics solution — Implement security and governance,310,5,4,3,
+fb-v8-gov-031,V8-GOV-031,video08,single,governance,1,1.2,core,high,Maintain a data analytics solution — Maintain the analytics development lifecycle (impact analysis),407,5,4,1,
+fb-v8-gov-032,V8-GOV-032,video08,single,governance,1,1.1,core,high,Maintain a data analytics solution — Implement security and governance,407,5,4,1,
+fb-v8-gov-033,V8-GOV-033,video08,single,governance,1,1.2,core,high,Maintain a data analytics solution — Maintain the analytics development lifecycle (impact analysis),853,5,4,1,
+fb-v8-gov-034,V8-GOV-034,video08,multi,governance,1,1.2,core,high,Maintain a data analytics solution — Maintain the analytics development lifecycle (impact analysis),407,5,4,2,
+fb-v8-gov-035,V8-GOV-035,video08,single,governance,1,1.1,core,high,Maintain a data analytics solution — Implement security and governance,435,5,4,1,
+fb-v8-gov-036,V8-GOV-036,video08,single,governance,1,1.1,core,high,Maintain a data analytics solution — Implement security and governance,853,5,4,1,
+fb-v8-gov-037,V8-GOV-037,video08,single,governance,1,1.2,core,high,Maintain a data analytics solution — Maintain the analytics development lifecycle (impact analysis),853,5,4,1,
+fb-v8-gov-038,V8-GOV-038,video08,single,governance,1,1.2,core,high,Maintain a data analytics solution — Maintain the analytics development lifecycle (impact analysis),853,5,4,1,
+fb-v8-gov-039,V8-GOV-039,video08,single,governance,1,1.2,core,high,Maintain a data analytics solution — Maintain the analytics development lifecycle (impact analysis),853,5,4,1,
+fb-v8-gov-040,V8-GOV-040,video08,multi,governance,1,1.2,core,high,Maintain a data analytics solution — Maintain the analytics development lifecycle (impact analysis),853,5,4,2,
+fb-v8-gov-041,V8-GOV-041,video08,single,governance,1,1.2,core,high,Maintain a data analytics solution — Maintain the analytics development lifecycle (impact analysis),853,5,4,1,
+fb-v8-gov-042,V8-GOV-042,video08,multi,governance,1,1.2,core,high,Maintain a data analytics solution — Maintain the analytics development lifecycle (impact analysis),853,5,4,3,
+fb-v8-gov-043,V8-GOV-043,video08,single,governance,1,1.2,core,high,Maintain a data analytics solution — Maintain the analytics development lifecycle (impact analysis),27,5,4,1,
+fb-v8-gov-044,V8-GOV-044,video08,single,governance,1,1.1,core,high,Maintain a data analytics solution — Implement security and governance,943,5,4,1,
+fb-v8-gov-045,V8-GOV-045,video08,multi,governance,1,1.1,core,high,Maintain a data analytics solution — Implement security and governance,771,5,4,3,
+fb-v8-gov-046,V8-GOV-046,video08,single,governance,1,1.1,core,high,Maintain a data analytics solution — Implement security and governance,612,5,4,1,
+fb-v8-gov-047,V8-GOV-047,video08,multi,governance,1,1.2,core,high,Maintain a data analytics solution — Maintain the analytics development lifecycle (impact analysis),853,5,4,3,
+fb-v8-gov-048,V8-GOV-048,video08,single,governance,1,1.1,core,high,Maintain a data analytics solution — Implement security and governance,562,5,4,1,
+fb-v9-git-001,V9-GIT-001,video09,single,lifecycle,1,1.2,core,high,Maintain a data analytics solution — Maintain the analytics development lifecycle,160,5,4,1,
+fb-v9-git-002,V9-GIT-002,video09,single,lifecycle,1,1.2,core,high,Maintain a data analytics solution — Maintain the analytics development lifecycle,160,5,4,1,
+fb-v9-git-003,V9-GIT-003,video09,single,lifecycle,1,1.2,core,high,Maintain a data analytics solution — Maintain the analytics development lifecycle,216,5,4,1,
+fb-v9-git-004,V9-GIT-004,video09,multi,lifecycle,1,1.2,core,high,Maintain a data analytics solution — Maintain the analytics development lifecycle,160,5,4,2,
+fb-v9-git-005,V9-GIT-005,video09,single,lifecycle,1,1.2,core,high,Maintain a data analytics solution — Maintain the analytics development lifecycle,216,5,4,1,
+fb-v9-git-006,V9-GIT-006,video09,single,lifecycle,1,1.2,core,high,Maintain a data analytics solution — Maintain the analytics development lifecycle,216,5,4,1,
+fb-v9-git-007,V9-GIT-007,video09,single,lifecycle,1,1.2,core,high,Maintain a data analytics solution — Maintain the analytics development lifecycle,903,5,4,1,
+fb-v9-git-008,V9-GIT-008,video09,single,lifecycle,1,1.2,core,high,Maintain a data analytics solution — Maintain the analytics development lifecycle,974,5,4,1,
+fb-v9-git-009,V9-GIT-009,video09,single,lifecycle,1,1.2,core,high,Maintain a data analytics solution — Maintain the analytics development lifecycle,567,5,4,1,
+fb-v9-git-010,V9-GIT-010,video09,single,lifecycle,1,1.2,core,high,Maintain a data analytics solution — Maintain the analytics development lifecycle,903,5,4,1,
+fb-v9-git-011,V9-GIT-011,video09,multi,lifecycle,1,1.2,core,high,Maintain a data analytics solution — Maintain the analytics development lifecycle,974,5,4,2,
+fb-v9-git-012,V9-GIT-012,video09,multi,lifecycle,1,1.2,core,high,Maintain a data analytics solution — Maintain the analytics development lifecycle,567,5,4,2,
+fb-v9-git-013,V9-GIT-013,video09,single,lifecycle,1,1.2,core,high,Maintain a data analytics solution — Maintain the analytics development lifecycle,408,5,4,1,
+fb-v9-git-014,V9-GIT-014,video09,single,lifecycle,1,1.2,core,high,Maintain a data analytics solution — Maintain the analytics development lifecycle,444,5,4,1,
+fb-v9-git-015,V9-GIT-015,video09,single,lifecycle,1,1.2,core,high,Maintain a data analytics solution — Maintain the analytics development lifecycle,408,5,4,1,
+fb-v9-git-016,V9-GIT-016,video09,single,lifecycle,1,1.2,core,high,Maintain a data analytics solution — Maintain the analytics development lifecycle,444,5,4,1,
+fb-v9-git-017,V9-GIT-017,video09,single,lifecycle,1,1.2,core,high,Maintain a data analytics solution — Maintain the analytics development lifecycle,408,5,4,1,
+fb-v9-git-018,V9-GIT-018,video09,multi,lifecycle,1,1.2,core,high,Maintain a data analytics solution — Maintain the analytics development lifecycle,444,5,4,2,
+fb-v9-git-019,V9-GIT-019,video09,single,lifecycle,1,1.2,core,high,Maintain a data analytics solution — Maintain the analytics development lifecycle,567,5,4,1,
+fb-v9-git-020,V9-GIT-020,video09,single,lifecycle,1,1.2,core,high,Maintain a data analytics solution — Maintain the analytics development lifecycle,567,5,4,1,
+fb-v9-git-021,V9-GIT-021,video09,single,lifecycle,1,1.2,core,high,Maintain a data analytics solution — Maintain the analytics development lifecycle,643,5,4,1,
+fb-v9-git-022,V9-GIT-022,video09,single,lifecycle,1,1.2,core,high,Maintain a data analytics solution — Maintain the analytics development lifecycle,1605,5,4,1,
+fb-v9-git-023,V9-GIT-023,video09,single,lifecycle,1,1.2,core,high,Maintain a data analytics solution — Maintain the analytics development lifecycle,567,5,4,1,
+fb-v9-git-024,V9-GIT-024,video09,single,lifecycle,1,1.2,core,high,Maintain a data analytics solution — Maintain the analytics development lifecycle,567,5,4,1,
+fb-v9-git-025,V9-GIT-025,video09,single,lifecycle,1,1.2,core,high,Maintain a data analytics solution — Maintain the analytics development lifecycle,767,5,4,1,
+fb-v9-git-026,V9-GIT-026,video09,multi,lifecycle,1,1.2,core,high,Maintain a data analytics solution — Maintain the analytics development lifecycle,729,5,4,2,
+fb-v9-git-027,V9-GIT-027,video09,single,lifecycle,1,1.2,core,high,Maintain a data analytics solution — Maintain the analytics development lifecycle,708,5,4,1,
+fb-v9-git-028,V9-GIT-028,video09,single,lifecycle,1,1.2,core,high,Maintain a data analytics solution — Maintain the analytics development lifecycle,729,5,4,1,
+fb-v9-git-029,V9-GIT-029,video09,single,lifecycle,1,1.2,core,high,Maintain a data analytics solution — Maintain the analytics development lifecycle,310,5,4,1,
+fb-v9-git-030,V9-GIT-030,video09,multi,lifecycle,1,1.2,core,high,Maintain a data analytics solution — Maintain the analytics development lifecycle,729,5,4,2,
+fb-v9-git-031,V9-GIT-031,video09,single,lifecycle,1,1.2,core,high,Maintain a data analytics solution — Maintain the analytics development lifecycle,1605,5,4,1,
+fb-v9-git-032,V9-GIT-032,video09,single,lifecycle,1,1.2,core,high,Maintain a data analytics solution — Maintain the analytics development lifecycle,1605,5,4,1,
+fb-v9-git-033,V9-GIT-033,video09,single,lifecycle,1,1.2,core,high,Maintain a data analytics solution — Maintain the analytics development lifecycle,1605,5,4,1,
+fb-v9-git-034,V9-GIT-034,video09,single,lifecycle,1,1.2,core,high,Maintain a data analytics solution — Maintain the analytics development lifecycle,1381,5,4,1,
+fb-v9-git-035,V9-GIT-035,video09,single,lifecycle,1,1.2,core,high,Maintain a data analytics solution — Maintain the analytics development lifecycle,729,5,4,1,
+fb-v9-git-036,V9-GIT-036,video09,single,lifecycle,1,1.2,core,high,Maintain a data analytics solution — Maintain the analytics development lifecycle,1450,5,4,1,
+fb-v9-git-037,V9-GIT-037,video09,single,lifecycle,1,1.2,core,high,Maintain a data analytics solution — Maintain the analytics development lifecycle,1822,5,4,1,
+fb-v9-git-038,V9-GIT-038,video09,multi,lifecycle,1,1.2,core,high,Maintain a data analytics solution — Maintain the analytics development lifecycle,1822,5,4,2,
+fb-v9-git-039,V9-GIT-039,video09,single,lifecycle,1,1.2,core,high,Maintain a data analytics solution — Maintain the analytics development lifecycle,1822,5,4,1,
+fb-v9-git-040,V9-GIT-040,video09,single,lifecycle,1,1.2,core,high,Maintain a data analytics solution — Maintain the analytics development lifecycle,1822,5,4,1,
+fb-v9-git-041,V9-GIT-041,video09,single,lifecycle,1,1.2,core,high,Maintain a data analytics solution — Maintain the analytics development lifecycle,1822,5,4,1,
+fb-v9-git-042,V9-GIT-042,video09,single,lifecycle,1,1.2,core,high,Maintain a data analytics solution — Maintain the analytics development lifecycle,1822,5,4,1,
+fb-v9-git-043,V9-GIT-043,video09,single,lifecycle,1,1.2,core,high,Maintain a data analytics solution — Maintain the analytics development lifecycle,527,5,4,1,
+fb-v9-git-044,V9-GIT-044,video09,single,lifecycle,1,1.2,core,high,Maintain a data analytics solution — Maintain the analytics development lifecycle,729,5,4,1,
+fb-v9-git-045,V9-GIT-045,video09,multi,lifecycle,1,1.2,core,high,Maintain a data analytics solution — Maintain the analytics development lifecycle,216,5,4,2,
+fb-v9-git-046,V9-GIT-046,video09,single,lifecycle,1,1.2,core,high,Maintain a data analytics solution — Maintain the analytics development lifecycle,527,5,4,1,
+fb-v9-git-047,V9-GIT-047,video09,single,lifecycle,1,1.2,core,high,Maintain a data analytics solution — Maintain the analytics development lifecycle,729,5,4,1,
+fb-v9-git-048,V9-GIT-048,video09,single,lifecycle,1,1.2,core,high,Maintain a data analytics solution — Maintain the analytics development lifecycle,160,5,4,1,
+fb-v10-dep-001,V10-DEP-001,video10,single,lifecycle,1,1.2,core,high,Maintain a data analytics solution — Maintain the analytics development lifecycle — Create and configure deployment pipelines,608,5,4,1,
+fb-v10-dep-002,V10-DEP-002,video10,single,lifecycle,1,1.2,core,high,Maintain a data analytics solution — Maintain the analytics development lifecycle — Create and configure deployment pipelines,608,5,4,1,
+fb-v10-dep-003,V10-DEP-003,video10,single,lifecycle,1,1.2,core,high,Maintain a data analytics solution — Maintain the analytics development lifecycle — Create and configure deployment pipelines,217,5,4,1,
+fb-v10-dep-004,V10-DEP-004,video10,single,lifecycle,1,1.2,core,high,Maintain a data analytics solution — Maintain the analytics development lifecycle — Create and configure deployment pipelines,889,5,4,1,
+fb-v10-dep-005,V10-DEP-005,video10,single,lifecycle,1,1.2,core,high,Maintain a data analytics solution — Maintain the analytics development lifecycle — Create and configure deployment pipelines,889,5,4,1,
+fb-v10-dep-006,V10-DEP-006,video10,single,lifecycle,1,1.2,core,high,Maintain a data analytics solution — Maintain the analytics development lifecycle — Create and configure deployment pipelines,1337,5,4,1,
+fb-v10-dep-007,V10-DEP-007,video10,single,lifecycle,1,1.2,core,high,Maintain a data analytics solution — Maintain the analytics development lifecycle — Create and configure deployment pipelines,311,5,4,1,
+fb-v10-dep-008,V10-DEP-008,video10,single,lifecycle,1,1.2,core,high,Maintain a data analytics solution — Maintain the analytics development lifecycle — Create and configure deployment pipelines,311,5,4,1,
+fb-v10-dep-009,V10-DEP-009,video10,single,lifecycle,1,1.2,core,high,Maintain a data analytics solution — Maintain the analytics development lifecycle — Create and configure deployment pipelines,394,5,4,1,
+fb-v10-dep-010,V10-DEP-010,video10,single,lifecycle,1,1.2,core,high,Maintain a data analytics solution — Maintain the analytics development lifecycle — Create and configure deployment pipelines,340,5,4,1,
+fb-v10-dep-011,V10-DEP-011,video10,single,lifecycle,1,1.2,core,high,Maintain a data analytics solution — Maintain the analytics development lifecycle — Create and configure deployment pipelines,995,5,4,1,
+fb-v10-dep-012,V10-DEP-012,video10,single,lifecycle,1,1.2,core,high,Maintain a data analytics solution — Maintain the analytics development lifecycle — Create and configure deployment pipelines,995,5,4,1,
+fb-v10-dep-013,V10-DEP-013,video10,single,lifecycle,1,1.2,core,high,Maintain a data analytics solution — Maintain the analytics development lifecycle — Create and configure deployment pipelines,446,5,4,1,
+fb-v10-dep-014,V10-DEP-014,video10,single,lifecycle,1,1.2,core,high,Maintain a data analytics solution — Maintain the analytics development lifecycle — Create and configure deployment pipelines,446,5,4,1,
+fb-v10-dep-015,V10-DEP-015,video10,single,lifecycle,1,1.2,core,high,Maintain a data analytics solution — Maintain the analytics development lifecycle — Create and configure deployment pipelines,501,5,4,1,
+fb-v10-dep-016,V10-DEP-016,video10,single,lifecycle,1,1.2,core,high,Maintain a data analytics solution — Maintain the analytics development lifecycle — Create and configure deployment pipelines,1180,5,4,1,
+fb-v10-dep-017,V10-DEP-017,video10,single,lifecycle,1,1.2,core,high,Maintain a data analytics solution — Maintain the analytics development lifecycle — Create and configure deployment pipelines,510,5,4,1,
+fb-v10-dep-018,V10-DEP-018,video10,single,lifecycle,1,1.2,core,high,Maintain a data analytics solution — Maintain the analytics development lifecycle — Create and configure deployment pipelines,1203,5,4,1,
+fb-v10-dep-019,V10-DEP-019,video10,single,lifecycle,1,1.2,core,high,Maintain a data analytics solution — Maintain the analytics development lifecycle — Create and configure deployment pipelines,501,5,4,1,
+fb-v10-dep-020,V10-DEP-020,video10,single,lifecycle,1,1.2,core,high,Maintain a data analytics solution — Maintain the analytics development lifecycle — Create and configure deployment pipelines,501,5,4,1,
+fb-v10-dep-021,V10-DEP-021,video10,single,lifecycle,1,1.2,core,high,Maintain a data analytics solution — Maintain the analytics development lifecycle — Create and configure deployment pipelines,713,5,4,1,
+fb-v10-dep-022,V10-DEP-022,video10,single,lifecycle,1,1.2,core,high,Maintain a data analytics solution — Maintain the analytics development lifecycle — Create and configure deployment pipelines,713,5,4,1,
+fb-v10-dep-023,V10-DEP-023,video10,single,lifecycle,1,1.2,core,high,Maintain a data analytics solution — Maintain the analytics development lifecycle — Create and configure deployment pipelines,473,5,4,1,
+fb-v10-dep-024,V10-DEP-024,video10,single,lifecycle,1,1.2,core,high,Maintain a data analytics solution — Maintain the analytics development lifecycle — Create and configure deployment pipelines,473,5,4,1,
+fb-v10-dep-025,V10-DEP-025,video10,single,lifecycle,1,1.2,core,high,Maintain a data analytics solution — Maintain the analytics development lifecycle — Create and configure deployment pipelines,635,5,4,1,
+fb-v10-dep-026,V10-DEP-026,video10,multi,lifecycle,1,1.2,core,high,Maintain a data analytics solution — Maintain the analytics development lifecycle — Create and configure deployment pipelines,1203,5,4,2,
+fb-v10-dep-027,V10-DEP-027,video10,single,lifecycle,1,1.2,core,high,Maintain a data analytics solution — Maintain the analytics development lifecycle — Create and configure deployment pipelines,648,5,4,1,
+fb-v10-dep-028,V10-DEP-028,video10,single,lifecycle,1,1.2,core,high,Maintain a data analytics solution — Maintain the analytics development lifecycle — Create and configure deployment pipelines,648,5,4,1,
+fb-v10-dep-029,V10-DEP-029,video10,single,lifecycle,1,1.2,core,high,Maintain a data analytics solution — Maintain the analytics development lifecycle — Create and configure deployment pipelines,648,5,4,1,
+fb-v10-dep-030,V10-DEP-030,video10,single,lifecycle,1,1.2,core,high,Maintain a data analytics solution — Maintain the analytics development lifecycle — Create and configure deployment pipelines,664,5,4,1,
+fb-v10-dep-031,V10-DEP-031,video10,single,lifecycle,1,1.2,core,high,Maintain a data analytics solution — Maintain the analytics development lifecycle — Create and configure deployment pipelines,648,5,4,1,
+fb-v10-dep-032,V10-DEP-032,video10,single,lifecycle,1,1.2,core,high,Maintain a data analytics solution — Maintain the analytics development lifecycle — Create and configure deployment pipelines,1115,5,4,1,
+fb-v10-dep-033,V10-DEP-033,video10,single,lifecycle,1,1.2,core,high,Maintain a data analytics solution — Maintain the analytics development lifecycle — Create and configure deployment pipelines,968,5,4,1,
+fb-v10-dep-034,V10-DEP-034,video10,single,lifecycle,1,1.2,core,high,Maintain a data analytics solution — Maintain the analytics development lifecycle — Create and configure deployment pipelines,1337,5,4,1,
+fb-v10-dep-035,V10-DEP-035,video10,single,lifecycle,1,1.2,core,high,Maintain a data analytics solution — Maintain the analytics development lifecycle — Create and configure deployment pipelines,1303,5,4,1,
+fb-v10-dep-036,V10-DEP-036,video10,single,lifecycle,1,1.2,core,high,Maintain a data analytics solution — Maintain the analytics development lifecycle — Create and configure deployment pipelines,995,5,4,1,
+fb-v10-dep-037,V10-DEP-037,video10,single,lifecycle,1,1.2,core,high,Maintain a data analytics solution — Maintain the analytics development lifecycle — Create and configure deployment pipelines,995,5,4,1,
+fb-v10-dep-038,V10-DEP-038,video10,single,lifecycle,1,1.2,core,high,Maintain a data analytics solution — Maintain the analytics development lifecycle — Create and configure deployment pipelines,648,5,4,1,
+fb-v10-dep-039,V10-DEP-039,video10,single,lifecycle,1,1.2,core,high,Maintain a data analytics solution — Maintain the analytics development lifecycle — Create and configure deployment pipelines,721,5,4,1,
+fb-v10-dep-040,V10-DEP-040,video10,multi,lifecycle,1,1.2,core,high,Maintain a data analytics solution — Maintain the analytics development lifecycle — Create and configure deployment pipelines,473,5,4,2,
+fb-v10-dep-041,V10-DEP-041,video10,multi,lifecycle,1,1.2,core,high,Maintain a data analytics solution — Maintain the analytics development lifecycle — Create and configure deployment pipelines,394,5,4,2,
+fb-v10-dep-042,V10-DEP-042,video10,multi,lifecycle,1,1.2,core,high,Maintain a data analytics solution — Maintain the analytics development lifecycle — Create and configure deployment pipelines,1115,5,4,2,
+fb-v10-dep-043,V10-DEP-043,video10,single,lifecycle,1,1.2,core,high,Maintain a data analytics solution — Maintain the analytics development lifecycle — Create and configure deployment pipelines,995,5,4,1,
+fb-v10-dep-044,V10-DEP-044,video10,single,lifecycle,1,1.2,core,high,Maintain a data analytics solution — Maintain the analytics development lifecycle — Create and configure deployment pipelines,501,5,4,1,
+fb-v10-dep-045,V10-DEP-045,video10,single,lifecycle,1,1.2,core,high,Maintain a data analytics solution — Maintain the analytics development lifecycle — Create and configure deployment pipelines,648,5,4,1,
+fb-v10-dep-046,V10-DEP-046,video10,multi,lifecycle,1,1.2,core,high,Maintain a data analytics solution — Maintain the analytics development lifecycle — Create and configure deployment pipelines,721,5,4,2,
+fb-v10-dep-047,V10-DEP-047,video10,multi,lifecycle,1,1.2,core,high,Maintain a data analytics solution — Maintain the analytics development lifecycle — Create and configure deployment pipelines,340,5,4,2,
+fb-v10-dep-048,V10-DEP-048,video10,multi,lifecycle,1,1.2,core,high,Maintain a data analytics solution — Maintain the analytics development lifecycle — Create and configure deployment pipelines,713,5,4,2,
+fb-v11-choose-001,V11-CHOOSE-001,video11,single,ingestion,2,2.1,core,medium,Prepare data — Get data / Transform data — Select ingestion and transformation approach,1003,5,4,1,
+fb-v11-choose-002,V11-CHOOSE-002,video11,single,ingestion,2,2.1,core,medium,Prepare data — Get data / Transform data — Select ingestion and transformation approach,1161,5,4,1,
+fb-v11-choose-003,V11-CHOOSE-003,video11,single,ingestion,2,2.1,core,medium,Prepare data — Get data / Transform data — Select ingestion and transformation approach,77,5,4,1,
+fb-v11-choose-004,V11-CHOOSE-004,video11,single,ingestion,2,2.1,core,medium,Prepare data — Get data / Transform data — Select ingestion and transformation approach,232,5,4,1,
+fb-v11-choose-005,V11-CHOOSE-005,video11,single,ingestion,2,2.1,core,medium,Prepare data — Get data / Transform data — Select ingestion and transformation approach,77,5,4,1,
+fb-v11-choose-006,V11-CHOOSE-006,video11,single,ingestion,2,2.1,core,medium,Prepare data — Get data / Transform data — Select ingestion and transformation approach,160,5,4,1,
+fb-v11-choose-007,V11-CHOOSE-007,video11,single,ingestion,2,2.1,core,medium,Prepare data — Get data / Transform data — Select ingestion and transformation approach,350,5,4,1,
+fb-v11-choose-008,V11-CHOOSE-008,video11,single,ingestion,2,2.1,core,medium,Prepare data — Get data / Transform data — Select ingestion and transformation approach,401,5,4,1,
+fb-v11-choose-009,V11-CHOOSE-009,video11,single,ingestion,2,2.1,core,medium,Prepare data — Get data / Transform data — Select ingestion and transformation approach,282,5,4,1,
+fb-v11-choose-010,V11-CHOOSE-010,video11,single,ingestion,2,2.1,core,medium,Prepare data — Get data / Transform data — Select ingestion and transformation approach,350,5,4,1,
+fb-v11-choose-011,V11-CHOOSE-011,video11,single,ingestion,2,2.1,core,medium,Prepare data — Get data / Transform data — Select ingestion and transformation approach,442,5,4,1,
+fb-v11-choose-012,V11-CHOOSE-012,video11,single,ingestion,2,2.1,core,medium,Prepare data — Get data / Transform data — Select ingestion and transformation approach,428,5,4,1,
+fb-v11-choose-013,V11-CHOOSE-013,video11,single,ingestion,2,2.1,core,high,Prepare data — Get data — Choose between different data stores,576,5,4,1,
+fb-v11-choose-014,V11-CHOOSE-014,video11,single,ingestion,2,2.1,core,high,Prepare data — Get data — Choose between different data stores,576,5,4,1,
+fb-v11-choose-015,V11-CHOOSE-015,video11,single,ingestion,2,2.1,core,high,Prepare data — Get data — Choose between different data stores,821,5,4,1,
+fb-v11-choose-016,V11-CHOOSE-016,video11,single,ingestion,2,2.1,core,high,Prepare data — Get data — Choose between different data stores,973,5,4,1,
+fb-v11-choose-017,V11-CHOOSE-017,video11,single,ingestion,2,2.1,core,high,Prepare data — Get data — Choose between different data stores,620,5,4,1,
+fb-v11-choose-018,V11-CHOOSE-018,video11,single,ingestion,2,2.1,core,high,Prepare data — Get data — Choose between different data stores,956,5,4,1,
+fb-v11-choose-019,V11-CHOOSE-019,video11,single,ingestion,2,2.1,core,high,Prepare data — Get data — Choose between different data stores,917,5,4,1,
+fb-v11-choose-020,V11-CHOOSE-020,video11,single,ingestion,2,2.1,core,high,Prepare data — Get data — Choose between different data stores,662,5,4,1,
+fb-v11-choose-021,V11-CHOOSE-021,video11,single,ingestion,2,2.3,core,high,Prepare data — Query and analyze data — Query with SQL/KQL,743,5,4,1,
+fb-v11-choose-022,V11-CHOOSE-022,video11,single,ingestion,2,2.1,core,high,Prepare data — Get data — Choose between different data stores,876,5,4,1,
+fb-v11-choose-023,V11-CHOOSE-023,video11,single,ingestion,2,2.1,core,high,Prepare data — Get data — Choose between different data stores,946,5,4,1,
+fb-v11-choose-024,V11-CHOOSE-024,video11,single,ingestion,2,2.1,core,high,Prepare data — Get data — Choose between different data stores,821,5,4,1,
+fb-v11-choose-025,V11-CHOOSE-025,video11,single,ingestion,2,2.1,core,high,Prepare data — Get data — Choose between different data stores,777,5,4,1,
+fb-v11-choose-026,V11-CHOOSE-026,video11,single,ingestion,2,2.1,core,medium,Prepare data — Get data / Transform data — Select ingestion and transformation approach,777,5,4,1,
+fb-v11-choose-027,V11-CHOOSE-027,video11,single,ingestion,2,2.1,core,high,Prepare data — Get data — Choose between different data stores,973,5,4,1,
+fb-v11-choose-028,V11-CHOOSE-028,video11,single,ingestion,2,2.1,core,high,Prepare data — Get data — Choose between different data stores,973,5,4,1,
+fb-v11-choose-029,V11-CHOOSE-029,video11,single,ingestion,2,2.1,core,high,Prepare data — Get data — Choose between different data stores,905,5,4,1,
+fb-v11-choose-030,V11-CHOOSE-030,video11,single,ingestion,2,2.1,core,high,Prepare data — Get data — Choose between different data stores,973,5,4,1,
+fb-v11-choose-031,V11-CHOOSE-031,video11,single,ingestion,2,2.1,core,medium,Prepare data — Get data / Transform data — Select ingestion and transformation approach,493,5,4,1,
+fb-v11-choose-032,V11-CHOOSE-032,video11,single,ingestion,2,2.1,core,medium,Prepare data — Get data / Transform data — Select ingestion and transformation approach,493,5,4,1,
+fb-v11-choose-033,V11-CHOOSE-033,video11,single,ingestion,2,2.1,core,medium,Prepare data — Get data / Transform data — Select ingestion and transformation approach,493,5,4,1,
+fb-v11-choose-034,V11-CHOOSE-034,video11,single,ingestion,2,2.1,core,medium,Prepare data — Get data / Transform data — Select ingestion and transformation approach,493,5,4,1,
+fb-v11-choose-035,V11-CHOOSE-035,video11,single,ingestion,2,2.1,core,medium,Prepare data — Get data / Transform data — Select ingestion and transformation approach,493,5,4,1,
+fb-v11-choose-036,V11-CHOOSE-036,video11,single,ingestion,2,2.1,core,high,Prepare data — Get data — Choose between different data stores,604,5,4,1,
+fb-v11-choose-037,V11-CHOOSE-037,video11,single,ingestion,2,2.1,core,high,Prepare data — Get data — Choose between different data stores,973,5,4,1,
+fb-v11-choose-038,V11-CHOOSE-038,video11,single,eventhouse,2,2.3,core,high,Prepare data — Query and analyze data — Query with SQL/KQL,917,5,4,1,
+fb-v11-choose-039,V11-CHOOSE-039,video11,single,ingestion,2,2.3,core,high,Prepare data — Query and analyze data — Query with SQL/KQL,753,5,4,1,
+fb-v11-choose-040,V11-CHOOSE-040,video11,single,ingestion,2,2.1,core,medium,Prepare data — Get data / Transform data — Select ingestion and transformation approach,252,5,4,1,
+fb-v11-choose-041,V11-CHOOSE-041,video11,single,ingestion,2,2.1,core,medium,Prepare data — Get data / Transform data — Select ingestion and transformation approach,232,5,4,1,
+fb-v11-choose-042,V11-CHOOSE-042,video11,multi,ingestion,2,2.1,core,medium,Prepare data — Get data / Transform data — Select ingestion and transformation approach,350,5,4,2,
+fb-v11-choose-043,V11-CHOOSE-043,video11,multi,ingestion,2,2.1,core,high,Prepare data — Get data — Choose between different data stores,821,5,4,2,
+fb-v11-choose-044,V11-CHOOSE-044,video11,multi,ingestion,2,2.1,core,medium,Prepare data — Get data / Transform data — Select ingestion and transformation approach,493,5,4,2,
+fb-v11-choose-045,V11-CHOOSE-045,video11,multi,ingestion,2,2.1,core,high,Prepare data — Get data — Choose between different data stores,753,5,4,2,
+fb-v11-choose-046,V11-CHOOSE-046,video11,multi,ingestion,2,2.1,core,high,Prepare data — Get data — Choose between different data stores,876,5,4,2,
+fb-v11-choose-047,V11-CHOOSE-047,video11,multi,ingestion,2,2.1,core,high,Prepare data — Get data — Choose between different data stores,777,5,4,2,
+fb-v11-choose-048,V11-CHOOSE-048,video11,multi,ingestion,2,2.1,core,medium,Prepare data — Get data / Transform data — Select ingestion and transformation approach,252,5,4,2,
+fb-v11-choose-049,V11-CHOOSE-049,video11,multi,ingestion,2,2.1,core,high,Prepare data — Get data — Choose between different data stores,917,5,4,2,
+fb-v11-choose-050,V11-CHOOSE-050,video11,multi,ingestion,2,2.1,core,high,Prepare data — Get data — Choose between different data stores,973,5,4,2,
+fb-v12-mon-001,V12-MON-001,video12,single,monitoring,1,,adjacent,high,DP-700 primary; DP-600 supporting / adjacent,100,4,4,1,
+fb-v12-mon-002,V12-MON-002,video12,single,monitoring,1,,adjacent,high,DP-700 primary; DP-600 supporting / adjacent,121,5,4,1,
+fb-v12-mon-003,V12-MON-003,video12,single,monitoring,1,,adjacent,high,DP-700 primary; DP-600 supporting / adjacent,163,5,4,1,
+fb-v12-mon-004,V12-MON-004,video12,multi,monitoring,1,,adjacent,high,DP-700 primary; DP-600 supporting / adjacent,139,5,5,3,
+fb-v12-mon-005,V12-MON-005,video12,single,monitoring,1,,adjacent,high,DP-700 primary; DP-600 supporting / adjacent,85,4,4,1,
+fb-v12-mon-006,V12-MON-006,video12,single,monitoring,1,,adjacent,high,DP-700 primary; DP-600 supporting / adjacent,130,4,4,1,
+fb-v12-mon-007,V12-MON-007,video12,multi,monitoring,1,,adjacent,high,DP-700 primary; DP-600 supporting / adjacent,64,5,5,2,
+fb-v12-mon-008,V12-MON-008,video12,single,monitoring,1,,adjacent,high,DP-700 primary; DP-600 supporting / adjacent,81,5,4,1,
+fb-v12-mon-009,V12-MON-009,video12,single,monitoring,1,,adjacent,high,DP-700 primary; DP-600 supporting / adjacent,1141,5,4,1,
+fb-v12-mon-010,V12-MON-010,video12,single,monitoring,1,,adjacent,high,DP-700 primary; DP-600 supporting / adjacent,1127,4,4,1,
+fb-v12-mon-011,V12-MON-011,video12,single,monitoring,1,,adjacent,high,DP-700 primary; DP-600 supporting / adjacent,1181,5,4,1,
+fb-v12-mon-012,V12-MON-012,video12,multi,monitoring,1,,adjacent,high,DP-700 primary; DP-600 supporting / adjacent,1225,5,5,2,
+fb-v12-mon-013,V12-MON-013,video12,single,monitoring,1,,adjacent,high,DP-700 primary; DP-600 supporting / adjacent,1250,5,4,1,
+fb-v12-mon-014,V12-MON-014,video12,single,monitoring,1,,adjacent,high,DP-700 primary; DP-600 supporting / adjacent,1080,4,4,1,
+fb-v12-mon-015,V12-MON-015,video12,multi,monitoring,1,,adjacent,high,DP-700 primary; DP-600 supporting / adjacent,1099,5,5,2,
+fb-v12-mon-016,V12-MON-016,video12,single,monitoring,1,,adjacent,high,DP-700 primary; DP-600 supporting / adjacent,215,5,4,1,
+fb-v12-mon-017,V12-MON-017,video12,single,monitoring,1,,adjacent,high,DP-700 primary; DP-600 supporting / adjacent,218,5,4,1,
+fb-v12-mon-018,V12-MON-018,video12,multi,monitoring,1,,adjacent,high,DP-700 primary; DP-600 supporting / adjacent,290,5,5,2,
+fb-v12-mon-019,V12-MON-019,video12,single,monitoring,1,,adjacent,high,DP-700 primary; DP-600 supporting / adjacent,254,5,4,1,
+fb-v12-mon-020,V12-MON-020,video12,single,monitoring,1,,adjacent,high,DP-700 primary; DP-600 supporting / adjacent,256,4,4,1,
+fb-v12-mon-021,V12-MON-021,video12,single,monitoring,1,,adjacent,high,DP-700 primary; DP-600 supporting / adjacent,198,5,4,1,
+fb-v12-mon-022,V12-MON-022,video12,single,monitoring,1,,adjacent,high,DP-700 primary; DP-600 supporting / adjacent,175,5,4,1,
+fb-v12-mon-023,V12-MON-023,video12,single,monitoring,1,,adjacent,high,DP-700 primary; DP-600 supporting / adjacent,336,5,4,1,
+fb-v12-mon-024,V12-MON-024,video12,single,monitoring,1,,adjacent,high,DP-700 primary; DP-600 supporting / adjacent,347,5,4,1,
+fb-v12-mon-025,V12-MON-025,video12,single,monitoring,1,,adjacent,high,DP-700 primary; DP-600 supporting / adjacent,362,5,4,1,
+fb-v12-mon-026,V12-MON-026,video12,multi,monitoring,1,,adjacent,high,DP-700 primary; DP-600 supporting / adjacent,357,5,5,2,
+fb-v12-mon-027,V12-MON-027,video12,single,monitoring,1,,adjacent,high,DP-700 primary; DP-600 supporting / adjacent,388,5,4,1,
+fb-v12-mon-028,V12-MON-028,video12,single,monitoring,1,,adjacent,high,DP-700 primary; DP-600 supporting / adjacent,392,5,4,1,
+fb-v12-mon-029,V12-MON-029,video12,single,monitoring,1,,adjacent,high,DP-700 primary; DP-600 supporting / adjacent,547,5,4,1,
+fb-v12-mon-030,V12-MON-030,video12,single,monitoring,1,,adjacent,high,DP-700 primary; DP-600 supporting / adjacent,356,5,4,1,
+fb-v12-mon-031,V12-MON-031,video12,single,monitoring,1,,adjacent,high,DP-700 primary; DP-600 supporting / adjacent,441,4,4,1,
+fb-v12-mon-032,V12-MON-032,video12,single,monitoring,1,,adjacent,high,DP-700 primary; DP-600 supporting / adjacent,466,5,4,1,
+fb-v12-mon-033,V12-MON-033,video12,single,monitoring,1,,adjacent,high,DP-700 primary; DP-600 supporting / adjacent,498,5,4,1,
+fb-v12-mon-034,V12-MON-034,video12,multi,monitoring,1,,adjacent,high,DP-700 primary; DP-600 supporting / adjacent,530,5,5,2,
+fb-v12-mon-035,V12-MON-035,video12,single,monitoring,1,,adjacent,high,DP-700 primary; DP-600 supporting / adjacent,642,5,4,1,
+fb-v12-mon-036,V12-MON-036,video12,single,monitoring,1,,adjacent,high,DP-700 primary; DP-600 supporting / adjacent,618,4,4,1,
+fb-v12-mon-037,V12-MON-037,video12,single,monitoring,1,,adjacent,high,DP-700 primary; DP-600 supporting / adjacent,597,5,4,1,
+fb-v12-mon-038,V12-MON-038,video12,single,monitoring,1,,adjacent,high,DP-700 primary; DP-600 supporting / adjacent,698,5,4,1,
+fb-v12-mon-039,V12-MON-039,video12,single,monitoring,1,,adjacent,high,DP-700 primary; DP-600 supporting / adjacent,699,5,4,1,
+fb-v12-mon-040,V12-MON-040,video12,multi,monitoring,1,,adjacent,high,DP-700 primary; DP-600 supporting / adjacent,763,5,5,2,
+fb-v12-mon-041,V12-MON-041,video12,single,monitoring,1,,adjacent,high,DP-700 primary; DP-600 supporting / adjacent,625,5,4,1,
+fb-v12-mon-042,V12-MON-042,video12,single,monitoring,1,,adjacent,high,DP-700 primary; DP-600 supporting / adjacent,788,5,4,1,
+fb-v12-mon-043,V12-MON-043,video12,single,monitoring,1,,adjacent,high,DP-700 primary; DP-600 supporting / adjacent,755,5,4,1,
+fb-v12-mon-044,V12-MON-044,video12,single,monitoring,1,,adjacent,high,DP-700 primary; DP-600 supporting / adjacent,808,5,4,1,
+fb-v12-mon-045,V12-MON-045,video12,single,monitoring,1,,adjacent,high,DP-700 primary; DP-600 supporting / adjacent,823,5,4,1,
+fb-v12-mon-046,V12-MON-046,video12,single,monitoring,1,,adjacent,high,DP-700 primary; DP-600 supporting / adjacent,804,5,4,1,
+fb-v12-mon-047,V12-MON-047,video12,single,monitoring,1,,adjacent,high,DP-700 primary; DP-600 supporting / adjacent,794,5,4,1,
+fb-v12-mon-048,V12-MON-048,video12,single,monitoring,1,,adjacent,high,DP-700 primary; DP-600 supporting / adjacent,788,5,4,1,
+fb-v12-mon-049,V12-MON-049,video12,multi,monitoring,1,,adjacent,high,DP-700 primary; DP-600 supporting / adjacent,893,5,5,2,
+fb-v12-mon-050,V12-MON-050,video12,multi,monitoring,1,,adjacent,high,DP-700 primary; DP-600 supporting / adjacent,828,5,5,2,
+fb-v14-pipe-001,V14-PIPE-001,video14,single,pipelines,2,,support,medium,DP-600 supporting data integration; DP-700 core,42,4,4,1,a-national-retail-lakehouse-modernization
+fb-v14-pipe-002,V14-PIPE-002,video14,single,pipelines,2,,support,medium,DP-600 supporting data integration; DP-700 core,42,4,4,1,a-national-retail-lakehouse-modernization
+fb-v14-pipe-003,V14-PIPE-003,video14,single,pipelines,2,,support,medium,DP-600 supporting data integration; DP-700 core,42,5,4,1,a-national-retail-lakehouse-modernization
+fb-v14-pipe-004,V14-PIPE-004,video14,single,pipelines,2,,support,medium,DP-600 supporting data integration; DP-700 core,42,4,4,1,a-national-retail-lakehouse-modernization
+fb-v14-pipe-005,V14-PIPE-005,video14,single,pipelines,2,,support,medium,DP-600 supporting data integration; DP-700 core,42,5,4,1,a-national-retail-lakehouse-modernization
+fb-v14-pipe-006,V14-PIPE-006,video14,single,pipelines,2,,support,medium,DP-600 supporting data integration; DP-700 core,42,5,4,1,a-national-retail-lakehouse-modernization
+fb-v14-pipe-007,V14-PIPE-007,video14,multi,pipelines,2,,support,medium,DP-600 supporting data integration; DP-700 core,42,4,5,2,a-national-retail-lakehouse-modernization
+fb-v14-pipe-008,V14-PIPE-008,video14,multi,pipelines,2,,support,medium,DP-600 supporting data integration; DP-700 core,42,5,5,2,a-national-retail-lakehouse-modernization
+fb-v14-pipe-009,V14-PIPE-009,video14,single,pipelines,2,2.1,core,high,DP-600 Prepare data / Get data,1102,4,4,1,a-national-retail-lakehouse-modernization
+fb-v14-pipe-010,V14-PIPE-010,video14,single,pipelines,2,2.1,core,high,DP-600 Prepare data / Get data,1102,4,4,1,a-national-retail-lakehouse-modernization
+fb-v14-pipe-011,V14-PIPE-011,video14,single,pipelines,2,2.1,core,high,DP-600 Prepare data / Get data,1102,5,4,1,a-national-retail-lakehouse-modernization
+fb-v14-pipe-012,V14-PIPE-012,video14,single,pipelines,2,2.1,core,high,DP-600 Prepare data / Get data,1102,4,4,1,a-national-retail-lakehouse-modernization
+fb-v14-pipe-013,V14-PIPE-013,video14,single,pipelines,2,2.1,core,high,DP-600 Prepare data / Get data,1102,5,4,1,a-national-retail-lakehouse-modernization
+fb-v14-pipe-014,V14-PIPE-014,video14,single,ingestion,2,2.1,core,high,DP-600 Prepare data / Get data,1102,5,4,1,a-national-retail-lakehouse-modernization
+fb-v14-pipe-015,V14-PIPE-015,video14,multi,pipelines,2,2.1,core,high,DP-600 Prepare data / Get data,1102,4,5,2,a-national-retail-lakehouse-modernization
+fb-v14-pipe-016,V14-PIPE-016,video14,multi,pipelines,2,2.1,core,high,DP-600 Prepare data / Get data,1102,5,5,2,a-national-retail-lakehouse-modernization
+fb-v14-pipe-017,V14-PIPE-017,video14,single,pipelines,2,2.1,core,high,DP-600 Prepare data / Create a data connection,1962,4,4,1,a-national-retail-lakehouse-modernization
+fb-v14-pipe-018,V14-PIPE-018,video14,single,pipelines,2,2.1,core,high,DP-600 Prepare data / Create a data connection,1962,4,4,1,a-national-retail-lakehouse-modernization
+fb-v14-pipe-019,V14-PIPE-019,video14,single,pipelines,2,2.1,core,high,DP-600 Prepare data / Create a data connection,1962,5,4,1,a-national-retail-lakehouse-modernization
+fb-v14-pipe-020,V14-PIPE-020,video14,single,pipelines,2,2.1,core,high,DP-600 Prepare data / Create a data connection,1962,4,4,1,a-national-retail-lakehouse-modernization
+fb-v14-pipe-021,V14-PIPE-021,video14,single,pipelines,2,2.1,core,high,DP-600 Prepare data / Create a data connection,1962,5,4,1,a-national-retail-lakehouse-modernization
+fb-v14-pipe-022,V14-PIPE-022,video14,single,pipelines,2,2.1,core,high,DP-600 Prepare data / Create a data connection,1962,5,4,1,a-national-retail-lakehouse-modernization
+fb-v14-pipe-023,V14-PIPE-023,video14,multi,pipelines,2,2.1,core,high,DP-600 Prepare data / Create a data connection,1962,4,5,2,a-national-retail-lakehouse-modernization
+fb-v14-pipe-024,V14-PIPE-024,video14,multi,pipelines,2,2.1,core,high,DP-600 Prepare data / Create a data connection,1962,5,5,2,a-national-retail-lakehouse-modernization
+fb-v14-pipe-025,V14-PIPE-025,video14,single,pipelines,2,2.1,support,high,DP-600 Prepare data / Ingest or access data; DP-700 enrichment,2538,4,4,1,b-regional-healthcare-exchange
+fb-v14-pipe-026,V14-PIPE-026,video14,single,pipelines,2,2.1,support,high,DP-600 Prepare data / Ingest or access data; DP-700 enrichment,2538,4,4,1,b-regional-healthcare-exchange
+fb-v14-pipe-027,V14-PIPE-027,video14,single,pipelines,2,2.1,support,high,DP-600 Prepare data / Ingest or access data; DP-700 enrichment,2538,5,4,1,b-regional-healthcare-exchange
+fb-v14-pipe-028,V14-PIPE-028,video14,single,pipelines,2,2.1,support,high,DP-600 Prepare data / Ingest or access data; DP-700 enrichment,2538,4,4,1,b-regional-healthcare-exchange
+fb-v14-pipe-029,V14-PIPE-029,video14,single,pipelines,2,2.1,support,high,DP-600 Prepare data / Ingest or access data; DP-700 enrichment,2538,5,4,1,b-regional-healthcare-exchange
+fb-v14-pipe-030,V14-PIPE-030,video14,single,pipelines,2,2.1,support,high,DP-600 Prepare data / Ingest or access data; DP-700 enrichment,2538,5,4,1,b-regional-healthcare-exchange
+fb-v14-pipe-031,V14-PIPE-031,video14,multi,pipelines,2,2.1,support,high,DP-600 Prepare data / Ingest or access data; DP-700 enrichment,2538,4,5,2,b-regional-healthcare-exchange
+fb-v14-pipe-032,V14-PIPE-032,video14,multi,pipelines,2,2.1,support,high,DP-600 Prepare data / Ingest or access data; DP-700 enrichment,2538,5,5,2,b-regional-healthcare-exchange
+fb-v14-pipe-033,V14-PIPE-033,video14,single,pipelines,2,,support,medium,DP-600 supporting data access; DP-700 orchestration enrichment,3556,4,4,1,b-regional-healthcare-exchange
+fb-v14-pipe-034,V14-PIPE-034,video14,single,pipelines,2,,support,medium,DP-600 supporting data access; DP-700 orchestration enrichment,3556,4,4,1,b-regional-healthcare-exchange
+fb-v14-pipe-035,V14-PIPE-035,video14,single,pipelines,2,,support,medium,DP-600 supporting data access; DP-700 orchestration enrichment,3556,5,4,1,b-regional-healthcare-exchange
+fb-v14-pipe-036,V14-PIPE-036,video14,single,pipelines,2,,support,medium,DP-600 supporting data access; DP-700 orchestration enrichment,3556,4,4,1,b-regional-healthcare-exchange
+fb-v14-pipe-037,V14-PIPE-037,video14,single,pipelines,2,,support,medium,DP-600 supporting data access; DP-700 orchestration enrichment,3556,5,4,1,b-regional-healthcare-exchange
+fb-v14-pipe-038,V14-PIPE-038,video14,single,pipelines,2,,support,medium,DP-600 supporting data access; DP-700 orchestration enrichment,3556,5,4,1,b-regional-healthcare-exchange
+fb-v14-pipe-039,V14-PIPE-039,video14,multi,pipelines,2,,support,medium,DP-600 supporting data access; DP-700 orchestration enrichment,3556,4,5,2,b-regional-healthcare-exchange
+fb-v14-pipe-040,V14-PIPE-040,video14,multi,pipelines,2,,support,medium,DP-600 supporting data access; DP-700 orchestration enrichment,3556,5,5,2,b-regional-healthcare-exchange
+fb-v14-pipe-041,V14-PIPE-041,video14,single,pipelines,2,,adjacent,high,DP-600 supporting data preparation; DP-700 primary,4459,4,4,1,b-regional-healthcare-exchange
+fb-v14-pipe-042,V14-PIPE-042,video14,single,pipelines,2,,adjacent,high,DP-600 supporting data preparation; DP-700 primary,4459,4,4,1,b-regional-healthcare-exchange
+fb-v14-pipe-043,V14-PIPE-043,video14,single,pipelines,2,,adjacent,high,DP-600 supporting data preparation; DP-700 primary,4459,5,4,1,b-regional-healthcare-exchange
+fb-v14-pipe-044,V14-PIPE-044,video14,single,pipelines,2,,adjacent,high,DP-600 supporting data preparation; DP-700 primary,4459,4,4,1,b-regional-healthcare-exchange
+fb-v14-pipe-045,V14-PIPE-045,video14,single,pipelines,2,,adjacent,high,DP-600 supporting data preparation; DP-700 primary,4459,5,4,1,b-regional-healthcare-exchange
+fb-v14-pipe-046,V14-PIPE-046,video14,single,pipelines,2,,adjacent,high,DP-600 supporting data preparation; DP-700 primary,4459,5,4,1,b-regional-healthcare-exchange
+fb-v14-pipe-047,V14-PIPE-047,video14,multi,pipelines,2,,adjacent,high,DP-600 supporting data preparation; DP-700 primary,4459,4,5,2,b-regional-healthcare-exchange
+fb-v14-pipe-048,V14-PIPE-048,video14,multi,pipelines,2,,adjacent,high,DP-600 supporting data preparation; DP-700 primary,4459,5,5,2,b-regional-healthcare-exchange
+fb-v14-pipe-049,V14-PIPE-049,video14,single,pipelines,2,,adjacent,high,DP-600 operational enrichment; DP-700 primary,4986,4,4,1,c-multiregion-logistics-telemetry
+fb-v14-pipe-050,V14-PIPE-050,video14,single,pipelines,2,,adjacent,high,DP-600 operational enrichment; DP-700 primary,4986,4,4,1,c-multiregion-logistics-telemetry
+fb-v14-pipe-051,V14-PIPE-051,video14,single,monitoring,1,,adjacent,high,DP-600 operational enrichment; DP-700 primary,4986,5,4,1,c-multiregion-logistics-telemetry
+fb-v14-pipe-052,V14-PIPE-052,video14,single,monitoring,1,,adjacent,high,DP-600 operational enrichment; DP-700 primary,4986,4,4,1,c-multiregion-logistics-telemetry
+fb-v14-pipe-053,V14-PIPE-053,video14,single,pipelines,2,,adjacent,high,DP-600 operational enrichment; DP-700 primary,4986,5,4,1,c-multiregion-logistics-telemetry
+fb-v14-pipe-054,V14-PIPE-054,video14,single,monitoring,1,,adjacent,high,DP-600 operational enrichment; DP-700 primary,4986,5,4,1,c-multiregion-logistics-telemetry
+fb-v14-pipe-055,V14-PIPE-055,video14,multi,monitoring,1,,adjacent,high,DP-600 operational enrichment; DP-700 primary,4986,4,5,2,c-multiregion-logistics-telemetry
+fb-v14-pipe-056,V14-PIPE-056,video14,multi,monitoring,1,,adjacent,high,DP-600 operational enrichment; DP-700 primary,4986,5,5,2,c-multiregion-logistics-telemetry
+fb-v14-pipe-057,V14-PIPE-057,video14,single,pipelines,2,2.1,adjacent,high,DP-600 Prepare data / Ingestion scenarios; DP-700 primary mechanics,5500,4,4,1,c-multiregion-logistics-telemetry
+fb-v14-pipe-058,V14-PIPE-058,video14,single,pipelines,2,2.1,adjacent,high,DP-600 Prepare data / Ingestion scenarios; DP-700 primary mechanics,5500,4,4,1,c-multiregion-logistics-telemetry
+fb-v14-pipe-059,V14-PIPE-059,video14,single,pipelines,2,2.1,adjacent,high,DP-600 Prepare data / Ingestion scenarios; DP-700 primary mechanics,5500,5,4,1,c-multiregion-logistics-telemetry
+fb-v14-pipe-060,V14-PIPE-060,video14,single,pipelines,2,2.1,adjacent,high,DP-600 Prepare data / Ingestion scenarios; DP-700 primary mechanics,5500,4,4,1,c-multiregion-logistics-telemetry
+fb-v14-pipe-061,V14-PIPE-061,video14,single,pipelines,2,2.1,adjacent,high,DP-600 Prepare data / Ingestion scenarios; DP-700 primary mechanics,5500,5,4,1,c-multiregion-logistics-telemetry
+fb-v14-pipe-062,V14-PIPE-062,video14,single,pipelines,2,2.1,adjacent,high,DP-600 Prepare data / Ingestion scenarios; DP-700 primary mechanics,5500,5,4,1,c-multiregion-logistics-telemetry
+fb-v14-pipe-063,V14-PIPE-063,video14,multi,pipelines,2,2.1,adjacent,high,DP-600 Prepare data / Ingestion scenarios; DP-700 primary mechanics,5500,4,5,2,c-multiregion-logistics-telemetry
+fb-v14-pipe-064,V14-PIPE-064,video14,multi,pipelines,2,2.1,adjacent,high,DP-600 Prepare data / Ingestion scenarios; DP-700 primary mechanics,5500,5,5,2,c-multiregion-logistics-telemetry
+fb-v14-pipe-065,V14-PIPE-065,video14,single,pipelines,2,2.1,support,high,DP-600 Prepare data / Get data; DP-700 orchestration depth,6434,4,4,1,c-multiregion-logistics-telemetry
+fb-v14-pipe-066,V14-PIPE-066,video14,single,pipelines,2,2.1,support,high,DP-600 Prepare data / Get data; DP-700 orchestration depth,6434,4,4,1,c-multiregion-logistics-telemetry
+fb-v14-pipe-067,V14-PIPE-067,video14,single,pipelines,2,2.1,support,high,DP-600 Prepare data / Get data; DP-700 orchestration depth,6434,5,4,1,c-multiregion-logistics-telemetry
+fb-v14-pipe-068,V14-PIPE-068,video14,single,pipelines,2,2.1,support,high,DP-600 Prepare data / Get data; DP-700 orchestration depth,6434,4,4,1,c-multiregion-logistics-telemetry
+fb-v14-pipe-069,V14-PIPE-069,video14,single,pipelines,2,2.1,support,high,DP-600 Prepare data / Get data; DP-700 orchestration depth,6434,5,4,1,c-multiregion-logistics-telemetry
+fb-v14-pipe-070,V14-PIPE-070,video14,single,pipelines,2,2.1,support,high,DP-600 Prepare data / Get data; DP-700 orchestration depth,6434,5,4,1,c-multiregion-logistics-telemetry
+fb-v14-pipe-071,V14-PIPE-071,video14,multi,pipelines,2,2.1,support,high,DP-600 Prepare data / Get data; DP-700 orchestration depth,6434,4,5,2,c-multiregion-logistics-telemetry
+fb-v14-pipe-072,V14-PIPE-072,video14,multi,pipelines,2,2.1,support,high,DP-600 Prepare data / Get data; DP-700 orchestration depth,6434,5,5,2,c-multiregion-logistics-telemetry
+fb-v14-pipe-073,V14-PIPE-073,video14,single,pipelines,2,2.1,adjacent,high,DP-600 Prepare data / Discover and get data; DP-700 primary mechanics,7222,4,4,1,d-bank-regulatory-ingestion
+fb-v14-pipe-074,V14-PIPE-074,video14,single,pipelines,2,2.1,adjacent,high,DP-600 Prepare data / Discover and get data; DP-700 primary mechanics,7222,4,4,1,d-bank-regulatory-ingestion
+fb-v14-pipe-075,V14-PIPE-075,video14,single,pipelines,2,2.1,adjacent,high,DP-600 Prepare data / Discover and get data; DP-700 primary mechanics,7222,5,4,1,d-bank-regulatory-ingestion
+fb-v14-pipe-076,V14-PIPE-076,video14,single,pipelines,2,2.1,adjacent,high,DP-600 Prepare data / Discover and get data; DP-700 primary mechanics,7222,4,4,1,d-bank-regulatory-ingestion
+fb-v14-pipe-077,V14-PIPE-077,video14,single,pipelines,2,2.1,adjacent,high,DP-600 Prepare data / Discover and get data; DP-700 primary mechanics,7222,5,4,1,d-bank-regulatory-ingestion
+fb-v14-pipe-078,V14-PIPE-078,video14,single,pipelines,2,2.1,adjacent,high,DP-600 Prepare data / Discover and get data; DP-700 primary mechanics,7222,5,4,1,d-bank-regulatory-ingestion
+fb-v14-pipe-079,V14-PIPE-079,video14,multi,pipelines,2,2.1,adjacent,high,DP-600 Prepare data / Discover and get data; DP-700 primary mechanics,7222,4,5,2,d-bank-regulatory-ingestion
+fb-v14-pipe-080,V14-PIPE-080,video14,multi,pipelines,2,2.1,adjacent,high,DP-600 Prepare data / Discover and get data; DP-700 primary mechanics,7222,5,5,2,d-bank-regulatory-ingestion
+fb-v14-pipe-081,V14-PIPE-081,video14,single,pipelines,2,2.1,support,high,DP-600 Prepare data / Design ingestion; DP-700 advanced,7903,4,4,1,d-bank-regulatory-ingestion
+fb-v14-pipe-082,V14-PIPE-082,video14,single,pipelines,2,2.1,support,high,DP-600 Prepare data / Design ingestion; DP-700 advanced,7903,4,4,1,d-bank-regulatory-ingestion
+fb-v14-pipe-083,V14-PIPE-083,video14,single,pipelines,2,2.1,support,high,DP-600 Prepare data / Design ingestion; DP-700 advanced,7903,5,4,1,d-bank-regulatory-ingestion
+fb-v14-pipe-084,V14-PIPE-084,video14,single,pipelines,2,2.1,support,high,DP-600 Prepare data / Design ingestion; DP-700 advanced,7903,4,4,1,d-bank-regulatory-ingestion
+fb-v14-pipe-085,V14-PIPE-085,video14,single,pipelines,2,2.1,support,high,DP-600 Prepare data / Design ingestion; DP-700 advanced,7903,5,4,1,d-bank-regulatory-ingestion
+fb-v14-pipe-086,V14-PIPE-086,video14,single,pipelines,2,2.1,support,high,DP-600 Prepare data / Design ingestion; DP-700 advanced,7903,5,4,1,d-bank-regulatory-ingestion
+fb-v14-pipe-087,V14-PIPE-087,video14,multi,pipelines,2,2.1,support,high,DP-600 Prepare data / Design ingestion; DP-700 advanced,7903,4,5,2,d-bank-regulatory-ingestion
+fb-v14-pipe-088,V14-PIPE-088,video14,multi,pipelines,2,2.1,support,high,DP-600 Prepare data / Design ingestion; DP-700 advanced,7903,5,5,2,d-bank-regulatory-ingestion
+fb-v14-pipe-089,V14-PIPE-089,video14,single,pipelines,2,,adjacent,high,DP-600 operational enrichment; DP-700 primary,8658,4,4,1,d-bank-regulatory-ingestion
+fb-v14-pipe-090,V14-PIPE-090,video14,single,pipelines,2,,adjacent,high,DP-600 operational enrichment; DP-700 primary,8658,4,4,1,d-bank-regulatory-ingestion
+fb-v14-pipe-091,V14-PIPE-091,video14,single,pipelines,2,,adjacent,high,DP-600 operational enrichment; DP-700 primary,8658,5,4,1,d-bank-regulatory-ingestion
+fb-v14-pipe-092,V14-PIPE-092,video14,single,pipelines,2,,adjacent,high,DP-600 operational enrichment; DP-700 primary,8658,4,4,1,d-bank-regulatory-ingestion
+fb-v14-pipe-093,V14-PIPE-093,video14,single,pipelines,2,,adjacent,high,DP-600 operational enrichment; DP-700 primary,8658,5,4,1,d-bank-regulatory-ingestion
+fb-v14-pipe-094,V14-PIPE-094,video14,single,pipelines,2,,adjacent,high,DP-600 operational enrichment; DP-700 primary,8658,5,4,1,d-bank-regulatory-ingestion
+fb-v14-pipe-095,V14-PIPE-095,video14,multi,pipelines,2,,adjacent,high,DP-600 operational enrichment; DP-700 primary,8658,4,5,2,d-bank-regulatory-ingestion
+fb-v14-pipe-096,V14-PIPE-096,video14,multi,pipelines,2,,adjacent,high,DP-600 operational enrichment; DP-700 primary,8658,5,5,2,d-bank-regulatory-ingestion
+fb-v15-ols-001,V15-OLS-001,video15,single,security,1,1.1,core,high,DP-600: Maintain a data analytics solution > Implement security and governance,52,4,4,1,a-retail-least-privilege
+fb-v15-ols-002,V15-OLS-002,video15,single,security,1,1.1,core,high,DP-600: Maintain a data analytics solution > Implement security and governance,301,4,4,1,a-retail-least-privilege
+fb-v15-ols-003,V15-OLS-003,video15,single,security,1,1.1,core,high,DP-600: Maintain a data analytics solution > Implement security and governance,409,4,4,1,c-healthcare-compliance
+fb-v15-ols-004,V15-OLS-004,video15,single,security,1,1.1,core,high,DP-600: Maintain a data analytics solution > Implement security and governance,430,4,4,1,a-retail-least-privilege
+fb-v15-ols-005,V15-OLS-005,video15,multi,security,1,1.1,core,high,DP-600: Maintain a data analytics solution > Implement security and governance,602,4,4,2,c-healthcare-compliance
+fb-v15-ols-006,V15-OLS-006,video15,single,security,1,1.1,core,high,DP-600: Maintain a data analytics solution > Implement security and governance,515,4,4,1,a-retail-least-privilege
+fb-v15-ols-007,V15-OLS-007,video15,single,security,1,1.1,core,high,DP-600: Maintain a data analytics solution > Implement security and governance,440,4,4,1,h-production-incident-response
+fb-v15-ols-008,V15-OLS-008,video15,single,security,1,1.1,core,high,DP-600: Maintain a data analytics solution > Implement security and governance,542,4,4,1,a-retail-least-privilege
+fb-v15-ols-009,V15-OLS-009,video15,single,security,1,1.1,core,high,DP-600: Maintain a data analytics solution > Implement security and governance,811,4,4,1,a-retail-least-privilege
+fb-v15-ols-010,V15-OLS-010,video15,single,security,1,1.1,core,high,DP-600: Maintain a data analytics solution > Implement security and governance,1314,4,4,1,e-manufacturing-spark-etl
+fb-v15-ols-011,V15-OLS-011,video15,single,security,1,1.1,core,high,DP-600: Maintain a data analytics solution > Implement security and governance,828,4,4,1,h-production-incident-response
+fb-v15-ols-012,V15-OLS-012,video15,multi,security,1,1.1,core,high,DP-600: Maintain a data analytics solution > Implement security and governance,935,4,4,2,c-healthcare-compliance
+fb-v15-ols-013,V15-OLS-013,video15,single,security,1,1.1,core,high,DP-600: Maintain a data analytics solution > Implement security and governance,850,4,4,1,h-production-incident-response
+fb-v15-ols-014,V15-OLS-014,video15,single,security,1,1.1,core,high,DP-600: Maintain a data analytics solution > Implement security and governance,2701,4,4,1,h-production-incident-response
+fb-v15-ols-015,V15-OLS-015,video15,single,security,1,1.1,core,high,DP-600: Maintain a data analytics solution > Implement security and governance,968,4,4,1,b-regional-logistics
+fb-v15-ols-016,V15-OLS-016,video15,single,security,1,1.1,core,high,DP-600: Maintain a data analytics solution > Implement security and governance,902,4,4,1,b-regional-logistics
+fb-v15-ols-017,V15-OLS-017,video15,single,security,1,1.1,core,high,DP-600: Maintain a data analytics solution > Implement security and governance,880,4,4,1,b-regional-logistics
+fb-v15-ols-018,V15-OLS-018,video15,single,security,1,1.1,core,high,DP-600: Maintain a data analytics solution > Implement security and governance,1046,4,4,1,c-healthcare-compliance
+fb-v15-ols-019,V15-OLS-019,video15,single,security,1,1.1,core,high,DP-600: Maintain a data analytics solution > Implement security and governance,1080,4,4,1,b-regional-logistics
+fb-v15-ols-020,V15-OLS-020,video15,multi,security,1,1.1,core,high,DP-600: Maintain a data analytics solution > Implement security and governance,1025,5,4,2,b-regional-logistics
+fb-v15-ols-021,V15-OLS-021,video15,single,security,1,1.1,core,high,DP-600: Maintain a data analytics solution > Implement security and governance,1005,4,4,1,b-regional-logistics
+fb-v15-ols-022,V15-OLS-022,video15,single,security,1,1.1,core,high,DP-600: Maintain a data analytics solution > Implement security and governance,308,4,4,1,g-bi-migration-and-direct-lake
+fb-v15-ols-023,V15-OLS-023,video15,single,security,1,1.1,core,high,DP-600: Maintain a data analytics solution > Implement security and governance,320,4,4,1,h-production-incident-response
+fb-v15-ols-024,V15-OLS-024,video15,multi,security,1,1.1,core,high,DP-600: Maintain a data analytics solution > Implement security and governance,815,4,4,2,h-production-incident-response
+fb-v15-ols-025,V15-OLS-025,video15,single,security,1,1.1,core,high,DP-600: Maintain a data analytics solution > Implement security and governance,3020,4,4,1,h-production-incident-response
+fb-v15-ols-026,V15-OLS-026,video15,single,security,1,1.1,core,high,DP-600: Maintain a data analytics solution > Implement security and governance,1932,4,4,1,g-bi-migration-and-direct-lake
+fb-v15-ols-027,V15-OLS-027,video15,single,security,1,1.1,core,high,DP-600: Maintain a data analytics solution > Implement security and governance,3161,4,4,1,h-production-incident-response
+fb-v15-ols-028,V15-OLS-028,video15,single,security,1,1.1,core,high,DP-600: Maintain a data analytics solution > Implement security and governance,3184,4,4,1,h-production-incident-response
+fb-v15-ols-029,V15-OLS-029,video15,single,security,1,,support,medium,DP-600 security supporting concept; deeper Fabric engineering and operating constraints,1323,4,4,1,e-manufacturing-spark-etl
+fb-v15-ols-030,V15-OLS-030,video15,single,security,1,,support,medium,DP-600 security supporting concept; deeper Fabric engineering and operating constraints,1325,4,4,1,e-manufacturing-spark-etl
+fb-v15-ols-031,V15-OLS-031,video15,single,security,1,,support,medium,DP-600 security supporting concept; deeper Fabric engineering and operating constraints,1405,4,4,1,e-manufacturing-spark-etl
+fb-v15-ols-032,V15-OLS-032,video15,single,security,1,,support,medium,DP-600 security supporting concept; deeper Fabric engineering and operating constraints,1368,4,4,1,e-manufacturing-spark-etl
+fb-v15-ols-033,V15-OLS-033,video15,single,security,1,,support,medium,DP-600 security supporting concept; deeper Fabric engineering and operating constraints,1420,4,4,1,e-manufacturing-spark-etl
+fb-v15-ols-034,V15-OLS-034,video15,multi,security,1,,support,medium,DP-600 security supporting concept; deeper Fabric engineering and operating constraints,1342,4,4,2,e-manufacturing-spark-etl
+fb-v15-ols-035,V15-OLS-035,video15,single,security,1,,support,medium,DP-600 security supporting concept; deeper Fabric engineering and operating constraints,1255,4,4,1,e-manufacturing-spark-etl
+fb-v15-ols-036,V15-OLS-036,video15,single,security,1,1.1,core,high,DP-600: Maintain a data analytics solution > Implement security and governance,1600,4,4,1,g-bi-migration-and-direct-lake
+fb-v15-ols-037,V15-OLS-037,video15,single,security,1,1.1,core,high,DP-600: Maintain a data analytics solution > Implement security and governance,1644,4,4,1,g-bi-migration-and-direct-lake
+fb-v15-ols-038,V15-OLS-038,video15,single,security,1,1.1,core,high,DP-600: Maintain a data analytics solution > Implement security and governance,1838,4,4,1,g-bi-migration-and-direct-lake
+fb-v15-ols-039,V15-OLS-039,video15,multi,security,1,1.1,core,high,DP-600: Maintain a data analytics solution > Implement security and governance,1635,4,4,2,g-bi-migration-and-direct-lake
+fb-v15-ols-040,V15-OLS-040,video15,single,semantic-models,1,1.1,core,high,DP-600: Maintain a data analytics solution > Implement security and governance,1681,4,4,1,g-bi-migration-and-direct-lake
+fb-v15-ols-041,V15-OLS-041,video15,single,security,1,1.1,core,high,DP-600: Maintain a data analytics solution > Implement security and governance,1805,4,4,1,g-bi-migration-and-direct-lake
+fb-v15-ols-042,V15-OLS-042,video15,single,security,1,1.1,core,high,DP-600: Maintain a data analytics solution > Implement security and governance,1755,4,4,1,g-bi-migration-and-direct-lake
+fb-v15-ols-043,V15-OLS-043,video15,single,security,1,,support,medium,DP-600 security supporting concept; deeper Fabric engineering and operating constraints,2410,4,4,1,f-central-platform-api-automation
+fb-v15-ols-044,V15-OLS-044,video15,single,security,1,,support,medium,DP-600 security supporting concept; deeper Fabric engineering and operating constraints,2446,4,4,1,f-central-platform-api-automation
+fb-v15-ols-045,V15-OLS-045,video15,single,security,1,,support,medium,DP-600 security supporting concept; deeper Fabric engineering and operating constraints,2772,4,4,1,f-central-platform-api-automation
+fb-v15-ols-046,V15-OLS-046,video15,multi,security,1,,support,medium,DP-600 security supporting concept; deeper Fabric engineering and operating constraints,2722,4,4,2,f-central-platform-api-automation
+fb-v15-ols-047,V15-OLS-047,video15,single,security,1,,support,medium,DP-600 security supporting concept; deeper Fabric engineering and operating constraints,2800,4,4,1,f-central-platform-api-automation
+fb-v15-ols-048,V15-OLS-048,video15,single,security,1,,support,medium,DP-600 security supporting concept; deeper Fabric engineering and operating constraints,2532,4,4,1,f-central-platform-api-automation
+fb-v15-ols-049,V15-OLS-049,video15,single,security,1,,support,medium,DP-600 security supporting concept; deeper Fabric engineering and operating constraints,2667,4,4,1,f-central-platform-api-automation
+fb-v15-ols-050,V15-OLS-050,video15,single,security,1,1.1,core,high,DP-600: Maintain a data analytics solution > Implement security and governance,355,4,4,1,d-financial-release-pipeline
+fb-v15-ols-051,V15-OLS-051,video15,single,security,1,1.1,core,high,DP-600: Maintain a data analytics solution > Implement security and governance,3062,5,4,1,d-financial-release-pipeline
+fb-v15-ols-052,V15-OLS-052,video15,single,security,1,1.1,core,high,DP-600: Maintain a data analytics solution > Implement security and governance,3050,4,4,1,d-financial-release-pipeline
+fb-v15-ols-053,V15-OLS-053,video15,multi,security,1,1.1,core,high,DP-600: Maintain a data analytics solution > Implement security and governance,3085,4,4,2,d-financial-release-pipeline
+fb-v15-ols-054,V15-OLS-054,video15,single,security,1,1.1,core,high,DP-600: Maintain a data analytics solution > Implement security and governance,3121,4,4,1,h-production-incident-response
+fb-v15-ols-055,V15-OLS-055,video15,single,security,1,1.1,core,high,DP-600: Maintain a data analytics solution > Implement security and governance,3178,4,4,1,h-production-incident-response
+fb-v15-ols-056,V15-OLS-056,video15,single,security,1,1.1,core,high,DP-600: Maintain a data analytics solution > Implement security and governance,3226,4,4,1,h-production-incident-response
+fb-v16-sql-001,V16-SQL-001,video16,single,sql-endpoint,2,2.3,core,medium,"Prepare data > Get data, Transform data, or Query and analyze data",69,4,4,1,retail-bi-platform
+fb-v16-sql-002,V16-SQL-002,video16,single,sql-endpoint,2,2.3,core,medium,"Prepare data > Get data, Transform data, or Query and analyze data",149,4,4,1,retail-bi-platform
+fb-v16-sql-003,V16-SQL-003,video16,multi,sql-endpoint,2,2.3,core,medium,"Prepare data > Get data, Transform data, or Query and analyze data",188,4,4,2,healthcare-data-exchange
+fb-v16-sql-004,V16-SQL-004,video16,single,sql-endpoint,2,2.3,core,medium,"Prepare data > Get data, Transform data, or Query and analyze data",165,4,4,1,enterprise-reference-architecture
+fb-v16-sql-005,V16-SQL-005,video16,multi,sql-endpoint,2,2.3,core,medium,"Prepare data > Get data, Transform data, or Query and analyze data",199,4,4,2,erp-modernization
+fb-v16-sql-006,V16-SQL-006,video16,single,sql-endpoint,2,2.3,core,medium,"Prepare data > Get data, Transform data, or Query and analyze data",1130,4,4,1,external-sql-tooling
+fb-v16-sql-007,V16-SQL-007,video16,single,sql-endpoint,2,2.3,core,medium,"Prepare data > Get data, Transform data, or Query and analyze data",335,4,4,1,self-service-finance-reporting
+fb-v16-sql-008,V16-SQL-008,video16,single,sql-endpoint,2,2.3,core,medium,"Prepare data > Get data, Transform data, or Query and analyze data",873,4,4,1,self-service-finance-reporting
+fb-v16-sql-009,V16-SQL-009,video16,multi,sql-endpoint,2,2.3,core,medium,"Prepare data > Get data, Transform data, or Query and analyze data",335,4,4,2,tax-reporting-automation
+fb-v16-sql-010,V16-SQL-010,video16,single,sql-endpoint,2,2.3,core,medium,"Prepare data > Get data, Transform data, or Query and analyze data",250,4,4,1,sql-performance-triage
+fb-v16-sql-011,V16-SQL-011,video16,multi,sql-endpoint,2,2.3,core,medium,"Prepare data > Get data, Transform data, or Query and analyze data",852,4,4,2,sql-review-board
+fb-v16-sql-012,V16-SQL-012,video16,single,sql-endpoint,2,2.3,core,medium,"Prepare data > Get data, Transform data, or Query and analyze data",347,4,4,1,supply-chain-sql-standardization
+fb-v16-sql-013,V16-SQL-013,video16,single,sql-endpoint,2,2.3,core,medium,"Prepare data > Get data, Transform data, or Query and analyze data",495,4,4,1,vendor-landing-zone
+fb-v16-sql-014,V16-SQL-014,video16,single,sql-endpoint,2,2.3,core,medium,"Prepare data > Get data, Transform data, or Query and analyze data",523,4,4,1,external-curated-zone
+fb-v16-sql-015,V16-SQL-015,video16,multi,sql-endpoint,2,2.3,core,medium,"Prepare data > Get data, Transform data, or Query and analyze data",422,4,4,2,multi-workspace-bi
+fb-v16-sql-016,V16-SQL-016,video16,single,sql-endpoint,2,2.3,core,medium,"Prepare data > Get data, Transform data, or Query and analyze data",427,4,4,1,data-sovereignty-review
+fb-v16-sql-017,V16-SQL-017,video16,single,sql-endpoint,2,2.3,core,medium,"Prepare data > Get data, Transform data, or Query and analyze data",425,4,4,1,catalog-governance
+fb-v16-sql-018,V16-SQL-018,video16,multi,sql-endpoint,2,2.3,core,medium,"Prepare data > Get data, Transform data, or Query and analyze data",515,4,4,2,sales-lakehouse-schema-migration
+fb-v16-sql-019,V16-SQL-019,video16,single,sql-endpoint,2,2.3,support,medium,"Prepare data > Get data, Transform data, or Query and analyze data (engineering enrichment: operational specifics may extend beyond measured DP-600 scope)",558,4,4,1,erp-reporting-sla
+fb-v16-sql-020,V16-SQL-020,video16,single,sql-endpoint,2,2.3,support,medium,"Prepare data > Get data, Transform data, or Query and analyze data (engineering enrichment: operational specifics may extend beyond measured DP-600 scope)",543,4,4,1,legacy-endpoint-incident
+fb-v16-sql-021,V16-SQL-021,video16,multi,sql-endpoint,2,2.3,support,medium,"Prepare data > Get data, Transform data, or Query and analyze data (engineering enrichment: operational specifics may extend beyond measured DP-600 scope)",567,4,4,2,operations-automation
+fb-v16-sql-022,V16-SQL-022,video16,single,sql-endpoint,2,2.3,support,medium,"Prepare data > Get data, Transform data, or Query and analyze data (engineering enrichment: operational specifics may extend beyond measured DP-600 scope)",527,4,4,1,disappearing-tables
+fb-v16-sql-023,V16-SQL-023,video16,single,sql-endpoint,2,2.3,support,medium,"Prepare data > Get data, Transform data, or Query and analyze data (engineering enrichment: operational specifics may extend beyond measured DP-600 scope)",584,4,4,1,fabric-capacity-monitoring
+fb-v16-sql-024,V16-SQL-024,video16,multi,sql-endpoint,2,2.3,support,medium,"Prepare data > Get data, Transform data, or Query and analyze data (engineering enrichment: operational specifics may extend beyond measured DP-600 scope)",927,4,4,2,pipeline-production-cutover
+fb-v16-sql-025,V16-SQL-025,video16,single,sql-endpoint,2,2.3,support,medium,"Prepare data > Get data, Transform data, or Query and analyze data (engineering enrichment: operational specifics may extend beyond measured DP-600 scope)",580,4,4,1,greenfield-migration
+fb-v16-sql-026,V16-SQL-026,video16,single,sql-endpoint,2,2.3,support,medium,"Prepare data > Get data, Transform data, or Query and analyze data (engineering enrichment: operational specifics may extend beyond measured DP-600 scope)",583,4,4,1,secure-enterprise-workspace
+fb-v16-sql-027,V16-SQL-027,video16,single,sql-endpoint,2,2.3,support,medium,"Prepare data > Get data, Transform data, or Query and analyze data (engineering enrichment: operational specifics may extend beyond measured DP-600 scope)",584,4,4,1,delta-platform-modernization
+fb-v16-sql-028,V16-SQL-028,video16,single,sql-endpoint,2,2.3,support,medium,"Prepare data > Get data, Transform data, or Query and analyze data (engineering enrichment: operational specifics may extend beyond measured DP-600 scope)",590,4,4,1,fine-grained-sql-operations
+fb-v16-sql-029,V16-SQL-029,video16,multi,sql-endpoint,2,2.3,support,medium,"Prepare data > Get data, Transform data, or Query and analyze data (engineering enrichment: operational specifics may extend beyond measured DP-600 scope)",593,4,4,2,etl-metadata-changes
+fb-v16-sql-030,V16-SQL-030,video16,single,sql-endpoint,2,2.3,support,medium,"Prepare data > Get data, Transform data, or Query and analyze data (engineering enrichment: operational specifics may extend beyond measured DP-600 scope)",585,4,4,1,incident-investigation
+fb-v16-sql-031,V16-SQL-031,video16,single,security,1,1.1,core,high,Maintain a data analytics solution > Implement security and governance,635,4,4,1,payroll-analytics
+fb-v16-sql-032,V16-SQL-032,video16,multi,sql-endpoint,1,1.1,core,high,Maintain a data analytics solution > Implement security and governance,681,4,4,2,cross-engine-compliance
+fb-v16-sql-033,V16-SQL-033,video16,single,sql-endpoint,1,1.1,core,high,Maintain a data analytics solution > Implement security and governance,1080,4,4,1,analyst-permissions
+fb-v16-sql-034,V16-SQL-034,video16,single,sql-endpoint,1,1.1,core,high,Maintain a data analytics solution > Implement security and governance,1125,4,4,1,data-access-governance
+fb-v16-sql-035,V16-SQL-035,video16,single,sql-endpoint,1,1.1,core,high,Maintain a data analytics solution > Implement security and governance,649,4,4,1,delegated-sql-and-onelake
+fb-v16-sql-036,V16-SQL-036,video16,multi,sql-endpoint,1,1.1,core,high,Maintain a data analytics solution > Implement security and governance,654,4,4,2,mode-switch-governance
+fb-v16-sql-037,V16-SQL-037,video16,single,sql-endpoint,2,2.3,core,medium,"Prepare data > Get data, Transform data, or Query and analyze data",441,4,4,1,financial-restatements
+fb-v16-sql-038,V16-SQL-038,video16,single,sql-endpoint,2,2.3,core,medium,"Prepare data > Get data, Transform data, or Query and analyze data",449,4,4,1,unified-sales-report
+fb-v16-sql-039,V16-SQL-039,video16,single,sql-endpoint,2,2.3,core,medium,"Prepare data > Get data, Transform data, or Query and analyze data",445,4,4,1,historical-reporting-with-views
+fb-v16-sql-040,V16-SQL-040,video16,multi,sql-endpoint,2,2.3,core,medium,"Prepare data > Get data, Transform data, or Query and analyze data",445,4,4,2,retention-and-audit
+fb-v16-sql-041,V16-SQL-041,video16,single,sql-endpoint,3,3.1,core,high,Implement and manage semantic models > Design and build semantic models,401,4,4,1,semantic-model-provisioning
+fb-v16-sql-042,V16-SQL-042,video16,multi,semantic-models,3,3.1,core,high,Implement and manage semantic models > Design and build semantic models,431,4,4,2,executive-kpi-dashboards
+fb-v16-sql-043,V16-SQL-043,video16,single,sql-endpoint,2,2.3,support,medium,"Prepare data > Get data, Transform data, or Query and analyze data (engineering enrichment: operational specifics may extend beyond measured DP-600 scope)",906,4,4,1,spark-to-sql-handoff
+fb-v16-sql-044,V16-SQL-044,video16,single,sql-endpoint,2,2.3,support,medium,"Prepare data > Get data, Transform data, or Query and analyze data (engineering enrichment: operational specifics may extend beyond measured DP-600 scope)",362,4,4,1,data-platform-deployment
+fb-v16-sql-045,V16-SQL-045,video16,single,sql-endpoint,2,2.3,support,medium,"Prepare data > Get data, Transform data, or Query and analyze data (engineering enrichment: operational specifics may extend beyond measured DP-600 scope)",423,4,4,1,data-platform-regional-expansion
+fb-v16-sql-046,V16-SQL-046,video16,multi,sql-endpoint,2,2.3,support,medium,"Prepare data > Get data, Transform data, or Query and analyze data (engineering enrichment: operational specifics may extend beyond measured DP-600 scope)",587,4,4,2,new-sync-adoption
+fb-v16-sql-047,V16-SQL-047,video16,single,sql-endpoint,2,2.3,support,medium,"Prepare data > Get data, Transform data, or Query and analyze data (engineering enrichment: operational specifics may extend beyond measured DP-600 scope)",639,4,4,1,sensitive-payroll-lakehouse
+fb-v16-sql-048,V16-SQL-048,video16,multi,sql-endpoint,2,2.3,support,medium,"Prepare data > Get data, Transform data, or Query and analyze data (engineering enrichment: operational specifics may extend beyond measured DP-600 scope)",445,4,4,2,historical-reporting-portfolio
+fb-v19-lh-001,V19-LH-001,video19,single,lakehouse,2,2.1,core,high,Prepare data > Get data,322,4,4,1,meridian-supplier-exchange
+fb-v19-lh-002,V19-LH-002,video19,multi,lakehouse,2,2.2,core,high,Prepare data > Transform data,343,4,4,2,meridian-supplier-exchange
+fb-v19-lh-003,V19-LH-003,video19,single,lakehouse,2,2.2,core,high,Prepare data > Transform data,343,4,4,1,meridian-supplier-exchange
+fb-v19-lh-004,V19-LH-004,video19,single,lakehouse,2,2.2,core,high,Prepare data > Transform data,322,4,4,1,meridian-supplier-exchange
+fb-v19-lh-005,V19-LH-005,video19,multi,lakehouse,2,2.2,core,high,Prepare data > Transform data,322,4,4,2,meridian-supplier-exchange
+fb-v19-lh-006,V19-LH-006,video19,single,lakehouse,2,2.2,core,high,Prepare data > Transform data,371,5,4,1,atlas-text-and-platform-rollout
+fb-v19-lh-007,V19-LH-007,video19,single,lakehouse,2,2.2,core,high,Prepare data > Transform data,371,5,4,1,atlas-text-and-platform-rollout
+fb-v19-lh-008,V19-LH-008,video19,multi,lakehouse,2,2.2,core,high,Prepare data > Transform data,436,5,4,2,atlas-text-and-platform-rollout
+fb-v19-lh-009,V19-LH-009,video19,single,lakehouse,2,2.2,core,high,Prepare data > Transform data,436,5,4,1,atlas-text-and-platform-rollout
+fb-v19-lh-010,V19-LH-010,video19,single,lakehouse,2,2.2,core,high,Prepare data > Transform data,322,5,4,1,meridian-supplier-exchange
+fb-v19-lh-011,V19-LH-011,video19,single,lakehouse,2,2.2,core,high,Prepare data > Transform data,477,4,4,1,orion-retail-medallion
+fb-v19-lh-012,V19-LH-012,video19,single,lakehouse,2,2.2,core,high,Prepare data > Transform data,1082,4,4,1,orion-retail-medallion
+fb-v19-lh-013,V19-LH-013,video19,multi,lakehouse,2,2.2,core,high,Prepare data > Transform data,477,5,4,2,orion-retail-medallion
+fb-v19-lh-014,V19-LH-014,video19,single,lakehouse,2,2.2,core,high,Prepare data > Transform data,477,5,4,1,orion-retail-medallion
+fb-v19-lh-015,V19-LH-015,video19,single,lakehouse,2,2.2,core,high,Prepare data > Transform data,484,5,4,1,orion-retail-medallion
+fb-v19-lh-016,V19-LH-016,video19,single,lakehouse,2,2.2,core,high,Prepare data > Transform data,477,5,4,1,orion-retail-medallion
+fb-v19-lh-017,V19-LH-017,video19,single,lakehouse,2,2.2,core,high,Prepare data > Transform data,1082,5,4,1,orion-retail-medallion
+fb-v19-lh-018,V19-LH-018,video19,single,lakehouse,2,2.2,core,high,Prepare data > Transform data,1115,5,4,1,orion-retail-medallion
+fb-v19-lh-019,V19-LH-019,video19,single,lakehouse,2,2.2,core,high,Prepare data > Transform data,1115,5,4,1,orion-retail-medallion
+fb-v19-lh-020,V19-LH-020,video19,multi,lakehouse,2,2.2,core,high,Prepare data > Transform data,1082,5,4,2,orion-retail-medallion
+fb-v19-lh-021,V19-LH-021,video19,single,lakehouse,2,2.2,core,high,Prepare data > Transform data,1082,5,4,1,orion-retail-medallion
+fb-v19-lh-022,V19-LH-022,video19,single,lakehouse,2,2.2,core,high,Prepare data > Transform data,477,5,4,1,orion-retail-medallion
+fb-v19-lh-023,V19-LH-023,video19,multi,lakehouse,2,2.2,core,high,Prepare data > Transform data,1082,4,4,2,orion-retail-medallion
+fb-v19-lh-024,V19-LH-024,video19,single,lakehouse,2,2.2,core,high,Prepare data > Transform data,477,4,4,1,orion-retail-medallion
+fb-v19-lh-025,V19-LH-025,video19,single,lakehouse,2,2.1,core,high,Prepare data > Get data,627,4,4,1,atlas-text-and-platform-rollout
+fb-v19-lh-026,V19-LH-026,video19,single,lakehouse,2,2.1,core,high,Prepare data > Get data,627,4,4,1,atlas-text-and-platform-rollout
+fb-v19-lh-027,V19-LH-027,video19,multi,lakehouse,2,2.1,core,high,Prepare data > Get data,627,4,4,2,atlas-text-and-platform-rollout
+fb-v19-lh-028,V19-LH-028,video19,single,lakehouse,2,2.1,core,high,Prepare data > Get data,857,4,4,1,helios-shared-analytics
+fb-v19-lh-029,V19-LH-029,video19,single,lakehouse,2,2.1,core,high,Prepare data > Get data,857,4,4,1,helios-shared-analytics
+fb-v19-lh-030,V19-LH-030,video19,single,lakehouse,2,2.1,core,high,Prepare data > Get data,220,4,4,1,helios-shared-analytics
+fb-v19-lh-031,V19-LH-031,video19,single,lakehouse,2,2.1,core,high,Prepare data > Get data,220,4,4,1,helios-shared-analytics
+fb-v19-lh-032,V19-LH-032,video19,multi,lakehouse,1,1.1,core,high,Maintain a data analytics solution > Implement security and governance,1223,4,4,2,helios-shared-analytics
+fb-v19-lh-033,V19-LH-033,video19,single,lakehouse,2,2.2,core,high,Prepare data > Transform data,371,5,4,1,atlas-text-and-platform-rollout
+fb-v19-lh-034,V19-LH-034,video19,multi,lakehouse,1,1.1,core,high,Maintain a data analytics solution > Implement security and governance,1223,5,4,2,helios-shared-analytics
+fb-v19-lh-035,V19-LH-035,video19,single,lakehouse,1,1.1,core,high,Maintain a data analytics solution > Implement security and governance,1223,5,4,1,helios-shared-analytics
+fb-v19-lh-036,V19-LH-036,video19,single,lakehouse,2,2.2,core,high,Prepare data > Transform data,1115,5,4,1,atlas-text-and-platform-rollout
+fb-v19-lh-037,V19-LH-037,video19,single,lakehouse,2,2.2,core,high,Prepare data > Transform data,1082,5,4,1,orion-retail-medallion
+fb-v19-lh-038,V19-LH-038,video19,single,lakehouse,2,2.1,core,high,Prepare data > Get data,828,4,4,1,atlas-text-and-platform-rollout
+fb-v19-lh-039,V19-LH-039,video19,single,lakehouse,2,2.2,core,high,Prepare data > Transform data,1115,5,4,1,orion-retail-medallion
+fb-v19-lh-040,V19-LH-040,video19,multi,lakehouse,2,2.2,core,high,Prepare data > Transform data,1082,4,4,2,orion-retail-medallion
+fb-v20-delta-001,V20-DELTA-001,video20,single,optimization,1,1.1,core,high,Maintain a data analytics solution > Implement security and governance; Prepare data > Get data / Transform data,19,4,4,1,performance-review
+fb-v20-delta-002,V20-DELTA-002,video20,single,optimization,1,1.1,core,high,Maintain a data analytics solution > Implement security and governance; Prepare data > Get data / Transform data,333,4,4,1,maintenance-council
+fb-v20-delta-003,V20-DELTA-003,video20,multi,optimization,1,1.1,core,high,Maintain a data analytics solution > Implement security and governance; Prepare data > Get data / Transform data,1004,4,4,2,performance-review
+fb-v20-delta-004,V20-DELTA-004,video20,single,optimization,1,1.1,core,high,Maintain a data analytics solution > Implement security and governance; Prepare data > Get data / Transform data,19,4,4,1,maintenance-council
+fb-v20-delta-005,V20-DELTA-005,video20,single,optimization,1,1.1,core,high,Maintain a data analytics solution > Implement security and governance; Prepare data > Get data / Transform data,333,4,4,1,performance-review
+fb-v20-delta-006,V20-DELTA-006,video20,single,optimization,1,1.1,core,high,Maintain a data analytics solution > Implement security and governance; Prepare data > Get data / Transform data,333,4,4,1,maintenance-council
+fb-v20-delta-007,V20-DELTA-007,video20,multi,optimization,1,1.1,core,high,Maintain a data analytics solution > Implement security and governance; Prepare data > Get data / Transform data,333,4,4,2,performance-review
+fb-v20-delta-008,V20-DELTA-008,video20,single,optimization,1,1.1,core,high,Maintain a data analytics solution > Implement security and governance; Prepare data > Get data / Transform data,1004,4,4,1,maintenance-council
+fb-v20-delta-009,V20-DELTA-009,video20,single,optimization,1,1.1,core,high,Maintain a data analytics solution > Implement security and governance; Prepare data > Get data / Transform data,19,4,4,1,performance-review
+fb-v20-delta-010,V20-DELTA-010,video20,single,optimization,1,1.1,core,high,Maintain a data analytics solution > Implement security and governance; Prepare data > Get data / Transform data,1004,4,4,1,maintenance-council
+fb-v20-delta-011,V20-DELTA-011,video20,single,optimization,1,1.1,core,high,Maintain a data analytics solution > Implement security and governance; Prepare data > Get data / Transform data,1004,4,4,1,performance-review
+fb-v20-delta-012,V20-DELTA-012,video20,single,optimization,1,1.1,core,high,Maintain a data analytics solution > Implement security and governance; Prepare data > Get data / Transform data,1004,4,4,1,maintenance-council
+fb-v20-delta-013,V20-DELTA-013,video20,single,optimization,1,1.1,core,high,Maintain a data analytics solution > Implement security and governance; Prepare data > Get data / Transform data,453,4,4,1,performance-review
+fb-v20-delta-014,V20-DELTA-014,video20,single,optimization,1,1.1,core,high,Maintain a data analytics solution > Implement security and governance; Prepare data > Get data / Transform data,453,4,4,1,maintenance-council
+fb-v20-delta-015,V20-DELTA-015,video20,multi,optimization,1,1.1,core,high,Maintain a data analytics solution > Implement security and governance; Prepare data > Get data / Transform data,453,4,4,2,performance-review
+fb-v20-delta-016,V20-DELTA-016,video20,single,optimization,1,1.1,core,high,Maintain a data analytics solution > Implement security and governance; Prepare data > Get data / Transform data,19,4,4,1,maintenance-council
+fb-v20-delta-017,V20-DELTA-017,video20,single,optimization,1,1.1,core,high,Maintain a data analytics solution > Implement security and governance; Prepare data > Get data / Transform data,19,4,4,1,performance-review
+fb-v20-delta-018,V20-DELTA-018,video20,single,optimization,1,1.1,core,high,Maintain a data analytics solution > Implement security and governance; Prepare data > Get data / Transform data,19,4,4,1,maintenance-council
+fb-v20-delta-019,V20-DELTA-019,video20,single,optimization,1,1.1,core,high,Maintain a data analytics solution > Implement security and governance; Prepare data > Get data / Transform data,19,4,4,1,performance-review
+fb-v20-delta-020,V20-DELTA-020,video20,single,optimization,1,1.1,core,high,Maintain a data analytics solution > Implement security and governance; Prepare data > Get data / Transform data,333,4,4,1,maintenance-council
+fb-v20-delta-021,V20-DELTA-021,video20,single,optimization,1,1.1,core,high,Maintain a data analytics solution > Implement security and governance; Prepare data > Get data / Transform data,333,4,4,1,performance-review
+fb-v20-delta-022,V20-DELTA-022,video20,single,optimization,1,1.1,core,high,Maintain a data analytics solution > Implement security and governance; Prepare data > Get data / Transform data,333,4,4,1,maintenance-council
+fb-v20-delta-023,V20-DELTA-023,video20,single,optimization,1,1.1,core,high,Maintain a data analytics solution > Implement security and governance; Prepare data > Get data / Transform data,333,4,4,1,performance-review
+fb-v20-delta-024,V20-DELTA-024,video20,single,optimization,1,1.1,core,high,Maintain a data analytics solution > Implement security and governance; Prepare data > Get data / Transform data,333,4,4,1,maintenance-council
+fb-v20-delta-025,V20-DELTA-025,video20,multi,optimization,1,1.1,core,high,Maintain a data analytics solution > Implement security and governance; Prepare data > Get data / Transform data,19,4,4,2,performance-review
+fb-v20-delta-026,V20-DELTA-026,video20,single,optimization,1,1.1,core,high,Maintain a data analytics solution > Implement security and governance; Prepare data > Get data / Transform data,19,4,4,1,maintenance-council
+fb-v20-delta-027,V20-DELTA-027,video20,single,optimization,1,1.1,core,high,Maintain a data analytics solution > Implement security and governance; Prepare data > Get data / Transform data,1004,4,4,1,performance-review
+fb-v20-delta-028,V20-DELTA-028,video20,single,optimization,1,1.1,core,high,Maintain a data analytics solution > Implement security and governance; Prepare data > Get data / Transform data,333,4,4,1,maintenance-council
+fb-v20-delta-029,V20-DELTA-029,video20,single,optimization,1,1.1,core,high,Maintain a data analytics solution > Implement security and governance; Prepare data > Get data / Transform data,19,4,4,1,performance-review
+fb-v20-delta-030,V20-DELTA-030,video20,single,optimization,1,1.1,core,high,Maintain a data analytics solution > Implement security and governance; Prepare data > Get data / Transform data,453,4,4,1,maintenance-council
+fb-v20-delta-031,V20-DELTA-031,video20,single,optimization,1,1.1,core,high,Maintain a data analytics solution > Implement security and governance; Prepare data > Get data / Transform data,453,4,4,1,performance-review
+fb-v20-delta-032,V20-DELTA-032,video20,single,optimization,1,1.1,core,high,Maintain a data analytics solution > Implement security and governance; Prepare data > Get data / Transform data,19,4,4,1,maintenance-council
+fb-v20-delta-033,V20-DELTA-033,video20,single,optimization,1,1.1,core,high,Maintain a data analytics solution > Implement security and governance; Prepare data > Get data / Transform data,19,4,4,1,performance-review
+fb-v20-delta-034,V20-DELTA-034,video20,multi,optimization,1,1.1,core,high,Maintain a data analytics solution > Implement security and governance; Prepare data > Get data / Transform data,453,4,4,2,maintenance-council
+fb-v20-delta-035,V20-DELTA-035,video20,single,optimization,1,1.1,core,high,Maintain a data analytics solution > Implement security and governance; Prepare data > Get data / Transform data,1004,4,4,1,performance-review
+fb-v20-delta-036,V20-DELTA-036,video20,multi,optimization,1,1.1,core,high,Maintain a data analytics solution > Implement security and governance; Prepare data > Get data / Transform data,19,4,4,2,maintenance-council
+fb-v20-delta-037,V20-DELTA-037,video20,single,optimization,1,1.1,core,high,Maintain a data analytics solution > Implement security and governance; Prepare data > Get data / Transform data,19,4,4,1,performance-review
+fb-v20-delta-038,V20-DELTA-038,video20,single,optimization,1,1.1,core,high,Maintain a data analytics solution > Implement security and governance; Prepare data > Get data / Transform data,19,4,4,1,maintenance-council
+fb-v20-delta-039,V20-DELTA-039,video20,single,optimization,1,1.1,core,high,Maintain a data analytics solution > Implement security and governance; Prepare data > Get data / Transform data,1004,4,4,1,performance-review
+fb-v20-delta-040,V20-DELTA-040,video20,multi,optimization,1,1.1,core,high,Maintain a data analytics solution > Implement security and governance; Prepare data > Get data / Transform data,1004,4,4,2,maintenance-council
+fb-v21-cat-001,V21-CAT-001,video21,single,lakehouse,1,1.2,core,high,Maintain a data analytics solution > Maintain the analytics development lifecycle; Prepare data > Get data / Transform data,68,4,4,1,catalog-validation
+fb-v21-cat-002,V21-CAT-002,video21,single,lakehouse,1,1.2,core,high,Maintain a data analytics solution > Maintain the analytics development lifecycle; Prepare data > Get data / Transform data,68,4,4,1,migration-board
+fb-v21-cat-003,V21-CAT-003,video21,single,lakehouse,1,1.2,core,high,Maintain a data analytics solution > Maintain the analytics development lifecycle; Prepare data > Get data / Transform data,993,4,4,1,catalog-validation
+fb-v21-cat-004,V21-CAT-004,video21,multi,lakehouse,1,1.2,core,high,Maintain a data analytics solution > Maintain the analytics development lifecycle; Prepare data > Get data / Transform data,993,4,4,2,migration-board
+fb-v21-cat-005,V21-CAT-005,video21,single,lakehouse,1,1.2,core,high,Maintain a data analytics solution > Maintain the analytics development lifecycle; Prepare data > Get data / Transform data,993,4,4,1,catalog-validation
+fb-v21-cat-006,V21-CAT-006,video21,multi,lakehouse,1,1.2,core,high,Maintain a data analytics solution > Maintain the analytics development lifecycle; Prepare data > Get data / Transform data,780,4,4,2,migration-board
+fb-v21-cat-007,V21-CAT-007,video21,single,lakehouse,1,1.2,core,high,Maintain a data analytics solution > Maintain the analytics development lifecycle; Prepare data > Get data / Transform data,68,4,4,1,catalog-validation
+fb-v21-cat-008,V21-CAT-008,video21,single,lakehouse,1,1.2,core,high,Maintain a data analytics solution > Maintain the analytics development lifecycle; Prepare data > Get data / Transform data,993,4,4,1,migration-board
+fb-v21-cat-009,V21-CAT-009,video21,single,lakehouse,1,1.2,core,high,Maintain a data analytics solution > Maintain the analytics development lifecycle; Prepare data > Get data / Transform data,68,4,4,1,catalog-validation
+fb-v21-cat-010,V21-CAT-010,video21,single,lakehouse,1,1.2,core,high,Maintain a data analytics solution > Maintain the analytics development lifecycle; Prepare data > Get data / Transform data,68,4,4,1,migration-board
+fb-v21-cat-011,V21-CAT-011,video21,single,lakehouse,1,1.2,core,high,Maintain a data analytics solution > Maintain the analytics development lifecycle; Prepare data > Get data / Transform data,68,4,4,1,catalog-validation
+fb-v21-cat-012,V21-CAT-012,video21,single,lakehouse,1,1.2,core,high,Maintain a data analytics solution > Maintain the analytics development lifecycle; Prepare data > Get data / Transform data,68,4,4,1,migration-board
+fb-v21-cat-013,V21-CAT-013,video21,multi,lakehouse,1,1.2,core,high,Maintain a data analytics solution > Maintain the analytics development lifecycle; Prepare data > Get data / Transform data,993,4,4,2,catalog-validation
+fb-v21-cat-014,V21-CAT-014,video21,single,lakehouse,1,1.2,core,high,Maintain a data analytics solution > Maintain the analytics development lifecycle; Prepare data > Get data / Transform data,993,4,4,1,migration-board
+fb-v21-cat-015,V21-CAT-015,video21,single,lakehouse,1,1.2,core,high,Maintain a data analytics solution > Maintain the analytics development lifecycle; Prepare data > Get data / Transform data,993,4,4,1,catalog-validation
+fb-v21-cat-016,V21-CAT-016,video21,multi,lakehouse,1,1.2,core,high,Maintain a data analytics solution > Maintain the analytics development lifecycle; Prepare data > Get data / Transform data,780,4,4,2,migration-board
+fb-v21-cat-017,V21-CAT-017,video21,single,lakehouse,1,1.2,core,high,Maintain a data analytics solution > Maintain the analytics development lifecycle; Prepare data > Get data / Transform data,993,4,4,1,catalog-validation
+fb-v21-cat-018,V21-CAT-018,video21,single,lakehouse,1,1.2,core,high,Maintain a data analytics solution > Maintain the analytics development lifecycle; Prepare data > Get data / Transform data,68,4,4,1,migration-board
+fb-v21-cat-019,V21-CAT-019,video21,single,lakehouse,1,1.2,core,high,Maintain a data analytics solution > Maintain the analytics development lifecycle; Prepare data > Get data / Transform data,993,4,4,1,catalog-validation
+fb-v21-cat-020,V21-CAT-020,video21,single,lakehouse,1,1.2,core,high,Maintain a data analytics solution > Maintain the analytics development lifecycle; Prepare data > Get data / Transform data,68,4,4,1,migration-board
+fb-v21-cat-021,V21-CAT-021,video21,single,lakehouse,1,1.2,core,high,Maintain a data analytics solution > Maintain the analytics development lifecycle; Prepare data > Get data / Transform data,993,4,4,1,catalog-validation
+fb-v21-cat-022,V21-CAT-022,video21,single,lakehouse,1,1.2,core,high,Maintain a data analytics solution > Maintain the analytics development lifecycle; Prepare data > Get data / Transform data,993,4,4,1,migration-board
+fb-v21-cat-023,V21-CAT-023,video21,single,lakehouse,1,1.2,core,high,Maintain a data analytics solution > Maintain the analytics development lifecycle; Prepare data > Get data / Transform data,68,4,4,1,catalog-validation
+fb-v21-cat-024,V21-CAT-024,video21,single,lakehouse,1,1.2,core,high,Maintain a data analytics solution > Maintain the analytics development lifecycle; Prepare data > Get data / Transform data,68,4,4,1,migration-board
+fb-v21-cat-025,V21-CAT-025,video21,multi,lakehouse,1,1.2,core,high,Maintain a data analytics solution > Maintain the analytics development lifecycle; Prepare data > Get data / Transform data,993,4,4,2,catalog-validation
+fb-v21-cat-026,V21-CAT-026,video21,single,lakehouse,1,1.2,core,high,Maintain a data analytics solution > Maintain the analytics development lifecycle; Prepare data > Get data / Transform data,993,4,4,1,migration-board
+fb-v21-cat-027,V21-CAT-027,video21,single,lakehouse,1,1.2,core,high,Maintain a data analytics solution > Maintain the analytics development lifecycle; Prepare data > Get data / Transform data,68,4,4,1,catalog-validation
+fb-v21-cat-028,V21-CAT-028,video21,single,lakehouse,1,1.2,core,high,Maintain a data analytics solution > Maintain the analytics development lifecycle; Prepare data > Get data / Transform data,780,4,4,1,migration-board
+fb-v21-cat-029,V21-CAT-029,video21,single,lakehouse,1,1.2,core,high,Maintain a data analytics solution > Maintain the analytics development lifecycle; Prepare data > Get data / Transform data,68,4,4,1,catalog-validation
+fb-v21-cat-030,V21-CAT-030,video21,single,lakehouse,1,1.2,core,high,Maintain a data analytics solution > Maintain the analytics development lifecycle; Prepare data > Get data / Transform data,993,4,4,1,migration-board
+fb-v21-cat-031,V21-CAT-031,video21,multi,lakehouse,1,1.2,core,high,Maintain a data analytics solution > Maintain the analytics development lifecycle; Prepare data > Get data / Transform data,993,4,4,2,catalog-validation
+fb-v21-cat-032,V21-CAT-032,video21,single,lakehouse,1,1.2,core,high,Maintain a data analytics solution > Maintain the analytics development lifecycle; Prepare data > Get data / Transform data,993,4,4,1,migration-board

@@ -1,0 +1,41 @@
+KNOW THE DIFFERENCE
+Dual is not a fourth independent mode — it is a property you set on a table (usually a dimension)
+inside a composite model so the engine can satisfy a query from memory when possible and push
+down to the source when a DirectQuery fact table is involved. Setting dimensions to Dual is the
+standard fix for slow DirectQuery slicers.
+7.2 Relationships
+Property
+Options
+What to know
+Cardinality
+One-to-many, one-to-one,
+many-to-many
+One-to-many from dimension to fact is the default and the
+goal
+Cross-filter
+direction
+Single, Both
+Single is safer; Both can create ambiguity and slow queries
+Active
+One active path per pair of
+tables
+Extra paths are inactive; activate them per measure with
+USERELATIONSHIP
+Integrity
+Assume referential integrity
+Only for DirectQuery, and only when it is genuinely true
+Two date relationships (order date and ship date) to one date table:
+Sales by Ship Date =
+CALCULATE ( [Total Sales], USERELATIONSHIP ( FactSales[ShipDateKey], DimDate[DateKey] ) )
+Many-to-many situations have two solutions:
+1. A bridge table (also called a factless fact or a junction table) containing the distinct combinations, with
+one-to-many relationships from each dimension into it. This is the recommended, predictable design.
+2. A many-to-many relationship directly between two tables. Simpler to set up, but it introduces limited
+relationships and blank-member behaviour that surprises people.
+Guidance: many-to-many relationship guidance and bi-directional filtering guidance.
+COMMON EXAM TRAP
+Turning on bi-directional filtering to "make a slicer work" is the most common self-inflicted modelling
+wound: it can create ambiguous filter paths, break RLS expectations, and degrade performance. The
+exam-correct alternatives are a bridge table, CROSSFILTER  inside a specific measure, or TREATAS .
+7.3 DAX the outline names explicitly
+Variables — compute once, read twice, and make the intent obvious:

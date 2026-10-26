@@ -1,0 +1,18 @@
+{
+  "lesson_id": "dp600-c8-s04",
+  "source_sections": [
+    45
+  ],
+  "blocks": [
+    {
+      "id": "dp600-c8-s04-p045",
+      "kind": "source_fragment",
+      "source_page": 45,
+      "source_start_line": 42,
+      "source_text": "8.4 Direct Lake in depth\nDelta tables\nin OneLake\n(Parquet + V-Order)\ntranscode\nSemantic model\nin memory\ncolumns paged in\non first use\nReport visual\nDAX query\nFallback:\nDirectQuery via\nSQL endpoint\nGuardrail exceeded (rows/file size/SKU), view, or unsupported feature → automatic fallback\nDirectLakeBehavior = DirectLakeOnly blocks fallback and raises an error instead\nDirect Lake reads Delta columns straight into memory on first use. Fallback to DirectQuery happens automatically unless you\nforbid it.\nHow it works. A Direct Lake table points at Delta Parquet files in OneLake. On the first query that touches a\ncolumn, the engine transcodes that column into its in-memory VertiPaq representation and keeps it cached.\nColumns never queried are never loaded — which is why the first run of a report is slower than the rest.",
+      "presentation_status": "needs-editorial-layout-conversion",
+      "recommended_renderer": "SourceFragment"
+    }
+  ],
+  "warning": "Source fragments are NOT native formatted prose, tables or runnable code."
+}

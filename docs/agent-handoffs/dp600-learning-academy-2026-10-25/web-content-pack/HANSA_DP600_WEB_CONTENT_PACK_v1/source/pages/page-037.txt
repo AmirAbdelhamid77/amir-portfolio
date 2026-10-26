@@ -1,0 +1,29 @@
+-- T-SQL
+SELECT TOP (5) c.CategoryName, SUM(f.SalesAmount) AS Sales
+FROM dbo.FactSales f
+JOIN dbo.DimProduct c ON c.ProductKey = f.ProductKey
+JOIN dbo.DimDate d    ON d.DateKey    = f.DateKey
+WHERE d.CalendarYear = 2026
+GROUP BY c.CategoryName
+ORDER BY Sales DESC;
+// KQL
+Sales
+| where Year == 2026
+| summarize Sales = sum(SalesAmount) by CategoryName
+| top 5 by Sales desc
+// DAX
+Top5Categories2026 =
+TOPN (
+    5,
+    SUMMARIZECOLUMNS (
+        DimProduct[CategoryName],
+        TREATAS ( { 2026 }, DimDate[CalendarYear] ),
+        "Sales", [Total Sales]
+    ),
+    [Sales], DESC
+)
+6.6 Learn more
+Query a warehouse · Visual query editor
+KQL query language · Work with real-time data in an Eventhouse
+DAX function reference · CALCULATE · Use variables in DAX
+Training: Write DAX formulas · Create DAX calculations · Use DAX in semantic models

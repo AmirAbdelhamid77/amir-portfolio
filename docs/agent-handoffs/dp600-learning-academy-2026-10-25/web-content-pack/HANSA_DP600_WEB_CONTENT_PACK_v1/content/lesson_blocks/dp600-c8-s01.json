@@ -1,0 +1,18 @@
+{
+  "lesson_id": "dp600-c8-s01",
+  "source_sections": [
+    44
+  ],
+  "blocks": [
+    {
+      "id": "dp600-c8-s01-p044",
+      "kind": "source_fragment",
+      "source_page": 44,
+      "source_start_line": 8,
+      "source_text": "8.1 Find the bottleneck before you fix it\nTool\nWhat it tells you\nPerformance Analyzer in Desktop\nPer-visual DAX query time, visual display time, and \"other\" — start here\nDAX query view in Desktop\nRun and time DAX directly, compare two rewrites of the same measure\nBest Practice Analyzer (Tabular\nEditor)\nStatic rules: missing relationships, unformatted measures, unused\ncolumns\nVertiPaq Analyzer metrics\nColumn cardinality and size — shows exactly what is making the model\nbig\nQuery insights (warehouse)\nHistorical query text, duration, and frequency for the SQL side\nCapacity Metrics app\nWhether the problem is your model or a throttled capacity\nInterpreting Performance Analyzer: if DAX query dominates, fix the model or the measure. If visual display\ndominates, the visual is rendering too many data points — reduce categories, remove unnecessary visuals,\nor turn off interactions. If other dominates, it is usually visual layout and cross-filtering between many\nvisuals on the page.",
+      "presentation_status": "needs-editorial-layout-conversion",
+      "recommended_renderer": "SourceFragment"
+    }
+  ],
+  "warning": "Source fragments are NOT native formatted prose, tables or runnable code."
+}

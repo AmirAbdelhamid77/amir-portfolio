@@ -91,6 +91,8 @@ export function SectionHeading({
 const buttonVariants = {
   primary:
     "bg-primary text-primary-foreground hover:bg-primary/90 border border-transparent shadow-sm",
+  contrast:
+    "bg-foreground text-background hover:bg-foreground/90 border border-transparent shadow-sm",
   secondary:
     "border border-border-strong bg-background text-foreground hover:bg-card",
   ghost:

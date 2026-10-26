@@ -1,0 +1,57 @@
+8.5 Direct Lake on OneLake vs Direct Lake on SQL analytics endpoint
+Direct Lake on SQL analytics endpoint
+Direct Lake on OneLake
+Points at
+The lakehouse/warehouse SQL
+analytics endpoint
+Delta tables in OneLake directly
+Table sources
+The tables exposed by that one endpoint
+Tables from multiple lakehouses/warehouses,
+including via shortcuts
+DirectQuery
+fallback
+Supported — degrades instead of failing
+Not supported — no SQL endpoint to fall back to
+Security
+enforced by
+SQL endpoint permissions, T-SQL
+RLS/CLS
+OneLake security data access roles
+Metadata sync
+Depends on the endpoint's sync of new
+tables/columns
+Reads the Delta log directly
+Authoring
+Default model, or a new model over the
+endpoint
+Full model authoring in Power BI Desktop
+KNOW THE DIFFERENCE
+Pick Direct Lake on SQL analytics endpoint when you rely on T-SQL security objects or want
+automatic fallback. Pick Direct Lake on OneLake when the model must combine tables from several
+items, when you want OneLake security enforced everywhere, or when you want authoring in Desktop
+with no endpoint sync delay in the middle.
+Further reading: Direct Lake overview · develop Direct Lake models · understand Direct Lake storage ·
+Direct Lake in Power BI Desktop.
+8.6 Incremental refresh
+Semantic model partitions after applying Store rows = 5 years / Refresh rows = 10 days
+2022
+archived
+2023
+archived
+2024
+archived
+2025
+archived
+2026 months
+archived
+last 10 days
+REFRESHED
+Only the hot partition is processed each refresh — history is read once and kept
+RangeStart / RangeEnd parameters must filter a date/datetime column and fold to the source
+Incremental refresh partitions the table by date so only the recent window is reprocessed.
+Incremental refresh applies to Import tables (and to the Import part of composite models). The setup is
+always the same four steps:
+1. In Power Query, create two parameters named exactly RangeStart  and RangeEnd , both Date/Time .
+2. Filter the table's date column with them, using >= RangeStart  and < RangeEnd  so no row is counted
+twice.

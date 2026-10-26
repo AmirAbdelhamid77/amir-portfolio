@@ -1,0 +1,172 @@
+{
+  "scope": "hansa-existing-222-r11-question-enrichment-2026-10-26",
+  "previousManifest": "docs/prototype-c/INTEGRATION_MANIFEST.json",
+  "previousManifestSha256": "6ab8f9085b531e746e6f819b2248eadd5f08c3047e569eac94166ff16bffdd93",
+  "baselines": [
+    {
+      "path": "docs/dp600-r11-integration/START_BASELINE.json",
+      "sha256": "42f228184cef2e67fabd68adcea7f154cae94ccc181b7607f15f136a1b34e503"
+    },
+    {
+      "path": "docs/dp600-r11-integration/LATE_BASELINE_v2.json",
+      "sha256": "ac05e6bfa0895415d57a3696916375c9eb175050e09df3cc8c5a7c87b97ca275"
+    }
+  ],
+  "files": [
+    {
+      "path": "components/fabric/unified-bank.tsx",
+      "basis": "docs/dp600-r11-integration/START_BASELINE.json",
+      "beforeSha256": "730a2c1e34ef7334a0efeeab3ba8d53afe75f41fc55099f3288a29f836fd5639",
+      "sha256": "d6186bfe6bd09bfc9917df03252534f2687af0a3a0e6de298bf71ad215a81cf0",
+      "rollbackPath": "docs/dp600-r11-integration/before/components/fabric/unified-bank.tsx.snapshot"
+    },
+    {
+      "path": "app/lab/dp-600/explore/page.tsx",
+      "basis": "docs/dp600-r11-integration/START_BASELINE.json",
+      "beforeSha256": "cf5171ee584501b2c6fd3057724abd5d6ed8e38c95ce385e4e4a395fb1438575",
+      "sha256": "7cf5cfb3894007d868af46ac99f285fc5aa5fb730d2c4e404633edbd9491f638",
+      "rollbackPath": "docs/dp600-r11-integration/before/app/lab/dp-600/explore/page.tsx.snapshot"
+    },
+    {
+      "path": "lib/search/documents.ts",
+      "basis": "docs/dp600-r11-integration/START_BASELINE.json",
+      "beforeSha256": "6f1287de929a39a6a2479fb96ecdbc345e28143f5e05db4d240bc768eba0cf84",
+      "sha256": "f8cd1995901da68795c95cc5da5a98f5ca68c4f7ba7bd9f3bdf0a2fc510cecb3",
+      "rollbackPath": "docs/dp600-r11-integration/before/lib/search/documents.ts.snapshot"
+    },
+    {
+      "path": "components/fabric/r11-question.tsx",
+      "basis": "docs/dp600-r11-integration/START_BASELINE.json",
+      "beforeSha256": null,
+      "sha256": "44fca27ece04cb422169754fad422f32a83017f7cef1f0b20b6868d3b8b6ce79"
+    },
+    {
+      "path": "lib/fabric/r11.ts",
+      "basis": "docs/dp600-r11-integration/START_BASELINE.json",
+      "beforeSha256": null,
+      "sha256": "1fd09c60a2fb11bd4268ecbb0ecad0fc5765eb6bc2ac876749a952e644343401"
+    },
+    {
+      "path": "scripts/r11-question-receipt.mjs",
+      "basis": "docs/dp600-r11-integration/START_BASELINE.json",
+      "beforeSha256": null,
+      "sha256": "717ed4f179b04f4aa34e1a23daf74cde1159ec88861417493c62912534b0824d"
+    },
+    {
+      "path": "scripts/prototype-c-receipt.mjs",
+      "basis": "docs/dp600-r11-integration/LATE_BASELINE_v2.json",
+      "beforeSha256": "8d17095933713ff1cba2a36989ca657a5a123de4b48e1a1f31633bef87fd8232",
+      "sha256": "674226eda0d54c4c5f2e81b6497443633dbf0da43f9ac3d0a316196afa6553ac",
+      "rollbackPath": "docs/dp600-r11-integration/before-late-v2/scripts/prototype-c-receipt.mjs.snapshot"
+    },
+    {
+      "path": "scripts/verify-preservation-history.mjs",
+      "basis": "docs/dp600-r11-integration/LATE_BASELINE_v2.json",
+      "beforeSha256": "7dc3e40ed19e03788d9f8d6314bf34776278cfdc91e2de11d3ce1ee6730dcbb7",
+      "sha256": "a1599d12fddbbcfa1bc0d52d9b09c82687a5fb56680d766ae8070e7873ac3578",
+      "rollbackPath": "docs/dp600-r11-integration/before-late-v2/scripts/verify-preservation-history.mjs.snapshot"
+    },
+    {
+      "path": "tests/fabric/r11.test.mjs",
+      "basis": "docs/dp600-r11-integration/START_BASELINE.json",
+      "beforeSha256": null,
+      "sha256": "aad0ef7b0a03a7f521f41399d1dc6835ea714eabf69d5db08a29f8dc93a69cd6"
+    },
+    {
+      "path": "tests/fabric/r11-e2e.mjs",
+      "basis": "docs/dp600-r11-integration/START_BASELINE.json",
+      "beforeSha256": null,
+      "sha256": "034cb0bb91b24f2df3c8d9341e39169e7a4aee7a527d8cbac1eedfb2c22b0c60"
+    },
+    {
+      "path": "content/fabric/r11/case-studies.json",
+      "basis": "docs/dp600-r11-integration/START_BASELINE.json",
+      "beforeSha256": null,
+      "sha256": "54968ff225707febd98e0aaefe1bb80e5442b840bef4759f428b1c61e33a481a"
+    },
+    {
+      "path": "content/fabric/r11/manifest.json",
+      "basis": "docs/dp600-r11-integration/START_BASELINE.json",
+      "beforeSha256": null,
+      "sha256": "c275c349bd9adbfb7794980b1653110f643dc25e4625a34233061495d42bac0f"
+    },
+    {
+      "path": "content/fabric/r11/questions.json",
+      "basis": "docs/dp600-r11-integration/START_BASELINE.json",
+      "beforeSha256": null,
+      "sha256": "431dabb290079db95a8a86a17a3afd6028b7b488db034f07538f3dc3ca608223"
+    },
+    {
+      "path": "content/fabric/r11/search.json",
+      "basis": "docs/dp600-r11-integration/START_BASELINE.json",
+      "beforeSha256": null,
+      "sha256": "25abaaa037239ee504d5cae4b405c1f51203288e64d308c92099ef9dd886cd2b"
+    },
+    {
+      "path": "intake/dp600-r11-2026-10-26/dp600-r11-corrected-candidate.json",
+      "basis": "docs/dp600-r11-integration/START_BASELINE.json",
+      "beforeSha256": null,
+      "sha256": "b103961cd9e2f2e475f0fb6f97e439f87f2c405af85392e2081bcd138e15c6b3"
+    },
+    {
+      "path": "intake/dp600-r11-2026-10-26/dp600-r11-learner-bank.json",
+      "basis": "docs/dp600-r11-integration/START_BASELINE.json",
+      "beforeSha256": null,
+      "sha256": "6b8bef595de27e0395b9ee5c8667ac6b47dc3695130e90a7f18682969acf0059"
+    },
+    {
+      "path": "intake/dp600-r11-2026-10-26/MANIFEST.json",
+      "basis": "docs/dp600-r11-integration/START_BASELINE.json",
+      "beforeSha256": null,
+      "sha256": "3ae25234578ff6d914395f180773a1478e49842c222fe7affc8ce974acb06e27"
+    },
+    {
+      "path": "intake/dp600-r11-2026-10-26/R11_BEFORE_AFTER_LEDGER.json",
+      "basis": "docs/dp600-r11-integration/START_BASELINE.json",
+      "beforeSha256": null,
+      "sha256": "c56cf7b1b315c1ea8ca9aa09c1783895d024732a39bd5dceee1773d669e03850"
+    },
+    {
+      "path": "intake/dp600-r11-2026-10-26/R12_UNRESOLVED_QUEUE.csv",
+      "basis": "docs/dp600-r11-integration/START_BASELINE.json",
+      "beforeSha256": null,
+      "sha256": "828e4329706c95c52c1ffb9c84e5fd3ba63958767188991062f9bedb04a5875c"
+    },
+    {
+      "path": "intake/dp600-r11-2026-10-26/SCIENTIFIC_QA_REPORT.md",
+      "basis": "docs/dp600-r11-integration/START_BASELINE.json",
+      "beforeSha256": null,
+      "sha256": "d2c5666954c31096e800723ea4a9ef262ca59caf18cbe4716af40d5224b23495"
+    },
+    {
+      "path": "intake/dp600-r11-2026-10-26/source-v3.json",
+      "basis": "docs/dp600-r11-integration/START_BASELINE.json",
+      "beforeSha256": null,
+      "sha256": "a6cb15b2b6b77a317b2bd6cdac3a480ca37b709e6addce00b32964169996638c"
+    },
+    {
+      "path": "docs/dp600-r11-integration/SOURCE_MAPPING_222.json",
+      "basis": "docs/dp600-r11-integration/START_BASELINE.json",
+      "beforeSha256": null,
+      "sha256": "de37dbc8cf849973d47be085f0bf6d2f2b8a488ed41a8e7742252b636e173fee"
+    },
+    {
+      "path": "docs/dp600-r11-integration/SOURCE_AUDIT.json",
+      "basis": "docs/dp600-r11-integration/START_BASELINE.json",
+      "beforeSha256": null,
+      "sha256": "73db58f4b0ea18a8b97dfb76311f4f87e34839c9677ccbb1ac34f1e4b96339c9"
+    },
+    {
+      "path": "docs/dp600-r11-integration/CONTENT_BRIEF.yaml",
+      "basis": "docs/dp600-r11-integration/START_BASELINE.json",
+      "beforeSha256": null,
+      "sha256": "77517bfbf2802cfa51c3b20e2925e9373e54a76c816c5d59a55fbf69c69a3852"
+    },
+    {
+      "path": "scripts/verify-r11-integration.mjs",
+      "basis": "docs/dp600-r11-integration/START_BASELINE.json",
+      "beforeSha256": null,
+      "sha256": "b04a5ab24d05421a940a2143d1113aad93bfcbf171d17eac87c3539258db26dd"
+    }
+  ]
+}

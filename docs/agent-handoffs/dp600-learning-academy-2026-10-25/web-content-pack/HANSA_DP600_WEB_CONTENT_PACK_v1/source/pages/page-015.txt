@@ -1,0 +1,34 @@
+COMMON EXAM TRAP
+Build is not Read. A user with Read on a semantic model can open existing reports; a user needs
+Build to create a new report, connect from Excel, or use Analyze in Excel. "Users can see the
+published report but cannot create their own" almost always means Build is missing.
+2.4 File-level access control with OneLake security
+OneLake security applies access rules at the OneLake layer, so they are enforced no matter which engine
+reads the data — Spark, T-SQL, Direct Lake, or the OneLake API.
+You define data access roles on a lakehouse that specify which folders and tables a role can read, and
+assign Entra users or groups to those roles. Rows and columns can also be restricted at this layer, and the
+restriction follows the data into a Direct Lake semantic model.
+Get started: OneLake security
+The full evaluation logic: data access control model
+Role setup walkthrough: get started with data access roles
+KNOW THE DIFFERENCE
+OneLake security vs SQL permissions. OneLake security is enforced for every engine, including
+Spark and Direct Lake. GRANT / DENY  in the SQL analytics endpoint is enforced only for callers coming
+through that endpoint — a Spark notebook with ReadAll  bypasses it entirely. When a scenario says
+"regardless of the tool they use", the answer is OneLake security.
+2.5 Row-level security (RLS)
+RLS filters rows. Fabric has three separate implementations, and the exam will test whether you know
+which is which.
+▸ RLS in a semantic model (DAX)
+Define a role in Power BI Desktop (Modeling → Manage roles), write a DAX filter on a table, then assign
+users or groups to the role in the Fabric service.
+-- Role "Sales rep": a rep sees only their own region.
+-- Applied to the DimSalesRep table, propagating to FactSales by relationship.
+[Email] = USERPRINCIPALNAME()
+A dynamic pattern that scales to thousands of users uses a mapping table:
+[RegionKey] =
+LOOKUPVALUE(
+    UserRegion[RegionKey],
+    UserRegion[UserEmail], USERPRINCIPALNAME()
+)
+Details: row-level security with Power BI.

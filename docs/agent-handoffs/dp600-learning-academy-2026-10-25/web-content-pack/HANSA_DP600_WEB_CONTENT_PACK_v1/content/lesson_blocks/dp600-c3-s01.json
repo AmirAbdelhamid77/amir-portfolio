@@ -1,0 +1,18 @@
+{
+  "lesson_id": "dp600-c3-s01",
+  "source_sections": [
+    19
+  ],
+  "blocks": [
+    {
+      "id": "dp600-c3-s01-p019",
+      "kind": "source_fragment",
+      "source_page": 19,
+      "source_start_line": 27,
+      "source_text": "3.1 Git integration\nGit integration connects a workspace to a branch in Azure DevOps (Azure Repos) or GitHub. Items are\nserialised into folders of text files, so you get real diffs, pull requests, and history.\nHow it works in practice:\n1. A workspace Admin connects the workspace to an organisation, project, repository, branch, and folder.\n2. Commit pushes workspace changes to the branch. Update pulls branch changes into the workspace.\n3. The Source control pane shows each item as Uncommitted, Modified, or Conflict.\n4. To work on a feature in isolation, use Branch out to a new workspace: Fabric creates a branch and a\nworkspace already synced to it.",
+      "presentation_status": "needs-editorial-layout-conversion",
+      "recommended_renderer": "SourceFragment"
+    }
+  ],
+  "warning": "Source fragments are NOT native formatted prose, tables or runnable code."
+}

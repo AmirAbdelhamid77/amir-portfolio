@@ -1,0 +1,77 @@
+Chapter 7 — Implement and manage semantic models,
+part 1: design and build
+EXAM FOCUS
+Design and build semantic models — choose a storage mode · implement a star schema for a
+semantic model · implement relationships, such as bridge tables and many-to-many relationships ·
+write calculations that use DAX variables and functions, such as iterators, table filtering, windowing,
+and information functions · implement calculation groups, dynamic format strings, and field parameters
+· identify use cases for and configure large semantic model storage format · design and build
+composite models.
+7.1 Storage modes
+Import
+Data copied into
+VertiPaq memory
+Fastest queries
+Stale until refresh
+DirectQuery
+Query pushed to
+the source
+Always current
+Slower, source load
+Direct Lake
+Reads Delta files
+in OneLake directly
+Import speed +
+near-real-time
+Dual
+Import or DQ,
+chosen per query
+Flexible for
+dimension tables
+Four storage modes. Direct Lake is the Fabric-native option and the one the exam cares about most.
+Import
+DirectQuery
+Direct Lake
+Dual
+Where data sits
+at query time
+In VertiPaq
+memory
+At the source
+Delta files in OneLake, paged
+into memory
+Either
+Data freshness
+As of last
+refresh
+Live
+Near real time after framing
+Mixed
+Query speed
+Fastest
+Depends on
+source
+Close to Import
+Fastest available
+Refresh needed
+Yes, full or
+incremental
+No
+Framing only (metadata)
+Yes for the Import
+part
+All DAX
+supported
+Yes
+Limited
+Yes
+Yes
+Typical use
+Most models
+Huge or highly
+volatile sources
+Lakehouse/warehouse-based
+models
+Dimension tables in
+a composite model
+References: storage mode · Direct Lake overview.

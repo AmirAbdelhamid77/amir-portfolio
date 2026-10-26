@@ -1,0 +1,44 @@
+Appendix A — One-page decision tables
+A.1 Where should this data live?
+Signal in the question
+Answer
+"T-SQL writes", "stored procedure", "multi-table transaction"
+Warehouse
+"Files", "Spark", "unstructured", "machine learning"
+Lakehouse
+"Telemetry", "logs", "IoT", "sub-second", "time series"
+Eventhouse
+"OLTP application", "point reads", "operational"
+Fabric SQL database
+"Do not copy the data", "data stays in S3/ADLS"
+Shortcut
+"Near real time replica", "no ETL to maintain"
+Mirroring
+A.2 Which ingestion tool?
+Signal
+Answer
+"Orchestrate", "dependencies", "retry", "on failure"
+Data pipeline
+"Analyst", "low-code", "Power Query"
+Dataflow Gen2
+"Custom library", "very large scale", "complex logic"
+Notebook
+"Continuous events", "no code", "route to several destinations"
+Eventstream
+"Simple copy, batch or CDC, minimal setup"
+Copy job
+A.3 Which security control?
+Signal
+Answer
+"Whatever tool they use"
+OneLake security
+"Only through SQL"
+T-SQL GRANT / DENY , RLS, CLS
+"Different rows per user in a report"
+Semantic model RLS (DAX role)
+"The column must not appear at all"
+Object-level security
+"The exported file must stay protected"
+Sensitivity label
+"Users must find the trusted version"
+Endorsement + OneLake catalog

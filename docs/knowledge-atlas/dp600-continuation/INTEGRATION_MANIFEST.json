@@ -1,0 +1,195 @@
+{
+  "scope": "dp600-atlas-sql-kql-and-model-objectives-2026-10-26",
+  "continuationOf": "dp600-question-intake-and-atlas-expansion-2026-10-26",
+  "previousManifest": "docs/knowledge-atlas/dp600-expansion/INTEGRATION_MANIFEST.json",
+  "previousManifestSha256": "1133b82acd66562e3f1adae455c7806e20a5095a6d7a79aafc980eb954e5fce0",
+  "created": "2026-10-26",
+  "modifiedExisting": [
+    "lib/atlas/server.ts",
+    "components/atlas/explorer.tsx",
+    "scripts/dp600-expansion-receipt.mjs",
+    "scripts/build-atlas-preview.mjs",
+    "scripts/verify-preservation-history.mjs",
+    "tests/atlas/expansion-e2e.mjs"
+  ],
+  "unchangedStartingFiles": 1291,
+  "manifestExcludesSelf": true,
+  "notes": [
+    "Additive third layer. The expansion manifest and its START_BASELINE.json are byte-identical to their previous state.",
+    "Every added record stays editorialState technical_review; nothing here is human approval or published output.",
+    "Catalogue associations are metadata, never semantic graph edges.",
+    "tsconfig.tsbuildinfo is an ignored TypeScript build artifact; its before-hash is bound to the immutable preservation baseline instead of the expansion layer.",
+    "docs/knowledge-atlas/NEXT_AGENT_START_HERE.md stays untouched because the documentation-integration manifest hashes it."
+  ],
+  "files": [
+    {
+      "path": "lib/atlas/server.ts",
+      "change": "modified",
+      "beforeSha256": "905a0d3a0f9bceb0a2fbafd377eea665a84533c966d52b8edf87216bf21bcc51",
+      "sha256": "d3e9becbe2db24ed0d0926f1c03c44c08b628de8131b51b9552038ed57e49a47"
+    },
+    {
+      "path": "components/atlas/explorer.tsx",
+      "change": "modified",
+      "beforeSha256": "25717f9845f802429de63d9081e168f3814170307ed1e3af7f5320d2d044fad0",
+      "sha256": "541489d656a94de32c9f665eb155a4f91881d6c652c7f2208071648e0cdeae84"
+    },
+    {
+      "path": "scripts/dp600-expansion-receipt.mjs",
+      "change": "modified",
+      "beforeSha256": "741c7655deab5f309e2069a6f9d4bbceeea21783e1d36b3a0b085f0413ea4be3",
+      "sha256": "669e52b78c52dbfb60f12fd1998803aea8d563a7e4d8d3ff5330247dae10a3e3"
+    },
+    {
+      "path": "scripts/build-atlas-preview.mjs",
+      "change": "modified",
+      "beforeSha256": "588ea6820d5d662831d7f3ef2bca9d95803f6e259650a8c74537d1369999cf94",
+      "sha256": "56577aec6884e744a3b28ddc0577599571f84f7661f946f2a6225308a849a80d"
+    },
+    {
+      "path": "scripts/verify-preservation-history.mjs",
+      "change": "modified",
+      "beforeSha256": "63e962c565a5a70b5f9599837929eea854859ecbb93b2ecb480d8f6280baa57b",
+      "sha256": "0762f35aa79a4d0b12aa5058d9aa3d7c9ee1df2ac5693a5790cbee47b4d9959e"
+    },
+    {
+      "path": "tests/atlas/expansion-e2e.mjs",
+      "change": "modified",
+      "beforeSha256": "c58a9bb96a6ab6585250b1e3683d76012b5785b8e794bb4f75cafbfc44c8c2ca",
+      "sha256": "848499d06d838add924cb364a20487ac98b063ac024fdfdd56ce23b206e28389"
+    },
+    {
+      "path": "content/atlas/dp600-continuation.json",
+      "change": "added",
+      "beforeSha256": null,
+      "sha256": "a70a4bda6fa0a4e267e44adb64f06050f09bfb1cbd209a963284e5bb4e376411"
+    },
+    {
+      "path": "scripts/dp600-continuation-receipt.mjs",
+      "change": "added",
+      "beforeSha256": null,
+      "sha256": "0045ba778b334bc38a3676068e8ec0fd1c7eb98980f4c258f5187212de260f38"
+    },
+    {
+      "path": "scripts/verify-dp600-continuation.mjs",
+      "change": "added",
+      "beforeSha256": null,
+      "sha256": "9cc6c365d5cbf98854e73a0c6864cf19b136c1c6d5204f4c46ee95c61103bd16"
+    },
+    {
+      "path": "tests/atlas/continuation.test.mjs",
+      "change": "added",
+      "beforeSha256": null,
+      "sha256": "c532dfb9d198e08424b4d5bae2c72b46e0f64d504613ca2d6d5e7f1438518fbd"
+    },
+    {
+      "path": "tests/atlas/continuation-e2e.mjs",
+      "change": "added",
+      "beforeSha256": null,
+      "sha256": "4dd517464cb60e03c47acd13d640cb86ec02c12c6558bc397cc0a4980fb71e6f"
+    },
+    {
+      "path": "docs/knowledge-atlas/DP600_CONTINUATION_2026-10-26.md",
+      "change": "added",
+      "beforeSha256": null,
+      "sha256": "989b7e219187ab86039e2a679332413227b823d6bb13c2ec6d81d702c4014172"
+    },
+    {
+      "path": "docs/knowledge-atlas/dp600-continuation/qa/BROWSER.json",
+      "change": "added",
+      "beforeSha256": null,
+      "sha256": "adb5391718f41433508ba0e88f4936af0bc1f15502c11a9f276f2c746362275e"
+    },
+    {
+      "path": "docs/knowledge-atlas/dp600-continuation/qa/build.log",
+      "change": "added",
+      "beforeSha256": null,
+      "sha256": "fcd6bd820edd833612bc0855e26c446c322fc39b12d2883cdc4ed89b4997323b"
+    },
+    {
+      "path": "docs/knowledge-atlas/dp600-continuation/qa/browser.log",
+      "change": "added",
+      "beforeSha256": null,
+      "sha256": "bc798c2c185fde3ad59622ac39064ed6dc28c6b684a2ff57a3aa2ff1d150b221"
+    },
+    {
+      "path": "docs/knowledge-atlas/dp600-continuation/qa/atlas-1440.png",
+      "change": "added",
+      "beforeSha256": null,
+      "sha256": "396def9561d2c33080b0a5e010a9cd57493d7f51a70d7829ae80f546cd636964"
+    },
+    {
+      "path": "docs/knowledge-atlas/dp600-continuation/qa/atlas-390.png",
+      "change": "added",
+      "beforeSha256": null,
+      "sha256": "653f8fc6a4c8193092f6de1f5d1a75a8d57815d323ec70b122fae6120e58a1d0"
+    },
+    {
+      "path": "docs/knowledge-atlas/dp600-continuation/qa/atlas-security-1440.png",
+      "change": "added",
+      "beforeSha256": null,
+      "sha256": "b95a61ce8f2a9dfa8ffff8f39dcb5dd0b24d1198a17d10c732b37396bbd98b04"
+    },
+    {
+      "path": "docs/knowledge-atlas/dp600-continuation/qa/atlas-security-390.png",
+      "change": "added",
+      "beforeSha256": null,
+      "sha256": "9800c05136701d4bbc8aa4e877e1e5cb65b74ec0b3cf9b7dd30e3917401da12b"
+    },
+    {
+      "path": "docs/knowledge-atlas/dp600-continuation/qa/unit-all.log",
+      "change": "added",
+      "beforeSha256": null,
+      "sha256": "1a66e3677e7884ddf9275654c940934ebde3a294afeb7ea14c93bf8fa128d3ec"
+    },
+    {
+      "path": "docs/knowledge-atlas/dp600-continuation/qa/tsc.log",
+      "change": "added",
+      "beforeSha256": null,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "docs/knowledge-atlas/dp600-continuation/qa/lint.log",
+      "change": "added",
+      "beforeSha256": null,
+      "sha256": "c7733fde444825a5613ddc73668ccb2bac73df7992c70925b3c9af67e2ff7f10"
+    },
+    {
+      "path": "docs/knowledge-atlas/dp600-continuation/qa/continuation.log",
+      "change": "added",
+      "beforeSha256": null,
+      "sha256": "e5474db5ea596e45c315fb8eeffac6dd96194f2d1cc876f62a90518ec582bb09"
+    },
+    {
+      "path": "docs/knowledge-atlas/dp600-continuation/qa/references.log",
+      "change": "added",
+      "beforeSha256": null,
+      "sha256": "6af129c0a178aa466d37ec35d234181370e759deaa7e4d50a311bb527bd5a51a"
+    },
+    {
+      "path": "docs/knowledge-atlas/dp600-continuation/qa/easyui.log",
+      "change": "added",
+      "beforeSha256": null,
+      "sha256": "2b7ef1fbce6cfbfb164c3a0026f90a456e0a2541cf286b29dc7ac39dccb0e49d"
+    },
+    {
+      "path": "docs/knowledge-atlas/dp600-continuation/qa/implementation.log",
+      "change": "added",
+      "beforeSha256": null,
+      "sha256": "e4f4b1fd33c1bed0783c1ceb7cee242ed8e181f3fce836b0e1d81b9eb030aab6"
+    },
+    {
+      "path": "docs/knowledge-atlas/dp600-continuation/qa/history.log",
+      "change": "added",
+      "beforeSha256": null,
+      "sha256": "15de8f2857cf9c87585b20945f51207a1e15db9872545a4ae6c26d40bc58a7c6"
+    },
+    {
+      "path": "tsconfig.tsbuildinfo",
+      "change": "regenerated-build-artifact",
+      "chainBasis": "docs/knowledge-atlas/PRESERVATION_BASELINE.json",
+      "beforeSha256": "de1ae4a50a62a41739fcc8e922b01a511952ecf50b527efe8e06405f09534e5f",
+      "sha256": "71aeb4454bddc57ecf423cd833c6e805a638ff643a356e34ac215bbf4e6fa93a"
+    }
+  ]
+}

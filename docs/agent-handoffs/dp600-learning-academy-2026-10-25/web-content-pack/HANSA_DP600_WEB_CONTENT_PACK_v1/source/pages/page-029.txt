@@ -1,0 +1,45 @@
+DimDate
+DateKey (PK)
+DimProduct
+ProductKey (PK)
+DimCustomer
+CustomerKey (PK)
+DimStore
+StoreKey (PK)
+FactSales
+— — — — —
+DateKey · ProductKey
+CustomerKey · StoreKey
+Quantity · SalesAmount
+1:*
+1:*
+1:*
+1:*
+One-to-many, single-direction filters flowing from dimensions to the fact table
+One fact table surrounded by dimensions, joined by surrogate keys. Filters flow one way: dimension to fact.
+Rules worth memorising:
+Fact tables hold measurements plus foreign keys. Keep them narrow and long; store the key, not the
+description.
+Dimension tables hold descriptive attributes and one surrogate key. Keep them wide and short.
+Grain is declared first. "One row per order line per day" determines everything else.
+Surrogate keys (integer, meaningless) beat natural/business keys: they survive source system changes
+and make SCD Type 2 possible.
+Conformed dimensions (a single DimDate , a single DimCustomer ) let two fact tables be analysed side
+by side.
+A date dimension is mandatory for time intelligence. Mark it as a date table in the semantic model.
+Creating a dimension with a surrogate key in a warehouse:
+CREATE TABLE dbo.DimProduct (
+    ProductKey      INT           NOT NULL,   -- surrogate
+    ProductId       VARCHAR(20)   NOT NULL,   -- natural/business key
+    ProductName     VARCHAR(200)  NULL,
+    Category        VARCHAR(100)  NULL,
+    ListPrice       DECIMAL(10,2) NULL
+);
+-- Generate surrogate keys with a window function (Fabric Warehouse has no IDENTITY)
+INSERT INTO dbo.DimProduct
+SELECT ROW_NUMBER() OVER (ORDER BY s.ProductId) + COALESCE((SELECT MAX(ProductKey) FROM 
+dbo.DimProduct), 0),
+       s.ProductId, s.ProductName, s.Category, s.ListPrice
+FROM   stg.Product AS s
+WHERE  NOT EXISTS (SELECT 1 FROM dbo.DimProduct d WHERE d.ProductId = s.ProductId);
+The same idea in PySpark for a lakehouse:

@@ -1,0 +1,77 @@
+[
+  {
+    "name": "preservation-history",
+    "command": "rtk proxy node scripts/verify-preservation-history.mjs",
+    "status": "PASS",
+    "exitCode": 0,
+    "log": "checks/preservation-history.txt"
+  },
+  {
+    "name": "atlas",
+    "command": "rtk proxy node scripts/verify-knowledge-atlas.mjs",
+    "status": "PASS",
+    "exitCode": 0,
+    "log": "checks/atlas.txt"
+  },
+  {
+    "name": "references",
+    "command": "rtk proxy node scripts/verify-agent-reference.mjs",
+    "status": "PASS",
+    "exitCode": 0,
+    "log": "checks/references.txt"
+  },
+  {
+    "name": "easyui",
+    "command": "rtk proxy node scripts/verify-easyui-integration.mjs",
+    "status": "PASS",
+    "exitCode": 0,
+    "log": "checks/easyui.txt"
+  },
+  {
+    "name": "academy",
+    "command": "rtk proxy node --experimental-strip-types --test tests/academy/*.test.mjs",
+    "status": "PASS",
+    "exitCode": 0,
+    "log": "checks/academy.txt",
+    "summaries": [
+      "# tests 11",
+      "# pass 11",
+      "# fail 0"
+    ]
+  },
+  {
+    "name": "test-all",
+    "command": "rtk npm run test:all",
+    "status": "PASS",
+    "exitCode": 0,
+    "log": "checks/test-all.txt",
+    "summaries": [
+      "# tests 62",
+      "# pass 62",
+      "# fail 0",
+      "# tests 18",
+      "# pass 18",
+      "# fail 0",
+      "# tests 29",
+      "# pass 29",
+      "# fail 0",
+      "# tests 20",
+      "# pass 20",
+      "# fail 0"
+    ]
+  },
+  {
+    "name": "lint",
+    "command": "rtk npm run lint",
+    "status": "PASS",
+    "exitCode": 0,
+    "log": "checks/lint.txt"
+  },
+  {
+    "name": "build",
+    "command": "rtk npm run build",
+    "status": "PASS",
+    "exitCode": 0,
+    "log": "checks/build.txt"
+  }
+]

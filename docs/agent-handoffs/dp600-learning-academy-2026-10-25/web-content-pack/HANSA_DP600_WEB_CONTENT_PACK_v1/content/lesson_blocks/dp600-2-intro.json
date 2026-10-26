@@ -1,0 +1,58 @@
+{
+  "lesson_id": "dp600-2-intro",
+  "source_sections": [
+    13,
+    14,
+    15,
+    16,
+    17
+  ],
+  "blocks": [
+    {
+      "id": "dp600-2-intro-p013",
+      "kind": "source_fragment",
+      "source_page": 13,
+      "source_start_line": 1,
+      "source_text": "Chapter 2 — Maintain a data analytics solution, part 1:\nsecurity and governance\nEXAM FOCUS\nImplement security and governance — implement workspace-level access controls · implement\nitem-level access controls · implement row-level, column-level, object-level, and file-level access\ncontrol · apply sensitivity labels to items · endorse items.",
+      "presentation_status": "needs-editorial-layout-conversion",
+      "recommended_renderer": "SourceFragment"
+    },
+    {
+      "id": "dp600-2-intro-p014",
+      "kind": "source_fragment",
+      "source_page": 14,
+      "source_start_line": 1,
+      "source_text": "Capability\nAdmin\nMember\nContributor\nViewer\nDelete the workspace, change its capacity\n✔\nAdd or remove people in any role\n✔\nAdd people as Contributor or Viewer\n✔\n✔\nShare items and re-share with others\n✔\n✔\nPublish and update an app\n✔\n✔\nCreate, edit, delete items\n✔\n✔\n✔\nSchedule and run refreshes and jobs\n✔\n✔\n✔\nView and interact with items, read data through the SQL endpoint\n✔\n✔\n✔\n✔\nRead raw files through Spark / OneLake APIs\n✔\n✔\n✔\nCOMMON EXAM TRAP\nViewer does not mean \"can read all the data.\" A Viewer can query a warehouse or lakehouse\nthrough the SQL analytics endpoint and open reports, but cannot read the underlying files with Spark\nor OneLake APIs. If a scenario says \"analysts must query tables with SQL but must not read the raw\nfiles,\" Viewer plus ReadData  is the answer — not Contributor.",
+      "presentation_status": "needs-editorial-layout-conversion",
+      "recommended_renderer": "SourceFragment"
+    },
+    {
+      "id": "dp600-2-intro-p015",
+      "kind": "source_fragment",
+      "source_page": 15,
+      "source_start_line": 1,
+      "source_text": "COMMON EXAM TRAP\nBuild is not Read. A user with Read on a semantic model can open existing reports; a user needs\nBuild to create a new report, connect from Excel, or use Analyze in Excel. \"Users can see the\npublished report but cannot create their own\" almost always means Build is missing.",
+      "presentation_status": "needs-editorial-layout-conversion",
+      "recommended_renderer": "SourceFragment"
+    },
+    {
+      "id": "dp600-2-intro-p016",
+      "kind": "source_fragment",
+      "source_page": 16,
+      "source_start_line": 1,
+      "source_text": "▸ RLS in a warehouse or SQL analytics endpoint (T-SQL)\nA security predicate function plus a security policy, exactly as in SQL Server:\nCREATE SCHEMA Security;\nGO\nCREATE FUNCTION Security.fn_SalesRepPredicate(@SalesRep AS varchar(100))\n    RETURNS TABLE\n    WITH SCHEMABINDING\nAS\n    RETURN SELECT 1 AS granted\n           WHERE @SalesRep = USER_NAME()\n              OR IS_ROLEMEMBER('SalesManagers') = 1;\nGO\nCREATE SECURITY POLICY Security.SalesRepFilter\n    ADD FILTER PREDICATE Security.fn_SalesRepPredicate(SalesRep) ON dbo.FactSales\n    WITH (STATE = ON);\nDetails: row-level security in Fabric Data Warehouse.\n▸ RLS in an Eventhouse (KQL)\nKQL databases enforce row level security with a policy on the table that rewrites the query:\n.alter table Telemetry policy row_level_security enable\n\"Telemetry | where Region == current_principal_details()['UserPrincipalName']\"\nCOMMON EXAM TRAP\nSemantic-model RLS is ignored for a user who has Admin, Member, or Contributor on the workspace,\nand for anyone with Write permission on the model. Always test with View as role, and put report\nconsumers in Viewer.",
+      "presentation_status": "needs-editorial-layout-conversion",
+      "recommended_renderer": "SourceFragment"
+    },
+    {
+      "id": "dp600-2-intro-p017",
+      "kind": "source_fragment",
+      "source_page": 17,
+      "source_start_line": 1,
+      "source_text": "// TMSL fragment: hide a table from the \"Standard\" role\n{\n  \"name\": \"Standard\",\n  \"tablePermissions\": [\n    { \"name\": \"Payroll\", \"metadataPermission\": \"none\" }\n  ]\n}\nKNOW THE DIFFERENCE\nCLS hides a column's values, OLS hides the object's existence. With CLS the user still sees the\ncolumn name and gets an error or a blank; with OLS the table or column is not in the model at all for\nthat role — a visual referencing it breaks rather than showing blanks.",
+      "presentation_status": "needs-editorial-layout-conversion",
+      "recommended_renderer": "SourceFragment"
+    }
+  ],
+  "warning": "Source fragments are NOT native formatted prose, tables or runnable code."
+}

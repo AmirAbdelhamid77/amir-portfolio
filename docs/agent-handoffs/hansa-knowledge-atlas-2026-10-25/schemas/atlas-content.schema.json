@@ -1,0 +1,122 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/hansa/atlas-content.schema.json",
+  "title": "Hansa Atlas — source + canonical semantic graph contract (starter)",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schemaVersion", "datasetStatus", "scopeId", "sourceRefs", "concepts", "semanticEdges", "contentEntities", "coverage"],
+  "properties": {
+    "schemaVersion": {"type": "string", "const": "1.0.0"},
+    "datasetStatus": {"enum": ["test-fixture", "editorial-working", "public-export"]},
+    "scopeId": {"type": "string", "minLength": 3},
+    "sourceRefs": {"type": "array", "items": {"$ref": "#/$defs/source"}},
+    "concepts": {"type": "array", "items": {"$ref": "#/$defs/concept"}},
+    "semanticEdges": {"type": "array", "items": {"$ref": "#/$defs/edge"}},
+    "contentEntities": {"type": "array", "items": {"$ref": "#/$defs/content"}},
+    "coverage": {"type": "array", "items": {"$ref": "#/$defs/coverage"}}
+  },
+  "$defs": {
+    "source": {
+      "type": "object", "additionalProperties": false,
+      "required": ["id", "title", "sourceType", "verificationState"],
+      "properties": {
+        "id": {"type": "string", "pattern": "^source:[A-Za-z0-9._:-]+$"},
+        "title": {"type": "string", "minLength": 2},
+        "sourceType": {"enum": ["uploaded-guide", "official-documentation", "reviewed-transcript", "lesson", "question-bank", "other"]},
+        "version": {"type": "string"},
+        "url": {"type": "string", "format": "uri"},
+        "artifactHash": {"type": "string"},
+        "verificationState": {"enum": ["unverified", "verified"]},
+        "licenseNote": {"type": "string"}
+      }
+    },
+    "evidence": {
+      "type": "object", "additionalProperties": false,
+      "required": ["sourceId", "locator", "supportsClaim"],
+      "properties": {
+        "sourceId": {"type": "string"},
+        "locator": {"type": "string", "minLength": 1},
+        "supportsClaim": {"type": "string", "minLength": 5},
+        "checkedAt": {"type": "string", "format": "date"},
+        "supportKind": {"enum": ["direct", "inference", "disputed", "pending"]}
+      }
+    },
+    "concept": {
+      "type": "object", "additionalProperties": false,
+      "required": ["id", "title", "kind", "definition", "aliases", "subjectIds", "editorialState"],
+      "properties": {
+        "id": {"type": "string", "pattern": "^concept:[A-Za-z0-9._:-]+$"},
+        "title": {"type": "string", "minLength": 2},
+        "kind": {"enum": ["fundamental_concept", "technology_mechanism", "method", "decision_principle", "skill", "architecture_pattern"]},
+        "definition": {"type": "string", "minLength": 10},
+        "aliases": {"type": "array", "items": {"type": "string"}, "uniqueItems": true},
+        "subjectIds": {"type": "array", "items": {"type": "string"}, "uniqueItems": true},
+        "editorialState": {"enum": ["candidate", "researched", "technical_review", "approved", "published", "rejected", "withdrawn"]},
+        "sourceRefs": {"type": "array", "items": {"$ref": "#/$defs/evidence"}},
+        "redirectAliases": {"type": "array", "items": {"type": "string"}}
+      }
+    },
+    "edge": {
+      "type": "object", "additionalProperties": false,
+      "required": ["id", "from", "to", "relationType", "direction", "claim", "rationale", "conditions", "evidenceRefs", "editorialState"],
+      "properties": {
+        "id": {"type": "string", "pattern": "^edge:[A-Za-z0-9._:-]+$"},
+        "from": {"type": "string", "pattern": "^concept:"},
+        "to": {"type": "string", "pattern": "^concept:"},
+        "relationType": {"enum": ["requires_understanding_of", "enables", "contrasts_with", "tradeoff_with", "complements", "related_in_decision", "part_of_mechanism"]},
+        "direction": {"enum": ["directed", "symmetric"]},
+        "claim": {"type": "string", "minLength": 10},
+        "rationale": {"type": "string", "minLength": 10},
+        "conditions": {"type": "string"},
+        "counterexamples": {"type": "string"},
+        "evidenceRefs": {"type": "array", "items": {"$ref": "#/$defs/evidence"}},
+        "editorialState": {"enum": ["candidate", "researched", "technical_review", "approved", "published", "rejected", "withdrawn"]},
+        "reviewer": {"type": "string"},
+        "validatedAt": {"type": "string", "format": "date"},
+        "revisionNote": {"type": "string"}
+      },
+      "allOf": [{
+        "if": {"properties": {"editorialState": {"const": "published"}}, "required": ["editorialState"]},
+        "then": {
+          "required": ["reviewer", "validatedAt"],
+          "properties": {
+            "rationale": {"minLength": 30},
+            "evidenceRefs": {"minItems": 1},
+            "reviewer": {"minLength": 2}
+          }
+        }
+      }]
+    },
+    "content": {
+      "type": "object", "additionalProperties": false,
+      "required": ["id", "kind", "title", "sourceId", "editorialState", "conceptIds"],
+      "properties": {
+        "id": {"type": "string", "pattern": "^content:[A-Za-z0-9._:-]+$"},
+        "kind": {"enum": ["book", "chapter", "section", "lesson", "lab", "question", "question-bank", "project", "article"]},
+        "title": {"type": "string", "minLength": 1},
+        "sourceId": {"type": "string"},
+        "editorialState": {"enum": ["unverified", "reviewed", "published", "archived"]},
+        "parentId": {"type": "string"},
+        "tocOrder": {"type": "integer", "minimum": 0},
+        "pageRange": {"type": "string"},
+        "route": {"type": "string", "pattern": "^/"},
+        "externalUrl": {"type": "string", "format": "uri"},
+        "legacyId": {"type": "string"},
+        "conceptIds": {"type": "array", "items": {"type": "string", "pattern": "^concept:"}, "uniqueItems": true}
+      }
+    },
+    "coverage": {
+      "type": "object", "additionalProperties": false,
+      "required": ["sourceId", "contentId", "extractionStatus", "mappingStatus", "scientificReviewStatus", "publishStatus"],
+      "properties": {
+        "sourceId": {"type": "string"},
+        "contentId": {"type": "string"},
+        "extractionStatus": {"enum": ["not-started", "partial", "extracted", "needs-recheck"]},
+        "mappingStatus": {"enum": ["not-started", "candidate", "reviewed"]},
+        "scientificReviewStatus": {"enum": ["not-started", "blocked", "approved", "rejected"]},
+        "publishStatus": {"enum": ["not-published", "published"]},
+        "notes": {"type": "string"}
+      }
+    }
+  }
+}

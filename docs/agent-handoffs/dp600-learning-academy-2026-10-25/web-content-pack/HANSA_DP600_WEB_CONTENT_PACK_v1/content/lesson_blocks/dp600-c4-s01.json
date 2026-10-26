@@ -1,0 +1,18 @@
+{
+  "lesson_id": "dp600-c4-s01",
+  "source_sections": [
+    24
+  ],
+  "blocks": [
+    {
+      "id": "dp600-c4-s01-p024",
+      "kind": "source_fragment",
+      "source_page": 24,
+      "source_start_line": 6,
+      "source_text": "4.1 Connections and gateways\nA connection stores where a source is and how to authenticate to it. It is created once and reused by\npipelines, dataflows, and semantic models. Manage them under Settings → Manage connections and\ngateways.\nSource location\nWhat you need\nCloud SaaS or PaaS reachable from the\ninternet\nA cloud connection — no gateway\nOn-premises server, or a private network\nAn on-premises data gateway installed on a machine that can reach\nthe source\nAzure resource locked to a virtual network\nA VNet data gateway (managed, no VM to patch)\nMany users sharing one credential\nA shareable cloud connection owned by a service account\nAuthentication choices you should recognise: organisational account (Microsoft Entra), service principal,\naccount key, SAS, workspace identity, and basic. Prefer service principals or workspace identity for\nunattended jobs, so a pipeline does not break when a person leaves.\nTIP\nPrivacy levels still matter in Power Query. If two sources have incompatible privacy levels, Power\nQuery refuses to fold the query and may run it in a slower, memory-heavy way — or fail outright. See\nconnector overview.",
+      "presentation_status": "needs-editorial-layout-conversion",
+      "recommended_renderer": "SourceFragment"
+    }
+  ],
+  "warning": "Source fragments are NOT native formatted prose, tables or runnable code."
+}

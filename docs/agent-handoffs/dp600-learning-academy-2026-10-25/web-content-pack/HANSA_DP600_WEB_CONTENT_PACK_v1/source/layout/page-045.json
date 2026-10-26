@@ -1,0 +1,2031 @@
+{
+  "page": 45,
+  "width": 594.9599609375,
+  "height": 841.9199829101562,
+  "blocks": [
+    {
+      "bbox": [
+        44.25,
+        45.8,
+        233.44,
+        60.55
+      ],
+      "lines": [
+        {
+          "bbox": [
+            44.25,
+            45.8,
+            233.44,
+            60.55
+          ],
+          "spans": [
+            {
+              "text": "8.3 DAX performance patterns",
+              "bbox": [
+                44.25,
+                45.8,
+                233.44,
+                60.55
+              ],
+              "font": "LiberationSans-Bold",
+              "size": 13.2,
+              "flags": 16,
+              "color": 949350
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "bbox": [
+        51.75,
+        81.4,
+        381.6,
+        92.01
+      ],
+      "lines": [
+        {
+          "bbox": [
+            51.75,
+            81.4,
+            96.58,
+            92.01
+          ],
+          "spans": [
+            {
+              "text": "Instead of",
+              "bbox": [
+                51.75,
+                81.4,
+                96.58,
+                92.01
+              ],
+              "font": "LiberationSans-Bold",
+              "size": 9.49,
+              "flags": 16,
+              "color": 16777215
+            }
+          ]
+        },
+        {
+          "bbox": [
+            240.63,
+            81.4,
+            264.19,
+            92.01
+          ],
+          "spans": [
+            {
+              "text": "Write",
+              "bbox": [
+                240.63,
+                81.4,
+                264.19,
+                92.01
+              ],
+              "font": "LiberationSans-Bold",
+              "size": 9.49,
+              "flags": 16,
+              "color": 16777215
+            }
+          ]
+        },
+        {
+          "bbox": [
+            361.56,
+            81.4,
+            381.6,
+            92.01
+          ],
+          "spans": [
+            {
+              "text": "Why",
+              "bbox": [
+                361.56,
+                81.4,
+                381.6,
+                92.01
+              ],
+              "font": "LiberationSans-Bold",
+              "size": 9.49,
+              "flags": 16,
+              "color": 16777215
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "bbox": [
+        55.5,
+        108.38,
+        152.7,
+        118.58
+      ],
+      "lines": [
+        {
+          "bbox": [
+            55.5,
+            108.38,
+            152.7,
+            118.58
+          ],
+          "spans": [
+            {
+              "text": "CALCULATE([Sales],",
+              "bbox": [
+                55.5,
+                108.38,
+                152.7,
+                118.58
+              ],
+              "font": "LiberationMono",
+              "size": 9.0,
+              "flags": 8,
+              "color": 1122867
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "bbox": [
+        51.75,
+        124.13,
+        143.55,
+        134.33
+      ],
+      "lines": [
+        {
+          "bbox": [
+            51.75,
+            124.13,
+            143.55,
+            134.33
+          ],
+          "spans": [
+            {
+              "text": "FILTER(FactSales,",
+              "bbox": [
+                51.75,
+                124.13,
+                143.55,
+                134.33
+              ],
+              "font": "LiberationMono",
+              "size": 9.0,
+              "flags": 8,
+              "color": 1122867
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "bbox": [
+        51.75,
+        139.88,
+        159.75,
+        150.08
+      ],
+      "lines": [
+        {
+          "bbox": [
+            51.75,
+            139.88,
+            159.75,
+            150.08
+          ],
+          "spans": [
+            {
+              "text": "FactSales[Amt]>100))",
+              "bbox": [
+                51.75,
+                139.88,
+                159.75,
+                150.08
+              ],
+              "font": "LiberationMono",
+              "size": 9.0,
+              "flags": 8,
+              "color": 1122867
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "bbox": [
+        244.38,
+        108.38,
+        341.58,
+        118.58
+      ],
+      "lines": [
+        {
+          "bbox": [
+            244.38,
+            108.38,
+            341.58,
+            118.58
+          ],
+          "spans": [
+            {
+              "text": "CALCULATE([Sales],",
+              "bbox": [
+                244.38,
+                108.38,
+                341.58,
+                118.58
+              ],
+              "font": "LiberationMono",
+              "size": 9.0,
+              "flags": 8,
+              "color": 1122867
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "bbox": [
+        240.63,
+        124.13,
+        343.23,
+        134.33
+      ],
+      "lines": [
+        {
+          "bbox": [
+            240.63,
+            124.13,
+            343.23,
+            134.33
+          ],
+          "spans": [
+            {
+              "text": "FactSales[Amt]>100)",
+              "bbox": [
+                240.63,
+                124.13,
+                343.23,
+                134.33
+              ],
+              "font": "LiberationMono",
+              "size": 9.0,
+              "flags": 8,
+              "color": 1122867
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "bbox": [
+        361.56,
+        106.9,
+        505.08,
+        117.51
+      ],
+      "lines": [
+        {
+          "bbox": [
+            361.56,
+            106.9,
+            505.08,
+            117.51
+          ],
+          "spans": [
+            {
+              "text": "A table filter over a large fact table",
+              "bbox": [
+                361.56,
+                106.9,
+                505.08,
+                117.51
+              ],
+              "font": "LiberationSans",
+              "size": 9.49,
+              "flags": 0,
+              "color": 1776415
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "bbox": [
+        361.56,
+        122.65,
+        505.06,
+        133.26
+      ],
+      "lines": [
+        {
+          "bbox": [
+            361.56,
+            122.65,
+            505.06,
+            133.26
+          ],
+          "spans": [
+            {
+              "text": "materialises it; a column predicate",
+              "bbox": [
+                361.56,
+                122.65,
+                505.06,
+                133.26
+              ],
+              "font": "LiberationSans",
+              "size": 9.49,
+              "flags": 0,
+              "color": 1776415
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "bbox": [
+        361.56,
+        137.65,
+        469.02,
+        148.26
+      ],
+      "lines": [
+        {
+          "bbox": [
+            361.56,
+            137.65,
+            469.02,
+            148.26
+          ],
+          "spans": [
+            {
+              "text": "becomes an efficient filter",
+              "bbox": [
+                361.56,
+                137.65,
+                469.02,
+                148.26
+              ],
+              "font": "LiberationSans",
+              "size": 9.49,
+              "flags": 0,
+              "color": 1776415
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "bbox": [
+        55.5,
+        166.13,
+        325.38,
+        176.33
+      ],
+      "lines": [
+        {
+          "bbox": [
+            55.5,
+            166.13,
+            141.9,
+            176.33
+          ],
+          "spans": [
+            {
+              "text": "[Sales] / [Cost]",
+              "bbox": [
+                55.5,
+                166.13,
+                141.9,
+                176.33
+              ],
+              "font": "LiberationMono",
+              "size": 9.0,
+              "flags": 8,
+              "color": 1122867
+            }
+          ]
+        },
+        {
+          "bbox": [
+            244.38,
+            166.13,
+            325.38,
+            176.33
+          ],
+          "spans": [
+            {
+              "text": "DIVIDE([Sales],",
+              "bbox": [
+                244.38,
+                166.13,
+                325.38,
+                176.33
+              ],
+              "font": "LiberationMono",
+              "size": 9.0,
+              "flags": 8,
+              "color": 1122867
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "bbox": [
+        240.63,
+        181.88,
+        278.43,
+        192.08
+      ],
+      "lines": [
+        {
+          "bbox": [
+            240.63,
+            181.88,
+            278.43,
+            192.08
+          ],
+          "spans": [
+            {
+              "text": "[Cost])",
+              "bbox": [
+                240.63,
+                181.88,
+                278.43,
+                192.08
+              ],
+              "font": "LiberationMono",
+              "size": 9.0,
+              "flags": 8,
+              "color": 1122867
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "bbox": [
+        361.56,
+        164.65,
+        521.44,
+        175.26
+      ],
+      "lines": [
+        {
+          "bbox": [
+            361.56,
+            164.65,
+            521.44,
+            175.26
+          ],
+          "spans": [
+            {
+              "text": "Handles blank and zero denominators",
+              "bbox": [
+                361.56,
+                164.65,
+                521.44,
+                175.26
+              ],
+              "font": "LiberationSans",
+              "size": 9.49,
+              "flags": 0,
+              "color": 1776415
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "bbox": [
+        361.56,
+        180.4,
+        459.17,
+        191.01
+      ],
+      "lines": [
+        {
+          "bbox": [
+            361.56,
+            180.4,
+            459.17,
+            191.01
+          ],
+          "spans": [
+            {
+              "text": "without an error branch",
+              "bbox": [
+                361.56,
+                180.4,
+                459.17,
+                191.01
+              ],
+              "font": "LiberationSans",
+              "size": 9.49,
+              "flags": 0,
+              "color": 1776415
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "bbox": [
+        51.75,
+        206.65,
+        538.87,
+        218.33
+      ],
+      "lines": [
+        {
+          "bbox": [
+            51.75,
+            206.65,
+            219.54,
+            217.26
+          ],
+          "spans": [
+            {
+              "text": "Repeating a sub-expression three times",
+              "bbox": [
+                51.75,
+                206.65,
+                219.54,
+                217.26
+              ],
+              "font": "LiberationSans",
+              "size": 9.49,
+              "flags": 0,
+              "color": 1776415
+            }
+          ]
+        },
+        {
+          "bbox": [
+            244.38,
+            206.65,
+            294.94,
+            218.33
+          ],
+          "spans": [
+            {
+              "text": "VAR",
+              "bbox": [
+                244.38,
+                208.13,
+                260.58,
+                218.33
+              ],
+              "font": "LiberationMono",
+              "size": 9.0,
+              "flags": 8,
+              "color": 1122867
+            },
+            {
+              "text": "  it once",
+              "bbox": [
+                260.58,
+                206.65,
+                294.94,
+                217.64
+              ],
+              "font": "LiberationSans",
+              "size": 9.49,
+              "flags": 0,
+              "color": 1776415
+            }
+          ]
+        },
+        {
+          "bbox": [
+            361.56,
+            206.65,
+            538.87,
+            217.26
+          ],
+          "spans": [
+            {
+              "text": "Evaluated once, and the intent is readable",
+              "bbox": [
+                361.56,
+                206.65,
+                538.87,
+                217.26
+              ],
+              "font": "LiberationSans",
+              "size": 9.49,
+              "flags": 0,
+              "color": 1776415
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "bbox": [
+        55.5,
+        233.63,
+        136.5,
+        243.83
+      ],
+      "lines": [
+        {
+          "bbox": [
+            55.5,
+            233.63,
+            136.5,
+            243.83
+          ],
+          "spans": [
+            {
+              "text": "SUMX(FactSales,",
+              "bbox": [
+                55.5,
+                233.63,
+                136.5,
+                243.83
+              ],
+              "font": "LiberationMono",
+              "size": 9.0,
+              "flags": 8,
+              "color": 1122867
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "bbox": [
+        51.75,
+        250.13,
+        202.95,
+        260.33
+      ],
+      "lines": [
+        {
+          "bbox": [
+            51.75,
+            250.13,
+            202.95,
+            260.33
+          ],
+          "spans": [
+            {
+              "text": "RELATED(DimProduct[Price]) *",
+              "bbox": [
+                51.75,
+                250.13,
+                202.95,
+                260.33
+              ],
+              "font": "LiberationMono",
+              "size": 9.0,
+              "flags": 8,
+              "color": 1122867
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "bbox": [
+        51.75,
+        264.78,
+        198.78,
+        276.08
+      ],
+      "lines": [
+        {
+          "bbox": [
+            51.75,
+            264.78,
+            198.78,
+            276.08
+          ],
+          "spans": [
+            {
+              "text": "FactSales[Qty])",
+              "bbox": [
+                51.75,
+                265.88,
+                132.75,
+                276.08
+              ],
+              "font": "LiberationMono",
+              "size": 9.0,
+              "flags": 8,
+              "color": 1122867
+            },
+            {
+              "text": "  on 500M rows",
+              "bbox": [
+                132.75,
+                264.78,
+                198.78,
+                275.76
+              ],
+              "font": "LiberationSans",
+              "size": 9.49,
+              "flags": 0,
+              "color": 1776415
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "bbox": [
+        240.63,
+        232.9,
+        338.77,
+        243.51
+      ],
+      "lines": [
+        {
+          "bbox": [
+            240.63,
+            232.9,
+            338.77,
+            243.51
+          ],
+          "spans": [
+            {
+              "text": "Materialise the price on",
+              "bbox": [
+                240.63,
+                232.9,
+                338.77,
+                243.51
+              ],
+              "font": "LiberationSans",
+              "size": 9.49,
+              "flags": 0,
+              "color": 1776415
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "bbox": [
+        240.63,
+        247.9,
+        323.47,
+        258.51
+      ],
+      "lines": [
+        {
+          "bbox": [
+            240.63,
+            247.9,
+            323.47,
+            258.51
+          ],
+          "spans": [
+            {
+              "text": "the fact at load time",
+              "bbox": [
+                240.63,
+                247.9,
+                323.47,
+                258.51
+              ],
+              "font": "LiberationSans",
+              "size": 9.49,
+              "flags": 0,
+              "color": 1776415
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "bbox": [
+        361.56,
+        232.9,
+        540.96,
+        243.51
+      ],
+      "lines": [
+        {
+          "bbox": [
+            361.56,
+            232.9,
+            540.96,
+            243.51
+          ],
+          "spans": [
+            {
+              "text": "Storage-engine work beats formula-engine",
+              "bbox": [
+                361.56,
+                232.9,
+                540.96,
+                243.51
+              ],
+              "font": "LiberationSans",
+              "size": 9.49,
+              "flags": 0,
+              "color": 1776415
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "bbox": [
+        361.56,
+        247.9,
+        381.6,
+        258.51
+      ],
+      "lines": [
+        {
+          "bbox": [
+            361.56,
+            247.9,
+            381.6,
+            258.51
+          ],
+          "spans": [
+            {
+              "text": "work",
+              "bbox": [
+                361.56,
+                247.9,
+                381.6,
+                258.51
+              ],
+              "font": "LiberationSans",
+              "size": 9.49,
+              "flags": 0,
+              "color": 1776415
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "bbox": [
+        55.5,
+        291.38,
+        185.1,
+        301.58
+      ],
+      "lines": [
+        {
+          "bbox": [
+            55.5,
+            291.38,
+            185.1,
+            301.58
+          ],
+          "spans": [
+            {
+              "text": "IF(ISBLANK([M]), 0, [M])",
+              "bbox": [
+                55.5,
+                291.38,
+                185.1,
+                301.58
+              ],
+              "font": "LiberationMono",
+              "size": 9.0,
+              "flags": 8,
+              "color": 1122867
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "bbox": [
+        51.75,
+        306.4,
+        100.81,
+        317.01
+      ],
+      "lines": [
+        {
+          "bbox": [
+            51.75,
+            306.4,
+            100.81,
+            317.01
+          ],
+          "spans": [
+            {
+              "text": "everywhere",
+              "bbox": [
+                51.75,
+                306.4,
+                100.81,
+                317.01
+              ],
+              "font": "LiberationSans",
+              "size": 9.49,
+              "flags": 0,
+              "color": 1776415
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "bbox": [
+        240.63,
+        290.65,
+        525.65,
+        301.26
+      ],
+      "lines": [
+        {
+          "bbox": [
+            240.63,
+            290.65,
+            321.9,
+            301.26
+          ],
+          "spans": [
+            {
+              "text": "Leave blanks blank",
+              "bbox": [
+                240.63,
+                290.65,
+                321.9,
+                301.26
+              ],
+              "font": "LiberationSans",
+              "size": 9.49,
+              "flags": 0,
+              "color": 1776415
+            }
+          ]
+        },
+        {
+          "bbox": [
+            361.56,
+            290.65,
+            525.65,
+            301.26
+          ],
+          "spans": [
+            {
+              "text": "Blanks let the engine skip rows; forcing",
+              "bbox": [
+                361.56,
+                290.65,
+                525.65,
+                301.26
+              ],
+              "font": "LiberationSans",
+              "size": 9.49,
+              "flags": 0,
+              "color": 1776415
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "bbox": [
+        361.56,
+        305.65,
+        471.3,
+        316.26
+      ],
+      "lines": [
+        {
+          "bbox": [
+            361.56,
+            305.65,
+            471.3,
+            316.26
+          ],
+          "spans": [
+            {
+              "text": "zeros explodes result sets",
+              "bbox": [
+                361.56,
+                305.65,
+                471.3,
+                316.26
+              ],
+              "font": "LiberationSans",
+              "size": 9.49,
+              "flags": 0,
+              "color": 1776415
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "bbox": [
+        55.5,
+        331.53,
+        346.98,
+        342.83
+      ],
+      "lines": [
+        {
+          "bbox": [
+            55.5,
+            331.53,
+            210.26,
+            342.83
+          ],
+          "spans": [
+            {
+              "text": "ALL()",
+              "bbox": [
+                55.5,
+                332.63,
+                82.5,
+                342.83
+              ],
+              "font": "LiberationMono",
+              "size": 9.0,
+              "flags": 8,
+              "color": 1122867
+            },
+            {
+              "text": "  when you meant one column",
+              "bbox": [
+                82.5,
+                331.53,
+                210.26,
+                342.51
+              ],
+              "font": "LiberationSans",
+              "size": 9.49,
+              "flags": 0,
+              "color": 1776415
+            }
+          ]
+        },
+        {
+          "bbox": [
+            244.38,
+            332.63,
+            346.98,
+            342.83
+          ],
+          "spans": [
+            {
+              "text": "REMOVEFILTERS(Table",
+              "bbox": [
+                244.38,
+                332.63,
+                346.98,
+                342.83
+              ],
+              "font": "LiberationMono",
+              "size": 9.0,
+              "flags": 8,
+              "color": 1122867
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "bbox": [
+        240.63,
+        349.13,
+        273.03,
+        359.33
+      ],
+      "lines": [
+        {
+          "bbox": [
+            240.63,
+            349.13,
+            273.03,
+            359.33
+          ],
+          "spans": [
+            {
+              "text": "[Col])",
+              "bbox": [
+                240.63,
+                349.13,
+                273.03,
+                359.33
+              ],
+              "font": "LiberationMono",
+              "size": 9.0,
+              "flags": 8,
+              "color": 1122867
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "bbox": [
+        361.56,
+        331.9,
+        525.1,
+        342.51
+      ],
+      "lines": [
+        {
+          "bbox": [
+            361.56,
+            331.9,
+            525.1,
+            342.51
+          ],
+          "spans": [
+            {
+              "text": "Removing every filter is rarely what the",
+              "bbox": [
+                361.56,
+                331.9,
+                525.1,
+                342.51
+              ],
+              "font": "LiberationSans",
+              "size": 9.49,
+              "flags": 0,
+              "color": 1776415
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "bbox": [
+        361.56,
+        346.9,
+        428.04,
+        357.51
+      ],
+      "lines": [
+        {
+          "bbox": [
+            361.56,
+            346.9,
+            428.04,
+            357.51
+          ],
+          "spans": [
+            {
+              "text": "business meant",
+              "bbox": [
+                361.56,
+                346.9,
+                428.04,
+                357.51
+              ],
+              "font": "LiberationSans",
+              "size": 9.49,
+              "flags": 0,
+              "color": 1776415
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "bbox": [
+        57.75,
+        388.54,
+        140.51,
+        399.6
+      ],
+      "lines": [
+        {
+          "bbox": [
+            57.75,
+            388.54,
+            140.51,
+            399.6
+          ],
+          "spans": [
+            {
+              "text": "KEY TAKEAWAY",
+              "bbox": [
+                57.75,
+                388.54,
+                140.51,
+                399.6
+              ],
+              "font": "LiberationSans-Bold",
+              "size": 9.9,
+              "flags": 16,
+              "color": 7028640
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "bbox": [
+        57.75,
+        405.91,
+        501.18,
+        417.75
+      ],
+      "lines": [
+        {
+          "bbox": [
+            57.75,
+            405.91,
+            501.18,
+            417.75
+          ],
+          "spans": [
+            {
+              "text": "The formula engine is single-threaded; the storage engine is multi-threaded and cached. Every",
+              "bbox": [
+                57.75,
+                405.91,
+                501.18,
+                417.75
+              ],
+              "font": "LiberationSans",
+              "size": 10.6,
+              "flags": 0,
+              "color": 1776415
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "bbox": [
+        57.75,
+        423.16,
+        523.95,
+        435.0
+      ],
+      "lines": [
+        {
+          "bbox": [
+            57.75,
+            423.16,
+            523.95,
+            435.0
+          ],
+          "spans": [
+            {
+              "text": "optimisation is the same idea in different clothes: push work into the storage engine, and give it less",
+              "bbox": [
+                57.75,
+                423.16,
+                523.95,
+                435.0
+              ],
+              "font": "LiberationSans",
+              "size": 10.6,
+              "flags": 0,
+              "color": 1776415
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "bbox": [
+        57.75,
+        440.41,
+        121.95,
+        452.25
+      ],
+      "lines": [
+        {
+          "bbox": [
+            57.75,
+            440.41,
+            121.95,
+            452.25
+          ],
+          "spans": [
+            {
+              "text": "data to touch.",
+              "bbox": [
+                57.75,
+                440.41,
+                121.95,
+                452.25
+              ],
+              "font": "LiberationSans",
+              "size": 10.6,
+              "flags": 0,
+              "color": 1776415
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "bbox": [
+        44.25,
+        486.05,
+        192.38,
+        500.8
+      ],
+      "lines": [
+        {
+          "bbox": [
+            44.25,
+            486.05,
+            192.38,
+            500.8
+          ],
+          "spans": [
+            {
+              "text": "8.4 Direct Lake in depth",
+              "bbox": [
+                44.25,
+                486.05,
+                192.38,
+                500.8
+              ],
+              "font": "LiberationSans-Bold",
+              "size": 13.2,
+              "flags": 16,
+              "color": 949350
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "bbox": [
+        89.11,
+        567.05,
+        126.13,
+        575.86
+      ],
+      "lines": [
+        {
+          "bbox": [
+            89.11,
+            567.05,
+            126.13,
+            575.86
+          ],
+          "spans": [
+            {
+              "text": "Delta tables",
+              "bbox": [
+                89.11,
+                567.05,
+                126.13,
+                575.86
+              ],
+              "font": "WenQuanYiZenHei",
+              "size": 7.0,
+              "flags": 4,
+              "color": 1184282
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "bbox": [
+        78.27,
+        575.85,
+        136.96,
+        593.41
+      ],
+      "lines": [
+        {
+          "bbox": [
+            90.5,
+            575.85,
+            124.73,
+            584.66
+          ],
+          "spans": [
+            {
+              "text": "in OneLake",
+              "bbox": [
+                90.5,
+                575.85,
+                124.73,
+                584.66
+              ],
+              "font": "WenQuanYiZenHei",
+              "size": 7.0,
+              "flags": 4,
+              "color": 1184282
+            }
+          ]
+        },
+        {
+          "bbox": [
+            78.27,
+            584.59,
+            136.96,
+            593.41
+          ],
+          "spans": [
+            {
+              "text": "(Parquet + V-Order)",
+              "bbox": [
+                78.27,
+                584.59,
+                136.96,
+                593.41
+              ],
+              "font": "WenQuanYiZenHei",
+              "size": 7.0,
+              "flags": 4,
+              "color": 1184282
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "bbox": [
+        161.41,
+        570.66,
+        185.94,
+        577.8
+      ],
+      "lines": [
+        {
+          "bbox": [
+            161.41,
+            570.66,
+            185.94,
+            577.8
+          ],
+          "spans": [
+            {
+              "text": "transcode",
+              "bbox": [
+                161.41,
+                570.66,
+                185.94,
+                577.8
+              ],
+              "font": "WenQuanYiZenHei",
+              "size": 5.67,
+              "flags": 4,
+              "color": 949350
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "bbox": [
+        221.64,
+        562.71,
+        271.1,
+        571.53
+      ],
+      "lines": [
+        {
+          "bbox": [
+            221.64,
+            562.71,
+            271.1,
+            571.53
+          ],
+          "spans": [
+            {
+              "text": "Semantic model",
+              "bbox": [
+                221.64,
+                562.71,
+                271.1,
+                571.53
+              ],
+              "font": "WenQuanYiZenHei",
+              "size": 7.0,
+              "flags": 4,
+              "color": 1184282
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "bbox": [
+        219.4,
+        571.44,
+        273.34,
+        589.0
+      ],
+      "lines": [
+        {
+          "bbox": [
+            230.51,
+            571.44,
+            262.23,
+            580.26
+          ],
+          "spans": [
+            {
+              "text": "in memory",
+              "bbox": [
+                230.51,
+                571.44,
+                262.23,
+                580.26
+              ],
+              "font": "WenQuanYiZenHei",
+              "size": 7.0,
+              "flags": 4,
+              "color": 1184282
+            }
+          ]
+        },
+        {
+          "bbox": [
+            219.4,
+            580.18,
+            273.34,
+            589.0
+          ],
+          "spans": [
+            {
+              "text": "columns paged in",
+              "bbox": [
+                219.4,
+                580.18,
+                273.34,
+                589.0
+              ],
+              "font": "WenQuanYiZenHei",
+              "size": 7.0,
+              "flags": 4,
+              "color": 1184282
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "bbox": [
+        228.98,
+        588.98,
+        263.77,
+        597.8
+      ],
+      "lines": [
+        {
+          "bbox": [
+            228.98,
+            588.98,
+            263.77,
+            597.8
+          ],
+          "spans": [
+            {
+              "text": "on first use",
+              "bbox": [
+                228.98,
+                588.98,
+                263.77,
+                597.8
+              ],
+              "font": "WenQuanYiZenHei",
+              "size": 7.0,
+              "flags": 4,
+              "color": 1184282
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "bbox": [
+        365.22,
+        571.44,
+        405.03,
+        580.26
+      ],
+      "lines": [
+        {
+          "bbox": [
+            365.22,
+            571.44,
+            405.03,
+            580.26
+          ],
+          "spans": [
+            {
+              "text": "Report visual",
+              "bbox": [
+                365.22,
+                571.44,
+                405.03,
+                580.26
+              ],
+              "font": "WenQuanYiZenHei",
+              "size": 7.0,
+              "flags": 4,
+              "color": 1184282
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "bbox": [
+        369.68,
+        580.18,
+        400.57,
+        589.0
+      ],
+      "lines": [
+        {
+          "bbox": [
+            369.68,
+            580.18,
+            400.57,
+            589.0
+          ],
+          "spans": [
+            {
+              "text": "DAX query",
+              "bbox": [
+                369.68,
+                580.18,
+                400.57,
+                589.0
+              ],
+              "font": "WenQuanYiZenHei",
+              "size": 7.0,
+              "flags": 4,
+              "color": 1184282
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "bbox": [
+        468.95,
+        567.05,
+        514.78,
+        584.66
+      ],
+      "lines": [
+        {
+          "bbox": [
+            478.38,
+            567.05,
+            505.34,
+            575.86
+          ],
+          "spans": [
+            {
+              "text": "Fallback:",
+              "bbox": [
+                478.38,
+                567.05,
+                505.34,
+                575.86
+              ],
+              "font": "WenQuanYiZenHei",
+              "size": 7.0,
+              "flags": 4,
+              "color": 1184282
+            }
+          ]
+        },
+        {
+          "bbox": [
+            468.95,
+            575.85,
+            514.78,
+            584.66
+          ],
+          "spans": [
+            {
+              "text": "DirectQuery via",
+              "bbox": [
+                468.95,
+                575.85,
+                514.78,
+                584.66
+              ],
+              "font": "WenQuanYiZenHei",
+              "size": 7.0,
+              "flags": 4,
+              "color": 1184282
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "bbox": [
+        471.32,
+        584.59,
+        512.39,
+        593.41
+      ],
+      "lines": [
+        {
+          "bbox": [
+            471.32,
+            584.59,
+            512.39,
+            593.41
+          ],
+          "spans": [
+            {
+              "text": "SQL endpoint",
+              "bbox": [
+                471.32,
+                584.59,
+                512.39,
+                593.41
+              ],
+              "font": "WenQuanYiZenHei",
+              "size": 7.0,
+              "flags": 4,
+              "color": 1184282
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "bbox": [
+        230.32,
+        646.26,
+        485.23,
+        654.24
+      ],
+      "lines": [
+        {
+          "bbox": [
+            230.32,
+            646.26,
+            485.23,
+            654.24
+          ],
+          "spans": [
+            {
+              "text": "Guardrail exceeded (rows/file size/SKU), view, or unsupported feature → automatic fallback",
+              "bbox": [
+                230.32,
+                646.26,
+                485.23,
+                654.24
+              ],
+              "font": "WenQuanYiZenHei",
+              "size": 6.33,
+              "flags": 4,
+              "color": 11817737
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "bbox": [
+        246.94,
+        656.94,
+        468.61,
+        664.91
+      ],
+      "lines": [
+        {
+          "bbox": [
+            246.94,
+            656.94,
+            468.61,
+            664.91
+          ],
+          "spans": [
+            {
+              "text": "DirectLakeBehavior = DirectLakeOnly blocks fallback and raises an error instead",
+              "bbox": [
+                246.94,
+                656.94,
+                468.61,
+                664.91
+              ],
+              "font": "WenQuanYiZenHei",
+              "size": 6.33,
+              "flags": 4,
+              "color": 5987174
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "bbox": [
+        54.96,
+        679.79,
+        540.53,
+        689.61
+      ],
+      "lines": [
+        {
+          "bbox": [
+            54.96,
+            679.79,
+            540.53,
+            689.61
+          ],
+          "spans": [
+            {
+              "text": "Direct Lake reads Delta columns straight into memory on first use. Fallback to DirectQuery happens automatically unless you",
+              "bbox": [
+                54.96,
+                679.79,
+                540.53,
+                689.61
+              ],
+              "font": "LiberationSans-Italic",
+              "size": 8.8,
+              "flags": 2,
+              "color": 5987174
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "bbox": [
+        282.12,
+        694.04,
+        313.38,
+        703.86
+      ],
+      "lines": [
+        {
+          "bbox": [
+            282.12,
+            694.04,
+            313.38,
+            703.86
+          ],
+          "spans": [
+            {
+              "text": "forbid it.",
+              "bbox": [
+                282.12,
+                694.04,
+                313.38,
+                703.86
+              ],
+              "font": "LiberationSans-Italic",
+              "size": 8.8,
+              "flags": 2,
+              "color": 5987174
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "bbox": [
+        44.25,
+        722.41,
+        550.07,
+        734.25
+      ],
+      "lines": [
+        {
+          "bbox": [
+            44.25,
+            722.41,
+            550.07,
+            734.25
+          ],
+          "spans": [
+            {
+              "text": "How it works.",
+              "bbox": [
+                44.25,
+                722.41,
+                112.53,
+                734.25
+              ],
+              "font": "LiberationSans-Bold",
+              "size": 10.6,
+              "flags": 16,
+              "color": 1184282
+            },
+            {
+              "text": " A Direct Lake table points at Delta Parquet files in OneLake. On the first query that touches a",
+              "bbox": [
+                112.54,
+                722.41,
+                550.07,
+                734.25
+              ],
+              "font": "LiberationSans",
+              "size": 10.6,
+              "flags": 0,
+              "color": 1776415
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "bbox": [
+        44.25,
+        738.91,
+        546.58,
+        750.75
+      ],
+      "lines": [
+        {
+          "bbox": [
+            44.25,
+            738.91,
+            546.58,
+            750.75
+          ],
+          "spans": [
+            {
+              "text": "column, the engine ",
+              "bbox": [
+                44.25,
+                738.91,
+                136.72,
+                750.75
+              ],
+              "font": "LiberationSans",
+              "size": 10.6,
+              "flags": 0,
+              "color": 1776415
+            },
+            {
+              "text": "transcodes",
+              "bbox": [
+                136.72,
+                738.91,
+                188.54,
+                750.75
+              ],
+              "font": "LiberationSans-Italic",
+              "size": 10.6,
+              "flags": 2,
+              "color": 1776415
+            },
+            {
+              "text": " that column into its in-memory VertiPaq representation and keeps it cached.",
+              "bbox": [
+                188.55,
+                738.91,
+                546.58,
+                750.75
+              ],
+              "font": "LiberationSans",
+              "size": 10.6,
+              "flags": 0,
+              "color": 1776415
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "bbox": [
+        44.25,
+        756.16,
+        528.27,
+        768.0
+      ],
+      "lines": [
+        {
+          "bbox": [
+            44.25,
+            756.16,
+            528.27,
+            768.0
+          ],
+          "spans": [
+            {
+              "text": "Columns never queried are never loaded — which is why the first run of a report is slower than the rest.",
+              "bbox": [
+                44.25,
+                756.16,
+                528.27,
+                768.0
+              ],
+              "font": "LiberationSans",
+              "size": 10.6,
+              "flags": 0,
+              "color": 1776415
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,40 @@
+Chapter 8 — Implement and manage semantic models,
+part 2: optimise at enterprise scale
+EXAM FOCUS
+Optimize enterprise-scale semantic models — implement performance improvements in queries
+and report visuals · improve DAX performance · configure Direct Lake, including default fallback and
+refresh behavior · choose between Direct Lake on OneLake and Direct Lake on SQL analytics
+endpoint · implement incremental refresh for semantic models.
+8.1 Find the bottleneck before you fix it
+Tool
+What it tells you
+Performance Analyzer in Desktop
+Per-visual DAX query time, visual display time, and "other" — start here
+DAX query view in Desktop
+Run and time DAX directly, compare two rewrites of the same measure
+Best Practice Analyzer (Tabular
+Editor)
+Static rules: missing relationships, unformatted measures, unused
+columns
+VertiPaq Analyzer metrics
+Column cardinality and size — shows exactly what is making the model
+big
+Query insights (warehouse)
+Historical query text, duration, and frequency for the SQL side
+Capacity Metrics app
+Whether the problem is your model or a throttled capacity
+Interpreting Performance Analyzer: if DAX query dominates, fix the model or the measure. If visual display
+dominates, the visual is rendering too many data points — reduce categories, remove unnecessary visuals,
+or turn off interactions. If other dominates, it is usually visual layout and cross-filtering between many
+visuals on the page.
+8.2 Report and query-level improvements
+Keep pages to roughly 8 visuals or fewer; every visual is at least one DAX query.
+Turn off unnecessary interactions between visuals (Format → Edit interactions).
+Prefer slicers with "Apply" buttons or the filter pane over many always-on slicers.
+Avoid bi-directional filters and unnecessary many-to-many relationships.
+Use aggregation tables for high-grain fact data, with a detailed table behind them.
+Enable query caching for Import models on a capacity when the same report is opened repeatedly with
+the same filters.
+Reduce cardinality: split datetime  into date and time; round floats you never analyse at full precision;
+delete surrogate keys that no visual uses.
+Switch off Auto date/time and use a proper date dimension.

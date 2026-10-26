@@ -1,0 +1,2092 @@
+[
+  {
+    "slug": "accessibility-color-qa",
+    "title": "Accessibility, Contrast & Color QA",
+    "lang": "ar",
+    "icon": "",
+    "description": "",
+    "notionId": "3cd3906c5d6c819ab08ac1f7717dc4c2",
+    "canonicalUrl": "https://app.notion.com/p/3cd3906c5d6c819ab08ac1f7717dc4c2",
+    "sourceFile": "Accessibility, Contrast & Color QA 3cd3906c5d6c819ab08ac1f7717dc4c2.html",
+    "textLength": 932,
+    "language": {
+      "arabicChars": 487,
+      "latinChars": 280,
+      "arabicShare": 0.635
+    },
+    "headings": [
+      {
+        "level": 2,
+        "text": "1. Color is not the only encoding",
+        "anchor": "1-color-is-not-the-only-encoding"
+      },
+      {
+        "level": 2,
+        "text": "2. Palette semantics",
+        "anchor": "2-palette-semantics"
+      },
+      {
+        "level": 2,
+        "text": "3. Contrast QA",
+        "anchor": "3-contrast-qa"
+      },
+      {
+        "level": 2,
+        "text": "4. Grayscale test",
+        "anchor": "4-grayscale-test"
+      },
+      {
+        "level": 2,
+        "text": "5. Interview question",
+        "anchor": "5-interview-question"
+      }
+    ],
+    "counts": {
+      "paragraphs": 7,
+      "lists": 3,
+      "listItems": 3,
+      "tables": 0,
+      "tableRows": 0,
+      "figures": 0,
+      "equations": 0,
+      "callouts": 1,
+      "toggles": 0,
+      "code": 0,
+      "blocks": 15,
+      "headings": 5,
+      "links": 0
+    },
+    "toc": []
+  },
+  {
+    "slug": "advanced-multivariate",
+    "title": "Advanced & Multivariate Techniques",
+    "lang": "en",
+    "icon": "🧩",
+    "description": "",
+    "notionId": "3cd3906c5d6c815996b1ca4687c3808b",
+    "canonicalUrl": "https://app.notion.com/p/3cd3906c5d6c815996b1ca4687c3808b",
+    "sourceFile": "Advanced & Multivariate Techniques 3cd3906c5d6c815996b1ca4687c3808b.html",
+    "textLength": 6617,
+    "language": {
+      "arabicChars": 0,
+      "latinChars": 5404,
+      "arabicShare": 0
+    },
+    "headings": [
+      {
+        "level": 2,
+        "text": "12. Advanced Multivariate Visualization — Higher Dimensions",
+        "anchor": "12-advanced-multivariate-visualization-higher-dimensions"
+      },
+      {
+        "level": 3,
+        "text": "12.1 Adding a Third Dimension",
+        "anchor": "12-1-adding-a-third-dimension"
+      },
+      {
+        "level": 4,
+        "text": "Real use case: country development",
+        "anchor": "real-use-case-country-development"
+      },
+      {
+        "level": 3,
+        "text": "12.2 Why Size and Transparency Are Weaker Encodings",
+        "anchor": "12-2-why-size-and-transparency-are-weaker-encodings"
+      },
+      {
+        "level": 3,
+        "text": "12.3 Faceting: the Controlled Alternative",
+        "anchor": "12-3-faceting-the-controlled-alternative"
+      },
+      {
+        "level": 2,
+        "text": "13. Plotting Many Variables at Once",
+        "anchor": "13-plotting-many-variables-at-once"
+      },
+      {
+        "level": 3,
+        "text": "13.1 Pair Plot",
+        "anchor": "13-1-pair-plot"
+      },
+      {
+        "level": 4,
+        "text": "Anatomy",
+        "anchor": "anatomy"
+      },
+      {
+        "level": 4,
+        "text": "Real use case: LA housing",
+        "anchor": "real-use-case-la-housing"
+      },
+      {
+        "level": 3,
+        "text": "13.2 Correlation Heatmap",
+        "anchor": "13-2-correlation-heatmap"
+      },
+      {
+        "level": 4,
+        "text": "Best use",
+        "anchor": "best-use"
+      },
+      {
+        "level": 4,
+        "text": "Critical limitation",
+        "anchor": "critical-limitation"
+      },
+      {
+        "level": 4,
+        "text": "Real use case: customer satisfaction",
+        "anchor": "real-use-case-customer-satisfaction"
+      },
+      {
+        "level": 3,
+        "text": "13.3 Parallel Coordinates",
+        "anchor": "13-3-parallel-coordinates"
+      },
+      {
+        "level": 4,
+        "text": "Real use case: country development profiles",
+        "anchor": "real-use-case-country-development-profiles"
+      },
+      {
+        "level": 4,
+        "text": "Strength",
+        "anchor": "strength"
+      },
+      {
+        "level": 4,
+        "text": "Weakness",
+        "anchor": "weakness"
+      },
+      {
+        "level": 2,
+        "text": "14. Polar Coordinates, Pie Charts, and Rose Plots",
+        "anchor": "14-polar-coordinates-pie-charts-and-rose-plots"
+      },
+      {
+        "level": 3,
+        "text": "14.1 Pie Chart = Bar Chart in Polar Coordinates",
+        "anchor": "14-1-pie-chart-bar-chart-in-polar-coordinates"
+      },
+      {
+        "level": 3,
+        "text": "14.2 When Polar Coordinates Make Sense",
+        "anchor": "14-2-when-polar-coordinates-make-sense"
+      },
+      {
+        "level": 3,
+        "text": "14.3 Rose Plot",
+        "anchor": "14-3-rose-plot"
+      },
+      {
+        "level": 4,
+        "text": "Real use case: animal activity",
+        "anchor": "real-use-case-animal-activity"
+      }
+    ],
+    "counts": {
+      "paragraphs": 25,
+      "lists": 23,
+      "listItems": 23,
+      "tables": 0,
+      "tableRows": 0,
+      "figures": 0,
+      "equations": 0,
+      "callouts": 1,
+      "toggles": 0,
+      "code": 2,
+      "blocks": 73,
+      "headings": 22,
+      "links": 0
+    },
+    "toc": []
+  },
+  {
+    "slug": "ar-bar-plot",
+    "title": "📊 Bar Plot — مخطط الأعمدة",
+    "lang": "ar",
+    "icon": "",
+    "description": "",
+    "notionId": "3cd3906c5d6c817682b0d6ec864e154e",
+    "canonicalUrl": "https://app.notion.com/p/3cd3906c5d6c817682b0d6ec864e154e",
+    "sourceFile": "📊 Bar Plot — مخطط الأعمدة 3cd3906c5d6c817682b0d6ec864e154e.html",
+    "textLength": 1119,
+    "language": {
+      "arabicChars": 772,
+      "latinChars": 126,
+      "arabicShare": 0.86
+    },
+    "headings": [
+      {
+        "level": 3,
+        "text": "متى تستخدمه؟",
+        "anchor": "section-1"
+      },
+      {
+        "level": 3,
+        "text": "لماذا الصفر مهم؟",
+        "anchor": "section-2"
+      },
+      {
+        "level": 3,
+        "text": "أفقي أم رأسي؟",
+        "anchor": "section-3"
+      },
+      {
+        "level": 3,
+        "text": "الترتيب Sorting",
+        "anchor": "sorting"
+      },
+      {
+        "level": 3,
+        "text": "Stacked Bar Chart",
+        "anchor": "stacked-bar-chart"
+      },
+      {
+        "level": 3,
+        "text": "Bar Plot مقابل Box Plot",
+        "anchor": "bar-plot-box-plot"
+      },
+      {
+        "level": 3,
+        "text": "Bar Plot مقابل Histogram",
+        "anchor": "bar-plot-histogram"
+      }
+    ],
+    "counts": {
+      "paragraphs": 10,
+      "lists": 9,
+      "listItems": 9,
+      "tables": 0,
+      "tableRows": 0,
+      "figures": 0,
+      "equations": 1,
+      "callouts": 0,
+      "toggles": 0,
+      "code": 0,
+      "blocks": 29,
+      "headings": 7,
+      "links": 0
+    },
+    "toc": []
+  },
+  {
+    "slug": "ar-box-plot",
+    "title": "📊 Box Plot — مخطط الصندوق",
+    "lang": "ar",
+    "icon": "",
+    "description": "",
+    "notionId": "3cd3906c5d6c8159a9a9ce758a6e26e2",
+    "canonicalUrl": "https://app.notion.com/p/3cd3906c5d6c8159a9a9ce758a6e26e2",
+    "sourceFile": "📊 Box Plot — مخطط الصندوق 3cd3906c5d6c8159a9a9ce758a6e26e2.html",
+    "textLength": 1097,
+    "language": {
+      "arabicChars": 809,
+      "latinChars": 78,
+      "arabicShare": 0.912
+    },
+    "headings": [
+      {
+        "level": 3,
+        "text": "لماذا نستخدمه؟",
+        "anchor": "section-1"
+      },
+      {
+        "level": 3,
+        "text": "متى تستخدمه؟",
+        "anchor": "section-2"
+      },
+      {
+        "level": 3,
+        "text": "مكونات Box Plot",
+        "anchor": "box-plot"
+      },
+      {
+        "level": 3,
+        "text": "ماذا يقارن Box Plot؟",
+        "anchor": "box-plot-2"
+      },
+      {
+        "level": 3,
+        "text": "أهم عيب",
+        "anchor": "section-5"
+      }
+    ],
+    "counts": {
+      "paragraphs": 3,
+      "lists": 12,
+      "listItems": 12,
+      "tables": 0,
+      "tableRows": 0,
+      "figures": 0,
+      "equations": 1,
+      "callouts": 0,
+      "toggles": 0,
+      "code": 0,
+      "blocks": 22,
+      "headings": 5,
+      "links": 0
+    },
+    "toc": []
+  },
+  {
+    "slug": "ar-color",
+    "title": "🎨 الجزء 6: الألوان في Data Visualization",
+    "lang": "ar",
+    "icon": "",
+    "description": "",
+    "notionId": "3cd3906c5d6c8101aa91eb72bc14c030",
+    "canonicalUrl": "https://app.notion.com/p/3cd3906c5d6c8101aa91eb72bc14c030",
+    "sourceFile": "🎨 الجزء 6 الألوان في Data Visualization 3cd3906c5d6c8101aa91eb72bc14c030.html",
+    "textLength": 1147,
+    "language": {
+      "arabicChars": 813,
+      "latinChars": 138,
+      "arabicShare": 0.855
+    },
+    "headings": [
+      {
+        "level": 2,
+        "text": "استخدام الألوان في Data Visualization",
+        "anchor": "data-visualization"
+      },
+      {
+        "level": 3,
+        "text": "Color Spaces",
+        "anchor": "color-spaces"
+      },
+      {
+        "level": 3,
+        "text": "مكونات HCL",
+        "anchor": "hcl"
+      },
+      {
+        "level": 3,
+        "text": "أنواع Color Scales",
+        "anchor": "color-scales"
+      },
+      {
+        "level": 4,
+        "text": "Qualitative",
+        "anchor": "qualitative"
+      },
+      {
+        "level": 4,
+        "text": "Sequential",
+        "anchor": "sequential"
+      },
+      {
+        "level": 4,
+        "text": "Diverging",
+        "anchor": "diverging"
+      },
+      {
+        "level": 3,
+        "text": "Viridis كـSequential Palette عملية",
+        "anchor": "viridis-sequential-palette"
+      }
+    ],
+    "counts": {
+      "paragraphs": 8,
+      "lists": 6,
+      "listItems": 6,
+      "tables": 0,
+      "tableRows": 0,
+      "figures": 0,
+      "equations": 0,
+      "callouts": 0,
+      "toggles": 0,
+      "code": 0,
+      "blocks": 22,
+      "headings": 8,
+      "links": 0
+    },
+    "toc": []
+  },
+  {
+    "slug": "ar-comprehensive",
+    "title": "📊 Data Visualization — Comprehensive & Deep Reference",
+    "lang": "en",
+    "icon": "📊",
+    "description": "",
+    "notionId": "3cd3906c5d6c817a8116e9e1b38d216f",
+    "canonicalUrl": "https://app.notion.com/p/3cd3906c5d6c817a8116e9e1b38d216f",
+    "sourceFile": "📊 Data Visualization — Comprehensive & Deep Refere 3cd3906c5d6c817a8116e9e1b38d216f.html",
+    "textLength": 4023,
+    "language": {
+      "arabicChars": 72,
+      "latinChars": 3099,
+      "arabicShare": 0.023
+    },
+    "headings": [
+      {
+        "level": 2,
+        "text": "Operating System",
+        "anchor": "operating-system"
+      },
+      {
+        "level": 2,
+        "text": "How to Use",
+        "anchor": "how-to-use"
+      },
+      {
+        "level": 2,
+        "text": "Canonical Map",
+        "anchor": "canonical-map"
+      },
+      {
+        "level": 3,
+        "text": "01 · Foundations",
+        "anchor": "01-foundations"
+      },
+      {
+        "level": 3,
+        "text": "02 · Audience & Story",
+        "anchor": "02-audience-story"
+      },
+      {
+        "level": 3,
+        "text": "03 · Core Visual Grammar",
+        "anchor": "03-core-visual-grammar"
+      },
+      {
+        "level": 3,
+        "text": "04 · Advanced & Multivariate",
+        "anchor": "04-advanced-multivariate"
+      },
+      {
+        "level": 3,
+        "text": "05 · Color & Perception",
+        "anchor": "05-color-perception"
+      },
+      {
+        "level": 3,
+        "text": "06 · Accessibility & QA",
+        "anchor": "06-accessibility-qa"
+      },
+      {
+        "level": 3,
+        "text": "07 · Integrity, Uncertainty & Traps",
+        "anchor": "07-integrity-uncertainty-traps"
+      },
+      {
+        "level": 3,
+        "text": "08 · Decision Tools & Composition",
+        "anchor": "08-decision-tools-composition"
+      },
+      {
+        "level": 3,
+        "text": "09 · Implementation",
+        "anchor": "09-implementation"
+      },
+      {
+        "level": 3,
+        "text": "Visual Atlas",
+        "anchor": "visual-atlas"
+      },
+      {
+        "level": 3,
+        "text": "10 · Practice, Assessment & Shelf",
+        "anchor": "10-practice-assessment-shelf"
+      },
+      {
+        "level": 2,
+        "text": "Related Libraries",
+        "anchor": "related-libraries"
+      }
+    ],
+    "counts": {
+      "paragraphs": 33,
+      "lists": 21,
+      "listItems": 21,
+      "tables": 1,
+      "tableRows": 4,
+      "figures": 2,
+      "equations": 0,
+      "callouts": 3,
+      "toggles": 1,
+      "code": 0,
+      "blocks": 73,
+      "headings": 15,
+      "links": 36
+    },
+    "toc": []
+  },
+  {
+    "slug": "ar-core-charts",
+    "title": "📊 الجزء 3: الرسوم الأساسية (Univariate & Bivariate Charts)",
+    "lang": "ar",
+    "icon": "",
+    "description": "",
+    "notionId": "3cd3906c5d6c81ee9070c16e5c6be1ed",
+    "canonicalUrl": "https://app.notion.com/p/3cd3906c5d6c81ee9070c16e5c6be1ed",
+    "sourceFile": "📊 الجزء 3 الرسوم الأساسية (Univariate & Bivariate  3cd3906c5d6c81ee9070c16e5c6be1ed.html",
+    "textLength": 450,
+    "language": {
+      "arabicChars": 238,
+      "latinChars": 112,
+      "arabicShare": 0.68
+    },
+    "headings": [
+      {
+        "level": 2,
+        "text": "الرسوم الأساسية — Univariate & Bivariate Charts",
+        "anchor": "univariate-bivariate-charts"
+      }
+    ],
+    "counts": {
+      "paragraphs": 7,
+      "lists": 0,
+      "listItems": 0,
+      "tables": 0,
+      "tableRows": 0,
+      "figures": 0,
+      "equations": 0,
+      "callouts": 0,
+      "toggles": 0,
+      "code": 0,
+      "blocks": 8,
+      "headings": 1,
+      "links": 5
+    },
+    "toc": []
+  },
+  {
+    "slug": "ar-dot-plot",
+    "title": "📊 Dot Plot — مخطط النقاط",
+    "lang": "ar",
+    "icon": "",
+    "description": "",
+    "notionId": "3cd3906c5d6c8185b9c4e5d2d80ca4fe",
+    "canonicalUrl": "https://app.notion.com/p/3cd3906c5d6c8185b9c4e5d2d80ca4fe",
+    "sourceFile": "📊 Dot Plot — مخطط النقاط 3cd3906c5d6c8185b9c4e5d2d80ca4fe.html",
+    "textLength": 932,
+    "language": {
+      "arabicChars": 661,
+      "latinChars": 93,
+      "arabicShare": 0.877
+    },
+    "headings": [
+      {
+        "level": 3,
+        "text": "ما هو؟",
+        "anchor": "section-1"
+      },
+      {
+        "level": 3,
+        "text": "الميزة الأولى: Log Scale",
+        "anchor": "log-scale"
+      },
+      {
+        "level": 3,
+        "text": "الميزة الثانية: عدة مقاييس",
+        "anchor": "section-3"
+      },
+      {
+        "level": 3,
+        "text": "Linear مقابل Logarithmic",
+        "anchor": "linear-logarithmic"
+      },
+      {
+        "level": 3,
+        "text": "Dot Plot مقابل Scatter Plot",
+        "anchor": "dot-plot-scatter-plot"
+      }
+    ],
+    "counts": {
+      "paragraphs": 7,
+      "lists": 4,
+      "listItems": 4,
+      "tables": 0,
+      "tableRows": 0,
+      "figures": 0,
+      "equations": 1,
+      "callouts": 0,
+      "toggles": 0,
+      "code": 0,
+      "blocks": 17,
+      "headings": 5,
+      "links": 0
+    },
+    "toc": []
+  },
+  {
+    "slug": "ar-histogram",
+    "title": "📊 Histogram — المدرج التكراري",
+    "lang": "ar",
+    "icon": "",
+    "description": "",
+    "notionId": "3cd3906c5d6c81299255f295d7b2434d",
+    "canonicalUrl": "https://app.notion.com/p/3cd3906c5d6c81299255f295d7b2434d",
+    "sourceFile": "📊 Histogram — المدرج التكراري 3cd3906c5d6c81299255f295d7b2434d.html",
+    "textLength": 1687,
+    "language": {
+      "arabicChars": 1204,
+      "latinChars": 187,
+      "arabicShare": 0.866
+    },
+    "headings": [
+      {
+        "level": 3,
+        "text": "ما هو؟",
+        "anchor": "section-1"
+      },
+      {
+        "level": 3,
+        "text": "مكونات الرسم",
+        "anchor": "section-2"
+      },
+      {
+        "level": 3,
+        "text": "عرض الـ Bin قرار تصميمي مهم جدًا",
+        "anchor": "bin"
+      },
+      {
+        "level": 3,
+        "text": "كيف تفسر Histogram؟",
+        "anchor": "histogram"
+      },
+      {
+        "level": 4,
+        "text": "1. التعدد النمطي Modality",
+        "anchor": "1-modality"
+      },
+      {
+        "level": 4,
+        "text": "2. الالتواء Skewness",
+        "anchor": "2-skewness"
+      },
+      {
+        "level": 4,
+        "text": "3. التفرطح Kurtosis",
+        "anchor": "3-kurtosis"
+      },
+      {
+        "level": 3,
+        "text": "أخطاء شائعة في Histogram",
+        "anchor": "histogram-2"
+      }
+    ],
+    "counts": {
+      "paragraphs": 10,
+      "lists": 16,
+      "listItems": 16,
+      "tables": 0,
+      "tableRows": 0,
+      "figures": 0,
+      "equations": 0,
+      "callouts": 0,
+      "toggles": 0,
+      "code": 0,
+      "blocks": 36,
+      "headings": 8,
+      "links": 0
+    },
+    "toc": []
+  },
+  {
+    "slug": "ar-line-plot",
+    "title": "📊 Line Plot — الرسم الخطي",
+    "lang": "ar",
+    "icon": "",
+    "description": "",
+    "notionId": "3cd3906c5d6c81a1b557e07b0d15bca7",
+    "canonicalUrl": "https://app.notion.com/p/3cd3906c5d6c81a1b557e07b0d15bca7",
+    "sourceFile": "📊 Line Plot — الرسم الخطي 3cd3906c5d6c81a1b557e07b0d15bca7.html",
+    "textLength": 1025,
+    "language": {
+      "arabicChars": 815,
+      "latinChars": 37,
+      "arabicShare": 0.957
+    },
+    "headings": [
+      {
+        "level": 3,
+        "text": "التعريف الأساسي",
+        "anchor": "section-1"
+      },
+      {
+        "level": 3,
+        "text": "أمثلة استخدام",
+        "anchor": "section-2"
+      },
+      {
+        "level": 3,
+        "text": "عدة خطوط",
+        "anchor": "section-3"
+      },
+      {
+        "level": 3,
+        "text": "النمو الخطي مقابل النمو الأسي",
+        "anchor": "section-4"
+      },
+      {
+        "level": 3,
+        "text": "تحذير مهم: وجود الوقت على X لا يعني تلقائيًا Line Plot",
+        "anchor": "x-line-plot"
+      }
+    ],
+    "counts": {
+      "paragraphs": 8,
+      "lists": 6,
+      "listItems": 6,
+      "tables": 0,
+      "tableRows": 0,
+      "figures": 0,
+      "equations": 0,
+      "callouts": 0,
+      "toggles": 0,
+      "code": 0,
+      "blocks": 20,
+      "headings": 5,
+      "links": 0
+    },
+    "toc": []
+  },
+  {
+    "slug": "ar-reading-paths",
+    "title": "مسارات قراءة مقترحة (Beginner → Advanced)",
+    "lang": "ar",
+    "icon": "",
+    "description": "",
+    "notionId": "e93dca8916a5445e9d0f8ca3192d01dc",
+    "canonicalUrl": "https://app.notion.com/p/e93dca8916a5445e9d0f8ca3192d01dc",
+    "sourceFile": "مسارات قراءة مقترحة (Beginner → Advanced) e93dca8916a5445e9d0f8ca3192d01dc.html",
+    "textLength": 994,
+    "language": {
+      "arabicChars": 612,
+      "latinChars": 135,
+      "arabicShare": 0.819
+    },
+    "headings": [
+      {
+        "level": 1,
+        "text": "🗺️ مسارات قراءة مقترحة (Beginner → Advanced)",
+        "anchor": "beginner-advanced"
+      },
+      {
+        "level": 2,
+        "text": "المسار 1: BI / Dashboards (عملي وسريع)",
+        "anchor": "1-bi-dashboards"
+      },
+      {
+        "level": 2,
+        "text": "المسار 2: Data Science / EDA (استكشاف وتشخيص)",
+        "anchor": "2-data-science-eda"
+      },
+      {
+        "level": 2,
+        "text": "المسار 3: Exam / Interview Prep (مصائد شائعة)",
+        "anchor": "3-exam-interview-prep"
+      }
+    ],
+    "counts": {
+      "paragraphs": 1,
+      "lists": 14,
+      "listItems": 14,
+      "tables": 0,
+      "tableRows": 0,
+      "figures": 0,
+      "equations": 0,
+      "callouts": 1,
+      "toggles": 0,
+      "code": 0,
+      "blocks": 20,
+      "headings": 4,
+      "links": 14
+    },
+    "toc": []
+  },
+  {
+    "slug": "ar-references",
+    "title": "أفضل المراجع العالمية (Curated References)",
+    "lang": "ar",
+    "icon": "",
+    "description": "",
+    "notionId": "4ceee50e87384884a9f663de5eb7e521",
+    "canonicalUrl": "https://app.notion.com/p/4ceee50e87384884a9f663de5eb7e521",
+    "sourceFile": "أفضل المراجع العالمية (Curated References) 4ceee50e87384884a9f663de5eb7e521.html",
+    "textLength": 1115,
+    "language": {
+      "arabicChars": 482,
+      "latinChars": 427,
+      "arabicShare": 0.53
+    },
+    "headings": [
+      {
+        "level": 1,
+        "text": "📚 أفضل المراجع العالمية (Curated References)",
+        "anchor": "curated-references"
+      },
+      {
+        "level": 2,
+        "text": "كتب (Foundational)",
+        "anchor": "foundational"
+      },
+      {
+        "level": 2,
+        "text": "ألوان وإدراك بصري",
+        "anchor": "section-3"
+      },
+      {
+        "level": 2,
+        "text": "أفضل ممارسات عملية (Applied)",
+        "anchor": "applied"
+      },
+      {
+        "level": 2,
+        "text": "مراجع إحصائية مرتبطة بالتفسير (لمن يحتاج العمق)",
+        "anchor": "section-5"
+      },
+      {
+        "level": 2,
+        "text": "ملاحظة تنظيمية",
+        "anchor": "section-6"
+      }
+    ],
+    "counts": {
+      "paragraphs": 1,
+      "lists": 11,
+      "listItems": 11,
+      "tables": 0,
+      "tableRows": 0,
+      "figures": 0,
+      "equations": 0,
+      "callouts": 0,
+      "toggles": 0,
+      "code": 0,
+      "blocks": 18,
+      "headings": 6,
+      "links": 0
+    },
+    "toc": []
+  },
+  {
+    "slug": "ar-scatter-plot",
+    "title": "📊 Scatter Plot — مخطط التشتت",
+    "lang": "ar",
+    "icon": "",
+    "description": "",
+    "notionId": "3cd3906c5d6c8103bf02edeecfa351fc",
+    "canonicalUrl": "https://app.notion.com/p/3cd3906c5d6c8103bf02edeecfa351fc",
+    "sourceFile": "📊 Scatter Plot — مخطط التشتت 3cd3906c5d6c8103bf02edeecfa351fc.html",
+    "textLength": 1109,
+    "language": {
+      "arabicChars": 865,
+      "latinChars": 42,
+      "arabicShare": 0.954
+    },
+    "headings": [
+      {
+        "level": 3,
+        "text": "متى تستخدمه؟",
+        "anchor": "section-1"
+      },
+      {
+        "level": 3,
+        "text": "ماذا تفحص؟",
+        "anchor": "section-2"
+      },
+      {
+        "level": 3,
+        "text": "الارتباط Correlation",
+        "anchor": "correlation"
+      },
+      {
+        "level": 3,
+        "text": "Trend Lines",
+        "anchor": "trend-lines"
+      },
+      {
+        "level": 3,
+        "text": "المحاور اللوغاريتمية",
+        "anchor": "section-5"
+      }
+    ],
+    "counts": {
+      "paragraphs": 8,
+      "lists": 12,
+      "listItems": 12,
+      "tables": 0,
+      "tableRows": 0,
+      "figures": 0,
+      "equations": 0,
+      "callouts": 0,
+      "toggles": 0,
+      "code": 0,
+      "blocks": 27,
+      "headings": 5,
+      "links": 0
+    },
+    "toc": []
+  },
+  {
+    "slug": "ar-tips-interview",
+    "title": "🎯 نصائح وTricks عملية + بنك أسئلة المقابلات (BI / Power BI)",
+    "lang": "ar",
+    "icon": "🎯",
+    "description": "",
+    "notionId": "3cd3906c5d6c8109a01fc02be38ff15a",
+    "canonicalUrl": "https://app.notion.com/p/3cd3906c5d6c8109a01fc02be38ff15a",
+    "sourceFile": "🎯 نصائح وTricks عملية + بنك أسئلة المقابلات (BI Po 3cd3906c5d6c8109a01fc02be38ff15a.html",
+    "textLength": 5759,
+    "language": {
+      "arabicChars": 3311,
+      "latinChars": 1328,
+      "arabicShare": 0.714
+    },
+    "headings": [
+      {
+        "level": 2,
+        "text": "🛠️ Tips & Tricks عملية (Power BI / BI Analyst)",
+        "anchor": "tips-tricks-power-bi-bi-analyst"
+      },
+      {
+        "level": 3,
+        "text": "1. اختيار الرسم داخل Power BI تحديدًا",
+        "anchor": "1-power-bi"
+      },
+      {
+        "level": 3,
+        "text": "2. أخطاء تصميم شائعة في Dashboards الشركات",
+        "anchor": "2-dashboards"
+      },
+      {
+        "level": 3,
+        "text": "3. DAX & Performance Tips مرتبطة بالتصور",
+        "anchor": "3-dax-performance-tips"
+      },
+      {
+        "level": 3,
+        "text": "4. Color & Accessibility Tricks",
+        "anchor": "4-color-accessibility-tricks"
+      },
+      {
+        "level": 2,
+        "text": "🎤 بنك أسئلة المقابلات",
+        "anchor": "section-6"
+      },
+      {
+        "level": 3,
+        "text": "أسئلة أساسية (Fresh / Junior BI)",
+        "anchor": "fresh-junior-bi"
+      },
+      {
+        "level": 3,
+        "text": "أسئلة متوسطة (BI Analyst / Data Analyst)",
+        "anchor": "bi-analyst-data-analyst"
+      },
+      {
+        "level": 3,
+        "text": "أسئلة متقدمة (Senior / تصميم Dashboard)",
+        "anchor": "senior-dashboard"
+      },
+      {
+        "level": 2,
+        "text": "📌 ملاحظة",
+        "anchor": "section-10"
+      }
+    ],
+    "counts": {
+      "paragraphs": 16,
+      "lists": 19,
+      "listItems": 19,
+      "tables": 0,
+      "tableRows": 0,
+      "figures": 0,
+      "equations": 0,
+      "callouts": 2,
+      "toggles": 12,
+      "code": 0,
+      "blocks": 1,
+      "headings": 10,
+      "links": 2
+    },
+    "toc": []
+  },
+  {
+    "slug": "chart-selection",
+    "title": "Chart Selection Matrix & Anti-Patterns",
+    "lang": "ar",
+    "icon": "",
+    "description": "",
+    "notionId": "3cd3906c5d6c81219916c1029b5aecd5",
+    "canonicalUrl": "https://app.notion.com/p/3cd3906c5d6c81219916c1029b5aecd5",
+    "sourceFile": "Chart Selection Matrix & Anti-Patterns 3cd3906c5d6c81219916c1029b5aecd5.html",
+    "textLength": 2024,
+    "language": {
+      "arabicChars": 743,
+      "latinChars": 934,
+      "arabicShare": 0.443
+    },
+    "headings": [
+      {
+        "level": 2,
+        "text": "1. اختيار الرسم حسب المهمة",
+        "anchor": "1"
+      },
+      {
+        "level": 2,
+        "text": "2. Decision Sequence",
+        "anchor": "2-decision-sequence"
+      },
+      {
+        "level": 2,
+        "text": "3. Anti-Patterns",
+        "anchor": "3-anti-patterns"
+      },
+      {
+        "level": 3,
+        "text": "Bar vs Line",
+        "anchor": "bar-vs-line"
+      },
+      {
+        "level": 3,
+        "text": "Histogram vs Bar",
+        "anchor": "histogram-vs-bar"
+      },
+      {
+        "level": 3,
+        "text": "Mean vs Distribution",
+        "anchor": "mean-vs-distribution"
+      },
+      {
+        "level": 3,
+        "text": "Dual Axis vs Small Multiples",
+        "anchor": "dual-axis-vs-small-multiples"
+      },
+      {
+        "level": 2,
+        "text": "4. Senior Mental Model",
+        "anchor": "4-senior-mental-model"
+      }
+    ],
+    "counts": {
+      "paragraphs": 5,
+      "lists": 6,
+      "listItems": 6,
+      "tables": 1,
+      "tableRows": 9,
+      "figures": 2,
+      "equations": 0,
+      "callouts": 1,
+      "toggles": 0,
+      "code": 0,
+      "blocks": 23,
+      "headings": 8,
+      "links": 0
+    },
+    "toc": []
+  },
+  {
+    "slug": "color-perception",
+    "title": "Color Theory for Data Visualization",
+    "lang": "en",
+    "icon": "🎨",
+    "description": "",
+    "notionId": "3cd3906c5d6c81c19cadc4d11b657ffd",
+    "canonicalUrl": "https://app.notion.com/p/3cd3906c5d6c81c19cadc4d11b657ffd",
+    "sourceFile": "Color Theory for Data Visualization 3cd3906c5d6c81c19cadc4d11b657ffd.html",
+    "textLength": 2145,
+    "language": {
+      "arabicChars": 57,
+      "latinChars": 1721,
+      "arabicShare": 0.032
+    },
+    "headings": [
+      {
+        "level": 2,
+        "text": "15. Color for Data Visualization",
+        "anchor": "15-color-for-data-visualization"
+      },
+      {
+        "level": 3,
+        "text": "15.1 Color Spaces",
+        "anchor": "15-1-color-spaces"
+      },
+      {
+        "level": 4,
+        "text": "HCL components",
+        "anchor": "hcl-components"
+      },
+      {
+        "level": 3,
+        "text": "15.2 Three Color-Scale Families",
+        "anchor": "15-2-three-color-scale-families"
+      },
+      {
+        "level": 4,
+        "text": "Qualitative",
+        "anchor": "qualitative"
+      },
+      {
+        "level": 4,
+        "text": "Sequential",
+        "anchor": "sequential"
+      },
+      {
+        "level": 4,
+        "text": "Diverging",
+        "anchor": "diverging"
+      },
+      {
+        "level": 3,
+        "text": "15.3 Viridis as a Practical Sequential Palette",
+        "anchor": "15-3-viridis-as-a-practical-sequential-palette"
+      }
+    ],
+    "counts": {
+      "paragraphs": 15,
+      "lists": 6,
+      "listItems": 6,
+      "tables": 0,
+      "tableRows": 0,
+      "figures": 1,
+      "equations": 0,
+      "callouts": 2,
+      "toggles": 0,
+      "code": 0,
+      "blocks": 30,
+      "headings": 8,
+      "links": 1
+    },
+    "toc": []
+  },
+  {
+    "slug": "core-chart-types",
+    "title": "Core Chart Types & Scales",
+    "lang": "en",
+    "icon": "📈",
+    "description": "",
+    "notionId": "3cd3906c5d6c816fb3e9d8809b4dbe8e",
+    "canonicalUrl": "https://app.notion.com/p/3cd3906c5d6c816fb3e9d8809b4dbe8e",
+    "sourceFile": "Core Chart Types & Scales 3cd3906c5d6c816fb3e9d8809b4dbe8e.html",
+    "textLength": 10997,
+    "language": {
+      "arabicChars": 19,
+      "latinChars": 9094,
+      "arabicShare": 0.002
+    },
+    "headings": [
+      {
+        "level": 2,
+        "text": "4. Histogram",
+        "anchor": "4-histogram"
+      },
+      {
+        "level": 3,
+        "text": "What it is",
+        "anchor": "what-it-is"
+      },
+      {
+        "level": 3,
+        "text": "Anatomy",
+        "anchor": "anatomy"
+      },
+      {
+        "level": 3,
+        "text": "Bin width is a critical design choice",
+        "anchor": "bin-width-is-a-critical-design-choice"
+      },
+      {
+        "level": 3,
+        "text": "How to interpret a histogram",
+        "anchor": "how-to-interpret-a-histogram"
+      },
+      {
+        "level": 4,
+        "text": "1. Modality",
+        "anchor": "1-modality"
+      },
+      {
+        "level": 4,
+        "text": "2. Skewness",
+        "anchor": "2-skewness"
+      },
+      {
+        "level": 4,
+        "text": "3. Kurtosis",
+        "anchor": "3-kurtosis"
+      },
+      {
+        "level": 3,
+        "text": "Common histogram mistakes",
+        "anchor": "common-histogram-mistakes"
+      },
+      {
+        "level": 2,
+        "text": "5. Box Plot",
+        "anchor": "5-box-plot"
+      },
+      {
+        "level": 3,
+        "text": "Why box plots exist",
+        "anchor": "why-box-plots-exist"
+      },
+      {
+        "level": 3,
+        "text": "When to use it",
+        "anchor": "when-to-use-it"
+      },
+      {
+        "level": 3,
+        "text": "Anatomy",
+        "anchor": "anatomy-2"
+      },
+      {
+        "level": 3,
+        "text": "What a box plot lets you compare",
+        "anchor": "what-a-box-plot-lets-you-compare"
+      },
+      {
+        "level": 3,
+        "text": "Important limitation",
+        "anchor": "important-limitation"
+      },
+      {
+        "level": 2,
+        "text": "6. Scatter Plot",
+        "anchor": "6-scatter-plot"
+      },
+      {
+        "level": 3,
+        "text": "When to use it",
+        "anchor": "when-to-use-it-2"
+      },
+      {
+        "level": 3,
+        "text": "What to inspect",
+        "anchor": "what-to-inspect"
+      },
+      {
+        "level": 3,
+        "text": "Correlation",
+        "anchor": "correlation"
+      },
+      {
+        "level": 3,
+        "text": "Trend lines",
+        "anchor": "trend-lines"
+      },
+      {
+        "level": 3,
+        "text": "Logarithmic axes",
+        "anchor": "logarithmic-axes"
+      },
+      {
+        "level": 2,
+        "text": "7. Line Plot",
+        "anchor": "7-line-plot"
+      },
+      {
+        "level": 3,
+        "text": "Core definition",
+        "anchor": "core-definition"
+      },
+      {
+        "level": 3,
+        "text": "Typical use cases",
+        "anchor": "typical-use-cases"
+      },
+      {
+        "level": 3,
+        "text": "Multiple lines",
+        "anchor": "multiple-lines"
+      },
+      {
+        "level": 3,
+        "text": "Linear vs exponential growth",
+        "anchor": "linear-vs-exponential-growth"
+      },
+      {
+        "level": 3,
+        "text": "Critical warning: time on X does not automatically imply a line plot",
+        "anchor": "critical-warning-time-on-x-does-not-automatically-imply-a-line-p"
+      },
+      {
+        "level": 2,
+        "text": "8. Bar Plot",
+        "anchor": "8-bar-plot"
+      },
+      {
+        "level": 3,
+        "text": "When to use it",
+        "anchor": "when-to-use-it-3"
+      },
+      {
+        "level": 3,
+        "text": "Why zero matters",
+        "anchor": "why-zero-matters"
+      },
+      {
+        "level": 3,
+        "text": "Horizontal vs vertical",
+        "anchor": "horizontal-vs-vertical"
+      },
+      {
+        "level": 3,
+        "text": "Sorting",
+        "anchor": "sorting"
+      },
+      {
+        "level": 3,
+        "text": "Stacked bar charts",
+        "anchor": "stacked-bar-charts"
+      },
+      {
+        "level": 3,
+        "text": "Bar plot vs box plot",
+        "anchor": "bar-plot-vs-box-plot"
+      },
+      {
+        "level": 3,
+        "text": "Bar plot vs histogram",
+        "anchor": "bar-plot-vs-histogram"
+      },
+      {
+        "level": 2,
+        "text": "9. Dot Plot",
+        "anchor": "9-dot-plot"
+      },
+      {
+        "level": 3,
+        "text": "What it is",
+        "anchor": "what-it-is-2"
+      },
+      {
+        "level": 3,
+        "text": "Advantage 1: logarithmic scales",
+        "anchor": "advantage-1-logarithmic-scales"
+      },
+      {
+        "level": 3,
+        "text": "Advantage 2: multiple metrics",
+        "anchor": "advantage-2-multiple-metrics"
+      },
+      {
+        "level": 3,
+        "text": "Linear vs logarithmic interpretation",
+        "anchor": "linear-vs-logarithmic-interpretation"
+      },
+      {
+        "level": 3,
+        "text": "Dot plot vs scatter plot",
+        "anchor": "dot-plot-vs-scatter-plot"
+      },
+      {
+        "level": 2,
+        "text": "10. Logarithmic Scales — Deeper Reference",
+        "anchor": "10-logarithmic-scales-deeper-reference"
+      },
+      {
+        "level": 2,
+        "text": "11. Trend Lines and Model Thinking",
+        "anchor": "11-trend-lines-and-model-thinking"
+      },
+      {
+        "level": 3,
+        "text": "Straight trend line",
+        "anchor": "straight-trend-line"
+      },
+      {
+        "level": 3,
+        "text": "Curved trend",
+        "anchor": "curved-trend"
+      },
+      {
+        "level": 3,
+        "text": "Log-linear interpretation",
+        "anchor": "log-linear-interpretation"
+      }
+    ],
+    "counts": {
+      "paragraphs": 62,
+      "lists": 63,
+      "listItems": 63,
+      "tables": 0,
+      "tableRows": 0,
+      "figures": 1,
+      "equations": 8,
+      "callouts": 1,
+      "toggles": 0,
+      "code": 0,
+      "blocks": 188,
+      "headings": 46,
+      "links": 1
+    },
+    "toc": []
+  },
+  {
+    "slug": "dashboard-design",
+    "title": "Dashboard Design, Composition & Cognitive Load",
+    "lang": "ar",
+    "icon": "🖼️",
+    "description": "",
+    "notionId": "3cd3906c5d6c81b793aaf1036705960f",
+    "canonicalUrl": "https://app.notion.com/p/3cd3906c5d6c81b793aaf1036705960f",
+    "sourceFile": "Dashboard Design, Composition & Cognitive Load 3cd3906c5d6c81b793aaf1036705960f.html",
+    "textLength": 1494,
+    "language": {
+      "arabicChars": 492,
+      "latinChars": 712,
+      "arabicShare": 0.409
+    },
+    "headings": [
+      {
+        "level": 2,
+        "text": "1. Visual Hierarchy",
+        "anchor": "1-visual-hierarchy"
+      },
+      {
+        "level": 2,
+        "text": "2. Cognitive Load",
+        "anchor": "2-cognitive-load"
+      },
+      {
+        "level": 2,
+        "text": "3. Small Multiples",
+        "anchor": "3-small-multiples"
+      },
+      {
+        "level": 2,
+        "text": "4. KPI Cards",
+        "anchor": "4-kpi-cards"
+      },
+      {
+        "level": 2,
+        "text": "5. Executive vs Analytical Dashboard",
+        "anchor": "5-executive-vs-analytical-dashboard"
+      },
+      {
+        "level": 2,
+        "text": "6. أسئلة QA قبل النشر",
+        "anchor": "6-qa"
+      }
+    ],
+    "counts": {
+      "paragraphs": 8,
+      "lists": 9,
+      "listItems": 9,
+      "tables": 0,
+      "tableRows": 0,
+      "figures": 3,
+      "equations": 0,
+      "callouts": 1,
+      "toggles": 0,
+      "code": 1,
+      "blocks": 27,
+      "headings": 6,
+      "links": 0
+    },
+    "toc": []
+  },
+  {
+    "slug": "foundations",
+    "title": "Foundations & Decision Framework",
+    "lang": "en",
+    "icon": "🧭",
+    "description": "",
+    "notionId": "3cd3906c5d6c8191959ef2ecc8c0ca59",
+    "canonicalUrl": "https://app.notion.com/p/3cd3906c5d6c8191959ef2ecc8c0ca59",
+    "sourceFile": "Foundations & Decision Framework 3cd3906c5d6c8191959ef2ecc8c0ca59.html",
+    "textLength": 3198,
+    "language": {
+      "arabicChars": 0,
+      "latinChars": 2654,
+      "arabicShare": 0
+    },
+    "headings": [
+      {
+        "level": 2,
+        "text": "1. Why Visualization Matters",
+        "anchor": "1-why-visualization-matters"
+      },
+      {
+        "level": 3,
+        "text": "The Datasaurus Dozen Lesson",
+        "anchor": "the-datasaurus-dozen-lesson"
+      },
+      {
+        "level": 2,
+        "text": "2. Variable Types",
+        "anchor": "2-variable-types"
+      },
+      {
+        "level": 3,
+        "text": "Continuous / Quantitative Variables",
+        "anchor": "continuous-quantitative-variables"
+      },
+      {
+        "level": 3,
+        "text": "Categorical Variables",
+        "anchor": "categorical-variables"
+      },
+      {
+        "level": 3,
+        "text": "Variables Whose Treatment Depends on the Question",
+        "anchor": "variables-whose-treatment-depends-on-the-question"
+      },
+      {
+        "level": 2,
+        "text": "3. Master Decision Framework",
+        "anchor": "3-master-decision-framework"
+      },
+      {
+        "level": 3,
+        "text": "Fast Decision Tree",
+        "anchor": "fast-decision-tree"
+      }
+    ],
+    "counts": {
+      "paragraphs": 8,
+      "lists": 16,
+      "listItems": 16,
+      "tables": 1,
+      "tableRows": 6,
+      "figures": 1,
+      "equations": 0,
+      "callouts": 1,
+      "toggles": 0,
+      "code": 1,
+      "blocks": 36,
+      "headings": 8,
+      "links": 0
+    },
+    "toc": []
+  },
+  {
+    "slug": "interview-bank",
+    "title": "Data Visualization Interview Master Bank",
+    "lang": "ar",
+    "icon": "",
+    "description": "",
+    "notionId": "3cd3906c5d6c81f49e4cc8ca53d6e812",
+    "canonicalUrl": "https://app.notion.com/p/3cd3906c5d6c81f49e4cc8ca53d6e812",
+    "sourceFile": "Data Visualization Interview Master Bank 3cd3906c5d6c81f49e4cc8ca53d6e812.html",
+    "textLength": 1962,
+    "language": {
+      "arabicChars": 636,
+      "latinChars": 968,
+      "arabicShare": 0.397
+    },
+    "headings": [
+      {
+        "level": 2,
+        "text": "1. Conceptual",
+        "anchor": "1-conceptual"
+      },
+      {
+        "level": 2,
+        "text": "2. Scenario",
+        "anchor": "2-scenario"
+      },
+      {
+        "level": 2,
+        "text": "3. Senior",
+        "anchor": "3-senior"
+      },
+      {
+        "level": 2,
+        "text": "4. Rapid-Fire Traps",
+        "anchor": "4-rapid-fire-traps"
+      },
+      {
+        "level": 2,
+        "text": "5. Senior Answer Structure",
+        "anchor": "5-senior-answer-structure"
+      }
+    ],
+    "counts": {
+      "paragraphs": 13,
+      "lists": 9,
+      "listItems": 9,
+      "tables": 0,
+      "tableRows": 0,
+      "figures": 0,
+      "equations": 0,
+      "callouts": 1,
+      "toggles": 0,
+      "code": 0,
+      "blocks": 28,
+      "headings": 5,
+      "links": 1
+    },
+    "toc": []
+  },
+  {
+    "slug": "power-bi-playbook",
+    "title": "Power BI Visualization Playbook",
+    "lang": "ar",
+    "icon": "📊",
+    "description": "",
+    "notionId": "3cd3906c5d6c81b583dadccead758b3c",
+    "canonicalUrl": "https://app.notion.com/p/3cd3906c5d6c81b583dadccead758b3c",
+    "sourceFile": "Power BI Visualization Playbook 3cd3906c5d6c81b583dadccead758b3c.html",
+    "textLength": 2811,
+    "language": {
+      "arabicChars": 546,
+      "latinChars": 1644,
+      "arabicShare": 0.249
+    },
+    "headings": [
+      {
+        "level": 2,
+        "text": "1. Visual Selection",
+        "anchor": "1-visual-selection"
+      },
+      {
+        "level": 2,
+        "text": "2. Measures vs Calculated Columns",
+        "anchor": "2-measures-vs-calculated-columns"
+      },
+      {
+        "level": 2,
+        "text": "3. Performance-aware Visualization",
+        "anchor": "3-performance-aware-visualization"
+      },
+      {
+        "level": 2,
+        "text": "4. High Cardinality",
+        "anchor": "4-high-cardinality"
+      },
+      {
+        "level": 2,
+        "text": "5. Color & Accessibility",
+        "anchor": "5-color-accessibility"
+      },
+      {
+        "level": 2,
+        "text": "6. Log Scale Caution",
+        "anchor": "6-log-scale-caution"
+      },
+      {
+        "level": 2,
+        "text": "7. Interview Frame",
+        "anchor": "7-interview-frame"
+      }
+    ],
+    "counts": {
+      "paragraphs": 10,
+      "lists": 12,
+      "listItems": 12,
+      "tables": 0,
+      "tableRows": 0,
+      "figures": 2,
+      "equations": 0,
+      "callouts": 1,
+      "toggles": 0,
+      "code": 2,
+      "blocks": 33,
+      "headings": 7,
+      "links": 1
+    },
+    "toc": []
+  },
+  {
+    "slug": "quick-reference",
+    "title": "Quick Reference & Exam Prep",
+    "lang": "en",
+    "icon": "🧠",
+    "description": "",
+    "notionId": "3cd3906c5d6c813ea34dc5e5e4870d71",
+    "canonicalUrl": "https://app.notion.com/p/3cd3906c5d6c813ea34dc5e5e4870d71",
+    "sourceFile": "Quick Reference & Exam Prep 3cd3906c5d6c813ea34dc5e5e4870d71.html",
+    "textLength": 4765,
+    "language": {
+      "arabicChars": 0,
+      "latinChars": 3954,
+      "arabicShare": 0
+    },
+    "headings": [
+      {
+        "level": 2,
+        "text": "20. Practical Interpretation Checklist",
+        "anchor": "20-practical-interpretation-checklist"
+      },
+      {
+        "level": 2,
+        "text": "21. High-Value Comparison Table",
+        "anchor": "21-high-value-comparison-table"
+      },
+      {
+        "level": 2,
+        "text": "22. Exam / Interview Traps",
+        "anchor": "22-exam-interview-traps"
+      },
+      {
+        "level": 2,
+        "text": "23. Mental Model to Remember Everything",
+        "anchor": "23-mental-model-to-remember-everything"
+      },
+      {
+        "level": 2,
+        "text": "24. Source Concepts Covered in This Reference",
+        "anchor": "24-source-concepts-covered-in-this-reference"
+      },
+      {
+        "level": 2,
+        "text": "25. Advanced Decision Framework",
+        "anchor": "25-advanced-decision-framework"
+      }
+    ],
+    "counts": {
+      "paragraphs": 11,
+      "lists": 12,
+      "listItems": 12,
+      "tables": 2,
+      "tableRows": 19,
+      "figures": 0,
+      "equations": 0,
+      "callouts": 2,
+      "toggles": 6,
+      "code": 1,
+      "blocks": 32,
+      "headings": 6,
+      "links": 0
+    },
+    "toc": []
+  },
+  {
+    "slug": "statistical-traps",
+    "title": "Statistical Interpretation Traps for Visualization",
+    "lang": "ar",
+    "icon": "⚠️",
+    "description": "",
+    "notionId": "3cd3906c5d6c81febadef001c3adffc8",
+    "canonicalUrl": "https://app.notion.com/p/3cd3906c5d6c81febadef001c3adffc8",
+    "sourceFile": "Statistical Interpretation Traps for Visualization 3cd3906c5d6c81febadef001c3adffc8.html",
+    "textLength": 1998,
+    "language": {
+      "arabicChars": 605,
+      "latinChars": 996,
+      "arabicShare": 0.378
+    },
+    "headings": [
+      {
+        "level": 2,
+        "text": "1. Mean vs Median",
+        "anchor": "1-mean-vs-median"
+      },
+      {
+        "level": 2,
+        "text": "2. Simpson’s Paradox",
+        "anchor": "2-simpson-s-paradox"
+      },
+      {
+        "level": 2,
+        "text": "3. Aggregation Hides Variation",
+        "anchor": "3-aggregation-hides-variation"
+      },
+      {
+        "level": 2,
+        "text": "4. Ecological Fallacy",
+        "anchor": "4-ecological-fallacy"
+      },
+      {
+        "level": 2,
+        "text": "5. Selection Bias & Missingness",
+        "anchor": "5-selection-bias-missingness"
+      },
+      {
+        "level": 2,
+        "text": "6. Multiple Comparisons",
+        "anchor": "6-multiple-comparisons"
+      },
+      {
+        "level": 2,
+        "text": "7. Statistical vs Practical Significance",
+        "anchor": "7-statistical-vs-practical-significance"
+      },
+      {
+        "level": 2,
+        "text": "8. Uncertainty-Aware Visualization",
+        "anchor": "8-uncertainty-aware-visualization"
+      },
+      {
+        "level": 2,
+        "text": "9. Interview Trap",
+        "anchor": "9-interview-trap"
+      }
+    ],
+    "counts": {
+      "paragraphs": 11,
+      "lists": 0,
+      "listItems": 0,
+      "tables": 0,
+      "tableRows": 0,
+      "figures": 3,
+      "equations": 0,
+      "callouts": 1,
+      "toggles": 0,
+      "code": 1,
+      "blocks": 24,
+      "headings": 9,
+      "links": 0
+    },
+    "toc": []
+  },
+  {
+    "slug": "visual-atlas",
+    "title": "Visual Atlas — Teaching Charts & Figure Pack",
+    "lang": "en",
+    "icon": "🎨",
+    "description": "",
+    "notionId": "3e53906c5d6c81e588dee386862fecac",
+    "canonicalUrl": "https://app.notion.com/p/3e53906c5d6c81e588dee386862fecac",
+    "sourceFile": "Visual Atlas — Teaching Charts & Figure Pack 3e53906c5d6c81e588dee386862fecac.html",
+    "textLength": 4773,
+    "language": {
+      "arabicChars": 0,
+      "latinChars": 3806,
+      "arabicShare": 0
+    },
+    "headings": [
+      {
+        "level": 2,
+        "text": "How to use this atlas",
+        "anchor": "how-to-use-this-atlas"
+      },
+      {
+        "level": 2,
+        "text": "A. Operating system",
+        "anchor": "a-operating-system"
+      },
+      {
+        "level": 2,
+        "text": "B. Why you must plot the data",
+        "anchor": "b-why-you-must-plot-the-data"
+      },
+      {
+        "level": 2,
+        "text": "C. Core grammar",
+        "anchor": "c-core-grammar"
+      },
+      {
+        "level": 3,
+        "text": "Histogram — read modality and skew first",
+        "anchor": "histogram-read-modality-and-skew-first"
+      },
+      {
+        "level": 2,
+        "text": "D. Integrity",
+        "anchor": "d-integrity"
+      },
+      {
+        "level": 3,
+        "text": "Truncated bars manufacture drama",
+        "anchor": "truncated-bars-manufacture-drama"
+      },
+      {
+        "level": 3,
+        "text": "Dual axis vs small multiples",
+        "anchor": "dual-axis-vs-small-multiples"
+      },
+      {
+        "level": 2,
+        "text": "E. Color semantics",
+        "anchor": "e-color-semantics"
+      },
+      {
+        "level": 2,
+        "text": "F. Chart-to-task pocket card",
+        "anchor": "f-chart-to-task-pocket-card"
+      },
+      {
+        "level": 2,
+        "text": "G. Constitution — wall card",
+        "anchor": "g-constitution-wall-card"
+      },
+      {
+        "level": 2,
+        "text": "Related chapters",
+        "anchor": "related-chapters"
+      },
+      {
+        "level": 2,
+        "text": "H. Dashboard scan path",
+        "anchor": "h-dashboard-scan-path"
+      },
+      {
+        "level": 2,
+        "text": "I. Dual axis vs small multiples",
+        "anchor": "i-dual-axis-vs-small-multiples"
+      },
+      {
+        "level": 2,
+        "text": "J. Inference traps that look like chart problems",
+        "anchor": "j-inference-traps-that-look-like-chart-problems"
+      },
+      {
+        "level": 2,
+        "text": "Related — this pass",
+        "anchor": "related-this-pass"
+      }
+    ],
+    "counts": {
+      "paragraphs": 6,
+      "lists": 26,
+      "listItems": 26,
+      "tables": 2,
+      "tableRows": 11,
+      "figures": 12,
+      "equations": 0,
+      "callouts": 2,
+      "toggles": 0,
+      "code": 3,
+      "blocks": 66,
+      "headings": 16,
+      "links": 9
+    },
+    "toc": []
+  },
+  {
+    "slug": "visual-integrity",
+    "title": "Visual Integrity, Pitfalls & Ethics",
+    "lang": "en",
+    "icon": "⚖️",
+    "description": "",
+    "notionId": "3cd3906c5d6c81809fa1ea9a9146aea0",
+    "canonicalUrl": "https://app.notion.com/p/3cd3906c5d6c81809fa1ea9a9146aea0",
+    "sourceFile": "Visual Integrity, Pitfalls & Ethics 3cd3906c5d6c81809fa1ea9a9146aea0.html",
+    "textLength": 5715,
+    "language": {
+      "arabicChars": 24,
+      "latinChars": 4691,
+      "arabicShare": 0.005
+    },
+    "headings": [
+      {
+        "level": 2,
+        "text": "16. Visualization Pitfalls",
+        "anchor": "16-visualization-pitfalls"
+      },
+      {
+        "level": 3,
+        "text": "Pitfall 1: choosing the chart before defining the question",
+        "anchor": "pitfall-1-choosing-the-chart-before-defining-the-question"
+      },
+      {
+        "level": 3,
+        "text": "Pitfall 2: confusing categories and continuous values",
+        "anchor": "pitfall-2-confusing-categories-and-continuous-values"
+      },
+      {
+        "level": 3,
+        "text": "Pitfall 3: assuming correlation means relationship of any kind",
+        "anchor": "pitfall-3-assuming-correlation-means-relationship-of-any-kind"
+      },
+      {
+        "level": 3,
+        "text": "Pitfall 4: assuming time always means line plot",
+        "anchor": "pitfall-4-assuming-time-always-means-line-plot"
+      },
+      {
+        "level": 3,
+        "text": "Pitfall 5: misleading bar baselines",
+        "anchor": "pitfall-5-misleading-bar-baselines"
+      },
+      {
+        "level": 3,
+        "text": "Pitfall 6: excessive categories",
+        "anchor": "pitfall-6-excessive-categories"
+      },
+      {
+        "level": 3,
+        "text": "Pitfall 7: excessive visual decoration",
+        "anchor": "pitfall-7-excessive-visual-decoration"
+      },
+      {
+        "level": 3,
+        "text": "Pitfall 8: hiding distributional information in a single mean",
+        "anchor": "pitfall-8-hiding-distributional-information-in-a-single-mean"
+      },
+      {
+        "level": 2,
+        "text": "17. Visualization Integrity — Axes and Scale",
+        "anchor": "17-visualization-integrity-axes-and-scale"
+      },
+      {
+        "level": 3,
+        "text": "17.1 Bar-Length Principle",
+        "anchor": "17-1-bar-length-principle"
+      },
+      {
+        "level": 4,
+        "text": "Example",
+        "anchor": "example"
+      },
+      {
+        "level": 3,
+        "text": "17.2 Stacked Bars",
+        "anchor": "17-2-stacked-bars"
+      },
+      {
+        "level": 3,
+        "text": "17.3 Dual Y-Axes",
+        "anchor": "17-3-dual-y-axes"
+      },
+      {
+        "level": 4,
+        "text": "Better alternative",
+        "anchor": "better-alternative"
+      },
+      {
+        "level": 4,
+        "text": "Real use case",
+        "anchor": "real-use-case"
+      },
+      {
+        "level": 2,
+        "text": "18. Chartjunk, Cognitive Load, and Sensory Overload",
+        "anchor": "18-chartjunk-cognitive-load-and-sensory-overload"
+      },
+      {
+        "level": 3,
+        "text": "18.1 Chartjunk",
+        "anchor": "18-1-chartjunk"
+      },
+      {
+        "level": 3,
+        "text": "18.2 Skeuomorphism",
+        "anchor": "18-2-skeuomorphism"
+      },
+      {
+        "level": 3,
+        "text": "18.3 Why 3D Bars Are Usually Harmful",
+        "anchor": "18-3-why-3d-bars-are-usually-harmful"
+      },
+      {
+        "level": 3,
+        "text": "18.4 Hatching and Excessive Visual Texture",
+        "anchor": "18-4-hatching-and-excessive-visual-texture"
+      },
+      {
+        "level": 3,
+        "text": "18.5 Minimalism Is Not \"Remove Everything\"",
+        "anchor": "18-5-minimalism-is-not-remove-everything"
+      },
+      {
+        "level": 2,
+        "text": "19. Final Principles — The Visualization Constitution",
+        "anchor": "19-final-principles-the-visualization-constitution"
+      }
+    ],
+    "counts": {
+      "paragraphs": 29,
+      "lists": 24,
+      "listItems": 24,
+      "tables": 0,
+      "tableRows": 0,
+      "figures": 2,
+      "equations": 0,
+      "callouts": 1,
+      "toggles": 0,
+      "code": 0,
+      "blocks": 83,
+      "headings": 23,
+      "links": 2
+    },
+    "toc": []
+  }
+]

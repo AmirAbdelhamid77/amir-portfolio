@@ -1,0 +1,43 @@
+// TMSL fragment: hide a table from the "Standard" role
+{
+  "name": "Standard",
+  "tablePermissions": [
+    { "name": "Payroll", "metadataPermission": "none" }
+  ]
+}
+KNOW THE DIFFERENCE
+CLS hides a column's values, OLS hides the object's existence. With CLS the user still sees the
+column name and gets an error or a blank; with OLS the table or column is not in the model at all for
+that role — a visual referencing it breaks rather than showing blanks.
+2.7 Sensitivity labels
+Information protection applies Microsoft Purview sensitivity labels to Fabric items.
+Labels are defined in the Microsoft Purview compliance portal, not in Fabric.
+Labels flow downstream automatically: label a lakehouse and the semantic models and reports built
+from it inherit the label.
+Labels persist on export to Excel, PowerPoint, PDF, and Power BI Desktop files, where they enforce
+encryption and access.
+Tenant settings control who can apply and change labels.
+COMMON EXAM TRAP
+A sensitivity label is not an access control on its own. It classifies and can encrypt exported files, but it
+does not stop a user who already has Read from querying the data inside Fabric. Questions that pair
+"must not be able to open the exported file" with "must still see the report" are testing exactly this.
+2.8 Endorsement
+Endorsement is how you tell users which items to trust. It affects discovery and ranking in the OneLake
+catalog, not permissions.
+Level
+Who can apply it
+Meaning
+Promoted
+Anyone with Write on the item (workspace Contributor
+and above)
+"My team recommends this"
+Certified
+Only reviewers nominated by the tenant admin
+"This has been formally reviewed"
+Master
+data
+Restricted in the same way as Certified
+"This is the single authoritative source for
+this entity"
+Endorsement pairs with lineage, the OneLake catalog, and the Microsoft Purview hub for a complete
+governance story.

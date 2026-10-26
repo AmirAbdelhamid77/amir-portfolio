@@ -1,0 +1,18 @@
+{
+  "lesson_id": "dp600-c3-s07",
+  "source_sections": [
+    23
+  ],
+  "blocks": [
+    {
+      "id": "dp600-c3-s07-p023",
+      "kind": "source_fragment",
+      "source_page": 23,
+      "source_start_line": 14,
+      "source_text": "3.7 Chapter 3 self-check\n1. You need per-stage lakehouse bindings for ten notebooks. Rules on every item, or a variable library?\n2. A developer wants two people reviewing measure changes before they reach the shared model. Which\nfeature?\n3. What is lost when you deploy a warehouse through a deployment pipeline?\n4. Which tool adds object-level security to a semantic model?\n5. Analysts each need the same report against their own regional database. Which asset do you publish?\nAnswers. 1. A variable library — one variable, one value per stage, referenced by all ten. 2. Git\nintegration with pull requests, developing in .pbip  format so the diff is readable. 3. The data:\ndefinitions deploy, rows do not. 4. An external tool over the XMLA endpoint (Tabular Editor or a TMSL\nscript); Desktop has no OLS UI. 5. A .pbit  template with a parameter for the database, or a .pbids\nfile pointing at their source.",
+      "presentation_status": "needs-editorial-layout-conversion",
+      "recommended_renderer": "SourceFragment"
+    }
+  ],
+  "warning": "Source fragments are NOT native formatted prose, tables or runnable code."
+}

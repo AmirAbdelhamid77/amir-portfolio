@@ -1,0 +1,53 @@
+11.4 Glossary
+Term
+Meaning
+Capacity (F SKU)
+The purchased pool of compute that workspaces run on
+CU
+Capacity Unit — the unit of compute consumption, smoothed over time
+OneLake
+The tenant-wide logical data lake, Delta Parquet, one per tenant
+Shortcut
+A pointer to data in another location, read in place
+Mirroring
+Managed near-real-time replication of an external database into OneLake
+Medallion
+Bronze (raw) → Silver (cleansed) → Gold (business-ready) layering
+Delta Lake
+The open table format Fabric uses: Parquet files plus a transaction log
+V-Order
+A write-time optimisation of Parquet that speeds up reads by Fabric engines
+SQL analytics endpoint
+The read-only T-SQL interface over a lakehouse's Delta tables
+Semantic model
+The tabular model (tables, relationships, measures) that reports query
+Direct Lake
+Storage mode that reads Delta files from OneLake into memory on demand
+Framing
+The metadata operation that points a Direct Lake model at the current Delta version
+Transcoding
+Converting a Delta column into the in-memory VertiPaq format on first use
+VertiPaq
+The columnar, compressed in-memory engine behind Import and Direct Lake
+Calculation group
+A reusable set of calculation items applied to any measure
+Field parameter
+A table that lets report users switch which field or measure a visual shows
+XMLA endpoint
+The protocol that lets external tools read from and write to a semantic model
+TMDL
+Tabular Model Definition Language — the text format of a model in a .pbip  project
+RLS / CLS / OLS
+Row-, column-, and object-level security
+Endorsement
+Promoted, Certified, or Master data trust marking on an item
+Domain
+A grouping of workspaces by business area for federated governance
+Deployment pipeline
+The Fabric feature that promotes items between stage workspaces
+Variable library
+Named values that resolve differently per deployment stage
+11.5 Where to go next
+Renew this certification every 12 months with the free renewal assessment.
+Pair it with DP-700, the Fabric Data Engineer Associate certification, to cover ingestion, streaming, and
+operations end to end. The DP-700 guide in this series follows the same structure.

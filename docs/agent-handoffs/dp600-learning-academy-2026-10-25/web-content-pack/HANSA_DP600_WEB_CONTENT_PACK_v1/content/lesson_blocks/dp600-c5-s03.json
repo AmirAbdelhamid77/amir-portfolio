@@ -1,0 +1,18 @@
+{
+  "lesson_id": "dp600-c5-s03",
+  "source_sections": [
+    30
+  ],
+  "blocks": [
+    {
+      "id": "dp600-c5-s03-p030",
+      "kind": "source_fragment",
+      "source_page": 30,
+      "source_start_line": 14,
+      "source_text": "5.3 Denormalising, joining, and aggregating\nDenormalise by folding a snowflaked hierarchy into one dimension:\n-- Snowflake: DimProduct -> DimSubcategory -> DimCategory\n-- Star: one flat DimProduct\nCREATE TABLE dbo.DimProduct AS\nSELECT p.ProductKey, p.ProductName,\n       sc.SubcategoryName,\n       c.CategoryName\nFROM   stg.Product AS p\nJOIN   stg.Subcategory AS sc ON sc.SubcategoryId = p.SubcategoryId\nJOIN   stg.Category    AS c  ON c.CategoryId     = sc.CategoryId;\nFabric Warehouse supports CTAS ( CREATE TABLE AS SELECT ), which is the usual way to materialise a\ntransformed table in one statement.\nAggregate to a summary table when reports only need a coarser grain:\nCREATE TABLE dbo.AggSalesByMonth AS\nSELECT d.CalendarYear, d.MonthNumber, f.ProductKey,\n       SUM(f.SalesAmount) AS SalesAmount,\n       SUM(f.Quantity)    AS Quantity,\n       COUNT_BIG(*)       AS RowCountLines\nFROM   dbo.FactSales AS f\nJOIN   dbo.DimDate   AS d ON d.DateKey = f.DateKey\nGROUP  BY d.CalendarYear, d.MonthNumber, f.ProductKey;\nJoin types in one line each: INNER  keeps matches; LEFT  keeps all of the left; FULL  keeps everything;\nANTI  ( WHERE NOT EXISTS ) finds orphans — the standard way to detect fact rows whose dimension key is\nmissing.",
+      "presentation_status": "needs-editorial-layout-conversion",
+      "recommended_renderer": "SourceFragment"
+    }
+  ],
+  "warning": "Source fragments are NOT native formatted prose, tables or runnable code."
+}

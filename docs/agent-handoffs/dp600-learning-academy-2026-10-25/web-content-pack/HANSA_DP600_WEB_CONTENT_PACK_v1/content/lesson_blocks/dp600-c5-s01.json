@@ -1,0 +1,18 @@
+{
+  "lesson_id": "dp600-c5-s01",
+  "source_sections": [
+    28
+  ],
+  "blocks": [
+    {
+      "id": "dp600-c5-s01-p028",
+      "kind": "source_fragment",
+      "source_page": 28,
+      "source_start_line": 7,
+      "source_text": "5.1 Choosing a transformation engine\nDataflow Gen2\nNotebook (Spark)\nT-SQL in a warehouse\nLanguage\nPower Query M\nPySpark, Spark SQL\nT-SQL\nAudience\nAnalysts, low-code\nData engineers\nSQL developers\nScale\nModerate; Fast Copy for bulk\nHighest\nHigh for set-based work\nStrength\n150+ connectors, visual steps,\nreusable\nCustom logic, libraries, ML,\nfiles\nJoins, MERGE, procedures,\ntransactions\nWeakness\nCost/performance at very large\nvolume\nRequires code skills, session\nstart-up\nCannot read unstructured files\nDestination\nLakehouse, warehouse, SQL DB,\nKQL\nAny Delta table, files\nTables in the same warehouse\nOfficial guidance: choose between Dataflow Gen2, pipelines, and Spark.\nTIP\nQuery folding is the make-or-break concept for Dataflow Gen2 performance. When steps fold, Power\nQuery translates them into a single native query at the source; when folding breaks, everything after\nthat point is processed by the mashup engine. Check the View native query option and keep filters and\ncolumn removal early, before any step that breaks folding.",
+      "presentation_status": "needs-editorial-layout-conversion",
+      "recommended_renderer": "SourceFragment"
+    }
+  ],
+  "warning": "Source fragments are NOT native formatted prose, tables or runnable code."
+}

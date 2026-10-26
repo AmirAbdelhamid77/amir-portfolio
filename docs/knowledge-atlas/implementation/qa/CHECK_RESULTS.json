@@ -1,0 +1,75 @@
+[
+  {
+    "name": "lint",
+    "command": "rtk npm run lint",
+    "exitCode": 0,
+    "status": "PASS",
+    "summaries": []
+  },
+  {
+    "name": "test-all",
+    "command": "rtk npm run test:all",
+    "exitCode": 0,
+    "status": "PASS",
+    "summaries": [
+      "# tests 62",
+      "# pass 62",
+      "# fail 0",
+      "# tests 18",
+      "# pass 18",
+      "# fail 0",
+      "# tests 29",
+      "# pass 29",
+      "# fail 0",
+      "# tests 20",
+      "# pass 20",
+      "# fail 0"
+    ]
+  },
+  {
+    "name": "academy-atlas",
+    "command": "rtk proxy node --experimental-strip-types --test tests/academy/*.test.mjs tests/atlas/*.test.mjs",
+    "exitCode": 0,
+    "status": "PASS",
+    "summaries": [
+      "# tests 18",
+      "# pass 18",
+      "# fail 0"
+    ]
+  },
+  {
+    "name": "history",
+    "command": "rtk proxy node scripts/verify-preservation-history.mjs",
+    "exitCode": 0,
+    "status": "PASS",
+    "summaries": []
+  },
+  {
+    "name": "atlas",
+    "command": "rtk proxy node scripts/verify-knowledge-atlas.mjs",
+    "exitCode": 0,
+    "status": "PASS",
+    "summaries": []
+  },
+  {
+    "name": "references",
+    "command": "rtk proxy node scripts/verify-agent-reference.mjs",
+    "exitCode": 0,
+    "status": "PASS",
+    "summaries": []
+  },
+  {
+    "name": "easyui",
+    "command": "rtk proxy node scripts/verify-easyui-integration.mjs",
+    "exitCode": 0,
+    "status": "PASS",
+    "summaries": []
+  },
+  {
+    "name": "implementation",
+    "command": "rtk proxy node scripts/verify-atlas-implementation.mjs",
+    "exitCode": 0,
+    "status": "PASS",
+    "summaries": []
+  }
+]

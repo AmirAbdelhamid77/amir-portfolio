@@ -1,0 +1,74 @@
+# Hansa EasyUI V2 integration — 25 October 2026
+
+Local implementation and documentation integration; **not deployed**. No landing redesign, paid component, backend, analytics, new package or graph engine.
+
+> Subsequent owner-requested repair, 25 October 2026: the historical failures described below have been reconciled from exact original snapshots, without changing any existing test or application/configuration source. All 23 registry captures were located in the original build cache; all 90 old paths now resolve by exact hashes. See [preservation repair report](../../preservation-history/2026-10-25/REPORT.md) for the current verification result and preserved original baselines. Earlier findings below remain the dated integration record.
+
+## Access, authority and preservation
+
+Repository access was proved by reading actual files and `git status --short --branch` in `D:\BeUI\amir-portfolio`, branch `feat/dp600-academy-ingestion-20261025`. The checkout was extensively dirty. No reset, clean, stash, checkout, commit or Git staging was performed. [PRESERVATION_BASELINE.json](PRESERVATION_BASELINE.json) records the initial status, HEAD and 1,174 source/document hashes. Generated/dependency/Git directories are excluded.
+
+The user identified `D:\BeUI` as the package location; no direct ZIP with the requested filename was found there at inspection. The actual accessible archive was `C:\Users\amira\Downloads\Hansa_EasyUI_Validated_Integration_Pack_V2_2026-10-25.zip`: **10,526 bytes**, SHA-256 **323db96ad79723f84564796b1dbea35be5e676dde887cdb3dc1a0683b0746a19**. Five entries were inspected and safely extracted outside the repository first. It contains recommendations, not component code. The exact ZIP is retained in `docs/agent-handoffs/easyui-v2-2026-10-25/`; [PACKAGE_PROVENANCE.json](PACKAGE_PROVENANCE.json) records every original entry hash. None of the five target paths existed before integration.
+
+Read: root AGENTS, active master, adaptive visualization policy, architecture/reorganization guide, content brief template, DP-600 delivery policy/implementation/scientific QA and ingestion sources, Atlas entry/amendments/architecture/master and publication constraints. Recursive AGENTS discovery found only the root and an archived DP-600 reference snapshot; the snapshot is not active authority. No applicable parent AGENTS was accessible. The referenced chat returned user requests and opaque assistant content-reference markers, not the original assistant recommendations or ZIP attachment. Filesystem evidence, not that preview, governs this integration.
+
+## What changed
+
+- Integrated all five pack documents at their intended root-relative paths, with local amendments to the entry, kickoff and adoption log. The supplied JSON/Markdown matrix remains a dated recommendation. Original bytes remain in the intake ZIP.
+- Added a [contextual registry](CONTEXTUAL_COMPONENT_REGISTRY.json) for all **22 candidate rows**, with actual local reuse paths, source/registry IDs, dependencies, provenance, implementation status and gates. It is a design-time decision registry, not a runtime loader or second statistics renderer. `components/statistics/visual-registry.tsx` remains unchanged.
+- Implemented **one native Smart Comparison pattern pilot** on `/learn/dp-600/ingestion/`: searchable criteria, differences-only filter, result count, empty state and reset. Desktop uses a semantic table; narrow screens retain all three alternatives under each criterion. Printing shows the complete table even when filters are active. Static/no-JavaScript output retains all definitions and references.
+- The component reads canonical `PATTERNS` and `REFERENCES`; it does not own a second set of definitions or add invented data. All nine existing mechanism/freshness/limitation texts are retained. Database Mirroring is explicitly scoped; no claim of real Fabric execution.
+- Root AGENTS now links this report and registry. Reference manifests were refreshed only for intentionally changed owned files. The historical Atlas verifier accepts only exact runtime paths/before-and-after hashes declared by this successor; its immutable baseline, original Atlas payload and semantic publication tests are preserved.
+
+Implementation paths: `components/academy/pattern-comparison.tsx`, `lib/academy/pattern-comparison.ts`, the existing ingestion page, and comparison unit/browser tests. `components/academy/ingestion-lab.tsx`, question content, answer keys, IDs and persistence schemas are unchanged. [INTEGRATION_MANIFEST.json](INTEGRATION_MANIFEST.json) enumerates this task's ownership and hashes; the preservation verifier rejects unrelated changes.
+
+## Component/source audit and corrected recommendations
+
+Pinned EasyUI source: [Surajmaurya1/easyui commit 7c106d4](https://github.com/Surajmaurya1/easyui/tree/7c106d4a195f9ce566ffbbc672fc48bed68d30bd). A shallow source checkout was read outside Hansa; no upstream install/build scripts were executed. Source exports and dependency metadata were inspected for all 22 recommendation rows; this is not a runtime audit of all 131 EasyUI components. The grouped Donut/Bar/Funnel row maps to the donut source plus actual local chart families; it is not three separately tested EasyUI charts. Per-candidate hashes/imports/dependencies are in [UPSTREAM_CAPABILITIES.json](UPSTREAM_CAPABILITIES.json).
+
+Live beUI discovery succeeded: MCP returned **110 families**; the actual registry returned **146 installable entries** (includes variants, not a contradiction). Table, Code Block, Timeline, Agent Activity, Heat Calendar, Funnel and Scroll Progress source/dependency payloads were retrieved. `scroll-animation` is a family name and its item URL returned 404; exact targets include `scroll-progress`, `smooth-scroll`, `scroll-to` and `scroll-reveal`. [beUI agent documentation](https://beui.dev/docs/ai-agents) explains the live endpoints.
+
+| Candidate / group | Local finding and decision |
+|---|---|
+| Smart Comparison | Distinct search/differences pattern, but upstream uses required SaaS prices, div grids, hardcoded dark colors, tiny controls and a differences button without pressed state. Native semantic rendering fits the existing lesson; no upstream implementation copied. |
+| Code Snippet Deck | Parameterized variants add value over simple code display. This lesson has no reviewed SQL/DAX/PySpark equivalence example. Defer until a real code lesson exists; upstream copy success is set before awaiting clipboard completion and timer cleanup needs review. beUI Code Block source uses Shiki and its inspected language union is not automatic SQL/DAX support. |
+| Scroll Progress Navigation | Correct upstream ID is `scroll-progress-nav`, not the page URL's `scroll-progress-navigation`. Existing `components/statistics/reading-progress.tsx` and Data Visualization heading/TOC shell already cover the current need. Upstream smooth scrolling needs reduced-motion adaptation. |
+| Product Tour | Real spotlight sequencing, missing-target handling, reduced motion, Escape and focus return are present. Tab handling enumerates buttons only, so custom interactive copy needs more audit. Keep user-invoked/skippable if future onboarding evidence justifies it; no automatic tour added. |
+| Dependency Trace | Corrects supplied “manual only” caveat: x/y overrides coexist with a simple automatic radial fallback. Connection `label`/`type` are declared but not rendered; no directional arrow marker, keyboard node selection, evidence model or publication gate. Pointer-selected glow repeats indefinitely. Not an Atlas implementation. |
+| Table / Advanced Data Table | beUI Table has virtualization, sort/select/resize/reorder; source includes editable cells and `@tanstack/react-virtual`. EasyUI offers search/facets/pagination/subrows, but not verified 1,000-row parity. Current explorer and native tables remain. |
+| Agent Activity / Activity Feed | beUI already supports structured execution traces and chronological mixes, narrowing the pack's claimed gap. Add a generic feed only for a real category/filter need and truthful event provenance. |
+| Heatmap / Stepper / Live line | Hourly grid, multi-stage workflow and streaming pause/scrub can be distinct. No truthful hourly/stream source or missing workflow capability exists in the scoped pilot. Conditional, not installed. |
+| Standard charts, stat cards, timeline, expandable rows, baskets | Existing Hansa/beUI primitives serve current tasks; retain them. beUI timeline is available upstream, not currently installed locally. |
+| Lens, focus effects, sticky pages, recovery ledger | No established learner need in this scope; touch/focus/semantic or real-backend contracts would be required. Deferred. No landing/HSE changes. |
+
+Full per-candidate decisions: [adoption ledger](../HANSA_EASYUI_V2_ADOPTION_LOG.md) and contextual registry. Supplied fit numbers are **expert heuristics**, not measured speed, accessibility or learning outcomes.
+
+## Compatibility, licenses and hosting
+
+Inspected Hansa declarations and installed build: Next 16.4.3, React/DOM 19.3.0, Motion 14.6.0, Tailwind 4, TypeScript 5. EasyUI upstream declares React ^19.2.8, Tailwind ^4.3.3, **framer-motion ^13.1.0**, lucide-react and relative utility/motion-token helpers. React ranges alone do not establish compatibility. Hansa uses `motion/react`; blindly copying `framer-motion` imports would add a second package or fail resolution. No automatic import replacement was certified. No Vite config, analytics package, fonts or shared utils were imported from EasyUI.
+
+Inspected root licenses: EasyUI MIT, copyright Suraj Maurya; public beUI MIT, copyright Saurabh Chauhan. [EASYUI_LICENSE.txt](EASYUI_LICENSE.txt) and [BEUI_LICENSE.txt](BEUI_LICENSE.txt) preserve exact notices. This is source-license identification, not legal advice or a complete transitive audit. Free beUI source is distinct from Pro; no Pro source used. Zero dependencies added; package.json and lockfile are byte-preserved from preflight. The shipped pilot is original Hansa code inspired by a general interaction pattern, not copied upstream implementation.
+
+Registry/source URLs are not interchangeable: EasyUI repository provides `public/registry.json` and `public/source/{id}.json`; no verified per-item `/r/{id}.json` install endpoint was established. Direct EasyUI source/guessed item probes returned 403, recorded in [ENDPOINT_EVIDENCE.json](ENDPOINT_EVIDENCE.json); source was therefore inspected at the pinned GitHub commit. No fabricated CLI install command is presented as verified.
+
+`next.config.ts` remains `output: export`, trailingSlash, unoptimized images. `wrangler.jsonc` remains assets-only `out/`, no Worker script/bindings. Browser state is confined to component memory. No external runtime requests, API, service, telemetry or cost was added. Final static build evidence is separate from any live Cloudflare/account/pricing claim; **no deploy or account inspection**.
+
+## Sources and educational scope
+
+Current documentation was read for [OneLake shortcuts](https://learn.microsoft.com/en-us/fabric/onelake/onelake-shortcuts), [Mirroring](https://learn.microsoft.com/en-us/fabric/mirroring/overview), and [Copy job](https://learn.microsoft.com/en-us/fabric/data-factory/what-is-copy-job). These support reference-versus-replica, continuous replication with latency, and connector-dependent incremental/CDC movement. Existing source IDs MS-SHORTCUT/MS-SECURITY/MS-MIRROR/MS-COPY/MS-DECISION resolve through the unchanged lesson references. No new technical answer key, code-equivalence claim or numeric outcome was authored.
+
+Coverage: 5/5 ZIP entries inspected/integrated; 22/22 candidate rows classified with source metadata; one existing lesson changed; zero new guide pages or semantic assertions published. This task is not a full original-PDF, entire question-bank, whole-site accessibility or full-library runtime audit. Atlas remains Contextual Hybrid Peek → optional Explorer → Guided Journey, with published evidence-reviewed semantic edges only and TOC/sequence kept separate. **No React Flow/XYFlow, D3, ELK or other graph engine installed**. Next Atlas work is contract/public-projection validation before a renderer choice, as recorded in its existing handoff.
+
+## Verification and limits
+
+See [VALIDATION.md](VALIDATION.md), [QA_RESULTS.json](QA_RESULTS.json), and [BUNDLE_COMPARISON.json](BUNDLE_COMPARISON.json). Build and unit/browser tests are required but do not certify educational effectiveness or WCAG conformance. Human screen-reader, physical device/touch and CWV/Lighthouse remain NOT RUN. No benchmark number from the supplied fit matrix is reported as a measurement.
+
+The extra Academy test command exposes a **pre-existing historical snapshot failure** at `tests/academy/ingestion.test.mjs` (“unexpected change package.json”). Its expected hash predates the current checkout; our preflight and final package hashes match. That historical test was not rewritten or weakened. Domain/lesson tests and the new comparison tests are reported separately from it.
+
+Final integrity results: agent-reference verifier PASS; EasyUI successor verifier PASS (all 1,169 unrelated pre-existing hashes retained). Atlas semantic/publication tests PASS, including 16 rejection cases and canonical second-book reuse. Its historical baseline has **90 recorded paths absent at their old locations** from before this task. Of those, **67 were resolved to existing byte-identical repository copies** through explicit SHA-bound relocation aliases; the old baseline was not edited. The remaining 23 are unavailable historical `tmp-registry` snapshots. See [legacy path audit](LEGACY_ATLAS_PATH_AUDIT.json). After resolving relocations, the complete historical verifier still **FAILS** on its pre-existing package.json hash discrepancy, the same outdated snapshot exposed by the Academy test. No package, source or test baseline was silently replaced. Reconcile historical snapshots and missing raw registry captures before claiming the entire old gate is green.
+
+## Rollback and next atomic work
+
+Use this task's manifest and `ROLLBACK_EXISTING_FILES.json`: check each current after-hash first, then restore only the recorded original bytes for this task's modified files and remove only owned additions. If any hash differs, perform a targeted inverse merge; never overwrite later work. Do not use Git reset/clean/stash in this dirty checkout. Original intake, question/progress content and Atlas handoff bytes remain preserved. No production rollback is needed because no deployment occurred.
+
+Next useful component work: select a source-verified Warehouse/star-schema or code lesson, establish equivalent SQL/PySpark examples and expected outputs, then decide whether Code Snippet Deck adds value over existing code display. Product Tour and graphs remain needs/content-gated; no bulk install queue.

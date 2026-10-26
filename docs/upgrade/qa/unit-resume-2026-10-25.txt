@@ -1,0 +1,181 @@
+(node:30344) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///D:/BeUI/amir-portfolio/lib/case-studies.ts is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to D:\BeUI\amir-portfolio\package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ every case study declares a role, timeframe, limitation and outcome (3.4164ms)
+✔ every metric exposes a label and a qualifying note (0.522ms)
+✔ the HSE safety rates declare their hour base and stay mutually consistent (0.7216ms)
+✔ screenshots referenced by case studies exist in public/ (14.9123ms)
+(node:32332) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///D:/BeUI/amir-portfolio/lib/hse/rates.ts is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to D:\BeUI\amir-portfolio\package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ TRIR uses the 200,000-hour base and LTIFR the 1,000,000-hour base (5.5964ms)
+✔ the illustrative counts reproduce the published display values after rounding (0.8083ms)
+✔ converting a rate between bases is exact and reversible (0.3685ms)
+✔ on a common base the recordable rate is at least the lost-time rate (1.0242ms)
+✔ rates scale inversely with hours worked (0.5984ms)
+✔ invalid inputs produce no rate and an explicit reason (0.6354ms)
+✔ a lost-time count above the recordable count is rejected (0.3202ms)
+✔ zero cases give a zero rate, and zero lost-time cases leave the ratio undefined (0.4509ms)
+✔ formatRate never prints NaN or Infinity (0.7687ms)
+(node:2072) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///D:/BeUI/amir-portfolio/lib/search/query.ts is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to D:\BeUI\amir-portfolio\package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ normalisation folds case, punctuation, diacritics and Arabic letter variants (5.0403ms)
+✔ the v2 benchmark queries reach a relevant destination (3.8543ms)
+✔ every token must match, so extra words narrow the set (2.817ms)
+✔ title matches outrank summary-only matches (1.6045ms)
+✔ filters narrow by kind and language without dropping the query (3.1975ms)
+✔ an empty query lists everything rather than nothing (48.3108ms)
+✔ scoring is deterministic and symmetric for repeated calls (1.021ms)
+(node:20720) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///D:/BeUI/amir-portfolio/lib/data-viz/assistant.ts is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to D:\BeUI\amir-portfolio\package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ every suggestion produces a recommendation, not a clarification (57.7007ms)
+✔ a prompt with no task asks what the reader is trying to do (0.7901ms)
+✔ a task without a shape asks about the data shape (0.4108ms)
+✔ the same prompt always yields the same recommendation (2.1747ms)
+✔ answering the task question infers the canonical shape and says so (0.5226ms)
+✔ explicit category counts survive and change the pie advice (0.5643ms)
+✔ exact-value prompts still produce a defensible primary chart (0.5652ms)
+✔ spelled-out counts are read as categories; year windows are not (0.5862ms)
+✔ a scatter or correlation prompt is classified as a relationship (0.8707ms)
+✔ clarification answers map back to the right override (3.2334ms)
+✔ every citation stays inside the site and every activity step is explained (1.2458ms)
+✔ block counts match the text the workspace will reveal (4.0468ms)
+(node:17472) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///D:/BeUI/amir-portfolio/lib/data-viz/chart-math.ts is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to D:\BeUI\amir-portfolio\package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ extent ignores non-finite values and handles empty input (4.1033ms)
+✔ sum and mean agree with a hand calculation (1.6593ms)
+✔ niceScale produces round, evenly spaced ticks that contain the domain (1.3149ms)
+✔ niceScale keeps negative ranges ordered (0.3058ms)
+✔ histogram counts every observation exactly once (1.2221ms)
+✔ histogram bin width changes the visible shape of the same data (0.9255ms)
+✔ quantile matches the linear-interpolation definition (0.949ms)
+✔ boxStats reports a five-number summary and Tukey outliers (1.1663ms)
+✔ pearson returns a perfect correlation for a straight line and NaN for a constant (0.8625ms)
+✔ linearRegression recovers the generating line (1.0241ms)
+✔ scaleLinear maps domain onto range and inverts back (0.6245ms)
+✔ formatters are locale-stable and never round silently in the wrong direction (66.1562ms)
+✔ tail returns the last N items without mutating the input (0.3139ms)
+✔ the export is accounted for exactly once (5.4362ms)
+✔ every chapter lists lessons that exist, and every lesson sits in a chapter (5.5193ms)
+✔ English and Arabic paths are both complete (1.6807ms)
+✔ editorial lessons never claim a source page (0.4541ms)
+✔ no authored text carries executable markup (7.7997ms)
+✔ every figure is local, hashed, sized, and has an accessible name (2.0774ms)
+✔ source-level links never point at a missing page or an executable URL (4.9925ms)
+✔ the dataset file is byte-identical to a fresh build (384.3125ms)
+✔ datasets are synthetic, seeded, and internally consistent (1.7298ms)
+(node:4284) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///D:/BeUI/amir-portfolio/lib/data-viz/decision.ts is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to D:\BeUI\amir-portfolio\package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ every exact task/shape pair maps to its documented rule (3.9188ms)
+✔ the assistant is deterministic (2.1898ms)
+✔ a missing exact pair falls back to shape, then task (0.5858ms)
+✔ no chart is ever both acceptable and forbidden (5.6966ms)
+✔ pie charts are discouraged once the slices cannot be ranked (0.4889ms)
+✔ bar charts over time are only acceptable for a handful of periods (0.3127ms)
+✔ many categories change the bar advice rather than silently passing (0.7647ms)
+✔ exact-value questions get a warning attached to the box summary (0.3707ms)
+✔ every chart in the metadata table has a title and the labs point at real routes (1.7367ms)
+(node:12752) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///D:/BeUI/amir-portfolio/lib/data-viz/figure-data.ts is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to D:\BeUI\amir-portfolio\package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ the registry describes twelve unique figures with unique source paths (3.2751ms)
+✔ every registered figure exists in the static export folder (7.3858ms)
+✔ unknown source paths do not resolve to a live module (0.3996ms)
+✔ Anscombe's quartet reproduces the published summary statistics (0.4976ms)
+✔ the four sets differ only by rounding in their summary table (1.2175ms)
+✔ a constant series produces no correlation rather than NaN (0.4683ms)
+✔ histogram samples are deterministic and correctly sized (3.5454ms)
+✔ the drawn bins recover one peak for unimodal and two for bimodal (2.8741ms)
+✔ the mixture keeps Team B's mean at 70 while its spread grows (1.6036ms)
+✔ the Simpson dataset reverses only in the pooled comparison (1.1293ms)
+✔ the mix slider moves the pooled rate without touching segment rates (0.6707ms)
+✔ every funnel node's outgoing links balance its stage count (0.6878ms)
+✔ composition shares always sum to one hundred percent (4.1446ms)
+✔ uncertainty verdicts distinguish decision-sized from detectable (0.3665ms)
+(node:18924) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///D:/BeUI/amir-portfolio/lib/data-viz/practice.ts is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to D:\BeUI\amir-portfolio\package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ the practice bank has twelve questions with four options each (2.0045ms)
+✔ every correct index points at a real option (0.3957ms)
+✔ ids and questions are unique (0.2789ms)
+✔ chapter links stay inside the curriculum and lab links resolve (0.7081ms)
+✔ all ten chapters' topics are represented (1.599ms)
+(node:32920) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///D:/BeUI/amir-portfolio/lib/fabric/classify.ts is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to D:\BeUI\amir-portfolio\package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ the declared baseline counts are reproduced exactly (3.3228ms)
+✔ every question is imported once, under a unique namespaced id (8.4922ms)
+✔ each question keeps a valid answer key, rationales and explanation (13.6624ms)
+✔ source references resolve to the registry (1.9311ms)
+✔ case studies keep their text and link every question they own (3.9694ms)
+✔ the index is a faithful projection of the raw records (5.6174ms)
+✔ classification is deterministic and reproducible from the raw record (167.7321ms)
+✔ the shipped coverage report equals a fresh aggregation (4.1438ms)
+✔ domain shares reconcile with the sub-objective table under one rule (1.3782ms)
+✔ difficulty metadata is only what the source supplied (0.9468ms)
+✔ questions without a video timestamp are the documented foundation set (0.777ms)
+✔ the import audit records no silent repair (0.4687ms)
+✔ classification labels stay inside their documented meaning (0.9801ms)
+✔ pack metadata preserves the source video identity (1.6817ms)
+(node:8620) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///D:/BeUI/amir-portfolio/lib/fabric/engine.ts is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to D:\BeUI\amir-portfolio\package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ a single-answer question is correct only for its one key (6.4362ms)
+✔ a multi-select question requires an exact set (0.9008ms)
+✔ a sequence question requires the exact order (0.528ms)
+✔ an empty response is never correct (1.6994ms)
+✔ every one of the 834 questions scores its own key as correct (4.375ms)
+✔ every question rejects a deliberately broken key (6.456ms)
+✔ a five-option question grades using its real option ids (0.319ms)
+✔ shuffled display order cannot change the verdict (0.3858ms)
+✔ session grading aggregates by objective, subject and type (3.3926ms)
+✔ session selection is deterministic, bounded and filter-aware (45.0098ms)
+✔ selection respects every filter dimension (4.6486ms)
+✔ selection clamps the requested count instead of padding it (0.7128ms)
+✔ option order is deterministic, permutation-safe and never shuffles a sequence (2.3167ms)
+✔ manifest identity and timers are stable (4.2614ms)
+✔ a case scenario stays with its questions (0.7973ms)
+(node:12804) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///D:/BeUI/amir-portfolio/lib/statistics/math.ts is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to D:\BeUI\amir-portfolio\package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ Poisson reproduces the brief's verified λ=20 values (10.2533ms)
+✔ Poisson normalises and its tails complement its CDF (2.0034ms)
+✔ Binomial PMF normalises, respects boundaries, and matches its tail (1.04ms)
+✔ Normal density integrates to 1 and the empirical-rule areas hold (4.0115ms)
+✔ Normal quantile inverts the CDF across the working range (0.9064ms)
+✔ Student t quantiles match published two-sided critical values (14.8102ms)
+✔ Descriptive statistics use n−1 for samples and resist one outlier (6.143ms)
+✔ Five-number summary uses Tukey fences and includes both whiskers (0.5404ms)
+✔ Confidence interval: t critical value, margin, and bounds (3.0423ms)
+✔ Wilson interval stays inside [0,1] at the edges (2.0061ms)
+✔ Two-proportion test: rates, pooled SE, p-value and unpooled CI (1.4769ms)
+✔ Power rises with sample size and effect, and never exceeds 1 (0.4151ms)
+✔ Pearson r is bounded, detects perfect lines, and regression is not r (0.6337ms)
+✔ Sampling simulation is seeded, and empirical SE tracks σ/√n (31.759ms)
+✔ Coverage simulation is honest and does not force exactly 95% (27.4916ms)
+✔ Histogram counts every observation and reports density that integrates to 1 (1.3116ms)
+✔ log-gamma matches factorial identities used by the PMFs (0.3118ms)
+✔ Formatters never print NaN or Infinity as a number (56.1811ms)
+ℹ tests 129
+ℹ suites 0
+ℹ pass 129
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1730.045

@@ -1,0 +1,817 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Visual Atlas — Teaching Charts &amp; Figure Pack</title><meta name="data-notion-page-icon" content="🎨"/><link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20100%20100%22%3E%3Ctext%20y%3D%22.9em%22%20font-size%3D%2290%22%3E%F0%9F%8E%A8%3C%2Ftext%3E%3C%2Fsvg%3E"/><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+/* Override strong tags inside headings to maintain consistent weight */
+h1 strong,
+h2 strong,
+h3 strong {
+	font-weight: 600;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 10px;
+	padding: 1rem;
+	/* Paint a complete callout box on every PDF page fragment. */
+	-webkit-box-decoration-break: clone;
+	box-decoration-break: clone;
+}
+
+/* For default-background callouts, render the border outline. */
+.callout.block-color-default_background {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+/*
+ * Toggles and callouts hold arbitrary content, so they can easily be taller
+ * than a page. They must stay breakable: avoiding breaks inside them makes
+ * Chromium push the whole block onto the next page, which leaves the previous
+ * page mostly empty before every long toggle.
+ */
+details,
+aside {
+	margin: 1.25em 0;
+}
+
+/* Keep a toggle's title on the same page as the start of its content. */
+summary {
+	page-break-after: avoid;
+	break-after: avoid;
+}
+
+/*
+ * Toggle headings render as <h1/h2/h3 style="display:inline-block"> inside
+ * <summary>. Without this reset, the heading's margin-top pushes it below the
+ * ::marker (▼), so the triangle and the title appear on separate lines.
+ */
+summary h1,
+summary h2,
+summary h3,
+summary h4 {
+	margin-top: 0;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+
+	table.collection-content {
+		width: 100%;
+		table-layout: fixed;
+	}
+
+	table.collection-content th,
+	table.collection-content td {
+		overflow-wrap: anywhere;
+	}
+
+	table.collection-content td > .user,
+	table.collection-content td > time {
+		white-space: pre-wrap;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content-wrapper {
+	overflow-x: auto;
+}
+
+@media only print {
+	.collection-content-wrapper {
+		overflow-x: visible;
+	}
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.collection-content td {
+	white-space: pre-wrap;
+	word-break: break-word;
+}
+
+.column-list {
+	display: flex;
+	gap: 46px;
+}
+
+.column {
+	min-width: 0;
+	overflow: hidden;
+}
+
+.column > *:first-child {
+	margin-top: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding-inline: 0.125rem;
+	padding-block: 0.375rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+table {
+	border-collapse: collapse;
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol.numbered-list.numbered-list-digits-2 {
+	padding-inline-start: 2em;
+}
+
+ol.numbered-list.numbered-list-digits-3plus {
+	padding-inline-start: 2.4em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+	margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+/*
+ * Render emoji icons using a ::before pseudo-element to keep the glyph
+ * out of the DOM textContent traversal. This avoids double-rendering icons
+ * in callouts and page titles.
+ * NOTE(slim/html-export-pseudo-icons): I can't tagref this because it will
+ * flag as a duplicate tag after codegen.
+ */
+.icon[data-emoji]::before {
+	content: attr(data-emoji);
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.callout img.notion-static-icon {
+	width: 1em;
+	height: 1em;
+}
+
+.callout p {
+	margin: 0;
+}
+
+.callout h1,
+.callout h2,
+.callout h3 {
+	margin: 0 0 0.6rem;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	margin-right: 0.4em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+blockquote.quote-large {
+	font-size: 1.25em;
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.tab {
+	margin: 1.25em 0;
+	padding-inline: 1rem;
+	border: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.highlight-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.highlight-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.highlight-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.highlight-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.highlight-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.highlight-default_background {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray_background {
+	background: rgba(42, 28, 0, 0.07);
+}
+.highlight-brown_background {
+	background: rgba(139, 46, 0, 0.086);
+}
+.highlight-orange_background {
+	background: rgba(224, 101, 1, 0.129);
+}
+.highlight-yellow_background {
+	background: rgba(211, 168, 0, 0.137);
+}
+.highlight-teal_background {
+	background: rgba(0, 100, 45, 0.09);
+}
+.highlight-blue_background {
+	background: rgba(0, 124, 215, 0.094);
+}
+.highlight-purple_background {
+	background: rgba(102, 0, 178, 0.078);
+}
+.highlight-pink_background {
+	background: rgba(197, 0, 93, 0.086);
+}
+.highlight-red_background {
+	background: rgba(223, 22, 0, 0.094);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.block-color-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.block-color-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.block-color-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.block-color-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.block-color-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.block-color-default_background {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray_background {
+	background: rgba(240, 239, 237, 1);
+}
+.block-color-brown_background {
+	background: rgba(245, 237, 233, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 235, 222, 1);
+}
+.block-color-yellow_background {
+	background: rgba(249, 243, 220, 1);
+}
+.block-color-teal_background {
+	background: rgba(232, 241, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(229, 242, 252, 1);
+}
+.block-color-purple_background {
+	background: rgba(243, 235, 249, 1);
+}
+.block-color-pink_background {
+	background: rgba(250, 233, 241, 1);
+}
+.block-color-red_background {
+	background: rgba(252, 233, 231, 1);
+}
+.select-value-color-default { background-color: rgba(42, 28, 0, 0.07); }
+.select-value-color-gray { background-color: rgba(28, 19, 1, 0.11); }
+.select-value-color-brown { background-color: rgba(127, 51, 0, 0.156); }
+.select-value-color-orange { background-color: rgba(196, 88, 0, 0.203); }
+.select-value-color-yellow { background-color: rgba(209, 156, 0, 0.282); }
+.select-value-color-green { background-color: rgba(0, 96, 38, 0.156); }
+.select-value-color-blue { background-color: rgba(0, 118, 217, 0.203); }
+.select-value-color-purple { background-color: rgba(92, 0, 163, 0.141); }
+.select-value-color-pink { background-color: rgba(183, 0, 78, 0.152); }
+.select-value-color-red { background-color: rgba(206, 24, 0, 0.164); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style><style>@import url('https://cdn.jsdelivr.net/npm/katex@0.16.25/dist/katex-swap.min.css')</style></head><body><article id="3e53906c-5d6c-81e5-88de-e386862fecac" class="page sans" data-notion-page-icon="🎨"><header><div class="page-header-icon undefined"><span class="icon" data-emoji="🎨"></span></div><h1 class="page-title" dir="auto">Visual Atlas — Teaching Charts &amp; Figure Pack</h1><p class="page-description" dir="auto"></p></header><div class="page-body"><aside class="block-color-purple_background callout" data-notion-callout="" data-notion-callout-icon="💡" data-notion-callout-background="purple_background" style="white-space:pre-wrap;display:flex" id="afb50980-c8ed-44db-8694-2de2f50aa289" dir="ltr"><div style="font-size:1.5em"><span class="icon" data-emoji="💡"></span></div><div style="width:100%"><p id="f93cdd37-4ba1-48de-bd43-540d9701e679" class="" dir="auto"><strong>Added 24 Sep 2026.</strong> Companion gallery for the Visualization Hub. Figures illustrate the library&#x27;s own rules — they do not replace the chapter text.</p></div></aside><aside class="block-color-gray_background callout" data-notion-callout="" data-notion-callout-icon="⚖️" data-notion-callout-background="gray_background" style="white-space:pre-wrap;display:flex" id="0f3e4715-66d6-4765-88d1-da18f2af0116" dir="ltr"><div style="font-size:1.5em"><span class="icon" data-emoji="⚖️"></span></div><div style="width:100%"><p id="aa12d452-fc15-4bf6-a56b-3e09fb9f932b" class="" dir="auto">Synthetic teaching data only. Use these as <em>pattern memory</em>, not as evidence about a real business.</p></div></aside><h2 id="672af58c-f133-45b6-ad7c-7a711fa2f54e" class="" dir="auto">How to use this atlas</h2><ol type="1" id="9f4dda8f-fa27-441f-ae31-caf1e30ad949" class="numbered-list" start="1" dir="auto"><li>Learn a rule on the chapter page.</li></ol><ol type="1" id="c66c0264-2971-45ee-997f-6a4a4e22ee48" class="numbered-list" start="2" dir="auto"><li>Come here and look at the picture of that rule.</li></ol><ol type="1" id="51e6922f-650f-4979-be35-e809bed07984" class="numbered-list" start="3" dir="auto"><li>Ask: <em>what would a lie look like if I broke this rule?</em></li></ol><h2 id="bf8a563d-5354-4d0c-9b2e-dc5fab58ad12" class="" dir="auto">A. Operating system</h2><p id="36905511-2141-4105-abe2-62ecef57ba02" class="" dir="auto">Every visual in this library is downstream of a decision.</p><figure id="09300822-b6a6-4305-9fd9-6af2cc9042fb" class="image" data-notion-image="os_pipeline_full.svg" dir="ltr"><a href="os_pipeline_full.svg"><img src="os_pipeline_full.svg"/></a><figcaption>Question → Decision → Grain → Variables → Task → Encoding → Scale → Context → Integrity → Action</figcaption></figure><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="356d55b1-66f8-492a-be9d-daa7866a4229" class="code code-wrap" data-notion-code-syntax="mermaid"><code class="language-mermaid" style="white-space:pre-wrap;word-break:break-all">flowchart LR
+Q[Question] --&gt; D[Decision]
+D --&gt; G[Data grain]
+G --&gt; V[Variable types]
+V --&gt; T[Analytical task]
+T --&gt; E[Visual encoding]
+E --&gt; S[Scale]
+S --&gt; C[Context]
+C --&gt; I[Integrity]
+I --&gt; A[Action]</code></pre><figure id="b3692c1b-7016-47c3-b589-fb89023bc0c0" class="image" data-notion-image="encoding_strength.svg" dir="ltr"><a href="encoding_strength.svg"><img src="encoding_strength.svg"/></a><figcaption>Cleveland-style encoding accuracy. Start with position on a common scale.</figcaption></figure><h2 id="556b5492-101a-487d-b27a-061ed35e51a1" class="" dir="auto">B. Why you must plot the data</h2><p id="e26c1694-b96d-4072-aa76-35e20037b141" class="" dir="auto">The Datasaurus lesson from Foundations: matching means, SDs and correlation do <strong>not</strong> imply matching structure.</p><figure id="56846fc4-4856-4948-afa5-1d7942630313" class="image" data-notion-image="summary_stats_trap.svg" dir="ltr"><a href="summary_stats_trap.svg"><img src="summary_stats_trap.svg"/></a><figcaption>Four shapes, one statistical fingerprint.</figcaption></figure><blockquote id="652ffeaf-2d47-442f-9713-27738dce02c6" class="" dir="auto">Never assume that similar summary statistics imply similar data structure.</blockquote><h2 id="16c82984-f8af-40ba-a0cb-efaa99419bc0" class="" dir="auto">C. Core grammar</h2><h3 id="aacddb4b-01f2-428e-9b7e-c0ab6edb238c" class="" dir="auto">Histogram — read modality and skew first</h3><figure id="c066fa61-3286-4e93-9601-00284d18a6e8" class="image" data-notion-image="hist_shapes.svg" dir="ltr"><a href="hist_shapes.svg"><img src="hist_shapes.svg"/></a><figcaption>Unimodal, bimodal, right-skewed. The tail points in the direction of the skew.</figcaption></figure><pre id="b1ceb1c7-9fbb-464b-ae73-b5f6d980905a" class="code code-wrap" data-notion-code-syntax="mermaid"><code class="language-mermaid" style="white-space:pre-wrap;word-break:break-all">flowchart TD
+H[One continuous variable] --&gt; B{What must I see?}
+B --&gt;|Shape / tails / modes| Hist[Histogram]
+B --&gt;|Compare groups compactly| Box[Box plot]
+B --&gt;|Two continuous relationship| Sc[Scatter]
+B --&gt;|Connected sequence| Ln[Line]
+B --&gt;|Category vs metric| Br{Log scale or several metrics?}
+Br --&gt;|No| Bar[Bar]
+Br --&gt;|Yes| Dot[Dot plot]</code></pre><h2 id="e20607d7-1150-4fac-8206-e5dbb294fa9b" class="" dir="auto">D. Integrity</h2><h3 id="12ff5303-61d3-4941-a020-1057c1b4facb" class="" dir="auto">Truncated bars manufacture drama</h3><p id="783ef286-f0c4-4b46-a98a-2dac88fd2009" class="" dir="auto">22.5% vs 21.0% is a <strong>1.5 percentage-point</strong> gap. A chopped axis can make it look like a landslide.</p><figure id="e0a9487f-197a-4cac-bd7b-457cd5f0adbd" class="image" data-notion-image="bar_baseline.svg" dir="ltr"><a href="bar_baseline.svg"><img src="bar_baseline.svg"/></a><figcaption>Same numbers. Different baseline. Different story.</figcaption></figure><h3 id="462e5e6a-f907-4a53-af90-1d1437e3863e" class="" dir="auto">Dual axis vs small multiples</h3><pre id="6860bebe-328f-4a0e-b54b-a038f46b9226" class="code code-wrap" data-notion-code-syntax="mermaid"><code class="language-mermaid" style="white-space:pre-wrap;word-break:break-all">flowchart TD
+M[Two metrics, incompatible units] --&gt; X{Need a single visual relationship?}
+X --&gt;|Usually no| P[Two panels. Shared X if time. Honest Y scales.]
+X --&gt;|Tempted by dual axis| W[Stop. Changing either scale changes the apparent correlation.]</code></pre><h2 id="fa58e443-f9bb-4b5c-8fe5-a4cf9beea72c" class="" dir="auto">E. Color semantics</h2><figure id="e0158bcc-9983-4701-a049-9065c55cf0df" class="image" data-notion-image="color_families.svg" dir="ltr"><a href="color_families.svg"><img src="color_families.svg"/></a><figcaption>Qualitative / sequential / diverging. Wrong family = false order or false midpoint.</figcaption></figure><table id="408e143a-2f67-4ee9-90cf-8e20dabccaf8" class="simple-table" dir="ltr"><thead class="simple-table-header"><tr id="cede0ec1-80ce-4d97-a4a5-3a1b2ed5ad24" dir="ltr"><th id="DSke" class="simple-table-header-color simple-table-header">Family</th><th id="UEUK" class="simple-table-header-color simple-table-header">Use when</th><th id="lsB=" class="simple-table-header-color simple-table-header">Do not use when</th></tr></thead><tbody><tr id="0cd1b7c6-167c-4ccc-858a-230d1a4067c0" dir="ltr"><td id="DSke" class="">Qualitative</td><td id="UEUK" class="">Unordered categories</td><td id="lsB=" class="">The values have low→high meaning</td></tr><tr id="3e2f65dd-31d8-4e7b-96be-065906aacb5c" dir="ltr"><td id="DSke" class="">Sequential</td><td id="UEUK" class="">Magnitude from low to high</td><td id="lsB=" class="">Categories have no order</td></tr><tr id="30e70650-82d9-4b2a-8806-ad08d96ab099" dir="ltr"><td id="DSke" class="">Diverging</td><td id="UEUK" class="">A midpoint is <em>semantically</em> real</td><td id="lsB=" class="">You just wanted a pretty two-hue ramp</td></tr></tbody></table><h2 id="d7a41828-2584-4ef5-ac25-b615989f0c7a" class="" dir="auto">F. Chart-to-task pocket card</h2><table id="41170657-ef55-4090-8c69-129f7e7249a0" class="simple-table" dir="ltr"><thead class="simple-table-header"><tr id="eeefbc50-a042-4a4b-8d96-f8b695d17403" dir="ltr"><th id="eeXC" class="simple-table-header-color simple-table-header">Task</th><th id="gJy|" class="simple-table-header-color simple-table-header">Default</th><th id="rgf:" class="simple-table-header-color simple-table-header">Upgrade</th><th id="ETIs" class="simple-table-header-color simple-table-header">Usual lie</th></tr></thead><tbody><tr id="820ca388-313f-4dbc-a90d-5b7b6d6006f5" dir="ltr"><td id="eeXC" class="">Compare categories</td><td id="gJy|" class="">Sorted bar / dot</td><td id="rgf:" class="">Dot + log if span is huge</td><td id="ETIs" class="">Pie with many slices</td></tr><tr id="653fa665-dad0-4d47-a3dd-14d911afc0cf" dir="ltr"><td id="eeXC" class="">Change over time</td><td id="gJy|" class="">Line</td><td id="rgf:" class="">Log-Y for multiplicative growth</td><td id="ETIs" class="">Connecting unrelated dated points</td></tr><tr id="46028b6d-305b-4774-998c-15634e8f7d43" dir="ltr"><td id="eeXC" class="">Distribution</td><td id="gJy|" class="">Histogram</td><td id="rgf:" class="">Several bin widths</td><td id="ETIs" class="">Mean-only KPI</td></tr><tr id="78055809-4a44-4364-bca4-2ff5046a2d7e" dir="ltr"><td id="eeXC" class="">Compare distributions</td><td id="gJy|" class="">Box</td><td id="rgf:" class="">Box + points / violin / facets</td><td id="ETIs" class="">Two averages</td></tr><tr id="17f5b353-faac-44d7-b996-2d4ea29bbdf6" dir="ltr"><td id="eeXC" class="">Relationship</td><td id="gJy|" class="">Scatter + trend</td><td id="rgf:" class="">Facet / color for a third variable</td><td id="ETIs" class="">r as if it described every shape</td></tr><tr id="b416acc2-1e92-441f-a3ab-b3ea72263b07" dir="ltr"><td id="eeXC" class="">Composition</td><td id="gJy|" class="">100% stacked</td><td id="rgf:" class="">Only if the whole is meaningful</td><td id="ETIs" class="">Comparing off-baseline segments</td></tr><tr id="7806676b-c690-4a94-a917-a385409d93a4" dir="ltr"><td id="eeXC" class="">Screen many pairs</td><td id="gJy|" class="">Correlation heatmap</td><td id="rgf:" class="">Then inspect the scatter</td><td id="ETIs" class="">Treating the heatmap as the analysis</td></tr><tr id="1ee2bb08-3b31-4cb7-a872-52535ea0e02b" dir="ltr"><td id="eeXC" class="">Cycle</td><td id="gJy|" class="">Rose / polar</td><td id="rgf:" class="">Only if the phenomenon is circular</td><td id="ETIs" class="">Pie for ordinary categories</td></tr></tbody></table><h2 id="769530c9-9c15-4da2-aaec-1e0ae6adbd13" class="" dir="auto">G. Constitution — wall card</h2><ol type="1" id="dcf479cf-6651-4afc-a6e2-320c987a10a5" class="numbered-list" start="1" dir="auto"><li>Question first, chart second.</li></ol><ol type="1" id="415365ad-80ec-4c90-8479-b33f3c177bed" class="numbered-list" start="2" dir="auto"><li>Position before color, size, angle, area.</li></ol><ol type="1" id="13d04a3d-94a2-403d-825d-0e6b8deab14e" class="numbered-list" start="3" dir="auto"><li>Bar length is magnitude; ordinary bars start at zero.</li></ol><ol type="1" id="229751d0-a351-45f2-ae81-edfab4d427c1" class="numbered-list" start="4" dir="auto"><li>No decorative 3D.</li></ol><ol type="1" id="195c8432-1c50-475d-b9e7-984367efcfe2" class="numbered-list" start="5" dir="auto"><li>Color family must match data semantics.</li></ol><ol type="1" id="f39b3f48-c2d7-42c8-b25c-19a300635759" class="numbered-list" start="6" dir="auto"><li>Do not imply order where none exists.</li></ol><ol type="1" id="c3334da6-3cf5-443d-97ea-93bfb187b642" class="numbered-list" start="7" dir="auto"><li>Do not invent a midpoint.</li></ol><ol type="1" id="add91bd3-3a68-4700-a14a-ba8f566eea18" class="numbered-list" start="8" dir="auto"><li>Heatmaps summarize linear association only.</li></ol><ol type="1" id="da49c89a-5e62-446f-a9a6-b5082f5ad3ee" class="numbered-list" start="9" dir="auto"><li>Facet when a third variable would otherwise muddy the view.</li></ol><ol type="1" id="210b3152-14c9-42e8-a098-9accf2fb46bd" class="numbered-list numbered-list-digits-2" start="10" dir="auto"><li>Polar coordinates are for genuine circularity.</li></ol><ol type="1" id="4cce7490-895f-4144-9f4b-1a42abbc4596" class="numbered-list numbered-list-digits-2" start="11" dir="auto"><li>Prefer panels over dual axes.</li></ol><ol type="1" id="39d51c19-6924-4251-a1a0-f965cb13ecbc" class="numbered-list numbered-list-digits-2" start="12" dir="auto"><li>Remove chartjunk, keep context.</li></ol><ol type="1" id="2043bf97-9355-4de8-b55b-db846ffe292e" class="numbered-list numbered-list-digits-2" start="13" dir="auto"><li>Optimize for insight speed.</li></ol><ol type="1" id="3f8e9cc4-4838-44a2-93b3-45435e31e7d7" class="numbered-list numbered-list-digits-2" start="14" dir="auto"><li>A beautiful chart that hides the truth is a bad visualization.</li></ol><h2 id="50a7fc67-e259-4b32-b7df-0b8e9eb13251" class="" dir="auto">Related chapters</h2><ul id="b20a0945-3211-4cf9-9f99-bbbebbe39f49" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><a href="Foundations%20&amp;%20Decision%20Framework%203cd3906c5d6c8191959ef2ecc8c0ca59.html" data-notion-page-id="3cd3906c-5d6c-8191-959e-f2ecc8c0ca59" data-notion-space-id="b9b3906c-5d6c-81bc-b3c5-00037c38f1f8"><span class="icon" data-emoji="🧭"></span>Foundations &amp; Decision Framework</a></li></ul><ul id="7cbb4318-5d36-4ea9-a20b-7e5cc50942cb" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><a href="Core%20Chart%20Types%20&amp;%20Scales%203cd3906c5d6c816fb3e9d8809b4dbe8e.html" data-notion-page-id="3cd3906c-5d6c-816f-b3e9-d8809b4dbe8e" data-notion-space-id="b9b3906c-5d6c-81bc-b3c5-00037c38f1f8"><span class="icon" data-emoji="📈"></span>Core Chart Types &amp; Scales</a></li></ul><ul id="79a4c42a-7d49-4563-a183-2a6ea49bf5f6" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><a href="Advanced%20&amp;%20Multivariate%20Techniques%203cd3906c5d6c815996b1ca4687c3808b.html" data-notion-page-id="3cd3906c-5d6c-8159-96b1-ca4687c3808b" data-notion-space-id="b9b3906c-5d6c-81bc-b3c5-00037c38f1f8"><span class="icon" data-emoji="🧩"></span>Advanced &amp; Multivariate Techniques</a></li></ul><ul id="a92a7188-08ce-4895-9b3c-35140754eacf" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><a href="Color%20Theory%20for%20Data%20Visualization%203cd3906c5d6c81c19cadc4d11b657ffd.html" data-notion-page-id="3cd3906c-5d6c-81c1-9cad-c4d11b657ffd" data-notion-space-id="b9b3906c-5d6c-81bc-b3c5-00037c38f1f8"><span class="icon" data-emoji="🎨"></span>Color Theory for Data Visualization</a></li></ul><ul id="e8bfad31-257f-45f6-9cc6-40114c4d601d" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><a href="Visual%20Integrity,%20Pitfalls%20&amp;%20Ethics%203cd3906c5d6c81809fa1ea9a9146aea0.html" data-notion-page-id="3cd3906c-5d6c-8180-9fa1-ea9a9146aea0" data-notion-space-id="b9b3906c-5d6c-81bc-b3c5-00037c38f1f8"><span class="icon" data-emoji="⚖️"></span>Visual Integrity, Pitfalls &amp; Ethics</a></li></ul><ul id="313f7c36-bb15-485b-ba98-8b574daae4d6" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><a href="Chart%20Selection%20Matrix%20&amp;%20Anti-Patterns%203cd3906c5d6c81219916c1029b5aecd5.html" data-notion-page-id="3cd3906c-5d6c-8121-9916-c1029b5aecd5" data-notion-space-id="b9b3906c-5d6c-81bc-b3c5-00037c38f1f8">Chart Selection Matrix &amp; Anti-Patterns</a></li></ul><h2 id="5d05cc1a-3a71-4ab7-b605-f9292abffd9a" class="" dir="auto">H. Dashboard scan path</h2><p id="ad97e04c-c7e4-4914-9206-0f5a88bbd4ec" class="" dir="auto">A dashboard is a decision surface. If the eye does not know where to land, more visuals make it worse.</p><figure id="f66ab723-0ac4-4e21-9a3c-20281d626c5a" class="image" data-notion-image="dashboard_hierarchy.svg" dir="ltr"><a href="dashboard_hierarchy.svg"><img src="dashboard_hierarchy.svg"/></a><figcaption>Context → KPI → Explanation → Detail → Action</figcaption></figure><figure id="c5f73c21-f338-4c75-aed4-cb67eee83335" class="image" data-notion-image="kpi_card_anatomy.svg" dir="ltr"><a href="kpi_card_anatomy.svg"><img src="kpi_card_anatomy.svg"/></a><figcaption>KPI card anatomy: value + window + target + direction + exception</figcaption></figure><h2 id="c1b35003-0a5b-46cf-a293-cb64aa4655f5" class="" dir="auto">I. Dual axis vs small multiples</h2><figure id="7aebd4b7-7e51-47e4-a3b2-ac6eff8d6cef" class="image" data-notion-image="dual_vs_panels.svg" dir="ltr"><a href="dual_vs_panels.svg"><img src="dual_vs_panels.svg"/></a><figcaption>Same two series. Dual axis can invent correlation. Panels keep units honest.</figcaption></figure><h2 id="f2f20b69-c057-4c6f-a352-f402916b19c3" class="" dir="auto">J. Inference traps that look like chart problems</h2><figure id="b49e485f-e655-43bb-95dd-3d8f39d2a9df" class="image" data-notion-image="mean_hides_dist.svg" dir="ltr"><a href="mean_hides_dist.svg"><img src="mean_hides_dist.svg"/></a><figcaption>Same mean. Different generative process.</figcaption></figure><figure id="23a59b9b-9950-43c6-8b85-7b297c75b9f1" class="image" data-notion-image="simpson_paradox.svg" dir="ltr"><a href="simpson_paradox.svg"><img src="simpson_paradox.svg"/></a><figcaption>Simpson: B wins overall, A wins in every segment.</figcaption></figure><figure id="b424fe55-8979-4108-b0f3-676c1a6cb11f" class="image" data-notion-image="uncertainty_bars.svg" dir="ltr"><a href="uncertainty_bars.svg"><img src="uncertainty_bars.svg"/></a><figcaption>Uncertainty is part of the visual, not a footnote.</figcaption></figure><h2 id="b32b9a75-0515-4225-adc4-753ed4b7cc05" class="" dir="auto">Related — this pass</h2><ul id="b6aee80b-926e-4384-8e48-d70672c1a173" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><a href="Dashboard%20Design,%20Composition%20&amp;%20Cognitive%20Load%203cd3906c5d6c81b793aaf1036705960f.html" data-notion-page-id="3cd3906c-5d6c-81b7-93aa-f1036705960f" data-notion-space-id="b9b3906c-5d6c-81bc-b3c5-00037c38f1f8"><span class="icon" data-emoji="🖼️"></span>Dashboard Design, Composition &amp; Cognitive Load</a></li></ul><ul id="2f40b6c2-adf7-4e9d-b803-9fe2003bd6df" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><a href="Power%20BI%20Visualization%20Playbook%203cd3906c5d6c81b583dadccead758b3c.html" data-notion-page-id="3cd3906c-5d6c-81b5-83da-dccead758b3c" data-notion-space-id="b9b3906c-5d6c-81bc-b3c5-00037c38f1f8"><span class="icon" data-emoji="📊"></span>Power BI Visualization Playbook</a></li></ul><ul id="6d932bd6-f415-4ae6-8185-987f6de338a9" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><a href="Statistical%20Interpretation%20Traps%20for%20Visualization%203cd3906c5d6c81febadef001c3adffc8.html" data-notion-page-id="3cd3906c-5d6c-81fe-bade-f001c3adffc8" data-notion-space-id="b9b3906c-5d6c-81bc-b3c5-00037c38f1f8"><span class="icon" data-emoji="⚠️"></span>Statistical Interpretation Traps for Visualization</a></li></ul></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>

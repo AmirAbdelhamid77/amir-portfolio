@@ -1,0 +1,18 @@
+{
+  "lesson_id": "dp600-c2-s06",
+  "source_sections": [
+    16
+  ],
+  "blocks": [
+    {
+      "id": "dp600-c2-s06-p016",
+      "kind": "source_fragment",
+      "source_page": 16,
+      "source_start_line": 25,
+      "source_text": "2.6 Column-level and object-level security\nColumn-level security (CLS) hides columns. In a warehouse or SQL endpoint it is plain T-SQL:\n-- Grant only the safe columns...\nGRANT SELECT ON dbo.DimCustomer(CustomerKey, CustomerName, City) TO [Analysts];\n-- ...or explicitly deny the sensitive one.\nDENY SELECT ON dbo.DimCustomer(NationalId) TO [Analysts];\nReference: column-level security.\nObject-level security (OLS) hides an entire table or column in the semantic model, so it disappears from\nthe field list and from metadata. It is configured with external tooling (Tabular Editor, or a TMSL script\nthrough the XMLA endpoint) because Power BI Desktop has no OLS UI.",
+      "presentation_status": "needs-editorial-layout-conversion",
+      "recommended_renderer": "SourceFragment"
+    }
+  ],
+  "warning": "Source fragments are NOT native formatted prose, tables or runnable code."
+}

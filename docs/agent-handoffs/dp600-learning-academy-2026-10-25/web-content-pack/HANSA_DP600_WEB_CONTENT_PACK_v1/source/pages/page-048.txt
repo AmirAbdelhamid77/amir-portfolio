@@ -1,0 +1,30 @@
+3. In the model, set the policy: **Archive data starting n years before refresh date and Incrementally refresh
+data starting m days before refresh date**.
+4. Publish and run the first refresh — that one is long, because it builds all the partitions.
+Options that matter:
+Detect data changes — nominate a LastModified  column so a partition is only reprocessed when
+something in it actually changed.
+Only refresh complete periods — avoids publishing a half-finished day or month.
+The source query must fold, otherwise every partition scans the whole source and you have made
+things worse.
+COMMON EXAM TRAP
+Incremental refresh is not a Direct Lake feature — a Direct Lake table is never "refreshed" row by row,
+it is framed. If a question sets up a Direct Lake model and asks how to reduce refresh time, the answer
+involves framing, table maintenance, and partitioned Delta writes, not RangeStart / RangeEnd .
+8.7 Chapter 8 self-check
+1. Performance Analyzer shows 90 ms DAX and 4,500 ms visual display. What do you fix?
+2. A Direct Lake report suddenly slowed with no model change. What do you check first?
+3. Which model property makes a guardrail breach raise an error instead of degrading?
+4. Your incremental refresh runs as long as a full refresh. What is the likely cause?
+5. You must combine Gold tables from two different lakehouses in one Direct Lake model. Which flavour?
+Answers. 1. The visual — too many data points or too many visuals on the page, not the measure. 2.
+Whether queries are falling back to DirectQuery because a guardrail was exceeded. 3.
+DirectLakeBehavior = DirectLakeOnly . 4. Query folding is broken, so each partition scans the
+entire source. 5. Direct Lake on OneLake.
+8.8 Learn more
+Optimize semantic model performance
+Data reduction techniques
+Incremental refresh
+Performance Analyzer
+Delta Lake table optimization and V-Order
+Warehouse performance guidelines · statistics · result-set caching

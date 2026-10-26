@@ -1,0 +1,18 @@
+{
+  "lesson_id": "dp600-c6-s03",
+  "source_sections": [
+    35
+  ],
+  "blocks": [
+    {
+      "id": "dp600-c6-s03-p035",
+      "kind": "source_fragment",
+      "source_page": 35,
+      "source_start_line": 1,
+      "source_text": "6.3 KQL essentials for the exam\nKQL reads left to right: start with a table, pipe it through operators. Reference: KQL overview.\n// Errors per hour for the last 24 hours, worst devices first\nTelemetry\n| where Timestamp > ago(24h) and Level == \"Error\"\n| summarize ErrorCount = count() by DeviceId, bin(Timestamp, 1h)\n| top 20 by ErrorCount desc\n| render timechart\nTask\nKQL\nT-SQL analogue\nFilter rows\nwhere\nWHERE\nChoose columns\nproject , project-away\nSELECT\nAdd a column\nextend\ncomputed column in SELECT\nAggregate\nsummarize … by\nGROUP BY\nTime buckets\nsummarize … by bin(T, 1h)\nDATE_BUCKET  / DATEPART\nFirst N\ntake , top … by\nTOP\nLatest row per key\nsummarize arg_max(Timestamp, *) by DeviceId\nROW_NUMBER() … = 1\nDistinct\ndistinct\nSELECT DISTINCT\nVariables\nlet x = …;\nDECLARE  / CTE\nVisualise\nrender\n—\nUseful references: summarize operator · bin() · common operators tutorial.\nCOMMON EXAM TRAP\ntake 10  returns any 10 rows with no ordering guarantee and is for sampling; top 10 by Column\ndesc  returns the actual top 10. Choosing take  where the question says \"the ten highest\" is a classic\nwrong answer.",
+      "presentation_status": "needs-editorial-layout-conversion",
+      "recommended_renderer": "SourceFragment"
+    }
+  ],
+  "warning": "Source fragments are NOT native formatted prose, tables or runnable code."
+}

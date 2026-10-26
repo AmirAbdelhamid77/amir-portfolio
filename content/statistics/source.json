@@ -1,0 +1,7429 @@
+{
+  "generatedBy": "scripts/import-notion-statistics.mjs",
+  "schemaVersion": 1,
+  "title": "📚 Comprehensive Statistics Reference — من الصفر إلى Hypothesis Testing & Correlation",
+  "source": {
+    "file": "📚 Comprehensive Statistics Reference — من الصفر إل 3ca3906c5d6c81439567c45c6a6e2643.html",
+    "relativePath": "📚 Comprehensive Statistics Reference — من الصفر إل 3ca3906c5d6c81439567c45c6a6e2643.html",
+    "notionId": "3ca3906c5d6c81439567c45c6a6e2643",
+    "canonicalUrl": "https://app.notion.com/p/3ca3906c5d6c81439567c45c6a6e2643",
+    "sha256": "b16602340db52697bc7ed6ccab72eced7698c409594e3f8dac8e65b1aa04eaf7",
+    "bytes": 114015,
+    "observedModified": "2026-10-23T20:45:30.773Z",
+    "exportShape": "single-page",
+    "note": "The local export contains exactly one HTML file: the Notion page itself. No subpage files, images, linked downloads or additional assets accompany it. The 43 numbered sections are present inside this file and are split here; no source page is orphaned."
+  },
+  "toc": [],
+  "intro": [
+    {
+      "type": "callout",
+      "tone": "blue",
+      "icon": "📊",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "inline": [
+            {
+              "strong": true,
+              "text": "مرجع شامل لعلم الإحصاء — حتى نهاية الجزء الذي تم دراسته حتى الآن"
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "inline": [
+            {
+              "text": "هذا المرجع يجمع المفاهيم التي تمت دراستها: Data Types، فروع Statistics، Measures of Center & Spread، Probability، Probability Distributions، Binomial، Normal، Poisson، Central Limit Theorem، Sampling Distribution، Standard Error، Confidence Intervals، Hypothesis Testing، Experiments، A/B Testing، Correlation، Confounding Variables، والأخطاء Type I وType II."
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "sections": [
+    {
+      "id": "s1",
+      "number": 1,
+      "title": "1. الصورة الكبيرة: ما هو Statistics؟",
+      "titleEn": "الصورة الكبيرة: ما هو Statistics؟",
+      "anchor": "s1",
+      "sourceSequence": 1,
+      "counts": {
+        "paragraphs": 5,
+        "lists": 4,
+        "listItems": 4,
+        "tables": 0,
+        "tableRows": 0,
+        "formulas": 0,
+        "headings": 2,
+        "toggles": 0,
+        "callouts": 0,
+        "code": 0
+      },
+      "formulaCount": 0,
+      "textLength": 740,
+      "headings": [
+        {
+          "level": 1,
+          "text": "1. الصورة الكبيرة: ما هو Statistics؟",
+          "anchor": "s1"
+        },
+        {
+          "level": 2,
+          "text": "1.1 Population vs Sample",
+          "anchor": "s1-1-1-population-vs-sample"
+        }
+      ],
+      "subsections": [
+        {
+          "level": 2,
+          "text": "1.1 Population vs Sample",
+          "anchor": "s1-1-1-population-vs-sample"
+        }
+      ],
+      "blocks": [
+        {
+          "type": "heading",
+          "level": 1,
+          "text": "1. الصورة الكبيرة: ما هو Statistics؟",
+          "anchor": "s1"
+        },
+        {
+          "type": "paragraph",
+          "inline": [
+            {
+              "strong": true,
+              "text": "Statistics"
+            },
+            {
+              "text": "هو علم جمع البيانات وتنظيمها وتحليلها وتفسيرها واستخدامها لاستخلاص معلومات واتخاذ قرارات في ظل وجود عدم يقين."
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "inline": [
+            {
+              "text": "الفكرة الأساسية التي يمر بها الكورس هي الانتقال من:"
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "inline": [
+            {
+              "strong": true,
+              "text": "Data → Description → Probability → Sampling → Inference → Decision"
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "inline": [
+            {
+              "text": "أي أننا نبدأ بوصف البيانات التي لدينا، ثم نفهم الاحتمالات والتوزيعات، ثم نستخدم العينات للاستدلال على المجتمع، ثم نختبر الفرضيات ونتخذ قرارات."
+            }
+          ]
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "1.1 Population vs Sample",
+          "anchor": "s1-1-1-population-vs-sample"
+        },
+        {
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "strong": true,
+                "text": "Population"
+              },
+              {
+                "text": ": المجتمع الكامل الذي نهتم بدراسته."
+              }
+            ]
+          ]
+        },
+        {
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "strong": true,
+                "text": "Sample"
+              },
+              {
+                "text": ": عينة مأخوذة من الـ Population."
+              }
+            ]
+          ]
+        },
+        {
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "strong": true,
+                "text": "Parameter"
+              },
+              {
+                "text": ": قيمة تصف الـ Population، مثل population mean "
+              },
+              {
+                "math": "\\mu",
+                "raw": "mu",
+                "formulaKey": "mu"
+              },
+              {
+                "text": "."
+              }
+            ]
+          ]
+        },
+        {
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "strong": true,
+                "text": "Statistic"
+              },
+              {
+                "text": ": قيمة محسوبة من الـ Sample، مثل sample mean "
+              },
+              {
+                "math": "\\bar{x}",
+                "raw": "bar{x}",
+                "formulaKey": "bar{x}"
+              },
+              {
+                "text": "."
+              }
+            ]
+          ]
+        },
+        {
+          "type": "paragraph",
+          "inline": [
+            {
+              "text": "السبب في استخدام العينات هو أن جمع بيانات المجتمع بالكامل قد يكون مكلفًا أو مستحيلًا."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "s2",
+      "number": 2,
+      "title": "2. Data Types",
+      "titleEn": "Data Types",
+      "anchor": "s2",
+      "sourceSequence": 2,
+      "counts": {
+        "paragraphs": 3,
+        "lists": 4,
+        "listItems": 4,
+        "tables": 0,
+        "tableRows": 0,
+        "formulas": 0,
+        "headings": 3,
+        "toggles": 0,
+        "callouts": 0,
+        "code": 0
+      },
+      "formulaCount": 0,
+      "textLength": 502,
+      "headings": [
+        {
+          "level": 1,
+          "text": "2. Data Types",
+          "anchor": "s2"
+        },
+        {
+          "level": 2,
+          "text": "2.1 Numerical / Quantitative Data",
+          "anchor": "s2-2-1-numerical-quantitative-data"
+        },
+        {
+          "level": 2,
+          "text": "2.2 Categorical / Qualitative Data",
+          "anchor": "s2-2-2-categorical-qualitative-data"
+        }
+      ],
+      "subsections": [
+        {
+          "level": 2,
+          "text": "2.1 Numerical / Quantitative Data",
+          "anchor": "s2-2-1-numerical-quantitative-data"
+        },
+        {
+          "level": 2,
+          "text": "2.2 Categorical / Qualitative Data",
+          "anchor": "s2-2-2-categorical-qualitative-data"
+        }
+      ],
+      "blocks": [
+        {
+          "type": "heading",
+          "level": 1,
+          "text": "2. Data Types",
+          "anchor": "s2"
+        },
+        {
+          "type": "paragraph",
+          "inline": [
+            {
+              "text": "نوع البيانات مهم لأنه يحدد نوع التحليل والرسوم والاختبارات التي يمكن استخدامها."
+            }
+          ]
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "2.1 Numerical / Quantitative Data",
+          "anchor": "s2-2-1-numerical-quantitative-data"
+        },
+        {
+          "type": "paragraph",
+          "inline": [
+            {
+              "text": "بيانات رقمية يمكن إجراء عمليات حسابية ذات معنى عليها، مثل العمر، الراتب، عدد الزيارات."
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "strong": true,
+                "text": "Discrete"
+              },
+              {
+                "text": ": قيم معدودة، مثل عدد العملاء."
+              }
+            ]
+          ]
+        },
+        {
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "strong": true,
+                "text": "Continuous"
+              },
+              {
+                "text": ": قيم يمكن أن تقع على نطاق مستمر، مثل الطول والوزن والزمن."
+              }
+            ]
+          ]
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "2.2 Categorical / Qualitative Data",
+          "anchor": "s2-2-2-categorical-qualitative-data"
+        },
+        {
+          "type": "paragraph",
+          "inline": [
+            {
+              "text": "بيانات تمثل فئات أو تصنيفات، مثل المدينة، نوع المنتج، أو الجنس."
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "strong": true,
+                "text": "Nominal"
+              },
+              {
+                "text": ": فئات بلا ترتيب طبيعي."
+              }
+            ]
+          ]
+        },
+        {
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "strong": true,
+                "text": "Ordinal"
+              },
+              {
+                "text": ": فئات لها ترتيب، مثل Low / Medium / High."
+              }
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "s3",
+      "number": 3,
+      "title": "3. Branches of Statistics",
+      "titleEn": "Branches of Statistics",
+      "anchor": "s3",
+      "sourceSequence": 3,
+      "counts": {
+        "paragraphs": 4,
+        "lists": 0,
+        "listItems": 0,
+        "tables": 0,
+        "tableRows": 0,
+        "formulas": 0,
+        "headings": 3,
+        "toggles": 0,
+        "callouts": 0,
+        "code": 0
+      },
+      "formulaCount": 0,
+      "textLength": 347,
+      "headings": [
+        {
+          "level": 1,
+          "text": "3. Branches of Statistics",
+          "anchor": "s3"
+        },
+        {
+          "level": 2,
+          "text": "3.1 Descriptive Statistics",
+          "anchor": "s3-3-1-descriptive-statistics"
+        },
+        {
+          "level": 2,
+          "text": "3.2 Inferential Statistics",
+          "anchor": "s3-3-2-inferential-statistics"
+        }
+      ],
+      "subsections": [
+        {
+          "level": 2,
+          "text": "3.1 Descriptive Statistics",
+          "anchor": "s3-3-1-descriptive-statistics"
+        },
+        {
+          "level": 2,
+          "text": "3.2 Inferential Statistics",
+          "anchor": "s3-3-2-inferential-statistics"
+        }
+      ],
+      "blocks": [
+        {
+          "type": "heading",
+          "level": 1,
+          "text": "3. Branches of Statistics",
+          "anchor": "s3"
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "3.1 Descriptive Statistics",
+          "anchor": "s3-3-1-descriptive-statistics"
+        },
+        {
+          "type": "paragraph",
+          "inline": [
+            {
+              "text": "تجيب عن:"
+            },
+            {
+              "strong": true,
+              "text": "ماذا تخبرني البيانات الموجودة أمامي؟"
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "inline": [
+            {
+              "text": "تشمل تلخيص البيانات باستخدام المتوسط والوسيط والمنوال ومقاييس التشتت والرسوم البيانية."
+            }
+          ]
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "3.2 Inferential Statistics",
+          "anchor": "s3-3-2-inferential-statistics"
+        },
+        {
+          "type": "paragraph",
+          "inline": [
+            {
+              "text": "تجيب عن:"
+            },
+            {
+              "strong": true,
+              "text": "ماذا يمكن أن نستنتج عن Population من خلال Sample؟"
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "inline": [
+            {
+              "text": "تشمل Sampling Distributions، Confidence Intervals، Hypothesis Testing وغيرها."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "s4",
+      "number": 4,
+      "title": "4. Measures of Center — مقاييس النزعة المركزية",
+      "titleEn": "Measures of Center — مقاييس النزعة المركزية",
+      "anchor": "s4",
+      "sourceSequence": 4,
+      "counts": {
+        "paragraphs": 5,
+        "lists": 0,
+        "listItems": 0,
+        "tables": 0,
+        "tableRows": 0,
+        "formulas": 1,
+        "headings": 5,
+        "toggles": 0,
+        "callouts": 0,
+        "code": 0
+      },
+      "formulaCount": 1,
+      "textLength": 514,
+      "headings": [
+        {
+          "level": 1,
+          "text": "4. Measures of Center — مقاييس النزعة المركزية",
+          "anchor": "s4"
+        },
+        {
+          "level": 2,
+          "text": "4.1 Mean",
+          "anchor": "s4-4-1-mean"
+        },
+        {
+          "level": 2,
+          "text": "4.2 Median",
+          "anchor": "s4-4-2-median"
+        },
+        {
+          "level": 2,
+          "text": "4.3 Mode",
+          "anchor": "s4-4-3-mode"
+        },
+        {
+          "level": 2,
+          "text": "4.4 Mean vs Median",
+          "anchor": "s4-4-4-mean-vs-median"
+        }
+      ],
+      "subsections": [
+        {
+          "level": 2,
+          "text": "4.1 Mean",
+          "anchor": "s4-4-1-mean"
+        },
+        {
+          "level": 2,
+          "text": "4.2 Median",
+          "anchor": "s4-4-2-median"
+        },
+        {
+          "level": 2,
+          "text": "4.3 Mode",
+          "anchor": "s4-4-3-mode"
+        },
+        {
+          "level": 2,
+          "text": "4.4 Mean vs Median",
+          "anchor": "s4-4-4-mean-vs-median"
+        }
+      ],
+      "blocks": [
+        {
+          "type": "heading",
+          "level": 1,
+          "text": "4. Measures of Center — مقاييس النزعة المركزية",
+          "anchor": "s4"
+        },
+        {
+          "type": "paragraph",
+          "inline": [
+            {
+              "text": "تصف القيمة النموذجية أو المركزية للبيانات."
+            }
+          ]
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "4.1 Mean",
+          "anchor": "s4-4-1-mean"
+        },
+        {
+          "type": "formula",
+          "tex": "\\bar{x} = \\frac{\\sum x_i}{n}",
+          "raw": "bar{x}=frac{sum x_i}{n}",
+          "alt": "(bar{x}=frac{sum x_i}{n})"
+        },
+        {
+          "type": "paragraph",
+          "inline": [
+            {
+              "text": "هو مجموع القيم مقسومًا على عددها. يتأثر بالقيم المتطرفة Outliers."
+            }
+          ]
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "4.2 Median",
+          "anchor": "s4-4-2-median"
+        },
+        {
+          "type": "paragraph",
+          "inline": [
+            {
+              "text": "القيمة الموجودة في المنتصف بعد ترتيب البيانات. أكثر مقاومة للـ Outliers من الـ Mean."
+            }
+          ]
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "4.3 Mode",
+          "anchor": "s4-4-3-mode"
+        },
+        {
+          "type": "paragraph",
+          "inline": [
+            {
+              "text": "أكثر قيمة تكرارًا. يمكن أن توجد أكثر من Mode أو لا توجد قيمة متكررة بوضوح."
+            }
+          ]
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "4.4 Mean vs Median",
+          "anchor": "s4-4-4-mean-vs-median"
+        },
+        {
+          "type": "paragraph",
+          "inline": [
+            {
+              "text": "في توزيع متماثل تقريبًا قد يكونان متقاربين. في توزيع منحرف أو يحتوي على Outliers قد يكون Median أكثر تمثيلًا للقيمة النموذجية."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "s5",
+      "number": 5,
+      "title": "5. Measures of Spread — مقاييس التشتت",
+      "titleEn": "Measures of Spread — مقاييس التشتت",
+      "anchor": "s5",
+      "sourceSequence": 5,
+      "counts": {
+        "paragraphs": 8,
+        "lists": 0,
+        "listItems": 0,
+        "tables": 0,
+        "tableRows": 0,
+        "formulas": 5,
+        "headings": 5,
+        "toggles": 0,
+        "callouts": 0,
+        "code": 0
+      },
+      "formulaCount": 5,
+      "textLength": 588,
+      "headings": [
+        {
+          "level": 1,
+          "text": "5. Measures of Spread — مقاييس التشتت",
+          "anchor": "s5"
+        },
+        {
+          "level": 2,
+          "text": "5.1 Range",
+          "anchor": "s5-5-1-range"
+        },
+        {
+          "level": 2,
+          "text": "5.2 Variance",
+          "anchor": "s5-5-2-variance"
+        },
+        {
+          "level": 2,
+          "text": "5.3 Standard Deviation",
+          "anchor": "s5-5-3-standard-deviation"
+        },
+        {
+          "level": 2,
+          "text": "5.4 IQR",
+          "anchor": "s5-5-4-iqr"
+        }
+      ],
+      "subsections": [
+        {
+          "level": 2,
+          "text": "5.1 Range",
+          "anchor": "s5-5-1-range"
+        },
+        {
+          "level": 2,
+          "text": "5.2 Variance",
+          "anchor": "s5-5-2-variance"
+        },
+        {
+          "level": 2,
+          "text": "5.3 Standard Deviation",
+          "anchor": "s5-5-3-standard-deviation"
+        },
+        {
+          "level": 2,
+          "text": "5.4 IQR",
+          "anchor": "s5-5-4-iqr"
+        }
+      ],
+      "blocks": [
+        {
+          "type": "heading",
+          "level": 1,
+          "text": "5. Measures of Spread — مقاييس التشتت",
+          "anchor": "s5"
+        },
+        {
+          "type": "paragraph",
+          "inline": [
+            {
+              "text": "تجيب عن:"
+            },
+            {
+              "strong": true,
+              "text": "إلى أي مدى تنتشر القيم؟"
+            }
+          ]
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "5.1 Range",
+          "anchor": "s5-5-1-range"
+        },
+        {
+          "type": "formula",
+          "tex": "\\text{Range} = \\text{Maximum} - \\text{Minimum}",
+          "raw": "Range=Maximum-Minimum",
+          "alt": "(Range=Maximum-Minimum)"
+        },
+        {
+          "type": "paragraph",
+          "inline": [
+            {
+              "text": "بسيط لكنه يعتمد بشدة على القيم المتطرفة."
+            }
+          ]
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "5.2 Variance",
+          "anchor": "s5-5-2-variance"
+        },
+        {
+          "type": "paragraph",
+          "inline": [
+            {
+              "text": "تقيس متوسط مربع انحراف القيم عن المتوسط."
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "inline": [
+            {
+              "text": "للمجتمع:"
+            }
+          ]
+        },
+        {
+          "type": "formula",
+          "tex": "\\sigma^2 = \\frac{\\sum (x_i - \\mu)^2}{N}",
+          "raw": "sigma^2=frac{sum (x_i-mu)^2}{N}",
+          "alt": "(sigma^2=frac{sum (x_i-mu)^2}{N})"
+        },
+        {
+          "type": "paragraph",
+          "inline": [
+            {
+              "text": "وللعينة:"
+            }
+          ]
+        },
+        {
+          "type": "formula",
+          "tex": "s^2 = \\frac{\\sum (x_i - \\bar{x})^2}{n-1}",
+          "raw": "s^2=frac{sum (x_i-bar{x})^2}{n-1}",
+          "alt": "(s^2=frac{sum (x_i-bar{x})^2}{n-1})"
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "5.3 Standard Deviation",
+          "anchor": "s5-5-3-standard-deviation"
+        },
+        {
+          "type": "formula",
+          "tex": "\\operatorname{SD} = \\sqrt{\\operatorname{Variance}}",
+          "raw": "SD=sqrt{Variance}",
+          "alt": "(SD=sqrt{Variance})"
+        },
+        {
+          "type": "paragraph",
+          "inline": [
+            {
+              "text": "وهو مقياس للتشتت حول المتوسط وبنفس وحدة البيانات."
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "inline": [
+            {
+              "strong": true,
+              "text": "مهم:"
+            },
+            {
+              "text": "Standard Deviation للبيانات نفسها يصف تشتت القيم الفردية، بينما"
+            },
+            {
+              "strong": true,
+              "text": "Standard Error"
+            },
+            {
+              "text": "يصف تشتت إحصائية العينة عبر العينات المتكررة."
+            }
+          ]
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "5.4 IQR",
+          "anchor": "s5-5-4-iqr"
+        },
+        {
+          "type": "formula",
+          "tex": "\\operatorname{IQR} = Q_3 - Q_1",
+          "raw": "IQR=Q_3-Q_1",
+          "alt": "(IQR=Q_3-Q_1)"
+        },
+        {
+          "type": "paragraph",
+          "inline": [
+            {
+              "text": "يمثل انتشار الـ middle 50% من البيانات، وهو أكثر مقاومة للـ Outliers."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "s6",
+      "number": 6,
+      "title": "6. Probability — الاحتمالات",
+      "titleEn": "Probability — الاحتمالات",
+      "anchor": "s6",
+      "sourceSequence": 6,
+      "counts": {
+        "paragraphs": 7,
+        "lists": 4,
+        "listItems": 4,
+        "tables": 0,
+        "tableRows": 0,
+        "formulas": 4,
+        "headings": 5,
+        "toggles": 0,
+        "callouts": 0,
+        "code": 0
+      },
+      "formulaCount": 4,
+      "textLength": 759,
+      "headings": [
+        {
+          "level": 1,
+          "text": "6. Probability — الاحتمالات",
+          "anchor": "s6"
+        },
+        {
+          "level": 2,
+          "text": "6.1 Complement",
+          "anchor": "s6-6-1-complement"
+        },
+        {
+          "level": 2,
+          "text": "6.2 Independent Events",
+          "anchor": "s6-6-2-independent-events"
+        },
+        {
+          "level": 2,
+          "text": "6.3 Conditional Probability",
+          "anchor": "s6-6-3-conditional-probability"
+        },
+        {
+          "level": 2,
+          "text": "6.4 Independent vs Dependent",
+          "anchor": "s6-6-4-independent-vs-dependent"
+        }
+      ],
+      "subsections": [
+        {
+          "level": 2,
+          "text": "6.1 Complement",
+          "anchor": "s6-6-1-complement"
+        },
+        {
+          "level": 2,
+          "text": "6.2 Independent Events",
+          "anchor": "s6-6-2-independent-events"
+        },
+        {
+          "level": 2,
+          "text": "6.3 Conditional Probability",
+          "anchor": "s6-6-3-conditional-probability"
+        },
+        {
+          "level": 2,
+          "text": "6.4 Independent vs Dependent",
+          "anchor": "s6-6-4-independent-vs-dependent"
+        }
+      ],
+      "blocks": [
+        {
+          "type": "heading",
+          "level": 1,
+          "text": "6. Probability — الاحتمالات",
+          "anchor": "s6"
+        },
+        {
+          "type": "paragraph",
+          "inline": [
+            {
+              "text": "Probability تقيس مدى احتمال وقوع Event، وتتراوح بين 0 و1:"
+            }
+          ]
+        },
+        {
+          "type": "formula",
+          "tex": "0 \\le P(A) \\le 1",
+          "raw": "0le P(A)le1",
+          "alt": "(0le P(A)le1)"
+        },
+        {
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "math": "P(A) = 0",
+                "raw": "P(A)=0",
+                "formulaKey": "P(A)=0"
+              },
+              {
+                "text": ": الحدث مستحيل."
+              }
+            ]
+          ]
+        },
+        {
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "math": "P(A) = 1",
+                "raw": "P(A)=1",
+                "formulaKey": "P(A)=1"
+              },
+              {
+                "text": ": الحدث مؤكد."
+              }
+            ]
+          ]
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "6.1 Complement",
+          "anchor": "s6-6-1-complement"
+        },
+        {
+          "type": "paragraph",
+          "inline": [
+            {
+              "text": "احتمال عدم حدوث الحدث:"
+            }
+          ]
+        },
+        {
+          "type": "formula",
+          "tex": "P(A^c) = 1 - P(A)",
+          "raw": "P(A^c)=1-P(A)",
+          "alt": "(P(A^c)=1-P(A))"
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "6.2 Independent Events",
+          "anchor": "s6-6-2-independent-events"
+        },
+        {
+          "type": "paragraph",
+          "inline": [
+            {
+              "text": "حدثان مستقلان إذا كان وقوع أحدهما لا يغير احتمال الآخر."
+            }
+          ]
+        },
+        {
+          "type": "formula",
+          "tex": "P(A \\cap B) = P(A)P(B)",
+          "raw": "P(Acap B)=P(A)P(B)",
+          "alt": "(P(Acap B)=P(A)P(B))"
+        },
+        {
+          "type": "paragraph",
+          "inline": [
+            {
+              "text": "مثال: نتيجتا رمي عملة عادلة في رميتين منفصلتين مستقلتان."
+            }
+          ]
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "6.3 Conditional Probability",
+          "anchor": "s6-6-3-conditional-probability"
+        },
+        {
+          "type": "paragraph",
+          "inline": [
+            {
+              "text": "احتمال وقوع A بشرط أن B حدث بالفعل:"
+            }
+          ]
+        },
+        {
+          "type": "formula",
+          "tex": "P(A \\mid B) = \\frac{P(A \\cap B)}{P(B)}",
+          "raw": "P(Amid B)=frac{P(Acap B)}{P(B)}",
+          "alt": "(P(Amid B)=frac{P(Acap B)}{P(B)})"
+        },
+        {
+          "type": "paragraph",
+          "inline": [
+            {
+              "text": "في الأحداث المعتمدة يتغير احتمال الحدث بناءً على المعلومات الجديدة."
+            }
+          ]
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "6.4 Independent vs Dependent",
+          "anchor": "s6-6-4-independent-vs-dependent"
+        },
+        {
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "strong": true,
+                "text": "Independent"
+              },
+              {
+                "text": ": معرفة B لا تغير احتمال A."
+              }
+            ]
+          ]
+        },
+        {
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "strong": true,
+                "text": "Dependent"
+              },
+              {
+                "text": ": معرفة B تغير احتمال A."
+              }
+            ]
+          ]
+        },
+        {
+          "type": "paragraph",
+          "inline": [
+            {
+              "text": "لا تخلط بين Independence وMutual Exclusivity؛ الحدثان المتنافيان لا يمكن أن يحدثا معًا، بينما الاستقلال يعني عدم تأثير أحدهما في احتمال الآخر."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "s7",
+      "number": 7,
+      "title": "7. Probability Distributions",
+      "titleEn": "Probability Distributions",
+      "anchor": "s7",
+      "sourceSequence": 7,
+      "counts": {
+        "paragraphs": 2,
+        "lists": 2,
+        "listItems": 2,
+        "tables": 0,
+        "tableRows": 0,
+        "formulas": 0,
+        "headings": 1,
+        "toggles": 0,
+        "callouts": 0,
+        "code": 0
+      },
+      "formulaCount": 0,
+      "textLength": 354,
+      "headings": [
+        {
+          "level": 1,
+          "text": "7. Probability Distributions",
+          "anchor": "s7"
+        }
+      ],
+      "subsections": [],
+      "blocks": [
+        {
+          "type": "heading",
+          "level": 1,
+          "text": "7. Probability Distributions",
+          "anchor": "s7"
+        },
+        {
+          "type": "paragraph",
+          "inline": [
+            {
+              "text": "Probability Distribution تصف كيف تتوزع احتمالات القيم الممكنة لمتغير عشوائي."
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "strong": true,
+                "text": "Discrete distribution"
+              },
+              {
+                "text": ": قيم معدودة ومنفصلة."
+              }
+            ]
+          ]
+        },
+        {
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "strong": true,
+                "text": "Continuous distribution"
+              },
+              {
+                "text": ": قيم على نطاق مستمر."
+              }
+            ]
+          ]
+        },
+        {
+          "type": "paragraph",
+          "inline": [
+            {
+              "text": "في التوزيعات المستمرة، الاحتمال يُحسب من"
+            },
+            {
+              "strong": true,
+              "text": "Area under the curve"
+            },
+            {
+              "text": "؛ والاحتمال بين قيمتين هو المساحة بينهما. الاحتمال عند نقطة واحدة بالضبط في توزيع مستمر يساوي صفرًا."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "s8",
+      "number": 8,
+      "title": "8. Binomial Distribution",
+      "titleEn": "Binomial Distribution",
+      "anchor": "s8",
+      "sourceSequence": 8,
+      "counts": {
+        "paragraphs": 7,
+        "lists": 3,
+        "listItems": 3,
+        "tables": 0,
+        "tableRows": 0,
+        "formulas": 3,
+        "headings": 2,
+        "toggles": 0,
+        "callouts": 0,
+        "code": 0
+      },
+      "formulaCount": 3,
+      "textLength": 428,
+      "headings": [
+        {
+          "level": 1,
+          "text": "8. Binomial Distribution",
+          "anchor": "s8"
+        },
+        {
+          "level": 2,
+          "text": "متى أفكر في Binomial؟",
+          "anchor": "s8-binomial"
+        }
+      ],
+      "subsections": [
+        {
+          "level": 2,
+          "text": "متى أفكر في Binomial؟",
+          "anchor": "s8-binomial"
+        }
+      ],
+      "blocks": [
+        {
+          "type": "heading",
+          "level": 1,
+          "text": "8. Binomial Distribution",
+          "anchor": "s8"
+        },
+        {
+          "type": "paragraph",
+          "inline": [
+            {
+              "text": "تستخدم عندما يكون لدينا عدد ثابت من التجارب، وكل تجربة لها نتيجتان أساسيتان مثل Success / Failure، مع احتمال نجاح ثابت واستقلال التجارب."
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "inline": [
+            {
+              "text": "إذا كان:"
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "text": "(n) = عدد التجارب"
+              }
+            ]
+          ]
+        },
+        {
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "text": "(p) = احتمال النجاح"
+              }
+            ]
+          ]
+        },
+        {
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "text": "(X) = عدد النجاحات"
+              }
+            ]
+          ]
+        },
+        {
+          "type": "paragraph",
+          "inline": [
+            {
+              "text": "فإن:"
+            }
+          ]
+        },
+        {
+          "type": "formula",
+          "tex": "P(X = k) = \\binom{n}{k} p^k (1-p)^{n-k}",
+          "raw": "P(X=k)=binom{n}{k}p^k(1-p)^{n-k}",
+          "alt": "(P(X=k)=binom{n}{k}p^k(1-p)^{n-k})"
+        },
+        {
+          "type": "paragraph",
+          "inline": [
+            {
+              "text": "المتوسط:"
+            }
+          ]
+        },
+        {
+          "type": "formula",
+          "tex": "E(X) = np",
+          "raw": "E(X)=np",
+          "alt": "(E(X)=np)"
+        },
+        {
+          "type": "paragraph",
+          "inline": [
+            {
+              "text": "والتباين:"
+            }
+          ]
+        },
+        {
+          "type": "formula",
+          "tex": "\\operatorname{Var}(X) = np(1-p)",
+          "raw": "Var(X)=np(1-p)",
+          "alt": "(Var(X)=np(1-p))"
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "متى أفكر في Binomial؟",
+          "anchor": "s8-binomial"
+        },
+        {
+          "type": "paragraph",
+          "inline": [
+            {
+              "text": "اسأل:"
+            },
+            {
+              "strong": true,
+              "text": "هل أعد عدد النجاحات من n تجارب مستقلة، وكل تجربة Success/Failure؟"
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "inline": [
+            {
+              "text": "إذا نعم، Binomial مرشح قوي."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "s9",
+      "number": 9,
+      "title": "9. Normal Distribution",
+      "titleEn": "Normal Distribution",
+      "anchor": "s9",
+      "sourceSequence": 9,
+      "counts": {
+        "paragraphs": 5,
+        "lists": 9,
+        "listItems": 9,
+        "tables": 0,
+        "tableRows": 0,
+        "formulas": 1,
+        "headings": 3,
+        "toggles": 0,
+        "callouts": 0,
+        "code": 0
+      },
+      "formulaCount": 1,
+      "textLength": 554,
+      "headings": [
+        {
+          "level": 1,
+          "text": "9. Normal Distribution",
+          "anchor": "s9"
+        },
+        {
+          "level": 2,
+          "text": "9.1 Empirical Rule",
+          "anchor": "s9-9-1-empirical-rule"
+        },
+        {
+          "level": 2,
+          "text": "9.2 Standardization / Z-score",
+          "anchor": "s9-9-2-standardization-z-score"
+        }
+      ],
+      "subsections": [
+        {
+          "level": 2,
+          "text": "9.1 Empirical Rule",
+          "anchor": "s9-9-1-empirical-rule"
+        },
+        {
+          "level": 2,
+          "text": "9.2 Standardization / Z-score",
+          "anchor": "s9-9-2-standardization-z-score"
+        }
+      ],
+      "blocks": [
+        {
+          "type": "heading",
+          "level": 1,
+          "text": "9. Normal Distribution",
+          "anchor": "s9"
+        },
+        {
+          "type": "paragraph",
+          "inline": [
+            {
+              "text": "التوزيع الطبيعي هو توزيع مستمر متماثل على شكل Bell Curve."
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "inline": [
+            {
+              "text": "يُوصف عادةً بـ:"
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "math": "\\mu",
+                "raw": "mu",
+                "formulaKey": "mu"
+              },
+              {
+                "text": ": Mean"
+              }
+            ]
+          ]
+        },
+        {
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "math": "\\sigma",
+                "raw": "sigma",
+                "formulaKey": "sigma"
+              },
+              {
+                "text": ": Standard Deviation"
+              }
+            ]
+          ]
+        },
+        {
+          "type": "paragraph",
+          "inline": [
+            {
+              "text": "خصائص مهمة:"
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "text": "متماثل حول المتوسط."
+              }
+            ]
+          ]
+        },
+        {
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "text": "Mean = Median = Mode في الحالة الطبيعية المثالية."
+              }
+            ]
+          ]
+        },
+        {
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "text": "المساحة الكلية تحت المنحنى = 1."
+              }
+            ]
+          ]
+        },
+        {
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "text": "يمكن استخدام الـ Standard Deviation لفهم موقع القيم بالنسبة للمتوسط."
+              }
+            ]
+          ]
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "9.1 Empirical Rule",
+          "anchor": "s9-9-1-empirical-rule"
+        },
+        {
+          "type": "paragraph",
+          "inline": [
+            {
+              "text": "عند التوزيع الطبيعي تقريبًا:"
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "text": "حوالي 68% داخل "
+              },
+              {
+                "math": "\\mu \\pm 1\\sigma",
+                "raw": "mupm1sigma",
+                "formulaKey": "mupm1sigma"
+              }
+            ]
+          ]
+        },
+        {
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "text": "حوالي 95% داخل "
+              },
+              {
+                "math": "\\mu \\pm 2\\sigma",
+                "raw": "mupm2sigma",
+                "formulaKey": "mupm2sigma"
+              }
+            ]
+          ]
+        },
+        {
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "text": "حوالي 99.7% داخل "
+              },
+              {
+                "math": "\\mu \\pm 3\\sigma",
+                "raw": "mupm3sigma",
+                "formulaKey": "mupm3sigma"
+              }
+            ]
+          ]
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "9.2 Standardization / Z-score",
+          "anchor": "s9-9-2-standardization-z-score"
+        },
+        {
+          "type": "formula",
+          "tex": "z = \\frac{x - \\mu}{\\sigma}",
+          "raw": "z=frac{x-mu}{sigma}",
+          "alt": "(z=frac{x-mu}{sigma})"
+        },
+        {
+          "type": "paragraph",
+          "inline": [
+            {
+              "text": "يوضح كم Standard Deviations تبعد القيمة عن المتوسط."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "s10",
+      "number": 10,
+      "title": "10. Poisson Distribution",
+      "titleEn": "Poisson Distribution",
+      "anchor": "s10",
+      "sourceSequence": 10,
+      "counts": {
+        "paragraphs": 12,
+        "lists": 3,
+        "listItems": 3,
+        "tables": 0,
+        "tableRows": 0,
+        "formulas": 5,
+        "headings": 5,
+        "toggles": 0,
+        "callouts": 0,
+        "code": 0
+      },
+      "formulaCount": 5,
+      "textLength": 1267,
+      "headings": [
+        {
+          "level": 1,
+          "text": "10. Poisson Distribution",
+          "anchor": "s10"
+        },
+        {
+          "level": 2,
+          "text": "10.1 Poisson Process",
+          "anchor": "s10-10-1-poisson-process"
+        },
+        {
+          "level": 2,
+          "text": "10.2 Poisson Distribution",
+          "anchor": "s10-10-2-poisson-distribution"
+        },
+        {
+          "level": 2,
+          "text": "10.3 Lambda",
+          "anchor": "s10-10-3-lambda"
+        },
+        {
+          "level": 2,
+          "text": "10.4 Shape of Poisson",
+          "anchor": "s10-10-4-shape-of-poisson"
+        }
+      ],
+      "subsections": [
+        {
+          "level": 2,
+          "text": "10.1 Poisson Process",
+          "anchor": "s10-10-1-poisson-process"
+        },
+        {
+          "level": 2,
+          "text": "10.2 Poisson Distribution",
+          "anchor": "s10-10-2-poisson-distribution"
+        },
+        {
+          "level": 2,
+          "text": "10.3 Lambda",
+          "anchor": "s10-10-3-lambda"
+        },
+        {
+          "level": 2,
+          "text": "10.4 Shape of Poisson",
+          "anchor": "s10-10-4-shape-of-poisson"
+        }
+      ],
+      "blocks": [
+        {
+          "type": "heading",
+          "level": 1,
+          "text": "10. Poisson Distribution",
+          "anchor": "s10"
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "10.1 Poisson Process",
+          "anchor": "s10-10-1-poisson-process"
+        },
+        {
+          "type": "paragraph",
+          "inline": [
+            {
+              "text": "هو Process نعرف فيه"
+            },
+            {
+              "strong": true,
+              "text": "متوسط عدد الأحداث خلال فترة زمنية أو مساحة معينة"
+            },
+            {
+              "text": "، بينما أوقات/مسافات حدوث الأحداث نفسها عشوائية."
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "inline": [
+            {
+              "text": "أمثلة:"
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "text": "عدد الحيوانات التي يتم تبنيها من ملجأ كل أسبوع."
+              }
+            ]
+          ]
+        },
+        {
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "text": "عدد الأشخاص الذين يصلون إلى مطعم كل ساعة."
+              }
+            ]
+          ]
+        },
+        {
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "text": "عدد زيارات موقع شركة في اليوم."
+              }
+            ]
+          ]
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "10.2 Poisson Distribution",
+          "anchor": "s10-10-2-poisson-distribution"
+        },
+        {
+          "type": "paragraph",
+          "inline": [
+            {
+              "text": "تصف احتمال حدوث عدد معين من الأحداث خلال فترة أو نطاق ثابت."
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "inline": [
+            {
+              "text": "إذا كان "
+            },
+            {
+              "math": "\\lambda",
+              "raw": "lambda",
+              "formulaKey": "lambda"
+            },
+            {
+              "text": " هو متوسط عدد الأحداث في الفترة، فإن:"
+            }
+          ]
+        },
+        {
+          "type": "formula",
+          "tex": "P(X = k) = \\frac{e^{-\\lambda}\\lambda^k}{k!}",
+          "raw": "P(X=k)=frac{e^{-lambda}lambda^k}{k!}",
+          "alt": "(P(X=k)=frac{e^{-lambda}lambda^k}{k!})"
+        },
+        {
+          "type": "paragraph",
+          "inline": [
+            {
+              "text": "وفي Poisson:"
+            }
+          ]
+        },
+        {
+          "type": "formula",
+          "tex": "E(X) = \\lambda",
+          "raw": "E(X)=lambda",
+          "alt": "(E(X)=lambda)"
+        },
+        {
+          "type": "paragraph",
+          "inline": [
+            {
+              "text": "و:"
+            }
+          ]
+        },
+        {
+          "type": "formula",
+          "tex": "\\operatorname{Var}(X) = \\lambda",
+          "raw": "Var(X)=lambda",
+          "alt": "(Var(X)=lambda)"
+        },
+        {
+          "type": "paragraph",
+          "inline": [
+            {
+              "text": "وبالتالي:"
+            }
+          ]
+        },
+        {
+          "type": "formula",
+          "tex": "\\operatorname{SD}(X) = \\sqrt{\\lambda}",
+          "raw": "SD(X)=sqrt{lambda}",
+          "alt": "(SD(X)=sqrt{lambda})"
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "10.3 Lambda",
+          "anchor": "s10-10-3-lambda"
+        },
+        {
+          "type": "paragraph",
+          "inline": [
+            {
+              "math": "\\lambda",
+              "raw": "lambda",
+              "formulaKey": "lambda"
+            },
+            {
+              "text": " تمثل"
+            },
+            {
+              "strong": true,
+              "text": "Average number of events per time/space period"
+            },
+            {
+              "text": "، وهي أيضًا Expected Value للتوزيع."
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "inline": [
+            {
+              "text": "مثال: إذا كان متوسط زوار المطعم 20 شخصًا في الساعة، فإن:"
+            }
+          ]
+        },
+        {
+          "type": "formula",
+          "tex": "\\lambda = 20",
+          "raw": "lambda=20",
+          "alt": "(lambda=20)"
+        },
+        {
+          "type": "paragraph",
+          "inline": [
+            {
+              "text": "ويمكن استخدام توزيع Poisson لحساب احتمال وصول عدد محدد، مثل 13 شخصًا، أو احتمال الوصول إلى 25 شخصًا أو أكثر."
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "inline": [
+            {
+              "text": "في المثال المدروس، احتمال وصول"
+            },
+            {
+              "strong": true,
+              "text": "13 شخصًا بالضبط"
+            },
+            {
+              "text": "عندما "
+            },
+            {
+              "math": "\\lambda = 20",
+              "raw": "lambda=20",
+              "formulaKey": "lambda=20"
+            },
+            {
+              "text": " كان حوالي"
+            },
+            {
+              "strong": true,
+              "text": "2.71%"
+            },
+            {
+              "text": "، واحتمال وصول"
+            },
+            {
+              "strong": true,
+              "text": "25 شخصًا أو أكثر"
+            },
+            {
+              "text": "كان أكثر قليلًا من"
+            },
+            {
+              "strong": true,
+              "text": "11%"
+            },
+            {
+              "text": "."
+            }
+          ]
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "10.4 Shape of Poisson",
+          "anchor": "s10-10-4-shape-of-poisson"
+        },
+        {
+          "type": "paragraph",
+          "inline": [
+            {
+              "text": "تتغير هيئة التوزيع مع "
+            },
+            {
+              "math": "\\lambda",
+              "raw": "lambda",
+              "formulaKey": "lambda"
+            },
+            {
+              "text": ". وعند القيم المستخدمة في الدرس كانت قمة التوزيع عند قيمة "
+            },
+            {
+              "math": "\\lambda",
+              "raw": "lambda",
+              "formulaKey": "lambda"
+            },
+            {
+              "text": "، مع ملاحظة أن تفاصيل موضع الـ mode في Poisson قد تتضمن قيمتين متجاورتين في بعض الحالات عندما تكون "
+            },
+            {
+              "math": "\\lambda",
+              "raw": "lambda",
+              "formulaKey": "lambda"
+            },
+            {
+              "text": " عددًا صحيحًا؛ لذلك لا ينبغي حفظ عبارة \"peak is always exactly lambda\" كقاعدة رياضية مطلقة."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "s11",
+      "number": 11,
+      "title": "11. Central Limit Theorem — CLT",
+      "titleEn": "Central Limit Theorem — CLT",
+      "anchor": "s11",
+      "sourceSequence": 11,
+      "counts": {
+        "paragraphs": 5,
+        "lists": 0,
+        "listItems": 0,
+        "tables": 0,
+        "tableRows": 0,
+        "formulas": 1,
+        "headings": 1,
+        "toggles": 0,
+        "callouts": 0,
+        "code": 0
+      },
+      "formulaCount": 1,
+      "textLength": 455,
+      "headings": [
+        {
+          "level": 1,
+          "text": "11. Central Limit Theorem — CLT",
+          "anchor": "s11"
+        }
+      ],
+      "subsections": [],
+      "blocks": [
+        {
+          "type": "heading",
+          "level": 1,
+          "text": "11. Central Limit Theorem — CLT",
+          "anchor": "s11"
+        },
+        {
+          "type": "paragraph",
+          "inline": [
+            {
+              "text": "من أهم أفكار الإحصاء."
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "inline": [
+            {
+              "text": "إذا أخذنا عددًا كبيرًا من العينات ذات الحجم المناسب من Population، وحسبنا"
+            },
+            {
+              "strong": true,
+              "text": "Sample Mean"
+            },
+            {
+              "text": "لكل عينة، فإن توزيع هذه المتوسطات يميل إلى أن يكون قريبًا من Normal تحت الشروط المناسبة، حتى لو لم تكن Population نفسها Normal."
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "inline": [
+            {
+              "text": "الفكرة:"
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "inline": [
+            {
+              "strong": true,
+              "text": "Population → Many Samples → Mean of each Sample → Sampling Distribution of Means → Approximately Normal"
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "inline": [
+            {
+              "text": "كما أن متوسط Sampling Distribution للمتوسط يساوي Population Mean:"
+            }
+          ]
+        },
+        {
+          "type": "formula",
+          "tex": "E(\\bar{X}) = \\mu",
+          "raw": "E(bar X)=mu",
+          "alt": "(E(bar X)=mu)"
+        }
+      ]
+    },
+    {
+      "id": "s12",
+      "number": 12,
+      "title": "12. Sampling Distribution",
+      "titleEn": "Sampling Distribution",
+      "anchor": "s12",
+      "sourceSequence": 12,
+      "counts": {
+        "paragraphs": 2,
+        "lists": 3,
+        "listItems": 3,
+        "tables": 0,
+        "tableRows": 0,
+        "formulas": 0,
+        "headings": 1,
+        "toggles": 0,
+        "callouts": 0,
+        "code": 0
+      },
+      "formulaCount": 0,
+      "textLength": 310,
+      "headings": [
+        {
+          "level": 1,
+          "text": "12. Sampling Distribution",
+          "anchor": "s12"
+        }
+      ],
+      "subsections": [],
+      "blocks": [
+        {
+          "type": "heading",
+          "level": 1,
+          "text": "12. Sampling Distribution",
+          "anchor": "s12"
+        },
+        {
+          "type": "paragraph",
+          "inline": [
+            {
+              "text": "هي توزيع إحصائية معينة، مثل Sample Mean، عبر عدد كبير من العينات الممكنة من نفس Population."
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "inline": [
+            {
+              "text": "لا يجب الخلط بين:"
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "strong": true,
+                "text": "Population Distribution"
+              },
+              {
+                "text": ": توزيع الأفراد/القيم في المجتمع."
+              }
+            ]
+          ]
+        },
+        {
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "strong": true,
+                "text": "Sample Distribution"
+              },
+              {
+                "text": ": توزيع القيم داخل عينة واحدة."
+              }
+            ]
+          ]
+        },
+        {
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "strong": true,
+                "text": "Sampling Distribution"
+              },
+              {
+                "text": ": توزيع Statistic مثل "
+              },
+              {
+                "math": "\\bar{X}",
+                "raw": "bar X",
+                "formulaKey": "bar X"
+              },
+              {
+                "text": " عبر عينات كثيرة."
+              }
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "s13",
+      "number": 13,
+      "title": "13. Standard Error — SE",
+      "titleEn": "Standard Error — SE",
+      "anchor": "s13",
+      "sourceSequence": 13,
+      "counts": {
+        "paragraphs": 6,
+        "lists": 2,
+        "listItems": 2,
+        "tables": 0,
+        "tableRows": 0,
+        "formulas": 4,
+        "headings": 2,
+        "toggles": 0,
+        "callouts": 0,
+        "code": 0
+      },
+      "formulaCount": 4,
+      "textLength": 518,
+      "headings": [
+        {
+          "level": 1,
+          "text": "13. Standard Error — SE",
+          "anchor": "s13"
+        },
+        {
+          "level": 2,
+          "text": "13.1 الفرق بين SD وSE",
+          "anchor": "s13-13-1-sd-se"
+        }
+      ],
+      "subsections": [
+        {
+          "level": 2,
+          "text": "13.1 الفرق بين SD وSE",
+          "anchor": "s13-13-1-sd-se"
+        }
+      ],
+      "blocks": [
+        {
+          "type": "heading",
+          "level": 1,
+          "text": "13. Standard Error — SE",
+          "anchor": "s13"
+        },
+        {
+          "type": "paragraph",
+          "inline": [
+            {
+              "strong": true,
+              "text": "Standard Error هو Standard Deviation الخاص بـ Sampling Distribution للـ Statistic."
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "inline": [
+            {
+              "text": "لـ Sample Mean، عندما نستخدم "
+            },
+            {
+              "math": "\\sigma",
+              "raw": "sigma",
+              "formulaKey": "sigma"
+            },
+            {
+              "text": ":"
+            }
+          ]
+        },
+        {
+          "type": "formula",
+          "tex": "\\operatorname{SE}_{\\bar{X}} = \\frac{\\sigma}{\\sqrt{n}}",
+          "raw": "SE_{bar X}=frac{sigma}{sqrt n}",
+          "alt": "(SE_{bar X}=frac{sigma}{sqrt n})"
+        },
+        {
+          "type": "paragraph",
+          "inline": [
+            {
+              "text": "وعمليًا عندما "
+            },
+            {
+              "math": "\\sigma",
+              "raw": "sigma",
+              "formulaKey": "sigma"
+            },
+            {
+              "text": " غير معروفة:"
+            }
+          ]
+        },
+        {
+          "type": "formula",
+          "tex": "\\operatorname{SE}_{\\bar{X}} \\approx \\frac{s}{\\sqrt{n}}",
+          "raw": "SE_{bar X}approxfrac{s}{sqrt n}",
+          "alt": "(SE_{bar X}approxfrac{s}{sqrt n})"
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "13.1 الفرق بين SD وSE",
+          "anchor": "s13-13-1-sd-se"
+        },
+        {
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "strong": true,
+                "text": "SD"
+              },
+              {
+                "text": ": كم تتشتت القيم الفردية حول متوسطها؟"
+              }
+            ]
+          ]
+        },
+        {
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "strong": true,
+                "text": "SE"
+              },
+              {
+                "text": ": كم يتغير الـ Sample Statistic من عينة إلى أخرى؟"
+              }
+            ]
+          ]
+        },
+        {
+          "type": "paragraph",
+          "inline": [
+            {
+              "text": "كلما زاد حجم العينة:"
+            }
+          ]
+        },
+        {
+          "type": "formula",
+          "tex": "n \\uparrow \\Rightarrow \\operatorname{SE} \\downarrow",
+          "raw": "nuparrowRightarrow SEdownarrow",
+          "alt": "(nuparrowRightarrow SEdownarrow)"
+        },
+        {
+          "type": "paragraph",
+          "inline": [
+            {
+              "text": "لأن:"
+            }
+          ]
+        },
+        {
+          "type": "formula",
+          "tex": "\\operatorname{SE} \\propto \\frac{1}{\\sqrt{n}}",
+          "raw": "SEproptofrac{1}{sqrt n}",
+          "alt": "(SEproptofrac{1}{sqrt n})"
+        },
+        {
+          "type": "paragraph",
+          "inline": [
+            {
+              "text": "وهذا يعني أن تقديرنا للـ Population Mean يصبح أكثر استقرارًا مع زيادة حجم العينة."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "s14",
+      "number": 14,
+      "title": "14. Confidence Intervals",
+      "titleEn": "Confidence Intervals",
+      "anchor": "s14",
+      "sourceSequence": 14,
+      "counts": {
+        "paragraphs": 7,
+        "lists": 3,
+        "listItems": 3,
+        "tables": 0,
+        "tableRows": 0,
+        "formulas": 3,
+        "headings": 3,
+        "toggles": 0,
+        "callouts": 0,
+        "code": 0
+      },
+      "formulaCount": 3,
+      "textLength": 724,
+      "headings": [
+        {
+          "level": 1,
+          "text": "14. Confidence Intervals",
+          "anchor": "s14"
+        },
+        {
+          "level": 2,
+          "text": "14.1 مثال مفاهيمي",
+          "anchor": "s14-14-1"
+        },
+        {
+          "level": 2,
+          "text": "14.2 ما الذي يجعل CI أوسع أو أضيق؟",
+          "anchor": "s14-14-2-ci"
+        }
+      ],
+      "subsections": [
+        {
+          "level": 2,
+          "text": "14.1 مثال مفاهيمي",
+          "anchor": "s14-14-1"
+        },
+        {
+          "level": 2,
+          "text": "14.2 ما الذي يجعل CI أوسع أو أضيق؟",
+          "anchor": "s14-14-2-ci"
+        }
+      ],
+      "blocks": [
+        {
+          "type": "heading",
+          "level": 1,
+          "text": "14. Confidence Intervals",
+          "anchor": "s14"
+        },
+        {
+          "type": "paragraph",
+          "inline": [
+            {
+              "text": "Confidence Interval يعطي نطاقًا من القيم المعقولة لمعلمة Population بناءً على Sample وطريقة إحصائية محددة."
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "inline": [
+            {
+              "text": "الشكل العام:"
+            }
+          ]
+        },
+        {
+          "type": "formula",
+          "tex": "\\text{Estimate} \\pm \\text{Margin of Error}",
+          "raw": "Estimatepm Margin of Error",
+          "alt": "(Estimatepm Margin of Error)"
+        },
+        {
+          "type": "paragraph",
+          "inline": [
+            {
+              "text": "وعادةً:"
+            }
+          ]
+        },
+        {
+          "type": "formula",
+          "tex": "\\text{Margin of Error} = \\text{Critical Value} \\times \\text{SE}",
+          "raw": "Margin of Error=Critical Valuetimes SE",
+          "alt": "(Margin of Error=Critical Valuetimes SE)"
+        },
+        {
+          "type": "paragraph",
+          "inline": [
+            {
+              "text": "لذلك، بشكل عام:"
+            }
+          ]
+        },
+        {
+          "type": "formula",
+          "tex": "\\text{CI} = \\text{Estimate} \\pm \\text{Critical Value} \\times \\text{SE}",
+          "raw": "CI=Estimatepm Critical Valuetimes SE",
+          "alt": "(CI=Estimatepm Critical Valuetimes SE)"
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "14.1 مثال مفاهيمي",
+          "anchor": "s14-14-1"
+        },
+        {
+          "type": "paragraph",
+          "inline": [
+            {
+              "text": "إذا كان لدينا 95% CI للمتوسط:"
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "inline": [
+            {
+              "text": "([78,82])"
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "inline": [
+            {
+              "text": "فنحن لا نقول بدقة إن هناك \"95% probability\" أن parameter الثابت يقع داخل هذه الفترة بعد حسابها. التفسير المتكرر Frequentist هو أن"
+            },
+            {
+              "strong": true,
+              "text": "طريقة بناء 95% CI ستحتوي على Population Parameter في حوالي 95% من العينات المتكررة"
+            },
+            {
+              "text": "إذا استوفت الشروط."
+            }
+          ]
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "14.2 ما الذي يجعل CI أوسع أو أضيق؟",
+          "anchor": "s14-14-2-ci"
+        },
+        {
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "text": "Confidence Level أعلى → Interval أوسع."
+              }
+            ]
+          ]
+        },
+        {
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "text": "SE أكبر → Interval أوسع."
+              }
+            ]
+          ]
+        },
+        {
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "text": "Sample Size أكبر → SE أصغر → Interval أضيق، مع ثبات باقي العوامل."
+              }
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "s15",
+      "number": 15,
+      "title": "15. Hypothesis Testing",
+      "titleEn": "Hypothesis Testing",
+      "anchor": "s15",
+      "sourceSequence": 15,
+      "counts": {
+        "paragraphs": 8,
+        "lists": 3,
+        "listItems": 3,
+        "tables": 0,
+        "tableRows": 0,
+        "formulas": 1,
+        "headings": 3,
+        "toggles": 0,
+        "callouts": 0,
+        "code": 0
+      },
+      "formulaCount": 1,
+      "textLength": 658,
+      "headings": [
+        {
+          "level": 1,
+          "text": "15. Hypothesis Testing",
+          "anchor": "s15"
+        },
+        {
+          "level": 2,
+          "text": "15.1 Null Hypothesis — H₀",
+          "anchor": "s15-15-1-null-hypothesis-h0"
+        },
+        {
+          "level": 2,
+          "text": "15.2 Alternative Hypothesis — Hₐ",
+          "anchor": "s15-15-2-alternative-hypothesis-ha"
+        }
+      ],
+      "subsections": [
+        {
+          "level": 2,
+          "text": "15.1 Null Hypothesis — H₀",
+          "anchor": "s15-15-1-null-hypothesis-h0"
+        },
+        {
+          "level": 2,
+          "text": "15.2 Alternative Hypothesis — Hₐ",
+          "anchor": "s15-15-2-alternative-hypothesis-ha"
+        }
+      ],
+      "blocks": [
+        {
+          "type": "heading",
+          "level": 1,
+          "text": "15. Hypothesis Testing",
+          "anchor": "s15"
+        },
+        {
+          "type": "paragraph",
+          "inline": [
+            {
+              "text": "Hypothesis Testing مجموعة من النظريات والأساليب والتقنيات لمقارنة Population أو تقييم ادعاء عن Population."
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "inline": [
+            {
+              "text": "يُستخدم في الأعمال والبحث العلمي والطب والتجارب، مثل اختبار ما إذا كان تغيير سعر منتج يؤثر في الإيرادات أو تغيير اسم موقع يؤثر في Traffic أو ما إذا كان دواء فعالًا."
+            }
+          ]
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "15.1 Null Hypothesis — H₀",
+          "anchor": "s15-15-1-null-hypothesis-h0"
+        },
+        {
+          "type": "paragraph",
+          "inline": [
+            {
+              "text": "نبدأ عادةً بافتراض عدم وجود فرق أو تأثير، لتقليل التحيز."
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "inline": [
+            {
+              "text": "مثال:"
+            }
+          ]
+        },
+        {
+          "type": "formula",
+          "tex": "H_0: \\mu_C = \\mu_B",
+          "raw": "H_0:mu_C=mu_B",
+          "alt": "(H_0:mu_C=mu_B)"
+        },
+        {
+          "type": "paragraph",
+          "inline": [
+            {
+              "text": "أي لا يوجد فرق في متوسط العمر بين Chicago وBangkok."
+            }
+          ]
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "15.2 Alternative Hypothesis — Hₐ",
+          "anchor": "s15-15-2-alternative-hypothesis-ha"
+        },
+        {
+          "type": "paragraph",
+          "inline": [
+            {
+              "text": "تمثل الادعاء البديل."
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "inline": [
+            {
+              "text": "قد تكون:"
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "strong": true,
+                "text": "Two-sided"
+              },
+              {
+                "text": ": "
+              },
+              {
+                "math": "\\mu_C \\neq \\mu_B",
+                "raw": "mu_Cnemu_B",
+                "formulaKey": "mu_Cnemu_B"
+              }
+            ]
+          ]
+        },
+        {
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "strong": true,
+                "text": "One-sided"
+              },
+              {
+                "text": ": "
+              },
+              {
+                "math": "\\mu_C > \\mu_B",
+                "raw": "mu_C>mu_B",
+                "formulaKey": "mu_C>mu_B"
+              }
+            ]
+          ]
+        },
+        {
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "text": "أو الاتجاه الآخر: "
+              },
+              {
+                "math": "\\mu_C < \\mu_B",
+                "raw": "mu_C<mu_B",
+                "formulaKey": "mu_C<mu_B"
+              }
+            ]
+          ]
+        },
+        {
+          "type": "paragraph",
+          "inline": [
+            {
+              "text": "اختيار شكل Alternative يحدد ما معنى \"more extreme\" عند حساب p-value."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "s16",
+      "number": 16,
+      "title": "16. Hypothesis Testing Workflow",
+      "titleEn": "Hypothesis Testing Workflow",
+      "anchor": "s16",
+      "sourceSequence": 16,
+      "counts": {
+        "paragraphs": 0,
+        "lists": 7,
+        "listItems": 7,
+        "tables": 0,
+        "tableRows": 0,
+        "formulas": 0,
+        "headings": 1,
+        "toggles": 0,
+        "callouts": 0,
+        "code": 0
+      },
+      "formulaCount": 0,
+      "textLength": 261,
+      "headings": [
+        {
+          "level": 1,
+          "text": "16. Hypothesis Testing Workflow",
+          "anchor": "s16"
+        }
+      ],
+      "subsections": [],
+      "blocks": [
+        {
+          "type": "heading",
+          "level": 1,
+          "text": "16. Hypothesis Testing Workflow",
+          "anchor": "s16"
+        },
+        {
+          "type": "list",
+          "ordered": true,
+          "items": [
+            [
+              {
+                "text": "تحديد الـ Populations أو المجموعات محل المقارنة."
+              }
+            ]
+          ]
+        },
+        {
+          "type": "list",
+          "ordered": true,
+          "items": [
+            [
+              {
+                "text": "تحديد "
+              },
+              {
+                "math": "H_0",
+                "raw": "H_0",
+                "formulaKey": "H_0"
+              },
+              {
+                "text": " و"
+              },
+              {
+                "math": "H_a",
+                "raw": "H_a",
+                "formulaKey": "H_a"
+              },
+              {
+                "text": "."
+              }
+            ]
+          ]
+        },
+        {
+          "type": "list",
+          "ordered": true,
+          "items": [
+            [
+              {
+                "text": "جمع Sample Data."
+              }
+            ]
+          ]
+        },
+        {
+          "type": "list",
+          "ordered": true,
+          "items": [
+            [
+              {
+                "text": "حساب الإحصائية المناسبة."
+              }
+            ]
+          ]
+        },
+        {
+          "type": "list",
+          "ordered": true,
+          "items": [
+            [
+              {
+                "text": "حساب Test Statistic و/أو p-value."
+              }
+            ]
+          ]
+        },
+        {
+          "type": "list",
+          "ordered": true,
+          "items": [
+            [
+              {
+                "text": "مقارنة p-value مع "
+              },
+              {
+                "math": "\\alpha",
+                "raw": "alpha",
+                "formulaKey": "alpha"
+              },
+              {
+                "text": "."
+              }
+            ]
+          ]
+        },
+        {
+          "type": "list",
+          "ordered": true,
+          "items": [
+            [
+              {
+                "text": "استخلاص Conclusion عن Population مع مراعاة حدود الاختبار."
+              }
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "s17",
+      "number": 17,
+      "title": "17. Sampling Variability داخل Hypothesis Testing",
+      "titleEn": "Sampling Variability داخل Hypothesis Testing",
+      "anchor": "s17",
+      "sourceSequence": 17,
+      "counts": {
+        "paragraphs": 3,
+        "lists": 0,
+        "listItems": 0,
+        "tables": 0,
+        "tableRows": 0,
+        "formulas": 3,
+        "headings": 1,
+        "toggles": 0,
+        "callouts": 0,
+        "code": 0
+      },
+      "formulaCount": 3,
+      "textLength": 335,
+      "headings": [
+        {
+          "level": 1,
+          "text": "17. Sampling Variability داخل Hypothesis Testing",
+          "anchor": "s17"
+        }
+      ],
+      "subsections": [],
+      "blocks": [
+        {
+          "type": "heading",
+          "level": 1,
+          "text": "17. Sampling Variability داخل Hypothesis Testing",
+          "anchor": "s17"
+        },
+        {
+          "type": "paragraph",
+          "inline": [
+            {
+              "text": "إذا أخذنا Sample من Chicago وSample من Bangkok وحصلنا مثلًا على:"
+            }
+          ]
+        },
+        {
+          "type": "formula",
+          "tex": "\\bar{x}_C = 79.3",
+          "raw": "bar x_C=79.3",
+          "alt": "(bar x_C=79.3)"
+        },
+        {
+          "type": "formula",
+          "tex": "\\bar{x}_B = 73.9",
+          "raw": "bar x_B=73.9",
+          "alt": "(bar x_B=73.9)"
+        },
+        {
+          "type": "paragraph",
+          "inline": [
+            {
+              "text": "فالفرق:"
+            }
+          ]
+        },
+        {
+          "type": "formula",
+          "tex": "79.3 - 73.9 = 5.4",
+          "raw": "79.3-73.9=5.4",
+          "alt": "(79.3-73.9=5.4)"
+        },
+        {
+          "type": "paragraph",
+          "inline": [
+            {
+              "text": "لكن Sample أخرى قد تعطي فرقًا مختلفًا. لذلك السؤال ليس فقط:"
+            },
+            {
+              "strong": true,
+              "text": "هل Sample Means مختلفة؟"
+            },
+            {
+              "text": "بل:"
+            },
+            {
+              "strong": true,
+              "text": "هل الفرق كبير بما يكفي بحيث يصعب تفسيره بالـ Sampling Variation وحدها إذا كانت H₀ صحيحة؟"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "s18",
+      "number": 18,
+      "title": "18. Test Statistic وSE",
+      "titleEn": "Test Statistic وSE",
+      "anchor": "s18",
+      "sourceSequence": 18,
+      "counts": {
+        "paragraphs": 6,
+        "lists": 0,
+        "listItems": 0,
+        "tables": 0,
+        "tableRows": 0,
+        "formulas": 3,
+        "headings": 1,
+        "toggles": 0,
+        "callouts": 0,
+        "code": 0
+      },
+      "formulaCount": 3,
+      "textLength": 475,
+      "headings": [
+        {
+          "level": 1,
+          "text": "18. Test Statistic وSE",
+          "anchor": "s18"
+        }
+      ],
+      "subsections": [],
+      "blocks": [
+        {
+          "type": "heading",
+          "level": 1,
+          "text": "18. Test Statistic وSE",
+          "anchor": "s18"
+        },
+        {
+          "type": "paragraph",
+          "inline": [
+            {
+              "text": "في مقارنة متوسطين، الفكرة العامة هي:"
+            }
+          ]
+        },
+        {
+          "type": "formula",
+          "tex": "\\text{Test Statistic} = \\frac{\\text{Observed Difference} - \\text{Hypothesized Difference}}{\\text{SE of Difference}}",
+          "raw": "Test Statistic=frac{Observed Difference-Hypothesized Difference}{SE of Difference}",
+          "alt": "(Test Statistic=frac{Observed Difference-Hypothesized Difference}{SE of Difference})"
+        },
+        {
+          "type": "paragraph",
+          "inline": [
+            {
+              "text": "إذا كانت H₀ تفترض عدم وجود فرق:"
+            }
+          ]
+        },
+        {
+          "type": "formula",
+          "tex": "\\text{Hypothesized Difference} = 0",
+          "raw": "Hypothesized Difference=0",
+          "alt": "(Hypothesized Difference=0)"
+        },
+        {
+          "type": "paragraph",
+          "inline": [
+            {
+              "text": "مثال مفاهيمي:"
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "inline": [
+            {
+              "text": "إذا كان الفرق = 5.4 وSE للفرق = 1.5:"
+            }
+          ]
+        },
+        {
+          "type": "formula",
+          "tex": "\\text{Test Statistic} = \\frac{5.4}{1.5} = 3.6",
+          "raw": "Test Statistic=frac{5.4}{1.5}=3.6",
+          "alt": "(Test Statistic=frac{5.4}{1.5}=3.6)"
+        },
+        {
+          "type": "paragraph",
+          "inline": [
+            {
+              "text": "أي أن الفرق المرصود يبعد 3.6 Standard Errors عن الفرق المتوقع تحت H₀."
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "inline": [
+            {
+              "text": "كلما كان الفرق كبيرًا مقارنةً بالـ SE، أصبح من الأصعب تفسيره على أنه Sampling Variation فقط، وغالبًا تصبح p-value أصغر."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "s19",
+      "number": 19,
+      "title": "19. p-value",
+      "titleEn": "p-value",
+      "anchor": "s19",
+      "sourceSequence": 19,
+      "counts": {
+        "paragraphs": 8,
+        "lists": 0,
+        "listItems": 0,
+        "tables": 0,
+        "tableRows": 0,
+        "formulas": 2,
+        "headings": 3,
+        "toggles": 0,
+        "callouts": 0,
+        "code": 0
+      },
+      "formulaCount": 2,
+      "textLength": 940,
+      "headings": [
+        {
+          "level": 1,
+          "text": "19. p-value",
+          "anchor": "s19"
+        },
+        {
+          "level": 2,
+          "text": "19.1 مثال",
+          "anchor": "s19-19-1"
+        },
+        {
+          "level": 2,
+          "text": "19.2 p-value ليست overlap ببساطة",
+          "anchor": "s19-19-2-p-value-overlap"
+        }
+      ],
+      "subsections": [
+        {
+          "level": 2,
+          "text": "19.1 مثال",
+          "anchor": "s19-19-1"
+        },
+        {
+          "level": 2,
+          "text": "19.2 p-value ليست overlap ببساطة",
+          "anchor": "s19-19-2-p-value-overlap"
+        }
+      ],
+      "blocks": [
+        {
+          "type": "heading",
+          "level": 1,
+          "text": "19. p-value",
+          "anchor": "s19"
+        },
+        {
+          "type": "paragraph",
+          "inline": [
+            {
+              "text": "التعريف الدقيق:"
+            }
+          ]
+        },
+        {
+          "type": "formula",
+          "tex": "p\\text{-value} = P(\\text{result at least as extreme as observed} \\mid H_0 \\text{ is true})",
+          "raw": "ptext{-value}=P(text{result at least as extreme as observed}mid H_0text{ is true})",
+          "alt": "(ptext{-value}=P(text{result at least as extreme as observed}mid H_0text{ is true}))"
+        },
+        {
+          "type": "paragraph",
+          "inline": [
+            {
+              "text": "أي:"
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "inline": [
+            {
+              "strong": true,
+              "text": "احتمال الحصول على نتيجة مساوية للنتيجة المرصودة أو أكثر تطرفًا منها، بافتراض أن Null Hypothesis صحيحة."
+            }
+          ]
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "19.1 مثال",
+          "anchor": "s19-19-1"
+        },
+        {
+          "type": "paragraph",
+          "inline": [
+            {
+              "text": "إذا كان Population Mean المفترض = 79.3، ونسأل عن احتمال الحصول على Sample Mean ≥ 82، وكانت:"
+            }
+          ]
+        },
+        {
+          "type": "formula",
+          "tex": "p = 0.037",
+          "raw": "p=0.037",
+          "alt": "(p=0.037)"
+        },
+        {
+          "type": "paragraph",
+          "inline": [
+            {
+              "text": "فهذا يعني أن احتمال الحصول على Sample Mean يساوي 82 أو أكثر، بافتراض صحة الفرضية المستخدمة، هو حوالي 3.7%."
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "inline": [
+            {
+              "strong": true,
+              "text": "لا يعني"
+            },
+            {
+              "text": "أن احتمال صحة H₀ هو 3.7%."
+            }
+          ]
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "19.2 p-value ليست overlap ببساطة",
+          "anchor": "s19-19-2-p-value-overlap"
+        },
+        {
+          "type": "paragraph",
+          "inline": [
+            {
+              "text": "قد تستخدم بعض الشروحات الرسومية فكرة تداخل التوزيعات لتوضيح المفهوم، لكن التعريف الصحيح ليس \"مساحة التداخل بين توزيعين\". في الاختبار الإحصائي نحسب مساحة النتائج التي تكون على الأقل بقدر تطرف النتيجة المرصودة ضمن"
+            },
+            {
+              "strong": true,
+              "text": "Null Sampling Distribution / Distribution of the Test Statistic under H₀"
+            },
+            {
+              "text": "."
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "inline": [
+            {
+              "text": "في One-tailed test تكون p-value عادةً مساحة Tail في الاتجاه الذي تحدده Hₐ. وفي Two-tailed test تُحسب مساحة النتائج المتطرفة في الطرفين وفق تعريف الاختبار."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "s20",
+      "number": 20,
+      "title": "20. Significance Level — α",
+      "titleEn": "Significance Level — α",
+      "anchor": "s20",
+      "sourceSequence": 20,
+      "counts": {
+        "paragraphs": 3,
+        "lists": 0,
+        "listItems": 0,
+        "tables": 0,
+        "tableRows": 0,
+        "formulas": 1,
+        "headings": 1,
+        "toggles": 0,
+        "callouts": 0,
+        "code": 0
+      },
+      "formulaCount": 1,
+      "textLength": 266,
+      "headings": [
+        {
+          "level": 1,
+          "text": "20. Significance Level — α",
+          "anchor": "s20"
+        }
+      ],
+      "subsections": [],
+      "blocks": [
+        {
+          "type": "heading",
+          "level": 1,
+          "text": "20. Significance Level — α",
+          "anchor": "s20"
+        },
+        {
+          "type": "paragraph",
+          "inline": [
+            {
+              "math": "\\alpha",
+              "raw": "alpha",
+              "formulaKey": "alpha"
+            },
+            {
+              "text": " هو"
+            },
+            {
+              "strong": true,
+              "text": "Significance Level"
+            },
+            {
+              "text": "أو threshold نحدده قبل تحليل النتائج، وغالبًا:"
+            }
+          ]
+        },
+        {
+          "type": "formula",
+          "tex": "\\alpha = 0.05",
+          "raw": "alpha=0.05",
+          "alt": "(alpha=0.05)"
+        },
+        {
+          "type": "paragraph",
+          "inline": [
+            {
+              "text": "وهو مرتبط بمعدل Type I Error الذي نقبله ضمن قاعدة الاختبار عندما تكون H₀ صحيحة."
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "inline": [
+            {
+              "text": "يجب تحديده مسبقًا لتقليل التحيز وعدم تغيير معيار القرار بعد رؤية النتائج."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "s21",
+      "number": 21,
+      "title": "21. قاعدة القرار",
+      "titleEn": "قاعدة القرار",
+      "anchor": "s21",
+      "sourceSequence": 21,
+      "counts": {
+        "paragraphs": 8,
+        "lists": 0,
+        "listItems": 0,
+        "tables": 0,
+        "tableRows": 0,
+        "formulas": 2,
+        "headings": 1,
+        "toggles": 0,
+        "callouts": 0,
+        "code": 0
+      },
+      "formulaCount": 2,
+      "textLength": 231,
+      "headings": [
+        {
+          "level": 1,
+          "text": "21. قاعدة القرار",
+          "anchor": "s21"
+        }
+      ],
+      "subsections": [],
+      "blocks": [
+        {
+          "type": "heading",
+          "level": 1,
+          "text": "21. قاعدة القرار",
+          "anchor": "s21"
+        },
+        {
+          "type": "paragraph",
+          "inline": [
+            {
+              "text": "إذا:"
+            }
+          ]
+        },
+        {
+          "type": "formula",
+          "tex": "p \\le \\alpha",
+          "raw": "plealpha",
+          "alt": "(plealpha)"
+        },
+        {
+          "type": "paragraph",
+          "inline": [
+            {
+              "text": "نقوم بـ:"
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "inline": [
+            {
+              "strong": true,
+              "text": "Reject H₀"
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "inline": [
+            {
+              "text": "ونصف النتيجة بأنها"
+            },
+            {
+              "strong": true,
+              "text": "Statistically Significant"
+            },
+            {
+              "text": "عند مستوى "
+            },
+            {
+              "math": "\\alpha",
+              "raw": "alpha",
+              "formulaKey": "alpha"
+            },
+            {
+              "text": "."
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "inline": [
+            {
+              "text": "إذا:"
+            }
+          ]
+        },
+        {
+          "type": "formula",
+          "tex": "p > \\alpha",
+          "raw": "p>alpha",
+          "alt": "(p>alpha)"
+        },
+        {
+          "type": "paragraph",
+          "inline": [
+            {
+              "text": "نقوم بـ:"
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "inline": [
+            {
+              "strong": true,
+              "text": "Fail to Reject H₀"
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "inline": [
+            {
+              "text": "ولا نقول عادةً"
+            },
+            {
+              "strong": true,
+              "text": "Accept H₀"
+            },
+            {
+              "text": "؛ لأن عدم وجود Evidence كافية ضد H₀ لا يثبت أن H₀ صحيحة."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "s22",
+      "number": 22,
+      "title": "22. Type I and Type II Errors",
+      "titleEn": "Type I and Type II Errors",
+      "anchor": "s22",
+      "sourceSequence": 22,
+      "counts": {
+        "paragraphs": 5,
+        "lists": 0,
+        "listItems": 0,
+        "tables": 1,
+        "tableRows": 4,
+        "formulas": 0,
+        "headings": 3,
+        "toggles": 0,
+        "callouts": 0,
+        "code": 0
+      },
+      "formulaCount": 0,
+      "textLength": 408,
+      "headings": [
+        {
+          "level": 1,
+          "text": "22. Type I and Type II Errors",
+          "anchor": "s22"
+        },
+        {
+          "level": 2,
+          "text": "22.1 Type I Error",
+          "anchor": "s22-22-1-type-i-error"
+        },
+        {
+          "level": 2,
+          "text": "22.2 Type II Error",
+          "anchor": "s22-22-2-type-ii-error"
+        }
+      ],
+      "subsections": [
+        {
+          "level": 2,
+          "text": "22.1 Type I Error",
+          "anchor": "s22-22-1-type-i-error"
+        },
+        {
+          "level": 2,
+          "text": "22.2 Type II Error",
+          "anchor": "s22-22-2-type-ii-error"
+        }
+      ],
+      "blocks": [
+        {
+          "type": "heading",
+          "level": 1,
+          "text": "22. Type I and Type II Errors",
+          "anchor": "s22"
+        },
+        {
+          "type": "paragraph",
+          "inline": [
+            {
+              "text": "هناك أربع حالات منطقية:"
+            }
+          ]
+        },
+        {
+          "type": "table",
+          "headers": [
+            [
+              {
+                "text": "Reality"
+              }
+            ],
+            [
+              {
+                "text": "Decision"
+              }
+            ],
+            [
+              {
+                "text": "Result"
+              }
+            ]
+          ],
+          "rows": [
+            [
+              [
+                {
+                  "text": "H₀ True"
+                }
+              ],
+              [
+                {
+                  "text": "Reject H₀"
+                }
+              ],
+              [
+                {
+                  "text": "Type I Error / False Positive"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "text": "H₀ True"
+                }
+              ],
+              [
+                {
+                  "text": "Fail to Reject H₀"
+                }
+              ],
+              [
+                {
+                  "text": "Correct Decision"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "text": "H₀ False"
+                }
+              ],
+              [
+                {
+                  "text": "Reject H₀"
+                }
+              ],
+              [
+                {
+                  "text": "Correct Decision"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "text": "H₀ False"
+                }
+              ],
+              [
+                {
+                  "text": "Fail to Reject H₀"
+                }
+              ],
+              [
+                {
+                  "text": "Type II Error / False Negative"
+                }
+              ]
+            ]
+          ]
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "22.1 Type I Error",
+          "anchor": "s22-22-1-type-i-error"
+        },
+        {
+          "type": "paragraph",
+          "inline": [
+            {
+              "text": "نرفض H₀ وهي صحيحة فعلًا."
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "inline": [
+            {
+              "text": "يسمى أيضًا"
+            },
+            {
+              "strong": true,
+              "text": "False Positive"
+            },
+            {
+              "text": "."
+            }
+          ]
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "22.2 Type II Error",
+          "anchor": "s22-22-2-type-ii-error"
+        },
+        {
+          "type": "paragraph",
+          "inline": [
+            {
+              "text": "نفشل في رفض H₀ وهي خاطئة فعلًا."
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "inline": [
+            {
+              "text": "يسمى أيضًا"
+            },
+            {
+              "strong": true,
+              "text": "False Negative"
+            },
+            {
+              "text": "."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "s23",
+      "number": 23,
+      "title": "23. Statistical Significance vs Practical Significance",
+      "titleEn": "Statistical Significance vs Practical Significance",
+      "anchor": "s23",
+      "sourceSequence": 23,
+      "counts": {
+        "paragraphs": 3,
+        "lists": 0,
+        "listItems": 0,
+        "tables": 0,
+        "tableRows": 0,
+        "formulas": 0,
+        "headings": 1,
+        "toggles": 0,
+        "callouts": 0,
+        "code": 0
+      },
+      "formulaCount": 0,
+      "textLength": 344,
+      "headings": [
+        {
+          "level": 1,
+          "text": "23. Statistical Significance vs Practical Significance",
+          "anchor": "s23"
+        }
+      ],
+      "subsections": [],
+      "blocks": [
+        {
+          "type": "heading",
+          "level": 1,
+          "text": "23. Statistical Significance vs Practical Significance",
+          "anchor": "s23"
+        },
+        {
+          "type": "paragraph",
+          "inline": [
+            {
+              "strong": true,
+              "text": "Statistically Significant"
+            },
+            {
+              "text": "تعني أن النتيجة قدمت Evidence كافية ضد H₀ وفق قاعدة الاختبار المحددة."
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "inline": [
+            {
+              "text": "لكن هذا لا يعني بالضرورة أن الأثر كبير أو مهم عمليًا."
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "inline": [
+            {
+              "text": "مع عينات ضخمة قد يصبح فرق صغير جدًا Statistically Significant. لذلك في تحليل الأعمال يجب التفكير أيضًا في"
+            },
+            {
+              "strong": true,
+              "text": "Effect Size / Practical Importance"
+            },
+            {
+              "text": "."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "s24",
+      "number": 24,
+      "title": "24. Experiments",
+      "titleEn": "Experiments",
+      "anchor": "s24",
+      "sourceSequence": 24,
+      "counts": {
+        "paragraphs": 3,
+        "lists": 2,
+        "listItems": 2,
+        "tables": 0,
+        "tableRows": 0,
+        "formulas": 0,
+        "headings": 1,
+        "toggles": 0,
+        "callouts": 0,
+        "code": 0
+      },
+      "formulaCount": 0,
+      "textLength": 362,
+      "headings": [
+        {
+          "level": 1,
+          "text": "24. Experiments",
+          "anchor": "s24"
+        }
+      ],
+      "subsections": [],
+      "blocks": [
+        {
+          "type": "heading",
+          "level": 1,
+          "text": "24. Experiments",
+          "anchor": "s24"
+        },
+        {
+          "type": "paragraph",
+          "inline": [
+            {
+              "text": "Experiments هي أحد أفرع تطبيق Hypothesis Testing، وهدفها عادةً الإجابة عن:"
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "inline": [
+            {
+              "strong": true,
+              "text": "What is the effect of the treatment on the response?"
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "strong": true,
+                "text": "Treatment / Independent Variable"
+              },
+              {
+                "text": ": المتغير أو المعالجة التي نغيرها أو نقارن مستوياتها."
+              }
+            ]
+          ]
+        },
+        {
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "strong": true,
+                "text": "Response / Dependent Variable"
+              },
+              {
+                "text": ": النتيجة التي نقيس تأثير الـ Treatment عليها."
+              }
+            ]
+          ]
+        },
+        {
+          "type": "paragraph",
+          "inline": [
+            {
+              "text": "مثال: الإعلان Treatment، وعدد المنتجات المباعة Response."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "s25",
+      "number": 25,
+      "title": "25. Controlled Experiments",
+      "titleEn": "Controlled Experiments",
+      "anchor": "s25",
+      "sourceSequence": 25,
+      "counts": {
+        "paragraphs": 4,
+        "lists": 2,
+        "listItems": 2,
+        "tables": 0,
+        "tableRows": 0,
+        "formulas": 0,
+        "headings": 1,
+        "toggles": 0,
+        "callouts": 0,
+        "code": 0
+      },
+      "formulaCount": 0,
+      "textLength": 472,
+      "headings": [
+        {
+          "level": 1,
+          "text": "25. Controlled Experiments",
+          "anchor": "s25"
+        }
+      ],
+      "subsections": [],
+      "blocks": [
+        {
+          "type": "heading",
+          "level": 1,
+          "text": "25. Controlled Experiments",
+          "anchor": "s25"
+        },
+        {
+          "type": "paragraph",
+          "inline": [
+            {
+              "text": "في Controlled Experiment نقسم المشاركين إلى:"
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "strong": true,
+                "text": "Treatment Group"
+              },
+              {
+                "text": ": تتعرض للمعالجة."
+              }
+            ]
+          ]
+        },
+        {
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "strong": true,
+                "text": "Control Group"
+              },
+              {
+                "text": ": لا تتعرض للمعالجة أو تتعرض لبديل/Placebo مناسب."
+              }
+            ]
+          ]
+        },
+        {
+          "type": "paragraph",
+          "inline": [
+            {
+              "text": "الهدف أن تكون المجموعتان comparable قدر الإمكان، بحيث يمكن عزل أثر Treatment."
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "inline": [
+            {
+              "text": "إذا كانت المجموعتان مختلفتين في عامل آخر مهم، قد تظهر نتيجة مضللة."
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "inline": [
+            {
+              "text": "مثال: إذا كان متوسط عمر Treatment Group = 25 ومتوسط عمر Control Group = 50، وكان العمر نفسه يؤثر في الشراء، فقد يكون الفرق في المبيعات بسبب العمر وليس الإعلان."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "s26",
+      "number": 26,
+      "title": "26. Randomization",
+      "titleEn": "Randomization",
+      "anchor": "s26",
+      "sourceSequence": 26,
+      "counts": {
+        "paragraphs": 3,
+        "lists": 0,
+        "listItems": 0,
+        "tables": 0,
+        "tableRows": 0,
+        "formulas": 0,
+        "headings": 1,
+        "toggles": 0,
+        "callouts": 0,
+        "code": 0
+      },
+      "formulaCount": 0,
+      "textLength": 277,
+      "headings": [
+        {
+          "level": 1,
+          "text": "26. Randomization",
+          "anchor": "s26"
+        }
+      ],
+      "subsections": [],
+      "blocks": [
+        {
+          "type": "heading",
+          "level": 1,
+          "text": "26. Randomization",
+          "anchor": "s26"
+        },
+        {
+          "type": "paragraph",
+          "inline": [
+            {
+              "strong": true,
+              "text": "Randomization"
+            },
+            {
+              "text": "تعني توزيع المشاركين عشوائيًا على Treatment وControl بدلًا من توزيعهم بناءً على خصائصهم."
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "inline": [
+            {
+              "text": "يساعد ذلك على جعل المجموعات أكثر قابلية للمقارنة وتقليل Bias وConfounding."
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "inline": [
+            {
+              "text": "الـ"
+            },
+            {
+              "strong": true,
+              "text": "Randomized Controlled Trial (RCT)"
+            },
+            {
+              "text": "هو Controlled Experiment يستخدم Randomization."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "s27",
+      "number": 27,
+      "title": "27. Blinding وPlacebo",
+      "titleEn": "Blinding وPlacebo",
+      "anchor": "s27",
+      "sourceSequence": 27,
+      "counts": {
+        "paragraphs": 7,
+        "lists": 0,
+        "listItems": 0,
+        "tables": 0,
+        "tableRows": 0,
+        "formulas": 0,
+        "headings": 4,
+        "toggles": 0,
+        "callouts": 0,
+        "code": 0
+      },
+      "formulaCount": 0,
+      "textLength": 556,
+      "headings": [
+        {
+          "level": 1,
+          "text": "27. Blinding وPlacebo",
+          "anchor": "s27"
+        },
+        {
+          "level": 2,
+          "text": "Blind Trial",
+          "anchor": "s27-blind-trial"
+        },
+        {
+          "level": 2,
+          "text": "Placebo",
+          "anchor": "s27-placebo"
+        },
+        {
+          "level": 2,
+          "text": "Double-Blind Randomized Controlled Trial",
+          "anchor": "s27-double-blind-randomized-controlled-trial"
+        }
+      ],
+      "subsections": [
+        {
+          "level": 2,
+          "text": "Blind Trial",
+          "anchor": "s27-blind-trial"
+        },
+        {
+          "level": 2,
+          "text": "Placebo",
+          "anchor": "s27-placebo"
+        },
+        {
+          "level": 2,
+          "text": "Double-Blind Randomized Controlled Trial",
+          "anchor": "s27-double-blind-randomized-controlled-trial"
+        }
+      ],
+      "blocks": [
+        {
+          "type": "heading",
+          "level": 1,
+          "text": "27. Blinding وPlacebo",
+          "anchor": "s27"
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "Blind Trial",
+          "anchor": "s27-blind-trial"
+        },
+        {
+          "type": "paragraph",
+          "inline": [
+            {
+              "text": "المشاركون لا يعرفون هل هم في Treatment أم Control."
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "inline": [
+            {
+              "text": "هذا يقلل تأثير توقعات المشاركين على النتائج."
+            }
+          ]
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "Placebo",
+          "anchor": "s27-placebo"
+        },
+        {
+          "type": "paragraph",
+          "inline": [
+            {
+              "text": "بديل يشبه Treatment لكنه لا يحمل التأثير العلاجي الحقيقي، ويُستخدم كثيرًا في التجارب السريرية."
+            }
+          ]
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "Double-Blind Randomized Controlled Trial",
+          "anchor": "s27-double-blind-randomized-controlled-trial"
+        },
+        {
+          "type": "paragraph",
+          "inline": [
+            {
+              "text": "المشاركون لا يعرفون مجموعتهم، وكذلك الشخص الذي يعطي Treatment أو يدير التجربة لا يعرف أي المشاركين يأخذون Treatment الحقيقي وأيهم يأخذون Placebo."
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "inline": [
+            {
+              "text": "الهدف تقليل Bias في الاستجابة وفي إدارة/تحليل التجربة."
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "inline": [
+            {
+              "text": "المبدأ العام:"
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "inline": [
+            {
+              "strong": true,
+              "text": "كلما قلّت فرص دخول Bias إلى التجربة، زادت موثوقية الاستنتاج السببي."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "s28",
+      "number": 28,
+      "title": "28. RCT vs A/B Testing",
+      "titleEn": "RCT vs A/B Testing",
+      "anchor": "s28",
+      "sourceSequence": 28,
+      "counts": {
+        "paragraphs": 4,
+        "lists": 2,
+        "listItems": 2,
+        "tables": 0,
+        "tableRows": 0,
+        "formulas": 0,
+        "headings": 1,
+        "toggles": 0,
+        "callouts": 0,
+        "code": 0
+      },
+      "formulaCount": 0,
+      "textLength": 344,
+      "headings": [
+        {
+          "level": 1,
+          "text": "28. RCT vs A/B Testing",
+          "anchor": "s28"
+        }
+      ],
+      "subsections": [],
+      "blocks": [
+        {
+          "type": "heading",
+          "level": 1,
+          "text": "28. RCT vs A/B Testing",
+          "anchor": "s28"
+        },
+        {
+          "type": "paragraph",
+          "inline": [
+            {
+              "text": "يمكن أن تحتوي RCT على أكثر من Treatment Group، مثل مقارنة جرعات مختلفة من دواء."
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "inline": [
+            {
+              "text": "في الصناعة، يُستخدم مصطلح"
+            },
+            {
+              "strong": true,
+              "text": "A/B Testing"
+            },
+            {
+              "text": "غالبًا لتجربة نسختين:"
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "strong": true,
+                "text": "A = Control"
+              }
+            ]
+          ]
+        },
+        {
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "strong": true,
+                "text": "B = Treatment"
+              }
+            ]
+          ]
+        },
+        {
+          "type": "paragraph",
+          "inline": [
+            {
+              "text": "والـ A/B Testing في أبسط صوره يقسم المشاركين إلى مجموعتين فقط."
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "inline": [
+            {
+              "text": "أمثلة: زر جديد مقابل زر قديم، صفحة Landing Page جديدة مقابل القديمة، أو إعلان A مقابل إعلان B."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "s29",
+      "number": 29,
+      "title": "29. Independent and Dependent Variables",
+      "titleEn": "Independent and Dependent Variables",
+      "anchor": "s29",
+      "sourceSequence": 29,
+      "counts": {
+        "paragraphs": 2,
+        "lists": 4,
+        "listItems": 4,
+        "tables": 0,
+        "tableRows": 0,
+        "formulas": 0,
+        "headings": 1,
+        "toggles": 0,
+        "callouts": 0,
+        "code": 0
+      },
+      "formulaCount": 0,
+      "textLength": 475,
+      "headings": [
+        {
+          "level": 1,
+          "text": "29. Independent and Dependent Variables",
+          "anchor": "s29"
+        }
+      ],
+      "subsections": [],
+      "blocks": [
+        {
+          "type": "heading",
+          "level": 1,
+          "text": "29. Independent and Dependent Variables",
+          "anchor": "s29"
+        },
+        {
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "strong": true,
+                "text": "Independent Variable"
+              },
+              {
+                "text": ": المتغير الذي نتوقع أنه ليس متأثرًا بالـ Response في صياغة الفرضية، وغالبًا يمثل Treatment أو Predictor."
+              }
+            ]
+          ]
+        },
+        {
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "strong": true,
+                "text": "Dependent Variable"
+              },
+              {
+                "text": ": النتيجة التي نتوقع أن تتأثر بالـ Independent Variable."
+              }
+            ]
+          ]
+        },
+        {
+          "type": "paragraph",
+          "inline": [
+            {
+              "text": "في الرسوم مثل Scatter Plot:"
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "text": "Independent Variable عادةً على"
+              },
+              {
+                "strong": true,
+                "text": "X-axis"
+              },
+              {
+                "text": "."
+              }
+            ]
+          ]
+        },
+        {
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "text": "Dependent Variable عادةً على"
+              },
+              {
+                "strong": true,
+                "text": "Y-axis"
+              },
+              {
+                "text": "."
+              }
+            ]
+          ]
+        },
+        {
+          "type": "paragraph",
+          "inline": [
+            {
+              "text": "مثال: Vitamin C supplementation = Independent Variable، وGender birth ratio/response المقاس = Dependent Variable في المثال التعليمي."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "s30",
+      "number": 30,
+      "title": "30. Correlation",
+      "titleEn": "Correlation",
+      "anchor": "s30",
+      "sourceSequence": 30,
+      "counts": {
+        "paragraphs": 8,
+        "lists": 8,
+        "listItems": 8,
+        "tables": 0,
+        "tableRows": 0,
+        "formulas": 2,
+        "headings": 4,
+        "toggles": 0,
+        "callouts": 0,
+        "code": 0
+      },
+      "formulaCount": 2,
+      "textLength": 759,
+      "headings": [
+        {
+          "level": 1,
+          "text": "30. Correlation",
+          "anchor": "s30"
+        },
+        {
+          "level": 2,
+          "text": "30.1 Pearson Correlation Coefficient",
+          "anchor": "s30-30-1-pearson-correlation-coefficient"
+        },
+        {
+          "level": 3,
+          "text": "Direction",
+          "anchor": "s30-direction"
+        },
+        {
+          "level": 3,
+          "text": "Strength",
+          "anchor": "s30-strength"
+        }
+      ],
+      "subsections": [
+        {
+          "level": 2,
+          "text": "30.1 Pearson Correlation Coefficient",
+          "anchor": "s30-30-1-pearson-correlation-coefficient"
+        },
+        {
+          "level": 3,
+          "text": "Direction",
+          "anchor": "s30-direction"
+        },
+        {
+          "level": 3,
+          "text": "Strength",
+          "anchor": "s30-strength"
+        }
+      ],
+      "blocks": [
+        {
+          "type": "heading",
+          "level": 1,
+          "text": "30. Correlation",
+          "anchor": "s30"
+        },
+        {
+          "type": "paragraph",
+          "inline": [
+            {
+              "text": "Correlation طريقة لقياس العلاقة بين متغيرين."
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "inline": [
+            {
+              "text": "نبدأ غالبًا بـ"
+            },
+            {
+              "strong": true,
+              "text": "Scatter Plot"
+            },
+            {
+              "text": "لرؤية شكل العلاقة بصريًا."
+            }
+          ]
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "30.1 Pearson Correlation Coefficient",
+          "anchor": "s30-30-1-pearson-correlation-coefficient"
+        },
+        {
+          "type": "paragraph",
+          "inline": [
+            {
+              "text": "يرمز له بـ (r)، ويتراوح بين:"
+            }
+          ]
+        },
+        {
+          "type": "formula",
+          "tex": "-1 \\le r \\le 1",
+          "raw": "-1le rle1",
+          "alt": "(-1le rle1)"
+        },
+        {
+          "type": "paragraph",
+          "inline": [
+            {
+              "text": "وهو يقيس"
+            },
+            {
+              "strong": true,
+              "text": "Strength and Direction of a Linear Relationship"
+            },
+            {
+              "text": "."
+            }
+          ]
+        },
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "Direction",
+          "anchor": "s30-direction"
+        },
+        {
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "math": "r > 0",
+                "raw": "r>0",
+                "formulaKey": "r>0"
+              },
+              {
+                "text": ": Positive relationship؛ عندما يزيد X يميل Y إلى الزيادة."
+              }
+            ]
+          ]
+        },
+        {
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "math": "r < 0",
+                "raw": "r<0",
+                "formulaKey": "r<0"
+              },
+              {
+                "text": ": Negative relationship؛ عندما يزيد X يميل Y إلى الانخفاض."
+              }
+            ]
+          ]
+        },
+        {
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "math": "r \\approx 0",
+                "raw": "rapprox0",
+                "formulaKey": "rapprox0"
+              },
+              {
+                "text": ": لا توجد علاقة خطية واضحة."
+              }
+            ]
+          ]
+        },
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "Strength",
+          "anchor": "s30-strength"
+        },
+        {
+          "type": "paragraph",
+          "inline": [
+            {
+              "text": "قوة العلاقة ترتبط بالقيمة المطلقة:"
+            }
+          ]
+        },
+        {
+          "type": "formula",
+          "tex": "|r|",
+          "raw": "|r|",
+          "alt": "(|r|)"
+        },
+        {
+          "type": "paragraph",
+          "inline": [
+            {
+              "text": "كلما اقتربت من 1، كانت العلاقة الخطية أقوى."
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "inline": [
+            {
+              "text": "أمثلة الدرس:"
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "math": "r = 0.99",
+                "raw": "r=0.99",
+                "formulaKey": "r=0.99"
+              },
+              {
+                "text": ": Near-perfect / very strong positive."
+              }
+            ]
+          ]
+        },
+        {
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "math": "r = 0.75",
+                "raw": "r=0.75",
+                "formulaKey": "r=0.75"
+              },
+              {
+                "text": ": Strong positive."
+              }
+            ]
+          ]
+        },
+        {
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "math": "r = 0.56",
+                "raw": "r=0.56",
+                "formulaKey": "r=0.56"
+              },
+              {
+                "text": ": Moderate positive."
+              }
+            ]
+          ]
+        },
+        {
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "math": "r \\approx 0.20",
+                "raw": "rapprox0.20",
+                "formulaKey": "rapprox0.20"
+              },
+              {
+                "text": ": Weak positive."
+              }
+            ]
+          ]
+        },
+        {
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "math": "r \\approx 0",
+                "raw": "rapprox0",
+                "formulaKey": "rapprox0"
+              },
+              {
+                "text": ": No meaningful linear relationship."
+              }
+            ]
+          ]
+        },
+        {
+          "type": "paragraph",
+          "inline": [
+            {
+              "text": "هذه أوصاف تقريبية وليست حدودًا عالمية ثابتة لكل مجال."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "s31",
+      "number": 31,
+      "title": "31. Pearson Correlation وLinear Relationships",
+      "titleEn": "Pearson Correlation وLinear Relationships",
+      "anchor": "s31",
+      "sourceSequence": 31,
+      "counts": {
+        "paragraphs": 4,
+        "lists": 0,
+        "listItems": 0,
+        "tables": 0,
+        "tableRows": 0,
+        "formulas": 0,
+        "headings": 1,
+        "toggles": 0,
+        "callouts": 0,
+        "code": 0
+      },
+      "formulaCount": 0,
+      "textLength": 272,
+      "headings": [
+        {
+          "level": 1,
+          "text": "31. Pearson Correlation وLinear Relationships",
+          "anchor": "s31"
+        }
+      ],
+      "subsections": [],
+      "blocks": [
+        {
+          "type": "heading",
+          "level": 1,
+          "text": "31. Pearson Correlation وLinear Relationships",
+          "anchor": "s31"
+        },
+        {
+          "type": "paragraph",
+          "inline": [
+            {
+              "text": "Pearson correlation يقيس"
+            },
+            {
+              "strong": true,
+              "text": "Linear Relationship"
+            },
+            {
+              "text": "."
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "inline": [
+            {
+              "text": "إذا كانت العلاقة قوية لكنها Curved / Non-linear، فقد يكون Pearson (r) منخفضًا رغم وجود علاقة واضحة."
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "inline": [
+            {
+              "text": "إذن:"
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "inline": [
+            {
+              "strong": true,
+              "text": "r ≈ 0 لا يعني بالضرورة عدم وجود أي علاقة؛ بل يعني عدم وجود علاقة خطية واضحة."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "s32",
+      "number": 32,
+      "title": "32. Correlation ≠ Causation",
+      "titleEn": "Correlation ≠ Causation",
+      "anchor": "s32",
+      "sourceSequence": 32,
+      "counts": {
+        "paragraphs": 4,
+        "lists": 0,
+        "listItems": 0,
+        "tables": 0,
+        "tableRows": 0,
+        "formulas": 2,
+        "headings": 1,
+        "toggles": 0,
+        "callouts": 0,
+        "code": 0
+      },
+      "formulaCount": 2,
+      "textLength": 238,
+      "headings": [
+        {
+          "level": 1,
+          "text": "32. Correlation ≠ Causation",
+          "anchor": "s32"
+        }
+      ],
+      "subsections": [],
+      "blocks": [
+        {
+          "type": "heading",
+          "level": 1,
+          "text": "32. Correlation ≠ Causation",
+          "anchor": "s32"
+        },
+        {
+          "type": "paragraph",
+          "inline": [
+            {
+              "text": "إذا وجدنا:"
+            }
+          ]
+        },
+        {
+          "type": "formula",
+          "tex": "X \\leftrightarrow Y",
+          "raw": "Xleftrightarrow Y",
+          "alt": "(Xleftrightarrow Y)"
+        },
+        {
+          "type": "paragraph",
+          "inline": [
+            {
+              "text": "فهذا لا يثبت:"
+            }
+          ]
+        },
+        {
+          "type": "formula",
+          "tex": "X \\rightarrow Y",
+          "raw": "Xrightarrow Y",
+          "alt": "(Xrightarrow Y)"
+        },
+        {
+          "type": "paragraph",
+          "inline": [
+            {
+              "text": "أي أن الارتباط لا يثبت السببية."
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "inline": [
+            {
+              "text": "مثال الدرس: تكلفة زجاجة المياه ومتوسط العمر قد يكون بينهما "
+            },
+            {
+              "math": "r = 0.61",
+              "raw": "r=0.61",
+              "formulaKey": "r=0.61"
+            },
+            {
+              "text": "، لكن هذا لا يعني أن رفع سعر المياه سيزيد متوسط العمر."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "s33",
+      "number": 33,
+      "title": "33. Confounding Variables",
+      "titleEn": "Confounding Variables",
+      "anchor": "s33",
+      "sourceSequence": 33,
+      "counts": {
+        "paragraphs": 8,
+        "lists": 0,
+        "listItems": 0,
+        "tables": 0,
+        "tableRows": 0,
+        "formulas": 0,
+        "headings": 1,
+        "toggles": 0,
+        "callouts": 0,
+        "code": 0
+      },
+      "formulaCount": 0,
+      "textLength": 410,
+      "headings": [
+        {
+          "level": 1,
+          "text": "33. Confounding Variables",
+          "anchor": "s33"
+        }
+      ],
+      "subsections": [],
+      "blocks": [
+        {
+          "type": "heading",
+          "level": 1,
+          "text": "33. Confounding Variables",
+          "anchor": "s33"
+        },
+        {
+          "type": "paragraph",
+          "inline": [
+            {
+              "strong": true,
+              "text": "Confounding Variable"
+            },
+            {
+              "text": "هو متغير ثالث يمكن أن يؤثر في المتغيرات محل الدراسة أو يفسر العلاقة الظاهرة بينهما، ولم يتم حسابه بشكل كافٍ في التحليل."
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "inline": [
+            {
+              "text": "مثال:"
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "inline": [
+            {
+              "strong": true,
+              "text": "Economic Strength → Water Cost"
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "inline": [
+            {
+              "text": "و:"
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "inline": [
+            {
+              "strong": true,
+              "text": "Economic Strength → Healthcare / Life Expectancy"
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "inline": [
+            {
+              "text": "فتظهر علاقة بين Water Cost وLife Expectancy، بينما قد يكون الاقتصاد عاملًا مشتركًا مهمًا."
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "inline": [
+            {
+              "text": "الفكرة العامة:"
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "inline": [
+            {
+              "strong": true,
+              "text": "Observed Association لا تكفي لإثبات Causal Effect."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "s34",
+      "number": 34,
+      "title": "34. Correlation vs Experiment",
+      "titleEn": "Correlation vs Experiment",
+      "anchor": "s34",
+      "sourceSequence": 34,
+      "counts": {
+        "paragraphs": 1,
+        "lists": 0,
+        "listItems": 0,
+        "tables": 1,
+        "tableRows": 3,
+        "formulas": 0,
+        "headings": 1,
+        "toggles": 0,
+        "callouts": 0,
+        "code": 0
+      },
+      "formulaCount": 0,
+      "textLength": 372,
+      "headings": [
+        {
+          "level": 1,
+          "text": "34. Correlation vs Experiment",
+          "anchor": "s34"
+        }
+      ],
+      "subsections": [],
+      "blocks": [
+        {
+          "type": "heading",
+          "level": 1,
+          "text": "34. Correlation vs Experiment",
+          "anchor": "s34"
+        },
+        {
+          "type": "table",
+          "headers": [
+            [
+              {
+                "text": "السؤال"
+              }
+            ],
+            [
+              {
+                "text": "الأداة"
+              }
+            ],
+            [
+              {
+                "text": "ماذا نستطيع استنتاجه؟"
+              }
+            ]
+          ],
+          "rows": [
+            [
+              [
+                {
+                  "text": "هل يتحرك X وY معًا؟"
+                }
+              ],
+              [
+                {
+                  "text": "Correlation"
+                }
+              ],
+              [
+                {
+                  "text": "Association"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "text": "ما قوة واتجاه العلاقة الخطية؟"
+                }
+              ],
+              [
+                {
+                  "text": "Pearson r"
+                }
+              ],
+              [
+                {
+                  "text": "Linear strength + direction"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "text": "هل X يسبب تغيرًا في Y؟"
+                }
+              ],
+              [
+                {
+                  "text": "Experiment / strong causal design"
+                }
+              ],
+              [
+                {
+                  "text": "دليل أقوى على Causation"
+                }
+              ]
+            ]
+          ]
+        },
+        {
+          "type": "paragraph",
+          "inline": [
+            {
+              "text": "إذا كان الهدف سببيًا، نحتاج تصميمًا يقلل Confounding، مثل Randomized Controlled Experiment عندما يكون ذلك ممكنًا."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "s35",
+      "number": 35,
+      "title": "35. Correlation vs Regression",
+      "titleEn": "Correlation vs Regression",
+      "anchor": "s35",
+      "sourceSequence": 35,
+      "counts": {
+        "paragraphs": 4,
+        "lists": 3,
+        "listItems": 3,
+        "tables": 0,
+        "tableRows": 0,
+        "formulas": 1,
+        "headings": 1,
+        "toggles": 0,
+        "callouts": 0,
+        "code": 0
+      },
+      "formulaCount": 1,
+      "textLength": 328,
+      "headings": [
+        {
+          "level": 1,
+          "text": "35. Correlation vs Regression",
+          "anchor": "s35"
+        }
+      ],
+      "subsections": [],
+      "blocks": [
+        {
+          "type": "heading",
+          "level": 1,
+          "text": "35. Correlation vs Regression",
+          "anchor": "s35"
+        },
+        {
+          "type": "paragraph",
+          "inline": [
+            {
+              "text": "Correlation:"
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "text": "تلخص قوة واتجاه العلاقة الخطية."
+              }
+            ]
+          ]
+        },
+        {
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "text": "(r) بين -1 و1."
+              }
+            ]
+          ]
+        },
+        {
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "text": "ليست Slope."
+              }
+            ]
+          ]
+        },
+        {
+          "type": "paragraph",
+          "inline": [
+            {
+              "text": "Linear Regression:"
+            }
+          ]
+        },
+        {
+          "type": "formula",
+          "tex": "Y = \\beta_0 + \\beta_1 X",
+          "raw": "Y=beta_0+beta_1X",
+          "alt": "(Y=beta_0+beta_1X)"
+        },
+        {
+          "type": "paragraph",
+          "inline": [
+            {
+              "text": "حيث "
+            },
+            {
+              "math": "\\beta_1",
+              "raw": "beta_1",
+              "formulaKey": "beta_1"
+            },
+            {
+              "text": " هو"
+            },
+            {
+              "strong": true,
+              "text": "Slope"
+            },
+            {
+              "text": "ويصف التغير المتوقع في Y لكل زيادة وحدة واحدة في X، ضمن نموذج الانحدار."
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "inline": [
+            {
+              "strong": true,
+              "text": "لا تقل إن r = 0.8 يعني أن Y يزيد 0.8 وحدة عندما يزيد X بوحدة."
+            },
+            {
+              "text": "هذا تفسير للـ slope وليس correlation."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "s36",
+      "number": 36,
+      "title": "36. كيف تتصل كل الموضوعات معًا؟",
+      "titleEn": "كيف تتصل كل الموضوعات معًا؟",
+      "anchor": "s36",
+      "sourceSequence": 36,
+      "counts": {
+        "paragraphs": 0,
+        "lists": 0,
+        "listItems": 0,
+        "tables": 0,
+        "tableRows": 0,
+        "formulas": 0,
+        "headings": 1,
+        "toggles": 0,
+        "callouts": 0,
+        "code": 1
+      },
+      "formulaCount": 0,
+      "textLength": 499,
+      "headings": [
+        {
+          "level": 1,
+          "text": "36. كيف تتصل كل الموضوعات معًا؟",
+          "anchor": "s36"
+        }
+      ],
+      "subsections": [],
+      "blocks": [
+        {
+          "type": "heading",
+          "level": 1,
+          "text": "36. كيف تتصل كل الموضوعات معًا؟",
+          "anchor": "s36"
+        },
+        {
+          "type": "code",
+          "language": "mermaid",
+          "text": "flowchart TD\nA[Data] --> B[Descriptive Statistics]\nB --> C[Probability]\nC --> D[Probability Distributions]\nD --> E[Sampling]\nE --> F[Sampling Distribution]\nF --> G[Standard Error]\nG --> H[Confidence Intervals]\nG --> I[Test Statistic]\nI --> J[p-value]\nJ --> K[Compare with alpha]\nK --> L[Hypothesis Test Decision]\nL --> M[Statistical Conclusion]\nM --> N[Experiments / Causal Questions]\nB --> O[Correlation]\nO --> P[Association not Causation]\nP --> Q[Check Confounders]"
+        }
+      ]
+    },
+    {
+      "id": "s37",
+      "number": 37,
+      "title": "37. أهم العلاقات الرياضية التي يجب تذكرها",
+      "titleEn": "أهم العلاقات الرياضية التي يجب تذكرها",
+      "anchor": "s37",
+      "sourceSequence": 37,
+      "counts": {
+        "paragraphs": 2,
+        "lists": 0,
+        "listItems": 0,
+        "tables": 0,
+        "tableRows": 0,
+        "formulas": 17,
+        "headings": 10,
+        "toggles": 0,
+        "callouts": 0,
+        "code": 0
+      },
+      "formulaCount": 17,
+      "textLength": 637,
+      "headings": [
+        {
+          "level": 1,
+          "text": "37. أهم العلاقات الرياضية التي يجب تذكرها",
+          "anchor": "s37"
+        },
+        {
+          "level": 3,
+          "text": "Probability",
+          "anchor": "s37-probability"
+        },
+        {
+          "level": 3,
+          "text": "Variability",
+          "anchor": "s37-variability"
+        },
+        {
+          "level": 3,
+          "text": "Binomial",
+          "anchor": "s37-binomial"
+        },
+        {
+          "level": 3,
+          "text": "Poisson",
+          "anchor": "s37-poisson"
+        },
+        {
+          "level": 3,
+          "text": "Z-score",
+          "anchor": "s37-z-score"
+        },
+        {
+          "level": 3,
+          "text": "Standard Error of Mean",
+          "anchor": "s37-standard-error-of-mean"
+        },
+        {
+          "level": 3,
+          "text": "Confidence Interval",
+          "anchor": "s37-confidence-interval"
+        },
+        {
+          "level": 3,
+          "text": "Test Statistic",
+          "anchor": "s37-test-statistic"
+        },
+        {
+          "level": 3,
+          "text": "Hypothesis Decision",
+          "anchor": "s37-hypothesis-decision"
+        }
+      ],
+      "subsections": [
+        {
+          "level": 3,
+          "text": "Probability",
+          "anchor": "s37-probability"
+        },
+        {
+          "level": 3,
+          "text": "Variability",
+          "anchor": "s37-variability"
+        },
+        {
+          "level": 3,
+          "text": "Binomial",
+          "anchor": "s37-binomial"
+        },
+        {
+          "level": 3,
+          "text": "Poisson",
+          "anchor": "s37-poisson"
+        },
+        {
+          "level": 3,
+          "text": "Z-score",
+          "anchor": "s37-z-score"
+        },
+        {
+          "level": 3,
+          "text": "Standard Error of Mean",
+          "anchor": "s37-standard-error-of-mean"
+        },
+        {
+          "level": 3,
+          "text": "Confidence Interval",
+          "anchor": "s37-confidence-interval"
+        },
+        {
+          "level": 3,
+          "text": "Test Statistic",
+          "anchor": "s37-test-statistic"
+        },
+        {
+          "level": 3,
+          "text": "Hypothesis Decision",
+          "anchor": "s37-hypothesis-decision"
+        }
+      ],
+      "blocks": [
+        {
+          "type": "heading",
+          "level": 1,
+          "text": "37. أهم العلاقات الرياضية التي يجب تذكرها",
+          "anchor": "s37"
+        },
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "Probability",
+          "anchor": "s37-probability"
+        },
+        {
+          "type": "formula",
+          "tex": "P(A^c) = 1 - P(A)",
+          "raw": "P(A^c)=1-P(A)",
+          "alt": "(P(A^c)=1-P(A))"
+        },
+        {
+          "type": "paragraph",
+          "inline": [
+            {
+              "math": "P(A \\cap B) = P(A)P(B)",
+              "raw": "P(Acap B)=P(A)P(B)",
+              "formulaKey": "P(Acap B)=P(A)P(B)"
+            },
+            {
+              "text": " عند الاستقلال."
+            }
+          ]
+        },
+        {
+          "type": "formula",
+          "tex": "P(A \\mid B) = \\frac{P(A \\cap B)}{P(B)}",
+          "raw": "P(Amid B)=frac{P(Acap B)}{P(B)}",
+          "alt": "(P(Amid B)=frac{P(Acap B)}{P(B)})"
+        },
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "Variability",
+          "anchor": "s37-variability"
+        },
+        {
+          "type": "formula",
+          "tex": "\\operatorname{SD} = \\sqrt{\\operatorname{Variance}}",
+          "raw": "SD=sqrt{Variance}",
+          "alt": "(SD=sqrt{Variance})"
+        },
+        {
+          "type": "formula",
+          "tex": "\\operatorname{IQR} = Q_3 - Q_1",
+          "raw": "IQR=Q_3-Q_1",
+          "alt": "(IQR=Q_3-Q_1)"
+        },
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "Binomial",
+          "anchor": "s37-binomial"
+        },
+        {
+          "type": "formula",
+          "tex": "P(X = k) = \\binom{n}{k} p^k (1-p)^{n-k}",
+          "raw": "P(X=k)=binom{n}{k}p^k(1-p)^{n-k}",
+          "alt": "(P(X=k)=binom{n}{k}p^k(1-p)^{n-k})"
+        },
+        {
+          "type": "formula",
+          "tex": "E(X) = np",
+          "raw": "E(X)=np",
+          "alt": "(E(X)=np)"
+        },
+        {
+          "type": "formula",
+          "tex": "\\operatorname{Var}(X) = np(1-p)",
+          "raw": "Var(X)=np(1-p)",
+          "alt": "(Var(X)=np(1-p))"
+        },
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "Poisson",
+          "anchor": "s37-poisson"
+        },
+        {
+          "type": "formula",
+          "tex": "P(X = k) = \\frac{e^{-\\lambda}\\lambda^k}{k!}",
+          "raw": "P(X=k)=frac{e^{-lambda}lambda^k}{k!}",
+          "alt": "(P(X=k)=frac{e^{-lambda}lambda^k}{k!})"
+        },
+        {
+          "type": "formula",
+          "tex": "E(X) = \\operatorname{Var}(X) = \\lambda",
+          "raw": "E(X)=Var(X)=lambda",
+          "alt": "(E(X)=Var(X)=lambda)"
+        },
+        {
+          "type": "formula",
+          "tex": "\\operatorname{SD}(X) = \\sqrt{\\lambda}",
+          "raw": "SD(X)=sqrtlambda",
+          "alt": "(SD(X)=sqrtlambda)"
+        },
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "Z-score",
+          "anchor": "s37-z-score"
+        },
+        {
+          "type": "formula",
+          "tex": "z = \\frac{x - \\mu}{\\sigma}",
+          "raw": "z=frac{x-mu}{sigma}",
+          "alt": "(z=frac{x-mu}{sigma})"
+        },
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "Standard Error of Mean",
+          "anchor": "s37-standard-error-of-mean"
+        },
+        {
+          "type": "formula",
+          "tex": "\\operatorname{SE} = \\frac{\\sigma}{\\sqrt{n}}",
+          "raw": "SE=frac{sigma}{sqrt n}",
+          "alt": "(SE=frac{sigma}{sqrt n})"
+        },
+        {
+          "type": "paragraph",
+          "inline": [
+            {
+              "text": "أو تقديريًا:"
+            }
+          ]
+        },
+        {
+          "type": "formula",
+          "tex": "\\operatorname{SE}_{\\bar{X}} \\approx \\frac{s}{\\sqrt{n}}",
+          "raw": "SEapproxfrac{s}{sqrt n}",
+          "alt": "(SEapproxfrac{s}{sqrt n})"
+        },
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "Confidence Interval",
+          "anchor": "s37-confidence-interval"
+        },
+        {
+          "type": "formula",
+          "tex": "\\text{Estimate} \\pm \\text{Critical Value} \\times \\text{SE}",
+          "raw": "Estimatepm Critical Valuetimes SE",
+          "alt": "(Estimatepm Critical Valuetimes SE)"
+        },
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "Test Statistic",
+          "anchor": "s37-test-statistic"
+        },
+        {
+          "type": "formula",
+          "tex": "\\text{Test Statistic} = \\frac{\\text{Observed} - \\text{Hypothesized}}{\\text{SE}}",
+          "raw": "Test Statistic=frac{Observed-Hypothesized}{SE}",
+          "alt": "(Test Statistic=frac{Observed-Hypothesized}{SE})"
+        },
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "Hypothesis Decision",
+          "anchor": "s37-hypothesis-decision"
+        },
+        {
+          "type": "formula",
+          "tex": "p \\le \\alpha \\Rightarrow \\text{Reject } H_0",
+          "raw": "plealphaRightarrow Reject H_0",
+          "alt": "(plealphaRightarrow Reject H_0)"
+        },
+        {
+          "type": "formula",
+          "tex": "p > \\alpha \\Rightarrow \\text{Fail to Reject } H_0",
+          "raw": "p>alphaRightarrow Fail to Reject H_0",
+          "alt": "(p>alphaRightarrow Fail to Reject H_0)"
+        }
+      ]
+    },
+    {
+      "id": "s38",
+      "number": 38,
+      "title": "38. Decision Rules — إذا تغير السؤال، ماذا أفعل؟",
+      "titleEn": "Decision Rules — إذا تغير السؤال، ماذا أفعل؟",
+      "anchor": "s38",
+      "sourceSequence": 38,
+      "counts": {
+        "paragraphs": 14,
+        "lists": 0,
+        "listItems": 0,
+        "tables": 0,
+        "tableRows": 0,
+        "formulas": 0,
+        "headings": 1,
+        "toggles": 14,
+        "callouts": 0,
+        "code": 0
+      },
+      "formulaCount": 0,
+      "textLength": 671,
+      "headings": [
+        {
+          "level": 1,
+          "text": "38. Decision Rules — إذا تغير السؤال، ماذا أفعل؟",
+          "anchor": "s38"
+        }
+      ],
+      "subsections": [],
+      "blocks": [
+        {
+          "type": "heading",
+          "level": 1,
+          "text": "38. Decision Rules — إذا تغير السؤال، ماذا أفعل؟",
+          "anchor": "s38"
+        },
+        {
+          "type": "toggle",
+          "summary": "إذا كان السؤال عن القيمة النموذجية للبيانات",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "inline": [
+                {
+                  "text": "فكر في Mean / Median / Mode."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "toggle",
+          "summary": "إذا كان السؤال عن مدى انتشار القيم",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "inline": [
+                {
+                  "text": "فكر في Range / Variance / Standard Deviation / IQR."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "toggle",
+          "summary": "إذا كان السؤال عن عدد النجاحات من عدد ثابت من التجارب",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "inline": [
+                {
+                  "text": "فكر في Binomial."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "toggle",
+          "summary": "إذا كان السؤال عن عدد الأحداث خلال فترة أو مساحة",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "inline": [
+                {
+                  "text": "فكر في Poisson."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "toggle",
+          "summary": "إذا كان السؤال عن Bell Curve أو Z-score",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "inline": [
+                {
+                  "text": "فكر في Normal Distribution."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "toggle",
+          "summary": "إذا كان السؤال عن توزيع متوسطات عينات كثيرة",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "inline": [
+                {
+                  "text": "فكر في Sampling Distribution وCLT."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "toggle",
+          "summary": "إذا كان السؤال عن تذبذب Sample Mean من عينة لأخرى",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "inline": [
+                {
+                  "text": "فكر في Standard Error."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "toggle",
+          "summary": "إذا كان السؤال عن نطاق معقول لـ Population Parameter",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "inline": [
+                {
+                  "text": "فكر في Confidence Interval."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "toggle",
+          "summary": "إذا كان السؤال: هل يوجد دليل كافٍ ضد H₀؟",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "inline": [
+                {
+                  "text": "فكر في Hypothesis Testing وp-value وα."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "toggle",
+          "summary": "إذا كان p-value صغيرة مقارنة بـ α",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "inline": [
+                {
+                  "text": "Reject H₀؛ النتيجة Statistically Significant عند مستوى α."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "toggle",
+          "summary": "إذا كان p-value أكبر من α",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "inline": [
+                {
+                  "text": "Fail to Reject H₀؛ لا يوجد Evidence كافٍ لرفضها."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "toggle",
+          "summary": "إذا كان السؤال عن تأثير Treatment",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "inline": [
+                {
+                  "text": "فكر في Experiment، Treatment، Control، Randomization، وربما Blinding."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "toggle",
+          "summary": "إذا كان السؤال عن علاقة بين متغيرين",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "inline": [
+                {
+                  "text": "ابدأ بـ Scatter Plot، ثم Pearson correlation إذا كانت العلاقة الخطية مناسبة."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "toggle",
+          "summary": "إذا وجدت Correlation",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "inline": [
+                {
+                  "text": "لا تستنتج Causation مباشرة؛ ابحث عن Confounding Variables أو استخدم Experiment مناسبًا للسؤال السببي."
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "s39",
+      "number": 39,
+      "title": "39. أهم الأخطاء التي يجب تجنبها",
+      "titleEn": "أهم الأخطاء التي يجب تجنبها",
+      "anchor": "s39",
+      "sourceSequence": 39,
+      "counts": {
+        "paragraphs": 0,
+        "lists": 10,
+        "listItems": 10,
+        "tables": 0,
+        "tableRows": 0,
+        "formulas": 0,
+        "headings": 1,
+        "toggles": 0,
+        "callouts": 0,
+        "code": 0
+      },
+      "formulaCount": 0,
+      "textLength": 509,
+      "headings": [
+        {
+          "level": 1,
+          "text": "39. أهم الأخطاء التي يجب تجنبها",
+          "anchor": "s39"
+        }
+      ],
+      "subsections": [],
+      "blocks": [
+        {
+          "type": "heading",
+          "level": 1,
+          "text": "39. أهم الأخطاء التي يجب تجنبها",
+          "anchor": "s39"
+        },
+        {
+          "type": "list",
+          "ordered": true,
+          "items": [
+            [
+              {
+                "strong": true,
+                "text": "SD ≠ SE"
+              },
+              {
+                "text": ": SD لتشتت البيانات، SE لتشتت Statistic عبر العينات."
+              }
+            ]
+          ]
+        },
+        {
+          "type": "list",
+          "ordered": true,
+          "items": [
+            [
+              {
+                "strong": true,
+                "text": "p-value ≠ P(H₀ is true)"
+              },
+              {
+                "text": "."
+              }
+            ]
+          ]
+        },
+        {
+          "type": "list",
+          "ordered": true,
+          "items": [
+            [
+              {
+                "strong": true,
+                "text": "Fail to Reject H₀ ≠ Prove H₀ true"
+              },
+              {
+                "text": "."
+              }
+            ]
+          ]
+        },
+        {
+          "type": "list",
+          "ordered": true,
+          "items": [
+            [
+              {
+                "strong": true,
+                "text": "Correlation ≠ Causation"
+              },
+              {
+                "text": "."
+              }
+            ]
+          ]
+        },
+        {
+          "type": "list",
+          "ordered": true,
+          "items": [
+            [
+              {
+                "strong": true,
+                "text": "r ≠ Slope"
+              },
+              {
+                "text": "."
+              }
+            ]
+          ]
+        },
+        {
+          "type": "list",
+          "ordered": true,
+          "items": [
+            [
+              {
+                "strong": true,
+                "text": "r ≈ 0 لا يعني عدم وجود أي علاقة غير خطية"
+              },
+              {
+                "text": "."
+              }
+            ]
+          ]
+        },
+        {
+          "type": "list",
+          "ordered": true,
+          "items": [
+            [
+              {
+                "strong": true,
+                "text": "Statistical significance ≠ Practical significance"
+              },
+              {
+                "text": "."
+              }
+            ]
+          ]
+        },
+        {
+          "type": "list",
+          "ordered": true,
+          "items": [
+            [
+              {
+                "text": "لا تختار "
+              },
+              {
+                "math": "\\alpha",
+                "raw": "alpha",
+                "formulaKey": "alpha"
+              },
+              {
+                "text": " بعد رؤية النتيجة لتناسب الاستنتاج."
+              }
+            ]
+          ]
+        },
+        {
+          "type": "list",
+          "ordered": true,
+          "items": [
+            [
+              {
+                "text": "لا تعتبر overlap بين توزيعين هو التعريف الدقيق للـ p-value."
+              }
+            ]
+          ]
+        },
+        {
+          "type": "list",
+          "ordered": true,
+          "items": [
+            [
+              {
+                "text": "لا تنسب الفرق بين مجموعتين إلى Treatment إذا كان هناك Confounding واضح ولم يكن هناك Randomization أو تصميم سببي قوي."
+              }
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "s40",
+      "number": 40,
+      "title": "40. مثال متكامل يربط الكورس",
+      "titleEn": "مثال متكامل يربط الكورس",
+      "anchor": "s40",
+      "sourceSequence": 40,
+      "counts": {
+        "paragraphs": 20,
+        "lists": 3,
+        "listItems": 3,
+        "tables": 0,
+        "tableRows": 0,
+        "formulas": 0,
+        "headings": 1,
+        "toggles": 0,
+        "callouts": 0,
+        "code": 0
+      },
+      "formulaCount": 0,
+      "textLength": 862,
+      "headings": [
+        {
+          "level": 1,
+          "text": "40. مثال متكامل يربط الكورس",
+          "anchor": "s40"
+        }
+      ],
+      "subsections": [],
+      "blocks": [
+        {
+          "type": "heading",
+          "level": 1,
+          "text": "40. مثال متكامل يربط الكورس",
+          "anchor": "s40"
+        },
+        {
+          "type": "paragraph",
+          "inline": [
+            {
+              "text": "شركة تريد معرفة هل تغيير تصميم صفحة Checkout يزيد Conversion."
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "inline": [
+            {
+              "strong": true,
+              "text": "Step 1 — Question"
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "inline": [
+            {
+              "text": "هل التصميم الجديد يسبب زيادة في Conversion؟"
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "inline": [
+            {
+              "strong": true,
+              "text": "Step 2 — Experiment"
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "text": "A = Control: التصميم القديم."
+              }
+            ]
+          ]
+        },
+        {
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "text": "B = Treatment: التصميم الجديد."
+              }
+            ]
+          ]
+        },
+        {
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "text": "Randomly assign users."
+              }
+            ]
+          ]
+        },
+        {
+          "type": "paragraph",
+          "inline": [
+            {
+              "strong": true,
+              "text": "Step 3 — Data"
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "inline": [
+            {
+              "text": "احسب Conversion Rate لكل مجموعة."
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "inline": [
+            {
+              "strong": true,
+              "text": "Step 4 — Difference"
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "inline": [
+            {
+              "text": "قارن B مع A."
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "inline": [
+            {
+              "strong": true,
+              "text": "Step 5 — Sampling Variability"
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "inline": [
+            {
+              "text": "الفرق بين العينتين قد يكون بسبب الصدفة، لذلك نحتاج Standard Error وTest Statistic."
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "inline": [
+            {
+              "strong": true,
+              "text": "Step 6 — Hypothesis"
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "inline": [
+            {
+              "math": "H_0",
+              "raw": "H_0",
+              "formulaKey": "H_0"
+            },
+            {
+              "text": ": لا يوجد تأثير للتصميم الجديد."
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "inline": [
+            {
+              "math": "H_a",
+              "raw": "H_a",
+              "formulaKey": "H_a"
+            },
+            {
+              "text": ": التصميم الجديد يزيد Conversion."
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "inline": [
+            {
+              "strong": true,
+              "text": "Step 7 — p-value"
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "inline": [
+            {
+              "text": "احسب احتمال الحصول على نتيجة مساوية أو أكثر تطرفًا، بافتراض H₀."
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "inline": [
+            {
+              "strong": true,
+              "text": "Step 8 — Decision"
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "inline": [
+            {
+              "text": "إذا (ple0.05) → Reject H₀."
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "inline": [
+            {
+              "text": "إذا "
+            },
+            {
+              "math": "p > 0.05",
+              "raw": "p>0.05",
+              "formulaKey": "p>0.05"
+            },
+            {
+              "text": " → Fail to Reject H₀."
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "inline": [
+            {
+              "strong": true,
+              "text": "Step 9 — Business interpretation"
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "inline": [
+            {
+              "text": "حتى لو كانت النتيجة Statistically Significant، اسأل: هل حجم الزيادة مهم تجاريًا؟ وهل التكلفة والآثار الجانبية للتغيير تستحقه؟"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "s41",
+      "number": 41,
+      "title": "41. Final Mental Model",
+      "titleEn": "Final Mental Model",
+      "anchor": "s41",
+      "sourceSequence": 41,
+      "counts": {
+        "paragraphs": 13,
+        "lists": 0,
+        "listItems": 0,
+        "tables": 0,
+        "tableRows": 0,
+        "formulas": 0,
+        "headings": 1,
+        "toggles": 0,
+        "callouts": 0,
+        "code": 0
+      },
+      "formulaCount": 0,
+      "textLength": 698,
+      "headings": [
+        {
+          "level": 1,
+          "text": "41. Final Mental Model",
+          "anchor": "s41"
+        }
+      ],
+      "subsections": [],
+      "blocks": [
+        {
+          "type": "heading",
+          "level": 1,
+          "text": "41. Final Mental Model",
+          "anchor": "s41"
+        },
+        {
+          "type": "paragraph",
+          "inline": [
+            {
+              "text": "احفظ الصورة التالية:"
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "inline": [
+            {
+              "strong": true,
+              "text": "Descriptive Statistics"
+            },
+            {
+              "text": "تصف ما رأيناه."
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "inline": [
+            {
+              "strong": true,
+              "text": "Probability"
+            },
+            {
+              "text": "تصف عدم اليقين."
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "inline": [
+            {
+              "strong": true,
+              "text": "Distributions"
+            },
+            {
+              "text": "تصف كيف تتوزع النتائج المحتملة."
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "inline": [
+            {
+              "strong": true,
+              "text": "Sampling Distribution"
+            },
+            {
+              "text": "تصف كيف تتغير Statistics من عينة لأخرى."
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "inline": [
+            {
+              "strong": true,
+              "text": "SE"
+            },
+            {
+              "text": "يقيس تشتت الـ Statistic عبر العينات."
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "inline": [
+            {
+              "strong": true,
+              "text": "Confidence Interval"
+            },
+            {
+              "text": "يعطي نطاقًا معقولًا للـ Population Parameter."
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "inline": [
+            {
+              "strong": true,
+              "text": "Hypothesis Testing"
+            },
+            {
+              "text": "يختبر ما إذا كانت البيانات تقدم Evidence كافيًا ضد H₀."
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "inline": [
+            {
+              "strong": true,
+              "text": "p-value"
+            },
+            {
+              "text": "تقيس مدى ندرة النتيجة المرصودة أو الأكثر تطرفًا تحت H₀."
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "inline": [
+            {
+              "strong": true,
+              "text": "α"
+            },
+            {
+              "text": "هو معيار القرار المحدد مسبقًا."
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "inline": [
+            {
+              "strong": true,
+              "text": "Experiments"
+            },
+            {
+              "text": "تساعدنا على دراسة Causation من خلال التحكم في تصميم الدراسة وتقليل Bias."
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "inline": [
+            {
+              "strong": true,
+              "text": "Correlation"
+            },
+            {
+              "text": "تقيس قوة واتجاه العلاقة الخطية، لكنها لا تثبت السببية."
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "inline": [
+            {
+              "strong": true,
+              "text": "Confounding"
+            },
+            {
+              "text": "يذكّرنا بأن متغيرًا ثالثًا قد يفسر العلاقة الظاهرة."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "s42",
+      "number": 42,
+      "title": "42. One-page Cheat Sheet",
+      "titleEn": "One-page Cheat Sheet",
+      "anchor": "s42",
+      "sourceSequence": 42,
+      "counts": {
+        "paragraphs": 0,
+        "lists": 0,
+        "listItems": 0,
+        "tables": 1,
+        "tableRows": 25,
+        "formulas": 0,
+        "headings": 1,
+        "toggles": 0,
+        "callouts": 0,
+        "code": 0
+      },
+      "formulaCount": 0,
+      "textLength": 973,
+      "headings": [
+        {
+          "level": 1,
+          "text": "42. One-page Cheat Sheet",
+          "anchor": "s42"
+        }
+      ],
+      "subsections": [],
+      "blocks": [
+        {
+          "type": "heading",
+          "level": 1,
+          "text": "42. One-page Cheat Sheet",
+          "anchor": "s42"
+        },
+        {
+          "type": "table",
+          "headers": [
+            [
+              {
+                "text": "Concept"
+              }
+            ],
+            [
+              {
+                "text": "السؤال الذي يجيب عنه"
+              }
+            ]
+          ],
+          "rows": [
+            [
+              [
+                {
+                  "text": "Mean"
+                }
+              ],
+              [
+                {
+                  "text": "ما المتوسط؟"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "text": "Median"
+                }
+              ],
+              [
+                {
+                  "text": "ما القيمة الوسطى؟"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "text": "Mode"
+                }
+              ],
+              [
+                {
+                  "text": "ما الأكثر تكرارًا؟"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "text": "SD"
+                }
+              ],
+              [
+                {
+                  "text": "كم تتشتت القيم الفردية؟"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "text": "IQR"
+                }
+              ],
+              [
+                {
+                  "text": "كم ينتشر middle 50%؟"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "text": "Probability"
+                }
+              ],
+              [
+                {
+                  "text": "ما احتمال الحدث؟"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "text": "Binomial"
+                }
+              ],
+              [
+                {
+                  "text": "كم نجاحًا من n تجارب؟"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "text": "Normal"
+                }
+              ],
+              [
+                {
+                  "text": "كيف تتوزع القيم حول Mean في Bell Curve؟"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "text": "Poisson"
+                }
+              ],
+              [
+                {
+                  "text": "كم حدثًا خلال فترة/مساحة؟"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "text": "CLT"
+                }
+              ],
+              [
+                {
+                  "text": "ماذا يحدث لتوزيع Sample Means مع عينات كثيرة؟"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "text": "Sampling Distribution"
+                }
+              ],
+              [
+                {
+                  "text": "كيف تتوزع Statistic عبر العينات؟"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "text": "SE"
+                }
+              ],
+              [
+                {
+                  "text": "كم تتغير Statistic من عينة لأخرى؟"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "text": "Confidence Interval"
+                }
+              ],
+              [
+                {
+                  "text": "ما النطاق المعقول للـ Population Parameter؟"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "text": "H₀"
+                }
+              ],
+              [
+                {
+                  "text": "ما فرضية عدم وجود فرق/تأثير؟"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "text": "Hₐ"
+                }
+              ],
+              [
+                {
+                  "text": "ما الفرضية البديلة؟"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "text": "p-value"
+                }
+              ],
+              [
+                {
+                  "text": "ما مدى ندرة النتيجة تحت H₀؟"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "text": "α"
+                }
+              ],
+              [
+                {
+                  "text": "ما threshold القرار المحدد مسبقًا؟"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "text": "Type I"
+                }
+              ],
+              [
+                {
+                  "text": "Reject true H₀ — False Positive"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "text": "Type II"
+                }
+              ],
+              [
+                {
+                  "text": "Fail to reject false H₀ — False Negative"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "text": "Treatment"
+                }
+              ],
+              [
+                {
+                  "text": "ما المعالجة التي نختبر أثرها؟"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "text": "Control"
+                }
+              ],
+              [
+                {
+                  "text": "ما المجموعة المرجعية؟"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "text": "Randomization"
+                }
+              ],
+              [
+                {
+                  "text": "كيف نقلل Bias وConfounding؟"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "text": "Blinding"
+                }
+              ],
+              [
+                {
+                  "text": "كيف نقلل تأثير التوقعات؟"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "text": "Correlation"
+                }
+              ],
+              [
+                {
+                  "text": "ما قوة واتجاه العلاقة الخطية؟"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "text": "Confounder"
+                }
+              ],
+              [
+                {
+                  "text": "ما المتغير الثالث الذي قد يفسر العلاقة؟"
+                }
+              ]
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "s43",
+      "number": 43,
+      "title": "43. خلاصة الكورس",
+      "titleEn": "خلاصة الكورس",
+      "anchor": "s43",
+      "sourceSequence": 43,
+      "counts": {
+        "paragraphs": 3,
+        "lists": 0,
+        "listItems": 0,
+        "tables": 0,
+        "tableRows": 0,
+        "formulas": 0,
+        "headings": 1,
+        "toggles": 0,
+        "callouts": 0,
+        "code": 0
+      },
+      "formulaCount": 0,
+      "textLength": 361,
+      "headings": [
+        {
+          "level": 1,
+          "text": "43. خلاصة الكورس",
+          "anchor": "s43"
+        }
+      ],
+      "subsections": [],
+      "blocks": [
+        {
+          "type": "heading",
+          "level": 1,
+          "text": "43. خلاصة الكورس",
+          "anchor": "s43"
+        },
+        {
+          "type": "paragraph",
+          "inline": [
+            {
+              "text": "الهدف النهائي من Statistics ليس حفظ المعادلات، وإنما القدرة على الانتقال من سؤال عملي إلى تحليل مناسب، ثم تفسير النتيجة في سياقها."
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "inline": [
+            {
+              "strong": true,
+              "text": "Data → Question → Appropriate Statistical Tool → Evidence → Uncertainty → Decision"
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "inline": [
+            {
+              "text": "وهذه هي القاعدة التي ستبني عليها لاحقًا موضوعات أعمق في"
+            },
+            {
+              "strong": true,
+              "text": "Regression، A/B Testing، Statistical Power، Effect Size، وMachine Learning"
+            },
+            {
+              "text": "."
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "counts": {
+    "htmlFiles": 1,
+    "sections": 43,
+    "headings": 91,
+    "subsections": 48,
+    "paragraphs": 226,
+    "lists": 81,
+    "listItems": 81,
+    "tables": 3,
+    "tableRows": 32,
+    "toggles": 14,
+    "formulas": 102,
+    "uniqueFormulas": 78,
+    "codeBlocks": 1,
+    "textCharacters": 22053,
+    "figures": 0,
+    "assets": 0
+  },
+  "formulas": [
+    {
+      "section": "s1",
+      "raw": "mu",
+      "tex": "\\mu",
+      "matched": true
+    },
+    {
+      "section": "s1",
+      "raw": "bar{x}",
+      "tex": "\\bar{x}",
+      "matched": true
+    },
+    {
+      "section": "s4",
+      "raw": "bar{x}=frac{sum x_i}{n}",
+      "tex": "\\bar{x} = \\frac{\\sum x_i}{n}",
+      "matched": true
+    },
+    {
+      "section": "s5",
+      "raw": "Range=Maximum-Minimum",
+      "tex": "\\text{Range} = \\text{Maximum} - \\text{Minimum}",
+      "matched": true
+    },
+    {
+      "section": "s5",
+      "raw": "sigma^2=frac{sum (x_i-mu)^2}{N}",
+      "tex": "\\sigma^2 = \\frac{\\sum (x_i - \\mu)^2}{N}",
+      "matched": true
+    },
+    {
+      "section": "s5",
+      "raw": "s^2=frac{sum (x_i-bar{x})^2}{n-1}",
+      "tex": "s^2 = \\frac{\\sum (x_i - \\bar{x})^2}{n-1}",
+      "matched": true
+    },
+    {
+      "section": "s5",
+      "raw": "SD=sqrt{Variance}",
+      "tex": "\\operatorname{SD} = \\sqrt{\\operatorname{Variance}}",
+      "matched": true
+    },
+    {
+      "section": "s5",
+      "raw": "IQR=Q_3-Q_1",
+      "tex": "\\operatorname{IQR} = Q_3 - Q_1",
+      "matched": true
+    },
+    {
+      "section": "s6",
+      "raw": "0le P(A)le1",
+      "tex": "0 \\le P(A) \\le 1",
+      "matched": true
+    },
+    {
+      "section": "s6",
+      "raw": "P(A^c)=1-P(A)",
+      "tex": "P(A^c) = 1 - P(A)",
+      "matched": true
+    },
+    {
+      "section": "s6",
+      "raw": "P(Acap B)=P(A)P(B)",
+      "tex": "P(A \\cap B) = P(A)P(B)",
+      "matched": true
+    },
+    {
+      "section": "s6",
+      "raw": "P(Amid B)=frac{P(Acap B)}{P(B)}",
+      "tex": "P(A \\mid B) = \\frac{P(A \\cap B)}{P(B)}",
+      "matched": true
+    },
+    {
+      "section": "s6",
+      "raw": "P(A)=0",
+      "tex": "P(A) = 0",
+      "matched": true
+    },
+    {
+      "section": "s6",
+      "raw": "P(A)=1",
+      "tex": "P(A) = 1",
+      "matched": true
+    },
+    {
+      "section": "s8",
+      "raw": "P(X=k)=binom{n}{k}p^k(1-p)^{n-k}",
+      "tex": "P(X = k) = \\binom{n}{k} p^k (1-p)^{n-k}",
+      "matched": true
+    },
+    {
+      "section": "s8",
+      "raw": "E(X)=np",
+      "tex": "E(X) = np",
+      "matched": true
+    },
+    {
+      "section": "s8",
+      "raw": "Var(X)=np(1-p)",
+      "tex": "\\operatorname{Var}(X) = np(1-p)",
+      "matched": true
+    },
+    {
+      "section": "s9",
+      "raw": "z=frac{x-mu}{sigma}",
+      "tex": "z = \\frac{x - \\mu}{\\sigma}",
+      "matched": true
+    },
+    {
+      "section": "s9",
+      "raw": "mu",
+      "tex": "\\mu",
+      "matched": true
+    },
+    {
+      "section": "s9",
+      "raw": "sigma",
+      "tex": "\\sigma",
+      "matched": true
+    },
+    {
+      "section": "s9",
+      "raw": "mupm1sigma",
+      "tex": "\\mu \\pm 1\\sigma",
+      "matched": true
+    },
+    {
+      "section": "s9",
+      "raw": "mupm2sigma",
+      "tex": "\\mu \\pm 2\\sigma",
+      "matched": true
+    },
+    {
+      "section": "s9",
+      "raw": "mupm3sigma",
+      "tex": "\\mu \\pm 3\\sigma",
+      "matched": true
+    },
+    {
+      "section": "s10",
+      "raw": "P(X=k)=frac{e^{-lambda}lambda^k}{k!}",
+      "tex": "P(X = k) = \\frac{e^{-\\lambda}\\lambda^k}{k!}",
+      "matched": true
+    },
+    {
+      "section": "s10",
+      "raw": "E(X)=lambda",
+      "tex": "E(X) = \\lambda",
+      "matched": true
+    },
+    {
+      "section": "s10",
+      "raw": "Var(X)=lambda",
+      "tex": "\\operatorname{Var}(X) = \\lambda",
+      "matched": true
+    },
+    {
+      "section": "s10",
+      "raw": "SD(X)=sqrt{lambda}",
+      "tex": "\\operatorname{SD}(X) = \\sqrt{\\lambda}",
+      "matched": true
+    },
+    {
+      "section": "s10",
+      "raw": "lambda=20",
+      "tex": "\\lambda = 20",
+      "matched": true
+    },
+    {
+      "section": "s10",
+      "raw": "lambda",
+      "tex": "\\lambda",
+      "matched": true
+    },
+    {
+      "section": "s10",
+      "raw": "lambda",
+      "tex": "\\lambda",
+      "matched": true
+    },
+    {
+      "section": "s10",
+      "raw": "lambda=20",
+      "tex": "\\lambda = 20",
+      "matched": true
+    },
+    {
+      "section": "s10",
+      "raw": "lambda",
+      "tex": "\\lambda",
+      "matched": true
+    },
+    {
+      "section": "s10",
+      "raw": "lambda",
+      "tex": "\\lambda",
+      "matched": true
+    },
+    {
+      "section": "s10",
+      "raw": "lambda",
+      "tex": "\\lambda",
+      "matched": true
+    },
+    {
+      "section": "s11",
+      "raw": "E(bar X)=mu",
+      "tex": "E(\\bar{X}) = \\mu",
+      "matched": true
+    },
+    {
+      "section": "s12",
+      "raw": "bar X",
+      "tex": "\\bar{X}",
+      "matched": true
+    },
+    {
+      "section": "s13",
+      "raw": "SE_{bar X}=frac{sigma}{sqrt n}",
+      "tex": "\\operatorname{SE}_{\\bar{X}} = \\frac{\\sigma}{\\sqrt{n}}",
+      "matched": true
+    },
+    {
+      "section": "s13",
+      "raw": "SE_{bar X}approxfrac{s}{sqrt n}",
+      "tex": "\\operatorname{SE}_{\\bar{X}} \\approx \\frac{s}{\\sqrt{n}}",
+      "matched": true
+    },
+    {
+      "section": "s13",
+      "raw": "nuparrowRightarrow SEdownarrow",
+      "tex": "n \\uparrow \\Rightarrow \\operatorname{SE} \\downarrow",
+      "matched": true
+    },
+    {
+      "section": "s13",
+      "raw": "SEproptofrac{1}{sqrt n}",
+      "tex": "\\operatorname{SE} \\propto \\frac{1}{\\sqrt{n}}",
+      "matched": true
+    },
+    {
+      "section": "s13",
+      "raw": "sigma",
+      "tex": "\\sigma",
+      "matched": true
+    },
+    {
+      "section": "s13",
+      "raw": "sigma",
+      "tex": "\\sigma",
+      "matched": true
+    },
+    {
+      "section": "s14",
+      "raw": "Estimatepm Margin of Error",
+      "tex": "\\text{Estimate} \\pm \\text{Margin of Error}",
+      "matched": true
+    },
+    {
+      "section": "s14",
+      "raw": "Margin of Error=Critical Valuetimes SE",
+      "tex": "\\text{Margin of Error} = \\text{Critical Value} \\times \\text{SE}",
+      "matched": true
+    },
+    {
+      "section": "s14",
+      "raw": "CI=Estimatepm Critical Valuetimes SE",
+      "tex": "\\text{CI} = \\text{Estimate} \\pm \\text{Critical Value} \\times \\text{SE}",
+      "matched": true
+    },
+    {
+      "section": "s15",
+      "raw": "H_0:mu_C=mu_B",
+      "tex": "H_0: \\mu_C = \\mu_B",
+      "matched": true
+    },
+    {
+      "section": "s15",
+      "raw": "mu_Cnemu_B",
+      "tex": "\\mu_C \\neq \\mu_B",
+      "matched": true
+    },
+    {
+      "section": "s15",
+      "raw": "mu_C>mu_B",
+      "tex": "\\mu_C > \\mu_B",
+      "matched": true
+    },
+    {
+      "section": "s15",
+      "raw": "mu_C<mu_B",
+      "tex": "\\mu_C < \\mu_B",
+      "matched": true
+    },
+    {
+      "section": "s16",
+      "raw": "H_0",
+      "tex": "H_0",
+      "matched": true
+    },
+    {
+      "section": "s16",
+      "raw": "H_a",
+      "tex": "H_a",
+      "matched": true
+    },
+    {
+      "section": "s16",
+      "raw": "alpha",
+      "tex": "\\alpha",
+      "matched": true
+    },
+    {
+      "section": "s17",
+      "raw": "bar x_C=79.3",
+      "tex": "\\bar{x}_C = 79.3",
+      "matched": true
+    },
+    {
+      "section": "s17",
+      "raw": "bar x_B=73.9",
+      "tex": "\\bar{x}_B = 73.9",
+      "matched": true
+    },
+    {
+      "section": "s17",
+      "raw": "79.3-73.9=5.4",
+      "tex": "79.3 - 73.9 = 5.4",
+      "matched": true
+    },
+    {
+      "section": "s18",
+      "raw": "Test Statistic=frac{Observed Difference-Hypothesized Difference}{SE of Difference}",
+      "tex": "\\text{Test Statistic} = \\frac{\\text{Observed Difference} - \\text{Hypothesized Difference}}{\\text{SE of Difference}}",
+      "matched": true
+    },
+    {
+      "section": "s18",
+      "raw": "Hypothesized Difference=0",
+      "tex": "\\text{Hypothesized Difference} = 0",
+      "matched": true
+    },
+    {
+      "section": "s18",
+      "raw": "Test Statistic=frac{5.4}{1.5}=3.6",
+      "tex": "\\text{Test Statistic} = \\frac{5.4}{1.5} = 3.6",
+      "matched": true
+    },
+    {
+      "section": "s19",
+      "raw": "ptext{-value}=P(text{result at least as extreme as observed}mid H_0text{ is true})",
+      "tex": "p\\text{-value} = P(\\text{result at least as extreme as observed} \\mid H_0 \\text{ is true})",
+      "matched": true
+    },
+    {
+      "section": "s19",
+      "raw": "p=0.037",
+      "tex": "p = 0.037",
+      "matched": true
+    },
+    {
+      "section": "s20",
+      "raw": "alpha=0.05",
+      "tex": "\\alpha = 0.05",
+      "matched": true
+    },
+    {
+      "section": "s20",
+      "raw": "alpha",
+      "tex": "\\alpha",
+      "matched": true
+    },
+    {
+      "section": "s21",
+      "raw": "plealpha",
+      "tex": "p \\le \\alpha",
+      "matched": true
+    },
+    {
+      "section": "s21",
+      "raw": "p>alpha",
+      "tex": "p > \\alpha",
+      "matched": true
+    },
+    {
+      "section": "s21",
+      "raw": "alpha",
+      "tex": "\\alpha",
+      "matched": true
+    },
+    {
+      "section": "s30",
+      "raw": "-1le rle1",
+      "tex": "-1 \\le r \\le 1",
+      "matched": true
+    },
+    {
+      "section": "s30",
+      "raw": "|r|",
+      "tex": "|r|",
+      "matched": true
+    },
+    {
+      "section": "s30",
+      "raw": "r>0",
+      "tex": "r > 0",
+      "matched": true
+    },
+    {
+      "section": "s30",
+      "raw": "r<0",
+      "tex": "r < 0",
+      "matched": true
+    },
+    {
+      "section": "s30",
+      "raw": "rapprox0",
+      "tex": "r \\approx 0",
+      "matched": true
+    },
+    {
+      "section": "s30",
+      "raw": "r=0.99",
+      "tex": "r = 0.99",
+      "matched": true
+    },
+    {
+      "section": "s30",
+      "raw": "r=0.75",
+      "tex": "r = 0.75",
+      "matched": true
+    },
+    {
+      "section": "s30",
+      "raw": "r=0.56",
+      "tex": "r = 0.56",
+      "matched": true
+    },
+    {
+      "section": "s30",
+      "raw": "rapprox0.20",
+      "tex": "r \\approx 0.20",
+      "matched": true
+    },
+    {
+      "section": "s30",
+      "raw": "rapprox0",
+      "tex": "r \\approx 0",
+      "matched": true
+    },
+    {
+      "section": "s32",
+      "raw": "Xleftrightarrow Y",
+      "tex": "X \\leftrightarrow Y",
+      "matched": true
+    },
+    {
+      "section": "s32",
+      "raw": "Xrightarrow Y",
+      "tex": "X \\rightarrow Y",
+      "matched": true
+    },
+    {
+      "section": "s32",
+      "raw": "r=0.61",
+      "tex": "r = 0.61",
+      "matched": true
+    },
+    {
+      "section": "s35",
+      "raw": "Y=beta_0+beta_1X",
+      "tex": "Y = \\beta_0 + \\beta_1 X",
+      "matched": true
+    },
+    {
+      "section": "s35",
+      "raw": "beta_1",
+      "tex": "\\beta_1",
+      "matched": true
+    },
+    {
+      "section": "s37",
+      "raw": "P(A^c)=1-P(A)",
+      "tex": "P(A^c) = 1 - P(A)",
+      "matched": true
+    },
+    {
+      "section": "s37",
+      "raw": "P(Amid B)=frac{P(Acap B)}{P(B)}",
+      "tex": "P(A \\mid B) = \\frac{P(A \\cap B)}{P(B)}",
+      "matched": true
+    },
+    {
+      "section": "s37",
+      "raw": "SD=sqrt{Variance}",
+      "tex": "\\operatorname{SD} = \\sqrt{\\operatorname{Variance}}",
+      "matched": true
+    },
+    {
+      "section": "s37",
+      "raw": "IQR=Q_3-Q_1",
+      "tex": "\\operatorname{IQR} = Q_3 - Q_1",
+      "matched": true
+    },
+    {
+      "section": "s37",
+      "raw": "P(X=k)=binom{n}{k}p^k(1-p)^{n-k}",
+      "tex": "P(X = k) = \\binom{n}{k} p^k (1-p)^{n-k}",
+      "matched": true
+    },
+    {
+      "section": "s37",
+      "raw": "E(X)=np",
+      "tex": "E(X) = np",
+      "matched": true
+    },
+    {
+      "section": "s37",
+      "raw": "Var(X)=np(1-p)",
+      "tex": "\\operatorname{Var}(X) = np(1-p)",
+      "matched": true
+    },
+    {
+      "section": "s37",
+      "raw": "P(X=k)=frac{e^{-lambda}lambda^k}{k!}",
+      "tex": "P(X = k) = \\frac{e^{-\\lambda}\\lambda^k}{k!}",
+      "matched": true
+    },
+    {
+      "section": "s37",
+      "raw": "E(X)=Var(X)=lambda",
+      "tex": "E(X) = \\operatorname{Var}(X) = \\lambda",
+      "matched": true
+    },
+    {
+      "section": "s37",
+      "raw": "SD(X)=sqrtlambda",
+      "tex": "\\operatorname{SD}(X) = \\sqrt{\\lambda}",
+      "matched": true
+    },
+    {
+      "section": "s37",
+      "raw": "z=frac{x-mu}{sigma}",
+      "tex": "z = \\frac{x - \\mu}{\\sigma}",
+      "matched": true
+    },
+    {
+      "section": "s37",
+      "raw": "SE=frac{sigma}{sqrt n}",
+      "tex": "\\operatorname{SE} = \\frac{\\sigma}{\\sqrt{n}}",
+      "matched": true
+    },
+    {
+      "section": "s37",
+      "raw": "SEapproxfrac{s}{sqrt n}",
+      "tex": "\\operatorname{SE}_{\\bar{X}} \\approx \\frac{s}{\\sqrt{n}}",
+      "matched": true
+    },
+    {
+      "section": "s37",
+      "raw": "Estimatepm Critical Valuetimes SE",
+      "tex": "\\text{Estimate} \\pm \\text{Critical Value} \\times \\text{SE}",
+      "matched": true
+    },
+    {
+      "section": "s37",
+      "raw": "Test Statistic=frac{Observed-Hypothesized}{SE}",
+      "tex": "\\text{Test Statistic} = \\frac{\\text{Observed} - \\text{Hypothesized}}{\\text{SE}}",
+      "matched": true
+    },
+    {
+      "section": "s37",
+      "raw": "plealphaRightarrow Reject H_0",
+      "tex": "p \\le \\alpha \\Rightarrow \\text{Reject } H_0",
+      "matched": true
+    },
+    {
+      "section": "s37",
+      "raw": "p>alphaRightarrow Fail to Reject H_0",
+      "tex": "p > \\alpha \\Rightarrow \\text{Fail to Reject } H_0",
+      "matched": true
+    },
+    {
+      "section": "s37",
+      "raw": "P(Acap B)=P(A)P(B)",
+      "tex": "P(A \\cap B) = P(A)P(B)",
+      "matched": true
+    },
+    {
+      "section": "s39",
+      "raw": "alpha",
+      "tex": "\\alpha",
+      "matched": true
+    },
+    {
+      "section": "s40",
+      "raw": "H_0",
+      "tex": "H_0",
+      "matched": true
+    },
+    {
+      "section": "s40",
+      "raw": "H_a",
+      "tex": "H_a",
+      "matched": true
+    },
+    {
+      "section": "s40",
+      "raw": "p>0.05",
+      "tex": "p > 0.05",
+      "matched": true
+    }
+  ],
+  "unmappedFormulas": [],
+  "assets": [],
+  "unresolved": []
+}

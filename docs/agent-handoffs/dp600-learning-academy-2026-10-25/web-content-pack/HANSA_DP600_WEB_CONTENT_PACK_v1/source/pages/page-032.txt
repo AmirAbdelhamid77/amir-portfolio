@@ -1,0 +1,40 @@
+CREATE VIEW dbo.vSalesCurrentYear AS
+SELECT f.*, d.CalendarYear
+FROM   dbo.FactSales AS f
+JOIN   dbo.DimDate   AS d ON d.DateKey = f.DateKey
+WHERE  d.CalendarYear = YEAR(GETDATE());
+GO
+CREATE PROCEDURE dbo.usp_LoadDimProduct
+AS
+BEGIN
+    MERGE dbo.DimProduct AS tgt
+    USING stg.Product     AS src ON tgt.ProductId = src.ProductId
+    WHEN MATCHED AND tgt.ListPrice <> src.ListPrice
+        THEN UPDATE SET tgt.ListPrice = src.ListPrice
+    WHEN NOT MATCHED BY TARGET
+        THEN INSERT (ProductId, ProductName, ListPrice)
+             VALUES (src.ProductId, src.ProductName, src.ListPrice);
+END;
+Call the procedure from a pipeline with a Stored procedure activity, or from a notebook. Check the
+supported surface area before you assume a T-SQL feature exists: T-SQL surface area in Fabric.
+COMMON EXAM TRAP
+The lakehouse SQL analytics endpoint is read-only. Any scenario requiring MERGE , a stored
+procedure, or a multi-table transaction over lakehouse tables must either move the logic into a Spark
+notebook ( MERGE INTO  in Spark SQL works on Delta tables) or move the Gold layer into a warehouse.
+The Spark equivalent of an upsert:
+%%sql
+MERGE INTO silver.DimProduct AS tgt
+USING bronze.product          AS src
+   ON tgt.ProductId = src.ProductId
+WHEN MATCHED AND tgt.ListPrice <> src.ListPrice THEN UPDATE SET tgt.ListPrice = 
+src.ListPrice
+WHEN NOT MATCHED THEN INSERT *;
+5.6 Chapter 5 self-check
+1. A dataflow that ran in 3 minutes now takes 40. The only change was an added custom column early in
+the query. What happened?
+2. You need an auto-incrementing surrogate key in a Fabric warehouse dimension. What do you use?
+3. Which object cannot be created in a lakehouse SQL analytics endpoint: view, inline TVF, or stored
+procedure?
+4. How do you keep only the most recent row per business key?
+5. A date column arrives as text and 0.3% of values are malformed. How do you load the good rows without
+failing the batch?

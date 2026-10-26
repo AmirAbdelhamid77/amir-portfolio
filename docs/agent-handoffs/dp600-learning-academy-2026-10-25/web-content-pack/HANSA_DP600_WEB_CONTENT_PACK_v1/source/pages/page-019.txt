@@ -1,0 +1,35 @@
+Chapter 3 — Maintain a data analytics solution, part 2:
+the development lifecycle
+EXAM FOCUS
+Maintain the analytics development lifecycle — configure version control for a workspace · create
+and manage a Power BI Desktop project (.pbip) · create and configure deployment pipelines · perform
+impact analysis of downstream dependencies from lakehouses, warehouses, dataflows, and semantic
+models · deploy and manage semantic models by using the XMLA endpoint · create and update
+reusable assets, including Power BI template (.pbit) files, Power BI data source (.pbids) files, and
+shared semantic models.
+Azure DevOps /
+GitHub repo
+(branches, PRs)
+Dev workspace
+feature branches
+deploy
+Test workspace
+UAT + rules
+deploy
+Prod workspace
+end users
+sync
+commit
+Deployment rules & Variable library: repoint connections, lakehouse IDs and parameters per stage
+Compare stages → select items → deploy · backward deployment allowed · history kept
+Git holds the source of truth; deployment pipelines move content between stages; rules and variable libraries re-point it at the right
+data for each stage.
+3.1 Git integration
+Git integration connects a workspace to a branch in Azure DevOps (Azure Repos) or GitHub. Items are
+serialised into folders of text files, so you get real diffs, pull requests, and history.
+How it works in practice:
+1. A workspace Admin connects the workspace to an organisation, project, repository, branch, and folder.
+2. Commit pushes workspace changes to the branch. Update pulls branch changes into the workspace.
+3. The Source control pane shows each item as Uncommitted, Modified, or Conflict.
+4. To work on a feature in isolation, use Branch out to a new workspace: Fabric creates a branch and a
+workspace already synced to it.

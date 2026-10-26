@@ -1,0 +1,49 @@
+3.5 The XMLA endpoint
+The XMLA endpoint exposes a Fabric semantic model with the same protocol as Azure Analysis Services,
+so professional tools can connect to it.
+Mode
+What you can do
+Read
+Connect DAX Studio, Excel, SSMS, or Tabular Editor to query and profile the model
+Read/Write
+Deploy, alter, script, refresh, and manage partitions from external tools
+Turn read/write on in the capacity settings, then connect with a workspace connection string of the form
+powerbi://api.powerbi.com/v1.0/myorg/<workspace> .
+What the XMLA endpoint unlocks that Desktop cannot do:
+Deploy metadata-only changes (add a measure without republishing the whole model)
+Configure object-level security and advanced role definitions
+Manage partitions and trigger targeted refreshes, including refreshType  options
+Run TMSL scripts and ALM Toolkit schema comparisons in a release pipeline
+WATCH OUT
+After a model is modified through the XMLA endpoint, it can no longer be downloaded as a .pbix .
+Keep the .pbip  project in Git as your source of truth.
+3.6 Reusable assets
+Asset
+What it contains
+When to use it
+.pbit (template)
+Report + model definition, no data,
+parameters prompted on open
+Distribute a standard report that each team
+points at its own source
+.pbids (data source
+file)
+Just the connection details
+Get analysts to the right source with the right
+connector in one click
+Shared semantic
+model
+A published model others connect to
+live
+One version of the truth: many reports, one
+model, one set of measures and RLS
+Dataflow Gen2
+Reusable Power Query logic with a
+destination
+Share cleansing logic across many models
+Variable library /
+environment
+Stage-specific values, Spark libraries
+and config
+Consistency across items and stages
+A .pbids  file is small, hand-editable JSON:

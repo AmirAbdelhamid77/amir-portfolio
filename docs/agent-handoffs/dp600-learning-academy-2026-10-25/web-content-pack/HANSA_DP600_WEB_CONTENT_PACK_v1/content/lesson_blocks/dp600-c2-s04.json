@@ -1,0 +1,18 @@
+{
+  "lesson_id": "dp600-c2-s04",
+  "source_sections": [
+    15
+  ],
+  "blocks": [
+    {
+      "id": "dp600-c2-s04-p015",
+      "kind": "source_fragment",
+      "source_page": 15,
+      "source_start_line": 5,
+      "source_text": "2.4 File-level access control with OneLake security\nOneLake security applies access rules at the OneLake layer, so they are enforced no matter which engine\nreads the data — Spark, T-SQL, Direct Lake, or the OneLake API.\nYou define data access roles on a lakehouse that specify which folders and tables a role can read, and\nassign Entra users or groups to those roles. Rows and columns can also be restricted at this layer, and the\nrestriction follows the data into a Direct Lake semantic model.\nGet started: OneLake security\nThe full evaluation logic: data access control model\nRole setup walkthrough: get started with data access roles\nKNOW THE DIFFERENCE\nOneLake security vs SQL permissions. OneLake security is enforced for every engine, including\nSpark and Direct Lake. GRANT / DENY  in the SQL analytics endpoint is enforced only for callers coming\nthrough that endpoint — a Spark notebook with ReadAll  bypasses it entirely. When a scenario says\n\"regardless of the tool they use\", the answer is OneLake security.",
+      "presentation_status": "needs-editorial-layout-conversion",
+      "recommended_renderer": "SourceFragment"
+    }
+  ],
+  "warning": "Source fragments are NOT native formatted prose, tables or runnable code."
+}

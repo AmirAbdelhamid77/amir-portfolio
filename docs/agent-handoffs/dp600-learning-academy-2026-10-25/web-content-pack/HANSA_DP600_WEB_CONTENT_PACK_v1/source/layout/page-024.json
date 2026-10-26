@@ -1,0 +1,1375 @@
+{
+  "page": 24,
+  "width": 594.9599609375,
+  "height": 841.9199829101562,
+  "blocks": [
+    {
+      "bbox": [
+        44.25,
+        47.01,
+        413.17,
+        67.67
+      ],
+      "lines": [
+        {
+          "bbox": [
+            44.25,
+            47.01,
+            413.17,
+            67.67
+          ],
+          "spans": [
+            {
+              "text": "Chapter 4 — Prepare data, part 1: get data",
+              "bbox": [
+                44.25,
+                47.01,
+                413.17,
+                67.67
+              ],
+              "font": "LiberationSans-Bold",
+              "size": 18.49,
+              "flags": 16,
+              "color": 17784
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "bbox": [
+        57.75,
+        100.54,
+        128.15,
+        111.6
+      ],
+      "lines": [
+        {
+          "bbox": [
+            57.75,
+            100.54,
+            128.15,
+            111.6
+          ],
+          "spans": [
+            {
+              "text": "EXAM FOCUS",
+              "bbox": [
+                57.75,
+                100.54,
+                128.15,
+                111.6
+              ],
+              "font": "LiberationSans-Bold",
+              "size": 9.9,
+              "flags": 16,
+              "color": 17784
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "bbox": [
+        57.75,
+        117.91,
+        529.62,
+        129.75
+      ],
+      "lines": [
+        {
+          "bbox": [
+            57.75,
+            117.91,
+            529.62,
+            129.75
+          ],
+          "spans": [
+            {
+              "text": "Get data",
+              "bbox": [
+                57.75,
+                117.91,
+                100.14,
+                129.75
+              ],
+              "font": "LiberationSans-Bold",
+              "size": 10.6,
+              "flags": 16,
+              "color": 1184282
+            },
+            {
+              "text": " — create a data connection · discover data by using OneLake catalog and Real-Time hub ·",
+              "bbox": [
+                100.14,
+                117.91,
+                529.62,
+                129.75
+              ],
+              "font": "LiberationSans",
+              "size": 10.6,
+              "flags": 0,
+              "color": 1776415
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "bbox": [
+        57.75,
+        135.16,
+        497.46,
+        147.0
+      ],
+      "lines": [
+        {
+          "bbox": [
+            57.75,
+            135.16,
+            497.46,
+            147.0
+          ],
+          "spans": [
+            {
+              "text": "ingest or access data as needed · choose between different data stores · implement OneLake",
+              "bbox": [
+                57.75,
+                135.16,
+                497.46,
+                147.0
+              ],
+              "font": "LiberationSans",
+              "size": 10.6,
+              "flags": 0,
+              "color": 1776415
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "bbox": [
+        57.75,
+        152.41,
+        287.42,
+        164.25
+      ],
+      "lines": [
+        {
+          "bbox": [
+            57.75,
+            152.41,
+            287.42,
+            164.25
+          ],
+          "spans": [
+            {
+              "text": "integration for Eventhouse and semantic models.",
+              "bbox": [
+                57.75,
+                152.41,
+                287.42,
+                164.25
+              ],
+              "font": "LiberationSans",
+              "size": 10.6,
+              "flags": 0,
+              "color": 1776415
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "bbox": [
+        44.25,
+        198.8,
+        236.37,
+        213.55
+      ],
+      "lines": [
+        {
+          "bbox": [
+            44.25,
+            198.8,
+            236.37,
+            213.55
+          ],
+          "spans": [
+            {
+              "text": "4.1 Connections and gateways",
+              "bbox": [
+                44.25,
+                198.8,
+                236.37,
+                213.55
+              ],
+              "font": "LiberationSans-Bold",
+              "size": 13.2,
+              "flags": 16,
+              "color": 949350
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "bbox": [
+        44.25,
+        225.16,
+        520.05,
+        237.0
+      ],
+      "lines": [
+        {
+          "bbox": [
+            44.25,
+            225.16,
+            520.05,
+            237.0
+          ],
+          "spans": [
+            {
+              "text": "A ",
+              "bbox": [
+                44.25,
+                225.16,
+                53.68,
+                237.0
+              ],
+              "font": "LiberationSans",
+              "size": 10.6,
+              "flags": 0,
+              "color": 1776415
+            },
+            {
+              "text": "connection",
+              "bbox": [
+                53.68,
+                225.16,
+                110.19,
+                237.0
+              ],
+              "font": "LiberationSans-Bold",
+              "size": 10.6,
+              "flags": 16,
+              "color": 1184282
+            },
+            {
+              "text": " stores where a source is and how to authenticate to it. It is created once and reused by",
+              "bbox": [
+                110.19,
+                225.16,
+                520.05,
+                237.0
+              ],
+              "font": "LiberationSans",
+              "size": 10.6,
+              "flags": 0,
+              "color": 1776415
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "bbox": [
+        44.25,
+        242.41,
+        531.18,
+        254.25
+      ],
+      "lines": [
+        {
+          "bbox": [
+            44.25,
+            242.41,
+            531.18,
+            254.25
+          ],
+          "spans": [
+            {
+              "text": "pipelines, dataflows, and semantic models. Manage them under ",
+              "bbox": [
+                44.25,
+                242.41,
+                346.35,
+                254.25
+              ],
+              "font": "LiberationSans",
+              "size": 10.6,
+              "flags": 0,
+              "color": 1776415
+            },
+            {
+              "text": "Settings → Manage connections and",
+              "bbox": [
+                346.35,
+                242.41,
+                531.18,
+                254.25
+              ],
+              "font": "LiberationSans-Bold",
+              "size": 10.6,
+              "flags": 16,
+              "color": 1184282
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "bbox": [
+        44.25,
+        259.66,
+        94.9,
+        271.5
+      ],
+      "lines": [
+        {
+          "bbox": [
+            44.25,
+            259.66,
+            94.9,
+            271.5
+          ],
+          "spans": [
+            {
+              "text": "gateways",
+              "bbox": [
+                44.25,
+                259.66,
+                91.95,
+                271.5
+              ],
+              "font": "LiberationSans-Bold",
+              "size": 10.6,
+              "flags": 16,
+              "color": 1184282
+            },
+            {
+              "text": ".",
+              "bbox": [
+                91.96,
+                259.66,
+                94.9,
+                271.5
+              ],
+              "font": "LiberationSans",
+              "size": 10.6,
+              "flags": 0,
+              "color": 1776415
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "bbox": [
+        51.75,
+        291.4,
+        313.59,
+        302.01
+      ],
+      "lines": [
+        {
+          "bbox": [
+            51.75,
+            291.4,
+            122.96,
+            302.01
+          ],
+          "spans": [
+            {
+              "text": "Source location",
+              "bbox": [
+                51.75,
+                291.4,
+                122.96,
+                302.01
+              ],
+              "font": "LiberationSans-Bold",
+              "size": 9.49,
+              "flags": 16,
+              "color": 16777215
+            }
+          ]
+        },
+        {
+          "bbox": [
+            246.08,
+            291.4,
+            313.59,
+            302.01
+          ],
+          "spans": [
+            {
+              "text": "What you need",
+              "bbox": [
+                246.08,
+                291.4,
+                313.59,
+                302.01
+              ],
+              "font": "LiberationSans-Bold",
+              "size": 9.49,
+              "flags": 16,
+              "color": 16777215
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "bbox": [
+        51.75,
+        316.9,
+        221.13,
+        327.51
+      ],
+      "lines": [
+        {
+          "bbox": [
+            51.75,
+            316.9,
+            221.13,
+            327.51
+          ],
+          "spans": [
+            {
+              "text": "Cloud SaaS or PaaS reachable from the",
+              "bbox": [
+                51.75,
+                316.9,
+                221.13,
+                327.51
+              ],
+              "font": "LiberationSans",
+              "size": 9.49,
+              "flags": 0,
+              "color": 1776415
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "bbox": [
+        51.75,
+        332.65,
+        83.41,
+        343.26
+      ],
+      "lines": [
+        {
+          "bbox": [
+            51.75,
+            332.65,
+            83.41,
+            343.26
+          ],
+          "spans": [
+            {
+              "text": "internet",
+              "bbox": [
+                51.75,
+                332.65,
+                83.41,
+                343.26
+              ],
+              "font": "LiberationSans",
+              "size": 9.49,
+              "flags": 0,
+              "color": 1776415
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "bbox": [
+        246.08,
+        316.9,
+        396.44,
+        327.51
+      ],
+      "lines": [
+        {
+          "bbox": [
+            246.08,
+            316.9,
+            396.44,
+            327.51
+          ],
+          "spans": [
+            {
+              "text": "A ",
+              "bbox": [
+                246.08,
+                316.9,
+                254.53,
+                327.51
+              ],
+              "font": "LiberationSans",
+              "size": 9.49,
+              "flags": 0,
+              "color": 1776415
+            },
+            {
+              "text": "cloud connection",
+              "bbox": [
+                254.53,
+                316.9,
+                333.11,
+                327.51
+              ],
+              "font": "LiberationSans-Bold",
+              "size": 9.49,
+              "flags": 16,
+              "color": 1184282
+            },
+            {
+              "text": " — no gateway",
+              "bbox": [
+                333.12,
+                316.9,
+                396.44,
+                327.51
+              ],
+              "font": "LiberationSans",
+              "size": 9.49,
+              "flags": 0,
+              "color": 1776415
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "bbox": [
+        51.75,
+        357.4,
+        538.92,
+        368.01
+      ],
+      "lines": [
+        {
+          "bbox": [
+            51.75,
+            357.4,
+            223.2,
+            368.01
+          ],
+          "spans": [
+            {
+              "text": "On-premises server, or a private network",
+              "bbox": [
+                51.75,
+                357.4,
+                223.2,
+                368.01
+              ],
+              "font": "LiberationSans",
+              "size": 9.49,
+              "flags": 0,
+              "color": 1776415
+            }
+          ]
+        },
+        {
+          "bbox": [
+            246.08,
+            357.4,
+            538.92,
+            368.01
+          ],
+          "spans": [
+            {
+              "text": "An ",
+              "bbox": [
+                246.08,
+                357.4,
+                260.33,
+                368.01
+              ],
+              "font": "LiberationSans",
+              "size": 9.49,
+              "flags": 0,
+              "color": 1776415
+            },
+            {
+              "text": "on-premises data gateway",
+              "bbox": [
+                260.33,
+                357.4,
+                379.03,
+                368.01
+              ],
+              "font": "LiberationSans-Bold",
+              "size": 9.49,
+              "flags": 16,
+              "color": 1184282
+            },
+            {
+              "text": " installed on a machine that can reach",
+              "bbox": [
+                379.03,
+                357.4,
+                538.92,
+                368.01
+              ],
+              "font": "LiberationSans",
+              "size": 9.49,
+              "flags": 0,
+              "color": 1776415
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "bbox": [
+        246.08,
+        373.15,
+        290.41,
+        383.76
+      ],
+      "lines": [
+        {
+          "bbox": [
+            246.08,
+            373.15,
+            290.41,
+            383.76
+          ],
+          "spans": [
+            {
+              "text": "the source",
+              "bbox": [
+                246.08,
+                373.15,
+                290.41,
+                383.76
+              ],
+              "font": "LiberationSans",
+              "size": 9.49,
+              "flags": 0,
+              "color": 1776415
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "bbox": [
+        51.75,
+        397.9,
+        456.08,
+        408.51
+      ],
+      "lines": [
+        {
+          "bbox": [
+            51.75,
+            397.9,
+            228.49,
+            408.51
+          ],
+          "spans": [
+            {
+              "text": "Azure resource locked to a virtual network",
+              "bbox": [
+                51.75,
+                397.9,
+                228.49,
+                408.51
+              ],
+              "font": "LiberationSans",
+              "size": 9.49,
+              "flags": 0,
+              "color": 1776415
+            }
+          ]
+        },
+        {
+          "bbox": [
+            246.08,
+            397.9,
+            456.08,
+            408.51
+          ],
+          "spans": [
+            {
+              "text": "A ",
+              "bbox": [
+                246.08,
+                397.9,
+                254.53,
+                408.51
+              ],
+              "font": "LiberationSans",
+              "size": 9.49,
+              "flags": 0,
+              "color": 1776415
+            },
+            {
+              "text": "VNet data gateway",
+              "bbox": [
+                254.53,
+                397.9,
+                338.41,
+                408.51
+              ],
+              "font": "LiberationSans-Bold",
+              "size": 9.49,
+              "flags": 16,
+              "color": 1184282
+            },
+            {
+              "text": " (managed, no VM to patch)",
+              "bbox": [
+                338.41,
+                397.9,
+                456.08,
+                408.51
+              ],
+              "font": "LiberationSans",
+              "size": 9.49,
+              "flags": 0,
+              "color": 1776415
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "bbox": [
+        51.75,
+        423.4,
+        499.85,
+        434.01
+      ],
+      "lines": [
+        {
+          "bbox": [
+            51.75,
+            423.4,
+            196.85,
+            434.01
+          ],
+          "spans": [
+            {
+              "text": "Many users sharing one credential",
+              "bbox": [
+                51.75,
+                423.4,
+                196.85,
+                434.01
+              ],
+              "font": "LiberationSans",
+              "size": 9.49,
+              "flags": 0,
+              "color": 1776415
+            }
+          ]
+        },
+        {
+          "bbox": [
+            246.08,
+            423.4,
+            499.85,
+            434.01
+          ],
+          "spans": [
+            {
+              "text": "A ",
+              "bbox": [
+                246.08,
+                423.4,
+                254.53,
+                434.01
+              ],
+              "font": "LiberationSans",
+              "size": 9.49,
+              "flags": 0,
+              "color": 1776415
+            },
+            {
+              "text": "shareable cloud connection",
+              "bbox": [
+                254.53,
+                423.4,
+                380.07,
+                434.01
+              ],
+              "font": "LiberationSans-Bold",
+              "size": 9.49,
+              "flags": 16,
+              "color": 1184282
+            },
+            {
+              "text": " owned by a service account",
+              "bbox": [
+                380.07,
+                423.4,
+                499.85,
+                434.01
+              ],
+              "font": "LiberationSans",
+              "size": 9.49,
+              "flags": 0,
+              "color": 1776415
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "bbox": [
+        44.25,
+        455.41,
+        531.23,
+        467.25
+      ],
+      "lines": [
+        {
+          "bbox": [
+            44.25,
+            455.41,
+            531.23,
+            467.25
+          ],
+          "spans": [
+            {
+              "text": "Authentication choices you should recognise: organisational account (Microsoft Entra), service principal,",
+              "bbox": [
+                44.25,
+                455.41,
+                531.23,
+                467.25
+              ],
+              "font": "LiberationSans",
+              "size": 10.6,
+              "flags": 0,
+              "color": 1776415
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "bbox": [
+        44.25,
+        472.66,
+        524.93,
+        484.5
+      ],
+      "lines": [
+        {
+          "bbox": [
+            44.25,
+            472.66,
+            524.93,
+            484.5
+          ],
+          "spans": [
+            {
+              "text": "account key, SAS, workspace identity, and basic. Prefer ",
+              "bbox": [
+                44.25,
+                472.66,
+                308.24,
+                484.5
+              ],
+              "font": "LiberationSans",
+              "size": 10.6,
+              "flags": 0,
+              "color": 1776415
+            },
+            {
+              "text": "service principals or workspace identity",
+              "bbox": [
+                308.25,
+                472.66,
+                509.61,
+                484.5
+              ],
+              "font": "LiberationSans-Bold",
+              "size": 10.6,
+              "flags": 16,
+              "color": 1184282
+            },
+            {
+              "text": " for",
+              "bbox": [
+                509.62,
+                472.66,
+                524.93,
+                484.5
+              ],
+              "font": "LiberationSans",
+              "size": 10.6,
+              "flags": 0,
+              "color": 1776415
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "bbox": [
+        44.25,
+        489.91,
+        367.0,
+        501.75
+      ],
+      "lines": [
+        {
+          "bbox": [
+            44.25,
+            489.91,
+            367.0,
+            501.75
+          ],
+          "spans": [
+            {
+              "text": "unattended jobs, so a pipeline does not break when a person leaves.",
+              "bbox": [
+                44.25,
+                489.91,
+                367.0,
+                501.75
+              ],
+              "font": "LiberationSans",
+              "size": 10.6,
+              "flags": 0,
+              "color": 1776415
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "bbox": [
+        57.75,
+        523.54,
+        74.13,
+        534.6
+      ],
+      "lines": [
+        {
+          "bbox": [
+            57.75,
+            523.54,
+            74.13,
+            534.6
+          ],
+          "spans": [
+            {
+              "text": "TIP",
+              "bbox": [
+                57.75,
+                523.54,
+                74.13,
+                534.6
+              ],
+              "font": "LiberationSans-Bold",
+              "size": 9.9,
+              "flags": 16,
+              "color": 949350
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "bbox": [
+        57.75,
+        540.91,
+        510.9,
+        552.75
+      ],
+      "lines": [
+        {
+          "bbox": [
+            57.75,
+            540.91,
+            510.9,
+            552.75
+          ],
+          "spans": [
+            {
+              "text": "Privacy levels still matter in Power Query. If two sources have incompatible privacy levels, Power",
+              "bbox": [
+                57.75,
+                540.91,
+                510.9,
+                552.75
+              ],
+              "font": "LiberationSans",
+              "size": 10.6,
+              "flags": 0,
+              "color": 1776415
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "bbox": [
+        57.75,
+        558.16,
+        529.38,
+        570.0
+      ],
+      "lines": [
+        {
+          "bbox": [
+            57.75,
+            558.16,
+            529.38,
+            570.0
+          ],
+          "spans": [
+            {
+              "text": "Query refuses to fold the query and may run it in a slower, memory-heavy way — or fail outright. See",
+              "bbox": [
+                57.75,
+                558.16,
+                529.38,
+                570.0
+              ],
+              "font": "LiberationSans",
+              "size": 10.6,
+              "flags": 0,
+              "color": 1776415
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "bbox": [
+        57.75,
+        575.41,
+        151.39,
+        587.25
+      ],
+      "lines": [
+        {
+          "bbox": [
+            57.75,
+            575.41,
+            151.39,
+            587.25
+          ],
+          "spans": [
+            {
+              "text": "connector overview",
+              "bbox": [
+                57.75,
+                575.41,
+                149.02,
+                587.25
+              ],
+              "font": "LiberationSans",
+              "size": 10.6,
+              "flags": 0,
+              "color": 1010877
+            },
+            {
+              "text": ".",
+              "bbox": [
+                148.44,
+                575.41,
+                151.39,
+                587.25
+              ],
+              "font": "LiberationSans",
+              "size": 10.6,
+              "flags": 0,
+              "color": 1776415
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "bbox": [
+        44.25,
+        621.8,
+        407.72,
+        636.55
+      ],
+      "lines": [
+        {
+          "bbox": [
+            44.25,
+            621.8,
+            407.72,
+            636.55
+          ],
+          "spans": [
+            {
+              "text": "4.2 Discovering data: OneLake catalog and Real-Time hub",
+              "bbox": [
+                44.25,
+                621.8,
+                407.72,
+                636.55
+              ],
+              "font": "LiberationSans-Bold",
+              "size": 13.2,
+              "flags": 16,
+              "color": 949350
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "bbox": [
+        44.25,
+        648.16,
+        542.45,
+        660.0
+      ],
+      "lines": [
+        {
+          "bbox": [
+            44.25,
+            648.16,
+            542.45,
+            660.0
+          ],
+          "spans": [
+            {
+              "text": "The ",
+              "bbox": [
+                44.25,
+                648.16,
+                65.45,
+                660.0
+              ],
+              "font": "LiberationSans",
+              "size": 10.6,
+              "flags": 0,
+              "color": 1776415
+            },
+            {
+              "text": "OneLake catalog",
+              "bbox": [
+                65.45,
+                648.16,
+                145.55,
+                660.0
+              ],
+              "font": "LiberationSans",
+              "size": 10.6,
+              "flags": 0,
+              "color": 1010877
+            },
+            {
+              "text": " is the tenant-wide place to find data you are allowed to see. It shows items with their",
+              "bbox": [
+                145.56,
+                648.16,
+                542.45,
+                660.0
+              ],
+              "font": "LiberationSans",
+              "size": 10.6,
+              "flags": 0,
+              "color": 1776415
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "bbox": [
+        44.25,
+        665.41,
+        493.56,
+        677.25
+      ],
+      "lines": [
+        {
+          "bbox": [
+            44.25,
+            665.41,
+            493.56,
+            677.25
+          ],
+          "spans": [
+            {
+              "text": "endorsement, sensitivity label, owner, and lineage, and it lets you filter by domain and item type.",
+              "bbox": [
+                44.25,
+                665.41,
+                493.56,
+                677.25
+              ],
+              "font": "LiberationSans",
+              "size": 10.6,
+              "flags": 0,
+              "color": 1776415
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "bbox": [
+        44.25,
+        682.66,
+        394.05,
+        694.5
+      ],
+      "lines": [
+        {
+          "bbox": [
+            44.25,
+            682.66,
+            394.05,
+            694.5
+          ],
+          "spans": [
+            {
+              "text": "Governance views help admins see coverage of labels and endorsements.",
+              "bbox": [
+                44.25,
+                682.66,
+                394.05,
+                694.5
+              ],
+              "font": "LiberationSans",
+              "size": 10.6,
+              "flags": 0,
+              "color": 1776415
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "bbox": [
+        44.25,
+        705.91,
+        533.75,
+        717.75
+      ],
+      "lines": [
+        {
+          "bbox": [
+            44.25,
+            705.91,
+            533.75,
+            717.75
+          ],
+          "spans": [
+            {
+              "text": "The ",
+              "bbox": [
+                44.25,
+                705.91,
+                65.45,
+                717.75
+              ],
+              "font": "LiberationSans",
+              "size": 10.6,
+              "flags": 0,
+              "color": 1776415
+            },
+            {
+              "text": "Real-Time hub",
+              "bbox": [
+                65.45,
+                705.91,
+                134.53,
+                717.75
+              ],
+              "font": "LiberationSans",
+              "size": 10.6,
+              "flags": 0,
+              "color": 1010877
+            },
+            {
+              "text": " is the equivalent for data ",
+              "bbox": [
+                134.53,
+                705.91,
+                255.85,
+                717.75
+              ],
+              "font": "LiberationSans",
+              "size": 10.6,
+              "flags": 0,
+              "color": 1776415
+            },
+            {
+              "text": "in motion",
+              "bbox": [
+                255.86,
+                705.91,
+                303.52,
+                717.75
+              ],
+              "font": "LiberationSans-Bold",
+              "size": 10.6,
+              "flags": 16,
+              "color": 1184282
+            },
+            {
+              "text": ": every eventstream, Fabric event, and streaming",
+              "bbox": [
+                303.53,
+                705.91,
+                533.75,
+                717.75
+              ],
+              "font": "LiberationSans",
+              "size": 10.6,
+              "flags": 0,
+              "color": 1776415
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "bbox": [
+        44.25,
+        723.16,
+        545.38,
+        735.0
+      ],
+      "lines": [
+        {
+          "bbox": [
+            44.25,
+            723.16,
+            545.38,
+            735.0
+          ],
+          "spans": [
+            {
+              "text": "source in the tenant, with previews and one-click actions to send a stream to an eventhouse or set an alert.",
+              "bbox": [
+                44.25,
+                723.16,
+                545.38,
+                735.0
+              ],
+              "font": "LiberationSans",
+              "size": 10.6,
+              "flags": 0,
+              "color": 1776415
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

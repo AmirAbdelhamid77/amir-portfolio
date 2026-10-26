@@ -1,0 +1,18 @@
+{
+  "lesson_id": "dp600-c2-s09",
+  "source_sections": [
+    18
+  ],
+  "blocks": [
+    {
+      "id": "dp600-c2-s09-p018",
+      "kind": "source_fragment",
+      "source_page": 18,
+      "source_start_line": 1,
+      "source_text": "2.9 Chapter 2 self-check\n1. An analyst must run T-SQL queries against a warehouse but must not read files with Spark. What do you\ngrant?\n2. Where do you configure a rule that hides the Salary  column from everyone except HR, enforced for\nSpark and SQL and Direct Lake?\n3. A user can open a report but cannot create a new one from the same semantic model. What is missing?\n4. Who is allowed to mark a semantic model as Certified?\n5. Why does a workspace Member still see all rows despite an RLS role being defined?\nAnswers. 1. Workspace Viewer plus the ReadData  item permission (not ReadAll ). 2. OneLake\nsecurity data access roles — SQL DENY  alone would not cover Spark. 3. The Build permission on the\nsemantic model. 4. Only reviewers explicitly nominated by the Fabric tenant administrator. 5. Semantic-\nmodel RLS does not apply to users with Write access on the model.",
+      "presentation_status": "needs-editorial-layout-conversion",
+      "recommended_renderer": "SourceFragment"
+    }
+  ],
+  "warning": "Source fragments are NOT native formatted prose, tables or runnable code."
+}

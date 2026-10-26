@@ -1,0 +1,28 @@
+{
+  "lesson_id": "dp600-6-intro",
+  "source_sections": [
+    34,
+    37
+  ],
+  "blocks": [
+    {
+      "id": "dp600-6-intro-p034",
+      "kind": "source_fragment",
+      "source_page": 34,
+      "source_start_line": 1,
+      "source_text": "Chapter 6 — Prepare data, part 3: query and analyse\nEXAM FOCUS\nQuery and analyze data — select, filter, and aggregate data by using the Visual query editor · by\nusing SQL · by using KQL · by using DAX.\nDP-600 expects you to read and write four query surfaces. You will not be asked to write 50 lines of\nanything, but you will be asked to pick the correct expression out of four plausible ones.",
+      "presentation_status": "needs-editorial-layout-conversion",
+      "recommended_renderer": "SourceFragment"
+    },
+    {
+      "id": "dp600-6-intro-p037",
+      "kind": "source_fragment",
+      "source_page": 37,
+      "source_start_line": 1,
+      "source_text": "-- T-SQL\nSELECT TOP (5) c.CategoryName, SUM(f.SalesAmount) AS Sales\nFROM dbo.FactSales f\nJOIN dbo.DimProduct c ON c.ProductKey = f.ProductKey\nJOIN dbo.DimDate d    ON d.DateKey    = f.DateKey\nWHERE d.CalendarYear = 2026\nGROUP BY c.CategoryName\nORDER BY Sales DESC;\n// KQL\nSales\n| where Year == 2026\n| summarize Sales = sum(SalesAmount) by CategoryName\n| top 5 by Sales desc\n// DAX\nTop5Categories2026 =\nTOPN (\n    5,\n    SUMMARIZECOLUMNS (\n        DimProduct[CategoryName],\n        TREATAS ( { 2026 }, DimDate[CalendarYear] ),\n        \"Sales\", [Total Sales]\n    ),\n    [Sales], DESC\n)",
+      "presentation_status": "needs-editorial-layout-conversion",
+      "recommended_renderer": "SourceFragment"
+    }
+  ],
+  "warning": "Source fragments are NOT native formatted prose, tables or runnable code."
+}

@@ -1,0 +1,1327 @@
+{
+  "page": 32,
+  "width": 594.9599609375,
+  "height": 841.9199829101562,
+  "blocks": [
+    {
+      "bbox": [
+        57.0,
+        52.76,
+        244.85,
+        75.36
+      ],
+      "lines": [
+        {
+          "bbox": [
+            57.0,
+            52.76,
+            244.85,
+            62.61
+          ],
+          "spans": [
+            {
+              "text": "CREATE VIEW dbo.vSalesCurrentYear AS",
+              "bbox": [
+                57.0,
+                52.76,
+                244.85,
+                62.61
+              ],
+              "font": "LiberationMono",
+              "size": 8.7,
+              "flags": 8,
+              "color": 15330805
+            }
+          ]
+        },
+        {
+          "bbox": [
+            57.0,
+            65.51,
+            192.67,
+            75.36
+          ],
+          "spans": [
+            {
+              "text": "SELECT f.*, d.CalendarYear",
+              "bbox": [
+                57.0,
+                65.51,
+                192.67,
+                75.36
+              ],
+              "font": "LiberationMono",
+              "size": 8.7,
+              "flags": 8,
+              "color": 15330805
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "bbox": [
+        57.0,
+        79.01,
+        317.9,
+        101.61
+      ],
+      "lines": [
+        {
+          "bbox": [
+            57.0,
+            79.01,
+            187.45,
+            88.86
+          ],
+          "spans": [
+            {
+              "text": "FROM   dbo.FactSales AS f",
+              "bbox": [
+                57.0,
+                79.01,
+                187.45,
+                88.86
+              ],
+              "font": "LiberationMono",
+              "size": 8.7,
+              "flags": 8,
+              "color": 15330805
+            }
+          ]
+        },
+        {
+          "bbox": [
+            57.0,
+            91.76,
+            317.9,
+            101.61
+          ],
+          "spans": [
+            {
+              "text": "JOIN   dbo.DimDate   AS d ON d.DateKey = f.DateKey",
+              "bbox": [
+                57.0,
+                91.76,
+                317.9,
+                101.61
+              ],
+              "font": "LiberationMono",
+              "size": 8.7,
+              "flags": 8,
+              "color": 15330805
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "bbox": [
+        57.0,
+        105.26,
+        265.72,
+        127.86
+      ],
+      "lines": [
+        {
+          "bbox": [
+            57.0,
+            105.26,
+            265.72,
+            115.11
+          ],
+          "spans": [
+            {
+              "text": "WHERE  d.CalendarYear = YEAR(GETDATE());",
+              "bbox": [
+                57.0,
+                105.26,
+                265.72,
+                115.11
+              ],
+              "font": "LiberationMono",
+              "size": 8.7,
+              "flags": 8,
+              "color": 15330805
+            }
+          ]
+        },
+        {
+          "bbox": [
+            57.0,
+            118.01,
+            67.44,
+            127.86
+          ],
+          "spans": [
+            {
+              "text": "GO",
+              "bbox": [
+                57.0,
+                118.01,
+                67.44,
+                127.86
+              ],
+              "font": "LiberationMono",
+              "size": 8.7,
+              "flags": 8,
+              "color": 15330805
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "bbox": [
+        57.0,
+        144.26,
+        260.51,
+        166.86
+      ],
+      "lines": [
+        {
+          "bbox": [
+            57.0,
+            144.26,
+            260.51,
+            154.11
+          ],
+          "spans": [
+            {
+              "text": "CREATE PROCEDURE dbo.usp_LoadDimProduct",
+              "bbox": [
+                57.0,
+                144.26,
+                260.51,
+                154.11
+              ],
+              "font": "LiberationMono",
+              "size": 8.7,
+              "flags": 8,
+              "color": 15330805
+            }
+          ]
+        },
+        {
+          "bbox": [
+            57.0,
+            157.01,
+            67.44,
+            166.86
+          ],
+          "spans": [
+            {
+              "text": "AS",
+              "bbox": [
+                57.0,
+                157.01,
+                67.44,
+                166.86
+              ],
+              "font": "LiberationMono",
+              "size": 8.7,
+              "flags": 8,
+              "color": 15330805
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "bbox": [
+        57.0,
+        170.51,
+        396.19,
+        205.86
+      ],
+      "lines": [
+        {
+          "bbox": [
+            57.0,
+            170.51,
+            83.09,
+            180.36
+          ],
+          "spans": [
+            {
+              "text": "BEGIN",
+              "bbox": [
+                57.0,
+                170.51,
+                83.09,
+                180.36
+              ],
+              "font": "LiberationMono",
+              "size": 8.7,
+              "flags": 8,
+              "color": 15330805
+            }
+          ]
+        },
+        {
+          "bbox": [
+            57.0,
+            183.26,
+            218.77,
+            193.11
+          ],
+          "spans": [
+            {
+              "text": "    MERGE dbo.DimProduct AS tgt",
+              "bbox": [
+                57.0,
+                183.26,
+                218.77,
+                193.11
+              ],
+              "font": "LiberationMono",
+              "size": 8.7,
+              "flags": 8,
+              "color": 15330805
+            }
+          ]
+        },
+        {
+          "bbox": [
+            57.0,
+            196.01,
+            396.19,
+            205.86
+          ],
+          "spans": [
+            {
+              "text": "    USING stg.Product     AS src ON tgt.ProductId = src.ProductId",
+              "bbox": [
+                57.0,
+                196.01,
+                396.19,
+                205.86
+              ],
+              "font": "LiberationMono",
+              "size": 8.7,
+              "flags": 8,
+              "color": 15330805
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "bbox": [
+        57.0,
+        209.51,
+        333.57,
+        244.86
+      ],
+      "lines": [
+        {
+          "bbox": [
+            57.0,
+            209.51,
+            323.13,
+            219.36
+          ],
+          "spans": [
+            {
+              "text": "    WHEN MATCHED AND tgt.ListPrice <> src.ListPrice",
+              "bbox": [
+                57.0,
+                209.51,
+                323.13,
+                219.36
+              ],
+              "font": "LiberationMono",
+              "size": 8.7,
+              "flags": 8,
+              "color": 15330805
+            }
+          ]
+        },
+        {
+          "bbox": [
+            57.0,
+            222.26,
+            333.57,
+            232.11
+          ],
+          "spans": [
+            {
+              "text": "        THEN UPDATE SET tgt.ListPrice = src.ListPrice",
+              "bbox": [
+                57.0,
+                222.26,
+                333.57,
+                232.11
+              ],
+              "font": "LiberationMono",
+              "size": 8.7,
+              "flags": 8,
+              "color": 15330805
+            }
+          ]
+        },
+        {
+          "bbox": [
+            57.0,
+            235.01,
+            213.55,
+            244.86
+          ],
+          "spans": [
+            {
+              "text": "    WHEN NOT MATCHED BY TARGET",
+              "bbox": [
+                57.0,
+                235.01,
+                213.55,
+                244.86
+              ],
+              "font": "LiberationMono",
+              "size": 8.7,
+              "flags": 8,
+              "color": 15330805
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "bbox": [
+        57.0,
+        248.51,
+        411.83,
+        271.11
+      ],
+      "lines": [
+        {
+          "bbox": [
+            57.0,
+            248.51,
+            344.0,
+            258.36
+          ],
+          "spans": [
+            {
+              "text": "        THEN INSERT (ProductId, ProductName, ListPrice)",
+              "bbox": [
+                57.0,
+                248.51,
+                344.0,
+                258.36
+              ],
+              "font": "LiberationMono",
+              "size": 8.7,
+              "flags": 8,
+              "color": 15330805
+            }
+          ]
+        },
+        {
+          "bbox": [
+            57.0,
+            261.26,
+            411.83,
+            271.11
+          ],
+          "spans": [
+            {
+              "text": "             VALUES (src.ProductId, src.ProductName, src.ListPrice);",
+              "bbox": [
+                57.0,
+                261.26,
+                411.83,
+                271.11
+              ],
+              "font": "LiberationMono",
+              "size": 8.7,
+              "flags": 8,
+              "color": 15330805
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "bbox": [
+        57.0,
+        274.76,
+        77.87,
+        284.61
+      ],
+      "lines": [
+        {
+          "bbox": [
+            57.0,
+            274.76,
+            77.87,
+            284.61
+          ],
+          "spans": [
+            {
+              "text": "END;",
+              "bbox": [
+                57.0,
+                274.76,
+                77.87,
+                284.61
+              ],
+              "font": "LiberationMono",
+              "size": 8.7,
+              "flags": 8,
+              "color": 15330805
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "bbox": [
+        44.25,
+        305.41,
+        512.96,
+        317.25
+      ],
+      "lines": [
+        {
+          "bbox": [
+            44.25,
+            305.41,
+            512.96,
+            317.25
+          ],
+          "spans": [
+            {
+              "text": "Call the procedure from a pipeline with a ",
+              "bbox": [
+                44.25,
+                305.41,
+                236.81,
+                317.25
+              ],
+              "font": "LiberationSans",
+              "size": 10.6,
+              "flags": 0,
+              "color": 1776415
+            },
+            {
+              "text": "Stored procedure activity",
+              "bbox": [
+                236.81,
+                305.41,
+                364.56,
+                317.25
+              ],
+              "font": "LiberationSans-Bold",
+              "size": 10.6,
+              "flags": 16,
+              "color": 1184282
+            },
+            {
+              "text": ", or from a notebook. Check the",
+              "bbox": [
+                364.57,
+                305.41,
+                512.96,
+                317.25
+              ],
+              "font": "LiberationSans",
+              "size": 10.6,
+              "flags": 0,
+              "color": 1776415
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "bbox": [
+        44.25,
+        322.66,
+        498.26,
+        334.5
+      ],
+      "lines": [
+        {
+          "bbox": [
+            44.25,
+            322.66,
+            498.26,
+            334.5
+          ],
+          "spans": [
+            {
+              "text": "supported surface area before you assume a T-SQL feature exists: ",
+              "bbox": [
+                44.25,
+                322.66,
+                359.88,
+                334.5
+              ],
+              "font": "LiberationSans",
+              "size": 10.6,
+              "flags": 0,
+              "color": 1776415
+            },
+            {
+              "text": "T-SQL surface area in Fabric",
+              "bbox": [
+                359.7,
+                322.66,
+                495.31,
+                334.5
+              ],
+              "font": "LiberationSans",
+              "size": 10.6,
+              "flags": 0,
+              "color": 1010877
+            },
+            {
+              "text": ".",
+              "bbox": [
+                495.32,
+                322.66,
+                498.26,
+                334.5
+              ],
+              "font": "LiberationSans",
+              "size": 10.6,
+              "flags": 0,
+              "color": 1776415
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "bbox": [
+        57.75,
+        355.54,
+        172.33,
+        366.6
+      ],
+      "lines": [
+        {
+          "bbox": [
+            57.75,
+            355.54,
+            172.33,
+            366.6
+          ],
+          "spans": [
+            {
+              "text": "COMMON EXAM TRAP",
+              "bbox": [
+                57.75,
+                355.54,
+                172.33,
+                366.6
+              ],
+              "font": "LiberationSans-Bold",
+              "size": 9.9,
+              "flags": 16,
+              "color": 11545143
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "bbox": [
+        57.75,
+        373.28,
+        492.3,
+        385.58
+      ],
+      "lines": [
+        {
+          "bbox": [
+            57.75,
+            373.28,
+            492.3,
+            385.58
+          ],
+          "spans": [
+            {
+              "text": "The lakehouse SQL analytics endpoint is ",
+              "bbox": [
+                57.75,
+                373.66,
+                252.28,
+                385.5
+              ],
+              "font": "LiberationSans",
+              "size": 10.6,
+              "flags": 0,
+              "color": 1776415
+            },
+            {
+              "text": "read-only",
+              "bbox": [
+                252.28,
+                373.66,
+                299.96,
+                385.5
+              ],
+              "font": "LiberationSans-Bold",
+              "size": 10.6,
+              "flags": 16,
+              "color": 1184282
+            },
+            {
+              "text": ". Any scenario requiring ",
+              "bbox": [
+                299.96,
+                373.66,
+                413.62,
+                385.5
+              ],
+              "font": "LiberationSans",
+              "size": 10.6,
+              "flags": 0,
+              "color": 1776415
+            },
+            {
+              "text": "MERGE",
+              "bbox": [
+                417.38,
+                375.38,
+                444.38,
+                385.58
+              ],
+              "font": "LiberationMono",
+              "size": 9.0,
+              "flags": 8,
+              "color": 1122867
+            },
+            {
+              "text": " , a stored",
+              "bbox": [
+                444.38,
+                373.28,
+                492.3,
+                385.5
+              ],
+              "font": "LiberationSans",
+              "size": 10.6,
+              "flags": 0,
+              "color": 1776415
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "bbox": [
+        57.75,
+        390.91,
+        528.24,
+        402.75
+      ],
+      "lines": [
+        {
+          "bbox": [
+            57.75,
+            390.91,
+            528.24,
+            402.75
+          ],
+          "spans": [
+            {
+              "text": "procedure, or a multi-table transaction over lakehouse tables must either move the logic into a Spark",
+              "bbox": [
+                57.75,
+                390.91,
+                528.24,
+                402.75
+              ],
+              "font": "LiberationSans",
+              "size": 10.6,
+              "flags": 0,
+              "color": 1776415
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "bbox": [
+        57.75,
+        408.16,
+        539.31,
+        420.83
+      ],
+      "lines": [
+        {
+          "bbox": [
+            57.75,
+            408.16,
+            539.31,
+            420.83
+          ],
+          "spans": [
+            {
+              "text": "notebook (",
+              "bbox": [
+                57.75,
+                408.16,
+                107.81,
+                420.0
+              ],
+              "font": "LiberationSans",
+              "size": 10.6,
+              "flags": 0,
+              "color": 1776415
+            },
+            {
+              "text": " MERGE INTO",
+              "bbox": [
+                107.81,
+                410.26,
+                165.56,
+                420.83
+              ],
+              "font": "LiberationMono",
+              "size": 9.0,
+              "flags": 8,
+              "color": 1122867
+            },
+            {
+              "text": "  in Spark SQL works on Delta tables) or move the Gold layer into a warehouse.",
+              "bbox": [
+                165.56,
+                408.16,
+                539.31,
+                420.37
+              ],
+              "font": "LiberationSans",
+              "size": 10.6,
+              "flags": 0,
+              "color": 1776415
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "bbox": [
+        44.25,
+        444.91,
+        206.2,
+        456.75
+      ],
+      "lines": [
+        {
+          "bbox": [
+            44.25,
+            444.91,
+            206.2,
+            456.75
+          ],
+          "spans": [
+            {
+              "text": "The Spark equivalent of an upsert:",
+              "bbox": [
+                44.25,
+                444.91,
+                206.2,
+                456.75
+              ],
+              "font": "LiberationSans",
+              "size": 10.6,
+              "flags": 0,
+              "color": 1776415
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "bbox": [
+        57.0,
+        475.76,
+        83.09,
+        485.61
+      ],
+      "lines": [
+        {
+          "bbox": [
+            57.0,
+            475.76,
+            83.09,
+            485.61
+          ],
+          "spans": [
+            {
+              "text": "%%sql",
+              "bbox": [
+                57.0,
+                475.76,
+                83.09,
+                485.61
+              ],
+              "font": "LiberationMono",
+              "size": 8.7,
+              "flags": 8,
+              "color": 15330805
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "bbox": [
+        57.0,
+        489.26,
+        244.85,
+        524.61
+      ],
+      "lines": [
+        {
+          "bbox": [
+            57.0,
+            489.26,
+            239.63,
+            499.11
+          ],
+          "spans": [
+            {
+              "text": "MERGE INTO silver.DimProduct AS tgt",
+              "bbox": [
+                57.0,
+                489.26,
+                239.63,
+                499.11
+              ],
+              "font": "LiberationMono",
+              "size": 8.7,
+              "flags": 8,
+              "color": 15330805
+            }
+          ]
+        },
+        {
+          "bbox": [
+            57.0,
+            502.01,
+            244.85,
+            511.86
+          ],
+          "spans": [
+            {
+              "text": "USING bronze.product          AS src",
+              "bbox": [
+                57.0,
+                502.01,
+                244.85,
+                511.86
+              ],
+              "font": "LiberationMono",
+              "size": 8.7,
+              "flags": 8,
+              "color": 15330805
+            }
+          ]
+        },
+        {
+          "bbox": [
+            57.0,
+            514.76,
+            239.64,
+            524.61
+          ],
+          "spans": [
+            {
+              "text": "   ON tgt.ProductId = src.ProductId",
+              "bbox": [
+                57.0,
+                514.76,
+                239.64,
+                524.61
+              ],
+              "font": "LiberationMono",
+              "size": 8.7,
+              "flags": 8,
+              "color": 15330805
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "bbox": [
+        57.0,
+        528.26,
+        474.45,
+        563.61
+      ],
+      "lines": [
+        {
+          "bbox": [
+            57.0,
+            528.26,
+            474.45,
+            538.11
+          ],
+          "spans": [
+            {
+              "text": "WHEN MATCHED AND tgt.ListPrice <> src.ListPrice THEN UPDATE SET tgt.ListPrice = ",
+              "bbox": [
+                57.0,
+                528.26,
+                474.45,
+                538.11
+              ],
+              "font": "LiberationMono",
+              "size": 8.7,
+              "flags": 8,
+              "color": 15330805
+            }
+          ]
+        },
+        {
+          "bbox": [
+            57.0,
+            541.01,
+            124.84,
+            550.86
+          ],
+          "spans": [
+            {
+              "text": "src.ListPrice",
+              "bbox": [
+                57.0,
+                541.01,
+                124.84,
+                550.86
+              ],
+              "font": "LiberationMono",
+              "size": 8.7,
+              "flags": 8,
+              "color": 15330805
+            }
+          ]
+        },
+        {
+          "bbox": [
+            57.0,
+            553.76,
+            218.76,
+            563.61
+          ],
+          "spans": [
+            {
+              "text": "WHEN NOT MATCHED THEN INSERT *;",
+              "bbox": [
+                57.0,
+                553.76,
+                218.76,
+                563.61
+              ],
+              "font": "LiberationMono",
+              "size": 8.7,
+              "flags": 8,
+              "color": 15330805
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "bbox": [
+        44.25,
+        596.3,
+        195.33,
+        611.05
+      ],
+      "lines": [
+        {
+          "bbox": [
+            44.25,
+            596.3,
+            195.33,
+            611.05
+          ],
+          "spans": [
+            {
+              "text": "5.6 Chapter 5 self-check",
+              "bbox": [
+                44.25,
+                596.3,
+                195.33,
+                611.05
+              ],
+              "font": "LiberationSans-Bold",
+              "size": 13.2,
+              "flags": 16,
+              "color": 949350
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "bbox": [
+        46.77,
+        623.41,
+        535.95,
+        635.25
+      ],
+      "lines": [
+        {
+          "bbox": [
+            46.77,
+            623.41,
+            535.95,
+            635.25
+          ],
+          "spans": [
+            {
+              "text": "1. A dataflow that ran in 3 minutes now takes 40. The only change was an added custom column early in",
+              "bbox": [
+                46.77,
+                623.41,
+                535.95,
+                635.25
+              ],
+              "font": "LiberationSans",
+              "size": 10.6,
+              "flags": 0,
+              "color": 1776415
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "bbox": [
+        58.56,
+        640.66,
+        188.52,
+        652.5
+      ],
+      "lines": [
+        {
+          "bbox": [
+            58.56,
+            640.66,
+            188.52,
+            652.5
+          ],
+          "spans": [
+            {
+              "text": "the query. What happened?",
+              "bbox": [
+                58.56,
+                640.66,
+                188.52,
+                652.5
+              ],
+              "font": "LiberationSans",
+              "size": 10.6,
+              "flags": 0,
+              "color": 1776415
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "bbox": [
+        46.77,
+        660.16,
+        522.22,
+        672.0
+      ],
+      "lines": [
+        {
+          "bbox": [
+            46.77,
+            660.16,
+            522.22,
+            672.0
+          ],
+          "spans": [
+            {
+              "text": "2. You need an auto-incrementing surrogate key in a Fabric warehouse dimension. What do you use?",
+              "bbox": [
+                46.77,
+                660.16,
+                522.22,
+                672.0
+              ],
+              "font": "LiberationSans",
+              "size": 10.6,
+              "flags": 0,
+              "color": 1776415
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "bbox": [
+        46.77,
+        679.66,
+        516.12,
+        691.5
+      ],
+      "lines": [
+        {
+          "bbox": [
+            46.77,
+            679.66,
+            516.12,
+            691.5
+          ],
+          "spans": [
+            {
+              "text": "3. Which object cannot be created in a lakehouse SQL analytics endpoint: view, inline TVF, or stored",
+              "bbox": [
+                46.77,
+                679.66,
+                516.12,
+                691.5
+              ],
+              "font": "LiberationSans",
+              "size": 10.6,
+              "flags": 0,
+              "color": 1776415
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "bbox": [
+        58.56,
+        696.91,
+        112.15,
+        708.75
+      ],
+      "lines": [
+        {
+          "bbox": [
+            58.56,
+            696.91,
+            112.15,
+            708.75
+          ],
+          "spans": [
+            {
+              "text": "procedure?",
+              "bbox": [
+                58.56,
+                696.91,
+                112.15,
+                708.75
+              ],
+              "font": "LiberationSans",
+              "size": 10.6,
+              "flags": 0,
+              "color": 1776415
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "bbox": [
+        46.77,
+        716.41,
+        347.09,
+        728.25
+      ],
+      "lines": [
+        {
+          "bbox": [
+            46.77,
+            716.41,
+            347.09,
+            728.25
+          ],
+          "spans": [
+            {
+              "text": "4. How do you keep only the most recent row per business key?",
+              "bbox": [
+                46.77,
+                716.41,
+                347.09,
+                728.25
+              ],
+              "font": "LiberationSans",
+              "size": 10.6,
+              "flags": 0,
+              "color": 1776415
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "bbox": [
+        46.77,
+        736.66,
+        549.67,
+        748.5
+      ],
+      "lines": [
+        {
+          "bbox": [
+            46.77,
+            736.66,
+            549.67,
+            748.5
+          ],
+          "spans": [
+            {
+              "text": "5. A date column arrives as text and 0.3% of values are malformed. How do you load the good rows without",
+              "bbox": [
+                46.77,
+                736.66,
+                549.67,
+                748.5
+              ],
+              "font": "LiberationSans",
+              "size": 10.6,
+              "flags": 0,
+              "color": 1776415
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "bbox": [
+        58.56,
+        753.91,
+        138.66,
+        765.75
+      ],
+      "lines": [
+        {
+          "bbox": [
+            58.56,
+            753.91,
+            138.66,
+            765.75
+          ],
+          "spans": [
+            {
+              "text": "failing the batch?",
+              "bbox": [
+                58.56,
+                753.91,
+                138.66,
+                765.75
+              ],
+              "font": "LiberationSans",
+              "size": 10.6,
+              "flags": 0,
+              "color": 1776415
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

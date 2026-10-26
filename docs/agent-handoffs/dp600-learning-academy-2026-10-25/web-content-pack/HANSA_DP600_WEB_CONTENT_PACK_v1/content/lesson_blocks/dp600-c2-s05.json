@@ -1,0 +1,18 @@
+{
+  "lesson_id": "dp600-c2-s05",
+  "source_sections": [
+    15
+  ],
+  "blocks": [
+    {
+      "id": "dp600-c2-s05-p015",
+      "kind": "source_fragment",
+      "source_page": 15,
+      "source_start_line": 19,
+      "source_text": "2.5 Row-level security (RLS)\nRLS filters rows. Fabric has three separate implementations, and the exam will test whether you know\nwhich is which.\n▸ RLS in a semantic model (DAX)\nDefine a role in Power BI Desktop (Modeling → Manage roles), write a DAX filter on a table, then assign\nusers or groups to the role in the Fabric service.\n-- Role \"Sales rep\": a rep sees only their own region.\n-- Applied to the DimSalesRep table, propagating to FactSales by relationship.\n[Email] = USERPRINCIPALNAME()\nA dynamic pattern that scales to thousands of users uses a mapping table:\n[RegionKey] =\nLOOKUPVALUE(\n    UserRegion[RegionKey],\n    UserRegion[UserEmail], USERPRINCIPALNAME()\n)\nDetails: row-level security with Power BI.",
+      "presentation_status": "needs-editorial-layout-conversion",
+      "recommended_renderer": "SourceFragment"
+    }
+  ],
+  "warning": "Source fragments are NOT native formatted prose, tables or runnable code."
+}

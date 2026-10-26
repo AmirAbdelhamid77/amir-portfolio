@@ -1,0 +1,842 @@
+{
+  "generatedBy": "scripts/install-beui.mjs",
+  "items": [
+    {
+      "slug": "funnel-chart",
+      "stableId": "react-web:funnel-chart",
+      "title": "Funnel Chart",
+      "license": "MIT",
+      "registryUrl": "https://beui.dev/r/funnel-chart.json",
+      "sourceHash": "95147b013bce0dcf11b36b13f2d71494036aeb024b402d4810bdecddee069415",
+      "dependencies": [
+        "@floating-ui/dom",
+        "clsx",
+        "motion",
+        "tailwind-merge"
+      ],
+      "registryDependencies": [],
+      "files": [
+        {
+          "file": "components/charts/funnel-chart.tsx",
+          "status": "unchanged"
+        },
+        {
+          "file": "components/charts/funnel-chart/model.ts",
+          "status": "unchanged"
+        },
+        {
+          "file": "components/motion/number-ticker.tsx",
+          "status": "unchanged"
+        },
+        {
+          "file": "components/motion/tooltip.tsx",
+          "status": "unchanged"
+        },
+        {
+          "file": "lib/ease.ts",
+          "status": "unchanged"
+        },
+        {
+          "file": "components/motion/tooltip/grace.ts",
+          "status": "unchanged"
+        },
+        {
+          "file": "components/motion/tooltip/positioner.tsx",
+          "status": "unchanged"
+        },
+        {
+          "file": "components/motion/tooltip/use-position.ts",
+          "status": "unchanged"
+        },
+        {
+          "file": "components/motion/tooltip-surface.tsx",
+          "status": "unchanged"
+        },
+        {
+          "file": "lib/hooks/use-dismiss.ts",
+          "status": "unchanged"
+        },
+        {
+          "file": "lib/hooks/use-hover-gesture.ts",
+          "status": "unchanged"
+        },
+        {
+          "file": "lib/hooks/use-tap-gesture.ts",
+          "status": "unchanged"
+        },
+        {
+          "file": "lib/touch.ts",
+          "status": "unchanged"
+        }
+      ],
+      "fetchedAt": "2026-10-25"
+    },
+    {
+      "slug": "treemap",
+      "stableId": "react-web:treemap",
+      "title": "Treemap",
+      "license": "MIT",
+      "registryUrl": "https://beui.dev/r/treemap.json",
+      "sourceHash": "3a31634a91a740602a8d72be6ab2311126e8187706581528f9fea491571b88ea",
+      "dependencies": [
+        "@floating-ui/dom",
+        "clsx",
+        "motion",
+        "tailwind-merge"
+      ],
+      "registryDependencies": [],
+      "files": [
+        {
+          "file": "components/charts/treemap.tsx",
+          "status": "unchanged"
+        },
+        {
+          "file": "components/charts/treemap/context.ts",
+          "status": "unchanged"
+        },
+        {
+          "file": "components/charts/treemap/legend.tsx",
+          "status": "unchanged"
+        },
+        {
+          "file": "components/charts/treemap/model.ts",
+          "status": "unchanged"
+        },
+        {
+          "file": "components/charts/treemap/plot.tsx",
+          "status": "unchanged"
+        },
+        {
+          "file": "components/charts/treemap/tooltip.tsx",
+          "status": "unchanged"
+        },
+        {
+          "file": "lib/hooks/use-hover-capable.ts",
+          "status": "unchanged"
+        },
+        {
+          "file": "lib/hooks/use-row-cursor.ts",
+          "status": "unchanged"
+        },
+        {
+          "file": "components/charts/treemap/tile.tsx",
+          "status": "unchanged"
+        },
+        {
+          "file": "components/motion/number-ticker.tsx",
+          "status": "unchanged"
+        },
+        {
+          "file": "components/motion/tooltip.tsx",
+          "status": "unchanged"
+        },
+        {
+          "file": "lib/ease.ts",
+          "status": "unchanged"
+        },
+        {
+          "file": "components/motion/tooltip/grace.ts",
+          "status": "unchanged"
+        },
+        {
+          "file": "components/motion/tooltip/positioner.tsx",
+          "status": "unchanged"
+        },
+        {
+          "file": "components/motion/tooltip/use-position.ts",
+          "status": "unchanged"
+        },
+        {
+          "file": "components/motion/tooltip-surface.tsx",
+          "status": "unchanged"
+        },
+        {
+          "file": "lib/hooks/use-dismiss.ts",
+          "status": "unchanged"
+        },
+        {
+          "file": "lib/hooks/use-hover-gesture.ts",
+          "status": "unchanged"
+        },
+        {
+          "file": "lib/hooks/use-tap-gesture.ts",
+          "status": "unchanged"
+        },
+        {
+          "file": "lib/touch.ts",
+          "status": "unchanged"
+        }
+      ],
+      "fetchedAt": "2026-10-25"
+    },
+    {
+      "slug": "composition-chart",
+      "stableId": "react-web:composition-chart",
+      "title": "Composition Chart",
+      "license": "MIT",
+      "registryUrl": "https://beui.dev/r/composition-chart.json",
+      "sourceHash": "b9fd4a69e7de35d60042d954506c4ed1fab7df1ef54a09ec596ab1b690a0900b",
+      "dependencies": [
+        "@floating-ui/dom",
+        "clsx",
+        "motion",
+        "tailwind-merge"
+      ],
+      "registryDependencies": [],
+      "files": [
+        {
+          "file": "components/charts/composition-chart.tsx",
+          "status": "created"
+        },
+        {
+          "file": "components/charts/composition-chart/context.tsx",
+          "status": "created"
+        },
+        {
+          "file": "components/charts/composition-chart/legend.tsx",
+          "status": "created"
+        },
+        {
+          "file": "components/charts/composition-chart/model.ts",
+          "status": "created"
+        },
+        {
+          "file": "components/charts/composition-chart/plot.tsx",
+          "status": "created"
+        },
+        {
+          "file": "lib/hooks/use-hover-capable.ts",
+          "status": "unchanged"
+        },
+        {
+          "file": "components/charts/composition-chart/tooltip-content.tsx",
+          "status": "created"
+        },
+        {
+          "file": "components/motion/tooltip.tsx",
+          "status": "unchanged"
+        },
+        {
+          "file": "lib/ease.ts",
+          "status": "unchanged"
+        },
+        {
+          "file": "components/motion/number-ticker.tsx",
+          "status": "unchanged"
+        },
+        {
+          "file": "components/motion/tooltip/grace.ts",
+          "status": "unchanged"
+        },
+        {
+          "file": "components/motion/tooltip/positioner.tsx",
+          "status": "unchanged"
+        },
+        {
+          "file": "components/motion/tooltip/use-position.ts",
+          "status": "unchanged"
+        },
+        {
+          "file": "components/motion/tooltip-surface.tsx",
+          "status": "unchanged"
+        },
+        {
+          "file": "lib/hooks/use-dismiss.ts",
+          "status": "unchanged"
+        },
+        {
+          "file": "lib/hooks/use-hover-gesture.ts",
+          "status": "unchanged"
+        },
+        {
+          "file": "lib/hooks/use-tap-gesture.ts",
+          "status": "unchanged"
+        },
+        {
+          "file": "lib/touch.ts",
+          "status": "unchanged"
+        }
+      ],
+      "fetchedAt": "2026-10-25"
+    },
+    {
+      "slug": "sankey-chart",
+      "stableId": "react-web:sankey-chart",
+      "title": "Sankey Chart",
+      "license": "MIT",
+      "registryUrl": "https://beui.dev/r/sankey-chart.json",
+      "sourceHash": "0cf396c26452352f13e00de8a940d8b37af2035a4edd7c1a11346104d8b19384",
+      "dependencies": [
+        "@floating-ui/dom",
+        "clsx",
+        "motion",
+        "tailwind-merge"
+      ],
+      "registryDependencies": [],
+      "files": [
+        {
+          "file": "components/charts/sankey-chart.tsx",
+          "status": "created"
+        },
+        {
+          "file": "components/charts/sankey-chart/context.tsx",
+          "status": "created"
+        },
+        {
+          "file": "components/charts/sankey-chart/model.ts",
+          "status": "created"
+        },
+        {
+          "file": "components/charts/sankey-chart/plot.tsx",
+          "status": "created"
+        },
+        {
+          "file": "components/charts/sankey-chart/tooltip.tsx",
+          "status": "created"
+        },
+        {
+          "file": "lib/hooks/use-hover-capable.ts",
+          "status": "unchanged"
+        },
+        {
+          "file": "lib/hooks/use-row-cursor.ts",
+          "status": "unchanged"
+        },
+        {
+          "file": "lib/ease.ts",
+          "status": "unchanged"
+        },
+        {
+          "file": "components/motion/number-ticker.tsx",
+          "status": "unchanged"
+        },
+        {
+          "file": "components/motion/tooltip.tsx",
+          "status": "unchanged"
+        },
+        {
+          "file": "components/motion/tooltip/grace.ts",
+          "status": "unchanged"
+        },
+        {
+          "file": "components/motion/tooltip/positioner.tsx",
+          "status": "unchanged"
+        },
+        {
+          "file": "components/motion/tooltip/use-position.ts",
+          "status": "unchanged"
+        },
+        {
+          "file": "components/motion/tooltip-surface.tsx",
+          "status": "unchanged"
+        },
+        {
+          "file": "lib/hooks/use-dismiss.ts",
+          "status": "unchanged"
+        },
+        {
+          "file": "lib/hooks/use-hover-gesture.ts",
+          "status": "unchanged"
+        },
+        {
+          "file": "lib/hooks/use-tap-gesture.ts",
+          "status": "unchanged"
+        },
+        {
+          "file": "lib/touch.ts",
+          "status": "unchanged"
+        }
+      ],
+      "fetchedAt": "2026-10-25"
+    },
+    {
+      "slug": "donut-chart",
+      "stableId": "react-web:donut-chart",
+      "title": "Donut Chart",
+      "license": "MIT",
+      "registryUrl": "https://beui.dev/r/donut-chart.json",
+      "sourceHash": "d190fda465db0d29202e9143be2804939bd99c0e2fcf5d954dc3b6eceb5e9f42",
+      "dependencies": [
+        "clsx",
+        "motion",
+        "tailwind-merge"
+      ],
+      "registryDependencies": [],
+      "files": [
+        {
+          "file": "components/charts/donut-chart.tsx",
+          "status": "created"
+        },
+        {
+          "file": "components/charts/donut-chart/center.tsx",
+          "status": "created"
+        },
+        {
+          "file": "components/charts/donut-chart/context.tsx",
+          "status": "created"
+        },
+        {
+          "file": "components/charts/donut-chart/legend.tsx",
+          "status": "created"
+        },
+        {
+          "file": "components/charts/donut-chart/model.ts",
+          "status": "created"
+        },
+        {
+          "file": "components/charts/donut-chart/plot.tsx",
+          "status": "created"
+        },
+        {
+          "file": "components/motion/digit-swap.tsx",
+          "status": "created"
+        },
+        {
+          "file": "lib/ease.ts",
+          "status": "unchanged"
+        },
+        {
+          "file": "lib/hooks/use-hover-capable.ts",
+          "status": "unchanged"
+        }
+      ],
+      "fetchedAt": "2026-10-25"
+    },
+    {
+      "slug": "animated-number",
+      "stableId": "react-web:animated-number",
+      "title": "Number Animation Animated Number",
+      "license": "MIT",
+      "registryUrl": "https://beui.dev/r/animated-number.json",
+      "sourceHash": "b2d0e0dfb8514cc66b0fff0292615b4716b33d2735d594d210e3d520bdcf0352",
+      "dependencies": [
+        "clsx",
+        "motion",
+        "tailwind-merge"
+      ],
+      "registryDependencies": [],
+      "files": [
+        {
+          "file": "components/motion/animated-number.tsx",
+          "status": "created"
+        },
+        {
+          "file": "lib/ease.ts",
+          "status": "unchanged"
+        }
+      ],
+      "fetchedAt": "2026-10-25"
+    },
+    {
+      "slug": "adaptive-stepper",
+      "stableId": "react-web:adaptive-stepper",
+      "title": "Adaptive Stepper",
+      "license": "MIT",
+      "registryUrl": "https://beui.dev/r/adaptive-stepper.json",
+      "sourceHash": "6ffab76a3cda4c9865abbeb1205ecb00c7ab14f3f9419315d433073b8e572fbc",
+      "dependencies": [
+        "clsx",
+        "lucide-react",
+        "motion",
+        "tailwind-merge"
+      ],
+      "registryDependencies": [],
+      "files": [
+        {
+          "file": "components/motion/adaptive-stepper.tsx",
+          "status": "created"
+        },
+        {
+          "file": "components/motion/liquid.tsx",
+          "status": "created"
+        },
+        {
+          "file": "lib/ease.ts",
+          "status": "unchanged"
+        }
+      ],
+      "fetchedAt": "2026-10-25"
+    },
+    {
+      "slug": "sortable-stack",
+      "stableId": "react-web:sortable-stack",
+      "title": "Sortable List",
+      "license": "MIT",
+      "registryUrl": "https://beui.dev/r/sortable-stack.json",
+      "sourceHash": "f7f62d6c80681bf9b764936391aa1847e2f499fb5e46542145fbc8c0a480f127",
+      "dependencies": [
+        "clsx",
+        "lucide-react",
+        "motion",
+        "tailwind-merge"
+      ],
+      "registryDependencies": [],
+      "files": [
+        {
+          "file": "components/motion/sortable-list.tsx",
+          "status": "created"
+        },
+        {
+          "file": "components/motion/sortable-stack.tsx",
+          "status": "created"
+        },
+        {
+          "file": "lib/ease.ts",
+          "status": "unchanged"
+        }
+      ],
+      "fetchedAt": "2026-10-25"
+    },
+    {
+      "slug": "prompt-input",
+      "stableId": "react-web:prompt-input",
+      "title": "Prompt Input",
+      "license": "MIT",
+      "registryUrl": "https://beui.dev/r/prompt-input.json",
+      "sourceHash": "883b637c92be87a3cc19f3c524656dfb303ff32af04bd29160971f20cefce4b4",
+      "dependencies": [
+        "clsx",
+        "lucide-react",
+        "motion",
+        "tailwind-merge"
+      ],
+      "registryDependencies": [],
+      "files": [
+        {
+          "file": "components/agents/prompt-input.tsx",
+          "status": "created"
+        },
+        {
+          "file": "components/motion/button/index.tsx",
+          "status": "created"
+        },
+        {
+          "file": "components/motion/popover-morph.tsx",
+          "status": "created"
+        },
+        {
+          "file": "components/motion/select.tsx",
+          "status": "created"
+        },
+        {
+          "file": "lib/ease.ts",
+          "status": "unchanged"
+        },
+        {
+          "file": "components/motion/button/base.tsx",
+          "status": "created"
+        },
+        {
+          "file": "components/motion/button/magnetic.tsx",
+          "status": "created"
+        },
+        {
+          "file": "components/motion/button/metallic.tsx",
+          "status": "created"
+        },
+        {
+          "file": "components/motion/button/stateful.tsx",
+          "status": "created"
+        },
+        {
+          "file": "components/motion/popover-position.ts",
+          "status": "created"
+        },
+        {
+          "file": "lib/focusable.ts",
+          "status": "created"
+        },
+        {
+          "file": "lib/hooks/use-listbox.ts",
+          "status": "created"
+        },
+        {
+          "file": "lib/hooks/use-hover-capable.ts",
+          "status": "unchanged"
+        },
+        {
+          "file": "components/motion/magnetic.tsx",
+          "status": "created"
+        },
+        {
+          "file": "lib/hooks/use-on-open.ts",
+          "status": "unchanged"
+        },
+        {
+          "file": "lib/hooks/use-row-cursor.ts",
+          "status": "unchanged"
+        }
+      ],
+      "fetchedAt": "2026-10-25"
+    },
+    {
+      "slug": "message",
+      "stableId": "react-web:message",
+      "title": "Message",
+      "license": "MIT",
+      "registryUrl": "https://beui.dev/r/message.json",
+      "sourceHash": "2a23078038ff914d9f0685833c7dcc204ca563478e7fd9ee9ed3e7937e326585",
+      "dependencies": [
+        "clsx",
+        "lucide-react",
+        "motion",
+        "tailwind-merge"
+      ],
+      "registryDependencies": [],
+      "files": [
+        {
+          "file": "components/agents/message.tsx",
+          "status": "created"
+        },
+        {
+          "file": "components/agents/message-bubble.tsx",
+          "status": "created"
+        },
+        {
+          "file": "components/agents/message-context.tsx",
+          "status": "created"
+        },
+        {
+          "file": "components/agents/message-scroller.tsx",
+          "status": "created"
+        },
+        {
+          "file": "lib/ease.ts",
+          "status": "unchanged"
+        },
+        {
+          "file": "components/motion/preview-rail.tsx",
+          "status": "created"
+        },
+        {
+          "file": "lib/hooks/use-dismiss.ts",
+          "status": "unchanged"
+        },
+        {
+          "file": "lib/hooks/use-hover-gesture.ts",
+          "status": "unchanged"
+        },
+        {
+          "file": "lib/hooks/use-tap-gesture.ts",
+          "status": "unchanged"
+        },
+        {
+          "file": "lib/touch.ts",
+          "status": "unchanged"
+        }
+      ],
+      "fetchedAt": "2026-10-25"
+    },
+    {
+      "slug": "streaming-response",
+      "stableId": "react-web:streaming-response",
+      "title": "Streaming Response",
+      "license": "MIT",
+      "registryUrl": "https://beui.dev/r/streaming-response.json",
+      "sourceHash": "676a102a878f02a3c9bea53ca5f2d3bc1953aeed5ccac3015e4bd12f81dd1229",
+      "dependencies": [
+        "clsx",
+        "lucide-react",
+        "motion",
+        "tailwind-merge"
+      ],
+      "registryDependencies": [],
+      "files": [
+        {
+          "file": "components/agents/streaming-response.tsx",
+          "status": "created"
+        },
+        {
+          "file": "components/agents/agent-disclosure.tsx",
+          "status": "created"
+        },
+        {
+          "file": "components/agents/citations.tsx",
+          "status": "created"
+        },
+        {
+          "file": "lib/ease.ts",
+          "status": "unchanged"
+        },
+        {
+          "file": "lib/hooks/use-favicon.ts",
+          "status": "created"
+        },
+        {
+          "file": "lib/favicon.ts",
+          "status": "created"
+        }
+      ],
+      "fetchedAt": "2026-10-25"
+    },
+    {
+      "slug": "reasoning-text",
+      "stableId": "react-web:reasoning-text",
+      "title": "Agent Loading States Reasoning Text",
+      "license": "MIT",
+      "registryUrl": "https://beui.dev/r/reasoning-text.json",
+      "sourceHash": "0826c61eba30f2006839c39e19da1f5899331bcfa4154c4e1077ab6ee34948dd",
+      "dependencies": [
+        "clsx",
+        "motion",
+        "tailwind-merge"
+      ],
+      "registryDependencies": [],
+      "files": [
+        {
+          "file": "components/agents/loading-states/reasoning-text.tsx",
+          "status": "created"
+        },
+        {
+          "file": "components/motion/loader.tsx",
+          "status": "created"
+        },
+        {
+          "file": "components/motion/text-scramble.tsx",
+          "status": "created"
+        },
+        {
+          "file": "lib/ease.ts",
+          "status": "unchanged"
+        },
+        {
+          "file": "lib/text-shimmer.ts",
+          "status": "created"
+        }
+      ],
+      "fetchedAt": "2026-10-25"
+    },
+    {
+      "slug": "agent-activity",
+      "stableId": "react-web:agent-activity",
+      "title": "Agent Activity",
+      "license": "MIT",
+      "registryUrl": "https://beui.dev/r/agent-activity.json",
+      "sourceHash": "99db6c379c1239f23cf3c86248d546c0f5c0ed7b372d9eeb3327ac5b74ead3d3",
+      "dependencies": [
+        "clsx",
+        "lucide-react",
+        "motion",
+        "tailwind-merge"
+      ],
+      "registryDependencies": [],
+      "files": [
+        {
+          "file": "components/agents/agent-activity/index.tsx",
+          "status": "created"
+        },
+        {
+          "file": "components/agents/agent-activity/activity-row.tsx",
+          "status": "created"
+        },
+        {
+          "file": "components/agents/agent-activity/types.ts",
+          "status": "created"
+        },
+        {
+          "file": "components/agents/agent-disclosure.tsx",
+          "status": "unchanged"
+        },
+        {
+          "file": "components/agents/loading-states/thinking-shimmer.tsx",
+          "status": "created"
+        },
+        {
+          "file": "lib/ease.ts",
+          "status": "unchanged"
+        },
+        {
+          "file": "components/motion/text-shimmer.tsx",
+          "status": "created"
+        },
+        {
+          "file": "lib/text-shimmer.ts",
+          "status": "unchanged"
+        }
+      ],
+      "fetchedAt": "2026-10-25"
+    },
+    {
+      "slug": "approval-card",
+      "stableId": "react-web:approval-card",
+      "title": "Approval Card",
+      "license": "MIT",
+      "registryUrl": "https://beui.dev/r/approval-card.json",
+      "sourceHash": "98510ce31c712b616b0839487a2b7985b3556e6bc843d0a7be2a72380042d1ab",
+      "dependencies": [
+        "clsx",
+        "lucide-react",
+        "motion",
+        "tailwind-merge"
+      ],
+      "registryDependencies": [],
+      "files": [
+        {
+          "file": "components/agents/approval-card/index.tsx",
+          "status": "created"
+        },
+        {
+          "file": "components/agents/approval-card/types.ts",
+          "status": "created"
+        },
+        {
+          "file": "components/agents/agent-disclosure.tsx",
+          "status": "unchanged"
+        },
+        {
+          "file": "components/motion/action-swap-roll.tsx",
+          "status": "created"
+        },
+        {
+          "file": "components/motion/button/index.tsx",
+          "status": "unchanged"
+        },
+        {
+          "file": "components/motion/checkbox.tsx",
+          "status": "created"
+        },
+        {
+          "file": "components/motion/input.tsx",
+          "status": "created"
+        },
+        {
+          "file": "components/motion/radio.tsx",
+          "status": "created"
+        },
+        {
+          "file": "lib/ease.ts",
+          "status": "unchanged"
+        },
+        {
+          "file": "components/motion/action-swap.tsx",
+          "status": "created"
+        },
+        {
+          "file": "components/motion/button/base.tsx",
+          "status": "unchanged"
+        },
+        {
+          "file": "components/motion/button/magnetic.tsx",
+          "status": "unchanged"
+        },
+        {
+          "file": "components/motion/button/metallic.tsx",
+          "status": "unchanged"
+        },
+        {
+          "file": "components/motion/button/stateful.tsx",
+          "status": "unchanged"
+        },
+        {
+          "file": "lib/hooks/use-hover-capable.ts",
+          "status": "unchanged"
+        },
+        {
+          "file": "components/motion/magnetic.tsx",
+          "status": "unchanged"
+        }
+      ],
+      "fetchedAt": "2026-10-25"
+    }
+  ]
+}

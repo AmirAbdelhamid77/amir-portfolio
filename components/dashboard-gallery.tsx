@@ -88,7 +88,7 @@ export function DashboardGallery({
               </span>
             </button>
             <figcaption className="flex items-start gap-2 px-4 py-3 text-xs leading-5 text-muted-foreground">
-              <span className="mt-0.5 font-mono text-[10px] text-foreground/50">
+              <span className="mt-0.5 font-mono text-[10px] text-muted-foreground">
                 {String(index + 1).padStart(2, "0")}
               </span>
               {shot.caption}

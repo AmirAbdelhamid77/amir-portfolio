@@ -1,0 +1,18 @@
+{
+  "lesson_id": "dp600-c11-s04",
+  "source_sections": [
+    54
+  ],
+  "blocks": [
+    {
+      "id": "dp600-c11-s04-p054",
+      "kind": "source_fragment",
+      "source_page": 54,
+      "source_start_line": 1,
+      "source_text": "11.4 Glossary\nTerm\nMeaning\nCapacity (F SKU)\nThe purchased pool of compute that workspaces run on\nCU\nCapacity Unit — the unit of compute consumption, smoothed over time\nOneLake\nThe tenant-wide logical data lake, Delta Parquet, one per tenant\nShortcut\nA pointer to data in another location, read in place\nMirroring\nManaged near-real-time replication of an external database into OneLake\nMedallion\nBronze (raw) → Silver (cleansed) → Gold (business-ready) layering\nDelta Lake\nThe open table format Fabric uses: Parquet files plus a transaction log\nV-Order\nA write-time optimisation of Parquet that speeds up reads by Fabric engines\nSQL analytics endpoint\nThe read-only T-SQL interface over a lakehouse's Delta tables\nSemantic model\nThe tabular model (tables, relationships, measures) that reports query\nDirect Lake\nStorage mode that reads Delta files from OneLake into memory on demand\nFraming\nThe metadata operation that points a Direct Lake model at the current Delta version\nTranscoding\nConverting a Delta column into the in-memory VertiPaq format on first use\nVertiPaq\nThe columnar, compressed in-memory engine behind Import and Direct Lake\nCalculation group\nA reusable set of calculation items applied to any measure\nField parameter\nA table that lets report users switch which field or measure a visual shows\nXMLA endpoint\nThe protocol that lets external tools read from and write to a semantic model\nTMDL\nTabular Model Definition Language — the text format of a model in a .pbip  project\nRLS / CLS / OLS\nRow-, column-, and object-level security\nEndorsement\nPromoted, Certified, or Master data trust marking on an item\nDomain\nA grouping of workspaces by business area for federated governance\nDeployment pipeline\nThe Fabric feature that promotes items between stage workspaces\nVariable library\nNamed values that resolve differently per deployment stage",
+      "presentation_status": "needs-editorial-layout-conversion",
+      "recommended_renderer": "SourceFragment"
+    }
+  ],
+  "warning": "Source fragments are NOT native formatted prose, tables or runnable code."
+}

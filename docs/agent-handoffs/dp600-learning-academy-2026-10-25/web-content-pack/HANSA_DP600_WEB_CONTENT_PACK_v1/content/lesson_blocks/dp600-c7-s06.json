@@ -1,0 +1,18 @@
+{
+  "lesson_id": "dp600-c7-s06",
+  "source_sections": [
+    42
+  ],
+  "blocks": [
+    {
+      "id": "dp600-c7-s06-p042",
+      "kind": "source_fragment",
+      "source_page": 42,
+      "source_start_line": 1,
+      "source_text": "7.6 Composite models\nComposite semantic model\none model, mixed sources\nDirect Lake\nlakehouse table\nImport\nExcel budget\nDirectQuery\nAzure SQL\nShared model\n(DirectQuery to AS)\nWatch out: mixed modes create limited relationships and can leak source latency into every visual\nA composite model mixes storage modes, and can chain onto another published semantic model.\nComposite models let one model combine Import tables, DirectQuery tables, Direct Lake tables, and even a\nDirectQuery connection to another semantic model.\nUse them when:\nA large fact table must stay at the source but small dimensions should be fast → DirectQuery fact + Dual\ndimensions.\nA central certified model must be extended locally with a team's own measures or a spreadsheet.\nTwo Direct Lake sources in different workspaces must appear as one model.\nWatch for: limited relationships (many-to-many or cross-source) that behave differently around blanks,\nsource latency leaking into visuals, and RLS that must be reasoned about per source. Guidance: composite\nmodel guidance.",
+      "presentation_status": "needs-editorial-layout-conversion",
+      "recommended_renderer": "SourceFragment"
+    }
+  ],
+  "warning": "Source fragments are NOT native formatted prose, tables or runnable code."
+}

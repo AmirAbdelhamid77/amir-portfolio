@@ -1,0 +1,1515 @@
+{
+  "page": 30,
+  "width": 594.9599609375,
+  "height": 841.9199829101562,
+  "blocks": [
+    {
+      "bbox": [
+        57.0,
+        52.76,
+        255.29,
+        75.36
+      ],
+      "lines": [
+        {
+          "bbox": [
+            57.0,
+            52.76,
+            255.29,
+            62.61
+          ],
+          "spans": [
+            {
+              "text": "from pyspark.sql import functions as F",
+              "bbox": [
+                57.0,
+                52.76,
+                255.29,
+                62.61
+              ],
+              "font": "LiberationMono",
+              "size": 8.7,
+              "flags": 8,
+              "color": 15330805
+            }
+          ]
+        },
+        {
+          "bbox": [
+            57.0,
+            65.51,
+            250.07,
+            75.36
+          ],
+          "spans": [
+            {
+              "text": "from pyspark.sql.window import Window",
+              "bbox": [
+                57.0,
+                65.51,
+                250.07,
+                75.36
+              ],
+              "font": "LiberationMono",
+              "size": 8.7,
+              "flags": 8,
+              "color": 15330805
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "bbox": [
+        57.0,
+        91.76,
+        265.72,
+        101.61
+      ],
+      "lines": [
+        {
+          "bbox": [
+            57.0,
+            91.76,
+            265.72,
+            101.61
+          ],
+          "spans": [
+            {
+              "text": "stg = spark.read.table(\"bronze.product\")",
+              "bbox": [
+                57.0,
+                91.76,
+                265.72,
+                101.61
+              ],
+              "font": "LiberationMono",
+              "size": 8.7,
+              "flags": 8,
+              "color": 15330805
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "bbox": [
+        57.0,
+        105.26,
+        229.2,
+        115.11
+      ],
+      "lines": [
+        {
+          "bbox": [
+            57.0,
+            105.26,
+            229.2,
+            115.11
+          ],
+          "spans": [
+            {
+              "text": "w   = Window.orderBy(\"ProductId\")",
+              "bbox": [
+                57.0,
+                105.26,
+                229.2,
+                115.11
+              ],
+              "font": "LiberationMono",
+              "size": 8.7,
+              "flags": 8,
+              "color": 15330805
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "bbox": [
+        57.0,
+        130.76,
+        265.72,
+        140.61
+      ],
+      "lines": [
+        {
+          "bbox": [
+            57.0,
+            130.76,
+            265.72,
+            140.61
+          ],
+          "spans": [
+            {
+              "text": "dim = (stg.dropDuplicates([\"ProductId\"])",
+              "bbox": [
+                57.0,
+                130.76,
+                265.72,
+                140.61
+              ],
+              "font": "LiberationMono",
+              "size": 8.7,
+              "flags": 8,
+              "color": 15330805
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "bbox": [
+        57.0,
+        144.26,
+        500.54,
+        166.86
+      ],
+      "lines": [
+        {
+          "bbox": [
+            57.0,
+            144.26,
+            364.87,
+            154.11
+          ],
+          "spans": [
+            {
+              "text": "          .withColumn(\"ProductKey\", F.row_number().over(w))",
+              "bbox": [
+                57.0,
+                144.26,
+                364.87,
+                154.11
+              ],
+              "font": "LiberationMono",
+              "size": 8.7,
+              "flags": 8,
+              "color": 15330805
+            }
+          ]
+        },
+        {
+          "bbox": [
+            57.0,
+            157.01,
+            500.54,
+            166.86
+          ],
+          "spans": [
+            {
+              "text": "          .select(\"ProductKey\", \"ProductId\", \"ProductName\", \"Category\", \"ListPrice\"))",
+              "bbox": [
+                57.0,
+                157.01,
+                500.54,
+                166.86
+              ],
+              "font": "LiberationMono",
+              "size": 8.7,
+              "flags": 8,
+              "color": 15330805
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "bbox": [
+        57.0,
+        183.26,
+        453.57,
+        193.11
+      ],
+      "lines": [
+        {
+          "bbox": [
+            57.0,
+            183.26,
+            453.57,
+            193.11
+          ],
+          "spans": [
+            {
+              "text": "dim.write.mode(\"overwrite\").format(\"delta\").saveAsTable(\"silver.DimProduct\")",
+              "bbox": [
+                57.0,
+                183.26,
+                453.57,
+                193.11
+              ],
+              "font": "LiberationMono",
+              "size": 8.7,
+              "flags": 8,
+              "color": 15330805
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "bbox": [
+        57.75,
+        221.29,
+        172.33,
+        232.35
+      ],
+      "lines": [
+        {
+          "bbox": [
+            57.75,
+            221.29,
+            172.33,
+            232.35
+          ],
+          "spans": [
+            {
+              "text": "COMMON EXAM TRAP",
+              "bbox": [
+                57.75,
+                221.29,
+                172.33,
+                232.35
+              ],
+              "font": "LiberationSans-Bold",
+              "size": 9.9,
+              "flags": 16,
+              "color": 11545143
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "bbox": [
+        57.75,
+        239.03,
+        481.73,
+        251.33
+      ],
+      "lines": [
+        {
+          "bbox": [
+            57.75,
+            239.03,
+            481.73,
+            251.33
+          ],
+          "spans": [
+            {
+              "text": "Fabric Warehouse does ",
+              "bbox": [
+                57.75,
+                239.41,
+                172.77,
+                251.25
+              ],
+              "font": "LiberationSans",
+              "size": 10.6,
+              "flags": 0,
+              "color": 1776415
+            },
+            {
+              "text": "not",
+              "bbox": [
+                172.77,
+                239.41,
+                189.24,
+                251.25
+              ],
+              "font": "LiberationSans-Bold",
+              "size": 10.6,
+              "flags": 16,
+              "color": 1184282
+            },
+            {
+              "text": " support ",
+              "bbox": [
+                189.25,
+                239.41,
+                230.47,
+                251.25
+              ],
+              "font": "LiberationSans",
+              "size": 10.6,
+              "flags": 0,
+              "color": 1776415
+            },
+            {
+              "text": "IDENTITY",
+              "bbox": [
+                234.22,
+                241.13,
+                277.42,
+                251.33
+              ],
+              "font": "LiberationMono",
+              "size": 9.0,
+              "flags": 8,
+              "color": 1122867
+            },
+            {
+              "text": "  columns, and it does not enforce ",
+              "bbox": [
+                277.42,
+                239.03,
+                440.18,
+                251.25
+              ],
+              "font": "LiberationSans",
+              "size": 10.6,
+              "flags": 0,
+              "color": 1776415
+            },
+            {
+              "text": "PRIMARY",
+              "bbox": [
+                443.93,
+                241.13,
+                481.73,
+                251.33
+              ],
+              "font": "LiberationMono",
+              "size": 9.0,
+              "flags": 8,
+              "color": 1122867
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "bbox": [
+        57.75,
+        256.66,
+        534.93,
+        269.33
+      ],
+      "lines": [
+        {
+          "bbox": [
+            57.75,
+            256.66,
+            534.93,
+            269.33
+          ],
+          "spans": [
+            {
+              "text": "KEY",
+              "bbox": [
+                57.75,
+                259.13,
+                73.95,
+                269.33
+              ],
+              "font": "LiberationMono",
+              "size": 9.0,
+              "flags": 8,
+              "color": 1122867
+            },
+            {
+              "text": " /",
+              "bbox": [
+                73.95,
+                256.66,
+                80.65,
+                268.87
+              ],
+              "font": "LiberationSans",
+              "size": 10.6,
+              "flags": 0,
+              "color": 1776415
+            },
+            {
+              "text": " FOREIGN KEY",
+              "bbox": [
+                80.65,
+                258.76,
+                143.81,
+                269.33
+              ],
+              "font": "LiberationMono",
+              "size": 9.0,
+              "flags": 8,
+              "color": 1122867
+            },
+            {
+              "text": "  constraints — they can be declared as ",
+              "bbox": [
+                143.81,
+                256.66,
+                333.66,
+                268.87
+              ],
+              "font": "LiberationSans",
+              "size": 10.6,
+              "flags": 0,
+              "color": 1776415
+            },
+            {
+              "text": "NOT ENFORCED",
+              "bbox": [
+                337.41,
+                259.13,
+                402.21,
+                269.33
+              ],
+              "font": "LiberationMono",
+              "size": 9.0,
+              "flags": 8,
+              "color": 1122867
+            },
+            {
+              "text": "  for metadata and optimiser",
+              "bbox": [
+                402.21,
+                256.66,
+                534.93,
+                268.87
+              ],
+              "font": "LiberationSans",
+              "size": 10.6,
+              "flags": 0,
+              "color": 1776415
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "bbox": [
+        57.75,
+        274.66,
+        508.44,
+        286.5
+      ],
+      "lines": [
+        {
+          "bbox": [
+            57.75,
+            274.66,
+            508.44,
+            286.5
+          ],
+          "spans": [
+            {
+              "text": "hints only. Your load process is responsible for key uniqueness and referential integrity. Expect a",
+              "bbox": [
+                57.75,
+                274.66,
+                508.44,
+                286.5
+              ],
+              "font": "LiberationSans",
+              "size": 10.6,
+              "flags": 0,
+              "color": 1776415
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "bbox": [
+        57.75,
+        291.16,
+        330.33,
+        303.83
+      ],
+      "lines": [
+        {
+          "bbox": [
+            57.75,
+            291.16,
+            330.33,
+            303.83
+          ],
+          "spans": [
+            {
+              "text": "question where the \"obvious\" ",
+              "bbox": [
+                57.75,
+                291.16,
+                197.19,
+                303.0
+              ],
+              "font": "LiberationSans",
+              "size": 10.6,
+              "flags": 0,
+              "color": 1776415
+            },
+            {
+              "text": "IDENTITY",
+              "bbox": [
+                200.94,
+                293.63,
+                244.14,
+                303.83
+              ],
+              "font": "LiberationMono",
+              "size": 9.0,
+              "flags": 8,
+              "color": 1122867
+            },
+            {
+              "text": "  answer is wrong.",
+              "bbox": [
+                244.14,
+                291.16,
+                330.33,
+                303.37
+              ],
+              "font": "LiberationSans",
+              "size": 10.6,
+              "flags": 0,
+              "color": 1776415
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "bbox": [
+        44.25,
+        338.3,
+        318.46,
+        353.05
+      ],
+      "lines": [
+        {
+          "bbox": [
+            44.25,
+            338.3,
+            318.46,
+            353.05
+          ],
+          "spans": [
+            {
+              "text": "5.3 Denormalising, joining, and aggregating",
+              "bbox": [
+                44.25,
+                338.3,
+                318.46,
+                353.05
+              ],
+              "font": "LiberationSans-Bold",
+              "size": 13.2,
+              "flags": 16,
+              "color": 949350
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "bbox": [
+        44.25,
+        364.66,
+        362.25,
+        376.5
+      ],
+      "lines": [
+        {
+          "bbox": [
+            44.25,
+            364.66,
+            362.25,
+            376.5
+          ],
+          "spans": [
+            {
+              "text": "Denormalise",
+              "bbox": [
+                44.25,
+                364.66,
+                107.84,
+                376.5
+              ],
+              "font": "LiberationSans-Bold",
+              "size": 10.6,
+              "flags": 16,
+              "color": 1184282
+            },
+            {
+              "text": " by folding a snowflaked hierarchy into one dimension:",
+              "bbox": [
+                107.85,
+                364.66,
+                362.25,
+                376.5
+              ],
+              "font": "LiberationSans",
+              "size": 10.6,
+              "flags": 0,
+              "color": 1776415
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "bbox": [
+        57.0,
+        395.51,
+        354.43,
+        418.11
+      ],
+      "lines": [
+        {
+          "bbox": [
+            57.0,
+            395.51,
+            354.43,
+            405.36
+          ],
+          "spans": [
+            {
+              "text": "-- Snowflake: DimProduct -> DimSubcategory -> DimCategory",
+              "bbox": [
+                57.0,
+                395.51,
+                354.43,
+                405.36
+              ],
+              "font": "LiberationMono",
+              "size": 8.7,
+              "flags": 8,
+              "color": 15330805
+            }
+          ]
+        },
+        {
+          "bbox": [
+            57.0,
+            408.26,
+            203.11,
+            418.11
+          ],
+          "spans": [
+            {
+              "text": "-- Star: one flat DimProduct",
+              "bbox": [
+                57.0,
+                408.26,
+                203.11,
+                418.11
+              ],
+              "font": "LiberationMono",
+              "size": 8.7,
+              "flags": 8,
+              "color": 15330805
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "bbox": [
+        57.0,
+        421.76,
+        239.63,
+        444.36
+      ],
+      "lines": [
+        {
+          "bbox": [
+            57.0,
+            421.76,
+            213.54,
+            431.61
+          ],
+          "spans": [
+            {
+              "text": "CREATE TABLE dbo.DimProduct AS",
+              "bbox": [
+                57.0,
+                421.76,
+                213.54,
+                431.61
+              ],
+              "font": "LiberationMono",
+              "size": 8.7,
+              "flags": 8,
+              "color": 15330805
+            }
+          ]
+        },
+        {
+          "bbox": [
+            57.0,
+            434.51,
+            239.63,
+            444.36
+          ],
+          "spans": [
+            {
+              "text": "SELECT p.ProductKey, p.ProductName,",
+              "bbox": [
+                57.0,
+                434.51,
+                239.63,
+                444.36
+              ],
+              "font": "LiberationMono",
+              "size": 8.7,
+              "flags": 8,
+              "color": 15330805
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "bbox": [
+        57.0,
+        448.01,
+        192.67,
+        483.36
+      ],
+      "lines": [
+        {
+          "bbox": [
+            57.0,
+            448.01,
+            192.67,
+            457.86
+          ],
+          "spans": [
+            {
+              "text": "       sc.SubcategoryName,",
+              "bbox": [
+                57.0,
+                448.01,
+                192.67,
+                457.86
+              ],
+              "font": "LiberationMono",
+              "size": 8.7,
+              "flags": 8,
+              "color": 15330805
+            }
+          ]
+        },
+        {
+          "bbox": [
+            57.0,
+            460.76,
+            166.58,
+            470.61
+          ],
+          "spans": [
+            {
+              "text": "       c.CategoryName",
+              "bbox": [
+                57.0,
+                460.76,
+                166.58,
+                470.61
+              ],
+              "font": "LiberationMono",
+              "size": 8.7,
+              "flags": 8,
+              "color": 15330805
+            }
+          ]
+        },
+        {
+          "bbox": [
+            57.0,
+            473.51,
+            177.02,
+            483.36
+          ],
+          "spans": [
+            {
+              "text": "FROM   stg.Product AS p",
+              "bbox": [
+                57.0,
+                473.51,
+                177.02,
+                483.36
+              ],
+              "font": "LiberationMono",
+              "size": 8.7,
+              "flags": 8,
+              "color": 15330805
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "bbox": [
+        57.0,
+        487.01,
+        401.39,
+        509.61
+      ],
+      "lines": [
+        {
+          "bbox": [
+            57.0,
+            487.01,
+            401.39,
+            496.86
+          ],
+          "spans": [
+            {
+              "text": "JOIN   stg.Subcategory AS sc ON sc.SubcategoryId = p.SubcategoryId",
+              "bbox": [
+                57.0,
+                487.01,
+                401.39,
+                496.86
+              ],
+              "font": "LiberationMono",
+              "size": 8.7,
+              "flags": 8,
+              "color": 15330805
+            }
+          ]
+        },
+        {
+          "bbox": [
+            57.0,
+            499.76,
+            396.17,
+            509.61
+          ],
+          "spans": [
+            {
+              "text": "JOIN   stg.Category    AS c  ON c.CategoryId     = sc.CategoryId;",
+              "bbox": [
+                57.0,
+                499.76,
+                396.17,
+                509.61
+              ],
+              "font": "LiberationMono",
+              "size": 8.7,
+              "flags": 8,
+              "color": 15330805
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "bbox": [
+        44.25,
+        530.41,
+        527.38,
+        543.08
+      ],
+      "lines": [
+        {
+          "bbox": [
+            44.25,
+            530.41,
+            527.38,
+            543.08
+          ],
+          "spans": [
+            {
+              "text": "Fabric Warehouse supports ",
+              "bbox": [
+                44.25,
+                530.41,
+                176.93,
+                542.25
+              ],
+              "font": "LiberationSans",
+              "size": 10.6,
+              "flags": 0,
+              "color": 1776415
+            },
+            {
+              "text": "CTAS",
+              "bbox": [
+                176.93,
+                530.41,
+                204.98,
+                542.25
+              ],
+              "font": "LiberationSans-Bold",
+              "size": 10.6,
+              "flags": 16,
+              "color": 1184282
+            },
+            {
+              "text": " (",
+              "bbox": [
+                204.98,
+                530.41,
+                211.46,
+                542.25
+              ],
+              "font": "LiberationSans",
+              "size": 10.6,
+              "flags": 0,
+              "color": 1776415
+            },
+            {
+              "text": " CREATE TABLE AS SELECT",
+              "bbox": [
+                211.46,
+                532.51,
+                334.01,
+                543.08
+              ],
+              "font": "LiberationMono",
+              "size": 9.0,
+              "flags": 8,
+              "color": 1122867
+            },
+            {
+              "text": " ), which is the usual way to materialise a",
+              "bbox": [
+                334.01,
+                530.41,
+                527.38,
+                542.62
+              ],
+              "font": "LiberationSans",
+              "size": 10.6,
+              "flags": 0,
+              "color": 1776415
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "bbox": [
+        44.25,
+        548.41,
+        210.9,
+        560.25
+      ],
+      "lines": [
+        {
+          "bbox": [
+            44.25,
+            548.41,
+            210.9,
+            560.25
+          ],
+          "spans": [
+            {
+              "text": "transformed table in one statement.",
+              "bbox": [
+                44.25,
+                548.41,
+                210.9,
+                560.25
+              ],
+              "font": "LiberationSans",
+              "size": 10.6,
+              "flags": 0,
+              "color": 1776415
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "bbox": [
+        44.25,
+        570.91,
+        379.29,
+        582.75
+      ],
+      "lines": [
+        {
+          "bbox": [
+            44.25,
+            570.91,
+            379.29,
+            582.75
+          ],
+          "spans": [
+            {
+              "text": "Aggregate",
+              "bbox": [
+                44.25,
+                570.91,
+                96.64,
+                582.75
+              ],
+              "font": "LiberationSans-Bold",
+              "size": 10.6,
+              "flags": 16,
+              "color": 1184282
+            },
+            {
+              "text": " to a summary table when reports only need a coarser grain:",
+              "bbox": [
+                96.64,
+                570.91,
+                379.29,
+                582.75
+              ],
+              "font": "LiberationSans",
+              "size": 10.6,
+              "flags": 0,
+              "color": 1776415
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "bbox": [
+        57.0,
+        601.76,
+        239.63,
+        611.61
+      ],
+      "lines": [
+        {
+          "bbox": [
+            57.0,
+            601.76,
+            239.63,
+            611.61
+          ],
+          "spans": [
+            {
+              "text": "CREATE TABLE dbo.AggSalesByMonth AS",
+              "bbox": [
+                57.0,
+                601.76,
+                239.63,
+                611.61
+              ],
+              "font": "LiberationMono",
+              "size": 8.7,
+              "flags": 8,
+              "color": 15330805
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "bbox": [
+        57.0,
+        615.26,
+        323.12,
+        650.61
+      ],
+      "lines": [
+        {
+          "bbox": [
+            57.0,
+            615.26,
+            323.12,
+            625.11
+          ],
+          "spans": [
+            {
+              "text": "SELECT d.CalendarYear, d.MonthNumber, f.ProductKey,",
+              "bbox": [
+                57.0,
+                615.26,
+                323.12,
+                625.11
+              ],
+              "font": "LiberationMono",
+              "size": 8.7,
+              "flags": 8,
+              "color": 15330805
+            }
+          ]
+        },
+        {
+          "bbox": [
+            57.0,
+            628.01,
+            270.94,
+            637.86
+          ],
+          "spans": [
+            {
+              "text": "       SUM(f.SalesAmount) AS SalesAmount,",
+              "bbox": [
+                57.0,
+                628.01,
+                270.94,
+                637.86
+              ],
+              "font": "LiberationMono",
+              "size": 8.7,
+              "flags": 8,
+              "color": 15330805
+            }
+          ]
+        },
+        {
+          "bbox": [
+            57.0,
+            640.76,
+            255.29,
+            650.61
+          ],
+          "spans": [
+            {
+              "text": "       SUM(f.Quantity)    AS Quantity,",
+              "bbox": [
+                57.0,
+                640.76,
+                255.29,
+                650.61
+              ],
+              "font": "LiberationMono",
+              "size": 8.7,
+              "flags": 8,
+              "color": 15330805
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "bbox": [
+        57.0,
+        654.26,
+        276.16,
+        676.86
+      ],
+      "lines": [
+        {
+          "bbox": [
+            57.0,
+            654.26,
+            276.16,
+            664.11
+          ],
+          "spans": [
+            {
+              "text": "       COUNT_BIG(*)       AS RowCountLines",
+              "bbox": [
+                57.0,
+                654.26,
+                276.16,
+                664.11
+              ],
+              "font": "LiberationMono",
+              "size": 8.7,
+              "flags": 8,
+              "color": 15330805
+            }
+          ]
+        },
+        {
+          "bbox": [
+            57.0,
+            667.01,
+            187.45,
+            676.86
+          ],
+          "spans": [
+            {
+              "text": "FROM   dbo.FactSales AS f",
+              "bbox": [
+                57.0,
+                667.01,
+                187.45,
+                676.86
+              ],
+              "font": "LiberationMono",
+              "size": 8.7,
+              "flags": 8,
+              "color": 15330805
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "bbox": [
+        57.0,
+        680.51,
+        338.78,
+        703.11
+      ],
+      "lines": [
+        {
+          "bbox": [
+            57.0,
+            680.51,
+            317.9,
+            690.36
+          ],
+          "spans": [
+            {
+              "text": "JOIN   dbo.DimDate   AS d ON d.DateKey = f.DateKey",
+              "bbox": [
+                57.0,
+                680.51,
+                317.9,
+                690.36
+              ],
+              "font": "LiberationMono",
+              "size": 8.7,
+              "flags": 8,
+              "color": 15330805
+            }
+          ]
+        },
+        {
+          "bbox": [
+            57.0,
+            693.26,
+            338.78,
+            703.11
+          ],
+          "spans": [
+            {
+              "text": "GROUP  BY d.CalendarYear, d.MonthNumber, f.ProductKey;",
+              "bbox": [
+                57.0,
+                693.26,
+                338.78,
+                703.11
+              ],
+              "font": "LiberationMono",
+              "size": 8.7,
+              "flags": 8,
+              "color": 15330805
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "bbox": [
+        44.25,
+        723.91,
+        535.67,
+        736.58
+      ],
+      "lines": [
+        {
+          "bbox": [
+            44.25,
+            723.91,
+            535.67,
+            736.58
+          ],
+          "spans": [
+            {
+              "text": "Join types",
+              "bbox": [
+                44.25,
+                723.91,
+                96.65,
+                735.75
+              ],
+              "font": "LiberationSans-Bold",
+              "size": 10.6,
+              "flags": 16,
+              "color": 1184282
+            },
+            {
+              "text": " in one line each: ",
+              "bbox": [
+                96.66,
+                723.91,
+                179.7,
+                735.75
+              ],
+              "font": "LiberationSans",
+              "size": 10.6,
+              "flags": 0,
+              "color": 1776415
+            },
+            {
+              "text": "INNER",
+              "bbox": [
+                183.46,
+                726.38,
+                210.46,
+                736.58
+              ],
+              "font": "LiberationMono",
+              "size": 9.0,
+              "flags": 8,
+              "color": 1122867
+            },
+            {
+              "text": "  keeps matches; ",
+              "bbox": [
+                210.46,
+                723.91,
+                294.3,
+                736.12
+              ],
+              "font": "LiberationSans",
+              "size": 10.6,
+              "flags": 0,
+              "color": 1776415
+            },
+            {
+              "text": "LEFT",
+              "bbox": [
+                298.05,
+                726.38,
+                319.65,
+                736.58
+              ],
+              "font": "LiberationMono",
+              "size": 9.0,
+              "flags": 8,
+              "color": 1122867
+            },
+            {
+              "text": "  keeps all of the left; ",
+              "bbox": [
+                319.65,
+                723.91,
+                420.58,
+                736.12
+              ],
+              "font": "LiberationSans",
+              "size": 10.6,
+              "flags": 0,
+              "color": 1776415
+            },
+            {
+              "text": "FULL",
+              "bbox": [
+                424.34,
+                726.38,
+                445.94,
+                736.58
+              ],
+              "font": "LiberationMono",
+              "size": 9.0,
+              "flags": 8,
+              "color": 1122867
+            },
+            {
+              "text": "  keeps everything;",
+              "bbox": [
+                445.94,
+                723.91,
+                535.67,
+                736.12
+              ],
+              "font": "LiberationSans",
+              "size": 10.6,
+              "flags": 0,
+              "color": 1776415
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "bbox": [
+        48.0,
+        741.16,
+        544.72,
+        753.83
+      ],
+      "lines": [
+        {
+          "bbox": [
+            48.0,
+            741.16,
+            544.72,
+            753.83
+          ],
+          "spans": [
+            {
+              "text": "ANTI",
+              "bbox": [
+                48.0,
+                743.63,
+                69.6,
+                753.83
+              ],
+              "font": "LiberationMono",
+              "size": 9.0,
+              "flags": 8,
+              "color": 1122867
+            },
+            {
+              "text": "  (",
+              "bbox": [
+                69.6,
+                741.16,
+                79.83,
+                753.37
+              ],
+              "font": "LiberationSans",
+              "size": 10.6,
+              "flags": 0,
+              "color": 1776415
+            },
+            {
+              "text": " WHERE NOT EXISTS",
+              "bbox": [
+                79.83,
+                743.26,
+                169.99,
+                753.83
+              ],
+              "font": "LiberationMono",
+              "size": 9.0,
+              "flags": 8,
+              "color": 1122867
+            },
+            {
+              "text": " ) finds orphans — the standard way to detect fact rows whose dimension key is",
+              "bbox": [
+                169.99,
+                741.16,
+                544.72,
+                753.37
+              ],
+              "font": "LiberationSans",
+              "size": 10.6,
+              "flags": 0,
+              "color": 1776415
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "bbox": [
+        44.25,
+        759.16,
+        83.11,
+        771.0
+      ],
+      "lines": [
+        {
+          "bbox": [
+            44.25,
+            759.16,
+            83.11,
+            771.0
+          ],
+          "spans": [
+            {
+              "text": "missing.",
+              "bbox": [
+                44.25,
+                759.16,
+                83.11,
+                771.0
+              ],
+              "font": "LiberationSans",
+              "size": 10.6,
+              "flags": 0,
+              "color": 1776415
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

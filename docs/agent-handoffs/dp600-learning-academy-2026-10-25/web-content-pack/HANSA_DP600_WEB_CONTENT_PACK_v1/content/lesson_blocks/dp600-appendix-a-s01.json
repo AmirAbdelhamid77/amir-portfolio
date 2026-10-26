@@ -1,0 +1,18 @@
+{
+  "lesson_id": "dp600-appendix-a-s01",
+  "source_sections": [
+    56
+  ],
+  "blocks": [
+    {
+      "id": "dp600-appendix-a-s01-p056",
+      "kind": "source_fragment",
+      "source_page": 56,
+      "source_start_line": 2,
+      "source_text": "A.1 Where should this data live?\nSignal in the question\nAnswer\n\"T-SQL writes\", \"stored procedure\", \"multi-table transaction\"\nWarehouse\n\"Files\", \"Spark\", \"unstructured\", \"machine learning\"\nLakehouse\n\"Telemetry\", \"logs\", \"IoT\", \"sub-second\", \"time series\"\nEventhouse\n\"OLTP application\", \"point reads\", \"operational\"\nFabric SQL database\n\"Do not copy the data\", \"data stays in S3/ADLS\"\nShortcut\n\"Near real time replica\", \"no ETL to maintain\"\nMirroring",
+      "presentation_status": "needs-editorial-layout-conversion",
+      "recommended_renderer": "SourceFragment"
+    }
+  ],
+  "warning": "Source fragments are NOT native formatted prose, tables or runnable code."
+}

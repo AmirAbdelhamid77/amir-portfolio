@@ -1,0 +1,228 @@
+{
+  "version": "2.0",
+  "date": "2026-10-25",
+  "scope": "Adoption blueprint, not installed code",
+  "score_definition": "Expert product-fit heuristic, not measured runtime performance",
+  "items": [
+    {
+      "name": "Dependency Trace",
+      "library": "easyui",
+      "decision": "adopt-pilot",
+      "incremental_value_over_beui": 9,
+      "use_case": "Knowledge Atlas micrograph; Fabric lineage",
+      "existing_alternative": "beUI has no equivalent semantic node/edge trace",
+      "caveat": "Manually positioned nodes. Large Atlas requires dedicated graph engine; do not conflate semantic vs structural edges",
+      "url": "https://easyui.site/components/dependency-trace"
+    },
+    {
+      "name": "Smart Comparison",
+      "library": "easyui",
+      "decision": "adopt-pilot",
+      "incremental_value_over_beui": 9,
+      "use_case": "Fabric choices Mirroring vs Shortcut; SQL Warehouse vs Lakehouse",
+      "existing_alternative": "No directly equivalent searchable differences-only matrix in free beUI",
+      "caveat": "SaaS pricing layout must be restyled to educational decision matrix",
+      "url": "https://easyui.site/components/smart-comparison"
+    },
+    {
+      "name": "Code Snippet Deck",
+      "library": "easyui",
+      "decision": "adopt-pilot",
+      "incremental_value_over_beui": 9,
+      "use_case": "SQL, DAX, PySpark, T-SQL snippets and parameterized code examples",
+      "existing_alternative": "beUI Code Block is optimized for display; snippet deck supports parameter-driven variants",
+      "caveat": "Adapt original API runtime switching to educational syntax; never claim executable editor",
+      "url": "https://easyui.site/components/code-snippet-deck"
+    },
+    {
+      "name": "Product Tour",
+      "library": "easyui",
+      "decision": "adopt-pilot",
+      "incremental_value_over_beui": 8,
+      "use_case": "First-run learning lab/Atlas discovery",
+      "existing_alternative": "beUI general popover/modal lacks ready guided spotlight-target sequence",
+      "caveat": "Skippable, user-invoked, target existence guards, keyboard/touch and focus return",
+      "url": "https://easyui.site/components/product-tour"
+    },
+    {
+      "name": "Scroll Progress Navigation",
+      "library": "easyui",
+      "decision": "adopt-pilot",
+      "incremental_value_over_beui": 8,
+      "use_case": "Long statistics / Fabric / storytelling chapters",
+      "existing_alternative": "beUI Scroll Animation has progress indication, but not necessarily section-linked floating TOC",
+      "caveat": "Only on long docs; accessibility and sticky offsets",
+      "url": "https://easyui.site/components/scroll-progress-navigation"
+    },
+    {
+      "name": "Activity Heatmap",
+      "library": "easyui",
+      "decision": "conditional",
+      "incremental_value_over_beui": 8,
+      "use_case": "Hour-of-week learning usage; GitHub-style calendar",
+      "existing_alternative": "beUI Heat Calendar covers daily heatmap, not weekday-by-hour grid",
+      "caveat": "Use EasyUI only for hourly mode or distinct API fit; never invent learning data",
+      "url": "https://easyui.site/components/activity-heatmap"
+    },
+    {
+      "name": "Stepper",
+      "library": "easyui",
+      "decision": "conditional",
+      "incremental_value_over_beui": 8,
+      "use_case": "Guided ingestion decision lab and learning step panels",
+      "existing_alternative": "beUI has adaptive numeric stepper; this is multi-stage workflow indicator",
+      "caveat": "Reuse existing learning wizard if any; not assessment/state engine",
+      "url": "https://easyui.site/components/stepper"
+    },
+    {
+      "name": "Focus Mode",
+      "library": "easyui",
+      "decision": "conditional",
+      "incremental_value_over_beui": 7,
+      "use_case": "Isolate a concept card/diagram when studying",
+      "existing_alternative": "beUI modal/drawer are alternatives but not spotlight dimming of selected area",
+      "caveat": "Avoid trapping hidden content; preserve focus and screen-reader clarity",
+      "url": "https://easyui.site/components/focus-mode"
+    },
+    {
+      "name": "Activity Feed",
+      "library": "easyui",
+      "decision": "conditional",
+      "incremental_value_over_beui": 7,
+      "use_case": "Delta Lake event history; Fabric processing demo log",
+      "existing_alternative": "beUI Agent Activity covers agent-oriented activity, not necessarily general categorized logs",
+      "caveat": "Use genuine events or label simulation, disable auto fake stream by default",
+      "url": "https://easyui.site/components/activity-feed"
+    },
+    {
+      "name": "Live Line Chart",
+      "library": "easyui",
+      "decision": "conditional",
+      "incremental_value_over_beui": 7,
+      "use_case": "Streaming and real-time analytics simulator",
+      "existing_alternative": "beUI is chart-rich but this is specifically streaming with pause/scrub",
+      "caveat": "Client simulation not actual live data; end subscriptions on unmount",
+      "url": "https://easyui.site/components/live-line-chart"
+    },
+    {
+      "name": "Interactive Area Chart",
+      "library": "easyui",
+      "decision": "conditional",
+      "incremental_value_over_beui": 6,
+      "use_case": "Change time horizon with smooth data morphing",
+      "existing_alternative": "beUI Composition Chart handles stacked share; not same transition goal",
+      "caveat": "Meaningful domain and units, accessible table",
+      "url": "https://easyui.site/components/interactive-area-chart"
+    },
+    {
+      "name": "Advanced Data Table",
+      "library": "easyui",
+      "decision": "evaluate-parity",
+      "incremental_value_over_beui": 6,
+      "use_case": "Question bank browsing, QA registers, evidence lists",
+      "existing_alternative": "beUI free virtualized Table: sort/select/resize/reorder; EasyUI faceted filters, bulk actions, pagination",
+      "caveat": "Only if real gaps not solved by local table; check 1000+ rows and data model",
+      "url": "https://easyui.site/components/advanced-data-table"
+    },
+    {
+      "name": "Selection Basket",
+      "library": "easyui",
+      "decision": "optional",
+      "incremental_value_over_beui": 6,
+      "use_case": "Multi-select concepts or questions for compare queue",
+      "existing_alternative": "Can be achieved in existing tables and beUI action bars",
+      "caveat": "Only if multi-select compare is a proven learner task",
+      "url": "https://easyui.site/components/selection-basket"
+    },
+    {
+      "name": "Expandable Data Row",
+      "library": "easyui",
+      "decision": "optional",
+      "incremental_value_over_beui": 5,
+      "use_case": "Evidence/provenance row details",
+      "existing_alternative": "EasyUI Advanced Data Table has renderSubComponent and beUI rows can be adapted",
+      "caveat": "Avoid duplicative nested expandable UX",
+      "url": "https://easyui.site/components/expandable-data-row"
+    },
+    {
+      "name": "Metric HUD",
+      "library": "easyui",
+      "decision": "optional",
+      "incremental_value_over_beui": 5,
+      "use_case": "Time-window drill-down telemetry cards",
+      "existing_alternative": "beUI stats/metric cards already exist",
+      "caveat": "Adopt only if its time-range + scrub behavior matters",
+      "url": "https://easyui.site/components/metric-hud"
+    },
+    {
+      "name": "Density Lens",
+      "library": "easyui",
+      "decision": "experimental",
+      "incremental_value_over_beui": 4,
+      "use_case": "Magnified details of high-density diagrams",
+      "existing_alternative": "Other zoom/detail-on-demand patterns usually work better on mobile",
+      "caveat": "Pointer-dependent; alternative touch & keyboard, avoid essential data only in lens",
+      "url": "https://easyui.site/components/density-lens"
+    },
+    {
+      "name": "Interactive Timeline",
+      "library": "easyui",
+      "decision": "prefer-beui",
+      "incremental_value_over_beui": 3,
+      "use_case": "DevOps milestones only",
+      "existing_alternative": "beUI draggable Timeline already available",
+      "caveat": "Retain beUI except exact status telemetry requirements",
+      "url": "https://easyui.site/components/interactive-timeline"
+    },
+    {
+      "name": "AI Agent Activity",
+      "library": "easyui",
+      "decision": "prefer-beui",
+      "incremental_value_over_beui": 2,
+      "use_case": "Agent trace displays",
+      "existing_alternative": "beUI Agent Activity already available",
+      "caveat": "Avoid duplication",
+      "url": "https://easyui.site/components/ai-agent-activity"
+    },
+    {
+      "name": "Stat Card",
+      "library": "easyui",
+      "decision": "prefer-beui",
+      "incremental_value_over_beui": 2,
+      "use_case": "KPI overview",
+      "existing_alternative": "beUI free/pro and existing KPIs",
+      "caveat": "Avoid duplication",
+      "url": "https://easyui.site/components/stat-card"
+    },
+    {
+      "name": "Donut/Bar/Funnel Chart",
+      "library": "easyui",
+      "decision": "prefer-beui",
+      "incremental_value_over_beui": 2,
+      "use_case": "Standard charts",
+      "existing_alternative": "beUI already has chart family incl Funnel / composition",
+      "caveat": "Do not add chart merely for animation",
+      "url": "https://easyui.site/components/donut-chart"
+    },
+    {
+      "name": "Sticky Pages",
+      "library": "easyui",
+      "decision": "design-experiment",
+      "incremental_value_over_beui": 4,
+      "use_case": "Immersive visual narrative; future landing redesign",
+      "existing_alternative": "beUI has Scroll Animation, but not equivalent CSS stacking mechanism",
+      "caveat": "Use only deliberate storytelling surfaces; no global scroll trap",
+      "url": "https://easyui.site/components/sticky-pages"
+    },
+    {
+      "name": "Recovery Ledger",
+      "library": "easyui",
+      "decision": "defer",
+      "incremental_value_over_beui": 4,
+      "use_case": "Version/snapshot inspection",
+      "existing_alternative": "Custom logic required, similar to timeline",
+      "caveat": "Dangerous rollback affordance; read-only unless real backend and explicit permissions",
+      "url": "https://easyui.site/components/recovery-ledger"
+    }
+  ]
+}

@@ -1,0 +1,51 @@
+Topic
+The one line
+Workspace roles
+Admin > Member > Contributor > Viewer; Viewer ≠ file access
+Item permissions
+Read · ReadData (SQL) · ReadAll (Spark/OneLake) · Build (new content)
+Security scope
+OneLake security = every engine; SQL GRANT = SQL endpoint only
+RLS ignored for
+Workspace Admin/Member/Contributor and anyone with model Write
+Endorsement
+Promoted (anyone with Write) · Certified / Master data (nominated reviewers)
+Lakehouse vs warehouse
+T-SQL writes and multi-table transactions → warehouse; files and Spark →
+lakehouse
+SQL analytics endpoint
+Read-only. No stored procedures, no MERGE
+No IDENTITY  in warehouse
+Use ROW_NUMBER()  for surrogate keys
+Shortcut vs mirroring vs copy
+Reference · replicate · duplicate
+Direct Lake refresh
+Framing = metadata; columns page in on first use
+Fallback
+Automatic → DirectQuery; DirectLakeOnly  to fail loudly
+DL on OneLake
+No fallback; multiple sources; OneLake security
+Incremental refresh
+RangeStart / RangeEnd , must fold, Import only
+Calculation group vs field
+parameter
+How a measure is evaluated vs which field is shown
+Dual storage mode
+Dimensions in a composite model with a DirectQuery fact
+Git vs deployment pipeline
+History and review vs promotion between stages
+.pbix  / .pbip  / .pbit
+Binary · project folder for Git · template with no data
+take  vs top  in KQL
+Arbitrary rows vs actual top N
+11.3 Reading exam questions
+Read the last sentence first. It tells you what is actually being asked, so you read the scenario looking
+for the right details.
+Look for absolute words: must not, only, without, minimise administrative effort, regardless of the tool.
+They eliminate answers.
+Minimise effort / minimise cost usually favours the built-in, managed option (shortcut, mirroring,
+deployment rules, variable library) over a custom pipeline.
+Least-privilege wording favours Viewer + a specific item permission over a workspace role.
+In case studies, read the requirements list before the narrative — then scan the narrative only for the
+facts the requirements need.
+Flag and move on. Every question is worth the same; a five-minute question costs you two easy ones.

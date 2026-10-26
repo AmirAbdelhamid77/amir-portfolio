@@ -1,0 +1,524 @@
+{
+  "version": 1,
+  "source": {
+    "label": "Local Notion HTML export",
+    "exportFolder": "Data Visualization",
+    "hubPageIncluded": false,
+    "note": "All 25 exported HTML pages are published or explicitly accounted for. The canonical hub page and two linked chapters (Audience & Story, Applied Use Cases) were not part of the export; those destinations are editorial synthesis and are labelled as such."
+  },
+  "chapters": [
+    {
+      "number": "01",
+      "slug": "foundations",
+      "title": "Foundations",
+      "question": "What decision is this chart for?",
+      "summary": "Start with the question, the grain, and the variable types. Visualization is an evidence layer, not decoration — and summary statistics can agree while the data disagree completely.",
+      "lessons": ["foundations"],
+      "lab": { "href": "/explore/choose", "label": "Try the chart decision assistant" }
+    },
+    {
+      "number": "02",
+      "slug": "audience-story",
+      "title": "Audience & Story",
+      "question": "Who needs to act, and what do they need to see?",
+      "summary": "The communication layer: name the audience, commit to one big idea, and connect evidence to a message and a decision. This chapter is editorial because the storytelling source pages were not included in the export.",
+      "lessons": ["audience-story"],
+      "lab": { "href": "/explore/dashboards", "label": "See context → action in a dashboard" }
+    },
+    {
+      "number": "03",
+      "slug": "core-visual-grammar",
+      "title": "Core Visual Grammar",
+      "question": "Which encoding matches the analytical task?",
+      "summary": "The six workhorse plots — histogram, box, scatter, line, bar, dot — plus the scale decisions that make them honest: bin width, zero baselines, log axes, and trend lines.",
+      "lessons": [
+        "core-chart-types",
+        "histogram",
+        "box-plot",
+        "scatter-plot",
+        "line-plot",
+        "bar-plot",
+        "dot-plot",
+        "core-charts"
+      ],
+      "lab": { "href": "/explore/charts", "label": "Open the interactive chart labs" }
+    },
+    {
+      "number": "04",
+      "slug": "advanced-multivariate",
+      "title": "Advanced & Multivariate",
+      "question": "How do you show a third variable without lying?",
+      "summary": "Size and transparency are weak encodings. Faceting, pair plots, correlation heatmaps, parallel coordinates and polar views each answer a narrower question — and each has a failure mode.",
+      "lessons": ["advanced-multivariate"],
+      "lab": { "href": "/explore/specialty", "label": "Inspect hierarchy and conversion" }
+    },
+    {
+      "number": "05",
+      "slug": "color-perception",
+      "title": "Color & Perception",
+      "question": "What job is color doing here?",
+      "summary": "Qualitative, sequential and diverging palettes are not interchangeable. Color should carry meaning the position encoding cannot, and it must survive grayscale and contrast checks.",
+      "lessons": ["color-perception", "color"],
+      "lab": { "href": "/explore/integrity", "label": "Compare palette semantics" }
+    },
+    {
+      "number": "06",
+      "slug": "accessibility",
+      "title": "Accessibility & Color QA",
+      "question": "Can the meaning survive without the color you chose?",
+      "summary": "Labels, position, pattern and direct annotation before hue. Test contrast on text, marks and states, then run a grayscale check before publishing.",
+      "lessons": ["accessibility-color-qa"],
+      "lab": { "href": "/explore/integrity", "label": "Run the integrity lab" }
+    },
+    {
+      "number": "07",
+      "slug": "integrity",
+      "title": "Integrity, Uncertainty & Traps",
+      "question": "What would make this chart misleading?",
+      "summary": "Truncated baselines, dual axes, chartjunk, and aggregation that hides the distribution. Then the inference traps that look like chart problems: Simpson's paradox, selection bias, multiple comparisons and uncertainty.",
+      "lessons": ["visual-integrity", "statistical-traps", "visual-atlas"],
+      "lab": { "href": "/explore/integrity", "label": "Toggle honest and misleading views" }
+    },
+    {
+      "number": "08",
+      "slug": "decision-and-composition",
+      "title": "Decision Tools & Composition",
+      "question": "Which chart, and how should the page be composed?",
+      "summary": "A task-first selection matrix and the composition rules that turn charts into a dashboard: context, KPI, explanation, detail, action — with cognitive load treated as a design constraint.",
+      "lessons": ["chart-selection", "dashboard-design"],
+      "lab": { "href": "/explore/dashboards", "label": "Executive vs analyst dashboard" }
+    },
+    {
+      "number": "09",
+      "slug": "implementation",
+      "title": "Implementation",
+      "question": "How do these principles survive inside the tool?",
+      "summary": "The same decisions inside Power BI: measures versus calculated columns, high cardinality, interaction design, color, performance, and the log-axis caveat.",
+      "lessons": ["power-bi-playbook"],
+      "lab": { "href": "/explore/dashboards", "label": "See the composed result" }
+    },
+    {
+      "number": "10",
+      "slug": "practice-and-shelf",
+      "title": "Practice, Assessment & Shelf",
+      "question": "Can you defend the choice under pressure?",
+      "summary": "Interview-style reasoning, a pre-publish checklist, reading paths, curated references, and applied cases. Favour trade-offs over trivia.",
+      "lessons": [
+        "interview-bank",
+        "quick-reference",
+        "applied-cases",
+        "tips",
+        "reading-paths",
+        "references"
+      ],
+      "lab": { "href": "/practice", "label": "Practise with the question bank" }
+    }
+  ],
+  "lessons": [
+    {
+      "slug": "overview",
+      "chapter": null,
+      "section": "en",
+      "source": "ar-comprehensive",
+      "title": "Library map & operating system",
+      "kind": "source",
+      "coverage": "COVERED",
+      "intro": "The exported hub page. It defines the working pipeline, the canonical chapter spine, and the figure pack — use it as the map for everything else.",
+      "takeaways": [
+        "The pipeline is question → decision → grain → variables → task → encoding → scale → context → integrity → action.",
+        "A chart is an evidence layer; storytelling is a separate communication layer.",
+        "Pick one job before you pick one chapter."
+      ]
+    },
+    {
+      "slug": "foundations",
+      "chapter": "01",
+      "section": "en",
+      "source": "foundations",
+      "title": "Foundations & Decision Framework",
+      "kind": "source",
+      "coverage": "COVERED",
+      "intro": "Why plots exist, how to classify a variable, and the default decision framework used by every later chapter.",
+      "takeaways": [
+        "Similar summary statistics do not imply similar data — plot it.",
+        "A variable's type is a property of the question, not just the column.",
+        "The chart is the last decision, not the first."
+      ]
+    },
+    {
+      "slug": "audience-story",
+      "chapter": "02",
+      "section": "en",
+      "source": null,
+      "title": "Audience, Big Idea & Action",
+      "kind": "editorial",
+      "coverage": "MISSING",
+      "intro": "The exported corpus points to a separate storytelling library that was not included. This chapter is a short, clearly labelled editorial synthesis of the communication duties listed in the canonical map — it is not a transcription.",
+      "takeaways": [
+        "Name the audience and the decision before choosing the evidence.",
+        "One big idea per view; everything else is supporting detail.",
+        "End with the action and the caveat, not with a decorative chart."
+      ]
+    },
+    {
+      "slug": "core-chart-types",
+      "chapter": "03",
+      "section": "en",
+      "source": "core-chart-types",
+      "title": "Core Chart Types & Scales",
+      "kind": "source",
+      "coverage": "COVERED",
+      "intro": "The full reference for histogram, box, scatter, line, bar and dot — including bin width, log scales, trend lines and the mistakes each plot invites.",
+      "takeaways": [
+        "Histogram bins are a design choice, not a default.",
+        "Bar length starts at zero; other marks do not automatically follow that rule.",
+        "A date on the x-axis is not a reason to connect the points."
+      ]
+    },
+    {
+      "slug": "advanced-multivariate",
+      "chapter": "04",
+      "section": "en",
+      "source": "advanced-multivariate",
+      "title": "Advanced & Multivariate Techniques",
+      "kind": "source",
+      "coverage": "COVERED",
+      "intro": "Third variables, faceting, pair plots, correlation heatmaps, parallel coordinates, pie charts and rose plots — and when each is the wrong tool.",
+      "takeaways": [
+        "Position before size or transparency when precision matters.",
+        "A correlation heatmap screens; it does not replace scatter plots.",
+        "Polar coordinates need a genuine cyclical question."
+      ]
+    },
+    {
+      "slug": "color-perception",
+      "chapter": "05",
+      "section": "en",
+      "source": "color-perception",
+      "title": "Color Theory for Data Visualization",
+      "kind": "source",
+      "coverage": "COVERED",
+      "intro": "HCL, the three palette families, and why viridis is a practical sequential default.",
+      "takeaways": [
+        "Nominal categories get a qualitative palette; ordered magnitude gets sequential.",
+        "Diverging needs a meaningful midpoint, not two pretty colors.",
+        "Test the palette in grayscale before trusting it."
+      ]
+    },
+    {
+      "slug": "accessibility-color-qa",
+      "chapter": "06",
+      "section": "en",
+      "source": "accessibility-color-qa",
+      "title": "Accessibility, Contrast & Color QA",
+      "kind": "source",
+      "coverage": "COVERED",
+      "intro": "A short pre-publish QA pass: color independence, palette semantics, contrast, grayscale, and the interview answer that proves you actually test.",
+      "takeaways": [
+        "Never use red/green alone to carry status.",
+        "Contrast applies to labels, gridlines and states — not just body text.",
+        "Run a grayscale check; if the message disappears, the encoding is too weak."
+      ]
+    },
+    {
+      "slug": "visual-integrity",
+      "chapter": "07",
+      "section": "en",
+      "source": "visual-integrity",
+      "title": "Visual Integrity, Pitfalls & Ethics",
+      "kind": "source",
+      "coverage": "COVERED",
+      "intro": "Eight recurring pitfalls, then the axis and scale rules that prevent them: bar-length, stacking, dual axes, chartjunk and the visualization constitution.",
+      "takeaways": [
+        "A truncated bar axis manufactures a difference that is not there.",
+        "Dual axes invent correlation through scale choice.",
+        "Minimalism means removing non-data ink, not removing context."
+      ]
+    },
+    {
+      "slug": "statistical-traps",
+      "chapter": "07",
+      "section": "en",
+      "source": "statistical-traps",
+      "title": "Statistical Interpretation Traps",
+      "kind": "source",
+      "coverage": "COVERED",
+      "intro": "Many visualization failures are inference failures. Mean versus median, Simpson's paradox, ecological fallacy, selection bias and uncertainty.",
+      "takeaways": [
+        "Check the denominator and the mix before celebrating a lift.",
+        "An aggregate trend can reverse inside every segment.",
+        "Statistical detection is not the same as a decision-sized effect."
+      ]
+    },
+    {
+      "slug": "visual-atlas",
+      "chapter": "07",
+      "section": "en",
+      "source": "visual-atlas",
+      "title": "Visual Atlas — Teaching Figures",
+      "kind": "source",
+      "coverage": "COVERED",
+      "intro": "The figure pack behind the chapters: encoding strength, histogram shapes, baselines, palette families, KPI anatomy, dashboard scan paths and uncertainty.",
+      "takeaways": [
+        "Use the atlas as a wall card, not a replacement for the reasoning.",
+        "Every figure isolates one decision you can point at in review.",
+        "Match the figure to the chapter before quoting it."
+      ]
+    },
+    {
+      "slug": "chart-selection",
+      "chapter": "08",
+      "section": "en",
+      "source": "chart-selection",
+      "title": "Chart Selection Matrix & Anti-Patterns",
+      "kind": "source",
+      "coverage": "COVERED",
+      "intro": "The practical layer over the chart library: begin with the analytical task, then the data structure, then the simplest trustworthy encoding.",
+      "takeaways": [
+        "Task first, chart second.",
+        "Prefer position on a common scale over angle, area or hue.",
+        "Name the hazard before you publish the view."
+      ]
+    },
+    {
+      "slug": "dashboard-design",
+      "chapter": "08",
+      "section": "en",
+      "source": "dashboard-design",
+      "title": "Dashboard Design & Cognitive Load",
+      "kind": "source",
+      "coverage": "COVERED",
+      "intro": "Visual hierarchy, small multiples, KPI anatomy, and the difference between an executive and an analytical dashboard.",
+      "takeaways": [
+        "The scan path Context → KPI → Explanation → Detail → Action is the design.",
+        "A KPI without window, target, direction and exception is incomplete.",
+        "Executive views reduce choices; analytical views add diagnostic depth."
+      ]
+    },
+    {
+      "slug": "power-bi-playbook",
+      "chapter": "09",
+      "section": "en",
+      "source": "power-bi-playbook",
+      "title": "Power BI Visualization Playbook",
+      "kind": "source",
+      "coverage": "COVERED",
+      "intro": "The curriculum applied inside Power BI: measures, high cardinality, performance-aware visuals, interactions, color and log-axis caution.",
+      "takeaways": [
+        "Measures aggregate at query time; calculated columns live in the model.",
+        "High cardinality needs Top N + Other, search or drill-through.",
+        "A log axis is a deliberate analytical statement, not a styling choice."
+      ]
+    },
+    {
+      "slug": "interview-bank",
+      "chapter": "10",
+      "section": "en",
+      "source": "interview-bank",
+      "title": "Interview Master Bank",
+      "kind": "source",
+      "coverage": "COVERED",
+      "intro": "Conceptual, scenario, senior and rapid-fire questions drawn from the export. Answer with trade-offs, not definitions.",
+      "takeaways": [
+        "Structure answers as context → goal → data structure → candidates → trade-off → risk → recommendation.",
+        "Correlation near zero rules out a linear association, not every relationship.",
+        "An outlier is a question, not an automatic deletion."
+      ]
+    },
+    {
+      "slug": "quick-reference",
+      "chapter": "10",
+      "section": "en",
+      "source": "quick-reference",
+      "title": "Quick Reference & Exam Prep",
+      "kind": "source",
+      "coverage": "COVERED",
+      "intro": "The pre-publish checklist, comparison table, exam traps and the mental model that compresses the whole library.",
+      "takeaways": [
+        "Run the checklist before defending the chart.",
+        "Know the trap pairs: bar vs line, histogram vs bar, mean vs distribution, dual axis vs panels.",
+        "Question → grain → variables → task → encoding → scale → context → integrity."
+      ]
+    },
+    {
+      "slug": "applied-cases",
+      "chapter": "10",
+      "section": "en",
+      "source": null,
+      "title": "Applied Cases (synthetic)",
+      "kind": "editorial",
+      "coverage": "MISSING",
+      "intro": "The canonical Applied Use Cases page was not included in the export. These four short cases are new implementation material built on disclosed synthetic data — not summaries of the missing page.",
+      "takeaways": [
+        "Each case starts with a decision and a grain.",
+        "The chart is justified by the task, not by the domain.",
+        "Every synthetic figure is labelled and reproducible from the local dataset."
+      ]
+    },
+    {
+      "slug": "histogram",
+      "chapter": "03",
+      "section": "ar",
+      "source": "ar-histogram",
+      "title": "المدرج التكراري — Histogram",
+      "kind": "source",
+      "coverage": "COVERED",
+      "intro": null,
+      "takeaways": [
+        "عرض الـbin قرار تصميمي، وليس قيمة افتراضية.",
+        "افحص التعدد النمطي والالتواء قبل كتابة أي استنتاج.",
+        "المحور Y هنا عدّ، وليس قيمة فئوية."
+      ]
+    },
+    {
+      "slug": "box-plot",
+      "chapter": "03",
+      "section": "ar",
+      "source": "ar-box-plot",
+      "title": "مخطط الصندوق — Box Plot",
+      "kind": "source",
+      "coverage": "COVERED",
+      "intro": null,
+      "takeaways": [
+        "الصندوق يلخص الوسيط والربيعيات، وليس كل شكل التوزيع.",
+        "النقاط الشاذة تستحق التحقق، وليست خطأً تلقائيًا.",
+        "قارن المجموعات على مقياس مشترك."
+      ]
+    },
+    {
+      "slug": "scatter-plot",
+      "chapter": "03",
+      "section": "ar",
+      "source": "ar-scatter-plot",
+      "title": "مخطط التشتت — Scatter Plot",
+      "kind": "source",
+      "coverage": "COVERED",
+      "intro": null,
+      "takeaways": [
+        "افحص الشكل والتكتلات والقيم الشاذة قبل حساب الارتباط.",
+        "الارتباط لا يثبت السببية.",
+        "المحور اللوغاريتمي يحتاج تبريرًا وتحذيرًا واضحًا."
+      ]
+    },
+    {
+      "slug": "line-plot",
+      "chapter": "03",
+      "section": "ar",
+      "source": "ar-line-plot",
+      "title": "الرسم الخطي — Line Plot",
+      "kind": "source",
+      "coverage": "COVERED",
+      "intro": null,
+      "takeaways": [
+        "وجود التاريخ على المحور X لا يجعل الرسم الخطي مناسبًا تلقائيًا.",
+        "الخط يعني أن الملاحظات متصلة مفهوميًا.",
+        "النمو الأسي يبدو خطيًا على مقياس log — اقرأ المحور."
+      ]
+    },
+    {
+      "slug": "bar-plot",
+      "chapter": "03",
+      "section": "ar",
+      "source": "ar-bar-plot",
+      "title": "مخطط الأعمدة — Bar Plot",
+      "kind": "source",
+      "coverage": "COVERED",
+      "intro": null,
+      "takeaways": [
+        "طول العمود يجب أن يبدأ من الصفر.",
+        "الترتيب حسب القيمة يسهّل المقارنة.",
+        "لا تخلط بين Bar وHistogram."
+      ]
+    },
+    {
+      "slug": "dot-plot",
+      "chapter": "03",
+      "section": "ar",
+      "source": "ar-dot-plot",
+      "title": "مخطط النقاط — Dot Plot",
+      "kind": "source",
+      "coverage": "COVERED",
+      "intro": null,
+      "takeaways": [
+        "النقاط أفضل من الأعمدة عند المقارنة على مقياس log.",
+        "يمكن عرض عدة مقاييس على نفس الفئة.",
+        "اقرأ اتجاه المحور اللوغاريتمي قبل الحكم على الحجم."
+      ]
+    },
+    {
+      "slug": "core-charts",
+      "chapter": "03",
+      "section": "ar",
+      "source": "ar-core-charts",
+      "title": "الرسوم الأساسية — Univariate & Bivariate",
+      "kind": "source",
+      "coverage": "COVERED",
+      "intro": "صفحة فهرس عربية تربط دروس الرسوم الستة. استخدمها كنقطة بداية للمسار العربي.",
+      "takeaways": [
+        "ابدأ من نوع المتغير وعدد المتغيرات.",
+        "كل رسم له سؤال يناسبه وحدود يجب ذكرها.",
+        "المسار العربي يكرر المفاهيم بالعربية، وليس ترجمة حرفية."
+      ]
+    },
+    {
+      "slug": "color",
+      "chapter": "05",
+      "section": "ar",
+      "source": "ar-color",
+      "title": "الألوان في Data Visualization",
+      "kind": "source",
+      "coverage": "COVERED",
+      "intro": null,
+      "takeaways": [
+        "Qualitative للفئات، وSequential للمقدار المرتب.",
+        "Diverging يحتاج نقطة midpoint ذات معنى.",
+        "Viridis خيار عملي للـsequential."
+      ]
+    },
+    {
+      "slug": "tips",
+      "chapter": "10",
+      "section": "ar",
+      "source": "ar-tips-interview",
+      "title": "نصائح عملية وبنك أسئلة",
+      "kind": "source",
+      "coverage": "COVERED",
+      "intro": null,
+      "takeaways": [
+        "اختيار الرسم داخل Power BI يبدأ من السؤال.",
+        "الأداء جزء من جودة التصور، وليس موضوعًا منفصلًا.",
+        "أجب عن أسئلة المقابلات بالـtrade-offs."
+      ]
+    },
+    {
+      "slug": "reading-paths",
+      "chapter": "10",
+      "section": "ar",
+      "source": "ar-reading-paths",
+      "title": "مسارات قراءة مقترحة",
+      "kind": "source",
+      "coverage": "COVERED",
+      "intro": null,
+      "takeaways": [
+        "اختر مسارًا واحدًا حسب الهدف: BI أو EDA أو مقابلات.",
+        "لا تكرر الفصول نفسها في كل مسار.",
+        "ابدأ من الأساسيات ثم انتقل للتطبيق."
+      ]
+    },
+    {
+      "slug": "references",
+      "chapter": "10",
+      "section": "ar",
+      "source": "ar-references",
+      "title": "مراجع مختارة",
+      "kind": "source",
+      "coverage": "COVERED",
+      "intro": null,
+      "takeaways": [
+        "احتفظ بالمصدر الأصلي لكل فكرة.",
+        "افصل بين مراجع الإدراك البصري والمراجع الإحصائية.",
+        "المرجع الجيد يشرح القيود، وليس فقط الأمثلة."
+      ]
+    }
+  ]
+}

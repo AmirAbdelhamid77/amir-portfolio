@@ -1,0 +1,1360 @@
+[
+  {
+    "id": "dp600-frontmatter",
+    "title": "Front matter",
+    "chapter": "front",
+    "type": "reference",
+    "source_pages": [
+      1,
+      2,
+      3,
+      4
+    ],
+    "source_line_count": 117,
+    "source_excerpt_sha256": "2352f88a6e3f1590e64b9df9758e7330751c023a60899e795823d448099f8fac",
+    "route_suggestion": "/learn/dp600/front/dp600-frontmatter",
+    "content_file": "content/sections/dp600-frontmatter.md",
+    "qa_status": "unverified-source",
+    "content_raw": "MICROSOFT CERTIFIED: FABRIC ANALYTICS ENGINEER ASSOCIATE\nExam DP-600 Study Guide\nImplementing Analytics Solutions Using Microsoft Fabric\nEXAM\nDP-600\nSKILLS OUTLINE VERSION\n19 October 2026\nTIME TO COMPLETE\n100 minutes, proctored\nPASSING SCORE\n700 of 1000\nLEVEL\nIntermediate · Associate\nRENEWAL\nFree online, every 12 months\nOneLake\nLakehouse\nWarehouse\nDataflows Gen2\nT-SQL\nKQL\nDAX\nDirect Lake\nSemantic models\nGit & deployment pipelines\nEvery Microsoft link in this guide carries the Microsoft Learn Student Ambassadors Contributor ID\nwt.mc_id=studentamb_657938 . Language-locale segments have been removed and the ID is appended\nwith ?  or &  exactly as the Registered Member Handbook requires, so you can copy any link straight out\nof this document and share it.\nBuilt from the official skills outline published on the Microsoft Learn DP-600 study guide page.\nTable of contents\nChapter 0 — How to use this guide\n0.1 What DP-600 actually certifies\n0.2 The three skill areas and their weights\n0.3 Exam logistics you should know before booking\n0.4 A six-week study plan\n0.5 How to read the callouts\nChapter 1 — The Microsoft Fabric platform in one chapter\n1.1 What Fabric is\n1.2 Tenant, capacity, workspace, item\n1.3 OneLake and shortcuts\n1.4 The medallion architecture\n1.5 Choosing a data store\n1.6 Items you must be able to recognise\nChapter 2 — Maintain a data analytics solution, part 1: security and governance\n2.1 The mental model: every gate must open\n2.2 Workspace-level access control\n2.3 Item-level access control\n2.4 File-level access control with OneLake security\n2.5 Row-level security (RLS)\n2.6 Column-level and object-level security\n2.7 Sensitivity labels\n2.8 Endorsement\n2.9 Chapter 2 self-check\n2.10 Learn more\nChapter 3 — Maintain a data analytics solution, part 2: the development lifecycle\n3.1 Git integration\n3.2 Power BI Desktop projects (.pbip)\n3.3 Deployment pipelines\n3.4 Impact analysis and lineage\n3.5 The XMLA endpoint\n3.6 Reusable assets\n3.7 Chapter 3 self-check\n3.8 Learn more\nChapter 4 — Prepare data, part 1: get data\n4.1 Connections and gateways\n4.2 Discovering data: OneLake catalog and Real-Time hub\n4.3 Ways to get data in\n4.4 OneLake integration for Eventhouse and semantic models\n4.5 Chapter 4 self-check\n4.6 Learn more\nChapter 5 — Prepare data, part 2: transform data\n5.1 Choosing a transformation engine\n5.2 Implementing a star schema\n5.3 Denormalising, joining, and aggregating\n5.4 Data quality: duplicates, nulls, types\n5.5 Views, functions, and stored procedures\n5.6 Chapter 5 self-check\n5.7 Learn more\nChapter 6 — Prepare data, part 3: query and analyse\n6.1 The Visual query editor\n6.2 T-SQL essentials for the exam\n6.3 KQL essentials for the exam\n6.4 DAX essentials for the exam\n6.5 The same question in three languages\n6.6 Learn more\nChapter 7 — Implement and manage semantic models, part 1: design and build\n7.1 Storage modes\n7.2 Relationships\n7.3 DAX the outline names explicitly\n7.4 Calculation groups, dynamic format strings, field parameters\n7.5 Large semantic model storage format\n7.6 Composite models\n7.7 Chapter 7 self-check\n7.8 Learn more\nChapter 8 — Implement and manage semantic models, part 2: optimise at enterprise scale\n8.1 Find the bottleneck before you fix it\n8.2 Report and query-level improvements\n8.3 DAX performance patterns\n8.4 Direct Lake in depth\n8.5 Direct Lake on OneLake vs Direct Lake on SQL analytics endpoint\n8.6 Incremental refresh\n8.7 Chapter 8 self-check\n8.8 Learn more\nChapter 9 — The hands-on lab track\nChapter 10 — Practice questions\nChapter 11 — Exam-day checklist and quick reference\n11.1 The week before\n11.2 The 60-second memory dump\n11.3 Reading exam questions\n11.4 Glossary\n11.5 Where to go next\nAppendix A — One-page decision tables\nA.1 Where should this data live?\nA.2 Which ingestion tool?\nA.3 Which security control?\nA.4 Which lifecycle tool?\n"
+  },
+  {
+    "id": "dp600-0-intro",
+    "title": "How to use this guide",
+    "chapter": 0,
+    "type": "chapter-intro",
+    "source_pages": [
+      5,
+      7
+    ],
+    "source_line_count": 34,
+    "source_excerpt_sha256": "e31d9f0b37ebe55f7595458880c2ff4cd7c2a5073eabd201d35d8e6749248cf6",
+    "route_suggestion": "/learn/dp600/0/dp600-0-intro",
+    "content_file": "content/sections/dp600-0-intro.md",
+    "qa_status": "unverified-source",
+    "content_raw": "Chapter 0 — How to use this guide\nWeek\nFocus\nThis guide\nMicrosoft Learn\n1\nPlatform, OneLake, data stores\nCh. 1, 4\nGet started with Microsoft Fabric\n2\nLakehouse, warehouse,\ntransformations\nCh. 5\nImplement a Lakehouse · Implement a data\nwarehouse\n3\nSQL, KQL, DAX querying\nCh. 6\nDesign and transform analytics data\n4\nSecurity, governance, ALM\nCh. 2, 3\nSecure and govern analytics data · Manage a Fabric\nenvironment\n5\nSemantic models and Direct Lake\nCh. 7, 8\nDesign and manage semantic models\n6\nPractice, weak spots, exam\nreadiness\nCh. 9, 10,\n11\nPractice assessment · Exam Readiness Zone\n"
+  },
+  {
+    "id": "dp600-c0-s01",
+    "title": "What DP-600 actually certifies",
+    "chapter": 0,
+    "type": "lesson",
+    "source_pages": [
+      5
+    ],
+    "source_line_count": 12,
+    "source_excerpt_sha256": "33ce5d67c2704286cb20c974899586e203f18e19af712d5cd5745fd2ca1455c9",
+    "route_suggestion": "/learn/dp600/0/dp600-c0-s01",
+    "content_file": "content/sections/dp600-c0-s01.md",
+    "qa_status": "unverified-source",
+    "content_raw": "0.1 What DP-600 actually certifies\nPassing Exam DP-600: Implementing Analytics Solutions Using Microsoft Fabric earns the Microsoft\nCertified: Fabric Analytics Engineer Associate credential. Microsoft describes the role like this:\nAs a candidate for this exam, you should have subject matter expertise in designing, creating, and\nmanaging analytical assets, such as semantic models, warehouses, or lakehouses.\nYour three responsibilities, straight from the official DP-600 study guide:\nPrepare and enrich data for analysis\nSecure and maintain analytics assets\nImplement and manage semantic models\nYou are expected to query and analyse data with SQL, KQL, and DAX. You are not expected to be a Spark\nspecialist — that is DP-700's territory — but you must be able to read a PySpark notebook and know when\na notebook is the right tool.\n"
+  },
+  {
+    "id": "dp600-c0-s02",
+    "title": "The three skill areas and their weights",
+    "chapter": 0,
+    "type": "lesson",
+    "source_pages": [
+      5
+    ],
+    "source_line_count": 25,
+    "source_excerpt_sha256": "dcda2d3a8d32d1c5efbc5ba855f48be13cc9bcd170b92ee06362e8a2267b807d",
+    "route_suggestion": "/learn/dp600/0/dp600-c0-s02",
+    "content_file": "content/sections/dp600-c0-s02.md",
+    "qa_status": "unverified-source",
+    "content_raw": "0.2 The three skill areas and their weights\nDP-600 — weighting of the three skill areas\nMaintain a data analytics solution\n25–30%\nPrepare data\n45–50%\nImplement and manage semantic models\n25–30%\nSkills measured as of 19 October 2026. Nearly half the exam is \"Prepare data\" — budget your study time accordingly.\nSkill area\nWeight\nChapters in this guide\nMaintain a data analytics solution\n25–30%\n2, 3\nPrepare data\n45–50%\n4, 5, 6\nImplement and manage semantic models\n25–30%\n7, 8\nKEY TAKEAWAY\n\"Prepare data\" is worth almost as much as the other two areas combined. If you are short on time,\nmake sure you can confidently get data in, transform it into a star schema, and query it in SQL, KQL,\nand DAX.\n"
+  },
+  {
+    "id": "dp600-c0-s03",
+    "title": "Exam logistics you should know before booking",
+    "chapter": 0,
+    "type": "lesson",
+    "source_pages": [
+      6
+    ],
+    "source_line_count": 28,
+    "source_excerpt_sha256": "099d22cbfb5056825223239c58f91934c30ffb6ebb3d00d0de588487157049dc",
+    "route_suggestion": "/learn/dp600/0/dp600-c0-s03",
+    "content_file": "content/sections/dp600-c0-s03.md",
+    "qa_status": "unverified-source",
+    "content_raw": "0.3 Exam logistics you should know before booking\nItem\nDetail\nDuration\n100 minutes to complete the assessment; the appointment itself is longer (see exam duration\nand experience)\nPassing score\n700 on a scale of 1000 — this is a scaled score, not a percentage. See exam scoring and score\nreports\nQuestion count\nMicrosoft does not publish it. Expect roughly 40–60 items, typically including one or more case\nstudies\nQuestion types\nMultiple choice, multi-select, drag-and-drop ordering, hot area, build-list, and possible interactive\ncomponents\nLanguages\nEnglish, Japanese, Chinese (Simplified), German, French, Spanish, Portuguese (Brazil)\nDelivery\nProctored, online or at a Pearson VUE test centre\nRetake\n24 hours after a first failure, then longer waits — see the exam retake policy\nRenewal\nFree online assessment on Microsoft Learn every 12 months — renew your certification\nAccommodations\nExtra time and assistive technology available — request accommodations\nTIP\nTake the free DP-600 practice assessment at least twice: once before you study to find your gaps, and\nonce in the final week. Try the exam sandbox first so the question interface itself is never a surprise.\n"
+  },
+  {
+    "id": "dp600-c0-s04",
+    "title": "A six-week study plan",
+    "chapter": 0,
+    "type": "lesson",
+    "source_pages": [
+      6
+    ],
+    "source_line_count": 21,
+    "source_excerpt_sha256": "6877a408f36e4fc493c60000a6ddc396ce103eb30c515a9efeb6e831a44711ab",
+    "route_suggestion": "/learn/dp600/0/dp600-c0-s04",
+    "content_file": "content/sections/dp600-c0-s04.md",
+    "qa_status": "unverified-source",
+    "content_raw": "0.4 A six-week study plan\n1\nWeek 1\nPlatform & OneLake\n2\nWeek 2\nIngest & transform\n3\nWeek 3\nModel or stream\n4\nWeek 4\nSecurity & ALM\n5\nWeek 5\nOptimize & monitor\n6\nWeek 6\nPractice + review\nA realistic pace at roughly 6–8 hours per week. Compress to three weeks by doubling weekly hours, but never skip the hands-on\nlabs.\n"
+  },
+  {
+    "id": "dp600-c0-s05",
+    "title": "How to read the callouts",
+    "chapter": 0,
+    "type": "lesson",
+    "source_pages": [
+      7
+    ],
+    "source_line_count": 19,
+    "source_excerpt_sha256": "0e92ff12b541cc62fd63e778d324dcffe131f9fd9982bee822cdf47fa23aedb5",
+    "route_suggestion": "/learn/dp600/0/dp600-c0-s05",
+    "content_file": "content/sections/dp600-c0-s05.md",
+    "qa_status": "unverified-source",
+    "content_raw": "0.5 How to read the callouts\nCallout\nWhat it means\nExam focus\nWording drawn straight from the skills outline — expect to be tested here\nCommon exam trap\nA distinction the exam deliberately tests; most wrong answers come from these\nKnow the difference\nTwo features that look alike; be able to choose between them under time pressure\nKey takeaway\nThe one sentence to remember from the section\nHands-on lab\nDo this in a real workspace. Reading alone will not get you to 700\nTip / Watch out\nPractical advice and known gotchas\nHANDS-ON LAB\nEverything in this guide can be practised for free. Start a Microsoft Fabric trial (60 days, F64-equivalent\ntrial capacity) or use the free capacity that comes with Power BI Premium Per User. Create one\nworkspace named dp600-lab  and build everything there.\n"
+  },
+  {
+    "id": "dp600-1-intro",
+    "title": "The Microsoft Fabric platform",
+    "chapter": 1,
+    "type": "chapter-intro",
+    "source_pages": [
+      8,
+      10,
+      11
+    ],
+    "source_line_count": 121,
+    "source_excerpt_sha256": "1a730055894e64d914e897f3bb1b1b6d9556e806dea17c0f604261c7aa2a1e64",
+    "route_suggestion": "/learn/dp600/1/dp600-1-intro",
+    "content_file": "content/sections/dp600-1-intro.md",
+    "qa_status": "unverified-source",
+    "content_raw": "Chapter 1 — The Microsoft Fabric platform in one chapter\nEvery other chapter assumes the vocabulary in this one. If you can explain the picture below out loud, you\nare ready to move on.\nConcept\nData movement\nFreshness\nTypical use\nShortcut\nNone — read in place\nAlways\ncurrent\nReuse a Gold table across workspaces; read\nS3/ADLS without ETL\nMirroring\nManaged replication into\nOneLake\nNear real\ntime\nBring Azure SQL, Cosmos DB, Snowflake into\nFabric with no ETL\nCopy\n(pipeline/dataflow)\nPhysical copy\nAs of last run\nYou need to reshape, cleanse, or land history\nCOMMON EXAM TRAP\nA shortcut does not carry the source's permissions into Fabric automatically. Access through a shortcut\nis evaluated by the shortcut's own connection and by OneLake security in the target workspace.\nShortcuts to external clouds use the stored credential of the connection, not the caller's identity (unless\nthe connection uses a pass-through identity). Expect a question that hinges on \"who can see this data\nafter I create the shortcut?\"\nWhat is the workload?\nLakehouse\nSpark / files\nunstructured +\nDelta tables\nread-only SQL\nWarehouse\nFull T-SQL\nmulti-table\ntransactions\nwrites via SQL\nEventhouse\nHigh-volume\ntelemetry, logs\nKQL, seconds\ntime series\nSQL database\nOLTP app data\nlow latency\nauto-mirrored\nto OneLake\nAll four persist to OneLake in Delta/Parquet, so any engine can read the result\nThe four analytical stores. All of them land data in OneLake in Delta/Parquet.\nLakehouse\nWarehouse\nEventhouse (KQL)\nSQL database\nPrimary\nlanguage\nPySpark, Spark\nSQL\nT-SQL\nKQL (T-SQL subset for\nreads)\nT-SQL\nWrites\nSpark, pipelines,\nDataflows Gen2\nT-SQL\nINSERT / UPDATE / DE\nLETE / MERGE , COPY\nINTO\nStreaming ingestion,\n.ingest\nFull OLTP\ntransactions\nMulti-table\ntransactions\nNo\nYes\nNo\nYes\nUnstructured\nfiles\nYes (Files area)\nNo\nNo\nNo\nBest at\nData engineering,\nML, mixed file\ntypes\nDimensional models,\nSQL-first teams,\ncomplex joins\nTelemetry, logs, IoT, time\nseries, sub-second over\nhuge volumes\nOperational apps,\nlow-latency point\nreads\nSQL endpoint\nRead-only\nRead/write\n—\nRead/write\nAuto-mirrors to\nOneLake\nNative\nNative\nYes, via OneLake\navailability\nYes, automatically\nKNOW THE DIFFERENCE\nLakehouse vs Warehouse is the single most common \"choose a store\" question. Decide with two\nquestions: (1) Does the team need to write with T-SQL, including multi-table transactions? →\nWarehouse. (2) Does the workload involve files, Spark, or ML? → Lakehouse. If both, use both: a\nlakehouse for Bronze/Silver and a warehouse for Gold, joined through shortcuts or cross-database\nqueries.\nFull decision guidance: choose a data store and choose between pipeline, dataflow, and Spark.\n"
+  },
+  {
+    "id": "dp600-c1-s01",
+    "title": "What Fabric is",
+    "chapter": 1,
+    "type": "lesson",
+    "source_pages": [
+      8
+    ],
+    "source_line_count": 30,
+    "source_excerpt_sha256": "ab4ec5237c73f0c5d056442b4945d9219d2254b82161da7e62b9d681a784ad0b",
+    "route_suggestion": "/learn/dp600/1/dp600-c1-s01",
+    "content_file": "content/sections/dp600-c1-s01.md",
+    "qa_status": "unverified-source",
+    "content_raw": "1.1 What Fabric is\nMicrosoft Fabric is a SaaS analytics platform. Instead of provisioning a separate service for storage, ETL,\nwarehousing, streaming, and BI, you buy one pool of compute (a capacity) and get every workload on top of\none storage layer (OneLake).\nGovernance & security — Purview hub · sensitivity labels · domains · lineage · audit logs\nData\nFactory\nData\nEngineering\nData\nWarehouse\nReal-Time\nIntelligence\nData\nScience\nPower\nBI\nDatabases\nOneLake — one logical, multi-cloud data lake for the whole tenant\nOpen Delta Parquet format · no data duplication · shortcuts & mirroring\nFabric capacity (F SKU) — one shared pool of compute for every workload\nThe Fabric stack: one capacity, one lake, many workloads, governed as a whole.\nThree consequences matter for the exam:\nOne copy of the data. All workloads persist to OneLake in open Delta Parquet. A table written by Spark\nis immediately queryable by T-SQL and by a Direct Lake semantic model — with no copy, no export, no\npipeline.\nOne security and governance surface. Sensitivity labels, lineage, endorsement, and domains apply to\nevery item type, not per-service.\nOne billing surface. Every workload consumes Capacity Units (CUs) from the same F SKU. A runaway\nSpark job can slow down someone else's report.\n"
+  },
+  {
+    "id": "dp600-c1-s02",
+    "title": "Tenant, capacity, workspace, item",
+    "chapter": 1,
+    "type": "lesson",
+    "source_pages": [
+      9
+    ],
+    "source_line_count": 35,
+    "source_excerpt_sha256": "aa3eee93f08f8844a69a7f6f9aae68871fb6d002cb5a5cfe974239efc7658d81",
+    "route_suggestion": "/learn/dp600/1/dp600-c1-s02",
+    "content_file": "content/sections/dp600-c1-s02.md",
+    "qa_status": "unverified-source",
+    "content_raw": "1.2 Tenant, capacity, workspace, item\nLevel\nWhat it is\nWho administers it\nTenant\nYour whole Microsoft Entra organisation. Tenant settings switch\nfeatures on or off globally\nFabric administrator, in the\nadmin portal\nCapacity\nThe compute resource, sold as an F SKU (F2 up to F2048). Each\nworkspace is assigned to exactly one capacity\nCapacity administrator, via\ncapacity settings\nDomain\nA logical grouping of workspaces by business area (Finance, Sales)\nused for federated governance\nDomain admin, see domains\nWorkspace\nThe container for items and the main unit of access control\nWorkspace Admin, see\nworkspaces\nItem\nA lakehouse, warehouse, notebook, pipeline, semantic model,\nreport, eventhouse, and so on\nItem permissions, on top of\nworkspace roles\nCapacity behaviour you should recognise:\nCU consumption is smoothed over time; sustained overuse leads to throttling, which delays interactive\nqueries and background jobs differently.\nCapacities can be paused and resumed (pause and resume) — pausing stops billing but also stops\neverything running on it.\nYou monitor consumption with the Microsoft Fabric Capacity Metrics app.\nYou can scale a capacity up or down; some features (for example large semantic models and certain\nDirect Lake guardrails) depend on the SKU size.\n"
+  },
+  {
+    "id": "dp600-c1-s03",
+    "title": "OneLake and shortcuts",
+    "chapter": 1,
+    "type": "lesson",
+    "source_pages": [
+      9
+    ],
+    "source_line_count": 22,
+    "source_excerpt_sha256": "17e418593052f92da357b8837341f8a9080e2d7fe94338861c35b4f9d5ee5e3d",
+    "route_suggestion": "/learn/dp600/1/dp600-c1-s03",
+    "content_file": "content/sections/dp600-c1-s03.md",
+    "qa_status": "unverified-source",
+    "content_raw": "1.3 OneLake and shortcuts\nOneLake is a single logical data lake for the entire tenant, built on ADLS Gen2, automatically provisioned,\nand organised as tenant / workspace / item / Files or Tables . You cannot opt out of it, and you do\nnot size it.\nA shortcut is a pointer to data that lives somewhere else — another lakehouse, another workspace, ADLS\nGen2, Amazon S3, Google Cloud Storage, Dataverse, or an on-premises location via a gateway. Reading\nthrough a shortcut looks exactly like reading a local folder.\nWITHOUT shortcuts — copy the data\nADLS Gen2\nS3 / GCS\nETL copy\nOneLake\nduplicate\n2 copies · drift · extra cost · extra latency\nWITH shortcuts — point at the data\nADLS Gen2\nS3 / GCS\nshortcut\nOneLake\nreference\n1 copy · always current · no movement\nA shortcut removes the copy, the copy job, and the drift between the two copies.\n"
+  },
+  {
+    "id": "dp600-c1-s04",
+    "title": "The medallion architecture",
+    "chapter": 1,
+    "type": "lesson",
+    "source_pages": [
+      10
+    ],
+    "source_line_count": 25,
+    "source_excerpt_sha256": "65b7f22d7a5bee73bcc7e1009faf2b7db9e1a002456bb3407cc70e2043129b67",
+    "route_suggestion": "/learn/dp600/1/dp600-c1-s04",
+    "content_file": "content/sections/dp600-c1-s04.md",
+    "qa_status": "unverified-source",
+    "content_raw": "1.4 The medallion architecture\nFabric does not force a layout, but every Microsoft reference architecture and most exam scenarios use\nmedallion:\nBRONZE\nRaw landing\nas-ingested\nno schema change\nSILVER\nCleansed &\nconformed\ndedup · types · SCD\nGOLD\nBusiness-ready\nstar schema\naggregates\nSources: SaaS · databases · files · streams → ingest with pipelines, Dataflows Gen2, shortcuts, mirroring\nDirect Lake semantic model → Power BI reports · Excel · notebooks · SQL endpoint\nBronze keeps the raw truth, Silver makes it correct, Gold makes it useful. Report from Gold.\nBronze — land the source data as-is. No business logic. You can always replay from here.\nSilver — cleansed and conformed: types fixed, duplicates removed, late-arriving rows handled, slowly\nchanging dimensions maintained.\nGold — business-ready star schemas and aggregates, shaped for the semantic model.\nEach layer can be a separate lakehouse, a separate schema, or a separate workspace. Separate\nworkspaces give the cleanest security boundary; separate schemas in one lakehouse give the simplest\ndevelopment experience.\n"
+  },
+  {
+    "id": "dp600-c1-s05",
+    "title": "Choosing a data store",
+    "chapter": 1,
+    "type": "lesson",
+    "source_pages": [
+      10
+    ],
+    "source_line_count": 3,
+    "source_excerpt_sha256": "1334a050c257f92903216386cba565f16233689e621266edf3e82d245b0ca042",
+    "route_suggestion": "/learn/dp600/1/dp600-c1-s05",
+    "content_file": "content/sections/dp600-c1-s05.md",
+    "qa_status": "unverified-source",
+    "content_raw": "1.5 Choosing a data store\nThis is an explicit exam objective in both \"Get data\" and \"Ingest and transform data\", and it appears in case\nstudies.\n"
+  },
+  {
+    "id": "dp600-c1-s06",
+    "title": "Items you must be able to recognise",
+    "chapter": 1,
+    "type": "lesson",
+    "source_pages": [
+      12
+    ],
+    "source_line_count": 30,
+    "source_excerpt_sha256": "5e1cf666c5162b12cdc825634c27883b20591ca2fa870a571e4445ca258dfa80",
+    "route_suggestion": "/learn/dp600/1/dp600-c1-s06",
+    "content_file": "content/sections/dp600-c1-s06.md",
+    "qa_status": "unverified-source",
+    "content_raw": "1.6 Items you must be able to recognise\nItem\nOne-line purpose\nLakehouse\nDelta tables + file storage, with a read-only SQL analytics endpoint and a default semantic\nmodel\nWarehouse\nFull T-SQL relational warehouse, create a warehouse\nNotebook\nSpark code (PySpark, Spark SQL, Scala, R), how to use notebooks\nData pipeline\nOrchestration and Copy activity, Data Factory in Fabric\nDataflow Gen2\nPower Query transformations with a destination, Dataflows Gen2 overview\nEventstream\nNo-code streaming ingest and routing, Eventstream overview\nEventhouse\nKQL databases for real-time data, Eventhouse\nSemantic model\nThe tabular model that reports query with DAX\nReport /\ndashboard\nPower BI visuals and Real-Time Dashboards\nEnvironment\nReusable Spark configuration and libraries, environments\nVariable library\nValues that change per deployment stage, variable library\nKEY TAKEAWAY\nOne capacity, one lake, one security model. Every \"where should this live?\" question is answered by\nthe language the team writes in and whether the data is files, relational, or streaming.\n"
+  },
+  {
+    "id": "dp600-2-intro",
+    "title": "Security and governance",
+    "chapter": 2,
+    "type": "chapter-intro",
+    "source_pages": [
+      13,
+      14,
+      15,
+      16,
+      17
+    ],
+    "source_line_count": 85,
+    "source_excerpt_sha256": "5bee2580a4eb7f4ec15718d19f4093f3625f86faa482174dd6d674218d648dd1",
+    "route_suggestion": "/learn/dp600/2/dp600-2-intro",
+    "content_file": "content/sections/dp600-2-intro.md",
+    "qa_status": "unverified-source",
+    "content_raw": "Chapter 2 — Maintain a data analytics solution, part 1:\nsecurity and governance\nEXAM FOCUS\nImplement security and governance — implement workspace-level access controls · implement\nitem-level access controls · implement row-level, column-level, object-level, and file-level access\ncontrol · apply sensitivity labels to items · endorse items.\nCapability\nAdmin\nMember\nContributor\nViewer\nDelete the workspace, change its capacity\n✔\nAdd or remove people in any role\n✔\nAdd people as Contributor or Viewer\n✔\n✔\nShare items and re-share with others\n✔\n✔\nPublish and update an app\n✔\n✔\nCreate, edit, delete items\n✔\n✔\n✔\nSchedule and run refreshes and jobs\n✔\n✔\n✔\nView and interact with items, read data through the SQL endpoint\n✔\n✔\n✔\n✔\nRead raw files through Spark / OneLake APIs\n✔\n✔\n✔\nCOMMON EXAM TRAP\nViewer does not mean \"can read all the data.\" A Viewer can query a warehouse or lakehouse\nthrough the SQL analytics endpoint and open reports, but cannot read the underlying files with Spark\nor OneLake APIs. If a scenario says \"analysts must query tables with SQL but must not read the raw\nfiles,\" Viewer plus ReadData  is the answer — not Contributor.\nCOMMON EXAM TRAP\nBuild is not Read. A user with Read on a semantic model can open existing reports; a user needs\nBuild to create a new report, connect from Excel, or use Analyze in Excel. \"Users can see the\npublished report but cannot create their own\" almost always means Build is missing.\n▸ RLS in a warehouse or SQL analytics endpoint (T-SQL)\nA security predicate function plus a security policy, exactly as in SQL Server:\nCREATE SCHEMA Security;\nGO\nCREATE FUNCTION Security.fn_SalesRepPredicate(@SalesRep AS varchar(100))\n    RETURNS TABLE\n    WITH SCHEMABINDING\nAS\n    RETURN SELECT 1 AS granted\n           WHERE @SalesRep = USER_NAME()\n              OR IS_ROLEMEMBER('SalesManagers') = 1;\nGO\nCREATE SECURITY POLICY Security.SalesRepFilter\n    ADD FILTER PREDICATE Security.fn_SalesRepPredicate(SalesRep) ON dbo.FactSales\n    WITH (STATE = ON);\nDetails: row-level security in Fabric Data Warehouse.\n▸ RLS in an Eventhouse (KQL)\nKQL databases enforce row level security with a policy on the table that rewrites the query:\n.alter table Telemetry policy row_level_security enable\n\"Telemetry | where Region == current_principal_details()['UserPrincipalName']\"\nCOMMON EXAM TRAP\nSemantic-model RLS is ignored for a user who has Admin, Member, or Contributor on the workspace,\nand for anyone with Write permission on the model. Always test with View as role, and put report\nconsumers in Viewer.\n// TMSL fragment: hide a table from the \"Standard\" role\n{\n  \"name\": \"Standard\",\n  \"tablePermissions\": [\n    { \"name\": \"Payroll\", \"metadataPermission\": \"none\" }\n  ]\n}\nKNOW THE DIFFERENCE\nCLS hides a column's values, OLS hides the object's existence. With CLS the user still sees the\ncolumn name and gets an error or a blank; with OLS the table or column is not in the model at all for\nthat role — a visual referencing it breaks rather than showing blanks.\n"
+  },
+  {
+    "id": "dp600-c2-s01",
+    "title": "The mental model: every gate must open",
+    "chapter": 2,
+    "type": "lesson",
+    "source_pages": [
+      13
+    ],
+    "source_line_count": 34,
+    "source_excerpt_sha256": "99ce9d5558f7b43026e49f57a08e4709507afb13051eed3391712c9365c1550f",
+    "route_suggestion": "/learn/dp600/2/dp600-c2-s01",
+    "content_file": "content/sections/dp600-c2-s01.md",
+    "qa_status": "unverified-source",
+    "content_raw": "2.1 The mental model: every gate must open\nUser or\nservice principal\nWorkspace role?\nAdmin/Member/Contributor\n→ full item access\nItem permission?\nRead / ReadData /\nReadAll / Build\nEngine grant?\nSQL GRANT, OneLake\nsecurity role\nRow/column rule?\nRLS predicate, CLS\ndeny, OLS, DDM mask\nData\nEvery gate must allow the request; the most restrictive rule always wins\nA request is authorised at four gates. The most restrictive rule always wins — there is no \"allow\" that overrides a \"deny\".\nMicrosoft Entra ID\nIdentity, MFA, conditional access, service principals\nTenant settings\nAdmin portal switches: who can create, share, export\nCapacity\nWhich workspaces run where; who administers the F SKU\nWorkspace roles\nAdmin · Member · Contributor · Viewer\nItem permissions\nShare a single lakehouse / warehouse / semantic model / report\nCompute engine security\nOneLake security, SQL GRANT, RLS · CLS · OLS · DDM\nData itself\nSensitivity labels, encryption, Purview classification\nBroadest scope at the top — each layer narrows what the layer above allowed\nThe full stack of controls, from identity down to the data itself.\n"
+  },
+  {
+    "id": "dp600-c2-s02",
+    "title": "Workspace-level access control",
+    "chapter": 2,
+    "type": "lesson",
+    "source_pages": [
+      13
+    ],
+    "source_line_count": 3,
+    "source_excerpt_sha256": "658b191a31901580b45ef9867484dfa4b69a5fd25792461422e86bcce06ed2e9",
+    "route_suggestion": "/learn/dp600/2/dp600-c2-s02",
+    "content_file": "content/sections/dp600-c2-s02.md",
+    "qa_status": "unverified-source",
+    "content_raw": "2.2 Workspace-level access control\nA workspace role grants a blanket level of access to every item in the workspace. Assign roles to Microsoft\nEntra security groups, never to individuals — this is both best practice and a common correct answer.\n"
+  },
+  {
+    "id": "dp600-c2-s03",
+    "title": "Item-level access control",
+    "chapter": 2,
+    "type": "lesson",
+    "source_pages": [
+      14
+    ],
+    "source_line_count": 30,
+    "source_excerpt_sha256": "2f4a8752816408e5dbdcc6a5d610f9fbdd2447822321ab84675477286798f40e",
+    "route_suggestion": "/learn/dp600/2/dp600-c2-s03",
+    "content_file": "content/sections/dp600-c2-s03.md",
+    "qa_status": "unverified-source",
+    "content_raw": "2.3 Item-level access control\nItem permissions let you share a single item with someone who has no workspace role at all. They are\nadditive to workspace roles: you can grant more, never less.\nPermission\nMeaning\nApplies to\nRead\nSee the item exists and open its metadata\nAll items\nReadData\nQuery data through the SQL analytics endpoint\nLakehouse, warehouse\nReadAll\nRead the underlying OneLake files (Spark, OneLake APIs)\nLakehouse, warehouse\nBuild\nCreate new content on top of a semantic model\nSemantic model\nReshare\nPass the permission on to someone else\nShared items\nWrite\nModify the item definition\nAll items\nExecute\nRun the item (for example a notebook or pipeline)\nExecutable items\nSharing a lakehouse shows exactly these switches: Read all Apache Spark ( ReadAll ), Read all SQL\nendpoint data ( ReadData ), and Build reports on the default semantic model ( Build ). Reference: Fabric\npermission model.\n"
+  },
+  {
+    "id": "dp600-c2-s04",
+    "title": "File-level access control with OneLake security",
+    "chapter": 2,
+    "type": "lesson",
+    "source_pages": [
+      15
+    ],
+    "source_line_count": 14,
+    "source_excerpt_sha256": "ec9d61e70c23a0981af166f478cfe747d45f9086fe398fe9f2c6c25258c56306",
+    "route_suggestion": "/learn/dp600/2/dp600-c2-s04",
+    "content_file": "content/sections/dp600-c2-s04.md",
+    "qa_status": "unverified-source",
+    "content_raw": "2.4 File-level access control with OneLake security\nOneLake security applies access rules at the OneLake layer, so they are enforced no matter which engine\nreads the data — Spark, T-SQL, Direct Lake, or the OneLake API.\nYou define data access roles on a lakehouse that specify which folders and tables a role can read, and\nassign Entra users or groups to those roles. Rows and columns can also be restricted at this layer, and the\nrestriction follows the data into a Direct Lake semantic model.\nGet started: OneLake security\nThe full evaluation logic: data access control model\nRole setup walkthrough: get started with data access roles\nKNOW THE DIFFERENCE\nOneLake security vs SQL permissions. OneLake security is enforced for every engine, including\nSpark and Direct Lake. GRANT / DENY  in the SQL analytics endpoint is enforced only for callers coming\nthrough that endpoint — a Spark notebook with ReadAll  bypasses it entirely. When a scenario says\n\"regardless of the tool they use\", the answer is OneLake security.\n"
+  },
+  {
+    "id": "dp600-c2-s05",
+    "title": "Row-level security (RLS)",
+    "chapter": 2,
+    "type": "lesson",
+    "source_pages": [
+      15
+    ],
+    "source_line_count": 16,
+    "source_excerpt_sha256": "9529f2a5de88d85abd5364636b643175e42346d733e4baf71a752ba641c069a3",
+    "route_suggestion": "/learn/dp600/2/dp600-c2-s05",
+    "content_file": "content/sections/dp600-c2-s05.md",
+    "qa_status": "unverified-source",
+    "content_raw": "2.5 Row-level security (RLS)\nRLS filters rows. Fabric has three separate implementations, and the exam will test whether you know\nwhich is which.\n▸ RLS in a semantic model (DAX)\nDefine a role in Power BI Desktop (Modeling → Manage roles), write a DAX filter on a table, then assign\nusers or groups to the role in the Fabric service.\n-- Role \"Sales rep\": a rep sees only their own region.\n-- Applied to the DimSalesRep table, propagating to FactSales by relationship.\n[Email] = USERPRINCIPALNAME()\nA dynamic pattern that scales to thousands of users uses a mapping table:\n[RegionKey] =\nLOOKUPVALUE(\n    UserRegion[RegionKey],\n    UserRegion[UserEmail], USERPRINCIPALNAME()\n)\nDetails: row-level security with Power BI.\n"
+  },
+  {
+    "id": "dp600-c2-s06",
+    "title": "Column-level and object-level security",
+    "chapter": 2,
+    "type": "lesson",
+    "source_pages": [
+      16
+    ],
+    "source_line_count": 10,
+    "source_excerpt_sha256": "b8612776fa6a4f0b6088ea166396b34f2e3a33f2b201c531898e90a88bc224d1",
+    "route_suggestion": "/learn/dp600/2/dp600-c2-s06",
+    "content_file": "content/sections/dp600-c2-s06.md",
+    "qa_status": "unverified-source",
+    "content_raw": "2.6 Column-level and object-level security\nColumn-level security (CLS) hides columns. In a warehouse or SQL endpoint it is plain T-SQL:\n-- Grant only the safe columns...\nGRANT SELECT ON dbo.DimCustomer(CustomerKey, CustomerName, City) TO [Analysts];\n-- ...or explicitly deny the sensitive one.\nDENY SELECT ON dbo.DimCustomer(NationalId) TO [Analysts];\nReference: column-level security.\nObject-level security (OLS) hides an entire table or column in the semantic model, so it disappears from\nthe field list and from metadata. It is configured with external tooling (Tabular Editor, or a TMSL script\nthrough the XMLA endpoint) because Power BI Desktop has no OLS UI.\n"
+  },
+  {
+    "id": "dp600-c2-s07",
+    "title": "Sensitivity labels",
+    "chapter": 2,
+    "type": "lesson",
+    "source_pages": [
+      17
+    ],
+    "source_line_count": 12,
+    "source_excerpt_sha256": "627a5aded68d017831e3952f46449bf057ddad97bacf67f05a56ada5dd8149e4",
+    "route_suggestion": "/learn/dp600/2/dp600-c2-s07",
+    "content_file": "content/sections/dp600-c2-s07.md",
+    "qa_status": "unverified-source",
+    "content_raw": "2.7 Sensitivity labels\nInformation protection applies Microsoft Purview sensitivity labels to Fabric items.\nLabels are defined in the Microsoft Purview compliance portal, not in Fabric.\nLabels flow downstream automatically: label a lakehouse and the semantic models and reports built\nfrom it inherit the label.\nLabels persist on export to Excel, PowerPoint, PDF, and Power BI Desktop files, where they enforce\nencryption and access.\nTenant settings control who can apply and change labels.\nCOMMON EXAM TRAP\nA sensitivity label is not an access control on its own. It classifies and can encrypt exported files, but it\ndoes not stop a user who already has Read from querying the data inside Fabric. Questions that pair\n\"must not be able to open the exported file\" with \"must still see the report\" are testing exactly this.\n"
+  },
+  {
+    "id": "dp600-c2-s08",
+    "title": "Endorsement",
+    "chapter": 2,
+    "type": "lesson",
+    "source_pages": [
+      17
+    ],
+    "source_line_count": 20,
+    "source_excerpt_sha256": "6be74595087949e0418e2884388f3f8d860a02931e20e6f52939840ea161fcf4",
+    "route_suggestion": "/learn/dp600/2/dp600-c2-s08",
+    "content_file": "content/sections/dp600-c2-s08.md",
+    "qa_status": "unverified-source",
+    "content_raw": "2.8 Endorsement\nEndorsement is how you tell users which items to trust. It affects discovery and ranking in the OneLake\ncatalog, not permissions.\nLevel\nWho can apply it\nMeaning\nPromoted\nAnyone with Write on the item (workspace Contributor\nand above)\n\"My team recommends this\"\nCertified\nOnly reviewers nominated by the tenant admin\n\"This has been formally reviewed\"\nMaster\ndata\nRestricted in the same way as Certified\n\"This is the single authoritative source for\nthis entity\"\nEndorsement pairs with lineage, the OneLake catalog, and the Microsoft Purview hub for a complete\ngovernance story.\n"
+  },
+  {
+    "id": "dp600-c2-s09",
+    "title": "Chapter 2 self-check",
+    "chapter": 2,
+    "type": "lesson",
+    "source_pages": [
+      18
+    ],
+    "source_line_count": 12,
+    "source_excerpt_sha256": "f585931784d084625773e3f15dc77a805fcc26850f6ac2bc05df021db797474a",
+    "route_suggestion": "/learn/dp600/2/dp600-c2-s09",
+    "content_file": "content/sections/dp600-c2-s09.md",
+    "qa_status": "unverified-source",
+    "content_raw": "2.9 Chapter 2 self-check\n1. An analyst must run T-SQL queries against a warehouse but must not read files with Spark. What do you\ngrant?\n2. Where do you configure a rule that hides the Salary  column from everyone except HR, enforced for\nSpark and SQL and Direct Lake?\n3. A user can open a report but cannot create a new one from the same semantic model. What is missing?\n4. Who is allowed to mark a semantic model as Certified?\n5. Why does a workspace Member still see all rows despite an RLS role being defined?\nAnswers. 1. Workspace Viewer plus the ReadData  item permission (not ReadAll ). 2. OneLake\nsecurity data access roles — SQL DENY  alone would not cover Spark. 3. The Build permission on the\nsemantic model. 4. Only reviewers explicitly nominated by the Fabric tenant administrator. 5. Semantic-\nmodel RLS does not apply to users with Write access on the model.\n"
+  },
+  {
+    "id": "dp600-c2-s10",
+    "title": "Learn more",
+    "chapter": 2,
+    "type": "lesson",
+    "source_pages": [
+      18
+    ],
+    "source_line_count": 12,
+    "source_excerpt_sha256": "463a6102f572950c0d531ae53c30d445987ec370bc90df0a0f5b4d48ccf875fc",
+    "route_suggestion": "/learn/dp600/2/dp600-c2-s10",
+    "content_file": "content/sections/dp600-c2-s10.md",
+    "qa_status": "unverified-source",
+    "content_raw": "2.10 Learn more\nSecurity in Microsoft Fabric\nPermission model\nRoles in workspaces\nOneLake security\nRow-level security in Fabric Data Warehouse\nColumn-level security\nSQL granular permissions\nInformation protection in Fabric\nEndorsement overview\nTraining: Secure and govern analytics data in Microsoft Fabric · Secure data access in Fabric · Secure a\nFabric data warehouse\n"
+  },
+  {
+    "id": "dp600-3-intro",
+    "title": "Development lifecycle",
+    "chapter": 3,
+    "type": "chapter-intro",
+    "source_pages": [
+      19,
+      20,
+      21,
+      23
+    ],
+    "source_line_count": 80,
+    "source_excerpt_sha256": "19c839d42f6ab92540edb9e562e7ebdd663664d3548dc94a4ffdd55e324dbd86",
+    "route_suggestion": "/learn/dp600/3/dp600-3-intro",
+    "content_file": "content/sections/dp600-3-intro.md",
+    "qa_status": "unverified-source",
+    "content_raw": "Chapter 3 — Maintain a data analytics solution, part 2:\nthe development lifecycle\nEXAM FOCUS\nMaintain the analytics development lifecycle — configure version control for a workspace · create\nand manage a Power BI Desktop project (.pbip) · create and configure deployment pipelines · perform\nimpact analysis of downstream dependencies from lakehouses, warehouses, dataflows, and semantic\nmodels · deploy and manage semantic models by using the XMLA endpoint · create and update\nreusable assets, including Power BI template (.pbit) files, Power BI data source (.pbids) files, and\nshared semantic models.\nAzure DevOps /\nGitHub repo\n(branches, PRs)\nDev workspace\nfeature branches\ndeploy\nTest workspace\nUAT + rules\ndeploy\nProd workspace\nend users\nsync\ncommit\nDeployment rules & Variable library: repoint connections, lakehouse IDs and parameters per stage\nCompare stages → select items → deploy · backward deployment allowed · history kept\nGit holds the source of truth; deployment pipelines move content between stages; rules and variable libraries re-point it at the right\ndata for each stage.\nRule\nDetail\nOne branch per\nworkspace\nA workspace connects to exactly one branch at a time\nIdentity\nThe commit is made with the identity of the person who clicks Commit\nNot everything is\nsupported\nSupported item types expand over time; unsupported items stay in the workspace but\nare not serialised\nConflicts\nResolved in the Source control pane, or in Git before updating\nCOMMON EXAM TRAP\nGit integration syncs item definitions, not data. Committing a lakehouse commits its metadata and\nshortcuts — not the Delta files. A question describing \"we need the tables and their rows in the test\nworkspace\" is describing a data-loading pipeline, not a Git update.\nDeployment compares stages and shows what is new, different, or missing; you choose which items to\ndeploy.\nBackward deployment is allowed (Production → Test) when the target stage's workspace is empty of\nthat item.\nDeploying does not move data; it moves item definitions. A warehouse deploys as an empty schema\nunless you also run a load.\nDeployment rules re-point content per stage, so a report in Test does not read Development data:\nRule type\nTypical use\nData source rule\nSwap the lakehouse or SQL endpoint a semantic model reads\nParameter rule\nChange a Power Query parameter such as a server or database name\nDefault lakehouse rule\nPoint a notebook at the stage's own lakehouse\nFor values shared by many items, a variable library holds one named variable with a different value per\nstage — cleaner than repeating rules item by item.\nFor fully automated releases, drive the same operations through the Fabric REST APIs from Azure DevOps\nor GitHub Actions. See CI/CD in Fabric and CI/CD best practices.\nCOMMON EXAM TRAP\nGit integration and deployment pipelines solve different problems and are frequently confused. Git =\nversion history, branching, code review, and recovery. Deployment pipelines = promoting a tested set\nof items to the next environment with stage-specific bindings. Enterprise answers usually use both: Git\nfor Dev, pipelines for Dev → Test → Prod.\n{\n  \"version\": \"0.1\",\n  \"connections\": [\n    {\n      \"details\": {\n        \"protocol\": \"tds\",\n        \"address\": { \"server\": \"<workspace>.datawarehouse.fabric.microsoft.com\", \"database\": \n\"SalesDW\" }\n      },\n      \"mode\": \"DirectQuery\"\n    }\n  ]\n}\n"
+  },
+  {
+    "id": "dp600-c3-s01",
+    "title": "Git integration",
+    "chapter": 3,
+    "type": "lesson",
+    "source_pages": [
+      19
+    ],
+    "source_line_count": 9,
+    "source_excerpt_sha256": "b40b76d01ba44c19a813c3cfd76c66b1311ec6b9cb6bc62bb3045373560f74d0",
+    "route_suggestion": "/learn/dp600/3/dp600-c3-s01",
+    "content_file": "content/sections/dp600-c3-s01.md",
+    "qa_status": "unverified-source",
+    "content_raw": "3.1 Git integration\nGit integration connects a workspace to a branch in Azure DevOps (Azure Repos) or GitHub. Items are\nserialised into folders of text files, so you get real diffs, pull requests, and history.\nHow it works in practice:\n1. A workspace Admin connects the workspace to an organisation, project, repository, branch, and folder.\n2. Commit pushes workspace changes to the branch. Update pulls branch changes into the workspace.\n3. The Source control pane shows each item as Uncommitted, Modified, or Conflict.\n4. To work on a feature in isolation, use Branch out to a new workspace: Fabric creates a branch and a\nworkspace already synced to it.\n"
+  },
+  {
+    "id": "dp600-c3-s02",
+    "title": "Power BI Desktop projects (.pbip)",
+    "chapter": 3,
+    "type": "lesson",
+    "source_pages": [
+      20
+    ],
+    "source_line_count": 17,
+    "source_excerpt_sha256": "eeab97bd4c2cfb20a782c42753f5f33562944fc60b326bb60cd781601272a023",
+    "route_suggestion": "/learn/dp600/3/dp600-c3-s02",
+    "content_file": "content/sections/dp600-c3-s02.md",
+    "qa_status": "unverified-source",
+    "content_raw": "3.2 Power BI Desktop projects (.pbip)\nA Power BI project saves a report and its semantic model as a folder of plain-text files instead of one\nopaque .pbix :\nMySolution.Report/        report definition (PBIR)\nMySolution.SemanticModel/ model definition in TMDL (.tmdl files)\nMySolution.pbip           the small pointer file you open in Desktop\n.gitignore / .platform    supporting metadata\nWhy it matters for the exam:\nIt makes semantic models and reports diffable and mergeable — the prerequisite for meaningful code\nreview.\nTMDL (Tabular Model Definition Language) is the human-readable format for the model; you can edit\nmeasures in VS Code.\nIt is the recommended way to put Power BI content under source control alongside Fabric items.\nKNOW THE DIFFERENCE\n.pbix vs .pbip vs .pbit — .pbix  is the classic single binary (report + model + cached data). .pbip\nis the project folder format for source control. .pbit  is a template: report and model definition with no\ndata, used to hand a starting point to someone else, who supplies parameters on open.\n"
+  },
+  {
+    "id": "dp600-c3-s03",
+    "title": "Deployment pipelines",
+    "chapter": 3,
+    "type": "lesson",
+    "source_pages": [
+      20
+    ],
+    "source_line_count": 5,
+    "source_excerpt_sha256": "7a3e470edafc764da81ff13dbb1369d606e5d01e208d44b97234718f74cc1e2d",
+    "route_suggestion": "/learn/dp600/3/dp600-c3-s03",
+    "content_file": "content/sections/dp600-c3-s03.md",
+    "qa_status": "unverified-source",
+    "content_raw": "3.3 Deployment pipelines\nDeployment pipelines move content between workspaces in ordered stages (classically Development →\nTest → Production; up to 10 stages are supported).\nKey behaviours:\nEach stage is bound to one workspace. You must be an Admin of the workspace to assign it.\n"
+  },
+  {
+    "id": "dp600-c3-s04",
+    "title": "Impact analysis and lineage",
+    "chapter": 3,
+    "type": "lesson",
+    "source_pages": [
+      21
+    ],
+    "source_line_count": 12,
+    "source_excerpt_sha256": "3082b8aba256bf1080eb221a5808619e526e37002f363f24b8865526c32be594",
+    "route_suggestion": "/learn/dp600/3/dp600-c3-s04",
+    "content_file": "content/sections/dp600-c3-s04.md",
+    "qa_status": "unverified-source",
+    "content_raw": "3.4 Impact analysis and lineage\nBefore you change a table, you need to know what breaks.\nLineage view draws the graph of a workspace: sources → dataflows → lakehouses/warehouses →\nsemantic models → reports and dashboards.\nImpact analysis starts from one item and lists every downstream dependent, across workspaces, with\nthe number of affected reports and workspaces. It also lets you notify the contacts of those items.\nImpact analysis is available from lakehouses, warehouses, dataflows, and semantic models — exactly\nthe four the skills outline names.\nTIP\nFor programmatic dependency analysis, semantic link ( sempy ) in a notebook can list measures,\nrelationships, and dependencies of a semantic model — useful for auditing large estates and for\nautomated documentation.\n"
+  },
+  {
+    "id": "dp600-c3-s05",
+    "title": "The XMLA endpoint",
+    "chapter": 3,
+    "type": "lesson",
+    "source_pages": [
+      22
+    ],
+    "source_line_count": 19,
+    "source_excerpt_sha256": "af03bb6c6aa689d2aafc01dd1fda873497fc02cf3636185a942b4466dfee7fa0",
+    "route_suggestion": "/learn/dp600/3/dp600-c3-s05",
+    "content_file": "content/sections/dp600-c3-s05.md",
+    "qa_status": "unverified-source",
+    "content_raw": "3.5 The XMLA endpoint\nThe XMLA endpoint exposes a Fabric semantic model with the same protocol as Azure Analysis Services,\nso professional tools can connect to it.\nMode\nWhat you can do\nRead\nConnect DAX Studio, Excel, SSMS, or Tabular Editor to query and profile the model\nRead/Write\nDeploy, alter, script, refresh, and manage partitions from external tools\nTurn read/write on in the capacity settings, then connect with a workspace connection string of the form\npowerbi://api.powerbi.com/v1.0/myorg/<workspace> .\nWhat the XMLA endpoint unlocks that Desktop cannot do:\nDeploy metadata-only changes (add a measure without republishing the whole model)\nConfigure object-level security and advanced role definitions\nManage partitions and trigger targeted refreshes, including refreshType  options\nRun TMSL scripts and ALM Toolkit schema comparisons in a release pipeline\nWATCH OUT\nAfter a model is modified through the XMLA endpoint, it can no longer be downloaded as a .pbix .\nKeep the .pbip  project in Git as your source of truth.\n"
+  },
+  {
+    "id": "dp600-c3-s06",
+    "title": "Reusable assets",
+    "chapter": 3,
+    "type": "lesson",
+    "source_pages": [
+      22
+    ],
+    "source_line_count": 30,
+    "source_excerpt_sha256": "7d2406453fb9089ef22bd54c501ed93eaa92b0f61f6e609cdafb9558aa8d7bc5",
+    "route_suggestion": "/learn/dp600/3/dp600-c3-s06",
+    "content_file": "content/sections/dp600-c3-s06.md",
+    "qa_status": "unverified-source",
+    "content_raw": "3.6 Reusable assets\nAsset\nWhat it contains\nWhen to use it\n.pbit (template)\nReport + model definition, no data,\nparameters prompted on open\nDistribute a standard report that each team\npoints at its own source\n.pbids (data source\nfile)\nJust the connection details\nGet analysts to the right source with the right\nconnector in one click\nShared semantic\nmodel\nA published model others connect to\nlive\nOne version of the truth: many reports, one\nmodel, one set of measures and RLS\nDataflow Gen2\nReusable Power Query logic with a\ndestination\nShare cleansing logic across many models\nVariable library /\nenvironment\nStage-specific values, Spark libraries\nand config\nConsistency across items and stages\nA .pbids  file is small, hand-editable JSON:\n"
+  },
+  {
+    "id": "dp600-c3-s07",
+    "title": "Chapter 3 self-check",
+    "chapter": 3,
+    "type": "lesson",
+    "source_pages": [
+      23
+    ],
+    "source_line_count": 12,
+    "source_excerpt_sha256": "fde0c58329878fa81035dbe90df0a00bfdc350949593a50fa09f251f902ff3c8",
+    "route_suggestion": "/learn/dp600/3/dp600-c3-s07",
+    "content_file": "content/sections/dp600-c3-s07.md",
+    "qa_status": "unverified-source",
+    "content_raw": "3.7 Chapter 3 self-check\n1. You need per-stage lakehouse bindings for ten notebooks. Rules on every item, or a variable library?\n2. A developer wants two people reviewing measure changes before they reach the shared model. Which\nfeature?\n3. What is lost when you deploy a warehouse through a deployment pipeline?\n4. Which tool adds object-level security to a semantic model?\n5. Analysts each need the same report against their own regional database. Which asset do you publish?\nAnswers. 1. A variable library — one variable, one value per stage, referenced by all ten. 2. Git\nintegration with pull requests, developing in .pbip  format so the diff is readable. 3. The data:\ndefinitions deploy, rows do not. 4. An external tool over the XMLA endpoint (Tabular Editor or a TMSL\nscript); Desktop has no OLS UI. 5. A .pbit  template with a parameter for the database, or a .pbids\nfile pointing at their source.\n"
+  },
+  {
+    "id": "dp600-c3-s08",
+    "title": "Learn more",
+    "chapter": 3,
+    "type": "lesson",
+    "source_pages": [
+      23
+    ],
+    "source_line_count": 11,
+    "source_excerpt_sha256": "25e65247baa71431eccfbdc3b6e68ec3a9c4c6b983d947971cc9c5fdbc1e2ce6",
+    "route_suggestion": "/learn/dp600/3/dp600-c3-s08",
+    "content_file": "content/sections/dp600-c3-s08.md",
+    "qa_status": "unverified-source",
+    "content_raw": "3.8 Learn more\nWhat is lifecycle management in Fabric?\nIntroduction to Git integration\nIntroduction to deployment pipelines\nDeployment pipelines: get started\nCI/CD best practices\nVariable libraries\nPower BI Desktop projects\nSource control for warehouses (database projects)\nSemantic model connectivity with the XMLA endpoint\nTraining: Implement CI/CD in Microsoft Fabric · Manage the semantic model development lifecycle\n"
+  },
+  {
+    "id": "dp600-4-intro",
+    "title": "Get data",
+    "chapter": 4,
+    "type": "chapter-intro",
+    "source_pages": [
+      24,
+      25,
+      27
+    ],
+    "source_line_count": 11,
+    "source_excerpt_sha256": "5b136b0843d101b8910d7bf8a3024f52fbcd7e0fa933637fd8a0b39215b28344",
+    "route_suggestion": "/learn/dp600/4/dp600-4-intro",
+    "content_file": "content/sections/dp600-4-intro.md",
+    "qa_status": "unverified-source",
+    "content_raw": "Chapter 4 — Prepare data, part 1: get data\nEXAM FOCUS\nGet data — create a data connection · discover data by using OneLake catalog and Real-Time hub ·\ningest or access data as needed · choose between different data stores · implement OneLake\nintegration for Eventhouse and semantic models.\nKNOW THE DIFFERENCE\nOneLake catalog = data at rest (tables, files, semantic models). Real-Time hub = data in motion\n(streams and events). A question about \"discover existing streams before creating a new one\" points to\nReal-Time hub.\nTraining: Ingest data with Microsoft Fabric · Discover and connect to data in OneLake · Choose data\nstores in Fabric\n"
+  },
+  {
+    "id": "dp600-c4-s01",
+    "title": "Connections and gateways",
+    "chapter": 4,
+    "type": "lesson",
+    "source_pages": [
+      24
+    ],
+    "source_line_count": 23,
+    "source_excerpt_sha256": "1a130064ebc601089e288240ae7ce69be56acbf79009778050dfae9e940a017a",
+    "route_suggestion": "/learn/dp600/4/dp600-c4-s01",
+    "content_file": "content/sections/dp600-c4-s01.md",
+    "qa_status": "unverified-source",
+    "content_raw": "4.1 Connections and gateways\nA connection stores where a source is and how to authenticate to it. It is created once and reused by\npipelines, dataflows, and semantic models. Manage them under Settings → Manage connections and\ngateways.\nSource location\nWhat you need\nCloud SaaS or PaaS reachable from the\ninternet\nA cloud connection — no gateway\nOn-premises server, or a private network\nAn on-premises data gateway installed on a machine that can reach\nthe source\nAzure resource locked to a virtual network\nA VNet data gateway (managed, no VM to patch)\nMany users sharing one credential\nA shareable cloud connection owned by a service account\nAuthentication choices you should recognise: organisational account (Microsoft Entra), service principal,\naccount key, SAS, workspace identity, and basic. Prefer service principals or workspace identity for\nunattended jobs, so a pipeline does not break when a person leaves.\nTIP\nPrivacy levels still matter in Power Query. If two sources have incompatible privacy levels, Power\nQuery refuses to fold the query and may run it in a slower, memory-heavy way — or fail outright. See\nconnector overview.\n"
+  },
+  {
+    "id": "dp600-c4-s02",
+    "title": "Discovering data: OneLake catalog and Real-Time hub",
+    "chapter": 4,
+    "type": "lesson",
+    "source_pages": [
+      24
+    ],
+    "source_line_count": 6,
+    "source_excerpt_sha256": "9a2dd52ff049f17f6df33608602b0a440126173499146e84945e67232511e9f0",
+    "route_suggestion": "/learn/dp600/4/dp600-c4-s02",
+    "content_file": "content/sections/dp600-c4-s02.md",
+    "qa_status": "unverified-source",
+    "content_raw": "4.2 Discovering data: OneLake catalog and Real-Time hub\nThe OneLake catalog is the tenant-wide place to find data you are allowed to see. It shows items with their\nendorsement, sensitivity label, owner, and lineage, and it lets you filter by domain and item type.\nGovernance views help admins see coverage of labels and endorsements.\nThe Real-Time hub is the equivalent for data in motion: every eventstream, Fabric event, and streaming\nsource in the tenant, with previews and one-click actions to send a stream to an eventhouse or set an alert.\n"
+  },
+  {
+    "id": "dp600-c4-s03",
+    "title": "Ways to get data in",
+    "chapter": 4,
+    "type": "lesson",
+    "source_pages": [
+      25
+    ],
+    "source_line_count": 39,
+    "source_excerpt_sha256": "e1dea0e287e3abf91113008f0a36c0493161e381ee610cfb5f023c51f926b344",
+    "route_suggestion": "/learn/dp600/4/dp600-c4-s03",
+    "content_file": "content/sections/dp600-c4-s03.md",
+    "qa_status": "unverified-source",
+    "content_raw": "4.3 Ways to get data in\nData pipeline\nCopy activity, orchestration, control flow, 100+ connectors\nDataflow Gen2\nPower Query / M, low-code transforms, Fast Copy, incremental refresh\nNotebook (Spark)\nPySpark / Spark SQL, largest scale, full code control, libraries\nEventstream\nStreaming sources, no-code routing and transforms, multiple destinations\nMirroring\nNear-real-time replica of an operational DB, free storage, zero ETL\nShortcut\nNo ingestion at all — reference data in place across clouds\nCopy job\nSimplified batch or CDC copy without building a full pipeline\nSeven ways to bring data into Fabric. Exam questions usually turn on volume, latency, transformation complexity, and who\nmaintains it.\nYou need to...\nUse\nMove large volumes on a schedule with control flow, retries, and dependencies\nData pipeline with a Copy activity\nLet an analyst reshape data with a low-code UI\nDataflow Gen2\nMove data fast with pipeline-class throughput inside a dataflow\nFast Copy\nTransform at scale, or apply custom logic and libraries\nNotebook\nCopy simply, batch or CDC, without building a pipeline\nCopy job\nRead data where it already is, across clouds\nShortcut\nReplicate an operational database continuously\nMirroring\nIngest events continuously\nEventstream\nMirroring deserves special attention because it appears in both DP-600 and DP-700: it gives a near-real-\ntime, read-only replica of a source database (for example Azure SQL Database, Cosmos DB, Snowflake,\nor PostgreSQL) landed in OneLake as Delta, with no pipeline to build and mirrored storage that does not\nconsume your capacity's storage cost in the usual way.\n"
+  },
+  {
+    "id": "dp600-c4-s04",
+    "title": "OneLake integration for Eventhouse and semantic models",
+    "chapter": 4,
+    "type": "lesson",
+    "source_pages": [
+      26
+    ],
+    "source_line_count": 14,
+    "source_excerpt_sha256": "e2730127441cdab02de688139dd3060c813fa91545dff0f71e385720267cb5ef",
+    "route_suggestion": "/learn/dp600/4/dp600-c4-s04",
+    "content_file": "content/sections/dp600-c4-s04.md",
+    "qa_status": "unverified-source",
+    "content_raw": "4.4 OneLake integration for Eventhouse and semantic models\nTwo settings that turn an isolated store into part of the lake — the skills outline names them explicitly.\nEventhouse OneLake availability. Turn this on for a KQL database or table and the engine writes a Delta\ncopy of the data into OneLake. The data stays queryable with KQL at full speed and becomes readable by\nSpark, T-SQL, shortcuts, and Direct Lake semantic models. Without it, the data is reachable only through\nKQL endpoints. See Eventhouse.\nSemantic model OneLake integration. Turn this on for an Import-mode semantic model and its tables are\nwritten to OneLake as Delta on refresh. That lets Spark notebooks, shortcuts, and SQL read the modelled\ntables without rebuilding the logic.\nCOMMON EXAM TRAP\nThese two settings point in opposite directions. Eventhouse OneLake availability publishes KQL data\nout to the lake. Semantic model OneLake integration publishes model tables out to the lake. Neither\none pulls data in, and neither one is how you make a Direct Lake model — for that you point a new\nsemantic model at Delta tables that already exist in a lakehouse or warehouse.\n"
+  },
+  {
+    "id": "dp600-c4-s05",
+    "title": "Chapter 4 self-check",
+    "chapter": 4,
+    "type": "lesson",
+    "source_pages": [
+      26
+    ],
+    "source_line_count": 13,
+    "source_excerpt_sha256": "faf436202d3b9e1eeb7151b3afc5ae5fda91c3032d71b7d876f9cce4abcdb2d2",
+    "route_suggestion": "/learn/dp600/4/dp600-c4-s05",
+    "content_file": "content/sections/dp600-c4-s05.md",
+    "qa_status": "unverified-source",
+    "content_raw": "4.5 Chapter 4 self-check\n1. A nightly load from an on-premises SQL Server needs to reach a lakehouse. What is required beyond a\npipeline?\n2. The finance team wants Gold tables from the Sales workspace without duplicating them. What do you\ncreate?\n3. A team needs Power BI reports over telemetry that lives in an eventhouse, with Direct Lake. What must\nbe enabled?\n4. Which discovery surface lists existing eventstreams?\n5. A source database must appear in Fabric within seconds of a change, with no ETL to maintain. What do\nyou choose?\nAnswers. 1. An on-premises data gateway plus a connection that uses it. 2. A OneLake shortcut to\nthose tables. 3. OneLake availability on the eventhouse/KQL database. 4. The Real-Time hub. 5.\nMirroring.\n"
+  },
+  {
+    "id": "dp600-c4-s06",
+    "title": "Learn more",
+    "chapter": 4,
+    "type": "lesson",
+    "source_pages": [
+      26
+    ],
+    "source_line_count": 7,
+    "source_excerpt_sha256": "744e62cb849e9c005e6d74370575602d9ba0043c4ac5f04f51972612eda33fb1",
+    "route_suggestion": "/learn/dp600/4/dp600-c4-s06",
+    "content_file": "content/sections/dp600-c4-s06.md",
+    "qa_status": "unverified-source",
+    "content_raw": "4.6 Learn more\nWhat is OneLake? · OneLake shortcuts · Create a shortcut\nOneLake catalog · Real-Time hub\nMirroring in Fabric\nData Factory in Fabric · Copy activity · Copy job\nDataflow Gen2 · Fast Copy\nChoose a data store\n"
+  },
+  {
+    "id": "dp600-5-intro",
+    "title": "Transform data",
+    "chapter": 5,
+    "type": "chapter-intro",
+    "source_pages": [
+      28,
+      29,
+      30,
+      32,
+      33
+    ],
+    "source_line_count": 99,
+    "source_excerpt_sha256": "d80df47b25127f2ff50e5fb6a722527e3c6dbbd18bcf5d45e3eed060fd4efb9d",
+    "route_suggestion": "/learn/dp600/5/dp600-5-intro",
+    "content_file": "content/sections/dp600-5-intro.md",
+    "qa_status": "unverified-source",
+    "content_raw": "Chapter 5 — Prepare data, part 2: transform data\nEXAM FOCUS\nTransform data — create views, functions, and stored procedures · enrich data by adding new\ncolumns or tables · implement a star schema for a lakehouse or warehouse · denormalize data ·\naggregate data · merge or join data · identify and resolve duplicate data, missing data, or null values ·\nconvert column data types · filter data.\nDimDate\nDateKey (PK)\nDimProduct\nProductKey (PK)\nDimCustomer\nCustomerKey (PK)\nDimStore\nStoreKey (PK)\nFactSales\n— — — — —\nDateKey · ProductKey\nCustomerKey · StoreKey\nQuantity · SalesAmount\n1:*\n1:*\n1:*\n1:*\nOne-to-many, single-direction filters flowing from dimensions to the fact table\nOne fact table surrounded by dimensions, joined by surrogate keys. Filters flow one way: dimension to fact.\nRules worth memorising:\nFact tables hold measurements plus foreign keys. Keep them narrow and long; store the key, not the\ndescription.\nDimension tables hold descriptive attributes and one surrogate key. Keep them wide and short.\nGrain is declared first. \"One row per order line per day\" determines everything else.\nSurrogate keys (integer, meaningless) beat natural/business keys: they survive source system changes\nand make SCD Type 2 possible.\nConformed dimensions (a single DimDate , a single DimCustomer ) let two fact tables be analysed side\nby side.\nA date dimension is mandatory for time intelligence. Mark it as a date table in the semantic model.\nCreating a dimension with a surrogate key in a warehouse:\nCREATE TABLE dbo.DimProduct (\n    ProductKey      INT           NOT NULL,   -- surrogate\n    ProductId       VARCHAR(20)   NOT NULL,   -- natural/business key\n    ProductName     VARCHAR(200)  NULL,\n    Category        VARCHAR(100)  NULL,\n    ListPrice       DECIMAL(10,2) NULL\n);\n-- Generate surrogate keys with a window function (Fabric Warehouse has no IDENTITY)\nINSERT INTO dbo.DimProduct\nSELECT ROW_NUMBER() OVER (ORDER BY s.ProductId) + COALESCE((SELECT MAX(ProductKey) FROM \ndbo.DimProduct), 0),\n       s.ProductId, s.ProductName, s.Category, s.ListPrice\nFROM   stg.Product AS s\nWHERE  NOT EXISTS (SELECT 1 FROM dbo.DimProduct d WHERE d.ProductId = s.ProductId);\nThe same idea in PySpark for a lakehouse:\nfrom pyspark.sql import functions as F\nfrom pyspark.sql.window import Window\nstg = spark.read.table(\"bronze.product\")\nw   = Window.orderBy(\"ProductId\")\ndim = (stg.dropDuplicates([\"ProductId\"])\n          .withColumn(\"ProductKey\", F.row_number().over(w))\n          .select(\"ProductKey\", \"ProductId\", \"ProductName\", \"Category\", \"ListPrice\"))\ndim.write.mode(\"overwrite\").format(\"delta\").saveAsTable(\"silver.DimProduct\")\nCOMMON EXAM TRAP\nFabric Warehouse does not support IDENTITY  columns, and it does not enforce PRIMARY\nKEY / FOREIGN KEY  constraints — they can be declared as NOT ENFORCED  for metadata and optimiser\nhints only. Your load process is responsible for key uniqueness and referential integrity. Expect a\nquestion where the \"obvious\" IDENTITY  answer is wrong.\nCREATE VIEW dbo.vSalesCurrentYear AS\nSELECT f.*, d.CalendarYear\nFROM   dbo.FactSales AS f\nJOIN   dbo.DimDate   AS d ON d.DateKey = f.DateKey\nWHERE  d.CalendarYear = YEAR(GETDATE());\nGO\nCREATE PROCEDURE dbo.usp_LoadDimProduct\nAS\nBEGIN\n    MERGE dbo.DimProduct AS tgt\n    USING stg.Product     AS src ON tgt.ProductId = src.ProductId\n    WHEN MATCHED AND tgt.ListPrice <> src.ListPrice\n        THEN UPDATE SET tgt.ListPrice = src.ListPrice\n    WHEN NOT MATCHED BY TARGET\n        THEN INSERT (ProductId, ProductName, ListPrice)\n             VALUES (src.ProductId, src.ProductName, src.ListPrice);\nEND;\nCall the procedure from a pipeline with a Stored procedure activity, or from a notebook. Check the\nsupported surface area before you assume a T-SQL feature exists: T-SQL surface area in Fabric.\nCOMMON EXAM TRAP\nThe lakehouse SQL analytics endpoint is read-only. Any scenario requiring MERGE , a stored\nprocedure, or a multi-table transaction over lakehouse tables must either move the logic into a Spark\nnotebook ( MERGE INTO  in Spark SQL works on Delta tables) or move the Gold layer into a warehouse.\nThe Spark equivalent of an upsert:\n%%sql\nMERGE INTO silver.DimProduct AS tgt\nUSING bronze.product          AS src\n   ON tgt.ProductId = src.ProductId\nWHEN MATCHED AND tgt.ListPrice <> src.ListPrice THEN UPDATE SET tgt.ListPrice = \nsrc.ListPrice\nWHEN NOT MATCHED THEN INSERT *;\nAnswers. 1. Query folding broke at that step, so all downstream work moved to the mashup engine. 2.\nROW_NUMBER()  (or a hash/sequence pattern) — there is no IDENTITY  in Fabric Warehouse. 3. Stored\nprocedure. 4. ROW_NUMBER() OVER (PARTITION BY key ORDER BY timestamp DESC) = 1 . 5.\nTRY_CAST  and route the NULL  results to a quarantine table.\n"
+  },
+  {
+    "id": "dp600-c5-s01",
+    "title": "Choosing a transformation engine",
+    "chapter": 5,
+    "type": "lesson",
+    "source_pages": [
+      28
+    ],
+    "source_line_count": 40,
+    "source_excerpt_sha256": "ef465c93cd6bb686f6e3cbb551aae47b501932f7186cb22d38d8e9adfda899bf",
+    "route_suggestion": "/learn/dp600/5/dp600-c5-s01",
+    "content_file": "content/sections/dp600-c5-s01.md",
+    "qa_status": "unverified-source",
+    "content_raw": "5.1 Choosing a transformation engine\nDataflow Gen2\nNotebook (Spark)\nT-SQL in a warehouse\nLanguage\nPower Query M\nPySpark, Spark SQL\nT-SQL\nAudience\nAnalysts, low-code\nData engineers\nSQL developers\nScale\nModerate; Fast Copy for bulk\nHighest\nHigh for set-based work\nStrength\n150+ connectors, visual steps,\nreusable\nCustom logic, libraries, ML,\nfiles\nJoins, MERGE, procedures,\ntransactions\nWeakness\nCost/performance at very large\nvolume\nRequires code skills, session\nstart-up\nCannot read unstructured files\nDestination\nLakehouse, warehouse, SQL DB,\nKQL\nAny Delta table, files\nTables in the same warehouse\nOfficial guidance: choose between Dataflow Gen2, pipelines, and Spark.\nTIP\nQuery folding is the make-or-break concept for Dataflow Gen2 performance. When steps fold, Power\nQuery translates them into a single native query at the source; when folding breaks, everything after\nthat point is processed by the mashup engine. Check the View native query option and keep filters and\ncolumn removal early, before any step that breaks folding.\n"
+  },
+  {
+    "id": "dp600-c5-s02",
+    "title": "Implementing a star schema",
+    "chapter": 5,
+    "type": "lesson",
+    "source_pages": [
+      28
+    ],
+    "source_line_count": 3,
+    "source_excerpt_sha256": "dd74ce59cc571c649fffa1d15651a1b0d4ba247ec016d7ef0f00ba0d40ffd55e",
+    "route_suggestion": "/learn/dp600/5/dp600-c5-s02",
+    "content_file": "content/sections/dp600-c5-s02.md",
+    "qa_status": "unverified-source",
+    "content_raw": "5.2 Implementing a star schema\nA star schema is the target shape for Gold. Fabric's own guidance is in dimensional modeling in Fabric, with\ndedicated pages for dimension tables, fact tables, and loading tables.\n"
+  },
+  {
+    "id": "dp600-c5-s03",
+    "title": "Denormalising, joining, and aggregating",
+    "chapter": 5,
+    "type": "lesson",
+    "source_pages": [
+      30
+    ],
+    "source_line_count": 25,
+    "source_excerpt_sha256": "a44195b6664c0b3a7137809cc9b4a866051cc4ba48176091c2e8a8cdc1aee6c1",
+    "route_suggestion": "/learn/dp600/5/dp600-c5-s03",
+    "content_file": "content/sections/dp600-c5-s03.md",
+    "qa_status": "unverified-source",
+    "content_raw": "5.3 Denormalising, joining, and aggregating\nDenormalise by folding a snowflaked hierarchy into one dimension:\n-- Snowflake: DimProduct -> DimSubcategory -> DimCategory\n-- Star: one flat DimProduct\nCREATE TABLE dbo.DimProduct AS\nSELECT p.ProductKey, p.ProductName,\n       sc.SubcategoryName,\n       c.CategoryName\nFROM   stg.Product AS p\nJOIN   stg.Subcategory AS sc ON sc.SubcategoryId = p.SubcategoryId\nJOIN   stg.Category    AS c  ON c.CategoryId     = sc.CategoryId;\nFabric Warehouse supports CTAS ( CREATE TABLE AS SELECT ), which is the usual way to materialise a\ntransformed table in one statement.\nAggregate to a summary table when reports only need a coarser grain:\nCREATE TABLE dbo.AggSalesByMonth AS\nSELECT d.CalendarYear, d.MonthNumber, f.ProductKey,\n       SUM(f.SalesAmount) AS SalesAmount,\n       SUM(f.Quantity)    AS Quantity,\n       COUNT_BIG(*)       AS RowCountLines\nFROM   dbo.FactSales AS f\nJOIN   dbo.DimDate   AS d ON d.DateKey = f.DateKey\nGROUP  BY d.CalendarYear, d.MonthNumber, f.ProductKey;\nJoin types in one line each: INNER  keeps matches; LEFT  keeps all of the left; FULL  keeps everything;\nANTI  ( WHERE NOT EXISTS ) finds orphans — the standard way to detect fact rows whose dimension key is\nmissing.\n"
+  },
+  {
+    "id": "dp600-c5-s04",
+    "title": "Data quality: duplicates, nulls, types",
+    "chapter": 5,
+    "type": "lesson",
+    "source_pages": [
+      31
+    ],
+    "source_line_count": 49,
+    "source_excerpt_sha256": "1e86066efd332ba4911ed9a67e3706300b6146a38a095dc987621901459b784c",
+    "route_suggestion": "/learn/dp600/5/dp600-c5-s04",
+    "content_file": "content/sections/dp600-c5-s04.md",
+    "qa_status": "unverified-source",
+    "content_raw": "5.4 Data quality: duplicates, nulls, types\nProblem\nPower Query (M)\nPySpark\nT-SQL\nDuplicates\nRemove duplicates\non key columns\ndropDuplicates([\"Id\"]) , or\nrow_number()  filter to keep the\nlatest\nROW_NUMBER() OVER (PARTITION\nBY Id ORDER BY ModifiedDate\nDESC) = 1\nNulls\nReplace values / Fill\ndown\nfillna({\"Qty\": 0}) ,\nna.drop()\nCOALESCE(col, 0) , ISNULL()\nWrong\ntypes\nChange type (with\nlocale)\nwithColumn(\"d\",\nF.to_date(\"d\", \"yyyy-MM-\ndd\"))\nTRY_CAST(col AS DATE)\nBad rows\nKeep errors /\nRemove errors\nfilter()  to a quarantine table\nWHERE TRY_CAST(...) IS NULL\ninto a reject table\nFiltering\nFilter rows (folds to\nsource)\n.filter()  / .where()\nWHERE\nDeduplicating while keeping the newest version of each record:\nWITH ranked AS (\n    SELECT *, ROW_NUMBER() OVER (PARTITION BY CustomerId ORDER BY ModifiedDate DESC) AS rn\n    FROM   stg.Customer\n)\nSELECT * FROM ranked WHERE rn = 1;\nWATCH OUT\nCAST  fails the whole batch on one bad value; TRY_CAST  returns NULL  instead. In a load that must\nnot break at 3 a.m., use TRY_CAST  and route the nulls to a quarantine table so the bad rows are visible\nrather than silently dropped.\n"
+  },
+  {
+    "id": "dp600-c5-s05",
+    "title": "Views, functions, and stored procedures",
+    "chapter": 5,
+    "type": "lesson",
+    "source_pages": [
+      31
+    ],
+    "source_line_count": 19,
+    "source_excerpt_sha256": "dc57f0fcbc96a858d3da2c2d0b3ddd937668b7a0df0aa9589806fe9e4964f83c",
+    "route_suggestion": "/learn/dp600/5/dp600-c5-s05",
+    "content_file": "content/sections/dp600-c5-s05.md",
+    "qa_status": "unverified-source",
+    "content_raw": "5.5 Views, functions, and stored procedures\nObject\nWarehouse\nLakehouse SQL analytics endpoint\nView\n✔ Created with CREATE VIEW\n✔ Read-only views over Delta tables\nInline table-valued function\n✔\n✔\nScalar function\n✔\n✔\nStored procedure\n✔\n✖ — the endpoint is read-only\nINSERT / UPDATE / DELETE / MERGE\n✔\n✖\n"
+  },
+  {
+    "id": "dp600-c5-s06",
+    "title": "Chapter 5 self-check",
+    "chapter": 5,
+    "type": "lesson",
+    "source_pages": [
+      32
+    ],
+    "source_line_count": 9,
+    "source_excerpt_sha256": "40f8c429a466a9fc03de8e7bf5ca94519991031980fd08c98d0c4625c21ca364",
+    "route_suggestion": "/learn/dp600/5/dp600-c5-s06",
+    "content_file": "content/sections/dp600-c5-s06.md",
+    "qa_status": "unverified-source",
+    "content_raw": "5.6 Chapter 5 self-check\n1. A dataflow that ran in 3 minutes now takes 40. The only change was an added custom column early in\nthe query. What happened?\n2. You need an auto-incrementing surrogate key in a Fabric warehouse dimension. What do you use?\n3. Which object cannot be created in a lakehouse SQL analytics endpoint: view, inline TVF, or stored\nprocedure?\n4. How do you keep only the most recent row per business key?\n5. A date column arrives as text and 0.3% of values are malformed. How do you load the good rows without\nfailing the batch?\n"
+  },
+  {
+    "id": "dp600-c5-s07",
+    "title": "Learn more",
+    "chapter": 5,
+    "type": "lesson",
+    "source_pages": [
+      33
+    ],
+    "source_line_count": 7,
+    "source_excerpt_sha256": "6138c8242c41b46f2b5f3094239c1d79acdb2e1da2234e45e90c35e42fd75c1b",
+    "route_suggestion": "/learn/dp600/5/dp600-c5-s07",
+    "content_file": "content/sections/dp600-c5-s07.md",
+    "qa_status": "unverified-source",
+    "content_raw": "5.7 Learn more\nDimensional modeling in Fabric · dimensions · facts · load tables\nUnderstand star schema for Power BI\nTables in Fabric Warehouse · Ingest data into a warehouse\nLakehouse and Delta tables · lakehouse schemas\nTraining: Transform data with Dataflows Gen2 · with notebooks · with T-SQL · Design dimensional\nmodels\n"
+  },
+  {
+    "id": "dp600-6-intro",
+    "title": "Query and analyse",
+    "chapter": 6,
+    "type": "chapter-intro",
+    "source_pages": [
+      34,
+      37
+    ],
+    "source_line_count": 30,
+    "source_excerpt_sha256": "ed2961e8d47672f7b6f7b6f77e99654971e4ab2aa3c0a027cf5f583e26941e93",
+    "route_suggestion": "/learn/dp600/6/dp600-6-intro",
+    "content_file": "content/sections/dp600-6-intro.md",
+    "qa_status": "unverified-source",
+    "content_raw": "Chapter 6 — Prepare data, part 3: query and analyse\nEXAM FOCUS\nQuery and analyze data — select, filter, and aggregate data by using the Visual query editor · by\nusing SQL · by using KQL · by using DAX.\nDP-600 expects you to read and write four query surfaces. You will not be asked to write 50 lines of\nanything, but you will be asked to pick the correct expression out of four plausible ones.\n-- T-SQL\nSELECT TOP (5) c.CategoryName, SUM(f.SalesAmount) AS Sales\nFROM dbo.FactSales f\nJOIN dbo.DimProduct c ON c.ProductKey = f.ProductKey\nJOIN dbo.DimDate d    ON d.DateKey    = f.DateKey\nWHERE d.CalendarYear = 2026\nGROUP BY c.CategoryName\nORDER BY Sales DESC;\n// KQL\nSales\n| where Year == 2026\n| summarize Sales = sum(SalesAmount) by CategoryName\n| top 5 by Sales desc\n// DAX\nTop5Categories2026 =\nTOPN (\n    5,\n    SUMMARIZECOLUMNS (\n        DimProduct[CategoryName],\n        TREATAS ( { 2026 }, DimDate[CalendarYear] ),\n        \"Sales\", [Total Sales]\n    ),\n    [Sales], DESC\n)\n"
+  },
+  {
+    "id": "dp600-c6-s01",
+    "title": "The Visual query editor",
+    "chapter": 6,
+    "type": "lesson",
+    "source_pages": [
+      34
+    ],
+    "source_line_count": 8,
+    "source_excerpt_sha256": "08fa9fa211bd61c4130cce8f196e2be4020306ec86b99c7fc06861c3cbfb0086",
+    "route_suggestion": "/learn/dp600/6/dp600-c6-s01",
+    "content_file": "content/sections/dp600-c6-s01.md",
+    "qa_status": "unverified-source",
+    "content_raw": "6.1 The Visual query editor\nOpen a warehouse or a lakehouse SQL analytics endpoint and switch to the Visual query tab. It is a drag-\nand-drop, Power Query-style diagram: combine tables, merge, group by, filter, reduce columns — and\nFabric generates the SQL for you.\nGreat for analysts and for quickly prototyping a transformation.\nThe result can be saved as a view so it becomes a reusable object.\nThe generated T-SQL is visible, which makes it a good learning tool.\nSee visual query editor and SQL query editor.\n"
+  },
+  {
+    "id": "dp600-c6-s02",
+    "title": "T-SQL essentials for the exam",
+    "chapter": 6,
+    "type": "lesson",
+    "source_pages": [
+      34
+    ],
+    "source_line_count": 23,
+    "source_excerpt_sha256": "24d53fb0f1f578f7cf3be7cb14cd8911d616c5811f0989b33cf5aac1ff040fe6",
+    "route_suggestion": "/learn/dp600/6/dp600-c6-s02",
+    "content_file": "content/sections/dp600-c6-s02.md",
+    "qa_status": "unverified-source",
+    "content_raw": "6.2 T-SQL essentials for the exam\n-- Top 10 products by sales in the current year, with a running total\nWITH sales AS (\n    SELECT p.ProductName,\n           SUM(f.SalesAmount) AS SalesAmount\n    FROM   dbo.FactSales   AS f\n    JOIN   dbo.DimProduct  AS p ON p.ProductKey = f.ProductKey\n    JOIN   dbo.DimDate     AS d ON d.DateKey    = f.DateKey\n    WHERE  d.CalendarYear = YEAR(GETDATE())\n    GROUP  BY p.ProductName\n)\nSELECT TOP (10)\n       ProductName,\n       SalesAmount,\n       SUM(SalesAmount) OVER (ORDER BY SalesAmount DESC\n                              ROWS BETWEEN UNBOUNDED PRECEDING AND CURRENT ROW) AS \nRunningTotal,\n       RANK() OVER (ORDER BY SalesAmount DESC) AS SalesRank\nFROM   sales\nORDER  BY SalesAmount DESC;\nConstructs worth having at your fingertips: CTEs, ROW_NUMBER / RANK / DENSE_RANK , SUM() OVER ,\nLAG / LEAD , TRY_CAST , COALESCE , STRING_AGG , OFFSET … FETCH , EXISTS / NOT EXISTS , MERGE\n(warehouse only), CTAS .\n"
+  },
+  {
+    "id": "dp600-c6-s03",
+    "title": "KQL essentials for the exam",
+    "chapter": 6,
+    "type": "lesson",
+    "source_pages": [
+      35
+    ],
+    "source_line_count": 46,
+    "source_excerpt_sha256": "57f1dbce0902ebcfc06451c1fc3140c85307d17f63f2240cf7dc123db756bc65",
+    "route_suggestion": "/learn/dp600/6/dp600-c6-s03",
+    "content_file": "content/sections/dp600-c6-s03.md",
+    "qa_status": "unverified-source",
+    "content_raw": "6.3 KQL essentials for the exam\nKQL reads left to right: start with a table, pipe it through operators. Reference: KQL overview.\n// Errors per hour for the last 24 hours, worst devices first\nTelemetry\n| where Timestamp > ago(24h) and Level == \"Error\"\n| summarize ErrorCount = count() by DeviceId, bin(Timestamp, 1h)\n| top 20 by ErrorCount desc\n| render timechart\nTask\nKQL\nT-SQL analogue\nFilter rows\nwhere\nWHERE\nChoose columns\nproject , project-away\nSELECT\nAdd a column\nextend\ncomputed column in SELECT\nAggregate\nsummarize … by\nGROUP BY\nTime buckets\nsummarize … by bin(T, 1h)\nDATE_BUCKET  / DATEPART\nFirst N\ntake , top … by\nTOP\nLatest row per key\nsummarize arg_max(Timestamp, *) by DeviceId\nROW_NUMBER() … = 1\nDistinct\ndistinct\nSELECT DISTINCT\nVariables\nlet x = …;\nDECLARE  / CTE\nVisualise\nrender\n—\nUseful references: summarize operator · bin() · common operators tutorial.\nCOMMON EXAM TRAP\ntake 10  returns any 10 rows with no ordering guarantee and is for sampling; top 10 by Column\ndesc  returns the actual top 10. Choosing take  where the question says \"the ten highest\" is a classic\nwrong answer.\n"
+  },
+  {
+    "id": "dp600-c6-s04",
+    "title": "DAX essentials for the exam",
+    "chapter": 6,
+    "type": "lesson",
+    "source_pages": [
+      36
+    ],
+    "source_line_count": 32,
+    "source_excerpt_sha256": "86c368fb6f4f50f4c0d805b56e10ae549caaaa88843100546ceaf3fc08923b7a",
+    "route_suggestion": "/learn/dp600/6/dp600-c6-s04",
+    "content_file": "content/sections/dp600-c6-s04.md",
+    "qa_status": "unverified-source",
+    "content_raw": "6.4 DAX essentials for the exam\nTotal Sales = SUM ( FactSales[SalesAmount] )\nSales LY =\nCALCULATE ( [Total Sales], SAMEPERIODLASTYEAR ( DimDate[Date] ) )\nYoY % =\nVAR Current = [Total Sales]\nVAR Prior   = [Sales LY]\nRETURN DIVIDE ( Current - Prior, Prior )     -- DIVIDE handles the divide-by-zero\nTop 10 Product Sales =\nCALCULATE (\n    [Total Sales],\n    KEEPFILTERS ( TOPN ( 10, VALUES ( DimProduct[ProductName] ), [Total Sales], DESC ) )\n)\nThe three things DAX questions test most often:\n1. Measure or calculated column? A calculated column is computed at refresh, stored in the model, and\nhas a row context. A measure is computed at query time from the current filter context. Default to\nmeasures — they cost no storage and respond to slicers.\n2. What is CALCULATE  doing to the filter context? It replaces filters on the same column by default;\nKEEPFILTERS  intersects instead; REMOVEFILTERS / ALL  clears them.\n3. Context transition. Referencing a measure inside an iterator wraps it in an implicit CALCULATE , turning\nthe current row into a filter.\nFilter context\nSet by slicers, rows/columns of a visual,\npage filters, and CALCULATE modifiers.\nAnswers: which rows are visible right now?\nRow context\nExists in calculated columns and inside\niterators (SUMX, FILTER, ADDCOLUMNS).\nAnswers: which single row am I on?\nCALCULATE / CALCULATETABLE\nmodify filter context; context transition turns row → filter\nFilter context and row context are different things. CALCULATE is the bridge between them.\n"
+  },
+  {
+    "id": "dp600-c6-s05",
+    "title": "The same question in three languages",
+    "chapter": 6,
+    "type": "lesson",
+    "source_pages": [
+      36
+    ],
+    "source_line_count": 2,
+    "source_excerpt_sha256": "cde3b0a01181ff62d1fb87a8461de39de4d0ab41bbe3ce6028037a7d2efb2e80",
+    "route_suggestion": "/learn/dp600/6/dp600-c6-s05",
+    "content_file": "content/sections/dp600-c6-s05.md",
+    "qa_status": "unverified-source",
+    "content_raw": "6.5 The same question in three languages\n\"Total sales for 2026, by category, top 5.\"\n"
+  },
+  {
+    "id": "dp600-c6-s06",
+    "title": "Learn more",
+    "chapter": 6,
+    "type": "lesson",
+    "source_pages": [
+      37
+    ],
+    "source_line_count": 5,
+    "source_excerpt_sha256": "90a3c60d44253e909bf761e09d3a7fe6db1f5629cad4c6280dff4770336b253c",
+    "route_suggestion": "/learn/dp600/6/dp600-c6-s06",
+    "content_file": "content/sections/dp600-c6-s06.md",
+    "qa_status": "unverified-source",
+    "content_raw": "6.6 Learn more\nQuery a warehouse · Visual query editor\nKQL query language · Work with real-time data in an Eventhouse\nDAX function reference · CALCULATE · Use variables in DAX\nTraining: Write DAX formulas · Create DAX calculations · Use DAX in semantic models\n"
+  },
+  {
+    "id": "dp600-7-intro",
+    "title": "Design and build semantic models",
+    "chapter": 7,
+    "type": "chapter-intro",
+    "source_pages": [
+      38,
+      39,
+      40,
+      41,
+      43
+    ],
+    "source_line_count": 53,
+    "source_excerpt_sha256": "b71ee27fff319e36c653863ecc5d4480f46d1054388fff0a674554fbe3474a74",
+    "route_suggestion": "/learn/dp600/7/dp600-7-intro",
+    "content_file": "content/sections/dp600-7-intro.md",
+    "qa_status": "unverified-source",
+    "content_raw": "Chapter 7 — Implement and manage semantic models,\npart 1: design and build\nEXAM FOCUS\nDesign and build semantic models — choose a storage mode · implement a star schema for a\nsemantic model · implement relationships, such as bridge tables and many-to-many relationships ·\nwrite calculations that use DAX variables and functions, such as iterators, table filtering, windowing,\nand information functions · implement calculation groups, dynamic format strings, and field parameters\n· identify use cases for and configure large semantic model storage format · design and build\ncomposite models.\nKNOW THE DIFFERENCE\nDual is not a fourth independent mode — it is a property you set on a table (usually a dimension)\ninside a composite model so the engine can satisfy a query from memory when possible and push\ndown to the source when a DirectQuery fact table is involved. Setting dimensions to Dual is the\nstandard fix for slow DirectQuery slicers.\nMargin % =\nVAR Sales = SUM ( FactSales[SalesAmount] )\nVAR Cost  = SUM ( FactSales[TotalProductCost] )\nRETURN DIVIDE ( Sales - Cost, Sales )\nIterators ( SUMX , AVERAGEX , MAXX , RANKX , CONCATENATEX ) evaluate an expression row by row over a\ntable and then aggregate:\nSales Amount = SUMX ( FactSales, FactSales[Quantity] * FactSales[UnitPrice] )\nTable filtering — pass a table expression to CALCULATE :\nHigh Value Sales =\nCALCULATE ( [Total Sales], FILTER ( VALUES ( FactSales[OrderValue] ), FactSales[OrderValue] \n> 1000 ) )\nWindowing functions ( INDEX , OFFSET , WINDOW , RANK , ROWNUMBER ) operate over an ordered result set\n— much simpler than the old EARLIER  patterns:\nSales vs Previous Month =\nVAR Prior = CALCULATE ( [Total Sales], OFFSET ( -1, , ORDERBY ( DimDate[MonthKey] ) ) )\nRETURN [Total Sales] - Prior\nInformation functions answer \"what is the current state?\" — ISBLANK , ISFILTERED , ISCROSSFILTERED ,\nISINSCOPE , HASONEVALUE , SELECTEDVALUE , USERPRINCIPALNAME , USERNAME :\nSelected Region Label =\nIF ( HASONEVALUE ( DimRegion[Region] ), SELECTEDVALUE ( DimRegion[Region] ), \"All regions\" )\nDynamic format strings let one measure change its own format — percentage for a ratio item, currency for\nan amount item, or a currency that follows the selected country:\n-- Format string expression on a measure or calculation item\nSELECTEDVALUE ( DimCurrency[FormatString], \"#,##0.00\" )\nReference: dynamic format strings.\nField parameters let the user choose which measure or which dimension a visual shows, from a slicer,\nwithout bookmarks:\nMeasure selection = {\n    (\"Sales\",   NAMEOF('Measures'[Total Sales]),  0),\n    (\"Margin\",  NAMEOF('Measures'[Margin]),       1),\n    (\"Quantity\",NAMEOF('Measures'[Total Qty]),    2)\n}\nReference: field parameters.\nKNOW THE DIFFERENCE\nCalculation group vs field parameter. A calculation group changes how a measure is evaluated\n(YTD, PY, YoY) and is authored by the modeller. A field parameter changes which field or measure a\nvisual displays and is driven by the report user. They are frequently combined.\nLarge semantic model storage format · calculated tables\nTraining: Design semantic models for scale · Design and manage semantic models in Fabric\n"
+  },
+  {
+    "id": "dp600-c7-s01",
+    "title": "Storage modes",
+    "chapter": 7,
+    "type": "lesson",
+    "source_pages": [
+      38
+    ],
+    "source_line_count": 68,
+    "source_excerpt_sha256": "1c27a9613af1475eb96a13abb5c603cb8427b3d68b75a1bbbbcb578f355bdbec",
+    "route_suggestion": "/learn/dp600/7/dp600-c7-s01",
+    "content_file": "content/sections/dp600-c7-s01.md",
+    "qa_status": "unverified-source",
+    "content_raw": "7.1 Storage modes\nImport\nData copied into\nVertiPaq memory\nFastest queries\nStale until refresh\nDirectQuery\nQuery pushed to\nthe source\nAlways current\nSlower, source load\nDirect Lake\nReads Delta files\nin OneLake directly\nImport speed +\nnear-real-time\nDual\nImport or DQ,\nchosen per query\nFlexible for\ndimension tables\nFour storage modes. Direct Lake is the Fabric-native option and the one the exam cares about most.\nImport\nDirectQuery\nDirect Lake\nDual\nWhere data sits\nat query time\nIn VertiPaq\nmemory\nAt the source\nDelta files in OneLake, paged\ninto memory\nEither\nData freshness\nAs of last\nrefresh\nLive\nNear real time after framing\nMixed\nQuery speed\nFastest\nDepends on\nsource\nClose to Import\nFastest available\nRefresh needed\nYes, full or\nincremental\nNo\nFraming only (metadata)\nYes for the Import\npart\nAll DAX\nsupported\nYes\nLimited\nYes\nYes\nTypical use\nMost models\nHuge or highly\nvolatile sources\nLakehouse/warehouse-based\nmodels\nDimension tables in\na composite model\nReferences: storage mode · Direct Lake overview.\n"
+  },
+  {
+    "id": "dp600-c7-s02",
+    "title": "Relationships",
+    "chapter": 7,
+    "type": "lesson",
+    "source_pages": [
+      39
+    ],
+    "source_line_count": 34,
+    "source_excerpt_sha256": "603bb7fc0eeecd6f779801eff6b9a69462c041d6a86b24c143afa104b8b556a4",
+    "route_suggestion": "/learn/dp600/7/dp600-c7-s02",
+    "content_file": "content/sections/dp600-c7-s02.md",
+    "qa_status": "unverified-source",
+    "content_raw": "7.2 Relationships\nProperty\nOptions\nWhat to know\nCardinality\nOne-to-many, one-to-one,\nmany-to-many\nOne-to-many from dimension to fact is the default and the\ngoal\nCross-filter\ndirection\nSingle, Both\nSingle is safer; Both can create ambiguity and slow queries\nActive\nOne active path per pair of\ntables\nExtra paths are inactive; activate them per measure with\nUSERELATIONSHIP\nIntegrity\nAssume referential integrity\nOnly for DirectQuery, and only when it is genuinely true\nTwo date relationships (order date and ship date) to one date table:\nSales by Ship Date =\nCALCULATE ( [Total Sales], USERELATIONSHIP ( FactSales[ShipDateKey], DimDate[DateKey] ) )\nMany-to-many situations have two solutions:\n1. A bridge table (also called a factless fact or a junction table) containing the distinct combinations, with\none-to-many relationships from each dimension into it. This is the recommended, predictable design.\n2. A many-to-many relationship directly between two tables. Simpler to set up, but it introduces limited\nrelationships and blank-member behaviour that surprises people.\nGuidance: many-to-many relationship guidance and bi-directional filtering guidance.\nCOMMON EXAM TRAP\nTurning on bi-directional filtering to \"make a slicer work\" is the most common self-inflicted modelling\nwound: it can create ambiguous filter paths, break RLS expectations, and degrade performance. The\nexam-correct alternatives are a bridge table, CROSSFILTER  inside a specific measure, or TREATAS .\n"
+  },
+  {
+    "id": "dp600-c7-s03",
+    "title": "DAX the outline names explicitly",
+    "chapter": 7,
+    "type": "lesson",
+    "source_pages": [
+      39
+    ],
+    "source_line_count": 2,
+    "source_excerpt_sha256": "df19e6b641f5305f8a0447f1f41525223d98452540cc162ea68a00836b43ba23",
+    "route_suggestion": "/learn/dp600/7/dp600-c7-s03",
+    "content_file": "content/sections/dp600-c7-s03.md",
+    "qa_status": "unverified-source",
+    "content_raw": "7.3 DAX the outline names explicitly\nVariables — compute once, read twice, and make the intent obvious:\n"
+  },
+  {
+    "id": "dp600-c7-s04",
+    "title": "Calculation groups, dynamic format strings, field parameters",
+    "chapter": 7,
+    "type": "lesson",
+    "source_pages": [
+      40
+    ],
+    "source_line_count": 13,
+    "source_excerpt_sha256": "3f9c993b4c241eee74c3db3d234b5d2e7fd20283794c07d396fdb644d6c56b52",
+    "route_suggestion": "/learn/dp600/7/dp600-c7-s04",
+    "content_file": "content/sections/dp600-c7-s04.md",
+    "qa_status": "unverified-source",
+    "content_raw": "7.4 Calculation groups, dynamic format strings, field parameters\nThese three features remove combinatorial explosion from models, and all three are named in the outline.\nCalculation groups apply one set of calculation items to any measure. Instead of writing Sales YTD ,\nCost YTD , Margin YTD , Sales PY , Cost PY …, you write one Time intelligence  group:\n-- Calculation item: YTD\nCALCULATE ( SELECTEDMEASURE (), DATESYTD ( DimDate[Date] ) )\n-- Calculation item: PY\nCALCULATE ( SELECTEDMEASURE (), SAMEPERIODLASTYEAR ( DimDate[Date] ) )\n-- Calculation item: YoY %\nVAR Cur = SELECTEDMEASURE ()\nVAR Pri = CALCULATE ( SELECTEDMEASURE (), SAMEPERIODLASTYEAR ( DimDate[Date] ) )\nRETURN DIVIDE ( Cur - Pri, Pri )\nReference: calculation groups.\n"
+  },
+  {
+    "id": "dp600-c7-s05",
+    "title": "Large semantic model storage format",
+    "chapter": 7,
+    "type": "lesson",
+    "source_pages": [
+      41
+    ],
+    "source_line_count": 10,
+    "source_excerpt_sha256": "ba521ce8cbae27412c72be773acd70de142fa4c162ae4021ef34e6a3dde4cd99",
+    "route_suggestion": "/learn/dp600/7/dp600-c7-s05",
+    "content_file": "content/sections/dp600-c7-s05.md",
+    "qa_status": "unverified-source",
+    "content_raw": "7.5 Large semantic model storage format\nThe large semantic model storage format stores the model in a format that supports models larger than the\ndefault limit and enables better memory management on the capacity.\nRequired for models that grow past the default per-model size limit.\nRequired for Direct Lake models, and enabled by default when Fabric creates them.\nEnables the XMLA write operations that tools use for partition-level refresh.\nIt does not make a small model faster; turning it on everywhere is not the right answer.\nReduce the size before you raise the limit: remove unused columns, lower cardinality (split datetime into\ndate + time), summarise at the grain reports actually use, and switch off Auto date/time. Guidance: data\nreduction techniques.\n"
+  },
+  {
+    "id": "dp600-c7-s06",
+    "title": "Composite models",
+    "chapter": 7,
+    "type": "lesson",
+    "source_pages": [
+      42
+    ],
+    "source_line_count": 23,
+    "source_excerpt_sha256": "b45e2b81184bd7ef7110c970b571d42d42ac7143ad73b30bf8c528178c4d2c94",
+    "route_suggestion": "/learn/dp600/7/dp600-c7-s06",
+    "content_file": "content/sections/dp600-c7-s06.md",
+    "qa_status": "unverified-source",
+    "content_raw": "7.6 Composite models\nComposite semantic model\none model, mixed sources\nDirect Lake\nlakehouse table\nImport\nExcel budget\nDirectQuery\nAzure SQL\nShared model\n(DirectQuery to AS)\nWatch out: mixed modes create limited relationships and can leak source latency into every visual\nA composite model mixes storage modes, and can chain onto another published semantic model.\nComposite models let one model combine Import tables, DirectQuery tables, Direct Lake tables, and even a\nDirectQuery connection to another semantic model.\nUse them when:\nA large fact table must stay at the source but small dimensions should be fast → DirectQuery fact + Dual\ndimensions.\nA central certified model must be extended locally with a team's own measures or a spreadsheet.\nTwo Direct Lake sources in different workspaces must appear as one model.\nWatch for: limited relationships (many-to-many or cross-source) that behave differently around blanks,\nsource latency leaking into visuals, and RLS that must be reasoned about per source. Guidance: composite\nmodel guidance.\n"
+  },
+  {
+    "id": "dp600-c7-s07",
+    "title": "Chapter 7 self-check",
+    "chapter": 7,
+    "type": "lesson",
+    "source_pages": [
+      42
+    ],
+    "source_line_count": 10,
+    "source_excerpt_sha256": "048d32576dfaa0ef8a17879529c6799d59b0efec1c87ef1ce5c96ffb6e1a531a",
+    "route_suggestion": "/learn/dp600/7/dp600-c7-s07",
+    "content_file": "content/sections/dp600-c7-s07.md",
+    "qa_status": "unverified-source",
+    "content_raw": "7.7 Chapter 7 self-check\n1. A model needs YTD, PY, and YoY for 14 measures. What do you build?\n2. Users want to switch a chart between Sales, Margin, and Quantity from a slicer. What do you build?\n3. Two date columns must both filter one date dimension. How?\n4. A slicer on a DirectQuery model is painfully slow, but the dimension is small. What do you change?\n5. Why must a Direct Lake model use large semantic model storage format?\nAnswers. 1. A calculation group with three calculation items. 2. A field parameter. 3. One active\nrelationship plus an inactive one activated per measure with USERELATIONSHIP . 4. Set the dimension\ntable's storage mode to Dual. 5. Direct Lake requires it; Fabric enables it automatically when the model\nis created.\n"
+  },
+  {
+    "id": "dp600-c7-s08",
+    "title": "Learn more",
+    "chapter": 7,
+    "type": "lesson",
+    "source_pages": [
+      42
+    ],
+    "source_line_count": 4,
+    "source_excerpt_sha256": "5897f5167acef98017509fcbb12e9f0ea59d6445727b8e260673fbb3830b7938",
+    "route_suggestion": "/learn/dp600/7/dp600-c7-s08",
+    "content_file": "content/sections/dp600-c7-s08.md",
+    "qa_status": "unverified-source",
+    "content_raw": "7.8 Learn more\nDirect Lake overview · storage mode · composite models\nStar schema guidance · date tables · many-to-many\nCalculation groups · field parameters · dynamic format strings\n"
+  },
+  {
+    "id": "dp600-8-intro",
+    "title": "Optimise semantic models",
+    "chapter": 8,
+    "type": "chapter-intro",
+    "source_pages": [
+      44,
+      46,
+      48
+    ],
+    "source_line_count": 46,
+    "source_excerpt_sha256": "fce4184e602ddae165b86a17bbb69a440b92de4562e34212ded6560a529dd492",
+    "route_suggestion": "/learn/dp600/8/dp600-8-intro",
+    "content_file": "content/sections/dp600-8-intro.md",
+    "qa_status": "unverified-source",
+    "content_raw": "Chapter 8 — Implement and manage semantic models,\npart 2: optimise at enterprise scale\nEXAM FOCUS\nOptimize enterprise-scale semantic models — implement performance improvements in queries\nand report visuals · improve DAX performance · configure Direct Lake, including default fallback and\nrefresh behavior · choose between Direct Lake on OneLake and Direct Lake on SQL analytics\nendpoint · implement incremental refresh for semantic models.\nFraming (the \"refresh\"). A Direct Lake model has no data refresh in the Import sense. A refresh performs\nframing: it updates model metadata to point at the current version of each Delta table and invalidates\ncached columns whose files changed. The next query re-pages the new data. Framing is fast because it\nmoves metadata, not rows.\nSet the model to update automatically when source data changes, or frame on a schedule, or frame from\na pipeline at the end of a load.\nRunning OPTIMIZE  on a Delta table rewrites files, so the next query must re-page those columns —\nexpect a cold-ish first query after maintenance.\nFallback. If a query cannot be served from Direct Lake, the engine silently falls back to DirectQuery\nagainst the SQL analytics endpoint. Common triggers: the table exceeds the per-SKU guardrails (row\ncounts and file sizes scale with the F SKU), the object is a SQL view rather than a table, or an unsupported\nconstruct is used.\nControl it with the DirectLakeBehavior  model property:\nValue\nBehaviour\nAutomatic  (default)\nUse Direct Lake where possible, fall back to DirectQuery silently\nDirectLakeOnly\nNever fall back — raise an error instead, so you find out that you exceeded a guardrail\nDirectQueryOnly\nAlways use DirectQuery, useful for comparison testing\nCOMMON EXAM TRAP\n\"The report was fast yesterday and slow today, and nothing changed in the model\" is the classic\nfallback symptom: the table grew past a guardrail and every query is now DirectQuery. Set\nDirectLakeOnly  in development so a guardrail breach fails loudly instead of silently degrading in\nproduction.\n3. In the model, set the policy: **Archive data starting n years before refresh date and Incrementally refresh\ndata starting m days before refresh date**.\n4. Publish and run the first refresh — that one is long, because it builds all the partitions.\nOptions that matter:\nDetect data changes — nominate a LastModified  column so a partition is only reprocessed when\nsomething in it actually changed.\nOnly refresh complete periods — avoids publishing a half-finished day or month.\nThe source query must fold, otherwise every partition scans the whole source and you have made\nthings worse.\nCOMMON EXAM TRAP\nIncremental refresh is not a Direct Lake feature — a Direct Lake table is never \"refreshed\" row by row,\nit is framed. If a question sets up a Direct Lake model and asks how to reduce refresh time, the answer\ninvolves framing, table maintenance, and partitioned Delta writes, not RangeStart / RangeEnd .\n"
+  },
+  {
+    "id": "dp600-c8-s01",
+    "title": "Find the bottleneck before you fix it",
+    "chapter": 8,
+    "type": "lesson",
+    "source_pages": [
+      44
+    ],
+    "source_line_count": 22,
+    "source_excerpt_sha256": "417a562273d65e678e11c8e929bed6a4c838875ab17f4525e90cd016b51e5208",
+    "route_suggestion": "/learn/dp600/8/dp600-c8-s01",
+    "content_file": "content/sections/dp600-c8-s01.md",
+    "qa_status": "unverified-source",
+    "content_raw": "8.1 Find the bottleneck before you fix it\nTool\nWhat it tells you\nPerformance Analyzer in Desktop\nPer-visual DAX query time, visual display time, and \"other\" — start here\nDAX query view in Desktop\nRun and time DAX directly, compare two rewrites of the same measure\nBest Practice Analyzer (Tabular\nEditor)\nStatic rules: missing relationships, unformatted measures, unused\ncolumns\nVertiPaq Analyzer metrics\nColumn cardinality and size — shows exactly what is making the model\nbig\nQuery insights (warehouse)\nHistorical query text, duration, and frequency for the SQL side\nCapacity Metrics app\nWhether the problem is your model or a throttled capacity\nInterpreting Performance Analyzer: if DAX query dominates, fix the model or the measure. If visual display\ndominates, the visual is rendering too many data points — reduce categories, remove unnecessary visuals,\nor turn off interactions. If other dominates, it is usually visual layout and cross-filtering between many\nvisuals on the page.\n"
+  },
+  {
+    "id": "dp600-c8-s02",
+    "title": "Report and query-level improvements",
+    "chapter": 8,
+    "type": "lesson",
+    "source_pages": [
+      44
+    ],
+    "source_line_count": 11,
+    "source_excerpt_sha256": "13541b78c189952b517db5528dd0c615b51b8b8ef170595c2054092a84dc73e3",
+    "route_suggestion": "/learn/dp600/8/dp600-c8-s02",
+    "content_file": "content/sections/dp600-c8-s02.md",
+    "qa_status": "unverified-source",
+    "content_raw": "8.2 Report and query-level improvements\nKeep pages to roughly 8 visuals or fewer; every visual is at least one DAX query.\nTurn off unnecessary interactions between visuals (Format → Edit interactions).\nPrefer slicers with \"Apply\" buttons or the filter pane over many always-on slicers.\nAvoid bi-directional filters and unnecessary many-to-many relationships.\nUse aggregation tables for high-grain fact data, with a detailed table behind them.\nEnable query caching for Import models on a capacity when the same report is opened repeatedly with\nthe same filters.\nReduce cardinality: split datetime  into date and time; round floats you never analyse at full precision;\ndelete surrogate keys that no visual uses.\nSwitch off Auto date/time and use a proper date dimension.\n"
+  },
+  {
+    "id": "dp600-c8-s03",
+    "title": "DAX performance patterns",
+    "chapter": 8,
+    "type": "lesson",
+    "source_pages": [
+      45
+    ],
+    "source_line_count": 41,
+    "source_excerpt_sha256": "e25d34a54bf5854c25f62a4e15322c61d2e7c8713d089ebf22fd15a3b197c65a",
+    "route_suggestion": "/learn/dp600/8/dp600-c8-s03",
+    "content_file": "content/sections/dp600-c8-s03.md",
+    "qa_status": "unverified-source",
+    "content_raw": "8.3 DAX performance patterns\nInstead of\nWrite\nWhy\nCALCULATE([Sales],\nFILTER(FactSales,\nFactSales[Amt]>100))\nCALCULATE([Sales],\nFactSales[Amt]>100)\nA table filter over a large fact table\nmaterialises it; a column predicate\nbecomes an efficient filter\n[Sales] / [Cost]\nDIVIDE([Sales],\n[Cost])\nHandles blank and zero denominators\nwithout an error branch\nRepeating a sub-expression three times\nVAR  it once\nEvaluated once, and the intent is readable\nSUMX(FactSales,\nRELATED(DimProduct[Price]) *\nFactSales[Qty])  on 500M rows\nMaterialise the price on\nthe fact at load time\nStorage-engine work beats formula-engine\nwork\nIF(ISBLANK([M]), 0, [M])\neverywhere\nLeave blanks blank\nBlanks let the engine skip rows; forcing\nzeros explodes result sets\nALL()  when you meant one column\nREMOVEFILTERS(Table\n[Col])\nRemoving every filter is rarely what the\nbusiness meant\nKEY TAKEAWAY\nThe formula engine is single-threaded; the storage engine is multi-threaded and cached. Every\noptimisation is the same idea in different clothes: push work into the storage engine, and give it less\ndata to touch.\n"
+  },
+  {
+    "id": "dp600-c8-s04",
+    "title": "Direct Lake in depth",
+    "chapter": 8,
+    "type": "lesson",
+    "source_pages": [
+      45
+    ],
+    "source_line_count": 21,
+    "source_excerpt_sha256": "686078066716557fb048601f22c685285c69dffc211d8d9bdbd226b0b10814b1",
+    "route_suggestion": "/learn/dp600/8/dp600-c8-s04",
+    "content_file": "content/sections/dp600-c8-s04.md",
+    "qa_status": "unverified-source",
+    "content_raw": "8.4 Direct Lake in depth\nDelta tables\nin OneLake\n(Parquet + V-Order)\ntranscode\nSemantic model\nin memory\ncolumns paged in\non first use\nReport visual\nDAX query\nFallback:\nDirectQuery via\nSQL endpoint\nGuardrail exceeded (rows/file size/SKU), view, or unsupported feature → automatic fallback\nDirectLakeBehavior = DirectLakeOnly blocks fallback and raises an error instead\nDirect Lake reads Delta columns straight into memory on first use. Fallback to DirectQuery happens automatically unless you\nforbid it.\nHow it works. A Direct Lake table points at Delta Parquet files in OneLake. On the first query that touches a\ncolumn, the engine transcodes that column into its in-memory VertiPaq representation and keeps it cached.\nColumns never queried are never loaded — which is why the first run of a report is slower than the rest.\n"
+  },
+  {
+    "id": "dp600-c8-s05",
+    "title": "Direct Lake on OneLake vs Direct Lake on SQL analytics endpoint",
+    "chapter": 8,
+    "type": "lesson",
+    "source_pages": [
+      47
+    ],
+    "source_line_count": 35,
+    "source_excerpt_sha256": "5c9c350d1a276729f7f680d0a5bede638b12fdb72a144e0adc064b3e4a84fea0",
+    "route_suggestion": "/learn/dp600/8/dp600-c8-s05",
+    "content_file": "content/sections/dp600-c8-s05.md",
+    "qa_status": "unverified-source",
+    "content_raw": "8.5 Direct Lake on OneLake vs Direct Lake on SQL analytics endpoint\nDirect Lake on SQL analytics endpoint\nDirect Lake on OneLake\nPoints at\nThe lakehouse/warehouse SQL\nanalytics endpoint\nDelta tables in OneLake directly\nTable sources\nThe tables exposed by that one endpoint\nTables from multiple lakehouses/warehouses,\nincluding via shortcuts\nDirectQuery\nfallback\nSupported — degrades instead of failing\nNot supported — no SQL endpoint to fall back to\nSecurity\nenforced by\nSQL endpoint permissions, T-SQL\nRLS/CLS\nOneLake security data access roles\nMetadata sync\nDepends on the endpoint's sync of new\ntables/columns\nReads the Delta log directly\nAuthoring\nDefault model, or a new model over the\nendpoint\nFull model authoring in Power BI Desktop\nKNOW THE DIFFERENCE\nPick Direct Lake on SQL analytics endpoint when you rely on T-SQL security objects or want\nautomatic fallback. Pick Direct Lake on OneLake when the model must combine tables from several\nitems, when you want OneLake security enforced everywhere, or when you want authoring in Desktop\nwith no endpoint sync delay in the middle.\nFurther reading: Direct Lake overview · develop Direct Lake models · understand Direct Lake storage ·\nDirect Lake in Power BI Desktop.\n"
+  },
+  {
+    "id": "dp600-c8-s06",
+    "title": "Incremental refresh",
+    "chapter": 8,
+    "type": "lesson",
+    "source_pages": [
+      47
+    ],
+    "source_line_count": 22,
+    "source_excerpt_sha256": "8c938bc63367ac0e3b65eed51d88a8492891f915f688878f9740f792ea973962",
+    "route_suggestion": "/learn/dp600/8/dp600-c8-s06",
+    "content_file": "content/sections/dp600-c8-s06.md",
+    "qa_status": "unverified-source",
+    "content_raw": "8.6 Incremental refresh\nSemantic model partitions after applying Store rows = 5 years / Refresh rows = 10 days\n2022\narchived\n2023\narchived\n2024\narchived\n2025\narchived\n2026 months\narchived\nlast 10 days\nREFRESHED\nOnly the hot partition is processed each refresh — history is read once and kept\nRangeStart / RangeEnd parameters must filter a date/datetime column and fold to the source\nIncremental refresh partitions the table by date so only the recent window is reprocessed.\nIncremental refresh applies to Import tables (and to the Import part of composite models). The setup is\nalways the same four steps:\n1. In Power Query, create two parameters named exactly RangeStart  and RangeEnd , both Date/Time .\n2. Filter the table's date column with them, using >= RangeStart  and < RangeEnd  so no row is counted\ntwice.\n"
+  },
+  {
+    "id": "dp600-c8-s07",
+    "title": "Chapter 8 self-check",
+    "chapter": 8,
+    "type": "lesson",
+    "source_pages": [
+      48
+    ],
+    "source_line_count": 10,
+    "source_excerpt_sha256": "3288d3b0f59d049622ffebe411320f1666e9be64ba5b643feb61488cefd17eff",
+    "route_suggestion": "/learn/dp600/8/dp600-c8-s07",
+    "content_file": "content/sections/dp600-c8-s07.md",
+    "qa_status": "unverified-source",
+    "content_raw": "8.7 Chapter 8 self-check\n1. Performance Analyzer shows 90 ms DAX and 4,500 ms visual display. What do you fix?\n2. A Direct Lake report suddenly slowed with no model change. What do you check first?\n3. Which model property makes a guardrail breach raise an error instead of degrading?\n4. Your incremental refresh runs as long as a full refresh. What is the likely cause?\n5. You must combine Gold tables from two different lakehouses in one Direct Lake model. Which flavour?\nAnswers. 1. The visual — too many data points or too many visuals on the page, not the measure. 2.\nWhether queries are falling back to DirectQuery because a guardrail was exceeded. 3.\nDirectLakeBehavior = DirectLakeOnly . 4. Query folding is broken, so each partition scans the\nentire source. 5. Direct Lake on OneLake.\n"
+  },
+  {
+    "id": "dp600-c8-s08",
+    "title": "Learn more",
+    "chapter": 8,
+    "type": "lesson",
+    "source_pages": [
+      48
+    ],
+    "source_line_count": 7,
+    "source_excerpt_sha256": "35648a2b520f7d6e5a50bb2b35cab50b69ef5c7abf04b5eebaf6b95a216a3174",
+    "route_suggestion": "/learn/dp600/8/dp600-c8-s08",
+    "content_file": "content/sections/dp600-c8-s08.md",
+    "qa_status": "unverified-source",
+    "content_raw": "8.8 Learn more\nOptimize semantic model performance\nData reduction techniques\nIncremental refresh\nPerformance Analyzer\nDelta Lake table optimization and V-Order\nWarehouse performance guidelines · statistics · result-set caching\n"
+  },
+  {
+    "id": "dp600-9-intro",
+    "title": "Hands-on lab track",
+    "chapter": 9,
+    "type": "chapter-intro",
+    "source_pages": [
+      49
+    ],
+    "source_line_count": 74,
+    "source_excerpt_sha256": "f9d8298382b863d91589f55cf279439c6ede3eca6b6e8bb094211f1567efdece",
+    "route_suggestion": "/learn/dp600/9/dp600-9-intro",
+    "content_file": "content/sections/dp600-9-intro.md",
+    "qa_status": "unverified-source",
+    "content_raw": "Chapter 9 — The hands-on lab track\nReading gets you to about 500 points. The last 200 come from having actually built these things. Work\nthrough this list in order; every item is a free, guided Microsoft Learn exercise or tutorial.\n#\nLab\nSkill area it proves\n1\nIntroduction to end-to-end analytics using Microsoft Fabric\nPlatform, workspaces, items\n2\nGet started with lakehouses\nLakehouse, OneLake, SQL endpoint\n3\nDiscover and connect to data in OneLake\nOneLake catalog, shortcuts\n4\nUse Apache Spark in Microsoft Fabric\nNotebooks, DataFrames\n5\nWork with Delta Lake tables\nDelta, time travel, optimisation\n6\nIngest data with Dataflows Gen2\nDataflow Gen2, destinations\n7\nOrchestrate processes and data movement\nPipelines, Copy activity\n8\nOrganize a lakehouse using medallion architecture\nBronze/Silver/Gold\n9\nGet started with data warehouses\nWarehouse, T-SQL\n10\nLoad data into a warehouse\nCTAS, COPY INTO, stored procedures\n11\nQuery a data warehouse\nT-SQL, visual query editor\n12\nDesign dimensional models in Fabric\nStar schema, SCD\n13\nGet started with Real-Time Intelligence\nEventhouse, KQL\n14\nSecure data access in Fabric\nWorkspace/item/OneLake security\n15\nSecure a Fabric data warehouse\nRLS, CLS, dynamic data masking\n16\nGovern analytics data in Fabric\nLabels, endorsement, domains\n17\nDesign semantic models for scale\nStorage modes, star schema, Direct Lake\n18\nCreate DAX calculations\nMeasures, iterators, time intelligence\n19\nOptimize semantic model performance\nPerformance Analyzer, tuning\n20\nManage the semantic model development lifecycle\n.pbip, Git, deployment\n21\nImplement CI/CD in Microsoft Fabric\nGit integration, deployment pipelines\n22\nMonitor activities in Microsoft Fabric\nMonitoring hub, refresh history\nEnd-to-end tutorials worth a weekend: lakehouse tutorial · data warehouse tutorial · Data Factory end-to-\nend tutorial · Real-Time Intelligence tutorial.\n"
+  },
+  {
+    "id": "dp600-10-intro",
+    "title": "Practice questions",
+    "chapter": 10,
+    "type": "chapter-intro",
+    "source_pages": [
+      50,
+      51
+    ],
+    "source_line_count": 64,
+    "source_excerpt_sha256": "4ac178c7b11cba26fb73194a002f7e2498c04b3edef8f35e33f902386dc100cf",
+    "route_suggestion": "/learn/dp600/10/dp600-10-intro",
+    "content_file": "content/sections/dp600-10-intro.md",
+    "qa_status": "unverified-source",
+    "content_raw": "Chapter 10 — Practice questions\nAnswer these closed-book. Full explanations follow the last question.\n1. Analysts must query warehouse tables with T-SQL but must never read the underlying Parquet files with\nSpark. Which combination do you grant?\n2. You must hide the Salary  column from all roles except HR, enforced identically for Spark, T-SQL, and a\nDirect Lake model. Which feature?\n3. A lakehouse table is 900 GB and grows daily. Reports must be near real time and fast. Which storage\nmode?\n4. A Direct Lake report worked for months and is now consistently slow. Queries are hitting the SQL\nanalytics endpoint. What happened?\n5. You need YTD, PY, and YoY variants of 20 measures without writing 60 measures. What do you\nimplement?\n6. A business user must switch a chart between three different measures from a slicer. What do you\nimplement?\n7. Which two objects can you create in a lakehouse SQL analytics endpoint: view, stored procedure, inline\nTVF, MERGE  statement?\n8. A dataflow suddenly takes ten times longer after adding a step. What is the most likely cause?\n9. You must promote a tested set of items from Test to Production and re-point them at the Production\nlakehouse. Which two features?\n10. What exactly happens when a Direct Lake semantic model is \"refreshed\"?\n11. Sales must be analysed by both order date and ship date against a single date dimension. How?\n12. You need to know every report that breaks if you drop a column from a Gold warehouse table. Which\nfeature?\n13. Which endorsement level can only be applied by reviewers the tenant admin nominates?\n14. A KQL query must return the ten devices with the most errors. Which operator?\n15. An Import model refresh takes 6 hours; only the last 7 days of data ever change. What do you configure?\n16. A slicer over a small dimension on a DirectQuery model is slow. What is the standard fix?\n17. Which Fabric store supports multi-table transactions with T-SQL writes?\n18. What does turning on OneLake availability for an eventhouse achieve?\n19. Which file format lets a report and its semantic model be code-reviewed in a pull request?\n20. A measure divides two measures and errors when the denominator is zero. What do you use?\n▸ Answers and explanations\n1. Workspace Viewer + ReadData  item permission. ReadAll  would grant Spark/OneLake file access,\nwhich the requirement forbids. Contributor would grant far too much.\n2. OneLake security data access roles. T-SQL DENY  only covers callers through the SQL endpoint; a\nSpark notebook would bypass it. OneLake security is enforced at the lake layer for every engine.\n3. Direct Lake. Import would need a huge refresh, and DirectQuery would be slow. Direct Lake gives\nImport-class speed with near-real-time data through framing.\n4. The table outgrew a Direct Lake guardrail, so queries fall back to DirectQuery. Verify with the\nmodel's fallback behaviour, then reduce the table, move to a larger SKU, or set DirectLakeOnly  to\nsurface the problem.\n5. A calculation group with three calculation items using SELECTEDMEASURE() .\n6. A field parameter. A calculation group changes how a measure is evaluated, not which measure is\nshown.\n7. View and inline TVF. The endpoint is read-only: no stored procedures, no MERGE .\n8. Query folding broke at that step. Everything downstream now runs in the mashup engine instead of\nthe source.\n9. A deployment pipeline (to promote) plus deployment rules or a variable library (to re-point the data\nsource per stage).\n10. Framing — metadata is updated to the current Delta version and affected cached columns are\ninvalidated; no rows are imported. The next query pages the new data in.\n11. Two relationships: one active on order date, one inactive on ship date, activated inside a measure with\nUSERELATIONSHIP .\n12. Impact analysis (with lineage view) from the warehouse item.\n13. Certified (and Master data). Promoted can be applied by anyone with Write on the item.\n14. top 10 by ErrorCount desc . take 10  returns an arbitrary ten rows.\n15. Incremental refresh with RangeStart / RangeEnd , archiving history and refreshing the last 7–10 days,\nideally with Detect data changes.\n16. Set the dimension table's storage mode to Dual in a composite model.\n17. Warehouse (and Fabric SQL database for OLTP). The lakehouse SQL endpoint is read-only.\n18. It writes a Delta copy of the KQL data into OneLake, so Spark, T-SQL, shortcuts, and Direct Lake\nmodels can read it while KQL performance is unaffected.\n19. .pbip  — the Power BI project format, with the model in TMDL text files.\n20. DIVIDE() , which returns blank (or a supplied alternate) instead of erroring.\n"
+  },
+  {
+    "id": "dp600-11-intro",
+    "title": "Exam-day quick reference",
+    "chapter": 11,
+    "type": "chapter-intro",
+    "source_pages": [
+      52,
+      53,
+      55
+    ],
+    "source_line_count": 48,
+    "source_excerpt_sha256": "c6b1b831b9711c8c7ab6778d2b5c6f85598f946f8b7e7203cc0a84b509c84545",
+    "route_suggestion": "/learn/dp600/11/dp600-11-intro",
+    "content_file": "content/sections/dp600-11-intro.md",
+    "qa_status": "unverified-source",
+    "content_raw": "Chapter 11 — Exam-day checklist and quick reference\nTopic\nThe one line\nWorkspace roles\nAdmin > Member > Contributor > Viewer; Viewer ≠ file access\nItem permissions\nRead · ReadData (SQL) · ReadAll (Spark/OneLake) · Build (new content)\nSecurity scope\nOneLake security = every engine; SQL GRANT = SQL endpoint only\nRLS ignored for\nWorkspace Admin/Member/Contributor and anyone with model Write\nEndorsement\nPromoted (anyone with Write) · Certified / Master data (nominated reviewers)\nLakehouse vs warehouse\nT-SQL writes and multi-table transactions → warehouse; files and Spark →\nlakehouse\nSQL analytics endpoint\nRead-only. No stored procedures, no MERGE\nNo IDENTITY  in warehouse\nUse ROW_NUMBER()  for surrogate keys\nShortcut vs mirroring vs copy\nReference · replicate · duplicate\nDirect Lake refresh\nFraming = metadata; columns page in on first use\nFallback\nAutomatic → DirectQuery; DirectLakeOnly  to fail loudly\nDL on OneLake\nNo fallback; multiple sources; OneLake security\nIncremental refresh\nRangeStart / RangeEnd , must fold, Import only\nCalculation group vs field\nparameter\nHow a measure is evaluated vs which field is shown\nDual storage mode\nDimensions in a composite model with a DirectQuery fact\nGit vs deployment pipeline\nHistory and review vs promotion between stages\n.pbix  / .pbip  / .pbit\nBinary · project folder for Git · template with no data\ntake  vs top  in KQL\nArbitrary rows vs actual top N\nKeep current with the Microsoft Fabric blog and what's new in Fabric — the exam is refreshed regularly,\nand the skills outline carries a change log.\nAsk questions in the Fabric Community and Microsoft Q&A.\nKEY TAKEAWAY\nYou do not need to memorise every menu. You need to be able to say, for any scenario: which store,\nwhich engine, which security layer, which storage mode, and which lifecycle tool — and to justify the\nchoice in one sentence. That is what 700 points looks like.\n"
+  },
+  {
+    "id": "dp600-c11-s01",
+    "title": "The week before",
+    "chapter": 11,
+    "type": "lesson",
+    "source_pages": [
+      52
+    ],
+    "source_line_count": 9,
+    "source_excerpt_sha256": "2ac490c5b5d8fd0a127174d7d9d650195e8ecc36aa4dcc943bd2075806315417",
+    "route_suggestion": "/learn/dp600/11/dp600-c11-s01",
+    "content_file": "content/sections/dp600-c11-s01.md",
+    "qa_status": "unverified-source",
+    "content_raw": "11.1 The week before\nTake the practice assessment and review every wrong answer against the docs, not against your\nmemory.\nRe-read the official study guide change log — Microsoft updates the skills outline and lists exactly what\nmoved.\nWatch the DP-600 Exam Readiness Zone session for the examiners' own framing of each skill area.\nBuild one end-to-end solution from scratch in under two hours: shortcut → notebook → Gold table →\nDirect Lake model → report → deployment pipeline.\nConfirm your Learn profile username is correct so the credential indexes properly.\n"
+  },
+  {
+    "id": "dp600-c11-s02",
+    "title": "The 60-second memory dump",
+    "chapter": 11,
+    "type": "lesson",
+    "source_pages": [
+      52
+    ],
+    "source_line_count": 2,
+    "source_excerpt_sha256": "0baae7dc68f892ee8a863ebcf01d50420434b8b4d598e2253696a5be7c825942",
+    "route_suggestion": "/learn/dp600/11/dp600-c11-s02",
+    "content_file": "content/sections/dp600-c11-s02.md",
+    "qa_status": "unverified-source",
+    "content_raw": "11.2 The 60-second memory dump\nWrite these down on the scratch pad as soon as the exam starts:\n"
+  },
+  {
+    "id": "dp600-c11-s03",
+    "title": "Reading exam questions",
+    "chapter": 11,
+    "type": "lesson",
+    "source_pages": [
+      53
+    ],
+    "source_line_count": 11,
+    "source_excerpt_sha256": "27cd697c0c6b10e66338dbc54e349510e74dcc7a85e502fbbbb5685deff7c8d3",
+    "route_suggestion": "/learn/dp600/11/dp600-c11-s03",
+    "content_file": "content/sections/dp600-c11-s03.md",
+    "qa_status": "unverified-source",
+    "content_raw": "11.3 Reading exam questions\nRead the last sentence first. It tells you what is actually being asked, so you read the scenario looking\nfor the right details.\nLook for absolute words: must not, only, without, minimise administrative effort, regardless of the tool.\nThey eliminate answers.\nMinimise effort / minimise cost usually favours the built-in, managed option (shortcut, mirroring,\ndeployment rules, variable library) over a custom pipeline.\nLeast-privilege wording favours Viewer + a specific item permission over a workspace role.\nIn case studies, read the requirements list before the narrative — then scan the narrative only for the\nfacts the requirements need.\nFlag and move on. Every question is worth the same; a five-minute question costs you two easy ones.\n"
+  },
+  {
+    "id": "dp600-c11-s04",
+    "title": "Glossary",
+    "chapter": 11,
+    "type": "lesson",
+    "source_pages": [
+      54
+    ],
+    "source_line_count": 49,
+    "source_excerpt_sha256": "a9bc7fb75b1a3583f84f7eab9df2820e8ff50b966b14282231a221208654137a",
+    "route_suggestion": "/learn/dp600/11/dp600-c11-s04",
+    "content_file": "content/sections/dp600-c11-s04.md",
+    "qa_status": "unverified-source",
+    "content_raw": "11.4 Glossary\nTerm\nMeaning\nCapacity (F SKU)\nThe purchased pool of compute that workspaces run on\nCU\nCapacity Unit — the unit of compute consumption, smoothed over time\nOneLake\nThe tenant-wide logical data lake, Delta Parquet, one per tenant\nShortcut\nA pointer to data in another location, read in place\nMirroring\nManaged near-real-time replication of an external database into OneLake\nMedallion\nBronze (raw) → Silver (cleansed) → Gold (business-ready) layering\nDelta Lake\nThe open table format Fabric uses: Parquet files plus a transaction log\nV-Order\nA write-time optimisation of Parquet that speeds up reads by Fabric engines\nSQL analytics endpoint\nThe read-only T-SQL interface over a lakehouse's Delta tables\nSemantic model\nThe tabular model (tables, relationships, measures) that reports query\nDirect Lake\nStorage mode that reads Delta files from OneLake into memory on demand\nFraming\nThe metadata operation that points a Direct Lake model at the current Delta version\nTranscoding\nConverting a Delta column into the in-memory VertiPaq format on first use\nVertiPaq\nThe columnar, compressed in-memory engine behind Import and Direct Lake\nCalculation group\nA reusable set of calculation items applied to any measure\nField parameter\nA table that lets report users switch which field or measure a visual shows\nXMLA endpoint\nThe protocol that lets external tools read from and write to a semantic model\nTMDL\nTabular Model Definition Language — the text format of a model in a .pbip  project\nRLS / CLS / OLS\nRow-, column-, and object-level security\nEndorsement\nPromoted, Certified, or Master data trust marking on an item\nDomain\nA grouping of workspaces by business area for federated governance\nDeployment pipeline\nThe Fabric feature that promotes items between stage workspaces\nVariable library\nNamed values that resolve differently per deployment stage\n"
+  },
+  {
+    "id": "dp600-c11-s05",
+    "title": "Where to go next",
+    "chapter": 11,
+    "type": "lesson",
+    "source_pages": [
+      54
+    ],
+    "source_line_count": 4,
+    "source_excerpt_sha256": "e5af358d1e74fa42c10ab377b24a4b81443f9cb77c8bf7ee2d4a5b4f271fd460",
+    "route_suggestion": "/learn/dp600/11/dp600-c11-s05",
+    "content_file": "content/sections/dp600-c11-s05.md",
+    "qa_status": "unverified-source",
+    "content_raw": "11.5 Where to go next\nRenew this certification every 12 months with the free renewal assessment.\nPair it with DP-700, the Fabric Data Engineer Associate certification, to cover ingestion, streaming, and\noperations end to end. The DP-700 guide in this series follows the same structure.\n"
+  },
+  {
+    "id": "dp600-a-intro",
+    "title": "Decision tables",
+    "chapter": "a",
+    "type": "chapter-intro",
+    "source_pages": [
+      56
+    ],
+    "source_line_count": 1,
+    "source_excerpt_sha256": "f139c8364d9d4f4e86377b0fa041fae14045117cb88a7aa347d4597899152827",
+    "route_suggestion": "/learn/dp600/a/dp600-a-intro",
+    "content_file": "content/sections/dp600-a-intro.md",
+    "qa_status": "unverified-source",
+    "content_raw": "Appendix A — One-page decision tables\n"
+  },
+  {
+    "id": "dp600-appendix-a-s01",
+    "title": "Where should this data live?",
+    "chapter": "a",
+    "type": "reference",
+    "source_pages": [
+      56
+    ],
+    "source_line_count": 15,
+    "source_excerpt_sha256": "8ae69791e2d3309e03835bf9a2abe7f89ba26e5c7828d577c33a16093fc06454",
+    "route_suggestion": "/learn/dp600/a/dp600-appendix-a-s01",
+    "content_file": "content/sections/dp600-appendix-a-s01.md",
+    "qa_status": "unverified-source",
+    "content_raw": "A.1 Where should this data live?\nSignal in the question\nAnswer\n\"T-SQL writes\", \"stored procedure\", \"multi-table transaction\"\nWarehouse\n\"Files\", \"Spark\", \"unstructured\", \"machine learning\"\nLakehouse\n\"Telemetry\", \"logs\", \"IoT\", \"sub-second\", \"time series\"\nEventhouse\n\"OLTP application\", \"point reads\", \"operational\"\nFabric SQL database\n\"Do not copy the data\", \"data stays in S3/ADLS\"\nShortcut\n\"Near real time replica\", \"no ETL to maintain\"\nMirroring\n"
+  },
+  {
+    "id": "dp600-appendix-a-s02",
+    "title": "Which ingestion tool?",
+    "chapter": "a",
+    "type": "reference",
+    "source_pages": [
+      56
+    ],
+    "source_line_count": 13,
+    "source_excerpt_sha256": "c493f111d6fd0f767097851169fe2bdfbcfc45f3af5a3575aa746689ac2efc2b",
+    "route_suggestion": "/learn/dp600/a/dp600-appendix-a-s02",
+    "content_file": "content/sections/dp600-appendix-a-s02.md",
+    "qa_status": "unverified-source",
+    "content_raw": "A.2 Which ingestion tool?\nSignal\nAnswer\n\"Orchestrate\", \"dependencies\", \"retry\", \"on failure\"\nData pipeline\n\"Analyst\", \"low-code\", \"Power Query\"\nDataflow Gen2\n\"Custom library\", \"very large scale\", \"complex logic\"\nNotebook\n\"Continuous events\", \"no code\", \"route to several destinations\"\nEventstream\n\"Simple copy, batch or CDC, minimal setup\"\nCopy job\n"
+  },
+  {
+    "id": "dp600-appendix-a-s03",
+    "title": "Which security control?",
+    "chapter": "a",
+    "type": "reference",
+    "source_pages": [
+      56
+    ],
+    "source_line_count": 15,
+    "source_excerpt_sha256": "9e9a25b66f041e7c0efc19dee0f3e60e519843b0876d41cc5da4d32fa4e333c7",
+    "route_suggestion": "/learn/dp600/a/dp600-appendix-a-s03",
+    "content_file": "content/sections/dp600-appendix-a-s03.md",
+    "qa_status": "unverified-source",
+    "content_raw": "A.3 Which security control?\nSignal\nAnswer\n\"Whatever tool they use\"\nOneLake security\n\"Only through SQL\"\nT-SQL GRANT / DENY , RLS, CLS\n\"Different rows per user in a report\"\nSemantic model RLS (DAX role)\n\"The column must not appear at all\"\nObject-level security\n\"The exported file must stay protected\"\nSensitivity label\n\"Users must find the trusted version\"\nEndorsement + OneLake catalog\n"
+  },
+  {
+    "id": "dp600-appendix-a-s04",
+    "title": "Which lifecycle tool?",
+    "chapter": "a",
+    "type": "reference",
+    "source_pages": [
+      57
+    ],
+    "source_line_count": 13,
+    "source_excerpt_sha256": "c49887a7cbd4f6d01f267e307b40a0e081ab65416408ea23e581bdfa6e56bada",
+    "route_suggestion": "/learn/dp600/a/dp600-appendix-a-s04",
+    "content_file": "content/sections/dp600-appendix-a-s04.md",
+    "qa_status": "unverified-source",
+    "content_raw": "A.4 Which lifecycle tool?\nSignal\nAnswer\n\"Code review\", \"history\", \"branch\", \"roll back\"\nGit integration + .pbip\n\"Promote to Test and Production\"\nDeployment pipeline\n\"Different connection per environment\"\nDeployment rules / variable library\n\"Deploy a measure without republishing\"\nXMLA endpoint\n\"What breaks if I change this?\"\nImpact analysis / lineage\n"
+  },
+  {
+    "id": "dp600-b-intro",
+    "title": "Microsoft Learn links",
+    "chapter": "b",
+    "type": "chapter-intro",
+    "source_pages": [
+      58,
+      59,
+      60,
+      61,
+      62,
+      63,
+      64,
+      65,
+      66,
+      67
+    ],
+    "source_line_count": 499,
+    "source_excerpt_sha256": "53d9cc6da33e51ea0955e1f18a2cf2f92b1eebe9c3b48bd83fabec8336affca3",
+    "route_suggestion": "/learn/dp600/b/dp600-b-intro",
+    "content_file": "content/sections/dp600-b-intro.md",
+    "qa_status": "unverified-source",
+    "content_raw": "Appendix B — Every Microsoft Learn link in this guide\nEvery link below already carries the Student Ambassadors Contributor ID wt.mc_id=studentamb_657938 .\nShare any of them directly.\nResource\nURL (includes Contributor ID)\nMicrosoft Certified: Fabric Analytics Engineer\nAssociate\nhttps://learn.microsoft.com/credentials/certifications/fabric-analytics-engineer-as\nsociate/?wt.mc_id=studentamb_657938\nofficial DP-600 study guide\nhttps://learn.microsoft.com/credentials/certifications/resources/study-guides/dp-\n600?wt.mc_id=studentamb_657938\nexam duration and experience\nhttps://learn.microsoft.com/credentials/support/exam-duration-exam-experienc\ne?wt.mc_id=studentamb_657938\nexam scoring and score reports\nhttps://learn.microsoft.com/credentials/certifications/exam-scoring-reports?wt.m\nc_id=studentamb_657938\nexam retake policy\nhttps://learn.microsoft.com/credentials/support/retake-policy?wt.mc_id=student\namb_657938\nrenew your certification\nhttps://learn.microsoft.com/credentials/certifications/renew-your-microsoft-certifi\ncation?wt.mc_id=studentamb_657938\nrequest accommodations\nhttps://learn.microsoft.com/credentials/certifications/request-accommodations?\nwt.mc_id=studentamb_657938\nfree DP-600 practice assessment\nhttps://learn.microsoft.com/credentials/certifications/exams/dp-600/practice/ass\nessment?assessment-type=practice&assessmentId=90&practice-assessment-t\nype=certification&wt.mc_id=studentamb_657938\nexam sandbox\nhttps://learn.microsoft.com/credentials/certifications/exams/dp-600/?wt.mc_id=s\ntudentamb_657938\nGet started with Microsoft Fabric\nhttps://learn.microsoft.com/training/paths/get-started-fabric/?wt.mc_id=studenta\nmb_657938\nImplement a Lakehouse\nhttps://learn.microsoft.com/training/paths/implement-lakehouse-microsoft-fabri\nc/?wt.mc_id=studentamb_657938\nImplement a data warehouse\nhttps://learn.microsoft.com/training/paths/work-with-data-warehouses-using-mic\nrosoft-fabric/?wt.mc_id=studentamb_657938\nDesign and transform analytics data\nhttps://learn.microsoft.com/training/paths/design-transform-analytics-data/?wt.m\nc_id=studentamb_657938\nSecure and govern analytics data\nhttps://learn.microsoft.com/training/paths/secure-govern-analytics-data/?wt.mc_\nid=studentamb_657938\nManage a Fabric environment\nhttps://learn.microsoft.com/training/paths/manage-microsoft-fabric-environmen\nt/?wt.mc_id=studentamb_657938\nDesign and manage semantic models\nhttps://learn.microsoft.com/training/paths/design-manage-semantic-models-fabr\nic/?wt.mc_id=studentamb_657938\nExam Readiness Zone\nhttps://learn.microsoft.com/shows/exam-readiness-zone/?wt.mc_id=studentam\nb_657938\nMicrosoft Fabric trial\nhttps://learn.microsoft.com/fabric/fundamentals/fabric-trial?wt.mc_id=studentam\nb_657938\nPower BI Premium Per User\nhttps://learn.microsoft.com/power-bi/enterprise/service-premium-what-is?wt.mc\n_id=studentamb_657938\nResource\nURL (includes Contributor ID)\nMicrosoft Fabric\nhttps://learn.microsoft.com/fabric/fundamentals/microsoft-fabric-overview?wt.m\nc_id=studentamb_657938\nadmin portal\nhttps://learn.microsoft.com/fabric/admin/admin-center?wt.mc_id=studentamb_6\n57938\ncapacity settings\nhttps://learn.microsoft.com/fabric/admin/capacity-settings?wt.mc_id=studentam\nb_657938\ndomains\nhttps://learn.microsoft.com/fabric/governance/domains?wt.mc_id=studentamb_\n657938\nworkspaces\nhttps://learn.microsoft.com/fabric/fundamentals/workspaces?wt.mc_id=studenta\nmb_657938\nthrottling\nhttps://learn.microsoft.com/fabric/enterprise/throttling?wt.mc_id=studentamb_65\n7938\npause and resume\nhttps://learn.microsoft.com/fabric/enterprise/pause-resume?wt.mc_id=studenta\nmb_657938\nMicrosoft Fabric Capacity Metrics app\nhttps://learn.microsoft.com/fabric/enterprise/metrics-app?wt.mc_id=studentamb\n_657938\nscale a capacity\nhttps://learn.microsoft.com/fabric/enterprise/scale-capacity?wt.mc_id=studenta\nmb_657938\nOneLake\nhttps://learn.microsoft.com/fabric/onelake/onelake-overview?wt.mc_id=studenta\nmb_657938\nshortcut\nhttps://learn.microsoft.com/fabric/onelake/onelake-shortcuts?wt.mc_id=student\namb_657938\nMirroring\nhttps://learn.microsoft.com/fabric/database/mirrored-database/overview?wt.mc_\nid=studentamb_657938\nmedallion\nhttps://learn.microsoft.com/fabric/onelake/onelake-medallion-lakehouse-archite\ncture?wt.mc_id=studentamb_657938\nchoose a data store\nhttps://learn.microsoft.com/fabric/fundamentals/decision-guide-data-store?wt.m\nc_id=studentamb_657938\nchoose between pipeline, dataflow, and Spark\nhttps://learn.microsoft.com/fabric/fundamentals/decision-guide-pipeline-dataflo\nw-spark?wt.mc_id=studentamb_657938\nSQL analytics endpoint\nhttps://learn.microsoft.com/fabric/data-engineering/lakehouse-sql-analytics-end\npoint?wt.mc_id=studentamb_657938\ncreate a warehouse\nhttps://learn.microsoft.com/fabric/data-warehouse/create-warehouse?wt.mc_id=\nstudentamb_657938\nhow to use notebooks\nhttps://learn.microsoft.com/fabric/data-engineering/how-to-use-notebook?wt.mc\n_id=studentamb_657938\nData Factory in Fabric\nhttps://learn.microsoft.com/fabric/data-factory/data-factory-overview?wt.mc_id=\nstudentamb_657938\nResource\nURL (includes Contributor ID)\nDataflows Gen2 overview\nhttps://learn.microsoft.com/fabric/data-factory/dataflows-gen2-overview?wt.mc_\nid=studentamb_657938\nEventstream overview\nhttps://learn.microsoft.com/fabric/real-time-intelligence/event-streams/overvie\nw?wt.mc_id=studentamb_657938\nEventhouse\nhttps://learn.microsoft.com/fabric/real-time-intelligence/eventhouse?wt.mc_id=st\nudentamb_657938\nenvironments\nhttps://learn.microsoft.com/fabric/data-engineering/create-and-use-environmen\nt?wt.mc_id=studentamb_657938\nvariable library\nhttps://learn.microsoft.com/fabric/cicd/variable-library/variable-library-overview?\nwt.mc_id=studentamb_657938\nworkspace role\nhttps://learn.microsoft.com/fabric/fundamentals/roles-workspaces?wt.mc_id=stu\ndentamb_657938\nFabric permission model\nhttps://learn.microsoft.com/fabric/security/permission-model?wt.mc_id=studenta\nmb_657938\nOneLake security\nhttps://learn.microsoft.com/fabric/onelake/onelake-security?wt.mc_id=studenta\nmb_657938\nOneLake security\nhttps://learn.microsoft.com/fabric/onelake/security/get-started-security?wt.mc_i\nd=studentamb_657938\ndata access control model\nhttps://learn.microsoft.com/fabric/onelake/security/data-access-control-model?\nwt.mc_id=studentamb_657938\nget started with data access roles\nhttps://learn.microsoft.com/fabric/onelake/security/get-started-data-access-role\ns?wt.mc_id=studentamb_657938\nrow-level security with Power BI\nhttps://learn.microsoft.com/power-bi/enterprise/service-admin-rls?wt.mc_id=stu\ndentamb_657938\nrow-level security in Fabric Data Warehouse\nhttps://learn.microsoft.com/fabric/data-warehouse/row-level-security?wt.mc_id=\nstudentamb_657938\ncolumn-level security\nhttps://learn.microsoft.com/fabric/data-warehouse/column-level-security?wt.mc\n_id=studentamb_657938\nInformation protection\nhttps://learn.microsoft.com/fabric/governance/information-protection?wt.mc_id=\nstudentamb_657938\nEndorsement\nhttps://learn.microsoft.com/fabric/governance/endorsement-overview?wt.mc_id\n=studentamb_657938\nlineage\nhttps://learn.microsoft.com/fabric/governance/lineage?wt.mc_id=studentamb_6\n57938\nOneLake catalog\nhttps://learn.microsoft.com/fabric/governance/onelake-catalog-overview?wt.mc\n_id=studentamb_657938\nMicrosoft Purview hub\nhttps://learn.microsoft.com/fabric/governance/use-microsoft-purview-hub?wt.mc\n_id=studentamb_657938\nResource\nURL (includes Contributor ID)\nSecurity in Microsoft Fabric\nhttps://learn.microsoft.com/fabric/security/security-overview?wt.mc_id=studenta\nmb_657938\nSQL granular permissions\nhttps://learn.microsoft.com/fabric/data-warehouse/sql-granular-permissions?wt.\nmc_id=studentamb_657938\nSecure data access in Fabric\nhttps://learn.microsoft.com/training/modules/secure-data-access-in-fabric/?wt.m\nc_id=studentamb_657938\nSecure a Fabric data warehouse\nhttps://learn.microsoft.com/training/modules/secure-data-warehouse-in-microso\nft-fabric/?wt.mc_id=studentamb_657938\nGit integration\nhttps://learn.microsoft.com/fabric/cicd/git-integration/intro-to-git-integration?wt.\nmc_id=studentamb_657938\nPower BI project\nhttps://learn.microsoft.com/power-bi/developer/projects/projects-overview?wt.m\nc_id=studentamb_657938\nDeployment pipelines\nhttps://learn.microsoft.com/fabric/cicd/deployment-pipelines/intro-to-deployment\n-pipelines?wt.mc_id=studentamb_657938\nCI/CD in Fabric\nhttps://learn.microsoft.com/fabric/cicd/cicd-overview?wt.mc_id=studentamb_65\n7938\nCI/CD best practices\nhttps://learn.microsoft.com/fabric/cicd/best-practices-cicd?wt.mc_id=studentam\nb_657938\nImpact analysis\nhttps://learn.microsoft.com/fabric/governance/impact-analysis?wt.mc_id=studen\ntamb_657938\nsemantic link\nhttps://learn.microsoft.com/fabric/data-science/semantic-link-overview?wt.mc_i\nd=studentamb_657938\nXMLA endpoint\nhttps://learn.microsoft.com/power-bi/enterprise/service-premium-connect-tools?\nwt.mc_id=studentamb_657938\nDeployment pipelines: get started\nhttps://learn.microsoft.com/fabric/cicd/deployment-pipelines/get-started-with-de\nployment-pipelines?wt.mc_id=studentamb_657938\nSource control for warehouses (database\nprojects)\nhttps://learn.microsoft.com/fabric/data-warehouse/source-control?wt.mc_id=stu\ndentamb_657938\nImplement CI/CD in Microsoft Fabric\nhttps://learn.microsoft.com/training/modules/implement-cicd-in-fabric/?wt.mc_id\n=studentamb_657938\nManage the semantic model development\nlifecycle\nhttps://learn.microsoft.com/training/modules/manage-semantic-model-lifecycl\ne/?wt.mc_id=studentamb_657938\nconnector overview\nhttps://learn.microsoft.com/fabric/data-factory/connector-overview?wt.mc_id=st\nudentamb_657938\nReal-Time hub\nhttps://learn.microsoft.com/fabric/real-time-hub/real-time-hub-overview?wt.mc_i\nd=studentamb_657938\nData pipeline\nhttps://learn.microsoft.com/fabric/data-factory/create-first-pipeline-with-sample-\ndata?wt.mc_id=studentamb_657938\nResource\nURL (includes Contributor ID)\nCopy activity\nhttps://learn.microsoft.com/fabric/data-factory/copy-data-activity?wt.mc_id=stud\nentamb_657938\nFast Copy\nhttps://learn.microsoft.com/fabric/data-factory/dataflows-gen2-fast-copy?wt.mc_\nid=studentamb_657938\nCopy job\nhttps://learn.microsoft.com/fabric/data-factory/copy-job?wt.mc_id=studentamb_\n657938\nShortcut\nhttps://learn.microsoft.com/fabric/onelake/create-onelake-shortcut?wt.mc_id=st\nudentamb_657938\nAzure SQL Database\nhttps://learn.microsoft.com/fabric/database/mirrored-database/azure-sql-databa\nse?wt.mc_id=studentamb_657938\nIngest data with Microsoft Fabric\nhttps://learn.microsoft.com/training/paths/ingest-data-with-microsoft-fabric/?wt.\nmc_id=studentamb_657938\nDiscover and connect to data in OneLake\nhttps://learn.microsoft.com/training/modules/discover-data-onelake/?wt.mc_id=\nstudentamb_657938\nChoose data stores in Fabric\nhttps://learn.microsoft.com/training/modules/choose-data-store-fabric/?wt.mc_id\n=studentamb_657938\ndimensional modeling in Fabric\nhttps://learn.microsoft.com/fabric/data-warehouse/dimensional-modeling-overvi\new?wt.mc_id=studentamb_657938\ndimension tables\nhttps://learn.microsoft.com/fabric/data-warehouse/dimensional-modeling-dimen\nsion-tables?wt.mc_id=studentamb_657938\nfact tables\nhttps://learn.microsoft.com/fabric/data-warehouse/dimensional-modeling-fact-ta\nbles?wt.mc_id=studentamb_657938\nloading tables\nhttps://learn.microsoft.com/fabric/data-warehouse/dimensional-modeling-load-t\nables?wt.mc_id=studentamb_657938\nT-SQL surface area in Fabric\nhttps://learn.microsoft.com/fabric/data-warehouse/tsql-surface-area?wt.mc_id=s\ntudentamb_657938\nUnderstand star schema for Power BI\nhttps://learn.microsoft.com/power-bi/guidance/star-schema?wt.mc_id=studenta\nmb_657938\nTables in Fabric Warehouse\nhttps://learn.microsoft.com/fabric/data-warehouse/tables?wt.mc_id=studentamb\n_657938\nIngest data into a warehouse\nhttps://learn.microsoft.com/fabric/data-warehouse/ingest-data?wt.mc_id=studen\ntamb_657938\nLakehouse and Delta tables\nhttps://learn.microsoft.com/fabric/data-engineering/lakehouse-and-delta-tables?\nwt.mc_id=studentamb_657938\nlakehouse schemas\nhttps://learn.microsoft.com/fabric/data-engineering/lakehouse-schemas?wt.mc_\nid=studentamb_657938\nTransform data with Dataflows Gen2\nhttps://learn.microsoft.com/training/modules/fabric-transform-data-dataflows/?w\nt.mc_id=studentamb_657938\nResource\nURL (includes Contributor ID)\nwith notebooks\nhttps://learn.microsoft.com/training/modules/fabric-transform-data-notebooks/?\nwt.mc_id=studentamb_657938\nwith T-SQL\nhttps://learn.microsoft.com/training/modules/fabric-transform-data-tsql/?wt.mc_i\nd=studentamb_657938\nDesign dimensional models\nhttps://learn.microsoft.com/training/modules/design-dimensional-models-fabri\nc/?wt.mc_id=studentamb_657938\nvisual query editor\nhttps://learn.microsoft.com/fabric/data-warehouse/visual-query-editor?wt.mc_id\n=studentamb_657938\nSQL query editor\nhttps://learn.microsoft.com/fabric/data-warehouse/sql-query-editor?wt.mc_id=st\nudentamb_657938\nKQL overview\nhttps://learn.microsoft.com/kusto/query/?view=microsoft-fabric&wt.mc_id=stude\nntamb_657938\nsummarize operator\nhttps://learn.microsoft.com/kusto/query/summarize-operator?view=microsoft-fa\nbric&wt.mc_id=studentamb_657938\nbin()\nhttps://learn.microsoft.com/kusto/query/bin-function?view=microsoft-fabric&wt.\nmc_id=studentamb_657938\ncommon operators tutorial\nhttps://learn.microsoft.com/kusto/query/tutorials/learn-common-operators?view\n=microsoft-fabric&wt.mc_id=studentamb_657938\nQuery a warehouse\nhttps://learn.microsoft.com/training/modules/query-data-warehouse-microsoft-fa\nbric/?wt.mc_id=studentamb_657938\nWork with real-time data in an Eventhouse\nhttps://learn.microsoft.com/training/modules/query-data-kql-database-microsoft-\nfabric/?wt.mc_id=studentamb_657938\nDAX function reference\nhttps://learn.microsoft.com/dax/dax-function-reference?wt.mc_id=studentamb_\n657938\nCALCULATE\nhttps://learn.microsoft.com/dax/calculate-function-dax?wt.mc_id=studentamb_6\n57938\nUse variables in DAX\nhttps://learn.microsoft.com/dax/best-practices/dax-variables?wt.mc_id=studenta\nmb_657938\nWrite DAX formulas\nhttps://learn.microsoft.com/training/modules/dax-power-bi-write-formulas/?wt.m\nc_id=studentamb_657938\nCreate DAX calculations\nhttps://learn.microsoft.com/training/modules/dax-power-bi-create-calculations/?\nwt.mc_id=studentamb_657938\nUse DAX in semantic models\nhttps://learn.microsoft.com/training/paths/dax-power-bi/?wt.mc_id=studentamb_\n657938\nstorage mode\nhttps://learn.microsoft.com/power-bi/transform-model/desktop-storage-mode?w\nt.mc_id=studentamb_657938\nDirect Lake overview\nhttps://learn.microsoft.com/fabric/fundamentals/direct-lake-overview?wt.mc_id=\nstudentamb_657938\nResource\nURL (includes Contributor ID)\nmany-to-many relationship guidance\nhttps://learn.microsoft.com/power-bi/guidance/relationships-many-to-many?wt.\nmc_id=studentamb_657938\nbi-directional filtering guidance\nhttps://learn.microsoft.com/power-bi/guidance/relationships-bidirectional-filterin\ng?wt.mc_id=studentamb_657938\ncalculation groups\nhttps://learn.microsoft.com/power-bi/transform-model/calculation-groups?wt.mc\n_id=studentamb_657938\ndynamic format strings\nhttps://learn.microsoft.com/power-bi/create-reports/desktop-dynamic-format-stri\nngs?wt.mc_id=studentamb_657938\nfield parameters\nhttps://learn.microsoft.com/power-bi/create-reports/power-bi-field-parameters?\nwt.mc_id=studentamb_657938\nlarge semantic model storage format\nhttps://learn.microsoft.com/power-bi/enterprise/service-premium-large-models?\nwt.mc_id=studentamb_657938\ndata reduction techniques\nhttps://learn.microsoft.com/power-bi/guidance/import-modeling-data-reduction?\nwt.mc_id=studentamb_657938\nComposite models\nhttps://learn.microsoft.com/power-bi/transform-model/desktop-composite-model\ns?wt.mc_id=studentamb_657938\ncomposite model guidance\nhttps://learn.microsoft.com/power-bi/guidance/composite-model-guidance?wt.m\nc_id=studentamb_657938\ndate tables\nhttps://learn.microsoft.com/power-bi/guidance/model-date-tables?wt.mc_id=stu\ndentamb_657938\ncalculated tables\nhttps://learn.microsoft.com/power-bi/transform-model/desktop-calculated-table\ns?wt.mc_id=studentamb_657938\nDesign semantic models for scale\nhttps://learn.microsoft.com/training/modules/design-semantic-models-scale/?wt.\nmc_id=studentamb_657938\nPerformance Analyzer\nhttps://learn.microsoft.com/power-bi/create-reports/desktop-performance-analy\nzer?wt.mc_id=studentamb_657938\nQuery insights\nhttps://learn.microsoft.com/fabric/data-warehouse/query-insights?wt.mc_id=stu\ndentamb_657938\ndevelop Direct Lake models\nhttps://learn.microsoft.com/fabric/fundamentals/direct-lake-develop?wt.mc_id=s\ntudentamb_657938\nunderstand Direct Lake storage\nhttps://learn.microsoft.com/fabric/fundamentals/direct-lake-understand-storage?\nwt.mc_id=studentamb_657938\nDirect Lake in Power BI Desktop\nhttps://learn.microsoft.com/fabric/fundamentals/direct-lake-power-bi-desktop?w\nt.mc_id=studentamb_657938\nIncremental refresh\nhttps://learn.microsoft.com/power-bi/connect-data/incremental-refresh-overvie\nw?wt.mc_id=studentamb_657938\nOptimize semantic model performance\nhttps://learn.microsoft.com/training/modules/optimize-semantic-model-performa\nnce/?wt.mc_id=studentamb_657938\nResource\nURL (includes Contributor ID)\nDelta Lake table optimization and V-Order\nhttps://learn.microsoft.com/fabric/data-engineering/delta-optimization-and-v-ord\ner?wt.mc_id=studentamb_657938\nWarehouse performance guidelines\nhttps://learn.microsoft.com/fabric/data-warehouse/guidelines-warehouse-perfor\nmance?wt.mc_id=studentamb_657938\nstatistics\nhttps://learn.microsoft.com/fabric/data-warehouse/statistics?wt.mc_id=studenta\nmb_657938\nresult-set caching\nhttps://learn.microsoft.com/fabric/data-warehouse/caching?wt.mc_id=studenta\nmb_657938\nIntroduction to end-to-end analytics using\nMicrosoft Fabric\nhttps://learn.microsoft.com/training/modules/introduction-end-analytics-use-micr\nosoft-fabric/?wt.mc_id=studentamb_657938\nGet started with lakehouses\nhttps://learn.microsoft.com/training/modules/get-started-lakehouses/?wt.mc_id=\nstudentamb_657938\nUse Apache Spark in Microsoft Fabric\nhttps://learn.microsoft.com/training/modules/use-apache-spark-work-files-lakeh\nouse/?wt.mc_id=studentamb_657938\nWork with Delta Lake tables\nhttps://learn.microsoft.com/training/modules/work-delta-lake-tables-fabric/?wt.m\nc_id=studentamb_657938\nIngest data with Dataflows Gen2\nhttps://learn.microsoft.com/training/modules/use-dataflow-gen-2-fabric/?wt.mc_i\nd=studentamb_657938\nOrchestrate processes and data movement\nhttps://learn.microsoft.com/training/modules/use-data-factory-pipelines-fabric/?\nwt.mc_id=studentamb_657938\nOrganize a lakehouse using medallion\narchitecture\nhttps://learn.microsoft.com/training/modules/describe-medallion-architecture/?w\nt.mc_id=studentamb_657938\nGet started with data warehouses\nhttps://learn.microsoft.com/training/modules/get-started-data-warehouse/?wt.m\nc_id=studentamb_657938\nLoad data into a warehouse\nhttps://learn.microsoft.com/training/modules/load-data-into-microsoft-fabric-data\n-warehouse/?wt.mc_id=studentamb_657938\nGet started with Real-Time Intelligence\nhttps://learn.microsoft.com/training/modules/get-started-kusto-fabric/?wt.mc_id=\nstudentamb_657938\nGovern analytics data in Fabric\nhttps://learn.microsoft.com/training/modules/fabric-govern-analytics-data/?wt.m\nc_id=studentamb_657938\nMonitor activities in Microsoft Fabric\nhttps://learn.microsoft.com/training/modules/monitor-fabric-items/?wt.mc_id=stu\ndentamb_657938\nlakehouse tutorial\nhttps://learn.microsoft.com/fabric/data-engineering/tutorial-lakehouse-introducti\non?wt.mc_id=studentamb_657938\ndata warehouse tutorial\nhttps://learn.microsoft.com/fabric/data-warehouse/tutorial-introduction?wt.mc_id\n=studentamb_657938\nData Factory end-to-end tutorial\nhttps://learn.microsoft.com/fabric/data-factory/tutorial-end-to-end-introduction?w\nt.mc_id=studentamb_657938\nResource\nURL (includes Contributor ID)\nReal-Time Intelligence tutorial\nhttps://learn.microsoft.com/fabric/real-time-intelligence/tutorial-introduction?wt.\nmc_id=studentamb_657938\nDP-700\nhttps://learn.microsoft.com/credentials/certifications/fabric-data-engineer-associ\nate/?wt.mc_id=studentamb_657938\nMicrosoft Fabric blog\nhttps://www.microsoft.com/microsoft-fabric/blog/?wt.mc_id=studentamb_65793\n8\nwhat's new in Fabric\nhttps://learn.microsoft.com/fabric/fundamentals/whats-new?wt.mc_id=studenta\nmb_657938\nFabric Community\nhttps://community.fabric.microsoft.com/?wt.mc_id=studentamb_657938\nMicrosoft Q&A\nhttps://learn.microsoft.com/answers/products/?wt.mc_id=studentamb_657938\n"
+  }
+]

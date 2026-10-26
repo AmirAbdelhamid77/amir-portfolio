@@ -1,0 +1,212 @@
+[
+  {
+    "id": "dp600-guide-ch2-selfcheck-1",
+    "chapter": 2,
+    "number": 1,
+    "text": "An analyst must run T-SQL queries against a warehouse but must not read files with Spark. What do you\ngrant?",
+    "pdf_page": 18
+  },
+  {
+    "id": "dp600-guide-ch2-selfcheck-2",
+    "chapter": 2,
+    "number": 2,
+    "text": "Where do you configure a rule that hides the Salary  column from everyone except HR, enforced for\nSpark and SQL and Direct Lake?",
+    "pdf_page": 18
+  },
+  {
+    "id": "dp600-guide-ch2-selfcheck-3",
+    "chapter": 2,
+    "number": 3,
+    "text": "A user can open a report but cannot create a new one from the same semantic model. What is missing?",
+    "pdf_page": 18
+  },
+  {
+    "id": "dp600-guide-ch2-selfcheck-4",
+    "chapter": 2,
+    "number": 4,
+    "text": "Who is allowed to mark a semantic model as Certified?",
+    "pdf_page": 18
+  },
+  {
+    "id": "dp600-guide-ch2-selfcheck-5",
+    "chapter": 2,
+    "number": 5,
+    "text": "Why does a workspace Member still see all rows despite an RLS role being defined?",
+    "pdf_page": 18
+  },
+  {
+    "id": "dp600-guide-ch3-selfcheck-1",
+    "chapter": 3,
+    "number": 1,
+    "text": "You need per-stage lakehouse bindings for ten notebooks. Rules on every item, or a variable library?",
+    "pdf_page": 23
+  },
+  {
+    "id": "dp600-guide-ch3-selfcheck-2",
+    "chapter": 3,
+    "number": 2,
+    "text": "A developer wants two people reviewing measure changes before they reach the shared model. Which\nfeature?",
+    "pdf_page": 23
+  },
+  {
+    "id": "dp600-guide-ch3-selfcheck-3",
+    "chapter": 3,
+    "number": 3,
+    "text": "What is lost when you deploy a warehouse through a deployment pipeline?",
+    "pdf_page": 23
+  },
+  {
+    "id": "dp600-guide-ch3-selfcheck-4",
+    "chapter": 3,
+    "number": 4,
+    "text": "Which tool adds object-level security to a semantic model?",
+    "pdf_page": 23
+  },
+  {
+    "id": "dp600-guide-ch3-selfcheck-5",
+    "chapter": 3,
+    "number": 5,
+    "text": "Analysts each need the same report against their own regional database. Which asset do you publish?",
+    "pdf_page": 23
+  },
+  {
+    "id": "dp600-guide-ch4-selfcheck-1",
+    "chapter": 4,
+    "number": 1,
+    "text": "A nightly load from an on-premises SQL Server needs to reach a lakehouse. What is required beyond a\npipeline?",
+    "pdf_page": 26
+  },
+  {
+    "id": "dp600-guide-ch4-selfcheck-2",
+    "chapter": 4,
+    "number": 2,
+    "text": "The finance team wants Gold tables from the Sales workspace without duplicating them. What do you\ncreate?",
+    "pdf_page": 26
+  },
+  {
+    "id": "dp600-guide-ch4-selfcheck-3",
+    "chapter": 4,
+    "number": 3,
+    "text": "A team needs Power BI reports over telemetry that lives in an eventhouse, with Direct Lake. What must\nbe enabled?",
+    "pdf_page": 26
+  },
+  {
+    "id": "dp600-guide-ch4-selfcheck-4",
+    "chapter": 4,
+    "number": 4,
+    "text": "Which discovery surface lists existing eventstreams?",
+    "pdf_page": 26
+  },
+  {
+    "id": "dp600-guide-ch4-selfcheck-5",
+    "chapter": 4,
+    "number": 5,
+    "text": "A source database must appear in Fabric within seconds of a change, with no ETL to maintain. What do\nyou choose?",
+    "pdf_page": 26
+  },
+  {
+    "id": "dp600-guide-ch5-selfcheck-1",
+    "chapter": 5,
+    "number": 1,
+    "text": "A dataflow that ran in 3 minutes now takes 40. The only change was an added custom column early in\nthe query. What happened?",
+    "pdf_page": 32
+  },
+  {
+    "id": "dp600-guide-ch5-selfcheck-2",
+    "chapter": 5,
+    "number": 2,
+    "text": "You need an auto-incrementing surrogate key in a Fabric warehouse dimension. What do you use?",
+    "pdf_page": 32
+  },
+  {
+    "id": "dp600-guide-ch5-selfcheck-3",
+    "chapter": 5,
+    "number": 3,
+    "text": "Which object cannot be created in a lakehouse SQL analytics endpoint: view, inline TVF, or stored\nprocedure?",
+    "pdf_page": 32
+  },
+  {
+    "id": "dp600-guide-ch5-selfcheck-4",
+    "chapter": 5,
+    "number": 4,
+    "text": "How do you keep only the most recent row per business key?",
+    "pdf_page": 32
+  },
+  {
+    "id": "dp600-guide-ch5-selfcheck-5",
+    "chapter": 5,
+    "number": 5,
+    "text": "A date column arrives as text and 0.3% of values are malformed. How do you load the good rows without\nfailing the batch?",
+    "pdf_page": 32
+  },
+  {
+    "id": "dp600-guide-ch7-selfcheck-1",
+    "chapter": 7,
+    "number": 1,
+    "text": "A model needs YTD, PY, and YoY for 14 measures. What do you build?",
+    "pdf_page": 42
+  },
+  {
+    "id": "dp600-guide-ch7-selfcheck-2",
+    "chapter": 7,
+    "number": 2,
+    "text": "Users want to switch a chart between Sales, Margin, and Quantity from a slicer. What do you build?",
+    "pdf_page": 42
+  },
+  {
+    "id": "dp600-guide-ch7-selfcheck-3",
+    "chapter": 7,
+    "number": 3,
+    "text": "Two date columns must both filter one date dimension. How?",
+    "pdf_page": 42
+  },
+  {
+    "id": "dp600-guide-ch7-selfcheck-4",
+    "chapter": 7,
+    "number": 4,
+    "text": "A slicer on a DirectQuery model is painfully slow, but the dimension is small. What do you change?",
+    "pdf_page": 42
+  },
+  {
+    "id": "dp600-guide-ch7-selfcheck-5",
+    "chapter": 7,
+    "number": 5,
+    "text": "Why must a Direct Lake model use large semantic model storage format?",
+    "pdf_page": 42
+  },
+  {
+    "id": "dp600-guide-ch8-selfcheck-1",
+    "chapter": 8,
+    "number": 1,
+    "text": "Performance Analyzer shows 90 ms DAX and 4,500 ms visual display. What do you fix?",
+    "pdf_page": 48
+  },
+  {
+    "id": "dp600-guide-ch8-selfcheck-2",
+    "chapter": 8,
+    "number": 2,
+    "text": "A Direct Lake report suddenly slowed with no model change. What do you check first?",
+    "pdf_page": 48
+  },
+  {
+    "id": "dp600-guide-ch8-selfcheck-3",
+    "chapter": 8,
+    "number": 3,
+    "text": "Which model property makes a guardrail breach raise an error instead of degrading?",
+    "pdf_page": 48
+  },
+  {
+    "id": "dp600-guide-ch8-selfcheck-4",
+    "chapter": 8,
+    "number": 4,
+    "text": "Your incremental refresh runs as long as a full refresh. What is the likely cause?",
+    "pdf_page": 48
+  },
+  {
+    "id": "dp600-guide-ch8-selfcheck-5",
+    "chapter": 8,
+    "number": 5,
+    "text": "You must combine Gold tables from two different lakehouses in one Direct Lake model. Which flavour?",
+    "pdf_page": 48
+  }
+]

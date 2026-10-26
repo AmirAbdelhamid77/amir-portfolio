@@ -1,0 +1,36 @@
+{
+  "version": "0.1",
+  "connections": [
+    {
+      "details": {
+        "protocol": "tds",
+        "address": { "server": "<workspace>.datawarehouse.fabric.microsoft.com", "database": 
+"SalesDW" }
+      },
+      "mode": "DirectQuery"
+    }
+  ]
+}
+3.7 Chapter 3 self-check
+1. You need per-stage lakehouse bindings for ten notebooks. Rules on every item, or a variable library?
+2. A developer wants two people reviewing measure changes before they reach the shared model. Which
+feature?
+3. What is lost when you deploy a warehouse through a deployment pipeline?
+4. Which tool adds object-level security to a semantic model?
+5. Analysts each need the same report against their own regional database. Which asset do you publish?
+Answers. 1. A variable library — one variable, one value per stage, referenced by all ten. 2. Git
+integration with pull requests, developing in .pbip  format so the diff is readable. 3. The data:
+definitions deploy, rows do not. 4. An external tool over the XMLA endpoint (Tabular Editor or a TMSL
+script); Desktop has no OLS UI. 5. A .pbit  template with a parameter for the database, or a .pbids
+file pointing at their source.
+3.8 Learn more
+What is lifecycle management in Fabric?
+Introduction to Git integration
+Introduction to deployment pipelines
+Deployment pipelines: get started
+CI/CD best practices
+Variable libraries
+Power BI Desktop projects
+Source control for warehouses (database projects)
+Semantic model connectivity with the XMLA endpoint
+Training: Implement CI/CD in Microsoft Fabric · Manage the semantic model development lifecycle

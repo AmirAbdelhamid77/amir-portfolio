@@ -83,22 +83,31 @@ export const CASE_STUDIES: CaseStudy[] = [
       { label: "5", detail: "purpose-built report views" },
     ],
     metrics: [
-      { value: "0.19", label: "TRIR", note: "per 1M hours · world-class band" },
-      { value: "0.28", label: "LTIFR", note: "per 1M hours" },
-      { value: "863", label: "Days since LTI", note: "current streak" },
+      {
+        value: "0.19",
+        label: "TRIR",
+        note: "per 200,000 hours (OSHA base) · 0.95 per 1M",
+      },
+      { value: "0.28", label: "LTIFR", note: "per 1,000,000 hours" },
+      {
+        value: "885",
+        label: "Days since LTI",
+        note: "16 Dec 2025 dashboard snapshot",
+      },
       { value: "60", label: "Overdue actions", note: "surfaced for follow-up" },
     ],
     sections: [
       {
         heading: "Safety performance",
         paragraphs: [
-          "The executive view tracks TRIR, LTIFR, days since a lost-time incident, and potential serious incident frequency (PSIF) on one screen. Rates are normalised by hours worked rather than headcount, which makes sites of different sizes comparable.",
-          "The synthetic dataset lands at TRIR 0.19 and LTIFR 0.28 per million hours, with 863 days since the last lost-time incident. Those numbers are deliberately in the world-class band so the dashboard can be tested against a realistic best case — they are not a claim about a real operator.",
+          "The executive view tracks TRIR, LTIFR, days since a lost-time incident, and potential serious incident frequency (PSIF) on one screen. Rates are normalised by hours worked rather than headcount, which makes sites of different sizes comparable — but only after the bases match. TRIR is quoted on the OSHA 200,000-hour base; LTIFR on the 1,000,000-hour base.",
+          "The synthetic dataset lands at TRIR 0.19 per 200,000 hours, which is 0.95 per million hours, and LTIFR 0.28 per million hours. On a common base the lost-time rate therefore sits inside the recordable rate, as a subset must. The dashboard reads 885 days since the last lost-time incident at its 16 December 2025 snapshot. Those numbers are deliberately in the world-class band so the dashboard can be tested against a realistic best case — they are not a claim about a real operator.",
         ],
         bullets: [
+          "TRIR = recordable cases × 200,000 ÷ hours worked; LTIFR = lost-time injuries × 1,000,000 ÷ hours worked. The base switch in the filter bar renormalises both before any comparison.",
           "PSIF tracking separates 14 critical near-misses from lower-consequence events.",
           "Status thresholds are data-driven; a KPI changes band without a manual edit.",
-          "Every rate exposes its numerator and denominator in a tooltip.",
+          "Every rate exposes its numerator, denominator and hour base in a tooltip.",
         ],
       },
       {
@@ -198,7 +207,7 @@ export const CASE_STUDIES: CaseStudy[] = [
       "Environmental performance read as intensity, not isolated totals.",
     ],
     limitations:
-      "All data is synthetically generated for demonstration. Locations are anonymised, rates are not audited, and the report has not been deployed into a production tenant. The architecture and measure logic are the deliverable; the numbers are a test fixture.",
+      "All data is synthetically generated for demonstration. Locations are anonymised and the rates are not audited. No fact-level dataset ships with this page: the KPI values are the snapshot the dashboard renders, and the hour bases are documented above rather than left implied. The report has not been deployed into a production tenant — the architecture and measure logic are the deliverable; the numbers are a test fixture.",
     featured: true,
   },
   {

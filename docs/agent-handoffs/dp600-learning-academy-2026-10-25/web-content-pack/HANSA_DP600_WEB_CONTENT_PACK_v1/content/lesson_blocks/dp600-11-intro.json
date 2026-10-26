@@ -1,0 +1,38 @@
+{
+  "lesson_id": "dp600-11-intro",
+  "source_sections": [
+    52,
+    53,
+    55
+  ],
+  "blocks": [
+    {
+      "id": "dp600-11-intro-p052",
+      "kind": "source_fragment",
+      "source_page": 52,
+      "source_start_line": 1,
+      "source_text": "Chapter 11 — Exam-day checklist and quick reference",
+      "presentation_status": "needs-editorial-layout-conversion",
+      "recommended_renderer": "SourceFragment"
+    },
+    {
+      "id": "dp600-11-intro-p053",
+      "kind": "source_fragment",
+      "source_page": 53,
+      "source_start_line": 1,
+      "source_text": "Topic\nThe one line\nWorkspace roles\nAdmin > Member > Contributor > Viewer; Viewer ≠ file access\nItem permissions\nRead · ReadData (SQL) · ReadAll (Spark/OneLake) · Build (new content)\nSecurity scope\nOneLake security = every engine; SQL GRANT = SQL endpoint only\nRLS ignored for\nWorkspace Admin/Member/Contributor and anyone with model Write\nEndorsement\nPromoted (anyone with Write) · Certified / Master data (nominated reviewers)\nLakehouse vs warehouse\nT-SQL writes and multi-table transactions → warehouse; files and Spark →\nlakehouse\nSQL analytics endpoint\nRead-only. No stored procedures, no MERGE\nNo IDENTITY  in warehouse\nUse ROW_NUMBER()  for surrogate keys\nShortcut vs mirroring vs copy\nReference · replicate · duplicate\nDirect Lake refresh\nFraming = metadata; columns page in on first use\nFallback\nAutomatic → DirectQuery; DirectLakeOnly  to fail loudly\nDL on OneLake\nNo fallback; multiple sources; OneLake security\nIncremental refresh\nRangeStart / RangeEnd , must fold, Import only\nCalculation group vs field\nparameter\nHow a measure is evaluated vs which field is shown\nDual storage mode\nDimensions in a composite model with a DirectQuery fact\nGit vs deployment pipeline\nHistory and review vs promotion between stages\n.pbix  / .pbip  / .pbit\nBinary · project folder for Git · template with no data\ntake  vs top  in KQL\nArbitrary rows vs actual top N",
+      "presentation_status": "needs-editorial-layout-conversion",
+      "recommended_renderer": "SourceFragment"
+    },
+    {
+      "id": "dp600-11-intro-p055",
+      "kind": "source_fragment",
+      "source_page": 55,
+      "source_start_line": 1,
+      "source_text": "Keep current with the Microsoft Fabric blog and what's new in Fabric — the exam is refreshed regularly,\nand the skills outline carries a change log.\nAsk questions in the Fabric Community and Microsoft Q&A.\nKEY TAKEAWAY\nYou do not need to memorise every menu. You need to be able to say, for any scenario: which store,\nwhich engine, which security layer, which storage mode, and which lifecycle tool — and to justify the\nchoice in one sentence. That is what 700 points looks like.",
+      "presentation_status": "needs-editorial-layout-conversion",
+      "recommended_renderer": "SourceFragment"
+    }
+  ],
+  "warning": "Source fragments are NOT native formatted prose, tables or runnable code."
+}

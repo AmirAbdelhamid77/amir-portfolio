@@ -1,0 +1,18 @@
+{
+  "lesson_id": "dp600-c1-s04",
+  "source_sections": [
+    10
+  ],
+  "blocks": [
+    {
+      "id": "dp600-c1-s04-p010",
+      "kind": "source_fragment",
+      "source_page": 10,
+      "source_start_line": 29,
+      "source_text": "1.4 The medallion architecture\nFabric does not force a layout, but every Microsoft reference architecture and most exam scenarios use\nmedallion:\nBRONZE\nRaw landing\nas-ingested\nno schema change\nSILVER\nCleansed &\nconformed\ndedup · types · SCD\nGOLD\nBusiness-ready\nstar schema\naggregates\nSources: SaaS · databases · files · streams → ingest with pipelines, Dataflows Gen2, shortcuts, mirroring\nDirect Lake semantic model → Power BI reports · Excel · notebooks · SQL endpoint\nBronze keeps the raw truth, Silver makes it correct, Gold makes it useful. Report from Gold.\nBronze — land the source data as-is. No business logic. You can always replay from here.\nSilver — cleansed and conformed: types fixed, duplicates removed, late-arriving rows handled, slowly\nchanging dimensions maintained.\nGold — business-ready star schemas and aggregates, shaped for the semantic model.\nEach layer can be a separate lakehouse, a separate schema, or a separate workspace. Separate\nworkspaces give the cleanest security boundary; separate schemas in one lakehouse give the simplest\ndevelopment experience.",
+      "presentation_status": "needs-editorial-layout-conversion",
+      "recommended_renderer": "SourceFragment"
+    }
+  ],
+  "warning": "Source fragments are NOT native formatted prose, tables or runnable code."
+}

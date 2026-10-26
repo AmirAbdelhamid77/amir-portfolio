@@ -1,0 +1,27 @@
+Dynamic format strings let one measure change its own format — percentage for a ratio item, currency for
+an amount item, or a currency that follows the selected country:
+-- Format string expression on a measure or calculation item
+SELECTEDVALUE ( DimCurrency[FormatString], "#,##0.00" )
+Reference: dynamic format strings.
+Field parameters let the user choose which measure or which dimension a visual shows, from a slicer,
+without bookmarks:
+Measure selection = {
+    ("Sales",   NAMEOF('Measures'[Total Sales]),  0),
+    ("Margin",  NAMEOF('Measures'[Margin]),       1),
+    ("Quantity",NAMEOF('Measures'[Total Qty]),    2)
+}
+Reference: field parameters.
+KNOW THE DIFFERENCE
+Calculation group vs field parameter. A calculation group changes how a measure is evaluated
+(YTD, PY, YoY) and is authored by the modeller. A field parameter changes which field or measure a
+visual displays and is driven by the report user. They are frequently combined.
+7.5 Large semantic model storage format
+The large semantic model storage format stores the model in a format that supports models larger than the
+default limit and enables better memory management on the capacity.
+Required for models that grow past the default per-model size limit.
+Required for Direct Lake models, and enabled by default when Fabric creates them.
+Enables the XMLA write operations that tools use for partition-level refresh.
+It does not make a small model faster; turning it on everywhere is not the right answer.
+Reduce the size before you raise the limit: remove unused columns, lower cardinality (split datetime into
+date + time), summarise at the grain reports actually use, and switch off Auto date/time. Guidance: data
+reduction techniques.

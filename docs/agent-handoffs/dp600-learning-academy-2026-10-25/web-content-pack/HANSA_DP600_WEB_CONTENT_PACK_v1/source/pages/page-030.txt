@@ -1,0 +1,38 @@
+from pyspark.sql import functions as F
+from pyspark.sql.window import Window
+stg = spark.read.table("bronze.product")
+w   = Window.orderBy("ProductId")
+dim = (stg.dropDuplicates(["ProductId"])
+          .withColumn("ProductKey", F.row_number().over(w))
+          .select("ProductKey", "ProductId", "ProductName", "Category", "ListPrice"))
+dim.write.mode("overwrite").format("delta").saveAsTable("silver.DimProduct")
+COMMON EXAM TRAP
+Fabric Warehouse does not support IDENTITY  columns, and it does not enforce PRIMARY
+KEY / FOREIGN KEY  constraints — they can be declared as NOT ENFORCED  for metadata and optimiser
+hints only. Your load process is responsible for key uniqueness and referential integrity. Expect a
+question where the "obvious" IDENTITY  answer is wrong.
+5.3 Denormalising, joining, and aggregating
+Denormalise by folding a snowflaked hierarchy into one dimension:
+-- Snowflake: DimProduct -> DimSubcategory -> DimCategory
+-- Star: one flat DimProduct
+CREATE TABLE dbo.DimProduct AS
+SELECT p.ProductKey, p.ProductName,
+       sc.SubcategoryName,
+       c.CategoryName
+FROM   stg.Product AS p
+JOIN   stg.Subcategory AS sc ON sc.SubcategoryId = p.SubcategoryId
+JOIN   stg.Category    AS c  ON c.CategoryId     = sc.CategoryId;
+Fabric Warehouse supports CTAS ( CREATE TABLE AS SELECT ), which is the usual way to materialise a
+transformed table in one statement.
+Aggregate to a summary table when reports only need a coarser grain:
+CREATE TABLE dbo.AggSalesByMonth AS
+SELECT d.CalendarYear, d.MonthNumber, f.ProductKey,
+       SUM(f.SalesAmount) AS SalesAmount,
+       SUM(f.Quantity)    AS Quantity,
+       COUNT_BIG(*)       AS RowCountLines
+FROM   dbo.FactSales AS f
+JOIN   dbo.DimDate   AS d ON d.DateKey = f.DateKey
+GROUP  BY d.CalendarYear, d.MonthNumber, f.ProductKey;
+Join types in one line each: INNER  keeps matches; LEFT  keeps all of the left; FULL  keeps everything;
+ANTI  ( WHERE NOT EXISTS ) finds orphans — the standard way to detect fact rows whose dimension key is
+missing.

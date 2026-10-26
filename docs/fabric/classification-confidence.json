@@ -1,0 +1,129 @@
+{
+  "generatedAt": "2026-10-24T00:48:46.500Z",
+  "byConfidence": [
+    {
+      "level": "high",
+      "count": 499
+    },
+    {
+      "level": "medium",
+      "count": 322
+    },
+    {
+      "level": "low",
+      "count": 13
+    }
+  ],
+  "byScope": [
+    {
+      "scope": "core",
+      "total": 480
+    },
+    {
+      "scope": "support",
+      "total": 251
+    },
+    {
+      "scope": "adjacent",
+      "total": 90
+    },
+    {
+      "scope": "review",
+      "total": 13
+    }
+  ],
+  "needsReview": [
+    {
+      "internalId": "fb-v05",
+      "sourceId": "V05",
+      "pack": "delta",
+      "title": "Plan a transactional row deletion",
+      "reason": "No declared objective and the topic rules scored two subjects equally."
+    },
+    {
+      "internalId": "fb-v08",
+      "sourceId": "V08",
+      "pack": "delta",
+      "title": "Audit a historical version",
+      "reason": "No declared objective and the topic rules scored two subjects equally."
+    },
+    {
+      "internalId": "fb-v09",
+      "sourceId": "V09",
+      "pack": "delta",
+      "title": "Design a 30-day audit window",
+      "reason": "No declared objective and the topic rules scored two subjects equally."
+    },
+    {
+      "internalId": "fb-v10",
+      "sourceId": "V10",
+      "pack": "delta",
+      "title": "Evaluate cleanup candidates",
+      "reason": "No declared objective and the topic rules scored two subjects equally."
+    },
+    {
+      "internalId": "fb-v12",
+      "sourceId": "V12",
+      "pack": "delta",
+      "title": "Plan a maintenance run",
+      "reason": "No declared objective and the topic rules scored two subjects equally."
+    },
+    {
+      "internalId": "fb-v13",
+      "sourceId": "V13",
+      "pack": "delta",
+      "title": "Validate a new workspace configuration",
+      "reason": "No declared objective and the topic rules scored two subjects equally."
+    },
+    {
+      "internalId": "fb-v14",
+      "sourceId": "V14",
+      "pack": "delta",
+      "title": "Apply a read-layout change",
+      "reason": "No declared objective and the topic rules scored two subjects equally."
+    },
+    {
+      "internalId": "fb-v15",
+      "sourceId": "V15",
+      "pack": "delta",
+      "title": "Tune bronze and gold writing",
+      "reason": "No declared objective and the topic rules scored two subjects equally."
+    },
+    {
+      "internalId": "fb-f01",
+      "sourceId": "F01",
+      "pack": "delta",
+      "title": "Design data access for three teams",
+      "reason": "No declared objective and the topic rules scored two subjects equally."
+    },
+    {
+      "internalId": "fb-f03",
+      "sourceId": "F03",
+      "pack": "delta",
+      "title": "Coordinate preparation and quality checks",
+      "reason": "No declared objective and the topic rules scored two subjects equally."
+    },
+    {
+      "internalId": "fb-f04",
+      "sourceId": "F04",
+      "pack": "delta",
+      "title": "Design a recurring incremental load",
+      "reason": "No declared objective and the topic rules scored two subjects equally."
+    },
+    {
+      "internalId": "fb-p28",
+      "sourceId": "P28",
+      "pack": "pipelines",
+      "title": "Estimate a throughput ceiling",
+      "reason": "No declared objective and the topic rules scored two subjects equally."
+    },
+    {
+      "internalId": "fb-e02",
+      "sourceId": "E02",
+      "pack": "eventhouse",
+      "title": "Separate workloads by their requirements",
+      "reason": "No declared objective and the topic rules scored two subjects equally."
+    }
+  ],
+  "method": "Objectives resolve from importMetadata.exam_objective first (first domain named wins). Without it, the subject rule decides and confidence drops to low/medium. Subjects are scored from topic, title, prompt, references and a pack prior; a margin under 2 marks the question as needing review."
+}

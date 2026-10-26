@@ -1,0 +1,797 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Core Chart Types &amp; Scales</title><meta name="data-notion-page-icon" content="📈"/><link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20100%20100%22%3E%3Ctext%20y%3D%22.9em%22%20font-size%3D%2290%22%3E%F0%9F%93%88%3C%2Ftext%3E%3C%2Fsvg%3E"/><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+/* Override strong tags inside headings to maintain consistent weight */
+h1 strong,
+h2 strong,
+h3 strong {
+	font-weight: 600;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 10px;
+	padding: 1rem;
+	/* Paint a complete callout box on every PDF page fragment. */
+	-webkit-box-decoration-break: clone;
+	box-decoration-break: clone;
+}
+
+/* For default-background callouts, render the border outline. */
+.callout.block-color-default_background {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+/*
+ * Toggles and callouts hold arbitrary content, so they can easily be taller
+ * than a page. They must stay breakable: avoiding breaks inside them makes
+ * Chromium push the whole block onto the next page, which leaves the previous
+ * page mostly empty before every long toggle.
+ */
+details,
+aside {
+	margin: 1.25em 0;
+}
+
+/* Keep a toggle's title on the same page as the start of its content. */
+summary {
+	page-break-after: avoid;
+	break-after: avoid;
+}
+
+/*
+ * Toggle headings render as <h1/h2/h3 style="display:inline-block"> inside
+ * <summary>. Without this reset, the heading's margin-top pushes it below the
+ * ::marker (▼), so the triangle and the title appear on separate lines.
+ */
+summary h1,
+summary h2,
+summary h3,
+summary h4 {
+	margin-top: 0;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+
+	table.collection-content {
+		width: 100%;
+		table-layout: fixed;
+	}
+
+	table.collection-content th,
+	table.collection-content td {
+		overflow-wrap: anywhere;
+	}
+
+	table.collection-content td > .user,
+	table.collection-content td > time {
+		white-space: pre-wrap;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content-wrapper {
+	overflow-x: auto;
+}
+
+@media only print {
+	.collection-content-wrapper {
+		overflow-x: visible;
+	}
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.collection-content td {
+	white-space: pre-wrap;
+	word-break: break-word;
+}
+
+.column-list {
+	display: flex;
+	gap: 46px;
+}
+
+.column {
+	min-width: 0;
+	overflow: hidden;
+}
+
+.column > *:first-child {
+	margin-top: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding-inline: 0.125rem;
+	padding-block: 0.375rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+table {
+	border-collapse: collapse;
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol.numbered-list.numbered-list-digits-2 {
+	padding-inline-start: 2em;
+}
+
+ol.numbered-list.numbered-list-digits-3plus {
+	padding-inline-start: 2.4em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+	margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+/*
+ * Render emoji icons using a ::before pseudo-element to keep the glyph
+ * out of the DOM textContent traversal. This avoids double-rendering icons
+ * in callouts and page titles.
+ * NOTE(slim/html-export-pseudo-icons): I can't tagref this because it will
+ * flag as a duplicate tag after codegen.
+ */
+.icon[data-emoji]::before {
+	content: attr(data-emoji);
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.callout img.notion-static-icon {
+	width: 1em;
+	height: 1em;
+}
+
+.callout p {
+	margin: 0;
+}
+
+.callout h1,
+.callout h2,
+.callout h3 {
+	margin: 0 0 0.6rem;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	margin-right: 0.4em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+blockquote.quote-large {
+	font-size: 1.25em;
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.tab {
+	margin: 1.25em 0;
+	padding-inline: 1rem;
+	border: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.highlight-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.highlight-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.highlight-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.highlight-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.highlight-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.highlight-default_background {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray_background {
+	background: rgba(42, 28, 0, 0.07);
+}
+.highlight-brown_background {
+	background: rgba(139, 46, 0, 0.086);
+}
+.highlight-orange_background {
+	background: rgba(224, 101, 1, 0.129);
+}
+.highlight-yellow_background {
+	background: rgba(211, 168, 0, 0.137);
+}
+.highlight-teal_background {
+	background: rgba(0, 100, 45, 0.09);
+}
+.highlight-blue_background {
+	background: rgba(0, 124, 215, 0.094);
+}
+.highlight-purple_background {
+	background: rgba(102, 0, 178, 0.078);
+}
+.highlight-pink_background {
+	background: rgba(197, 0, 93, 0.086);
+}
+.highlight-red_background {
+	background: rgba(223, 22, 0, 0.094);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.block-color-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.block-color-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.block-color-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.block-color-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.block-color-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.block-color-default_background {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray_background {
+	background: rgba(240, 239, 237, 1);
+}
+.block-color-brown_background {
+	background: rgba(245, 237, 233, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 235, 222, 1);
+}
+.block-color-yellow_background {
+	background: rgba(249, 243, 220, 1);
+}
+.block-color-teal_background {
+	background: rgba(232, 241, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(229, 242, 252, 1);
+}
+.block-color-purple_background {
+	background: rgba(243, 235, 249, 1);
+}
+.block-color-pink_background {
+	background: rgba(250, 233, 241, 1);
+}
+.block-color-red_background {
+	background: rgba(252, 233, 231, 1);
+}
+.select-value-color-default { background-color: rgba(42, 28, 0, 0.07); }
+.select-value-color-gray { background-color: rgba(28, 19, 1, 0.11); }
+.select-value-color-brown { background-color: rgba(127, 51, 0, 0.156); }
+.select-value-color-orange { background-color: rgba(196, 88, 0, 0.203); }
+.select-value-color-yellow { background-color: rgba(209, 156, 0, 0.282); }
+.select-value-color-green { background-color: rgba(0, 96, 38, 0.156); }
+.select-value-color-blue { background-color: rgba(0, 118, 217, 0.203); }
+.select-value-color-purple { background-color: rgba(92, 0, 163, 0.141); }
+.select-value-color-pink { background-color: rgba(183, 0, 78, 0.152); }
+.select-value-color-red { background-color: rgba(206, 24, 0, 0.164); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style><style>@import url('https://cdn.jsdelivr.net/npm/katex@0.16.25/dist/katex-swap.min.css')</style></head><body><article id="3cd3906c-5d6c-816f-b3e9-d8809b4dbe8e" class="page sans" data-notion-page-icon="📈"><header><div class="page-header-icon undefined"><span class="icon" data-emoji="📈"></span></div><h1 class="page-title" dir="auto">Core Chart Types &amp; Scales</h1><p class="page-description" dir="auto"></p></header><div class="page-body"><aside class="block-color-blue_background callout" data-notion-callout="" data-notion-callout-icon="🎯" data-notion-callout-background="blue_background" style="white-space:pre-wrap;display:flex" id="5c85fcb4-3e91-4e5e-8693-fef6a0c85551" dir="ltr"><div style="font-size:1.5em"><span class="icon" data-emoji="🎯"></span></div><div style="width:100%"><p id="b4838c86-3a23-462c-b55c-75d612bb98db" class="" dir="auto"><strong>Purpose:</strong> The core chart-type library — the six workhorse plots plus the scale and trend-line concepts that support them.</p></div></aside><h2 id="94ccbffd-c7ce-43bf-91c9-a0dcdaae0dec" class="" dir="auto">4. Histogram</h2><h3 id="2851cc1a-e803-46ce-8879-78d5e1fd35e8" class="" dir="auto">What it is</h3><p id="f625f9c0-add0-418c-afe6-65d3f07bf75f" class="" dir="auto">A histogram visualizes the distribution of <strong>one continuous variable</strong> by grouping numeric values into intervals called <strong>bins</strong> and counting observations in each bin.</p><p id="28819d18-79cf-44e1-8c3b-ae7aca3a9447" class="" dir="auto">Example question:</p><blockquote id="1e2b5741-bac2-4431-ba8a-47458c031dae" class="" dir="auto">At what ages did monarchs ascend to the throne, and which age ranges were most common?</blockquote><h3 id="24d9c4c6-b89e-4926-9fb0-197e7866e309" class="" dir="auto">Anatomy</h3><ul id="c70b5d29-f54e-4fc9-8955-21f8ddf9b2b8" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>X-axis:</strong> continuous variable divided into bins.</li></ul><ul id="13799e8b-3641-47cb-8dab-fd3d13092a55" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>Y-axis:</strong> usually count; depending on the implementation it can also represent density or another normalized quantity.</li></ul><ul id="765f2aee-f70c-4350-ad8f-4b84d450202f" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Each bar corresponds to an interval.</li></ul><h3 id="8923a2d3-999d-4dff-9e87-0af3caeb5b66" class="" dir="auto">Bin width is a critical design choice</h3><p id="b26109a0-98c7-4ec1-9793-b427109feff3" class="" dir="auto">A bin width that is too small can produce a noisy, jagged histogram. A bin width that is too large can hide important structure.</p><p id="036a1db8-fad8-4dee-ac7f-9da56ef9f3f6" class="" dir="auto">Therefore:</p><blockquote id="71d3fc57-7200-47d8-9691-f84c42e9e3d1" class="" dir="auto"><strong>There is rarely a universally perfect bin width. Inspect several sensible choices and choose one that reveals the relevant structure without inventing noise.</strong></blockquote><h3 id="67073b35-04ff-4aa1-8d4d-7fd4160951fb" class="" dir="auto">How to interpret a histogram</h3><h4 id="f5f76b25-b02c-473f-9f75-7cea3cf25d4e" class="" dir="auto">1. Modality</h4><p id="ae8c2167-81ec-4eae-b882-585ef7fa120a" class="" dir="auto">Count the prominent peaks.</p><ul id="74914658-ba05-4a8d-9ab1-775c9f5563c4" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>Unimodal:</strong> one main peak.</li></ul><ul id="3f9db23d-96f2-41b4-83ac-5e0dd7e7d671" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>Bimodal:</strong> two main peaks.</li></ul><ul id="cd5919b3-c933-457b-a949-424ebd8374ef" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>Multimodal:</strong> several peaks.</li></ul><p id="edbefdbe-3549-4b4c-9e01-39e5f08d2cc2" class="" dir="auto">Multiple modes can suggest heterogeneous subpopulations or a mixture of processes.</p><h4 id="fc5211c6-a16c-4bb4-9dab-1494212fde09" class="" dir="auto">2. Skewness</h4><p id="5fadc7fd-8c7a-4389-a7a7-8751d1e2a83a" class="" dir="auto">Skewness describes asymmetry.</p><ul id="d0c9793b-7eca-4b3e-8898-0b77756a6a0b" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>Right-skewed:</strong> longer/extreme tail toward larger values.</li></ul><ul id="873fbd2d-2871-45ce-a7ec-0f3412c437de" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>Left-skewed:</strong> longer/extreme tail toward smaller values.</li></ul><ul id="1d8cec78-19b8-4099-802c-8aaa29b45c4b" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>Approximately symmetric:</strong> tails are reasonably balanced.</li></ul><p id="d1918594-952f-404a-9faa-0319fca49484" class="" dir="auto">A reliable memory aid: the <strong>tail points in the direction of the skew</strong>.</p><figure id="107fec42-c687-4ec5-9787-f4152e13964a" class="image" data-notion-image="hist_shapes.svg" dir="ltr"><a href="hist_shapes.svg"><img src="hist_shapes.svg"/></a><figcaption>Unimodal, bimodal, and right-skewed histograms of the same kind of continuous variable.</figcaption></figure><h4 id="4e83463a-fb39-4cda-9609-1936dea6dad6" class="" dir="auto">3. Kurtosis</h4><p id="e905a4be-b324-45fb-956d-19621b84b801" class="" dir="auto">Kurtosis is a more advanced description related to tail/extreme-value behavior and concentration relative to a reference distribution. The terminology used in the lesson is:</p><ul id="a8829259-0bc7-4fb3-b8de-01f0b1bf59f8" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>Mesokurtic:</strong> roughly normal-like reference shape.</li></ul><ul id="80a6a9c7-ab43-4e8d-8b83-cff39ef233ba" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>Leptokurtic:</strong> relatively heavier tails / more extreme observations and often a sharper central peak.</li></ul><ul id="bae5ebd0-ef5d-4ce5-bef9-77aceceb3f4a" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>Platykurtic:</strong> relatively lighter tails / fewer extreme observations and often a flatter, broader center.</li></ul><p id="3d621d79-94fa-4415-b986-7c5cf57e64df" class="" dir="auto">Important caution: kurtosis should not be reduced to &quot;peak height.&quot; Its interpretation is fundamentally about tail behavior and moments; different distributions can have similar-looking peaks but different tail properties.</p><h3 id="08bc2904-041f-4922-97e9-bb5926df4956" class="" dir="auto">Common histogram mistakes</h3><ul id="a7811b1b-69b6-4675-83a9-fcbc6259dc47" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Treating categorical values as histogram bins.</li></ul><ul id="6c17bee3-8c81-47f8-9031-d179f1124653" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Choosing bins only because they look visually attractive.</li></ul><ul id="d1d7a18b-ba5e-41db-aeb9-8962728fbf1e" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Overinterpreting tiny fluctuations caused by binning.</li></ul><ul id="e9be080f-debd-4c7c-a238-2be024ca086d" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Comparing histograms with incompatible scales or bin definitions.</li></ul><h2 id="9811c355-f4c1-4a9e-8b03-3ed70c1ed41e" class="" dir="auto">5. Box Plot</h2><h3 id="03b9ad2f-a789-44e3-9b6b-8ef93615c767" class="" dir="auto">Why box plots exist</h3><p id="5c2ac8f9-a3c5-4c4d-a983-d16247a1523d" class="" dir="auto">Multiple histograms can become difficult to compare when many categories are involved. Overlapping histograms can become a visual mess; separate panels consume space and make cross-panel comparison harder.</p><p id="0b895d50-028d-4c45-bfbb-75470526d786" class="" dir="auto">A box plot compresses each group&#x27;s distribution into a compact statistical summary.</p><h3 id="5e0c6751-1ea0-4aab-b434-ce2d04ae512a" class="" dir="auto">When to use it</h3><p id="f9fd4698-9546-4483-a9e8-f05291e07ece" class="" dir="auto">Use a box plot when you have:</p><blockquote id="be4991d0-df53-4b04-bf79-7b5050afd6b0" class="" dir="auto"><strong>A continuous variable split by a categorical variable, and you want to compare distributions across groups.</strong></blockquote><h3 id="0cdd5c81-b1b6-43dd-8473-bae7766bfea2" class="" dir="auto">Anatomy</h3><ul id="8221fbf4-b210-4cb6-9dd3-5790f168afe1" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>Median:</strong> line inside the box; 50% of observations are below and 50% above it.</li></ul><ul id="1b3a1805-2a32-492a-9281-b5e8f939ab87" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>Lower quartile (Q1):</strong> 25th percentile.</li></ul><ul id="ab5aa3ee-779d-4c22-a4ad-4a28582b4a52" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>Upper quartile (Q3):</strong> 75th percentile.</li></ul><ul id="68ee5c12-5e1a-4aba-b8ba-40e19f05d217" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>IQR:</strong></li></ul><figure id="967fe5ee-7916-4c82-8cbd-b9d6bcd7404b" class="equation" data-notion-equation="IQR = Q3 - Q1" dir="auto"><style>@import url('https://cdn.jsdelivr.net/npm/katex@0.16.25/dist/katex-swap.min.css')</style><div class="equation-container"><span class="katex-display"><span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8778em;vertical-align:-0.1944em;"></span><span class="mord mathnormal" style="margin-right:0.07847em;">I</span><span class="mord mathnormal" style="margin-right:0.00773em;">QR</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.8778em;vertical-align:-0.1944em;"></span><span class="mord mathnormal">Q</span><span class="mord">3</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.8778em;vertical-align:-0.1944em;"></span><span class="mord mathnormal">Q</span><span class="mord">1</span></span></span></span></span></div></figure><ul id="cc18656c-d388-466b-ab04-0331ef1236e9" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>Box:</strong> from Q1 to Q3, containing the middle 50% of observations.</li></ul><ul id="9fb1848b-4c27-4dfa-bec0-80de2b27fa16" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>Whiskers:</strong> conventionally extend to the most extreme observations within 1.5 × IQR of the quartile boundaries (implementation details can vary).</li></ul><ul id="31774a78-4d09-4c93-b62b-7f1d8b4a1bdc" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>Points beyond whiskers:</strong> commonly displayed as potential outliers/far observations under the chosen rule.</li></ul><h3 id="57455fb4-f4a8-4865-83f2-c6941c35d7f4" class="" dir="auto">What a box plot lets you compare</h3><ul id="d563b7eb-50cd-4674-a0e4-ba3c88ab0219" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Typical value via median.</li></ul><ul id="0702319f-b975-45cc-ac99-767060c65d6d" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Middle-50% spread via IQR.</li></ul><ul id="2c5bfb91-cecc-4637-bd73-13b6b0478e3d" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Overall spread via whiskers.</li></ul><ul id="c531f93a-11aa-4389-9601-2ee359acbfa7" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Potential outliers.</li></ul><ul id="709c3221-dc8a-4e4a-992d-464c2d390411" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Differences in distribution shape/location between groups.</li></ul><h3 id="c4f046ed-bbf8-4973-8e6d-cc8251c34ee8" class="" dir="auto">Important limitation</h3><p id="27af30c6-ed90-43c1-8f31-b0086a924805" class="" dir="auto">A box plot is compact, but it hides information. Two groups can have similar box plots while having very different multimodal distributions. For small samples, raw points or a combination of box plot + points can provide useful additional context.</p><h2 id="cb2802f1-2e25-413c-9bd5-9bdf7c0f2b27" class="" dir="auto">6. Scatter Plot</h2><h3 id="9d433fb1-1391-46f5-bbd2-0e252a8e248a" class="" dir="auto">When to use it</h3><p id="65a3576c-80c5-452d-b952-8ea64855da1b" class="" dir="auto">Use a scatter plot for <strong>two continuous variables</strong> when the goal is to understand their relationship.</p><p id="6024983c-8841-46f3-bc44-804620cf7214" class="" dir="auto">Example:</p><blockquote id="70142526-2927-4620-bfe3-7d2d31659e11" class="" dir="auto">Does house price increase as floor area increases?</blockquote><p id="69d655e3-627b-4743-a11e-e492b5f79300" class="" dir="auto">Typical mapping:</p><ul id="b75d108c-df27-4a36-97e5-68fe0ce1d303" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>X-axis:</strong> explanatory/predictor variable.</li></ul><ul id="74a70153-05ac-4794-a1ea-3e244618b019" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>Y-axis:</strong> response/outcome variable.</li></ul><ul id="12c19ac4-ec7e-49fe-8272-73fa338ba82b" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Each point = one observation.</li></ul><h3 id="c91f8816-242a-41e3-9a44-ae0cb489c183" class="" dir="auto">What to inspect</h3><ol type="1" id="c8083fed-fc0f-421a-b7be-d0e954b2f013" class="numbered-list" start="1" dir="auto"><li><strong>Direction:</strong> positive, negative, or no clear direction.</li></ol><ol type="1" id="3ff55e16-ac28-4ed2-acd8-0be501c06420" class="numbered-list" start="2" dir="auto"><li><strong>Strength:</strong> how tightly points follow a pattern.</li></ol><ol type="1" id="51b4d5fc-1e20-4dba-b3bd-9bec145a7e68" class="numbered-list" start="3" dir="auto"><li><strong>Form:</strong> linear, curved, clustered, etc.</li></ol><ol type="1" id="85b3b7ee-efd0-4541-9685-4fc74e3f8b1b" class="numbered-list" start="4" dir="auto"><li><strong>Outliers:</strong> observations far from the general pattern.</li></ol><ol type="1" id="e55c8f50-1100-4fd2-8be6-74d24bf0a6a7" class="numbered-list" start="5" dir="auto"><li><strong>Clusters:</strong> possible subgroups or latent populations.</li></ol><ol type="1" id="b0fa5007-719f-4f19-bc1c-83d64854fa79" class="numbered-list" start="6" dir="auto"><li><strong>Changing variance:</strong> whether the vertical spread changes with X.</li></ol><h3 id="15a0dfbb-349b-4466-8633-dba9612b70c7" class="" dir="auto">Correlation</h3><p id="625e0c0f-f5fa-4d30-9b93-598f5cbc9c6d" class="" dir="auto">Correlation is useful for quantifying the strength and direction of a <strong>linear</strong> association.</p><ul id="fc13091f-15e7-4677-845a-12d82bb44590" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Positive correlation: larger X tends to accompany larger Y.</li></ul><ul id="46ded399-d87f-44f0-8484-424e84c97c57" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Negative correlation: larger X tends to accompany smaller Y.</li></ul><ul id="dbc3f8e6-3aa6-4a46-aad5-01aa99adb2b1" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Near-zero correlation: little linear association.</li></ul><p id="ea3c07af-686c-49e9-8388-cb883c033de4" class="" dir="auto">A key warning:</p><blockquote id="60f87aad-9b42-4d9b-962b-a72adb8d3ba1" class="" dir="auto"><strong>Correlation is not a complete description of arbitrary relationships.</strong></blockquote><p id="fa2d323d-271b-4560-bf7f-5f9b32a4bbe4" class="" dir="auto">The Datasaurus examples demonstrate that datasets can share similar correlation while having radically different shapes. A curved, circular, clustered, or otherwise nonlinear relationship may have weak/zero linear correlation despite a strong non-linear relationship.</p><h3 id="e10f774f-fe31-425c-bc52-e143c84ecb65" class="" dir="auto">Trend lines</h3><p id="86d352cd-3b99-4867-8595-8d445f0f90ca" class="" dir="auto">A fitted straight line can help diagnose whether a linear model is a reasonable approximation.</p><p id="fcdd2c18-8697-4581-8457-ec6fe4a66fea" class="" dir="auto">A smooth/curved trend line can reveal systematic non-linearity when a straight line is inadequate.</p><h3 id="dabd6bfa-9ad2-466b-846b-b1b1c5ecf5d8" class="" dir="auto">Logarithmic axes</h3><p id="4112045e-767e-4dbd-a880-ae329103ef18" class="" dir="auto">When variables span several orders of magnitude, log scales can spread observations more evenly and make multiplicative relationships easier to inspect.</p><p id="b012d0a5-fada-4f12-898d-303e0a0cbccc" class="" dir="auto">A relationship that is approximately linear on a log-transformed scale can indicate multiplicative/exponential behavior in the original scale, depending on which variable(s) are transformed.</p><h2 id="eb696399-e379-4848-8357-21a738b42262" class="" dir="auto">7. Line Plot</h2><h3 id="aa0e0d51-8c75-4967-b276-f259b631d380" class="" dir="auto">Core definition</h3><p id="dc8bc5ff-3188-49f2-8a84-7fe8800b8801" class="" dir="auto">A line plot is closely related to a scatter plot, but it adds a crucial semantic condition:</p><blockquote id="43aafb31-c2c7-4a20-9fb1-0d29ad16273a" class="" dir="auto"><strong>Consecutive observations must be conceptually connected.</strong></blockquote><p id="381d4d2f-555e-4ab7-8b0b-565b9c111a6f" class="" dir="auto">Time is the most common example because dates have a natural order and neighboring observations describe the evolution of the same process.</p><h3 id="6de2df89-bc89-402f-9fd1-9f0a23abef5a" class="" dir="auto">Typical use cases</h3><ul id="b328a2d7-d425-405b-8044-95082fcd5b0e" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Revenue by month.</li></ul><ul id="56e9ea2b-b10c-4ff3-879a-1f13714417c8" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Enrollment by term.</li></ul><ul id="595d3e2e-c536-4dc4-b4e7-ccb6ef1239f5" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Daily active users.</li></ul><ul id="9a6befb7-e131-4690-815f-6ab7e4c10672" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Temperature over time.</li></ul><ul id="06e351db-5664-41a0-b961-e0c29a0b1a7d" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Cases over time.</li></ul><ul id="c43a7638-8045-4af2-b547-e708c8428042" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Stock/market measures over time.</li></ul><h3 id="7ef36e3a-d145-43f8-89e0-f9d54f184964" class="" dir="auto">Multiple lines</h3><p id="f4f1fef2-1d1f-436d-8319-01cf7453d225" class="" dir="auto">Multiple series can be shown together to compare trajectories, such as sales for several regions over time.</p><h3 id="44759758-0493-4b6f-928a-d7784bb53bba" class="" dir="auto">Linear vs exponential growth</h3><p id="eace03e9-6cdd-4c6b-b2c6-4613c3d91ff9" class="" dir="auto">If a quantity grows by approximately a constant <strong>absolute amount</strong> per time step, its original-scale trajectory can be approximately linear.</p><p id="620a6b7c-dd61-4926-8c41-62b97e3e926f" class="" dir="auto">If it grows by approximately a constant <strong>percentage/multiplicative factor</strong>, the original-scale trajectory can be exponential.</p><p id="cf628e27-0128-45ae-9fc5-1d88c1d5dbbc" class="" dir="auto">A log transformation of the Y-axis can turn an exponential relationship into an approximately straight line, making exponential growth easier to diagnose.</p><h3 id="e48122e5-5400-4029-b82a-92e346255e8e" class="" dir="auto">Critical warning: time on X does not automatically imply a line plot</h3><p id="f6aca0c5-e7d6-4fa8-b577-101392bc3763" class="" dir="auto">Suppose every point represents a different song released on a different date and the score is a critic rating. The observations are not successive measurements of the same evolving quantity. Connecting songs with a line would imply continuity that does not exist.</p><p id="25238881-70de-428a-9926-d37adc5d21f9" class="" dir="auto">Use a scatter plot when the observations are not conceptually connected—even if the X-axis is a date.</p><h2 id="fe30ac19-232b-48a4-b7e6-036d4bdd1e39" class="" dir="auto">8. Bar Plot</h2><h3 id="588a15f5-625d-4e63-b79c-7f70b8689cb4" class="" dir="auto">When to use it</h3><p id="c1e2363b-acd7-4e7b-9762-b31389206d28" class="" dir="auto">A bar plot compares a <strong>metric across categories</strong>. Common metrics include:</p><ul id="807f98d4-fea0-46d7-a69d-6dfbcbce9dd9" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Count</li></ul><ul id="420ad18a-7757-416b-a9d2-b4190b2c0543" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Percentage</li></ul><ul id="0d16108e-7144-4d89-9e1a-27886f4f0a1e" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Sum</li></ul><ul id="385aeca8-9815-441f-b22c-ac508c4da7ba" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Mean</li></ul><ul id="8b80b4f4-0a38-4b9b-add0-859411cd3ef1" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Other meaningful category-level measures</li></ul><h3 id="29c35a4d-ac3b-4c1f-9c35-8fc9417fb5ae" class="" dir="auto">Why zero matters</h3><p id="52b780d3-a6ac-4048-a7b0-f6a0a7569777" class="" dir="auto">Bars encode magnitude through their length/height from a baseline. Therefore, a zero baseline is conceptually important for honest magnitude comparisons. Truncating a bar chart can exaggerate differences.</p><h3 id="55b2a654-61a1-4d20-8464-696a8ea0b5f6" class="" dir="auto">Horizontal vs vertical</h3><p id="97a3e5ec-01a0-499d-9954-5944e14cb0fc" class="" dir="auto">Horizontal bars are often preferable when category labels are long, because they remain readable without rotating text.</p><h3 id="c8dab2c7-6de7-45f1-8010-9455f3dd789c" class="" dir="auto">Sorting</h3><p id="50271565-b6a5-4351-905c-656f32f8985d" class="" dir="auto">Sort categories by the metric when ranking is important. This makes highest, lowest, and ties much easier to detect.</p><h3 id="899471a4-1afc-4a5a-98a6-1289957dd989" class="" dir="auto">Stacked bar charts</h3><p id="c4a5e6e4-f582-4836-baaf-31e55fabb08b" class="" dir="auto">Stacked bars are useful when categories form components of a total and the total has meaning. A classic case is percentages summing to 100%:</p><figure id="4a02fa17-629d-4671-b43b-c4a5bf7a3172" class="equation" data-notion-equation="\sum_i p_i = 100\%" dir="auto"><style>@import url('https://cdn.jsdelivr.net/npm/katex@0.16.25/dist/katex-swap.min.css')</style><div class="equation-container"><span class="katex-display"><span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:2.3277em;vertical-align:-1.2777em;"></span><span class="mop op-limits"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.05em;"><span style="top:-1.8723em;margin-left:0em;"><span class="pstrut" style="height:3.05em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">i</span></span></span><span style="top:-3.05em;"><span class="pstrut" style="height:3.05em;"></span><span><span class="mop op-symbol large-op">∑</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:1.2777em;"><span></span></span></span></span></span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord"><span class="mord mathnormal">p</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3117em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.8056em;vertical-align:-0.0556em;"></span><span class="mord">100%</span></span></span></span></span></div></figure><p id="7d4b9fc1-0b95-424e-9225-d7220471b818" class="" dir="auto">This allows comparison of both total composition and how composition changes across groups/time.</p><p id="6c3c383c-e585-4d8f-b0d8-a9dcc41a48d7" class="" dir="auto">Use caution when comparing segments that do not share a common baseline: stacked segments away from the baseline are harder to compare precisely.</p><h3 id="d38e044a-e69d-4d05-91c8-da8d198bd9fe" class="" dir="auto">Bar plot vs box plot</h3><ul id="49974adc-bd77-413b-8f61-62d255084a9c" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>Bar plot:</strong> usually one summarized metric per category.</li></ul><ul id="cdbe4d26-1a5a-4920-89c5-e462898bfd8c" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>Box plot:</strong> distribution of many observations within each category.</li></ul><p id="92b16532-7612-4f88-9af8-a6249f4e4ab7" class="" dir="auto">For example:</p><blockquote id="302b47d0-87f3-4716-a129-6e6e292d58c7" class="" dir="auto">Average salary by department → Bar plot.</blockquote><blockquote id="1c2ca2ca-7d38-4857-8b6f-8ee94bc07c0c" class="" dir="auto">Distribution of salaries within each department → Box plot.</blockquote><h3 id="960eac55-9192-413e-ba0a-617beb2f399f" class="" dir="auto">Bar plot vs histogram</h3><p id="9b513c2e-0eea-4652-a015-6ebe548e5cb8" class="" dir="auto">This distinction is essential:</p><ul id="1ad635f7-5442-4944-968d-d3afa0c19e97" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>Histogram:</strong> continuous variable → bins/intervals → distribution.</li></ul><ul id="cc0967e9-c068-4a63-8628-5a6de631e62f" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>Bar plot:</strong> categories → metric → comparison.</li></ul><p id="d16f9cc1-0422-4974-b65b-1c8002b98799" class="" dir="auto">Histogram bins represent adjacent numeric intervals; bar categories are discrete groups.</p><h2 id="5141360f-f253-4dd7-ae45-939845580cac" class="" dir="auto">9. Dot Plot</h2><h3 id="f3a35f48-5628-4553-9ce6-86589df31a0f" class="" dir="auto">What it is</h3><p id="9ebbd2fd-0fe9-458c-a02e-75f4d8abc6de" class="" dir="auto">A dot plot can serve essentially the same category-versus-metric role as a bar plot, but it represents the value with a <strong>point positioned on a numeric axis</strong> rather than a bar extending from zero.</p><h3 id="f00db14a-aec3-4035-b771-94a3b2962f56" class="" dir="auto">Advantage 1: logarithmic scales</h3><p id="aba8ddb9-7dc9-4d7e-bd86-a79509e002f2" class="" dir="auto">Bar charts depend on a zero baseline. A logarithmic axis cannot represent zero because:</p><figure id="9e4d8af9-919e-4880-8e3f-544515b3e0f1" class="equation" data-notion-equation="\log(0) = -\infty" dir="auto"><style>@import url('https://cdn.jsdelivr.net/npm/katex@0.16.25/dist/katex-swap.min.css')</style><div class="equation-container"><span class="katex-display"><span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mop">lo<span style="margin-right:0.01389em;">g</span></span><span class="mopen">(</span><span class="mord">0</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6667em;vertical-align:-0.0833em;"></span><span class="mord">−</span><span class="mord">∞</span></span></span></span></span></div></figure><p id="e271afea-cc6a-41d9-a9d5-1095291fb994" class="" dir="auto">A dot plot does not require the value to be represented as a bar extending from zero, so a logarithmic numeric axis can be used.</p><p id="5714189c-8107-4adc-8168-b3e7b94dc6ea" class="" dir="auto">This is particularly valuable for quantities spanning several orders of magnitude, such as astronomical masses or other multiplicative measurements.</p><h3 id="863faaa0-941f-4018-8207-432a6084975d" class="" dir="auto">Advantage 2: multiple metrics</h3><p id="cdef3515-11f8-4d99-a1a4-b9439592a71d" class="" dir="auto">Dot-based displays can place multiple metric values for the same category on the same numeric framework, which can be more space-efficient and flexible than multiple bars.</p><h3 id="7c0fedb1-27af-4af4-a475-fd93d9ad3e39" class="" dir="auto">Linear vs logarithmic interpretation</h3><ul id="16db6b05-b320-4c97-b7a8-423cb35db4b7" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>Linear scale:</strong> visual distance corresponds to additive differences.</li></ul><ul id="8c20d11a-7913-42b9-bb49-9797feca07e3" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>Log scale:</strong> equal visual distances correspond to equal multiplicative ratios.</li></ul><p id="9d8709b6-6598-47bb-bcec-2e4fb624a9f0" class="" dir="auto">For example, on a base-10 log scale, equal steps represent ×10 changes.</p><h3 id="811e211e-c81e-4597-a616-a1b7a90cfb4c" class="" dir="auto">Dot plot vs scatter plot</h3><p id="ce125198-d9f6-450a-8397-b361eb15b3de" class="" dir="auto">Both use points, but their analytical structures differ:</p><ul id="674dc80f-fdcd-4620-add1-302a1d62a3f4" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>Dot plot:</strong> category + numeric metric; compare category-level values.</li></ul><ul id="11eb118c-3439-4826-9968-cd88fbe4885c" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>Scatter plot:</strong> numeric + numeric; inspect relationships between observations.</li></ul><h2 id="924cb81c-3863-4889-a720-4407473b9e6a" class="" dir="auto">10. Logarithmic Scales — Deeper Reference</h2><p id="55ef534f-8f93-4759-9a9f-626811356084" class="" dir="auto">A log axis is useful when:</p><ul id="48147638-0c9b-4e6e-852c-d0db87ee3219" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Values span multiple orders of magnitude.</li></ul><ul id="2e53abd6-35d2-4d00-bf3d-ff0ede6ed718" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Ratios are more meaningful than absolute differences.</li></ul><ul id="47a974f5-3a49-4024-89f4-d3681737b7de" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Exponential growth needs to be visualized.</li></ul><ul id="c25c4e7a-be1c-4a7e-87a2-9a2407177a27" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Multiplicative structure is important.</li></ul><p id="993aa5b8-6cbd-4944-aaf9-684a9a40362d" class="" dir="auto">Example:</p><figure id="ebdfbd32-6d56-43d0-b323-517e3f09a35d" class="equation" data-notion-equation="1, 10, 100, 1000" dir="auto"><style>@import url('https://cdn.jsdelivr.net/npm/katex@0.16.25/dist/katex-swap.min.css')</style><div class="equation-container"><span class="katex-display"><span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8389em;vertical-align:-0.1944em;"></span><span class="mord">1</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord">10</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord">100</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord">1000</span></span></span></span></span></div></figure><p id="a54ad712-e785-4cf0-a1be-bdc860e201b6" class="" dir="auto">appear equally spaced on a base-10 logarithmic axis because:</p><figure id="d8a2a9fa-a000-45c9-b5d0-ffc495c6cbbe" class="equation" data-notion-equation="\log_{10}(1)=0,\quad \log_{10}(10)=1,\quad \log_{10}(100)=2,\quad \log_{10}(1000)=3" dir="auto"><style>@import url('https://cdn.jsdelivr.net/npm/katex@0.16.25/dist/katex-swap.min.css')</style><div class="equation-container"><span class="katex-display"><span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mop"><span class="mop">lo<span style="margin-right:0.01389em;">g</span></span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.207em;"><span style="top:-2.4559em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">10</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.2441em;"><span></span></span></span></span></span></span><span class="mopen">(</span><span class="mord">1</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">0</span><span class="mpunct">,</span><span class="mspace" style="margin-right:1em;"></span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mop"><span class="mop">lo<span style="margin-right:0.01389em;">g</span></span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.207em;"><span style="top:-2.4559em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">10</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.2441em;"><span></span></span></span></span></span></span><span class="mopen">(</span><span class="mord">10</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">1</span><span class="mpunct">,</span><span class="mspace" style="margin-right:1em;"></span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mop"><span class="mop">lo<span style="margin-right:0.01389em;">g</span></span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.207em;"><span style="top:-2.4559em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">10</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.2441em;"><span></span></span></span></span></span></span><span class="mopen">(</span><span class="mord">100</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">2</span><span class="mpunct">,</span><span class="mspace" style="margin-right:1em;"></span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mop"><span class="mop">lo<span style="margin-right:0.01389em;">g</span></span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.207em;"><span style="top:-2.4559em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">10</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.2441em;"><span></span></span></span></span></span></span><span class="mopen">(</span><span class="mord">1000</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">3</span></span></span></span></span></div></figure><p id="54d99b18-8045-4e7e-904e-640c4ea88d65" class="" dir="auto">A log transformation should be chosen because it improves interpretation of the underlying phenomenon—not merely because it makes a plot look nicer.</p><h2 id="b477eaca-4dd6-4204-8cee-c145807e0474" class="" dir="auto">11. Trend Lines and Model Thinking</h2><p id="c55bbedf-02a7-4161-a61f-b84850af545c" class="" dir="auto">Trend lines are descriptive aids, not proof of causality.</p><h3 id="9da32d0b-fc9d-4b2c-8289-a324c072481d" class="" dir="auto">Straight trend line</h3><p id="9b0dc4b5-7c66-4c22-a98b-4cb2c26c1ff4" class="" dir="auto">Useful when a linear relationship is plausible:</p><figure id="f32fe4cd-f291-4ede-ab9c-823ff2be04db" class="equation" data-notion-equation="Y = a + bX" dir="auto"><style>@import url('https://cdn.jsdelivr.net/npm/katex@0.16.25/dist/katex-swap.min.css')</style><div class="equation-container"><span class="katex-display"><span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.22222em;">Y</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6667em;vertical-align:-0.0833em;"></span><span class="mord mathnormal">a</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.6944em;"></span><span class="mord mathnormal">b</span><span class="mord mathnormal" style="margin-right:0.07847em;">X</span></span></span></span></span></div></figure><h3 id="91a9c574-d080-40b7-9bb8-0d1c5f23c05d" class="" dir="auto">Curved trend</h3><p id="8a8fce45-4270-41cf-8ff9-426b90574eb0" class="" dir="auto">Useful when the relationship is systematically non-linear. The curve can reveal acceleration, saturation, thresholds, or other structure.</p><h3 id="d82ae516-cd3a-46c3-bd0e-f358e4259a7b" class="" dir="auto">Log-linear interpretation</h3><p id="7146d303-8fca-4c60-8daf-6a1d041c299c" class="" dir="auto">If:</p><figure id="462c5554-9286-4286-af0a-15d02de1a432" class="equation" data-notion-equation="\log(Y) = a + bX" dir="auto"><style>@import url('https://cdn.jsdelivr.net/npm/katex@0.16.25/dist/katex-swap.min.css')</style><div class="equation-container"><span class="katex-display"><span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mop">lo<span style="margin-right:0.01389em;">g</span></span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.22222em;">Y</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6667em;vertical-align:-0.0833em;"></span><span class="mord mathnormal">a</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.6944em;"></span><span class="mord mathnormal">b</span><span class="mord mathnormal" style="margin-right:0.07847em;">X</span></span></span></span></span></div></figure><p id="5bad6b10-ee45-480c-90bc-8dcaae712769" class="" dir="auto">then:</p><figure id="3d848a2b-1db4-436d-b712-0c6759e31f62" class="equation" data-notion-equation="Y = e^a e^{bX}" dir="auto"><style>@import url('https://cdn.jsdelivr.net/npm/katex@0.16.25/dist/katex-swap.min.css')</style><div class="equation-container"><span class="katex-display"><span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.22222em;">Y</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.8991em;"></span><span class="mord"><span class="mord mathnormal">e</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.7144em;"><span style="top:-3.113em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">a</span></span></span></span></span></span></span></span><span class="mord"><span class="mord mathnormal">e</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8991em;"><span style="top:-3.113em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">b</span><span class="mord mathnormal mtight" style="margin-right:0.07847em;">X</span></span></span></span></span></span></span></span></span></span></span></span></span></div></figure><p id="7fbce43e-f698-4a01-92f6-651251e301cb" class="" dir="auto">so Y changes multiplicatively with X.</p><p id="0aee7732-c5bd-4996-889a-728631f17f97" class="" dir="auto">If both variables are transformed, interpretation changes accordingly; always state which axes are logged.</p><figure id="3cd3906c-5d6c-81ee-9070-c16e5c6be1ed" class="link-to-page"><a href="%F0%9F%93%8A%20%D8%A7%D9%84%D8%AC%D8%B2%D8%A1%203%20%D8%A7%D9%84%D8%B1%D8%B3%D9%88%D9%85%20%D8%A7%D9%84%D8%A3%D8%B3%D8%A7%D8%B3%D9%8A%D8%A9%20(Univariate%20&amp;%20Bivariate%20%203cd3906c5d6c81ee9070c16e5c6be1ed.html" data-notion-page-id="3cd3906c-5d6c-81ee-9070-c16e5c6be1ed" data-notion-space-id="b9b3906c-5d6c-81bc-b3c5-00037c38f1f8">📊 الجزء 3: الرسوم الأساسية (Univariate &amp; Bivariate Charts)</a></figure></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>

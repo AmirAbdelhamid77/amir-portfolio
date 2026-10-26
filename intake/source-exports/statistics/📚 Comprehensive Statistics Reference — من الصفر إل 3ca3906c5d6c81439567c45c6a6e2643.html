@@ -1,0 +1,813 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>📚 Comprehensive Statistics Reference — من الصفر إلى Hypothesis Testing &amp; Correlation</title><meta name="data-notion-page-icon" content="📊"/><link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20100%20100%22%3E%3Ctext%20y%3D%22.9em%22%20font-size%3D%2290%22%3E%F0%9F%93%8A%3C%2Ftext%3E%3C%2Fsvg%3E"/><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+/* Override strong tags inside headings to maintain consistent weight */
+h1 strong,
+h2 strong,
+h3 strong {
+	font-weight: 600;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 10px;
+	padding: 1rem;
+	/* Paint a complete callout box on every PDF page fragment. */
+	-webkit-box-decoration-break: clone;
+	box-decoration-break: clone;
+}
+
+/* For default-background callouts, render the border outline. */
+.callout.block-color-default_background {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+/*
+ * Toggles and callouts hold arbitrary content, so they can easily be taller
+ * than a page. They must stay breakable: avoiding breaks inside them makes
+ * Chromium push the whole block onto the next page, which leaves the previous
+ * page mostly empty before every long toggle.
+ */
+details,
+aside {
+	margin: 1.25em 0;
+}
+
+/* Keep a toggle's title on the same page as the start of its content. */
+summary {
+	page-break-after: avoid;
+	break-after: avoid;
+}
+
+/*
+ * Toggle headings render as <h1/h2/h3 style="display:inline-block"> inside
+ * <summary>. Without this reset, the heading's margin-top pushes it below the
+ * ::marker (▼), so the triangle and the title appear on separate lines.
+ */
+summary h1,
+summary h2,
+summary h3,
+summary h4 {
+	margin-top: 0;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+
+	table.collection-content {
+		width: 100%;
+		table-layout: fixed;
+	}
+
+	table.collection-content th,
+	table.collection-content td {
+		overflow-wrap: anywhere;
+	}
+
+	table.collection-content td > .user,
+	table.collection-content td > time {
+		white-space: pre-wrap;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content-wrapper {
+	overflow-x: auto;
+}
+
+@media only print {
+	.collection-content-wrapper {
+		overflow-x: visible;
+	}
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.collection-content td {
+	white-space: pre-wrap;
+	word-break: break-word;
+}
+
+.column-list {
+	display: flex;
+	gap: 46px;
+}
+
+.column {
+	min-width: 0;
+	overflow: hidden;
+}
+
+.column > *:first-child {
+	margin-top: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding-inline: 0.125rem;
+	padding-block: 0.375rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+table {
+	border-collapse: collapse;
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol.numbered-list.numbered-list-digits-2 {
+	padding-inline-start: 2em;
+}
+
+ol.numbered-list.numbered-list-digits-3plus {
+	padding-inline-start: 2.4em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+	margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+/*
+ * Render emoji icons using a ::before pseudo-element to keep the glyph
+ * out of the DOM textContent traversal. This avoids double-rendering icons
+ * in callouts and page titles.
+ * NOTE(slim/html-export-pseudo-icons): I can't tagref this because it will
+ * flag as a duplicate tag after codegen.
+ */
+.icon[data-emoji]::before {
+	content: attr(data-emoji);
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.callout img.notion-static-icon {
+	width: 1em;
+	height: 1em;
+}
+
+.callout p {
+	margin: 0;
+}
+
+.callout h1,
+.callout h2,
+.callout h3 {
+	margin: 0 0 0.6rem;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	margin-right: 0.4em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+blockquote.quote-large {
+	font-size: 1.25em;
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.tab {
+	margin: 1.25em 0;
+	padding-inline: 1rem;
+	border: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.highlight-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.highlight-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.highlight-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.highlight-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.highlight-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.highlight-default_background {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray_background {
+	background: rgba(42, 28, 0, 0.07);
+}
+.highlight-brown_background {
+	background: rgba(139, 46, 0, 0.086);
+}
+.highlight-orange_background {
+	background: rgba(224, 101, 1, 0.129);
+}
+.highlight-yellow_background {
+	background: rgba(211, 168, 0, 0.137);
+}
+.highlight-teal_background {
+	background: rgba(0, 100, 45, 0.09);
+}
+.highlight-blue_background {
+	background: rgba(0, 124, 215, 0.094);
+}
+.highlight-purple_background {
+	background: rgba(102, 0, 178, 0.078);
+}
+.highlight-pink_background {
+	background: rgba(197, 0, 93, 0.086);
+}
+.highlight-red_background {
+	background: rgba(223, 22, 0, 0.094);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.block-color-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.block-color-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.block-color-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.block-color-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.block-color-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.block-color-default_background {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray_background {
+	background: rgba(240, 239, 237, 1);
+}
+.block-color-brown_background {
+	background: rgba(245, 237, 233, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 235, 222, 1);
+}
+.block-color-yellow_background {
+	background: rgba(249, 243, 220, 1);
+}
+.block-color-teal_background {
+	background: rgba(232, 241, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(229, 242, 252, 1);
+}
+.block-color-purple_background {
+	background: rgba(243, 235, 249, 1);
+}
+.block-color-pink_background {
+	background: rgba(250, 233, 241, 1);
+}
+.block-color-red_background {
+	background: rgba(252, 233, 231, 1);
+}
+.select-value-color-default { background-color: rgba(42, 28, 0, 0.07); }
+.select-value-color-gray { background-color: rgba(28, 19, 1, 0.11); }
+.select-value-color-brown { background-color: rgba(127, 51, 0, 0.156); }
+.select-value-color-orange { background-color: rgba(196, 88, 0, 0.203); }
+.select-value-color-yellow { background-color: rgba(209, 156, 0, 0.282); }
+.select-value-color-green { background-color: rgba(0, 96, 38, 0.156); }
+.select-value-color-blue { background-color: rgba(0, 118, 217, 0.203); }
+.select-value-color-purple { background-color: rgba(92, 0, 163, 0.141); }
+.select-value-color-pink { background-color: rgba(183, 0, 78, 0.152); }
+.select-value-color-red { background-color: rgba(206, 24, 0, 0.164); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style><style>@import url('https://cdn.jsdelivr.net/npm/katex@0.16.25/dist/katex-swap.min.css')</style></head><body><article id="3ca3906c-5d6c-8143-9567-c45c6a6e2643" class="page sans" data-notion-page-icon="📊"><header><div class="page-header-icon undefined"><span class="icon" data-emoji="📊"></span></div><h1 class="page-title" dir="auto">📚 Comprehensive Statistics Reference — من الصفر إلى Hypothesis Testing &amp; Correlation</h1><p class="page-description" dir="auto"></p></header><div class="page-body"><aside class="block-color-blue_background callout" data-notion-callout="" data-notion-callout-icon="📊" data-notion-callout-background="blue_background" style="white-space:pre-wrap;display:flex" id="f2d65a72-b3c0-43e5-952a-66e4082523dd" dir="ltr"><div style="font-size:1.5em"><span class="icon" data-emoji="📊"></span></div><div style="width:100%"><p id="2decb89e-9316-4261-a3f9-838ab3a9c3cb" class="" dir="auto"><strong>مرجع شامل لعلم الإحصاء — حتى نهاية الجزء الذي تم دراسته حتى الآن</strong></p><p id="e758a3d6-6189-4a30-8985-af315449314c" class="" dir="auto">هذا المرجع يجمع المفاهيم التي تمت دراستها: Data Types، فروع Statistics، Measures of Center &amp; Spread، Probability، Probability Distributions، Binomial، Normal، Poisson، Central Limit Theorem، Sampling Distribution، Standard Error، Confidence Intervals، Hypothesis Testing، Experiments، A/B Testing، Correlation، Confounding Variables، والأخطاء Type I وType II.</p></div></aside><nav id="f8cbc0cb-cd62-43c2-9a35-afac1b4e0ef5" class="table_of_contents" data-notion-toc="" dir="ltr"><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#1bac5d42-80d8-4a15-885e-99c6c121f00f">1. الصورة الكبيرة: ما هو Statistics؟</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#738747f0-56ee-49f0-b38a-df1e7f8e72dc">1.1 Population vs Sample</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#6dbb459c-1349-4ba0-9aee-d6ea204ca7ed">2. Data Types</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#ed36bdbb-84f5-4458-80b4-c0336e8b91aa">2.1 Numerical / Quantitative Data</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#89407a47-963d-4bb6-a1df-471958dd9e31">2.2 Categorical / Qualitative Data</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#db35dc88-22b1-4eb2-9444-dff387f4cc81">3. Branches of Statistics</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#a270de53-d47a-4085-a48b-61ea68dd7e8b">3.1 Descriptive Statistics</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#d6433ff9-82a8-4b97-95a2-7bbbec21c494">3.2 Inferential Statistics</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#73fa8d72-8133-4e56-b62a-47d942053487">4. Measures of Center — مقاييس النزعة المركزية</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#c8cc293f-9e69-43dd-acbc-c43bd32ae0d7">4.1 Mean</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#dc4d36bf-da02-40dd-b62e-b7d63e9a81f1">4.2 Median</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#896e0dd4-34e9-4859-bfc2-d1b98802b390">4.3 Mode</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#b9364aa0-e44f-41eb-8998-f991be7a6557">4.4 Mean vs Median</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#1273c6e1-6fd2-4779-b87a-81f562333aca">5. Measures of Spread — مقاييس التشتت</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#e2bd6b9a-59fe-4c8d-8254-3b12be4f030e">5.1 Range</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#a101f90d-83d1-40ed-a150-c8eef35de37c">5.2 Variance</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#49a4e2bb-c010-41ea-8147-2a57ef6163cd">5.3 Standard Deviation</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#da5cd4fb-2c80-4b45-88cc-9ab22b4df779">5.4 IQR</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#254d5f86-75f1-4f3c-b933-4ffd8829a5d0">6. Probability — الاحتمالات</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#3f46cffd-6b88-476f-86eb-dd440bda86d2">6.1 Complement</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#7cc6d8fc-cb8c-42ff-85c2-a34ab9f029c7">6.2 Independent Events</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#801c7b02-e8e1-4550-8dc9-e3d4f84995f7">6.3 Conditional Probability</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#cf975130-6356-4839-9584-07ac4b1c78c9">6.4 Independent vs Dependent</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#b1ee553c-8644-4d63-854f-f65e6300f1da">7. Probability Distributions</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#da2c5839-67fc-48aa-86f4-7b51e9dea4fe">8. Binomial Distribution</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#1b91db26-92d3-4cb0-8fcc-e16c19bb2ade">متى أفكر في Binomial؟</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#7a907a53-5809-4f81-af46-6518df39b93d">9. Normal Distribution</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#24962938-cfd9-4d9b-ac56-e118629ff30a">9.1 Empirical Rule</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#4a9a193f-3703-48c6-be4c-4e04239495ab">9.2 Standardization / Z-score</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#ef09a8df-1fd5-4daa-a8bb-491034e505df">10. Poisson Distribution</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#8e628b8f-f862-45c3-8333-d7b387fc0525">10.1 Poisson Process</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#93539c50-56c8-4f0f-9fd4-6effd50b8305">10.2 Poisson Distribution</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#5508dff2-8500-4a86-a5c5-dec99d682591">10.3 Lambda</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#620031e2-c48b-45e9-8f1a-a08f4a6a1d09">10.4 Shape of Poisson</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#f587e5e6-396d-44d5-a738-18335c27c15f">11. Central Limit Theorem — CLT</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#c9f022c7-adce-4494-bbd1-c8f99d6ddfae">12. Sampling Distribution</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#ae0f541b-9235-4cf3-9f45-3d0cc3d776bd">13. Standard Error — SE</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#8357fa05-3829-45fd-a167-0c7f83fcd2d8">13.1 الفرق بين SD وSE</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#758a2055-1fd3-4acf-a600-195fbf5c1389">14. Confidence Intervals</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#4d890477-5efb-43e6-98f1-2f0aa2640423">14.1 مثال مفاهيمي</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#391054ce-3781-4494-af0d-66441cb74fcf">14.2 ما الذي يجعل CI أوسع أو أضيق؟</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#22a4c2e1-0f54-476a-a683-b163ef470dc3">15. Hypothesis Testing</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#7db414fd-a917-4a64-a6cd-3baa16498d0d">15.1 Null Hypothesis — H₀</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#d8b966d3-80ba-4546-8a25-ca900c131a46">15.2 Alternative Hypothesis — Hₐ</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#18109078-18e2-4f88-b94f-02e6dc62a0e0">16. Hypothesis Testing Workflow</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#d3d7bea7-e380-496a-b89f-6f9789fc85f6">17. Sampling Variability داخل Hypothesis Testing</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#fc903bb2-a8e5-4d25-a3ad-d8e532ca6842">18. Test Statistic وSE</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#22f8bbb9-4bcc-434a-97d5-a3686cc1d2cf">19. p-value</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#948a9787-229a-4425-8cd6-28a38a506ecd">19.1 مثال</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#0755ea58-d9be-4c70-b9e5-a2582bcb73cb">19.2 p-value ليست overlap ببساطة</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#b3bd4192-c6a3-4bea-8b1b-ec489e6c3ac7">20. Significance Level — α</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#024179ab-05d8-4a58-a524-7fd1cca1da2d">21. قاعدة القرار</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#7fb166dc-da00-4448-ae0c-575ce993d71b">22. Type I and Type II Errors</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#aa260b4f-0791-4ecb-8c64-128229d83d76">22.1 Type I Error</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#0267d7ff-26d9-444c-8909-8e0e2a69f8d9">22.2 Type II Error</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#83abc7a3-533d-4597-83eb-66c9ee68f053">23. Statistical Significance vs Practical Significance</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#7327f76b-d8de-412f-ae8c-c6f5d01b496e">24. Experiments</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#fbc4e675-7e3d-4cf3-b767-6e177a7015f7">25. Controlled Experiments</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#275b1952-9729-4174-9e11-5fcdf24f7e72">26. Randomization</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#a9f67ba4-9775-4c01-969d-41fc750492f7">27. Blinding وPlacebo</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#2ebc61c9-4f20-4c17-804f-0b223ac07673">Blind Trial</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#d0d5cfa3-7d4f-49c7-b53f-e52755d2bc0e">Placebo</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#ae31b294-f2ee-4416-973c-ed95e2a99b34">Double-Blind Randomized Controlled Trial</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#1be5b1e8-3c08-4e3a-9dfb-b473af32f5ba">28. RCT vs A/B Testing</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#d22948de-b02c-4bad-97d2-ea8e99b7e522">29. Independent and Dependent Variables</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#70a824f1-cbf1-40cc-9274-dc14e1287479">30. Correlation</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#a85c459f-072c-4001-bb8a-1e2ca973f036">30.1 Pearson Correlation Coefficient</a></div><div class="table_of_contents-item table_of_contents-indent-2"><a class="table_of_contents-link" href="#793871f2-58fe-4ff7-9eaf-4fd580ed722a">Direction</a></div><div class="table_of_contents-item table_of_contents-indent-2"><a class="table_of_contents-link" href="#07af3f21-ad0a-41d5-a1a8-fa86b84140cf">Strength</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#19fb6c03-2bb4-4ac8-9215-b5750f3366c8">31. Pearson Correlation وLinear Relationships</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#77c0c876-6698-439b-9fff-958dad3d27c8">32. Correlation ≠ Causation</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#54852c17-41f0-4603-955c-354098466942">33. Confounding Variables</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#5f1fff74-010d-44a7-bad5-a65888d64ded">34. Correlation vs Experiment</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#8332b6ab-dcfa-4b06-b1c6-8cba0d42f30b">35. Correlation vs Regression</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#f909bc93-0b0f-4ecc-ac77-240e30296d00">36. كيف تتصل كل الموضوعات معًا؟</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#80d89775-aad1-4814-96b6-3fca91eff0bd">37. أهم العلاقات الرياضية التي يجب تذكرها</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#b484baf3-60ac-4981-944c-b50db1bc5ca5">Probability</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#d671365d-ea0d-4fea-8186-13eb13a245b8">Variability</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#88c5eef8-a6c0-4b7c-a358-3c1a6e333018">Binomial</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#4799e5b1-0412-438b-8ead-5cd0ede3d958">Poisson</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#782c0394-c964-4d46-ba58-e28ae5890290">Z-score</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#8deb392c-aeaa-4bc0-910d-a5d6b6be1d8f">Standard Error of Mean</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#ac653bdf-89d4-46a7-8759-cd7d95b19cf1">Confidence Interval</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#4a6eff51-34f2-4a4c-ac0b-05fd383ead26">Test Statistic</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#674dbd42-591a-47f4-a7d2-3a3ed442e2b3">Hypothesis Decision</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#eec8c5bb-e5ea-4d22-980a-8d3580092266">38. Decision Rules — إذا تغير السؤال، ماذا أفعل؟</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#951e914f-7d4c-40f9-91fc-2692b1b058e0">39. أهم الأخطاء التي يجب تجنبها</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#fe6af867-99f9-4708-acc1-95146a0eee37">40. مثال متكامل يربط الكورس</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#f4810295-dfef-49d0-90bd-fde6c160a10d">41. Final Mental Model</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#6a66fe59-7015-47b7-acfc-bc6bff927ea9">42. One-page Cheat Sheet</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#019da577-1c0c-457f-af15-7ffaa7e152d3">43. خلاصة الكورس</a></div></nav><h1 id="1bac5d42-80d8-4a15-885e-99c6c121f00f" class="" dir="auto">1. الصورة الكبيرة: ما هو Statistics؟</h1><p id="bbe2e896-cf6c-478d-8d9a-134c923cc0ed" class="" dir="auto"><strong>Statistics</strong> هو علم جمع البيانات وتنظيمها وتحليلها وتفسيرها واستخدامها لاستخلاص معلومات واتخاذ قرارات في ظل وجود عدم يقين.</p><p id="53702eea-d458-432e-8031-b6fdef967b21" class="" dir="auto">الفكرة الأساسية التي يمر بها الكورس هي الانتقال من:</p><p id="8bbb41b4-0a8e-48ca-9b63-1421f97d7062" class="" dir="auto"><strong>Data → Description → Probability → Sampling → Inference → Decision</strong></p><p id="402b9d39-0e3d-4dc0-982d-7dc575c59c1a" class="" dir="auto">أي أننا نبدأ بوصف البيانات التي لدينا، ثم نفهم الاحتمالات والتوزيعات، ثم نستخدم العينات للاستدلال على المجتمع، ثم نختبر الفرضيات ونتخذ قرارات.</p><h2 id="738747f0-56ee-49f0-b38a-df1e7f8e72dc" class="" dir="auto">1.1 Population vs Sample</h2><ul id="e9d49083-4941-4608-8899-4eab2f623aa3" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>Population</strong>: المجتمع الكامل الذي نهتم بدراسته.</li></ul><ul id="a56f6bd5-7394-4a2e-9996-70836eb01108" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>Sample</strong>: عينة مأخوذة من الـ Population.</li></ul><ul id="cbf2ca62-d66b-4d53-85e9-8e67d2f8514a" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>Parameter</strong>: قيمة تصف الـ Population، مثل population mean (mu).</li></ul><ul id="54e603de-684a-43b1-bb58-ca5de11dba2e" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>Statistic</strong>: قيمة محسوبة من الـ Sample، مثل sample mean (bar{x}).</li></ul><p id="a4fc3d2c-5d57-44de-812c-ee80a8f4c02c" class="" dir="auto">السبب في استخدام العينات هو أن جمع بيانات المجتمع بالكامل قد يكون مكلفًا أو مستحيلًا.</p><h1 id="6dbb459c-1349-4ba0-9aee-d6ea204ca7ed" class="" dir="auto">2. Data Types</h1><p id="d81679dd-1506-4748-989b-d57a5d6da161" class="" dir="auto">نوع البيانات مهم لأنه يحدد نوع التحليل والرسوم والاختبارات التي يمكن استخدامها.</p><h2 id="ed36bdbb-84f5-4458-80b4-c0336e8b91aa" class="" dir="auto">2.1 Numerical / Quantitative Data</h2><p id="16a9dcb4-be62-4a62-b0d8-bdac0142bcc6" class="" dir="auto">بيانات رقمية يمكن إجراء عمليات حسابية ذات معنى عليها، مثل العمر، الراتب، عدد الزيارات.</p><ul id="01a56951-3125-401a-a23a-1ba35cf7d849" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>Discrete</strong>: قيم معدودة، مثل عدد العملاء.</li></ul><ul id="8b4ae49b-ef54-4253-960d-d771d6af7be9" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>Continuous</strong>: قيم يمكن أن تقع على نطاق مستمر، مثل الطول والوزن والزمن.</li></ul><h2 id="89407a47-963d-4bb6-a1df-471958dd9e31" class="" dir="auto">2.2 Categorical / Qualitative Data</h2><p id="c2197af4-18c2-4bbc-82ee-9bcf9711e4ac" class="" dir="auto">بيانات تمثل فئات أو تصنيفات، مثل المدينة، نوع المنتج، أو الجنس.</p><ul id="222c336d-b072-4603-bda1-3643dd6c6d78" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>Nominal</strong>: فئات بلا ترتيب طبيعي.</li></ul><ul id="3188b1aa-b688-458b-9c31-0878d192793b" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>Ordinal</strong>: فئات لها ترتيب، مثل Low / Medium / High.</li></ul><h1 id="db35dc88-22b1-4eb2-9444-dff387f4cc81" class="" dir="auto">3. Branches of Statistics</h1><h2 id="a270de53-d47a-4085-a48b-61ea68dd7e8b" class="" dir="auto">3.1 Descriptive Statistics</h2><p id="b1ca0e7c-f94d-4575-bab1-a3d2b850fbb2" class="" dir="auto">تجيب عن: <strong>ماذا تخبرني البيانات الموجودة أمامي؟</strong></p><p id="20c4471c-a78a-46f0-81a1-7e80954adb21" class="" dir="auto">تشمل تلخيص البيانات باستخدام المتوسط والوسيط والمنوال ومقاييس التشتت والرسوم البيانية.</p><h2 id="d6433ff9-82a8-4b97-95a2-7bbbec21c494" class="" dir="auto">3.2 Inferential Statistics</h2><p id="d57ec73d-a6a3-4994-ade1-7a93327048e2" class="" dir="auto">تجيب عن: <strong>ماذا يمكن أن نستنتج عن Population من خلال Sample؟</strong></p><p id="353667f9-6084-4a07-ba0b-988d43d01e1c" class="" dir="auto">تشمل Sampling Distributions، Confidence Intervals، Hypothesis Testing وغيرها.</p><h1 id="73fa8d72-8133-4e56-b62a-47d942053487" class="" dir="auto">4. Measures of Center — مقاييس النزعة المركزية</h1><p id="92bfe9f8-33de-4ccf-973b-200e4ec9e473" class="" dir="auto">تصف القيمة النموذجية أو المركزية للبيانات.</p><h2 id="c8cc293f-9e69-43dd-acbc-c43bd32ae0d7" class="" dir="auto">4.1 Mean</h2><p id="f8871c92-47f5-4bd5-8142-49f29eaa4712" class="" dir="auto">(bar{x}=frac{sum x_i}{n})</p><p id="d5434f69-111d-4250-bae6-ed5d2f75b6a1" class="" dir="auto">هو مجموع القيم مقسومًا على عددها. يتأثر بالقيم المتطرفة Outliers.</p><h2 id="dc4d36bf-da02-40dd-b62e-b7d63e9a81f1" class="" dir="auto">4.2 Median</h2><p id="992fdc62-643f-4cb1-b382-f5b3727d040d" class="" dir="auto">القيمة الموجودة في المنتصف بعد ترتيب البيانات. أكثر مقاومة للـ Outliers من الـ Mean.</p><h2 id="896e0dd4-34e9-4859-bfc2-d1b98802b390" class="" dir="auto">4.3 Mode</h2><p id="f435c77b-58e7-45f8-961d-fc4fad1bd7ca" class="" dir="auto">أكثر قيمة تكرارًا. يمكن أن توجد أكثر من Mode أو لا توجد قيمة متكررة بوضوح.</p><h2 id="b9364aa0-e44f-41eb-8998-f991be7a6557" class="" dir="auto">4.4 Mean vs Median</h2><p id="8ff74f74-3f27-4fc2-8fc8-9e7f2c3a37bb" class="" dir="auto">في توزيع متماثل تقريبًا قد يكونان متقاربين. في توزيع منحرف أو يحتوي على Outliers قد يكون Median أكثر تمثيلًا للقيمة النموذجية.</p><h1 id="1273c6e1-6fd2-4779-b87a-81f562333aca" class="" dir="auto">5. Measures of Spread — مقاييس التشتت</h1><p id="478ac32f-a8ec-4312-8e3a-fcfc6354d466" class="" dir="auto">تجيب عن: <strong>إلى أي مدى تنتشر القيم؟</strong></p><h2 id="e2bd6b9a-59fe-4c8d-8254-3b12be4f030e" class="" dir="auto">5.1 Range</h2><p id="1fc1a1bb-7e07-4501-94b6-7a08eea75177" class="" dir="auto">(Range=Maximum-Minimum)</p><p id="0eefe129-e82d-440f-aaed-b93b0378ed94" class="" dir="auto">بسيط لكنه يعتمد بشدة على القيم المتطرفة.</p><h2 id="a101f90d-83d1-40ed-a150-c8eef35de37c" class="" dir="auto">5.2 Variance</h2><p id="0a1fbf0b-621a-4802-b94a-16b45fc9e79f" class="" dir="auto">تقيس متوسط مربع انحراف القيم عن المتوسط.</p><p id="594f7f6b-aacd-4edc-8d90-46ca7828b185" class="" dir="auto">للمجتمع:</p><p id="2592358f-b363-4b32-867b-6a411c8c411e" class="" dir="auto">(sigma^2=frac{sum (x_i-mu)^2}{N})</p><p id="2643f061-0277-426e-ae45-434a6a34f653" class="" dir="auto">وللعينة:</p><p id="60b5c0b4-0057-4326-98fa-8a20e1bb56a6" class="" dir="auto">(s^2=frac{sum (x_i-bar{x})^2}{n-1})</p><h2 id="49a4e2bb-c010-41ea-8147-2a57ef6163cd" class="" dir="auto">5.3 Standard Deviation</h2><p id="b11cae42-5a72-467a-8785-ea1551f6b805" class="" dir="auto">(SD=sqrt{Variance})</p><p id="1fa93475-2a68-4058-a90b-0a6c3ac9def8" class="" dir="auto">وهو مقياس للتشتت حول المتوسط وبنفس وحدة البيانات.</p><p id="151ccf44-9695-44f7-9836-5f99628df0cb" class="" dir="auto"><strong>مهم:</strong> Standard Deviation للبيانات نفسها يصف تشتت القيم الفردية، بينما <strong>Standard Error</strong> يصف تشتت إحصائية العينة عبر العينات المتكررة.</p><h2 id="da5cd4fb-2c80-4b45-88cc-9ab22b4df779" class="" dir="auto">5.4 IQR</h2><p id="f3852cda-007a-4931-b3c4-3df77f62cdd5" class="" dir="auto">(IQR=Q_3-Q_1)</p><p id="98f3a9e7-5c19-4ca8-ae26-a79a43747f99" class="" dir="auto">يمثل انتشار الـ middle 50% من البيانات، وهو أكثر مقاومة للـ Outliers.</p><h1 id="254d5f86-75f1-4f3c-b933-4ffd8829a5d0" class="" dir="auto">6. Probability — الاحتمالات</h1><p id="db915f61-336a-4e26-aa54-e32eb9a46477" class="" dir="auto">Probability تقيس مدى احتمال وقوع Event، وتتراوح بين 0 و1:</p><p id="99ab85c1-26f3-40a8-979d-c3ca7506ae03" class="" dir="auto">(0le P(A)le1)</p><ul id="84a2d0d9-716b-44e4-be9c-6a0eaab02801" class="bulleted-list" dir="auto"><li style="list-style-type:disc">(P(A)=0): الحدث مستحيل.</li></ul><ul id="3e142616-8564-4d46-bc55-c03bc053c565" class="bulleted-list" dir="auto"><li style="list-style-type:disc">(P(A)=1): الحدث مؤكد.</li></ul><h2 id="3f46cffd-6b88-476f-86eb-dd440bda86d2" class="" dir="auto">6.1 Complement</h2><p id="79e004e1-e066-4b70-93e5-6b9a3c92d2c4" class="" dir="auto">احتمال عدم حدوث الحدث:</p><p id="68c1ff0f-0596-4162-9cc5-fd10f689bfa4" class="" dir="auto">(P(A^c)=1-P(A))</p><h2 id="7cc6d8fc-cb8c-42ff-85c2-a34ab9f029c7" class="" dir="auto">6.2 Independent Events</h2><p id="658f7c6d-a017-460e-877c-c2d3a5b7d880" class="" dir="auto">حدثان مستقلان إذا كان وقوع أحدهما لا يغير احتمال الآخر.</p><p id="ce1e21ba-1e0e-40d4-acd3-026c90ab5e6c" class="" dir="auto">(P(Acap B)=P(A)P(B))</p><p id="99b09626-c28a-48c3-a2f6-83b047df24aa" class="" dir="auto">مثال: نتيجتا رمي عملة عادلة في رميتين منفصلتين مستقلتان.</p><h2 id="801c7b02-e8e1-4550-8dc9-e3d4f84995f7" class="" dir="auto">6.3 Conditional Probability</h2><p id="f2483b4b-67e3-448a-9083-b6445f8ac77d" class="" dir="auto">احتمال وقوع A بشرط أن B حدث بالفعل:</p><p id="17fed1a5-ebb7-4313-99cd-abd12586315d" class="" dir="auto">(P(Amid B)=frac{P(Acap B)}{P(B)})</p><p id="33def7ce-4f3b-4894-ad91-135994b614cc" class="" dir="auto">في الأحداث المعتمدة يتغير احتمال الحدث بناءً على المعلومات الجديدة.</p><h2 id="cf975130-6356-4839-9584-07ac4b1c78c9" class="" dir="auto">6.4 Independent vs Dependent</h2><ul id="22df6b5a-5d32-40ab-9358-9345713c4c5b" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>Independent</strong>: معرفة B لا تغير احتمال A.</li></ul><ul id="8e6cb277-9ef6-40b8-b243-fa90592af5a5" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>Dependent</strong>: معرفة B تغير احتمال A.</li></ul><p id="0e653748-fd8b-41c6-a99b-f802524f2b1b" class="" dir="auto">لا تخلط بين Independence وMutual Exclusivity؛ الحدثان المتنافيان لا يمكن أن يحدثا معًا، بينما الاستقلال يعني عدم تأثير أحدهما في احتمال الآخر.</p><h1 id="b1ee553c-8644-4d63-854f-f65e6300f1da" class="" dir="auto">7. Probability Distributions</h1><p id="dae5da71-f3b6-41cd-a813-bbde0fdd0665" class="" dir="auto">Probability Distribution تصف كيف تتوزع احتمالات القيم الممكنة لمتغير عشوائي.</p><ul id="d0131e19-5121-45e5-a122-cbf259cddf2c" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>Discrete distribution</strong>: قيم معدودة ومنفصلة.</li></ul><ul id="c452d287-4ea4-462a-86b4-e201971bff8e" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>Continuous distribution</strong>: قيم على نطاق مستمر.</li></ul><p id="8eb064d9-833c-4318-926b-4d7e50262620" class="" dir="auto">في التوزيعات المستمرة، الاحتمال يُحسب من <strong>Area under the curve</strong>؛ والاحتمال بين قيمتين هو المساحة بينهما. الاحتمال عند نقطة واحدة بالضبط في توزيع مستمر يساوي صفرًا.</p><h1 id="da2c5839-67fc-48aa-86f4-7b51e9dea4fe" class="" dir="auto">8. Binomial Distribution</h1><p id="16dad612-fd9e-4861-8790-51ff72d2c7b3" class="" dir="auto">تستخدم عندما يكون لدينا عدد ثابت من التجارب، وكل تجربة لها نتيجتان أساسيتان مثل Success / Failure، مع احتمال نجاح ثابت واستقلال التجارب.</p><p id="47a7e06c-d051-4d3f-bb6f-fb4207e53e41" class="" dir="auto">إذا كان:</p><ul id="22d24d7d-be4f-4539-bb11-a649d00276b9" class="bulleted-list" dir="auto"><li style="list-style-type:disc">(n) = عدد التجارب</li></ul><ul id="8fc31b63-d6fa-4807-bcd6-4b40d8d0a95d" class="bulleted-list" dir="auto"><li style="list-style-type:disc">(p) = احتمال النجاح</li></ul><ul id="58fbbdb0-beb4-4013-90c9-ffb193b6d7c3" class="bulleted-list" dir="auto"><li style="list-style-type:disc">(X) = عدد النجاحات</li></ul><p id="8f636520-afc3-406f-a704-ff219bd989c2" class="" dir="auto">فإن:</p><p id="f9bed261-0da0-41ee-abb4-bc7bdc4ba567" class="" dir="auto">(P(X=k)=binom{n}{k}p^k(1-p)^{n-k})</p><p id="1724afbd-9606-4753-9514-0c28d86d2e5b" class="" dir="auto">المتوسط:</p><p id="d7472b8c-2154-4f48-99fa-7b880187811d" class="" dir="auto">(E(X)=np)</p><p id="b4cf518d-47d8-4bcf-97bc-cd4b21150274" class="" dir="auto">والتباين:</p><p id="501b1be9-6879-41a0-808a-2e848223768a" class="" dir="auto">(Var(X)=np(1-p))</p><h2 id="1b91db26-92d3-4cb0-8fcc-e16c19bb2ade" class="" dir="auto">متى أفكر في Binomial؟</h2><p id="953ffc05-bdfd-4393-9d8e-f4146e0eefc8" class="" dir="auto">اسأل: <strong>هل أعد عدد النجاحات من n تجارب مستقلة، وكل تجربة Success/Failure؟</strong></p><p id="32cdf6b9-a019-4098-96ff-c5dc6ca76e96" class="" dir="auto">إذا نعم، Binomial مرشح قوي.</p><h1 id="7a907a53-5809-4f81-af46-6518df39b93d" class="" dir="auto">9. Normal Distribution</h1><p id="ec84934c-ac82-40b0-a0b7-8edf48b44027" class="" dir="auto">التوزيع الطبيعي هو توزيع مستمر متماثل على شكل Bell Curve.</p><p id="dfd6eb4f-d266-498a-8554-90f294e375ec" class="" dir="auto">يُوصف عادةً بـ:</p><ul id="e4117b8c-8f60-463d-b092-f3dd3994b9ff" class="bulleted-list" dir="auto"><li style="list-style-type:disc">(mu): Mean</li></ul><ul id="c332486d-ddce-43a4-9860-f23690446f73" class="bulleted-list" dir="auto"><li style="list-style-type:disc">(sigma): Standard Deviation</li></ul><p id="50e3ad30-9ffc-4cf1-b6b2-19e14cd5d410" class="" dir="auto">خصائص مهمة:</p><ul id="b3daf620-a39d-41c4-aafe-9ddbe03bf626" class="bulleted-list" dir="auto"><li style="list-style-type:disc">متماثل حول المتوسط.</li></ul><ul id="95d65c96-6911-44b3-bac2-83753b1ff717" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Mean = Median = Mode في الحالة الطبيعية المثالية.</li></ul><ul id="0723aba4-a995-4a8d-963d-587a44460976" class="bulleted-list" dir="auto"><li style="list-style-type:disc">المساحة الكلية تحت المنحنى = 1.</li></ul><ul id="67c27463-2c52-4c8c-8511-9bd01a396c67" class="bulleted-list" dir="auto"><li style="list-style-type:disc">يمكن استخدام الـ Standard Deviation لفهم موقع القيم بالنسبة للمتوسط.</li></ul><h2 id="24962938-cfd9-4d9b-ac56-e118629ff30a" class="" dir="auto">9.1 Empirical Rule</h2><p id="c06756a7-54c7-4dc7-b191-1cd4ae764907" class="" dir="auto">عند التوزيع الطبيعي تقريبًا:</p><ul id="368f4081-6d4e-46fa-a270-436e3e0e8797" class="bulleted-list" dir="auto"><li style="list-style-type:disc">حوالي 68% داخل (mupm1sigma)</li></ul><ul id="0d423a1f-1435-4fe1-9f77-5d4c321ab7f5" class="bulleted-list" dir="auto"><li style="list-style-type:disc">حوالي 95% داخل (mupm2sigma)</li></ul><ul id="9185d9d7-aed3-4e2a-bf9a-c452b2dad209" class="bulleted-list" dir="auto"><li style="list-style-type:disc">حوالي 99.7% داخل (mupm3sigma)</li></ul><h2 id="4a9a193f-3703-48c6-be4c-4e04239495ab" class="" dir="auto">9.2 Standardization / Z-score</h2><p id="d13c67a4-2474-4093-abd4-d084555e5153" class="" dir="auto">(z=frac{x-mu}{sigma})</p><p id="a7c069d3-8305-44e9-b9ce-db490e3e7756" class="" dir="auto">يوضح كم Standard Deviations تبعد القيمة عن المتوسط.</p><h1 id="ef09a8df-1fd5-4daa-a8bb-491034e505df" class="" dir="auto">10. Poisson Distribution</h1><h2 id="8e628b8f-f862-45c3-8333-d7b387fc0525" class="" dir="auto">10.1 Poisson Process</h2><p id="0fd3a953-668a-46aa-8214-7fcbc37a6c2b" class="" dir="auto">هو Process نعرف فيه <strong>متوسط عدد الأحداث خلال فترة زمنية أو مساحة معينة</strong>، بينما أوقات/مسافات حدوث الأحداث نفسها عشوائية.</p><p id="461ef1c0-ff8e-42bb-9afb-40f026163f98" class="" dir="auto">أمثلة:</p><ul id="41bbf9e9-3fe3-43b6-b0f1-2723ca779815" class="bulleted-list" dir="auto"><li style="list-style-type:disc">عدد الحيوانات التي يتم تبنيها من ملجأ كل أسبوع.</li></ul><ul id="386b6b9f-03f3-48b9-8e76-e0ac3a85622f" class="bulleted-list" dir="auto"><li style="list-style-type:disc">عدد الأشخاص الذين يصلون إلى مطعم كل ساعة.</li></ul><ul id="795d027b-f9a7-47c5-ab55-a0d742a8e7be" class="bulleted-list" dir="auto"><li style="list-style-type:disc">عدد زيارات موقع شركة في اليوم.</li></ul><h2 id="93539c50-56c8-4f0f-9fd4-6effd50b8305" class="" dir="auto">10.2 Poisson Distribution</h2><p id="05940b89-f3f0-4447-b522-714e8fd7d3e3" class="" dir="auto">تصف احتمال حدوث عدد معين من الأحداث خلال فترة أو نطاق ثابت.</p><p id="9f1f337d-c19c-4b92-869c-eb1b8cb37b59" class="" dir="auto">إذا كان (lambda) هو متوسط عدد الأحداث في الفترة، فإن:</p><p id="5e09b0e2-b2fb-49bc-aed5-3381d8ca4337" class="" dir="auto">(P(X=k)=frac{e^{-lambda}lambda^k}{k!})</p><p id="13534608-5657-4173-b5e7-7e5fe03e808a" class="" dir="auto">وفي Poisson:</p><p id="e6f8d431-bc9f-4b02-8101-61f7ec3cd0cb" class="" dir="auto">(E(X)=lambda)</p><p id="d1e62041-5342-4b94-8241-21296c10fd8b" class="" dir="auto">و:</p><p id="2571e43c-4d62-42d3-bd43-987997bf85f3" class="" dir="auto">(Var(X)=lambda)</p><p id="4a943e94-0a5b-4646-a8ae-f65085a1cbee" class="" dir="auto">وبالتالي:</p><p id="935198d8-29f9-403e-bc4e-431fc44ebbf6" class="" dir="auto">(SD(X)=sqrt{lambda})</p><h2 id="5508dff2-8500-4a86-a5c5-dec99d682591" class="" dir="auto">10.3 Lambda</h2><p id="f154007c-1bf9-4461-acf9-68d651492fca" class="" dir="auto">(lambda) تمثل <strong>Average number of events per time/space period</strong>، وهي أيضًا Expected Value للتوزيع.</p><p id="2ce5f244-a6cc-4f7b-a8ca-bf110aee8f82" class="" dir="auto">مثال: إذا كان متوسط زوار المطعم 20 شخصًا في الساعة، فإن:</p><p id="35a67f21-621e-454d-8593-6b926326da23" class="" dir="auto">(lambda=20)</p><p id="9831ba0b-8fa1-494c-8efb-e8e4d4ded009" class="" dir="auto">ويمكن استخدام توزيع Poisson لحساب احتمال وصول عدد محدد، مثل 13 شخصًا، أو احتمال الوصول إلى 25 شخصًا أو أكثر.</p><p id="e5503114-1bd3-44b4-8441-fd0f61ed1841" class="" dir="auto">في المثال المدروس، احتمال وصول <strong>13 شخصًا بالضبط</strong> عندما (lambda=20) كان حوالي <strong>2.71%</strong>، واحتمال وصول <strong>25 شخصًا أو أكثر</strong> كان أكثر قليلًا من <strong>11%</strong>.</p><h2 id="620031e2-c48b-45e9-8f1a-a08f4a6a1d09" class="" dir="auto">10.4 Shape of Poisson</h2><p id="cbccef1e-e7b3-460b-b629-bea7c9b2fb41" class="" dir="auto">تتغير هيئة التوزيع مع (lambda). وعند القيم المستخدمة في الدرس كانت قمة التوزيع عند قيمة (lambda)، مع ملاحظة أن تفاصيل موضع الـ mode في Poisson قد تتضمن قيمتين متجاورتين في بعض الحالات عندما تكون (lambda) عددًا صحيحًا؛ لذلك لا ينبغي حفظ عبارة &quot;peak is always exactly lambda&quot; كقاعدة رياضية مطلقة.</p><h1 id="f587e5e6-396d-44d5-a738-18335c27c15f" class="" dir="auto">11. Central Limit Theorem — CLT</h1><p id="5ff9d949-a343-486e-962d-3909eb3e1219" class="" dir="auto">من أهم أفكار الإحصاء.</p><p id="abc8473a-599f-4717-bc77-913d84d158f7" class="" dir="auto">إذا أخذنا عددًا كبيرًا من العينات ذات الحجم المناسب من Population، وحسبنا <strong>Sample Mean</strong> لكل عينة، فإن توزيع هذه المتوسطات يميل إلى أن يكون قريبًا من Normal تحت الشروط المناسبة، حتى لو لم تكن Population نفسها Normal.</p><p id="bf8d14a0-8d1b-4624-8369-78bd4f844be6" class="" dir="auto">الفكرة:</p><p id="6be3e7ee-f57a-4096-8e32-13b2f850df4e" class="" dir="auto"><strong>Population → Many Samples → Mean of each Sample → Sampling Distribution of Means → Approximately Normal</strong></p><p id="8a8c86a2-6e4d-4627-b108-0857c7d8f168" class="" dir="auto">كما أن متوسط Sampling Distribution للمتوسط يساوي Population Mean:</p><p id="5ff905d3-4ac4-41ba-81ad-102dc917ab44" class="" dir="auto">(E(bar X)=mu)</p><h1 id="c9f022c7-adce-4494-bbd1-c8f99d6ddfae" class="" dir="auto">12. Sampling Distribution</h1><p id="d840162f-e28d-4d74-9a4e-f81499d13f70" class="" dir="auto">هي توزيع إحصائية معينة، مثل Sample Mean، عبر عدد كبير من العينات الممكنة من نفس Population.</p><p id="7711561e-cfea-4af3-b2cd-08af2db7f04f" class="" dir="auto">لا يجب الخلط بين:</p><ul id="ff599787-2953-4594-a9a2-901a11ddb7fe" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>Population Distribution</strong>: توزيع الأفراد/القيم في المجتمع.</li></ul><ul id="43b985c2-b3ff-4c45-bd85-33f5e159c59c" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>Sample Distribution</strong>: توزيع القيم داخل عينة واحدة.</li></ul><ul id="9db1cde7-7b11-4969-b200-ccd20924a7ca" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>Sampling Distribution</strong>: توزيع Statistic مثل (bar X) عبر عينات كثيرة.</li></ul><h1 id="ae0f541b-9235-4cf3-9f45-3d0cc3d776bd" class="" dir="auto">13. Standard Error — SE</h1><p id="5a6488d2-d0a9-445e-8aef-7db2c95cf29d" class="" dir="auto"><strong>Standard Error هو Standard Deviation الخاص بـ Sampling Distribution للـ Statistic.</strong></p><p id="fe8a83f6-be6a-448c-b1b4-17a5cfdf1a25" class="" dir="auto">لـ Sample Mean، عندما نستخدم (sigma):</p><p id="737f089a-3bb3-46d4-9845-72c3da4713db" class="" dir="auto">(SE_{bar X}=frac{sigma}{sqrt n})</p><p id="6d0b5dca-c11a-4863-ba44-04085d2fea6c" class="" dir="auto">وعمليًا عندما (sigma) غير معروفة:</p><p id="beea550d-ff9d-405e-bb21-9d3888f8949f" class="" dir="auto">(SE_{bar X}approxfrac{s}{sqrt n})</p><h2 id="8357fa05-3829-45fd-a167-0c7f83fcd2d8" class="" dir="auto">13.1 الفرق بين SD وSE</h2><ul id="f03f77ec-e7cb-4dd9-8259-55c0cd98c182" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>SD</strong>: كم تتشتت القيم الفردية حول متوسطها؟</li></ul><ul id="97632806-086b-44af-bbfc-28cb08619a53" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>SE</strong>: كم يتغير الـ Sample Statistic من عينة إلى أخرى؟</li></ul><p id="a502ad8f-4051-4036-82da-eab72f1855cd" class="" dir="auto">كلما زاد حجم العينة:</p><p id="adc6c613-094a-4753-b0c2-335e7b8ac25d" class="" dir="auto">(nuparrowRightarrow SEdownarrow)</p><p id="640eca54-72ae-4d34-8cc5-fe122a9e8c5a" class="" dir="auto">لأن:</p><p id="b867c9a7-f781-4ece-8f19-f465478a28c3" class="" dir="auto">(SEproptofrac{1}{sqrt n})</p><p id="3999c7bf-0130-4e14-b2d5-1be0715b0b0f" class="" dir="auto">وهذا يعني أن تقديرنا للـ Population Mean يصبح أكثر استقرارًا مع زيادة حجم العينة.</p><h1 id="758a2055-1fd3-4acf-a600-195fbf5c1389" class="" dir="auto">14. Confidence Intervals</h1><p id="a05c72bb-cd54-4bb8-bc03-27c0a90e2935" class="" dir="auto">Confidence Interval يعطي نطاقًا من القيم المعقولة لمعلمة Population بناءً على Sample وطريقة إحصائية محددة.</p><p id="6d7020f5-3898-451c-9168-97ab9e62071e" class="" dir="auto">الشكل العام:</p><p id="94a6e1be-af5e-4ea3-b4d5-0d11b13571c6" class="" dir="auto">(Estimatepm Margin of Error)</p><p id="cafdc395-b98f-4033-9522-ed12f51d23d0" class="" dir="auto">وعادةً:</p><p id="dbd82545-8d19-4640-a5cc-bf2b878cc51f" class="" dir="auto">(Margin of Error=Critical Valuetimes SE)</p><p id="4baaa0f3-28f0-47af-bc42-bb3db68c920e" class="" dir="auto">لذلك، بشكل عام:</p><p id="de8388ae-6c61-46db-aed9-3bc20025b36a" class="" dir="auto">(CI=Estimatepm Critical Valuetimes SE)</p><h2 id="4d890477-5efb-43e6-98f1-2f0aa2640423" class="" dir="auto">14.1 مثال مفاهيمي</h2><p id="0748572a-9a04-483e-b97f-c0f3cefeef75" class="" dir="auto">إذا كان لدينا 95% CI للمتوسط:</p><p id="458ff8aa-834d-4b61-9459-d2576d7b5b39" class="" dir="auto">([78,82])</p><p id="929cfd31-2f54-40d7-91bf-52809ff73143" class="" dir="auto">فنحن لا نقول بدقة إن هناك &quot;95% probability&quot; أن parameter الثابت يقع داخل هذه الفترة بعد حسابها. التفسير المتكرر Frequentist هو أن <strong>طريقة بناء 95% CI ستحتوي على Population Parameter في حوالي 95% من العينات المتكررة</strong> إذا استوفت الشروط.</p><h2 id="391054ce-3781-4494-af0d-66441cb74fcf" class="" dir="auto">14.2 ما الذي يجعل CI أوسع أو أضيق؟</h2><ul id="5058a996-4a8f-4f09-a6cc-9b92723fc3c3" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Confidence Level أعلى → Interval أوسع.</li></ul><ul id="db1c7113-387f-430d-91db-d143ebefc9de" class="bulleted-list" dir="auto"><li style="list-style-type:disc">SE أكبر → Interval أوسع.</li></ul><ul id="1e699a9a-bd89-4633-9c93-96d13f90c35f" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Sample Size أكبر → SE أصغر → Interval أضيق، مع ثبات باقي العوامل.</li></ul><h1 id="22a4c2e1-0f54-476a-a683-b163ef470dc3" class="" dir="auto">15. Hypothesis Testing</h1><p id="d3a34057-897c-4be5-99ee-34979e38e0a0" class="" dir="auto">Hypothesis Testing مجموعة من النظريات والأساليب والتقنيات لمقارنة Population أو تقييم ادعاء عن Population.</p><p id="83b0fccc-2a5a-427d-ae24-e34a7d6f242e" class="" dir="auto">يُستخدم في الأعمال والبحث العلمي والطب والتجارب، مثل اختبار ما إذا كان تغيير سعر منتج يؤثر في الإيرادات أو تغيير اسم موقع يؤثر في Traffic أو ما إذا كان دواء فعالًا.</p><h2 id="7db414fd-a917-4a64-a6cd-3baa16498d0d" class="" dir="auto">15.1 Null Hypothesis — H₀</h2><p id="7da7f348-0d45-44e6-ba61-ff7fb0b131d5" class="" dir="auto">نبدأ عادةً بافتراض عدم وجود فرق أو تأثير، لتقليل التحيز.</p><p id="dcbc6b00-0c52-494f-ba55-85908bf385be" class="" dir="auto">مثال:</p><p id="b28536af-2c81-4069-9dfd-4125b2294cb0" class="" dir="auto">(H_0:mu_C=mu_B)</p><p id="22fb2aa7-28e3-4179-816c-ecdd19ee1afb" class="" dir="auto">أي لا يوجد فرق في متوسط العمر بين Chicago وBangkok.</p><h2 id="d8b966d3-80ba-4546-8a25-ca900c131a46" class="" dir="auto">15.2 Alternative Hypothesis — Hₐ</h2><p id="c7381215-803c-4862-ab0a-5605628a42c2" class="" dir="auto">تمثل الادعاء البديل.</p><p id="d7a1c06a-dbb3-4900-973e-2a9049bccea5" class="" dir="auto">قد تكون:</p><ul id="03e3b864-76ec-4c7f-8cb3-4879f3ebb3ab" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>Two-sided</strong>: (mu_Cnemu_B)</li></ul><ul id="fcbad085-b475-4b14-a176-85e9a2375441" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>One-sided</strong>: (mu_C&gt;mu_B)</li></ul><ul id="f059ca66-8053-43a3-afdb-21dab679395e" class="bulleted-list" dir="auto"><li style="list-style-type:disc">أو الاتجاه الآخر: (mu_C&lt;mu_B)</li></ul><p id="c1695298-9cc2-4e9d-8d0e-83ad40297509" class="" dir="auto">اختيار شكل Alternative يحدد ما معنى &quot;more extreme&quot; عند حساب p-value.</p><h1 id="18109078-18e2-4f88-b94f-02e6dc62a0e0" class="" dir="auto">16. Hypothesis Testing Workflow</h1><ol type="1" id="9ad3ec6a-e7b2-40ff-9ab5-ba8bd291ef62" class="numbered-list" start="1" dir="auto"><li>تحديد الـ Populations أو المجموعات محل المقارنة.</li></ol><ol type="1" id="15570383-3662-4a07-99a2-2f1204eede6b" class="numbered-list" start="2" dir="auto"><li>تحديد (H_0) و(H_a).</li></ol><ol type="1" id="ec1ae381-f1e5-4b0c-8c96-a51d57c66790" class="numbered-list" start="3" dir="auto"><li>جمع Sample Data.</li></ol><ol type="1" id="c24b1b6a-0fb7-4809-b9ba-44c53497f33a" class="numbered-list" start="4" dir="auto"><li>حساب الإحصائية المناسبة.</li></ol><ol type="1" id="2d3fadf0-166d-495f-a0aa-0bba9783985d" class="numbered-list" start="5" dir="auto"><li>حساب Test Statistic و/أو p-value.</li></ol><ol type="1" id="852c7bd9-67a6-4553-93d3-770edfa2d828" class="numbered-list" start="6" dir="auto"><li>مقارنة p-value مع (alpha).</li></ol><ol type="1" id="9a88a154-e3d0-4474-bb71-e8d7f6555ad5" class="numbered-list" start="7" dir="auto"><li>استخلاص Conclusion عن Population مع مراعاة حدود الاختبار.</li></ol><h1 id="d3d7bea7-e380-496a-b89f-6f9789fc85f6" class="" dir="auto">17. Sampling Variability داخل Hypothesis Testing</h1><p id="85aa3565-42e0-4b1e-88be-5cf0aaae624a" class="" dir="auto">إذا أخذنا Sample من Chicago وSample من Bangkok وحصلنا مثلًا على:</p><p id="9f0b42eb-f037-4997-bc1a-fdf3b825e61f" class="" dir="auto">(bar x_C=79.3)</p><p id="6adbf0c0-dbc8-4991-a355-cc8418942e1a" class="" dir="auto">(bar x_B=73.9)</p><p id="986fd3b3-7e2a-4a69-b94d-914d559f4e9c" class="" dir="auto">فالفرق:</p><p id="eef5477d-7e72-4e50-bcc4-799d2d696f51" class="" dir="auto">(79.3-73.9=5.4)</p><p id="20d7b020-f675-4629-b8a8-145319e3de02" class="" dir="auto">لكن Sample أخرى قد تعطي فرقًا مختلفًا. لذلك السؤال ليس فقط: <strong>هل Sample Means مختلفة؟</strong> بل: <strong>هل الفرق كبير بما يكفي بحيث يصعب تفسيره بالـ Sampling Variation وحدها إذا كانت H₀ صحيحة؟</strong></p><h1 id="fc903bb2-a8e5-4d25-a3ad-d8e532ca6842" class="" dir="auto">18. Test Statistic وSE</h1><p id="252e72e5-2d1f-4800-a5fc-559dd40a1c1d" class="" dir="auto">في مقارنة متوسطين، الفكرة العامة هي:</p><p id="711d4fe2-9568-4ffd-870b-1ee006271f41" class="" dir="auto">(Test Statistic=frac{Observed Difference-Hypothesized Difference}{SE of Difference})</p><p id="ffe128c4-8307-48e3-9ac9-d84630494e19" class="" dir="auto">إذا كانت H₀ تفترض عدم وجود فرق:</p><p id="e72b7a65-40e3-4ff0-9414-aa8150c86f7e" class="" dir="auto">(Hypothesized Difference=0)</p><p id="aee9ce76-7614-4d67-9570-315fe92e05f6" class="" dir="auto">مثال مفاهيمي:</p><p id="9b4144fd-8abe-46fb-b151-76ce45396c67" class="" dir="auto">إذا كان الفرق = 5.4 وSE للفرق = 1.5:</p><p id="ebcf31ed-83df-40d6-a072-f7816ddc158a" class="" dir="auto">(Test Statistic=frac{5.4}{1.5}=3.6)</p><p id="852e1750-e097-4d7d-bfaa-c029797ee190" class="" dir="auto">أي أن الفرق المرصود يبعد 3.6 Standard Errors عن الفرق المتوقع تحت H₀.</p><p id="8988e4c4-7eb8-46a5-824d-b039258058cf" class="" dir="auto">كلما كان الفرق كبيرًا مقارنةً بالـ SE، أصبح من الأصعب تفسيره على أنه Sampling Variation فقط، وغالبًا تصبح p-value أصغر.</p><h1 id="22f8bbb9-4bcc-434a-97d5-a3686cc1d2cf" class="" dir="auto">19. p-value</h1><p id="31d9749c-80bc-4b8b-b77d-3794bea09d43" class="" dir="auto">التعريف الدقيق:</p><p id="6afaac0c-6910-41bf-957b-a9a79150ef2d" class="" dir="auto">(ptext{-value}=P(text{result at least as extreme as observed}mid H_0text{ is true}))</p><p id="08bb5354-e677-4699-9929-9de1c4a445ce" class="" dir="auto">أي:</p><p id="17ee6da1-85bd-4a8f-8fae-50abc3fe0c7f" class="" dir="auto"><strong>احتمال الحصول على نتيجة مساوية للنتيجة المرصودة أو أكثر تطرفًا منها، بافتراض أن Null Hypothesis صحيحة.</strong></p><h2 id="948a9787-229a-4425-8cd6-28a38a506ecd" class="" dir="auto">19.1 مثال</h2><p id="b6eec074-2ac2-4267-86c4-8d84a35313b6" class="" dir="auto">إذا كان Population Mean المفترض = 79.3، ونسأل عن احتمال الحصول على Sample Mean ≥ 82، وكانت:</p><p id="1f7083a6-0d5c-4da9-becd-d45c97421c53" class="" dir="auto">(p=0.037)</p><p id="beb9f384-641f-46ea-9960-7acbf1e59e88" class="" dir="auto">فهذا يعني أن احتمال الحصول على Sample Mean يساوي 82 أو أكثر، بافتراض صحة الفرضية المستخدمة، هو حوالي 3.7%.</p><p id="21d85dcf-debb-42f5-81bb-05a9cf62a216" class="" dir="auto"><strong>لا يعني</strong> أن احتمال صحة H₀ هو 3.7%.</p><h2 id="0755ea58-d9be-4c70-b9e5-a2582bcb73cb" class="" dir="auto">19.2 p-value ليست overlap ببساطة</h2><p id="1448017e-447d-4367-9e01-298903fa7b9d" class="" dir="auto">قد تستخدم بعض الشروحات الرسومية فكرة تداخل التوزيعات لتوضيح المفهوم، لكن التعريف الصحيح ليس &quot;مساحة التداخل بين توزيعين&quot;. في الاختبار الإحصائي نحسب مساحة النتائج التي تكون على الأقل بقدر تطرف النتيجة المرصودة ضمن <strong>Null Sampling Distribution / Distribution of the Test Statistic under H₀</strong>.</p><p id="9ba3b4bb-c121-4d19-9489-108aae22e903" class="" dir="auto">في One-tailed test تكون p-value عادةً مساحة Tail في الاتجاه الذي تحدده Hₐ. وفي Two-tailed test تُحسب مساحة النتائج المتطرفة في الطرفين وفق تعريف الاختبار.</p><h1 id="b3bd4192-c6a3-4bea-8b1b-ec489e6c3ac7" class="" dir="auto">20. Significance Level — α</h1><p id="938146ad-a653-498c-8c22-3c0a2be0ff73" class="" dir="auto">(alpha) هو <strong>Significance Level</strong> أو threshold نحدده قبل تحليل النتائج، وغالبًا:</p><p id="e89b1536-a071-45ad-a85c-0a772b2b177c" class="" dir="auto">(alpha=0.05)</p><p id="63422617-7d90-4b3c-8b11-c8afe76df454" class="" dir="auto">وهو مرتبط بمعدل Type I Error الذي نقبله ضمن قاعدة الاختبار عندما تكون H₀ صحيحة.</p><p id="a0e101bf-9cfa-4c5f-871b-c6c8bee152d1" class="" dir="auto">يجب تحديده مسبقًا لتقليل التحيز وعدم تغيير معيار القرار بعد رؤية النتائج.</p><h1 id="024179ab-05d8-4a58-a524-7fd1cca1da2d" class="" dir="auto">21. قاعدة القرار</h1><p id="23681bc7-43dc-4df1-9f0a-ae4633c1110d" class="" dir="auto">إذا:</p><p id="e4182e09-8680-453f-9062-2c34e8cd91e0" class="" dir="auto">(plealpha)</p><p id="db907750-3b17-4ac3-9192-fc1222ce9862" class="" dir="auto">نقوم بـ:</p><p id="8e014b13-25f3-4931-973a-48c76e953ef0" class="" dir="auto"><strong>Reject H₀</strong></p><p id="3bc0a407-5aa2-458d-9fa4-88a3fb9abe85" class="" dir="auto">ونصف النتيجة بأنها <strong>Statistically Significant</strong> عند مستوى (alpha).</p><p id="690c6a6a-e735-402e-b1bd-e809f3793171" class="" dir="auto">إذا:</p><p id="fa9bad30-ad4c-4f14-af81-9fc80452f1f9" class="" dir="auto">(p&gt;alpha)</p><p id="07e4e0c6-0cdc-4d90-abd6-7ccc362f69ec" class="" dir="auto">نقوم بـ:</p><p id="87a5533f-1946-42d6-b541-ae34ba241a81" class="" dir="auto"><strong>Fail to Reject H₀</strong></p><p id="6e43f54a-c36d-4d7b-a9ad-b0bf7ac20409" class="" dir="auto">ولا نقول عادةً <strong>Accept H₀</strong>؛ لأن عدم وجود Evidence كافية ضد H₀ لا يثبت أن H₀ صحيحة.</p><h1 id="7fb166dc-da00-4448-ae0c-575ce993d71b" class="" dir="auto">22. Type I and Type II Errors</h1><p id="6b864302-b950-4106-a68e-bd1d913618e1" class="" dir="auto">هناك أربع حالات منطقية:</p><table id="ec3ca11c-5488-42aa-8dc4-1d2846cee2c7" class="simple-table" dir="ltr"><thead class="simple-table-header"><tr id="dea685ea-c231-4622-840b-ddc5a73e1252" dir="ltr"><th id="SBI_" class="simple-table-header-color simple-table-header">Reality</th><th id="UXQz" class="simple-table-header-color simple-table-header">Decision</th><th id="RTWW" class="simple-table-header-color simple-table-header">Result</th></tr></thead><tbody><tr id="a93f3a74-87c9-4f5f-8df9-8782bdaf5ccd" dir="ltr"><td id="SBI_" class="">H₀ True</td><td id="UXQz" class="">Reject H₀</td><td id="RTWW" class="">Type I Error / False Positive</td></tr><tr id="3f57de72-5116-41e5-893a-4856970e1dca" dir="ltr"><td id="SBI_" class="">H₀ True</td><td id="UXQz" class="">Fail to Reject H₀</td><td id="RTWW" class="">Correct Decision</td></tr><tr id="05de89ca-1067-491b-b3dd-74d6f4e346f7" dir="ltr"><td id="SBI_" class="">H₀ False</td><td id="UXQz" class="">Reject H₀</td><td id="RTWW" class="">Correct Decision</td></tr><tr id="c294bd42-1c10-4d15-b0ff-77b833b72e7f" dir="ltr"><td id="SBI_" class="">H₀ False</td><td id="UXQz" class="">Fail to Reject H₀</td><td id="RTWW" class="">Type II Error / False Negative</td></tr></tbody></table><h2 id="aa260b4f-0791-4ecb-8c64-128229d83d76" class="" dir="auto">22.1 Type I Error</h2><p id="30ab3ce2-e453-4b4a-b299-af0737ccb375" class="" dir="auto">نرفض H₀ وهي صحيحة فعلًا.</p><p id="06de9e95-3018-4f2c-b93d-a18969e3daca" class="" dir="auto">يسمى أيضًا <strong>False Positive</strong>.</p><h2 id="0267d7ff-26d9-444c-8909-8e0e2a69f8d9" class="" dir="auto">22.2 Type II Error</h2><p id="bca1b70e-289b-43ff-84fe-8bb549b9b927" class="" dir="auto">نفشل في رفض H₀ وهي خاطئة فعلًا.</p><p id="85305e20-7d60-40b5-baf5-cb81b81771b4" class="" dir="auto">يسمى أيضًا <strong>False Negative</strong>.</p><h1 id="83abc7a3-533d-4597-83eb-66c9ee68f053" class="" dir="auto">23. Statistical Significance vs Practical Significance</h1><p id="e6246e10-baba-4884-9cf0-96541edf7f28" class="" dir="auto"><strong>Statistically Significant</strong> تعني أن النتيجة قدمت Evidence كافية ضد H₀ وفق قاعدة الاختبار المحددة.</p><p id="7df21a15-09b9-42c2-aa69-7c78b9c3a0db" class="" dir="auto">لكن هذا لا يعني بالضرورة أن الأثر كبير أو مهم عمليًا.</p><p id="abeb9f29-ed70-4f6d-801d-1f6704885aa8" class="" dir="auto">مع عينات ضخمة قد يصبح فرق صغير جدًا Statistically Significant. لذلك في تحليل الأعمال يجب التفكير أيضًا في <strong>Effect Size / Practical Importance</strong>.</p><h1 id="7327f76b-d8de-412f-ae8c-c6f5d01b496e" class="" dir="auto">24. Experiments</h1><p id="7f8dc85d-cb28-4857-95b1-1bd6d44ed83b" class="" dir="auto">Experiments هي أحد أفرع تطبيق Hypothesis Testing، وهدفها عادةً الإجابة عن:</p><p id="1ec0fd62-5fe1-4dc3-b1d5-46d5d98815f1" class="" dir="auto"><strong>What is the effect of the treatment on the response?</strong></p><ul id="5110b354-bc67-4e07-8e46-41c9b49ecd7d" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>Treatment / Independent Variable</strong>: المتغير أو المعالجة التي نغيرها أو نقارن مستوياتها.</li></ul><ul id="f00ac140-9931-4029-94ae-9657d2a97cd1" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>Response / Dependent Variable</strong>: النتيجة التي نقيس تأثير الـ Treatment عليها.</li></ul><p id="09699925-e64c-4285-84bf-68848e4f9caf" class="" dir="auto">مثال: الإعلان Treatment، وعدد المنتجات المباعة Response.</p><h1 id="fbc4e675-7e3d-4cf3-b767-6e177a7015f7" class="" dir="auto">25. Controlled Experiments</h1><p id="ea247b7b-7389-4004-8178-512c18c047d6" class="" dir="auto">في Controlled Experiment نقسم المشاركين إلى:</p><ul id="b9c797fd-39b8-4a73-8206-8302795b7fa1" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>Treatment Group</strong>: تتعرض للمعالجة.</li></ul><ul id="803b8aaa-ff55-4054-8a6b-beb1ecab3905" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>Control Group</strong>: لا تتعرض للمعالجة أو تتعرض لبديل/Placebo مناسب.</li></ul><p id="5eff9534-6c29-4691-a896-aabae0e626d0" class="" dir="auto">الهدف أن تكون المجموعتان comparable قدر الإمكان، بحيث يمكن عزل أثر Treatment.</p><p id="9b41c925-49f2-460d-8d4b-5dd583860d1a" class="" dir="auto">إذا كانت المجموعتان مختلفتين في عامل آخر مهم، قد تظهر نتيجة مضللة.</p><p id="994a7c9b-50cc-4648-b158-b0d157d831d2" class="" dir="auto">مثال: إذا كان متوسط عمر Treatment Group = 25 ومتوسط عمر Control Group = 50، وكان العمر نفسه يؤثر في الشراء، فقد يكون الفرق في المبيعات بسبب العمر وليس الإعلان.</p><h1 id="275b1952-9729-4174-9e11-5fcdf24f7e72" class="" dir="auto">26. Randomization</h1><p id="c125811d-9a22-4272-8437-a69ba151f1f1" class="" dir="auto"><strong>Randomization</strong> تعني توزيع المشاركين عشوائيًا على Treatment وControl بدلًا من توزيعهم بناءً على خصائصهم.</p><p id="810d6d4d-a59b-4260-831e-6a63ae85b113" class="" dir="auto">يساعد ذلك على جعل المجموعات أكثر قابلية للمقارنة وتقليل Bias وConfounding.</p><p id="f1c891ce-5301-4c6d-8b14-7bea8cc98266" class="" dir="auto">الـ <strong>Randomized Controlled Trial (RCT)</strong> هو Controlled Experiment يستخدم Randomization.</p><h1 id="a9f67ba4-9775-4c01-969d-41fc750492f7" class="" dir="auto">27. Blinding وPlacebo</h1><h2 id="2ebc61c9-4f20-4c17-804f-0b223ac07673" class="" dir="auto">Blind Trial</h2><p id="5a356e8e-e3f6-4de9-a835-3e253130c279" class="" dir="auto">المشاركون لا يعرفون هل هم في Treatment أم Control.</p><p id="3865493e-7da1-4ed3-b963-6806f42d33e3" class="" dir="auto">هذا يقلل تأثير توقعات المشاركين على النتائج.</p><h2 id="d0d5cfa3-7d4f-49c7-b53f-e52755d2bc0e" class="" dir="auto">Placebo</h2><p id="6c597986-485f-4267-847e-95cbc4a7bfbd" class="" dir="auto">بديل يشبه Treatment لكنه لا يحمل التأثير العلاجي الحقيقي، ويُستخدم كثيرًا في التجارب السريرية.</p><h2 id="ae31b294-f2ee-4416-973c-ed95e2a99b34" class="" dir="auto">Double-Blind Randomized Controlled Trial</h2><p id="1624250a-03d1-48ec-9ff0-c8ee5834b368" class="" dir="auto">المشاركون لا يعرفون مجموعتهم، وكذلك الشخص الذي يعطي Treatment أو يدير التجربة لا يعرف أي المشاركين يأخذون Treatment الحقيقي وأيهم يأخذون Placebo.</p><p id="0f96f11e-6d09-4999-9142-8e299cefbdf6" class="" dir="auto">الهدف تقليل Bias في الاستجابة وفي إدارة/تحليل التجربة.</p><p id="6ac36e33-0669-4de7-ba30-7ad1f813f3fe" class="" dir="auto">المبدأ العام:</p><p id="c331e83a-09a1-452a-8207-aee5d179f8c0" class="" dir="auto"><strong>كلما قلّت فرص دخول Bias إلى التجربة، زادت موثوقية الاستنتاج السببي.</strong></p><h1 id="1be5b1e8-3c08-4e3a-9dfb-b473af32f5ba" class="" dir="auto">28. RCT vs A/B Testing</h1><p id="559b0147-3933-46be-bcd8-f4aaa9734165" class="" dir="auto">يمكن أن تحتوي RCT على أكثر من Treatment Group، مثل مقارنة جرعات مختلفة من دواء.</p><p id="457c5344-0a7f-4c5a-9247-6f6f863da452" class="" dir="auto">في الصناعة، يُستخدم مصطلح <strong>A/B Testing</strong> غالبًا لتجربة نسختين:</p><ul id="c930d8f2-dd10-4163-b186-48fc6837d57e" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>A = Control</strong></li></ul><ul id="5e097d9c-e92f-4256-9768-2a7028814309" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>B = Treatment</strong></li></ul><p id="d5e69aad-8e9d-4e8d-8626-b3e96cd134ac" class="" dir="auto">والـ A/B Testing في أبسط صوره يقسم المشاركين إلى مجموعتين فقط.</p><p id="8db405f9-5720-4d9d-883f-595264d941f3" class="" dir="auto">أمثلة: زر جديد مقابل زر قديم، صفحة Landing Page جديدة مقابل القديمة، أو إعلان A مقابل إعلان B.</p><h1 id="d22948de-b02c-4bad-97d2-ea8e99b7e522" class="" dir="auto">29. Independent and Dependent Variables</h1><ul id="92a58516-bc8b-4ddc-872b-66d338b9c9ad" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>Independent Variable</strong>: المتغير الذي نتوقع أنه ليس متأثرًا بالـ Response في صياغة الفرضية، وغالبًا يمثل Treatment أو Predictor.</li></ul><ul id="a05fd580-60fc-40dd-81a6-4b34bc7d134c" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>Dependent Variable</strong>: النتيجة التي نتوقع أن تتأثر بالـ Independent Variable.</li></ul><p id="284af23d-0988-42fb-ac6f-1b3db58188bb" class="" dir="auto">في الرسوم مثل Scatter Plot:</p><ul id="15190d17-d6a6-4f7e-bd6a-97c16f3480b9" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Independent Variable عادةً على <strong>X-axis</strong>.</li></ul><ul id="7dbe4cd1-b1af-49dc-ae49-6afb3c723334" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Dependent Variable عادةً على <strong>Y-axis</strong>.</li></ul><p id="88feb2ce-17a0-4c61-8333-eeaee02202c5" class="" dir="auto">مثال: Vitamin C supplementation = Independent Variable، وGender birth ratio/response المقاس = Dependent Variable في المثال التعليمي.</p><h1 id="70a824f1-cbf1-40cc-9274-dc14e1287479" class="" dir="auto">30. Correlation</h1><p id="2606cbfe-ad95-47d5-8318-a78cf6e32413" class="" dir="auto">Correlation طريقة لقياس العلاقة بين متغيرين.</p><p id="8da2bca1-ebee-4e25-a4a6-49129d7849b1" class="" dir="auto">نبدأ غالبًا بـ <strong>Scatter Plot</strong> لرؤية شكل العلاقة بصريًا.</p><h2 id="a85c459f-072c-4001-bb8a-1e2ca973f036" class="" dir="auto">30.1 Pearson Correlation Coefficient</h2><p id="f201fa59-0177-4342-b800-fd70c7084661" class="" dir="auto">يرمز له بـ (r)، ويتراوح بين:</p><p id="3150efc0-42b0-4688-89ff-9ec42c2d4da0" class="" dir="auto">(-1le rle1)</p><p id="60669258-a8e3-4118-ab64-cebda697e71a" class="" dir="auto">وهو يقيس <strong>Strength and Direction of a Linear Relationship</strong>.</p><h3 id="793871f2-58fe-4ff7-9eaf-4fd580ed722a" class="" dir="auto">Direction</h3><ul id="b53d5894-db12-4632-bd6b-ee2a9b295feb" class="bulleted-list" dir="auto"><li style="list-style-type:disc">(r&gt;0): Positive relationship؛ عندما يزيد X يميل Y إلى الزيادة.</li></ul><ul id="57c2acd4-4e8c-42d3-9871-5156048b2d4c" class="bulleted-list" dir="auto"><li style="list-style-type:disc">(r&lt;0): Negative relationship؛ عندما يزيد X يميل Y إلى الانخفاض.</li></ul><ul id="3781c4af-072f-4994-8011-03340db54fae" class="bulleted-list" dir="auto"><li style="list-style-type:disc">(rapprox0): لا توجد علاقة خطية واضحة.</li></ul><h3 id="07af3f21-ad0a-41d5-a1a8-fa86b84140cf" class="" dir="auto">Strength</h3><p id="92764d4a-3806-435d-ab56-fef48e69ab9a" class="" dir="auto">قوة العلاقة ترتبط بالقيمة المطلقة:</p><p id="4d8e69f4-c37e-46fc-8139-f34fe9ce06df" class="" dir="auto">(|r|)</p><p id="e477da58-195a-4a38-9060-51ea18f4a47f" class="" dir="auto">كلما اقتربت من 1، كانت العلاقة الخطية أقوى.</p><p id="ed60a267-6e9c-48ef-8531-86a05dea87fb" class="" dir="auto">أمثلة الدرس:</p><ul id="cd951155-e8d7-42e8-8bc4-28f6b54be9e9" class="bulleted-list" dir="auto"><li style="list-style-type:disc">(r=0.99): Near-perfect / very strong positive.</li></ul><ul id="b280eea2-34be-46d8-9ff1-1c08d595af8a" class="bulleted-list" dir="auto"><li style="list-style-type:disc">(r=0.75): Strong positive.</li></ul><ul id="dbf2cd4d-6170-49e7-ace2-cd26232c4077" class="bulleted-list" dir="auto"><li style="list-style-type:disc">(r=0.56): Moderate positive.</li></ul><ul id="883d5bcb-437d-4596-8533-65863e806d6a" class="bulleted-list" dir="auto"><li style="list-style-type:disc">(rapprox0.20): Weak positive.</li></ul><ul id="1bbd7ec7-5cd7-4df7-b18a-f91a311ef150" class="bulleted-list" dir="auto"><li style="list-style-type:disc">(rapprox0): No meaningful linear relationship.</li></ul><p id="c124d945-b2a0-42d1-be25-c0f5bed63adc" class="" dir="auto">هذه أوصاف تقريبية وليست حدودًا عالمية ثابتة لكل مجال.</p><h1 id="19fb6c03-2bb4-4ac8-9215-b5750f3366c8" class="" dir="auto">31. Pearson Correlation وLinear Relationships</h1><p id="85b51876-f26e-44cf-a4fe-085d0d35b4d3" class="" dir="auto">Pearson correlation يقيس <strong>Linear Relationship</strong>.</p><p id="f9f7847e-7434-459e-af39-f4ffb9f8909c" class="" dir="auto">إذا كانت العلاقة قوية لكنها Curved / Non-linear، فقد يكون Pearson (r) منخفضًا رغم وجود علاقة واضحة.</p><p id="451513d9-1205-4ff3-9e03-ec753b9f6b29" class="" dir="auto">إذن:</p><p id="77c78650-4235-4480-b396-287fb60ff331" class="" dir="auto"><strong>r ≈ 0 لا يعني بالضرورة عدم وجود أي علاقة؛ بل يعني عدم وجود علاقة خطية واضحة.</strong></p><h1 id="77c0c876-6698-439b-9fff-958dad3d27c8" class="" dir="auto">32. Correlation ≠ Causation</h1><p id="16e7d966-7b69-470f-89ad-445dfe2d870e" class="" dir="auto">إذا وجدنا:</p><p id="2d563499-f3ae-4895-b46b-7cfcae71cce0" class="" dir="auto">(Xleftrightarrow Y)</p><p id="85955ad6-05a7-4483-8e2c-c2010808e99c" class="" dir="auto">فهذا لا يثبت:</p><p id="a90bf0c9-307e-40e8-b558-aef0f54a08b4" class="" dir="auto">(Xrightarrow Y)</p><p id="1e5b6c19-d704-48cc-9660-c42117e3d426" class="" dir="auto">أي أن الارتباط لا يثبت السببية.</p><p id="28d03302-d83c-4aea-90e5-7ee3073084e1" class="" dir="auto">مثال الدرس: تكلفة زجاجة المياه ومتوسط العمر قد يكون بينهما (r=0.61)، لكن هذا لا يعني أن رفع سعر المياه سيزيد متوسط العمر.</p><h1 id="54852c17-41f0-4603-955c-354098466942" class="" dir="auto">33. Confounding Variables</h1><p id="436b64d3-b6cd-42e7-96f9-1c301e9105a0" class="" dir="auto"><strong>Confounding Variable</strong> هو متغير ثالث يمكن أن يؤثر في المتغيرات محل الدراسة أو يفسر العلاقة الظاهرة بينهما، ولم يتم حسابه بشكل كافٍ في التحليل.</p><p id="d466c6c0-6948-4c88-a738-ae1b32e23c7e" class="" dir="auto">مثال:</p><p id="fb4569f7-8dd6-4e91-add6-13fddca25212" class="" dir="auto"><strong>Economic Strength → Water Cost</strong></p><p id="a8a1fb28-fdb5-44f6-b0b4-98ff4a376ff4" class="" dir="auto">و:</p><p id="b23c1fd7-610b-4416-807d-91eabce962e1" class="" dir="auto"><strong>Economic Strength → Healthcare / Life Expectancy</strong></p><p id="faeefdb7-0260-42e7-bc53-18580b031643" class="" dir="auto">فتظهر علاقة بين Water Cost وLife Expectancy، بينما قد يكون الاقتصاد عاملًا مشتركًا مهمًا.</p><p id="fe3e50e5-653c-4c0f-ba45-941320c2359e" class="" dir="auto">الفكرة العامة:</p><p id="c51486bb-8e62-4d10-a57c-0539d30e30cf" class="" dir="auto"><strong>Observed Association لا تكفي لإثبات Causal Effect.</strong></p><h1 id="5f1fff74-010d-44a7-bad5-a65888d64ded" class="" dir="auto">34. Correlation vs Experiment</h1><table id="529f5ec2-1549-4ae3-88c9-7c223db81897" class="simple-table" dir="ltr"><thead class="simple-table-header"><tr id="4b42d618-6505-4440-a639-3eab01d1ef72" dir="ltr"><th id="LixK" class="simple-table-header-color simple-table-header">السؤال</th><th id=":oJX" class="simple-table-header-color simple-table-header">الأداة</th><th id="SlAT" class="simple-table-header-color simple-table-header">ماذا نستطيع استنتاجه؟</th></tr></thead><tbody><tr id="b913a070-ea9c-46a2-9d1b-0dd41d6fd41d" dir="ltr"><td id="LixK" class="">هل يتحرك X وY معًا؟</td><td id=":oJX" class="">Correlation</td><td id="SlAT" class="">Association</td></tr><tr id="3573399c-a169-4a62-a148-370c860ea09f" dir="ltr"><td id="LixK" class="">ما قوة واتجاه العلاقة الخطية؟</td><td id=":oJX" class="">Pearson r</td><td id="SlAT" class="">Linear strength + direction</td></tr><tr id="8194a371-8c50-49db-adcd-b5283ee43e06" dir="ltr"><td id="LixK" class="">هل X يسبب تغيرًا في Y؟</td><td id=":oJX" class="">Experiment / strong causal design</td><td id="SlAT" class="">دليل أقوى على Causation</td></tr></tbody></table><p id="e07b6498-4f24-456a-b94f-bdc8fa202cd1" class="" dir="auto">إذا كان الهدف سببيًا، نحتاج تصميمًا يقلل Confounding، مثل Randomized Controlled Experiment عندما يكون ذلك ممكنًا.</p><h1 id="8332b6ab-dcfa-4b06-b1c6-8cba0d42f30b" class="" dir="auto">35. Correlation vs Regression</h1><p id="0ed2603b-2bc3-42ab-b6ff-f4a02e7aa218" class="" dir="auto">Correlation:</p><ul id="09a0a63a-697c-45d4-858b-ba3baf291b6f" class="bulleted-list" dir="auto"><li style="list-style-type:disc">تلخص قوة واتجاه العلاقة الخطية.</li></ul><ul id="10772928-9b8b-4ac1-a50c-07dba6a34b35" class="bulleted-list" dir="auto"><li style="list-style-type:disc">(r) بين -1 و1.</li></ul><ul id="f5893390-6954-49c5-81a1-5c618cacfb47" class="bulleted-list" dir="auto"><li style="list-style-type:disc">ليست Slope.</li></ul><p id="d3f36708-39de-4fb6-a2fa-c1d68b4a5c5b" class="" dir="auto">Linear Regression:</p><p id="03cb48ca-4acf-4d8c-a184-12afb6ed9a55" class="" dir="auto">(Y=beta_0+beta_1X)</p><p id="947ffb21-bb06-457c-bd35-908f19c1b44e" class="" dir="auto">حيث (beta_1) هو <strong>Slope</strong> ويصف التغير المتوقع في Y لكل زيادة وحدة واحدة في X، ضمن نموذج الانحدار.</p><p id="a3ecdb83-c48e-4cf5-a24a-c409cc49cfd1" class="" dir="auto"><strong>لا تقل إن r = 0.8 يعني أن Y يزيد 0.8 وحدة عندما يزيد X بوحدة.</strong> هذا تفسير للـ slope وليس correlation.</p><h1 id="f909bc93-0b0f-4ecc-ac77-240e30296d00" class="" dir="auto">36. كيف تتصل كل الموضوعات معًا؟</h1><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="b049358d-7925-47d0-a21c-74a0f2f14b93" class="code code-wrap" data-notion-code-syntax="mermaid"><code class="language-mermaid" style="white-space:pre-wrap;word-break:break-all">flowchart TD
+A[Data] --&gt; B[Descriptive Statistics]
+B --&gt; C[Probability]
+C --&gt; D[Probability Distributions]
+D --&gt; E[Sampling]
+E --&gt; F[Sampling Distribution]
+F --&gt; G[Standard Error]
+G --&gt; H[Confidence Intervals]
+G --&gt; I[Test Statistic]
+I --&gt; J[p-value]
+J --&gt; K[Compare with alpha]
+K --&gt; L[Hypothesis Test Decision]
+L --&gt; M[Statistical Conclusion]
+M --&gt; N[Experiments / Causal Questions]
+B --&gt; O[Correlation]
+O --&gt; P[Association not Causation]
+P --&gt; Q[Check Confounders]</code></pre><h1 id="80d89775-aad1-4814-96b6-3fca91eff0bd" class="" dir="auto">37. أهم العلاقات الرياضية التي يجب تذكرها</h1><h3 id="b484baf3-60ac-4981-944c-b50db1bc5ca5" class="" dir="auto">Probability</h3><p id="19c7ed64-5e5f-4324-92d0-9f43bcc8eb85" class="" dir="auto">(P(A^c)=1-P(A))</p><p id="6de9931e-2659-4879-bc80-4cbf829636fb" class="" dir="auto">(P(Acap B)=P(A)P(B)) عند الاستقلال.</p><p id="345545b9-b154-4b25-94bf-8706ba95db79" class="" dir="auto">(P(Amid B)=frac{P(Acap B)}{P(B)})</p><h3 id="d671365d-ea0d-4fea-8186-13eb13a245b8" class="" dir="auto">Variability</h3><p id="2fcefc20-b5cd-4a9b-8c04-8213400d065a" class="" dir="auto">(SD=sqrt{Variance})</p><p id="7c340697-ea4f-430b-931f-2cc2f6b655d5" class="" dir="auto">(IQR=Q_3-Q_1)</p><h3 id="88c5eef8-a6c0-4b7c-a358-3c1a6e333018" class="" dir="auto">Binomial</h3><p id="a5c6399b-33cf-4a44-960d-a49bcf739e4e" class="" dir="auto">(P(X=k)=binom{n}{k}p^k(1-p)^{n-k})</p><p id="af44fa97-9433-40c2-8542-500f866c4547" class="" dir="auto">(E(X)=np)</p><p id="98686b76-a38d-423d-a7a0-7df41d4816bf" class="" dir="auto">(Var(X)=np(1-p))</p><h3 id="4799e5b1-0412-438b-8ead-5cd0ede3d958" class="" dir="auto">Poisson</h3><p id="ebc597ae-2940-4c29-8e46-d60d95913988" class="" dir="auto">(P(X=k)=frac{e^{-lambda}lambda^k}{k!})</p><p id="bd485b96-679a-4c47-987a-153e8ba19ac3" class="" dir="auto">(E(X)=Var(X)=lambda)</p><p id="43efc3e9-a040-418b-a62c-34a1549466cf" class="" dir="auto">(SD(X)=sqrtlambda)</p><h3 id="782c0394-c964-4d46-ba58-e28ae5890290" class="" dir="auto">Z-score</h3><p id="b9ebfd27-f8f1-4db2-a55b-2b45f9d7567f" class="" dir="auto">(z=frac{x-mu}{sigma})</p><h3 id="8deb392c-aeaa-4bc0-910d-a5d6b6be1d8f" class="" dir="auto">Standard Error of Mean</h3><p id="c2303a46-5012-41f1-99f2-2ef15ab00d74" class="" dir="auto">(SE=frac{sigma}{sqrt n})</p><p id="cc1ad7b4-8d4b-44b2-911c-ee1215b23217" class="" dir="auto">أو تقديريًا:</p><p id="2ce40f6c-faba-4282-88eb-6aa4b25c7539" class="" dir="auto">(SEapproxfrac{s}{sqrt n})</p><h3 id="ac653bdf-89d4-46a7-8759-cd7d95b19cf1" class="" dir="auto">Confidence Interval</h3><p id="ae96f3f3-f0a4-4c31-895e-b06d85f95467" class="" dir="auto">(Estimatepm Critical Valuetimes SE)</p><h3 id="4a6eff51-34f2-4a4c-ac0b-05fd383ead26" class="" dir="auto">Test Statistic</h3><p id="585d2b1b-c720-4e13-86ce-91848c8573c7" class="" dir="auto">(Test Statistic=frac{Observed-Hypothesized}{SE})</p><h3 id="674dbd42-591a-47f4-a7d2-3a3ed442e2b3" class="" dir="auto">Hypothesis Decision</h3><p id="d83f8986-6c7d-41bd-ad4f-3594f7024cd4" class="" dir="auto">(plealphaRightarrow Reject H_0)</p><p id="cf9d8b89-2eaf-4517-adf0-62aeab755648" class="" dir="auto">(p&gt;alphaRightarrow Fail to Reject H_0)</p><h1 id="eec8c5bb-e5ea-4d22-980a-8d3580092266" class="" dir="auto">38. Decision Rules — إذا تغير السؤال، ماذا أفعل؟</h1><details id="179a4fb7-8f92-45c3-bd10-1a8a424209fc" open="" class="toggle" dir="auto"><summary>إذا كان السؤال عن القيمة النموذجية للبيانات</summary><div class="indented"><p id="3b4ea4d3-6fa6-4a96-bb73-8f5d7b820d7d" class="" dir="auto">فكر في Mean / Median / Mode.</p></div></details><details id="c0433e99-17a5-45d4-b5b1-386964c1201d" open="" class="toggle" dir="auto"><summary>إذا كان السؤال عن مدى انتشار القيم</summary><div class="indented"><p id="87809418-365f-484c-83e8-dfce874a90ef" class="" dir="auto">فكر في Range / Variance / Standard Deviation / IQR.</p></div></details><details id="cbef9cb5-f5ae-4f0b-8a0a-8a7e7af7ce73" open="" class="toggle" dir="auto"><summary>إذا كان السؤال عن عدد النجاحات من عدد ثابت من التجارب</summary><div class="indented"><p id="472ea7ae-bb5d-4f45-b09a-1fa956a428ea" class="" dir="auto">فكر في Binomial.</p></div></details><details id="952275d9-ad42-4092-8da2-db3ce15e6185" open="" class="toggle" dir="auto"><summary>إذا كان السؤال عن عدد الأحداث خلال فترة أو مساحة</summary><div class="indented"><p id="1dcd1384-f313-47fa-b98d-0973ceffb930" class="" dir="auto">فكر في Poisson.</p></div></details><details id="a04026a8-1542-4717-b98b-3c02fa04ae1e" open="" class="toggle" dir="auto"><summary>إذا كان السؤال عن Bell Curve أو Z-score</summary><div class="indented"><p id="41758f0a-d229-491f-8029-f0b4de228e2c" class="" dir="auto">فكر في Normal Distribution.</p></div></details><details id="17cfa073-2d74-46dc-8b47-4e0f43799425" open="" class="toggle" dir="auto"><summary>إذا كان السؤال عن توزيع متوسطات عينات كثيرة</summary><div class="indented"><p id="f4d45939-9af3-40bc-af85-84e9feae425c" class="" dir="auto">فكر في Sampling Distribution وCLT.</p></div></details><details id="2711093d-5dbd-4a03-be2e-cc917a00e023" open="" class="toggle" dir="auto"><summary>إذا كان السؤال عن تذبذب Sample Mean من عينة لأخرى</summary><div class="indented"><p id="87fdeb30-95e8-494c-a4d4-311370148c6b" class="" dir="auto">فكر في Standard Error.</p></div></details><details id="e01073db-b3d2-4cd4-b9a2-52c0db7ac146" open="" class="toggle" dir="auto"><summary>إذا كان السؤال عن نطاق معقول لـ Population Parameter</summary><div class="indented"><p id="4b4a3b6b-7eef-48e4-b75f-f8e77e807a4a" class="" dir="auto">فكر في Confidence Interval.</p></div></details><details id="1761b713-9ffe-4cdf-831b-946b9b9ef1e3" open="" class="toggle" dir="auto"><summary>إذا كان السؤال: هل يوجد دليل كافٍ ضد H₀؟</summary><div class="indented"><p id="144bcb3e-4ced-44f0-8d17-4418b7db3ac1" class="" dir="auto">فكر في Hypothesis Testing وp-value وα.</p></div></details><details id="88b51269-de93-4a7d-88c5-10e4b3ef35af" open="" class="toggle" dir="auto"><summary>إذا كان p-value صغيرة مقارنة بـ α</summary><div class="indented"><p id="ad80df35-86b9-421e-a987-e782fb372596" class="" dir="auto">Reject H₀؛ النتيجة Statistically Significant عند مستوى α.</p></div></details><details id="a74f8783-c494-428c-82e2-7b445996cd03" open="" class="toggle" dir="auto"><summary>إذا كان p-value أكبر من α</summary><div class="indented"><p id="e58f2d45-938b-44bc-9f14-ca7c17a6699f" class="" dir="auto">Fail to Reject H₀؛ لا يوجد Evidence كافٍ لرفضها.</p></div></details><details id="f7830696-4464-449c-9694-3dc0aba7d0b7" open="" class="toggle" dir="auto"><summary>إذا كان السؤال عن تأثير Treatment</summary><div class="indented"><p id="99ed0c5e-c590-47aa-8fd2-00fb0b8b1448" class="" dir="auto">فكر في Experiment، Treatment، Control، Randomization، وربما Blinding.</p></div></details><details id="bbfab7ff-1512-44a3-a5c2-5aeb5db05079" open="" class="toggle" dir="auto"><summary>إذا كان السؤال عن علاقة بين متغيرين</summary><div class="indented"><p id="dd76183b-89b2-4b9f-870b-acf4d7ce75a5" class="" dir="auto">ابدأ بـ Scatter Plot، ثم Pearson correlation إذا كانت العلاقة الخطية مناسبة.</p></div></details><details id="bf04736e-6c78-4faa-a3d5-4a810b5c9c18" open="" class="toggle" dir="auto"><summary>إذا وجدت Correlation</summary><div class="indented"><p id="13b45cba-a2b0-424b-b1be-7239a9134794" class="" dir="auto">لا تستنتج Causation مباشرة؛ ابحث عن Confounding Variables أو استخدم Experiment مناسبًا للسؤال السببي.</p></div></details><h1 id="951e914f-7d4c-40f9-91fc-2692b1b058e0" class="" dir="auto">39. أهم الأخطاء التي يجب تجنبها</h1><ol type="1" id="a3a2b6bc-c0aa-4661-b258-fc4901dcd26a" class="numbered-list" start="1" dir="auto"><li><strong>SD ≠ SE</strong>: SD لتشتت البيانات، SE لتشتت Statistic عبر العينات.</li></ol><ol type="1" id="9115b0a2-8a25-48f5-903e-62ff36fb241f" class="numbered-list" start="2" dir="auto"><li><strong>p-value ≠ P(H₀ is true)</strong>.</li></ol><ol type="1" id="c828aa8c-2f60-4719-acf5-9581e43f89d5" class="numbered-list" start="3" dir="auto"><li><strong>Fail to Reject H₀ ≠ Prove H₀ true</strong>.</li></ol><ol type="1" id="6a0efa62-7374-4bc8-8f4f-7b20342bd1ba" class="numbered-list" start="4" dir="auto"><li><strong>Correlation ≠ Causation</strong>.</li></ol><ol type="1" id="b45f62c6-e06a-4131-aa72-61e46a5b3c97" class="numbered-list" start="5" dir="auto"><li><strong>r ≠ Slope</strong>.</li></ol><ol type="1" id="3b4477e5-7b7e-46a5-bc90-d9a239700b50" class="numbered-list" start="6" dir="auto"><li><strong>r ≈ 0 لا يعني عدم وجود أي علاقة غير خطية</strong>.</li></ol><ol type="1" id="4d8232f5-6d02-4557-a050-5561d4119e9c" class="numbered-list" start="7" dir="auto"><li><strong>Statistical significance ≠ Practical significance</strong>.</li></ol><ol type="1" id="9e9d6b3e-1c75-4c61-9be4-5578a3bdea22" class="numbered-list" start="8" dir="auto"><li>لا تختار (alpha) بعد رؤية النتيجة لتناسب الاستنتاج.</li></ol><ol type="1" id="80e43d9d-f9f8-4b41-a2df-588e2e0d0a4e" class="numbered-list" start="9" dir="auto"><li>لا تعتبر overlap بين توزيعين هو التعريف الدقيق للـ p-value.</li></ol><ol type="1" id="5f65a6dc-fbaa-4352-a38b-50ff25ca7780" class="numbered-list numbered-list-digits-2" start="10" dir="auto"><li>لا تنسب الفرق بين مجموعتين إلى Treatment إذا كان هناك Confounding واضح ولم يكن هناك Randomization أو تصميم سببي قوي.</li></ol><h1 id="fe6af867-99f9-4708-acc1-95146a0eee37" class="" dir="auto">40. مثال متكامل يربط الكورس</h1><p id="a3ca85ac-2102-4c0b-85c8-4de610ce1b5a" class="" dir="auto">شركة تريد معرفة هل تغيير تصميم صفحة Checkout يزيد Conversion.</p><p id="5b4d6eb4-f62c-41a0-9dd9-e486a45f4d9d" class="" dir="auto"><strong>Step 1 — Question</strong></p><p id="5dca2241-40f2-41f3-bc56-87330d393fa5" class="" dir="auto">هل التصميم الجديد يسبب زيادة في Conversion؟</p><p id="05d25ece-1e57-4f7c-b60c-24b399b4ab34" class="" dir="auto"><strong>Step 2 — Experiment</strong></p><ul id="e94e1e5d-09d8-43aa-8c63-7a136558f2a4" class="bulleted-list" dir="auto"><li style="list-style-type:disc">A = Control: التصميم القديم.</li></ul><ul id="0f4db0b9-63a3-432a-b662-5ae600729bab" class="bulleted-list" dir="auto"><li style="list-style-type:disc">B = Treatment: التصميم الجديد.</li></ul><ul id="704c2265-41ac-4c6a-88b8-d35867c5290b" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Randomly assign users.</li></ul><p id="9002b99d-eff4-4de9-b4b1-dc4262ed5298" class="" dir="auto"><strong>Step 3 — Data</strong></p><p id="452e87fb-232b-40e9-9fb5-2a84b4dfb26b" class="" dir="auto">احسب Conversion Rate لكل مجموعة.</p><p id="a81a6531-05a7-4ca0-8982-2f61843d744b" class="" dir="auto"><strong>Step 4 — Difference</strong></p><p id="978c6598-38d4-4b56-8769-32d9e20127f3" class="" dir="auto">قارن B مع A.</p><p id="c8d5775f-ee97-4a08-bcf7-9ad3297860d4" class="" dir="auto"><strong>Step 5 — Sampling Variability</strong></p><p id="cdb93639-f0bc-4329-b680-02fcc667ce14" class="" dir="auto">الفرق بين العينتين قد يكون بسبب الصدفة، لذلك نحتاج Standard Error وTest Statistic.</p><p id="bda3732f-bd46-45a9-bc2b-6ba54405f35f" class="" dir="auto"><strong>Step 6 — Hypothesis</strong></p><p id="6d167da8-aa36-4763-972f-a42c6e6a2c91" class="" dir="auto">(H_0): لا يوجد تأثير للتصميم الجديد.</p><p id="1069574b-2ae5-4ce6-93d1-77f5a8762adc" class="" dir="auto">(H_a): التصميم الجديد يزيد Conversion.</p><p id="061cc78a-f6eb-43f8-914f-a60341c4b039" class="" dir="auto"><strong>Step 7 — p-value</strong></p><p id="9bd33198-8745-4c18-bec2-f9ef7a615892" class="" dir="auto">احسب احتمال الحصول على نتيجة مساوية أو أكثر تطرفًا، بافتراض H₀.</p><p id="3025eb09-eebe-4f6e-a636-5ec9efabf53a" class="" dir="auto"><strong>Step 8 — Decision</strong></p><p id="ac4a8fb0-ffa5-4699-ac02-3521712c0225" class="" dir="auto">إذا (ple0.05) → Reject H₀.</p><p id="04a435e0-26c6-459d-be5e-d54e21386460" class="" dir="auto">إذا (p&gt;0.05) → Fail to Reject H₀.</p><p id="8f4529b4-2185-48c9-b03f-dad7b39b8ee6" class="" dir="auto"><strong>Step 9 — Business interpretation</strong></p><p id="fff85a6b-ba29-4ba2-b0a6-cfd955ef264d" class="" dir="auto">حتى لو كانت النتيجة Statistically Significant، اسأل: هل حجم الزيادة مهم تجاريًا؟ وهل التكلفة والآثار الجانبية للتغيير تستحقه؟</p><h1 id="f4810295-dfef-49d0-90bd-fde6c160a10d" class="" dir="auto">41. Final Mental Model</h1><p id="59fc9171-2e21-4e68-b099-7daecf16bff5" class="" dir="auto">احفظ الصورة التالية:</p><p id="5e406f19-3dac-415d-851e-a0e39abfb992" class="" dir="auto"><strong>Descriptive Statistics</strong> تصف ما رأيناه.</p><p id="8f0340be-6d13-4860-b4f5-a4717b4d7308" class="" dir="auto"><strong>Probability</strong> تصف عدم اليقين.</p><p id="0e1c7168-7927-4ee1-9b47-fc626f9e4db2" class="" dir="auto"><strong>Distributions</strong> تصف كيف تتوزع النتائج المحتملة.</p><p id="16cf54f6-b80b-4546-81b2-feea4550914c" class="" dir="auto"><strong>Sampling Distribution</strong> تصف كيف تتغير Statistics من عينة لأخرى.</p><p id="5287d300-6bea-478c-a7bf-cbf94db07cae" class="" dir="auto"><strong>SE</strong> يقيس تشتت الـ Statistic عبر العينات.</p><p id="68dcca3f-bb1a-4bd0-bd20-d5c53f611e12" class="" dir="auto"><strong>Confidence Interval</strong> يعطي نطاقًا معقولًا للـ Population Parameter.</p><p id="43fcb2bc-f06d-4795-ae62-ad6430ecf859" class="" dir="auto"><strong>Hypothesis Testing</strong> يختبر ما إذا كانت البيانات تقدم Evidence كافيًا ضد H₀.</p><p id="84fb4242-39e9-4640-b9d1-a4d56c6c1ae3" class="" dir="auto"><strong>p-value</strong> تقيس مدى ندرة النتيجة المرصودة أو الأكثر تطرفًا تحت H₀.</p><p id="13d5e72c-7f25-4b94-a115-6334dac1b3df" class="" dir="auto"><strong>α</strong> هو معيار القرار المحدد مسبقًا.</p><p id="b213a5ce-0617-4943-bb7c-efcc07cd18ca" class="" dir="auto"><strong>Experiments</strong> تساعدنا على دراسة Causation من خلال التحكم في تصميم الدراسة وتقليل Bias.</p><p id="0ddeb604-e45a-4e52-9637-c14dd4d1f106" class="" dir="auto"><strong>Correlation</strong> تقيس قوة واتجاه العلاقة الخطية، لكنها لا تثبت السببية.</p><p id="8b915635-6065-425e-84fd-211f457bb442" class="" dir="auto"><strong>Confounding</strong> يذكّرنا بأن متغيرًا ثالثًا قد يفسر العلاقة الظاهرة.</p><h1 id="6a66fe59-7015-47b7-acfc-bc6bff927ea9" class="" dir="auto">42. One-page Cheat Sheet</h1><table id="d8f94aaf-6fe8-45a6-9e57-6cb407e94199" class="simple-table" dir="ltr"><thead class="simple-table-header"><tr id="453de17d-77f5-4c0a-8ce6-a70566de356f" dir="ltr"><th id="@Fa_" class="simple-table-header-color simple-table-header">Concept</th><th id="[gLJ" class="simple-table-header-color simple-table-header">السؤال الذي يجيب عنه</th></tr></thead><tbody><tr id="06e54ec1-35bc-492f-a5fb-714a5982b988" dir="ltr"><td id="@Fa_" class="">Mean</td><td id="[gLJ" class="">ما المتوسط؟</td></tr><tr id="965adc03-270b-4742-9173-b0a7254577f6" dir="ltr"><td id="@Fa_" class="">Median</td><td id="[gLJ" class="">ما القيمة الوسطى؟</td></tr><tr id="2d3f7212-1dbb-40f1-a857-59b15900f38e" dir="ltr"><td id="@Fa_" class="">Mode</td><td id="[gLJ" class="">ما الأكثر تكرارًا؟</td></tr><tr id="b86e68ba-fca6-47eb-aa2f-61cbb45997e8" dir="ltr"><td id="@Fa_" class="">SD</td><td id="[gLJ" class="">كم تتشتت القيم الفردية؟</td></tr><tr id="6e087555-c23b-4b99-a0cd-7c33ff73dfcf" dir="ltr"><td id="@Fa_" class="">IQR</td><td id="[gLJ" class="">كم ينتشر middle 50%؟</td></tr><tr id="d547c340-ea89-43b4-899e-cbc13f38314e" dir="ltr"><td id="@Fa_" class="">Probability</td><td id="[gLJ" class="">ما احتمال الحدث؟</td></tr><tr id="b55eaf01-d40a-447e-bd50-7f1fffd71dd2" dir="ltr"><td id="@Fa_" class="">Binomial</td><td id="[gLJ" class="">كم نجاحًا من n تجارب؟</td></tr><tr id="c586ff95-0238-4d98-8417-c584096f4e3b" dir="ltr"><td id="@Fa_" class="">Normal</td><td id="[gLJ" class="">كيف تتوزع القيم حول Mean في Bell Curve؟</td></tr><tr id="a91d409f-3a83-430b-a826-aa79ec6258e8" dir="ltr"><td id="@Fa_" class="">Poisson</td><td id="[gLJ" class="">كم حدثًا خلال فترة/مساحة؟</td></tr><tr id="733b7a74-58b5-4779-bde5-7fb905b901ad" dir="ltr"><td id="@Fa_" class="">CLT</td><td id="[gLJ" class="">ماذا يحدث لتوزيع Sample Means مع عينات كثيرة؟</td></tr><tr id="b0695833-23fc-4f7c-897b-f694609aad03" dir="ltr"><td id="@Fa_" class="">Sampling Distribution</td><td id="[gLJ" class="">كيف تتوزع Statistic عبر العينات؟</td></tr><tr id="90374f46-2fb1-4330-ba16-ac0fd2d32258" dir="ltr"><td id="@Fa_" class="">SE</td><td id="[gLJ" class="">كم تتغير Statistic من عينة لأخرى؟</td></tr><tr id="48694e8d-1a0f-4405-a268-13db6d5173f6" dir="ltr"><td id="@Fa_" class="">Confidence Interval</td><td id="[gLJ" class="">ما النطاق المعقول للـ Population Parameter؟</td></tr><tr id="cf893ac2-eea8-4156-8857-557c899fea9c" dir="ltr"><td id="@Fa_" class="">H₀</td><td id="[gLJ" class="">ما فرضية عدم وجود فرق/تأثير؟</td></tr><tr id="efe0af7b-1f85-48a9-b3cb-a04960f0b9a8" dir="ltr"><td id="@Fa_" class="">Hₐ</td><td id="[gLJ" class="">ما الفرضية البديلة؟</td></tr><tr id="a94bb230-a312-493c-a8e7-ac586568a9b7" dir="ltr"><td id="@Fa_" class="">p-value</td><td id="[gLJ" class="">ما مدى ندرة النتيجة تحت H₀؟</td></tr><tr id="8a8522b1-57f3-4747-91e2-f917c6bc3663" dir="ltr"><td id="@Fa_" class="">α</td><td id="[gLJ" class="">ما threshold القرار المحدد مسبقًا؟</td></tr><tr id="a8099deb-115c-46f8-9b25-822855c06189" dir="ltr"><td id="@Fa_" class="">Type I</td><td id="[gLJ" class="">Reject true H₀ — False Positive</td></tr><tr id="7afa094c-a04c-440a-a0e4-6206fe546f5e" dir="ltr"><td id="@Fa_" class="">Type II</td><td id="[gLJ" class="">Fail to reject false H₀ — False Negative</td></tr><tr id="fce7e0df-e254-4b03-af4a-e8cd3117a7af" dir="ltr"><td id="@Fa_" class="">Treatment</td><td id="[gLJ" class="">ما المعالجة التي نختبر أثرها؟</td></tr><tr id="28a09289-fee8-4cfa-a71d-a19408be0b54" dir="ltr"><td id="@Fa_" class="">Control</td><td id="[gLJ" class="">ما المجموعة المرجعية؟</td></tr><tr id="cc9f2645-c8f2-466f-bcbb-e7c308b28fbe" dir="ltr"><td id="@Fa_" class="">Randomization</td><td id="[gLJ" class="">كيف نقلل Bias وConfounding؟</td></tr><tr id="b75dd8c4-d55c-44b2-b21f-eb6f172095b4" dir="ltr"><td id="@Fa_" class="">Blinding</td><td id="[gLJ" class="">كيف نقلل تأثير التوقعات؟</td></tr><tr id="13580cf5-0263-4ca4-8385-b2422da2cfd3" dir="ltr"><td id="@Fa_" class="">Correlation</td><td id="[gLJ" class="">ما قوة واتجاه العلاقة الخطية؟</td></tr><tr id="e7745496-232f-484e-a1f4-d2359cd0e689" dir="ltr"><td id="@Fa_" class="">Confounder</td><td id="[gLJ" class="">ما المتغير الثالث الذي قد يفسر العلاقة؟</td></tr></tbody></table><h1 id="019da577-1c0c-457f-af15-7ffaa7e152d3" class="" dir="auto">43. خلاصة الكورس</h1><p id="ac2deec6-6423-4207-94c5-2609b469c549" class="" dir="auto">الهدف النهائي من Statistics ليس حفظ المعادلات، وإنما القدرة على الانتقال من سؤال عملي إلى تحليل مناسب، ثم تفسير النتيجة في سياقها.</p><p id="6364471f-8bbb-48a9-95ac-67f0948f685b" class="" dir="auto"><strong>Data → Question → Appropriate Statistical Tool → Evidence → Uncertainty → Decision</strong></p><p id="0735cac8-3c2c-443e-931f-df1c7759404e" class="" dir="auto">وهذه هي القاعدة التي ستبني عليها لاحقًا موضوعات أعمق في <strong>Regression، A/B Testing، Statistical Power، Effect Size، وMachine Learning</strong>.</p></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>

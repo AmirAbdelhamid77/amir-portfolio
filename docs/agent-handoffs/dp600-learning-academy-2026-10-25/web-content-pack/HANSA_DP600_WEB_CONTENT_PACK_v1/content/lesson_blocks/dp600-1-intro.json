@@ -1,0 +1,38 @@
+{
+  "lesson_id": "dp600-1-intro",
+  "source_sections": [
+    8,
+    10,
+    11
+  ],
+  "blocks": [
+    {
+      "id": "dp600-1-intro-p008",
+      "kind": "source_fragment",
+      "source_page": 8,
+      "source_start_line": 1,
+      "source_text": "Chapter 1 — The Microsoft Fabric platform in one chapter\nEvery other chapter assumes the vocabulary in this one. If you can explain the picture below out loud, you\nare ready to move on.",
+      "presentation_status": "needs-editorial-layout-conversion",
+      "recommended_renderer": "SourceFragment"
+    },
+    {
+      "id": "dp600-1-intro-p010",
+      "kind": "source_fragment",
+      "source_page": 10,
+      "source_start_line": 1,
+      "source_text": "Concept\nData movement\nFreshness\nTypical use\nShortcut\nNone — read in place\nAlways\ncurrent\nReuse a Gold table across workspaces; read\nS3/ADLS without ETL\nMirroring\nManaged replication into\nOneLake\nNear real\ntime\nBring Azure SQL, Cosmos DB, Snowflake into\nFabric with no ETL\nCopy\n(pipeline/dataflow)\nPhysical copy\nAs of last run\nYou need to reshape, cleanse, or land history\nCOMMON EXAM TRAP\nA shortcut does not carry the source's permissions into Fabric automatically. Access through a shortcut\nis evaluated by the shortcut's own connection and by OneLake security in the target workspace.\nShortcuts to external clouds use the stored credential of the connection, not the caller's identity (unless\nthe connection uses a pass-through identity). Expect a question that hinges on \"who can see this data\nafter I create the shortcut?\"",
+      "presentation_status": "needs-editorial-layout-conversion",
+      "recommended_renderer": "SourceFragment"
+    },
+    {
+      "id": "dp600-1-intro-p011",
+      "kind": "source_fragment",
+      "source_page": 11,
+      "source_start_line": 1,
+      "source_text": "What is the workload?\nLakehouse\nSpark / files\nunstructured +\nDelta tables\nread-only SQL\nWarehouse\nFull T-SQL\nmulti-table\ntransactions\nwrites via SQL\nEventhouse\nHigh-volume\ntelemetry, logs\nKQL, seconds\ntime series\nSQL database\nOLTP app data\nlow latency\nauto-mirrored\nto OneLake\nAll four persist to OneLake in Delta/Parquet, so any engine can read the result\nThe four analytical stores. All of them land data in OneLake in Delta/Parquet.\nLakehouse\nWarehouse\nEventhouse (KQL)\nSQL database\nPrimary\nlanguage\nPySpark, Spark\nSQL\nT-SQL\nKQL (T-SQL subset for\nreads)\nT-SQL\nWrites\nSpark, pipelines,\nDataflows Gen2\nT-SQL\nINSERT / UPDATE / DE\nLETE / MERGE , COPY\nINTO\nStreaming ingestion,\n.ingest\nFull OLTP\ntransactions\nMulti-table\ntransactions\nNo\nYes\nNo\nYes\nUnstructured\nfiles\nYes (Files area)\nNo\nNo\nNo\nBest at\nData engineering,\nML, mixed file\ntypes\nDimensional models,\nSQL-first teams,\ncomplex joins\nTelemetry, logs, IoT, time\nseries, sub-second over\nhuge volumes\nOperational apps,\nlow-latency point\nreads\nSQL endpoint\nRead-only\nRead/write\n—\nRead/write\nAuto-mirrors to\nOneLake\nNative\nNative\nYes, via OneLake\navailability\nYes, automatically\nKNOW THE DIFFERENCE\nLakehouse vs Warehouse is the single most common \"choose a store\" question. Decide with two\nquestions: (1) Does the team need to write with T-SQL, including multi-table transactions? →\nWarehouse. (2) Does the workload involve files, Spark, or ML? → Lakehouse. If both, use both: a\nlakehouse for Bronze/Silver and a warehouse for Gold, joined through shortcuts or cross-database\nqueries.\nFull decision guidance: choose a data store and choose between pipeline, dataflow, and Spark.",
+      "presentation_status": "needs-editorial-layout-conversion",
+      "recommended_renderer": "SourceFragment"
+    }
+  ],
+  "warning": "Source fragments are NOT native formatted prose, tables or runnable code."
+}

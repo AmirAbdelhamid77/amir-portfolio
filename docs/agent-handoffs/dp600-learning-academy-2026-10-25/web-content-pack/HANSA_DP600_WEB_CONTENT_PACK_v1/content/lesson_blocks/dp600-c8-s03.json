@@ -1,0 +1,18 @@
+{
+  "lesson_id": "dp600-c8-s03",
+  "source_sections": [
+    45
+  ],
+  "blocks": [
+    {
+      "id": "dp600-c8-s03-p045",
+      "kind": "source_fragment",
+      "source_page": 45,
+      "source_start_line": 1,
+      "source_text": "8.3 DAX performance patterns\nInstead of\nWrite\nWhy\nCALCULATE([Sales],\nFILTER(FactSales,\nFactSales[Amt]>100))\nCALCULATE([Sales],\nFactSales[Amt]>100)\nA table filter over a large fact table\nmaterialises it; a column predicate\nbecomes an efficient filter\n[Sales] / [Cost]\nDIVIDE([Sales],\n[Cost])\nHandles blank and zero denominators\nwithout an error branch\nRepeating a sub-expression three times\nVAR  it once\nEvaluated once, and the intent is readable\nSUMX(FactSales,\nRELATED(DimProduct[Price]) *\nFactSales[Qty])  on 500M rows\nMaterialise the price on\nthe fact at load time\nStorage-engine work beats formula-engine\nwork\nIF(ISBLANK([M]), 0, [M])\neverywhere\nLeave blanks blank\nBlanks let the engine skip rows; forcing\nzeros explodes result sets\nALL()  when you meant one column\nREMOVEFILTERS(Table\n[Col])\nRemoving every filter is rarely what the\nbusiness meant\nKEY TAKEAWAY\nThe formula engine is single-threaded; the storage engine is multi-threaded and cached. Every\noptimisation is the same idea in different clothes: push work into the storage engine, and give it less\ndata to touch.",
+      "presentation_status": "needs-editorial-layout-conversion",
+      "recommended_renderer": "SourceFragment"
+    }
+  ],
+  "warning": "Source fragments are NOT native formatted prose, tables or runnable code."
+}

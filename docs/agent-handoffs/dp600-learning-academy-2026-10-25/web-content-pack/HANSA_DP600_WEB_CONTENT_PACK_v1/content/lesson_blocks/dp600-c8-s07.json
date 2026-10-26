@@ -1,0 +1,18 @@
+{
+  "lesson_id": "dp600-c8-s07",
+  "source_sections": [
+    48
+  ],
+  "blocks": [
+    {
+      "id": "dp600-c8-s07-p048",
+      "kind": "source_fragment",
+      "source_page": 48,
+      "source_start_line": 14,
+      "source_text": "8.7 Chapter 8 self-check\n1. Performance Analyzer shows 90 ms DAX and 4,500 ms visual display. What do you fix?\n2. A Direct Lake report suddenly slowed with no model change. What do you check first?\n3. Which model property makes a guardrail breach raise an error instead of degrading?\n4. Your incremental refresh runs as long as a full refresh. What is the likely cause?\n5. You must combine Gold tables from two different lakehouses in one Direct Lake model. Which flavour?\nAnswers. 1. The visual — too many data points or too many visuals on the page, not the measure. 2.\nWhether queries are falling back to DirectQuery because a guardrail was exceeded. 3.\nDirectLakeBehavior = DirectLakeOnly . 4. Query folding is broken, so each partition scans the\nentire source. 5. Direct Lake on OneLake.",
+      "presentation_status": "needs-editorial-layout-conversion",
+      "recommended_renderer": "SourceFragment"
+    }
+  ],
+  "warning": "Source fragments are NOT native formatted prose, tables or runnable code."
+}

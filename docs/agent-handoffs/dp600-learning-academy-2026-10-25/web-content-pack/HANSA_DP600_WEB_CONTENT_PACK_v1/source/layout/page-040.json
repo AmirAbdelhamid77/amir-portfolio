@@ -1,0 +1,1773 @@
+{
+  "page": 40,
+  "width": 594.9599609375,
+  "height": 841.9199829101562,
+  "blocks": [
+    {
+      "bbox": [
+        57.0,
+        52.76,
+        276.16,
+        75.36
+      ],
+      "lines": [
+        {
+          "bbox": [
+            57.0,
+            52.76,
+            109.18,
+            62.61
+          ],
+          "spans": [
+            {
+              "text": "Margin % =",
+              "bbox": [
+                57.0,
+                52.76,
+                109.18,
+                62.61
+              ],
+              "font": "LiberationMono",
+              "size": 8.7,
+              "flags": 8,
+              "color": 15330805
+            }
+          ]
+        },
+        {
+          "bbox": [
+            57.0,
+            65.51,
+            276.16,
+            75.36
+          ],
+          "spans": [
+            {
+              "text": "VAR Sales = SUM ( FactSales[SalesAmount] )",
+              "bbox": [
+                57.0,
+                65.51,
+                276.16,
+                75.36
+              ],
+              "font": "LiberationMono",
+              "size": 8.7,
+              "flags": 8,
+              "color": 15330805
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "bbox": [
+        57.0,
+        79.01,
+        302.25,
+        101.61
+      ],
+      "lines": [
+        {
+          "bbox": [
+            57.0,
+            79.01,
+            302.25,
+            88.86
+          ],
+          "spans": [
+            {
+              "text": "VAR Cost  = SUM ( FactSales[TotalProductCost] )",
+              "bbox": [
+                57.0,
+                79.01,
+                302.25,
+                88.86
+              ],
+              "font": "LiberationMono",
+              "size": 8.7,
+              "flags": 8,
+              "color": 15330805
+            }
+          ]
+        },
+        {
+          "bbox": [
+            57.0,
+            91.76,
+            250.07,
+            101.61
+          ],
+          "spans": [
+            {
+              "text": "RETURN DIVIDE ( Sales - Cost, Sales )",
+              "bbox": [
+                57.0,
+                91.76,
+                250.07,
+                101.61
+              ],
+              "font": "LiberationMono",
+              "size": 8.7,
+              "flags": 8,
+              "color": 15330805
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "bbox": [
+        44.25,
+        122.41,
+        534.43,
+        135.08
+      ],
+      "lines": [
+        {
+          "bbox": [
+            44.25,
+            122.41,
+            534.43,
+            135.08
+          ],
+          "spans": [
+            {
+              "text": "Iterators",
+              "bbox": [
+                44.25,
+                122.41,
+                86.64,
+                134.25
+              ],
+              "font": "LiberationSans-Bold",
+              "size": 10.6,
+              "flags": 16,
+              "color": 1184282
+            },
+            {
+              "text": " (",
+              "bbox": [
+                86.65,
+                122.41,
+                93.12,
+                134.25
+              ],
+              "font": "LiberationSans",
+              "size": 10.6,
+              "flags": 0,
+              "color": 1776415
+            },
+            {
+              "text": " SUMX",
+              "bbox": [
+                93.12,
+                124.51,
+                118.48,
+                135.08
+              ],
+              "font": "LiberationMono",
+              "size": 9.0,
+              "flags": 8,
+              "color": 1122867
+            },
+            {
+              "text": " , ",
+              "bbox": [
+                118.48,
+                122.41,
+                128.13,
+                134.62
+              ],
+              "font": "LiberationSans",
+              "size": 10.6,
+              "flags": 0,
+              "color": 1776415
+            },
+            {
+              "text": "AVERAGEX",
+              "bbox": [
+                131.88,
+                124.88,
+                175.08,
+                135.08
+              ],
+              "font": "LiberationMono",
+              "size": 9.0,
+              "flags": 8,
+              "color": 1122867
+            },
+            {
+              "text": " , ",
+              "bbox": [
+                175.08,
+                122.41,
+                184.73,
+                134.62
+              ],
+              "font": "LiberationSans",
+              "size": 10.6,
+              "flags": 0,
+              "color": 1776415
+            },
+            {
+              "text": "MAXX",
+              "bbox": [
+                188.48,
+                124.88,
+                210.08,
+                135.08
+              ],
+              "font": "LiberationMono",
+              "size": 9.0,
+              "flags": 8,
+              "color": 1122867
+            },
+            {
+              "text": " , ",
+              "bbox": [
+                210.08,
+                122.41,
+                219.73,
+                134.62
+              ],
+              "font": "LiberationSans",
+              "size": 10.6,
+              "flags": 0,
+              "color": 1776415
+            },
+            {
+              "text": "RANKX",
+              "bbox": [
+                223.49,
+                124.88,
+                250.49,
+                135.08
+              ],
+              "font": "LiberationMono",
+              "size": 9.0,
+              "flags": 8,
+              "color": 1122867
+            },
+            {
+              "text": " , ",
+              "bbox": [
+                250.49,
+                122.41,
+                260.14,
+                134.62
+              ],
+              "font": "LiberationSans",
+              "size": 10.6,
+              "flags": 0,
+              "color": 1776415
+            },
+            {
+              "text": "CONCATENATEX",
+              "bbox": [
+                263.89,
+                124.88,
+                328.69,
+                135.08
+              ],
+              "font": "LiberationMono",
+              "size": 9.0,
+              "flags": 8,
+              "color": 1122867
+            },
+            {
+              "text": " ) evaluate an expression row by row over a",
+              "bbox": [
+                328.69,
+                122.41,
+                534.43,
+                134.62
+              ],
+              "font": "LiberationSans",
+              "size": 10.6,
+              "flags": 0,
+              "color": 1776415
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "bbox": [
+        44.25,
+        140.41,
+        165.01,
+        152.25
+      ],
+      "lines": [
+        {
+          "bbox": [
+            44.25,
+            140.41,
+            165.01,
+            152.25
+          ],
+          "spans": [
+            {
+              "text": "table and then aggregate:",
+              "bbox": [
+                44.25,
+                140.41,
+                165.01,
+                152.25
+              ],
+              "font": "LiberationSans",
+              "size": 10.6,
+              "flags": 0,
+              "color": 1776415
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "bbox": [
+        57.0,
+        171.26,
+        458.79,
+        181.11
+      ],
+      "lines": [
+        {
+          "bbox": [
+            57.0,
+            171.26,
+            458.79,
+            181.11
+          ],
+          "spans": [
+            {
+              "text": "Sales Amount = SUMX ( FactSales, FactSales[Quantity] * FactSales[UnitPrice] )",
+              "bbox": [
+                57.0,
+                171.26,
+                458.79,
+                181.11
+              ],
+              "font": "LiberationMono",
+              "size": 8.7,
+              "flags": 8,
+              "color": 15330805
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "bbox": [
+        44.25,
+        201.53,
+        314.49,
+        213.83
+      ],
+      "lines": [
+        {
+          "bbox": [
+            44.25,
+            201.53,
+            314.49,
+            213.83
+          ],
+          "spans": [
+            {
+              "text": "Table filtering",
+              "bbox": [
+                44.25,
+                201.91,
+                112.92,
+                213.75
+              ],
+              "font": "LiberationSans-Bold",
+              "size": 10.6,
+              "flags": 16,
+              "color": 1184282
+            },
+            {
+              "text": " — pass a table expression to ",
+              "bbox": [
+                112.92,
+                201.91,
+                255.43,
+                213.75
+              ],
+              "font": "LiberationSans",
+              "size": 10.6,
+              "flags": 0,
+              "color": 1776415
+            },
+            {
+              "text": "CALCULATE",
+              "bbox": [
+                259.18,
+                203.63,
+                307.78,
+                213.83
+              ],
+              "font": "LiberationMono",
+              "size": 9.0,
+              "flags": 8,
+              "color": 1122867
+            },
+            {
+              "text": " :",
+              "bbox": [
+                307.78,
+                201.53,
+                314.49,
+                213.75
+              ],
+              "font": "LiberationSans",
+              "size": 10.6,
+              "flags": 0,
+              "color": 1776415
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "bbox": [
+        57.0,
+        232.76,
+        150.93,
+        242.61
+      ],
+      "lines": [
+        {
+          "bbox": [
+            57.0,
+            232.76,
+            150.93,
+            242.61
+          ],
+          "spans": [
+            {
+              "text": "High Value Sales =",
+              "bbox": [
+                57.0,
+                232.76,
+                150.93,
+                242.61
+              ],
+              "font": "LiberationMono",
+              "size": 8.7,
+              "flags": 8,
+              "color": 15330805
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "bbox": [
+        57.0,
+        246.26,
+        537.06,
+        268.86
+      ],
+      "lines": [
+        {
+          "bbox": [
+            57.0,
+            246.26,
+            537.06,
+            256.11
+          ],
+          "spans": [
+            {
+              "text": "CALCULATE ( [Total Sales], FILTER ( VALUES ( FactSales[OrderValue] ), FactSales[OrderValue] ",
+              "bbox": [
+                57.0,
+                246.26,
+                537.06,
+                256.11
+              ],
+              "font": "LiberationMono",
+              "size": 8.7,
+              "flags": 8,
+              "color": 15330805
+            }
+          ]
+        },
+        {
+          "bbox": [
+            57.0,
+            259.01,
+            109.18,
+            268.86
+          ],
+          "spans": [
+            {
+              "text": "> 1000 ) )",
+              "bbox": [
+                57.0,
+                259.01,
+                109.18,
+                268.86
+              ],
+              "font": "LiberationMono",
+              "size": 8.7,
+              "flags": 8,
+              "color": 15330805
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "bbox": [
+        44.25,
+        289.28,
+        546.93,
+        301.95
+      ],
+      "lines": [
+        {
+          "bbox": [
+            44.25,
+            289.28,
+            546.93,
+            301.95
+          ],
+          "spans": [
+            {
+              "text": "Windowing functions",
+              "bbox": [
+                44.25,
+                289.66,
+                151.25,
+                301.5
+              ],
+              "font": "LiberationSans-Bold",
+              "size": 10.6,
+              "flags": 16,
+              "color": 1184282
+            },
+            {
+              "text": " (",
+              "bbox": [
+                151.25,
+                289.66,
+                157.73,
+                301.5
+              ],
+              "font": "LiberationSans",
+              "size": 10.6,
+              "flags": 0,
+              "color": 1776415
+            },
+            {
+              "text": " INDEX",
+              "bbox": [
+                157.73,
+                291.38,
+                188.48,
+                301.95
+              ],
+              "font": "LiberationMono",
+              "size": 9.0,
+              "flags": 8,
+              "color": 1122867
+            },
+            {
+              "text": " , ",
+              "bbox": [
+                188.48,
+                289.28,
+                198.14,
+                301.5
+              ],
+              "font": "LiberationSans",
+              "size": 10.6,
+              "flags": 0,
+              "color": 1776415
+            },
+            {
+              "text": "OFFSET",
+              "bbox": [
+                201.89,
+                291.38,
+                234.29,
+                301.58
+              ],
+              "font": "LiberationMono",
+              "size": 9.0,
+              "flags": 8,
+              "color": 1122867
+            },
+            {
+              "text": " , ",
+              "bbox": [
+                234.29,
+                289.28,
+                243.94,
+                301.5
+              ],
+              "font": "LiberationSans",
+              "size": 10.6,
+              "flags": 0,
+              "color": 1776415
+            },
+            {
+              "text": "WINDOW",
+              "bbox": [
+                247.7,
+                291.38,
+                280.1,
+                301.58
+              ],
+              "font": "LiberationMono",
+              "size": 9.0,
+              "flags": 8,
+              "color": 1122867
+            },
+            {
+              "text": " , ",
+              "bbox": [
+                280.1,
+                289.28,
+                289.75,
+                301.5
+              ],
+              "font": "LiberationSans",
+              "size": 10.6,
+              "flags": 0,
+              "color": 1776415
+            },
+            {
+              "text": "RANK",
+              "bbox": [
+                293.51,
+                291.38,
+                315.11,
+                301.58
+              ],
+              "font": "LiberationMono",
+              "size": 9.0,
+              "flags": 8,
+              "color": 1122867
+            },
+            {
+              "text": " , ",
+              "bbox": [
+                315.11,
+                289.28,
+                324.76,
+                301.5
+              ],
+              "font": "LiberationSans",
+              "size": 10.6,
+              "flags": 0,
+              "color": 1776415
+            },
+            {
+              "text": "ROWNUMBER",
+              "bbox": [
+                328.51,
+                291.38,
+                377.11,
+                301.58
+              ],
+              "font": "LiberationMono",
+              "size": 9.0,
+              "flags": 8,
+              "color": 1122867
+            },
+            {
+              "text": " ) operate over an ordered result set",
+              "bbox": [
+                377.11,
+                289.28,
+                546.93,
+                301.5
+              ],
+              "font": "LiberationSans",
+              "size": 10.6,
+              "flags": 0,
+              "color": 1776415
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "bbox": [
+        44.25,
+        306.91,
+        271.52,
+        319.58
+      ],
+      "lines": [
+        {
+          "bbox": [
+            44.25,
+            306.91,
+            271.52,
+            319.58
+          ],
+          "spans": [
+            {
+              "text": "— much simpler than the old ",
+              "bbox": [
+                44.25,
+                306.91,
+                182.03,
+                318.75
+              ],
+              "font": "LiberationSans",
+              "size": 10.6,
+              "flags": 0,
+              "color": 1776415
+            },
+            {
+              "text": "EARLIER",
+              "bbox": [
+                185.79,
+                309.38,
+                223.59,
+                319.58
+              ],
+              "font": "LiberationMono",
+              "size": 9.0,
+              "flags": 8,
+              "color": 1122867
+            },
+            {
+              "text": "  patterns:",
+              "bbox": [
+                223.59,
+                306.91,
+                271.52,
+                319.12
+              ],
+              "font": "LiberationSans",
+              "size": 10.6,
+              "flags": 0,
+              "color": 1776415
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "bbox": [
+        57.0,
+        338.51,
+        510.97,
+        361.11
+      ],
+      "lines": [
+        {
+          "bbox": [
+            57.0,
+            338.51,
+            187.45,
+            348.36
+          ],
+          "spans": [
+            {
+              "text": "Sales vs Previous Month =",
+              "bbox": [
+                57.0,
+                338.51,
+                187.45,
+                348.36
+              ],
+              "font": "LiberationMono",
+              "size": 8.7,
+              "flags": 8,
+              "color": 15330805
+            }
+          ]
+        },
+        {
+          "bbox": [
+            57.0,
+            351.26,
+            510.97,
+            361.11
+          ],
+          "spans": [
+            {
+              "text": "VAR Prior = CALCULATE ( [Total Sales], OFFSET ( -1, , ORDERBY ( DimDate[MonthKey] ) ) )",
+              "bbox": [
+                57.0,
+                351.26,
+                510.97,
+                361.11
+              ],
+              "font": "LiberationMono",
+              "size": 8.7,
+              "flags": 8,
+              "color": 15330805
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "bbox": [
+        57.0,
+        364.76,
+        203.11,
+        374.61
+      ],
+      "lines": [
+        {
+          "bbox": [
+            57.0,
+            364.76,
+            203.11,
+            374.61
+          ],
+          "spans": [
+            {
+              "text": "RETURN [Total Sales] - Prior",
+              "bbox": [
+                57.0,
+                364.76,
+                203.11,
+                374.61
+              ],
+              "font": "LiberationMono",
+              "size": 8.7,
+              "flags": 8,
+              "color": 15330805
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "bbox": [
+        44.25,
+        395.03,
+        545.62,
+        407.33
+      ],
+      "lines": [
+        {
+          "bbox": [
+            44.25,
+            395.03,
+            545.62,
+            407.33
+          ],
+          "spans": [
+            {
+              "text": "Information functions",
+              "bbox": [
+                44.25,
+                395.41,
+                153.12,
+                407.25
+              ],
+              "font": "LiberationSans-Bold",
+              "size": 10.6,
+              "flags": 16,
+              "color": 1184282
+            },
+            {
+              "text": " answer \"what is the current state?\" — ",
+              "bbox": [
+                153.13,
+                395.41,
+                335.53,
+                407.25
+              ],
+              "font": "LiberationSans",
+              "size": 10.6,
+              "flags": 0,
+              "color": 1776415
+            },
+            {
+              "text": "ISBLANK",
+              "bbox": [
+                339.28,
+                397.13,
+                377.08,
+                407.33
+              ],
+              "font": "LiberationMono",
+              "size": 9.0,
+              "flags": 8,
+              "color": 1122867
+            },
+            {
+              "text": " , ",
+              "bbox": [
+                377.08,
+                395.03,
+                386.74,
+                407.25
+              ],
+              "font": "LiberationSans",
+              "size": 10.6,
+              "flags": 0,
+              "color": 1776415
+            },
+            {
+              "text": "ISFILTERED",
+              "bbox": [
+                390.49,
+                397.13,
+                444.49,
+                407.33
+              ],
+              "font": "LiberationMono",
+              "size": 9.0,
+              "flags": 8,
+              "color": 1122867
+            },
+            {
+              "text": " , ",
+              "bbox": [
+                444.49,
+                395.03,
+                454.14,
+                407.25
+              ],
+              "font": "LiberationSans",
+              "size": 10.6,
+              "flags": 0,
+              "color": 1776415
+            },
+            {
+              "text": "ISCROSSFILTERED",
+              "bbox": [
+                457.9,
+                397.13,
+                538.9,
+                407.33
+              ],
+              "font": "LiberationMono",
+              "size": 9.0,
+              "flags": 8,
+              "color": 1122867
+            },
+            {
+              "text": " ,",
+              "bbox": [
+                538.9,
+                395.03,
+                545.62,
+                407.25
+              ],
+              "font": "LiberationSans",
+              "size": 10.6,
+              "flags": 0,
+              "color": 1776415
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "bbox": [
+        48.0,
+        412.66,
+        421.54,
+        425.33
+      ],
+      "lines": [
+        {
+          "bbox": [
+            48.0,
+            412.66,
+            421.54,
+            425.33
+          ],
+          "spans": [
+            {
+              "text": "ISINSCOPE",
+              "bbox": [
+                48.0,
+                415.13,
+                96.6,
+                425.33
+              ],
+              "font": "LiberationMono",
+              "size": 9.0,
+              "flags": 8,
+              "color": 1122867
+            },
+            {
+              "text": " , ",
+              "bbox": [
+                96.6,
+                412.66,
+                106.25,
+                424.87
+              ],
+              "font": "LiberationSans",
+              "size": 10.6,
+              "flags": 0,
+              "color": 1776415
+            },
+            {
+              "text": "HASONEVALUE",
+              "bbox": [
+                110.0,
+                415.13,
+                169.4,
+                425.33
+              ],
+              "font": "LiberationMono",
+              "size": 9.0,
+              "flags": 8,
+              "color": 1122867
+            },
+            {
+              "text": " , ",
+              "bbox": [
+                169.4,
+                412.66,
+                179.06,
+                424.87
+              ],
+              "font": "LiberationSans",
+              "size": 10.6,
+              "flags": 0,
+              "color": 1776415
+            },
+            {
+              "text": "SELECTEDVALUE",
+              "bbox": [
+                182.81,
+                415.13,
+                253.01,
+                425.33
+              ],
+              "font": "LiberationMono",
+              "size": 9.0,
+              "flags": 8,
+              "color": 1122867
+            },
+            {
+              "text": " , ",
+              "bbox": [
+                253.01,
+                412.66,
+                262.67,
+                424.87
+              ],
+              "font": "LiberationSans",
+              "size": 10.6,
+              "flags": 0,
+              "color": 1776415
+            },
+            {
+              "text": "USERPRINCIPALNAME",
+              "bbox": [
+                266.43,
+                415.13,
+                358.23,
+                425.33
+              ],
+              "font": "LiberationMono",
+              "size": 9.0,
+              "flags": 8,
+              "color": 1122867
+            },
+            {
+              "text": " , ",
+              "bbox": [
+                358.23,
+                412.66,
+                367.88,
+                424.87
+              ],
+              "font": "LiberationSans",
+              "size": 10.6,
+              "flags": 0,
+              "color": 1776415
+            },
+            {
+              "text": "USERNAME",
+              "bbox": [
+                371.64,
+                415.13,
+                414.84,
+                425.33
+              ],
+              "font": "LiberationMono",
+              "size": 9.0,
+              "flags": 8,
+              "color": 1122867
+            },
+            {
+              "text": " :",
+              "bbox": [
+                414.84,
+                412.66,
+                421.54,
+                424.87
+              ],
+              "font": "LiberationSans",
+              "size": 10.6,
+              "flags": 0,
+              "color": 1776415
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "bbox": [
+        57.0,
+        444.26,
+        537.06,
+        466.86
+      ],
+      "lines": [
+        {
+          "bbox": [
+            57.0,
+            444.26,
+            177.02,
+            454.11
+          ],
+          "spans": [
+            {
+              "text": "Selected Region Label =",
+              "bbox": [
+                57.0,
+                444.26,
+                177.02,
+                454.11
+              ],
+              "font": "LiberationMono",
+              "size": 8.7,
+              "flags": 8,
+              "color": 15330805
+            }
+          ]
+        },
+        {
+          "bbox": [
+            57.0,
+            457.01,
+            537.06,
+            466.86
+          ],
+          "spans": [
+            {
+              "text": "IF ( HASONEVALUE ( DimRegion[Region] ), SELECTEDVALUE ( DimRegion[Region] ), \"All regions\" )",
+              "bbox": [
+                57.0,
+                457.01,
+                537.06,
+                466.86
+              ],
+              "font": "LiberationMono",
+              "size": 8.7,
+              "flags": 8,
+              "color": 15330805
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "bbox": [
+        44.25,
+        499.55,
+        448.28,
+        514.3
+      ],
+      "lines": [
+        {
+          "bbox": [
+            44.25,
+            499.55,
+            448.28,
+            514.3
+          ],
+          "spans": [
+            {
+              "text": "7.4 Calculation groups, dynamic format strings, field parameters",
+              "bbox": [
+                44.25,
+                499.55,
+                448.28,
+                514.3
+              ],
+              "font": "LiberationSans-Bold",
+              "size": 13.2,
+              "flags": 16,
+              "color": 949350
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "bbox": [
+        44.25,
+        525.91,
+        538.9,
+        537.75
+      ],
+      "lines": [
+        {
+          "bbox": [
+            44.25,
+            525.91,
+            538.9,
+            537.75
+          ],
+          "spans": [
+            {
+              "text": "These three features remove combinatorial explosion from models, and all three are named in the outline.",
+              "bbox": [
+                44.25,
+                525.91,
+                538.9,
+                537.75
+              ],
+              "font": "LiberationSans",
+              "size": 10.6,
+              "flags": 0,
+              "color": 1776415
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "bbox": [
+        44.25,
+        548.78,
+        523.13,
+        561.08
+      ],
+      "lines": [
+        {
+          "bbox": [
+            44.25,
+            548.78,
+            523.13,
+            561.08
+          ],
+          "spans": [
+            {
+              "text": "Calculation groups",
+              "bbox": [
+                44.25,
+                549.16,
+                140.19,
+                561.0
+              ],
+              "font": "LiberationSans-Bold",
+              "size": 10.6,
+              "flags": 16,
+              "color": 1184282
+            },
+            {
+              "text": " apply one set of calculation items to ",
+              "bbox": [
+                140.19,
+                549.16,
+                313.91,
+                561.0
+              ],
+              "font": "LiberationSans",
+              "size": 10.6,
+              "flags": 0,
+              "color": 1776415
+            },
+            {
+              "text": "any",
+              "bbox": [
+                313.91,
+                549.16,
+                330.99,
+                561.0
+              ],
+              "font": "LiberationSans-Italic",
+              "size": 10.6,
+              "flags": 2,
+              "color": 1776415
+            },
+            {
+              "text": " measure. Instead of writing ",
+              "bbox": [
+                331.0,
+                549.16,
+                464.07,
+                561.0
+              ],
+              "font": "LiberationSans",
+              "size": 10.6,
+              "flags": 0,
+              "color": 1776415
+            },
+            {
+              "text": "Sales YTD",
+              "bbox": [
+                467.82,
+                550.88,
+                516.42,
+                561.08
+              ],
+              "font": "LiberationMono",
+              "size": 9.0,
+              "flags": 8,
+              "color": 1122867
+            },
+            {
+              "text": " ,",
+              "bbox": [
+                516.42,
+                548.78,
+                523.13,
+                561.0
+              ],
+              "font": "LiberationSans",
+              "size": 10.6,
+              "flags": 0,
+              "color": 1776415
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "bbox": [
+        48.0,
+        566.41,
+        484.92,
+        579.08
+      ],
+      "lines": [
+        {
+          "bbox": [
+            48.0,
+            566.41,
+            484.92,
+            579.08
+          ],
+          "spans": [
+            {
+              "text": "Cost YTD",
+              "bbox": [
+                48.0,
+                568.88,
+                91.2,
+                579.08
+              ],
+              "font": "LiberationMono",
+              "size": 9.0,
+              "flags": 8,
+              "color": 1122867
+            },
+            {
+              "text": " , ",
+              "bbox": [
+                91.2,
+                566.41,
+                100.85,
+                578.62
+              ],
+              "font": "LiberationSans",
+              "size": 10.6,
+              "flags": 0,
+              "color": 1776415
+            },
+            {
+              "text": "Margin YTD",
+              "bbox": [
+                104.6,
+                568.88,
+                158.6,
+                579.08
+              ],
+              "font": "LiberationMono",
+              "size": 9.0,
+              "flags": 8,
+              "color": 1122867
+            },
+            {
+              "text": " , ",
+              "bbox": [
+                158.6,
+                566.41,
+                168.25,
+                578.62
+              ],
+              "font": "LiberationSans",
+              "size": 10.6,
+              "flags": 0,
+              "color": 1776415
+            },
+            {
+              "text": "Sales PY",
+              "bbox": [
+                172.01,
+                568.88,
+                215.21,
+                579.08
+              ],
+              "font": "LiberationMono",
+              "size": 9.0,
+              "flags": 8,
+              "color": 1122867
+            },
+            {
+              "text": " , ",
+              "bbox": [
+                215.21,
+                566.41,
+                224.85,
+                578.62
+              ],
+              "font": "LiberationSans",
+              "size": 10.6,
+              "flags": 0,
+              "color": 1776415
+            },
+            {
+              "text": "Cost PY",
+              "bbox": [
+                228.61,
+                568.88,
+                266.41,
+                579.08
+              ],
+              "font": "LiberationMono",
+              "size": 9.0,
+              "flags": 8,
+              "color": 1122867
+            },
+            {
+              "text": " …, you write one ",
+              "bbox": [
+                266.41,
+                566.41,
+                352.61,
+                578.62
+              ],
+              "font": "LiberationSans",
+              "size": 10.6,
+              "flags": 0,
+              "color": 1776415
+            },
+            {
+              "text": "Time intelligence",
+              "bbox": [
+                356.37,
+                568.88,
+                448.17,
+                579.08
+              ],
+              "font": "LiberationMono",
+              "size": 9.0,
+              "flags": 8,
+              "color": 1122867
+            },
+            {
+              "text": "  group:",
+              "bbox": [
+                448.17,
+                566.41,
+                484.92,
+                578.62
+              ],
+              "font": "LiberationSans",
+              "size": 10.6,
+              "flags": 0,
+              "color": 1776415
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "bbox": [
+        57.0,
+        598.01,
+        370.08,
+        620.61
+      ],
+      "lines": [
+        {
+          "bbox": [
+            57.0,
+            598.01,
+            182.23,
+            607.86
+          ],
+          "spans": [
+            {
+              "text": "-- Calculation item: YTD",
+              "bbox": [
+                57.0,
+                598.01,
+                182.23,
+                607.86
+              ],
+              "font": "LiberationMono",
+              "size": 8.7,
+              "flags": 8,
+              "color": 15330805
+            }
+          ]
+        },
+        {
+          "bbox": [
+            57.0,
+            610.76,
+            370.08,
+            620.61
+          ],
+          "spans": [
+            {
+              "text": "CALCULATE ( SELECTEDMEASURE (), DATESYTD ( DimDate[Date] ) )",
+              "bbox": [
+                57.0,
+                610.76,
+                370.08,
+                620.61
+              ],
+              "font": "LiberationMono",
+              "size": 8.7,
+              "flags": 8,
+              "color": 15330805
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "bbox": [
+        57.0,
+        637.01,
+        422.26,
+        659.61
+      ],
+      "lines": [
+        {
+          "bbox": [
+            57.0,
+            637.01,
+            177.02,
+            646.86
+          ],
+          "spans": [
+            {
+              "text": "-- Calculation item: PY",
+              "bbox": [
+                57.0,
+                637.01,
+                177.02,
+                646.86
+              ],
+              "font": "LiberationMono",
+              "size": 8.7,
+              "flags": 8,
+              "color": 15330805
+            }
+          ]
+        },
+        {
+          "bbox": [
+            57.0,
+            649.76,
+            422.26,
+            659.61
+          ],
+          "spans": [
+            {
+              "text": "CALCULATE ( SELECTEDMEASURE (), SAMEPERIODLASTYEAR ( DimDate[Date] ) )",
+              "bbox": [
+                57.0,
+                649.76,
+                422.26,
+                659.61
+              ],
+              "font": "LiberationMono",
+              "size": 8.7,
+              "flags": 8,
+              "color": 15330805
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "bbox": [
+        57.0,
+        676.01,
+        192.67,
+        685.86
+      ],
+      "lines": [
+        {
+          "bbox": [
+            57.0,
+            676.01,
+            192.67,
+            685.86
+          ],
+          "spans": [
+            {
+              "text": "-- Calculation item: YoY %",
+              "bbox": [
+                57.0,
+                676.01,
+                192.67,
+                685.86
+              ],
+              "font": "LiberationMono",
+              "size": 8.7,
+              "flags": 8,
+              "color": 15330805
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "bbox": [
+        57.0,
+        689.51,
+        474.44,
+        724.86
+      ],
+      "lines": [
+        {
+          "bbox": [
+            57.0,
+            689.51,
+            203.11,
+            699.36
+          ],
+          "spans": [
+            {
+              "text": "VAR Cur = SELECTEDMEASURE ()",
+              "bbox": [
+                57.0,
+                689.51,
+                203.11,
+                699.36
+              ],
+              "font": "LiberationMono",
+              "size": 8.7,
+              "flags": 8,
+              "color": 15330805
+            }
+          ]
+        },
+        {
+          "bbox": [
+            57.0,
+            702.26,
+            474.44,
+            712.11
+          ],
+          "spans": [
+            {
+              "text": "VAR Pri = CALCULATE ( SELECTEDMEASURE (), SAMEPERIODLASTYEAR ( DimDate[Date] ) )",
+              "bbox": [
+                57.0,
+                702.26,
+                474.44,
+                712.11
+              ],
+              "font": "LiberationMono",
+              "size": 8.7,
+              "flags": 8,
+              "color": 15330805
+            }
+          ]
+        },
+        {
+          "bbox": [
+            57.0,
+            715.01,
+            223.98,
+            724.86
+          ],
+          "spans": [
+            {
+              "text": "RETURN DIVIDE ( Cur - Pri, Pri )",
+              "bbox": [
+                57.0,
+                715.01,
+                223.98,
+                724.86
+              ],
+              "font": "LiberationMono",
+              "size": 8.7,
+              "flags": 8,
+              "color": 15330805
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "bbox": [
+        44.25,
+        745.66,
+        187.36,
+        757.5
+      ],
+      "lines": [
+        {
+          "bbox": [
+            44.25,
+            745.66,
+            187.36,
+            757.5
+          ],
+          "spans": [
+            {
+              "text": "Reference: ",
+              "bbox": [
+                44.25,
+                745.66,
+                99.02,
+                757.5
+              ],
+              "font": "LiberationSans",
+              "size": 10.6,
+              "flags": 0,
+              "color": 1776415
+            },
+            {
+              "text": "calculation groups",
+              "bbox": [
+                99.02,
+                745.66,
+                184.42,
+                757.5
+              ],
+              "font": "LiberationSans",
+              "size": 10.6,
+              "flags": 0,
+              "color": 1010877
+            },
+            {
+              "text": ".",
+              "bbox": [
+                184.42,
+                745.66,
+                187.36,
+                757.5
+              ],
+              "font": "LiberationSans",
+              "size": 10.6,
+              "flags": 0,
+              "color": 1776415
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

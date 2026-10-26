@@ -1,0 +1,797 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>📊 Data Visualization — Comprehensive &amp; Deep Reference</title><meta name="data-notion-page-icon" content="📊"/><link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20100%20100%22%3E%3Ctext%20y%3D%22.9em%22%20font-size%3D%2290%22%3E%F0%9F%93%8A%3C%2Ftext%3E%3C%2Fsvg%3E"/><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+/* Override strong tags inside headings to maintain consistent weight */
+h1 strong,
+h2 strong,
+h3 strong {
+	font-weight: 600;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 10px;
+	padding: 1rem;
+	/* Paint a complete callout box on every PDF page fragment. */
+	-webkit-box-decoration-break: clone;
+	box-decoration-break: clone;
+}
+
+/* For default-background callouts, render the border outline. */
+.callout.block-color-default_background {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+/*
+ * Toggles and callouts hold arbitrary content, so they can easily be taller
+ * than a page. They must stay breakable: avoiding breaks inside them makes
+ * Chromium push the whole block onto the next page, which leaves the previous
+ * page mostly empty before every long toggle.
+ */
+details,
+aside {
+	margin: 1.25em 0;
+}
+
+/* Keep a toggle's title on the same page as the start of its content. */
+summary {
+	page-break-after: avoid;
+	break-after: avoid;
+}
+
+/*
+ * Toggle headings render as <h1/h2/h3 style="display:inline-block"> inside
+ * <summary>. Without this reset, the heading's margin-top pushes it below the
+ * ::marker (▼), so the triangle and the title appear on separate lines.
+ */
+summary h1,
+summary h2,
+summary h3,
+summary h4 {
+	margin-top: 0;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+
+	table.collection-content {
+		width: 100%;
+		table-layout: fixed;
+	}
+
+	table.collection-content th,
+	table.collection-content td {
+		overflow-wrap: anywhere;
+	}
+
+	table.collection-content td > .user,
+	table.collection-content td > time {
+		white-space: pre-wrap;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content-wrapper {
+	overflow-x: auto;
+}
+
+@media only print {
+	.collection-content-wrapper {
+		overflow-x: visible;
+	}
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.collection-content td {
+	white-space: pre-wrap;
+	word-break: break-word;
+}
+
+.column-list {
+	display: flex;
+	gap: 46px;
+}
+
+.column {
+	min-width: 0;
+	overflow: hidden;
+}
+
+.column > *:first-child {
+	margin-top: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding-inline: 0.125rem;
+	padding-block: 0.375rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+table {
+	border-collapse: collapse;
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol.numbered-list.numbered-list-digits-2 {
+	padding-inline-start: 2em;
+}
+
+ol.numbered-list.numbered-list-digits-3plus {
+	padding-inline-start: 2.4em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+	margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+/*
+ * Render emoji icons using a ::before pseudo-element to keep the glyph
+ * out of the DOM textContent traversal. This avoids double-rendering icons
+ * in callouts and page titles.
+ * NOTE(slim/html-export-pseudo-icons): I can't tagref this because it will
+ * flag as a duplicate tag after codegen.
+ */
+.icon[data-emoji]::before {
+	content: attr(data-emoji);
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.callout img.notion-static-icon {
+	width: 1em;
+	height: 1em;
+}
+
+.callout p {
+	margin: 0;
+}
+
+.callout h1,
+.callout h2,
+.callout h3 {
+	margin: 0 0 0.6rem;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	margin-right: 0.4em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+blockquote.quote-large {
+	font-size: 1.25em;
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.tab {
+	margin: 1.25em 0;
+	padding-inline: 1rem;
+	border: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.highlight-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.highlight-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.highlight-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.highlight-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.highlight-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.highlight-default_background {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray_background {
+	background: rgba(42, 28, 0, 0.07);
+}
+.highlight-brown_background {
+	background: rgba(139, 46, 0, 0.086);
+}
+.highlight-orange_background {
+	background: rgba(224, 101, 1, 0.129);
+}
+.highlight-yellow_background {
+	background: rgba(211, 168, 0, 0.137);
+}
+.highlight-teal_background {
+	background: rgba(0, 100, 45, 0.09);
+}
+.highlight-blue_background {
+	background: rgba(0, 124, 215, 0.094);
+}
+.highlight-purple_background {
+	background: rgba(102, 0, 178, 0.078);
+}
+.highlight-pink_background {
+	background: rgba(197, 0, 93, 0.086);
+}
+.highlight-red_background {
+	background: rgba(223, 22, 0, 0.094);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.block-color-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.block-color-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.block-color-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.block-color-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.block-color-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.block-color-default_background {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray_background {
+	background: rgba(240, 239, 237, 1);
+}
+.block-color-brown_background {
+	background: rgba(245, 237, 233, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 235, 222, 1);
+}
+.block-color-yellow_background {
+	background: rgba(249, 243, 220, 1);
+}
+.block-color-teal_background {
+	background: rgba(232, 241, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(229, 242, 252, 1);
+}
+.block-color-purple_background {
+	background: rgba(243, 235, 249, 1);
+}
+.block-color-pink_background {
+	background: rgba(250, 233, 241, 1);
+}
+.block-color-red_background {
+	background: rgba(252, 233, 231, 1);
+}
+.select-value-color-default { background-color: rgba(42, 28, 0, 0.07); }
+.select-value-color-gray { background-color: rgba(28, 19, 1, 0.11); }
+.select-value-color-brown { background-color: rgba(127, 51, 0, 0.156); }
+.select-value-color-orange { background-color: rgba(196, 88, 0, 0.203); }
+.select-value-color-yellow { background-color: rgba(209, 156, 0, 0.282); }
+.select-value-color-green { background-color: rgba(0, 96, 38, 0.156); }
+.select-value-color-blue { background-color: rgba(0, 118, 217, 0.203); }
+.select-value-color-purple { background-color: rgba(92, 0, 163, 0.141); }
+.select-value-color-pink { background-color: rgba(183, 0, 78, 0.152); }
+.select-value-color-red { background-color: rgba(206, 24, 0, 0.164); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style><style>@import url('https://cdn.jsdelivr.net/npm/katex@0.16.25/dist/katex-swap.min.css')</style></head><body><article id="3cd3906c-5d6c-817a-8116-e9e1b38d216f" class="page sans" data-notion-page-icon="📊"><header><div class="page-header-icon undefined"><span class="icon" data-emoji="📊"></span></div><h1 class="page-title" dir="auto">📊 Data Visualization — Comprehensive &amp; Deep Reference</h1><p class="page-description" dir="auto"></p></header><div class="page-body"><aside class="block-color-purple_background callout" data-notion-callout="" data-notion-callout-icon="🏛️" data-notion-callout-background="purple_background" style="white-space:pre-wrap;display:flex" id="ac26aa98-1b10-4aed-8e53-76e2edc61050" dir="ltr"><div style="font-size:1.5em"><span class="icon" data-emoji="🏛️"></span></div><div style="width:100%"><p id="03c75549-9160-4702-966f-8a035c5ec51c" class="" dir="auto"><strong>This is the Library Hub.</strong> Navigation only. Chapter content was not rewritten.</p></div></aside><blockquote id="d96e7028-cc4d-4602-93d5-1494a496cc12" class="" dir="auto">Visualization = evidence layer. Storytelling = communication layer. This page is the working map. The original master copy is archive only.</blockquote><nav id="aff1dd9f-ff52-472b-8861-e2fa16ed7534" class="table_of_contents" data-notion-toc="" dir="ltr"><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#2a6c65d4-64e0-442b-a5b2-d0bd45316e07">Operating System</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#610be047-131e-4f3a-b4c3-6f69de4db1c7">How to Use</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#3956b7c4-9ad2-4cb8-bca1-fb8b4c22f334">Canonical Map</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#17648093-ce6e-4a21-b92c-730bc567bf04">01 · Foundations</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#34aa999b-6233-4d79-99ba-ec2c35e23f20">02 · Audience &amp; Story</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#71b76014-f383-450f-98c2-3924350b0374">03 · Core Visual Grammar</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#bf18a6e7-dfc7-48db-ab5c-a076370db39c">04 · Advanced &amp; Multivariate</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#64d39976-33aa-4858-8b51-ab43986d732c">05 · Color &amp; Perception</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#7414cc16-f334-4c0f-a245-3d586f70bd6f">06 · Accessibility &amp; QA</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#abe2bc4c-0625-4807-9b83-b1cf02e7fe08">07 · Integrity, Uncertainty &amp; Traps</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#2f35a4a3-4a22-4ad9-917c-e325c2a8a756">08 · Decision Tools &amp; Composition</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#4bd8cff0-b6f1-4300-9303-13325d2f2249">09 · Implementation</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#506cc004-3cf5-4352-8240-be040dea4c9f">Visual Atlas</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#fd9f95b4-9ca3-42f1-81f3-c1e868b1bf33">10 · Practice, Assessment &amp; Shelf</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#1e9ee99c-a6c4-4aab-9715-7cd4c882e7d7">Related Libraries</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#aba68e7a-1500-4e69-9d76-74547ebe7202">Pages owned by this hub</a></div></nav><h2 id="2a6c65d4-64e0-442b-a5b2-d0bd45316e07" class="" dir="auto">Operating System</h2><p id="dd18cbcc-1cab-4655-959d-00076d807ca2" class="" dir="auto"><strong>Question → Decision → Data Grain → Variables → Analytical Task → Visual Encoding → Scale → Context → Integrity → Action</strong></p><p id="e68b1d0a-029a-4373-8bce-365751e425fd" class="" dir="auto">Start from the decision, not from a chart type.</p><figure id="a5a1a00b-41ec-4ed9-bb7e-cae7adbb8f8c" class="image" data-notion-image="os_pipeline_full.svg" dir="ltr"><a href="os_pipeline_full.svg"><img src="os_pipeline_full.svg"/></a><figcaption>The working pipeline for every chart in this library.</figcaption></figure><figure id="790fbeba-060b-45f7-b2de-9d3bb1a1d009" class="image" data-notion-image="encoding_strength.svg" dir="ltr"><a href="encoding_strength.svg"><img src="encoding_strength.svg"/></a><figcaption>Use position on a common scale before color, size, or angle.</figcaption></figure><aside class="block-color-purple_background callout" data-notion-callout="" data-notion-callout-icon="🎨" data-notion-callout-background="purple_background" style="white-space:pre-wrap;display:flex" id="e722cfce-a4fb-4b1a-b2b7-b13b6ec8d919" dir="ltr"><div style="font-size:1.5em"><span class="icon" data-emoji="🎨"></span></div><div style="width:100%"><p id="13ee9f23-cab7-48e0-91ee-807da81dc600" class="" dir="auto">Figure pack: <a href="Visual%20Atlas%20%E2%80%94%20Teaching%20Charts%20&amp;%20Figure%20Pack%203e53906c5d6c81e588dee386862fecac.html" data-notion-page-id="3e53906c-5d6c-81e5-88de-e386862fecac" data-notion-space-id="b9b3906c-5d6c-81bc-b3c5-00037c38f1f8"><span class="icon" data-emoji="🎨"></span>Visual Atlas — Teaching Charts &amp; Figure Pack</a></p></div></aside><h2 id="610be047-131e-4f3a-b4c3-6f69de4db1c7" class="" dir="auto">How to Use</h2><p id="6db41eaa-30c1-4b16-a954-e2825fe943ac" class="" dir="auto">Pick one job.</p><table id="89d53cc0-ac12-43c8-8448-c9565d6162a2" class="simple-table" dir="ltr"><thead class="simple-table-header"><tr id="be3df9eb-c2e8-4aa2-b418-765d73dfd87b" dir="ltr"><th id="r}@;" class="simple-table-header-color simple-table-header">Job</th><th id="V&gt;oT" class="simple-table-header-color simple-table-header">Path</th></tr></thead><tbody><tr id="be021000-db0e-4739-b880-61bec3d675b8" dir="ltr"><td id="r}@;" class="">Learn</td><td id="V&gt;oT" class="">01 → 02 → 03 → 04 → 05 → 06 → 07 → 08 → 09 → 10</td></tr><tr id="880e5ec0-6148-4761-a9b7-8ba2388e250e" dir="ltr"><td id="r}@;" class="">Build a dashboard</td><td id="V&gt;oT" class="">01 Foundations → 08 Chart Selection → 08 Dashboard Design → 09 Power BI → 06 Accessibility → 02 Story</td></tr><tr id="0325e389-a689-4911-91e7-16c29a57e7e0" dir="ltr"><td id="r}@;" class="">Present an analysis</td><td id="V&gt;oT" class="">02 Audience &amp; Story → 03 or 08 visuals → 07 Integrity → Storytelling delivery chapters</td></tr><tr id="f43edd4f-7ce8-4d42-8f4d-3c9bc5ef0f1b" dir="ltr"><td id="r}@;" class="">Interview / exam</td><td id="V&gt;oT" class="">03 Core → 04 Advanced → 07 Traps → 08 Dashboard Design → 10 Interview Bank → 10 Quick Reference</td></tr></tbody></table><h2 id="3956b7c4-9ad2-4cb8-bca1-fb8b4c22f334" class="" dir="auto">Canonical Map</h2><p id="fccaafd5-8f1b-42fd-9684-509fea0b9da0" class="" dir="auto">One spine. No duplicate numbers.</p><h3 id="17648093-ce6e-4a21-b92c-730bc567bf04" class="" dir="auto">01 · Foundations</h3><p id="afa3c579-884f-4dcd-b22a-0f13854821ce" class="" dir="auto">Why plots exist, variable types, default decision framework.</p><ul id="a12d16b4-1a8c-42a9-8ae6-9decef8e4908" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><a href="Foundations%20&amp;%20Decision%20Framework%203cd3906c5d6c8191959ef2ecc8c0ca59.html" data-notion-page-id="3cd3906c-5d6c-8191-959e-f2ecc8c0ca59" data-notion-space-id="b9b3906c-5d6c-81bc-b3c5-00037c38f1f8"><span class="icon" data-emoji="🧭"></span>Foundations &amp; Decision Framework</a></li></ul><h3 id="34aa999b-6233-4d79-99ba-ec2c35e23f20" class="" dir="auto">02 · Audience &amp; Story</h3><p id="a8ea3429-8e35-438d-a273-8a51f998dd51" class="" dir="auto">Communication layer. Separate libraries, not visualization chapter rewrites.</p><ul id="b9772007-0c57-401f-bd2a-2ce20c57b750" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><a href="https://app.notion.com/p/Data-Storytelling-Master-Reference-3cc3906c5d6c812eb350e21cdf116fbe?pvs=21" data-notion-page-id="3cc3906c-5d6c-812e-b350-e21cdf116fbe" data-notion-space-id="b9b3906c-5d6c-81bc-b3c5-00037c38f1f8"><span class="icon" data-emoji="📖"></span>Data Storytelling — Master Reference</a></li></ul><ul id="61ba9308-61b6-4ed9-a82c-df7610bd0c10" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><a href="https://app.notion.com/p/Data-Storytelling-Comprehensive-Deep-Dive-Reference-3cc3906c5d6c8151af9ecc7a7a2c8560?pvs=21" data-notion-page-id="3cc3906c-5d6c-8151-af9e-cc7a7a2c8560" data-notion-space-id="b9b3906c-5d6c-81bc-b3c5-00037c38f1f8"><span class="icon" data-emoji="📊"></span>Data Storytelling — Comprehensive Deep-Dive Reference</a></li></ul><h3 id="71b76014-f383-450f-98c2-3924350b0374" class="" dir="auto">03 · Core Visual Grammar</h3><p id="52334a7d-aab5-4e3f-a0e8-133cd751d036" class="" dir="auto">Histogram, box, scatter, line, bar, dot, scales.</p><ul id="093df4ea-fc97-41a2-b353-7d1056a89111" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><a href="Core%20Chart%20Types%20&amp;%20Scales%203cd3906c5d6c816fb3e9d8809b4dbe8e.html" data-notion-page-id="3cd3906c-5d6c-816f-b3e9-d8809b4dbe8e" data-notion-space-id="b9b3906c-5d6c-81bc-b3c5-00037c38f1f8"><span class="icon" data-emoji="📈"></span>Core Chart Types &amp; Scales</a></li></ul><h3 id="bf18a6e7-dfc7-48db-ab5c-a076370db39c" class="" dir="auto">04 · Advanced &amp; Multivariate</h3><p id="9bed031a-373e-4914-bd5f-fdbc67aa8506" class="" dir="auto">Third variables, faceting, pair plots, heatmaps, parallel coordinates, cyclical views.</p><ul id="6ef92f60-022c-4643-904d-141f03e05816" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><a href="Advanced%20&amp;%20Multivariate%20Techniques%203cd3906c5d6c815996b1ca4687c3808b.html" data-notion-page-id="3cd3906c-5d6c-8159-96b1-ca4687c3808b" data-notion-space-id="b9b3906c-5d6c-81bc-b3c5-00037c38f1f8"><span class="icon" data-emoji="🧩"></span>Advanced &amp; Multivariate Techniques</a></li></ul><h3 id="64d39976-33aa-4858-8b51-ab43986d732c" class="" dir="auto">05 · Color &amp; Perception</h3><p id="f2660d8a-995b-44b0-b3a0-5e4290d784bd" class="" dir="auto">Color semantics and perceptual encoding.</p><ul id="b49b9006-809e-48f4-95f5-ef2c1c434c2e" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><a href="Color%20Theory%20for%20Data%20Visualization%203cd3906c5d6c81c19cadc4d11b657ffd.html" data-notion-page-id="3cd3906c-5d6c-81c1-9cad-c4d11b657ffd" data-notion-space-id="b9b3906c-5d6c-81bc-b3c5-00037c38f1f8"><span class="icon" data-emoji="🎨"></span>Color Theory for Data Visualization</a></li></ul><h3 id="7414cc16-f334-4c0f-a245-3d586f70bd6f" class="" dir="auto">06 · Accessibility &amp; QA</h3><p id="a2c3de32-3a3e-4880-8f05-fe572bcfa08e" class="" dir="auto">Contrast, readability, pre-publish color checks.</p><ul id="b0cb0d3a-5e63-4ab7-b904-11e8a6e4c4f9" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><a href="Accessibility,%20Contrast%20&amp;%20Color%20QA%203cd3906c5d6c819ab08ac1f7717dc4c2.html" data-notion-page-id="3cd3906c-5d6c-819a-b08a-c1f7717dc4c2" data-notion-space-id="b9b3906c-5d6c-81bc-b3c5-00037c38f1f8">Accessibility, Contrast &amp; Color QA</a></li></ul><h3 id="abe2bc4c-0625-4807-9b83-b1cf02e7fe08" class="" dir="auto">07 · Integrity, Uncertainty &amp; Traps</h3><p id="99f36d9d-514b-4c64-81b2-25592c057e8b" class="" dir="auto">Misleading encodings, ethics, and inference errors that look like chart errors.</p><ul id="e2b0230d-25cc-4d5a-b279-6fc24853ccd3" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><a href="Visual%20Integrity,%20Pitfalls%20&amp;%20Ethics%203cd3906c5d6c81809fa1ea9a9146aea0.html" data-notion-page-id="3cd3906c-5d6c-8180-9fa1-ea9a9146aea0" data-notion-space-id="b9b3906c-5d6c-81bc-b3c5-00037c38f1f8"><span class="icon" data-emoji="⚖️"></span>Visual Integrity, Pitfalls &amp; Ethics</a></li></ul><ul id="6543e363-168d-4d11-bafa-198d0d3f3f32" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><a href="Statistical%20Interpretation%20Traps%20for%20Visualization%203cd3906c5d6c81febadef001c3adffc8.html" data-notion-page-id="3cd3906c-5d6c-81fe-bade-f001c3adffc8" data-notion-space-id="b9b3906c-5d6c-81bc-b3c5-00037c38f1f8"><span class="icon" data-emoji="⚠️"></span>Statistical Interpretation Traps for Visualization</a></li></ul><h3 id="2f35a4a3-4a22-4ad9-917c-e325c2a8a756" class="" dir="auto">08 · Decision Tools &amp; Composition</h3><p id="da9bc26f-86e6-41a9-bf45-3309b5b8b9d7" class="" dir="auto">What to choose, what to avoid, dashboard cognitive load.</p><ul id="13f5c467-25a1-412d-85a3-b1ea0532ed64" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><a href="Chart%20Selection%20Matrix%20&amp;%20Anti-Patterns%203cd3906c5d6c81219916c1029b5aecd5.html" data-notion-page-id="3cd3906c-5d6c-8121-9916-c1029b5aecd5" data-notion-space-id="b9b3906c-5d6c-81bc-b3c5-00037c38f1f8">Chart Selection Matrix &amp; Anti-Patterns</a></li></ul><ul id="150226e7-4013-464d-b1f9-9aef82dc51dc" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><a href="Dashboard%20Design,%20Composition%20&amp;%20Cognitive%20Load%203cd3906c5d6c81b793aaf1036705960f.html" data-notion-page-id="3cd3906c-5d6c-81b7-93aa-f1036705960f" data-notion-space-id="b9b3906c-5d6c-81bc-b3c5-00037c38f1f8"><span class="icon" data-emoji="🖼️"></span>Dashboard Design, Composition &amp; Cognitive Load</a></li></ul><h3 id="4bd8cff0-b6f1-4300-9303-13325d2f2249" class="" dir="auto">09 · Implementation</h3><p id="9aa9b9de-f30d-41f6-a2b8-0e2999a76608" class="" dir="auto">Same principles inside Power BI.</p><ul id="1f853830-3a75-410a-ae90-0326a95efb6f" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><a href="Power%20BI%20Visualization%20Playbook%203cd3906c5d6c81b583dadccead758b3c.html" data-notion-page-id="3cd3906c-5d6c-81b5-83da-dccead758b3c" data-notion-space-id="b9b3906c-5d6c-81bc-b3c5-00037c38f1f8"><span class="icon" data-emoji="📊"></span>Power BI Visualization Playbook</a></li></ul><h3 id="506cc004-3cf5-4352-8240-be040dea4c9f" class="" dir="auto">Visual Atlas</h3><p id="d171ccf1-dd4a-460f-bc0a-e8f928095df6" class="" dir="auto">Teaching figures that sit on top of the chapters — Datasaurus trap, encoding rank, baselines, color families, histogram shapes.</p><ul id="42e193b7-bf0d-4e44-be7e-9c16d86ea748" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><a href="Visual%20Atlas%20%E2%80%94%20Teaching%20Charts%20&amp;%20Figure%20Pack%203e53906c5d6c81e588dee386862fecac.html" data-notion-page-id="3e53906c-5d6c-81e5-88de-e386862fecac" data-notion-space-id="b9b3906c-5d6c-81bc-b3c5-00037c38f1f8"><span class="icon" data-emoji="🎨"></span>Visual Atlas — Teaching Charts &amp; Figure Pack</a></li></ul><h3 id="fd9f95b4-9ca3-42f1-81f3-c1e868b1bf33" class="" dir="auto">10 · Practice, Assessment &amp; Shelf</h3><p id="440231b4-a8bd-4b0c-8fa8-69e8fb70f567" class="" dir="auto">Use cases, drills, recall sheets, reading paths, references.</p><ul id="d3a92418-f967-4b1a-ab86-9774b7091a3b" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><a href="https://app.notion.com/p/Applied-Real-World-Use-Cases-3cd3906c5d6c813883b4ca53bde49878?pvs=21" data-notion-page-id="3cd3906c-5d6c-8138-83b4-ca53bde49878" data-notion-space-id="b9b3906c-5d6c-81bc-b3c5-00037c38f1f8"><span class="icon" data-emoji="💼"></span>Applied Real-World Use Cases</a></li></ul><ul id="47efa5fc-57bd-4a0b-a70a-ba0404d4db74" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><a href="Data%20Visualization%20Interview%20Master%20Bank%203cd3906c5d6c81f49e4cc8ca53d6e812.html" data-notion-page-id="3cd3906c-5d6c-81f4-9e4c-c8ca53d6e812" data-notion-space-id="b9b3906c-5d6c-81bc-b3c5-00037c38f1f8">Data Visualization Interview Master Bank</a></li></ul><ul id="157ad579-dd00-4a23-92fd-b421fd99bf6d" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><a href="Quick%20Reference%20&amp;%20Exam%20Prep%203cd3906c5d6c813ea34dc5e5e4870d71.html" data-notion-page-id="3cd3906c-5d6c-813e-a34d-c5e5e4870d71" data-notion-space-id="b9b3906c-5d6c-81bc-b3c5-00037c38f1f8"><span class="icon" data-emoji="🧠"></span>Quick Reference &amp; Exam Prep</a></li></ul><ul id="640641ac-54fb-4c46-8954-7131973d1eda" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><a href="%D9%85%D8%B3%D8%A7%D8%B1%D8%A7%D8%AA%20%D9%82%D8%B1%D8%A7%D8%A1%D8%A9%20%D9%85%D9%82%D8%AA%D8%B1%D8%AD%D8%A9%20(Beginner%20%E2%86%92%20Advanced)%20e93dca8916a5445e9d0f8ca3192d01dc.html" data-notion-page-id="e93dca89-16a5-445e-9d0f-8ca3192d01dc" data-notion-space-id="b9b3906c-5d6c-81bc-b3c5-00037c38f1f8">مسارات قراءة مقترحة (Beginner → Advanced)</a></li></ul><ul id="ae678499-01dc-4f99-adb0-8f05f254d7b0" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><a href="%D8%A3%D9%81%D8%B6%D9%84%20%D8%A7%D9%84%D9%85%D8%B1%D8%A7%D8%AC%D8%B9%20%D8%A7%D9%84%D8%B9%D8%A7%D9%84%D9%85%D9%8A%D8%A9%20(Curated%20References)%204ceee50e87384884a9f663de5eb7e521.html" data-notion-page-id="4ceee50e-8738-4884-a9f6-63de5eb7e521" data-notion-space-id="b9b3906c-5d6c-81bc-b3c5-00037c38f1f8">أفضل المراجع العالمية (Curated References)</a></li></ul><h2 id="1e9ee99c-a6c4-4aab-9715-7cd4c882e7d7" class="" dir="auto">Related Libraries</h2><ul id="76417155-302f-4cb3-8964-308d0a97cf97" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Working story library: <a href="https://app.notion.com/p/Data-Storytelling-Master-Reference-3cc3906c5d6c812eb350e21cdf116fbe?pvs=21" data-notion-page-id="3cc3906c-5d6c-812e-b350-e21cdf116fbe" data-notion-space-id="b9b3906c-5d6c-81bc-b3c5-00037c38f1f8"><span class="icon" data-emoji="📖"></span>Data Storytelling — Master Reference</a></li></ul><ul id="de7050c7-2835-4ba8-9805-99f8bf639097" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Deep story source: <a href="https://app.notion.com/p/Data-Storytelling-Comprehensive-Deep-Dive-Reference-3cc3906c5d6c8151af9ecc7a7a2c8560?pvs=21" data-notion-page-id="3cc3906c-5d6c-8151-af9e-cc7a7a2c8560" data-notion-space-id="b9b3906c-5d6c-81bc-b3c5-00037c38f1f8"><span class="icon" data-emoji="📊"></span>Data Storytelling — Comprehensive Deep-Dive Reference</a></li></ul><ul id="69cb3162-1da4-4773-844e-595d3e5d0e91" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Archive only: <a href="https://app.notion.com/p/Data-Visualization-Original-Master-Copy-Preserved-3cc3906c5d6c8152b594fae43ff3fef5?pvs=21" data-notion-page-id="3cc3906c-5d6c-8152-b594-fae43ff3fef5" data-notion-space-id="b9b3906c-5d6c-81bc-b3c5-00037c38f1f8"><span class="icon" data-emoji="📊"></span>📦 Data Visualization — Original Master Copy (Preserved)</a></li></ul><aside class="block-color-gray_background callout" data-notion-callout="" data-notion-callout-icon="📦" data-notion-callout-background="gray_background" style="white-space:pre-wrap;display:flex" id="3871e17e-9c53-4a03-a888-6f45e5eba4c4" dir="ltr"><div style="font-size:1.5em"><span class="icon" data-emoji="📦"></span></div><div style="width:100%"><p id="15f38cc2-7b41-4652-a01f-570cac792d1b" class="" dir="auto"><strong>Preservation:</strong> Child pages below stay owned by this hub. They were not rewritten. The old Use Cases link (<code>...8183...</code>) pointed at a missing page; the live page is <code>...8138...</code>.</p></div></aside><details open="" class="" dir="auto"><summary style="font-weight:600;font-size:1.5em;line-height:1.3;margin:0"><h2 id="aba68e7a-1500-4e69-9d76-74547ebe7202" style="display:inline-block">Pages owned by this hub</h2></summary><div class="indented"><p id="edb98dcb-a00b-4aed-97d1-6753c3025ace" class="" dir="auto">These child-page blocks keep ownership. Do not delete them.</p></div></details><figure id="3cd3906c-5d6c-8191-959e-f2ecc8c0ca59" class="link-to-page"><a href="Foundations%20&amp;%20Decision%20Framework%203cd3906c5d6c8191959ef2ecc8c0ca59.html" data-notion-page-id="3cd3906c-5d6c-8191-959e-f2ecc8c0ca59" data-notion-space-id="b9b3906c-5d6c-81bc-b3c5-00037c38f1f8"><span class="icon" data-emoji="🧭"></span>Foundations &amp; Decision Framework</a></figure><figure id="3cd3906c-5d6c-816f-b3e9-d8809b4dbe8e" class="link-to-page"><a href="Core%20Chart%20Types%20&amp;%20Scales%203cd3906c5d6c816fb3e9d8809b4dbe8e.html" data-notion-page-id="3cd3906c-5d6c-816f-b3e9-d8809b4dbe8e" data-notion-space-id="b9b3906c-5d6c-81bc-b3c5-00037c38f1f8"><span class="icon" data-emoji="📈"></span>Core Chart Types &amp; Scales</a></figure><figure id="3cd3906c-5d6c-8159-96b1-ca4687c3808b" class="link-to-page"><a href="Advanced%20&amp;%20Multivariate%20Techniques%203cd3906c5d6c815996b1ca4687c3808b.html" data-notion-page-id="3cd3906c-5d6c-8159-96b1-ca4687c3808b" data-notion-space-id="b9b3906c-5d6c-81bc-b3c5-00037c38f1f8"><span class="icon" data-emoji="🧩"></span>Advanced &amp; Multivariate Techniques</a></figure><figure id="3cd3906c-5d6c-81c1-9cad-c4d11b657ffd" class="link-to-page"><a href="Color%20Theory%20for%20Data%20Visualization%203cd3906c5d6c81c19cadc4d11b657ffd.html" data-notion-page-id="3cd3906c-5d6c-81c1-9cad-c4d11b657ffd" data-notion-space-id="b9b3906c-5d6c-81bc-b3c5-00037c38f1f8"><span class="icon" data-emoji="🎨"></span>Color Theory for Data Visualization</a></figure><figure id="3cd3906c-5d6c-819a-b08a-c1f7717dc4c2" class="link-to-page"><a href="Accessibility,%20Contrast%20&amp;%20Color%20QA%203cd3906c5d6c819ab08ac1f7717dc4c2.html" data-notion-page-id="3cd3906c-5d6c-819a-b08a-c1f7717dc4c2" data-notion-space-id="b9b3906c-5d6c-81bc-b3c5-00037c38f1f8">Accessibility, Contrast &amp; Color QA</a></figure><figure id="3cd3906c-5d6c-8180-9fa1-ea9a9146aea0" class="link-to-page"><a href="Visual%20Integrity,%20Pitfalls%20&amp;%20Ethics%203cd3906c5d6c81809fa1ea9a9146aea0.html" data-notion-page-id="3cd3906c-5d6c-8180-9fa1-ea9a9146aea0" data-notion-space-id="b9b3906c-5d6c-81bc-b3c5-00037c38f1f8"><span class="icon" data-emoji="⚖️"></span>Visual Integrity, Pitfalls &amp; Ethics</a></figure><figure id="3cd3906c-5d6c-81fe-bade-f001c3adffc8" class="link-to-page"><a href="Statistical%20Interpretation%20Traps%20for%20Visualization%203cd3906c5d6c81febadef001c3adffc8.html" data-notion-page-id="3cd3906c-5d6c-81fe-bade-f001c3adffc8" data-notion-space-id="b9b3906c-5d6c-81bc-b3c5-00037c38f1f8"><span class="icon" data-emoji="⚠️"></span>Statistical Interpretation Traps for Visualization</a></figure><figure id="3cd3906c-5d6c-8121-9916-c1029b5aecd5" class="link-to-page"><a href="Chart%20Selection%20Matrix%20&amp;%20Anti-Patterns%203cd3906c5d6c81219916c1029b5aecd5.html" data-notion-page-id="3cd3906c-5d6c-8121-9916-c1029b5aecd5" data-notion-space-id="b9b3906c-5d6c-81bc-b3c5-00037c38f1f8">Chart Selection Matrix &amp; Anti-Patterns</a></figure><figure id="3cd3906c-5d6c-81b7-93aa-f1036705960f" class="link-to-page"><a href="Dashboard%20Design,%20Composition%20&amp;%20Cognitive%20Load%203cd3906c5d6c81b793aaf1036705960f.html" data-notion-page-id="3cd3906c-5d6c-81b7-93aa-f1036705960f" data-notion-space-id="b9b3906c-5d6c-81bc-b3c5-00037c38f1f8"><span class="icon" data-emoji="🖼️"></span>Dashboard Design, Composition &amp; Cognitive Load</a></figure><figure id="3cd3906c-5d6c-81b5-83da-dccead758b3c" class="link-to-page"><a href="Power%20BI%20Visualization%20Playbook%203cd3906c5d6c81b583dadccead758b3c.html" data-notion-page-id="3cd3906c-5d6c-81b5-83da-dccead758b3c" data-notion-space-id="b9b3906c-5d6c-81bc-b3c5-00037c38f1f8"><span class="icon" data-emoji="📊"></span>Power BI Visualization Playbook</a></figure><figure id="3cd3906c-5d6c-81f4-9e4c-c8ca53d6e812" class="link-to-page"><a href="Data%20Visualization%20Interview%20Master%20Bank%203cd3906c5d6c81f49e4cc8ca53d6e812.html" data-notion-page-id="3cd3906c-5d6c-81f4-9e4c-c8ca53d6e812" data-notion-space-id="b9b3906c-5d6c-81bc-b3c5-00037c38f1f8">Data Visualization Interview Master Bank</a></figure><figure id="e93dca89-16a5-445e-9d0f-8ca3192d01dc" class="link-to-page"><a href="%D9%85%D8%B3%D8%A7%D8%B1%D8%A7%D8%AA%20%D9%82%D8%B1%D8%A7%D8%A1%D8%A9%20%D9%85%D9%82%D8%AA%D8%B1%D8%AD%D8%A9%20(Beginner%20%E2%86%92%20Advanced)%20e93dca8916a5445e9d0f8ca3192d01dc.html" data-notion-page-id="e93dca89-16a5-445e-9d0f-8ca3192d01dc" data-notion-space-id="b9b3906c-5d6c-81bc-b3c5-00037c38f1f8">مسارات قراءة مقترحة (Beginner → Advanced)</a></figure><figure id="4ceee50e-8738-4884-a9f6-63de5eb7e521" class="link-to-page"><a href="%D8%A3%D9%81%D8%B6%D9%84%20%D8%A7%D9%84%D9%85%D8%B1%D8%A7%D8%AC%D8%B9%20%D8%A7%D9%84%D8%B9%D8%A7%D9%84%D9%85%D9%8A%D8%A9%20(Curated%20References)%204ceee50e87384884a9f663de5eb7e521.html" data-notion-page-id="4ceee50e-8738-4884-a9f6-63de5eb7e521" data-notion-space-id="b9b3906c-5d6c-81bc-b3c5-00037c38f1f8">أفضل المراجع العالمية (Curated References)</a></figure><figure id="3e53906c-5d6c-81e5-88de-e386862fecac" class="link-to-page"><a href="Visual%20Atlas%20%E2%80%94%20Teaching%20Charts%20&amp;%20Figure%20Pack%203e53906c5d6c81e588dee386862fecac.html" data-notion-page-id="3e53906c-5d6c-81e5-88de-e386862fecac" data-notion-space-id="b9b3906c-5d6c-81bc-b3c5-00037c38f1f8"><span class="icon" data-emoji="🎨"></span>Visual Atlas — Teaching Charts &amp; Figure Pack</a></figure></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>

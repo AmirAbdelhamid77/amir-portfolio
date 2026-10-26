@@ -1,0 +1,103 @@
+{
+  "scope": "hansa-prototype-c-local-2026-10-26",
+  "baselinePath": "docs/prototype-c/preservation/baseline.json",
+  "baselineSha256": "571f37703b012ea36669d8ff96606bb6e8935ae01ed8972bbba360b3d09ab678",
+  "noDeployment": true,
+  "files": [
+    {
+      "path": "app/page.tsx",
+      "beforeSha256": "5c1a0d8a50e07cace79f2dde855d63db0015c927909686c359edee9eda1c60b3",
+      "sha256": "c59fce3489b49123f78f78e68f3b97eb9c94afe42c54ddb6bda1573771095e8d"
+    },
+    {
+      "path": "components/site-header.tsx",
+      "beforeSha256": "b454eedbfdfdc174da711d45e91c99d80eac9dde0425c990fd50dda548cfa4c1",
+      "sha256": "e92314bab7f60b218eb9a119bfe44bd5408a4202f5e6657cf4e7a5f14e4a21d3"
+    },
+    {
+      "path": "components/site-footer.tsx",
+      "beforeSha256": "b91da3996ddec14d699fbf2d35143ad224280339bcf6bd6a3650123254077b01",
+      "sha256": "78239be02e8ea061d1e9af229b0e48e1e86f6d367384522b4dad28df05d0de12"
+    },
+    {
+      "path": "scripts/atlas-circle-receipt.mjs",
+      "beforeSha256": "e644d6d49b7b25121d2dcc031020991a3bd43627faac77195752d96382f16e85",
+      "sha256": "13d467b04a0c022be8f56293206ef53ffe87cc177283349a096b9ff1b00a94bb"
+    },
+    {
+      "path": "scripts/verify-preservation-history.mjs",
+      "beforeSha256": "cc58b8f84a7bf3b073b790038bfa137d8e4ec4ebaa603c24615e7607f88371a6",
+      "sha256": "7dc3e40ed19e03788d9f8d6314bf34776278cfdc91e2de11d3ce1ee6730dcbb7"
+    },
+    {
+      "path": "scripts/prototype-c-preservation.mjs",
+      "beforeSha256": "0180aaa0bb8c04e38d987a144fa4ff0c807314e520d80df3d2b36df1c08bebc1",
+      "sha256": "342f02e881d2d71dc9e27b3168d0d933468312322db6fcc8bacc924a9741230b"
+    },
+    {
+      "path": "components/knowledge/knowledge-stage.tsx",
+      "beforeSha256": null,
+      "sha256": "ae9ec5694278d300d7ecf2ba5d5119c12615ded4367b9d580e64d614dd5cb235"
+    },
+    {
+      "path": "components/knowledge/prototype-c.tsx",
+      "beforeSha256": null,
+      "sha256": "df5cb79da2351ac3df71c939942c19990705b8686caa17d4232ab0bbf2a63d5a"
+    },
+    {
+      "path": "lib/knowledge/insights.ts",
+      "beforeSha256": null,
+      "sha256": "117e6d3d57c3ad713708e2268e17231a95b170c0ca2adcb5d92ee2617e913ed4"
+    },
+    {
+      "path": "content/knowledge/insights.json",
+      "beforeSha256": null,
+      "sha256": "eebca8eb3a6639fe1e49a52228fa1c4038fe4dcadb97b90300b85b06954f0523"
+    },
+    {
+      "path": "app/prototype-c/page.tsx",
+      "beforeSha256": null,
+      "sha256": "f3f297dd6fa8c77638e57ec009522172fed0247df9dc4bb878be7b8fa53e27a8"
+    },
+    {
+      "path": "tests/knowledge/insights.test.mjs",
+      "beforeSha256": null,
+      "sha256": "0827258d78550631ea91157a4599f090ff650c9a4520911d15703339b99a8930"
+    },
+    {
+      "path": "scripts/prototype-c-receipt.mjs",
+      "beforeSha256": null,
+      "sha256": "8d17095933713ff1cba2a36989ca657a5a123de4b48e1a1f31633bef87fd8232"
+    },
+    {
+      "path": "scripts/prototype-c-finalize.mjs",
+      "beforeSha256": null,
+      "sha256": "a0486ba2b79f2d37c1c6b14acf1d48e7e223126a04116e3d3df651bf9cc2d3cb"
+    },
+    {
+      "path": "scripts/prototype-c-live-snapshot.mjs",
+      "beforeSha256": null,
+      "sha256": "eea24af9f51f417040b9670c01081aea3bbe4dd9059d471eed24a955eb7fcb5d"
+    },
+    {
+      "path": "scripts/qa-prototype-c.mjs",
+      "beforeSha256": null,
+      "sha256": "52a5d87e7aba57ef3f73f9c802f97201b9e5483a8074e82e0baca2b51c5432f3"
+    },
+    {
+      "path": "scripts/verify-prototype-c.mjs",
+      "beforeSha256": null,
+      "sha256": "0ed21ebb3a4c569adf11e9b9e18ebffdf48a4d2ffe7975ade2e61e5fd0991f3c"
+    }
+  ],
+  "generatedArtifacts": [
+    {
+      "path": "tsconfig.tsbuildinfo",
+      "beforeSha256": "cbc6de049110b08921079e633496fdc96686bd6011c7a3313f8a210c40bd3b3e",
+      "sha256": "5434adf68a2ccbc36f5d5e2b44962c129d7fa822f37c9e038be48a1a2ccc5169",
+      "basisPath": "docs/knowledge-atlas/circular-nodes/INTEGRATION_MANIFEST.json",
+      "basisSha256": "80289ef41ff4adc4f78599af620c423b14ed55f1c384edb41f1e9fb126c85406",
+      "reason": "Normal Next build regenerated ignored TypeScript cache; source rollback regenerates this cache rather than restoring old source."
+    }
+  ]
+}

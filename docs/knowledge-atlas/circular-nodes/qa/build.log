@@ -1,0 +1,233 @@
+
+> amir-portfolio@0.1.0 build
+> next build
+
+▲ Next.js 16.4.3 (Turbopack)
+✓ Running next.config.ts took 59ms
+
+  Creating an optimized production build ...
+✓ Compiled successfully in 3.8s
+  Running TypeScript ...
+  Finished TypeScript in 8.6s ...
+  Collecting page data using 7 workers ...
+  Generating static pages using 7 workers (0/123) ...
+  Generating static pages using 7 workers (30/123) 
+  Generating static pages using 7 workers (61/123) 
+  Generating static pages using 7 workers (92/123) 
+✓ Generating static pages using 7 workers (123/123) in 4.5s
+  Finalizing page optimization ...
+
+Route (app)
+┌ ○ /
+├ ○ /_not-found
+├ ○ /about
+├ ○ /apple-icon.png
+├ ○ /contact
+├ ○ /experience
+├ ○ /explore
+├ ○ /explore/charts
+├ ○ /explore/charts/bar
+├ ○ /explore/charts/box
+├ ○ /explore/charts/dot
+├ ○ /explore/charts/histogram
+├ ○ /explore/charts/line
+├ ○ /explore/charts/scatter
+├ ○ /explore/choose
+├ ○ /explore/dashboards
+├ ○ /explore/integrity
+├ ○ /explore/specialty
+├ ○ /icon.svg
+├ ○ /lab
+├   /lab/[slug]
+│ ├ ● /lab/sql
+│ ├ ● /lab/power-bi
+│ ├ ● /lab/excel
+│ └ ● [+3 more paths]
+├ ○ /lab/dp-600
+├ ○ /lab/dp-600/cases
+├ ○ /lab/dp-600/explore
+├ ○ /lab/dp-600/mock
+├ ○ /lab/dp-600/practice
+├ ○ /lab/dp-600/progress
+├ ○ /lab/dp-600/resources
+├ ○ /lab/dp-600/review
+├ ○ /lab/dp-600/study
+├ ○ /learn
+├   /learn/[slug]
+│ ├ ● /learn/overview
+│ ├ ● /learn/foundations
+│ ├ ● /learn/audience-story
+│ └ ● [+13 more paths]
+├ ○ /learn/ar
+├   /learn/ar/[slug]
+│ ├ ● /learn/ar/histogram
+│ ├ ● /learn/ar/box-plot
+│ ├ ● /learn/ar/scatter-plot
+│ └ ● [+8 more paths]
+├ ○ /learn/catalogue
+├   /learn/chapter/[number]
+│ ├ ● /learn/chapter/01
+│ ├ ● /learn/chapter/02
+│ ├ ● /learn/chapter/03
+│ └ ● [+7 more paths]
+├ ○ /learn/dp-600
+├ ○ /learn/dp-600/atlas
+├ ○ /learn/dp-600/atlas/journey
+├ ○ /learn/dp-600/ingestion
+├ ○ /learn/method
+├ ○ /learn/statistics
+├ ○ /learn/statistics/atlas
+├ ○ /learn/statistics/cheatsheet
+├ ○ /learn/statistics/decision
+├ ○ /learn/statistics/formulas
+├ ○ /learn/statistics/glossary
+├   /learn/statistics/journey/[slug]
+│ ├ ● /learn/statistics/journey/foundations
+│ ├ ● /learn/statistics/journey/describe
+│ ├ ● /learn/statistics/journey/probability
+│ └ ● [+6 more paths]
+├ ○ /learn/statistics/labs
+├   /learn/statistics/labs/[slug]
+│ ├ ● /learn/statistics/labs/center-spread
+│ ├ ● /learn/statistics/labs/binomial
+│ ├ ● /learn/statistics/labs/normal
+│ └ ● [+12 more paths]
+├ ○ /learn/statistics/source
+├ ○ /practice
+├ ○ /practice/catalogue
+├ ○ /robots.txt
+├ ○ /search
+├ ○ /services
+├ ○ /sitemap.xml
+├ ○ /work
+└   /work/[slug]
+  ├ ● /work/hse-analytics
+  ├ ● /work/ibm-capstone
+  └ ● /work/adas
+
+
+○  (Static)  prerendered as static content
+●  (SSG)     prerendered as static HTML (uses generateStaticParams)
+
+
+> amir-portfolio@0.1.0 postbuild
+> node scripts/export-segment-aliases.mjs
+
+Segment payload aliases: wrote 117 file(s).
+
+> amir-portfolio@0.1.0 build
+> next build
+
+▲ Next.js 16.4.3 (Turbopack)
+✓ Running next.config.ts took 77ms
+
+  Creating an optimized production build ...
+✓ Compiled successfully in 3.7s
+  Running TypeScript ...
+  Finished TypeScript in 9.0s ...
+  Collecting page data using 7 workers ...
+  Generating static pages using 7 workers (0/123) ...
+  Generating static pages using 7 workers (30/123) 
+  Generating static pages using 7 workers (61/123) 
+  Generating static pages using 7 workers (92/123) 
+✓ Generating static pages using 7 workers (123/123) in 4.9s
+  Finalizing page optimization ...
+
+Route (app)
+┌ ○ /
+├ ○ /_not-found
+├ ○ /about
+├ ○ /apple-icon.png
+├ ○ /contact
+├ ○ /experience
+├ ○ /explore
+├ ○ /explore/charts
+├ ○ /explore/charts/bar
+├ ○ /explore/charts/box
+├ ○ /explore/charts/dot
+├ ○ /explore/charts/histogram
+├ ○ /explore/charts/line
+├ ○ /explore/charts/scatter
+├ ○ /explore/choose
+├ ○ /explore/dashboards
+├ ○ /explore/integrity
+├ ○ /explore/specialty
+├ ○ /icon.svg
+├ ○ /lab
+├   /lab/[slug]
+│ ├ ● /lab/sql
+│ ├ ● /lab/power-bi
+│ ├ ● /lab/excel
+│ └ ● [+3 more paths]
+├ ○ /lab/dp-600
+├ ○ /lab/dp-600/cases
+├ ○ /lab/dp-600/explore
+├ ○ /lab/dp-600/mock
+├ ○ /lab/dp-600/practice
+├ ○ /lab/dp-600/progress
+├ ○ /lab/dp-600/resources
+├ ○ /lab/dp-600/review
+├ ○ /lab/dp-600/study
+├ ○ /learn
+├   /learn/[slug]
+│ ├ ● /learn/overview
+│ ├ ● /learn/foundations
+│ ├ ● /learn/audience-story
+│ └ ● [+13 more paths]
+├ ○ /learn/ar
+├   /learn/ar/[slug]
+│ ├ ● /learn/ar/histogram
+│ ├ ● /learn/ar/box-plot
+│ ├ ● /learn/ar/scatter-plot
+│ └ ● [+8 more paths]
+├ ○ /learn/catalogue
+├   /learn/chapter/[number]
+│ ├ ● /learn/chapter/01
+│ ├ ● /learn/chapter/02
+│ ├ ● /learn/chapter/03
+│ └ ● [+7 more paths]
+├ ○ /learn/dp-600
+├ ○ /learn/dp-600/atlas
+├ ○ /learn/dp-600/atlas/journey
+├ ○ /learn/dp-600/ingestion
+├ ○ /learn/method
+├ ○ /learn/statistics
+├ ○ /learn/statistics/atlas
+├ ○ /learn/statistics/cheatsheet
+├ ○ /learn/statistics/decision
+├ ○ /learn/statistics/formulas
+├ ○ /learn/statistics/glossary
+├   /learn/statistics/journey/[slug]
+│ ├ ● /learn/statistics/journey/foundations
+│ ├ ● /learn/statistics/journey/describe
+│ ├ ● /learn/statistics/journey/probability
+│ └ ● [+6 more paths]
+├ ○ /learn/statistics/labs
+├   /learn/statistics/labs/[slug]
+│ ├ ● /learn/statistics/labs/center-spread
+│ ├ ● /learn/statistics/labs/binomial
+│ ├ ● /learn/statistics/labs/normal
+│ └ ● [+12 more paths]
+├ ○ /learn/statistics/source
+├ ○ /practice
+├ ○ /practice/catalogue
+├ ○ /robots.txt
+├ ○ /search
+├ ○ /services
+├ ○ /sitemap.xml
+├ ○ /work
+└   /work/[slug]
+  ├ ● /work/hse-analytics
+  ├ ● /work/ibm-capstone
+  └ ● /work/adas
+
+
+○  (Static)  prerendered as static content
+●  (SSG)     prerendered as static HTML (uses generateStaticParams)
+
+
+> amir-portfolio@0.1.0 postbuild
+> node scripts/export-segment-aliases.mjs
+
+Segment payload aliases: wrote 117 file(s).
+Local Atlas review: build/atlas-preview/out. Default out/ restored with unpublished relations excluded. No deployment.

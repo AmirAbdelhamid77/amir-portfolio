@@ -1,0 +1,34 @@
+▸ RLS in a warehouse or SQL analytics endpoint (T-SQL)
+A security predicate function plus a security policy, exactly as in SQL Server:
+CREATE SCHEMA Security;
+GO
+CREATE FUNCTION Security.fn_SalesRepPredicate(@SalesRep AS varchar(100))
+    RETURNS TABLE
+    WITH SCHEMABINDING
+AS
+    RETURN SELECT 1 AS granted
+           WHERE @SalesRep = USER_NAME()
+              OR IS_ROLEMEMBER('SalesManagers') = 1;
+GO
+CREATE SECURITY POLICY Security.SalesRepFilter
+    ADD FILTER PREDICATE Security.fn_SalesRepPredicate(SalesRep) ON dbo.FactSales
+    WITH (STATE = ON);
+Details: row-level security in Fabric Data Warehouse.
+▸ RLS in an Eventhouse (KQL)
+KQL databases enforce row level security with a policy on the table that rewrites the query:
+.alter table Telemetry policy row_level_security enable
+"Telemetry | where Region == current_principal_details()['UserPrincipalName']"
+COMMON EXAM TRAP
+Semantic-model RLS is ignored for a user who has Admin, Member, or Contributor on the workspace,
+and for anyone with Write permission on the model. Always test with View as role, and put report
+consumers in Viewer.
+2.6 Column-level and object-level security
+Column-level security (CLS) hides columns. In a warehouse or SQL endpoint it is plain T-SQL:
+-- Grant only the safe columns...
+GRANT SELECT ON dbo.DimCustomer(CustomerKey, CustomerName, City) TO [Analysts];
+-- ...or explicitly deny the sensitive one.
+DENY SELECT ON dbo.DimCustomer(NationalId) TO [Analysts];
+Reference: column-level security.
+Object-level security (OLS) hides an entire table or column in the semantic model, so it disappears from
+the field list and from metadata. It is configured with external tooling (Tabular Editor, or a TMSL script
+through the XMLA endpoint) because Power BI Desktop has no OLS UI.

@@ -1,0 +1,18 @@
+{
+  "lesson_id": "dp600-c1-s01",
+  "source_sections": [
+    8
+  ],
+  "blocks": [
+    {
+      "id": "dp600-c1-s01-p008",
+      "kind": "source_fragment",
+      "source_page": 8,
+      "source_start_line": 4,
+      "source_text": "1.1 What Fabric is\nMicrosoft Fabric is a SaaS analytics platform. Instead of provisioning a separate service for storage, ETL,\nwarehousing, streaming, and BI, you buy one pool of compute (a capacity) and get every workload on top of\none storage layer (OneLake).\nGovernance & security — Purview hub · sensitivity labels · domains · lineage · audit logs\nData\nFactory\nData\nEngineering\nData\nWarehouse\nReal-Time\nIntelligence\nData\nScience\nPower\nBI\nDatabases\nOneLake — one logical, multi-cloud data lake for the whole tenant\nOpen Delta Parquet format · no data duplication · shortcuts & mirroring\nFabric capacity (F SKU) — one shared pool of compute for every workload\nThe Fabric stack: one capacity, one lake, many workloads, governed as a whole.\nThree consequences matter for the exam:\nOne copy of the data. All workloads persist to OneLake in open Delta Parquet. A table written by Spark\nis immediately queryable by T-SQL and by a Direct Lake semantic model — with no copy, no export, no\npipeline.\nOne security and governance surface. Sensitivity labels, lineage, endorsement, and domains apply to\nevery item type, not per-service.\nOne billing surface. Every workload consumes Capacity Units (CUs) from the same F SKU. A runaway\nSpark job can slow down someone else's report.",
+      "presentation_status": "needs-editorial-layout-conversion",
+      "recommended_renderer": "SourceFragment"
+    }
+  ],
+  "warning": "Source fragments are NOT native formatted prose, tables or runnable code."
+}

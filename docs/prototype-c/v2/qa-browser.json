@@ -1,0 +1,511 @@
+{
+  "generatedAt": "2026-10-26T12:08:06.498Z",
+  "base": "http://127.0.0.1:4210",
+  "checks": [
+    {
+      "id": "still-frame-no-overflow",
+      "pass": true,
+      "detail": {
+        "clientWidth": 1440,
+        "scrollWidth": 1440,
+        "overflow": false,
+        "h1Count": 1,
+        "tray": {
+          "x": 884.375,
+          "y": 596.078125,
+          "width": 382.625,
+          "height": 300,
+          "top": 596.078125,
+          "right": 1267,
+          "bottom": 896.078125,
+          "left": 884.375
+        },
+        "cards": []
+      }
+    },
+    {
+      "id": "still-frame-single-h1",
+      "pass": true,
+      "detail": 1
+    },
+    {
+      "id": "deal-three",
+      "pass": true,
+      "detail": "3 / 3 dealt"
+    },
+    {
+      "id": "hand-has-three-cards",
+      "pass": true,
+      "detail": [
+        "Principle card: Reference ≠ retained result",
+        "Caveat card for Reference ≠ retained result",
+        "Evidence card for Reference ≠ retained result"
+      ]
+    },
+    {
+      "id": "inspect-card-0",
+      "pass": true,
+      "detail": {
+        "label": "Principle card: Reference ≠ retained result",
+        "opened": 1,
+        "sample": "Reading the cardPrincipleReference ≠ retained resultInvestig"
+      }
+    },
+    {
+      "id": "reader-receives-focus",
+      "pass": true,
+      "detail": true
+    },
+    {
+      "id": "inspect-card-1",
+      "pass": true,
+      "detail": {
+        "label": "Caveat card for Reference ≠ retained result",
+        "opened": 1,
+        "sample": "Reading the cardCaveatWhat this does not meanConfirm target "
+      }
+    },
+    {
+      "id": "inspect-card-2",
+      "pass": true,
+      "detail": {
+        "label": "Evidence card for Reference ≠ retained result",
+        "opened": 1,
+        "sample": "Reading the cardEvidenceSource checkWhat are shortcuts?; Int"
+      }
+    },
+    {
+      "id": "escape-returns-to-hand",
+      "pass": true,
+      "detail": 0
+    },
+    {
+      "id": "collect-resets-hand",
+      "pass": true,
+      "detail": "0 / 3 dealt"
+    },
+    {
+      "id": "reveal-opens-reasoning",
+      "pass": true,
+      "detail": 1
+    },
+    {
+      "id": "evidence-opens-source",
+      "pass": true,
+      "detail": "source panel"
+    },
+    {
+      "id": "reveal-reversible",
+      "pass": true,
+      "detail": 0
+    },
+    {
+      "id": "rail-selects-and-pairs-scene",
+      "pass": true,
+      "detail": {
+        "search": "?insight=hansa-insight-shortcut-delete-v1",
+        "title": "Name the object you are deleting.",
+        "revealed": "false",
+        "experiment": "Which action are you taking?"
+      }
+    },
+    {
+      "id": "rail-keyboard-arrow",
+      "pass": true,
+      "detail": {
+        "search": "?insight=hansa-insight-shortcut-discovery-v1",
+        "title": "Location changes discovery."
+      }
+    },
+    {
+      "id": "back-restores-edition",
+      "pass": true,
+      "detail": {
+        "search": "?insight=hansa-insight-shortcut-delete-v1",
+        "title": "Name the object you are deleting."
+      }
+    },
+    {
+      "id": "rapid-selection-latest-wins",
+      "pass": true,
+      "detail": {
+        "search": "?insight=hansa-insight-shortcut-delete-v1",
+        "title": "Name the object you are deleting.",
+        "cards": 0
+      }
+    },
+    {
+      "id": "desktop-no-horizontal-overflow",
+      "pass": true,
+      "detail": {
+        "clientWidth": 1440,
+        "scrollWidth": 1440,
+        "overflow": false,
+        "h1Count": 1,
+        "tray": {
+          "x": 884.375,
+          "y": 596.078125,
+          "width": 382.625,
+          "height": 300,
+          "top": 596.078125,
+          "right": 1267,
+          "bottom": 896.078125,
+          "left": 884.375
+        },
+        "cards": []
+      }
+    },
+    {
+      "id": "desktop-no-console-errors",
+      "pass": true,
+      "detail": []
+    },
+    {
+      "id": "desktop-axe",
+      "pass": true,
+      "detail": []
+    },
+    {
+      "id": "light-axe",
+      "pass": true,
+      "detail": []
+    },
+    {
+      "id": "light-no-console-errors",
+      "pass": true,
+      "detail": []
+    },
+    {
+      "id": "reduced-motion-places-immediately",
+      "pass": true,
+      "detail": {
+        "immediate": [
+          {
+            "top": 695,
+            "left": 917
+          },
+          {
+            "top": 702,
+            "left": 1007
+          },
+          {
+            "top": 695,
+            "left": 1077
+          }
+        ],
+        "settled": [
+          {
+            "top": 695,
+            "left": 917
+          },
+          {
+            "top": 702,
+            "left": 1007
+          },
+          {
+            "top": 695,
+            "left": 1077
+          }
+        ]
+      }
+    },
+    {
+      "id": "reduced-motion-keeps-static-depth",
+      "pass": true,
+      "detail": {
+        "planes": [
+          {
+            "x": 162,
+            "y": 522
+          },
+          {
+            "x": 172,
+            "y": 534
+          },
+          {
+            "x": 152,
+            "y": 512
+          }
+        ]
+      }
+    },
+    {
+      "id": "mobile-390-no-overflow",
+      "pass": true,
+      "detail": {
+        "clientWidth": 390,
+        "scrollWidth": 390,
+        "overflow": false,
+        "h1Count": 1,
+        "tray": {
+          "x": 41,
+          "y": 1824.84375,
+          "width": 308,
+          "height": 264,
+          "top": 1824.84375,
+          "right": 349,
+          "bottom": 2088.84375,
+          "left": 41
+        },
+        "cards": []
+      }
+    },
+    {
+      "id": "mobile-390-tray-in-viewport",
+      "pass": true,
+      "detail": {
+        "x": 41,
+        "y": 1824.84375,
+        "width": 308,
+        "height": 264,
+        "top": 1824.84375,
+        "right": 349,
+        "bottom": 2088.84375,
+        "left": 41
+      }
+    },
+    {
+      "id": "mobile-390-cards-in-tray",
+      "pass": true,
+      "detail": [
+        {
+          "x": 67.61128234863281,
+          "y": 264.3024597167969,
+          "width": 126.11056518554688,
+          "height": 157.20281982421875,
+          "top": 264.3024597167969,
+          "right": 193.7218475341797,
+          "bottom": 421.5052795410156,
+          "left": 67.61128234863281
+        },
+        {
+          "x": 139.61563110351562,
+          "y": 270.018310546875,
+          "width": 110.875,
+          "height": 146,
+          "top": 270.018310546875,
+          "right": 250.49063110351562,
+          "bottom": 416.018310546875,
+          "left": 139.61563110351562
+        },
+        {
+          "x": 196.50357055664062,
+          "y": 264.6419677734375,
+          "width": 126.11056518554688,
+          "height": 157.20281982421875,
+          "top": 264.6419677734375,
+          "right": 322.6141357421875,
+          "bottom": 421.84478759765625,
+          "left": 196.50357055664062
+        }
+      ]
+    },
+    {
+      "id": "mobile-390-no-console-errors",
+      "pass": true,
+      "detail": []
+    },
+    {
+      "id": "mobile-390-axe",
+      "pass": true,
+      "detail": []
+    },
+    {
+      "id": "mobile-320-no-overflow",
+      "pass": true,
+      "detail": {
+        "clientWidth": 320,
+        "scrollWidth": 320,
+        "overflow": false,
+        "h1Count": 1,
+        "tray": {
+          "x": 41,
+          "y": 2144.125,
+          "width": 238,
+          "height": 264,
+          "top": 2144.125,
+          "right": 279,
+          "bottom": 2408.125,
+          "left": 41
+        },
+        "cards": []
+      }
+    },
+    {
+      "id": "mobile-320-tray-in-viewport",
+      "pass": true,
+      "detail": {
+        "x": 41,
+        "y": 2144.125,
+        "width": 238,
+        "height": 264,
+        "top": 2144.125,
+        "right": 279,
+        "bottom": 2408.125,
+        "left": 41
+      }
+    },
+    {
+      "id": "mobile-320-cards-in-tray",
+      "pass": true,
+      "detail": [
+        {
+          "x": 46.07102966308594,
+          "y": 257.12579345703125,
+          "width": 113.77606201171875,
+          "height": 142.10214233398438,
+          "top": 257.12579345703125,
+          "right": 159.8470916748047,
+          "bottom": 399.2279357910156,
+          "left": 46.07102966308594
+        },
+        {
+          "x": 110.00484466552734,
+          "y": 262.2759094238281,
+          "width": 100.00000762939453,
+          "height": 132,
+          "top": 262.2759094238281,
+          "right": 210.00485229492188,
+          "bottom": 394.2759094238281,
+          "left": 110.00484466552734
+        },
+        {
+          "x": 160.25686645507812,
+          "y": 257.42022705078125,
+          "width": 113.77606201171875,
+          "height": 142.10211181640625,
+          "top": 257.42022705078125,
+          "right": 274.0329284667969,
+          "bottom": 399.5223388671875,
+          "left": 160.25686645507812
+        }
+      ]
+    },
+    {
+      "id": "mobile-320-no-console-errors",
+      "pass": true,
+      "detail": []
+    },
+    {
+      "id": "mobile-320-axe",
+      "pass": true,
+      "detail": []
+    },
+    {
+      "id": "tablet-no-overflow",
+      "pass": true,
+      "detail": {
+        "clientWidth": 768,
+        "scrollWidth": 768,
+        "overflow": false,
+        "h1Count": 1,
+        "tray": {
+          "x": 53,
+          "y": 218.421875,
+          "width": 662,
+          "height": 300,
+          "top": 218.421875,
+          "right": 715,
+          "bottom": 518.421875,
+          "left": 53
+        },
+        "cards": [
+          {
+            "label": "Principle card: Reference ≠ retained result",
+            "rect": {
+              "x": 211.90728759765625,
+              "y": 301.184814453125,
+              "width": 170.66409301757812,
+              "height": 213.1531982421875,
+              "top": 301.184814453125,
+              "right": 382.5713806152344,
+              "bottom": 514.3380126953125,
+              "left": 211.90728759765625
+            }
+          },
+          {
+            "label": "Caveat card for Reference ≠ retained result",
+            "rect": {
+              "x": 309.6677551269531,
+              "y": 309.15802001953125,
+              "width": 150,
+              "height": 198,
+              "top": 309.15802001953125,
+              "right": 459.6677551269531,
+              "bottom": 507.15802001953125,
+              "left": 309.6677551269531
+            }
+          },
+          {
+            "label": "Evidence card for Reference ≠ retained result",
+            "rect": {
+              "x": 387.0664978027344,
+              "y": 302.2118835449219,
+              "width": 170.66409301757812,
+              "height": 213.15322875976562,
+              "top": 302.2118835449219,
+              "right": 557.7305908203125,
+              "bottom": 515.3651123046875,
+              "left": 387.0664978027344
+            }
+          }
+        ]
+      }
+    }
+  ],
+  "shots": [
+    {
+      "name": "10-desktop-still-dark",
+      "label": "Desktop still frame, dark, before interaction"
+    },
+    {
+      "name": "11-desktop-hand-dealt",
+      "label": "Dealt hand, dark"
+    },
+    {
+      "name": "12-desktop-reader-open",
+      "label": "Card reader open, dark"
+    },
+    {
+      "name": "13-desktop-reveal-evidence",
+      "label": "Reasoning and evidence open, dark"
+    },
+    {
+      "name": "14-desktop-edition-two",
+      "label": "Second edition selected, dark"
+    },
+    {
+      "name": "15-desktop-light",
+      "label": "Desktop, light theme, hand dealt"
+    },
+    {
+      "name": "16-reduced-motion-still",
+      "label": "Reduced motion, hand dealt, no travel"
+    },
+    {
+      "name": "17-mobile-390",
+      "label": "Mobile 390px still frame"
+    },
+    {
+      "name": "18-mobile-390-hand",
+      "label": "Mobile 390px hand dealt"
+    },
+    {
+      "name": "17-mobile-320",
+      "label": "Mobile 320px still frame"
+    },
+    {
+      "name": "18-mobile-320-hand",
+      "label": "Mobile 320px hand dealt"
+    },
+    {
+      "name": "19-tablet-768",
+      "label": "Tablet 768px, hand dealt"
+    }
+  ],
+  "summary": {
+    "total": 35,
+    "passed": 35,
+    "failed": 0
+  }
+}

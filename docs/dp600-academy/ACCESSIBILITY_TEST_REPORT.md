@@ -1,0 +1,11 @@
+# Accessibility and browser QA — current evidence
+
+> Current outcome: this release was approved, deployed and live-verified on 25 October 2026. See DEPLOYMENT_REPORT.md and qa/live/ for the final production evidence. The sections below retain the pre-deployment review/testing context.
+
+Final Chrome suite PASS: 16/16; legacy browser suite PASS: 4/4. See qa/browser-results.json, qa/legacy-browser-results.json and qa/release-validation.json. Tests render the real exported HTML/JS/CSS/fonts through a local static-file request interceptor. This avoids blocked loopback; it does not validate Cloudflare HTTP delivery. Earlier Edge setup failures are preserved in qa/browser-blocked-initial.json as historical evidence, superseded for local UI validation by Chrome.
+
+Verified: native keyboard radio selection, empty-answer feedback and reset; dynamic constraint trace; answered-case state and refresh; legacy-key isolation; manual JSON backup plus successful final native JSON download/readback/import; invalid import rejection; corrupt-value preservation until lesson reset; denied-storage practice; no-JS explanatory content; reduced-motion controls; no runtime errors or external lesson requests. All six 320/390/1280 light/dark checks have 0 axe WCAG-tag violations in main and no horizontal overflow. Axe JSON and full PNGs retained. Focused review-controls-light-320.png and review-backup-dark-1280.png visually inspected for readable controls, wrapping, spacing and theme integration. No claim of all-site accessibility conformance.
+
+Existing guided-answer/bookmark history survives academy reset/navigation and resumes with feedback. Timed mock retains deadline, answer and question order after refresh with feedback hidden during the session. The test compares learner state independently of the legacy engine's normal updatedAt timestamps; timestamps are not assessment data loss. Existing engine/storage code is unchanged.
+
+NOT RUN: human screen reader, physical Android/iOS/touch, full manual WCAG matrix, comprehensive focus/zoom/assistive-technology combinations, interaction/CWV performance, live host delivery. Automated checks and screenshot review do not establish WCAG certification or educational efficacy. Preserve these limits in release communication. No known blocking defect found in the exercised workflows.

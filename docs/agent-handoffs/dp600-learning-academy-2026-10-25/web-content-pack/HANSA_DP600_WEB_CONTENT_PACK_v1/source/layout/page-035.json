@@ -1,0 +1,1574 @@
+{
+  "page": 35,
+  "width": 594.9599609375,
+  "height": 841.9199829101562,
+  "blocks": [
+    {
+      "bbox": [
+        44.25,
+        45.8,
+        243.49,
+        60.55
+      ],
+      "lines": [
+        {
+          "bbox": [
+            44.25,
+            45.8,
+            243.49,
+            60.55
+          ],
+          "spans": [
+            {
+              "text": "6.3 KQL essentials for the exam",
+              "bbox": [
+                44.25,
+                45.8,
+                243.49,
+                60.55
+              ],
+              "font": "LiberationSans-Bold",
+              "size": 13.2,
+              "flags": 16,
+              "color": 949350
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "bbox": [
+        44.25,
+        72.16,
+        479.22,
+        84.0
+      ],
+      "lines": [
+        {
+          "bbox": [
+            44.25,
+            72.16,
+            479.22,
+            84.0
+          ],
+          "spans": [
+            {
+              "text": "KQL reads left to right: start with a table, pipe it through operators. Reference: ",
+              "bbox": [
+                44.25,
+                72.16,
+                411.3,
+                84.0
+              ],
+              "font": "LiberationSans",
+              "size": 10.6,
+              "flags": 0,
+              "color": 1776415
+            },
+            {
+              "text": "KQL overview",
+              "bbox": [
+                411.3,
+                72.16,
+                476.85,
+                84.0
+              ],
+              "font": "LiberationSans",
+              "size": 10.6,
+              "flags": 0,
+              "color": 1010877
+            },
+            {
+              "text": ".",
+              "bbox": [
+                476.27,
+                72.16,
+                479.22,
+                84.0
+              ],
+              "font": "LiberationSans",
+              "size": 10.6,
+              "flags": 0,
+              "color": 1776415
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "bbox": [
+        57.0,
+        103.01,
+        375.3,
+        112.86
+      ],
+      "lines": [
+        {
+          "bbox": [
+            57.0,
+            103.01,
+            375.3,
+            112.86
+          ],
+          "spans": [
+            {
+              "text": "// Errors per hour for the last 24 hours, worst devices first",
+              "bbox": [
+                57.0,
+                103.01,
+                375.3,
+                112.86
+              ],
+              "font": "LiberationMono",
+              "size": 8.7,
+              "flags": 8,
+              "color": 15330805
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "bbox": [
+        57.0,
+        116.51,
+        312.69,
+        139.11
+      ],
+      "lines": [
+        {
+          "bbox": [
+            57.0,
+            116.51,
+            103.96,
+            126.36
+          ],
+          "spans": [
+            {
+              "text": "Telemetry",
+              "bbox": [
+                57.0,
+                116.51,
+                103.96,
+                126.36
+              ],
+              "font": "LiberationMono",
+              "size": 8.7,
+              "flags": 8,
+              "color": 15330805
+            }
+          ]
+        },
+        {
+          "bbox": [
+            57.0,
+            129.26,
+            312.69,
+            139.11
+          ],
+          "spans": [
+            {
+              "text": "| where Timestamp > ago(24h) and Level == \"Error\"",
+              "bbox": [
+                57.0,
+                129.26,
+                312.69,
+                139.11
+              ],
+              "font": "LiberationMono",
+              "size": 8.7,
+              "flags": 8,
+              "color": 15330805
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "bbox": [
+        57.0,
+        142.76,
+        390.96,
+        178.11
+      ],
+      "lines": [
+        {
+          "bbox": [
+            57.0,
+            142.76,
+            390.96,
+            152.61
+          ],
+          "spans": [
+            {
+              "text": "| summarize ErrorCount = count() by DeviceId, bin(Timestamp, 1h)",
+              "bbox": [
+                57.0,
+                142.76,
+                390.96,
+                152.61
+              ],
+              "font": "LiberationMono",
+              "size": 8.7,
+              "flags": 8,
+              "color": 15330805
+            }
+          ]
+        },
+        {
+          "bbox": [
+            57.0,
+            155.51,
+            197.89,
+            165.36
+          ],
+          "spans": [
+            {
+              "text": "| top 20 by ErrorCount desc",
+              "bbox": [
+                57.0,
+                155.51,
+                197.89,
+                165.36
+              ],
+              "font": "LiberationMono",
+              "size": 8.7,
+              "flags": 8,
+              "color": 15330805
+            }
+          ]
+        },
+        {
+          "bbox": [
+            57.0,
+            168.26,
+            150.93,
+            178.11
+          ],
+          "spans": [
+            {
+              "text": "| render timechart",
+              "bbox": [
+                57.0,
+                168.26,
+                150.93,
+                178.11
+              ],
+              "font": "LiberationMono",
+              "size": 8.7,
+              "flags": 8,
+              "color": 15330805
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "bbox": [
+        51.75,
+        205.15,
+        482.88,
+        215.76
+      ],
+      "lines": [
+        {
+          "bbox": [
+            51.75,
+            205.15,
+            72.68,
+            215.76
+          ],
+          "spans": [
+            {
+              "text": "Task",
+              "bbox": [
+                51.75,
+                205.15,
+                72.68,
+                215.76
+              ],
+              "font": "LiberationSans-Bold",
+              "size": 9.49,
+              "flags": 16,
+              "color": 16777215
+            }
+          ]
+        },
+        {
+          "bbox": [
+            147.08,
+            205.15,
+            167.12,
+            215.76
+          ],
+          "spans": [
+            {
+              "text": "KQL",
+              "bbox": [
+                147.08,
+                205.15,
+                167.12,
+                215.76
+              ],
+              "font": "LiberationSans-Bold",
+              "size": 9.49,
+              "flags": 16,
+              "color": 16777215
+            }
+          ]
+        },
+        {
+          "bbox": [
+            410.8,
+            205.15,
+            482.88,
+            215.76
+          ],
+          "spans": [
+            {
+              "text": "T-SQL analogue",
+              "bbox": [
+                410.8,
+                205.15,
+                482.88,
+                215.76
+              ],
+              "font": "LiberationSans-Bold",
+              "size": 9.49,
+              "flags": 16,
+              "color": 16777215
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "bbox": [
+        51.75,
+        230.65,
+        441.55,
+        242.33
+      ],
+      "lines": [
+        {
+          "bbox": [
+            51.75,
+            230.65,
+            95.52,
+            241.26
+          ],
+          "spans": [
+            {
+              "text": "Filter rows",
+              "bbox": [
+                51.75,
+                230.65,
+                95.52,
+                241.26
+              ],
+              "font": "LiberationSans",
+              "size": 9.49,
+              "flags": 0,
+              "color": 1776415
+            }
+          ]
+        },
+        {
+          "bbox": [
+            150.83,
+            232.13,
+            177.83,
+            242.33
+          ],
+          "spans": [
+            {
+              "text": "where",
+              "bbox": [
+                150.83,
+                232.13,
+                177.83,
+                242.33
+              ],
+              "font": "LiberationMono",
+              "size": 9.0,
+              "flags": 8,
+              "color": 1122867
+            }
+          ]
+        },
+        {
+          "bbox": [
+            414.55,
+            232.13,
+            441.55,
+            242.33
+          ],
+          "spans": [
+            {
+              "text": "WHERE",
+              "bbox": [
+                414.55,
+                232.13,
+                441.55,
+                242.33
+              ],
+              "font": "LiberationMono",
+              "size": 9.0,
+              "flags": 8,
+              "color": 1122867
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "bbox": [
+        51.75,
+        256.53,
+        446.95,
+        267.83
+      ],
+      "lines": [
+        {
+          "bbox": [
+            51.75,
+            256.9,
+            122.45,
+            267.51
+          ],
+          "spans": [
+            {
+              "text": "Choose columns",
+              "bbox": [
+                51.75,
+                256.9,
+                122.45,
+                267.51
+              ],
+              "font": "LiberationSans",
+              "size": 9.49,
+              "flags": 0,
+              "color": 1776415
+            }
+          ]
+        },
+        {
+          "bbox": [
+            150.83,
+            256.53,
+            266.23,
+            267.83
+          ],
+          "spans": [
+            {
+              "text": "project",
+              "bbox": [
+                150.83,
+                257.63,
+                188.63,
+                267.83
+              ],
+              "font": "LiberationMono",
+              "size": 9.0,
+              "flags": 8,
+              "color": 1122867
+            },
+            {
+              "text": " , ",
+              "bbox": [
+                188.63,
+                256.53,
+                197.68,
+                267.51
+              ],
+              "font": "LiberationSans",
+              "size": 9.49,
+              "flags": 0,
+              "color": 1776415
+            },
+            {
+              "text": "project-away",
+              "bbox": [
+                201.43,
+                257.63,
+                266.23,
+                267.83
+              ],
+              "font": "LiberationMono",
+              "size": 9.0,
+              "flags": 8,
+              "color": 1122867
+            }
+          ]
+        },
+        {
+          "bbox": [
+            414.55,
+            257.63,
+            446.95,
+            267.83
+          ],
+          "spans": [
+            {
+              "text": "SELECT",
+              "bbox": [
+                414.55,
+                257.63,
+                446.95,
+                267.83
+              ],
+              "font": "LiberationMono",
+              "size": 9.0,
+              "flags": 8,
+              "color": 1122867
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "bbox": [
+        51.75,
+        282.4,
+        534.54,
+        294.08
+      ],
+      "lines": [
+        {
+          "bbox": [
+            51.75,
+            282.4,
+            109.79,
+            293.01
+          ],
+          "spans": [
+            {
+              "text": "Add a column",
+              "bbox": [
+                51.75,
+                282.4,
+                109.79,
+                293.01
+              ],
+              "font": "LiberationSans",
+              "size": 9.49,
+              "flags": 0,
+              "color": 1776415
+            }
+          ]
+        },
+        {
+          "bbox": [
+            150.83,
+            283.88,
+            183.23,
+            294.08
+          ],
+          "spans": [
+            {
+              "text": "extend",
+              "bbox": [
+                150.83,
+                283.88,
+                183.23,
+                294.08
+              ],
+              "font": "LiberationMono",
+              "size": 9.0,
+              "flags": 8,
+              "color": 1122867
+            }
+          ]
+        },
+        {
+          "bbox": [
+            410.8,
+            282.4,
+            534.54,
+            294.08
+          ],
+          "spans": [
+            {
+              "text": "computed column in ",
+              "bbox": [
+                410.8,
+                282.4,
+                498.39,
+                293.01
+              ],
+              "font": "LiberationSans",
+              "size": 9.49,
+              "flags": 0,
+              "color": 1776415
+            },
+            {
+              "text": "SELECT",
+              "bbox": [
+                502.14,
+                283.88,
+                534.54,
+                294.08
+              ],
+              "font": "LiberationMono",
+              "size": 9.0,
+              "flags": 8,
+              "color": 1122867
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "bbox": [
+        51.75,
+        308.65,
+        457.75,
+        319.58
+      ],
+      "lines": [
+        {
+          "bbox": [
+            51.75,
+            308.65,
+            95.55,
+            319.26
+          ],
+          "spans": [
+            {
+              "text": "Aggregate",
+              "bbox": [
+                51.75,
+                308.65,
+                95.55,
+                319.26
+              ],
+              "font": "LiberationSans",
+              "size": 9.49,
+              "flags": 0,
+              "color": 1776415
+            }
+          ]
+        },
+        {
+          "bbox": [
+            150.83,
+            309.38,
+            226.43,
+            319.58
+          ],
+          "spans": [
+            {
+              "text": "summarize … by",
+              "bbox": [
+                150.83,
+                309.38,
+                226.43,
+                319.58
+              ],
+              "font": "LiberationMono",
+              "size": 9.0,
+              "flags": 8,
+              "color": 1122867
+            }
+          ]
+        },
+        {
+          "bbox": [
+            414.55,
+            309.38,
+            457.75,
+            319.58
+          ],
+          "spans": [
+            {
+              "text": "GROUP BY",
+              "bbox": [
+                414.55,
+                309.38,
+                457.75,
+                319.58
+              ],
+              "font": "LiberationMono",
+              "size": 9.0,
+              "flags": 8,
+              "color": 1122867
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "bbox": [
+        51.75,
+        334.15,
+        532.59,
+        345.83
+      ],
+      "lines": [
+        {
+          "bbox": [
+            51.75,
+            334.15,
+            107.84,
+            344.76
+          ],
+          "spans": [
+            {
+              "text": "Time buckets",
+              "bbox": [
+                51.75,
+                334.15,
+                107.84,
+                344.76
+              ],
+              "font": "LiberationSans",
+              "size": 9.49,
+              "flags": 0,
+              "color": 1776415
+            }
+          ]
+        },
+        {
+          "bbox": [
+            150.83,
+            335.63,
+            285.83,
+            345.83
+          ],
+          "spans": [
+            {
+              "text": "summarize … by bin(T, 1h)",
+              "bbox": [
+                150.83,
+                335.63,
+                285.83,
+                345.83
+              ],
+              "font": "LiberationMono",
+              "size": 9.0,
+              "flags": 8,
+              "color": 1122867
+            }
+          ]
+        },
+        {
+          "bbox": [
+            414.55,
+            334.15,
+            532.59,
+            345.83
+          ],
+          "spans": [
+            {
+              "text": "DATE_BUCKET",
+              "bbox": [
+                414.55,
+                335.63,
+                473.95,
+                345.83
+              ],
+              "font": "LiberationMono",
+              "size": 9.0,
+              "flags": 8,
+              "color": 1122867
+            },
+            {
+              "text": "  / ",
+              "bbox": [
+                473.95,
+                334.15,
+                485.63,
+                345.14
+              ],
+              "font": "LiberationSans",
+              "size": 9.49,
+              "flags": 0,
+              "color": 1776415
+            },
+            {
+              "text": "DATEPART",
+              "bbox": [
+                489.39,
+                335.63,
+                532.59,
+                345.83
+              ],
+              "font": "LiberationMono",
+              "size": 9.0,
+              "flags": 8,
+              "color": 1122867
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "bbox": [
+        51.75,
+        359.65,
+        430.75,
+        371.33
+      ],
+      "lines": [
+        {
+          "bbox": [
+            51.75,
+            359.65,
+            79.69,
+            370.26
+          ],
+          "spans": [
+            {
+              "text": "First N",
+              "bbox": [
+                51.75,
+                359.65,
+                79.69,
+                370.26
+              ],
+              "font": "LiberationSans",
+              "size": 9.49,
+              "flags": 0,
+              "color": 1776415
+            }
+          ]
+        },
+        {
+          "bbox": [
+            150.83,
+            359.65,
+            228.43,
+            371.33
+          ],
+          "spans": [
+            {
+              "text": "take",
+              "bbox": [
+                150.83,
+                361.13,
+                172.43,
+                371.33
+              ],
+              "font": "LiberationMono",
+              "size": 9.0,
+              "flags": 8,
+              "color": 1122867
+            },
+            {
+              "text": " , ",
+              "bbox": [
+                172.43,
+                359.65,
+                181.47,
+                370.64
+              ],
+              "font": "LiberationSans",
+              "size": 9.49,
+              "flags": 0,
+              "color": 1776415
+            },
+            {
+              "text": "top … by",
+              "bbox": [
+                185.23,
+                361.13,
+                228.43,
+                371.33
+              ],
+              "font": "LiberationMono",
+              "size": 9.0,
+              "flags": 8,
+              "color": 1122867
+            }
+          ]
+        },
+        {
+          "bbox": [
+            414.55,
+            361.13,
+            430.75,
+            371.33
+          ],
+          "spans": [
+            {
+              "text": "TOP",
+              "bbox": [
+                414.55,
+                361.13,
+                430.75,
+                371.33
+              ],
+              "font": "LiberationMono",
+              "size": 9.0,
+              "flags": 8,
+              "color": 1122867
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "bbox": [
+        51.75,
+        385.9,
+        511.75,
+        396.83
+      ],
+      "lines": [
+        {
+          "bbox": [
+            51.75,
+            385.9,
+            129.31,
+            396.51
+          ],
+          "spans": [
+            {
+              "text": "Latest row per key",
+              "bbox": [
+                51.75,
+                385.9,
+                129.31,
+                396.51
+              ],
+              "font": "LiberationSans",
+              "size": 9.49,
+              "flags": 0,
+              "color": 1776415
+            }
+          ]
+        },
+        {
+          "bbox": [
+            150.83,
+            386.63,
+            383.03,
+            396.83
+          ],
+          "spans": [
+            {
+              "text": "summarize arg_max(Timestamp, *) by DeviceId",
+              "bbox": [
+                150.83,
+                386.63,
+                383.03,
+                396.83
+              ],
+              "font": "LiberationMono",
+              "size": 9.0,
+              "flags": 8,
+              "color": 1122867
+            }
+          ]
+        },
+        {
+          "bbox": [
+            414.55,
+            386.63,
+            511.75,
+            396.83
+          ],
+          "spans": [
+            {
+              "text": "ROW_NUMBER() … = 1",
+              "bbox": [
+                414.55,
+                386.63,
+                511.75,
+                396.83
+              ],
+              "font": "LiberationMono",
+              "size": 9.0,
+              "flags": 8,
+              "color": 1122867
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "bbox": [
+        51.75,
+        411.4,
+        495.55,
+        423.08
+      ],
+      "lines": [
+        {
+          "bbox": [
+            51.75,
+            411.4,
+            82.87,
+            422.01
+          ],
+          "spans": [
+            {
+              "text": "Distinct",
+              "bbox": [
+                51.75,
+                411.4,
+                82.87,
+                422.01
+              ],
+              "font": "LiberationSans",
+              "size": 9.49,
+              "flags": 0,
+              "color": 1776415
+            }
+          ]
+        },
+        {
+          "bbox": [
+            150.83,
+            412.88,
+            194.03,
+            423.08
+          ],
+          "spans": [
+            {
+              "text": "distinct",
+              "bbox": [
+                150.83,
+                412.88,
+                194.03,
+                423.08
+              ],
+              "font": "LiberationMono",
+              "size": 9.0,
+              "flags": 8,
+              "color": 1122867
+            }
+          ]
+        },
+        {
+          "bbox": [
+            414.55,
+            412.88,
+            495.55,
+            423.08
+          ],
+          "spans": [
+            {
+              "text": "SELECT DISTINCT",
+              "bbox": [
+                414.55,
+                412.88,
+                495.55,
+                423.08
+              ],
+              "font": "LiberationMono",
+              "size": 9.0,
+              "flags": 8,
+              "color": 1122867
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "bbox": [
+        51.75,
+        437.28,
+        483.02,
+        448.58
+      ],
+      "lines": [
+        {
+          "bbox": [
+            51.75,
+            437.65,
+            90.62,
+            448.26
+          ],
+          "spans": [
+            {
+              "text": "Variables",
+              "bbox": [
+                51.75,
+                437.65,
+                90.62,
+                448.26
+              ],
+              "font": "LiberationSans",
+              "size": 9.49,
+              "flags": 0,
+              "color": 1776415
+            }
+          ]
+        },
+        {
+          "bbox": [
+            150.83,
+            438.38,
+            204.83,
+            448.58
+          ],
+          "spans": [
+            {
+              "text": "let x = …;",
+              "bbox": [
+                150.83,
+                438.38,
+                204.83,
+                448.58
+              ],
+              "font": "LiberationMono",
+              "size": 9.0,
+              "flags": 8,
+              "color": 1122867
+            }
+          ]
+        },
+        {
+          "bbox": [
+            414.55,
+            437.28,
+            483.02,
+            448.58
+          ],
+          "spans": [
+            {
+              "text": "DECLARE",
+              "bbox": [
+                414.55,
+                438.38,
+                452.35,
+                448.58
+              ],
+              "font": "LiberationMono",
+              "size": 9.0,
+              "flags": 8,
+              "color": 1122867
+            },
+            {
+              "text": "  / CTE",
+              "bbox": [
+                452.35,
+                437.28,
+                483.02,
+                448.26
+              ],
+              "font": "LiberationSans",
+              "size": 9.49,
+              "flags": 0,
+              "color": 1776415
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "bbox": [
+        51.75,
+        463.15,
+        420.3,
+        474.83
+      ],
+      "lines": [
+        {
+          "bbox": [
+            51.75,
+            463.15,
+            89.57,
+            473.76
+          ],
+          "spans": [
+            {
+              "text": "Visualise",
+              "bbox": [
+                51.75,
+                463.15,
+                89.57,
+                473.76
+              ],
+              "font": "LiberationSans",
+              "size": 9.49,
+              "flags": 0,
+              "color": 1776415
+            }
+          ]
+        },
+        {
+          "bbox": [
+            150.83,
+            464.63,
+            183.23,
+            474.83
+          ],
+          "spans": [
+            {
+              "text": "render",
+              "bbox": [
+                150.83,
+                464.63,
+                183.23,
+                474.83
+              ],
+              "font": "LiberationMono",
+              "size": 9.0,
+              "flags": 8,
+              "color": 1122867
+            }
+          ]
+        },
+        {
+          "bbox": [
+            410.8,
+            463.15,
+            420.3,
+            473.76
+          ],
+          "spans": [
+            {
+              "text": "—",
+              "bbox": [
+                410.8,
+                463.15,
+                420.3,
+                473.76
+              ],
+              "font": "LiberationSans",
+              "size": 9.49,
+              "flags": 0,
+              "color": 1776415
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "bbox": [
+        44.25,
+        495.91,
+        393.43,
+        507.75
+      ],
+      "lines": [
+        {
+          "bbox": [
+            44.25,
+            495.91,
+            393.43,
+            507.75
+          ],
+          "spans": [
+            {
+              "text": "Useful references: ",
+              "bbox": [
+                44.25,
+                495.91,
+                133.16,
+                507.75
+              ],
+              "font": "LiberationSans",
+              "size": 10.6,
+              "flags": 0,
+              "color": 1776415
+            },
+            {
+              "text": "summarize operator",
+              "bbox": [
+                133.16,
+                495.91,
+                227.36,
+                507.75
+              ],
+              "font": "LiberationSans",
+              "size": 10.6,
+              "flags": 0,
+              "color": 1010877
+            },
+            {
+              "text": " · ",
+              "bbox": [
+                227.37,
+                495.91,
+                236.78,
+                507.75
+              ],
+              "font": "LiberationSans",
+              "size": 10.6,
+              "flags": 0,
+              "color": 1776415
+            },
+            {
+              "text": "bin()",
+              "bbox": [
+                236.79,
+                495.91,
+                257.98,
+                507.75
+              ],
+              "font": "LiberationSans",
+              "size": 10.6,
+              "flags": 0,
+              "color": 1010877
+            },
+            {
+              "text": " · ",
+              "bbox": [
+                257.99,
+                495.91,
+                267.41,
+                507.75
+              ],
+              "font": "LiberationSans",
+              "size": 10.6,
+              "flags": 0,
+              "color": 1776415
+            },
+            {
+              "text": "common operators tutorial",
+              "bbox": [
+                267.41,
+                495.91,
+                390.47,
+                507.75
+              ],
+              "font": "LiberationSans",
+              "size": 10.6,
+              "flags": 0,
+              "color": 1010877
+            },
+            {
+              "text": ".",
+              "bbox": [
+                390.48,
+                495.91,
+                393.43,
+                507.75
+              ],
+              "font": "LiberationSans",
+              "size": 10.6,
+              "flags": 0,
+              "color": 1776415
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "bbox": [
+        57.75,
+        529.54,
+        172.33,
+        540.6
+      ],
+      "lines": [
+        {
+          "bbox": [
+            57.75,
+            529.54,
+            172.33,
+            540.6
+          ],
+          "spans": [
+            {
+              "text": "COMMON EXAM TRAP",
+              "bbox": [
+                57.75,
+                529.54,
+                172.33,
+                540.6
+              ],
+              "font": "LiberationSans-Bold",
+              "size": 9.9,
+              "flags": 16,
+              "color": 11545143
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "bbox": [
+        61.5,
+        547.28,
+        515.93,
+        559.58
+      ],
+      "lines": [
+        {
+          "bbox": [
+            61.5,
+            547.28,
+            515.93,
+            559.58
+          ],
+          "spans": [
+            {
+              "text": "take 10",
+              "bbox": [
+                61.5,
+                549.38,
+                99.3,
+                559.58
+              ],
+              "font": "LiberationMono",
+              "size": 9.0,
+              "flags": 8,
+              "color": 1122867
+            },
+            {
+              "text": "  returns ",
+              "bbox": [
+                99.3,
+                547.28,
+                141.93,
+                559.5
+              ],
+              "font": "LiberationSans",
+              "size": 10.6,
+              "flags": 0,
+              "color": 1776415
+            },
+            {
+              "text": "any",
+              "bbox": [
+                141.93,
+                547.66,
+                159.01,
+                559.5
+              ],
+              "font": "LiberationSans-Italic",
+              "size": 10.6,
+              "flags": 2,
+              "color": 1776415
+            },
+            {
+              "text": " 10 rows with no ordering guarantee and is for sampling; ",
+              "bbox": [
+                159.01,
+                547.66,
+                425.77,
+                559.5
+              ],
+              "font": "LiberationSans",
+              "size": 10.6,
+              "flags": 0,
+              "color": 1776415
+            },
+            {
+              "text": "top 10 by Column",
+              "bbox": [
+                429.53,
+                549.38,
+                515.93,
+                559.58
+              ],
+              "font": "LiberationMono",
+              "size": 9.0,
+              "flags": 8,
+              "color": 1122867
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "bbox": [
+        57.75,
+        564.91,
+        534.32,
+        577.58
+      ],
+      "lines": [
+        {
+          "bbox": [
+            57.75,
+            564.91,
+            534.32,
+            577.58
+          ],
+          "spans": [
+            {
+              "text": "desc",
+              "bbox": [
+                57.75,
+                567.38,
+                79.35,
+                577.58
+              ],
+              "font": "LiberationMono",
+              "size": 9.0,
+              "flags": 8,
+              "color": 1122867
+            },
+            {
+              "text": "  returns the actual top 10. Choosing ",
+              "bbox": [
+                79.35,
+                564.91,
+                253.9,
+                577.12
+              ],
+              "font": "LiberationSans",
+              "size": 10.6,
+              "flags": 0,
+              "color": 1776415
+            },
+            {
+              "text": "take",
+              "bbox": [
+                257.65,
+                567.38,
+                279.25,
+                577.58
+              ],
+              "font": "LiberationMono",
+              "size": 9.0,
+              "flags": 8,
+              "color": 1122867
+            },
+            {
+              "text": "  where the question says \"the ten highest\" is a classic",
+              "bbox": [
+                279.25,
+                564.91,
+                534.32,
+                577.12
+              ],
+              "font": "LiberationSans",
+              "size": 10.6,
+              "flags": 0,
+              "color": 1776415
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "bbox": [
+        57.75,
+        582.91,
+        126.06,
+        594.75
+      ],
+      "lines": [
+        {
+          "bbox": [
+            57.75,
+            582.91,
+            126.06,
+            594.75
+          ],
+          "spans": [
+            {
+              "text": "wrong answer.",
+              "bbox": [
+                57.75,
+                582.91,
+                126.06,
+                594.75
+              ],
+              "font": "LiberationSans",
+              "size": 10.6,
+              "flags": 0,
+              "color": 1776415
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

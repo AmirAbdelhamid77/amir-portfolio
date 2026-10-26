@@ -1,0 +1,36 @@
+Chapter 10 — Practice questions
+Answer these closed-book. Full explanations follow the last question.
+1. Analysts must query warehouse tables with T-SQL but must never read the underlying Parquet files with
+Spark. Which combination do you grant?
+2. You must hide the Salary  column from all roles except HR, enforced identically for Spark, T-SQL, and a
+Direct Lake model. Which feature?
+3. A lakehouse table is 900 GB and grows daily. Reports must be near real time and fast. Which storage
+mode?
+4. A Direct Lake report worked for months and is now consistently slow. Queries are hitting the SQL
+analytics endpoint. What happened?
+5. You need YTD, PY, and YoY variants of 20 measures without writing 60 measures. What do you
+implement?
+6. A business user must switch a chart between three different measures from a slicer. What do you
+implement?
+7. Which two objects can you create in a lakehouse SQL analytics endpoint: view, stored procedure, inline
+TVF, MERGE  statement?
+8. A dataflow suddenly takes ten times longer after adding a step. What is the most likely cause?
+9. You must promote a tested set of items from Test to Production and re-point them at the Production
+lakehouse. Which two features?
+10. What exactly happens when a Direct Lake semantic model is "refreshed"?
+11. Sales must be analysed by both order date and ship date against a single date dimension. How?
+12. You need to know every report that breaks if you drop a column from a Gold warehouse table. Which
+feature?
+13. Which endorsement level can only be applied by reviewers the tenant admin nominates?
+14. A KQL query must return the ten devices with the most errors. Which operator?
+15. An Import model refresh takes 6 hours; only the last 7 days of data ever change. What do you configure?
+16. A slicer over a small dimension on a DirectQuery model is slow. What is the standard fix?
+17. Which Fabric store supports multi-table transactions with T-SQL writes?
+18. What does turning on OneLake availability for an eventhouse achieve?
+19. Which file format lets a report and its semantic model be code-reviewed in a pull request?
+20. A measure divides two measures and errors when the denominator is zero. What do you use?
+▸ Answers and explanations
+1. Workspace Viewer + ReadData  item permission. ReadAll  would grant Spark/OneLake file access,
+which the requirement forbids. Contributor would grant far too much.
+2. OneLake security data access roles. T-SQL DENY  only covers callers through the SQL endpoint; a
+Spark notebook would bypass it. OneLake security is enforced at the lake layer for every engine.

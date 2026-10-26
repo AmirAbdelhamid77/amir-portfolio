@@ -1,0 +1,994 @@
+{
+  "page": 46,
+  "width": 594.9599609375,
+  "height": 841.9199829101562,
+  "blocks": [
+    {
+      "bbox": [
+        44.25,
+        45.16,
+        540.65,
+        57.0
+      ],
+      "lines": [
+        {
+          "bbox": [
+            44.25,
+            45.16,
+            540.65,
+            57.0
+          ],
+          "spans": [
+            {
+              "text": "Framing (the \"refresh\").",
+              "bbox": [
+                44.25,
+                45.16,
+                163.78,
+                57.0
+              ],
+              "font": "LiberationSans-Bold",
+              "size": 10.6,
+              "flags": 16,
+              "color": 1184282
+            },
+            {
+              "text": " A Direct Lake model has no data refresh in the Import sense. A refresh performs",
+              "bbox": [
+                163.79,
+                45.16,
+                540.65,
+                57.0
+              ],
+              "font": "LiberationSans",
+              "size": 10.6,
+              "flags": 0,
+              "color": 1776415
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "bbox": [
+        44.25,
+        62.41,
+        518.89,
+        74.25
+      ],
+      "lines": [
+        {
+          "bbox": [
+            44.25,
+            62.41,
+            518.89,
+            74.25
+          ],
+          "spans": [
+            {
+              "text": "framing",
+              "bbox": [
+                44.25,
+                62.41,
+                83.1,
+                74.25
+              ],
+              "font": "LiberationSans-Bold",
+              "size": 10.6,
+              "flags": 16,
+              "color": 1184282
+            },
+            {
+              "text": ": it updates model metadata to point at the current version of each Delta table and invalidates",
+              "bbox": [
+                83.1,
+                62.41,
+                518.89,
+                74.25
+              ],
+              "font": "LiberationSans",
+              "size": 10.6,
+              "flags": 0,
+              "color": 1776415
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "bbox": [
+        44.25,
+        79.66,
+        531.05,
+        91.5
+      ],
+      "lines": [
+        {
+          "bbox": [
+            44.25,
+            79.66,
+            531.05,
+            91.5
+          ],
+          "spans": [
+            {
+              "text": "cached columns whose files changed. The next query re-pages the new data. Framing is fast because it",
+              "bbox": [
+                44.25,
+                79.66,
+                531.05,
+                91.5
+              ],
+              "font": "LiberationSans",
+              "size": 10.6,
+              "flags": 0,
+              "color": 1776415
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "bbox": [
+        44.25,
+        96.91,
+        171.43,
+        108.75
+      ],
+      "lines": [
+        {
+          "bbox": [
+            44.25,
+            96.91,
+            171.43,
+            108.75
+          ],
+          "spans": [
+            {
+              "text": "moves metadata, not rows.",
+              "bbox": [
+                44.25,
+                96.91,
+                171.43,
+                108.75
+              ],
+              "font": "LiberationSans",
+              "size": 10.6,
+              "flags": 0,
+              "color": 1776415
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "bbox": [
+        58.56,
+        119.41,
+        549.09,
+        131.25
+      ],
+      "lines": [
+        {
+          "bbox": [
+            58.56,
+            119.41,
+            549.09,
+            131.25
+          ],
+          "spans": [
+            {
+              "text": "Set the model to update automatically when source data changes, or frame on a schedule, or frame from",
+              "bbox": [
+                58.56,
+                119.41,
+                549.09,
+                131.25
+              ],
+              "font": "LiberationSans",
+              "size": 10.6,
+              "flags": 0,
+              "color": 1776415
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "bbox": [
+        58.56,
+        136.66,
+        200.51,
+        148.5
+      ],
+      "lines": [
+        {
+          "bbox": [
+            58.56,
+            136.66,
+            200.51,
+            148.5
+          ],
+          "spans": [
+            {
+              "text": "a pipeline at the end of a load.",
+              "bbox": [
+                58.56,
+                136.66,
+                200.51,
+                148.5
+              ],
+              "font": "LiberationSans",
+              "size": 10.6,
+              "flags": 0,
+              "color": 1776415
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "bbox": [
+        58.56,
+        156.53,
+        527.94,
+        168.83
+      ],
+      "lines": [
+        {
+          "bbox": [
+            58.56,
+            156.53,
+            527.94,
+            168.83
+          ],
+          "spans": [
+            {
+              "text": "Running ",
+              "bbox": [
+                58.56,
+                156.91,
+                100.97,
+                168.75
+              ],
+              "font": "LiberationSans",
+              "size": 10.6,
+              "flags": 0,
+              "color": 1776415
+            },
+            {
+              "text": "OPTIMIZE",
+              "bbox": [
+                104.72,
+                158.63,
+                147.92,
+                168.83
+              ],
+              "font": "LiberationMono",
+              "size": 9.0,
+              "flags": 8,
+              "color": 1122867
+            },
+            {
+              "text": "  on a Delta table rewrites files, so the next query must re-page those columns —",
+              "bbox": [
+                147.92,
+                156.53,
+                527.94,
+                168.75
+              ],
+              "font": "LiberationSans",
+              "size": 10.6,
+              "flags": 0,
+              "color": 1776415
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "bbox": [
+        58.56,
+        174.16,
+        278.2,
+        186.0
+      ],
+      "lines": [
+        {
+          "bbox": [
+            58.56,
+            174.16,
+            278.2,
+            186.0
+          ],
+          "spans": [
+            {
+              "text": "expect a cold-ish first query after maintenance.",
+              "bbox": [
+                58.56,
+                174.16,
+                278.2,
+                186.0
+              ],
+              "font": "LiberationSans",
+              "size": 10.6,
+              "flags": 0,
+              "color": 1776415
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "bbox": [
+        44.25,
+        198.91,
+        514.74,
+        210.75
+      ],
+      "lines": [
+        {
+          "bbox": [
+            44.25,
+            198.91,
+            514.74,
+            210.75
+          ],
+          "spans": [
+            {
+              "text": "Fallback.",
+              "bbox": [
+                44.25,
+                198.91,
+                89.59,
+                210.75
+              ],
+              "font": "LiberationSans-Bold",
+              "size": 10.6,
+              "flags": 16,
+              "color": 1184282
+            },
+            {
+              "text": " If a query cannot be served from Direct Lake, the engine silently falls back to ",
+              "bbox": [
+                89.59,
+                198.91,
+                454.09,
+                210.75
+              ],
+              "font": "LiberationSans",
+              "size": 10.6,
+              "flags": 0,
+              "color": 1776415
+            },
+            {
+              "text": "DirectQuery",
+              "bbox": [
+                454.09,
+                198.91,
+                514.74,
+                210.75
+              ],
+              "font": "LiberationSans-Bold",
+              "size": 10.6,
+              "flags": 16,
+              "color": 1184282
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "bbox": [
+        44.25,
+        216.16,
+        530.95,
+        228.0
+      ],
+      "lines": [
+        {
+          "bbox": [
+            44.25,
+            216.16,
+            530.95,
+            228.0
+          ],
+          "spans": [
+            {
+              "text": "against the SQL analytics endpoint",
+              "bbox": [
+                44.25,
+                216.16,
+                220.65,
+                228.0
+              ],
+              "font": "LiberationSans-Bold",
+              "size": 10.6,
+              "flags": 16,
+              "color": 1184282
+            },
+            {
+              "text": ". Common triggers: the table exceeds the per-SKU guardrails (row",
+              "bbox": [
+                220.65,
+                216.16,
+                530.95,
+                228.0
+              ],
+              "font": "LiberationSans",
+              "size": 10.6,
+              "flags": 0,
+              "color": 1776415
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "bbox": [
+        44.25,
+        233.41,
+        544.39,
+        245.25
+      ],
+      "lines": [
+        {
+          "bbox": [
+            44.25,
+            233.41,
+            544.39,
+            245.25
+          ],
+          "spans": [
+            {
+              "text": "counts and file sizes scale with the F SKU), the object is a SQL view rather than a table, or an unsupported",
+              "bbox": [
+                44.25,
+                233.41,
+                544.39,
+                245.25
+              ],
+              "font": "LiberationSans",
+              "size": 10.6,
+              "flags": 0,
+              "color": 1776415
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "bbox": [
+        44.25,
+        250.66,
+        126.69,
+        262.5
+      ],
+      "lines": [
+        {
+          "bbox": [
+            44.25,
+            250.66,
+            126.69,
+            262.5
+          ],
+          "spans": [
+            {
+              "text": "construct is used.",
+              "bbox": [
+                44.25,
+                250.66,
+                126.69,
+                262.5
+              ],
+              "font": "LiberationSans",
+              "size": 10.6,
+              "flags": 0,
+              "color": 1776415
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "bbox": [
+        44.25,
+        273.16,
+        310.31,
+        285.83
+      ],
+      "lines": [
+        {
+          "bbox": [
+            44.25,
+            273.16,
+            310.31,
+            285.83
+          ],
+          "spans": [
+            {
+              "text": "Control it with the ",
+              "bbox": [
+                44.25,
+                273.16,
+                129.04,
+                285.0
+              ],
+              "font": "LiberationSans",
+              "size": 10.6,
+              "flags": 0,
+              "color": 1776415
+            },
+            {
+              "text": "DirectLakeBehavior",
+              "bbox": [
+                132.8,
+                275.63,
+                230.0,
+                285.83
+              ],
+              "font": "LiberationMono",
+              "size": 9.0,
+              "flags": 8,
+              "color": 1122867
+            },
+            {
+              "text": "  model property:",
+              "bbox": [
+                230.0,
+                273.16,
+                310.31,
+                285.37
+              ],
+              "font": "LiberationSans",
+              "size": 10.6,
+              "flags": 0,
+              "color": 1776415
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "bbox": [
+        51.75,
+        305.65,
+        210.93,
+        316.26
+      ],
+      "lines": [
+        {
+          "bbox": [
+            51.75,
+            305.65,
+            76.55,
+            316.26
+          ],
+          "spans": [
+            {
+              "text": "Value",
+              "bbox": [
+                51.75,
+                305.65,
+                76.55,
+                316.26
+              ],
+              "font": "LiberationSans-Bold",
+              "size": 9.49,
+              "flags": 16,
+              "color": 16777215
+            }
+          ]
+        },
+        {
+          "bbox": [
+            164.51,
+            305.65,
+            210.93,
+            316.26
+          ],
+          "spans": [
+            {
+              "text": "Behaviour",
+              "bbox": [
+                164.51,
+                305.65,
+                210.93,
+                316.26
+              ],
+              "font": "LiberationSans-Bold",
+              "size": 9.49,
+              "flags": 16,
+              "color": 16777215
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "bbox": [
+        55.5,
+        331.15,
+        433.56,
+        342.83
+      ],
+      "lines": [
+        {
+          "bbox": [
+            55.5,
+            331.15,
+            145.32,
+            342.83
+          ],
+          "spans": [
+            {
+              "text": "Automatic",
+              "bbox": [
+                55.5,
+                332.63,
+                104.1,
+                342.83
+              ],
+              "font": "LiberationMono",
+              "size": 9.0,
+              "flags": 8,
+              "color": 1122867
+            },
+            {
+              "text": "  (default)",
+              "bbox": [
+                104.1,
+                331.15,
+                145.32,
+                342.14
+              ],
+              "font": "LiberationSans",
+              "size": 9.49,
+              "flags": 0,
+              "color": 1776415
+            }
+          ]
+        },
+        {
+          "bbox": [
+            164.51,
+            331.15,
+            433.56,
+            341.76
+          ],
+          "spans": [
+            {
+              "text": "Use Direct Lake where possible, fall back to DirectQuery silently",
+              "bbox": [
+                164.51,
+                331.15,
+                433.56,
+                341.76
+              ],
+              "font": "LiberationSans",
+              "size": 9.49,
+              "flags": 0,
+              "color": 1776415
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "bbox": [
+        55.5,
+        357.4,
+        526.48,
+        368.33
+      ],
+      "lines": [
+        {
+          "bbox": [
+            55.5,
+            358.13,
+            131.1,
+            368.33
+          ],
+          "spans": [
+            {
+              "text": "DirectLakeOnly",
+              "bbox": [
+                55.5,
+                358.13,
+                131.1,
+                368.33
+              ],
+              "font": "LiberationMono",
+              "size": 9.0,
+              "flags": 8,
+              "color": 1122867
+            }
+          ]
+        },
+        {
+          "bbox": [
+            164.51,
+            357.4,
+            526.48,
+            368.01
+          ],
+          "spans": [
+            {
+              "text": "Never fall back — raise an error instead, so you ",
+              "bbox": [
+                164.51,
+                357.4,
+                367.63,
+                368.01
+              ],
+              "font": "LiberationSans",
+              "size": 9.49,
+              "flags": 0,
+              "color": 1776415
+            },
+            {
+              "text": "find out",
+              "bbox": [
+                367.63,
+                357.4,
+                398.77,
+                368.01
+              ],
+              "font": "LiberationSans-Italic",
+              "size": 9.49,
+              "flags": 2,
+              "color": 1776415
+            },
+            {
+              "text": " that you exceeded a guardrail",
+              "bbox": [
+                398.78,
+                357.4,
+                526.48,
+                368.01
+              ],
+              "font": "LiberationSans",
+              "size": 9.49,
+              "flags": 0,
+              "color": 1776415
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "bbox": [
+        55.5,
+        382.9,
+        391.71,
+        394.58
+      ],
+      "lines": [
+        {
+          "bbox": [
+            55.5,
+            384.38,
+            136.5,
+            394.58
+          ],
+          "spans": [
+            {
+              "text": "DirectQueryOnly",
+              "bbox": [
+                55.5,
+                384.38,
+                136.5,
+                394.58
+              ],
+              "font": "LiberationMono",
+              "size": 9.0,
+              "flags": 8,
+              "color": 1122867
+            }
+          ]
+        },
+        {
+          "bbox": [
+            164.51,
+            382.9,
+            391.71,
+            393.51
+          ],
+          "spans": [
+            {
+              "text": "Always use DirectQuery, useful for comparison testing",
+              "bbox": [
+                164.51,
+                382.9,
+                391.71,
+                393.51
+              ],
+              "font": "LiberationSans",
+              "size": 9.49,
+              "flags": 0,
+              "color": 1776415
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "bbox": [
+        57.75,
+        423.04,
+        172.33,
+        434.1
+      ],
+      "lines": [
+        {
+          "bbox": [
+            57.75,
+            423.04,
+            172.33,
+            434.1
+          ],
+          "spans": [
+            {
+              "text": "COMMON EXAM TRAP",
+              "bbox": [
+                57.75,
+                423.04,
+                172.33,
+                434.1
+              ],
+              "font": "LiberationSans-Bold",
+              "size": 9.9,
+              "flags": 16,
+              "color": 11545143
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "bbox": [
+        57.75,
+        441.16,
+        506.14,
+        453.0
+      ],
+      "lines": [
+        {
+          "bbox": [
+            57.75,
+            441.16,
+            506.14,
+            453.0
+          ],
+          "spans": [
+            {
+              "text": "\"The report was fast yesterday and slow today, and nothing changed in the model\" is the classic",
+              "bbox": [
+                57.75,
+                441.16,
+                506.14,
+                453.0
+              ],
+              "font": "LiberationSans",
+              "size": 10.6,
+              "flags": 0,
+              "color": 1776415
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "bbox": [
+        57.75,
+        458.41,
+        480.32,
+        470.25
+      ],
+      "lines": [
+        {
+          "bbox": [
+            57.75,
+            458.41,
+            480.32,
+            470.25
+          ],
+          "spans": [
+            {
+              "text": "fallback symptom: the table grew past a guardrail and every query is now DirectQuery. Set",
+              "bbox": [
+                57.75,
+                458.41,
+                480.32,
+                470.25
+              ],
+              "font": "LiberationSans",
+              "size": 10.6,
+              "flags": 0,
+              "color": 1776415
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "bbox": [
+        61.5,
+        474.91,
+        516.0,
+        487.58
+      ],
+      "lines": [
+        {
+          "bbox": [
+            61.5,
+            474.91,
+            516.0,
+            487.58
+          ],
+          "spans": [
+            {
+              "text": "DirectLakeOnly",
+              "bbox": [
+                61.5,
+                477.38,
+                137.1,
+                487.58
+              ],
+              "font": "LiberationMono",
+              "size": 9.0,
+              "flags": 8,
+              "color": 1122867
+            },
+            {
+              "text": "  in development so a guardrail breach fails loudly instead of silently degrading in",
+              "bbox": [
+                137.1,
+                474.91,
+                516.0,
+                487.12
+              ],
+              "font": "LiberationSans",
+              "size": 10.6,
+              "flags": 0,
+              "color": 1776415
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "bbox": [
+        57.75,
+        492.91,
+        110.17,
+        504.75
+      ],
+      "lines": [
+        {
+          "bbox": [
+            57.75,
+            492.91,
+            110.17,
+            504.75
+          ],
+          "spans": [
+            {
+              "text": "production.",
+              "bbox": [
+                57.75,
+                492.91,
+                110.17,
+                504.75
+              ],
+              "font": "LiberationSans",
+              "size": 10.6,
+              "flags": 0,
+              "color": 1776415
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

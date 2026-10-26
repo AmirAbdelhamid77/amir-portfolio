@@ -1,0 +1,18 @@
+{
+  "lesson_id": "dp600-c4-s03",
+  "source_sections": [
+    25
+  ],
+  "blocks": [
+    {
+      "id": "dp600-c4-s03-p025",
+      "kind": "source_fragment",
+      "source_page": 25,
+      "source_start_line": 5,
+      "source_text": "4.3 Ways to get data in\nData pipeline\nCopy activity, orchestration, control flow, 100+ connectors\nDataflow Gen2\nPower Query / M, low-code transforms, Fast Copy, incremental refresh\nNotebook (Spark)\nPySpark / Spark SQL, largest scale, full code control, libraries\nEventstream\nStreaming sources, no-code routing and transforms, multiple destinations\nMirroring\nNear-real-time replica of an operational DB, free storage, zero ETL\nShortcut\nNo ingestion at all — reference data in place across clouds\nCopy job\nSimplified batch or CDC copy without building a full pipeline\nSeven ways to bring data into Fabric. Exam questions usually turn on volume, latency, transformation complexity, and who\nmaintains it.\nYou need to...\nUse\nMove large volumes on a schedule with control flow, retries, and dependencies\nData pipeline with a Copy activity\nLet an analyst reshape data with a low-code UI\nDataflow Gen2\nMove data fast with pipeline-class throughput inside a dataflow\nFast Copy\nTransform at scale, or apply custom logic and libraries\nNotebook\nCopy simply, batch or CDC, without building a pipeline\nCopy job\nRead data where it already is, across clouds\nShortcut\nReplicate an operational database continuously\nMirroring\nIngest events continuously\nEventstream\nMirroring deserves special attention because it appears in both DP-600 and DP-700: it gives a near-real-\ntime, read-only replica of a source database (for example Azure SQL Database, Cosmos DB, Snowflake,\nor PostgreSQL) landed in OneLake as Delta, with no pipeline to build and mirrored storage that does not\nconsume your capacity's storage cost in the usual way.",
+      "presentation_status": "needs-editorial-layout-conversion",
+      "recommended_renderer": "SourceFragment"
+    }
+  ],
+  "warning": "Source fragments are NOT native formatted prose, tables or runnable code."
+}

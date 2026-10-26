@@ -1,0 +1,303 @@
+{
+  "scope": "atlas-peek-explorer-journey-and-home-cleanup",
+  "date": "2026-10-26",
+  "modifiedExisting": [
+    "app/page.tsx",
+    "app/sitemap.ts",
+    "app/learn/dp-600/page.tsx",
+    "app/learn/dp-600/ingestion/page.tsx",
+    "components/site-footer.tsx",
+    "components/site-header.tsx",
+    "docs/knowledge-atlas/START_HERE.md",
+    "lib/search/documents.ts",
+    "scripts/preservation-history.mjs",
+    "scripts/verify-easyui-integration.mjs",
+    "scripts/verify-knowledge-atlas.mjs",
+    "scripts/verify-preservation-history.mjs",
+    "tests/academy/ingestion.test.mjs"
+  ],
+  "files": [
+    {
+      "path": "app/learn/dp-600/atlas/journey/page.tsx",
+      "beforeSha256": null,
+      "sha256": "ccac182eb87a5bcdcf3d57df667a16597c107830b2a6725be6d1f0270ae525a0"
+    },
+    {
+      "path": "app/learn/dp-600/atlas/page.tsx",
+      "beforeSha256": null,
+      "sha256": "5b772eca88cf2f360bc38766ee4a158677d21d19902b23f497f806a5033df40a"
+    },
+    {
+      "path": "app/learn/dp-600/ingestion/page.tsx",
+      "beforeSha256": "397558a667e3e13ec449a85ab8f8ca218e12f9d81fbf90b214e33b61ab129029",
+      "sha256": "76c695cb9dcf94b59f03098efa38aa69d684dfe0cef71c6bced9f347c1c97520"
+    },
+    {
+      "path": "app/learn/dp-600/page.tsx",
+      "beforeSha256": "b0327e05ef15304ce2bea3a7147d3fd1f2812262832bac3e51677bffb5e10406",
+      "sha256": "984c942d1a9df57adf7840735ebb6d11da0b30fd021bd8eb89fafcce702112f2"
+    },
+    {
+      "path": "app/page.tsx",
+      "beforeSha256": "0f5f659fb9c430cface229b11ee1c842536fd618eef384b8b8bb8087745424fd",
+      "sha256": "5c1a0d8a50e07cace79f2dde855d63db0015c927909686c359edee9eda1c60b3"
+    },
+    {
+      "path": "app/sitemap.ts",
+      "beforeSha256": "b416bd9db4f25a6b383e6d3229dd7f7475f9bee556da96da3d58a465870eb1ab",
+      "sha256": "3b28d9c5c9b7b9391bf33ed5dd0687af2eba665b54170cf5b0e99891b7c059b7"
+    },
+    {
+      "path": "components/atlas/explorer.tsx",
+      "beforeSha256": null,
+      "sha256": "e2cfc4826c57c5466a90f93782ae0309e5f104313cc7ba34a7318431bc9e7b3e"
+    },
+    {
+      "path": "components/atlas/journey.tsx",
+      "beforeSha256": null,
+      "sha256": "424fb5f4061a2c1e1f4cc3cb550c42896f77a5333f57be4e5174278b212918a9"
+    },
+    {
+      "path": "components/atlas/peek.tsx",
+      "beforeSha256": null,
+      "sha256": "ce8026bab850f71512a298689299c1be1c4f030014317fd90a13721d0c03792d"
+    },
+    {
+      "path": "components/site-footer.tsx",
+      "beforeSha256": "bd8996b642034dc2cfb04323f55f4fe7237e2876e6f706e8d1d8854388a56590",
+      "sha256": "b91da3996ddec14d699fbf2d35143ad224280339bcf6bd6a3650123254077b01"
+    },
+    {
+      "path": "components/site-header.tsx",
+      "beforeSha256": "50bbdb966021f33fe56b1061fd0626fc4c8bf932cc38ba682d59b0f7b32676a3",
+      "sha256": "b454eedbfdfdc174da711d45e91c99d80eac9dde0425c990fd50dda548cfa4c1"
+    },
+    {
+      "path": "content/atlas/editorial.json",
+      "beforeSha256": null,
+      "sha256": "816416c261a2ceb394ab73403e2ed690c714f83e8773b06da0689384eecee3d4"
+    },
+    {
+      "path": "docs/knowledge-atlas/START_HERE.md",
+      "beforeSha256": "00c1f471ec10bf941225dded0e01a7269851592f390a5eba416fe8fcdb5069a0",
+      "sha256": "7497f23944077ddbbb5aa203441b5eefd157e87d89757d23e7de69b177695c68"
+    },
+    {
+      "path": "docs/knowledge-atlas/implementation/REPORT.md",
+      "beforeSha256": null,
+      "sha256": "6ed5ac3d8ade0453b7538cb4ee313cf930c2fc6953c9e0248867a354f13ea496"
+    },
+    {
+      "path": "docs/knowledge-atlas/implementation/ROLLBACK.json",
+      "beforeSha256": null,
+      "sha256": "7baded65541f5e74c1fbd2ab4ffc7979907ff3b208569169c4f92fd3d74e1c99"
+    },
+    {
+      "path": "docs/knowledge-atlas/implementation/SOURCE_EVIDENCE.json",
+      "beforeSha256": null,
+      "sha256": "d99153550876efda248e9c993a1cfb5205ec5c663728d25aab40e1eaa2379809"
+    },
+    {
+      "path": "docs/knowledge-atlas/implementation/START_BASELINE.json",
+      "beforeSha256": null,
+      "sha256": "67a15845b521327ddb0bc80b05dfe165ed0738f18b8e08c2a6077f64c41e1585"
+    },
+    {
+      "path": "docs/knowledge-atlas/implementation/VALIDATION.md",
+      "beforeSha256": null,
+      "sha256": "ce95d0b7b780d639110c226b3a1002b0916c4c8f3532f28c66c9b4a92c3023c0"
+    },
+    {
+      "path": "docs/knowledge-atlas/implementation/qa/BROWSER_RESULTS.json",
+      "beforeSha256": null,
+      "sha256": "26ac3f209234a19755f491d2fd9657c450fa4d951a5fc6b0ce5f743ba3f43530"
+    },
+    {
+      "path": "docs/knowledge-atlas/implementation/qa/CHECK_RESULTS.json",
+      "beforeSha256": null,
+      "sha256": "02dd75e706e43dd1c11d88a83db47bc7672204686a5f67b1d4e7b4c1b329b4b3"
+    },
+    {
+      "path": "docs/knowledge-atlas/implementation/qa/PAYLOAD.json",
+      "beforeSha256": null,
+      "sha256": "b27b8ac2e9c45229e5416fc819fbd086deeb2bc01e8684ad46b74fbe0f688aa8"
+    },
+    {
+      "path": "docs/knowledge-atlas/implementation/qa/checks/academy-atlas.txt",
+      "beforeSha256": null,
+      "sha256": "5a1829392ba70ede1e4ef7db44bc71ad8dbb0b67267e3cba9c1c552ce4951ef0"
+    },
+    {
+      "path": "docs/knowledge-atlas/implementation/qa/checks/atlas.txt",
+      "beforeSha256": null,
+      "sha256": "35130a7004f3cc01f58975eee97fe1f42a2f455aa8bef3d77c2db8fa1fc0a8b1"
+    },
+    {
+      "path": "docs/knowledge-atlas/implementation/qa/checks/easyui.txt",
+      "beforeSha256": null,
+      "sha256": "2056e6b7b7030c086ff9b2ed327f480e72ecec0716ac6378c2324f51fa8b7856"
+    },
+    {
+      "path": "docs/knowledge-atlas/implementation/qa/checks/history.txt",
+      "beforeSha256": null,
+      "sha256": "73da3cd5248338974093f144a9f3b617aa5ad494d2317f76b8d0d9452bb8da49"
+    },
+    {
+      "path": "docs/knowledge-atlas/implementation/qa/checks/implementation.txt",
+      "beforeSha256": null,
+      "sha256": "05cc2869d63f80c90182f2ce8f2ea4b4c60d9e106b68fe21fa03bfbf3f642a68"
+    },
+    {
+      "path": "docs/knowledge-atlas/implementation/qa/checks/lint.txt",
+      "beforeSha256": null,
+      "sha256": "844046a5268272fdc4430bcd571682889af6008aa44e36a6945bdd3c04f0e8f9"
+    },
+    {
+      "path": "docs/knowledge-atlas/implementation/qa/checks/references.txt",
+      "beforeSha256": null,
+      "sha256": "69c9190b3c16be7e8288132024efd4bba3a33f4bb91d339673f7886141f366ce"
+    },
+    {
+      "path": "docs/knowledge-atlas/implementation/qa/checks/test-all.txt",
+      "beforeSha256": null,
+      "sha256": "c3975a519175c38c84ce85cfdeee88f5a54fec61184973a06e0785883d9a8657"
+    },
+    {
+      "path": "docs/knowledge-atlas/implementation/qa/explorer-1440-light.png",
+      "beforeSha256": null,
+      "sha256": "780f30d0fec01ade34f9706e518693b58f4b4e0e7edc7dc1333c8f9df4788de1"
+    },
+    {
+      "path": "docs/knowledge-atlas/implementation/qa/explorer-320-dark.png",
+      "beforeSha256": null,
+      "sha256": "4c41e9189a487cfff36ba2f8d3272071d8b8957b4bf668d1b156228ffc7591b1"
+    },
+    {
+      "path": "docs/knowledge-atlas/implementation/qa/explorer-390-light.png",
+      "beforeSha256": null,
+      "sha256": "018155d4b4ff77ce0d0dbec58fb4e6566a878c2157d8129c3e38db1994b7479b"
+    },
+    {
+      "path": "docs/knowledge-atlas/implementation/qa/home-1440-light.png",
+      "beforeSha256": null,
+      "sha256": "92ddabb928ad5774553a986155027b1a99f0bc455ae30e166cdadaf7928343d3"
+    },
+    {
+      "path": "docs/knowledge-atlas/implementation/qa/home-320-dark.png",
+      "beforeSha256": null,
+      "sha256": "111f63b108362bcfa5c208ab775d4b542485ad84a88d0abe364d5c0fdedac852"
+    },
+    {
+      "path": "docs/knowledge-atlas/implementation/qa/home-390-light.png",
+      "beforeSha256": null,
+      "sha256": "832d39786d997a0c9bdd25853c08e4dbf148036d318c466aced922ce73f94f0e"
+    },
+    {
+      "path": "docs/knowledge-atlas/implementation/qa/initial-1440-light.png",
+      "beforeSha256": null,
+      "sha256": "fcd6259a12661578d3c16404539940c5c80b0df6de70ae2b1b1172f06dc0a2a7"
+    },
+    {
+      "path": "docs/knowledge-atlas/implementation/qa/initial-320-dark.png",
+      "beforeSha256": null,
+      "sha256": "b8df58f220d12dbd25a8c2a4c84e066a0c6a381b14f1736cde0325c6bd5db4d3"
+    },
+    {
+      "path": "docs/knowledge-atlas/implementation/qa/initial-390-light.png",
+      "beforeSha256": null,
+      "sha256": "e537bc2aa59c7bd18a075994423662e56286898e9510860ac38f8f50123262a2"
+    },
+    {
+      "path": "docs/knowledge-atlas/implementation/qa/map-1440-light.png",
+      "beforeSha256": null,
+      "sha256": "17c6552044e03b18f2a6b6423a437ca2b94e74fa7631e63f90ae176fafe44d6a"
+    },
+    {
+      "path": "docs/knowledge-atlas/implementation/qa/map-320-dark.png",
+      "beforeSha256": null,
+      "sha256": "2fdee8be91d1dd2e5e3e49e95d8b5423c527f7f3949586d4c030b2df5de7d5b6"
+    },
+    {
+      "path": "docs/knowledge-atlas/implementation/qa/map-390-light.png",
+      "beforeSha256": null,
+      "sha256": "7e807ee15bcf87e20a2bba5db90033dde4999f80b250fd3235572ff534a895ea"
+    },
+    {
+      "path": "lib/atlas/model.ts",
+      "beforeSha256": null,
+      "sha256": "24996c60ae12956b71f502629d70a1db83aafb37650af0c9b7525eb6c6e2be3f"
+    },
+    {
+      "path": "lib/atlas/server.ts",
+      "beforeSha256": null,
+      "sha256": "c43702d26f53171fd24b100ac1cc9be529d509efe246364a3b49970a7ef43349"
+    },
+    {
+      "path": "lib/search/documents.ts",
+      "beforeSha256": "1231c1334b0f0f11037ef79abc8233822b2901b3712cedc2667222f76c5c6ad0",
+      "sha256": "6f1287de929a39a6a2479fb96ecdbc345e28143f5e05db4d240bc768eba0cf84"
+    },
+    {
+      "path": "scripts/atlas-implementation-receipt.mjs",
+      "beforeSha256": null,
+      "sha256": "0fa98bab4b3ce95069998ffa2fffb2fae4356f9d6827b28b250de476b2654edc"
+    },
+    {
+      "path": "scripts/build-atlas-preview.mjs",
+      "beforeSha256": null,
+      "sha256": "e2c4eca0276c7b2de6d2783eaeac173422192a83c152bee43d089d6ff0740ffd"
+    },
+    {
+      "path": "scripts/preservation-history.mjs",
+      "beforeSha256": "5a29992fdea2bee47563726595985178ab9c0cb56bc9b7e4b82f4f2377396990",
+      "sha256": "f31fff8ee83997f6fc3291f3a62d9fd6a8c4678f18c22294748c74646029509a"
+    },
+    {
+      "path": "scripts/preview-atlas.mjs",
+      "beforeSha256": null,
+      "sha256": "d80fe03b82d0581eaa40af00274a603aaec5a57dd2d23f9c57e2ec1ddb15840b"
+    },
+    {
+      "path": "scripts/verify-atlas-implementation.mjs",
+      "beforeSha256": null,
+      "sha256": "559106db9144d45d224b19bdd36a543158d34b669d75cc640e66bc1347fd2281"
+    },
+    {
+      "path": "scripts/verify-easyui-integration.mjs",
+      "beforeSha256": "7f6d2742c8dfc0e5590178ee9bf2219c8e8155226c74e9c184463863a74c73f2",
+      "sha256": "0ecc94a4c50058edd99ed4cad57284ff8ea25d9cd595a0fb32634cb82c30f509"
+    },
+    {
+      "path": "scripts/verify-knowledge-atlas.mjs",
+      "beforeSha256": "134ab43c9ab301868c41b781394f8f1132d55e87cf3a2d882d6364d557913e73",
+      "sha256": "e7a2056414d9665bec4e5dfbba9d5ce1fa6b35c4ae6d9826f5143ef6ec05cb6a"
+    },
+    {
+      "path": "scripts/verify-preservation-history.mjs",
+      "beforeSha256": "548f7afc3133262874b4b70af0f74bf9aa4f57a443058b626352ee24f3b5555b",
+      "sha256": "b1a1055f6e1939f5370ea70a94a6d624997741aebdc80079ecc0f809967dce11"
+    },
+    {
+      "path": "tests/academy/ingestion.test.mjs",
+      "beforeSha256": "a7994641177e3060497eebcb52212d6e64523cb6a173c448c2bfe4ef755726e6",
+      "sha256": "8d6c1ad0d9d19bba588a1c2e9ebcc6288880be8adaf9e01559959d6a8d5c3585"
+    },
+    {
+      "path": "tests/atlas/e2e.mjs",
+      "beforeSha256": null,
+      "sha256": "8d22d48363181d79161eaeda7dfb2422d62b166aaabe9210bd82790d4b74a63b"
+    },
+    {
+      "path": "tests/atlas/model.test.mjs",
+      "beforeSha256": null,
+      "sha256": "ae0b3042e32226ea7c23b0042a749ddfeaee357b0732db2583db2c03c4bb39f5"
+    }
+  ],
+  "manifestExcludesSelf": true,
+  "protectedRuntimeKeys": [
+    "amir-lab-v1",
+    "amir-fabric-v1",
+    "hansa-academy-ingestion-v1"
+  ],
+  "newJourneyKey": "hansa-atlas-journey-v1"
+}

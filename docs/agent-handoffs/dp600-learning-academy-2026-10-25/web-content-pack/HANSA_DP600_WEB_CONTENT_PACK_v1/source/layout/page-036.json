@@ -1,0 +1,1254 @@
+{
+  "page": 36,
+  "width": 594.9599609375,
+  "height": 841.9199829101562,
+  "blocks": [
+    {
+      "bbox": [
+        44.25,
+        45.8,
+        243.73,
+        60.55
+      ],
+      "lines": [
+        {
+          "bbox": [
+            44.25,
+            45.8,
+            243.73,
+            60.55
+          ],
+          "spans": [
+            {
+              "text": "6.4 DAX essentials for the exam",
+              "bbox": [
+                44.25,
+                45.8,
+                243.73,
+                60.55
+              ],
+              "font": "LiberationSans-Bold",
+              "size": 13.2,
+              "flags": 16,
+              "color": 949350
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "bbox": [
+        57.0,
+        80.51,
+        286.6,
+        90.36
+      ],
+      "lines": [
+        {
+          "bbox": [
+            57.0,
+            80.51,
+            286.6,
+            90.36
+          ],
+          "spans": [
+            {
+              "text": "Total Sales = SUM ( FactSales[SalesAmount] )",
+              "bbox": [
+                57.0,
+                80.51,
+                286.6,
+                90.36
+              ],
+              "font": "LiberationMono",
+              "size": 8.7,
+              "flags": 8,
+              "color": 15330805
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "bbox": [
+        57.0,
+        106.01,
+        109.18,
+        115.86
+      ],
+      "lines": [
+        {
+          "bbox": [
+            57.0,
+            106.01,
+            109.18,
+            115.86
+          ],
+          "spans": [
+            {
+              "text": "Sales LY =",
+              "bbox": [
+                57.0,
+                106.01,
+                109.18,
+                115.86
+              ],
+              "font": "LiberationMono",
+              "size": 8.7,
+              "flags": 8,
+              "color": 15330805
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "bbox": [
+        57.0,
+        119.51,
+        396.17,
+        129.36
+      ],
+      "lines": [
+        {
+          "bbox": [
+            57.0,
+            119.51,
+            396.17,
+            129.36
+          ],
+          "spans": [
+            {
+              "text": "CALCULATE ( [Total Sales], SAMEPERIODLASTYEAR ( DimDate[Date] ) )",
+              "bbox": [
+                57.0,
+                119.51,
+                396.17,
+                129.36
+              ],
+              "font": "LiberationMono",
+              "size": 8.7,
+              "flags": 8,
+              "color": 15330805
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "bbox": [
+        57.0,
+        145.76,
+        197.89,
+        181.11
+      ],
+      "lines": [
+        {
+          "bbox": [
+            57.0,
+            145.76,
+            93.53,
+            155.61
+          ],
+          "spans": [
+            {
+              "text": "YoY % =",
+              "bbox": [
+                57.0,
+                145.76,
+                93.53,
+                155.61
+              ],
+              "font": "LiberationMono",
+              "size": 8.7,
+              "flags": 8,
+              "color": 15330805
+            }
+          ]
+        },
+        {
+          "bbox": [
+            57.0,
+            158.51,
+            197.89,
+            168.36
+          ],
+          "spans": [
+            {
+              "text": "VAR Current = [Total Sales]",
+              "bbox": [
+                57.0,
+                158.51,
+                197.89,
+                168.36
+              ],
+              "font": "LiberationMono",
+              "size": 8.7,
+              "flags": 8,
+              "color": 15330805
+            }
+          ]
+        },
+        {
+          "bbox": [
+            57.0,
+            171.26,
+            182.23,
+            181.11
+          ],
+          "spans": [
+            {
+              "text": "VAR Prior   = [Sales LY]",
+              "bbox": [
+                57.0,
+                171.26,
+                182.23,
+                181.11
+              ],
+              "font": "LiberationMono",
+              "size": 8.7,
+              "flags": 8,
+              "color": 15330805
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "bbox": [
+        57.0,
+        184.76,
+        479.66,
+        194.61
+      ],
+      "lines": [
+        {
+          "bbox": [
+            57.0,
+            184.76,
+            479.66,
+            194.61
+          ],
+          "spans": [
+            {
+              "text": "RETURN DIVIDE ( Current - Prior, Prior )     -- DIVIDE handles the divide-by-zero",
+              "bbox": [
+                57.0,
+                184.76,
+                479.66,
+                194.61
+              ],
+              "font": "LiberationMono",
+              "size": 8.7,
+              "flags": 8,
+              "color": 15330805
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "bbox": [
+        57.0,
+        211.01,
+        171.8,
+        246.36
+      ],
+      "lines": [
+        {
+          "bbox": [
+            57.0,
+            211.01,
+            171.8,
+            220.86
+          ],
+          "spans": [
+            {
+              "text": "Top 10 Product Sales =",
+              "bbox": [
+                57.0,
+                211.01,
+                171.8,
+                220.86
+              ],
+              "font": "LiberationMono",
+              "size": 8.7,
+              "flags": 8,
+              "color": 15330805
+            }
+          ]
+        },
+        {
+          "bbox": [
+            57.0,
+            223.76,
+            114.4,
+            233.61
+          ],
+          "spans": [
+            {
+              "text": "CALCULATE (",
+              "bbox": [
+                57.0,
+                223.76,
+                114.4,
+                233.61
+              ],
+              "font": "LiberationMono",
+              "size": 8.7,
+              "flags": 8,
+              "color": 15330805
+            }
+          ]
+        },
+        {
+          "bbox": [
+            57.0,
+            236.51,
+            150.94,
+            246.36
+          ],
+          "spans": [
+            {
+              "text": "    [Total Sales],",
+              "bbox": [
+                57.0,
+                236.51,
+                150.94,
+                246.36
+              ],
+              "font": "LiberationMono",
+              "size": 8.7,
+              "flags": 8,
+              "color": 15330805
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "bbox": [
+        57.0,
+        250.01,
+        516.2,
+        272.61
+      ],
+      "lines": [
+        {
+          "bbox": [
+            57.0,
+            250.01,
+            516.2,
+            259.86
+          ],
+          "spans": [
+            {
+              "text": "    KEEPFILTERS ( TOPN ( 10, VALUES ( DimProduct[ProductName] ), [Total Sales], DESC ) )",
+              "bbox": [
+                57.0,
+                250.01,
+                516.2,
+                259.86
+              ],
+              "font": "LiberationMono",
+              "size": 8.7,
+              "flags": 8,
+              "color": 15330805
+            }
+          ]
+        },
+        {
+          "bbox": [
+            57.0,
+            262.76,
+            62.22,
+            272.61
+          ],
+          "spans": [
+            {
+              "text": ")",
+              "bbox": [
+                57.0,
+                262.76,
+                62.22,
+                272.61
+              ],
+              "font": "LiberationMono",
+              "size": 8.7,
+              "flags": 8,
+              "color": 15330805
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "bbox": [
+        44.25,
+        293.41,
+        269.19,
+        305.25
+      ],
+      "lines": [
+        {
+          "bbox": [
+            44.25,
+            293.41,
+            269.19,
+            305.25
+          ],
+          "spans": [
+            {
+              "text": "The three things DAX questions test most often:",
+              "bbox": [
+                44.25,
+                293.41,
+                269.19,
+                305.25
+              ],
+              "font": "LiberationSans",
+              "size": 10.6,
+              "flags": 0,
+              "color": 1776415
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "bbox": [
+        46.77,
+        316.66,
+        540.81,
+        328.5
+      ],
+      "lines": [
+        {
+          "bbox": [
+            46.77,
+            316.66,
+            540.81,
+            328.5
+          ],
+          "spans": [
+            {
+              "text": "1. ",
+              "bbox": [
+                46.77,
+                316.66,
+                58.55,
+                328.5
+              ],
+              "font": "LiberationSans",
+              "size": 10.6,
+              "flags": 0,
+              "color": 1776415
+            },
+            {
+              "text": "Measure or calculated column?",
+              "bbox": [
+                58.56,
+                316.66,
+                216.93,
+                328.5
+              ],
+              "font": "LiberationSans-Bold",
+              "size": 10.6,
+              "flags": 16,
+              "color": 1184282
+            },
+            {
+              "text": " A calculated column is computed at refresh, stored in the model, and",
+              "bbox": [
+                216.93,
+                316.66,
+                540.81,
+                328.5
+              ],
+              "font": "LiberationSans",
+              "size": 10.6,
+              "flags": 0,
+              "color": 1776415
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "bbox": [
+        58.56,
+        333.91,
+        510.77,
+        345.75
+      ],
+      "lines": [
+        {
+          "bbox": [
+            58.56,
+            333.91,
+            510.77,
+            345.75
+          ],
+          "spans": [
+            {
+              "text": "has a row context. A measure is computed at query time from the current filter context. Default to",
+              "bbox": [
+                58.56,
+                333.91,
+                510.77,
+                345.75
+              ],
+              "font": "LiberationSans",
+              "size": 10.6,
+              "flags": 0,
+              "color": 1776415
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "bbox": [
+        58.56,
+        351.16,
+        326.48,
+        363.0
+      ],
+      "lines": [
+        {
+          "bbox": [
+            58.56,
+            351.16,
+            326.48,
+            363.0
+          ],
+          "spans": [
+            {
+              "text": "measures — they cost no storage and respond to slicers.",
+              "bbox": [
+                58.56,
+                351.16,
+                326.48,
+                363.0
+              ],
+              "font": "LiberationSans",
+              "size": 10.6,
+              "flags": 0,
+              "color": 1776415
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "bbox": [
+        46.77,
+        370.28,
+        522.06,
+        382.58
+      ],
+      "lines": [
+        {
+          "bbox": [
+            46.77,
+            370.28,
+            522.06,
+            382.58
+          ],
+          "spans": [
+            {
+              "text": "2. ",
+              "bbox": [
+                46.77,
+                370.66,
+                58.55,
+                382.5
+              ],
+              "font": "LiberationSans",
+              "size": 10.6,
+              "flags": 0,
+              "color": 1776415
+            },
+            {
+              "text": "What is ",
+              "bbox": [
+                58.56,
+                370.66,
+                99.17,
+                382.5
+              ],
+              "font": "LiberationSans-Bold",
+              "size": 10.6,
+              "flags": 16,
+              "color": 1184282
+            },
+            {
+              "text": "CALCULATE",
+              "bbox": [
+                102.93,
+                372.38,
+                151.53,
+                382.58
+              ],
+              "font": "LiberationMono-Bold",
+              "size": 9.0,
+              "flags": 24,
+              "color": 1122867
+            },
+            {
+              "text": "  doing to the filter context?",
+              "bbox": [
+                151.53,
+                370.28,
+                291.82,
+                382.5
+              ],
+              "font": "LiberationSans-Bold",
+              "size": 10.6,
+              "flags": 16,
+              "color": 1184282
+            },
+            {
+              "text": " It replaces filters on the same column by default;",
+              "bbox": [
+                291.82,
+                370.66,
+                522.06,
+                382.5
+              ],
+              "font": "LiberationSans",
+              "size": 10.6,
+              "flags": 0,
+              "color": 1776415
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "bbox": [
+        62.31,
+        387.91,
+        381.77,
+        400.58
+      ],
+      "lines": [
+        {
+          "bbox": [
+            62.31,
+            387.91,
+            381.77,
+            400.58
+          ],
+          "spans": [
+            {
+              "text": "KEEPFILTERS",
+              "bbox": [
+                62.31,
+                390.38,
+                121.71,
+                400.58
+              ],
+              "font": "LiberationMono",
+              "size": 9.0,
+              "flags": 8,
+              "color": 1122867
+            },
+            {
+              "text": "  intersects instead; ",
+              "bbox": [
+                121.71,
+                387.91,
+                216.74,
+                400.12
+              ],
+              "font": "LiberationSans",
+              "size": 10.6,
+              "flags": 0,
+              "color": 1776415
+            },
+            {
+              "text": "REMOVEFILTERS",
+              "bbox": [
+                220.5,
+                390.38,
+                290.7,
+                400.58
+              ],
+              "font": "LiberationMono",
+              "size": 9.0,
+              "flags": 8,
+              "color": 1122867
+            },
+            {
+              "text": " /",
+              "bbox": [
+                290.7,
+                387.91,
+                297.41,
+                400.12
+              ],
+              "font": "LiberationSans",
+              "size": 10.6,
+              "flags": 0,
+              "color": 1776415
+            },
+            {
+              "text": " ALL",
+              "bbox": [
+                297.41,
+                390.01,
+                317.37,
+                400.58
+              ],
+              "font": "LiberationMono",
+              "size": 9.0,
+              "flags": 8,
+              "color": 1122867
+            },
+            {
+              "text": "  clears them.",
+              "bbox": [
+                317.37,
+                387.91,
+                381.77,
+                400.12
+              ],
+              "font": "LiberationSans",
+              "size": 10.6,
+              "flags": 0,
+              "color": 1776415
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "bbox": [
+        46.77,
+        408.16,
+        544.48,
+        420.83
+      ],
+      "lines": [
+        {
+          "bbox": [
+            46.77,
+            408.16,
+            544.48,
+            420.83
+          ],
+          "spans": [
+            {
+              "text": "3. ",
+              "bbox": [
+                46.77,
+                408.16,
+                58.55,
+                420.0
+              ],
+              "font": "LiberationSans",
+              "size": 10.6,
+              "flags": 0,
+              "color": 1776415
+            },
+            {
+              "text": "Context transition.",
+              "bbox": [
+                58.56,
+                408.16,
+                152.14,
+                420.0
+              ],
+              "font": "LiberationSans-Bold",
+              "size": 10.6,
+              "flags": 16,
+              "color": 1184282
+            },
+            {
+              "text": " Referencing a measure inside an iterator wraps it in an implicit ",
+              "bbox": [
+                152.14,
+                408.16,
+                450.09,
+                420.0
+              ],
+              "font": "LiberationSans",
+              "size": 10.6,
+              "flags": 0,
+              "color": 1776415
+            },
+            {
+              "text": "CALCULATE",
+              "bbox": [
+                453.84,
+                410.63,
+                502.44,
+                420.83
+              ],
+              "font": "LiberationMono",
+              "size": 9.0,
+              "flags": 8,
+              "color": 1122867
+            },
+            {
+              "text": " , turning",
+              "bbox": [
+                502.44,
+                408.16,
+                544.48,
+                420.37
+              ],
+              "font": "LiberationSans",
+              "size": 10.6,
+              "flags": 0,
+              "color": 1776415
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "bbox": [
+        58.56,
+        426.16,
+        183.39,
+        438.0
+      ],
+      "lines": [
+        {
+          "bbox": [
+            58.56,
+            426.16,
+            183.39,
+            438.0
+          ],
+          "spans": [
+            {
+              "text": "the current row into a filter.",
+              "bbox": [
+                58.56,
+                426.16,
+                183.39,
+                438.0
+              ],
+              "font": "LiberationSans",
+              "size": 10.6,
+              "flags": 0,
+              "color": 1776415
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "bbox": [
+        147.63,
+        472.5,
+        194.37,
+        483.0
+      ],
+      "lines": [
+        {
+          "bbox": [
+            147.63,
+            472.5,
+            194.37,
+            483.0
+          ],
+          "spans": [
+            {
+              "text": "Filter context",
+              "bbox": [
+                147.63,
+                472.5,
+                194.37,
+                483.0
+              ],
+              "font": "WenQuanYiZenHei",
+              "size": 8.33,
+              "flags": 4,
+              "color": 17784
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "bbox": [
+        111.7,
+        499.72,
+        230.29,
+        508.12
+      ],
+      "lines": [
+        {
+          "bbox": [
+            111.7,
+            499.72,
+            230.29,
+            508.12
+          ],
+          "spans": [
+            {
+              "text": "Set by slicers, rows/columns of a visual,",
+              "bbox": [
+                111.7,
+                499.72,
+                230.29,
+                508.12
+              ],
+              "font": "WenQuanYiZenHei",
+              "size": 6.67,
+              "flags": 4,
+              "color": 3816004
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "bbox": [
+        114.02,
+        508.0,
+        227.97,
+        516.4
+      ],
+      "lines": [
+        {
+          "bbox": [
+            114.02,
+            508.0,
+            227.97,
+            516.4
+          ],
+          "spans": [
+            {
+              "text": "page filters, and CALCULATE modifiers.",
+              "bbox": [
+                114.02,
+                508.0,
+                227.97,
+                516.4
+              ],
+              "font": "WenQuanYiZenHei",
+              "size": 6.67,
+              "flags": 4,
+              "color": 3816004
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "bbox": [
+        109.12,
+        524.67,
+        232.88,
+        533.07
+      ],
+      "lines": [
+        {
+          "bbox": [
+            109.12,
+            524.67,
+            232.88,
+            533.07
+          ],
+          "spans": [
+            {
+              "text": "Answers: which rows are visible right now?",
+              "bbox": [
+                109.12,
+                524.67,
+                232.88,
+                533.07
+              ],
+              "font": "WenQuanYiZenHei",
+              "size": 6.67,
+              "flags": 4,
+              "color": 3816004
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "bbox": [
+        402.44,
+        472.5,
+        446.53,
+        483.0
+      ],
+      "lines": [
+        {
+          "bbox": [
+            402.44,
+            472.5,
+            446.53,
+            483.0
+          ],
+          "spans": [
+            {
+              "text": "Row context",
+              "bbox": [
+                402.44,
+                472.5,
+                446.53,
+                483.0
+              ],
+              "font": "WenQuanYiZenHei",
+              "size": 8.33,
+              "flags": 4,
+              "color": 949350
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "bbox": [
+        364.65,
+        499.72,
+        484.33,
+        516.4
+      ],
+      "lines": [
+        {
+          "bbox": [
+            367.13,
+            499.72,
+            481.85,
+            508.12
+          ],
+          "spans": [
+            {
+              "text": "Exists in calculated columns and inside",
+              "bbox": [
+                367.13,
+                499.72,
+                481.85,
+                508.12
+              ],
+              "font": "WenQuanYiZenHei",
+              "size": 6.67,
+              "flags": 4,
+              "color": 3816004
+            }
+          ]
+        },
+        {
+          "bbox": [
+            364.65,
+            508.0,
+            484.33,
+            516.4
+          ],
+          "spans": [
+            {
+              "text": "iterators (SUMX, FILTER, ADDCOLUMNS).",
+              "bbox": [
+                364.65,
+                508.0,
+                484.33,
+                516.4
+              ],
+              "font": "WenQuanYiZenHei",
+              "size": 6.67,
+              "flags": 4,
+              "color": 3816004
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "bbox": [
+        372.77,
+        524.67,
+        476.21,
+        533.07
+      ],
+      "lines": [
+        {
+          "bbox": [
+            372.77,
+            524.67,
+            476.21,
+            533.07
+          ],
+          "spans": [
+            {
+              "text": "Answers: which single row am I on?",
+              "bbox": [
+                372.77,
+                524.67,
+                476.21,
+                533.07
+              ],
+              "font": "WenQuanYiZenHei",
+              "size": 6.67,
+              "flags": 4,
+              "color": 3816004
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "bbox": [
+        215.6,
+        582.72,
+        379.89,
+        599.52
+      ],
+      "lines": [
+        {
+          "bbox": [
+            251.24,
+            582.72,
+            344.25,
+            591.12
+          ],
+          "spans": [
+            {
+              "text": "CALCULATE / CALCULATETABLE",
+              "bbox": [
+                251.24,
+                582.72,
+                344.25,
+                591.12
+              ],
+              "font": "WenQuanYiZenHei",
+              "size": 6.67,
+              "flags": 4,
+              "color": 1184282
+            }
+          ]
+        },
+        {
+          "bbox": [
+            215.6,
+            591.12,
+            379.89,
+            599.52
+          ],
+          "spans": [
+            {
+              "text": "modify filter context; context transition turns row → filter",
+              "bbox": [
+                215.6,
+                591.12,
+                379.89,
+                599.52
+              ],
+              "font": "WenQuanYiZenHei",
+              "size": 6.67,
+              "flags": 4,
+              "color": 1184282
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "bbox": [
+        119.52,
+        623.54,
+        475.98,
+        633.36
+      ],
+      "lines": [
+        {
+          "bbox": [
+            119.52,
+            623.54,
+            475.98,
+            633.36
+          ],
+          "spans": [
+            {
+              "text": "Filter context and row context are different things. CALCULATE is the bridge between them.",
+              "bbox": [
+                119.52,
+                623.54,
+                475.98,
+                633.36
+              ],
+              "font": "LiberationSans-Italic",
+              "size": 8.8,
+              "flags": 2,
+              "color": 5987174
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "bbox": [
+        44.25,
+        658.55,
+        306.03,
+        673.3
+      ],
+      "lines": [
+        {
+          "bbox": [
+            44.25,
+            658.55,
+            306.03,
+            673.3
+          ],
+          "spans": [
+            {
+              "text": "6.5 The same question in three languages",
+              "bbox": [
+                44.25,
+                658.55,
+                306.03,
+                673.3
+              ],
+              "font": "LiberationSans-Bold",
+              "size": 13.2,
+              "flags": 16,
+              "color": 949350
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "bbox": [
+        44.25,
+        684.91,
+        235.9,
+        696.75
+      ],
+      "lines": [
+        {
+          "bbox": [
+            44.25,
+            684.91,
+            235.9,
+            696.75
+          ],
+          "spans": [
+            {
+              "text": "\"Total sales for 2026, by category, top 5.\"",
+              "bbox": [
+                44.25,
+                684.91,
+                235.9,
+                696.75
+              ],
+              "font": "LiberationSans",
+              "size": 10.6,
+              "flags": 0,
+              "color": 1776415
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

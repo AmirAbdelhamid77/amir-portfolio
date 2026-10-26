@@ -1,0 +1,91 @@
+---
+id: "dp600-9-intro"
+title: "Hands-on lab track"
+chapter: "9"
+kind: "chapter-intro"
+source_start_page: 49
+source_end_page: 49
+content_status: "raw-extracted-needs-scientific-and-layout-review"
+source_type: "user-provided-pdf"
+---
+
+# Hands-on lab track
+
+> Original PDF pages: 49. Source text is preserved below; table, diagrams and code styling require editorial conversion and QA.
+
+```text
+Chapter 9 — The hands-on lab track
+Reading gets you to about 500 points. The last 200 come from having actually built these things. Work
+through this list in order; every item is a free, guided Microsoft Learn exercise or tutorial.
+#
+Lab
+Skill area it proves
+1
+Introduction to end-to-end analytics using Microsoft Fabric
+Platform, workspaces, items
+2
+Get started with lakehouses
+Lakehouse, OneLake, SQL endpoint
+3
+Discover and connect to data in OneLake
+OneLake catalog, shortcuts
+4
+Use Apache Spark in Microsoft Fabric
+Notebooks, DataFrames
+5
+Work with Delta Lake tables
+Delta, time travel, optimisation
+6
+Ingest data with Dataflows Gen2
+Dataflow Gen2, destinations
+7
+Orchestrate processes and data movement
+Pipelines, Copy activity
+8
+Organize a lakehouse using medallion architecture
+Bronze/Silver/Gold
+9
+Get started with data warehouses
+Warehouse, T-SQL
+10
+Load data into a warehouse
+CTAS, COPY INTO, stored procedures
+11
+Query a data warehouse
+T-SQL, visual query editor
+12
+Design dimensional models in Fabric
+Star schema, SCD
+13
+Get started with Real-Time Intelligence
+Eventhouse, KQL
+14
+Secure data access in Fabric
+Workspace/item/OneLake security
+15
+Secure a Fabric data warehouse
+RLS, CLS, dynamic data masking
+16
+Govern analytics data in Fabric
+Labels, endorsement, domains
+17
+Design semantic models for scale
+Storage modes, star schema, Direct Lake
+18
+Create DAX calculations
+Measures, iterators, time intelligence
+19
+Optimize semantic model performance
+Performance Analyzer, tuning
+20
+Manage the semantic model development lifecycle
+.pbip, Git, deployment
+21
+Implement CI/CD in Microsoft Fabric
+Git integration, deployment pipelines
+22
+Monitor activities in Microsoft Fabric
+Monitoring hub, refresh history
+End-to-end tutorials worth a weekend: lakehouse tutorial · data warehouse tutorial · Data Factory end-to-
+end tutorial · Real-Time Intelligence tutorial.
+```
