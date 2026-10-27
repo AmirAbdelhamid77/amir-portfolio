@@ -1,0 +1,95 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-10-27",
+  "authority": "content/knowledge/insights.json (schemaVersion 1, edition 2026-10-26)",
+  "notice": "Local editorial preview · Original learning scenarios, not scored exam questions. Human publication review pending.",
+  "editions": [
+    {
+      "id": "hansa-insight-shortcut-reference-v1",
+      "date": "2026-10-26",
+      "topic": "OneLake",
+      "cardTitle": "Reference ≠ retained result",
+      "scenarioTitle": "A reference is a design decision.",
+      "conceptId": "concept:fabric:shortcut",
+      "reviewStatus": "technical_review",
+      "reviewer": "agent-source-check; human pending",
+      "sourceId": "ms-onelake-shortcuts",
+      "sourceLocator": "What are shortcuts?; Internal OneLake shortcuts; Caching",
+      "checkedAt": "2026-10-26",
+      "questionIds": [],
+      "experiment": "retention",
+      "lessonHref": "/learn/dp-600/ingestion/",
+      "practiceHref": "/lab/dp-600/explore/"
+    },
+    {
+      "id": "hansa-insight-shortcut-delete-v1",
+      "date": "2026-10-25",
+      "topic": "OneLake",
+      "cardTitle": "Object versus target",
+      "scenarioTitle": "Name the object you are deleting.",
+      "conceptId": "concept:fabric:shortcut",
+      "reviewStatus": "technical_review",
+      "reviewer": "agent-source-check; human pending",
+      "sourceId": "ms-onelake-shortcuts",
+      "sourceLocator": "How do shortcuts handle deletions?",
+      "checkedAt": "2026-10-26",
+      "questionIds": [],
+      "experiment": "deletion",
+      "lessonHref": "/learn/dp-600/ingestion/",
+      "practiceHref": "/lab/dp-600/explore/"
+    },
+    {
+      "id": "hansa-insight-shortcut-discovery-v1",
+      "date": "2026-10-24",
+      "topic": "Lakehouse",
+      "cardTitle": "Files versus Tables",
+      "scenarioTitle": "Location changes discovery.",
+      "conceptId": "concept:fabric:shortcut",
+      "reviewStatus": "technical_review",
+      "reviewer": "agent-source-check; human pending",
+      "sourceId": "ms-onelake-shortcuts",
+      "sourceLocator": "Table discovery in Lakehouse; shortcut placement",
+      "checkedAt": "2026-10-26",
+      "questionIds": [],
+      "experiment": "discovery",
+      "lessonHref": "/learn/dp-600/ingestion/",
+      "practiceHref": "/lab/dp-600/explore/"
+    }
+  ],
+  "fieldToSurface": [
+    { "field": "date", "surfaces": ["rail <time>", "hero latest-edition stamp", "archive date"] },
+    { "field": "cardTitle", "surfaces": ["rail label", "hand card face", "reader heading"] },
+    { "field": "title", "surfaces": ["scenario h2", "archive result heading", "document title of the edition"] },
+    { "field": "scenario", "surfaces": ["scenario paragraph", "archive result paragraph"] },
+    { "field": "prediction", "surfaces": ["scenario kicker", "principle card note in the reader"] },
+    { "field": "takeaway", "surfaces": ["revealed reasoning", "principle card quote", "evidence panel"] },
+    { "field": "caveat", "surfaces": ["revealed caveat", "caveat card quote", "evidence panel"] },
+    { "field": "sourceId / sourceUrl / sourceLocator / checkedAt", "surfaces": ["evidence card face and reader", "revealed evidence panel", "archive details"] },
+    { "field": "reviewStatus / reviewer", "surfaces": ["hero review chip", "evidence panel 'technical review · human review pending'", "archive details"] },
+    { "field": "conceptId", "surfaces": ["Atlas peek centre concept, published-gated"] },
+    { "field": "lessonHref / practiceHref", "surfaces": ["scenario actions", "reader actions", "Atlas empty-state actions"] },
+    { "field": "questionIds", "surfaces": ["not used: intentionally empty, no question bank is mapped"] }
+  ],
+  "derivedCards": {
+    "source": "lib/knowledge/models.ts insightCards()",
+    "rule": "Three cards per edition, built only from takeaway, caveat, source locator, checkedAt and cardTitle; no new factual claim is introduced.",
+    "kinds": [
+      { "kind": "principle", "eyebrow": "Principle", "title": "cardTitle", "preview": "first 15 words of takeaway" },
+      { "kind": "caveat", "eyebrow": "Caveat", "title": "What this does not mean", "preview": "first 15 words of caveat" },
+      { "kind": "evidence", "eyebrow": "Evidence", "title": "Source check", "preview": "Microsoft Learn · checked <date>" }
+    ]
+  },
+  "experimentModels": {
+    "source": "lib/knowledge/models.ts experimentFor() / deriveVerdict()",
+    "retention": "Does another team need its own retained result?",
+    "deletion": "Which object is being deleted?",
+    "discovery": "Where is the shortcut created and what does it point at?",
+    "grading": "none; the verdict is a restatement of the reviewed takeaway and caveat, not a score"
+  },
+  "publicationGates": {
+    "publicContent": "Only editions present in content/knowledge/insights.json are rendered.",
+    "atlasEdges": "Only the published projection from lib/atlas/model.ts is drawn; the current public projection contains no relations for this concept.",
+    "labels": "Every edition surfaces 'technical review' / 'human review pending' wherever review state is shown.",
+    "progress": "No question ids, answers, saved attempts or Atlas review states are read or written."
+  }
+}

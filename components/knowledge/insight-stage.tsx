@@ -280,7 +280,7 @@ export function InsightStage({
 
             <motion.div
               key={insight.id}
-              initial={reduce ? { opacity: 1 } : { opacity: 0, y: 8 }}
+              initial={reduce ? false : { y: 8 }}
               animate={{ opacity: 1, y: 0 }}
               transition={reduce ? { duration: 0.1 } : { duration: 0.22 }}
               className="relative rounded-[26px] border border-border-strong bg-card/70 p-5 shadow-[0_1px_0_0_rgb(255_255_255/0.05)_inset,0_24px_50px_-40px_rgb(0_0_0/0.6)]"

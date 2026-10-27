@@ -119,12 +119,34 @@ export function KnowledgeDealer({
   }, [activeId]);
 
   const deckWidth = Math.min(size?.width ?? 360, 420);
-  const cardWidth = clamp(deckWidth * 0.36, 100, 150);
+  // Below ~300px a three-card fan cannot keep a readable strip per card, so the
+  // hand becomes one upright card with two backing edges, as the design spec
+  // requires at 320px. Identity, deal and collect are unchanged.
+  const narrow = (size?.width ?? 400) < 300;
+  const cardWidth = narrow
+    ? clamp(deckWidth * 0.62, 120, 168)
+    : clamp(deckWidth * 0.36, 100, 150);
   const cardHeight = Math.round(cardWidth * 1.32);
   const deckPoseY = clamp((size?.height ?? 300) / 2 - cardHeight / 2 - 14, EDGE, 300);
-  // A fan, not a stack: each card keeps a wide enough exposed strip to be a
-  // comfortable touch target, which 40% spacing did not.
-  const spread = cardWidth * 0.58;
+  // A fan, not a stack: cards fill the measured tray, so each keeps an exposed
+  // strip wide enough for its own text. The face also reserves that covered
+  // strip on its trailing edge, so no word is ever cut by a neighbour.
+  const spread = cardWidth * 0.78;
+  const handCount = Math.max(hand.length, 1);
+  const room = (size?.width ?? deckWidth) - cardWidth - EDGE * 2;
+  const step = handCount > 1 ? Math.min(spread, room / (handCount - 1)) : 0;
+  const faceInset = narrow
+    ? 12
+    : Math.round(clamp(cardWidth - step + 8, 12, cardWidth * 0.42));
+  // Which card sits upright in the narrow slot. The reader always fronts its
+  // own card, so closing it leaves the card the learner was reading on top.
+  const [frontCard, setFrontCard] = useState<string | null>(null);
+  const front =
+    (activeId && hand.some((card) => card.id === activeId) ? activeId : null) ??
+    (frontCard && hand.some((card) => card.id === frontCard) ? frontCard : null) ??
+    hand[0]?.id ??
+    null;
+  const frontSlot = hand.findIndex((card) => card.id === front);
 
   const poseFor = (card: DealerCard, slot: number): Pose => {
     const width = size?.width ?? deckWidth;
@@ -148,14 +170,29 @@ export function KnowledgeDealer({
         z: 400 + slot,
       };
     }
-    const count = Math.max(hand.length, 1);
+    if (narrow) {
+      const x = width / 2 - cardWidth / 2;
+      if (slot === frontSlot) {
+        return { x, y: height - cardHeight - EDGE, rotate: 0, faceDown: false, z: 300 };
+      }
+      // Backing edges only: an 10px strip of each neighbour, tipped a few
+      // degrees, never a sliver of its text.
+      const behind = slot - frontSlot;
+      const dir = behind < 0 ? -1 : 1;
+      return {
+        x: x + dir * 10,
+        y: height - cardHeight - EDGE - 5,
+        rotate: dir * 3.2,
+        faceDown: false,
+        z: 200 - Math.abs(behind),
+      };
+    }
+    const count = handCount;
     const offset = slot - (count - 1) / 2;
     const edge = Math.max((count - 1) / 2, 1);
     const reach = offset / edge;
     const tilt = Math.min(6 * edge, MAX_FAN_ANGLE);
     const drop = Math.min(3 * edge * edge, MAX_FAN_DROP);
-    const room = width - cardWidth - EDGE * 2;
-    const step = count > 1 ? Math.min(spread, room / (count - 1)) : 0;
     const lifted = hovered ?? activeId;
     const liftedSlot = lifted ? hand.findIndex((item) => item.id === lifted) : -1;
     const push =
@@ -174,7 +211,11 @@ export function KnowledgeDealer({
 
   const renderCard = (card: DealerCard, slot: number) => {
     const pose = poseFor(card, slot);
-    const interactive = card.zone === "hand";
+    // One accessible name per card stays true; in the narrow slot the backing
+    // edges are shown but not separately focusable, and the card controls below
+    // move which card stands in front.
+    const interactive =
+      card.zone === "hand" && (!narrow || frontSlot < 0 || slot === frontSlot);
     return (
       <CardFrame
         key={card.id}
@@ -193,7 +234,7 @@ export function KnowledgeDealer({
             transition={reduce ? { duration: 0 } : STAGE_FLIGHT}
           >
             <span className="absolute inset-0 overflow-hidden rounded-[18px] [backface-visibility:hidden]">
-              <CardFace card={card} compact={cardWidth < 128} />
+              <CardFace card={card} compact={cardWidth < 128} inset={faceInset} />
             </span>
             <span className="absolute inset-0 overflow-hidden rounded-[18px] [backface-visibility:hidden] [transform:rotateY(180deg)]">
               <CardBack />
@@ -251,15 +292,18 @@ export function KnowledgeDealer({
         ref={stageRef}
         role="group"
         aria-label="Knowledge card tray"
-        className="relative mt-3 h-[264px] w-full touch-manipulation select-none sm:h-[300px]"
+        className="relative mt-3 h-[236px] w-full touch-manipulation select-none sm:h-[300px]"
       >
-        {/* The empty landing area stays visible so the deck reads as a deck,
-            not as the only card. */}
-        <div
-          aria-hidden="true"
-          className="absolute bottom-3 right-3 top-16 rounded-[22px] border border-dashed border-border-strong/70"
-          style={{ left: cardWidth + 40 }}
-        />
+        {/* At rest the landing area is visible, so the deck reads as a deck and
+            not as the only card. Once cards are dealt the hand occupies it, and
+            an empty dashed box behind them would read as a broken slot. */}
+        {handEmpty ? (
+          <div
+            aria-hidden="true"
+            className="absolute bottom-3 right-3 top-16 rounded-[22px] border border-dashed border-border-strong/70"
+            style={{ left: cardWidth + 40 }}
+          />
+        ) : null}
         {!deckEmpty ? (
           <p
             aria-hidden="true"
@@ -269,17 +313,20 @@ export function KnowledgeDealer({
             deck · {deck.length}
           </p>
         ) : null}
-        <p
-          aria-hidden="true"
-          className="absolute inset-x-0 bottom-6 text-center font-mono text-[10px] uppercase tracking-[0.16em] text-muted-foreground/60"
-        >
-          {handEmpty ? "hand — empty" : "inspect a card to read it"}
-        </p>
-        {size
-          ? [deck, hand, pile].flatMap((zone) =>
-              zone.map((card, slot) => renderCard(card, slot)),
-            )
-          : null}
+        {narrow ? null : (
+          <p
+            aria-hidden="true"
+            className="absolute inset-x-0 bottom-6 text-center font-mono text-[10px] uppercase tracking-[0.16em] text-muted-foreground/60"
+          >
+            {handEmpty ? "hand — empty" : "inspect a card to read it"}
+          </p>
+        )}
+        {/* Rendered before the tray is measured (and without JavaScript), using
+            the fallback geometry above; the layout effect corrects it before the
+            first paint, so the deck is never a blank box. */}
+        {[deck, hand, pile].flatMap((zone) =>
+          zone.map((card, slot) => renderCard(card, slot)),
+        )}
         {!deckEmpty ? (
           <button
             type="button"
@@ -300,6 +347,36 @@ export function KnowledgeDealer({
           </p>
         ) : null}
       </div>
+
+      {narrow && hand.length > 1 ? (
+        <div className="mt-4 flex items-center justify-between gap-2 rounded-full border border-border-strong px-1.5 py-1">
+          <button
+            type="button"
+            aria-label="Previous card"
+            disabled={frontSlot <= 0}
+            onClick={() => setFrontCard(hand[Math.max(0, frontSlot - 1)]?.id ?? null)}
+            className="grid size-11 place-items-center rounded-full text-muted-foreground transition-colors hover:text-foreground focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary disabled:pointer-events-none disabled:opacity-35"
+          >
+            <svg viewBox="0 0 24 24" className="size-4" fill="none" stroke="currentColor" strokeWidth="1.75" aria-hidden="true">
+              <path d="M15 6l-6 6 6 6" strokeLinecap="round" strokeLinejoin="round" />
+            </svg>
+          </button>
+          <p className="font-mono text-[10px] uppercase tracking-[0.14em] text-muted-foreground tabular-nums">
+            Card {frontSlot + 1} of {hand.length}
+          </p>
+          <button
+            type="button"
+            aria-label="Next card"
+            disabled={frontSlot >= hand.length - 1}
+            onClick={() => setFrontCard(hand[Math.min(hand.length - 1, frontSlot + 1)]?.id ?? null)}
+            className="grid size-11 place-items-center rounded-full text-muted-foreground transition-colors hover:text-foreground focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary disabled:pointer-events-none disabled:opacity-35"
+          >
+            <svg viewBox="0 0 24 24" className="size-4" fill="none" stroke="currentColor" strokeWidth="1.75" aria-hidden="true">
+              <path d="M9 6l6 6-6 6" strokeLinecap="round" strokeLinejoin="round" />
+            </svg>
+          </button>
+        </div>
+      ) : null}
 
       <div className="mt-4 flex flex-wrap items-center gap-2">
         <button
@@ -461,7 +538,16 @@ function CardFrame({
   );
 }
 
-function CardFace({ card, compact }: { card: DealerCard; compact: boolean }) {
+function CardFace({
+  card,
+  compact,
+  inset,
+}: {
+  card: DealerCard;
+  compact: boolean;
+  /** Trailing strip a fanned neighbour covers, reserved so text is never cut. */
+  inset: number;
+}) {
   const accent =
     card.kind === "principle"
       ? "text-primary"
@@ -475,7 +561,10 @@ function CardFace({ card, compact }: { card: DealerCard; compact: boolean }) {
         ? "bg-warning/70"
         : "bg-border-strong";
   return (
-    <span className="flex size-full flex-col justify-between rounded-[18px] border border-foreground/15 bg-card p-3 shadow-[0_1px_0_0_rgb(255_255_255/0.08)_inset,0_10px_22px_-18px_rgb(0_0_0/0.8)]">
+    <span
+      className="flex size-full flex-col justify-between rounded-[18px] border border-foreground/15 bg-card py-3 ps-3 shadow-[0_1px_0_0_rgb(255_255_255/0.08)_inset,0_1px_2px_0_rgb(15_23_42/0.08),0_14px_28px_-16px_rgb(15_23_42/0.32)]"
+      style={{ paddingRight: inset }}
+    >
       <span>
         <span aria-hidden="true" className={cn("mb-2 block h-0.5 w-6 rounded-full", rule)} />
         <span className={cn("block font-mono text-[9px] uppercase tracking-[0.14em]", accent)}>

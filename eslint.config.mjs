@@ -26,6 +26,13 @@ const eslintConfig = defineConfig([
     // not local decisions, so they are excluded from lint rather than forked.
     // They are still type-checked and exercised by the build and the browser QA.
     "components/agents/**",
+    // Verbatim reference copies of BeUI registry sources (timeline,
+    // card-dealer) kept in .scratch/ while adapting them into the Prototype C
+    // knowledge components. Same rationale as above: the React Compiler rules
+    // flag upstream ref handling, and editing these copies would corrupt the
+    // reference. The adapted results live in components/knowledge/** and are
+    // fully linted and type-checked.
+    ".scratch/**",
   ]),
 ]);
 

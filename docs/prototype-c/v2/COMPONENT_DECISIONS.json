@@ -1,0 +1,164 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-10-27",
+  "baselineCommit": "496fddf998fd3c221a213d0d9b81070847c2c122",
+  "packagesAdded": [],
+  "components": [
+    {
+      "name": "InsightRail",
+      "file": "components/knowledge/insight-rail.tsx",
+      "upstream": {
+        "name": "beUI Timeline",
+        "page": "https://beui.dev/components/motion/timeline",
+        "registry": "https://beui.dev/r/timeline.json",
+        "retrieved": "2026-10-26",
+        "licenceNote": "Source named in the file header; mechanics adapted, no upstream asset or demo content copied."
+      },
+      "kept": [
+        "controlled value + onValueChange identity",
+        "measured stage width and derived card geometry",
+        "single track motion value driving per-item transform",
+        "neighbour scale plus a dimming veil",
+        "gap tick ruler between items",
+        "release spring (120 / 24 / 1) as the starting point",
+        "drag threshold, rubber band at the ends, flick projection",
+        "pointer capture for dragging, horizontal wheel support",
+        "one tab stop with arrow-key movement"
+      ],
+      "changed": [
+        "media cards, years and cables removed: this is a condensed rail of editions",
+        "neighbour scale 0.92 instead of the upstream 0.72, so a 13px title stays readable",
+        "geometry measured from the rail stage, not a full-height demo container",
+        "announcements fire once after settling, not per drag pixel"
+      ],
+      "rejected": [
+        "perpetual autoplay or auto-advance",
+        "a second identity system for editions",
+        "scaling the whole stage horizontally offscreen on change"
+      ],
+      "tests": ["rail-selects-and-pairs-scene", "rail-keyboard-arrow", "back-restores-edition", "rapid-selection-latest-wins"]
+    },
+    {
+      "name": "KnowledgeDealer",
+      "file": "components/knowledge/knowledge-dealer.tsx",
+      "upstream": {
+        "name": "beUI Card Dealer",
+        "page": "https://beui.dev/components/blocks/card-dealer",
+        "registry": "https://beui.dev/r/card-dealer.json",
+        "retrieved": "2026-10-26",
+        "licenceNote": "Source named in the file header; structure adapted, playing-card demo not copied."
+      },
+      "kept": [
+        "stable card ids across deck / hand / pile zones",
+        "measured stage and absolute card frames",
+        "imperative arc flight with a spring settle, cancelled per new move",
+        "stagger capped by a window so a three-card deal does not queue",
+        "3D face / back flip on the same element",
+        "depth-ordered z-index, hover and focus lift, neighbour push",
+        "reduced-motion path that places cards immediately",
+        "keyboard access without waiting for choreography"
+      ],
+      "changed": [
+        "pile replaced by an inline reader below the tray; cards return to the deck on collect",
+        "knowledge card sizes: clamp(tray * 0.36, 100, 150) x 1.32, fan step 0.78 of card width",
+        "face reserves the covered trailing strip (faceInset) so a fan never slices a word",
+        "narrow trays (<300px) become a one-card slot with backing edges and explicit previous/next card controls",
+        "the whole-card overlay button carries only the accessible name; all links live in the reader",
+        "the dashed landing area is shown only while the hand is empty"
+      ],
+      "rejected": [
+        "a text swap inside one stationary card",
+        "a decorative back plate pretending to be a deck",
+        "nested controls inside the card overlay button",
+        "infinite fake variety when the deck is exhausted"
+      ],
+      "tests": ["deal-three", "hand-has-three-cards", "inspect-card-0", "inspect-card-1", "inspect-card-2", "reader-receives-focus", "escape-returns-to-hand", "collect-resets-hand", "mobile-320-single-slot", "mobile-320-card-stepper", "reduced-motion-places-immediately"]
+    },
+    {
+      "name": "InsightScene",
+      "file": "components/knowledge/insight-scene.tsx",
+      "upstream": null,
+      "kept": ["scenario reading plane as the primary object", "title anchored through every state"],
+      "changed": [
+        "native details replaced by a controlled three-state scene behind the reading plane",
+        "backing plane separates 8-12px instead of the card flipping",
+        "evidence opens as an attached inline panel with source, locator, check date and review status"
+      ],
+      "rejected": ["a 180 degree paragraph flip", "an accordion row among unrelated cards", "grading or storing an answer"],
+      "tests": ["reveal-opens-reasoning", "evidence-opens-source", "reveal-reversible"]
+    },
+    {
+      "name": "InsightExperiment",
+      "file": "components/knowledge/insight-experiment.tsx",
+      "upstream": null,
+      "kept": ["real inputs on first paint, no entrance dependency"],
+      "changed": [
+        "figure and verdict derived in lib/knowledge/models.ts from the edition's own fields",
+        "state per edition, ungraded, in memory only"
+      ],
+      "rejected": ["exam score", "saved answer", "invented data values or a fake chart"],
+      "tests": ["rail-selects-and-pairs-scene", "experiment-state change reviewed in evidence/07-experiment-state-b-1440.png"]
+    },
+    {
+      "name": "AtlasPeekStage",
+      "file": "components/knowledge/atlas-peek-stage.tsx",
+      "upstream": "existing lib/atlas projection",
+      "kept": [
+        "canonical published-gated concepts and edges from lib/atlas/model.ts",
+        "concept / edge ids and the existing view href contract",
+        "textual relationship list beside any drawn relation"
+      ],
+      "changed": [
+        "bounded semantic neighbourhood (centre + up to four published neighbours) instead of the full graph",
+        "edge labels and evidence in an adjacent readable panel",
+        "empty state rewritten as an honest bridge with lesson and practice destinations"
+      ],
+      "rejected": ["draft-to-public promotion", "invented edges to fill the stage", "orbiting nodes or mastery halos", "a second full Atlas canvas"],
+      "tests": ["desktop-axe", "mobile-390-axe", "mobile-320-axe", "evidence/13-desktop-reveal-evidence.png shows the empty-state bridge"]
+    },
+    {
+      "name": "InsightArchive",
+      "file": "components/knowledge/insight-archive.tsx",
+      "upstream": null,
+      "kept": ["full-width search field on narrow screens", "topic filter", "edition count", "keyboard-readable result list", "empty state"],
+      "changed": [
+        "reasoning and source behind a native details element so the page still works without JavaScript",
+        "permalinks copy the canonical ?insight= id",
+        "kept below the stage instead of becoming the landing page"
+      ],
+      "rejected": ["a filter toolbar above the stage", "a second public search index (site search links to /search/)"],
+      "tests": ["archive search/topic exercised manually; mobile-320-axe, mobile-390-axe"]
+    },
+    {
+      "name": "KnowledgeAtmosphere",
+      "file": "components/knowledge/knowledge-atmosphere.tsx",
+      "upstream": null,
+      "kept": ["one broad radial wash, static dot grid, no animation loop, aria-hidden"],
+      "changed": ["light and dark aliases added to globals.css (--stage-wash, --stage-wash-warm, --stage-dot, --stage-floor)"],
+      "rejected": ["particles", "WebGL", "perpetual motion", "blur behind reading text"],
+      "tests": ["reduced-motion-keeps-static-depth"]
+    },
+    {
+      "name": "useHoverCapable",
+      "file": "lib/hooks/use-hover-capable.ts",
+      "upstream": {
+        "name": "beUI card-dealer support hook",
+        "retrieved": "2026-10-26",
+        "licenceNote": "Behaviour copied unchanged; gates hover-only lift behind (hover: hover) and (pointer: fine)."
+      },
+      "kept": ["matchMedia gate with change listener"],
+      "changed": [],
+      "rejected": [],
+      "tests": ["touch behaviour inferred from pointerType checks; not verified on hardware"]
+    },
+    {
+      "name": "touch helpers",
+      "file": "lib/touch.ts",
+      "upstream": null,
+      "kept": ["capturePointer / releasePointer / TOUCH_GESTURE_CLASS for gesture arbitration"],
+      "changed": [],
+      "rejected": ["global touch-action none", "a custom scroll hijack"],
+      "tests": ["mobile-320-no-overflow", "mobile-390-no-overflow; real device scrolling NOT RUN"]
+    }
+  ]
+}

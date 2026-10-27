@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-26T12:08:06.498Z",
+  "generatedAt": "2026-10-27T19:38:34.483Z",
   "base": "http://127.0.0.1:4210",
   "checks": [
     {
@@ -85,6 +85,15 @@
       "detail": "0 / 3 dealt"
     },
     {
+      "id": "resize-during-deal-reconciles",
+      "pass": true,
+      "detail": {
+        "cards": 3,
+        "inside": true,
+        "overflow": false
+      }
+    },
+    {
       "id": "reveal-opens-reasoning",
       "pass": true,
       "detail": 1
@@ -107,6 +116,16 @@
         "title": "Name the object you are deleting.",
         "revealed": "false",
         "experiment": "Which action are you taking?"
+      }
+    },
+    {
+      "id": "atlas-empty-state-is-honest",
+      "pass": true,
+      "detail": {
+        "text": "03 / KNOWLEDGE ATLAS Where this idea leads Open the full Atlas Reviewed connections are not published yet The reviewed public graph is not yet published. Normal lessons and practice remain available. The Atlas draws a co",
+        "edges": 0,
+        "buttons": 0,
+        "pressed": 0
       }
     },
     {
@@ -182,7 +201,7 @@
         "immediate": [
           {
             "top": 695,
-            "left": 917
+            "left": 890
           },
           {
             "top": 702,
@@ -190,13 +209,13 @@
           },
           {
             "top": 695,
-            "left": 1077
+            "left": 1105
           }
         ],
         "settled": [
           {
             "top": 695,
-            "left": 917
+            "left": 890
           },
           {
             "top": 702,
@@ -204,7 +223,7 @@
           },
           {
             "top": 695,
-            "left": 1077
+            "left": 1105
           }
         ]
       }
@@ -241,10 +260,10 @@
           "x": 41,
           "y": 1824.84375,
           "width": 308,
-          "height": 264,
+          "height": 236,
           "top": 1824.84375,
           "right": 349,
-          "bottom": 2088.84375,
+          "bottom": 2060.84375,
           "left": 41
         },
         "cards": []
@@ -257,10 +276,10 @@
         "x": 41,
         "y": 1824.84375,
         "width": 308,
-        "height": 264,
+        "height": 236,
         "top": 1824.84375,
         "right": 349,
-        "bottom": 2088.84375,
+        "bottom": 2060.84375,
         "left": 41
       }
     },
@@ -269,34 +288,34 @@
       "pass": true,
       "detail": [
         {
-          "x": 67.61128234863281,
-          "y": 264.3024597167969,
-          "width": 126.11056518554688,
-          "height": 157.20281982421875,
-          "top": 264.3024597167969,
-          "right": 193.7218475341797,
-          "bottom": 421.5052795410156,
-          "left": 67.61128234863281
+          "x": 45.4558219909668,
+          "y": 264.2423400878906,
+          "width": 126.11054992675781,
+          "height": 157.20285034179688,
+          "top": 264.2423400878906,
+          "right": 171.5663719177246,
+          "bottom": 421.4451904296875,
+          "left": 45.4558219909668
         },
         {
-          "x": 139.61563110351562,
-          "y": 270.018310546875,
+          "x": 139.64712524414062,
+          "y": 270.0352783203125,
           "width": 110.875,
           "height": 146,
-          "top": 270.018310546875,
-          "right": 250.49063110351562,
-          "bottom": 416.018310546875,
-          "left": 139.61563110351562
+          "top": 270.0352783203125,
+          "right": 250.52212524414062,
+          "bottom": 416.0352783203125,
+          "left": 139.64712524414062
         },
         {
-          "x": 196.50357055664062,
-          "y": 264.6419677734375,
+          "x": 218.8253173828125,
+          "y": 264.7275390625,
           "width": 126.11056518554688,
           "height": 157.20281982421875,
-          "top": 264.6419677734375,
-          "right": 322.6141357421875,
-          "bottom": 421.84478759765625,
-          "left": 196.50357055664062
+          "top": 264.7275390625,
+          "right": 344.9358825683594,
+          "bottom": 421.93035888671875,
+          "left": 218.8253173828125
         }
       ]
     },
@@ -322,10 +341,10 @@
           "x": 41,
           "y": 2144.125,
           "width": 238,
-          "height": 264,
+          "height": 236,
           "top": 2144.125,
           "right": 279,
-          "bottom": 2408.125,
+          "bottom": 2380.125,
           "left": 41
         },
         "cards": []
@@ -338,48 +357,36 @@
         "x": 41,
         "y": 2144.125,
         "width": 238,
-        "height": 264,
+        "height": 236,
         "top": 2144.125,
         "right": 279,
-        "bottom": 2408.125,
+        "bottom": 2380.125,
         "left": 41
       }
     },
     {
-      "id": "mobile-320-cards-in-tray",
+      "id": "mobile-320-single-slot",
       "pass": true,
       "detail": [
         {
-          "x": 46.07102966308594,
-          "y": 257.12579345703125,
-          "width": 113.77606201171875,
-          "height": 142.10214233398438,
-          "top": 257.12579345703125,
-          "right": 159.8470916748047,
-          "bottom": 399.2279357910156,
-          "left": 46.07102966308594
-        },
-        {
-          "x": 110.00484466552734,
-          "y": 262.2759094238281,
-          "width": 100.00000762939453,
-          "height": 132,
-          "top": 262.2759094238281,
-          "right": 210.00485229492188,
-          "bottom": 394.2759094238281,
-          "left": 110.00484466552734
-        },
-        {
-          "x": 160.25686645507812,
-          "y": 257.42022705078125,
-          "width": 113.77606201171875,
-          "height": 142.10211181640625,
-          "top": 257.42022705078125,
-          "right": 274.0329284667969,
-          "bottom": 399.5223388671875,
-          "left": 160.25686645507812
+          "x": 86.22000122070312,
+          "y": 199.125,
+          "width": 147.546875,
+          "height": 195,
+          "top": 199.125,
+          "right": 233.76687622070312,
+          "bottom": 394.125,
+          "left": 86.22000122070312
         }
       ]
+    },
+    {
+      "id": "mobile-320-card-stepper",
+      "pass": true,
+      "detail": {
+        "first": "Principle card: Reference ≠ retained result",
+        "second": "Caveat card for Reference ≠ retained result"
+      }
     },
     {
       "id": "mobile-320-no-console-errors",
@@ -413,40 +420,40 @@
           {
             "label": "Principle card: Reference ≠ retained result",
             "rect": {
-              "x": 211.90728759765625,
-              "y": 301.184814453125,
-              "width": 170.66409301757812,
-              "height": 213.1531982421875,
-              "top": 301.184814453125,
-              "right": 382.5713806152344,
-              "bottom": 514.3380126953125,
-              "left": 211.90728759765625
+              "x": 181.9344940185547,
+              "y": 301.2918395996094,
+              "width": 170.66407775878906,
+              "height": 213.15322875976562,
+              "top": 301.2918395996094,
+              "right": 352.59857177734375,
+              "bottom": 514.445068359375,
+              "left": 181.9344940185547
             }
           },
           {
             "label": "Caveat card for Reference ≠ retained result",
             "rect": {
-              "x": 309.6677551269531,
-              "y": 309.15802001953125,
+              "x": 309.9381103515625,
+              "y": 309.4573669433594,
               "width": 150,
               "height": 198,
-              "top": 309.15802001953125,
-              "right": 459.6677551269531,
-              "bottom": 507.15802001953125,
-              "left": 309.6677551269531
+              "top": 309.4573669433594,
+              "right": 459.9381103515625,
+              "bottom": 507.4573669433594,
+              "left": 309.9381103515625
             }
           },
           {
             "label": "Evidence card for Reference ≠ retained result",
             "rect": {
-              "x": 387.0664978027344,
-              "y": 302.2118835449219,
-              "width": 170.66409301757812,
-              "height": 213.15322875976562,
-              "top": 302.2118835449219,
-              "right": 557.7305908203125,
-              "bottom": 515.3651123046875,
-              "left": 387.0664978027344
+              "x": 417.67034912109375,
+              "y": 302.7527160644531,
+              "width": 170.6640625,
+              "height": 213.15316772460938,
+              "top": 302.7527160644531,
+              "right": 588.3344116210938,
+              "bottom": 515.9058837890625,
+              "left": 417.67034912109375
             }
           }
         ]
@@ -473,6 +480,10 @@
     {
       "name": "14-desktop-edition-two",
       "label": "Second edition selected, dark"
+    },
+    {
+      "name": "22-atlas-empty-1440",
+      "label": "Atlas empty-state bridge at scroll 0"
     },
     {
       "name": "15-desktop-light",
@@ -504,8 +515,8 @@
     }
   ],
   "summary": {
-    "total": 35,
-    "passed": 35,
+    "total": 38,
+    "passed": 38,
     "failed": 0
   }
 }

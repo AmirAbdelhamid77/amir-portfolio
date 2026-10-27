@@ -155,6 +155,24 @@ const dealtChip = (page) => dealer(page).locator("span.tabular-nums");
     await dealtChip(page).textContent(),
   );
 
+  // Resize during a deal: the target zone is reconciled from the new measured
+  // tray, so no card is left outside it and no duplicate is produced.
+  await page.getByRole("button", { name: "Deal three ideas" }).click();
+  await page.setViewportSize({ width: 1024, height: 900 });
+  await page.waitForTimeout(900);
+  const resized = await layout(page);
+  const resizedInside = resized.cards.every(
+    (card) => card.rect.left >= resized.tray.left - 2 && card.rect.right <= resized.tray.right + 2,
+  );
+  record(
+    "resize-during-deal-reconciles",
+    resized.cards.length === 3 && resizedInside && !resized.overflow,
+    { cards: resized.cards.length, inside: resizedInside, overflow: resized.overflow },
+  );
+  await page.getByRole("button", { name: "Collect all" }).click();
+  await page.setViewportSize({ width: 1440, height: 1000 });
+  await page.waitForTimeout(500);
+
   await scene(page).getByRole("button", { name: "Reveal the reasoning" }).click();
   await page.waitForTimeout(450);
   const answer = page.locator('[id$="-reasoning"]');
@@ -185,6 +203,37 @@ const dealtChip = (page) => dealer(page).locator("span.tabular-nums");
     afterRail,
   );
   await shot(page, "14-desktop-edition-two", "Second edition selected, dark");
+
+  // Atlas honesty: with no published relation the peek must draw no edge and
+  // say so, rather than decorate the page with an invented graph.
+  const atlas = await page.evaluate(() => {
+    const region = document.querySelector('[aria-labelledby="atlas-peek-title"]');
+    if (!region) return null;
+    return {
+      text: region.innerText.replace(/\s+/g, " ").slice(0, 220),
+      // Icon glyphs are a few pixels wide; a drawn relation is a wide path.
+      edges: [...region.querySelectorAll("path, line, polyline")].filter(
+        (node) => node.getBoundingClientRect().width > 80,
+      ).length,
+      buttons: region.querySelectorAll("button").length,
+      pressed: region.querySelectorAll("[aria-pressed]").length,
+    };
+  });
+  record(
+    "atlas-empty-state-is-honest",
+    Boolean(atlas) &&
+      atlas.text.includes("Reviewed connections are not published yet") &&
+      atlas.edges === 0 &&
+      atlas.buttons === 0 &&
+      atlas.pressed === 0,
+    atlas,
+  );
+  const peekShot = await page.evaluate(() => {
+    document.querySelector('[aria-labelledby="atlas-peek-title"]')?.scrollIntoView({ block: "center" });
+    return window.scrollY;
+  });
+  await page.waitForTimeout(350);
+  await shot(page, "22-atlas-empty-1440", `Atlas empty-state bridge at scroll ${peekShot}`);
 
   await page.locator('[aria-label="Insight editions"] button[aria-current="date"]').focus();
   await page.keyboard.press("ArrowRight");
@@ -304,7 +353,24 @@ for (const width of [390, 320]) {
   const insideTray = cards.every(
     (rect) => rect.left >= (still.tray.left - 2) && rect.right <= (still.tray.right + 2),
   );
-  record(`mobile-${width}-cards-in-tray`, cards.length === 3 && insideTray, cards);
+  if (width === 320) {
+    // The spec's 320px contract is one upright card with backing edges, moved by
+    // explicit previous/next controls, not a three-card fan squeezed flat.
+    record("mobile-320-single-slot", cards.length === 1 && insideTray, cards);
+    const labelOf = () =>
+      page.evaluate(() =>
+        document
+          .querySelector('section[aria-labelledby="dealer-title"] button[aria-expanded]')
+          ?.getAttribute("aria-label") ?? null,
+      );
+    const first = await labelOf();
+    await page.getByRole("button", { name: "Next card" }).click();
+    await page.waitForTimeout(300);
+    const second = await labelOf();
+    record("mobile-320-card-stepper", Boolean(first && second && first !== second), { first, second });
+  } else {
+    record(`mobile-${width}-cards-in-tray`, cards.length === 3 && insideTray, cards);
+  }
   record(`mobile-${width}-no-console-errors`, consoleErrors.length === 0, consoleErrors);
   const violations = await axe(page);
   record(`mobile-${width}-axe`, violations.length === 0, violations);

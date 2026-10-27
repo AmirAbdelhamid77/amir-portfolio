@@ -77,7 +77,9 @@ export function InsightScene({
         >
           <motion.div
             key={insight.id}
-            initial={reduce ? { opacity: 1 } : { opacity: 0, y: direction === "forward" ? 10 : -10 }}
+            /* No opacity here: the reading plane is painted visible on the
+               first frame and stays readable with JavaScript disabled. */
+            initial={reduce ? false : { y: direction === "forward" ? 10 : -10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={reduce ? { duration: 0.1 } : STAGE_REVEAL}
           >
