@@ -1,4 +1,4 @@
-// Scoring and session-construction tests against the real 914-question bank (834 baseline + the authored corpus packs).
+// Scoring and session-construction tests against the real 1114-question bank (834 baseline + the authored corpus packs).
 //
 // This is the "every question is graded against its own recorded key" check:
 // each question in `content/fabric/questions/*.json` is graded with its correct
@@ -100,7 +100,7 @@ test("every question scores its own key as correct", () => {
     assert.equal(result.correct, true, `${question.id} (${question.type}) failed its own key`);
     checked += 1;
   }
-  assert.equal(checked, 914);
+  assert.equal(checked, 1114);
 });
 
 test("every question rejects a deliberately broken key", () => {

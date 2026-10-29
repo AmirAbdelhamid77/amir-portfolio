@@ -34,7 +34,7 @@ const byId = new Map(questions.map((question) => [question.id, question]));
 // semantic-models-dax pack on top of the 834-question deployment package, so
 // the baseline assertions run against the original 18 packs and the merged
 // totals are asserted beside them.
-const CORPUS_PACKS = ["semantic-models-dax", "eventstream-windowing"];
+const CORPUS_PACKS = ["semantic-models-dax", "eventstream-windowing", "dataflow-gen2", "mirroring", "activator", "notebooks-pyspark", "incremental-copy"];
 const isCorpus = (question) => CORPUS_PACKS.includes(question.pack);
 const baseline = questions.filter((question) => !isCorpus(question));
 
@@ -59,13 +59,13 @@ test("the declared baseline counts are reproduced exactly", () => {
 });
 
 test("the merged bank carries the corpus waves on top of the baseline", () => {
-  assert.equal(questions.length, 914, "914 merged questions");
-  assert.equal(packs.length, 20, "20 packs");
-  assert.equal(index.length, 914, "914 index entries");
-  assert.equal(sources.length, 306, "306 registry entries");
+  assert.equal(questions.length, 1114, "1114 merged questions");
+  assert.equal(packs.length, 25, "25 packs");
+  assert.equal(index.length, 1114, "1114 index entries");
+  assert.equal(sources.length, 378, "378 registry entries");
   assert.equal(cases.length, 78, "78 case studies");
   const corpus = questions.filter((question) => isCorpus(question));
-  assert.equal(corpus.length, 80, "80 corpus questions (40 semantic-models-dax + 40 eventstream-windowing)");
+  assert.equal(corpus.length, 280, "280 corpus questions (7 authored packs × 40)");
   for (const packKey of CORPUS_PACKS) {
     assert.ok(meta.corpusWaves?.some((wave) => wave.pack === packKey && wave.integrity?.failures?.length === 0),
       `${packKey} records a clean import`);
@@ -80,7 +80,7 @@ test("every question is imported once, under a unique namespaced id", () => {
     assert.match(question.id, /^fb-[a-z0-9-]+$/, `${question.id} is namespaced`);
     assert.equal(question.id, `fb-${question.sourceId.toLowerCase().replace(/[^a-z0-9]+/g, "-")}`);
   }
-  assert.equal(ids.size, 914);
+  assert.equal(ids.size, 1114);
 
   // The namespace must not collide with the existing Data Lab ids.
   const examIds = readdirSync(path.join(ROOT, "content/exams"))
@@ -124,7 +124,7 @@ test("each question keeps a valid answer key, rationales and explanation", () =>
 
 test("source references resolve to the registry", () => {
   const registryIds = new Set(sources.map((source) => source.id));
-  assert.equal(registryIds.size, 306);
+  assert.equal(registryIds.size, 378);
   for (const question of questions) {
     assert.ok(Array.isArray(question.refs));
     for (const ref of question.refs) {
@@ -202,16 +202,16 @@ test("the shipped coverage report equals a fresh aggregation", () => {
   assert.deepEqual(fresh, meta.coverage, "content/fabric/meta.json is in sync with the index");
 
   const scopeTotal = fresh.byScope.reduce((sum, row) => sum + row.total, 0);
-  assert.equal(scopeTotal, 914, "every question has exactly one scope");
+  assert.equal(scopeTotal, 1114, "every question has exactly one scope");
 
   const objectiveTotal = fresh.byObjective.reduce((sum, row) => sum + row.total, 0);
-  assert.equal(objectiveTotal, 914, "every question lands in exactly one objective bucket");
+  assert.equal(objectiveTotal, 1114, "every question lands in exactly one objective bucket");
 
   const subjectTotal = fresh.bySubject.reduce((sum, row) => sum + row.total, 0);
-  assert.equal(subjectTotal, 914, "every question has exactly one primary subject");
+  assert.equal(subjectTotal, 1114, "every question has exactly one primary subject");
 
   assert.equal(fresh.totals.objectivesCovered, OBJECTIVES.length);
-  assert.equal(fresh.totals.core + fresh.totals.support + fresh.totals.adjacent + fresh.totals.review, 914);
+  assert.equal(fresh.totals.core + fresh.totals.support + fresh.totals.adjacent + fresh.totals.review, 1114);
 });
 
 // F01 regression: the domain split and the sub-objective split must be two views
@@ -267,7 +267,7 @@ test("difficulty metadata is only what the source supplied", () => {
 
 test("questions without a video timestamp are the documented foundation set", () => {
   const withoutTime = questions.filter((question) => question.videoSeconds === null);
-  assert.equal(withoutTime.length, 88, "8 baseline foundation questions + the 80 documentation-grounded corpus questions");
+  assert.equal(withoutTime.length, 288, "8 baseline foundation questions + the 280 documentation-grounded corpus questions");
   for (const question of withoutTime) assert.equal(question.origin, "foundation");
   assert.ok(meta.integrity.warnings.every((warning) => warning.code === "no-video-timestamp"));
 });
@@ -320,7 +320,7 @@ test("pack metadata preserves the source video identity", () => {
     assert.ok(pack.subjects.length > 0);
   }
   const total = packs.reduce((sum, pack) => sum + pack.questionCount, 0);
-  assert.equal(total, 914, "packs account for every question");
+  assert.equal(total, 1114, "packs account for every question");
   const videoPacks = packs.filter((pack) => pack.video);
   assert.equal(new Set(videoPacks.map((pack) => pack.video.id)).size, 18, "18 distinct source videos");
 });

@@ -85,6 +85,26 @@ export const PACK_LOADERS: Record<string, FabricPackLoader> = {
     import("@/content/fabric/questions/eventstream-windowing.json").then((module) => ({
       default: module.default as unknown as FabricQuestion[],
     })),
+  "dataflow-gen2": () =>
+    import("@/content/fabric/questions/dataflow-gen2.json").then((module) => ({
+      default: module.default as unknown as FabricQuestion[],
+    })),
+  "mirroring": () =>
+    import("@/content/fabric/questions/mirroring.json").then((module) => ({
+      default: module.default as unknown as FabricQuestion[],
+    })),
+  "activator": () =>
+    import("@/content/fabric/questions/activator.json").then((module) => ({
+      default: module.default as unknown as FabricQuestion[],
+    })),
+  "notebooks-pyspark": () =>
+    import("@/content/fabric/questions/notebooks-pyspark.json").then((module) => ({
+      default: module.default as unknown as FabricQuestion[],
+    })),
+  "incremental-copy": () =>
+    import("@/content/fabric/questions/incremental-copy.json").then((module) => ({
+      default: module.default as unknown as FabricQuestion[],
+    })),
 };
 
 export function loadPack(key: string): Promise<FabricQuestion[]> {

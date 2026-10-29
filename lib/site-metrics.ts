@@ -38,11 +38,11 @@ export const SITE_METRICS = {
     /** content/exams/*.json → total questions */
     generalQuestions: 70,
     /** content/fabric/meta.json → counts.questions */
-    fabricQuestions: 914,
+    fabricQuestions: 1114,
     /** content/fabric/meta.json → counts.packs */
-    fabricPacks: 20,
+    fabricPacks: 25,
     /** content/fabric/sources.json → registry size */
-    fabricSources: 306,
+    fabricSources: 378,
     /** content/fabric/meta.json → caseCount */
     fabricCases: 78,
   },

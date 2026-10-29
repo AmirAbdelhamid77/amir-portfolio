@@ -458,9 +458,14 @@ export const PACK_SUBJECT: Record<string, SubjectId> = {
   video20: "optimization",
   video21: "lakehouse",
   // Corpus-authored packs (hansa-integration phase C): semantic models & DAX,
-  // then eventstream & windowing.
+  // eventstream & windowing, then the remaining five phase C packs.
   "semantic-models-dax": "semantic-models",
   "eventstream-windowing": "eventhouse",
+  "dataflow-gen2": "ingestion",
+  "mirroring": "ingestion",
+  "activator": "eventhouse",
+  "notebooks-pyspark": "lakehouse",
+  "incremental-copy": "pipelines",
 };
 
 /**

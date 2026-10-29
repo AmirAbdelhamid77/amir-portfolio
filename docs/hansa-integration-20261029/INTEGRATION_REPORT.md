@@ -262,3 +262,57 @@ itself remains **NOT RUN** (locator stall, reproduced).
 **Remaining phase C packs:** `dataflow-gen2`, `mirroring`, `activator`,
 `notebooks-pyspark`, `incremental-copy` (~200 questions) — the pipeline, test
 pins and receipt handling are now a repeatable recipe.
+
+## Phase C complete — packs 3–7 (added 30 October 2026)
+
+The remaining five authored packs went through the pipeline as a batch. Bank
+final state: **1,114 questions, 25 packs, 378 registry entries, 78 case
+studies** (834 baseline + 280 authored corpus questions across seven packs).
+
+- **`dataflow-gen2`** (40): positioning vs copy/notebook (decision guide), data
+  destinations (lakehouse/warehouse/Azure SQL/KQL), staging and compute
+  trade-offs, refresh independence, gateway pairing, the Dataflow activity,
+  incremental via pipeline orchestration, CI/CD, Gen1 migration (save-as,
+  templates), drafts, folding boundaries, cost benchmarks, Copilot, ML endpoint
+  transformation. Objectives 2.1/2.2/1.2.
+- **`mirroring`** (40): what mirroring replicates and for which sources (Azure
+  SQL DB/MI, Cosmos, Snowflake, Databricks, PostgreSQL/MySQL, Oracle, SAP,
+  BigQuery, Dremio catalog, open mirroring), Delta conversion and SQL endpoint/
+  Direct Lake consumption, read-only posture, schema evolution, initial load,
+  stop/resume lifecycle, retention config, cost model, CI/CD, and the
+  shortcut/shortcut-vs-copy-vs-eventstream comparisons. Objectives 2.1/1.1/1.2.
+- **`activator`** (40): rules anatomy (trigger/condition/action), the four data
+  paths (eventstream, real-time dashboard tiles, Power BI models, KQL
+  querysets), actions (email/Teams/item triggers), per-entity evaluation,
+  freshness inheritance, capacity and Git surfaces, noise discipline (stabilize
+  the signal upstream, sustained conditions, severity separation), and the
+  absence-of-data design (last-seen queryset). Objectives 1.2/2.3/1.1.
+- **`notebooks-pyspark`** (40): authoring and language magics, KQL magic,
+  environments (compute/libraries/publish semantics), lakehouse attachment and
+  Files-to-Tables, notebookutils chaining, the Notebook activity (parameters,
+  exit values), Spark Job Definitions, the Livy endpoint, source control, Delta
+  write modes and MERGE, session/cost operations, high-concurrency sharing
+  semantics. Objectives 2.2/2.3/2.1/1.2.
+- **`incremental-copy`** (40): the watermark pattern end to end (Lookup →
+  filtered Copy → on-success boundary commit), watermark column properties,
+  bounded windows, failure/re-copy semantics, idempotent landings, bootstrap,
+  corrupt-boundary recovery, hard-delete blind spots and soft-delete handling,
+  metadata-driven ForEach scale-out, Copy job's managed incremental, and the
+  three-layer incrementality map (model partitions / pipelines / mirroring).
+  Objectives 2.1/1.2/1.1.
+
+**Grounding.** 87 new SOURCES entries, all corpus-harvested URLs (Data Factory,
+mirroring, Activator, Data Engineering pages), reusing the decision guide where
+packs overlap.
+
+**Evidence.** Five merges ran 2,327–2,547 checks each with 0 failures; **220
+tests PASS** (fabric pins at 1114/25/378/78, corpus 280; content pins at 1114
+and 1747); all six integrity verifiers PASS; build PASS (hub shows 1114); SQL
+baseline re-hashed a second time for the batch; browser e2e remains **NOT RUN**
+(known environment stall). Domain-3 core share 6.9%; DP-700 streaming/
+orchestration coverage now spans two dedicated packs; the phase C report
+sections above complete the plan's pack list.
+
+**Phase C is complete.** Remaining from the corpus plan: none for pack
+authoring — future work is the report's own next-atomic list (datasets pairing
+for labs, Phase D lessons if desired, deployment decision).

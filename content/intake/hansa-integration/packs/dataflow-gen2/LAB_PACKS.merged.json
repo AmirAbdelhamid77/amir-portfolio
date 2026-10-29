@@ -1,0 +1,1850 @@
+{
+ "dataflow-gen2": {
+  "label": "Dataflow Gen2",
+  "description": "Original practice questions authored for the Hansa corpus integration from Microsoft Fabric Data Factory documentation harvested by the deep-research corpus. Covers Dataflow Gen2 positioning and data destinations, staging and compute, refresh and monitoring, gateway-backed sources, pipeline orchestration with the Dataflow activity, CI/CD, and Gen1 migration. No video anchors.",
+  "questions": [
+   {
+    "id": "DFG2-001",
+    "topic": "Overview",
+    "title": "What Dataflow Gen2 actually is",
+    "prompt": "A teammate describes Dataflow Gen2 as \"a semantic model that refreshes lookup tables\". Which correction states what it really is?",
+    "type": "single",
+    "options": [
+     {
+      "id": "A",
+      "text": "A cloud-hosted Power Query pipeline: reusable, refreshable ingestion and transformation queries that land data in storage destinations of your choice.",
+      "why": "Correct. Gen2 is the Power Query experience in Fabric, storing its results in destinations rather than only inside a model."
+     },
+     {
+      "id": "B",
+      "text": "A scheduled backup of lakehouse tables.",
+      "why": "It is neither a backup nor tied to lakehouse tables alone."
+     },
+     {
+      "id": "C",
+      "text": "A semantic-model partition type.",
+      "why": "Semantic models can read from dataflows, but the dataflow itself is not a partition."
+     },
+     {
+      "id": "D",
+      "text": "A Spark notebook wrapper.",
+      "why": "Notebooks are a different engine; the decision guide treats them as separate tools."
+     }
+    ],
+    "correct": [
+     "A"
+    ],
+    "explanation": "Dataflow Gen2 brings Power Query authoring into Fabric as a first-class, refreshable item with its own data destinations.",
+    "videoSeconds": null,
+    "refs": [
+     "df-overview",
+     "df-decision-guide"
+    ],
+    "code": "",
+    "origin": "foundation",
+    "difficulty": 2,
+    "importMetadata": {
+     "exam_objective": "Prepare data > Get data",
+     "provenance": "Original practice authored for the Hansa corpus integration on 2026-10-30 — not an official, recalled, or leaked exam question. Grounded in the Microsoft Fabric Data Factory documentation harvested by the deep-research corpus; scenario details are synthetic.",
+     "validation": "Answer keys checked against the cited Microsoft Learn pages on 2026-10-30; positioning follows the documented Dataflow Gen2 overview and decision guide; no live Fabric workspace execution. Single authoring pass — flag discrepancies rather than treating the key as doctrine."
+    }
+   },
+   {
+    "id": "DFG2-002",
+    "topic": "Decision guide",
+    "title": "Copy, dataflow, or notebook",
+    "prompt": "A source CSV needs three joins, six derived columns, and a type-conversion chain before landing in a lakehouse table, and the analyst maintaining it is a Power Query expert. Which tool matches?",
+    "type": "single",
+    "options": [
+     {
+      "id": "A",
+      "text": "A Dataflow Gen2 authored in Power Query.",
+      "why": "Correct. The decision guide positions dataflows for reusable Power Query transformations; copy tools do not express rich multi-step logic."
+     },
+     {
+      "id": "B",
+      "text": "A Copy activity with field mappings.",
+      "why": "Copy moves data with light mappings; three joins and a transformation chain exceed its job."
+     },
+     {
+      "id": "C",
+      "text": "A Spark notebook, because Spark is always the better transform engine.",
+      "why": "The guide picks by skill fit and transformation shape, not by engine prestige."
+     },
+     {
+      "id": "D",
+      "text": "A KQL materialized view.",
+      "why": "Wrong engine entirely: the source is CSV and the logic is relational shaping."
+     }
+    ],
+    "correct": [
+     "A"
+    ],
+    "explanation": "The documented decision guide orders the tools by what the work actually is: movement (Copy), Power Query transformation (dataflow), or custom code (notebook).",
+    "videoSeconds": null,
+    "refs": [
+     "df-decision-guide",
+     "df-overview"
+    ],
+    "code": "",
+    "origin": "foundation",
+    "difficulty": 2,
+    "importMetadata": {
+     "exam_objective": "Prepare data > Get data",
+     "provenance": "Original practice authored for the Hansa corpus integration on 2026-10-30 — not an official, recalled, or leaked exam question. Grounded in the Microsoft Fabric Data Factory documentation harvested by the deep-research corpus; scenario details are synthetic.",
+     "validation": "Answer keys checked against the cited decision guide on 2026-10-30; no live Fabric workspace execution. Single authoring pass — flag discrepancies rather than treating the key as doctrine."
+    }
+   },
+   {
+    "id": "DFG2-003",
+    "topic": "Destinations",
+    "title": "Where a dataflow can land",
+    "prompt": "Which set of destinations is documented for Dataflow Gen2 data output?",
+    "type": "multi",
+    "options": [
+     {
+      "id": "A",
+      "text": "Fabric Lakehouse tables.",
+      "why": "Correct — a documented data destination."
+     },
+     {
+      "id": "B",
+      "text": "Fabric Warehouse tables.",
+      "why": "Correct — a documented data destination."
+     },
+     {
+      "id": "C",
+      "text": "Azure SQL Database tables.",
+      "why": "Correct — a documented data destination, including Azure SQL in the list."
+     },
+     {
+      "id": "D",
+      "text": "A Power BI report canvas.",
+      "why": "Incorrect — reports consume models; they are not a data destination."
+     }
+    ],
+    "correct": [
+     "A",
+     "B",
+     "C"
+    ],
+    "explanation": "The documented data destinations include lakehouse and warehouse tables plus Azure SQL Database (and other stores); a report is a consumer, never a landing zone.",
+    "videoSeconds": null,
+    "refs": [
+     "df-destinations",
+     "df-overview"
+    ],
+    "code": "",
+    "origin": "foundation",
+    "difficulty": 2,
+    "importMetadata": {
+     "exam_objective": "Prepare data > Get data",
+     "provenance": "Original practice authored for the Hansa corpus integration on 2026-10-30 — not an official, recalled, or leaked exam question. Grounded in the Microsoft Fabric Data Factory documentation harvested by the deep-research corpus; scenario details are synthetic.",
+     "validation": "Answer keys checked against the cited data-destinations page on 2026-10-30; no live Fabric workspace execution. Single authoring pass — flag discrepancies rather than treating the key as doctrine."
+    }
+   },
+   {
+    "id": "DFG2-004",
+    "topic": "Destinations",
+    "title": "One query, two lands",
+    "prompt": "A cleaned customer query must land both in a lakehouse table for analysts and in a Warehouse table for finance. What does Dataflow Gen2 support?",
+    "type": "single",
+    "options": [
+     {
+      "id": "A",
+      "text": "Multiple data destinations per query — the same query's output can be written to more than one destination.",
+      "why": "Correct. A query can declare several data destinations; the documented destination experience allows multiple outputs per query."
+     },
+     {
+      "id": "B",
+      "text": "One destination per dataflow, so two dataflows must duplicate the logic.",
+      "why": "That is Gen1-era thinking; Gen2 destinations are per-query and multiple are supported."
+     },
+     {
+      "id": "C",
+      "text": "One destination per refresh, alternated by parameter.",
+      "why": "There is no per-refresh destination switching."
+     },
+     {
+      "id": "D",
+      "text": "Only one destination type per dataflow (mixing lakehouse and warehouse is unsupported).",
+      "why": "Mixing destination types across queries is supported."
+     }
+    ],
+    "correct": [
+     "A"
+    ],
+    "explanation": "Data destinations attach to queries; the documented experience supports multiple destinations, which is exactly how a single cleaned entity can serve two consumers.",
+    "videoSeconds": null,
+    "refs": [
+     "df-destinations",
+     "df-overview"
+    ],
+    "code": "",
+    "origin": "foundation",
+    "difficulty": 3,
+    "importMetadata": {
+     "exam_objective": "Prepare data > Transform data",
+     "provenance": "Original practice authored for the Hansa corpus integration on 2026-10-30 — not an official, recalled, or leaked exam question. Grounded in the Microsoft Fabric Data Factory documentation harvested by the deep-research corpus; scenario details are synthetic.",
+     "validation": "Answer keys checked against the cited data-destinations page on 2026-10-30; no live Fabric workspace execution. Single authoring pass — flag discrepancies rather than treating the key as doctrine."
+    }
+   },
+   {
+    "id": "DFG2-005",
+    "topic": "Staging",
+    "title": "Why queries stage",
+    "prompt": "In the dataflow editor, most intermediate queries show a \"staging\" toggle enabled. What does staging do?",
+    "type": "single",
+    "options": [
+     {
+      "id": "A",
+      "text": "It lands intermediate query results into a staging area so later queries compute against stored intermediates instead of re-evaluating the whole chain.",
+      "why": "Correct. Staging stores intermediate results, letting downstream queries and destinations read prepared data rather than recomputing."
+     },
+     {
+      "id": "B",
+      "text": "It versions the query definition for source control.",
+      "why": "Draft/save and Git handle versioning; staging is about data."
+     },
+     {
+      "id": "C",
+      "text": "It caches credentials for the source.",
+      "why": "Credential caching is unrelated to the staging toggle."
+     },
+     {
+      "id": "D",
+      "text": "It schedules the query for off-peak refresh.",
+      "why": "Scheduling belongs to the dataflow's refresh settings, not to staging."
+     }
+    ],
+    "correct": [
+     "A"
+    ],
+    "explanation": "Staging is the documented performance mechanism: intermediate queries persist their results, and the destinations compute from prepared intermediates.",
+    "videoSeconds": null,
+    "refs": [
+     "df-destinations",
+     "df-overview"
+    ],
+    "code": "",
+    "origin": "foundation",
+    "difficulty": 3,
+    "importMetadata": {
+     "exam_objective": "Prepare data > Transform data",
+     "provenance": "Original practice authored for the Hansa corpus integration on 2026-10-30 — not an official, recalled, or leaked exam question. Grounded in the Microsoft Fabric Data Factory documentation harvested by the deep-research corpus; scenario details are synthetic.",
+     "validation": "Answer keys checked against the cited destinations/managed-settings documentation on 2026-10-30; staging behavior follows the documented managed settings; no live Fabric workspace execution. Single authoring pass — flag discrepancies rather than treating the key as doctrine."
+    }
+   },
+   {
+    "id": "DFG2-006",
+    "topic": "Staging",
+    "title": "Landing directly, no staging",
+    "prompt": "A simple pass-through query copies one source table straight into a lakehouse table. The team wonders whether staging helps here. What is the documented guidance?",
+    "type": "single",
+    "options": [
+     {
+      "id": "A",
+      "text": "For simple pass-through loads, disabling staging lets the data land directly in the destination without an intermediate store.",
+      "why": "Correct. Staging earns its cost on complex graphs; a straight copy can skip it and land directly."
+     },
+     {
+      "id": "B",
+      "text": "Staging must always remain enabled for lakehouse destinations.",
+      "why": "It is a per-query choice, and simple loads are exactly where turning it off is suggested."
+     },
+     {
+      "id": "C",
+      "text": "Disabling staging disables scheduled refresh.",
+      "why": "Refresh scheduling is independent of staging."
+     },
+     {
+      "id": "D",
+      "text": "Staging improves compression of the final destination table.",
+      "why": "Staging stores intermediates; it does not compress the destination."
+     }
+    ],
+    "correct": [
+     "A"
+    ],
+    "explanation": "The documented managed-settings guidance: staging is a tool for complex graphs, and pass-through queries are the case where landing directly is cheaper.",
+    "videoSeconds": null,
+    "refs": [
+     "df-destinations",
+     "df-cost-benchmarks"
+    ],
+    "code": "",
+    "origin": "foundation",
+    "difficulty": 3,
+    "importMetadata": {
+     "exam_objective": "Prepare data > Transform data",
+     "provenance": "Original practice authored for the Hansa corpus integration on 2026-10-30 — not an official, recalled, or leaked exam question. Grounded in the Microsoft Fabric Data Factory documentation harvested by the deep-research corpus; scenario details are synthetic.",
+     "validation": "Answer keys checked against the cited destinations and benchmarks documentation on 2026-10-30; no live Fabric workspace execution. Single authoring pass — flag discrepancies rather than treating the key as doctrine."
+    }
+   },
+   {
+    "id": "DFG2-007",
+    "topic": "Refresh",
+    "title": "Independent of the model",
+    "prompt": "Finance's semantic model reads from a dataflow's lakehouse output. The dataflow refreshes at 06:00; the model refreshes at 06:30. What does this decoupling give the team?",
+    "type": "single",
+    "options": [
+     {
+      "id": "A",
+      "text": "The transformation work runs once in the dataflow; the model refresh ingests already-processed data — failures in one do not force the other's transformation to rerun.",
+      "why": "Correct. Gen2 stores its output in the destination, so model refreshes consume prepared tables instead of re-running Power Query."
+     },
+     {
+      "id": "B",
+      "text": "The model refresh re-executes the Power Query chain each time.",
+      "why": "That is the Gen1 coupling; Gen2's destinations break it."
+     },
+     {
+      "id": "C",
+      "text": "The dataflow cannot be scheduled separately from the model.",
+      "why": "Dataflows have their own scheduled refresh."
+     },
+     {
+      "id": "D",
+      "text": "The lakehouse table is rewritten by the model refresh.",
+      "why": "The model reads the table; it does not rewrite it."
+     }
+    ],
+    "correct": [
+     "A"
+    ],
+    "explanation": "Gen2's defining architectural change is storage outside the model: transformation cost is paid in the dataflow, and consumers refresh against stored results.",
+    "videoSeconds": null,
+    "refs": [
+     "df-overview",
+     "df-monitor"
+    ],
+    "code": "",
+    "origin": "foundation",
+    "difficulty": 3,
+    "importMetadata": {
+     "exam_objective": "Prepare data > Get data",
+     "provenance": "Original practice authored for the Hansa corpus integration on 2026-10-30 — not an official, recalled, or leaked exam question. Grounded in the Microsoft Fabric Data Factory documentation harvested by the deep-research corpus; scenario details are synthetic.",
+     "validation": "Answer keys checked against the cited overview and monitoring documentation on 2026-10-30; no live Fabric workspace execution. Single authoring pass — flag discrepancies rather than treating the key as doctrine."
+    }
+   },
+   {
+    "id": "DFG2-008",
+    "topic": "Monitoring",
+    "title": "Reading the refresh history",
+    "prompt": "A dataflow refresh failed at 06:02. Where does the documented monitoring surface show the failure and its per-query detail?",
+    "type": "single",
+    "options": [
+     {
+      "id": "A",
+      "text": "The dataflow's refresh history / monitoring view, which lists refresh runs with start/end times and status.",
+      "why": "Correct. The documented monitoring experience lists refresh runs and their outcomes for the dataflow."
+     },
+     {
+      "id": "B",
+      "text": "The Real-Time hub.",
+      "why": "The hub catalogs streams; refresh runs are not its subject."
+     },
+     {
+      "id": "C",
+      "text": "The lakehouse's SQL endpoint query history.",
+      "why": "That shows queries against the endpoint, not dataflow refreshes."
+     },
+     {
+      "id": "D",
+      "text": "The deployment pipeline's compare view.",
+      "why": "Pipeline compare diffs releases, not refresh runs."
+     }
+    ],
+    "correct": [
+     "A"
+    ],
+    "explanation": "Dataflow monitoring documents refresh runs with statuses and timing — the first stop when a scheduled refresh fails.",
+    "videoSeconds": null,
+    "refs": [
+     "df-monitor",
+     "df-overview"
+    ],
+    "code": "",
+    "origin": "foundation",
+    "difficulty": 2,
+    "importMetadata": {
+     "exam_objective": "Maintain a data analytics solution > Maintain the analytics development lifecycle",
+     "provenance": "Original practice authored for the Hansa corpus integration on 2026-10-30 — not an official, recalled, or leaked exam question. Grounded in the Microsoft Fabric Data Factory documentation harvested by the deep-research corpus; scenario details are synthetic.",
+     "validation": "Answer keys checked against the cited monitoring documentation on 2026-10-30; no live Fabric workspace execution. Single authoring pass — flag discrepancies rather than treating the key as doctrine."
+    }
+   },
+   {
+    "id": "DFG2-009",
+    "topic": "Gateways",
+    "title": "The on-premises SQL Server",
+    "prompt": "One source is an on-premises SQL Server reachable only through the corporate network. How does a Dataflow Gen2 connect?",
+    "type": "single",
+    "options": [
+     {
+      "id": "A",
+      "text": "Through the on-premises data gateway, which the cloud service uses to reach the source.",
+      "why": "Correct. On-premises sources are reached via the data gateway, as documented for dataflows."
+     },
+     {
+      "id": "B",
+      "text": "Dataflows are cloud-only and cannot reach on-premises sources at all.",
+      "why": "Gateway support is documented for dataflows."
+     },
+     {
+      "id": "C",
+      "text": "By mirroring the SQL Server into Fabric first.",
+      "why": "Mirroring is a different (and for on-prem SQL Server, not the applicable) replication feature."
+     },
+     {
+      "id": "D",
+      "text": "By exposing the server on the public internet.",
+      "why": "That is the security anti-pattern the gateway exists to avoid."
+     }
+    ],
+    "correct": [
+     "A"
+    ],
+    "explanation": "The on-premises data gateway is the documented bridge for cloud services reaching private sources, dataflows included.",
+    "videoSeconds": null,
+    "refs": [
+     "df-overview",
+     "df-create-first"
+    ],
+    "code": "",
+    "origin": "foundation",
+    "difficulty": 2,
+    "importMetadata": {
+     "exam_objective": "Prepare data > Get data",
+     "provenance": "Original practice authored for the Hansa corpus integration on 2026-10-30 — not an official, recalled, or leaked exam question. Grounded in the Microsoft Fabric Data Factory documentation harvested by the deep-research corpus; scenario details are synthetic.",
+     "validation": "Answer keys checked against the cited overview and first-dataflow documentation on 2026-10-30; gateway usage follows documented dataflow guidance; no live Fabric workspace execution. Single authoring pass — flag discrepancies rather than treating the key as doctrine."
+    }
+   },
+   {
+    "id": "DFG2-010",
+    "topic": "Orchestration",
+    "title": "The Dataflow activity",
+    "prompt": "A pipeline must run three dataflows in order, then a notebook. Which pipeline activity runs a Dataflow Gen2 as a step?",
+    "type": "single",
+    "options": [
+     {
+      "id": "A",
+      "text": "The Dataflow activity, which invokes a dataflow's refresh as a pipeline step with its own success/failure semantics.",
+      "why": "Correct. The documented Dataflow activity runs a dataflow inside a pipeline."
+     },
+     {
+      "id": "B",
+      "text": "A Copy activity pointed at the dataflow item.",
+      "why": "Copy moves data between stores; it cannot run a dataflow."
+     },
+     {
+      "id": "C",
+      "text": "A Notebook activity with a %run of the dataflow.",
+      "why": "Notebooks cannot execute dataflows; the Dataflow activity exists for this."
+     },
+     {
+      "id": "D",
+      "text": "A Web activity calling the Power BI REST API.",
+      "why": "An API path exists in principle, but the documented, native orchestration is the Dataflow activity."
+     }
+    ],
+    "correct": [
+     "A"
+    ],
+    "explanation": "The Dataflow activity is the documented orchestration primitive: dataflows become pipeline steps with dependencies, retries and alerts like any other activity.",
+    "videoSeconds": null,
+    "refs": [
+     "df-activity",
+     "df-tutorial-pipeline"
+    ],
+    "code": "",
+    "origin": "foundation",
+    "difficulty": 2,
+    "importMetadata": {
+     "exam_objective": "Maintain a data analytics solution > Maintain the analytics development lifecycle",
+     "provenance": "Original practice authored for the Hansa corpus integration on 2026-10-30 — not an official, recalled, or leaked exam question. Grounded in the Microsoft Fabric Data Factory documentation harvested by the deep-research corpus; scenario details are synthetic.",
+     "validation": "Answer keys checked against the cited Dataflow activity and orchestration tutorial on 2026-10-30; no live Fabric workspace execution. Single authoring pass — flag discrepancies rather than treating the key as doctrine."
+    }
+   },
+   {
+    "id": "DFG2-011",
+    "topic": "Orchestration",
+    "title": "Incremental through the tutorial pattern",
+    "prompt": "The team wants a large source ingested incrementally, using Dataflow Gen2 orchestrated by a pipeline. Which documented tutorial pattern matches this goal?",
+    "type": "single",
+    "options": [
+     {
+      "id": "A",
+      "text": "Setup incremental refresh with Dataflows Gen2: pipeline-driven runs that filter source data by a changing boundary so each run moves only new data.",
+      "why": "Correct. The documented tutorial demonstrates exactly this orchestration-driven incremental pattern."
+     },
+     {
+      "id": "B",
+      "text": "Semantic-model incremental refresh policies applied to the dataflow.",
+      "why": "Those policies govern model partitions, not dataflow runs."
+     },
+     {
+      "id": "C",
+      "text": "Mirroring the source into the lakehouse.",
+      "why": "Mirroring is replication for supported sources, not the dataflow pattern the question asks for."
+     },
+     {
+      "id": "D",
+      "text": "A materialized view over the destination table.",
+      "why": "Views accelerate queries; they do not filter what the next ingest moves."
+     }
+    ],
+    "correct": [
+     "A"
+    ],
+    "explanation": "The documented Gen2 incremental pattern couples the dataflow with pipeline orchestration and a moving boundary so each run transfers only new data.",
+    "videoSeconds": null,
+    "refs": [
+     "df-incremental-tutorial",
+     "df-activity"
+    ],
+    "code": "",
+    "origin": "foundation",
+    "difficulty": 3,
+    "importMetadata": {
+     "exam_objective": "Prepare data > Get data",
+     "provenance": "Original practice authored for the Hansa corpus integration on 2026-10-30 — not an official, recalled, or leaked exam question. Grounded in the Microsoft Fabric Data Factory documentation harvested by the deep-research corpus; scenario details are synthetic.",
+     "validation": "Answer keys checked against the cited incremental-refresh tutorial on 2026-10-30; no live Fabric workspace execution. Single authoring pass — flag discrepancies rather than treating the key as doctrine."
+    }
+   },
+   {
+    "id": "DFG2-012",
+    "topic": "CI/CD",
+    "title": "Source control for the flow",
+    "prompt": "The platform team wants dataflow definitions in Git and promoted through deployment pipelines like the rest of the estate. What is the documented state of support?",
+    "type": "single",
+    "options": [
+     {
+      "id": "A",
+      "text": "Dataflow Gen2 has documented CI/CD support: Git integration plus deployment pipelines, including connection and parameter concerns between stages.",
+      "why": "Correct. The dedicated CI/CD page documents Git and pipeline support for Gen2."
+     },
+     {
+      "id": "B",
+      "text": "Only Gen1 dataflows support Git; Gen2 definitions cannot leave the workspace.",
+      "why": "The documented support is for Gen2."
+     },
+     {
+      "id": "C",
+      "text": "Git support exists, but deployment pipelines reject dataflow items.",
+      "why": "Deployment pipelines accept dataflow items per the documented CI/CD page."
+     },
+     {
+      "id": "D",
+      "text": "Definitions export only as .pbix files.",
+      "why": "That is not the dataflow CI/CD mechanism."
+     }
+    ],
+    "correct": [
+     "A"
+    ],
+    "explanation": "Dataflow Gen2 ships with documented CI/CD: the definition travels through Git and deployment pipelines, with stage configuration to review (connections, parameters).",
+    "videoSeconds": null,
+    "refs": [
+     "df-cicd",
+     "df-overview"
+    ],
+    "code": "",
+    "origin": "foundation",
+    "difficulty": 3,
+    "importMetadata": {
+     "exam_objective": "Maintain a data analytics solution > Maintain the analytics development lifecycle",
+     "provenance": "Original practice authored for the Hansa corpus integration on 2026-10-30 — not an official, recalled, or leaked exam question. Grounded in the Microsoft Fabric Data Factory documentation harvested by the deep-research corpus; scenario details are synthetic.",
+     "validation": "Answer keys checked against the cited CI/CD documentation on 2026-10-30; no live Fabric workspace execution. Single authoring pass — flag discrepancies rather than treating the key as doctrine."
+    }
+   },
+   {
+    "id": "DFG2-013",
+    "topic": "Migration",
+    "title": "Gen1 to Gen2",
+    "prompt": "An old workspace still runs Dataflow Gen1. Which documented migration aids exist for moving it to Gen2?",
+    "type": "multi",
+    "options": [
+     {
+      "id": "A",
+      "text": "A Save-as / migrate path that creates a Gen2 dataflow from an existing Gen1 dataflow.",
+      "why": "Correct — the documented migration route."
+     },
+     {
+      "id": "B",
+      "text": "An export-template feature for moving definitions.",
+      "why": "Correct — the documented template export aids the move."
+     },
+     {
+      "id": "C",
+      "text": "Gen1 dataflows are automatically converted in place on a fixed date.",
+      "why": "Incorrect — migration is a documented manual aid, not an automatic conversion."
+     },
+     {
+      "id": "D",
+      "text": "A dedicated REST endpoint that rewrites Gen1 mashup code into Spark.",
+      "why": "Incorrect — no such automatic rewrite exists in the documented guidance."
+     }
+    ],
+    "correct": [
+     "A",
+     "B"
+    ],
+    "explanation": "The documented migration story is assisted, not automatic: save-as conversion and template export move definitions, with a documented guidance page for the differences.",
+    "videoSeconds": null,
+    "refs": [
+     "df-migrate-save-as",
+     "df-migrate-gen1"
+    ],
+    "code": "",
+    "origin": "foundation",
+    "difficulty": 3,
+    "importMetadata": {
+     "exam_objective": "Maintain a data analytics solution > Maintain the analytics development lifecycle",
+     "provenance": "Original practice authored for the Hansa corpus integration on 2026-10-30 — not an official, recalled, or leaked exam question. Grounded in the Microsoft Fabric Data Factory documentation harvested by the deep-research corpus; scenario details are synthetic.",
+     "validation": "Answer keys checked against the cited migration documentation on 2026-10-30; no live Fabric workspace execution. Single authoring pass — flag discrepancies rather than treating the key as doctrine."
+    }
+   },
+   {
+    "id": "DFG2-014",
+    "topic": "Authoring",
+    "title": "Drafts before publish",
+    "prompt": "An analyst wants to build a long transformation graph across two working sessions without refreshing anything yet. Which documented capability fits?",
+    "type": "single",
+    "options": [
+     {
+      "id": "A",
+      "text": "Saving the dataflow as a draft, keeping the in-progress queries without publishing or refreshing them.",
+      "why": "Correct. The documented draft feature keeps unfinished work out of the refresh path."
+     },
+     {
+      "id": "B",
+      "text": "Publishing immediately and disabling all queries.",
+      "why": "Publishing to then neuter queries is not the draft mechanism."
+     },
+     {
+      "id": "C",
+      "text": "Authoring in Notepad and pasting later.",
+      "why": "There is no documented need to leave the tool; drafts exist."
+     },
+     {
+      "id": "D",
+      "text": "Cloning the entire workspace as a backup.",
+      "why": "Workspace cloning is heavyweight and not the authoring-time feature."
+     }
+    ],
+    "correct": [
+     "A"
+    ],
+    "explanation": "The documented draft capability is the authoring-time answer: keep the graph, skip the publish/refresh until it is ready.",
+    "videoSeconds": null,
+    "refs": [
+     "df-save-draft",
+     "df-create-first"
+    ],
+    "code": "",
+    "origin": "foundation",
+    "difficulty": 2,
+    "importMetadata": {
+     "exam_objective": "Maintain a data analytics solution > Maintain the analytics development lifecycle",
+     "provenance": "Original practice authored for the Hansa corpus integration on 2026-10-30 — not an official, recalled, or leaked exam question. Grounded in the Microsoft Fabric Data Factory documentation harvested by the deep-research corpus; scenario details are synthetic.",
+     "validation": "Answer keys checked against the cited draft documentation on 2026-10-30; no live Fabric workspace execution. Single authoring pass — flag discrepancies rather than treating the key as doctrine."
+    }
+   },
+   {
+    "id": "DFG2-015",
+    "topic": "Folding",
+    "title": "What folds and what does not",
+    "prompt": "A query filters a SQL source, then adds a custom column calling a local Python-free M function, then sorts. Which statement about query folding for the SQL source is accurate?",
+    "type": "single",
+    "options": [
+     {
+      "id": "A",
+      "text": "The source filter and sort can fold to the source; steps that cannot be translated (like the custom M function) create a local evaluation boundary after the last folded step.",
+      "why": "Correct. Folding stops where M cannot be translated; everything after runs locally, which is why step order matters."
+     },
+     {
+      "id": "B",
+      "text": "Dataflow Gen2 never folds; all data always arrives locally first.",
+      "why": "Folding to capable sources is a documented Power Query behavior."
+     },
+     {
+      "id": "C",
+      "text": "Adding any step always disables folding for the entire query.",
+      "why": "Folding is per-step-prefix, not all-or-nothing for the query."
+     },
+     {
+      "id": "D",
+      "text": "Sorting always prevents folding because it is client-side only.",
+      "why": "Sorts translate to ORDER BY on capable sources."
+     }
+    ],
+    "correct": [
+     "A"
+    ],
+    "explanation": "Power Query folds what the source can execute and evaluates the rest locally; the custom function marks the boundary — a core reason to keep translatable steps early.",
+    "videoSeconds": null,
+    "refs": [
+     "df-overview",
+     "df-cost-benchmarks"
+    ],
+    "code": "",
+    "origin": "foundation",
+    "difficulty": 4,
+    "importMetadata": {
+     "exam_objective": "Prepare data > Transform data",
+     "provenance": "Original practice authored for the Hansa corpus integration on 2026-10-30 — not an official, recalled, or leaked exam question. Grounded in the Microsoft Fabric Data Factory documentation harvested by the deep-research corpus; scenario details are synthetic.",
+     "validation": "Answer keys checked against the cited documentation and Power Query folding behavior on 2026-10-30; no live Fabric workspace execution. Single authoring pass — flag discrepancies rather than treating the key as doctrine."
+    }
+   },
+   {
+    "id": "DFG2-016",
+    "topic": "Performance",
+    "title": "Reading the benchmarks",
+    "prompt": "Before a large migration, the team wants documented expectations for Gen2 refresh cost and performance behavior. Which resource fits?",
+    "type": "single",
+    "options": [
+     {
+      "id": "A",
+      "text": "The published Dataflow Gen2 cost and performance benchmarks page.",
+      "why": "Correct. A dedicated benchmarks page documents measured cost/performance behavior for Gen2 refreshes."
+     },
+     {
+      "id": "B",
+      "text": "The Copilot get-started page.",
+      "why": "Copilot onboarding is not a benchmarks source."
+     },
+     {
+      "id": "C",
+      "text": "The Real-Time hub catalog.",
+      "why": "Unrelated to dataflow performance."
+     },
+     {
+      "id": "D",
+      "text": "The Power BI REST API reference.",
+      "why": "API references list endpoints, not performance measurements."
+     }
+    ],
+    "correct": [
+     "A"
+    ],
+    "explanation": "A documented benchmarks page exists precisely so sizing conversations start from measurements rather than folklore.",
+    "videoSeconds": null,
+    "refs": [
+     "df-cost-benchmarks",
+     "df-overview"
+    ],
+    "code": "",
+    "origin": "foundation",
+    "difficulty": 2,
+    "importMetadata": {
+     "exam_objective": "Prepare data > Get data",
+     "provenance": "Original practice authored for the Hansa corpus integration on 2026-10-30 — not an official, recalled, or leaked exam question. Grounded in the Microsoft Fabric Data Factory documentation harvested by the deep-research corpus; scenario details are synthetic.",
+     "validation": "Answer keys checked against the cited benchmarks page on 2026-10-30; no live Fabric workspace execution. Single authoring pass — flag discrepancies rather than treating the key as doctrine."
+    }
+   },
+   {
+    "id": "DFG2-017",
+    "topic": "Copilot",
+    "title": "Assisted authoring",
+    "prompt": "A junior analyst wants help drafting Power Query steps and understanding an inherited query. Which documented assistant works inside Dataflow Gen2 authoring?",
+    "type": "single",
+    "options": [
+     {
+      "id": "A",
+      "text": "Copilot for Data Factory, integrated into the Dataflow Gen2 authoring experience.",
+      "why": "Correct. Copilot is documented inside the Gen2 authoring experience for drafting and explaining queries."
+     },
+     {
+      "id": "B",
+      "text": "The Fabric capacity metrics app.",
+      "why": "That observes consumption; it does not author queries."
+     },
+     {
+      "id": "C",
+      "text": "The SQL analytics endpoint.",
+      "why": "A query surface, not an assistant."
+     },
+     {
+      "id": "D",
+      "text": "Git integration.",
+      "why": "Source control, not authoring assistance."
+     }
+    ],
+    "correct": [
+     "A"
+    ],
+    "explanation": "Copilot for Data Factory is the documented in-product assistant for Gen2 authoring.",
+    "videoSeconds": null,
+    "refs": [
+     "df-copilot",
+     "df-overview"
+    ],
+    "code": "",
+    "origin": "foundation",
+    "difficulty": 2,
+    "importMetadata": {
+     "exam_objective": "Prepare data > Transform data",
+     "provenance": "Original practice authored for the Hansa corpus integration on 2026-10-30 — not an official, recalled, or leaked exam question. Grounded in the Microsoft Fabric Data Factory documentation harvested by the deep-research corpus; scenario details are synthetic.",
+     "validation": "Answer keys checked against the cited Copilot documentation on 2026-10-30; no live Fabric workspace execution. Single authoring pass — flag discrepancies rather than treating the key as doctrine."
+    }
+   },
+   {
+    "id": "DFG2-018",
+    "topic": "Decision guide",
+    "title": "When the notebook wins",
+    "prompt": "Which requirement in the documented decision guide pushes the choice toward a Spark notebook over a dataflow?",
+    "type": "single",
+    "options": [
+     {
+      "id": "A",
+      "text": "The transformation needs custom code — e.g., a model call or stateful logic Power Query cannot express.",
+      "why": "Correct. The guide routes custom-code transformations to notebooks."
+     },
+     {
+      "id": "B",
+      "text": "The team prefers visual step-by-step authoring.",
+      "why": "That is the dataflow's strength, not the notebook's."
+     },
+     {
+      "id": "C",
+      "text": "The data is small and the logic is a simple filter.",
+      "why": "That is Copy-activity territory in the guide."
+     },
+     {
+      "id": "D",
+      "text": "The destination must be a Warehouse table.",
+      "why": "Both dataflows and notebooks can write there; destination alone does not decide."
+     }
+    ],
+    "correct": [
+     "A"
+    ],
+    "explanation": "The decision guide's axis is what the transformation needs: managed Power Query (dataflow) versus custom code (notebook) versus movement (copy).",
+    "videoSeconds": null,
+    "refs": [
+     "df-decision-guide",
+     "df-overview"
+    ],
+    "code": "",
+    "origin": "foundation",
+    "difficulty": 2,
+    "importMetadata": {
+     "exam_objective": "Prepare data > Get data",
+     "provenance": "Original practice authored for the Hansa corpus integration on 2026-10-30 — not an official, recalled, or leaked exam question. Grounded in the Microsoft Fabric Data Factory documentation harvested by the deep-research corpus; scenario details are synthetic.",
+     "validation": "Answer keys checked against the cited decision guide on 2026-10-30; no live Fabric workspace execution. Single authoring pass — flag discrepancies rather than treating the key as doctrine."
+    }
+   },
+   {
+    "id": "DFG2-019",
+    "topic": "Orchestration",
+    "title": "End-to-end tutorial shape",
+    "prompt": "The end-to-end Dataflow Gen2 tutorial demonstrates a full solution shape. Which sequence matches its documented flow?",
+    "type": "single",
+    "options": [
+     {
+      "id": "A",
+      "text": "Ingest and transform with a dataflow into a destination, then orchestrate/schedule it, with monitoring through refresh history.",
+      "why": "Correct. The tutorial walks authoring → destination → scheduling/monitoring as one solution shape."
+     },
+     {
+      "id": "B",
+      "text": "Author a semantic model, then attach a dataflow to its partitions.",
+      "why": "That inverts the Gen2 architecture; destinations are the storage layer."
+     },
+     {
+      "id": "C",
+      "text": "Mirror every source, then query with KQL.",
+      "why": "Mirroring is a different feature family entirely."
+     },
+     {
+      "id": "D",
+      "text": "Author a Real-Time dashboard from the dataflow editor.",
+      "why": "Not part of the dataflow tutorial's flow."
+     }
+    ],
+    "correct": [
+     "A"
+    ],
+    "explanation": "The end-to-end tutorial's arc is author → land → orchestrate/monitor, which is the Gen2 solution shape.",
+    "videoSeconds": null,
+    "refs": [
+     "df-tutorial-end-to-end",
+     "df-monitor"
+    ],
+    "code": "",
+    "origin": "foundation",
+    "difficulty": 3,
+    "importMetadata": {
+     "exam_objective": "Prepare data > Get data",
+     "provenance": "Original practice authored for the Hansa corpus integration on 2026-10-30 — not an official, recalled, or leaked exam question. Grounded in the Microsoft Fabric Data Factory documentation harvested by the deep-research corpus; scenario details are synthetic.",
+     "validation": "Answer keys checked against the cited end-to-end tutorial on 2026-10-30; no live Fabric workspace execution. Single authoring pass — flag discrepancies rather than treating the key as doctrine."
+    }
+   },
+   {
+    "id": "DFG2-020",
+    "topic": "Destinations",
+    "title": "KQL as a destination",
+    "prompt": "Real-Time Intelligence consumers want the cleaned entities streamed into a KQL database. Which data destination serves that in Dataflow Gen2?",
+    "type": "single",
+    "options": [
+     {
+      "id": "A",
+      "text": "The Azure Data Explorer / KQL database destination.",
+      "why": "Correct. A KQL (Azure Data Explorer) destination is among the documented data outputs."
+     },
+     {
+      "id": "B",
+      "text": "There is no KQL destination; only an eventstream can fill an Eventhouse.",
+      "why": "The documented destination list includes KQL databases."
+     },
+     {
+      "id": "C",
+      "text": "The Warehouse destination, queried with KQL.",
+      "why": "Warehouses are queried with T-SQL, not KQL."
+     },
+     {
+      "id": "D",
+      "text": "The OneLake file destination, parsed by KQL.",
+      "why": "KQL databases ingest managed tables; the destination exists directly."
+     }
+    ],
+    "correct": [
+     "A"
+    ],
+    "explanation": "KQL databases are a documented Gen2 destination, so analytics-ready entities can feed RTI consumers without an intermediate eventstream.",
+    "videoSeconds": null,
+    "refs": [
+     "df-destinations",
+     "df-overview"
+    ],
+    "code": "",
+    "origin": "foundation",
+    "difficulty": 3,
+    "importMetadata": {
+     "exam_objective": "Prepare data > Get data",
+     "provenance": "Original practice authored for the Hansa corpus integration on 2026-10-30 — not an official, recalled, or leaked exam question. Grounded in the Microsoft Fabric Data Factory documentation harvested by the deep-research corpus; scenario details are synthetic.",
+     "validation": "Answer keys checked against the cited data-destinations page on 2026-10-30; no live Fabric workspace execution. Single authoring pass — flag discrepancies rather than treating the key as doctrine."
+    }
+   },
+   {
+    "id": "DFG2-021",
+    "topic": "Gateways",
+    "title": "Gateway and destination pairing",
+    "prompt": "A dataflow ingests from an on-premises SQL Server (via gateway) and lands in a Fabric lakehouse. Where does each connection apply?",
+    "type": "single",
+    "options": [
+     {
+      "id": "A",
+      "text": "The gateway applies to the source connection; the lakehouse destination is a Fabric-internal connection that does not need the gateway.",
+      "why": "Correct. Gateways bridge cloud-to-on-prem for sources; Fabric destinations are cloud-internal."
+     },
+     {
+      "id": "B",
+      "text": "Both source and destination need the gateway.",
+      "why": "The destination lives inside Fabric; there is nothing on-prem to reach."
+     },
+     {
+      "id": "C",
+      "text": "Neither — Fabric tunnels directly into the corporate network.",
+      "why": "No such tunneling exists; that is why gateways are required for on-prem sources."
+     },
+     {
+      "id": "D",
+      "text": "The gateway applies to the destination only.",
+      "why": "The on-prem side is the source."
+     }
+    ],
+    "correct": [
+     "A"
+    ],
+    "explanation": "Gateway placement follows network topology: on-prem sources need it; Fabric-internal destinations do not.",
+    "videoSeconds": null,
+    "refs": [
+     "df-create-first",
+     "df-destinations"
+    ],
+    "code": "",
+    "origin": "foundation",
+    "difficulty": 3,
+    "importMetadata": {
+     "exam_objective": "Prepare data > Get data",
+     "provenance": "Original practice authored for the Hansa corpus integration on 2026-10-30 — not an official, recalled, or leaked exam question. Grounded in the Microsoft Fabric Data Factory documentation harvested by the deep-research corpus; scenario details are synthetic.",
+     "validation": "Answer keys checked against the cited documentation on 2026-10-30; gateway usage follows documented dataflow guidance; no live Fabric workspace execution. Single authoring pass — flag discrepancies rather than treating the key as doctrine."
+    }
+   },
+   {
+    "id": "DFG2-022",
+    "topic": "Refresh",
+    "title": "Schedule and parameters",
+    "prompt": "A regional rollout means the same dataflow must run against different source server names per environment. Which documented mechanism parameterizes this?",
+    "type": "single",
+    "options": [
+     {
+      "id": "A",
+      "text": "Dataflow parameters, referenced in the queries and set per deployment stage/environment.",
+      "why": "Correct. Parameters are the documented way to vary connections and values; the API even exposes dataflow parameter discovery."
+     },
+     {
+      "id": "B",
+      "text": "Editing the M code by hand in every stage.",
+      "why": "Fragile and exactly what parameters exist to avoid."
+     },
+     {
+      "id": "C",
+      "text": "One dataflow per region with no parameters.",
+      "why": "Duplication multiplies maintenance; parameters are the documented answer."
+     },
+     {
+      "id": "D",
+      "text": "Environment variables in a .env file.",
+      "why": "That is not a Fabric dataflow mechanism."
+     }
+    ],
+    "correct": [
+     "A"
+    ],
+    "explanation": "Parameters parameterize connections and values in the query definition, and are set per stage — the documented path for environment-specific runs.",
+    "videoSeconds": null,
+    "refs": [
+     "df-overview",
+     "df-parameters-api"
+    ],
+    "code": "",
+    "origin": "foundation",
+    "difficulty": 3,
+    "importMetadata": {
+     "exam_objective": "Maintain a data analytics solution > Maintain the analytics development lifecycle",
+     "provenance": "Original practice authored for the Hansa corpus integration on 2026-10-30 — not an official, recalled, or leaked exam question. Grounded in the Microsoft Fabric Data Factory documentation harvested by the deep-research corpus; scenario details are synthetic.",
+     "validation": "Answer keys checked against the cited documentation on 2026-10-30; parameter support follows documented dataflow guidance; no live Fabric workspace execution. Single authoring pass — flag discrepancies rather than treating the key as doctrine."
+    }
+   },
+   {
+    "id": "DFG2-023",
+    "topic": "Migration",
+    "title": "What changes conceptually",
+    "prompt": "A Gen1 dataflow stored its data only for models that loaded it. Moving to Gen2, what is the conceptual change a reviewer should check for?",
+    "type": "single",
+    "options": [
+     {
+      "id": "A",
+      "text": "Gen2 queries declare explicit data destinations, so the review must decide where each entity lands (and whether staging stays on).",
+      "why": "Correct. The destination decision is new in Gen2 and is the core review point of a migration."
+     },
+     {
+      "id": "B",
+      "text": "Gen2 removes the ability to use Power Query transformations.",
+      "why": "Gen2 is the Power Query experience in Fabric."
+     },
+     {
+      "id": "C",
+      "text": "Gen2 requires rewriting queries into Spark.",
+      "why": "No rewrite is required; the M engine comes along."
+     },
+     {
+      "id": "D",
+      "text": "Gen2 drops scheduled refresh.",
+      "why": "Scheduled refresh remains, documented in monitoring."
+     }
+    ],
+    "correct": [
+     "A"
+    ],
+    "explanation": "The Gen1→Gen2 conceptual shift is exactly this: from model-coupled output to explicit destinations (plus staging choices) per query.",
+    "videoSeconds": null,
+    "refs": [
+     "df-migrate-gen1",
+     "df-destinations"
+    ],
+    "code": "",
+    "origin": "foundation",
+    "difficulty": 3,
+    "importMetadata": {
+     "exam_objective": "Maintain a data analytics solution > Maintain the analytics development lifecycle",
+     "provenance": "Original practice authored for the Hansa corpus integration on 2026-10-30 — not an official, recalled, or leaked exam question. Grounded in the Microsoft Fabric Data Factory documentation harvested by the deep-research corpus; scenario details are synthetic.",
+     "validation": "Answer keys checked against the cited migration documentation on 2026-10-30; no live Fabric workspace execution. Single authoring pass — flag discrepancies rather than treating the key as doctrine."
+    }
+   },
+   {
+    "id": "DFG2-024",
+    "topic": "ML endpoints",
+    "title": "Scoring inside the flow",
+    "prompt": "A deployed ML model endpoint should score rows as part of the dataflow's transformation. What does the documented Gen2 feature provide?",
+    "type": "single",
+    "options": [
+     {
+      "id": "A",
+      "text": "A transformation for applying ML model endpoints to query columns inside the dataflow.",
+      "why": "Correct. Gen2 documents applying ML model endpoints as a transformation on data."
+     },
+     {
+      "id": "B",
+      "text": "Nothing — ML scoring must always be a separate notebook run.",
+      "why": "The documented ML-endpoints transformation exists."
+     },
+     {
+      "id": "C",
+      "text": "A KQL function that calls the endpoint at query time.",
+      "why": "That is a different feature family, not the dataflow transformation."
+     },
+     {
+      "id": "D",
+      "text": "A warehouse stored procedure wrapper.",
+      "why": "Not the documented dataflow mechanism."
+     }
+    ],
+    "correct": [
+     "A"
+    ],
+    "explanation": "Gen2 documents invoking ML model endpoints as a transformation, bringing scoring into the managed flow.",
+    "videoSeconds": null,
+    "refs": [
+     "df-ml-endpoints",
+     "df-overview"
+    ],
+    "code": "",
+    "origin": "foundation",
+    "difficulty": 4,
+    "importMetadata": {
+     "exam_objective": "Prepare data > Transform data",
+     "provenance": "Original practice authored for the Hansa corpus integration on 2026-10-30 — not an official, recalled, or leaked exam question. Grounded in the Microsoft Fabric Data Factory documentation harvested by the deep-research corpus; scenario details are synthetic.",
+     "validation": "Answer keys checked against the cited ML-endpoints documentation on 2026-10-30; no live Fabric workspace execution. Single authoring pass — flag discrepancies rather than treating the key as doctrine."
+    }
+   },
+   {
+    "id": "DFG2-025",
+    "topic": "Decision guide",
+    "title": "Three sources, one landing",
+    "prompt": "Three systems must land in the same lakehouse tables: a REST API ( paginated JSON), a partner SFTP folder of CSVs, and a SQL view. Which tool assignment follows the documented decision guide?",
+    "type": "single",
+    "options": [
+     {
+      "id": "A",
+      "text": "Dataflow(s) for all three when each needs Power Query shaping before landing; Copy activities where it is pure movement.",
+      "why": "Correct. The guide picks per-source by transformation need: shaping → dataflow, pure movement → Copy."
+     },
+     {
+      "id": "B",
+      "text": "Three notebooks, because heterogeneous sources require code.",
+      "why": "Heterogeneity alone does not demand code; connectors cover these shapes."
+     },
+     {
+      "id": "C",
+      "text": "One eventstream consuming all three.",
+      "why": "Eventstreams serve streaming ingest, not batch landing from SFTP and SQL."
+     },
+     {
+      "id": "D",
+      "text": "Mirroring for all three.",
+      "why": "Mirroring applies to its supported replication sources, not SFTP/REST batch landing."
+     }
+    ],
+    "correct": [
+     "A"
+    ],
+    "explanation": "The decision guide is applied per workload: transformation need selects the dataflow; pure movement selects Copy; custom code selects notebooks.",
+    "videoSeconds": null,
+    "refs": [
+     "df-decision-guide",
+     "df-overview"
+    ],
+    "code": "",
+    "origin": "foundation",
+    "difficulty": 3,
+    "importMetadata": {
+     "exam_objective": "Prepare data > Get data",
+     "provenance": "Original practice authored for the Hansa corpus integration on 2026-10-30 — not an official, recalled, or leaked exam question. Grounded in the Microsoft Fabric Data Factory documentation harvested by the deep-research corpus; scenario details are synthetic.",
+     "validation": "Answer keys checked against the cited decision guide on 2026-10-30; no live Fabric workspace execution. Single authoring pass — flag discrepancies rather than treating the key as doctrine."
+    }
+   },
+   {
+    "id": "DFG2-026",
+    "topic": "Monitoring",
+    "title": "The rerun policy",
+    "prompt": "A nightly dataflow refresh occasionally fails on a flaky source. Rather than manual reruns, what documented orchestration behavior helps?",
+    "type": "single",
+    "options": [
+     {
+      "id": "A",
+      "text": "Wrap the dataflow in a pipeline activity with an activity-level retry policy, so transient source failures rerun automatically.",
+      "why": "Correct. Pipeline activities carry retry policies — the documented way to absorb transient failures."
+     },
+     {
+      "id": "B",
+      "text": "Refresh twice a day and hope.",
+      "why": "More schedules do not absorb transient failures deterministically."
+     },
+     {
+      "id": "C",
+      "text": "Disable the refresh until the source stabilizes.",
+      "why": "That trades data freshness for silence — not an operations answer."
+     },
+     {
+      "id": "D",
+      "text": "Split the dataflow into ten smaller dataflows.",
+      "why": "Fragmentation does not address transient failures."
+     }
+    ],
+    "correct": [
+     "A"
+    ],
+    "explanation": "The Dataflow activity plus retry policy is the documented pattern for transient source failures: same logic, automatic reruns.",
+    "videoSeconds": null,
+    "refs": [
+     "df-activity",
+     "df-monitor"
+    ],
+    "code": "",
+    "origin": "foundation",
+    "difficulty": 3,
+    "importMetadata": {
+     "exam_objective": "Maintain a data analytics solution > Maintain the analytics development lifecycle",
+     "provenance": "Original practice authored for the Hansa corpus integration on 2026-10-30 — not an official, recalled, or leaked exam question. Grounded in the Microsoft Fabric Data Factory documentation harvested by the deep-research corpus; scenario details are synthetic.",
+     "validation": "Answer keys checked against the cited activity documentation on 2026-10-30; retry behavior follows documented pipeline activity guidance; no live Fabric workspace execution. Single authoring pass — flag discrepancies rather than treating the key as doctrine."
+    }
+   },
+   {
+    "id": "DFG2-027",
+    "topic": "Overview",
+    "title": "Gen1 consumers keep working",
+    "prompt": "A report currently reads a Gen1 dataflow's output. After a parallel Gen2 dataflow is built with its own destinations, what must change for the report to read the freshest Gen2 output?",
+    "type": "single",
+    "options": [
+     {
+      "id": "A",
+      "text": "The report's source should point at the Gen2 output (e.g., the lakehouse/warehouse tables the destinations populate), since Gen2 lands data in destinations rather than only exposing dataflow datasets.",
+      "why": "Correct. Gen2's output lives in the destinations; consumers point there."
+     },
+     {
+      "id": "B",
+      "text": "Nothing — Gen2 automatically retargets existing reports.",
+      "why": "Reports keep their bindings; repointing is part of the migration."
+     },
+     {
+      "id": "C",
+      "text": "The report must be rebuilt in DirectQuery mode.",
+      "why": "Storage mode is unrelated to which tables feed the model."
+     },
+     {
+      "id": "D",
+      "text": "Gen2 output can only be consumed by pipelines.",
+      "why": "Destinations are ordinary storage consumers read from."
+     }
+    ],
+    "correct": [
+     "A"
+    ],
+    "explanation": "Consumers follow the data: Gen2 stores in declared destinations, so downstream items repoint to those tables.",
+    "videoSeconds": null,
+    "refs": [
+     "df-overview",
+     "df-destinations"
+    ],
+    "code": "",
+    "origin": "foundation",
+    "difficulty": 3,
+    "importMetadata": {
+     "exam_objective": "Prepare data > Get data",
+     "provenance": "Original practice authored for the Hansa corpus integration on 2026-10-30 — not an official, recalled, or leaked exam question. Grounded in the Microsoft Fabric Data Factory documentation harvested by the deep-research corpus; scenario details are synthetic.",
+     "validation": "Answer keys checked against the cited overview and destinations documentation on 2026-10-30; no live Fabric workspace execution. Single authoring pass — flag discrepancies rather than treating the key as doctrine."
+    }
+   },
+   {
+    "id": "DFG2-028",
+    "topic": "Authoring",
+    "title": "Building the first one",
+    "prompt": "Which sequence reflects the documented first-dataflow experience in Fabric?",
+    "type": "single",
+    "options": [
+     {
+      "id": "A",
+      "text": "Create the Dataflow Gen2 item, add data source queries, transform in Power Query, attach data destination(s), then save and refresh.",
+      "why": "Correct. That is the documented authoring arc for a first dataflow."
+     },
+     {
+      "id": "B",
+      "text": "Write M code in a warehouse, then run it as a stored procedure.",
+      "why": "Warehouse procedures are a different engine."
+     },
+     {
+      "id": "C",
+      "text": "Create a semantic model first, then add the dataflow inside it.",
+      "why": "Dataflows are standalone items that models consume, not the reverse."
+     },
+     {
+      "id": "D",
+      "text": "Start a pipeline, author the dataflow inside the Copy activity.",
+      "why": "The Dataflow activity invokes existing dataflows; authoring happens in the item."
+     }
+    ],
+    "correct": [
+     "A"
+    ],
+    "explanation": "The documented first-run arc: item → queries → transformations → destinations → save/refresh.",
+    "videoSeconds": null,
+    "refs": [
+     "df-create-first",
+     "df-overview"
+    ],
+    "code": "",
+    "origin": "foundation",
+    "difficulty": 2,
+    "importMetadata": {
+     "exam_objective": "Prepare data > Get data",
+     "provenance": "Original practice authored for the Hansa corpus integration on 2026-10-30 — not an official, recalled, or leaked exam question. Grounded in the Microsoft Fabric Data Factory documentation harvested by the deep-research corpus; scenario details are synthetic.",
+     "validation": "Answer keys checked against the cited first-dataflow documentation on 2026-10-30; no live Fabric workspace execution. Single authoring pass — flag discrepancies rather than treating the key as doctrine."
+    }
+   },
+   {
+    "id": "DFG2-029",
+    "topic": "Staging",
+    "title": "Staging off for the big landing",
+    "prompt": "A 400-million-row pass-through copy from one lakehouse table to another lands fastest with staging disabled. What is the documented trade-off when staging is off?",
+    "type": "single",
+    "options": [
+     {
+      "id": "A",
+      "text": "The query writes directly to the destination and cannot serve other queries as a stored intermediate.",
+      "why": "Correct. Without staging there is no stored intermediate — other queries recompute the source chain themselves."
+     },
+     {
+      "id": "B",
+      "text": "The destination table loses schema information.",
+      "why": "Schemas derive from the query output regardless of staging."
+     },
+     {
+      "id": "C",
+      "text": "Scheduled refresh becomes unavailable for the dataflow.",
+      "why": "Refresh scheduling is unaffected."
+     },
+     {
+      "id": "D",
+      "text": "The dataflow must switch to DirectQuery.",
+      "why": "DirectQuery is a semantic-model storage mode, not a dataflow toggle."
+     }
+    ],
+    "correct": [
+     "A"
+    ],
+    "explanation": "Staging's benefit is the stored intermediate; disabling it trades that reuse for a direct, cheaper landing.",
+    "videoSeconds": null,
+    "refs": [
+     "df-destinations",
+     "df-cost-benchmarks"
+    ],
+    "code": "",
+    "origin": "foundation",
+    "difficulty": 4,
+    "importMetadata": {
+     "exam_objective": "Prepare data > Transform data",
+     "provenance": "Original practice authored for the Hansa corpus integration on 2026-10-30 — not an official, recalled, or leaked exam question. Grounded in the Microsoft Fabric Data Factory documentation harvested by the deep-research corpus; scenario details are synthetic.",
+     "validation": "Answer keys checked against the cited managed-settings documentation on 2026-10-30; no live Fabric workspace execution. Single authoring pass — flag discrepancies rather than treating the key as doctrine."
+    }
+   },
+   {
+    "id": "DFG2-030",
+    "topic": "Overview",
+    "title": "Naming the item",
+    "prompt": "Where does a Dataflow Gen2 item live in a Fabric workspace, and what is it independent of?",
+    "type": "single",
+    "options": [
+     {
+      "id": "A",
+      "text": "It is a first-class workspace item, independent of any semantic model or notebook.",
+      "why": "Correct. Gen2 is its own item type in the workspace."
+     },
+     {
+      "id": "B",
+      "text": "It lives inside a semantic model as a partition.",
+      "why": "That was the Gen1-era coupling; Gen2 items are standalone."
+     },
+     {
+      "id": "C",
+      "text": "It lives inside a lakehouse as a hidden artifact.",
+      "why": "It is visible at workspace level, not buried in a lakehouse."
+     },
+     {
+      "id": "D",
+      "text": "It lives inside a pipeline as an activity definition.",
+      "why": "Pipelines invoke dataflows; they do not contain them."
+     }
+    ],
+    "correct": [
+     "A"
+    ],
+    "explanation": "First-class item, independent lifetime, own refresh — that is the Gen2 positioning.",
+    "videoSeconds": null,
+    "refs": [
+     "df-overview",
+     "df-create-first"
+    ],
+    "code": "",
+    "origin": "foundation",
+    "difficulty": 2,
+    "importMetadata": {
+     "exam_objective": "Prepare data > Get data",
+     "provenance": "Original practice authored for the Hansa corpus integration on 2026-10-30 — not an official, recalled, or leaked exam question. Grounded in the Microsoft Fabric Data Factory documentation harvested by the deep-research corpus; scenario details are synthetic.",
+     "validation": "Answer keys checked against the cited overview on 2026-10-30; no live Fabric workspace execution. Single authoring pass — flag discrepancies rather than treating the key as doctrine."
+    }
+   },
+   {
+    "id": "DFG2-031",
+    "topic": "Decision guide",
+    "title": "Five-minute fresh vs nightly",
+    "prompt": "A dashboard needs near-real-time feed updates (seconds-fresh), separate from a nightly curated landing. Which assignment follows the documented engine guidance?",
+    "type": "single",
+    "options": [
+     {
+      "id": "A",
+      "text": "An eventstream for the streaming feed; a dataflow or copy for the nightly curated landing.",
+      "why": "Correct. Streaming latency is eventstream territory; scheduled shaping lands with dataflows/copy."
+     },
+     {
+      "id": "B",
+      "text": "A dataflow refreshing every five minutes for the feed.",
+      "why": "Scheduled refresh is batch; five-minute refreshes are neither cheap nor seconds-fresh."
+     },
+     {
+      "id": "C",
+      "text": "A notebook scheduled every five minutes for the feed.",
+      "why": "Same batch problem, plus code ownership."
+     },
+     {
+      "id": "D",
+      "text": "Mirroring for the dashboard feed.",
+      "why": "Mirroring replicates supported databases, not arbitrary fast feeds."
+     }
+    ],
+    "correct": [
+     "A"
+    ],
+    "explanation": "Freshness requirement picks the engine: continuous streams to eventstream, scheduled shaping to dataflows/copy.",
+    "videoSeconds": null,
+    "refs": [
+     "df-decision-guide",
+     "df-overview"
+    ],
+    "code": "",
+    "origin": "foundation",
+    "difficulty": 3,
+    "importMetadata": {
+     "exam_objective": "Prepare data > Get data",
+     "provenance": "Original practice authored for the Hansa corpus integration on 2026-10-30 — not an official, recalled, or leaked exam question. Grounded in the Microsoft Fabric Data Factory documentation harvested by the deep-research corpus; scenario details are synthetic.",
+     "validation": "Answer keys checked against the cited decision guide on 2026-10-30; no live Fabric workspace execution. Single authoring pass — flag discrepancies rather than treating the key as doctrine."
+    }
+   },
+   {
+    "id": "DFG2-032",
+    "topic": "Migration",
+    "title": "Reviewing the Save-as result",
+    "prompt": "After Save-as creates the Gen2 version, which review item is new compared to the Gen1 original?",
+    "type": "single",
+    "options": [
+     {
+      "id": "A",
+      "text": "Choosing and validating data destinations (and staging) for each query.",
+      "why": "Correct. Destinations/staging did not exist in Gen1 and are the review surface Gen2 adds."
+     },
+     {
+      "id": "B",
+      "text": "Re-authoring every transformation in KQL.",
+      "why": "The M queries carry over; no KQL rewrite exists."
+     },
+     {
+      "id": "C",
+      "text": "Re-creating the model's measures.",
+      "why": "Measures belong to models, not dataflows."
+     },
+     {
+      "id": "D",
+      "text": "Choosing a new Semantic-model storage mode.",
+      "why": "Storage modes belong to models, not dataflows."
+     }
+    ],
+    "correct": [
+     "A"
+    ],
+    "explanation": "The migration review centers on the new Gen2 concepts: destinations per query and the staging choices.",
+    "videoSeconds": null,
+    "refs": [
+     "df-migrate-save-as",
+     "df-destinations"
+    ],
+    "code": "",
+    "origin": "foundation",
+    "difficulty": 3,
+    "importMetadata": {
+     "exam_objective": "Maintain a data analytics solution > Maintain the analytics development lifecycle",
+     "provenance": "Original practice authored for the Hansa corpus integration on 2026-10-30 — not an official, recalled, or leaked exam question. Grounded in the Microsoft Fabric Data Factory documentation harvested by the deep-research corpus; scenario details are synthetic.",
+     "validation": "Answer keys checked against the cited migration documentation on 2026-10-30; no live Fabric workspace execution. Single authoring pass — flag discrepancies rather than treating the key as doctrine."
+    }
+   },
+   {
+    "id": "DFG2-033",
+    "topic": "CI/CD",
+    "title": "Stage-specific connections",
+    "prompt": "Dev, test and production workspaces each have their own source systems. When the dataflow deploys through a deployment pipeline, what must the release process handle?",
+    "type": "single",
+    "options": [
+     {
+      "id": "A",
+      "text": "Stage-specific connection (and parameter) settings — the definition deploys, while connections/parameters are adjusted per stage per the documented CI/CD guidance.",
+      "why": "Correct. The CI/CD page documents exactly this: definitions move, connections and parameters are configured per stage."
+     },
+     {
+      "id": "B",
+      "text": "Nothing — connections deploy unchanged and point at the dev source from production.",
+      "why": "That is the failure mode the per-stage settings exist to prevent."
+     },
+     {
+      "id": "C",
+      "text": "A full re-authoring of the queries in each stage.",
+      "why": "The definition travels; only the environment-specific settings differ."
+     },
+     {
+      "id": "D",
+      "text": "Disabling Git integration for dataflows in production.",
+      "why": "Source control and stage deployment are documented to work together."
+     }
+    ],
+    "correct": [
+     "A"
+    ],
+    "explanation": "Dataflow Gen2 CI/CD separates the definition (which deploys) from stage-specific connections and parameters (which the release configures) — the documented per-stage story.",
+    "videoSeconds": null,
+    "refs": [
+     "df-cicd"
+    ],
+    "code": "",
+    "origin": "foundation",
+    "difficulty": 3,
+    "importMetadata": {
+     "exam_objective": "Maintain a data analytics solution > Maintain the analytics development lifecycle",
+     "provenance": "Original practice authored for the Hansa corpus integration on 2026-10-30 — not an official, recalled, or leaked exam question. Grounded in the Microsoft Fabric Data Factory documentation harvested by the deep-research corpus; scenario details are synthetic.",
+     "validation": "Answer keys checked against the cited CI/CD documentation on 2026-10-30; no live Fabric workspace execution. Single authoring pass — flag discrepancies rather than treating the key as doctrine."
+    }
+   },
+   {
+    "id": "DFG2-034",
+    "topic": "Orchestration",
+    "title": "Dataflow inside the pattern",
+    "prompt": "The documented pipeline tutorial wires a dataflow into a broader run. Which ordering is sound?",
+    "type": "single",
+    "options": [
+     {
+      "id": "A",
+      "text": "Notebook prepares the source → Dataflow activity refreshes the shaped entities → downstream activities consume the landed tables.",
+      "why": "Correct. The tutorial's shape places the Dataflow activity between preparation and consumption, with dependencies ordering the run."
+     },
+     {
+      "id": "B",
+      "text": "Dataflow first, then the notebook that creates its source.",
+      "why": "Dependencies run sources before consumers; this ordering fails."
+     },
+     {
+      "id": "C",
+      "text": "Copy activity after the dataflow to move the same data again.",
+      "why": "The dataflow already landed its output; a second copy is redundant."
+     },
+     {
+      "id": "D",
+      "text": "The Dataflow activity cannot participate in a pipeline at all.",
+      "why": "It is a documented activity type."
+     }
+    ],
+    "correct": [
+     "A"
+    ],
+    "explanation": "Pipeline dependencies order preparation → dataflow refresh → consumption; the tutorial demonstrates exactly that wiring.",
+    "videoSeconds": null,
+    "refs": [
+     "df-tutorial-pipeline",
+     "df-activity"
+    ],
+    "code": "",
+    "origin": "foundation",
+    "difficulty": 3,
+    "importMetadata": {
+     "exam_objective": "Maintain a data analytics solution > Maintain the analytics development lifecycle",
+     "provenance": "Original practice authored for the Hansa corpus integration on 2026-10-30 — not an official, recalled, or leaked exam question. Grounded in the Microsoft Fabric Data Factory documentation harvested by the deep-research corpus; scenario details are synthetic.",
+     "validation": "Answer keys checked against the cited orchestration tutorial on 2026-10-30; no live Fabric workspace execution. Single authoring pass — flag discrepancies rather than treating the key as doctrine."
+    }
+   },
+   {
+    "id": "DFG2-035",
+    "topic": "Overview",
+    "title": "Who maintains what",
+    "prompt": "A governance review asks who can author and refresh dataflows. Which statement matches the documented item model?",
+    "type": "single",
+    "options": [
+     {
+      "id": "A",
+      "text": "Dataflows are workspace items governed by workspace roles and item permissions, refreshed by their owners or via pipelines with the runner's/service identity.",
+      "why": "Correct. Standard Fabric permission semantics apply to dataflow items."
+     },
+     {
+      "id": "B",
+      "text": "Only capacity admins can author dataflows.",
+      "why": "Authoring follows workspace permissions, not capacity-admin exclusivity."
+     },
+     {
+      "id": "C",
+      "text": "Dataflows inherit permissions from the semantic models that read them.",
+      "why": "Permission flows from the item, not from its consumers."
+     },
+     {
+      "id": "D",
+      "text": "Dataflows are tenant-global and shared by default.",
+      "why": "They live in workspaces like other items."
+     }
+    ],
+    "correct": [
+     "A"
+    ],
+    "explanation": "Dataflows follow the standard workspace/item permission model — no special identity rules beyond documented refresh behavior.",
+    "videoSeconds": null,
+    "refs": [
+     "df-overview",
+     "df-create-first"
+    ],
+    "code": "",
+    "origin": "foundation",
+    "difficulty": 3,
+    "importMetadata": {
+     "exam_objective": "Maintain a data analytics solution > Implement security and governance",
+     "provenance": "Original practice authored for the Hansa corpus integration on 2026-10-30 — not an official, recalled, or leaked exam question. Grounded in the Microsoft Fabric Data Factory documentation harvested by the deep-research corpus; scenario details are synthetic.",
+     "validation": "Answer keys checked against the cited documentation on 2026-10-30; permission model follows standard Fabric item behavior; no live Fabric workspace execution. Single authoring pass — flag discrepancies rather than treating the key as doctrine."
+    }
+   },
+   {
+    "id": "DFG2-036",
+    "topic": "Performance",
+    "title": "The wide merge",
+    "prompt": "A dataflow merges a 200-million-row source with a small lookup on a non-folded custom match. Refresh time is dominated by this step. Which documented lever helps most?",
+    "type": "single",
+    "options": [
+     {
+      "id": "A",
+      "text": "Restructure so the merge folds to the source (or staging the large side first), avoiding a full local evaluation of the big table.",
+      "why": "Correct. The documented performance levers are folding and staging — landing the big side lets the join compute against stored data."
+     },
+     {
+      "id": "B",
+      "text": "Increase the Power BI visual count.",
+      "why": "Visuals are irrelevant to refresh cost."
+     },
+     {
+      "id": "C",
+      "text": "Rename the queries to shorter names.",
+      "why": "Naming has no performance effect."
+     },
+     {
+      "id": "D",
+      "text": "Add more destinations to distribute the work.",
+      "why": "More destinations add work; they do not speed the merge."
+     }
+    ],
+    "correct": [
+     "A"
+    ],
+    "explanation": "Two documented levers dominate dataflow performance: fold what the source can do, and stage large intermediates so later steps compute over stored data.",
+    "videoSeconds": null,
+    "refs": [
+     "df-cost-benchmarks",
+     "df-destinations"
+    ],
+    "code": "",
+    "origin": "foundation",
+    "difficulty": 4,
+    "importMetadata": {
+     "exam_objective": "Prepare data > Transform data",
+     "provenance": "Original practice authored for the Hansa corpus integration on 2026-10-30 — not an official, recalled, or leaked exam question. Grounded in the Microsoft Fabric Data Factory documentation harvested by the deep-research corpus; scenario details are synthetic.",
+     "validation": "Answer keys checked against the cited benchmarks and staging documentation on 2026-10-30; no live Fabric workspace execution. Single authoring pass — flag discrepancies rather than treating the key as doctrine."
+    }
+   },
+   {
+    "id": "DFG2-037",
+    "topic": "Authoring",
+    "title": "The empty result trap",
+    "prompt": "A query returns rows in the editor preview but the destination table is empty after refresh. Which review step is most defensible first?",
+    "type": "single",
+    "options": [
+     {
+      "id": "A",
+      "text": "Compare the refresh run in monitoring (per-query outcomes) and the destination load settings (e.g., replace vs append semantics) before touching the query logic.",
+      "why": "Correct. Monitoring plus destination configuration explains 'preview works, table empty' most directly."
+     },
+     {
+      "id": "B",
+      "text": "Rewrite the query in SQL.",
+      "why": "The symptom points at run/destination configuration, not language."
+     },
+     {
+      "id": "C",
+      "text": "Delete and recreate the dataflow.",
+      "why": "Destructive first steps are not a diagnostic."
+     },
+     {
+      "id": "D",
+      "text": "Increase the preview row count in the editor.",
+      "why": "Preview settings do not affect refresh outcomes."
+     }
+    ],
+    "correct": [
+     "A"
+    ],
+    "explanation": "Monitoring gives the run truth; destination load settings give the write truth. Both precede any query rewrite.",
+    "videoSeconds": null,
+    "refs": [
+     "df-monitor",
+     "df-destinations"
+    ],
+    "code": "",
+    "origin": "foundation",
+    "difficulty": 3,
+    "importMetadata": {
+     "exam_objective": "Maintain a data analytics solution > Maintain the analytics development lifecycle",
+     "provenance": "Original practice authored for the Hansa corpus integration on 2026-10-30 — not an official, recalled, or leaked exam question. Grounded in the Microsoft Fabric Data Factory documentation harvested by the deep-research corpus; scenario details are synthetic.",
+     "validation": "Answer keys checked against the cited monitoring and destinations documentation on 2026-10-30; no live Fabric workspace execution. Single authoring pass — flag discrepancies rather than treating the key as doctrine."
+    }
+   },
+   {
+    "id": "DFG2-038",
+    "topic": "Migration",
+    "title": "Templates for the estate",
+    "prompt": "Fifty Gen1 dataflows exist across workspaces. Which documented aid best scales the migration beyond one-by-one save-as?",
+    "type": "single",
+    "options": [
+     {
+      "id": "A",
+      "text": "The export-template feature for moving dataflow definitions, applied per flow with the documented Gen1→Gen2 guidance for differences.",
+      "why": "Correct. Template export is the documented scaling aid, alongside the migration guidance page."
+     },
+     {
+      "id": "B",
+      "text": "A single tenant-wide toggle that converts everything overnight.",
+      "why": "No such toggle is documented."
+     },
+     {
+      "id": "C",
+      "text": "Rebuilding all flows by hand from screenshots.",
+      "why": "The documented aids exist precisely to avoid that."
+     },
+     {
+      "id": "D",
+      "text": "Copying the Gen1 items into the same workspace and renaming them Gen2.",
+      "why": "Renaming does not change the generation."
+     }
+    ],
+    "correct": [
+     "A"
+    ],
+    "explanation": "Template export plus the migration guidance is the documented path when Save-as alone does not scale across an estate.",
+    "videoSeconds": null,
+    "refs": [
+     "df-migrate-save-as",
+     "df-migrate-gen1"
+    ],
+    "code": "",
+    "origin": "foundation",
+    "difficulty": 3,
+    "importMetadata": {
+     "exam_objective": "Maintain a data analytics solution > Maintain the analytics development lifecycle",
+     "provenance": "Original practice authored for the Hansa corpus integration on 2026-10-30 — not an official, recalled, or leaked exam question. Grounded in the Microsoft Fabric Data Factory documentation harvested by the deep-research corpus; scenario details are synthetic.",
+     "validation": "Answer keys checked against the cited migration documentation on 2026-10-30; no live Fabric workspace execution. Single authoring pass — flag discrepancies rather than treating the key as doctrine."
+    }
+   },
+   {
+    "id": "DFG2-039",
+    "topic": "Overview",
+    "title": "Gen2 vocabulary check",
+    "prompt": "Which pairing of term and meaning is correct for Dataflow Gen2?",
+    "type": "single",
+    "options": [
+     {
+      "id": "A",
+      "text": "Data destination — where a query's output lands (lakehouse, warehouse, Azure SQL, KQL database, and more).",
+      "why": "Correct. That is exactly what the term names in the documented destination experience."
+     },
+     {
+      "id": "B",
+      "text": "Staging — a Git branch for dataflow definitions.",
+      "why": "Staging is a data concept, not a source-control one."
+     },
+     {
+      "id": "C",
+      "text": "Linked entities — Power BI visuals bound to the dataflow.",
+      "why": "Linked entities relate dataflows to each other's entities, not to visuals."
+     },
+     {
+      "id": "D",
+      "text": "Fast Copy — the monitoring view's name.",
+      "why": "Fast Copy is a compute/copy optimization concept, not a monitoring view."
+     }
+    ],
+    "correct": [
+     "A"
+    ],
+    "explanation": "The Gen2 vocabulary: data destinations (where output lands), staging (stored intermediates), plus compute/copy optimizations — each named precisely in the documentation.",
+    "videoSeconds": null,
+    "refs": [
+     "df-destinations",
+     "df-overview"
+    ],
+    "code": "",
+    "origin": "foundation",
+    "difficulty": 3,
+    "importMetadata": {
+     "exam_objective": "Prepare data > Get data",
+     "provenance": "Original practice authored for the Hansa corpus integration on 2026-10-30 — not an official, recalled, or leaked exam question. Grounded in the Microsoft Fabric Data Factory documentation harvested by the deep-research corpus; scenario details are synthetic.",
+     "validation": "Answer keys checked against the cited destinations documentation on 2026-10-30; no live Fabric workspace execution. Single authoring pass — flag discrepancies rather than treating the key as doctrine."
+    }
+   },
+   {
+    "id": "DFG2-040",
+    "topic": "Destinations",
+    "title": "Append or replace",
+    "prompt": "A lakehouse destination table must accumulate daily rows rather than being rebuilt each refresh. Which destination behavior should be configured, and what must the query avoid?",
+    "type": "single",
+    "options": [
+     {
+      "id": "A",
+      "text": "An append-style load for the destination, and the query must not re-emit the whole history (only the new rows) — otherwise rows duplicate.",
+      "why": "Correct. Append semantics plus a query scoped to new data is the coherent pairing; emitting full history into append duplicates."
+     },
+     {
+      "id": "B",
+      "text": "A replace-style load, keeping the full-history query.",
+      "why": "Replace matches the full-history query — the opposite of the accumulate requirement."
+     },
+     {
+      "id": "C",
+      "text": "Append with the full-history query, accepting duplicates as history.",
+      "why": "Duplicates are not history; they are corruption of the grain."
+     },
+     {
+      "id": "D",
+      "text": "No configuration — destinations always append.",
+      "why": "Load behavior is a configured choice."
+     }
+    ],
+    "correct": [
+     "A"
+    ],
+    "explanation": "Load semantics and query scope must agree: append needs new-rows-only queries; replace needs full re-emit. Mismatching them is the classic duplication bug.",
+    "videoSeconds": null,
+    "refs": [
+     "df-destinations",
+     "df-incremental-tutorial"
+    ],
+    "code": "",
+    "origin": "foundation",
+    "difficulty": 4,
+    "importMetadata": {
+     "exam_objective": "Prepare data > Transform data",
+     "provenance": "Original practice authored for the Hansa corpus integration on 2026-10-30 — not an official, recalled, or leaked exam question. Grounded in the Microsoft Fabric Data Factory documentation harvested by the deep-research corpus; scenario details are synthetic.",
+     "validation": "Answer keys checked against the cited destinations and incremental tutorial on 2026-10-30; no live Fabric workspace execution. Single authoring pass — flag discrepancies rather than treating the key as doctrine."
+    }
+   }
+  ]
+ }
+}
