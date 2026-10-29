@@ -60,6 +60,12 @@ export const SITE_METRICS = {
     /** content/study/experiments.json → labs.length (published hands-on labs) */
     studyExperiments: 29,
   },
+  corpus: {
+    /** content/academy/lessons.json → mirrored MIT lessons */
+    academyLessons: 74,
+    /** kengio + corpus-candidates draft banks (grading disabled) */
+    reviewDraftQuestions: 187,
+  },
 } as const;
 
 export const PUBLISHED_QUESTION_TOTAL =

@@ -15,6 +15,7 @@ import { SITE } from "@/lib/site";
 import { SUBJECTS, topicHref } from "@/lib/study/taxonomy";
 import { SQL_INDEX } from '@/lib/sql/registry';
 import { HANDS_ON_LABS } from '@/lib/study/curated';
+import { ACADEMY_LESSONS } from '@/lib/academy/corpus';
 
 export const dynamic = "force-static";
 
@@ -82,6 +83,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { path: "/lab/dp-600/resources", priority: 0.7 },
     { path: "/lab/hands-on", priority: 0.8 },
     ...HANDS_ON_LABS.map((lab) => ({ path: `/lab/hands-on/${lab.slug}`, priority: 0.6 })),
+    { path: "/learn/academy", priority: 0.8 },
+    ...ACADEMY_LESSONS.map((lesson) => ({ path: `/learn/academy/${lesson.track}/${lesson.slug}`, priority: 0.6 })),
   ];
 
   return [

@@ -316,3 +316,58 @@ sections above complete the plan's pack list.
 **Phase C is complete.** Remaining from the corpus plan: none for pack
 authoring — future work is the report's own next-atomic list (datasets pairing
 for labs, Phase D lessons if desired, deployment decision).
+
+## Extraction wave — corpus Academy + review banks (added 30 October 2026)
+
+The corpus's own lesson and question material, extracted and integrated per
+the site's review discipline. Two new surfaces, built entirely from
+rights-cleared corpus content:
+
+**Corpus Academy (`/learn/academy/`, 74 lessons).** The step-by-step labs and
+demos from the two MIT-licensed MicrosoftLearning courseware clones in the
+corpus (mslearn-fabric: 48 lab lessons; PL-300: 13 labs + 13 demos), parsed
+from the source markdown into structured blocks (headings, paragraphs, lists,
+code, tables, notes) and rendered with attribution: every lesson carries the
+MIT notice, its source repository path, and a link to the authoritative
+GitHub file. Figures stay at the source (35 image references relinked to
+their GitHub locations). Microsoft authors this content; the site mirrors it
+under the license, unmodified except for formatting. Lessons are integrated
+into the study hubs (as Read records under fabric/power-bi), the search index
+and the sitemap (`/learn/academy` + 74 lesson pages).
+
+**Review banks (`/practice/drafts/`, 187 questions).** The corpus's question
+material, extracted into the site's disabled-review-draft pattern (grading
+off, no answer keys shipped, nothing merged into approved banks):
+- `kengio-dp700` — 150 community-authored DP-700 questions from the MIT-licensed
+  kengio/dp-700-study-guide repo (three mock sets, complete with domains and
+  difficulty). Answer keys exist at the MIT source for reviewers; this site
+  never ships or presents them as validated.
+- `corpus-candidates` — 37 deduplicated assessment candidates from the
+  corpus's prepared data (from 562 harvested "assessments" that were mostly
+  misparsed rubrics). Prompts and options as harvested; answer keys are
+  absent at source (`correct: []`), so keying stays out until human review.
+
+Both banks are wired into the review inventory (`/study/review`), the drafts
+review surface (bank switcher, search, per-bank status banners), and the
+drafts manifest with per-bank status receipts.
+
+**What was deliberately not extracted** (documented with evidence):
+- 562 harvested "assessments": even the 231 redistributable ones are misparsed
+  evaluation rubrics (e.g. agent-behaviour checklists parsed as "options"),
+  structurally unusable as quiz questions — the handoff's verdict confirmed.
+- learning_modules (445): repository-folder groupings with empty
+  objectives/steps — containers, not authored lessons.
+- 529 redistributable knowledge units: extracted-ready material for a future
+  concept-card surface; deliberately deferred to keep this wave focused.
+
+**Evidence.** `npm run test:all` **224 tests PASS** (4 new corpus-extraction
+tests: MIT attribution per lesson, block-type coverage, figure relinking, and
+the no-answer-key guarantee on all 187 draft questions — verified by scanning
+shipped payloads for answer-shaped fields); all six integrity verifiers PASS;
+build PASS (sitemap 284 → 364 URLs: academy index + 74 lessons + 5 new
+segments); SQL baseline re-hashed for `content/drafts/manifest.json`. The
+browser e2e remains NOT RUN (environment stall).
+
+**Next atomic task:** the KU verification pass — sampling the corpus's 594
+DAX knowledge units against the authored packs' answer keys, per the
+authorship discussion of 29–30 Oct.

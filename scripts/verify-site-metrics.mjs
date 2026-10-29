@@ -48,6 +48,9 @@ const rtiLabs = await readJson("content/intake/rti-labs.json");
 const rtiSources = await readJson("content/intake/rti-sources.json");
 const rtiLessons = await read("lib/rti/lessons.ts");
 const studyReferences = await readJson("content/study/references.json");
+const academyLessons = await readJson("content/academy/lessons.json");
+const kengioDraft = await readJson("content/drafts/kengio-dp700.json");
+const corpusCandidates = await readJson("content/drafts/corpus-candidates.json");
 const studyExperiments = await readJson("content/study/experiments.json");
 
 const examFiles = (await readdir(path.join(ROOT, "content/exams"))).filter((file) => file.endsWith(".json"));
@@ -73,6 +76,8 @@ const actual = {
   blueprints: rtiLabs.counts.shipped,
   repositories: rtiSources.counts.repositoriesCleared,
   studyReferences: studyReferences.records.length,
+  academyLessons: academyLessons.tracks.reduce((sum, track) => sum + track.lessons.length, 0),
+  reviewDraftQuestions: kengioDraft.questions.length + corpusCandidates.questions.length,
   studyExperiments: studyExperiments.labs.length,
 };
 

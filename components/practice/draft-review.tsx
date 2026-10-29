@@ -17,12 +17,14 @@ import type { DraftBank, DraftQuestion } from "@/lib/drafts/data";
 import { draftBody, filterDrafts } from "@/lib/drafts/data";
 import { cn } from "@/lib/utils";
 
-type BankId = "dp600-r18" | "pl300-v88" | "notion-28";
+type BankId = "dp600-r18" | "pl300-v88" | "notion-28" | "corpus-candidates" | "kengio-dp700";
 
 const BANK_LABEL: Record<BankId, string> = {
   "dp600-r18": "DP-600 · R18 candidate",
   "pl300-v88": "PL-300 · V88 checkpoint",
   "notion-28": "Creative patterns · 28 candidates",
+  "corpus-candidates": "Corpus intake · 37 candidates",
+  "kengio-dp700": "DP-700 · kengio community bank (MIT)",
 };
 
 const control = "min-h-11 rounded-xl border border-border-strong bg-background p-3 text-sm";
@@ -30,6 +32,14 @@ const control = "min-h-11 rounded-xl border border-border-strong bg-background p
 async function loadBank(id: BankId): Promise<DraftBank> {
   if (id === "notion-28") {
     const loaded = await import("@/content/intake/notion-assessments.json");
+    return loaded.default as unknown as DraftBank;
+  }
+  if (id === "corpus-candidates") {
+    const loaded = await import("@/content/drafts/corpus-candidates.json");
+    return loaded.default as unknown as DraftBank;
+  }
+  if (id === "kengio-dp700") {
+    const loaded = await import("@/content/drafts/kengio-dp700.json");
     return loaded.default as unknown as DraftBank;
   }
   const loaded =
@@ -44,13 +54,15 @@ export function DraftReview() {
   const [banks, setBanks] = useState<Partial<Record<BankId, DraftBank>>>({});
   const [error, setError] = useState("");
   const [query, setQuery] = useState("");
-  useEffect(()=>{const restore=()=>{const u=new URL(location.href),bank=u.searchParams.get('bank');if(bank==='dp600-r18'||bank==='pl300-v88'||bank==='notion-28')setBankId(bank);setQuery((u.searchParams.get('q')??'').slice(0,160));};queueMicrotask(restore);addEventListener('popstate',restore);return()=>removeEventListener('popstate',restore);},[]);
+  useEffect(()=>{const restore=()=>{const u=new URL(location.href),bank=u.searchParams.get('bank');if(bank==='dp600-r18'||bank==='pl300-v88'||bank==='notion-28'||bank==='corpus-candidates'||bank==='kengio-dp700')setBankId(bank);setQuery((u.searchParams.get('q')??'').slice(0,160));};queueMicrotask(restore);addEventListener('popstate',restore);return()=>removeEventListener('popstate',restore);},[]);
   // One counter per bank, so switching banks starts from the first page
   // without an effect that resets state after render.
   const [limits, setLimits] = useState<Record<BankId, number>>({
     "dp600-r18": 40,
     "pl300-v88": 40,
     "notion-28": 40,
+    "corpus-candidates": 40,
+    "kengio-dp700": 40,
   });
   const limit = limits[bankId];
 

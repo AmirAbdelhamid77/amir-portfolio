@@ -29,6 +29,7 @@ import {
 import { EXAMS } from "@/lib/exams";
 import { RTI_LESSONS, RTI_COURSE, rtiLessonHref } from "@/lib/rti/lessons";
 import { HANDS_ON_LABS, handsOnLabHref } from "@/lib/study/curated";
+import { ACADEMY_LESSONS, academyLessonHref } from "@/lib/academy/corpus";
 import { SITE_METRICS } from "@/lib/site-metrics";
 import R11_SEARCH from "@/content/fabric/r11/search.json";
 import type { SearchDocument } from "@/lib/search/query";
@@ -302,6 +303,20 @@ export function sourceDocuments(): SearchDocument[] {
       language: "en",
       level: "intermediate",
       keywords: [lab.sourceUrl, ...lab.steps.slice(0, 2), ...lab.validationChecks.slice(0, 2)],
+    });
+  }
+
+  for (const lesson of ACADEMY_LESSONS) {
+    documents.push({
+      id: `academy-${lesson.track}-${lesson.slug}`,
+      title: lesson.title,
+      url: academyLessonHref(lesson),
+      kind: "lesson",
+      summary: (lesson.description ?? lesson.title).slice(0, 240),
+      topic: ["academy", lesson.track, lesson.kind],
+      language: "en",
+      course: "Corpus Academy (MIT courseware)",
+      keywords: [lesson.sourcePath, lesson.module ?? ""],
     });
   }
 

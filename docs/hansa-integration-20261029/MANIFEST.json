@@ -8,29 +8,36 @@
    "path": "app/sitemap.ts",
    "beforeSha256": "de08f3393799fd8c78f52d1915f7973d5f98d463cbae6f33cddd479f798f17d9",
    "acceptedDrift": [
-    "6ded2d643fc6d83605769920242d377ca979aa8b98a5673e373b3507d345d4b8"
+    "6ded2d643fc6d83605769920242d377ca979aa8b98a5673e373b3507d345d4b8",
+    "b15cf932bead26f4eca55ea5fb581d7cc0e9e0f816d1e5dff542c64fbf1a9b56"
    ],
-   "sha256": "b15cf932bead26f4eca55ea5fb581d7cc0e9e0f816d1e5dff542c64fbf1a9b56",
-   "bytes": 4872,
-   "rollbackPath": "docs/hansa-integration-20261029/before/app/sitemap.ts.snapshot"
+   "sha256": "b11b5b4d3b5d0a23933f06c2c3977ed221acc25741d846f9f762d851677a847d",
+   "bytes": 5091,
+   "rollbackPath": "docs/hansa-integration-20261029/before/app/sitemap.ts.snapshot",
+   "note": " Extraction wave (Academy + draft banks) refreshed this artifact."
   },
   {
    "path": "lib/study/server.ts",
    "beforeSha256": "c5a2139c76c9505cfaff3e315c9e8b9dd439431218a05ae70094a004a4751b98",
-   "acceptedDrift": [],
-   "sha256": "a0cf21497f1c644a07c4246641cb95fd1745c1f5c02a32273b242708acba4ab0",
-   "bytes": 7011,
-   "rollbackPath": "docs/hansa-integration-20261029/before/lib/study/server.ts.snapshot"
+   "acceptedDrift": [
+    "a0cf21497f1c644a07c4246641cb95fd1745c1f5c02a32273b242708acba4ab0"
+   ],
+   "sha256": "8f00eb190cbee8b57a62fbf8175d615d69004b954ec6cfc93abc0ff535af43c0",
+   "bytes": 7853,
+   "rollbackPath": "docs/hansa-integration-20261029/before/lib/study/server.ts.snapshot",
+   "note": " Extraction wave (Academy + draft banks) refreshed this artifact."
   },
   {
    "path": "lib/study/source-documents.ts",
    "beforeSha256": "e18a53a9d6275b30177479125f3044f4d2a082fc8a4fa42f0d8358556082d682",
    "acceptedDrift": [
-    "9af8e7c1f439168d8593c7dcd094edadd771171e06249bb440443ce06e3c9554"
+    "9af8e7c1f439168d8593c7dcd094edadd771171e06249bb440443ce06e3c9554",
+    "9a3059cb0310fedfa108dd5ade737b99c282474ed48d191cb54b5a24176b878b"
    ],
-   "sha256": "9a3059cb0310fedfa108dd5ade737b99c282474ed48d191cb54b5a24176b878b",
-   "bytes": 13507,
-   "rollbackPath": "docs/hansa-integration-20261029/before/lib/study/source-documents.ts.snapshot"
+   "sha256": "9fd8877eeae3987b0c4954dd99fa7e0d8fcd932d88302a1ed0c1266046a5d0fe",
+   "bytes": 14046,
+   "rollbackPath": "docs/hansa-integration-20261029/before/lib/study/source-documents.ts.snapshot",
+   "note": " Extraction wave (Academy + draft banks) refreshed this artifact."
   },
   {
    "path": "components/study/topic-browser.tsx",
@@ -365,25 +372,27 @@
     "9d22906320b7547907e307fd9ae3ff8a3a954613caa4f51dd697291485d1c2e8",
     "7a6aae66444df46f8ca19d7878d4c8d47c3dbadc4d2cb3974571498a0a86defc",
     "cf214ae21d05945459f57a041cb79720831650711eddede40a666b4cdaa9f54c",
-    "cb6d646af9c62f4eddd3d6fdb1193681276c8eed26cdd35c92185bfcc4d66fbf"
+    "cb6d646af9c62f4eddd3d6fdb1193681276c8eed26cdd35c92185bfcc4d66fbf",
+    "b5b130cc1244bfc8a736a0e28970c6cf2558b76c4bbcc709944a5e6a30165e8d"
    ],
-   "sha256": "b5b130cc1244bfc8a736a0e28970c6cf2558b76c4bbcc709944a5e6a30165e8d",
-   "bytes": 2523,
+   "sha256": "b662028cef5bb8a75ece7dcf8d47b529d9aed9e8133718cf4dfeda883e971d86",
+   "bytes": 2729,
    "rollbackPath": "docs/hansa-integration-20261029/before/lib/site-metrics.ts.snapshot",
    "observeOnly": true,
-   "note": "Pre-existing drift (29 Oct work streams) that this wave then modified on top of; rollback snapshot holds the pre-wave working-tree bytes (9d22906320). Pre-existing state observed at wave start: modified/added by the uncommitted 29 Oct RTI-academy/cinematic/knowledge work streams after the last recorded receipt; this wave did not author it. Recorded (observeOnly) so the runtime gate pins the observed bytes explicitly; any later change fails the gate. Phase C: fabric counts updated for the merged bank (874/19/264/77). Pack 2: counts 914/20/306/78. Packs 3-7: counts 1114/25/378/78."
+   "note": "Pre-existing drift (29 Oct work streams) that this wave then modified on top of; rollback snapshot holds the pre-wave working-tree bytes (9d22906320). Pre-existing state observed at wave start: modified/added by the uncommitted 29 Oct RTI-academy/cinematic/knowledge work streams after the last recorded receipt; this wave did not author it. Recorded (observeOnly) so the runtime gate pins the observed bytes explicitly; any later change fails the gate. Phase C: fabric counts updated for the merged bank (874/19/264/77). Pack 2: counts 914/20/306/78. Packs 3-7: counts 1114/25/378/78. Extraction wave (Academy + draft banks) refreshed this artifact."
   },
   {
    "path": "scripts/verify-site-metrics.mjs",
    "beforeSha256": "7401e9002a763d22ea96d57d45a5d6339192db36185e7f9a360ffebd81e7944f",
    "acceptedDrift": [
-    "62e6e0094882b75c666ab65e233ab9b21468edc82893266f499cee5cf237933a"
+    "62e6e0094882b75c666ab65e233ab9b21468edc82893266f499cee5cf237933a",
+    "30294069db3d452a04269c2d26e7427027de0bd8836c43fd42e99e98b3809437"
    ],
-   "sha256": "30294069db3d452a04269c2d26e7427027de0bd8836c43fd42e99e98b3809437",
-   "bytes": 4531,
+   "sha256": "efc243e2b409748b7a6f9ba0175509d8cbb0c76128103cfe0f69ad73d5c9160a",
+   "bytes": 4941,
    "rollbackPath": "docs/hansa-integration-20261029/before/scripts/verify-site-metrics.mjs.snapshot",
    "observeOnly": true,
-   "note": "Pre-existing drift (29 Oct work streams) that this wave then modified on top of; rollback snapshot holds the pre-wave working-tree bytes (62e6e00948). Pre-existing state observed at wave start: modified/added by the uncommitted 29 Oct RTI-academy/cinematic/knowledge work streams after the last recorded receipt; this wave did not author it. Recorded (observeOnly) so the runtime gate pins the observed bytes explicitly; any later change fails the gate."
+   "note": "Pre-existing drift (29 Oct work streams) that this wave then modified on top of; rollback snapshot holds the pre-wave working-tree bytes (62e6e00948). Pre-existing state observed at wave start: modified/added by the uncommitted 29 Oct RTI-academy/cinematic/knowledge work streams after the last recorded receipt; this wave did not author it. Recorded (observeOnly) so the runtime gate pins the observed bytes explicitly; any later change fails the gate. Extraction wave (Academy + draft banks) refreshed this artifact."
   },
   {
    "path": "package.json",
@@ -687,12 +696,13 @@
    "beforeSha256": "d7c7e3016d9b1976570cb265b39db7b6d1c67265d15b114e04c3f828088da5d1",
    "acceptedDrift": [
     "7ce94b5d2ab1ac6e274957a46537b3eaf8890144dc3638d7fc75b1b6073dffc4",
-    "0d01e20ce7b4781ac684111283682c286c2cbf593741e4b21baf1b4562d2d96b"
+    "0d01e20ce7b4781ac684111283682c286c2cbf593741e4b21baf1b4562d2d96b",
+    "24395f1d70e0a76826d963df594e86924aa34fac133a9d87a8a450ab51418b6f"
    ],
-   "sha256": "24395f1d70e0a76826d963df594e86924aa34fac133a9d87a8a450ab51418b6f",
-   "bytes": 7946,
+   "sha256": "73962741749ce6bb7b678a3a4e82d93682889f1d4d41d6608fd8b1391089d190",
+   "bytes": 8044,
    "rollbackPath": "docs/hansa-integration-20261029/before/docs__sql-integration-20261028__BASELINE.json.snapshot",
-   "note": "Phase C: the seven content/fabric entries the corpus pack merge changed were re-hashed in the SQL wave's preservation baseline (the merge legitimately evolves the shared bank artifacts; every other entry keeps its frozen hash). Rollback holds the pre-phase-C bytes; the SQL receipt's recorded pre-merge state is accepted as drift here. Pack 2 re-hash on 30 Oct; the pack-1 state is accepted as drift. Packs 3-7 re-hash on 30 Oct; intermediate states accepted as drift."
+   "note": "Phase C: the seven content/fabric entries the corpus pack merge changed were re-hashed in the SQL wave's preservation baseline (the merge legitimately evolves the shared bank artifacts; every other entry keeps its frozen hash). Rollback holds the pre-phase-C bytes; the SQL receipt's recorded pre-merge state is accepted as drift here. Pack 2 re-hash on 30 Oct; the pack-1 state is accepted as drift. Packs 3-7 re-hash on 30 Oct; intermediate states accepted as drift. Extraction wave: content/drafts/manifest.json entry re-hashed (two new draft banks)."
   },
   {
    "path": "tests/content/drafts-integration.test.mjs",
@@ -1129,6 +1139,136 @@
    "rollbackPath": null,
    "observeOnly": true,
    "note": "Phase C packs 3-7 addition: merged question file, pinned at the observed state."
+  },
+  {
+   "path": "lib/study/review.ts",
+   "beforeSha256": "4fa3f57f831d1b16c72032e31294f037c1b69efeddf653d419a28a96964acff5",
+   "acceptedDrift": [],
+   "sha256": "0e12c3b00497824fa3c244587168ef8a53a3cac1c0200e10e220830a913042b2",
+   "bytes": 2399,
+   "rollbackPath": null,
+   "observeOnly": true,
+   "note": "Extraction wave (corpus Academy + draft banks): authored by this wave; pinned per-path."
+  },
+  {
+   "path": "content/drafts/manifest.json",
+   "beforeSha256": "2d62279d0c4af1d0b71d480131d802a088e96853d3442326c3aa51318d54d055",
+   "acceptedDrift": [],
+   "sha256": "297e3b1987173841e3c99dc3c351c1aa9be8a2a7d0970b17074b48581320554b",
+   "bytes": 3830,
+   "rollbackPath": null,
+   "observeOnly": true,
+   "note": "Extraction wave (corpus Academy + draft banks): authored by this wave; pinned per-path."
+  },
+  {
+   "path": "components/practice/draft-review.tsx",
+   "beforeSha256": "9b102a2e608181b9d4903f497ad8a3aa331b07a06b2d3334373d9c8aea7fbc01",
+   "acceptedDrift": [],
+   "sha256": "a6377c9c8ad8c08e1920f4bb94dd2592083b9a6ae677458d200cb9c130a1b00f",
+   "bytes": 10422,
+   "rollbackPath": null,
+   "observeOnly": true,
+   "note": "Extraction wave (corpus Academy + draft banks): authored by this wave; pinned per-path."
+  },
+  {
+   "path": "app/practice/drafts/page.tsx",
+   "beforeSha256": "df05abee5402678ab78cebe584b94fe6e94726b056ca7dbf00b9446ed15d8b0e",
+   "acceptedDrift": [],
+   "sha256": "721152d7d47f2b6f86d6126658b8ee1dbaff9852f14523443d6165f1bf04630e",
+   "bytes": 5398,
+   "rollbackPath": null,
+   "observeOnly": true,
+   "note": "Extraction wave (corpus Academy + draft banks): authored by this wave; pinned per-path."
+  },
+  {
+   "path": "scripts/extract-corpus-courseware.mjs",
+   "beforeSha256": null,
+   "acceptedDrift": [],
+   "sha256": "3dcef56fe20c3cea53f5f9c5e3ac0102b30bbc9c643d770cb3df60c398a2e09d",
+   "bytes": 15034,
+   "rollbackPath": null,
+   "observeOnly": true,
+   "note": "Extraction wave addition: mirrored MIT courseware / disabled review bank, pinned at the observed state."
+  },
+  {
+   "path": "content/academy/lessons.json",
+   "beforeSha256": null,
+   "acceptedDrift": [],
+   "sha256": "6d828b20c94e6ee1fca0d18575b5dc04a128107a79b4fb51ad7b03d89e4b658f",
+   "bytes": 980210,
+   "rollbackPath": null,
+   "observeOnly": true,
+   "note": "Extraction wave addition: mirrored MIT courseware / disabled review bank, pinned at the observed state."
+  },
+  {
+   "path": "lib/academy/corpus.ts",
+   "beforeSha256": null,
+   "acceptedDrift": [],
+   "sha256": "cf8912fb3b1bc2540890ba4339e131d625d3d65cb3f9e1aff0b35f2ad91c7789",
+   "bytes": 2304,
+   "rollbackPath": null,
+   "observeOnly": true,
+   "note": "Extraction wave addition: mirrored MIT courseware / disabled review bank, pinned at the observed state."
+  },
+  {
+   "path": "components/academy/lesson-blocks.tsx",
+   "beforeSha256": null,
+   "acceptedDrift": [],
+   "sha256": "29736c468a48fbe81def1d45a56d29421bc00404175786bde2253c9f2be7f995",
+   "bytes": 4323,
+   "rollbackPath": null,
+   "observeOnly": true,
+   "note": "Extraction wave addition: mirrored MIT courseware / disabled review bank, pinned at the observed state."
+  },
+  {
+   "path": "app/learn/academy/page.tsx",
+   "beforeSha256": null,
+   "acceptedDrift": [],
+   "sha256": "2a8a9701f0c9185bf95f865e071ec4829a2653d3cad0a10c403643bb06a39709",
+   "bytes": 4278,
+   "rollbackPath": null,
+   "observeOnly": true,
+   "note": "Extraction wave addition: mirrored MIT courseware / disabled review bank, pinned at the observed state."
+  },
+  {
+   "path": "app/learn/academy/[track]/[lesson]/page.tsx",
+   "beforeSha256": null,
+   "acceptedDrift": [],
+   "sha256": "0e1cce2d984a8990d47239613b3b6aa16345fdde7e03930e282b3d4f7b5c226f",
+   "bytes": 5202,
+   "rollbackPath": null,
+   "observeOnly": true,
+   "note": "Extraction wave addition: mirrored MIT courseware / disabled review bank, pinned at the observed state."
+  },
+  {
+   "path": "content/drafts/kengio-dp700.json",
+   "beforeSha256": null,
+   "acceptedDrift": [],
+   "sha256": "f9b4465e60816e328ccb97abd04fd775f17d127ff7ea8211a495281429ad92f0",
+   "bytes": 156718,
+   "rollbackPath": null,
+   "observeOnly": true,
+   "note": "Extraction wave addition: mirrored MIT courseware / disabled review bank, pinned at the observed state."
+  },
+  {
+   "path": "content/drafts/corpus-candidates.json",
+   "beforeSha256": null,
+   "acceptedDrift": [],
+   "sha256": "4017d8af37d7685095e1443492755120a891dc57808ef2dba5b7f5d024b37914",
+   "bytes": 22152,
+   "rollbackPath": null,
+   "observeOnly": true,
+   "note": "Extraction wave addition: mirrored MIT courseware / disabled review bank, pinned at the observed state."
+  },
+  {
+   "path": "tests/content/corpus-extraction.test.mjs",
+   "beforeSha256": null,
+   "acceptedDrift": [],
+   "sha256": "f0b5003b3c9f50ad3c0252e2311198da1c58b800cc59e066ab5ed1dc803badf4",
+   "bytes": 3950,
+   "rollbackPath": null,
+   "observeOnly": true,
+   "note": "Extraction wave addition: mirrored MIT courseware / disabled review bank, pinned at the observed state."
   }
  ]
 }

@@ -10,14 +10,16 @@ import intakeManifest from "@/content/intake/manifest.json";
 // excluded from search engines. It reviews draft content; it never presents an
 // approved Hansa question bank.
 export const metadata: Metadata = {
-  title: "Draft review — DP-600 R18 and PL-300 V88 (not approved)",
+  title: "Draft review — corpus and intake candidates (not approved)",
   description:
-    "Isolated review mode for two intake packages staged as disabled drafts: 222 DP-600 R18 candidate questions (NO_GO) and 1,285 PL-300 V88 questions (NONFINAL). Grading is disabled and no answer key ships to the browser.",
+    "Isolated review mode for intake packages staged as disabled drafts: 222 DP-600 R18 candidate questions (NO_GO), 1,285 PL-300 V88 questions (NONFINAL), 28 creative-pattern candidates, plus the corpus-wave additions (37 keyless candidates and the 150-question community DP-700 bank). Grading is disabled and no answer key ships to the browser.",
   robots: { index: false, follow: false },
 };
 
 export default function DraftReviewPage() {
-  const [dp, pl] = manifest.banks;
+  const [dp, pl] = manifest.banks as typeof manifest.banks;
+  const corpus = manifest.banks.find((b) => b.id === "corpus-candidates");
+  const kengio = manifest.banks.find((b) => b.id === "kengio-dp700");
   const notion = intakeManifest.packages[0];
   return (
     <>
@@ -32,7 +34,7 @@ export default function DraftReviewPage() {
           </nav>
           <Eyebrow className="mt-6">Isolated review mode · not an approved bank</Eyebrow>
           <h1 className="mt-4 max-w-3xl text-balance text-3xl font-medium tracking-tight md:text-4xl">
-            Two packages, staged as drafts and kept apart.
+            Four packages, staged as drafts and kept apart.
           </h1>
           <p className="mt-4 max-w-2xl text-sm leading-7 text-muted-foreground sm:text-base sm:leading-8">
             {dp.questions} DP-600 R18 candidate questions arrive at status{" "}
@@ -43,7 +45,7 @@ export default function DraftReviewPage() {
             DP-600 and PL-300 banks.
             File and build checks passed for both — that is package integrity, not academic approval. Both banks
             are staged here for review only: grading is disabled, no expected answer is shipped to this browser,
-            and neither bank replaces anything in the approved catalogue.
+            and none of the banks replaces anything in the approved catalogue. The two corpus-wave additions arrive with 37 keyless candidates and 150 community questions whose answer keys stay at their MIT source.
           </p>
         </Container>
       </section>
