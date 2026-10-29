@@ -107,9 +107,9 @@ const { page: desktop } = await open();
 await check("hub renders the real counts and the coverage disclosure", async () => {
   await desktop.goto(`${BASE}/lab/dp-600/`, { waitUntil: "networkidle" });
   const body = await desktop.locator("body").innerText();
-  assert.match(body, /834/);
+  assert.match(body, /874/);
   assert.match(body, /480/);
-  assert.match(body, /18 source packs/);
+  assert.match(body, /19 source packs/);
   assert.match(body, /61\.9%/);
   assert.match(body, /2\.7%/);
   assert.match(body, /cannot be blueprint-balanced/i);
@@ -134,7 +134,7 @@ await check("hub links every mode and the Data Lab stays reachable", async () =>
   }
   await desktop.goto(`${BASE}/lab/`, { waitUntil: "networkidle" });
   const lab = await desktop.locator("body").innerText();
-  assert.match(lab, /834/);
+  assert.match(lab, /874/);
   assert.match(lab, /Data Lab/);
   assert.match(lab, /SQL for Analysts/);
 });
@@ -207,24 +207,24 @@ await check("a sequence question is reorderable with the keyboard-operable contr
 // Explorer search and filters
 // ---------------------------------------------------------------------------
 
-await check("explorer search and filters narrow 834 questions", async () => {
+await check("explorer search and filters narrow 874 questions", async () => {
   await desktop.goto(`${BASE}/lab/dp-600/explore/`, { waitUntil: "networkidle" });
   await desktop.getByPlaceholder(/Search Direct Lake/).fill("Direct Lake");
   await desktop.waitForTimeout(400);
-  const count = await desktop.locator("text=/of 834/").first().innerText();
-  assert.match(count, /^\d+ of 834$/);
+  const count = await desktop.locator("text=/of 874/").first().innerText();
+  assert.match(count, /^\d+ of 874$/);
   const filtered = Number(count.split(" ")[0]);
-  assert.ok(filtered > 0 && filtered < 834, `search narrowed to ${filtered}`);
+  assert.ok(filtered > 0 && filtered < 874, `search narrowed to ${filtered}`);
 
   await desktop.getByRole("button", { name: /Filters/ }).click();
   await desktop.getByLabel("Fabric topic").selectOption("semantic-models");
   await desktop.waitForTimeout(300);
-  const narrowed = await desktop.locator("text=/of 834/").first().innerText();
+  const narrowed = await desktop.locator("text=/of 874/").first().innerText();
   assert.ok(Number(narrowed.split(" ")[0]) <= filtered);
 
   await desktop.getByRole("button", { name: "Clear all filters" }).click();
   await desktop.waitForTimeout(300);
-  assert.match(await desktop.locator("text=/of 834/").first().innerText(), /^834 of 834$/);
+  assert.match(await desktop.locator("text=/of 874/").first().innerText(), /^874 of 874$/);
 });
 
 // ---------------------------------------------------------------------------

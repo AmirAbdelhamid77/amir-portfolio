@@ -52,5 +52,5 @@ test('new SQL discovery is unique, topic-valid and has a complete canonical read
  for(const r of records){assert.ok(SUBJECTS.find(s=>s.id===r.subject)?.topics.some(t=>t[0]===r.topic),r.id);assert.ok(!('answer'in r));}
  const units=learningUnits().filter(u=>u.subject==='sql');assert.equal(units.length,18);assert.deepEqual(units.map(u=>u.id),Array.from({length:18},(_,i)=>'sql-module-'+String(i).padStart(2,'0')));
  for(const [topic]of SUBJECTS.find(s=>s.id==='sql').topics){const review=TOPIC_REVIEW['sql.'+topic];assert.ok(review,topic);for(const key of review.evidence)assert.ok(resolveEvidence(key));}
- assert.equal(records.filter(r=>r.kind==='question').length,1467);
+ assert.equal(records.filter(r=>r.kind==='question').length,1507);// 1467 baseline + the 40 authored semantic-models-dax questions (corpus phase C)
 });

@@ -30,29 +30,43 @@ const questions = readdirSync(path.join(CONTENT, "questions"))
 
 const byId = new Map(questions.map((question) => [question.id, question]));
 
-test("the declared baseline counts are reproduced exactly", () => {
-  assert.equal(questions.length, 834, "834 questions");
-  assert.equal(packs.length, 18, "18 packs");
-  assert.equal(index.length, 834, "834 index entries");
-  assert.equal(sources.length, 227, "227 registry entries");
-  assert.equal(cases.length, 76, "76 case studies");
+// The corpus wave (hansa-integration phase C) added the authored
+// semantic-models-dax pack on top of the 834-question deployment package, so
+// the baseline assertions run against the original 18 packs and the merged
+// totals are asserted beside them.
+const CORPUS_PACK = "semantic-models-dax";
+const baseline = questions.filter((question) => question.pack !== CORPUS_PACK);
 
-  const types = questions.reduce((map, question) => {
+test("the declared baseline counts are reproduced exactly", () => {
+  assert.equal(baseline.length, 834, "834 baseline questions");
+  const baselineTypes = baseline.reduce((map, question) => {
     map[question.type] = (map[question.type] ?? 0) + 1;
     return map;
   }, {});
-  assert.equal(types.single, 658);
-  assert.equal(types.multi, 168);
-  assert.equal(types.sequence, 8);
+  assert.equal(baselineTypes.single, 658);
+  assert.equal(baselineTypes.multi, 168);
+  assert.equal(baselineTypes.sequence, 8);
 
-  const five = questions.filter((question) => question.options.length === 5).length;
-  assert.equal(five, 52, "52 questions with five options");
+  const five = baseline.filter((question) => question.options.length === 5).length;
+  assert.equal(five, 52, "52 baseline questions with five options");
 
-  const withCase = questions.filter((question) => question.caseStudyId).length;
-  assert.equal(withCase, 343, "343 questions carrying case context");
+  const withCase = baseline.filter((question) => question.caseStudyId).length;
+  assert.equal(withCase, 343, "343 baseline questions carrying case context");
 
-  const withCode = questions.filter((question) => question.code.trim().length > 0).length;
-  assert.equal(withCode, 11, "11 questions with a code snippet");
+  const withCode = baseline.filter((question) => question.code.trim().length > 0).length;
+  assert.equal(withCode, 11, "11 baseline questions with a code snippet");
+});
+
+test("the merged bank carries the corpus wave on top of the baseline", () => {
+  assert.equal(questions.length, 874, "874 merged questions");
+  assert.equal(packs.length, 19, "19 packs");
+  assert.equal(index.length, 874, "874 index entries");
+  assert.equal(sources.length, 264, "264 registry entries");
+  assert.equal(cases.length, 77, "77 case studies");
+  const corpus = questions.filter((question) => question.pack === CORPUS_PACK);
+  assert.equal(corpus.length, 40, "40 corpus questions");
+  assert.ok(meta.corpusWaves?.some((wave) => wave.pack === CORPUS_PACK && wave.integrity?.failures?.length === 0),
+    "the corpus wave records a clean import");
 });
 
 test("every question is imported once, under a unique namespaced id", () => {
@@ -63,7 +77,7 @@ test("every question is imported once, under a unique namespaced id", () => {
     assert.match(question.id, /^fb-[a-z0-9-]+$/, `${question.id} is namespaced`);
     assert.equal(question.id, `fb-${question.sourceId.toLowerCase().replace(/[^a-z0-9]+/g, "-")}`);
   }
-  assert.equal(ids.size, 834);
+  assert.equal(ids.size, 874);
 
   // The namespace must not collide with the existing Data Lab ids.
   const examIds = readdirSync(path.join(ROOT, "content/exams"))
@@ -107,7 +121,7 @@ test("each question keeps a valid answer key, rationales and explanation", () =>
 
 test("source references resolve to the registry", () => {
   const registryIds = new Set(sources.map((source) => source.id));
-  assert.equal(registryIds.size, 227);
+  assert.equal(registryIds.size, 264);
   for (const question of questions) {
     assert.ok(Array.isArray(question.refs));
     for (const ref of question.refs) {
@@ -185,16 +199,16 @@ test("the shipped coverage report equals a fresh aggregation", () => {
   assert.deepEqual(fresh, meta.coverage, "content/fabric/meta.json is in sync with the index");
 
   const scopeTotal = fresh.byScope.reduce((sum, row) => sum + row.total, 0);
-  assert.equal(scopeTotal, 834, "every question has exactly one scope");
+  assert.equal(scopeTotal, 874, "every question has exactly one scope");
 
   const objectiveTotal = fresh.byObjective.reduce((sum, row) => sum + row.total, 0);
-  assert.equal(objectiveTotal, 834, "every question lands in exactly one objective bucket");
+  assert.equal(objectiveTotal, 874, "every question lands in exactly one objective bucket");
 
   const subjectTotal = fresh.bySubject.reduce((sum, row) => sum + row.total, 0);
-  assert.equal(subjectTotal, 834, "every question has exactly one primary subject");
+  assert.equal(subjectTotal, 874, "every question has exactly one primary subject");
 
   assert.equal(fresh.totals.objectivesCovered, OBJECTIVES.length);
-  assert.equal(fresh.totals.core + fresh.totals.support + fresh.totals.adjacent + fresh.totals.review, 834);
+  assert.equal(fresh.totals.core + fresh.totals.support + fresh.totals.adjacent + fresh.totals.review, 874);
 });
 
 // F01 regression: the domain split and the sub-objective split must be two views
@@ -237,17 +251,20 @@ test("domain shares reconcile with the sub-objective table under one rule", () =
 });
 
 test("difficulty metadata is only what the source supplied", () => {
-  const difficulties = new Set(questions.map((question) => question.difficulty));
-  for (const value of difficulties) {
-    assert.ok(value === null || value === 4 || value === 5, `unexpected difficulty ${value}`);
+  const baselineDifficulties = new Set(baseline.map((question) => question.difficulty));
+  for (const value of baselineDifficulties) {
+    assert.ok(value === null || value === 4 || value === 5, `unexpected baseline difficulty ${value}`);
   }
-  const missing = questions.filter((question) => question.difficulty === null).length;
+  const missing = baseline.filter((question) => question.difficulty === null).length;
   assert.equal(missing, 192, "the five original packs and foundation set carry no difficulty");
+  for (const question of questions.filter((item) => item.pack === CORPUS_PACK)) {
+    assert.ok(question.difficulty >= 1 && question.difficulty <= 5, `${question.id} states a 1–5 difficulty`);
+  }
 });
 
 test("questions without a video timestamp are the documented foundation set", () => {
   const withoutTime = questions.filter((question) => question.videoSeconds === null);
-  assert.equal(withoutTime.length, 8);
+  assert.equal(withoutTime.length, 48, "8 baseline foundation questions + the 40 documentation-grounded corpus questions");
   for (const question of withoutTime) assert.equal(question.origin, "foundation");
   assert.ok(meta.integrity.warnings.every((warning) => warning.code === "no-video-timestamp"));
 });
@@ -277,20 +294,30 @@ test("classification labels stay inside their documented meaning", () => {
     }
   }
 
-  // No question may claim the semantic-model domain without its source saying so,
-  // because that is the domain this bank is thinnest in.
+  // The semantic-model domain was the bank's thinnest (13 of 834 baseline
+  // questions — the documented DP-600 gap). The corpus wave's authored pack
+  // closes most of that gap; the guard keeps both facts true.
   const semantic = index.filter((entry) => entry.domain === "3");
-  assert.ok(semantic.length < 40, `semantic-model coverage is genuinely thin (${semantic.length})`);
+  const semanticBaseline = baseline.filter((entry) => entry.domain === "3");
+  assert.ok(semanticBaseline.length < 40, `baseline semantic-model coverage is genuinely thin (${semanticBaseline.length})`);
+  assert.ok(semantic.length >= 36, `the corpus pack closes the semantic-model gap (${semantic.length} domain-3 questions)`);
 });
 
 test("pack metadata preserves the source video identity", () => {
   for (const pack of packs) {
     assert.ok(pack.questionCount > 0, `${pack.key} has questions`);
+    if (pack.key === CORPUS_PACK) {
+      // The corpus pack is documentation-grounded, not video-derived.
+      assert.equal(pack.video, null, `${pack.key} intentionally has no source video`);
+      assert.equal(pack.chapterCount, 0, `${pack.key} has no video chapters`);
+      continue;
+    }
     assert.ok(pack.video?.id, `${pack.key} keeps a video id`);
     assert.ok(pack.video?.title, `${pack.key} keeps a video title`);
     assert.ok(pack.subjects.length > 0);
   }
   const total = packs.reduce((sum, pack) => sum + pack.questionCount, 0);
-  assert.equal(total, 834, "packs account for every question");
-  assert.equal(new Set(packs.map((pack) => pack.video.id)).size, 18, "18 distinct source videos");
+  assert.equal(total, 874, "packs account for every question");
+  const videoPacks = packs.filter((pack) => pack.video);
+  assert.equal(new Set(videoPacks.map((pack) => pack.video.id)).size, 18, "18 distinct source videos");
 });

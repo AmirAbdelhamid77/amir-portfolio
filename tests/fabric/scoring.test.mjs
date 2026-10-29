@@ -1,4 +1,4 @@
-// Scoring and session-construction tests against the real 834-question bank.
+// Scoring and session-construction tests against the real 874-question bank (834 baseline + the authored semantic-models-dax corpus pack).
 //
 // This is the "every question is graded against its own recorded key" check:
 // each question in `content/fabric/questions/*.json` is graded with its correct
@@ -93,14 +93,14 @@ test("an empty response is never correct", () => {
   }
 });
 
-test("every one of the 834 questions scores its own key as correct", () => {
+test("every question scores its own key as correct", () => {
   let checked = 0;
   for (const question of questions) {
     const result = grade(question, question.correct);
     assert.equal(result.correct, true, `${question.id} (${question.type}) failed its own key`);
     checked += 1;
   }
-  assert.equal(checked, 834);
+  assert.equal(checked, 874);
 });
 
 test("every question rejects a deliberately broken key", () => {

@@ -171,3 +171,60 @@ question-record shape with per-batch provenance/validation notes, plugging into
 registry and manifest counts. After that: Phase B residue (pair labs with
 `dataset_index.jsonl` starter data), Phase D (PL-300 labs → Academy lessons),
 Phase E, Phase F.
+
+---
+
+## Phase C — `semantic-models-dax` pack (added 29 October 2026, later the same day)
+
+The first DP-700/DP-600 question pack from `pack_authoring_specs.json` was
+authored and merged through a new pipeline. Bank: **834 → 874 questions, 19
+packs, 264 registry entries, 77 case studies.**
+
+**Content.** 40 original questions for DP-600 domain 3 (the bank's thinnest —
+13 baseline questions, the documented 2.7% gap): objectives 3.1 ×15, 3.2 ×8,
+2.3 ×12, 1.1 ×3, 1.2 ×2, all `core` scope, difficulties 2–5, one shared case
+study ("Harborline Retail semantic model redesign", 8 questions), four DAX code
+questions (USERELATIONSHIP, SUMX, VAR-based YoY, OFFSET windowing). Every
+question carries the full record shape (prompt, per-option rationales,
+explanation, refs, difficulty, `sourceObjective`, `provenance`, `validation`).
+
+**Grounding and rights.** Scenarios are synthetic; technical claims are grounded
+in the six open mslearn-fabric/PL-300 labs named in the pack spec and in 37
+SOURCES registry entries taken from URLs the corpus actually harvested
+(learn.microsoft.com DAX/Direct Lake/security documentation + the lab URLs).
+MIT lab material is linked, not republished. No exam content; nothing executed.
+
+**Pipeline.** `scripts/import-corpus-pack.mjs` merges a corpus pack into the
+existing bank with the same structural validation as the base import
+(id/option/answer/refs/flat-bank checks, exact-normalized prompt-duplicate scan
+across the whole bank, F01 domain reconciliation for the merged coverage),
+recomputes classification/coverage, regenerates the pack loaders, and preserves
+the original import's audit trail (`packageQa`, `integrity`) plus the original
+pack files. The classifier gained the pack's `PACK_SUBJECT` prior
+(`lib/fabric/taxonomy.ts`); subject split: semantic-models 37, modeling 1
+(fact grain), security 1 (OLS), lifecycle 1 (XMLA).
+
+**Test updates (documented in the files).** `tests/fabric/bank.test.mjs`
+baseline assertions scoped to the original 18 packs; new merged-bank test
+(874/19/264/77 + clean wave record); the "semantic-model coverage is genuinely
+thin" guard now asserts both facts — baseline < 40, merged ≥ 36.
+`tests/fabric/scoring.test.mjs` and `tests/fabric/e2e.mjs` moved to 874/19.
+`tests/content/drafts-integration.test.mjs` (drafts-not-merged guard) and
+`tests/content/sql-vault.test.mjs` (preservation baseline + catalogue count)
+were re-pinned to the merged totals; the SQL wave's `BASELINE.json` re-hashed
+its seven `content/fabric` entries (every other entry frozen), with the
+re-hash translated through the receipt chain in the wave manifest.
+
+**Evidence.** `tsc` clean; lint 0 errors; **220 tests PASS** across all suites
+(incl. 35 fabric tests with the merged pins); merge ran 2,194 checks with 0
+failures/warnings; all six integrity verifiers PASS; `npm run build` PASS
+(284 URLs; hub shows 874; the fabric/model study desk carries 36 corpus
+question records). `tests/fabric/e2e.mjs` (browser): **NOT RUN** — it reaches
+the 874-question explorer check, then stalls on a locator fill (reproduced
+twice; same system-browser flakiness class as `qa:prototype-c`). Domain-3
+core share moved 2.7% → **6.9%**.
+
+**Next atomic task:** author the `eventstream-windowing` pack (DP-700 D2
+streaming, 131 KUs / 76 docs / 94 code assets grounding) through the same
+pipeline; then the remaining five packs. Wave rows for all phase C files live
+in `docs/hansa-integration-20261029/MANIFEST.json`.
