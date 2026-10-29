@@ -54,6 +54,12 @@ export const SITE_METRICS = {
     /** content/intake/rti-sources.json → counts.repositoriesCleared */
     repositories: 22,
   },
+  study: {
+    /** content/study/references.json → records.length (curated reference layer) */
+    studyReferences: 1859,
+    /** content/study/experiments.json → labs.length (published hands-on labs) */
+    studyExperiments: 29,
+  },
 } as const;
 
 export const PUBLISHED_QUESTION_TOTAL =

@@ -1,0 +1,454 @@
+{
+ "scope": "hansa-corpus-integration-20261029",
+ "note": "Hansa Deep Research Corpus integration wave: curated study-hub reference layer (LINK_ONLY link+gloss), hands-on lab pages at /lab/hands-on/, external-link handling in the study browser, sitemap/metrics/verifier extensions. Prepared by scripts/build-study-catalogue.mjs; plan in workspace hansa-integration/INTEGRATION_PLAN.md. acceptedDrift marks hashes older waves recorded for a path that no longer matched disk when this wave began (uncommitted 29 Oct study-hub edits postdated the 28 Oct recordings); the rollback snapshots hold the actual pre-wave working-tree bytes. Second reconciliation: runtime-gate rows added for this wave's own additions and for pre-existing unreceipted states observed at wave start.",
+ "previous": "docs/sql-integration-20261028/MANIFEST.json",
+ "previousSha256": "abdd73f18aa4846aa7800b8cbccf14aa67a5948340665163883bc6d1285ab979",
+ "files": [
+  {
+   "path": "app/sitemap.ts",
+   "beforeSha256": "de08f3393799fd8c78f52d1915f7973d5f98d463cbae6f33cddd479f798f17d9",
+   "acceptedDrift": [
+    "6ded2d643fc6d83605769920242d377ca979aa8b98a5673e373b3507d345d4b8"
+   ],
+   "sha256": "b15cf932bead26f4eca55ea5fb581d7cc0e9e0f816d1e5dff542c64fbf1a9b56",
+   "bytes": 4872,
+   "rollbackPath": "docs/hansa-integration-20261029/before/app/sitemap.ts.snapshot"
+  },
+  {
+   "path": "lib/study/server.ts",
+   "beforeSha256": "c5a2139c76c9505cfaff3e315c9e8b9dd439431218a05ae70094a004a4751b98",
+   "acceptedDrift": [],
+   "sha256": "a0cf21497f1c644a07c4246641cb95fd1745c1f5c02a32273b242708acba4ab0",
+   "bytes": 7011,
+   "rollbackPath": "docs/hansa-integration-20261029/before/lib/study/server.ts.snapshot"
+  },
+  {
+   "path": "lib/study/source-documents.ts",
+   "beforeSha256": "e18a53a9d6275b30177479125f3044f4d2a082fc8a4fa42f0d8358556082d682",
+   "acceptedDrift": [
+    "9af8e7c1f439168d8593c7dcd094edadd771171e06249bb440443ce06e3c9554"
+   ],
+   "sha256": "9a3059cb0310fedfa108dd5ade737b99c282474ed48d191cb54b5a24176b878b",
+   "bytes": 13507,
+   "rollbackPath": "docs/hansa-integration-20261029/before/lib/study/source-documents.ts.snapshot"
+  },
+  {
+   "path": "components/study/topic-browser.tsx",
+   "beforeSha256": "a13031e051e92d3d3de62e431bc69bd61d42f97fc3f5920cfb54db5fd3546dc5",
+   "acceptedDrift": [],
+   "sha256": "53f786cfc16de67eadb4eaa78336aec2e76efea2927fa69add62c9e2f2d63fe5",
+   "bytes": 4916,
+   "rollbackPath": "docs/hansa-integration-20261029/before/components/study/topic-browser.tsx.snapshot"
+  },
+  {
+   "path": "scripts/sql-integration-receipt.mjs",
+   "beforeSha256": "9334967eb60e6cf2a3cee7619e398318fa763e2e044fd67e75ac2d86235ecf04",
+   "acceptedDrift": [],
+   "sha256": "be07f738f9dabfe901b848845f131cd081ae7c3403b5194a893a819a4395dc37",
+   "bytes": 1420,
+   "rollbackPath": "docs/hansa-integration-20261029/before/scripts/sql-integration-receipt.mjs.snapshot"
+  },
+  {
+   "path": "components/knowledge/atlas-peek-stage.tsx",
+   "observeOnly": true,
+   "sealedBeforeSha256": "2f0b3f31ef6cd1947decc07be7dd6d35e9283fd31156e0baea474e1e38e1df1b",
+   "sha256": "f4e76f4acb240794ad26993d624af5fd7d2956b0d6ab3ce19336657161401928",
+   "bytes": 12989,
+   "rollbackPath": null,
+   "note": "Pre-existing drift observed at wave start: this path was modified by the uncommitted 29 Oct knowledge-stage work stream after the final-review sealing; this wave did not author or receipt that change and holds no pre-wave bytes (the sealed state is hash-only). Recorded so the integrity gate states the observed current bytes explicitly."
+  },
+  {
+   "path": "components/knowledge/knowledge-dealer.tsx",
+   "observeOnly": true,
+   "sealedBeforeSha256": "22f16d637393ed57c818e365a4bc1d2cf9c72557657856de1822128e0722fa2f",
+   "sha256": "911a993aa05a2de6dda282ddbcc84dc28d8a00cd7b939ce871a9b2ec8773571f",
+   "bytes": 23795,
+   "rollbackPath": null,
+   "note": "Pre-existing drift observed at wave start: this path was modified by the uncommitted 29 Oct knowledge-stage work stream after the final-review sealing; this wave did not author or receipt that change and holds no pre-wave bytes (the sealed state is hash-only). Recorded so the integrity gate states the observed current bytes explicitly."
+  },
+  {
+   "path": "app/lab/hands-on/page.tsx",
+   "beforeSha256": null,
+   "acceptedDrift": [],
+   "sha256": "3eba6bfe5fe5fad6f3bc929c89e08785f9bd5ff48d723339c8cb42f601841626",
+   "bytes": 4268,
+   "rollbackPath": null,
+   "note": "Added by this wave (Hansa corpus integration phases A+B)."
+  },
+  {
+   "path": "app/lab/hands-on/[slug]/page.tsx",
+   "beforeSha256": null,
+   "acceptedDrift": [],
+   "sha256": "30546e6980c3a1df37e3df4c06e23664dae4e71462f241f3f753defc749cc602",
+   "bytes": 12090,
+   "rollbackPath": null,
+   "note": "Added by this wave (Hansa corpus integration phases A+B)."
+  },
+  {
+   "path": "lib/study/curated.ts",
+   "beforeSha256": null,
+   "acceptedDrift": [],
+   "sha256": "1d462ed21ab931ea894dde0ae958a0b8fd48722d971756652235dc3a1a962b7f",
+   "bytes": 3759,
+   "rollbackPath": null,
+   "note": "Added by this wave (Hansa corpus integration phases A+B)."
+  },
+  {
+   "path": "content/intake/hansa-integration/experiment_records.jsonl",
+   "beforeSha256": null,
+   "acceptedDrift": [],
+   "sha256": "dd30792faab536d0e65178371688cb5637a85ae78edcb72a536f62e617fe18b0",
+   "bytes": 60413,
+   "rollbackPath": null,
+   "note": "Added by this wave (Hansa corpus integration phases A+B)."
+  },
+  {
+   "path": "content/intake/hansa-integration/lab_title_recovery.json",
+   "beforeSha256": null,
+   "acceptedDrift": [],
+   "sha256": "05cc2b8f4fa5542d94c897962667646bdc149af3abdef1ba4075c4f3fb19afa3",
+   "bytes": 7395,
+   "rollbackPath": null,
+   "note": "Added by this wave (Hansa corpus integration phases A+B)."
+  },
+  {
+   "path": "content/intake/hansa-integration/package_manifest.upstream.json",
+   "beforeSha256": null,
+   "acceptedDrift": [],
+   "sha256": "f15474a51cd493855998de6c380b1c159d810dff5f3d08397ea9839cde30fb18",
+   "bytes": 3078,
+   "rollbackPath": null,
+   "note": "Added by this wave (Hansa corpus integration phases A+B)."
+  },
+  {
+   "path": "content/intake/hansa-integration/README.md",
+   "beforeSha256": null,
+   "acceptedDrift": [],
+   "sha256": "51414567f4b9d949473364a09cf7e42d981834616f55305c12f0b7e32fbb4526",
+   "bytes": 1599,
+   "rollbackPath": null,
+   "note": "Added by this wave (Hansa corpus integration phases A+B)."
+  },
+  {
+   "path": "content/intake/hansa-integration/reference_records.jsonl",
+   "beforeSha256": null,
+   "acceptedDrift": [],
+   "sha256": "012153077cca2b36d573fadbe52f4ebe1bd6921d3b618501b75c6207e88ea7e3",
+   "bytes": 1219070,
+   "rollbackPath": null,
+   "note": "Added by this wave (Hansa corpus integration phases A+B)."
+  },
+  {
+   "path": "content/study/experiments.json",
+   "beforeSha256": null,
+   "acceptedDrift": [],
+   "sha256": "88028cb40d7cb797b30a1a0d2354c448b6c88f26c1475883c59a4566043d1ac3",
+   "bytes": 42734,
+   "rollbackPath": null,
+   "note": "Added by this wave (Hansa corpus integration phases A+B)."
+  },
+  {
+   "path": "content/study/references.json",
+   "beforeSha256": null,
+   "acceptedDrift": [],
+   "sha256": "ba23774f8cc9f0841d31ff26fd55ee7b50a2f19a21efdfd004129b701bda7b62",
+   "bytes": 1791801,
+   "rollbackPath": null,
+   "note": "Added by this wave (Hansa corpus integration phases A+B)."
+  },
+  {
+   "path": "public/content/fabric/notes.json",
+   "beforeSha256": null,
+   "acceptedDrift": [],
+   "sha256": "708e75dd414011f6cf4bfefcaed5bbf6f32af7b36bc92d38e728a6d3953753bb",
+   "bytes": 311433,
+   "rollbackPath": null,
+   "note": "Added by this wave (Hansa corpus integration phases A+B)."
+  },
+  {
+   "path": "tests/content/study-catalogue.test.mjs",
+   "beforeSha256": null,
+   "acceptedDrift": [],
+   "sha256": "e30a0d5361b8b8cfcc57838b49a0e4071936f5430f786f598748f1d2f00bf525",
+   "bytes": 5524,
+   "rollbackPath": null,
+   "note": "Added by this wave (Hansa corpus integration phases A+B)."
+  },
+  {
+   "path": "app/learn/fabric-rti/page.tsx",
+   "beforeSha256": null,
+   "acceptedDrift": [],
+   "sha256": "63177df4ea083feec3f5e16d05ef99bfb0c06e4cafa6256eec1ab982116db539",
+   "bytes": 12142,
+   "rollbackPath": null,
+   "observeOnly": true,
+   "note": "Pre-existing state observed at wave start: modified/added by the uncommitted 29 Oct RTI-academy/cinematic/knowledge work streams after the last recorded receipt; this wave did not author it. Recorded (observeOnly) so the runtime gate pins the observed bytes explicitly; any later change fails the gate."
+  },
+  {
+   "path": "app/learn/fabric-rti/[slug]/page.tsx",
+   "beforeSha256": null,
+   "acceptedDrift": [],
+   "sha256": "8ae178fd71a692eaf866cccb26265b491e9a48e12eb67b1fe664667adead309b",
+   "bytes": 16285,
+   "rollbackPath": null,
+   "observeOnly": true,
+   "note": "Pre-existing state observed at wave start: modified/added by the uncommitted 29 Oct RTI-academy/cinematic/knowledge work streams after the last recorded receipt; this wave did not author it. Recorded (observeOnly) so the runtime gate pins the observed bytes explicitly; any later change fails the gate."
+  },
+  {
+   "path": "lib/atlas/field.ts",
+   "beforeSha256": null,
+   "acceptedDrift": [],
+   "sha256": "79f985b31e5010a8ad2c910c45bd934bc34841217881fdca9273e991790001ff",
+   "bytes": 21392,
+   "rollbackPath": null,
+   "observeOnly": true,
+   "note": "Pre-existing state observed at wave start: modified/added by the uncommitted 29 Oct RTI-academy/cinematic/knowledge work streams after the last recorded receipt; this wave did not author it. Recorded (observeOnly) so the runtime gate pins the observed bytes explicitly; any later change fails the gate."
+  },
+  {
+   "path": "lib/motion/cinematic.ts",
+   "beforeSha256": null,
+   "acceptedDrift": [],
+   "sha256": "8bf26eb5c10ef75bd268101701e026b4da04659609f06b7a3beac7c25d29a2b1",
+   "bytes": 1950,
+   "rollbackPath": null,
+   "observeOnly": true,
+   "note": "Pre-existing state observed at wave start: modified/added by the uncommitted 29 Oct RTI-academy/cinematic/knowledge work streams after the last recorded receipt; this wave did not author it. Recorded (observeOnly) so the runtime gate pins the observed bytes explicitly; any later change fails the gate."
+  },
+  {
+   "path": "lib/rti/lessons.ts",
+   "beforeSha256": null,
+   "acceptedDrift": [],
+   "sha256": "8efee0e346366d67c3668f071c1311e2831e0d3b8da2469f9fbffd3a435ef290",
+   "bytes": 32059,
+   "rollbackPath": null,
+   "observeOnly": true,
+   "note": "Pre-existing state observed at wave start: modified/added by the uncommitted 29 Oct RTI-academy/cinematic/knowledge work streams after the last recorded receipt; this wave did not author it. Recorded (observeOnly) so the runtime gate pins the observed bytes explicitly; any later change fails the gate."
+  },
+  {
+   "path": "components/cinematic/cinematic.css",
+   "beforeSha256": null,
+   "acceptedDrift": [],
+   "sha256": "bb538a90a2e8ce6f2ae8b7cfdf3671cf31cc0214306d206e4bdf35707e6fc9f3",
+   "bytes": 15273,
+   "rollbackPath": null,
+   "observeOnly": true,
+   "note": "Pre-existing state observed at wave start: modified/added by the uncommitted 29 Oct RTI-academy/cinematic/knowledge work streams after the last recorded receipt; this wave did not author it. Recorded (observeOnly) so the runtime gate pins the observed bytes explicitly; any later change fails the gate."
+  },
+  {
+   "path": "components/cinematic/reveal.tsx",
+   "beforeSha256": null,
+   "acceptedDrift": [],
+   "sha256": "fb8598e414d74b17d5f7949b0daa83bec8b151adf9a755e01e0bfa0df6f523e7",
+   "bytes": 5130,
+   "rollbackPath": null,
+   "observeOnly": true,
+   "note": "Pre-existing state observed at wave start: modified/added by the uncommitted 29 Oct RTI-academy/cinematic/knowledge work streams after the last recorded receipt; this wave did not author it. Recorded (observeOnly) so the runtime gate pins the observed bytes explicitly; any later change fails the gate."
+  },
+  {
+   "path": "components/cinematic/spacetime-atlas.tsx",
+   "beforeSha256": null,
+   "acceptedDrift": [],
+   "sha256": "92c9051377b59571a10b1fd31aa84d27ad28725b4e4f17194288950cd84e8f66",
+   "bytes": 32501,
+   "rollbackPath": null,
+   "observeOnly": true,
+   "note": "Pre-existing state observed at wave start: modified/added by the uncommitted 29 Oct RTI-academy/cinematic/knowledge work streams after the last recorded receipt; this wave did not author it. Recorded (observeOnly) so the runtime gate pins the observed bytes explicitly; any later change fails the gate."
+  },
+  {
+   "path": "components/cinematic/spacetime.css",
+   "beforeSha256": null,
+   "acceptedDrift": [],
+   "sha256": "bbf3237ffb9e148db2ad30f6a18e44718ddb8a3eea9e86a94b37ff80304a5d78",
+   "bytes": 6568,
+   "rollbackPath": null,
+   "observeOnly": true,
+   "note": "Pre-existing state observed at wave start: modified/added by the uncommitted 29 Oct RTI-academy/cinematic/knowledge work streams after the last recorded receipt; this wave did not author it. Recorded (observeOnly) so the runtime gate pins the observed bytes explicitly; any later change fails the gate."
+  },
+  {
+   "path": "components/cinematic/use-calm-motion.ts",
+   "beforeSha256": null,
+   "acceptedDrift": [],
+   "sha256": "10753df2675dfd8995a223e983ea6f70e29e4c752674fe7381dfd1f862ae31a4",
+   "bytes": 1349,
+   "rollbackPath": null,
+   "observeOnly": true,
+   "note": "Pre-existing state observed at wave start: modified/added by the uncommitted 29 Oct RTI-academy/cinematic/knowledge work streams after the last recorded receipt; this wave did not author it. Recorded (observeOnly) so the runtime gate pins the observed bytes explicitly; any later change fails the gate."
+  },
+  {
+   "path": "components/cinematic/use-scroll-progress.ts",
+   "beforeSha256": null,
+   "acceptedDrift": [],
+   "sha256": "15e0a3ae4d4af7c4fef45feec594c3fa1ccb03a8cc6a2507cd980fbac5dbbaec",
+   "bytes": 4205,
+   "rollbackPath": null,
+   "observeOnly": true,
+   "note": "Pre-existing state observed at wave start: modified/added by the uncommitted 29 Oct RTI-academy/cinematic/knowledge work streams after the last recorded receipt; this wave did not author it. Recorded (observeOnly) so the runtime gate pins the observed bytes explicitly; any later change fails the gate."
+  },
+  {
+   "path": "content/exams/fabric-rti.json",
+   "beforeSha256": null,
+   "acceptedDrift": [],
+   "sha256": "570653a49cd1b151659ddd0f4b07c53dd0551fd73a47772d16cccc791139bf8b",
+   "bytes": 9547,
+   "rollbackPath": null,
+   "observeOnly": true,
+   "note": "Pre-existing state observed at wave start: modified/added by the uncommitted 29 Oct RTI-academy/cinematic/knowledge work streams after the last recorded receipt; this wave did not author it. Recorded (observeOnly) so the runtime gate pins the observed bytes explicitly; any later change fails the gate."
+  },
+  {
+   "path": "tests/knowledge/cinematic-field.test.mjs",
+   "beforeSha256": null,
+   "acceptedDrift": [],
+   "sha256": "1150eeed5c4af5eecc96109615d78b8a30de1b66ea5d20887f7b484b89232461",
+   "bytes": 9572,
+   "rollbackPath": null,
+   "observeOnly": true,
+   "note": "Pre-existing state observed at wave start: modified/added by the uncommitted 29 Oct RTI-academy/cinematic/knowledge work streams after the last recorded receipt; this wave did not author it. Recorded (observeOnly) so the runtime gate pins the observed bytes explicitly; any later change fails the gate."
+  },
+  {
+   "path": "app/lab/page.tsx",
+   "beforeSha256": "a2fc0ffb9ab905b19b3270f7ab3c1e3337d4b774f3b0d0cc05a621ac1cdaacfa",
+   "acceptedDrift": [],
+   "sha256": "c01e78a80d6fde804928cc862322ff29ce9860a478abea68aea0ae4b0c37efcd",
+   "bytes": 7524,
+   "rollbackPath": null,
+   "observeOnly": true,
+   "note": "Pre-existing state observed at wave start: modified/added by the uncommitted 29 Oct RTI-academy/cinematic/knowledge work streams after the last recorded receipt; this wave did not author it. Recorded (observeOnly) so the runtime gate pins the observed bytes explicitly; any later change fails the gate."
+  },
+  {
+   "path": "components/lab/exam-catalog.tsx",
+   "beforeSha256": "90726354310e9280649d80987bbc5bc43da138a8c7615fb5a7763b60de009f0b",
+   "acceptedDrift": [],
+   "sha256": "feffbfd609d4df8907f6409f942bc57fff89e4927191dd24f50cca3c0367b3ea",
+   "bytes": 6611,
+   "rollbackPath": null,
+   "observeOnly": true,
+   "note": "Pre-existing state observed at wave start: modified/added by the uncommitted 29 Oct RTI-academy/cinematic/knowledge work streams after the last recorded receipt; this wave did not author it. Recorded (observeOnly) so the runtime gate pins the observed bytes explicitly; any later change fails the gate."
+  },
+  {
+   "path": "docs/dp600-academy/PHASE_0_PRESERVATION_BASELINE.json",
+   "beforeSha256": "c04d494930b7eb9b47de3dd9d706c204b16df77edab97b305ae50985aff31a28",
+   "acceptedDrift": [],
+   "sha256": "471a39ba05b05486771f0565c7ac1879442a586642673410e2b3730e276ba970",
+   "bytes": 54130,
+   "rollbackPath": null,
+   "observeOnly": true,
+   "note": "Pre-existing state observed at wave start: modified/added by the uncommitted 29 Oct RTI-academy/cinematic/knowledge work streams after the last recorded receipt; this wave did not author it. Recorded (observeOnly) so the runtime gate pins the observed bytes explicitly; any later change fails the gate."
+  },
+  {
+   "path": "lib/catalogue.ts",
+   "beforeSha256": "2e72068953ac004b35f705285fa7eed91d7e1f00a38aeeba91b9923bc95afbba",
+   "acceptedDrift": [],
+   "sha256": "99fafbc47744defd2abfcfcc0f145a7f27dcdaa8ddcda76ae2ce18c725268eac",
+   "bytes": 14053,
+   "rollbackPath": null,
+   "observeOnly": true,
+   "note": "Pre-existing state observed at wave start: modified/added by the uncommitted 29 Oct RTI-academy/cinematic/knowledge work streams after the last recorded receipt; this wave did not author it. Recorded (observeOnly) so the runtime gate pins the observed bytes explicitly; any later change fails the gate."
+  },
+  {
+   "path": "lib/exams.ts",
+   "beforeSha256": "5837769bc5a42e16ceea806ff4940ba854965c35c247e27e850d1bf67106d3e0",
+   "acceptedDrift": [],
+   "sha256": "349d794587b753a72f8533bbb978838436c08422c379161f14adf8df9a264f90",
+   "bytes": 4583,
+   "rollbackPath": null,
+   "observeOnly": true,
+   "note": "Pre-existing state observed at wave start: modified/added by the uncommitted 29 Oct RTI-academy/cinematic/knowledge work streams after the last recorded receipt; this wave did not author it. Recorded (observeOnly) so the runtime gate pins the observed bytes explicitly; any later change fails the gate."
+  },
+  {
+   "path": "lib/site-metrics.ts",
+   "beforeSha256": "5cbd39bd86f79c48bc32ad0429eb0012a7104b2a8358effaaefff0cedbda6fa2",
+   "acceptedDrift": [
+    "9d22906320b7547907e307fd9ae3ff8a3a954613caa4f51dd697291485d1c2e8"
+   ],
+   "sha256": "7a6aae66444df46f8ca19d7878d4c8d47c3dbadc4d2cb3974571498a0a86defc",
+   "bytes": 2522,
+   "rollbackPath": "docs/hansa-integration-20261029/before/lib/site-metrics.ts.snapshot",
+   "observeOnly": true,
+   "note": "Pre-existing drift (29 Oct work streams) that this wave then modified on top of; rollback snapshot holds the pre-wave working-tree bytes (9d22906320). Pre-existing state observed at wave start: modified/added by the uncommitted 29 Oct RTI-academy/cinematic/knowledge work streams after the last recorded receipt; this wave did not author it. Recorded (observeOnly) so the runtime gate pins the observed bytes explicitly; any later change fails the gate."
+  },
+  {
+   "path": "scripts/verify-site-metrics.mjs",
+   "beforeSha256": "7401e9002a763d22ea96d57d45a5d6339192db36185e7f9a360ffebd81e7944f",
+   "acceptedDrift": [
+    "62e6e0094882b75c666ab65e233ab9b21468edc82893266f499cee5cf237933a"
+   ],
+   "sha256": "30294069db3d452a04269c2d26e7427027de0bd8836c43fd42e99e98b3809437",
+   "bytes": 4531,
+   "rollbackPath": "docs/hansa-integration-20261029/before/scripts/verify-site-metrics.mjs.snapshot",
+   "observeOnly": true,
+   "note": "Pre-existing drift (29 Oct work streams) that this wave then modified on top of; rollback snapshot holds the pre-wave working-tree bytes (62e6e00948). Pre-existing state observed at wave start: modified/added by the uncommitted 29 Oct RTI-academy/cinematic/knowledge work streams after the last recorded receipt; this wave did not author it. Recorded (observeOnly) so the runtime gate pins the observed bytes explicitly; any later change fails the gate."
+  },
+  {
+   "path": "package.json",
+   "beforeSha256": "1532b86c3f2207928ae4d22bcaafb86c48d8ae4b02713ef9207251347a16a493",
+   "acceptedDrift": [],
+   "sha256": "18cf9597ff8d574df1c64a020efa525ab6a599e2ee65139dca2104932b5b9832",
+   "bytes": 3329,
+   "rollbackPath": null,
+   "observeOnly": true,
+   "note": "Pre-existing state observed at wave start: modified/added by the uncommitted 29 Oct RTI-academy/cinematic/knowledge work streams after the last recorded receipt; this wave did not author it. Recorded (observeOnly) so the runtime gate pins the observed bytes explicitly; any later change fails the gate."
+  },
+  {
+   "path": "scripts/import-notion-data-viz.mjs",
+   "beforeSha256": "42c3181a0dcc36c8053ba5036674b46a350349822256fd43c1e271742719b56f",
+   "acceptedDrift": [],
+   "sha256": "a37df2b2629432f738f535a8dfb20066ca1fe4b6e08923d77bc86ba33ceaeb14",
+   "bytes": 32780,
+   "rollbackPath": null,
+   "observeOnly": true,
+   "note": "Pre-existing state observed at wave start: modified/added by the uncommitted 29 Oct RTI-academy/cinematic/knowledge work streams after the last recorded receipt; this wave did not author it. Recorded (observeOnly) so the runtime gate pins the observed bytes explicitly; any later change fails the gate."
+  },
+  {
+   "path": "scripts/import-notion-statistics.mjs",
+   "beforeSha256": "1f86db40a4ea2aabd15169786e0ccc5f27946bc63acedc8d21260e6412eafabf",
+   "acceptedDrift": [],
+   "sha256": "1215099eb46015c0767e6294221dac392dbfddee30ff052a50d3a78dc9a2e9ec",
+   "bytes": 35748,
+   "rollbackPath": null,
+   "observeOnly": true,
+   "note": "Pre-existing state observed at wave start: modified/added by the uncommitted 29 Oct RTI-academy/cinematic/knowledge work streams after the last recorded receipt; this wave did not author it. Recorded (observeOnly) so the runtime gate pins the observed bytes explicitly; any later change fails the gate."
+  },
+  {
+   "path": "tsconfig.tsbuildinfo",
+   "beforeSha256": "cbdf9fc15359fec2ff4b6f477dbd63594d3ffc23fac2b64be4b4c885a36789e4",
+   "acceptedDrift": [
+    "71aeb4454bddc57ecf423cd833c6e805a638ff643a356e34ac215bbf4e6fa93a"
+   ],
+   "sha256": "626804aa08b805b9a382aa6e565abff33431b1ef744c9f74e36a913ca3ec35fa",
+   "bytes": 213473,
+   "rollbackPath": null,
+   "observeOnly": true,
+   "note": "Generated build cache (incremental tsc), reproducible by rebuilding — the canonical-home receipt records it with generated:true and no rollback bytes by design. The cache regenerated during this wave typecheck/build; pinned here so the successor translation stays exact. Refresh this row after any rebuild. The dp600-continuation layer also pins a regenerated state of this cache; its recorded hash is accepted as drift here too. Refresh after any rebuild."
+  },
+  {
+   "path": "scripts/verify-preservation-history.mjs",
+   "beforeSha256": "0a512a8e4779d0da59b9a7850abf86b3c5c465d668db6b9c61a2ed0880a5b924",
+   "acceptedDrift": [],
+   "sha256": "9193925de562fa717111fc85777ca32c3db030a6fb8221f373f7797d6770fcda",
+   "bytes": 10944,
+   "rollbackPath": "docs/hansa-integration-20261029/before/scripts/verify-preservation-history.mjs.snapshot",
+   "note": "Disposable-copy harness extended to carry the sql-integration and hansa-integration manifests (the sql layer was never added when it landed, so this harness has been unresolvable in copies since 28 Oct)."
+  },
+  {
+   "path": "components/site-header.tsx",
+   "beforeSha256": "118ed934956168ae612e6e84d20eb112f7eaf3cd64a5a457ea0974af7dea8f5d",
+   "acceptedDrift": [],
+   "sha256": "f9c18a0d58fa4b3faedb5be02c3cf5c39bbfe0eb6f7f9bcf30a55d714ea467bc",
+   "bytes": 9714,
+   "rollbackPath": null,
+   "observeOnly": true,
+   "note": "Pre-existing drift observed at wave start: modified by the uncommitted 29 Oct work streams after the canonical-home recording; this wave did not author it. Recorded (observeOnly) so the gate pins the observed bytes."
+  },
+  {
+   "path": "scripts/verify-prototype-c.mjs",
+   "beforeSha256": "acfd0460e15d09e4b1193f5177bb6342d3deeac40a1be925ac9a0f3929434b1e",
+   "acceptedDrift": [
+    "90a15ed2382cf4fc6786a88737ce2f23613ff0eaa157a323d5f6953050b2def4"
+   ],
+   "sha256": "d9776caef0472ebe70aca9f1dadb03a60329e1a2a29e10d7231912096989db83",
+   "bytes": 5131,
+   "rollbackPath": "docs/hansa-integration-20261029/before/scripts/verify-prototype-c.mjs.snapshot",
+   "note": "Disposable-copy harness extended to carry the cinematic/final-review/study/path-review/sql-integration and hansa-integration layers (they were never added, so this harness degraded to identity inside copies). Rollback snapshot holds the pre-wave bytes; the pre-wave state itself was already drifted from the canonical recording."
+  }
+ ]
+}

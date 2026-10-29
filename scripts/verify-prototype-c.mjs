@@ -29,6 +29,33 @@ for(const manifestPath of [R11_INTEGRATION,CANONICAL_HOME]){
     if(e.basisPath)chainPaths.add(e.basisPath);
   }
 }
+// Layers below canonical-home (cinematic → final-review → study → path-review →
+// sql-integration → hansa-integration) must travel too, or the chain degrades to
+// identity inside the copy and the rejection cases pass for the wrong reason.
+// Field names differ per layer (previousManifest vs previous), and the
+// final-review layer additionally binds a history file.
+for(const manifestPath of ['docs/cinematic-phase2/INTEGRATION_MANIFEST.json','docs/final-review-20261028/INTEGRATION_MANIFEST.json','docs/learning-architecture-20261028/MANIFEST.json','docs/learning-path-review-20261028/MANIFEST.json','docs/sql-integration-20261028/MANIFEST.json','docs/hansa-integration-20261029/MANIFEST.json']){
+  if(!fs.existsSync(manifestPath))continue;
+  const layer=JSON.parse(fs.readFileSync(manifestPath,'utf8'));
+  chainPaths.add(manifestPath);
+  for(const extra of [layer.previousManifest,layer.previous,layer.baselinePath,layer.baseline,...(layer.baselines??[]).map(b=>b.path)].filter(Boolean))chainPaths.add(extra);
+  if(manifestPath.includes('final-review')){
+    chainPaths.add('docs/final-review-20261028/HISTORICAL_RECONCILIATION.json');
+    const history=JSON.parse(fs.readFileSync('docs/final-review-20261028/HISTORICAL_RECONCILIATION.json','utf8'));
+    for(const e of [...history.transitions,...history.additions]){
+      chainPaths.add(e.path);
+      if(e.originalPath)chainPaths.add(e.originalPath);
+      if(e.capturedPath)chainPaths.add(e.capturedPath);
+    }
+    chainPaths.add(JSON.parse(fs.readFileSync('docs/final-review-20261028/INTEGRATION_MANIFEST.json','utf8')).baselinePath);
+  }
+  for(const e of layer.files??[]){
+    chainPaths.add(e.path);
+    if(e.rollbackPath)chainPaths.add(e.rollbackPath);
+    if(e.originalPath)chainPaths.add(e.originalPath);
+    if(e.capturedPath)chainPaths.add(e.capturedPath);
+  }
+}
 const paths=[...chainPaths].filter(p=>!retired.has(p)&&fs.existsSync(p));
 for(const p of paths){fs.mkdirSync(path.dirname(path.join(scratch,p)),{recursive:true});fs.copyFileSync(p,path.join(scratch,p));}
 let negatives=0;

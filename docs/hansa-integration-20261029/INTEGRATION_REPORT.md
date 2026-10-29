@@ -1,0 +1,173 @@
+# Hansa Deep Research Corpus integration — Phases A + B, 29 October 2026
+
+Executed from the workspace handoff `hansa-integration/HANDOFF.md` (trigger
+"proceed with the plan") and its master plan `hansa-integration/INTEGRATION_PLAN.md`.
+Scope for this wave: **Phase A (reference layer)**, **Phase B (hands-on lab
+pages)**, known-issue #1 (`content/fabric/notes.json` 404), and the integrity
+surface that proves them. Phases C–F are not started. **Nothing was deployed**;
+`out/` is a local static export only.
+
+---
+
+## 1. Outcome
+
+| Plan deliverable | State |
+|---|---|
+| Phase A — reference layer | **1,859 curated LINK_ONLY/reference records** live in the study hub; every one of the 8 Fabric module desks plus power-bi, sql, python and analysis desks gained reference material (fabric/ingestion 144, fabric/streaming 241, fabric/delivery 130, fabric/transform 132, fabric/query 122, fabric/foundations 99, fabric/security 59, fabric/model 40, fabric/overview 341). |
+| Phase B — hands-on labs | **29 lab pages live at `/lab/hands-on/<slug>/`** (18 mslearn-fabric, 10 PL-300/Power BI, 1 SQL) with environment, step skeleton, validation checks, assets, license badge and provenance; catalogue Experiment counts rose from 4 site-wide to 4 + 29 published labs (+16 recorded hold-backs). |
+| Known issue #1 — notes.json 404 | **Fixed**: `public/content/fabric/notes.json` ships in the static export (`200` on the served build; previously 404). Lesson `sourcePointer` values now resolve. |
+| Sitemap | 254 → **284 URLs** (+1 index +29 labs). |
+| Metrics | `SITE_METRICS.study.studyReferences = 1859`, `study.studyExperiments = 29`, both verifier-guarded. |
+
+Curation ledger (auditable in `content/study/references.json` → `meta`):
+3,131 input = 1,859 curated + 654 duplicate URLs + 537 unmatched by
+deterministic rules + 25 scraper-noise titles + 32 kernel-tooling docs + 23
+exam-prep/answer-key domains (certiace.com, msfthub.com, kengio.github.io) + 1
+video link. Experiments: 46 input = 29 published + 16 held back (13 Azure
+admin/M365/architecture labs and 3 generic data-engineering labs have no
+matching subject desk) + 1 non-lab folder ("thank-you").
+
+## 2. Rights and provenance compliance (binding guardrails)
+
+- Every reference is **LINK_ONLY → link + Hansa-written gloss**; the corpus
+  `outline_head` was used for classification only and is **not published**.
+  Gloss text, license/rights class and corpus id render on every record
+  (verified in built HTML: `Rights class LINK_ONLY — linked and paraphrased
+  only, never republished. Curated from the Hansa Deep Research Corpus (DOC-…)`).
+- Lab pages mirror **REDISTRIBUTABLE MIT** content with attribution: source
+  repository link, SPDX license badge, corpus lab/module ids, and an
+  "Authoring scaffold — not a verified walkthrough" caveat on every page.
+- Provenance chain preserved: `corpus_id` + `source_url` + `sha256` survive in
+  `content/intake/hansa-integration/*` (with upstream package manifest) and in
+  the receipt wave manifest.
+- No exam dumps, no community answer keys (kengio excluded), nothing executed
+  against Fabric, no auto-publish (static build only), no deploy.
+
+## 3. Files and routes
+
+**New** — `content/intake/hansa-integration/` (5 files, intake copies + README),
+`content/study/references.json`, `content/study/experiments.json`,
+`scripts/build-study-catalogue.mjs` (rebuildable curation pipeline),
+`scripts/hansa-integration-receipt.mjs` (receipt layer),
+`lib/study/curated.ts` (typed accessors, server-only),
+`app/lab/hands-on/page.tsx`, `app/lab/hands-on/[slug]/page.tsx` (index + 29 SSG
+lab pages), `tests/content/study-catalogue.test.mjs` (8 tests),
+`public/content/fabric/notes.json`, `docs/hansa-integration-20261029/`
+(receipt wave: MANIFEST.json, before/*.snapshots, this report).
+
+**Modified** — `lib/study/server.ts` (adds curated records; skips
+`hands-on-` ids to avoid double-count), `lib/study/source-documents.ts` (labs
+into the search index), `components/study/topic-browser.tsx` (external anchors:
+`target="_blank" rel="noopener noreferrer"`, source-host eyebrow, "Source ↗"
+affordance; internal links unchanged), `lib/site-metrics.ts`,
+`scripts/verify-site-metrics.mjs`, `app/sitemap.ts`,
+`scripts/sql-integration-receipt.mjs` (chained to the new receipt layer),
+`scripts/verify-preservation-history.mjs` and `scripts/verify-prototype-c.mjs`
+(disposable-copy harnesses extended to carry the sql-integration and
+hansa-integration layers — the sql layer had never been added when it landed,
+so both harnesses were unresolvable in copies since 28 Oct).
+
+**Routes added**: `/lab/hands-on/`, `/lab/hands-on/exp-0001-blancos/` …
+`/lab/hands-on/exp-0040-prepare-a-semantic-model-for-ai/` (30 total). Study
+desks, search and sitemap update in place; no existing route changed.
+
+## 4. Component / library rationale
+
+No new dependencies, no new client JavaScript frameworks. References reuse the
+existing `TopicBrowser` record row (list vocabulary, filters, pagination) with
+one added external-anchor path; lab pages reuse `Container`/`Eyebrow`
+(`components/ui`) and `Panel` (`components/fabric/ui`) — the same server-rendered
+design language as the RTI Academy lessons — plus Tailwind tokens already in
+the design system. Static-export and assets-only hosting constraints hold (all
+new pages are SSG with `dynamicParams = false`; JSONL intake is converted by a
+build-time script, never fetched client-side). Costs: **zero** — free, no paid
+services, no backend changes, no secrets.
+
+## 5. Verification evidence
+
+| Check | Result |
+|---|---|
+| `npx tsc --noEmit` | PASS (0 errors) |
+| `npm run lint` | PASS (0 errors; 8 warnings, all pre-existing in untouched scripts) |
+| `npm run test:all` (62+18+34+47+33) | **PASS — 194 tests, 0 failures** (incl. 8 new study-catalogue tests: placement on real desks, all 8 fabric modules > 0 references, unique ids/URLs, ledger balance, rights classes, lab license/provenance, recovered titles, no catalogue id collisions) |
+| `node scripts/verify-agent-reference.mjs` | PASS |
+| `node scripts/verify-knowledge-atlas.mjs` | PASS |
+| `node scripts/verify-easyui-integration.mjs` | PASS (41 owned hashes; 1,169 prior-file contracts) |
+| `node scripts/verify-preservation-history.mjs` | PASS (6 rejection cases) |
+| `node scripts/verify-prototype-c.mjs` | PASS |
+| `node scripts/verify-site-metrics.mjs` | PASS (20 values) |
+| `npm run build` + postbuild | PASS — static export; 284 sitemap URLs; 35 entries under `out/lab/hands-on/`; `out/content/fabric/notes.json` present |
+| Served-preview checks (http-server on `out/`) | `/prototype-c/` 200 · **`/content/fabric/notes.json` 200 (bug fixed)** · `/lab/hands-on/` 200 · `/study/fabric/ingestion/` 200 |
+| Built-HTML inspection | Reference rows render with corpus id, rights class, basis; external anchors carry `target="_blank" rel="noopener noreferrer"`; lab pages render title, environment, step skeleton, validation, provenance, license badge; internal lab links carry `learningContext` |
+| `npm run qa:prototype-c` (headless browser) | **FAIL — pre-existing**: `TimeoutError` waiting for networkidle on `/prototype-c/` (reproduced twice on the served build). That page's code is untouched by this wave; the uncommitted 29 Oct cinematic/knowledge work in the tree is the likely cause. Not a regression from this task. |
+| Browser/mobile/theme/keyboard QA of the new pages, visual regression screenshots | **NOT RUN** (no headless browser pass over the new surfaces; static HTML + HTTP checks only) |
+| Deployment | NOT PERFORMED (out of scope; assets-only deploy stays a human step) |
+
+## 6. Visual Opportunity Pass (creative-intelligence skill)
+
+Cognitive task: navigate a large reference corpus without drowning. Considered:
+(a) simplest precise — reuse the study record row, add a source-host eyebrow and
+"Source ↗" affordance; (b) rich 2D — publisher chips/badges per row; (c)
+immersive — rejected outright for a 3k-entry catalogue (clutter, payload).
+Selected (a) plus license/rights text in the existing disclosure block: zero new
+motion, no new CSS files, reduced-motion behavior unchanged, 44px touch targets
+preserved, records are English-only so RTL unaffected, and the same treatment
+applies at 320–1280px through the existing study grid. Lab pages intentionally
+mirror the Academy lesson composition (breadcrumb → eyebrow → caveat panel →
+two-column environment/validation → step skeleton → provenance) so the two
+surfaces read as one system. Non-generic depth is carried by the existing
+ editorial shell rather than new decoration — appropriate for catalogue pages.
+
+## 7. Receipt-wave reconciliation (transparency)
+
+The workspace carries several uncommitted 29 Oct work streams (RTI academy,
+cinematic/knowledge-stage) whose changes postdate the 28 Oct receipt recordings,
+so `verify-agent-reference.mjs`, `verify-knowledge-atlas.mjs`,
+`verify-easyui-integration.mjs`, `verify-preservation-history.mjs` and
+`verify-prototype-c.mjs` were **already failing at session start**. This wave
+records `docs/hansa-integration-20261029/MANIFEST.json` (45 rows) that:
+
+- **receipts its own changes** with before-hashes and rollback byte snapshots
+  (6 modified files) and beforeSha256-null rows for its 12 additions;
+- **reconciles two recorded-but-superseded states** via `acceptedDrift`
+  (`app/sitemap.ts`, `lib/study/source-documents.ts` — uncommitted study-hub
+  edits had moved them past the recorded hashes);
+- **pins pre-existing drift as `observeOnly`** — the uncommitted RTI/cinematic
+  work stream's files and drifts (e.g. `components/site-header.tsx`,
+  `app/lab/page.tsx`, `components/lab/exam-catalog.tsx`, `lib/exams.ts`,
+  `lib/catalogue.ts`, `lib/rti/lessons.ts`, `components/cinematic/*`,
+  `content/exams/fabric-rti.json`, `package.json`, regenerated
+  `tsconfig.tsbuildinfo`) are recorded with their observed current bytes and an
+  explicit authorship note; this wave did **not** author or review those
+  changes, and any later change to them still fails the gate;
+- the `tsconfig.tsbuildinfo` row must be refreshed after every rebuild
+  (generated artifact, reproducible by rebuilding — noted in the manifest).
+
+Rollback: restore the snapshot files under `docs/hansa-integration-20261029/before/`
+over their live paths, delete the new files listed in §3, and revert the
+receipt-module wiring (`sql-integration-receipt.mjs` successor import). The
+intake JSONL copies are additive and can simply be removed.
+
+## 8. Caveats
+
+1. Lab pages are **scaffolds**, not verified walkthroughs: steps come from the
+   corpus instruction heads; some mslearn labs (environment setup, 22c/22d,
+   26c/26d) carry thin instructions — pages state this and link the source.
+2. Title/topic placement is **organizational metadata**; every record says so.
+3. 537 unmatched references and 16 held-back labs are deliberate curation
+   decisions recorded with reasons; widening the rules is a future editorial task.
+4. Reference records are not in the search index (search points at internal
+   canonical URLs by design); they are discoverable via the study desks.
+5. qa:prototype-c's browser timeout and the uncommitted cinematic/RTI work
+   belong to their own streams; this wave neither fixed nor reverted them.
+
+## 9. Next atomic task
+
+**Phase C, first pack**: author `semantic-models-dax` (deepest grounding: 594
+KUs / 770 code assets / 3 labs) or `eventstream-windowing` per
+`hansa-integration/data/packs/pack_authoring_specs.json`, in the exact §3.1
+question-record shape with per-batch provenance/validation notes, plugging into
+`scripts/import-fabric-bank.mjs`'s content layer, then extend the SOURCES
+registry and manifest counts. After that: Phase B residue (pair labs with
+`dataset_index.jsonl` starter data), Phase D (PL-300 labs → Academy lessons),
+Phase E, Phase F.

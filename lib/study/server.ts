@@ -9,6 +9,7 @@ import feed from '@/content/knowledge/insights.json';
 import {eligibleInsights} from '@/lib/knowledge/insights';
 import {SUBJECTS,classify,type StudyRecord,type SubjectId} from './taxonomy';
 import {CLASSIFICATION_REVIEW,reviewedNotePlacement} from './classification-review';
+import {REFERENCE_RECORDS,HANDS_ON_RECORDS} from './curated';
 function clean(s:string){return s.replace(/<[^>]*>/g,' ').replace(/\\n/g,' ').replace(/\s+/g,' ').trim();}
 const PACK_CONTEXT:Record<string,string>={delta:'transform',warehouse:'query',pipelines:'ingestion',scd:'model',eventhouse:'streaming',video06:'security',video07:'security',video08:'security',video09:'delivery',video10:'delivery',video11:'streaming',video12:'delivery',video14:'ingestion',video15:'security',video16:'query',video19:'ingestion',video20:'transform',video21:'delivery'};
 function fabricPlacement(text:string,pack:string){const m=classify('fabric',text);return m.topic==='overview'&&PACK_CONTEXT[pack]?{topic:PACK_CONTEXT[pack],basis:'Existing source pack context; no prerequisite or answer-validation claim'}:m;}
@@ -16,7 +17,8 @@ export function studyRecords():StudyRecord[]{
  const records:StudyRecord[]=[];
  for(const doc of sourceDocuments()){
   // The R11 search view reuses the existing addition IDs below, never a second question.
-  if(doc.id.startsWith('r11-')||doc.id.startsWith('sql-'))continue;
+  // hands-on lab pages are added directly with their own subject/topic below.
+  if(doc.id.startsWith('r11-')||doc.id.startsWith('sql-')||doc.id.startsWith('hands-on-'))continue;
   const href=doc.url, path=href.split(/[?#]/)[0];
   if(!/^\/(learn|explore|practice|lab)\//.test(path)||/catalogue|drafts|atlas/.test(path))continue;
   let subject:SubjectId=path.includes('statistics')||href.includes('/lab/statistics')?'statistics':path.includes('dp-600')?'fabric':path.includes('/lab/power-bi')?'power-bi':path.includes('/lab/python')?'python':path.includes('/lab/excel')?'excel':path.includes('/lab/sql')?'sql':path.includes('/lab/fundamentals')?'analysis':path.includes('/lab/fabric-rti')?'fabric':path.includes('/learn/fabric-rti')?'fabric':'visualization';
@@ -35,6 +37,11 @@ export function studyRecords():StudyRecord[]{
  records.push({...base,id:LESSON.id,title:LESSON.title,href:LESSON.href+'#understand',kind:'read',context:LESSON.objective+' Before starting: '+LESSON.prerequisites.join('; ')},{...base,id:LESSON.id+'-experiment',title:'Compare access and movement constraints',href:LESSON.href+'#experiment',kind:'experiment',context:LESSON.objective});
  for(const q of TRANSFER)records.push({...base,id:q.id,title:q.title,href:LESSON.href+'#'+q.id,kind:'question',context:q.prompt});
  for(const insight of eligibleInsights(feed.items,true))records.push({...base,id:insight.id,title:insight.title,href:'/?insight='+insight.id+'#today',kind:'experiment',context:insight.topic,source:'Dated Daily Insight / '+insight.date});
+ // Curated corpus layers (scripts/build-study-catalogue.mjs): linked external
+ // references (LINK_ONLY — link + gloss, never republished) and hands-on lab
+ // scaffolds published at /lab/hands-on/. Placement arrives pre-validated from
+ // lib/study/curated.ts.
+ records.push(...HANDS_ON_RECORDS,...REFERENCE_RECORDS);
  for(const r of records){const correction=CLASSIFICATION_REVIEW[r.id];if(correction){r.topic=correction.topic;r.basis=`Content-reviewed correction: ${correction.reason} Evidence: ${correction.evidence}`;}}
  records.push(...sqlRecords());
  const order={read:0,experiment:1,question:2,reference:3};return records.sort((a,b)=>order[a.kind]-order[b.kind]);

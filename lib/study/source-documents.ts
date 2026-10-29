@@ -28,6 +28,7 @@ import {
 } from "@/lib/statistics/content";
 import { EXAMS } from "@/lib/exams";
 import { RTI_LESSONS, RTI_COURSE, rtiLessonHref } from "@/lib/rti/lessons";
+import { HANDS_ON_LABS, handsOnLabHref } from "@/lib/study/curated";
 import { SITE_METRICS } from "@/lib/site-metrics";
 import R11_SEARCH from "@/content/fabric/r11/search.json";
 import type { SearchDocument } from "@/lib/search/query";
@@ -284,6 +285,23 @@ export function sourceDocuments(): SearchDocument[] {
       level: "intermediate",
       course: RTI_COURSE.title,
       keywords: [lesson.verification, ...lesson.origins, ...lesson.objectives.slice(0, 2)],
+    });
+  }
+
+  for (const lab of HANDS_ON_LABS) {
+    // Study records regenerate these with their own subject/topic placement
+    // (lib/study/server.ts skips the hands-on- prefix here), so the search
+    // index carries them without double-counting in the catalogue.
+    documents.push({
+      id: lab.catalogueId,
+      title: lab.title,
+      url: handsOnLabHref(lab),
+      kind: "lab",
+      summary: `${lab.environment}. Hands-on lab scaffold from the source repository — license ${lab.license}; the source stays authoritative.`.slice(0, 240),
+      topic: ["hands-on lab", lab.subject, lab.license],
+      language: "en",
+      level: "intermediate",
+      keywords: [lab.sourceUrl, ...lab.steps.slice(0, 2), ...lab.validationChecks.slice(0, 2)],
     });
   }
 

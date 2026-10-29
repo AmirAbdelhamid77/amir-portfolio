@@ -30,6 +30,10 @@ const required = new Set([
 ]);
 if(existsSync(resolve(root,'docs/learning-architecture-20261028/MANIFEST.json'))){const name='docs/learning-architecture-20261028/MANIFEST.json',m=JSON.parse(readFileSync(resolve(root,name),'utf8'));[name,m.baseline,m.previous].forEach(p=>required.add(p));m.files.forEach(e=>{required.add(e.path);if(e.rollbackPath)required.add(e.rollbackPath);});Object.keys(JSON.parse(readFileSync(resolve(root,m.baseline),'utf8')).files).filter(p=>p.startsWith('content/')).forEach(p=>required.add(p));}
 if(existsSync(resolve(root,'docs/learning-path-review-20261028/MANIFEST.json'))){const name='docs/learning-path-review-20261028/MANIFEST.json',m=JSON.parse(readFileSync(resolve(root,name),'utf8'));[name,m.baseline,m.previous].forEach(p=>required.add(p));m.files.forEach(e=>{required.add(e.path);if(e.rollbackPath)required.add(e.rollbackPath);});}
+// The SQL integration layer sits between the path review and the corpus wave;
+// both manifests must be carried or the chained receipt cannot resolve.
+if(existsSync(resolve(root,'docs/sql-integration-20261028/MANIFEST.json'))){const name='docs/sql-integration-20261028/MANIFEST.json',m=JSON.parse(readFileSync(resolve(root,name),'utf8'));[name,m.previous].forEach(p=>required.add(p));m.files.forEach(e=>{required.add(e.path);if(e.rollbackPath)required.add(e.rollbackPath);});}
+if(existsSync(resolve(root,'docs/hansa-integration-20261029/MANIFEST.json'))){const name='docs/hansa-integration-20261029/MANIFEST.json',m=JSON.parse(readFileSync(resolve(root,name),'utf8'));[name,m.previous].forEach(p=>required.add(p));m.files.forEach(e=>{required.add(e.path);if(e.rollbackPath)required.add(e.rollbackPath);});}
 // Carry the exact current successor and the audited historical before-bytes
 // into disposable views; the original rejection cases remain unchanged.
 if (existsSync(resolve(root,FINAL_REVIEW))) {
