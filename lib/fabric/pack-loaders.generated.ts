@@ -81,6 +81,10 @@ export const PACK_LOADERS: Record<string, FabricPackLoader> = {
     import("@/content/fabric/questions/semantic-models-dax.json").then((module) => ({
       default: module.default as unknown as FabricQuestion[],
     })),
+  "eventstream-windowing": () =>
+    import("@/content/fabric/questions/eventstream-windowing.json").then((module) => ({
+      default: module.default as unknown as FabricQuestion[],
+    })),
 };
 
 export function loadPack(key: string): Promise<FabricQuestion[]> {

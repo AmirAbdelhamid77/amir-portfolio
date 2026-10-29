@@ -38,13 +38,13 @@ export const SITE_METRICS = {
     /** content/exams/*.json → total questions */
     generalQuestions: 70,
     /** content/fabric/meta.json → counts.questions */
-    fabricQuestions: 874,
+    fabricQuestions: 914,
     /** content/fabric/meta.json → counts.packs */
-    fabricPacks: 19,
+    fabricPacks: 20,
     /** content/fabric/sources.json → registry size */
-    fabricSources: 264,
+    fabricSources: 306,
     /** content/fabric/meta.json → caseCount */
-    fabricCases: 77,
+    fabricCases: 78,
   },
   rti: {
     /** lib/rti/lessons.ts → one `slug:` per lesson */

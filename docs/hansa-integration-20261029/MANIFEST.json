@@ -160,12 +160,13 @@
    "path": "public/content/fabric/notes.json",
    "beforeSha256": null,
    "acceptedDrift": [
-    "708e75dd414011f6cf4bfefcaed5bbf6f32af7b36bc92d38e728a6d3953753bb"
+    "708e75dd414011f6cf4bfefcaed5bbf6f32af7b36bc92d38e728a6d3953753bb",
+    "154f6c9ff6ef6b498a373ef5b85db5f6cb74a514165fe927edc4238d202c8858"
    ],
-   "sha256": "154f6c9ff6ef6b498a373ef5b85db5f6cb74a514165fe927edc4238d202c8858",
-   "bytes": 311478,
+   "sha256": "d7295699a7f18158d5d40a34a4288725c514919c084ab40a83bcd1d905f6cb79",
+   "bytes": 311525,
    "rollbackPath": null,
-   "note": "Added by this wave (Hansa corpus integration phases A+B). Phase C refresh: the merged bank appends the semantic-models-dax entry (no chapters) to the pack notes; the served copy follows content/fabric/notes.json."
+   "note": "Added by this wave (Hansa corpus integration phases A+B). Phase C refresh: the merged bank appends the semantic-models-dax entry (no chapters) to the pack notes; the served copy follows content/fabric/notes.json. Pack-2 refresh: appends the eventstream-windowing entry (no chapters)."
   },
   {
    "path": "tests/content/study-catalogue.test.mjs",
@@ -361,13 +362,14 @@
    "beforeSha256": "5cbd39bd86f79c48bc32ad0429eb0012a7104b2a8358effaaefff0cedbda6fa2",
    "acceptedDrift": [
     "9d22906320b7547907e307fd9ae3ff8a3a954613caa4f51dd697291485d1c2e8",
-    "7a6aae66444df46f8ca19d7878d4c8d47c3dbadc4d2cb3974571498a0a86defc"
+    "7a6aae66444df46f8ca19d7878d4c8d47c3dbadc4d2cb3974571498a0a86defc",
+    "cf214ae21d05945459f57a041cb79720831650711eddede40a666b4cdaa9f54c"
    ],
-   "sha256": "cf214ae21d05945459f57a041cb79720831650711eddede40a666b4cdaa9f54c",
+   "sha256": "cb6d646af9c62f4eddd3d6fdb1193681276c8eed26cdd35c92185bfcc4d66fbf",
    "bytes": 2522,
    "rollbackPath": "docs/hansa-integration-20261029/before/lib/site-metrics.ts.snapshot",
    "observeOnly": true,
-   "note": "Pre-existing drift (29 Oct work streams) that this wave then modified on top of; rollback snapshot holds the pre-wave working-tree bytes (9d22906320). Pre-existing state observed at wave start: modified/added by the uncommitted 29 Oct RTI-academy/cinematic/knowledge work streams after the last recorded receipt; this wave did not author it. Recorded (observeOnly) so the runtime gate pins the observed bytes explicitly; any later change fails the gate. Phase C: fabric counts updated for the merged bank (874/19/264/77)."
+   "note": "Pre-existing drift (29 Oct work streams) that this wave then modified on top of; rollback snapshot holds the pre-wave working-tree bytes (9d22906320). Pre-existing state observed at wave start: modified/added by the uncommitted 29 Oct RTI-academy/cinematic/knowledge work streams after the last recorded receipt; this wave did not author it. Recorded (observeOnly) so the runtime gate pins the observed bytes explicitly; any later change fails the gate. Phase C: fabric counts updated for the merged bank (874/19/264/77). Pack 2: counts 914/20/306/78."
   },
   {
    "path": "scripts/verify-site-metrics.mjs",
@@ -456,122 +458,146 @@
   {
    "path": "content/fabric/index.json",
    "beforeSha256": "188d61334d48a60c4e10fce6f62ced8541a16893add984ea9210a3d2924a84a4",
-   "acceptedDrift": [],
-   "sha256": "a8f4f74560900b73a82a7494eb29755326472b98b27211133a3b21c769d46996",
-   "bytes": 591732,
+   "acceptedDrift": [
+    "a8f4f74560900b73a82a7494eb29755326472b98b27211133a3b21c769d46996"
+   ],
+   "sha256": "a1228b710ba693a8bca3aedf7ee40fcc9763c50f089b338dabe70c49d58c8ceb",
+   "bytes": 618566,
    "rollbackPath": null,
    "observeOnly": true,
-   "note": "Phase C (corpus pack merge) changed this bank artifact; before-bytes from the phase A+B commit or the pre-merge snapshot. Authored by this wave; pinned per-path so any later change still fails the gate."
+   "note": "Phase C (corpus pack merge) changed this bank artifact; before-bytes from the phase A+B commit or the pre-merge snapshot. Authored by this wave; pinned per-path so any later change still fails the gate. Pack 2 (eventstream-windowing) refreshed this artifact."
   },
   {
    "path": "content/fabric/packs.json",
    "beforeSha256": "9c5124642f0f32bcfcfda408465d7ad141d76909990da1adc80e6023948f436a",
-   "acceptedDrift": [],
-   "sha256": "154ad1db0c812d2763eadc952f46fd1119b9e171acaac86d4adb55d1e86019ea",
-   "bytes": 9897,
+   "acceptedDrift": [
+    "154ad1db0c812d2763eadc952f46fd1119b9e171acaac86d4adb55d1e86019ea"
+   ],
+   "sha256": "2e7bd5bf644ed4110e59ca2c7b8f1a916460369ed2a916cabf875f598a8a6fce",
+   "bytes": 10645,
    "rollbackPath": null,
    "observeOnly": true,
-   "note": "Phase C (corpus pack merge) changed this bank artifact; before-bytes from the phase A+B commit or the pre-merge snapshot. Authored by this wave; pinned per-path so any later change still fails the gate."
+   "note": "Phase C (corpus pack merge) changed this bank artifact; before-bytes from the phase A+B commit or the pre-merge snapshot. Authored by this wave; pinned per-path so any later change still fails the gate. Pack 2 (eventstream-windowing) refreshed this artifact."
   },
   {
    "path": "content/fabric/cases.json",
    "beforeSha256": "c4c28f9fe16031875a3d0be6407f542674a3e5399564fbeec74bda5c203f1d19",
-   "acceptedDrift": [],
-   "sha256": "e93d68c9908d92e5aa0f62740a09d5d09865d0e50758dd58c234b3c3ce7bfd2f",
-   "bytes": 33080,
+   "acceptedDrift": [
+    "e93d68c9908d92e5aa0f62740a09d5d09865d0e50758dd58c234b3c3ce7bfd2f"
+   ],
+   "sha256": "84d12272c0c6637b60106599779523874954f04d1fd95c8e7f7b051521bf11a9",
+   "bytes": 34326,
    "rollbackPath": null,
    "observeOnly": true,
-   "note": "Phase C (corpus pack merge) changed this bank artifact; before-bytes from the phase A+B commit or the pre-merge snapshot. Authored by this wave; pinned per-path so any later change still fails the gate."
+   "note": "Phase C (corpus pack merge) changed this bank artifact; before-bytes from the phase A+B commit or the pre-merge snapshot. Authored by this wave; pinned per-path so any later change still fails the gate. Pack 2 (eventstream-windowing) refreshed this artifact."
   },
   {
    "path": "content/fabric/sources.json",
    "beforeSha256": "3f2a744f128d275c55bc085d6a79f42b653a22cdcaf8dbf711b2c9bbba57a0c5",
-   "acceptedDrift": [],
-   "sha256": "80a18ac6fd0fa02e9b11826d58c93500c7efa269b60380faf9511e090b2f5633",
-   "bytes": 40921,
+   "acceptedDrift": [
+    "80a18ac6fd0fa02e9b11826d58c93500c7efa269b60380faf9511e090b2f5633"
+   ],
+   "sha256": "97a541b648dd2a6b9325d2e3ff92b3326aedff47f30557ad533fd80dc1f2cea0",
+   "bytes": 48608,
    "rollbackPath": null,
    "observeOnly": true,
-   "note": "Phase C (corpus pack merge) changed this bank artifact; before-bytes from the phase A+B commit or the pre-merge snapshot. Authored by this wave; pinned per-path so any later change still fails the gate."
+   "note": "Phase C (corpus pack merge) changed this bank artifact; before-bytes from the phase A+B commit or the pre-merge snapshot. Authored by this wave; pinned per-path so any later change still fails the gate. Pack 2 (eventstream-windowing) refreshed this artifact."
   },
   {
    "path": "content/fabric/notes.json",
    "beforeSha256": "708e75dd414011f6cf4bfefcaed5bbf6f32af7b36bc92d38e728a6d3953753bb",
-   "acceptedDrift": [],
-   "sha256": "154f6c9ff6ef6b498a373ef5b85db5f6cb74a514165fe927edc4238d202c8858",
-   "bytes": 311478,
+   "acceptedDrift": [
+    "154f6c9ff6ef6b498a373ef5b85db5f6cb74a514165fe927edc4238d202c8858"
+   ],
+   "sha256": "d7295699a7f18158d5d40a34a4288725c514919c084ab40a83bcd1d905f6cb79",
+   "bytes": 311525,
    "rollbackPath": null,
    "observeOnly": true,
-   "note": "Phase C (corpus pack merge) changed this bank artifact; before-bytes from the phase A+B commit or the pre-merge snapshot. Authored by this wave; pinned per-path so any later change still fails the gate."
+   "note": "Phase C (corpus pack merge) changed this bank artifact; before-bytes from the phase A+B commit or the pre-merge snapshot. Authored by this wave; pinned per-path so any later change still fails the gate. Pack 2 (eventstream-windowing) refreshed this artifact."
   },
   {
    "path": "content/fabric/id-map.json",
    "beforeSha256": "524aaadc37c6e12ccdbaa62b7d501dfeb9037b612950cdcbaf31af80b163f517",
-   "acceptedDrift": [],
-   "sha256": "212d306b259ea1d42b3f3baea680fc2ab9c2d6af6364d49c0b2d7dc6ed29231c",
-   "bytes": 86560,
+   "acceptedDrift": [
+    "212d306b259ea1d42b3f3baea680fc2ab9c2d6af6364d49c0b2d7dc6ed29231c"
+   ],
+   "sha256": "36a7ca31af71d67a2f22f269ca6735e58811ac4e44328187b2d71ca3fd8a1fd4",
+   "bytes": 91560,
    "rollbackPath": null,
    "observeOnly": true,
-   "note": "Phase C (corpus pack merge) changed this bank artifact; before-bytes from the phase A+B commit or the pre-merge snapshot. Authored by this wave; pinned per-path so any later change still fails the gate."
+   "note": "Phase C (corpus pack merge) changed this bank artifact; before-bytes from the phase A+B commit or the pre-merge snapshot. Authored by this wave; pinned per-path so any later change still fails the gate. Pack 2 (eventstream-windowing) refreshed this artifact."
   },
   {
    "path": "content/fabric/meta.json",
    "beforeSha256": "7800d00799dc8609b728fc2e02a7baecdcc971da115221a5e9e36fd755080b87",
-   "acceptedDrift": [],
-   "sha256": "f3726444707cb515ad6643bb2536da3b3a0e905c1049435e8515ce54dcd15aca",
-   "bytes": 29956,
+   "acceptedDrift": [
+    "f3726444707cb515ad6643bb2536da3b3a0e905c1049435e8515ce54dcd15aca"
+   ],
+   "sha256": "26c845892410017e2fd72a105e98c89a12ca1f8bfa747ba84d61905c9e5883da",
+   "bytes": 41325,
    "rollbackPath": null,
    "observeOnly": true,
-   "note": "Phase C (corpus pack merge) changed this bank artifact; before-bytes from the phase A+B commit or the pre-merge snapshot. Authored by this wave; pinned per-path so any later change still fails the gate."
+   "note": "Phase C (corpus pack merge) changed this bank artifact; before-bytes from the phase A+B commit or the pre-merge snapshot. Authored by this wave; pinned per-path so any later change still fails the gate. Pack 2 (eventstream-windowing) refreshed this artifact."
   },
   {
    "path": "lib/fabric/pack-loaders.generated.ts",
    "beforeSha256": "3dfb0bbf50a59422519d0de04f51d8d06b9b7de1d39b532cf20e436872040559",
-   "acceptedDrift": [],
-   "sha256": "cf39a76fbbc7ab6c5b3c6a49e75aa2ff51d47fc3c1b3762188b98000ba49f556",
-   "bytes": 3716,
+   "acceptedDrift": [
+    "cf39a76fbbc7ab6c5b3c6a49e75aa2ff51d47fc3c1b3762188b98000ba49f556"
+   ],
+   "sha256": "38f77395eedebdc5dd9209e2247f7caa05d72083e55cc6496504297f20041bc1",
+   "bytes": 3908,
    "rollbackPath": null,
    "observeOnly": true,
-   "note": "Phase C (corpus pack merge) changed this bank artifact; before-bytes from the phase A+B commit or the pre-merge snapshot. Authored by this wave; pinned per-path so any later change still fails the gate."
+   "note": "Phase C (corpus pack merge) changed this bank artifact; before-bytes from the phase A+B commit or the pre-merge snapshot. Authored by this wave; pinned per-path so any later change still fails the gate. Pack 2 (eventstream-windowing) refreshed this artifact."
   },
   {
    "path": "lib/fabric/taxonomy.ts",
    "beforeSha256": "58ac40cdf3d011b8bb42e0290db384657f65ad8d4da9ede2769d1825561b0ce5",
-   "acceptedDrift": [],
-   "sha256": "19edcace9730365cdba998eaeaacd35b771cc06b7e5df58d25f42cc8484de739",
-   "bytes": 13522,
+   "acceptedDrift": [
+    "19edcace9730365cdba998eaeaacd35b771cc06b7e5df58d25f42cc8484de739"
+   ],
+   "sha256": "ecc04eede69c978c88789d8c902bd8b1e4308a3eb7b5f38e7361a4307e8a0cbd",
+   "bytes": 13599,
    "rollbackPath": null,
    "observeOnly": true,
-   "note": "Phase C (corpus pack merge) changed this bank artifact; before-bytes from the phase A+B commit or the pre-merge snapshot. Authored by this wave; pinned per-path so any later change still fails the gate."
+   "note": "Phase C (corpus pack merge) changed this bank artifact; before-bytes from the phase A+B commit or the pre-merge snapshot. Authored by this wave; pinned per-path so any later change still fails the gate. Pack 2 (eventstream-windowing) refreshed this artifact."
   },
   {
    "path": "tests/fabric/bank.test.mjs",
    "beforeSha256": "bdef3d40b7631fe0514c4fab001f8f5a8f0b1ed483a0b3cb2992930c624e39fd",
-   "acceptedDrift": [],
-   "sha256": "38cf737a54852ce25fee27529bc19aa68651da2b08d4c6f079d12b71acf1216c",
-   "bytes": 16037,
+   "acceptedDrift": [
+    "38cf737a54852ce25fee27529bc19aa68651da2b08d4c6f079d12b71acf1216c"
+   ],
+   "sha256": "b7ba58d8592f1c08b24b9902ac4f2aaef190f913a580d5e302eb3ebcb319ce04",
+   "bytes": 16203,
    "rollbackPath": null,
    "observeOnly": true,
-   "note": "Phase C (corpus pack merge) changed this bank artifact; before-bytes from the phase A+B commit or the pre-merge snapshot. Authored by this wave; pinned per-path so any later change still fails the gate."
+   "note": "Phase C (corpus pack merge) changed this bank artifact; before-bytes from the phase A+B commit or the pre-merge snapshot. Authored by this wave; pinned per-path so any later change still fails the gate. Pack 2 (eventstream-windowing) refreshed this artifact."
   },
   {
    "path": "tests/fabric/scoring.test.mjs",
    "beforeSha256": "f394098035324eb0ed14ae3c68d042fe597e38308e4398cdd01800cf8c756a07",
-   "acceptedDrift": [],
-   "sha256": "e6651238210f35320ec8e8c115c4148f4458bdaf24eb38795815dde06a903856",
-   "bytes": 11949,
+   "acceptedDrift": [
+    "e6651238210f35320ec8e8c115c4148f4458bdaf24eb38795815dde06a903856"
+   ],
+   "sha256": "685c40b55f4a9f927f3003a01ea4307dcd254f66277b6ce212d8a28930825923",
+   "bytes": 11930,
    "rollbackPath": null,
    "observeOnly": true,
-   "note": "Phase C (corpus pack merge) changed this bank artifact; before-bytes from the phase A+B commit or the pre-merge snapshot. Authored by this wave; pinned per-path so any later change still fails the gate."
+   "note": "Phase C (corpus pack merge) changed this bank artifact; before-bytes from the phase A+B commit or the pre-merge snapshot. Authored by this wave; pinned per-path so any later change still fails the gate. Pack 2 (eventstream-windowing) refreshed this artifact."
   },
   {
    "path": "tests/fabric/e2e.mjs",
    "beforeSha256": "f0a7e5432882780da37371cee28e98b1c68200e4568a1ab42fa9542f5a341b1b",
-   "acceptedDrift": [],
-   "sha256": "b57350d6f75c8f19a4bb98ff1bdbf34e276f0d2dd833d0e1247b3c3ef33a3478",
+   "acceptedDrift": [
+    "b57350d6f75c8f19a4bb98ff1bdbf34e276f0d2dd833d0e1247b3c3ef33a3478"
+   ],
+   "sha256": "06703595eaf7e5a666636d93321332207372752c339c8ae6f8d58fa26916dc78",
    "bytes": 23196,
    "rollbackPath": null,
    "observeOnly": true,
-   "note": "Phase C (corpus pack merge) changed this bank artifact; before-bytes from the phase A+B commit or the pre-merge snapshot. Authored by this wave; pinned per-path so any later change still fails the gate."
+   "note": "Phase C (corpus pack merge) changed this bank artifact; before-bytes from the phase A+B commit or the pre-merge snapshot. Authored by this wave; pinned per-path so any later change still fails the gate. Pack 2 (eventstream-windowing) refreshed this artifact."
   },
   {
    "path": "scripts/import-corpus-pack.mjs",
@@ -647,32 +673,146 @@
    "path": "docs/sql-integration-20261028/BASELINE.json",
    "beforeSha256": "d7c7e3016d9b1976570cb265b39db7b6d1c67265d15b114e04c3f828088da5d1",
    "acceptedDrift": [
-    "d7c7e3016d9b1976570cb265b39db7b6d1c67265d15b114e04c3f828088da5d1"
+    "7ce94b5d2ab1ac6e274957a46537b3eaf8890144dc3638d7fc75b1b6073dffc4"
    ],
-   "sha256": "7ce94b5d2ab1ac6e274957a46537b3eaf8890144dc3638d7fc75b1b6073dffc4",
-   "bytes": 7814,
+   "sha256": "0d01e20ce7b4781ac684111283682c286c2cbf593741e4b21baf1b4562d2d96b",
+   "bytes": 8024,
    "rollbackPath": "docs/hansa-integration-20261029/before/docs__sql-integration-20261028__BASELINE.json.snapshot",
-   "note": "Phase C: the seven content/fabric entries the corpus pack merge changed were re-hashed in the SQL wave's preservation baseline (the merge legitimately evolves the shared bank artifacts; every other entry keeps its frozen hash). Rollback holds the pre-phase-C bytes; the SQL receipt's recorded pre-merge state is accepted as drift here."
+   "note": "Phase C: the seven content/fabric entries the corpus pack merge changed were re-hashed in the SQL wave's preservation baseline (the merge legitimately evolves the shared bank artifacts; every other entry keeps its frozen hash). Rollback holds the pre-phase-C bytes; the SQL receipt's recorded pre-merge state is accepted as drift here. Pack 2 re-hash on 30 Oct; the pack-1 state is accepted as drift."
   },
   {
    "path": "tests/content/drafts-integration.test.mjs",
    "beforeSha256": "49787a58d6f0c3c04e788d6657589778a4643e4ea552459c6b8dfa4945967606",
-   "acceptedDrift": [],
-   "sha256": "c31e5eac387532fc58bedfe4b07e655df0344ff34fdc8e99ab2e25111aa23704",
-   "bytes": 10937,
+   "acceptedDrift": [
+    "c31e5eac387532fc58bedfe4b07e655df0344ff34fdc8e99ab2e25111aa23704"
+   ],
+   "sha256": "05431f4af54b0d03b7a4b1cb304b69fa648a99865324dceb4f34cc689cdc9316",
+   "bytes": 10938,
    "rollbackPath": "docs/hansa-integration-20261029/before/tests__content__drafts-integration.test.mjs.snapshot",
-   "note": "Phase C: count pins moved to the merged-bank totals (874 index questions; 1507 catalogue question records).",
+   "note": "Phase C: count pins moved to the merged-bank totals (874 index questions; 1507 catalogue question records). Pack 2 (eventstream-windowing) refreshed this artifact.",
    "observeOnly": false
   },
   {
    "path": "tests/content/sql-vault.test.mjs",
    "beforeSha256": "a2452a2fc2f0f77056ecc68b908f4db34795715b54c02a2df15dff57cfa1f4d5",
-   "acceptedDrift": [],
-   "sha256": "6e146d2a9f9c66d6803273841d4fd92bc21e65258192061c60a0cd8d58dd7d73",
-   "bytes": 6042,
+   "acceptedDrift": [
+    "6e146d2a9f9c66d6803273841d4fd92bc21e65258192061c60a0cd8d58dd7d73"
+   ],
+   "sha256": "b1935b7608d25faa002c27486ee92419105d24746e0317b5010743fac4ab8dbd",
+   "bytes": 6022,
    "rollbackPath": "docs/hansa-integration-20261029/before/tests__content__sql-vault.test.mjs.snapshot",
-   "note": "Phase C: count pins moved to the merged-bank totals (874 index questions; 1507 catalogue question records).",
+   "note": "Phase C: count pins moved to the merged-bank totals (874 index questions; 1507 catalogue question records). Pack 2 (eventstream-windowing) refreshed this artifact.",
    "observeOnly": false
+  },
+  {
+   "path": "content/intake/hansa-integration/packs/eventstream-windowing/LAB_PACKS.merged.json",
+   "beforeSha256": null,
+   "acceptedDrift": [],
+   "sha256": "30030737b07dc8a100a02b0412136508d56d3781648c5f78eeb9aa315864deba",
+   "bytes": 89989,
+   "rollbackPath": null,
+   "observeOnly": true,
+   "note": "Phase C pack 2 addition: authored eventstream-windowing source (or merged question file), pinned at the observed state."
+  },
+  {
+   "path": "content/intake/hansa-integration/packs/eventstream-windowing/SOURCES.merged.json",
+   "beforeSha256": null,
+   "acceptedDrift": [],
+   "sha256": "8f1f104ff4c1457e3986fd491dcaadf066cddd635ff095e28e2dea645e15e6aa",
+   "bytes": 7060,
+   "rollbackPath": null,
+   "observeOnly": true,
+   "note": "Phase C pack 2 addition: authored eventstream-windowing source (or merged question file), pinned at the observed state."
+  },
+  {
+   "path": "content/intake/hansa-integration/packs/eventstream-windowing/QUESTION_BANK.merged.json",
+   "beforeSha256": null,
+   "acceptedDrift": [],
+   "sha256": "c11f0e3fb6f40f70a23347a1dbcd8f712dae97446b38ba4ee777931de92f923f",
+   "bytes": 53345,
+   "rollbackPath": null,
+   "observeOnly": true,
+   "note": "Phase C pack 2 addition: authored eventstream-windowing source (or merged question file), pinned at the observed state."
+  },
+  {
+   "path": "content/intake/hansa-integration/packs/eventstream-windowing/ID_MAPPING.json",
+   "beforeSha256": null,
+   "acceptedDrift": [],
+   "sha256": "d50406139120d01199af0e7d8ec85aa254d992ff3035a5bd82dc270e067d1e58",
+   "bytes": 5883,
+   "rollbackPath": null,
+   "observeOnly": true,
+   "note": "Phase C pack 2 addition: authored eventstream-windowing source (or merged question file), pinned at the observed state."
+  },
+  {
+   "path": "content/intake/hansa-integration/packs/eventstream-windowing/QA_REPORT.json",
+   "beforeSha256": null,
+   "acceptedDrift": [],
+   "sha256": "d5cbf97849ad59200395c6898172c38be710a2655e9efc38a34328520dd191a4",
+   "bytes": 265,
+   "rollbackPath": null,
+   "observeOnly": true,
+   "note": "Phase C pack 2 addition: authored eventstream-windowing source (or merged question file), pinned at the observed state."
+  },
+  {
+   "path": "content/fabric/questions/eventstream-windowing.json",
+   "beforeSha256": null,
+   "acceptedDrift": [],
+   "sha256": "137a30383f21eb72db208b54dbb54aac9296243bfbe65877e5fbf521a283f7d2",
+   "bytes": 83237,
+   "rollbackPath": null,
+   "observeOnly": true,
+   "note": "Phase C pack 2 addition: authored eventstream-windowing source (or merged question file), pinned at the observed state."
+  },
+  {
+   "path": "docs/fabric/screenshots/desktop-hub-dark.png",
+   "beforeSha256": "6cf6fb461bc0f25371ed4ead8e87f1bd21a2acdbd918e12f04dbc48ca765fe11",
+   "acceptedDrift": [],
+   "sha256": "91de9f39f16387f22d81651ffb125b9c2a73b494ecb67df4ca513e4b50b839b1",
+   "bytes": 113693,
+   "rollbackPath": null,
+   "observeOnly": true,
+   "note": "Regenerated evidence artifact: this session's e2e attempt re-captured the screenshot, and git add -A swept it into the phase C pack-1 commit. The easyui baseline's sealed capture is recorded as accepted drift; the observed bytes are pinned here."
+  },
+  {
+   "path": "docs/fabric/screenshots/desktop-results.png",
+   "beforeSha256": "555aa342ff10f598fd3932e77044e07a35888a945ac6f603412d798791dd1c98",
+   "acceptedDrift": [],
+   "sha256": "51009a254f3b4f72e0a8d299c94512303cb95e5df12b195f9b14eccd2002d499",
+   "bytes": 122780,
+   "rollbackPath": null,
+   "observeOnly": true,
+   "note": "Regenerated evidence artifact: this session's e2e attempt re-captured the screenshot, and git add -A swept it into the phase C pack-1 commit. The easyui baseline's sealed capture is recorded as accepted drift; the observed bytes are pinned here."
+  },
+  {
+   "path": "docs/fabric/screenshots/exported-progress.json",
+   "beforeSha256": "4ff032371505ff98e3542da47142bbda695fe68750c30eb20412ab894a0904e2",
+   "acceptedDrift": [],
+   "sha256": "194d4eaf38a5cc56b413a45c8c9f4ba82c3ecfb2cd2b0eca138fd2878f4bac92",
+   "bytes": 27190,
+   "rollbackPath": null,
+   "observeOnly": true,
+   "note": "Regenerated evidence artifact: this session's e2e attempt re-captured the screenshot, and git add -A swept it into the phase C pack-1 commit. The easyui baseline's sealed capture is recorded as accepted drift; the observed bytes are pinned here."
+  },
+  {
+   "path": "docs/fabric/screenshots/mobile-hub.png",
+   "beforeSha256": "5c1b9f93047ae4b316e2fe32db982e064e9b7be3bcb4091e786fa608fa08f17c",
+   "acceptedDrift": [],
+   "sha256": "3e30cfea4cd151c88a290307ad13f900d3659a67612d824a5d86a51b5ab16165",
+   "bytes": 69833,
+   "rollbackPath": null,
+   "observeOnly": true,
+   "note": "Regenerated evidence artifact: this session's e2e attempt re-captured the screenshot, and git add -A swept it into the phase C pack-1 commit. The easyui baseline's sealed capture is recorded as accepted drift; the observed bytes are pinned here."
+  },
+  {
+   "path": "docs/fabric/screenshots/mobile-question.png",
+   "beforeSha256": "0a8848eecd666b4aa1c7741d0e04025bfefc37b6587e589c84364a53ecb2b1dd",
+   "acceptedDrift": [],
+   "sha256": "38c1570df813a632fc6744fd26934f0a10fc924d2a5453d73e6b44ce8ffa0704",
+   "bytes": 60074,
+   "rollbackPath": null,
+   "observeOnly": true,
+   "note": "Regenerated evidence artifact: this session's e2e attempt re-captured the screenshot, and git add -A swept it into the phase C pack-1 commit. The easyui baseline's sealed capture is recorded as accepted drift; the observed bytes are pinned here."
   }
  ]
 }

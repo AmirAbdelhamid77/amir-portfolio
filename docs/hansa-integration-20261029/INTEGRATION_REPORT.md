@@ -228,3 +228,37 @@ core share moved 2.7% → **6.9%**.
 streaming, 131 KUs / 76 docs / 94 code assets grounding) through the same
 pipeline; then the remaining five packs. Wave rows for all phase C files live
 in `docs/hansa-integration-20261029/MANIFEST.json`.
+
+## Phase C, pack 2 — `eventstream-windowing` (added 30 October 2026)
+
+The second authored pack went through the proven pipeline unchanged. Bank:
+**874 → 914 questions, 20 packs, 306 registry entries, 78 case studies.**
+
+**Content.** 40 original questions for DP-700 D2 streaming, mapped onto the
+DP-600 taxonomy: engine choice (Eventstream vs Spark Structured Streaming vs
+batch), eventstream sources (IoT Hub, Kafka family, MSK, Kinesis, CDC, custom
+endpoint) and destinations (Eventhouse, lakehouse, Activator, derived stream,
+Spark custom), transformations and derived streams, KQL windowing semantics
+(tumbling / hopping / sliding / session, with the honest overlap arithmetic),
+event time versus ingestion time under bounded lateness, materialized views and
+lookback, update policies, retention plus OneLake availability, alerting from
+the Real-Time hub, schema sets, monitoring and eventstream CI/CD. Objectives:
+2.1 ×10, 2.2 ×8, 2.3 ×19, 1.2 ×3; two multi-select; three KQL code questions;
+one shared case study ("Northgate Utilities real-time telemetry pipeline").
+Subject split: eventhouse 39, lifecycle 1 (the Git/CI-CD question).
+
+**Grounding.** 42 SOURCES entries, every URL harvested by the corpus
+(eventstream overview/sources/destinations/processing pages, Eventhouse and
+KQL material, materialized views, the decision guide), cross-referenced with
+the site's own RTI Academy lessons as thematic anchors.
+
+**Evidence.** Merge ran 2,277 checks with 0 failures; **220 tests PASS**; all
+six integrity verifiers PASS; build PASS (hub shows 914). The e2e attempt
+regenerated five `docs/fabric/screenshots` evidence artifacts, which were
+swept into a commit and re-annotated through the receipt chain as observed
+regenerations of the easyui baseline's sealed captures; the browser e2e
+itself remains **NOT RUN** (locator stall, reproduced).
+
+**Remaining phase C packs:** `dataflow-gen2`, `mirroring`, `activator`,
+`notebooks-pyspark`, `incremental-copy` (~200 questions) — the pipeline, test
+pins and receipt handling are now a repeatable recipe.

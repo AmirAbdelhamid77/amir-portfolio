@@ -457,8 +457,10 @@ export const PACK_SUBJECT: Record<string, SubjectId> = {
   video19: "lakehouse",
   video20: "optimization",
   video21: "lakehouse",
-  // Corpus-authored pack (hansa-integration phase C): semantic models & DAX.
+  // Corpus-authored packs (hansa-integration phase C): semantic models & DAX,
+  // then eventstream & windowing.
   "semantic-models-dax": "semantic-models",
+  "eventstream-windowing": "eventhouse",
 };
 
 /**
