@@ -1,0 +1,438 @@
+{
+  "scope": "audited-preexisting-script-skill-and-runtime-evolution",
+  "transitions": [
+    {
+      "path": "AGENTS.md",
+      "fromSha256": "806c749ff9cea0eeda69ef65bef5c5eee8809e3f59f8904779907ebff1039c4c",
+      "toSha256": "c88fb70317e087fca71b79ea759fd28cca585d71c3160858abed9886c78acda3",
+      "originalPath": "docs/final-review-20261028/history/AGENTS.md.historical.snapshot",
+      "toBytes": 6582,
+      "appendSha256": "ba3cf9024367efde769be6ed857d1c2a6e24f3dbfeb864b9fda540363dd0be30"
+    },
+    {
+      "path": "package.json",
+      "fromSha256": "6561cd5806c9e436d8accdb74fb3a669d3620c848a710e22cb29c2dc9cc62d92",
+      "toSha256": "18cf9597ff8d574df1c64a020efa525ab6a599e2ee65139dca2104932b5b9832",
+      "originalPath": "docs/final-review-20261028/history/package.json.historical.snapshot",
+      "toBytes": 3329
+    },
+    {
+      "path": ".gitignore",
+      "fromSha256": "e6f49595e098e06bbce8d48ae707fd31eda8da46b394b540e697091e83246aef",
+      "toSha256": "e893eab391f58c6c1c1b10b1f9c7b8f3c6821b384b857e96c63125a214344dc8",
+      "originalPath": "docs/final-review-20261028/history/.gitignore.historical.snapshot",
+      "toBytes": 776
+    },
+    {
+      "path": "app/globals.css",
+      "fromSha256": "8f9a9b4015bfb2f1daad762f62055e183f6d94014f43f6137f6d51402a376fa2",
+      "toSha256": "5889a21a9ae69e7b356186e21a89fd912912835f323efb868fe7561db06d861b",
+      "originalPath": "docs/final-review-20261028/history/globals.css.historical.snapshot",
+      "capturedPath": "docs/final-review-20261028/before/app/globals.css.snapshot",
+      "toBytes": 17712,
+      "appendSha256": "30047d058f850522ccff1f52b8193ad6f4c2ecc3ac9871f44a8cf9a2cbe8a6a4"
+    },
+    {
+      "path": "eslint.config.mjs",
+      "fromSha256": "a04fe04d3457bdafc2509c14ad13cec3acce51e7158e92d68c280d5e40c7cd5f",
+      "toSha256": "63d9fe80ed273da80838125418fbb332776bbd7b210d553d29433683c6641cbf",
+      "originalPath": "docs/final-review-20261028/history/eslint.config.mjs.historical.snapshot",
+      "capturedPath": "docs/final-review-20261028/before/eslint.config.mjs.snapshot",
+      "toBytes": 1802
+    },
+    {
+      "path": "lib/hooks/use-hover-capable.ts",
+      "fromSha256": "b5b9397bfa03859e04673c8f1817cf13ff55d2a9688955d6e0459ae70db90d06",
+      "toSha256": "3df90d8f14d4a5e3e6c7d0c6550d9cef19da37dd0483cc2708e43a7e44176ebb",
+      "originalPath": "docs/final-review-20261028/history/lib_hooks_use-hover-capable.ts.historical.snapshot",
+      "capturedPath": "docs/final-review-20261028/before/lib/hooks/use-hover-capable.ts.snapshot",
+      "toBytes": 868
+    },
+    {
+      "path": "lib/touch.ts",
+      "fromSha256": "f2a15c243c86c8bd1abb6e2e65a423b3a4c45cc1d797ebd83997f21cd1beadb9",
+      "toSha256": "7eeceae0a77560d02670f5d6e9a4fd1d78876c9ab6ca5da617522a26803f18bc",
+      "originalPath": "docs/final-review-20261028/history/lib_touch.ts.historical.snapshot",
+      "capturedPath": "docs/final-review-20261028/before/lib/touch.ts.snapshot",
+      "toBytes": 2122
+    }
+  ],
+  "additions": [
+    {
+      "path": "app/learn/dp-600/atlas/page.tsx",
+      "sha256": "5b772eca88cf2f360bc38766ee4a158677d21d19902b23f497f806a5033df40a",
+      "originalPath": "docs/final-review-20261028/before/app/learn/dp-600/atlas/page.tsx.snapshot"
+    },
+    {
+      "path": "app/learn/dp-600/atlas/journey/page.tsx",
+      "sha256": "ccac182eb87a5bcdcf3d57df667a16597c107830b2a6725be6d1f0270ae525a0",
+      "originalPath": "docs/final-review-20261028/before/app/learn/dp-600/atlas/journey/page.tsx.snapshot"
+    },
+    {
+      "path": "app/learn/drafts/page.tsx",
+      "sha256": "98b71dc1fe8185989da39dad9f160b39f275475a443f9a6ad12493f1c6be392f",
+      "originalPath": "docs/final-review-20261028/before/app/learn/drafts/page.tsx.snapshot"
+    },
+    {
+      "path": "app/practice/drafts/page.tsx",
+      "sha256": "df05abee5402678ab78cebe584b94fe6e94726b056ca7dbf00b9446ed15d8b0e",
+      "originalPath": "docs/final-review-20261028/before/app/practice/drafts/page.tsx.snapshot"
+    },
+    {
+      "path": "app/prototype-c/page.tsx",
+      "sha256": "31b414c61a2a35237cb0ea014e091ae7f9a966d6e2e568866125766d56ec5645",
+      "originalPath": "docs/final-review-20261028/before/app/prototype-c/page.tsx.snapshot"
+    },
+    {
+      "path": "components/academy/pattern-comparison.tsx",
+      "sha256": "4aefe260de89924a2f0cef240a0c6639f3b8c26832439bf3577d938070e61830",
+      "originalPath": "docs/final-review-20261028/before/components/academy/pattern-comparison.tsx.snapshot"
+    },
+    {
+      "path": "components/atlas/circle-map.css",
+      "sha256": "4d5b18e81eddbf6d468c71991b72373370eba62d2462ec95718a02d1498058cf",
+      "originalPath": "docs/final-review-20261028/before/components/atlas/circle-map.css.snapshot"
+    },
+    {
+      "path": "components/atlas/explorer.tsx",
+      "sha256": "6a2f4b3e1ac3ecf06c1ab5990dd9676a4dcfcc2f0fdc0254f231752282ad5c4d",
+      "originalPath": "docs/final-review-20261028/before/components/atlas/explorer.tsx.snapshot"
+    },
+    {
+      "path": "components/atlas/journey.tsx",
+      "sha256": "424fb5f4061a2c1e1f4cc3cb550c42896f77a5333f57be4e5174278b212918a9",
+      "originalPath": "docs/final-review-20261028/before/components/atlas/journey.tsx.snapshot"
+    },
+    {
+      "path": "components/atlas/peek.tsx",
+      "sha256": "ce8026bab850f71512a298689299c1be1c4f030014317fd90a13721d0c03792d",
+      "originalPath": "docs/final-review-20261028/before/components/atlas/peek.tsx.snapshot"
+    },
+    {
+      "path": "components/atlas/return-link.tsx",
+      "sha256": "2d195da37dbab15ae0560cd43cb8facd8bc9c72a2d1b3d72e0f5d010d54ad66f",
+      "originalPath": "docs/final-review-20261028/before/components/atlas/return-link.tsx.snapshot"
+    },
+    {
+      "path": "components/fabric/r11-question.tsx",
+      "sha256": "44fca27ece04cb422169754fad422f32a83017f7cef1f0b20b6868d3b8b6ce79",
+      "originalPath": "docs/final-review-20261028/before/components/fabric/r11-question.tsx.snapshot"
+    },
+    {
+      "path": "components/fabric/unified-bank.tsx",
+      "sha256": "d6186bfe6bd09bfc9917df03252534f2687af0a3a0e6de298bf71ad215a81cf0",
+      "originalPath": "docs/final-review-20261028/before/components/fabric/unified-bank.tsx.snapshot"
+    },
+    {
+      "path": "components/knowledge/atlas-peek-stage.tsx",
+      "sha256": "2f0b3f31ef6cd1947decc07be7dd6d35e9283fd31156e0baea474e1e38e1df1b",
+      "originalPath": "docs/final-review-20261028/before/components/knowledge/atlas-peek-stage.tsx.snapshot"
+    },
+    {
+      "path": "components/knowledge/hansa-landing.tsx",
+      "sha256": "3c8f89832353bdc90bebe937371c5fb4b05f739faa898dad64fc81f581de6f61",
+      "originalPath": "docs/final-review-20261028/before/components/knowledge/hansa-landing.tsx.snapshot"
+    },
+    {
+      "path": "components/knowledge/insight-archive.tsx",
+      "sha256": "713bd5d1ef6490d8b850c5b9c4d2bb158f4cee06c0119e00b4c7b9a5436c87c6",
+      "originalPath": "docs/final-review-20261028/before/components/knowledge/insight-archive.tsx.snapshot"
+    },
+    {
+      "path": "components/knowledge/insight-experiment.tsx",
+      "sha256": "ca50747c708eabf4c4275dfdbcb89eaae4cd389f8fde89e74b8acc9fa38af684",
+      "originalPath": "docs/final-review-20261028/before/components/knowledge/insight-experiment.tsx.snapshot"
+    },
+    {
+      "path": "components/knowledge/insight-rail.tsx",
+      "sha256": "c43bf0a559c7152d866fa6b65c6502c201fb93ba70dc72dc44426cae287e3978",
+      "originalPath": "docs/final-review-20261028/before/components/knowledge/insight-rail.tsx.snapshot"
+    },
+    {
+      "path": "components/knowledge/insight-scene.tsx",
+      "sha256": "181d721dc1643d625da6fa07568e3d6bd3205550fd6c6d2e5b1a799684c99eaa",
+      "originalPath": "docs/final-review-20261028/before/components/knowledge/insight-scene.tsx.snapshot"
+    },
+    {
+      "path": "components/knowledge/insight-stage.tsx",
+      "sha256": "dbf3ec4fa48373568a4aa5aab49d2646b72174a9e05ba4a5a2779114d2a4fa9d",
+      "originalPath": "docs/final-review-20261028/before/components/knowledge/insight-stage.tsx.snapshot"
+    },
+    {
+      "path": "components/knowledge/knowledge-atmosphere.tsx",
+      "sha256": "a4fbe9f71e364a777398afd19f064a0cedb0dc093a816a54e7618bc456a2ca14",
+      "originalPath": "docs/final-review-20261028/before/components/knowledge/knowledge-atmosphere.tsx.snapshot"
+    },
+    {
+      "path": "components/knowledge/knowledge-dealer.tsx",
+      "sha256": "22f16d637393ed57c818e365a4bc1d2cf9c72557657856de1822128e0722fa2f",
+      "originalPath": "docs/final-review-20261028/before/components/knowledge/knowledge-dealer.tsx.snapshot"
+    },
+    {
+      "path": "components/knowledge/knowledge-instrument.tsx",
+      "sha256": "b6a185e9464c86e4f06f6948ff2901e3e0ec88c50a47833f77db8a3e2adb02b7",
+      "originalPath": "docs/final-review-20261028/before/components/knowledge/knowledge-instrument.tsx.snapshot"
+    },
+    {
+      "path": "components/knowledge/observatory.css",
+      "sha256": "57e1f28b3da478708f20aaa96e55133467d3f3ed4226f420af6a9cf322f9d5dd",
+      "originalPath": "docs/final-review-20261028/before/components/knowledge/observatory.css.snapshot"
+    },
+    {
+      "path": "components/learn/intake-review.tsx",
+      "sha256": "61c30ddc9a3d1e81ff6957d6a70111c545f256ce979596ed97ea1e28a7526773",
+      "originalPath": "docs/final-review-20261028/before/components/learn/intake-review.tsx.snapshot"
+    },
+    {
+      "path": "components/practice/draft-review.tsx",
+      "sha256": "f3aec2215adbb2c83e22466be93194ea96b9bbca74bac4872a36157854a34fae",
+      "originalPath": "docs/final-review-20261028/before/components/practice/draft-review.tsx.snapshot"
+    },
+    {
+      "path": "content/atlas/dp600-continuation.json",
+      "sha256": "a70a4bda6fa0a4e267e44adb64f06050f09bfb1cbd209a963284e5bb4e376411",
+      "originalPath": "docs/final-review-20261028/before/content/atlas/dp600-continuation.json.snapshot"
+    },
+    {
+      "path": "content/atlas/dp600-extension.json",
+      "sha256": "18578142a8afd203fdedd8e2d0c1f363379e3fad6a7da9be665e647e782c912d",
+      "originalPath": "docs/final-review-20261028/before/content/atlas/dp600-extension.json.snapshot"
+    },
+    {
+      "path": "content/atlas/editorial.json",
+      "sha256": "816416c261a2ceb394ab73403e2ed690c714f83e8773b06da0689384eecee3d4",
+      "originalPath": "docs/final-review-20261028/before/content/atlas/editorial.json.snapshot"
+    },
+    {
+      "path": "content/drafts/dp600-r18.json",
+      "sha256": "7dfc610198c5ef60a0539d09c1a5dc933cc9a317b3a4f5d35a3f5978c3f253a0",
+      "originalPath": "docs/final-review-20261028/before/content/drafts/dp600-r18.json.snapshot"
+    },
+    {
+      "path": "content/drafts/manifest.json",
+      "sha256": "2d62279d0c4af1d0b71d480131d802a088e96853d3442326c3aa51318d54d055",
+      "originalPath": "docs/final-review-20261028/before/content/drafts/manifest.json.snapshot"
+    },
+    {
+      "path": "content/drafts/pl300-v88.json",
+      "sha256": "9631037cfa278c216c4940ce81466fc5d07f88dff780e7a76454ce7d58a17cbe",
+      "originalPath": "docs/final-review-20261028/before/content/drafts/pl300-v88.json.snapshot"
+    },
+    {
+      "path": "content/fabric/additions/manifest.json",
+      "sha256": "8d16a6be151f9b0828d9142a2c2addaaf232c2cf1459037855d1cb0b2d0f71dc",
+      "originalPath": "docs/final-review-20261028/before/content/fabric/additions/manifest.json.snapshot"
+    },
+    {
+      "path": "content/fabric/additions/questions.json",
+      "sha256": "80a29e41eb8a198f1779029930fa9c4868ca63ce013efb1dd5d7fe45e4b6895d",
+      "originalPath": "docs/final-review-20261028/before/content/fabric/additions/questions.json.snapshot"
+    },
+    {
+      "path": "content/fabric/r11/case-studies.json",
+      "sha256": "54968ff225707febd98e0aaefe1bb80e5442b840bef4759f428b1c61e33a481a",
+      "originalPath": "docs/final-review-20261028/before/content/fabric/r11/case-studies.json.snapshot"
+    },
+    {
+      "path": "content/fabric/r11/manifest.json",
+      "sha256": "c275c349bd9adbfb7794980b1653110f643dc25e4625a34233061495d42bac0f",
+      "originalPath": "docs/final-review-20261028/before/content/fabric/r11/manifest.json.snapshot"
+    },
+    {
+      "path": "content/fabric/r11/questions.json",
+      "sha256": "431dabb290079db95a8a86a17a3afd6028b7b488db034f07538f3dc3ca608223",
+      "originalPath": "docs/final-review-20261028/before/content/fabric/r11/questions.json.snapshot"
+    },
+    {
+      "path": "content/fabric/r11/search.json",
+      "sha256": "25abaaa037239ee504d5cae4b405c1f51203288e64d308c92099ef9dd886cd2b",
+      "originalPath": "docs/final-review-20261028/before/content/fabric/r11/search.json.snapshot"
+    },
+    {
+      "path": "content/intake/manifest.json",
+      "sha256": "44891e366bab969416ea06dac633b00fb86d210e77d4d0aecfe0d671a01f06b4",
+      "originalPath": "docs/final-review-20261028/before/content/intake/manifest.json.snapshot"
+    },
+    {
+      "path": "content/intake/notion-assessments.json",
+      "sha256": "9c1163ea35900ccfacd76b8c7d25e33869d09b87ce028a905b6cb4bda299e498",
+      "originalPath": "docs/final-review-20261028/before/content/intake/notion-assessments.json.snapshot"
+    },
+    {
+      "path": "content/intake/notion-lessons.json",
+      "sha256": "3b35f55b1c277448a9f4c5f5c7eacad8d4f14a4d0a28c422c0926849b94c4f28",
+      "originalPath": "docs/final-review-20261028/before/content/intake/notion-lessons.json.snapshot"
+    },
+    {
+      "path": "content/intake/rti-labs.json",
+      "sha256": "0f99a232cd7d6eba72a3b3558cac3c589fdbe311ab726fa96f0f27c4a2dd9832",
+      "originalPath": "docs/final-review-20261028/before/content/intake/rti-labs.json.snapshot"
+    },
+    {
+      "path": "content/intake/rti-sources.json",
+      "sha256": "81fd8bfe8b8bae70de6d30e3f0dbd3ae17d7b3ebca70f66730ea4d8eefb31974",
+      "originalPath": "docs/final-review-20261028/before/content/intake/rti-sources.json.snapshot"
+    },
+    {
+      "path": "content/knowledge/insights.json",
+      "sha256": "f6c3cf4bc61687eef84e2f85ce3327d4e61ae9dd565b3a6fb3ce6d5a1ddd487f",
+      "originalPath": "docs/final-review-20261028/before/content/knowledge/insights.json.snapshot"
+    },
+    {
+      "path": "lib/academy/pattern-comparison.ts",
+      "sha256": "e0b9d85c70c44ac134767ac7a53ced1518e41df91e3a5caaaeca43c5eab28f45",
+      "originalPath": "docs/final-review-20261028/before/lib/academy/pattern-comparison.ts.snapshot"
+    },
+    {
+      "path": "lib/atlas/circle-layout.ts",
+      "sha256": "5e2c2db78b9278e2be2108406129c1a1755528600d2e2e2e0fe1dfba5f63b7a4",
+      "originalPath": "docs/final-review-20261028/before/lib/atlas/circle-layout.ts.snapshot"
+    },
+    {
+      "path": "lib/atlas/model.ts",
+      "sha256": "675e6015fe9192710b07d542101cf9744dc8f72eb6750221237018f2406f2dea",
+      "originalPath": "docs/final-review-20261028/before/lib/atlas/model.ts.snapshot"
+    },
+    {
+      "path": "lib/atlas/peek-layout.ts",
+      "sha256": "067897275355c93390bb42cd3c367ad0b76a7b960fdf1ddd6823cd6dad60fa56",
+      "originalPath": "docs/final-review-20261028/before/lib/atlas/peek-layout.ts.snapshot"
+    },
+    {
+      "path": "lib/atlas/server.ts",
+      "sha256": "d3e9becbe2db24ed0d0926f1c03c44c08b628de8131b51b9552038ed57e49a47",
+      "originalPath": "docs/final-review-20261028/before/lib/atlas/server.ts.snapshot"
+    },
+    {
+      "path": "lib/drafts/data.ts",
+      "sha256": "b5ff2c460df83c1868e20bd6c7b1a8f72574adf2edc2cd9ff4c08d04880703fa",
+      "originalPath": "docs/final-review-20261028/before/lib/drafts/data.ts.snapshot"
+    },
+    {
+      "path": "lib/fabric/additions.ts",
+      "sha256": "56d50dd8bacf4bf062774183007392e670d6d805a33f46cf6c5548a3e7f0577d",
+      "originalPath": "docs/final-review-20261028/before/lib/fabric/additions.ts.snapshot"
+    },
+    {
+      "path": "lib/fabric/r11.ts",
+      "sha256": "1fd09c60a2fb11bd4268ecbb0ecad0fc5765eb6bc2ac876749a952e644343401",
+      "originalPath": "docs/final-review-20261028/before/lib/fabric/r11.ts.snapshot"
+    },
+    {
+      "path": "lib/intake/data.ts",
+      "sha256": "a443e09a37311f78c193a9038e55a4dab92b4025dad115461d664225daa439dd",
+      "originalPath": "docs/final-review-20261028/before/lib/intake/data.ts.snapshot"
+    },
+    {
+      "path": "lib/knowledge/insights.ts",
+      "sha256": "117e6d3d57c3ad713708e2268e17231a95b170c0ca2adcb5d92ee2617e913ed4",
+      "originalPath": "docs/final-review-20261028/before/lib/knowledge/insights.ts.snapshot"
+    },
+    {
+      "path": "lib/knowledge/models.ts",
+      "sha256": "76ff5fc709eb16c3bb74ea3f77eb9522ccaeb2318641cc7ac5569518cc50004b",
+      "originalPath": "docs/final-review-20261028/before/lib/knowledge/models.ts.snapshot"
+    },
+    {
+      "path": "lib/knowledge/motion.ts",
+      "sha256": "4b73556523632ee703e1e052abe9127811bb01968e97ed5c05aa8536a0190eee",
+      "originalPath": "docs/final-review-20261028/before/lib/knowledge/motion.ts.snapshot"
+    },
+    {
+      "path": "public/fabric-additions/litware/images/data_to_analyze.jpg",
+      "sha256": "53497834d15566adcc02f1f10535103b1aeff0026256ada03ab2d8ec2738f3b4",
+      "originalPath": "docs/final-review-20261028/before/public/fabric-additions/litware/images/data_to_analyze.jpg.snapshot"
+    },
+    {
+      "path": "public/fabric-additions/litware/images/product_columns.jpg",
+      "sha256": "276165bc18e780337a47744dbb622cd376567663d6ad23d6678700a265fd099f",
+      "originalPath": "docs/final-review-20261028/before/public/fabric-additions/litware/images/product_columns.jpg.snapshot"
+    },
+    {
+      "path": "tests/academy/pattern-comparison.e2e.mjs",
+      "sha256": "dd340356929b4c1a7b6aa562584bf32fd2329dbae629fefec00837f1646bbefb",
+      "originalPath": "docs/final-review-20261028/before/tests/academy/pattern-comparison.e2e.mjs.snapshot"
+    },
+    {
+      "path": "tests/academy/pattern-comparison.test.mjs",
+      "sha256": "2a36d3bf3fb245b07699107a87772ee23511f81b0abf0ca39c7ba2d8a62a1379",
+      "originalPath": "docs/final-review-20261028/before/tests/academy/pattern-comparison.test.mjs.snapshot"
+    },
+    {
+      "path": "tests/atlas/circle-layout.test.mjs",
+      "sha256": "1e33ce053b36b366d28cbc07fe5cffd6c066485f25a9eb5adcca3010376de24f",
+      "originalPath": "docs/final-review-20261028/before/tests/atlas/circle-layout.test.mjs.snapshot"
+    },
+    {
+      "path": "tests/atlas/circles-e2e.mjs",
+      "sha256": "48152fc3b6f47ae75207103c8edb4449d79d7b5ea96966ec32dc0cb2a535bbdd",
+      "originalPath": "docs/final-review-20261028/before/tests/atlas/circles-e2e.mjs.snapshot"
+    },
+    {
+      "path": "tests/atlas/continuation-e2e.mjs",
+      "sha256": "4dd517464cb60e03c47acd13d640cb86ec02c12c6558bc397cc0a4980fb71e6f",
+      "originalPath": "docs/final-review-20261028/before/tests/atlas/continuation-e2e.mjs.snapshot"
+    },
+    {
+      "path": "tests/atlas/continuation.test.mjs",
+      "sha256": "c532dfb9d198e08424b4d5bae2c72b46e0f64d504613ca2d6d5e7f1438518fbd",
+      "originalPath": "docs/final-review-20261028/before/tests/atlas/continuation.test.mjs.snapshot"
+    },
+    {
+      "path": "tests/atlas/e2e.mjs",
+      "sha256": "8d22d48363181d79161eaeda7dfb2422d62b166aaabe9210bd82790d4b74a63b",
+      "originalPath": "docs/final-review-20261028/before/tests/atlas/e2e.mjs.snapshot"
+    },
+    {
+      "path": "tests/atlas/expansion-e2e.mjs",
+      "sha256": "848499d06d838add924cb364a20487ac98b063ac024fdfdd56ce23b206e28389",
+      "originalPath": "docs/final-review-20261028/before/tests/atlas/expansion-e2e.mjs.snapshot"
+    },
+    {
+      "path": "tests/atlas/expansion.test.mjs",
+      "sha256": "777494d59c189afcea31616c01efb0094566b5ad415348e7e12926419afa1b32",
+      "originalPath": "docs/final-review-20261028/before/tests/atlas/expansion.test.mjs.snapshot"
+    },
+    {
+      "path": "tests/atlas/model.test.mjs",
+      "sha256": "ae0b3042e32226ea7c23b0042a749ddfeaee357b0732db2583db2c03c4bb39f5",
+      "originalPath": "docs/final-review-20261028/before/tests/atlas/model.test.mjs.snapshot"
+    },
+    {
+      "path": "tests/atlas/peek-layout.test.mjs",
+      "sha256": "34a19121db4086ae81fe0b222c833f9f18f511791a788d023169eeeaf6579120",
+      "originalPath": "docs/final-review-20261028/before/tests/atlas/peek-layout.test.mjs.snapshot"
+    },
+    {
+      "path": "tests/content/drafts-integration.test.mjs",
+      "sha256": "49787a58d6f0c3c04e788d6657589778a4643e4ea552459c6b8dfa4945967606",
+      "originalPath": "docs/final-review-20261028/before/tests/content/drafts-integration.test.mjs.snapshot"
+    },
+    {
+      "path": "tests/fabric/r11-e2e.mjs",
+      "sha256": "034cb0bb91b24f2df3c8d9341e39169e7a4aee7a527d8cbac1eedfb2c22b0c60",
+      "originalPath": "docs/final-review-20261028/before/tests/fabric/r11-e2e.mjs.snapshot"
+    },
+    {
+      "path": "tests/fabric/r11.test.mjs",
+      "sha256": "aad0ef7b0a03a7f521f41399d1dc6835ea714eabf69d5db08a29f8dc93a69cd6",
+      "originalPath": "docs/final-review-20261028/before/tests/fabric/r11.test.mjs.snapshot"
+    },
+    {
+      "path": "tests/knowledge/canonical-home.test.mjs",
+      "sha256": "4ed75a0a2ab2146599591216b1732490c5de89d95bcae5dd6d82f74fa59a1180",
+      "originalPath": "docs/final-review-20261028/before/tests/knowledge/canonical-home.test.mjs.snapshot"
+    },
+    {
+      "path": "tests/knowledge/insights.test.mjs",
+      "sha256": "0827258d78550631ea91157a4599f090ff650c9a4520911d15703339b99a8930",
+      "originalPath": "docs/final-review-20261028/before/tests/knowledge/insights.test.mjs.snapshot"
+    },
+    {
+      "path": "tests/knowledge/models.test.mjs",
+      "sha256": "943852d35b18eeb4b1c2e14c1a4a1bcaf118ef5988197b9f3ccd4ac623e1ade8",
+      "originalPath": "docs/final-review-20261028/before/tests/knowledge/models.test.mjs.snapshot"
+    }
+  ],
+  "note": "Exact preexisting runtime additions preserved as found; this inventory does not confer scientific approval. Draft status and keys remain unchanged."
+}

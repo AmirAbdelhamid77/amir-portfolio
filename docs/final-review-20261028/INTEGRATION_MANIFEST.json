@@ -1,0 +1,260 @@
+{
+  "scope": "hansa-final-review-20261028",
+  "previousManifest": "docs/cinematic-phase2/INTEGRATION_MANIFEST.json",
+  "previousManifestSha256": "ce94e6feae0b76e97075bbf58c085a0ef92077bedb6f3cdbada7e97278eb1122",
+  "baselinePath": "docs/final-review-20261028/BASELINE.json",
+  "baselineSha256": "5f32d4c8ba1a95e7ecee50f684619a886d0031186e6096b83e176a7d1df32d03",
+  "historySha256": "d149b71e8180ef8932bc802605c1e995ba40053c9ef46aa11e35fee38f9aa882",
+  "files": [
+    {
+      "path": "app/globals.css",
+      "beforeSha256": "5889a21a9ae69e7b356186e21a89fd912912835f323efb868fe7561db06d861b",
+      "sha256": "e0c781076cafee4709d00fcbe4e7a569b0a86e7c3be398ccb6c50aabebdf7182",
+      "bytes": 17957,
+      "rollbackPath": "docs/final-review-20261028/before/app/globals.css.snapshot"
+    },
+    {
+      "path": "app/layout.tsx",
+      "beforeSha256": "96a4bfd73e1180e6923ec4acd3aaee49663a26f6c6bbd17147fdaa8b8618049e",
+      "sha256": "8151e861039c5e031f61a81fd9d43fc86d93d10bab6e16117608cceb8f3050e0",
+      "bytes": 3112,
+      "rollbackPath": "docs/final-review-20261028/before/app/layout.tsx.snapshot"
+    },
+    {
+      "path": "app/learn/dp-600/atlas/page.tsx",
+      "beforeSha256": "5b772eca88cf2f360bc38766ee4a158677d21d19902b23f497f806a5033df40a",
+      "sha256": "bd367d9d491cfdb809d8e1ebf79bdff4c39014fa1d97f42c6d0d7fec20dad767",
+      "bytes": 1093,
+      "rollbackPath": "docs/final-review-20261028/before/app/learn/dp-600/atlas/page.tsx.snapshot"
+    },
+    {
+      "path": "components/atlas/circle-map.css",
+      "beforeSha256": "4d5b18e81eddbf6d468c71991b72373370eba62d2462ec95718a02d1498058cf",
+      "sha256": "86a7bc67e15f355406d43bca6b660d44aa6a5b09ffa534144d98ff2566aad565",
+      "bytes": 2660,
+      "rollbackPath": "docs/final-review-20261028/before/components/atlas/circle-map.css.snapshot"
+    },
+    {
+      "path": "components/atlas/explorer.tsx",
+      "beforeSha256": "6a2f4b3e1ac3ecf06c1ab5990dd9676a4dcfcc2f0fdc0254f231752282ad5c4d",
+      "sha256": "b168ae284fbb65d94c122fe2be4f8e6d2f4f1fc705ef97ce36e2a394bc641fb4",
+      "bytes": 19365,
+      "rollbackPath": "docs/final-review-20261028/before/components/atlas/explorer.tsx.snapshot"
+    },
+    {
+      "path": "components/atlas/pending-desk.tsx",
+      "beforeSha256": null,
+      "sha256": "7e3bc1bba14bf46fa8f287429fb7a4193cc793efa7029e56363dafa398b4e980",
+      "bytes": 5045
+    },
+    {
+      "path": "components/atlas/reading-desk.css",
+      "beforeSha256": null,
+      "sha256": "daf8a9a099176fe34ce9835bd6bdbed2003153e0e541810391858d4094d103c0",
+      "bytes": 5343
+    },
+    {
+      "path": "components/knowledge/insight-rail.tsx",
+      "beforeSha256": "c43bf0a559c7152d866fa6b65c6502c201fb93ba70dc72dc44426cae287e3978",
+      "sha256": "0bc0e60fd53bf8a6aab2aa8ce44be84bc23f601342894c4374de48b6818423c2",
+      "bytes": 17544,
+      "rollbackPath": "docs/final-review-20261028/before/components/knowledge/insight-rail.tsx.snapshot"
+    },
+    {
+      "path": "components/knowledge/insight-stage.tsx",
+      "beforeSha256": "dbf3ec4fa48373568a4aa5aab49d2646b72174a9e05ba4a5a2779114d2a4fa9d",
+      "sha256": "6b73c431a77787fd946b44a8d080f35bdd3b1b8b38a2484c43b7b59fd4de5452",
+      "bytes": 30800,
+      "rollbackPath": "docs/final-review-20261028/before/components/knowledge/insight-stage.tsx.snapshot"
+    },
+    {
+      "path": "components/knowledge/knowledge-instrument.tsx",
+      "beforeSha256": "b6a185e9464c86e4f06f6948ff2901e3e0ec88c50a47833f77db8a3e2adb02b7",
+      "sha256": "9a10d9d919cfd04555e54dcc703b798680f428788883488e4453ad1c9b42d101",
+      "bytes": 6947,
+      "rollbackPath": "docs/final-review-20261028/before/components/knowledge/knowledge-instrument.tsx.snapshot"
+    },
+    {
+      "path": "components/statistics/math.tsx",
+      "beforeSha256": "6e675789a1418dc8daf04d92c73b3c87fbd71c60932a2b4b1a7cfb350a33a843",
+      "sha256": "fa2602a3bd5b1b57430cab0b387881d7a8061023ff8be58b1f9700884e64fd5f",
+      "bytes": 4168,
+      "rollbackPath": "docs/final-review-20261028/before/components/statistics/math.tsx.snapshot"
+    },
+    {
+      "path": "lib/atlas/server.ts",
+      "beforeSha256": "d3e9becbe2db24ed0d0926f1c03c44c08b628de8131b51b9552038ed57e49a47",
+      "sha256": "851daa2943c74a78ff10add3224388d7f74b5e8516a5d39449dd0961d823ecac",
+      "bytes": 1254,
+      "rollbackPath": "docs/final-review-20261028/before/lib/atlas/server.ts.snapshot"
+    },
+    {
+      "path": "lib/touch.ts",
+      "beforeSha256": "7eeceae0a77560d02670f5d6e9a4fd1d78876c9ab6ca5da617522a26803f18bc",
+      "sha256": "83d69d6322c8a6dabfd22d2a6ba921cc373c4e514d9ff8ad9abf090ccaeaaaac",
+      "bytes": 2600,
+      "rollbackPath": "docs/final-review-20261028/before/lib/touch.ts.snapshot"
+    },
+    {
+      "path": "scripts/cinematic-phase2-receipt.mjs",
+      "beforeSha256": "f4803866a905bb3c0737a961d4708a5ad270ba61cfb1b4f132d22114c67c7ab8",
+      "sha256": "97f6d188c4356f904a1a4dee778b50f9b7b0a4877e63d3424d9dda7b01e959e8",
+      "bytes": 1949,
+      "rollbackPath": "docs/final-review-20261028/before/scripts/cinematic-phase2-receipt.mjs.snapshot"
+    },
+    {
+      "path": "scripts/final-review-atlas-encode.py",
+      "beforeSha256": null,
+      "sha256": "0bc3d6a66de46354306eb0ecb016d0d956b7fa50fb29cd5330b75b2698ec181e",
+      "bytes": 1226
+    },
+    {
+      "path": "scripts/final-review-atlas-focused.mjs",
+      "beforeSha256": null,
+      "sha256": "96fe1a9c2cfacf4e2e83101fbe5329b9b2bfbc15bc76a300eb4c377af92f2343",
+      "bytes": 2041
+    },
+    {
+      "path": "scripts/final-review-atlas-qa.mjs",
+      "beforeSha256": null,
+      "sha256": "a92ba20bf8ef65ff6bbd11edd5bea8cfb839c9c284aa0bb6e0fc540d05c79b96",
+      "bytes": 7155
+    },
+    {
+      "path": "scripts/final-review-atlas-record.mjs",
+      "beforeSha256": null,
+      "sha256": "42beff58a285d2e656d81ac3535ca676c0cd8758602d51189196469b53fab568",
+      "bytes": 3146
+    },
+    {
+      "path": "scripts/final-review-audit-history.mjs",
+      "beforeSha256": null,
+      "sha256": "1720250f3cb09cb2baa4c14c466e4bae25b576159397db082ffccab9b6450069",
+      "bytes": 1378
+    },
+    {
+      "path": "scripts/final-review-build-atlas.mjs",
+      "beforeSha256": null,
+      "sha256": "9114a0dd88659a67114f88d6b257c2f9778a02bf3d4dff0ef8d8514a6bfdc77b",
+      "bytes": 2832
+    },
+    {
+      "path": "scripts/final-review-canonical-qa.mjs",
+      "beforeSha256": null,
+      "sha256": "35bd9e6a97a9ae183af7f4be26b79054e44f2fc851ddc6cfca5be2cb46fbe280",
+      "bytes": 19738
+    },
+    {
+      "path": "scripts/final-review-capture.mjs",
+      "beforeSha256": null,
+      "sha256": "d5ad1cf29064b187889fd25941a0f52351aec3cebfdc66cd549258d9c77a2522",
+      "bytes": 3788
+    },
+    {
+      "path": "scripts/final-review-delivery-qa.mjs",
+      "beforeSha256": null,
+      "sha256": "30b8e46e47e4f34120cb4ad9e03b8a13517a02ec4534dee9c99b2a9b1b6a9f4d",
+      "bytes": 2359
+    },
+    {
+      "path": "scripts/final-review-encode.py",
+      "beforeSha256": null,
+      "sha256": "2bd025401c993f2a1ded7696723fac248d72ecf02d6929bf26f1f19798e15943",
+      "bytes": 1570
+    },
+    {
+      "path": "scripts/final-review-home-qa.mjs",
+      "beforeSha256": null,
+      "sha256": "f5d7254d8507caabee66e4a66b86b7f8b568be1599abc069e921a5297ebd95e6",
+      "bytes": 12175
+    },
+    {
+      "path": "scripts/final-review-negative.mjs",
+      "beforeSha256": null,
+      "sha256": "c291b1af6e34df7fb09b9b2fcdcb3f6f5e0d36698ac78b47f5ecd77e4e23db96",
+      "bytes": 3981
+    },
+    {
+      "path": "scripts/final-review-pacing.mjs",
+      "beforeSha256": null,
+      "sha256": "8df4dc0fafd52dd194ff19a1f890834c2f560f92066ddcd3c3fd2f8e6f5a985c",
+      "bytes": 3110
+    },
+    {
+      "path": "scripts/final-review-preserve-generated.py",
+      "beforeSha256": null,
+      "sha256": "8f577c3326c133b5686d52963800aa5bec7c913841fad3ecf1ff2a9f1ad096e8",
+      "bytes": 2061
+    },
+    {
+      "path": "scripts/final-review-profile.mjs",
+      "beforeSha256": null,
+      "sha256": "e2b4182eaea3d0064799df4c68fc9334902678ff87b1af4f71409d8fa4be6e62",
+      "bytes": 2788
+    },
+    {
+      "path": "scripts/final-review-receipt.mjs",
+      "beforeSha256": null,
+      "sha256": "6bcb680bef2638dd22ed6690c7cffd33c74ea8ce8d792c97b5e71867c8702ed5",
+      "bytes": 7961
+    },
+    {
+      "path": "scripts/final-review-record.mjs",
+      "beforeSha256": null,
+      "sha256": "57f0af435da69ac1a121daff00303f09a5414cc38a5d6b7816c0e74c0cc38e09",
+      "bytes": 2714
+    },
+    {
+      "path": "scripts/final-review-route-qa.mjs",
+      "beforeSha256": null,
+      "sha256": "8b37a70bb38c59fceeb59dfc6c023f6f4230a87bee48b3b2d34eb45b44b95406",
+      "bytes": 4003
+    },
+    {
+      "path": "scripts/final-review-run.py",
+      "beforeSha256": null,
+      "sha256": "ef555e0bd9691eabc54e1b4091858f595c04bdb8918059f5fe14da03a064d979",
+      "bytes": 771
+    },
+    {
+      "path": "scripts/final-review-seal.py",
+      "beforeSha256": null,
+      "sha256": "97de6f9075625b4064945405dd42bac883c958c78f06aed59abc42d83191c06e",
+      "bytes": 3946
+    },
+    {
+      "path": "scripts/final-review-serve.mjs",
+      "beforeSha256": null,
+      "sha256": "3c89e31ed062d185dd4f565cc7e3faa9c96fcedece5b20afb36ffe4d79519d7c",
+      "bytes": 1890
+    },
+    {
+      "path": "scripts/preservation-history.mjs",
+      "beforeSha256": "f31fff8ee83997f6fc3291f3a62d9fd6a8c4678f18c22294748c74646029509a",
+      "sha256": "ff96a965882def05fc997772c11fcf8456d7a2500d44415acf0073a2f1296801",
+      "bytes": 8046,
+      "rollbackPath": "docs/final-review-20261028/before/scripts/preservation-history.mjs.snapshot"
+    },
+    {
+      "path": "scripts/verify-agent-reference.mjs",
+      "beforeSha256": "8dcde9e7b58c237c66a45e0086c26f053e22a61b09e58e1616df88621fd630a7",
+      "sha256": "2b463ce556dc0defd45fd97aa95c39bc7349163daea0984e07a30ce92f1334cb",
+      "bytes": 3240,
+      "rollbackPath": "docs/final-review-20261028/before/scripts/verify-agent-reference.mjs.snapshot"
+    },
+    {
+      "path": "scripts/verify-easyui-integration.mjs",
+      "beforeSha256": "0ecc94a4c50058edd99ed4cad57284ff8ea25d9cd595a0fb32634cb82c30f509",
+      "sha256": "96aab07729d34f47eb3e11de11ee35a47a48cc3b74326ea1e72f4faa81d20f29",
+      "bytes": 4164,
+      "rollbackPath": "docs/final-review-20261028/before/scripts/verify-easyui-integration.mjs.snapshot"
+    },
+    {
+      "path": "scripts/verify-preservation-history.mjs",
+      "beforeSha256": "b60bdf99b88b4e8390614f2a4f17be9e56f2174d9a0e1076d76f68fdbc02dc2d",
+      "sha256": "683628a17a39e9a7b96aae1ee81571dcb808926bb78d30aefc47760a8d110742",
+      "bytes": 9164,
+      "rollbackPath": "docs/final-review-20261028/before/scripts/verify-preservation-history.mjs.snapshot"
+    }
+  ]
+}

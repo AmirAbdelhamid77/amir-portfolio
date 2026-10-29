@@ -3,10 +3,33 @@ import path from 'node:path';
 import os from 'node:os';
 import assert from 'node:assert/strict';
 import { prototypeReceipt, PROTOTYPE_C } from './prototype-c-receipt.mjs';
+import { R11_INTEGRATION } from './r11-question-receipt.mjs';
+import { CANONICAL_HOME, canonicalHomeReceipt } from './canonical-home-receipt.mjs';
 const root=process.cwd(),m=JSON.parse(fs.readFileSync(PROTOTYPE_C,'utf8'));
+// Validate the real checkout first; the rejection cases below run on a throwaway copy.
 prototypeReceipt(root);
+// Files a bound successor retired have no bytes to copy into the disposable view.
+const retired=new Set(canonicalHomeReceipt(root).removedPaths());
 const scratch=fs.mkdtempSync(path.join(os.tmpdir(),'hansa-prototype-rejection-'));
-const paths=[PROTOTYPE_C,m.baselinePath,...m.files.flatMap(e=>[e.path,...(e.beforeSha256!==null?['docs/prototype-c/preservation/originals/'+e.path]:[])]),...(m.generatedArtifacts??[]).flatMap(e=>[e.path,e.basisPath])];
+// Every layer of the chain travels into the disposable copy. Copying only the
+// prototype layer would degrade the chain there (each successor would resolve to
+// its own recorded hashes) and the rejection cases below would pass for the
+// wrong reason.
+const chainPaths=new Set([PROTOTYPE_C,m.baselinePath,...m.files.flatMap(e=>[e.path,...(e.beforeSha256!==null?['docs/prototype-c/preservation/originals/'+e.path]:[])]),...(m.generatedArtifacts??[]).flatMap(e=>[e.path,e.basisPath])]);
+for(const manifestPath of [R11_INTEGRATION,CANONICAL_HOME]){
+  if(!fs.existsSync(manifestPath))continue;
+  const layer=JSON.parse(fs.readFileSync(manifestPath,'utf8'));
+  chainPaths.add(manifestPath);
+  if(layer.previousManifest)chainPaths.add(layer.previousManifest);
+  if(layer.baselinePath)chainPaths.add(layer.baselinePath);
+  for(const b of layer.baselines??[])chainPaths.add(b.path);
+  for(const e of [...(layer.files??[]),...(layer.generatedArtifacts??[])]){
+    chainPaths.add(e.path);
+    if(e.rollbackPath)chainPaths.add(e.rollbackPath);
+    if(e.basisPath)chainPaths.add(e.basisPath);
+  }
+}
+const paths=[...chainPaths].filter(p=>!retired.has(p)&&fs.existsSync(p));
 for(const p of paths){fs.mkdirSync(path.dirname(path.join(scratch,p)),{recursive:true});fs.copyFileSync(p,path.join(scratch,p));}
 let negatives=0;
 function reject(p,change){const file=path.join(scratch,p),before=fs.readFileSync(file);try{change(file);assert.throws(()=>prototypeReceipt(scratch));negatives++;}finally{fs.writeFileSync(file,before);}}

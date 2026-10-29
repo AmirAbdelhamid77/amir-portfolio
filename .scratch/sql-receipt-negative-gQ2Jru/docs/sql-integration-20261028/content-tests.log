@@ -1,0 +1,258 @@
+TAP version 13
+# (node:1372) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///D:/BeUI/amir-portfolio/lib/case-studies.ts is not specified and it doesn't parse as CommonJS.
+# Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+# To eliminate this warning, add "type": "module" to D:\\BeUI\\amir-portfolio\\package.json.
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# Subtest: every case study declares a role, timeframe, limitation and outcome
+ok 1 - every case study declares a role, timeframe, limitation and outcome
+  ---
+  duration_ms: 1.9016
+  type: 'test'
+  ...
+# Subtest: every metric exposes a label and a qualifying note
+ok 2 - every metric exposes a label and a qualifying note
+  ---
+  duration_ms: 0.5672
+  type: 'test'
+  ...
+# Subtest: the HSE safety rates declare their hour base and stay mutually consistent
+ok 3 - the HSE safety rates declare their hour base and stay mutually consistent
+  ---
+  duration_ms: 0.8002
+  type: 'test'
+  ...
+# Subtest: screenshots referenced by case studies exist in public/
+ok 4 - screenshots referenced by case studies exist in public/
+  ---
+  duration_ms: 11.6329
+  type: 'test'
+  ...
+# Subtest: DP-600 R18 draft: 222 records, unique namespaced ids, grading off, NO_GO
+ok 5 - DP-600 R18 draft: 222 records, unique namespaced ids, grading off, NO_GO
+  ---
+  duration_ms: 11.7956
+  type: 'test'
+  ...
+# Subtest: PL-300 V88 draft: 1,285 records, unique namespaced ids, grading off, NONFINAL
+ok 6 - PL-300 V88 draft: 1,285 records, unique namespaced ids, grading off, NONFINAL
+  ---
+  duration_ms: 52.6963
+  type: 'test'
+  ...
+# Subtest: no answer-bearing field reaches either shipped projection
+ok 7 - no answer-bearing field reaches either shipped projection
+  ---
+  duration_ms: 74.1081
+  type: 'test'
+  ...
+# Subtest: shipped drafts contain none of the private mirror's marker strings
+ok 8 - shipped drafts contain none of the private mirror's marker strings
+  ---
+  duration_ms: 18.8772
+  type: 'test'
+  ...
+# Subtest: the two banks stay separate and never collide
+ok 9 - the two banks stay separate and never collide
+  ---
+  duration_ms: 27.2068
+  type: 'test'
+  ...
+# Subtest: drafts are not merged into the approved banks
+ok 10 - drafts are not merged into the approved banks
+  ---
+  duration_ms: 118.2092
+  type: 'test'
+  ...
+# Subtest: the draft route is isolated: noindex, out of the sitemap and catalogue
+ok 11 - the draft route is isolated: noindex, out of the sitemap and catalogue
+  ---
+  duration_ms: 1.1601
+  type: 'test'
+  ...
+# Subtest: draft code never touches learner progress storage
+ok 12 - draft code never touches learner progress storage
+  ---
+  duration_ms: 1.1591
+  type: 'test'
+  ...
+# Subtest: no app code imports the private intake mirror or the intake manifests
+ok 13 - no app code imports the private intake mirror or the intake manifests
+  ---
+  duration_ms: 234.3628
+  type: 'test'
+  ...
+# Subtest: the private mirror is gitignored and excluded from version control
+ok 14 - the private mirror is gitignored and excluded from version control
+  ---
+  duration_ms: 1.0032
+  type: 'test'
+  ...
+# Subtest: projection hashes recorded in the intake manifests still match the shipped files
+ok 15 - projection hashes recorded in the intake manifests still match the shipped files
+  ---
+  duration_ms: 10.4026
+  type: 'test'
+  ...
+# Subtest: both intake packages' declared statuses survive into the shipped manifest
+ok 16 - both intake packages' declared statuses survive into the shipped manifest
+  ---
+  duration_ms: 0.6817
+  type: 'test'
+  ...
+# (node:6156) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///D:/BeUI/amir-portfolio/lib/hse/rates.ts is not specified and it doesn't parse as CommonJS.
+# Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+# To eliminate this warning, add "type": "module" to D:\\BeUI\\amir-portfolio\\package.json.
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# Subtest: TRIR uses the 200,000-hour base and LTIFR the 1,000,000-hour base
+ok 17 - TRIR uses the 200,000-hour base and LTIFR the 1,000,000-hour base
+  ---
+  duration_ms: 2.0436
+  type: 'test'
+  ...
+# Subtest: the illustrative counts reproduce the published display values after rounding
+ok 18 - the illustrative counts reproduce the published display values after rounding
+  ---
+  duration_ms: 0.5859
+  type: 'test'
+  ...
+# Subtest: converting a rate between bases is exact and reversible
+ok 19 - converting a rate between bases is exact and reversible
+  ---
+  duration_ms: 0.2696
+  type: 'test'
+  ...
+# Subtest: on a common base the recordable rate is at least the lost-time rate
+ok 20 - on a common base the recordable rate is at least the lost-time rate
+  ---
+  duration_ms: 0.5576
+  type: 'test'
+  ...
+# Subtest: rates scale inversely with hours worked
+ok 21 - rates scale inversely with hours worked
+  ---
+  duration_ms: 0.3185
+  type: 'test'
+  ...
+# Subtest: invalid inputs produce no rate and an explicit reason
+ok 22 - invalid inputs produce no rate and an explicit reason
+  ---
+  duration_ms: 0.4647
+  type: 'test'
+  ...
+# Subtest: a lost-time count above the recordable count is rejected
+ok 23 - a lost-time count above the recordable count is rejected
+  ---
+  duration_ms: 0.2603
+  type: 'test'
+  ...
+# Subtest: zero cases give a zero rate, and zero lost-time cases leave the ratio undefined
+ok 24 - zero cases give a zero rate, and zero lost-time cases leave the ratio undefined
+  ---
+  duration_ms: 0.3995
+  type: 'test'
+  ...
+# Subtest: formatRate never prints NaN or Infinity
+ok 25 - formatRate never prints NaN or Infinity
+  ---
+  duration_ms: 0.7298
+  type: 'test'
+  ...
+# (node:18316) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///D:/BeUI/amir-portfolio/lib/search/query.ts is not specified and it doesn't parse as CommonJS.
+# Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+# To eliminate this warning, add "type": "module" to D:\\BeUI\\amir-portfolio\\package.json.
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# Subtest: normalisation folds case, punctuation, diacritics and Arabic letter variants
+ok 26 - normalisation folds case, punctuation, diacritics and Arabic letter variants
+  ---
+  duration_ms: 4.9595
+  type: 'test'
+  ...
+# Subtest: the v2 benchmark queries reach a relevant destination
+ok 27 - the v2 benchmark queries reach a relevant destination
+  ---
+  duration_ms: 3.3857
+  type: 'test'
+  ...
+# Subtest: every token must match, so extra words narrow the set
+ok 28 - every token must match, so extra words narrow the set
+  ---
+  duration_ms: 2.0625
+  type: 'test'
+  ...
+# Subtest: title matches outrank summary-only matches
+ok 29 - title matches outrank summary-only matches
+  ---
+  duration_ms: 0.8198
+  type: 'test'
+  ...
+# Subtest: filters narrow by kind and language without dropping the query
+ok 30 - filters narrow by kind and language without dropping the query
+  ---
+  duration_ms: 1.7108
+  type: 'test'
+  ...
+# Subtest: an empty query lists everything rather than nothing
+ok 31 - an empty query lists everything rather than nothing
+  ---
+  duration_ms: 26.7889
+  type: 'test'
+  ...
+# Subtest: scoring is deterministic and symmetric for repeated calls
+ok 32 - scoring is deterministic and symmetric for repeated calls
+  ---
+  duration_ms: 0.9196
+  type: 'test'
+  ...
+# (node:12784) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# Subtest: every source entry is accounted for and canonical order has exactly one owner
+ok 33 - every source entry is accounted for and canonical order has exactly one owner
+  ---
+  duration_ms: 4.8494
+  type: 'test'
+  ...
+# Subtest: source diagrams, code, media and bilingual bodies survive import
+ok 34 - source diagrams, code, media and bilingual bodies survive import
+  ---
+  duration_ms: 7.6915
+  type: 'test'
+  ...
+# Subtest: pre-existing content, exam answers and identities remain byte-identical
+ok 35 - pre-existing content, exam answers and identities remain byte-identical
+  ---
+  duration_ms: 36.8504
+  type: 'test'
+  ...
+# Subtest: source self-checks retain prompts and responses without adding grading keys to discovery
+ok 36 - source self-checks retain prompts and responses without adding grading keys to discovery
+  ---
+  duration_ms: 0.4638
+  type: 'test'
+  ...
+# Subtest: grain trace agrees with independently executed SQL and preserves pre-aggregation grain
+ok 37 - grain trace agrees with independently executed SQL and preserves pre-aggregation grain
+  ---
+  duration_ms: 77.4255
+  type: 'test'
+  ...
+# Subtest: corrected window figure includes only the two preceding rows and current row
+ok 38 - corrected window figure includes only the two preceding rows and current row
+  ---
+  duration_ms: 0.4399
+  type: 'test'
+  ...
+# Subtest: new SQL discovery is unique, topic-valid and has a complete canonical reading sequence
+ok 39 - new SQL discovery is unique, topic-valid and has a complete canonical reading sequence
+  ---
+  duration_ms: 844.9514
+  type: 'test'
+  ...
+1..39
+# tests 39
+# suites 0
+# pass 39
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 2069.1492

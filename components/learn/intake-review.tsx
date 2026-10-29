@@ -1,0 +1,430 @@
+"use client";
+
+// Review surface for the two external intake packages: the Notion creative
+// patterns lessons and the Fabric RTI authentic-source labs.
+//
+// Constraints held here, from both read-only handoffs:
+//   * nothing is written to storage — existing lesson and exam progress under
+//     the established keys is never opened, so staging cannot reset progress;
+//   * grading stays off: no check-answer control exists because no proposed
+//     key or option reasoning is loaded at all;
+//   * statuses travel with the content — REVIEW_REQUIRED and
+//     COMPLETE_WITH_DOCUMENTED_HOLDS are shown, never upgraded;
+//   * held sources and the withheld lab stay visible as holds rather than
+//     disappearing silently.
+
+import { useEffect, useMemo, useState } from "react";
+import Link from "next/link";
+import type {
+  IntakeLabSet,
+  IntakeLessonSet,
+  IntakeSourceRegistry,
+} from "@/lib/intake/data";
+import { filterByWords } from "@/lib/intake/data";
+import { cn } from "@/lib/utils";
+
+type Tab = "lessons" | "structure" | "labs" | "sources";
+
+const TABS: { id: Tab; label: string }[] = [
+  { id: "lessons", label: "Lessons" },
+  { id: "structure", label: "Modules & paths" },
+  { id: "labs", label: "Lab blueprints" },
+  { id: "sources", label: "Sources & data" },
+];
+
+const control = "min-h-11 rounded-xl border border-border-strong bg-background p-3 text-sm";
+
+export function IntakeReview() {
+  const [tab, setTab] = useState<Tab>("lessons");
+  const [data, setData] = useState<{
+    lessons?: IntakeLessonSet;
+    labs?: IntakeLabSet;
+    sources?: IntakeSourceRegistry;
+  }>({});
+  const [error, setError] = useState("");
+  const [query, setQuery] = useState("");
+  useEffect(()=>{const restore=()=>{const u=new URL(location.href),tab=u.searchParams.get('tab');if(tab==='lessons'||tab==='labs'||tab==='structure'||tab==='sources')setTab(tab);setQuery((u.searchParams.get('q')??'').slice(0,200));};queueMicrotask(restore);addEventListener('popstate',restore);return()=>removeEventListener('popstate',restore);},[]);
+
+  useEffect(() => {
+    let alive = true;
+    const load = async () => {
+      try {
+        const [lessons, labs, sources] = await Promise.all([
+          import("@/content/intake/notion-lessons.json"),
+          import("@/content/intake/rti-labs.json"),
+          import("@/content/intake/rti-sources.json"),
+        ]);
+        if (!alive) return;
+        setData({
+          lessons: lessons.default as unknown as IntakeLessonSet,
+          labs: labs.default as unknown as IntakeLabSet,
+          sources: sources.default as unknown as IntakeSourceRegistry,
+        });
+      } catch {
+        if (alive) setError("The intake content could not load. Reload to retry; saved progress was not changed.");
+      }
+    };
+    void load();
+    return () => {
+      alive = false;
+    };
+  }, []);
+
+  const lessonRows = useMemo(
+    () =>
+      data.lessons
+        ? filterByWords(data.lessons.lessons, query, (lesson) =>
+            [lesson.title, lesson.slug, lesson.explanation, ...(lesson.objectives ?? [])].join(" "),
+          )
+        : [],
+    [data.lessons, query],
+  );
+
+  const labRows = useMemo(
+    () =>
+      data.labs
+        ? filterByWords(data.labs.labs, query, (lab) =>
+            [lab.lab_id, lab.title, lab.task, lab.data_origin].join(" "),
+          )
+        : [],
+    [data.labs, query],
+  );
+
+  if (error) {
+    return (
+      <p className="rounded-2xl border border-border bg-card/40 p-4 text-sm text-muted-foreground" role="alert">
+        {error}
+      </p>
+    );
+  }
+  if (!data.lessons || !data.labs || !data.sources) {
+    return (
+      <p className="rounded-2xl border border-border bg-card/40 p-4 text-sm text-muted-foreground" role="status">
+        Loading the intake packages…
+      </p>
+    );
+  }
+
+  const showSearch = tab === "lessons" || tab === "labs";
+
+  return (
+    <div className="space-y-5" data-testid="intake-review">
+      <div role="group" aria-label="Intake views" className="flex flex-wrap gap-2">
+        {TABS.map((entry) => (
+          <button
+            key={entry.id}
+            type="button"
+            aria-pressed={tab === entry.id}
+            onClick={() => {
+              setTab(entry.id);
+              setQuery("");
+            }}
+            className={cn(
+              "inline-flex min-h-11 items-center rounded-full border px-4 text-sm font-medium transition-colors",
+              "focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary",
+              tab === entry.id
+                ? "border-foreground bg-foreground text-background"
+                : "border-border-strong text-muted-foreground hover:text-foreground",
+            )}
+          >
+            {entry.label}
+          </button>
+        ))}
+      </div>
+
+      {showSearch ? (
+        <label className="block text-sm">
+          <span className="text-muted-foreground">Search this view</span>
+          <input
+            type="search"
+            value={query}
+            onChange={(event) => setQuery(event.target.value)}
+            placeholder={tab === "lessons" ? "title, slug, objective" : "lab id, task or data origin"}
+            className={cn(control, "mt-1 w-full")}
+          />
+        </label>
+      ) : null}
+
+      {tab === "lessons" ? (
+        <section className="space-y-3" aria-label="Staged lessons">
+          <p className="text-sm leading-7 text-muted-foreground">{data.lessons.statusLabel}.</p>
+          <div className="flex flex-wrap gap-x-5 gap-y-1 font-mono text-[10px] uppercase tracking-[0.16em] text-muted-foreground">
+            <span>{data.lessons.counts.lessons} lessons</span>
+            <span>{data.lessons.counts.modules} modules</span>
+            <span>{data.lessons.counts.paths} paths</span>
+            <span>{data.lessons.code.length} code templates</span>
+            <span>grading disabled</span>
+          </div>
+          <ol className="space-y-3">
+            {lessonRows.map((lesson) => (
+              <li key={lesson.id} className="rounded-2xl border border-border bg-card/40">
+                <details className="group p-4">
+                  <summary
+                    className={cn(
+                      "flex cursor-pointer list-none items-start justify-between gap-3 text-sm",
+                      "focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary",
+                    )}
+                  >
+                    <span>
+                      <span className="font-medium">{lesson.title}</span>
+                      <span className="ml-2 font-mono text-[11px] uppercase tracking-[0.12em] text-muted-foreground">
+                        {lesson.slug}
+                      </span>
+                    </span>
+                    <span aria-hidden="true" className="mt-0.5 shrink-0 text-muted-foreground transition-transform group-open:rotate-90">
+                      ›
+                    </span>
+                  </summary>
+                  <div className="mt-3 space-y-3 border-t border-border pt-3">
+                    <p className="text-sm leading-7">{lesson.explanation}</p>
+                    {lesson.objectives?.length ? (
+                      <div>
+                        <p className="font-mono text-[10px] uppercase tracking-[0.14em] text-muted-foreground">Learning objectives</p>
+                        <ul className="mt-1 list-disc space-y-1 pl-5 text-sm leading-6">
+                          {lesson.objectives.map((objective) => (
+                            <li key={objective}>{objective}</li>
+                          ))}
+                        </ul>
+                      </div>
+                    ) : null}
+                    {lesson.walkthrough?.length ? (
+                      <div>
+                        <p className="font-mono text-[10px] uppercase tracking-[0.14em] text-muted-foreground">Walkthrough</p>
+                        <ol className="mt-1 list-decimal space-y-1 pl-5 text-sm leading-6">
+                          {lesson.walkthrough.map((step) => (
+                            <li key={step}>{step}</li>
+                          ))}
+                        </ol>
+                      </div>
+                    ) : null}
+                    {lesson.misconceptions_and_tradeoffs?.length ? (
+                      <div>
+                        <p className="font-mono text-[10px] uppercase tracking-[0.14em] text-muted-foreground">
+                          Misconceptions and trade-offs
+                        </p>
+                        <ul className="mt-1 list-disc space-y-1 pl-5 text-sm leading-6">
+                          {lesson.misconceptions_and_tradeoffs.map((item) => (
+                            <li key={item}>{item}</li>
+                          ))}
+                        </ul>
+                      </div>
+                    ) : null}
+                    {lesson.practice ? (
+                      <p className="rounded-xl border border-border bg-background p-3 text-sm leading-6">
+                        <span className="font-mono text-[10px] uppercase tracking-[0.14em] text-muted-foreground">Practice </span>
+                        {lesson.practice}
+                      </p>
+                    ) : null}
+                    {lesson.model_feedback ? (
+                      <p className="rounded-xl border border-border bg-background p-3 text-sm leading-6 text-foreground/85">
+                        <span className="font-mono text-[10px] uppercase tracking-[0.14em] text-muted-foreground">Model feedback </span>
+                        {lesson.model_feedback}
+                      </p>
+                    ) : null}
+                    <div className="flex flex-wrap gap-x-4 gap-y-1 border-t border-border pt-3 font-mono text-[10px] uppercase tracking-[0.12em] text-muted-foreground">
+                      <span>{lesson.evidence_level ?? "evidence pending"}</span>
+                      <span>native: {lesson.native_execution ?? "NOT_RUN"}</span>
+                      <span>{lesson.source_unit_ids?.length ?? 0} source units</span>
+                      <span>{lesson.prerequisite_slugs?.length ?? 0} prerequisites</span>
+                    </div>
+                  </div>
+                </details>
+              </li>
+            ))}
+          </ol>
+          {lessonRows.length === 0 ? (
+            <p className="rounded-2xl border border-border bg-card/40 p-4 text-sm text-muted-foreground">No lesson matches that search.</p>
+          ) : null}
+        </section>
+      ) : null}
+
+      {tab === "structure" ? (
+        <section className="grid gap-5 md:grid-cols-2" aria-label="Modules and paths">
+          <div className="rounded-2xl border border-border bg-card/40 p-4">
+            <h2 className="font-mono text-[10px] uppercase tracking-[0.14em] text-muted-foreground">
+              {data.lessons.modules.length} modules · {data.lessons.status}
+            </h2>
+            <ul className="mt-3 space-y-3">
+              {data.lessons.modules.map((module) => (
+                <li key={module.id}>
+                  <p className="text-sm font-medium">{module.title}</p>
+                  <p className="mt-0.5 text-xs leading-5 text-muted-foreground">
+                    {module.lesson_ids.length} lessons · {module.status ?? "status pending"}
+                  </p>
+                </li>
+              ))}
+            </ul>
+          </div>
+          <div className="rounded-2xl border border-border bg-card/40 p-4">
+            <h2 className="font-mono text-[10px] uppercase tracking-[0.14em] text-muted-foreground">
+              {data.lessons.paths.length} learning paths
+            </h2>
+            <ul className="mt-3 space-y-3">
+              {data.lessons.paths.map((entry) => (
+                <li key={entry.id}>
+                  <p className="text-sm font-medium">{entry.title}</p>
+                  <p className="mt-0.5 text-xs leading-5 text-muted-foreground">{entry.lesson_ids.length} lessons</p>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </section>
+      ) : null}
+
+      {tab === "labs" ? (
+        <section className="space-y-3" aria-label="Lab blueprints">
+          <p className="text-sm leading-7 text-muted-foreground">
+            {data.labs.statusLabel}. {data.labs.counts.shipped} of {data.labs.counts.proposed} blueprints are shown;
+            every one has grading and deployment disabled.
+          </p>
+          <p className="text-sm leading-7 text-muted-foreground">
+            The blueprints cleared for release now carry source-backed study notes at{" "}
+            <Link
+              href="/learn/fabric-rti"
+              className="underline underline-offset-4 hover:text-foreground"
+            >
+              the Fabric RTI learning path
+            </Link>
+            , with a companion exam at{" "}
+            <Link
+              href="/lab/fabric-rti"
+              className="underline underline-offset-4 hover:text-foreground"
+            >
+              /lab/fabric-rti
+            </Link>
+            . Held blueprints still carry no notes and no graded question.
+          </p>
+          {data.labs.holds.map((hold) => (
+            <p key={hold.lab_id} className="rounded-xl border border-border-strong bg-background p-3 text-xs leading-6 text-muted-foreground">
+              <span className="font-mono uppercase tracking-[0.12em] text-foreground">{hold.lab_id} withheld </span>
+              {hold.reason}
+            </p>
+          ))}
+          <ol className="space-y-3">
+            {labRows.map((lab) => (
+              <li key={lab.lab_id} className="rounded-2xl border border-border bg-card/40">
+                <details className="group p-4">
+                  <summary
+                    className={cn(
+                      "flex cursor-pointer list-none items-start justify-between gap-3 text-sm",
+                      "focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary",
+                    )}
+                  >
+                    <span>
+                      <span className="font-mono text-[11px] uppercase tracking-[0.12em] text-muted-foreground">{lab.lab_id} </span>
+                      <span className="font-medium">{lab.title}</span>
+                    </span>
+                    <span aria-hidden="true" className="mt-0.5 shrink-0 text-muted-foreground transition-transform group-open:rotate-90">
+                      ›
+                    </span>
+                  </summary>
+                  <div className="mt-3 space-y-3 border-t border-border pt-3">
+                    <p className="text-sm leading-7">{lab.task}</p>
+                    {lab.source_based_expected_evidence ? (
+                      <p className="text-sm leading-6 text-foreground/85">{lab.source_based_expected_evidence}</p>
+                    ) : null}
+                    <ul className="space-y-1.5">
+                      {lab.source_evidence.map((item) => (
+                        <li key={item.artifact_id} className="text-xs leading-5">
+                          <a
+                            href={item.canonical_url}
+                            target="_blank"
+                            rel="noreferrer noopener"
+                            className="underline underline-offset-4 hover:text-foreground"
+                          >
+                            {item.source_path}
+                            {item.line ? `:${item.line}` : ""}
+                          </a>
+                          <span className="text-muted-foreground">
+                            {" "}
+                            · {item.locator_term ? `${item.locator_term} · ` : ""}
+                            {item.sha256.slice(0, 12)}…
+                          </span>
+                        </li>
+                      ))}
+                    </ul>
+                    <div className="flex flex-wrap gap-x-4 gap-y-1 border-t border-border pt-3 font-mono text-[10px] uppercase tracking-[0.12em] text-muted-foreground">
+                      <span>origin: {lab.data_origin}</span>
+                      <span>runtime: {lab.validation_status ?? "NOT_RUN"}</span>
+                      <span>grading disabled</span>
+                      <span>deployment disabled</span>
+                    </div>
+                  </div>
+                </details>
+              </li>
+            ))}
+          </ol>
+          {labRows.length === 0 ? (
+            <p className="rounded-2xl border border-border bg-card/40 p-4 text-sm text-muted-foreground">No lab matches that search.</p>
+          ) : null}
+        </section>
+      ) : null}
+
+      {tab === "sources" ? (
+        <section className="space-y-5" aria-label="Sources and datasets">
+          <div className="flex flex-wrap gap-x-5 gap-y-1 font-mono text-[10px] uppercase tracking-[0.16em] text-muted-foreground">
+            <span>{data.sources.counts.repositoriesCleared} repositories cleared</span>
+            <span>{data.sources.counts.repositoriesHeldReferenceOnly} held (no license)</span>
+            <span>{data.sources.counts.datasetsCleared} datasets cleared</span>
+            <span>{data.sources.counts.datasetsHeld} dataset held</span>
+          </div>
+
+          <div className="space-y-2">
+            {data.sources.holds.map((hold) => (
+              <p key={hold.id} className="rounded-xl border border-border-strong bg-background p-3 text-xs leading-6 text-muted-foreground">
+                <span className="font-mono uppercase tracking-[0.12em] text-foreground">{hold.id} · {hold.count} </span>
+                {hold.reason}
+              </p>
+            ))}
+          </div>
+
+          <div>
+            <h2 className="font-mono text-[10px] uppercase tracking-[0.14em] text-muted-foreground">Repositories · links and metadata only</h2>
+            <ul className="mt-2 divide-y divide-border rounded-2xl border border-border bg-card/40">
+              {data.sources.repositories.map((source) => (
+                <li key={source.source_id} className="flex flex-wrap items-baseline justify-between gap-2 p-3 text-sm">
+                  <a href={source.canonical_url} target="_blank" rel="noreferrer noopener" className="underline underline-offset-4 hover:text-foreground">
+                    {source.repo}
+                  </a>
+                  <span className="font-mono text-[10px] uppercase tracking-[0.12em] text-muted-foreground">
+                    {source.source_id} · {source.license} · {source.commit.slice(0, 8)} · {source.included_artifacts} included
+                    {source.reference_only_artifacts ? ` · ${source.reference_only_artifacts} reference-only` : ""}
+                  </span>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div>
+            <h2 className="font-mono text-[10px] uppercase tracking-[0.14em] text-muted-foreground">Datasets · origin, grain and licence recorded</h2>
+            <ul className="mt-2 divide-y divide-border rounded-2xl border border-border bg-card/40">
+              {data.sources.datasets.map((dataset) => (
+                <li key={dataset.dataset_id} className="p-3 text-sm">
+                  <div className="flex flex-wrap items-baseline justify-between gap-2">
+                    <span className="font-medium">{dataset.name}</span>
+                    <span className="font-mono text-[10px] uppercase tracking-[0.12em] text-muted-foreground">
+                      {dataset.dataset_id} · {dataset.origin_class}
+                      {dataset.row_grain ? ` · ${dataset.row_grain}` : ""}
+                    </span>
+                  </div>
+                  {dataset.limitations ? (
+                    <p className="mt-1 text-xs leading-5 text-muted-foreground">{dataset.limitations}</p>
+                  ) : null}
+                  <div className="mt-1 flex flex-wrap gap-x-4 gap-y-1 font-mono text-[10px] uppercase tracking-[0.12em] text-muted-foreground">
+                    {dataset.license ? <span>{dataset.license}</span> : null}
+                    {dataset.timezone ? <span>timezone: {dataset.timezone}</span> : null}
+                    {dataset.canonical_url ? (
+                      <a href={dataset.canonical_url} target="_blank" rel="noreferrer noopener" className="underline underline-offset-4 hover:text-foreground">
+                        source
+                      </a>
+                    ) : null}
+                  </div>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </section>
+      ) : null}
+    </div>
+  );
+}

@@ -1,4 +1,10 @@
-@import "tailwindcss";
+@import "tailwindcss" source(none);
+/* Scan every runtime template and generated content record, while excluding
+   archived examples, source-export intake and rollback/evidence copies. */
+@source "./";
+@source "../components";
+@source "../lib";
+@source "../content";
 
 @custom-variant dark (&:where(.dark, .dark *));
 

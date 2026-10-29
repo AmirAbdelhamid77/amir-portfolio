@@ -52,7 +52,7 @@ export const KIND_LABEL: Record<CatalogueKind, string> = {
   assessment: "Question bank",
 };
 
-const { dataViz, statistics, practice: practiceMetrics } = SITE_METRICS;
+const { dataViz, statistics, practice: practiceMetrics, rti: rtiMetrics } = SITE_METRICS;
 
 export const LEARNING_ENTRIES: CatalogueEntry[] = [
   {
@@ -94,6 +94,22 @@ export const LEARNING_ENTRIES: CatalogueEntry[] = [
     practice: "Quick checks inside each lab, with computed answers",
     languages: ["English", "Arabic glossary terms"],
     linkLabel: "Open the statistics reference",
+  },
+  {
+    id: "fabric-rti",
+    kind: "course",
+    modes: ["read", "test"],
+    title: "Fabric Real-Time Intelligence",
+    href: "/learn/fabric-rti/",
+    purpose:
+      "Tell measured data from workshop samples and simulated telemetry, then follow real pinned source steps for ingestion, alerting and streaming internals.",
+    inside: `${rtiMetrics.lessons} lessons · ${rtiMetrics.blueprints} pinned lab blueprints · ${rtiMetrics.repositories} source repositories · companion question set`,
+    level: "Intermediate",
+    prerequisites: "Fabric basics help; the measured-data lesson needs only a CSV reader.",
+    practice: `Fabric RTI question set in the Data Lab`,
+    languages: ["English"],
+    linkLabel: "Start the Fabric RTI course",
+    caveat: "Source-pinned and never executed by Hansa — runtime status NOT_RUN; one lab is withheld under a licence hold.",
   },
   {
     id: "chart-labs",
@@ -212,7 +228,7 @@ export const PRACTICE_ENTRIES: CatalogueEntry[] = [
     title: "Data analyst question bank",
     href: "/lab",
     purpose:
-      "Ten-question sets across SQL, Power BI/DAX, Excel, Python, statistics and fundamentals, each answer explaining why the plausible option is wrong.",
+      "Ten-question sets across SQL, Power BI/DAX, Excel, Python, statistics, fundamentals and Fabric real-time provenance, each answer explaining why the plausible option is wrong.",
     inside: `${practiceMetrics.generalBanks} sets · ${practiceMetrics.generalQuestions} questions · 70% pass mark`,
     level: "Mixed",
     prerequisites: "None. Pick a topic you already use.",
@@ -235,6 +251,22 @@ export const PRACTICE_ENTRIES: CatalogueEntry[] = [
     languages: ["English"],
     linkLabel: "Open the Fabric DP-600 practice hub",
     caveat: "Custom practice simulations — not a blueprint-authentic exam.",
+  },
+  {
+    id: "fabric-rti-provenance",
+    kind: "assessment",
+    modes: ["test"],
+    title: "Fabric RTI & data provenance",
+    href: "/lab/fabric-rti/",
+    purpose:
+      "Origin classes, measurement grain, virtual channels, licensing holds and what PASS_DATA_PROFILE and NOT_RUN actually certify.",
+    inside: "10 questions · 10 minutes · 70% pass mark",
+    level: "Intermediate",
+    prerequisites: "The Fabric RTI lessons, or hands-on experience reading a dataset's licence and profile.",
+    practice: "Practice mode explains immediately; mock mode holds feedback until you submit",
+    languages: ["English"],
+    linkLabel: "Open the Fabric RTI question set",
+    caveat: "Original questions written from a pinned source package — not certification content for any body.",
   },
   {
     id: "visualization-scenarios",

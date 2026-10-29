@@ -1,0 +1,68 @@
+{
+  "kind": "hansa-draft-banks",
+  "version": 1,
+  "generatedBy": "scripts/build-draft-banks.mjs",
+  "policy": "Disabled review drafts. Grading is off, no expected answer is shipped, and the two banks stay separate with their own ids, statuses and manifests. Neither bank is an approved Hansa question bank and neither replaces existing approved content. Answer keys, historical keys, per-option rationales, explanations and review logs stay in intake-private/ (gitignored, never imported by app code).",
+  "banks": [
+    {
+      "id": "dp600-r18",
+      "exam": "DP-600",
+      "status": "NO_GO",
+      "questions": 222,
+      "gradingEnabled": false,
+      "answersShipped": false,
+      "sourceIdsAlreadyInHansaBank": 222,
+      "relation": "parallel candidate revision — not merged, not replacing",
+      "source": {
+        "archive": "Hansa_DP600_R18_ISOLATED_VERIFIED_HANDOFF_NO_GO_2026-10-27.zip",
+        "archiveSha256": "80b390705506c2e3c3bdef75d7ab1e5fada04bf1b4dab39ba04ccf33d2eebf67",
+        "verifier": "PASS_PACKAGE_INTEGRITY_AND_PARENT_PARITY_ONLY",
+        "release": "R18_STAGING_UNGRADED_NO_PRODUCTION_AUTHORIZATION",
+        "note": "All 222 source ids already exist in the approved Hansa DP-600 bank; this is a parallel candidate revision, staged beside it and never merged into it."
+      }
+    },
+    {
+      "id": "pl300-v88",
+      "exam": "PL-300",
+      "status": "NONFINAL",
+      "questions": 1285,
+      "gradingEnabled": false,
+      "answersShipped": false,
+      "sourceIdsAlreadyInHansaBank": 0,
+      "relation": "new bank, staged beside the existing 80 PL-300 study-hub records",
+      "source": {
+        "archive": "PL300_V88_CODEX_SOURCE_KEY_RECOVERY_AND_SCOPED_REPAIRS_NONFINAL_2026-10-27.zip",
+        "archiveSha256": "1a68a5ab8f489245ad1475036f518f8a8f982580ebd7b100634169919f330ce3",
+        "verifier": "PASS_STRUCTURAL_AND_PROVENANCE_ONLY",
+        "finalReady": false,
+        "note": "1,285 new ids with no overlap against the existing Hansa banks. Historical keys, explanations, per-option rationales and review logs stay in the private mirror."
+      }
+    }
+  ],
+  "stripped": {
+    "dp600-r18": [
+      "r18CandidateMeta (per-question candidate/review log)"
+    ],
+    "pl300-v88": [
+      "correct (expected answer)",
+      "explanation",
+      "options[].why (per-option rationale)",
+      "historical source-key fields",
+      "evidence / claim traces",
+      "review_status and every per-question review log",
+      "human SME and native-runtime QA fields"
+    ]
+  },
+  "outputs": [
+    {
+      "file": "content\\drafts\\dp600-r18.json",
+      "bytes": 436541,
+      "sha256": "7dfc610198c5ef60a0539d09c1a5dc933cc9a317b3a4f5d35a3f5978c3f253a0"
+    },
+    {
+      "file": "content\\drafts\\pl300-v88.json",
+      "bytes": 1805679,
+      "sha256": "9631037cfa278c216c4940ce81466fc5d07f88dff780e7a76454ce7d58a17cbe"
+    }
+  ]
+}

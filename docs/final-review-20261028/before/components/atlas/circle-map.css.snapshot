@@ -1,0 +1,32 @@
+.atlas-circle-viewport { height: min(620px, 70svh); min-height: 280px; overflow: auto; overscroll-behavior: contain; }
+.atlas-circle-node { cursor: pointer; outline: none; }
+.atlas-circle-surface { fill: var(--background); stroke: var(--muted-foreground); stroke-width: 1.5; }
+.atlas-circle-ring { fill: none; stroke: var(--primary); stroke-width: 3; opacity: 0; }
+.atlas-circle-face { transform-box: fill-box; transform-origin: center; transition: transform 150ms ease-out; }
+.atlas-circle-node[data-state="Selected"] .atlas-circle-surface { fill: var(--primary); stroke: var(--primary); stroke-width: 3; }
+.atlas-circle-node[data-state="Selected"] text { fill: var(--primary-foreground); }
+.atlas-circle-node[data-state="Related"] .atlas-circle-surface { stroke: var(--primary); stroke-width: 2; }
+.atlas-circle-node[data-state="Prerequisite"] .atlas-circle-surface { stroke: var(--foreground); stroke-width: 3; stroke-dasharray: 5 4; }
+.atlas-circle-node:focus-visible .atlas-circle-ring { opacity: 1; }
+.atlas-circle-node:active .atlas-circle-face { transform: scale(.96); }
+.atlas-circle-edge { cursor: pointer; outline: none; }
+.atlas-circle-edge:focus-visible { color: var(--primary); }
+.atlas-circle-edge:focus-visible .atlas-circle-edgeLine { stroke-width: 5; }
+@media (hover: hover) and (pointer: fine) {
+  .atlas-circle-node:hover .atlas-circle-face { transform: scale(1.025); }
+  .atlas-circle-node:hover .atlas-circle-ring { opacity: .55; }
+  .atlas-circle-node:active .atlas-circle-face { transform: scale(.96); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .atlas-circle-face { transition: none; }
+  .atlas-circle-node:hover .atlas-circle-face, .atlas-circle-node:active .atlas-circle-face { transform: none; }
+}
+@media (forced-colors: active) {
+  .atlas-circle-surface { fill: Canvas; stroke: CanvasText; }
+  .atlas-circle-node text { fill: CanvasText; }
+  .atlas-circle-node[data-state="Selected"] .atlas-circle-surface { fill: Highlight; stroke: Highlight; }
+  .atlas-circle-node[data-state="Selected"] text { fill: HighlightText; }
+  .atlas-circle-ring { stroke: Highlight; }
+}
+
+.atlas-circle-node:focus-visible .atlas-circle-ring { opacity: 1; }

@@ -7,7 +7,9 @@ import { FOOTER_LINKS, SITE } from "@/lib/site";
 
 export function SiteFooter() {
   const pathname = usePathname();
-  const isHome = pathname === "/" || pathname === "/prototype-c" || pathname === "/prototype-c/";
+  // `/prototype-c/` is a compatibility alias for the landing, not a second page.
+  const isLanding =
+    pathname === "/" || pathname === "/prototype-c" || pathname === "/prototype-c/";
   return (
     <footer className="border-t border-border bg-card/40">
       <div className="mx-auto grid max-w-6xl gap-10 px-4 py-14 md:px-6 lg:grid-cols-[1.2fr_1fr_1fr_1fr]">
@@ -19,7 +21,7 @@ export function SiteFooter() {
             {SITE.name}
           </Link>
           <p className="mt-4 max-w-sm text-sm leading-6 text-muted-foreground">
-            {isHome ? "Source-backed learning, documented connections and independent practice. Progress stays in your browser." : `${SITE.shortDescription} Based in ${SITE.location}.`}
+            {isLanding ? "Source-backed learning, documented connections and independent practice. Progress stays in your browser." : `${SITE.shortDescription} Based in ${SITE.location}.`}
           </p>
           <div className="mt-5 flex items-center gap-2">
             <a
@@ -29,7 +31,7 @@ export function SiteFooter() {
               <Mail className="h-3.5 w-3.5" aria-hidden="true" />
               Email
             </a>
-            {!isHome && <a
+            {!isLanding && <a
               href={SITE.socials.linkedin}
               target="_blank"
               rel="noreferrer noopener"
@@ -52,7 +54,9 @@ export function SiteFooter() {
           </div>
         </div>
 
-        {FOOTER_LINKS.filter(group => !isHome || group.heading !== "Work").map((group) => (
+        {/* Every group stays visible on the landing too: the professional routes
+            are discoverable from the homepage, just not part of its body. */}
+        {FOOTER_LINKS.map((group) => (
           <nav key={group.heading} aria-label={group.heading}>
             <h2 className="font-mono text-[10px] uppercase tracking-[0.16em] text-muted-foreground">
               {group.heading}
@@ -84,7 +88,7 @@ export function SiteFooter() {
               <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-success opacity-60" />
               <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-success" />
             </span>
-            {isHome ? "Learn · Explore · Practise" : "Open to data roles and freelance projects"}
+            {isLanding ? "Learn · Explore · Practise" : "Open to data roles and freelance projects"}
           </p>
         </div>
       </div>

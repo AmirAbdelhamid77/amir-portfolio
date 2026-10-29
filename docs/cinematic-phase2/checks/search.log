@@ -1,0 +1,13 @@
+PASS search page renders a result count — 522 results
+PASS typing filters the list — 117 results for “p-value” first=/learn/statistics/formulas/#p-value
+PASS the p-value query reaches a statistics destination — /learn/statistics/formulas/#p-value
+PASS the URL is shareable — http://127.0.0.1:51445/search/?q=p-value
+PASS the kind filter narrows to labs — 3 link(s)
+PASS clear resets the query — 522 results
+PASS the Fabric shard loads without a page error — after toggle
+PASS a Fabric query deep-links into the explorer — /lab/dp-600/explore/?question=fb-v7-ddm-019
+PASS the empty state offers a way out
+PASS an Arabic query reaches the Arabic lane — /learn/ar/histogram/
+PASS no console errors during the run
+RESULT: PASS
+

@@ -1,0 +1,865 @@
+{
+  "schema": "hansa-sql-v1",
+  "vault": "https://app.notion.com/p/4063906c5d6c814d9c38e19fc5418891",
+  "pages": [
+    {
+      "id": "3cd3906c5d6c810c9e01e8ca9ac89172",
+      "title": "🧭 00 — Learning Map & Decision Framework",
+      "url": "https://app.notion.com/p/3cd3906c5d6c810c9e01e8ca9ac89172?pvs=204",
+      "lastEdited": "2026-09-23T21:32:01.261Z",
+      "role": "canonical",
+      "topic": "overview",
+      "module": 0,
+      "objective": "Choose a SQL technique from the required population and output grain.",
+      "href": "/learn/sql/00/"
+    },
+    {
+      "id": "3ce3906c5d6c81f698afea76e9396474",
+      "title": "🧱 01 — SQL Foundations — Complete Reference",
+      "url": "https://app.notion.com/p/3ce3906c5d6c81f698afea76e9396474?pvs=204",
+      "lastEdited": "2026-09-23T21:28:08.482Z",
+      "role": "canonical",
+      "topic": "foundations",
+      "module": 1,
+      "objective": "Distinguish logical query meaning, physical execution, filtering and grouping.",
+      "href": "/learn/sql/01/"
+    },
+    {
+      "id": "3ce3906c5d6c817bb98bd04baec48a17",
+      "title": "🧩 02 — Database, Schema & Data Modeling — Complete Reference",
+      "url": "https://app.notion.com/p/3ce3906c5d6c817bb98bd04baec48a17?pvs=204",
+      "lastEdited": "2026-09-04T00:15:15.217Z",
+      "role": "canonical",
+      "topic": "schema",
+      "module": 2,
+      "objective": "Inspect keys, relationships, constraints and missing values before querying.",
+      "href": "/learn/sql/02/"
+    },
+    {
+      "id": "3ce3906c5d6c81e78c92cb9d2ecf35ae",
+      "title": "03 — Data Types, Casting & NULL Logic — Complete Reference",
+      "url": "https://app.notion.com/p/3ce3906c5d6c81e78c92cb9d2ecf35ae?pvs=204",
+      "lastEdited": "2026-09-10T19:05:43.804Z",
+      "role": "canonical",
+      "topic": "types-null",
+      "module": 3,
+      "objective": "Reason about data types, casting and three-valued NULL logic.",
+      "href": "/learn/sql/03/"
+    },
+    {
+      "id": "3ce3906c5d6c8141a33ce769f1a47973",
+      "title": "04 — Filtering & Conditional Logic — Complete Reference",
+      "url": "https://app.notion.com/p/3ce3906c5d6c8141a33ce769f1a47973?pvs=204",
+      "lastEdited": "2026-09-01T20:05:39.761Z",
+      "role": "canonical",
+      "topic": "filtering",
+      "module": 4,
+      "objective": "Define row populations and conditional classifications with explicit precedence.",
+      "href": "/learn/sql/04/"
+    },
+    {
+      "id": "3ce3906c5d6c81419b2fecc50db92f04",
+      "title": "🔗 05 — JOINs & Relationship Reasoning — Complete Reference",
+      "url": "https://app.notion.com/p/3ce3906c5d6c81419b2fecc50db92f04?pvs=204",
+      "lastEdited": "2026-09-23T21:28:24.782Z",
+      "role": "canonical",
+      "topic": "joins",
+      "module": 5,
+      "objective": "Predict JOIN cardinality and prevent duplicated measures.",
+      "href": "/learn/sql/05/"
+    },
+    {
+      "id": "3ce3906c5d6c813a95abc3b25b698b3e",
+      "title": "📊 06 — Aggregation & Grouping — Complete Reference",
+      "url": "https://app.notion.com/p/3ce3906c5d6c813a95abc3b25b698b3e?pvs=204",
+      "lastEdited": "2026-09-23T21:32:16.764Z",
+      "role": "canonical",
+      "topic": "aggregation",
+      "module": 6,
+      "objective": "Choose the grouping grain and define a correct KPI denominator.",
+      "href": "/learn/sql/06/"
+    },
+    {
+      "id": "3ce3906c5d6c81d68b7ef8df11ee0d7d",
+      "title": "07 — Subqueries & CTEs — Complete Reference",
+      "url": "https://app.notion.com/p/3ce3906c5d6c81d68b7ef8df11ee0d7d?pvs=204",
+      "lastEdited": "2026-09-23T21:28:35.908Z",
+      "role": "canonical",
+      "topic": "subqueries",
+      "module": 7,
+      "objective": "Choose subqueries, EXISTS and CTEs from result shape and dependency.",
+      "href": "/learn/sql/07/"
+    },
+    {
+      "id": "3ce3906c5d6c81b7baa9e32203cdbeb0",
+      "title": "08 — Set Operations — Complete Reference",
+      "url": "https://app.notion.com/p/3ce3906c5d6c81b7baa9e32203cdbeb0?pvs=204",
+      "lastEdited": "2026-09-23T21:29:12.673Z",
+      "role": "canonical",
+      "topic": "sets",
+      "module": 8,
+      "objective": "Combine compatible rows while controlling duplicates and set difference.",
+      "href": "/learn/sql/08/"
+    },
+    {
+      "id": "3cb3906c5d6c814a93eff2e668f8f3f8",
+      "title": "📚 09 — Window Functions — Complete Reference",
+      "url": "https://app.notion.com/p/3cb3906c5d6c814a93eff2e668f8f3f8?pvs=204",
+      "lastEdited": "2026-09-23T21:28:15.812Z",
+      "role": "canonical",
+      "topic": "windows",
+      "module": 9,
+      "objective": "Distinguish partition, order and frame while preserving row detail.",
+      "href": "/learn/sql/09/"
+    },
+    {
+      "id": "3cb3906c5d6c817ca2ddfc82e771995a",
+      "title": "📅 10 — Date & Time Analytics — Complete Reference",
+      "url": "https://app.notion.com/p/3cb3906c5d6c817ca2ddfc82e771995a?pvs=204",
+      "lastEdited": "2026-09-04T00:15:19.424Z",
+      "role": "canonical",
+      "topic": "time",
+      "module": 10,
+      "objective": "Define time buckets, missing periods and independent event sequences.",
+      "href": "/learn/sql/10/"
+    },
+    {
+      "id": "3cb3906c5d6c810abf5fe011a409ebab",
+      "title": "🔤 11 — Text, String & Pattern Matching — Complete Reference",
+      "url": "https://app.notion.com/p/3cb3906c5d6c810abf5fe011a409ebab?pvs=204",
+      "lastEdited": "2026-09-04T00:15:21.805Z",
+      "role": "canonical",
+      "topic": "text",
+      "module": 11,
+      "objective": "Clean and classify text without confusing NULL, empty strings and spaces.",
+      "href": "/learn/sql/11/"
+    },
+    {
+      "id": "3cb3906c5d6c81cc82c7d721c2f0c0ea",
+      "title": "📊 12 — Analytical SQL Patterns — Comprehensive Reference",
+      "url": "https://app.notion.com/p/3cb3906c5d6c81cc82c7d721c2f0c0ea?pvs=204",
+      "lastEdited": "2026-09-04T00:15:24.255Z",
+      "role": "canonical",
+      "topic": "analytics",
+      "module": 12,
+      "objective": "Translate the MovieNow business question into a grain-safe analytical query.",
+      "href": "/learn/sql/12/"
+    },
+    {
+      "id": "3ce3906c5d6c81d18e44d1a21d8e24f6",
+      "title": "13 — Data Quality & Validation — Complete Reference",
+      "url": "https://app.notion.com/p/3ce3906c5d6c81d18e44d1a21d8e24f6?pvs=204",
+      "lastEdited": "2026-09-01T20:13:06.962Z",
+      "role": "canonical",
+      "topic": "quality",
+      "module": 13,
+      "objective": "Validate uniqueness, completeness, domains, freshness and reconciliation.",
+      "href": "/learn/sql/13/"
+    },
+    {
+      "id": "3ce3906c5d6c81539f45e3cf3dec35c5",
+      "title": "14 — DDL, DML & Transactions — Complete Reference",
+      "url": "https://app.notion.com/p/3ce3906c5d6c81539f45e3cf3dec35c5?pvs=204",
+      "lastEdited": "2026-09-04T00:15:43.746Z",
+      "role": "canonical",
+      "topic": "transactions",
+      "module": 14,
+      "objective": "Plan safe data changes with transactions and explicit validation.",
+      "href": "/learn/sql/14/"
+    },
+    {
+      "id": "3ce3906c5d6c8100ae78f45c42a0b5f1",
+      "title": "15 — Database Design — Complete Reference",
+      "url": "https://app.notion.com/p/3ce3906c5d6c8100ae78f45c42a0b5f1?pvs=204",
+      "lastEdited": "2026-09-04T00:15:47.617Z",
+      "role": "canonical",
+      "topic": "design",
+      "module": 15,
+      "objective": "Design keys, relationships, grain and historical dimensional meaning.",
+      "href": "/learn/sql/15/"
+    },
+    {
+      "id": "3ce3906c5d6c8183ae04ebe770487dbd",
+      "title": "16 — SQL Performance Engineering — Complete Reference",
+      "url": "https://app.notion.com/p/3ce3906c5d6c8183ae04ebe770487dbd?pvs=204",
+      "lastEdited": "2026-09-04T00:15:50.130Z",
+      "role": "canonical",
+      "topic": "performance",
+      "module": 16,
+      "objective": "Investigate execution plans and measure optimization without changing semantics.",
+      "href": "/learn/sql/16/"
+    },
+    {
+      "id": "3ce3906c5d6c81f8b634ff53d6f01905",
+      "title": "17 — SQL for DWH / BI — Complete Reference",
+      "url": "https://app.notion.com/p/3ce3906c5d6c81f8b634ff53d6f01905?pvs=204",
+      "lastEdited": "2026-09-01T20:11:07.447Z",
+      "role": "canonical",
+      "topic": "warehouse",
+      "module": 17,
+      "objective": "Apply SQL to warehouse layers, snapshots, metrics and reliable incremental loads.",
+      "href": "/learn/sql/17/"
+    },
+    {
+      "id": "3ce3906c5d6c81ad85a0fc24bb55d32c",
+      "title": "🔢 Numeric Data Types & Casting — Complete Reference",
+      "url": "https://app.notion.com/p/3ce3906c5d6c81ad85a0fc24bb55d32c?pvs=204",
+      "lastEdited": "2026-09-01T20:13:16.168Z",
+      "role": "companion",
+      "topic": "types-null",
+      "module": null,
+      "objective": "Use this supporting source in the context of its canonical SQL module.",
+      "href": "/learn/sql/reference/3ce3906c5d6c81ad85a0fc24bb55d32c/"
+    },
+    {
+      "id": "3cd3906c5d6c81d69788fc80c91814a5",
+      "title": "🅰️ CASE Statements — Complete Reference",
+      "url": "https://app.notion.com/p/3cd3906c5d6c81d69788fc80c91814a5?pvs=204",
+      "lastEdited": "2026-08-31T13:02:25.713Z",
+      "role": "companion",
+      "topic": "filtering",
+      "module": null,
+      "objective": "Use this supporting source in the context of its canonical SQL module.",
+      "href": "/learn/sql/reference/3cd3906c5d6c81d69788fc80c91814a5/"
+    },
+    {
+      "id": "3cd3906c5d6c81fca708ee9237596fb9",
+      "title": "🔍 Simple Subqueries — Complete Reference",
+      "url": "https://app.notion.com/p/3cd3906c5d6c81fca708ee9237596fb9?pvs=204",
+      "lastEdited": "2026-08-31T13:02:25.713Z",
+      "role": "companion",
+      "topic": "subqueries",
+      "module": null,
+      "objective": "Use this supporting source in the context of its canonical SQL module.",
+      "href": "/learn/sql/reference/3cd3906c5d6c81fca708ee9237596fb9/"
+    },
+    {
+      "id": "3cd3906c5d6c81a2ab1cee42cf21cdd0",
+      "title": "🔗 Correlated Subqueries — Complete Reference",
+      "url": "https://app.notion.com/p/3cd3906c5d6c81a2ab1cee42cf21cdd0?pvs=204",
+      "lastEdited": "2026-08-31T13:02:25.713Z",
+      "role": "companion",
+      "topic": "subqueries",
+      "module": null,
+      "objective": "Use this supporting source in the context of its canonical SQL module.",
+      "href": "/learn/sql/reference/3cd3906c5d6c81a2ab1cee42cf21cdd0/"
+    },
+    {
+      "id": "3cd3906c5d6c8178986be87a7c6aefb2",
+      "title": "🪆 Nested Subqueries — Complete Reference",
+      "url": "https://app.notion.com/p/3cd3906c5d6c8178986be87a7c6aefb2?pvs=204",
+      "lastEdited": "2026-08-31T13:02:25.713Z",
+      "role": "companion",
+      "topic": "subqueries",
+      "module": null,
+      "objective": "Use this supporting source in the context of its canonical SQL module.",
+      "href": "/learn/sql/reference/3cd3906c5d6c8178986be87a7c6aefb2/"
+    },
+    {
+      "id": "3cd3906c5d6c8169bcc4ddfa5a081ce6",
+      "title": "🧩 Common Table Expressions (CTEs) — Complete Reference",
+      "url": "https://app.notion.com/p/3cd3906c5d6c8169bcc4ddfa5a081ce6?pvs=204",
+      "lastEdited": "2026-08-31T13:02:25.713Z",
+      "role": "companion",
+      "topic": "subqueries",
+      "module": null,
+      "objective": "Use this supporting source in the context of its canonical SQL module.",
+      "href": "/learn/sql/reference/3cd3906c5d6c8169bcc4ddfa5a081ce6/"
+    },
+    {
+      "id": "3cd3906c5d6c814b8021d82606e4e295",
+      "title": "🎯 Choosing the Right SQL Technique + Final Case Study",
+      "url": "https://app.notion.com/p/3cd3906c5d6c814b8021d82606e4e295?pvs=204",
+      "lastEdited": "2026-08-31T13:02:25.713Z",
+      "role": "companion",
+      "topic": "subqueries",
+      "module": null,
+      "objective": "Use this supporting source in the context of its canonical SQL module.",
+      "href": "/learn/sql/reference/3cd3906c5d6c814b8021d82606e4e295/"
+    },
+    {
+      "id": "3ce3906c5d6c81d5b73dc71a90b87cfd",
+      "title": "📊 Numeric EDA & Statistics — Complete Reference",
+      "url": "https://app.notion.com/p/3ce3906c5d6c81d5b73dc71a90b87cfd?pvs=204",
+      "lastEdited": "2026-09-01T12:46:23.292Z",
+      "role": "companion",
+      "topic": "quality",
+      "module": null,
+      "objective": "Use this supporting source in the context of its canonical SQL module.",
+      "href": "/learn/sql/reference/3ce3906c5d6c81d5b73dc71a90b87cfd/"
+    },
+    {
+      "id": "3cd3906c5d6c8146b302e7948bf6db8e",
+      "title": "🎯 23️⃣ SQL Interview Master Bank — CASE, Subqueries & CTEs",
+      "url": "https://app.notion.com/p/3cd3906c5d6c8146b302e7948bf6db8e?pvs=204",
+      "lastEdited": "2026-09-02T05:44:45.702Z",
+      "role": "interview",
+      "topic": "interview",
+      "module": null,
+      "objective": "Use this supporting source in the context of its canonical SQL module.",
+      "href": "/learn/sql/reference/3cd3906c5d6c8146b302e7948bf6db8e/"
+    },
+    {
+      "id": "3cd3906c5d6c81d5835be46fca54ec8a",
+      "title": "🎯 🎯 99 — SQL Interview Questions, Traps & Real-World Patterns",
+      "url": "https://app.notion.com/p/3cd3906c5d6c81d5835be46fca54ec8a?pvs=204",
+      "lastEdited": "2026-09-02T05:44:29.592Z",
+      "role": "interview",
+      "topic": "interview",
+      "module": null,
+      "objective": "Use this supporting source in the context of its canonical SQL module.",
+      "href": "/learn/sql/reference/3cd3906c5d6c81d5835be46fca54ec8a/"
+    },
+    {
+      "id": "3cd3906c5d6c8196a02ad41449f06ba8",
+      "title": "⚙️ 24️⃣ Advanced SQL Patterns — Correctness, Performance & Maintainability",
+      "url": "https://app.notion.com/p/3cd3906c5d6c8196a02ad41449f06ba8?pvs=204",
+      "lastEdited": "2026-09-23T15:44:57.489Z",
+      "role": "interview",
+      "topic": "interview",
+      "module": null,
+      "objective": "Use this supporting source in the context of its canonical SQL module.",
+      "href": "/learn/sql/reference/3cd3906c5d6c8196a02ad41449f06ba8/"
+    },
+    {
+      "id": "3ce3906c5d6c8188bae4cc26576c250e",
+      "title": "19 — SQL Interview Master Hub",
+      "url": "https://app.notion.com/p/3ce3906c5d6c8188bae4cc26576c250e?pvs=204",
+      "lastEdited": "2026-09-23T21:28:45.251Z",
+      "role": "interview",
+      "topic": "interview",
+      "module": null,
+      "objective": "Use this supporting source in the context of its canonical SQL module.",
+      "href": "/learn/sql/reference/3ce3906c5d6c8188bae4cc26576c250e/"
+    },
+    {
+      "id": "3ce3906c5d6c81a3adaeddff44170644",
+      "title": "🗄️ Temporary Tables — Complete Reference",
+      "url": "https://app.notion.com/p/3ce3906c5d6c81a3adaeddff44170644?pvs=204",
+      "lastEdited": "2026-09-01T12:46:23.292Z",
+      "role": "recipe",
+      "topic": "toolkit",
+      "module": null,
+      "objective": "Use this supporting source in the context of its canonical SQL module.",
+      "href": "/learn/sql/reference/3ce3906c5d6c81a3adaeddff44170644/"
+    },
+    {
+      "id": "3cb3906c5d6c8129b6ded3e8106785fb",
+      "title": "📁 1️⃣ Data Types, Casting & Schema Inspection",
+      "url": "https://app.notion.com/p/3cb3906c5d6c8129b6ded3e8106785fb?pvs=204",
+      "lastEdited": "2026-09-23T21:22:04.905Z",
+      "role": "dialect",
+      "topic": "postgresql",
+      "module": null,
+      "objective": "Use this supporting source in the context of its canonical SQL module.",
+      "href": "/learn/sql/reference/3cb3906c5d6c8129b6ded3e8106785fb/"
+    },
+    {
+      "id": "3cb3906c5d6c814d90fff590c71e72dc",
+      "title": "⏰ 2️⃣ Date & Time — Types, Arithmetic & Functions",
+      "url": "https://app.notion.com/p/3cb3906c5d6c814d90fff590c71e72dc?pvs=204",
+      "lastEdited": "2026-09-01T19:41:17.489Z",
+      "role": "dialect",
+      "topic": "postgresql",
+      "module": null,
+      "objective": "Use this supporting source in the context of its canonical SQL module.",
+      "href": "/learn/sql/reference/3cb3906c5d6c814d90fff590c71e72dc/"
+    },
+    {
+      "id": "3cb3906c5d6c81c3b161dd36ed52c9a9",
+      "title": "🔢 3️⃣ Arrays",
+      "url": "https://app.notion.com/p/3cb3906c5d6c81c3b161dd36ed52c9a9?pvs=204",
+      "lastEdited": "2026-08-29T15:18:33.085Z",
+      "role": "dialect",
+      "topic": "postgresql",
+      "module": null,
+      "objective": "Use this supporting source in the context of its canonical SQL module.",
+      "href": "/learn/sql/reference/3cb3906c5d6c81c3b161dd36ed52c9a9/"
+    },
+    {
+      "id": "3cb3906c5d6c81f981e3cff58e8ce989",
+      "title": "🔤 4️⃣ String & Character Functions",
+      "url": "https://app.notion.com/p/3cb3906c5d6c81f981e3cff58e8ce989?pvs=204",
+      "lastEdited": "2026-08-29T15:18:33.085Z",
+      "role": "dialect",
+      "topic": "postgresql",
+      "module": null,
+      "objective": "Use this supporting source in the context of its canonical SQL module.",
+      "href": "/learn/sql/reference/3cb3906c5d6c81f981e3cff58e8ce989/"
+    },
+    {
+      "id": "3cb3906c5d6c810b8b67cbf8815ef577",
+      "title": "🔍 5️⃣ Pattern Matching & Full-Text Search",
+      "url": "https://app.notion.com/p/3cb3906c5d6c810b8b67cbf8815ef577?pvs=204",
+      "lastEdited": "2026-08-29T15:19:30.395Z",
+      "role": "dialect",
+      "topic": "postgresql",
+      "module": null,
+      "objective": "Use this supporting source in the context of its canonical SQL module.",
+      "href": "/learn/sql/reference/3cb3906c5d6c810b8b67cbf8815ef577/"
+    },
+    {
+      "id": "3cb3906c5d6c817fb197f233646cda62",
+      "title": "🧩 6️⃣ Extensions & Fuzzy Matching",
+      "url": "https://app.notion.com/p/3cb3906c5d6c817fb197f233646cda62?pvs=204",
+      "lastEdited": "2026-08-29T15:19:30.395Z",
+      "role": "dialect",
+      "topic": "postgresql",
+      "module": null,
+      "objective": "Use this supporting source in the context of its canonical SQL module.",
+      "href": "/learn/sql/reference/3cb3906c5d6c817fb197f233646cda62/"
+    },
+    {
+      "id": "3cb3906c5d6c8162bcafeddf74477d61",
+      "title": "⚙️ 7️⃣ Custom Types & Functions",
+      "url": "https://app.notion.com/p/3cb3906c5d6c8162bcafeddf74477d61?pvs=204",
+      "lastEdited": "2026-08-29T15:19:49.528Z",
+      "role": "dialect",
+      "topic": "postgresql",
+      "module": null,
+      "objective": "Use this supporting source in the context of its canonical SQL module.",
+      "href": "/learn/sql/reference/3cb3906c5d6c8162bcafeddf74477d61/"
+    },
+    {
+      "id": "3cb3906c5d6c812bad61dca56f01f625",
+      "title": "📌 8️⃣ Real-World Recipes, Traps & Cheat Sheets",
+      "url": "https://app.notion.com/p/3cb3906c5d6c812bad61dca56f01f625?pvs=204",
+      "lastEdited": "2026-08-29T15:20:47.499Z",
+      "role": "dialect",
+      "topic": "postgresql",
+      "module": null,
+      "objective": "Use this supporting source in the context of its canonical SQL module.",
+      "href": "/learn/sql/reference/3cb3906c5d6c812bad61dca56f01f625/"
+    },
+    {
+      "id": "3cb3906c5d6c81a298b5f6d273f327cd",
+      "title": "🐘 18 — PostgreSQL Specialization — Master Reference",
+      "url": "https://app.notion.com/p/3cb3906c5d6c81a298b5f6d273f327cd?pvs=204",
+      "lastEdited": "2026-09-23T21:28:48.996Z",
+      "role": "dialect",
+      "topic": "postgresql",
+      "module": null,
+      "objective": "Use this supporting source in the context of its canonical SQL module.",
+      "href": "/learn/sql/reference/3cb3906c5d6c81a298b5f6d273f327cd/"
+    },
+    {
+      "id": "3d13906c5d6c81eb9f6eee2da83169d7",
+      "title": "🐘 PostgreSQL Specialization",
+      "url": "https://app.notion.com/p/3d13906c5d6c81eb9f6eee2da83169d7?pvs=204",
+      "lastEdited": "2026-09-23T21:21:27.971Z",
+      "role": "navigation",
+      "topic": "postgresql",
+      "module": null,
+      "objective": "Use this supporting source in the context of its canonical SQL module.",
+      "href": "/learn/sql/reference/3d13906c5d6c81eb9f6eee2da83169d7/"
+    },
+    {
+      "id": "3d13906c5d6c81428fb8ec5be1c5aef7",
+      "title": "🎤 SQL Interview",
+      "url": "https://app.notion.com/p/3d13906c5d6c81428fb8ec5be1c5aef7?pvs=204",
+      "lastEdited": "2026-09-23T21:52:59.387Z",
+      "role": "navigation",
+      "topic": "interview",
+      "module": null,
+      "objective": "Use this supporting source in the context of its canonical SQL module.",
+      "href": "/learn/sql/reference/3d13906c5d6c81428fb8ec5be1c5aef7/"
+    },
+    {
+      "id": "3d13906c5d6c81a4829ed7f4e6db9f8b",
+      "title": "🧰 Practical SQL Toolkit",
+      "url": "https://app.notion.com/p/3d13906c5d6c81a4829ed7f4e6db9f8b?pvs=204",
+      "lastEdited": "2026-09-23T21:21:47.835Z",
+      "role": "navigation",
+      "topic": "toolkit",
+      "module": null,
+      "objective": "Use this supporting source in the context of its canonical SQL module.",
+      "href": "/learn/sql/reference/3d13906c5d6c81a4829ed7f4e6db9f8b/"
+    },
+    {
+      "id": "3ce3906c5d6c81028e75e4f561ff8245",
+      "title": "🏁 🧭 SQL Master Decision Framework",
+      "url": "https://app.notion.com/p/3ce3906c5d6c81028e75e4f561ff8245?pvs=204",
+      "lastEdited": "2026-09-23T21:47:22.120Z",
+      "role": "navigation",
+      "topic": "overview",
+      "module": null,
+      "objective": "Use this supporting source in the context of its canonical SQL module.",
+      "href": "/learn/sql/reference/3ce3906c5d6c81028e75e4f561ff8245/"
+    },
+    {
+      "id": "3d63906c5d6c81669712ce8af7ac5426",
+      "title": "🎓 Associate Data Analyst in SQL — Master Map",
+      "url": "https://app.notion.com/p/3d63906c5d6c81669712ce8af7ac5426?pvs=204",
+      "lastEdited": "2026-09-09T13:47:24.887Z",
+      "role": "navigation",
+      "topic": "overview",
+      "module": null,
+      "objective": "Use this supporting source in the context of its canonical SQL module.",
+      "href": "/learn/sql/reference/3d63906c5d6c81669712ce8af7ac5426/"
+    },
+    {
+      "id": "3cb3906c5d6c81aabba5cb36a17c548f",
+      "title": "🧱 1️⃣ الأساسيات: Window Functions, OVER, PARTITION BY, ORDER BY",
+      "url": "https://app.notion.com/p/3cb3906c5d6c81aabba5cb36a17c548f?pvs=204",
+      "lastEdited": "2026-08-29T13:28:11.668Z",
+      "role": "window-chapter",
+      "topic": "windows",
+      "module": null,
+      "objective": "Use this supporting source in the context of its canonical SQL module.",
+      "href": "/learn/sql/reference/3cb3906c5d6c81aabba5cb36a17c548f/"
+    },
+    {
+      "id": "3cb3906c5d6c810298facf8975c21394",
+      "title": "🏆 2️⃣ Ranking Functions: ROW_NUMBER, RANK, DENSE_RANK, NTILE",
+      "url": "https://app.notion.com/p/3cb3906c5d6c810298facf8975c21394?pvs=204",
+      "lastEdited": "2026-08-29T13:28:11.668Z",
+      "role": "window-chapter",
+      "topic": "windows",
+      "module": null,
+      "objective": "Use this supporting source in the context of its canonical SQL module.",
+      "href": "/learn/sql/reference/3cb3906c5d6c810298facf8975c21394/"
+    },
+    {
+      "id": "3cb3906c5d6c8163b26ae203d48a5518",
+      "title": "🔄 3️⃣ Fetching Functions: LAG, LEAD, FIRST_VALUE, LAST_VALUE",
+      "url": "https://app.notion.com/p/3cb3906c5d6c8163b26ae203d48a5518?pvs=204",
+      "lastEdited": "2026-08-29T13:28:11.668Z",
+      "role": "window-chapter",
+      "topic": "windows",
+      "module": null,
+      "objective": "Use this supporting source in the context of its canonical SQL module.",
+      "href": "/learn/sql/reference/3cb3906c5d6c8163b26ae203d48a5518/"
+    },
+    {
+      "id": "3cb3906c5d6c81d88f2bd727b2001a91",
+      "title": "📈 4️⃣ Aggregate Functions & Window Frames: Running/Moving Totals",
+      "url": "https://app.notion.com/p/3cb3906c5d6c81d88f2bd727b2001a91?pvs=204",
+      "lastEdited": "2026-08-29T13:30:12.629Z",
+      "role": "window-chapter",
+      "topic": "windows",
+      "module": null,
+      "objective": "Use this supporting source in the context of its canonical SQL module.",
+      "href": "/learn/sql/reference/3cb3906c5d6c81d88f2bd727b2001a91/"
+    },
+    {
+      "id": "3cb3906c5d6c81b4890cd3f1a0e4721c",
+      "title": "🧩 5️⃣ أمثلة تطبيقية مركّبة (CTE + Patterns)",
+      "url": "https://app.notion.com/p/3cb3906c5d6c81b4890cd3f1a0e4721c?pvs=204",
+      "lastEdited": "2026-08-29T13:30:12.629Z",
+      "role": "window-chapter",
+      "topic": "windows",
+      "module": null,
+      "objective": "Use this supporting source in the context of its canonical SQL module.",
+      "href": "/learn/sql/reference/3cb3906c5d6c81b4890cd3f1a0e4721c/"
+    },
+    {
+      "id": "3cb3906c5d6c815a8811cf0645e13383",
+      "title": "📄 6️⃣ Paging & Pivoting",
+      "url": "https://app.notion.com/p/3cb3906c5d6c815a8811cf0645e13383?pvs=204",
+      "lastEdited": "2026-08-29T13:30:12.629Z",
+      "role": "window-chapter",
+      "topic": "windows",
+      "module": null,
+      "objective": "Use this supporting source in the context of its canonical SQL module.",
+      "href": "/learn/sql/reference/3cb3906c5d6c815a8811cf0645e13383/"
+    },
+    {
+      "id": "3cb3906c5d6c81a79c56d4bb581dfc02",
+      "title": "🧮 7️⃣ GROUP BY Extensions: ROLLUP, CUBE, COALESCE, STRING_AGG",
+      "url": "https://app.notion.com/p/3cb3906c5d6c81a79c56d4bb581dfc02?pvs=204",
+      "lastEdited": "2026-08-29T13:30:12.629Z",
+      "role": "window-chapter",
+      "topic": "aggregation",
+      "module": null,
+      "objective": "Use this supporting source in the context of its canonical SQL module.",
+      "href": "/learn/sql/reference/3cb3906c5d6c81a79c56d4bb581dfc02/"
+    },
+    {
+      "id": "3cb3906c5d6c812dade4ef265cc71776",
+      "title": "⚡ 8️⃣ Cheat Sheets, Exam Traps & Execution Order",
+      "url": "https://app.notion.com/p/3cb3906c5d6c812dade4ef265cc71776?pvs=204",
+      "lastEdited": "2026-08-29T13:32:34.563Z",
+      "role": "window-chapter",
+      "topic": "windows",
+      "module": null,
+      "objective": "Use this supporting source in the context of its canonical SQL module.",
+      "href": "/learn/sql/reference/3cb3906c5d6c812dade4ef265cc71776/"
+    }
+  ],
+  "drills": [
+    {
+      "id": "sql-source-3ce3906c5d6c81f698afea76e9396474-b6b32af1c7",
+      "prompt": "Q: Why can WHERE not normally contain an aggregate like SUM(amount) > 1000?",
+      "sourceId": "3ce3906c5d6c81f698afea76e9396474",
+      "sourceLine": 233,
+      "module": 1,
+      "topic": "foundations",
+      "href": "/practice/sql/#sql-source-3ce3906c5d6c81f698afea76e9396474-b6b32af1c7",
+      "status": "Source-backed open-response self-check; unscored"
+    },
+    {
+      "id": "sql-source-3ce3906c5d6c81f698afea76e9396474-a53f9b6682",
+      "prompt": "Q: Why can a LEFT JOIN unexpectedly behave like an inner join?",
+      "sourceId": "3ce3906c5d6c81f698afea76e9396474",
+      "sourceLine": 237,
+      "module": 1,
+      "topic": "foundations",
+      "href": "/practice/sql/#sql-source-3ce3906c5d6c81f698afea76e9396474-a53f9b6682",
+      "status": "Source-backed open-response self-check; unscored"
+    },
+    {
+      "id": "sql-source-3ce3906c5d6c81f698afea76e9396474-15b275721e",
+      "prompt": "Q: Why does COUNT(*) differ from COUNT(column)?",
+      "sourceId": "3ce3906c5d6c81f698afea76e9396474",
+      "sourceLine": 241,
+      "module": 1,
+      "topic": "foundations",
+      "href": "/practice/sql/#sql-source-3ce3906c5d6c81f698afea76e9396474-15b275721e",
+      "status": "Source-backed open-response self-check; unscored"
+    },
+    {
+      "id": "sql-source-3ce3906c5d6c81419b2fecc50db92f04-2c6ec12c38",
+      "prompt": "Q: Why did my total revenue double after adding a JOIN?",
+      "sourceId": "3ce3906c5d6c81419b2fecc50db92f04",
+      "sourceLine": 250,
+      "module": 5,
+      "topic": "joins",
+      "href": "/practice/sql/#sql-source-3ce3906c5d6c81419b2fecc50db92f04-2c6ec12c38",
+      "status": "Source-backed open-response self-check; unscored"
+    },
+    {
+      "id": "sql-source-3ce3906c5d6c81419b2fecc50db92f04-c7b949cf5e",
+      "prompt": "Q: JOIN or EXISTS for \"customers who placed at least one order\"?",
+      "sourceId": "3ce3906c5d6c81419b2fecc50db92f04",
+      "sourceLine": 254,
+      "module": 5,
+      "topic": "joins",
+      "href": "/practice/sql/#sql-source-3ce3906c5d6c81419b2fecc50db92f04-c7b949cf5e",
+      "status": "Source-backed open-response self-check; unscored"
+    },
+    {
+      "id": "sql-source-3ce3906c5d6c81419b2fecc50db92f04-f84e10e380",
+      "prompt": "Q: Can LEFT JOIN increase rows?",
+      "sourceId": "3ce3906c5d6c81419b2fecc50db92f04",
+      "sourceLine": 258,
+      "module": 5,
+      "topic": "joins",
+      "href": "/practice/sql/#sql-source-3ce3906c5d6c81419b2fecc50db92f04-f84e10e380",
+      "status": "Source-backed open-response self-check; unscored"
+    },
+    {
+      "id": "sql-source-3ce3906c5d6c813a95abc3b25b698b3e-11d3e42e0c",
+      "prompt": "Q: Why is COUNT(*) sometimes wrong for \"customers\"?",
+      "sourceId": "3ce3906c5d6c813a95abc3b25b698b3e",
+      "sourceLine": 308,
+      "module": 6,
+      "topic": "aggregation",
+      "href": "/practice/sql/#sql-source-3ce3906c5d6c813a95abc3b25b698b3e-11d3e42e0c",
+      "status": "Source-backed open-response self-check; unscored"
+    },
+    {
+      "id": "sql-source-3ce3906c5d6c813a95abc3b25b698b3e-aea8e48a1b",
+      "prompt": "Q: Why did SUM(revenue) increase after a JOIN?",
+      "sourceId": "3ce3906c5d6c813a95abc3b25b698b3e",
+      "sourceLine": 312,
+      "module": 6,
+      "topic": "aggregation",
+      "href": "/practice/sql/#sql-source-3ce3906c5d6c813a95abc3b25b698b3e-aea8e48a1b",
+      "status": "Source-backed open-response self-check; unscored"
+    },
+    {
+      "id": "sql-source-3ce3906c5d6c813a95abc3b25b698b3e-ec5d49a255",
+      "prompt": "Q: GROUP BY or window function?",
+      "sourceId": "3ce3906c5d6c813a95abc3b25b698b3e",
+      "sourceLine": 316,
+      "module": 6,
+      "topic": "aggregation",
+      "href": "/practice/sql/#sql-source-3ce3906c5d6c813a95abc3b25b698b3e-ec5d49a255",
+      "status": "Source-backed open-response self-check; unscored"
+    },
+    {
+      "id": "sql-source-3cd3906c5d6c81d5835be46fca54ec8a-452426e33e",
+      "prompt": "Q0. ما الفرق بين Simple CASE وSearched CASE؟",
+      "sourceId": "3cd3906c5d6c81d5835be46fca54ec8a",
+      "sourceLine": 7,
+      "module": 4,
+      "topic": "filtering",
+      "href": "/practice/sql/#sql-source-3cd3906c5d6c81d5835be46fca54ec8a-452426e33e",
+      "status": "Source-backed open-response self-check; unscored"
+    },
+    {
+      "id": "sql-source-3cd3906c5d6c81d5835be46fca54ec8a-48cc34a02d",
+      "prompt": "Q1. What is the difference between a simple, correlated, and nested subquery?",
+      "sourceId": "3cd3906c5d6c81d5835be46fca54ec8a",
+      "sourceLine": 13,
+      "module": 7,
+      "topic": "subqueries",
+      "href": "/practice/sql/#sql-source-3cd3906c5d6c81d5835be46fca54ec8a-48cc34a02d",
+      "status": "Source-backed open-response self-check; unscored"
+    },
+    {
+      "id": "sql-source-3cd3906c5d6c81d5835be46fca54ec8a-c709eb1cd8",
+      "prompt": "Q2. Is every nested subquery correlated?",
+      "sourceId": "3cd3906c5d6c81d5835be46fca54ec8a",
+      "sourceLine": 19,
+      "module": 7,
+      "topic": "subqueries",
+      "href": "/practice/sql/#sql-source-3cd3906c5d6c81d5835be46fca54ec8a-c709eb1cd8",
+      "status": "Source-backed open-response self-check; unscored"
+    },
+    {
+      "id": "sql-source-3cd3906c5d6c81d5835be46fca54ec8a-fd1d1c356a",
+      "prompt": "Q3. When would you choose EXISTS instead of IN?",
+      "sourceId": "3cd3906c5d6c81d5835be46fca54ec8a",
+      "sourceLine": 23,
+      "module": 7,
+      "topic": "subqueries",
+      "href": "/practice/sql/#sql-source-3cd3906c5d6c81d5835be46fca54ec8a-fd1d1c356a",
+      "status": "Source-backed open-response self-check; unscored"
+    },
+    {
+      "id": "sql-source-3cd3906c5d6c81d5835be46fca54ec8a-f214c55f19",
+      "prompt": "Q4. CTE vs subquery — what is the difference?",
+      "sourceId": "3cd3906c5d6c81d5835be46fca54ec8a",
+      "sourceLine": 27,
+      "module": 7,
+      "topic": "subqueries",
+      "href": "/practice/sql/#sql-source-3cd3906c5d6c81d5835be46fca54ec8a-f214c55f19",
+      "status": "Source-backed open-response self-check; unscored"
+    },
+    {
+      "id": "sql-source-3cd3906c5d6c81d5835be46fca54ec8a-688808a387",
+      "prompt": "Q5. When is a window function better than a subquery?",
+      "sourceId": "3cd3906c5d6c81d5835be46fca54ec8a",
+      "sourceLine": 31,
+      "module": 9,
+      "topic": "windows",
+      "href": "/practice/sql/#sql-source-3cd3906c5d6c81d5835be46fca54ec8a-688808a387",
+      "status": "Source-backed open-response self-check; unscored"
+    },
+    {
+      "id": "sql-source-3cd3906c5d6c81d5835be46fca54ec8a-507dcfe981",
+      "prompt": "Q6. Why can AVG(CASE ... ELSE 0 END) be wrong?",
+      "sourceId": "3cd3906c5d6c81d5835be46fca54ec8a",
+      "sourceLine": 35,
+      "module": 6,
+      "topic": "aggregation",
+      "href": "/practice/sql/#sql-source-3cd3906c5d6c81d5835be46fca54ec8a-507dcfe981",
+      "status": "Source-backed open-response self-check; unscored"
+    }
+  ],
+  "legacyMap": {
+    "sql-01": 4,
+    "sql-02": 5,
+    "sql-03": 6,
+    "sql-04": 6,
+    "sql-05": 5,
+    "sql-06": 3,
+    "sql-07": 9,
+    "sql-08": 6,
+    "sql-09": 7,
+    "sql-10": 3
+  },
+  "legacyQuestions": [
+    {
+      "id": "sql-01",
+      "prompt": "Which clause filters individual rows before grouping happens?",
+      "module": 4,
+      "href": "/lab/sql/?question=sql-01"
+    },
+    {
+      "id": "sql-02",
+      "prompt": "In a LEFT JOIN from customers to orders, which rows are guaranteed to appear in the result?",
+      "module": 5,
+      "href": "/lab/sql/?question=sql-02"
+    },
+    {
+      "id": "sql-03",
+      "prompt": "Which of these are aggregate functions? Select all that apply.",
+      "module": 6,
+      "href": "/lab/sql/?question=sql-03"
+    },
+    {
+      "id": "sql-04",
+      "prompt": "You want only regions whose total sales exceed 1,000,000. Where does that condition belong?",
+      "module": 6,
+      "href": "/lab/sql/?question=sql-04"
+    },
+    {
+      "id": "sql-05",
+      "prompt": "How many rows does this return?\n\nSELECT * FROM (VALUES (1),(2),(3)) AS t(x)\nCROSS JOIN (VALUES ('a'),('b')) AS u(y);",
+      "module": 5,
+      "href": "/lab/sql/?question=sql-05"
+    },
+    {
+      "id": "sql-06",
+      "prompt": "In standard SQL, the expression NULL = NULL evaluates to TRUE.",
+      "module": 3,
+      "href": "/lab/sql/?question=sql-06"
+    },
+    {
+      "id": "sql-07",
+      "prompt": "Which expression numbers employees 1, 2, 3… within each department by descending salary?",
+      "module": 9,
+      "href": "/lab/sql/?question=sql-07"
+    },
+    {
+      "id": "sql-08",
+      "prompt": "Which statement returns exactly one row per group?",
+      "module": 6,
+      "href": "/lab/sql/?question=sql-08"
+    },
+    {
+      "id": "sql-09",
+      "prompt": "Which practices make a production query easier to review? Select all that apply.",
+      "module": 7,
+      "href": "/lab/sql/?question=sql-09"
+    },
+    {
+      "id": "sql-10",
+      "prompt": "A column has 100 rows, 12 of which are NULL. What does COUNT(column) return?",
+      "module": 3,
+      "href": "/lab/sql/?question=sql-10"
+    }
+  ],
+  "topics": [
+    "overview",
+    "foundations",
+    "schema",
+    "types-null",
+    "filtering",
+    "joins",
+    "aggregation",
+    "subqueries",
+    "sets",
+    "windows",
+    "time",
+    "text",
+    "analytics",
+    "quality",
+    "transactions",
+    "design",
+    "performance",
+    "warehouse"
+  ],
+  "objectives": [
+    "Choose a SQL technique from the required population and output grain.",
+    "Distinguish logical query meaning, physical execution, filtering and grouping.",
+    "Inspect keys, relationships, constraints and missing values before querying.",
+    "Reason about data types, casting and three-valued NULL logic.",
+    "Define row populations and conditional classifications with explicit precedence.",
+    "Predict JOIN cardinality and prevent duplicated measures.",
+    "Choose the grouping grain and define a correct KPI denominator.",
+    "Choose subqueries, EXISTS and CTEs from result shape and dependency.",
+    "Combine compatible rows while controlling duplicates and set difference.",
+    "Distinguish partition, order and frame while preserving row detail.",
+    "Define time buckets, missing periods and independent event sequences.",
+    "Clean and classify text without confusing NULL, empty strings and spaces.",
+    "Translate the MovieNow business question into a grain-safe analytical query.",
+    "Validate uniqueness, completeness, domains, freshness and reconciliation.",
+    "Plan safe data changes with transactions and explicit validation.",
+    "Design keys, relationships, grain and historical dimensional meaning.",
+    "Investigate execution plans and measure optimization without changing semantics.",
+    "Apply SQL to warehouse layers, snapshots, metrics and reliable incremental loads."
+  ]
+}

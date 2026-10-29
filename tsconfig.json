@@ -37,7 +37,14 @@
     ".next/dev/types/**/*.ts",
     "**/*.mts"
   ],
+  // Generated output and scratch copies are not part of the source project.
+  // `/build` is gitignored and holds full preview copies of `app/` from earlier
+  // release rehearsals; typechecking those copies against the live source only
+  // reports drift in throwaway files.
   "exclude": [
-    "node_modules"
+    "node_modules",
+    ".next",
+    "out",
+    "build"
   ]
 }

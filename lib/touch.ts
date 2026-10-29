@@ -15,6 +15,19 @@
  */
 export const TOUCH_GESTURE_CLASS = "select-none [-webkit-touch-callout:none]";
 
+// Preserve the older shared API alongside the current registry adaptation.
+export const TOUCH_GESTURE_CONTENT_CLASS =
+  "[-webkit-touch-callout:none] pointer-coarse:select-none";
+
+export function holdSelection(element: HTMLElement) {
+  element.style.setProperty("user-select", "none");
+  element.style.setProperty("-webkit-user-select", "none");
+  return () => {
+    element.style.removeProperty("user-select");
+    element.style.removeProperty("-webkit-user-select");
+  };
+}
+
 /**
  * Whether this event came from a pointer that is *hovering*: not a touch, and
  * not currently pressed. A pen resting on the glass is making contact, not

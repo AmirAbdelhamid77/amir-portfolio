@@ -1,0 +1,149 @@
+{
+  "slug": "fabric-rti",
+  "title": "Fabric RTI & data provenance",
+  "topic": "Fabric RTI",
+  "level": "intermediate",
+  "description": "Origin classes, grain, virtual channels, licensing holds and what NOT_RUN actually means — the reasoning a real-time data project is judged on, built from the pinned Fabric RTI source milestone.",
+  "durationMinutes": 10,
+  "passMark": 70,
+  "questions": [
+    {
+      "id": "rti-01",
+      "type": "single",
+      "topic": "Origin classes",
+      "prompt": "The OneLake events lab loads historical carrier CSV files through a supplied notebook, then compares raw against loaded record counts. What is the correct description of those files?",
+      "options": [
+        "Observed carrier shipment telemetry, reconciled to the package's shipment ground truth",
+        "Workshop sample inputs that are not observed shipments, even when the record counts reconcile",
+        "Simulated telemetry produced by the package's generator notebooks",
+        "A blocked dataset that was substituted from a public mirror after the original endpoint failed"
+      ],
+      "answer": 1,
+      "explanation": "The blueprint classifies them as PUBLISHED_WORKSHOP_SAMPLE and its verification line reads NOT_RUN; historical carrier CSVs are sample inputs, not observed shipments. A reconciled count tells you the load matched the file — it says nothing about whether the file describes reality. Option D describes the blocked USAID dataset, which was never substituted."
+    },
+    {
+      "id": "rti-02",
+      "type": "single",
+      "topic": "Measured data",
+      "prompt": "The hydraulic condition-monitoring archive has 2,205 cycles of 17 channels at different sampling rates. How many samples does one cycle hold for the 100 Hz channels?",
+      "options": [
+        "60",
+        "600",
+        "1,000",
+        "6,000"
+      ],
+      "answer": 3,
+      "explanation": "Each cycle is 60 seconds, so a 100 Hz channel holds 6,000 samples per cycle — that covers PS1–PS6 pressure and EPS1 motor power. The 10 Hz flow channels hold 600 and the 1 Hz temperature and vibration channels hold 60. Reading the rates before plotting is what stops you averaging a 6,000-point channel against a 60-point one."
+    },
+    {
+      "id": "rti-03",
+      "type": "single",
+      "topic": "Units",
+      "prompt": "The steel-industry energy archive publishes a CO2 column labelled `CO2(tCO2)` while its own documentation describes the values as ppm. What does the source package require?",
+      "options": [
+        "Convert everything to tonnes, because the column header is authoritative",
+        "Treat the values as ppm, because prose is authoritative over headers",
+        "Retain both the label and the description and mark the unit unresolved",
+        "Drop the column, since a contradictory unit makes the archive unusable"
+      ],
+      "answer": 2,
+      "explanation": "The package retains both and marks the unit unresolved — it never picks a side on the reader's behalf. Silently choosing one converts a metadata contradiction into an unstated assumption, which is exactly the failure this archive is used to teach. Dropping the column also destroys data the publisher shipped."
+    },
+    {
+      "id": "rti-04",
+      "type": "multi",
+      "topic": "Data quality",
+      "prompt": "You are aligning the semiconductor archive's measurement file with its label file. Which of these must be preserved?",
+      "options": [
+        "Row-for-row alignment by the original row index",
+        "Every NaN cell, unfilled and un-imputed",
+        "A UTC timestamp for each example, derived from the source metadata",
+        "The 590-versus-591 feature discrepancy as an open flag, not a silent correction"
+      ],
+      "answer": [0, 1, 3],
+      "explanation": "Alignment, missingness and the unresolved discrepancy are all things the blueprint tells you to keep. The fourth option is the trap: no timezone is filled in as UTC anywhere in the package, and the source supplies no timestamps you could legitimately promote to one. Inventing them would make the dataset unreproducible."
+    },
+    {
+      "id": "rti-05",
+      "type": "boolean",
+      "topic": "Evidence status",
+      "prompt": "A blueprint marked `PASS_DATA_PROFILE` means the archive's bytes were verified against its published schema and row counts — and that the dataset is representative of current factory conditions.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "answer": false,
+      "explanation": "PASS_DATA_PROFILE certifies what was profiled: row counts, column counts, step intervals and missing cells. The package states plainly that historical quality checks describe source bytes and do not certify representativeness, current factory conditions or deployment safety. Evidence about bytes is not evidence about the world."
+    },
+    {
+      "id": "rti-06",
+      "type": "single",
+      "topic": "Grain",
+      "prompt": "The steel-industry archive's timestamps advance in one uninterrupted step. What is that step, and what does it tell you?",
+      "options": [
+        "900 seconds — a fixed 15-minute measurement interval across all 35,040 records",
+        "60 seconds — matching a per-minute sensor reading",
+        "3,600 seconds — an hourly rollup of sub-minute readings",
+        "Unknown — the package refused to record any timestamp information for this archive"
+      ],
+      "answer": 0,
+      "explanation": "35,040 records with 35,039 consecutive 900-second differences means a uniform 15-minute grain. That is the fact that decides which aggregations are legitimate: you cannot claim a per-minute pattern from a 15-minute series, no matter how the chart is drawn."
+    },
+    {
+      "id": "rti-07",
+      "type": "single",
+      "topic": "Measured vs derived",
+      "prompt": "The hydraulic rig is described as having 17 channels. Why does the package insist two of them stay labelled `virtual`?",
+      "options": [
+        "They were sampled by a second, redundant sensor rig",
+        "They are computed from other channels rather than measured directly",
+        "They were removed from the archive after publication",
+        "They record values in a unit the publisher never defined"
+      ],
+      "answer": 1,
+      "explanation": "CE cooling efficiency and CP cooling power are derived quantities, with SE an efficiency factor computed from them. Counting them as independent sensors overstates the instrument set — 15 measured channels and 2 computed ones is a different claim from 17 sensors, and only one of those claims is true."
+    },
+    {
+      "id": "rti-08",
+      "type": "multi",
+      "topic": "Aggregates",
+      "prompt": "Two World Bank indicators are cleared for reference: container port traffic (IS.SHP.GOOD.TU) and the Logistics Performance Index. Which statements are correct?",
+      "options": [
+        "Port traffic counts 2,802 non-null values across 17,556 API slots, in annual TEU",
+        "Container port traffic includes empty containers and transshipment lifts",
+        "The LPI is a perception survey scored 1–5, aggregated from responses",
+        "Both indicators can be joined to shipment-level microdata to recover delivery dates"
+      ],
+      "answer": [0, 1, 2],
+      "explanation": "All three are stated in the package; the fourth is the failure the lesson exists to prevent. These are country-year aggregates — one is a survey perception score, the other an annual TEU total — and neither carries shipment events. Observed shipment microdata is separately BLOCKED in this package."
+    },
+    {
+      "id": "rti-09",
+      "type": "single",
+      "topic": "Licensing",
+      "prompt": "The Scania air-pressure archive (UCI-421) is withheld from this course. What is the exact reason?",
+      "options": [
+        "Its rows contain identifiable driver data that failed a privacy review",
+        "Its landing page says CC BY 4.0 while the CSV headers state GPL-3.0-or-later, and the conflict is unreconciled",
+        "The archive could not be downloaded, so its bytes were never verified",
+        "It was replaced by a Kaggle mirror that the package cleared for redistribution"
+      ],
+      "answer": 1,
+      "explanation": "The conflict between the landing page licence and the licence inside the archive is the hold. The bytes were verified — the archive hash is recorded — so option C is wrong, and option D describes exactly what the package refuses to do: no mirror was substituted for any blocked source. Lab L11 is withheld for this reason."
+    },
+    {
+      "id": "rti-10",
+      "type": "single",
+      "topic": "Alerting",
+      "prompt": "After following the Activator temperature-rule lab, what is the honest status of the alerting path?",
+      "options": [
+        "Verified — the rule fired on the test stream and the email was delivered",
+        "Partially verified — detection ran, but external delivery was left disabled and untriggered",
+        "NOT_RUN — no alert, email, Teams message, pipeline or flow was triggered",
+        "FAILED — the rule could not be configured against a simulated stream"
+      ],
+      "answer": 2,
+      "explanation": "The blueprint's own verification line is explicit: NOT_RUN, with no alert, email, Teams message, pipeline or flow triggered. Configuring a condition is not testing an action path, and a rule you never let fire has told you nothing about delivery. Nothing here failed either — it simply was not exercised."
+    }
+  ]
+}

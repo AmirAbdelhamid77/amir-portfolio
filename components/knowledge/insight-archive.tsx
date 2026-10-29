@@ -138,8 +138,11 @@ export function InsightArchive({
                 >
                   Open this edition
                 </button>
+                {/* Root-scoped so a shared link always points at the canonical
+                    landing, even when it is copied from the compatibility
+                    alias at `/prototype-c/`. */}
                 <a
-                  href={`?insight=${encodeURIComponent(item.id)}`}
+                  href={`/?insight=${encodeURIComponent(item.id)}`}
                   className="inline-flex min-h-11 items-center px-1 text-xs text-muted-foreground underline underline-offset-4 hover:text-foreground"
                 >
                   Permalink

@@ -1,0 +1,741 @@
+[
+  {
+    "id": "lesson:creative:decision-contract",
+    "title": "Start with the decision, not the visual",
+    "subject": "visualization",
+    "topics": [
+      "overview"
+    ],
+    "stage": "Reference",
+    "kind": "lesson",
+    "href": "/learn/drafts/?tab=lessons&q=Start%20with%20the%20decision%2C%20not%20the%20visual",
+    "objective": "Write a falsifiable decision brief Separate a useful analysis from a decorative feature",
+    "sourcePointer": "content/intake/notion-lessons.json#lesson:creative:decision-contract",
+    "coverage": "REVIEW_REQUIRED",
+    "prepare": [],
+    "lessonPrerequisites": [],
+    "questions": [
+      {
+        "id": "draft-notion-28-decision-contract",
+        "title": "An operations team asks for a new animated dashboard but cannot identify a decision it would support. What should the designer establish first?",
+        "href": "/practice/drafts/?bank=notion-28&q=assessment%3Acreative%3Adecision-contract",
+        "basis": "source-explicit",
+        "reason": "The original unapproved assessment declares this lesson_id/lesson_slug. Grading remains disabled; no scientific approval is implied."
+      }
+    ],
+    "applications": [],
+    "reviewPoints": [
+      "Write a falsifiable decision brief",
+      "Separate a useful analysis from a decorative feature"
+    ],
+    "reflection": "An operations manager asks for a new animated late-delivery map but cannot name a follow-up action. Write the missing decision contract and choose a simpler baseline.",
+    "caveat": "REVIEW_REQUIRED · NOT_RUN · Source workflow/code remains in the isolated intake viewer; no runtime success is claimed."
+  },
+  {
+    "id": "lesson:creative:distribution",
+    "title": "Distribution Detective: build and challenge the bins",
+    "subject": "visualization",
+    "topics": [
+      "overview"
+    ],
+    "stage": "Reference",
+    "kind": "lesson",
+    "href": "/learn/drafts/?tab=lessons&q=Distribution%20Detective%3A%20build%20and%20challenge%20the%20bins",
+    "objective": "Explain why a mean can hide a tail or multiple modes Specify nonoverlapping dynamic bins and a conservation test",
+    "sourcePointer": "content/intake/notion-lessons.json#lesson:creative:distribution",
+    "coverage": "REVIEW_REQUIRED",
+    "prepare": [],
+    "lessonPrerequisites": [
+      "lesson:creative:decision-contract"
+    ],
+    "questions": [
+      {
+        "id": "draft-notion-28-distribution",
+        "title": "A disconnected bin-width selector changes a histogram’s width. Which interval definition prevents a boundary observation being counted twice?",
+        "href": "/practice/drafts/?bank=notion-28&q=assessment%3Acreative%3Adistribution",
+        "basis": "source-explicit",
+        "reason": "The original unapproved assessment declares this lesson_id/lesson_slug. Grading remains disabled; no scientific approval is implied."
+      },
+      {
+        "id": "draft-notion-28-distribution--unequal",
+        "title": "A histogram uses unequal bin widths and must preserve frequency through bar area. What should determine height?",
+        "href": "/practice/drafts/?bank=notion-28&q=assessment%3Acreative%3Adistribution--unequal",
+        "basis": "source-explicit",
+        "reason": "The original unapproved assessment declares this lesson_id/lesson_slug. Grading remains disabled; no scientific approval is implied."
+      },
+      {
+        "id": "draft-notion-28-distribution--context",
+        "title": "A histogram’s bars total fewer records than the eligible fact rows. Which TWO checks directly investigate a binning defect?",
+        "href": "/practice/drafts/?bank=notion-28&q=assessment%3Acreative%3Adistribution--context",
+        "basis": "source-explicit",
+        "reason": "The original unapproved assessment declares this lesson_id/lesson_slug. Grading remains disabled; no scientific approval is implied."
+      }
+    ],
+    "applications": [],
+    "reviewPoints": [
+      "Explain why a mean can hide a tail or multiple modes",
+      "Specify nonoverlapping dynamic bins and a conservation test"
+    ],
+    "reflection": "Why might a two-peak pattern disappear when width changes from 1 to 5? What else must stay fixed to compare the two sites?",
+    "caveat": "REVIEW_REQUIRED · NOT_RUN · Source workflow/code remains in the isolated intake viewer; no runtime success is claimed."
+  },
+  {
+    "id": "lesson:creative:svg-microvisual",
+    "title": "Compact SVG indicators: preserve the uncapped number",
+    "subject": "visualization",
+    "topics": [
+      "overview"
+    ],
+    "stage": "Reference",
+    "kind": "lesson",
+    "href": "/learn/drafts/?tab=lessons&q=Compact%20SVG%20indicators%3A%20preserve%20the%20uncapped%20number",
+    "objective": "Separate a graphical clamp from a business value Define accessible alternatives and rendering checks",
+    "sourcePointer": "content/intake/notion-lessons.json#lesson:creative:svg-microvisual",
+    "coverage": "REVIEW_REQUIRED",
+    "prepare": [],
+    "lessonPrerequisites": [
+      "lesson:creative:decision-contract"
+    ],
+    "questions": [
+      {
+        "id": "draft-notion-28-svg-microvisual",
+        "title": "A circular progress indicator caps its arc at 100%. Actual progress may exceed the target. Which design preserves the business information?",
+        "href": "/practice/drafts/?bank=notion-28&q=assessment%3Acreative%3Asvg-microvisual",
+        "basis": "source-explicit",
+        "reason": "The original unapproved assessment declares this lesson_id/lesson_slug. Grading remains disabled; no scientific approval is implied."
+      },
+      {
+        "id": "draft-notion-28-svg-microvisual--target",
+        "title": "A progress measure has a zero denominator and no agreed alternative business meaning. What is the most defensible default?",
+        "href": "/practice/drafts/?bank=notion-28&q=assessment%3Acreative%3Asvg-microvisual--target",
+        "basis": "source-explicit",
+        "reason": "The original unapproved assessment declares this lesson_id/lesson_slug. Grading remains disabled; no scientific approval is implied."
+      }
+    ],
+    "applications": [],
+    "reviewPoints": [
+      "Separate a graphical clamp from a business value",
+      "Define accessible alternatives and rendering checks"
+    ],
+    "reflection": "A ring shows 100% at both 105% and 180% actual progress. How do you prevent a misleading comparison?",
+    "caveat": "REVIEW_REQUIRED · NOT_RUN · Source workflow/code remains in the isolated intake viewer; no runtime success is claimed."
+  },
+  {
+    "id": "lesson:creative:filter-context",
+    "title": "Measures respond to context; stored columns serve a different job",
+    "subject": "visualization",
+    "topics": [
+      "overview"
+    ],
+    "stage": "Reference",
+    "kind": "lesson",
+    "href": "/learn/drafts/?tab=lessons&q=Measures%20respond%20to%20context%3B%20stored%20columns%20serve%20a%20different%20job",
+    "objective": "Choose a measure or grouping column for a stated requirement Specify filter-context tests for a reusable total",
+    "sourcePointer": "content/intake/notion-lessons.json#lesson:creative:filter-context",
+    "coverage": "REVIEW_REQUIRED",
+    "prepare": [],
+    "lessonPrerequisites": [],
+    "questions": [
+      {
+        "id": "draft-notion-28-filter-context",
+        "title": "A reusable Total Sales value must respond to region and date slicers through existing active relationships. Which implementation matches?",
+        "href": "/practice/drafts/?bank=notion-28&q=assessment%3Acreative%3Afilter-context",
+        "basis": "source-explicit",
+        "reason": "The original unapproved assessment declares this lesson_id/lesson_slug. Grading remains disabled; no scientific approval is implied."
+      }
+    ],
+    "applications": [],
+    "reviewPoints": [
+      "Choose a measure or grouping column for a stated requirement",
+      "Specify filter-context tests for a reusable total"
+    ],
+    "reflection": "A currency/percentage switcher uses FORMAT for every result. What should be reviewed?",
+    "caveat": "REVIEW_REQUIRED · NOT_RUN · Source workflow/code remains in the isolated intake viewer; no runtime success is claimed."
+  },
+  {
+    "id": "lesson:creative:field-parameters",
+    "title": "Smart Filter Console: field names are not field values",
+    "subject": "visualization",
+    "topics": [
+      "overview"
+    ],
+    "stage": "Reference",
+    "kind": "lesson",
+    "href": "/learn/drafts/?tab=lessons&q=Smart%20Filter%20Console%3A%20field%20names%20are%20not%20field%20values",
+    "objective": "Distinguish parameter entries from dimension members Choose a supported console design under model/visual constraints",
+    "sourcePointer": "content/intake/notion-lessons.json#lesson:creative:field-parameters",
+    "coverage": "REVIEW_REQUIRED",
+    "prepare": [],
+    "lessonPrerequisites": [
+      "lesson:creative:decision-contract",
+      "lesson:creative:filter-context"
+    ],
+    "questions": [
+      {
+        "id": "draft-notion-28-field-parameters",
+        "title": "A report reader clears a field-parameter selector expecting no fields in the chart. What documented behavior should the author explain?",
+        "href": "/practice/drafts/?bank=notion-28&q=assessment%3Acreative%3Afield-parameters",
+        "basis": "source-explicit",
+        "reason": "The original unapproved assessment declares this lesson_id/lesson_slug. Grading remains disabled; no scientific approval is implied."
+      },
+      {
+        "id": "draft-notion-28-field-parameters--values",
+        "title": "A console should show the members of a selected dimension. Which parameter configuration matches the documented Show values option?",
+        "href": "/practice/drafts/?bank=notion-28&q=assessment%3Acreative%3Afield-parameters--values",
+        "basis": "source-explicit",
+        "reason": "The original unapproved assessment declares this lesson_id/lesson_slug. Grading remains disabled; no scientific approval is implied."
+      },
+      {
+        "id": "draft-notion-28-field-parameters--local-model",
+        "title": "An author uses a live connection with no local model and cannot create a field parameter. Which constraint is relevant?",
+        "href": "/practice/drafts/?bank=notion-28&q=assessment%3Acreative%3Afield-parameters--local-model",
+        "basis": "source-explicit",
+        "reason": "The original unapproved assessment declares this lesson_id/lesson_slug. Grading remains disabled; no scientific approval is implied."
+      }
+    ],
+    "applications": [],
+    "reviewPoints": [
+      "Distinguish parameter entries from dimension members",
+      "Choose a supported console design under model/visual constraints"
+    ],
+    "reflection": "A user clears the field selector expecting an empty visual. Redesign the reset instruction without claiming that the parameter supports a none state.",
+    "caveat": "REVIEW_REQUIRED · NOT_RUN · Source workflow/code remains in the isolated intake viewer; no runtime success is claimed."
+  },
+  {
+    "id": "lesson:creative:bump-chart",
+    "title": "Bump charts: explain rank movement and its population",
+    "subject": "visualization",
+    "topics": [
+      "overview"
+    ],
+    "stage": "Reference",
+    "kind": "lesson",
+    "href": "/learn/drafts/?tab=lessons&q=Bump%20charts%3A%20explain%20rank%20movement%20and%20its%20population",
+    "objective": "State the rank population and tie rule Distinguish stable rank from stable absolute performance",
+    "sourcePointer": "content/intake/notion-lessons.json#lesson:creative:bump-chart",
+    "coverage": "REVIEW_REQUIRED",
+    "prepare": [],
+    "lessonPrerequisites": [
+      "lesson:creative:filter-context"
+    ],
+    "questions": [
+      {
+        "id": "draft-notion-28-bump-chart",
+        "title": "A program’s enrollment rises while its rank falls. Which investigation best explains this without treating rank as absolute performance?",
+        "href": "/practice/drafts/?bank=notion-28&q=assessment%3Acreative%3Abump-chart",
+        "basis": "source-explicit",
+        "reason": "The original unapproved assessment declares this lesson_id/lesson_slug. Grading remains disabled; no scientific approval is implied."
+      },
+      {
+        "id": "draft-notion-28-bump-chart--ties",
+        "title": "A rank chart must show 1, 2, 2, 3 when two entities tie for second. Which tie policy fits?",
+        "href": "/practice/drafts/?bank=notion-28&q=assessment%3Acreative%3Abump-chart--ties",
+        "basis": "source-explicit",
+        "reason": "The original unapproved assessment declares this lesson_id/lesson_slug. Grading remains disabled; no scientific approval is implied."
+      }
+    ],
+    "applications": [],
+    "reviewPoints": [
+      "State the rank population and tie rule",
+      "Distinguish stable rank from stable absolute performance"
+    ],
+    "reflection": "Two programs both increase enrollment, but one drops in rank. Is the chart wrong?",
+    "caveat": "REVIEW_REQUIRED · NOT_RUN · Source workflow/code remains in the isolated intake viewer; no runtime success is claimed."
+  },
+  {
+    "id": "lesson:creative:grain-and-ratios",
+    "title": "Grain and denominators: the hidden structure of a chart",
+    "subject": "visualization",
+    "topics": [
+      "overview"
+    ],
+    "stage": "Reference",
+    "kind": "lesson",
+    "href": "/learn/drafts/?tab=lessons&q=Grain%20and%20denominators%3A%20the%20hidden%20structure%20of%20a%20chart",
+    "objective": "Detect row-count inflation Explain a weighted total without inventing an observed result",
+    "sourcePointer": "content/intake/notion-lessons.json#lesson:creative:grain-and-ratios",
+    "coverage": "REVIEW_REQUIRED",
+    "prepare": [],
+    "lessonPrerequisites": [],
+    "questions": [
+      {
+        "id": "draft-notion-28-grain-and-ratios",
+        "title": "A sales table has one row per order line. A multi-item order appears in several rows. Which counting approach requires review before using it as Order",
+        "href": "/practice/drafts/?bank=notion-28&q=assessment%3Acreative%3Agrain-and-ratios",
+        "basis": "source-explicit",
+        "reason": "The original unapproved assessment declares this lesson_id/lesson_slug. Grading remains disabled; no scientific approval is implied."
+      }
+    ],
+    "applications": [],
+    "reviewPoints": [
+      "Detect row-count inflation",
+      "Explain a weighted total without inventing an observed result"
+    ],
+    "reflection": "A customer has multiple order lines. Why might COUNTROWS exaggerate the apparent customer opportunity?",
+    "caveat": "REVIEW_REQUIRED · NOT_RUN · Source workflow/code remains in the isolated intake viewer; no runtime success is claimed."
+  },
+  {
+    "id": "lesson:creative:metric-map",
+    "title": "Metric Navigator: reconcile identities before explaining causes",
+    "subject": "visualization",
+    "topics": [
+      "overview"
+    ],
+    "stage": "Reference",
+    "kind": "lesson",
+    "href": "/learn/drafts/?tab=lessons&q=Metric%20Navigator%3A%20reconcile%20identities%20before%20explaining%20causes",
+    "objective": "Separate a calculation dependency from a causal edge Test additive and multiplicative reconciliation in a common filter context",
+    "sourcePointer": "content/intake/notion-lessons.json#lesson:creative:metric-map",
+    "coverage": "REVIEW_REQUIRED",
+    "prepare": [],
+    "lessonPrerequisites": [
+      "lesson:creative:decision-contract",
+      "lesson:creative:grain-and-ratios"
+    ],
+    "questions": [
+      {
+        "id": "draft-notion-28-metric-map",
+        "title": "A financial map’s child contributions exactly reconcile to the profit change. Which conclusion is justified?",
+        "href": "/practice/drafts/?bank=notion-28&q=assessment%3Acreative%3Ametric-map",
+        "basis": "source-explicit",
+        "reason": "The original unapproved assessment declares this lesson_id/lesson_slug. Grading remains disabled; no scientific approval is implied."
+      },
+      {
+        "id": "draft-notion-28-metric-map--product",
+        "title": "A parent measure is A×B and both factors change. Which allocation follows the linked midpoint decomposition?",
+        "href": "/practice/drafts/?bank=notion-28&q=assessment%3Acreative%3Ametric-map--product",
+        "basis": "source-explicit",
+        "reason": "The original unapproved assessment declares this lesson_id/lesson_slug. Grading remains disabled; no scientific approval is implied."
+      }
+    ],
+    "applications": [],
+    "reviewPoints": [
+      "Separate a calculation dependency from a causal edge",
+      "Test additive and multiplicative reconciliation in a common filter context"
+    ],
+    "reflection": "A profit change is fully reconciled by order-volume and average-value effects. What further evidence is needed to explain why orders changed?",
+    "caveat": "REVIEW_REQUIRED · NOT_RUN · Source workflow/code remains in the isolated intake viewer; no runtime success is claimed."
+  },
+  {
+    "id": "lesson:creative:ternary",
+    "title": "Ternary cross-sell: three shares, one customer",
+    "subject": "visualization",
+    "topics": [
+      "overview"
+    ],
+    "stage": "Reference",
+    "kind": "lesson",
+    "href": "/learn/drafts/?tab=lessons&q=Ternary%20cross-sell%3A%20three%20shares%2C%20one%20customer",
+    "objective": "Validate the closure and grain of a composition Identify classification overlap and missing-denominator states",
+    "sourcePointer": "content/intake/notion-lessons.json#lesson:creative:ternary",
+    "coverage": "REVIEW_REQUIRED",
+    "prepare": [],
+    "lessonPrerequisites": [
+      "lesson:creative:grain-and-ratios"
+    ],
+    "questions": [
+      {
+        "id": "draft-notion-28-ternary",
+        "title": "In the published ternary exercise, a customer has shares 60%, 20%, 20%. The rules say Specialist when one share is at least 60%, and Balanced when all",
+        "href": "/practice/drafts/?bank=notion-28&q=assessment%3Acreative%3Aternary",
+        "basis": "source-explicit",
+        "reason": "The original unapproved assessment declares this lesson_id/lesson_slug. Grading remains disabled; no scientific approval is implied."
+      },
+      {
+        "id": "draft-notion-28-ternary--grain",
+        "title": "Which TWO conditions are necessary for a customer-composition ternary view as specified in the source?",
+        "href": "/practice/drafts/?bank=notion-28&q=assessment%3Acreative%3Aternary--grain",
+        "basis": "source-explicit",
+        "reason": "The original unapproved assessment declares this lesson_id/lesson_slug. Grading remains disabled; no scientific approval is implied."
+      }
+    ],
+    "applications": [],
+    "reviewPoints": [
+      "Validate the closure and grain of a composition",
+      "Identify classification overlap and missing-denominator states"
+    ],
+    "reflection": "A customer has category shares 60%, 20%, 20%. Which source archetype applies?",
+    "caveat": "REVIEW_REQUIRED · NOT_RUN · Source workflow/code remains in the isolated intake viewer; no runtime success is claimed."
+  },
+  {
+    "id": "lesson:creative:accessibility",
+    "title": "Design interaction that does not depend on hover or color",
+    "subject": "visualization",
+    "topics": [
+      "overview"
+    ],
+    "stage": "Reference",
+    "kind": "lesson",
+    "href": "/learn/drafts/?tab=lessons&q=Design%20interaction%20that%20does%20not%20depend%20on%20hover%20or%20color",
+    "objective": "Create redundant semantic cues Specify meaningful keyboard and screen-reader tests",
+    "sourcePointer": "content/intake/notion-lessons.json#lesson:creative:accessibility",
+    "coverage": "REVIEW_REQUIRED",
+    "prepare": [],
+    "lessonPrerequisites": [
+      "lesson:creative:decision-contract"
+    ],
+    "questions": [
+      {
+        "id": "draft-notion-28-accessibility",
+        "title": "A report marks positive and negative deltas with green and red. Which TWO changes improve access without removing the distinction?",
+        "href": "/practice/drafts/?bank=notion-28&q=assessment%3Acreative%3Aaccessibility",
+        "basis": "source-explicit",
+        "reason": "The original unapproved assessment declares this lesson_id/lesson_slug. Grading remains disabled; no scientific approval is implied."
+      }
+    ],
+    "applications": [],
+    "reviewPoints": [
+      "Create redundant semantic cues",
+      "Specify meaningful keyboard and screen-reader tests"
+    ],
+    "reflection": "A red cost delta is explained only by a tooltip. Revise the representation for a keyboard-only reader.",
+    "caveat": "REVIEW_REQUIRED · NOT_RUN · Source workflow/code remains in the isolated intake viewer; no runtime success is claimed."
+  },
+  {
+    "id": "lesson:creative:performance",
+    "title": "Measure the bottleneck before changing the renderer",
+    "subject": "visualization",
+    "topics": [
+      "overview"
+    ],
+    "stage": "Reference",
+    "kind": "lesson",
+    "href": "/learn/drafts/?tab=lessons&q=Measure%20the%20bottleneck%20before%20changing%20the%20renderer",
+    "objective": "Interpret visual and DAX timing separately Design a repeatable comparison between native and custom approaches",
+    "sourcePointer": "content/intake/notion-lessons.json#lesson:creative:performance",
+    "coverage": "REVIEW_REQUIRED",
+    "prepare": [],
+    "lessonPrerequisites": [
+      "lesson:creative:filter-context"
+    ],
+    "questions": [
+      {
+        "id": "draft-notion-28-performance",
+        "title": "Performance Analyzer indicates long DAX-query time but little visual-display time. Which first action follows that evidence?",
+        "href": "/practice/drafts/?bank=notion-28&q=assessment%3Acreative%3Aperformance",
+        "basis": "source-explicit",
+        "reason": "The original unapproved assessment declares this lesson_id/lesson_slug. Grading remains disabled; no scientific approval is implied."
+      }
+    ],
+    "applications": [],
+    "reviewPoints": [
+      "Interpret visual and DAX timing separately",
+      "Design a repeatable comparison between native and custom approaches"
+    ],
+    "reflection": "A slow map has a long DAX query but a short display time. Should you first animate fewer nodes?",
+    "caveat": "REVIEW_REQUIRED · NOT_RUN · Source workflow/code remains in the isolated intake viewer; no runtime success is claimed."
+  },
+  {
+    "id": "lesson:creative:renderer-choice",
+    "title": "Native, Deneb or HTML: choose the smallest adequate capability",
+    "subject": "visualization",
+    "topics": [
+      "overview"
+    ],
+    "stage": "Reference",
+    "kind": "lesson",
+    "href": "/learn/drafts/?tab=lessons&q=Native%2C%20Deneb%20or%20HTML%3A%20choose%20the%20smallest%20adequate%20capability",
+    "objective": "Make a capability-based renderer decision Avoid assuming browser behavior inside a custom visual",
+    "sourcePointer": "content/intake/notion-lessons.json#lesson:creative:renderer-choice",
+    "coverage": "REVIEW_REQUIRED",
+    "prepare": [],
+    "lessonPrerequisites": [
+      "lesson:creative:decision-contract",
+      "lesson:creative:accessibility"
+    ],
+    "questions": [
+      {
+        "id": "draft-notion-28-renderer-choice",
+        "title": "A rich chart works as a standalone web page. Which requirement remains unproven inside Power BI?",
+        "href": "/practice/drafts/?bank=notion-28&q=assessment%3Acreative%3Arenderer-choice",
+        "basis": "source-explicit",
+        "reason": "The original unapproved assessment declares this lesson_id/lesson_slug. Grading remains disabled; no scientific approval is implied."
+      }
+    ],
+    "applications": [],
+    "reviewPoints": [
+      "Make a capability-based renderer decision",
+      "Avoid assuming browser behavior inside a custom visual"
+    ],
+    "reflection": "A prototype works as a standalone HTML page. Which report capabilities are still unproven?",
+    "caveat": "REVIEW_REQUIRED · NOT_RUN · Source workflow/code remains in the isolated intake viewer; no runtime success is claimed."
+  },
+  {
+    "id": "lesson:creative:visual-integrity",
+    "title": "Scale choices change the argument",
+    "subject": "visualization",
+    "topics": [
+      "overview"
+    ],
+    "stage": "Reference",
+    "kind": "lesson",
+    "href": "/learn/drafts/?tab=lessons&q=Scale%20choices%20change%20the%20argument",
+    "objective": "Explain which encoding a scale supports Critique an apparent relationship without alleging unsupported causation",
+    "sourcePointer": "content/intake/notion-lessons.json#lesson:creative:visual-integrity",
+    "coverage": "REVIEW_REQUIRED",
+    "prepare": [],
+    "lessonPrerequisites": [
+      "lesson:creative:decision-contract"
+    ],
+    "questions": [
+      {
+        "id": "draft-notion-28-visual-integrity",
+        "title": "A chart claims two time series move together after independently adjusting both Y-axis ranges. What should the reviewer do?",
+        "href": "/practice/drafts/?bank=notion-28&q=assessment%3Acreative%3Avisual-integrity",
+        "basis": "source-explicit",
+        "reason": "The original unapproved assessment declares this lesson_id/lesson_slug. Grading remains disabled; no scientific approval is implied."
+      }
+    ],
+    "applications": [],
+    "reviewPoints": [
+      "Explain which encoding a scale supports",
+      "Critique an apparent relationship without alleging unsupported causation"
+    ],
+    "reflection": "Two dual-axis series align after the axis limits are adjusted. What does that establish?",
+    "caveat": "REVIEW_REQUIRED · NOT_RUN · Source workflow/code remains in the isolated intake viewer; no runtime success is claimed."
+  },
+  {
+    "id": "lesson:creative:small-multiples",
+    "title": "Small multiples: keep comparison conditions visible",
+    "subject": "visualization",
+    "topics": [
+      "overview"
+    ],
+    "stage": "Reference",
+    "kind": "lesson",
+    "href": "/learn/drafts/?tab=lessons&q=Small%20multiples%3A%20keep%20comparison%20conditions%20visible",
+    "objective": "Distinguish shape comparison from magnitude comparison Choose facet/filter trade-offs for a stated audience",
+    "sourcePointer": "content/intake/notion-lessons.json#lesson:creative:small-multiples",
+    "coverage": "REVIEW_REQUIRED",
+    "prepare": [],
+    "lessonPrerequisites": [
+      "lesson:creative:distribution",
+      "lesson:creative:visual-integrity"
+    ],
+    "questions": [
+      {
+        "id": "draft-notion-28-small-multiples",
+        "title": "Two distribution panels have the same peak height on the screen, but independently scaled count axes. Which inference is valid?",
+        "href": "/practice/drafts/?bank=notion-28&q=assessment%3Acreative%3Asmall-multiples",
+        "basis": "source-explicit",
+        "reason": "The original unapproved assessment declares this lesson_id/lesson_slug. Grading remains disabled; no scientific approval is implied."
+      }
+    ],
+    "applications": [],
+    "reviewPoints": [
+      "Distinguish shape comparison from magnitude comparison",
+      "Choose facet/filter trade-offs for a stated audience"
+    ],
+    "reflection": "Two panels have equal-height peaks but different Y ranges. Can you infer equal peak counts?",
+    "caveat": "REVIEW_REQUIRED · NOT_RUN · Source workflow/code remains in the isolated intake viewer; no runtime success is claimed."
+  },
+  {
+    "id": "lesson:creative:uncertainty",
+    "title": "Distinguish description, association and causal evidence",
+    "subject": "visualization",
+    "topics": [
+      "overview"
+    ],
+    "stage": "Reference",
+    "kind": "lesson",
+    "href": "/learn/drafts/?tab=lessons&q=Distinguish%20description%2C%20association%20and%20causal%20evidence",
+    "objective": "Qualify an association without claiming causality Explain why uncertainty and practical magnitude both matter",
+    "sourcePointer": "content/intake/notion-lessons.json#lesson:creative:uncertainty",
+    "coverage": "REVIEW_REQUIRED",
+    "prepare": [],
+    "lessonPrerequisites": [
+      "lesson:creative:distribution",
+      "lesson:creative:grain-and-ratios"
+    ],
+    "questions": [
+      {
+        "id": "draft-notion-28-uncertainty",
+        "title": "A regional delay comparison changes direction after stratifying by route. Which response is most defensible?",
+        "href": "/practice/drafts/?bank=notion-28&q=assessment%3Acreative%3Auncertainty",
+        "basis": "source-explicit",
+        "reason": "The original unapproved assessment declares this lesson_id/lesson_slug. Grading remains disabled; no scientific approval is implied."
+      }
+    ],
+    "applications": [],
+    "reviewPoints": [
+      "Qualify an association without claiming causality",
+      "Explain why uncertainty and practical magnitude both matter"
+    ],
+    "reflection": "A segment’s average delay is worse, but the segments use different route mixes. What should be investigated?",
+    "caveat": "REVIEW_REQUIRED · NOT_RUN · Source workflow/code remains in the isolated intake viewer; no runtime success is claimed."
+  },
+  {
+    "id": "lesson:creative:story-framework",
+    "title": "Choose an argument shape after the evidence survives",
+    "subject": "visualization",
+    "topics": [
+      "overview"
+    ],
+    "stage": "Reference",
+    "kind": "lesson",
+    "href": "/learn/drafts/?tab=lessons&q=Choose%20an%20argument%20shape%20after%20the%20evidence%20survives",
+    "objective": "Select a framework for a communication job Preserve uncertainty instead of completing an artificial narrative arc",
+    "sourcePointer": "content/intake/notion-lessons.json#lesson:creative:story-framework",
+    "coverage": "REVIEW_REQUIRED",
+    "prepare": [],
+    "lessonPrerequisites": [
+      "lesson:creative:uncertainty",
+      "lesson:creative:decision-contract"
+    ],
+    "questions": [
+      {
+        "id": "draft-notion-28-story-framework",
+        "title": "A clear recommendation depends on ignoring an important competing explanation. What should a storytelling review require?",
+        "href": "/practice/drafts/?bank=notion-28&q=assessment%3Acreative%3Astory-framework",
+        "basis": "source-explicit",
+        "reason": "The original unapproved assessment declares this lesson_id/lesson_slug. Grading remains disabled; no scientific approval is implied."
+      }
+    ],
+    "applications": [],
+    "reviewPoints": [
+      "Select a framework for a communication job",
+      "Preserve uncertainty instead of completing an artificial narrative arc"
+    ],
+    "reflection": "A manager needs a diagnostic memo, but a presenter proposes an emotional now-versus-future story. What should guide the choice?",
+    "caveat": "REVIEW_REQUIRED · NOT_RUN · Source workflow/code remains in the isolated intake viewer; no runtime success is claimed."
+  },
+  {
+    "id": "lesson:creative:insight-and-trust",
+    "title": "Turn an insight into an inspectable decision chain",
+    "subject": "visualization",
+    "topics": [
+      "overview"
+    ],
+    "stage": "Reference",
+    "kind": "lesson",
+    "href": "/learn/drafts/?tab=lessons&q=Turn%20an%20insight%20into%20an%20inspectable%20decision%20chain",
+    "objective": "Write a discovery card with an evidence trail Separate source timestamps, collection time and publication scheduling",
+    "sourcePointer": "content/intake/notion-lessons.json#lesson:creative:insight-and-trust",
+    "coverage": "REVIEW_REQUIRED",
+    "prepare": [],
+    "lessonPrerequisites": [
+      "lesson:creative:decision-contract",
+      "lesson:creative:story-framework"
+    ],
+    "questions": [
+      {
+        "id": "draft-notion-28-insight-and-trust",
+        "title": "A source page was edited yesterday, but no Hansa publication event has occurred. How should a discovery record represent its publication time?",
+        "href": "/practice/drafts/?bank=notion-28&q=assessment%3Acreative%3Ainsight-and-trust",
+        "basis": "source-explicit",
+        "reason": "The original unapproved assessment declares this lesson_id/lesson_slug. Grading remains disabled; no scientific approval is implied."
+      }
+    ],
+    "applications": [],
+    "reviewPoints": [
+      "Write a discovery card with an evidence trail",
+      "Separate source timestamps, collection time and publication scheduling"
+    ],
+    "reflection": "The feed wants a “new insight every day”, but only old verified material is available. What must remain truthful?",
+    "caveat": "REVIEW_REQUIRED · NOT_RUN · Source workflow/code remains in the isolated intake viewer; no runtime success is claimed."
+  },
+  {
+    "id": "lesson:creative:mobile-export",
+    "title": "Mobile and export are distinct consumption modes",
+    "subject": "visualization",
+    "topics": [
+      "overview"
+    ],
+    "stage": "Reference",
+    "kind": "lesson",
+    "href": "/learn/drafts/?tab=lessons&q=Mobile%20and%20export%20are%20distinct%20consumption%20modes",
+    "objective": "Specify mobile evidence priority Define export checks for a custom visual and an interactive report",
+    "sourcePointer": "content/intake/notion-lessons.json#lesson:creative:mobile-export",
+    "coverage": "REVIEW_REQUIRED",
+    "prepare": [],
+    "lessonPrerequisites": [
+      "lesson:creative:accessibility",
+      "lesson:creative:renderer-choice"
+    ],
+    "questions": [
+      {
+        "id": "draft-notion-28-mobile-export",
+        "title": "Which TWO results need separate evidence beyond a successful Desktop screenshot?",
+        "href": "/practice/drafts/?bank=notion-28&q=assessment%3Acreative%3Amobile-export",
+        "basis": "source-explicit",
+        "reason": "The original unapproved assessment declares this lesson_id/lesson_slug. Grading remains disabled; no scientific approval is implied."
+      }
+    ],
+    "applications": [],
+    "reviewPoints": [
+      "Specify mobile evidence priority",
+      "Define export checks for a custom visual and an interactive report"
+    ],
+    "reflection": "A rich HTML metric tree exports without its disclosure interaction. What does the static version need?",
+    "caveat": "REVIEW_REQUIRED · NOT_RUN · Source workflow/code remains in the isolated intake viewer; no runtime success is claimed."
+  },
+  {
+    "id": "lesson:creative:pbip-lifecycle",
+    "title": "Structured report files support review, not automatic correctness",
+    "subject": "visualization",
+    "topics": [
+      "overview"
+    ],
+    "stage": "Reference",
+    "kind": "lesson",
+    "href": "/learn/drafts/?tab=lessons&q=Structured%20report%20files%20support%20review%2C%20not%20automatic%20correctness",
+    "objective": "Separate artifact validation from technical behavior Design a reversible review sequence for report changes",
+    "sourcePointer": "content/intake/notion-lessons.json#lesson:creative:pbip-lifecycle",
+    "coverage": "REVIEW_REQUIRED",
+    "prepare": [],
+    "lessonPrerequisites": [
+      "lesson:creative:filter-context",
+      "lesson:creative:performance"
+    ],
+    "questions": [
+      {
+        "id": "draft-notion-28-pbip-lifecycle",
+        "title": "An authoring agent has produced schema-valid PBIR. Which conclusion remains unsupported without additional checks?",
+        "href": "/practice/drafts/?bank=notion-28&q=assessment%3Acreative%3Apbip-lifecycle",
+        "basis": "source-explicit",
+        "reason": "The original unapproved assessment declares this lesson_id/lesson_slug. Grading remains disabled; no scientific approval is implied."
+      }
+    ],
+    "applications": [],
+    "reviewPoints": [
+      "Separate artifact validation from technical behavior",
+      "Design a reversible review sequence for report changes"
+    ],
+    "reflection": "An authoring agent reports valid JSON and a successful screenshot. Which approvals remain separate?",
+    "caveat": "REVIEW_REQUIRED · NOT_RUN · Source workflow/code remains in the isolated intake viewer; no runtime success is claimed."
+  },
+  {
+    "id": "lesson:creative:source-contract",
+    "title": "Maintain a traceable knowledge package without inventing approval",
+    "subject": "visualization",
+    "topics": [
+      "overview"
+    ],
+    "stage": "Reference",
+    "kind": "lesson",
+    "href": "/learn/drafts/?tab=lessons&q=Maintain%20a%20traceable%20knowledge%20package%20without%20inventing%20approval",
+    "objective": "Separate evidence levels and acceptance states Deliver additive records with reversible source mappings",
+    "sourcePointer": "content/intake/notion-lessons.json#lesson:creative:source-contract",
+    "coverage": "REVIEW_REQUIRED",
+    "prepare": [],
+    "lessonPrerequisites": [
+      "lesson:creative:decision-contract"
+    ],
+    "questions": [
+      {
+        "id": "draft-notion-28-source-contract",
+        "title": "The importer cannot access the current Atlas concept catalogue. What should it do with a new proposed concept?",
+        "href": "/practice/drafts/?bank=notion-28&q=assessment%3Acreative%3Asource-contract",
+        "basis": "source-explicit",
+        "reason": "The original unapproved assessment declares this lesson_id/lesson_slug. Grading remains disabled; no scientific approval is implied."
+      }
+    ],
+    "applications": [],
+    "reviewPoints": [
+      "Separate evidence levels and acceptance states",
+      "Deliver additive records with reversible source mappings"
+    ],
+    "reflection": "The importer cannot find the current Atlas catalogue. Should it generate canonical-looking IDs and create nodes immediately?",
+    "caveat": "REVIEW_REQUIRED · NOT_RUN · Source workflow/code remains in the isolated intake viewer; no runtime success is claimed."
+  }
+]

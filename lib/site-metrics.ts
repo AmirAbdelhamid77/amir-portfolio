@@ -34,9 +34,9 @@ export const SITE_METRICS = {
   },
   practice: {
     /** content/exams/*.json → number of banks */
-    generalBanks: 6,
+    generalBanks: 7,
     /** content/exams/*.json → total questions */
-    generalQuestions: 60,
+    generalQuestions: 70,
     /** content/fabric/meta.json → counts.questions */
     fabricQuestions: 834,
     /** content/fabric/meta.json → counts.packs */
@@ -45,6 +45,14 @@ export const SITE_METRICS = {
     fabricSources: 227,
     /** content/fabric/meta.json → caseCount */
     fabricCases: 76,
+  },
+  rti: {
+    /** lib/rti/lessons.ts → one `slug:` per lesson */
+    lessons: 8,
+    /** content/intake/rti-labs.json → counts.shipped */
+    blueprints: 17,
+    /** content/intake/rti-sources.json → counts.repositoriesCleared */
+    repositories: 22,
   },
 } as const;
 

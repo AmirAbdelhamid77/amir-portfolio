@@ -33,11 +33,13 @@ export function StageAtlasPeek({
   conceptId,
   lessonHref,
   practiceHref,
+  contextTitle,
 }: {
   atlas: Atlas;
   conceptId: string;
   lessonHref: string;
   practiceHref: string;
+  contextTitle: string;
 }) {
   const view = useMemo(
     () => ({ ...defaultView(), concept: conceptId, incoming: true }),
@@ -61,7 +63,7 @@ export function StageAtlasPeek({
       <div className="flex flex-wrap items-end justify-between gap-3">
         <div>
           <p className="font-mono text-[10px] uppercase tracking-[0.16em] text-muted-foreground">
-            03 / Knowledge Atlas
+            Semantic layer · review status
           </p>
           <h2
             id="atlas-peek-title"
@@ -70,11 +72,14 @@ export function StageAtlasPeek({
             {edges.length ? "What this idea is connected to" : "Where this idea leads"}
           </h2>
         </div>
+        {/* Neutral label on purpose: the destination page states whether the
+            reviewed graph is published yet, so this never promises a live graph
+            and does not need rewriting when the projection is approved. */}
         <Link
           href={viewHref({ ...view, hops: 1 })}
           className="inline-flex min-h-11 items-center gap-1.5 text-sm text-muted-foreground underline underline-offset-4 hover:text-foreground"
         >
-          Open the full Atlas
+          Open the Atlas
           <ArrowUpRight className="size-3.5" aria-hidden="true" />
         </Link>
       </div>
@@ -222,13 +227,14 @@ export function StageAtlasPeek({
           </div>
         </div>
       ) : (
-        <div className="relative mt-4 max-w-3xl">
+        <div className="atlas-pending relative mt-4">
+          <div className="atlas-seal"><span>Edition context</span><strong>{center?.title ?? contextTitle}</strong><span>Connections<br/>await review</span></div>
           <div
             aria-hidden="true"
-            className="absolute inset-0 -z-10 rounded-[24px] border border-border-strong bg-card/50"
+            className="atlas-pending-backing absolute inset-0 -z-10 rounded-[24px] border border-border-strong bg-card/50"
             style={{ transform: "translate3d(10px, 10px, 0)" }}
           />
-          <div className="rounded-[24px] border border-border-strong bg-background/90 p-5 sm:p-6">
+          <div className="atlas-pending-copy rounded-[24px] border border-border-strong bg-background/90 p-5 sm:p-6">
             <div className="flex flex-wrap items-center gap-x-3 gap-y-2">
               <span className="inline-flex items-center gap-2 rounded-full border border-border-strong px-3 py-1.5 text-xs text-muted-foreground">
                 <span aria-hidden="true" className="size-1.5 rounded-full bg-warning" />

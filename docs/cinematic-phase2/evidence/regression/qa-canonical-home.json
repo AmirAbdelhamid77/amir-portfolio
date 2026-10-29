@@ -1,0 +1,258 @@
+{
+  "generatedAt": "2026-10-28T00:05:05.030Z",
+  "base": "http://127.0.0.1:4328",
+  "checks": [
+    {
+      "id": "ROOT01",
+      "pass": true,
+      "detail": "landing sections present: 5/5"
+    },
+    {
+      "id": "ROOT01b",
+      "pass": true,
+      "detail": "the retired gateway directory is not on the homepage"
+    },
+    {
+      "id": "ROOT01c",
+      "pass": true,
+      "detail": "no prototype framing is rendered"
+    },
+    {
+      "id": "NAV01",
+      "pass": true,
+      "detail": "Today is in the header and marks itself as the current page"
+    },
+    {
+      "id": "NAV01b",
+      "pass": true,
+      "detail": "links pointing at the legacy address: 0"
+    },
+    {
+      "id": "ROOT02",
+      "pass": true,
+      "detail": "console errors: none"
+    },
+    {
+      "id": "H064/STATE",
+      "pass": true,
+      "detail": "progress namespaces unchanged; landing wrote nothing"
+    },
+    {
+      "id": "URL01",
+      "pass": true,
+      "detail": "a bare / opens on the newest edition and its scenario"
+    },
+    {
+      "id": "SCENARIO02",
+      "pass": true,
+      "detail": "reveal reports aria-expanded=true"
+    },
+    {
+      "id": "SCENARIO02b",
+      "pass": true,
+      "detail": "reveal collapses again"
+    },
+    {
+      "id": "SCENARIO02c",
+      "pass": true,
+      "detail": "scene stays visible through reveal toggles"
+    },
+    {
+      "id": "DEALER01",
+      "pass": true,
+      "detail": "3 card(s) dealt into the hand"
+    },
+    {
+      "id": "DEALER02",
+      "pass": true,
+      "detail": "the card opens a readable panel (335 characters)"
+    },
+    {
+      "id": "DEALER03",
+      "pass": true,
+      "detail": "closing returns the card to the hand with no leftover overlay"
+    },
+    {
+      "id": "TIMELINE01",
+      "pass": true,
+      "detail": "rail arrow: \"26 OCT 2026 Reference ≠ retained result\" → \"25 OCT 2026 Object versus target\""
+    },
+    {
+      "id": "TIMELINE02",
+      "pass": true,
+      "detail": "ArrowRight: \"25 OCT 2026 Object versus target\" → \"24 OCT 2026 Files versus Tables\" (focus stays in the rail: true)"
+    },
+    {
+      "id": "URL05",
+      "pass": true,
+      "detail": "selection is reflected in the URL: http://127.0.0.1:4328/?insight=hansa-insight-shortcut-discovery-v1"
+    },
+    {
+      "id": "URL05b",
+      "pass": true,
+      "detail": "Back restores the previous edition without stale card content"
+    },
+    {
+      "id": "ARCHIVE01",
+      "pass": true,
+      "detail": "1 edition(s) match \"permissions\""
+    },
+    {
+      "id": "ARCHIVE02",
+      "pass": true,
+      "detail": "permalink is root-scoped: /?insight=hansa-insight-shortcut-delete-v1"
+    },
+    {
+      "id": "ROOT02b",
+      "pass": true,
+      "detail": "console errors: none"
+    },
+    {
+      "id": "URL01b",
+      "pass": true,
+      "detail": "/?insight=reference selects \"A reference is a design decision.\""
+    },
+    {
+      "id": "URL0-deep-reference",
+      "pass": true,
+      "detail": "console errors: none"
+    },
+    {
+      "id": "URL02b",
+      "pass": true,
+      "detail": "/?insight=delete selects \"Name the object you are deleting.\""
+    },
+    {
+      "id": "URL0-deep-delete",
+      "pass": true,
+      "detail": "console errors: none"
+    },
+    {
+      "id": "URL03b",
+      "pass": true,
+      "detail": "/?insight=discovery selects \"Location changes discovery.\""
+    },
+    {
+      "id": "URL0-deep-discovery",
+      "pass": true,
+      "detail": "console errors: none"
+    },
+    {
+      "id": "URL04",
+      "pass": true,
+      "detail": "an unknown edition ID falls back to the latest with an explanation"
+    },
+    {
+      "id": "URL03",
+      "pass": true,
+      "detail": "fragment kept: #archive, archive visible: true"
+    },
+    {
+      "id": "H026",
+      "pass": true,
+      "detail": "#archive landed in view (y=274)"
+    },
+    {
+      "id": "URL03b",
+      "pass": true,
+      "detail": "edition + anchor together select \"Files versus Tables\" (rail: 24 OCT 2026 Files versus Tables)"
+    },
+    {
+      "id": "ROUTE01c",
+      "pass": true,
+      "detail": "the alias selects the deep-linked edition"
+    },
+    {
+      "id": "R3b",
+      "pass": true,
+      "detail": "the alias renders the same landing"
+    },
+    {
+      "id": "NAV01c",
+      "pass": true,
+      "detail": "the alias header points Today at the canonical root"
+    },
+    {
+      "id": "ROUTE01d",
+      "pass": true,
+      "detail": "alias console errors: none"
+    },
+    {
+      "id": "MOBILE01",
+      "pass": true,
+      "detail": "320px: horizontal overflow 0px"
+    },
+    {
+      "id": "MOBILE01",
+      "pass": true,
+      "detail": "390px: horizontal overflow 0px"
+    },
+    {
+      "id": "MOBILE01",
+      "pass": true,
+      "detail": "768px: horizontal overflow 0px"
+    },
+    {
+      "id": "DESKTOP01",
+      "pass": true,
+      "detail": "light theme renders without console errors"
+    },
+    {
+      "id": "REDUCED01",
+      "pass": true,
+      "detail": "reduced motion keeps every control working"
+    },
+    {
+      "id": "NOJS01",
+      "pass": true,
+      "detail": "with JavaScript off the archive and its reasoning stay readable"
+    },
+    {
+      "id": "KEYBOARD01a",
+      "pass": true,
+      "detail": "skip link is present"
+    },
+    {
+      "id": "KEYBOARD01b",
+      "pass": true,
+      "detail": "first Tab reaches the skip link (#main)"
+    },
+    {
+      "id": "KEYBOARD01c",
+      "pass": true,
+      "detail": "Home key is handled by the rail without trapping focus"
+    },
+    {
+      "id": "ACCESS01",
+      "pass": true,
+      "detail": "axe: 0 non-serious finding(s)"
+    }
+  ],
+  "shots": [
+    {
+      "name": "root-desktop-1280-dark",
+      "label": "Canonical landing at 1280, dark"
+    },
+    {
+      "name": "root-dealer-1280-dark",
+      "label": "Dealer after dealing the hand"
+    },
+    {
+      "name": "alias-1280-dark",
+      "label": "Legacy address renders the canonical landing"
+    },
+    {
+      "name": "root-mobile-390",
+      "label": "Canonical landing at 390px"
+    },
+    {
+      "name": "root-desktop-1280-light",
+      "label": "Canonical landing at 1280, light"
+    },
+    {
+      "name": "root-nojs-1280",
+      "label": "Landing with JavaScript disabled"
+    }
+  ],
+  "axe": []
+}

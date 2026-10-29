@@ -44,6 +44,9 @@ const practice = await read("lib/data-viz/practice.ts");
 const statistics = await read("lib/statistics/content.ts");
 const fabricMeta = await readJson("content/fabric/meta.json");
 const fabricSources = await readJson("content/fabric/sources.json");
+const rtiLabs = await readJson("content/intake/rti-labs.json");
+const rtiSources = await readJson("content/intake/rti-sources.json");
+const rtiLessons = await read("lib/rti/lessons.ts");
 
 const examFiles = (await readdir(path.join(ROOT, "content/exams"))).filter((file) => file.endsWith(".json"));
 const exams = await Promise.all(examFiles.map((file) => readJson(`content/exams/${file}`)));
@@ -64,6 +67,9 @@ const actual = {
   fabricPacks: fabricMeta.counts.packs,
   fabricSources: fabricSources.length,
   fabricCases: fabricMeta.caseCount,
+  lessons: count(rtiLessons, "slug: \""),
+  blueprints: rtiLabs.counts.shipped,
+  repositories: rtiSources.counts.repositoriesCleared,
 };
 
 const problems = [];

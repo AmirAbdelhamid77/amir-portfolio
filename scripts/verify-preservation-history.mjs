@@ -1,7 +1,7 @@
 // Proves original-source reconciliation and rejection behavior in disposable
 // copies. Does not alter tests, app/configuration sources or original snapshots.
 import assert from "node:assert/strict";
-import { readFileSync, writeFileSync, mkdirSync, copyFileSync, mkdtempSync } from "node:fs";
+import { readFileSync, writeFileSync, mkdirSync, copyFileSync, mkdtempSync, existsSync } from "node:fs";
 import { resolve, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
 import { createHash } from "node:crypto";
@@ -13,6 +13,9 @@ import { CONTINUATION } from "./dp600-continuation-receipt.mjs";
 import { CIRCLES } from "./atlas-circle-receipt.mjs";
 import { PROTOTYPE_C } from "./prototype-c-receipt.mjs";
 import { R11_INTEGRATION } from "./r11-question-receipt.mjs";
+import { CANONICAL_HOME, canonicalHomeReceipt } from "./canonical-home-receipt.mjs";
+import { CINEMATIC_PHASE2 } from "./cinematic-phase2-receipt.mjs";
+import { FINAL_REVIEW, FINAL_HISTORY } from "./final-review-receipt.mjs";
 const root = resolve(dirname(fileURLToPath(import.meta.url)), "..");
 const history = loadPreservationHistory(root);
 loadRepairReceipt(root);
@@ -25,6 +28,18 @@ const required = new Set([
   ...data.sourceTransitions.flatMap(entry => [entry.path, entry.originalPath]),
   ...data.legacyAliases.map(entry => entry.currentPath), ...Object.keys(data.testFiles), data.registrySnapshotLicense.path,
 ]);
+if(existsSync(resolve(root,'docs/learning-architecture-20261028/MANIFEST.json'))){const name='docs/learning-architecture-20261028/MANIFEST.json',m=JSON.parse(readFileSync(resolve(root,name),'utf8'));[name,m.baseline,m.previous].forEach(p=>required.add(p));m.files.forEach(e=>{required.add(e.path);if(e.rollbackPath)required.add(e.rollbackPath);});Object.keys(JSON.parse(readFileSync(resolve(root,m.baseline),'utf8')).files).filter(p=>p.startsWith('content/')).forEach(p=>required.add(p));}
+if(existsSync(resolve(root,'docs/learning-path-review-20261028/MANIFEST.json'))){const name='docs/learning-path-review-20261028/MANIFEST.json',m=JSON.parse(readFileSync(resolve(root,name),'utf8'));[name,m.baseline,m.previous].forEach(p=>required.add(p));m.files.forEach(e=>{required.add(e.path);if(e.rollbackPath)required.add(e.rollbackPath);});}
+// Carry the exact current successor and the audited historical before-bytes
+// into disposable views; the original rejection cases remain unchanged.
+if (existsSync(resolve(root,FINAL_REVIEW))) {
+  const final=JSON.parse(readFileSync(resolve(root,FINAL_REVIEW),'utf8'));
+  const history=JSON.parse(readFileSync(resolve(root,FINAL_HISTORY),'utf8'));
+  [FINAL_REVIEW,FINAL_HISTORY,final.previousManifest,final.baselinePath].forEach(p=>required.add(p));
+  final.files.forEach(e=>{required.add(e.path);if(e.rollbackPath)required.add(e.rollbackPath);});
+  history.transitions.forEach(e=>{required.add(e.path);required.add(e.originalPath);if(e.capturedPath)required.add(e.capturedPath);});
+  history.additions.forEach(e=>{required.add(e.path);required.add(e.originalPath);});
+}
 try {
   const implementation = JSON.parse(readFileSync(resolve(root, ATLAS_IMPLEMENTATION), "utf8"));
   required.add(ATLAS_IMPLEMENTATION); required.add("docs/knowledge-atlas/implementation/START_BASELINE.json");
@@ -50,15 +65,33 @@ try {
     if (entry.beforeSha256 !== null) required.add("docs/knowledge-atlas/circular-nodes/before/" + entry.path);
   });
 } catch(error) { if(error.code!=="ENOENT") throw error; }
+// Carry Phase 2's exact bound successor into the disposable corruption tests.
+try {
+  const cinematic = JSON.parse(readFileSync(resolve(root,CINEMATIC_PHASE2),"utf8"));
+  required.add(CINEMATIC_PHASE2); required.add(cinematic.previousManifest); required.add(cinematic.baselinePath);
+  cinematic.files.forEach(entry => { required.add(entry.path); if(entry.rollbackPath) required.add(entry.rollbackPath); });
+} catch(error) { if(error.code!=="ENOENT") throw error; }
+// The newest layer retires two superseded landing modules; a retired path has no
+// bytes to copy into the disposable view.
+const retired = new Set(canonicalHomeReceipt(root).removedPaths());
 // Include the additive prototype successor in disposable rejection-test views.
 try {
   const prototype = JSON.parse(readFileSync(resolve(root,PROTOTYPE_C),"utf8"));
   required.add(PROTOTYPE_C); required.add(prototype.baselinePath);
   prototype.files.forEach(entry => {
+    if(retired.has(entry.path)) return;
     required.add(entry.path);
     if(entry.beforeSha256!==null) required.add("docs/prototype-c/preservation/originals/"+entry.path);
   });
   (prototype.generatedArtifacts??[]).forEach(entry => { required.add(entry.path); required.add(entry.basisPath); });
+} catch(error) { if(error.code!=="ENOENT") throw error; }
+// Carry the canonical-home successor (manifest, baseline and rollback bytes) into
+// the disposable view too, so the chained receipt stays resolvable there.
+try {
+  const canonical = JSON.parse(readFileSync(resolve(root,CANONICAL_HOME),"utf8"));
+  required.add(CANONICAL_HOME); required.add(canonical.previousManifest);
+  canonical.baselines.forEach(baseline => required.add(baseline.path));
+  canonical.files.forEach(entry => { required.add(entry.path); if(entry.rollbackPath) required.add(entry.rollbackPath); });
 } catch(error) { if(error.code!=="ENOENT") throw error; }
 // Carry the exact R11 successor into disposable rejection-test views as well.
 try {

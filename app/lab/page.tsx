@@ -13,15 +13,20 @@ import { EXAM_SUMMARIES } from "@/lib/exams";
 import { ExamCatalog } from "@/components/lab/exam-catalog";
 import { ButtonLink, Container, Eyebrow } from "@/components/ui";
 
+const questionCount = EXAM_SUMMARIES.reduce(
+  (sum, exam) => sum + exam.questionCount,
+  0,
+);
+const topicCount = new Set(EXAM_SUMMARIES.map((exam) => exam.topic)).size;
+
 export const metadata: Metadata = {
   title: "Data Lab",
   description:
-    "Free data-analyst practice exams for SQL, Power BI/DAX, Excel, Python/Pandas, statistics, and analytics fundamentals — plus a separate 834-question Microsoft Fabric DP-600 lab. Practice or timed mock mode, with explanations.",
+    "Free data-analyst practice exams for SQL, Power BI/DAX, Excel, Python/Pandas, statistics, analytics fundamentals, and Fabric real-time provenance — plus a separate 834-question Microsoft Fabric DP-600 lab. Practice or timed mock mode, with explanations.",
   alternates: { canonical: "/lab" },
   openGraph: {
     title: "Data Lab — free data-analyst practice exams",
-    description:
-      "60 questions across six topics. Practice mode explains every answer; mock mode runs the clock.",
+    description: `${questionCount} questions across ${topicCount} topics. Practice mode explains every answer; mock mode runs the clock.`,
     url: "/lab",
     images: [{ url: "/og.png", width: 1200, height: 630, alt: "Amir Abdelhamid — Data Lab" }],
   },
@@ -46,11 +51,6 @@ const HOW = [
 ];
 
 export default function LabPage() {
-  const questionCount = EXAM_SUMMARIES.reduce(
-    (sum, exam) => sum + exam.questionCount,
-    0,
-  );
-
   return (
     <>
       <section className="relative border-b border-border">
@@ -77,7 +77,7 @@ export default function LabPage() {
             {[
               { value: String(EXAM_SUMMARIES.length), label: "exam sets" },
               { value: String(questionCount), label: "questions" },
-              { value: "6", label: "topics" },
+              { value: String(topicCount), label: "topics" },
               { value: "100%", label: "free" },
             ].map((stat) => (
               <div key={stat.label} className="bg-card/70 p-4">

@@ -33,7 +33,7 @@ for (const [path, sha256] of Object.entries(before.files)) {
   assert.equal(hash(path), implementation.expected(path, sha256), "Unrelated pre-existing drift: " + path);
 }
 for (const path of ["package.json", "package-lock.json", "next.config.ts", "wrangler.jsonc", "lib/academy/ingestion.ts", "components/academy/ingestion-lab.tsx"]) {
-  assert.equal(hash(path), before.files[path], "Protected contract: " + path);
+  assert.equal(hash(path), implementation.expected(path,before.files[path]), "Protected contract: " + path);
 }
 const registry = json(local + "CONTEXTUAL_COMPONENT_REGISTRY.json");
 assert.equal(registry.items.length, 22);

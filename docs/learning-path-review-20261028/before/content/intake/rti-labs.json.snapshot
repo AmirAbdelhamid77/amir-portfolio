@@ -1,0 +1,414 @@
+{
+  "kind": "intake-lab-blueprints",
+  "version": 1,
+  "package": "Hansa_Fabric_RTI_Authentic_Source_Milestone.zip",
+  "packageSha256": "0113ff0a660661b7e09682b14fee7db0f36b247ed30c9b569d69284084bb389b",
+  "status": "COMPLETE_SOURCE_PACKAGE_WITH_EXPLICIT_HOLDS",
+  "runtimeStatus": "NOT_RUN",
+  "statusLabel": "Authentic-source lab blueprints — editorial proposals with grading and deployment disabled",
+  "gradingEnabled": false,
+  "counts": {
+    "proposed": 18,
+    "shipped": 17
+  },
+  "holds": [
+    {
+      "lab_id": "L11",
+      "reason": "References the Scania UCI-421 archive; public integration is held pending GPL reconciliation (see LICENSE_REPORT.md)."
+    }
+  ],
+  "labs": [
+    {
+      "lab_id": "L01",
+      "title": "Shipment XML and typed KQL",
+      "frames": [
+        "D",
+        "C"
+      ],
+      "data_origin": "PUBLISHED_WORKSHOP_SAMPLE",
+      "task": "Follow source Lab 1: ingest raw XML, use original DDL/update policies, inspect typed ShippingNotifications.",
+      "source_based_expected_evidence": "Use exact assets/kqlcode/Lab1_QS_YCShippingDDLScript.kql and source screenshots; inspect source table schema and ingestion outcomes.",
+      "prerequisites": "Fabric capacity/workspace, permitted stream source, original schemas.",
+      "validation_status": "NOT_RUN; shipment source is workshop data, not real carrier telemetry.",
+      "grading_enabled": false,
+      "deployment_allowed": false,
+      "source_evidence": [
+        {
+          "artifact_id": "A31ae0f6b865eaf9",
+          "canonical_url": "https://github.com/microsoft/FabConRTIWorkshop/blob/4fb4c086f632f808ce38036c3be79e0b26f4e15b/docs/workshop.md",
+          "source_path": "docs/workshop.md",
+          "sha256": "15d59dcbe6ecb1c2c0fb1fc46c2e3f1f261fea168d6a57d44f4afcebaffd14c1",
+          "line": 388,
+          "locator_term": "Lab 01 - Shipping Events"
+        }
+      ]
+    },
+    {
+      "lab_id": "L02",
+      "title": "Connected factory energy and LoRaWAN",
+      "frames": [
+        "D"
+      ],
+      "data_origin": "PUBLISHED_SIMULATED_TELEMETRY",
+      "task": "Follow source energy and LoRaWAN steps through bronze/typed tables and temperature aggregation.",
+      "source_based_expected_evidence": "Compare field names/types and bins to source; label generators and every displayed value simulated.",
+      "prerequisites": "Fabric/Eventstream endpoints; source generator notebooks kept inert.",
+      "validation_status": "NOT_RUN; no generator was started and no upstream connection string was used.",
+      "grading_enabled": false,
+      "deployment_allowed": false,
+      "source_evidence": [
+        {
+          "artifact_id": "A31ae0f6b865eaf9",
+          "canonical_url": "https://github.com/microsoft/FabConRTIWorkshop/blob/4fb4c086f632f808ce38036c3be79e0b26f4e15b/docs/workshop.md",
+          "source_path": "docs/workshop.md",
+          "sha256": "15d59dcbe6ecb1c2c0fb1fc46c2e3f1f261fea168d6a57d44f4afcebaffd14c1",
+          "line": 662,
+          "locator_term": "Lab 03.1"
+        }
+      ]
+    },
+    {
+      "lab_id": "L03",
+      "title": "Activator temperature rule",
+      "frames": [
+        "D"
+      ],
+      "data_origin": "PUBLISHED_SIMULATED_TELEMETRY",
+      "task": "Use the source rule setup and consult current Activator conditions/limitations.",
+      "source_based_expected_evidence": "Capture configured condition and expected source UI steps; leave real external actions disabled during review.",
+      "prerequisites": "Fabric tenant and an isolated test stream.",
+      "validation_status": "NOT_RUN; no alert, email, Teams message, pipeline or flow was triggered.",
+      "grading_enabled": false,
+      "deployment_allowed": false,
+      "source_evidence": [
+        {
+          "artifact_id": "A31ae0f6b865eaf9",
+          "canonical_url": "https://github.com/microsoft/FabConRTIWorkshop/blob/4fb4c086f632f808ce38036c3be79e0b26f4e15b/docs/workshop.md",
+          "source_path": "docs/workshop.md",
+          "sha256": "15d59dcbe6ecb1c2c0fb1fc46c2e3f1f261fea168d6a57d44f4afcebaffd14c1",
+          "line": 1220,
+          "locator_term": "Lab 03.3"
+        }
+      ]
+    },
+    {
+      "lab_id": "L04",
+      "title": "Digital twin context and relationships",
+      "frames": [
+        "D"
+      ],
+      "data_origin": "PUBLISHED_WORKSHOP_SAMPLE",
+      "task": "Follow productionline/operator entity and mapping steps in the original bonus lab.",
+      "source_based_expected_evidence": "Source context CSVs and relationship steps supply the answer trace; reconcile with current preview docs.",
+      "prerequisites": "Digital Twin Builder availability, capacity and permissions.",
+      "validation_status": "NOT_RUN; no twin/entity was created.",
+      "grading_enabled": false,
+      "deployment_allowed": false,
+      "source_evidence": [
+        {
+          "artifact_id": "A31ae0f6b865eaf9",
+          "canonical_url": "https://github.com/microsoft/FabConRTIWorkshop/blob/4fb4c086f632f808ce38036c3be79e0b26f4e15b/docs/workshop.md",
+          "source_path": "docs/workshop.md",
+          "sha256": "15d59dcbe6ecb1c2c0fb1fc46c2e3f1f261fea168d6a57d44f4afcebaffd14c1",
+          "line": 1735,
+          "locator_term": "Lab 03.7"
+        }
+      ]
+    },
+    {
+      "lab_id": "L05",
+      "title": "OneLake events and history reconciliation",
+      "frames": [
+        "D",
+        "C"
+      ],
+      "data_origin": "PUBLISHED_WORKSHOP_SAMPLE",
+      "task": "Use the original historical shipment CSV flow through OneLake events and the supplied notebook.",
+      "source_based_expected_evidence": "Retain carrier/month source provenance; compare raw and loaded record counts.",
+      "prerequisites": "Fabric OneLake event/Activator support and storage.",
+      "validation_status": "NOT_RUN; historical carrier CSVs are sample inputs, not observed shipments.",
+      "grading_enabled": false,
+      "deployment_allowed": false,
+      "source_evidence": [
+        {
+          "artifact_id": "A31ae0f6b865eaf9",
+          "canonical_url": "https://github.com/microsoft/FabConRTIWorkshop/blob/4fb4c086f632f808ce38036c3be79e0b26f4e15b/docs/workshop.md",
+          "source_path": "docs/workshop.md",
+          "sha256": "15d59dcbe6ecb1c2c0fb1fc46c2e3f1f261fea168d6a57d44f4afcebaffd14c1",
+          "line": 1902,
+          "locator_term": "Lab 04 - OneLake Events"
+        }
+      ]
+    },
+    {
+      "lab_id": "L06",
+      "title": "KQL time series and anomaly chart",
+      "frames": [
+        "D"
+      ],
+      "data_origin": "PUBLISHED_SYNTHETIC_WEB_EVENTS",
+      "task": "Use the exact make-series/decomposition/chart query blocks from the tutorial.",
+      "source_based_expected_evidence": "No fixed anomaly counts invented; source query and chart choice only, until run on a pinned stream.",
+      "prerequisites": "KQL database/tables populated by the attributed source path.",
+      "validation_status": "NOT_RUN; thresholds and anomaly counts not scientifically calibrated.",
+      "grading_enabled": false,
+      "deployment_allowed": false,
+      "source_evidence": [
+        {
+          "artifact_id": "A75bd98340fef84a",
+          "canonical_url": "https://github.com/microsoft/FabConRTITutorial/blob/dc22e8ac409bf953c1d13ff7439177671cb68120/docs/workshop.md",
+          "source_path": "docs/workshop.md",
+          "sha256": "9f30d06045c5c1908f56b45bc8e61f85e8fcbdbfe8ab3c2eac0feee99d25bdac",
+          "line": 1038,
+          "locator_term": "Average Page Load Time Anomalies"
+        }
+      ]
+    },
+    {
+      "lab_id": "L07",
+      "title": "Measured steel-factory energy inspection",
+      "frames": [
+        "H",
+        "D",
+        "E"
+      ],
+      "data_origin": "OBSERVED_FACTORY_ENERGY",
+      "task": "Use the unchanged Steel_industry_data.csv archive; inspect date grain, Usage_kWh and reactive-power fields against the publisher definitions.",
+      "source_based_expected_evidence": "Verified file count 35,040 rows × 11 columns, 35,039 consecutive 900-second differences; no missing cells in parsed fields.",
+      "prerequisites": "Local CSV-capable engine; source units and QA profiles.",
+      "validation_status": "PASS_DATA_PROFILE; any new streaming replay/anomaly model remains NOT_RUN and must be marked a derived exercise.",
+      "grading_enabled": false,
+      "deployment_allowed": false,
+      "source_evidence": [
+        {
+          "canonical_url": "https://archive.ics.uci.edu/dataset/851/steel+industry+energy+consumption",
+          "sha256": "d82d28b33780ff1582507fcf08ae764ff648af459d58234370c551e62aadeaef"
+        }
+      ]
+    },
+    {
+      "lab_id": "L08",
+      "title": "Measured hydraulic sensor cycles",
+      "frames": [
+        "H",
+        "D",
+        "E"
+      ],
+      "data_origin": "OBSERVED_CONTROLLED_TEST_RIG",
+      "task": "Use raw channel matrices and profile labels, preserving cycle index alignment and channel sampling rates.",
+      "source_based_expected_evidence": "Verified 2,205 rows in each numeric member; PS/EPS 6,000 samples/cycle, FS 600, 1-Hz channels 60. Virtual CE/CP remain identified.",
+      "prerequisites": "ZIP/numeric matrix reader; original description/documentation; no fabricated wall clock.",
+      "validation_status": "PASS_DATA_PROFILE; no online twin mapping or model execution.",
+      "grading_enabled": false,
+      "deployment_allowed": false,
+      "source_evidence": [
+        {
+          "canonical_url": "https://archive.ics.uci.edu/dataset/447/condition+monitoring+of+hydraulic+systems",
+          "sha256": "24128aad2ee45eea7e6b63ebbd9992cdf25d0483a2cebefbfc13bc69079af1f2"
+        }
+      ]
+    },
+    {
+      "lab_id": "L09",
+      "title": "Semiconductor measurement quality",
+      "frames": [
+        "H",
+        "E"
+      ],
+      "data_origin": "OBSERVED_MANUFACTURING",
+      "task": "Align secom.data and secom_labels.data by original row number; inspect missingness, labels and timestamps.",
+      "source_based_expected_evidence": "Verified 1,567 × 590 numeric measurements; 41,951 NaN cells; label file has 1,567 aligned examples. Metadata says 591 features and is flagged.",
+      "prerequisites": "Raw space-delimited reader, source names file and quality profiles.",
+      "validation_status": "PASS_DATA_PROFILE; no feature identity or engineering-unit inference.",
+      "grading_enabled": false,
+      "deployment_allowed": false,
+      "source_evidence": [
+        {
+          "canonical_url": "https://archive.ics.uci.edu/dataset/179/secom",
+          "sha256": "eea568baf3c2229096d7d294cf0b096b5502bd96d92c0b80a65b84714059be8e"
+        }
+      ]
+    },
+    {
+      "lab_id": "L10",
+      "title": "Garment production and WIP",
+      "frames": [
+        "H",
+        "C"
+      ],
+      "data_origin": "OBSERVED_MANUAL_FACTORY_RECORDS",
+      "task": "Inspect source production records at team/department/day grain, WIP and productivity definitions.",
+      "source_based_expected_evidence": "Verified 1,197 × 15; missing WIP and department spellings retained. Date duplicates are expected at multiple-team/day grain.",
+      "prerequisites": "CSV reader; publisher column dictionary.",
+      "validation_status": "PASS_DATA_PROFILE; no invented OEE or causal productivity finding.",
+      "grading_enabled": false,
+      "deployment_allowed": false,
+      "source_evidence": [
+        {
+          "canonical_url": "https://archive.ics.uci.edu/dataset/597/productivity+prediction+of+garment+employees",
+          "sha256": "446026846b37d73800d1fd01b852ceaf95f086f15a626802d784154f63885bc2"
+        }
+      ]
+    },
+    {
+      "lab_id": "L12",
+      "title": "Published logistics aggregate context",
+      "frames": [
+        "H",
+        "D"
+      ],
+      "data_origin": "PUBLISHED_AGGREGATE_NOT_SHIPMENT_TRACE",
+      "task": "Inspect original country/economy-year port traffic values alongside metadata; separate region aggregates from members.",
+      "source_based_expected_evidence": "2,802 non-null values from 17,556 API slots; TEU, empty units and transshipment definition retained.",
+      "prerequisites": "World Bank terms/attribution, metadata response and JSON reader.",
+      "validation_status": "PASS_RESPONSE_PROFILE; this does not replace blocked observed shipment microdata.",
+      "grading_enabled": false,
+      "deployment_allowed": false,
+      "source_evidence": [
+        {
+          "canonical_url": "https://data.worldbank.org/indicator/IS.SHP.GOOD.TU",
+          "sha256": "7afe78a920982b46a24405c2fbe5b9ef0303fa5e0fd31e1ba13331381e14d159"
+        }
+      ]
+    },
+    {
+      "lab_id": "L13",
+      "title": "Original tagged stateful-streaming implementation",
+      "frames": [
+        "E",
+        "C",
+        "D"
+      ],
+      "data_origin": "PUBLISHED_SAMPLE_IMPLEMENTATION",
+      "task": "Study original v0.1.1 notebook, pipeline_config and Spark job; trace state/checkpoint/medallion decisions from source.",
+      "source_based_expected_evidence": "Exact source files and version pinned; compare with Spark watermark/sink guarantees before any execution.",
+      "prerequisites": "Matching Fabric Spark runtime and isolated workspace.",
+      "validation_status": "NOT_RUN; no job or deployment script was executed.",
+      "grading_enabled": false,
+      "deployment_allowed": false,
+      "source_evidence": [
+        {
+          "artifact_id": "Aed2ccc3ddb3fe8a",
+          "canonical_url": "https://github.com/microsoft/fabric-stateful-streaming-lakehouse/blob/88b02a43dc0bcf632c15740bfb5bff55593be7ba/README.md",
+          "source_path": "README.md",
+          "sha256": "cbf709f2576db12915d1a525fd489496e8c690cbc20c3c73dc781b13189a847c"
+        }
+      ]
+    },
+    {
+      "lab_id": "L14",
+      "title": "Original Spark optimization exercises",
+      "frames": [
+        "E",
+        "C"
+      ],
+      "data_origin": "PUBLISHED_SAMPLE_IMPLEMENTATION",
+      "task": "Inspect paired source_to_bronze jobs and original DataFrame/SQL optimization notebooks from v0.1.0.",
+      "source_based_expected_evidence": "Record source changes between optimized/unoptimized files; actual benchmark results must be generated by a later controlled run.",
+      "prerequisites": "Matching Spark/runtime/data size and a measured benchmark environment.",
+      "validation_status": "NOT_RUN; no speedup, memory saving or distributed equivalence claim.",
+      "grading_enabled": false,
+      "deployment_allowed": false,
+      "source_evidence": [
+        {
+          "artifact_id": "A7dbfe84f9429e9b",
+          "canonical_url": "https://github.com/microsoft/fabric-spark-performance-engineering/blob/859bca45bdcf70dbe6a918f190b2391291617cce/README.md",
+          "source_path": "README.md",
+          "sha256": "3f12f133f2dcd9ab0ae98ff0b53d9f93436975685a622d226796182d2789d650"
+        }
+      ]
+    },
+    {
+      "lab_id": "L15",
+      "title": "SQLFrame / DuckDB compatibility review",
+      "frames": [
+        "E",
+        "H"
+      ],
+      "data_origin": "PUBLISHED_CODE_EXAMPLES",
+      "task": "Follow original SQLFrame examples and current DuckDB Spark API replacement guidance.",
+      "source_based_expected_evidence": "Pin engine and SQLFrame versions; source docs currently warn about DuckDB 2.0 compatibility.",
+      "prerequisites": "Compatible isolated environment; no global/site dependency change.",
+      "validation_status": "NOT_RUN; source retrieval does not certify parity with PySpark or Structured Streaming.",
+      "grading_enabled": false,
+      "deployment_allowed": false,
+      "source_evidence": [
+        {
+          "artifact_id": "A4ce5199c5d5027e",
+          "canonical_url": "https://github.com/eakmanrq/sqlframe/blob/0398d4de3cc167f8cfcc58090e1f59126c80b0b9/README.md",
+          "source_path": "README.md",
+          "sha256": "5ae5d0e64d9ae327df855a8f7f89e320d3a35f384783c50e5c312d76306f173b"
+        }
+      ]
+    },
+    {
+      "lab_id": "L16",
+      "title": "Official Fabric lab sequence",
+      "frames": [
+        "C",
+        "D"
+      ],
+      "data_origin": "PUBLISHED_LAB_SAMPLE",
+      "task": "Follow original RTI, Eventstream, KQL-query, dashboard and Activator lab instruction files.",
+      "source_based_expected_evidence": "Exact source step extraction plus current docs; keep upstream outputs separate from measured execution.",
+      "prerequisites": "Fabric tenant/capacity/permissions.",
+      "validation_status": "NOT_RUN; no account resources created.",
+      "grading_enabled": false,
+      "deployment_allowed": false,
+      "source_evidence": [
+        {
+          "artifact_id": "Ac3ba01f5181b363",
+          "canonical_url": "https://github.com/MicrosoftLearning/mslearn-fabric/blob/27446a6a606a64fe078326fcdda59959a35d8b05/Instructions/Labs/07-real-time-Intelligence.md",
+          "source_path": "Instructions/Labs/07-real-time-Intelligence.md",
+          "sha256": "0edaeb01784a86591ecbc298e96075d6b8bf4945042d4bf0cdab2c309c1db796"
+        }
+      ]
+    },
+    {
+      "lab_id": "L17",
+      "title": "KQL learning and mysteries",
+      "frames": [
+        "G",
+        "D"
+      ],
+      "data_origin": "PUBLISHED_INSTRUCTIONAL_FIXTURES",
+      "task": "Use source table schemas/ingestion fixtures and original example queries; use mystery collateral only with its original attribution.",
+      "source_based_expected_evidence": "Source queries and fixtures preserved; Sentinel-only tables must be mapped deliberately or held.",
+      "prerequisites": "Kusto execution environment and declared fixture data.",
+      "validation_status": "NOT_RUN; external narratives are references only.",
+      "grading_enabled": false,
+      "deployment_allowed": false,
+      "source_evidence": [
+        {
+          "artifact_id": "Aba20682f3e19002",
+          "canonical_url": "https://github.com/rod-trent/MustLearnKQL/blob/a5fa102f9cd461a19000367c1f34d1907e122208/Datasets/Readme.md",
+          "source_path": "Datasets/Readme.md",
+          "sha256": "ae06625713c51eeb62192db6db72d1a956eee74101f9e5254c4db87641a0f625"
+        }
+      ]
+    },
+    {
+      "lab_id": "L18",
+      "title": "SQL mystery with recorded read-only traces",
+      "frames": [
+        "G",
+        "H"
+      ],
+      "data_origin": "PUBLISHER_FICTIONAL_GAME",
+      "task": "Use exact upstream SELECT statements and the unchanged SQLite database.",
+      "source_based_expected_evidence": "16 SELECT statements executed read-only; complete result rows/hashes and original query attributes retained.",
+      "prerequisites": "SQLite 3 runtime; browser/WASM port is a separate future check.",
+      "validation_status": "PASS_SQLITE_SELECT_EXECUTION; INSERT answer validation and browser runtime NOT_RUN.",
+      "grading_enabled": false,
+      "deployment_allowed": false,
+      "source_evidence": [
+        {
+          "artifact_id": "Aaf5f05fde7effcb",
+          "canonical_url": "https://github.com/NUKnightLab/sql-mysteries/blob/a7aa22701bd41b24e905be387fb17326db982df9/walkthrough.html",
+          "source_path": "walkthrough.html",
+          "sha256": "567fb94e53352d3b64d9a194ba96f9076f96d29cbec5916cb0059b14abc493ae"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,129 @@
+{
+  "slug": "power-bi",
+  "title": "Power BI & DAX",
+  "topic": "Power BI",
+  "level": "intermediate",
+  "description": "Filter context, CALCULATE, relationships, time intelligence, and the modelling choices behind a report that stays fast and correct.",
+  "durationMinutes": 20,
+  "passMark": 70,
+  "questions": [
+    {
+      "id": "pbi-01",
+      "type": "single",
+      "topic": "Evaluation",
+      "prompt": "When is a measure evaluated?",
+      "options": [
+        "Once per refresh, and the result is stored in the model",
+        "At query time, in the filter context of the visual",
+        "When the .pbix file is saved",
+        "Only when the report is published"
+      ],
+      "answer": 1,
+      "explanation": "Measures are not stored. They are evaluated when a visual queries the model, using that visual's filter context."
+    },
+    {
+      "id": "pbi-02",
+      "type": "single",
+      "topic": "CALCULATE",
+      "prompt": "What does CALCULATE primarily do?",
+      "options": [
+        "Creates a calculated column",
+        "Changes the filter context for an expression",
+        "Sorts a visual by a measure",
+        "Compresses the model"
+      ],
+      "answer": 1,
+      "explanation": "CALCULATE evaluates an expression in a modified filter context. It is the core of almost every non-trivial DAX measure."
+    },
+    {
+      "id": "pbi-03",
+      "type": "boolean",
+      "topic": "Modelling",
+      "prompt": "A calculated column is computed at query time for each visual, just like a measure.",
+      "answer": false,
+      "explanation": "Calculated columns are computed during refresh and stored (and compressed) in the model. Measures are computed at query time."
+    },
+    {
+      "id": "pbi-04",
+      "type": "single",
+      "topic": "DAX",
+      "prompt": "Which is the safest way to divide two measures in DAX?",
+      "options": [
+        "A / B",
+        "DIVIDE(A, B)",
+        "A * (1 / B)",
+        "CALCULATE(A / B)"
+      ],
+      "answer": 1,
+      "explanation": "DIVIDE returns BLANK (or an alternate result) when the denominator is zero, instead of raising a divide-by-zero error."
+    },
+    {
+      "id": "pbi-05",
+      "type": "multi",
+      "topic": "Time intelligence",
+      "prompt": "Which of these are time intelligence functions? Select all that apply.",
+      "options": ["TOTALYTD", "SAMEPERIODLASTYEAR", "DATEADD", "SUMMARIZE"],
+      "answer": [0, 1, 2],
+      "explanation": "TOTALYTD, SAMEPERIODLASTYEAR, and DATEADD shift or accumulate over dates. SUMMARIZE creates a grouped table and is not time intelligence."
+    },
+    {
+      "id": "pbi-06",
+      "type": "single",
+      "topic": "Star schema",
+      "prompt": "In a star schema, what belongs in the fact table?",
+      "options": [
+        "Descriptive attributes such as customer name and region",
+        "Numeric measures and foreign keys to dimensions",
+        "Only date columns",
+        "Report page layouts"
+      ],
+      "answer": 1,
+      "explanation": "Facts hold the measurable events (amount, duration, count) plus keys. Descriptive attributes live in dimensions."
+    },
+    {
+      "id": "pbi-07",
+      "type": "single",
+      "topic": "Iterators",
+      "prompt": "How does SUMX differ from SUM?",
+      "options": [
+        "SUMX evaluates an expression row by row, then sums the results",
+        "SUMX only works with time intelligence",
+        "SUMX removes filters before summing",
+        "They are identical in every case"
+      ],
+      "answer": 0,
+      "explanation": "SUMX iterates a table, evaluates an expression in row context for each row, and sums the results. SUM only adds an existing column."
+    },
+    {
+      "id": "pbi-08",
+      "type": "single",
+      "topic": "Filter context",
+      "prompt": "What does ALL(Sales[Region]) do inside a measure?",
+      "options": [
+        "Returns all distinct regions as a table only",
+        "Removes any filter on Sales[Region] for that expression",
+        "Sorts the region column",
+        "Creates a relationship to Region"
+      ],
+      "answer": 1,
+      "explanation": "ALL is used inside CALCULATE to clear filters. Here it removes the region filter so the expression sees every region."
+    },
+    {
+      "id": "pbi-09",
+      "type": "numeric",
+      "topic": "Modelling",
+      "prompt": "A star schema has one fact table and four dimension tables, each connected directly to the fact table. How many relationships are needed?",
+      "answer": 4,
+      "tolerance": 0,
+      "explanation": "One active relationship per dimension: 4. The fact table sits at the centre of the star."
+    },
+    {
+      "id": "pbi-10",
+      "type": "boolean",
+      "topic": "Relationships",
+      "prompt": "Bidirectional relationships should be the default choice in a Power BI model.",
+      "answer": false,
+      "explanation": "Bidirectional filters can create ambiguous paths and unpredictable results. Prefer single-direction relationships and use CROSSFILTER only when the model requires it."
+    }
+  ]
+}

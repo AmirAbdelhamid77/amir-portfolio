@@ -1,10 +1,10 @@
 import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
-import "katex/dist/katex.min.css";
 import "./globals.css";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 import { SITE } from "@/lib/site";
+import { StudyOrientation } from "@/components/study/orientation";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -16,6 +16,11 @@ const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
   subsets: ["latin"],
   display: "swap",
+  // Micro-labels, dates, counters and the stage status bar are mono and sit in
+  // the first viewport, so the mono subset is preloaded too. Without this the
+  // late swap re-wrapped the hero status bar and moved the whole first act
+  // (measured CLS 0.29 at 768px on a throttled connection).
+  preload: true,
 });
 
 export const metadata: Metadata = {
@@ -99,6 +104,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
           Skip to content
         </a>
         <SiteHeader />
+        <StudyOrientation />
         <main id="main" className="flex-1">
           {children}
         </main>

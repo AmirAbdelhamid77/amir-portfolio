@@ -5,6 +5,7 @@ import excelBank from "@/content/exams/excel.json";
 import pythonBank from "@/content/exams/python.json";
 import statisticsBank from "@/content/exams/statistics.json";
 import fundamentalsBank from "@/content/exams/fundamentals.json";
+import fabricRtiBank from "@/content/exams/fabric-rti.json";
 
 export const EXAM_LEVELS = ["beginner", "intermediate", "advanced"] as const;
 export type ExamLevel = (typeof EXAM_LEVELS)[number];
@@ -102,6 +103,7 @@ const RAW_BANKS = [
   pythonBank,
   statisticsBank,
   fundamentalsBank,
+  fabricRtiBank,
 ];
 
 export const EXAMS: Exam[] = RAW_BANKS.map((bank) => examSchema.parse(bank));
@@ -168,5 +170,12 @@ export const TOPIC_META: Record<
     color: "text-rose-500",
     ring: "bg-rose-500/10 text-foreground",
     icon: "layers",
+  },
+  "Fabric RTI": {
+    label: "Fabric RTI & provenance",
+    short: "Fabric RTI",
+    color: "text-accent",
+    ring: "bg-accent/20 text-foreground",
+    icon: "activity",
   },
 };

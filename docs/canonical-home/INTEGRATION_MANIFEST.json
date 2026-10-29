@@ -1,0 +1,132 @@
+{
+  "scope": "hansa-canonical-home-2026-10-28",
+  "previousManifest": "docs/dp600-r11-integration/INTEGRATION_MANIFEST.json",
+  "previousManifestSha256": "40ed90776d4269a09a042b520732061bfbc5872ab5a30f898ed57b278d25f1c8",
+  "baselines": [
+    {
+      "path": "docs/canonical-home/START_BASELINE.json",
+      "sha256": "bd3bf824c6b87d797b6287580df00b951c1e968243c8e2e83b17cb3e19911d72"
+    },
+    {
+      "path": "docs/prototype-c/preservation/baseline.json",
+      "sha256": "571f37703b012ea36669d8ff96606bb6e8935ae01ed8972bbba360b3d09ab678"
+    }
+  ],
+  "noDeployment": true,
+  "files": [
+    {
+      "path": "app/page.tsx",
+      "basis": "docs/canonical-home/START_BASELINE.json",
+      "beforeSha256": "c59fce3489b49123f78f78e68f3b97eb9c94afe42c54ddb6bda1573771095e8d",
+      "sha256": "b2962fde7da5768f3d98f3ff63da8142e759329644e0309999e867d484c453e1",
+      "rollbackPath": "docs/canonical-home/before/app/page.tsx.snapshot"
+    },
+    {
+      "path": "components/site-header.tsx",
+      "basis": "docs/canonical-home/START_BASELINE.json",
+      "beforeSha256": "e92314bab7f60b218eb9a119bfe44bd5408a4202f5e6657cf4e7a5f14e4a21d3",
+      "sha256": "118ed934956168ae612e6e84d20eb112f7eaf3cd64a5a457ea0974af7dea8f5d",
+      "rollbackPath": "docs/canonical-home/before/components/site-header.tsx.snapshot"
+    },
+    {
+      "path": "components/site-footer.tsx",
+      "basis": "docs/canonical-home/START_BASELINE.json",
+      "beforeSha256": "78239be02e8ea061d1e9af229b0e48e1e86f6d367384522b4dad28df05d0de12",
+      "sha256": "79866ccfd5be4b96907c825c88e5a7d2b6aec722e0a2a4b29dd74f35ec903684",
+      "rollbackPath": "docs/canonical-home/before/components/site-footer.tsx.snapshot"
+    },
+    {
+      "path": "app/prototype-c/page.tsx",
+      "basis": "docs/canonical-home/START_BASELINE.json",
+      "beforeSha256": "f3f297dd6fa8c77638e57ec009522172fed0247df9dc4bb878be7b8fa53e27a8",
+      "sha256": "31b414c61a2a35237cb0ea014e091ae7f9a966d6e2e568866125766d56ec5645",
+      "rollbackPath": "docs/canonical-home/before/app/prototype-c/page.tsx.snapshot"
+    },
+    {
+      "path": "content/knowledge/insights.json",
+      "basis": "docs/canonical-home/START_BASELINE.json",
+      "beforeSha256": "eebca8eb3a6639fe1e49a52228fa1c4038fe4dcadb97b90300b85b06954f0523",
+      "sha256": "f6c3cf4bc61687eef84e2f85ce3327d4e61ae9dd565b3a6fb3ce6d5a1ddd487f",
+      "rollbackPath": "docs/canonical-home/before/content/knowledge/insights.json.snapshot"
+    },
+    {
+      "path": "lib/search/documents.ts",
+      "basis": "docs/canonical-home/START_BASELINE.json",
+      "beforeSha256": "f8cd1995901da68795c95cc5da5a98f5ca68c4f7ba7bd9f3bdf0a2fc510cecb3",
+      "sha256": "892958c9a58e58b18df806f9d335d6eada653553ae21e8281f7817b12f259ae1",
+      "rollbackPath": "docs/canonical-home/before/lib/search/documents.ts.snapshot"
+    },
+    {
+      "path": "scripts/r11-question-receipt.mjs",
+      "basis": "docs/canonical-home/START_BASELINE.json",
+      "beforeSha256": "717ed4f179b04f4aa34e1a23daf74cde1159ec88861417493c62912534b0824d",
+      "sha256": "faa861e4ed38ab85e77a097da1aa0147be6a0e50d1fc519442522d95cea09a1e",
+      "rollbackPath": "docs/canonical-home/before/scripts/r11-question-receipt.mjs.snapshot"
+    },
+    {
+      "path": "scripts/prototype-c-receipt.mjs",
+      "basis": "docs/canonical-home/START_BASELINE.json",
+      "beforeSha256": "674226eda0d54c4c5f2e81b6497443633dbf0da43f9ac3d0a316196afa6553ac",
+      "sha256": "20d94b8c398928651917afe94f7ea5c61c3c854f276296a094db2c75a46c93ee",
+      "rollbackPath": "docs/canonical-home/before/scripts/prototype-c-receipt.mjs.snapshot"
+    },
+    {
+      "path": "scripts/verify-prototype-c.mjs",
+      "basis": "docs/canonical-home/START_BASELINE.json",
+      "beforeSha256": "0ed21ebb3a4c569adf11e9b9e18ebffdf48a4d2ffe7975ade2e61e5fd0991f3c",
+      "sha256": "90a15ed2382cf4fc6786a88737ce2f23613ff0eaa157a323d5f6953050b2def4",
+      "rollbackPath": "docs/canonical-home/before/scripts/verify-prototype-c.mjs.snapshot"
+    },
+    {
+      "path": "scripts/prototype-c-preservation.mjs",
+      "basis": "docs/canonical-home/START_BASELINE.json",
+      "beforeSha256": "342f02e881d2d71dc9e27b3168d0d933468312322db6fcc8bacc924a9741230b",
+      "sha256": "848b52fab1c523d42e5f671f1bd654d5a2f4caed15783662dd81c43eac138cbf",
+      "rollbackPath": "docs/canonical-home/before/scripts/prototype-c-preservation.mjs.snapshot"
+    },
+    {
+      "path": "scripts/verify-preservation-history.mjs",
+      "basis": "docs/canonical-home/START_BASELINE.json",
+      "beforeSha256": "a1599d12fddbbcfa1bc0d52d9b09c82687a5fb56680d766ae8070e7873ac3578",
+      "sha256": "be691e0b0ca6e2f303970d0bdba01f8ed12c30914c39374a63e40ac8c50cfd50",
+      "rollbackPath": "docs/canonical-home/before/scripts/verify-preservation-history.mjs.snapshot"
+    },
+    {
+      "path": "lib/site.ts",
+      "basis": "docs/prototype-c/preservation/baseline.json",
+      "beforeSha256": "e4c8a8f7cb3eb5c0094310e173c64c14be8019199b077bd218a1f10c36ae7c42",
+      "sha256": "2a4428ef2748230e0bb57da4350d69df9c526591eeed7f1ad220459a512da1f9",
+      "rollbackPath": "docs/canonical-home/before/lib/site.ts.snapshot"
+    },
+    {
+      "path": "tsconfig.json",
+      "basis": "docs/prototype-c/preservation/baseline.json",
+      "beforeSha256": "fb3bc95e08fa35e38f04af07cc11bd82098cf1835764c3f9461fc3905e42b4f1",
+      "sha256": "4eb3f01bf1370e07d17ff9d7c79d0ba8e5560570c06d9fb5044f60236d2458d6",
+      "rollbackPath": "docs/canonical-home/before/tsconfig.json.snapshot"
+    },
+    {
+      "path": "tsconfig.tsbuildinfo",
+      "basis": "docs/canonical-home/START_BASELINE.json",
+      "beforeSha256": "5434adf68a2ccbc36f5d5e2b44962c129d7fa822f37c9e038be48a1a2ccc5169",
+      "sha256": "cbdf9fc15359fec2ff4b6f477dbd63594d3ffc23fac2b64be4b4c885a36789e4",
+      "generated": true
+    }
+  ],
+  "removed": [
+    {
+      "path": "components/knowledge/prototype-c.tsx",
+      "expectedSha256": "df5cb79da2351ac3df71c939942c19990705b8686caa17d4232ab0bbf2a63d5a",
+      "committedSha256": "c9c4b579ef378e60727c1cf16a1fb7518ce98cd946607fa497cb9dd4d05d586d",
+      "reason": "Superseded: its loader moved into components/knowledge/hansa-landing.tsx so the landing has exactly one owner.",
+      "note": "The layer-1 expectation was already stale at HEAD (drift recorded before this migration); the committed bytes are the available predecessor."
+    },
+    {
+      "path": "components/knowledge/knowledge-stage.tsx",
+      "expectedSha256": "ae9ec5694278d300d7ecf2ba5d5119c12615ded4367b9d580e64d614dd5cb235",
+      "committedSha256": "ae9ec5694278d300d7ecf2ba5d5119c12615ded4367b9d580e64d614dd5cb235",
+      "reason": "Superseded: this was the previous root landing implementation, replaced by components/knowledge/hansa-landing.tsx.",
+      "note": "The committed bytes match the layer-1 expectation."
+    }
+  ]
+}

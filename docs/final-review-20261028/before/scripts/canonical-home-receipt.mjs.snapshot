@@ -1,0 +1,103 @@
+// Canonical-home successor layer for the preservation receipt chain.
+//
+// The chain is append-only: each layer names the manifest it supersedes, binds
+// every file to a baseline hash and a rollback byte copy, and may supersede a
+// hash the layer below recorded. This layer records the homepage consolidation —
+// the files the migration rewrote, and the two retired landing modules it
+// removed, which the older layers could only express as "must still exist".
+//
+//   layer 1  docs/prototype-c/INTEGRATION_MANIFEST.json
+//   layer 2  docs/dp600-r11-integration/INTEGRATION_MANIFEST.json
+//   layer 3  docs/canonical-home/INTEGRATION_MANIFEST.json   ← this file
+import assert from "node:assert/strict";
+import { readFileSync, existsSync } from "node:fs";
+import { createHash } from "node:crypto";
+import { resolve, sep } from "node:path";
+import { cinematicReceipt } from "./cinematic-phase2-receipt.mjs";
+
+export const CANONICAL_HOME = "docs/canonical-home/INTEGRATION_MANIFEST.json";
+
+const identity = {
+  expected: (_path, old) => old,
+  removed: () => false,
+  removedPaths: () => [],
+  paths: () => [],
+};
+
+export function canonicalHomeReceipt(root) {
+  const successor = cinematicReceipt(root);
+  if (!existsSync(resolve(root, CANONICAL_HOME))) return identity;
+  const read = (path) => readFileSync(resolve(root, path));
+  const hash = (path) => createHash("sha256").update(read(path)).digest("hex");
+  const manifest = JSON.parse(read(CANONICAL_HOME));
+
+  assert.equal(manifest.scope, "hansa-canonical-home-2026-10-28");
+  assert.equal(
+    hash(manifest.previousManifest),
+    manifest.previousManifestSha256,
+    "Prior R11 manifest changed",
+  );
+
+  const baselines = new Map(
+    manifest.baselines.map((baseline) => {
+      assert.equal(hash(baseline.path), baseline.sha256, "Canonical-home baseline changed");
+      return [baseline.path, JSON.parse(read(baseline.path))];
+    }),
+  );
+
+  assert.equal(new Set(manifest.files.map((entry) => entry.path)).size, manifest.files.length);
+  for (const entry of manifest.files) {
+    assert.ok(
+      resolve(root, entry.path).startsWith(root + sep),
+      "Canonical-home path outside checkout",
+    );
+    const baseline = baselines.get(entry.basis);
+    assert.ok(baseline, "Unknown canonical-home baseline");
+    assert.equal(
+      entry.beforeSha256,
+      baseline.files[entry.path] ?? null,
+      "Unbound canonical-home before-hash " + entry.path,
+    );
+    if (entry.generated) {
+      // A regenerated build cache is reproducible by rebuilding, not by storing
+      // bytes, so it is the one kind of entry allowed to omit rollback bytes.
+      assert.equal(
+        entry.rollbackPath,
+        undefined,
+        "A generated artifact carries no rollback bytes: " + entry.path,
+      );
+    } else if (entry.beforeSha256 !== null) {
+      assert.ok(entry.rollbackPath, "Missing rollback bytes for " + entry.path);
+      assert.ok(resolve(root, entry.rollbackPath).startsWith(root + sep));
+      assert.equal(
+        hash(entry.rollbackPath),
+        entry.beforeSha256,
+        "Canonical-home rollback bytes changed " + entry.path,
+      );
+    }
+    assert.equal(hash(entry.path), successor.expected(entry.path, entry.sha256), "Canonical-home drift " + entry.path);
+  }
+
+  const removedPaths = new Set();
+  for (const entry of manifest.removed ?? []) {
+    assert.ok(resolve(root, entry.path).startsWith(root + sep), "Removed path outside checkout");
+    assert.equal(
+      existsSync(resolve(root, entry.path)),
+      false,
+      "Declared-removed file is present again: " + entry.path,
+    );
+    removedPaths.add(entry.path);
+  }
+
+  return {
+    expected(path, old) {
+      return successor.expected(path, (
+        manifest.files.find((entry) => entry.path === path && entry.beforeSha256 === old)
+          ?.sha256 ?? old
+      ));
+    },
+    removed: (path) => removedPaths.has(path),
+    removedPaths: () => [...removedPaths],
+    paths: () => [...manifest.files.map((entry) => entry.path), ...successor.paths()],
+  };
+}

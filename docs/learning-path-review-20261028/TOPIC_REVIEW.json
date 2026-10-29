@@ -1,0 +1,423 @@
+{
+  "analysis.overview": {
+    "stage": "Foundation",
+    "prepare": [],
+    "entrySkill": "Read a simple table and explain the decision it should support.",
+    "reason": "Begin with the question and observation grain before a tool.",
+    "evidence": [
+      "analytics",
+      "viz-foundations"
+    ]
+  },
+  "excel.overview": {
+    "stage": "Foundation",
+    "prepare": [],
+    "entrySkill": "Recognize a row, column, cell and a simple arithmetic expression.",
+    "reason": "The current local offering is a question set; use the linked foundation reading where instruction is missing.",
+    "evidence": [
+      "excel"
+    ]
+  },
+  "sql.overview": {
+    "stage": "Foundation",
+    "prepare": [],
+    "entrySkill": "Recognize a table, row and column.",
+    "reason": "Introductory query practice does not require completion of Fabric or Power BI.",
+    "evidence": [
+      "sql"
+    ]
+  },
+  "python.overview": {
+    "stage": "Applied",
+    "prepare": [],
+    "entrySkill": "Understand basic programming ideas: variables, conditions and iteration.",
+    "reason": "The official Python tutorial targets existing programmers; it is not evidence that a complete novice programming course exists here.",
+    "evidence": [
+      "python"
+    ]
+  },
+  "fabric.foundations": {
+    "stage": "Foundation",
+    "prepare": [
+      "analysis.overview"
+    ],
+    "entrySkill": "Distinguish a dataset, table, analytical workload and storage from processing.",
+    "reason": "Fabric orientation precedes workload-specific choices; the official entry path recommends basic data terminology.",
+    "evidence": [
+      "fabric-start",
+      "fabric-architecture"
+    ]
+  },
+  "fabric.ingestion": {
+    "stage": "Applied",
+    "prepare": [
+      "fabric.foundations"
+    ],
+    "entrySkill": "Distinguish referencing, replicating and retaining data; identify source and access constraints.",
+    "reason": "Movement choices use OneLake/item boundaries. Transformation is not a universal prerequisite for learning ingestion.",
+    "evidence": [
+      "fabric-ingestion",
+      "ingestion-lesson"
+    ]
+  },
+  "fabric.transform": {
+    "stage": "Applied",
+    "prepare": [
+      "fabric.foundations",
+      "fabric.ingestion"
+    ],
+    "entrySkill": "Identify table state, source data and the intended output of a transformation.",
+    "reason": "Transformation lessons operate on data whose storage and arrival are already understood.",
+    "evidence": [
+      "fabric-architecture",
+      "fabric-notes"
+    ]
+  },
+  "fabric.query": {
+    "stage": "Applied",
+    "prepare": [
+      "fabric.foundations",
+      "sql.overview"
+    ],
+    "entrySkill": "Read SELECT, filtering, grouping and join intent.",
+    "reason": "Query surfaces require relational-query concepts; a full transformation course is not mandatory.",
+    "evidence": [
+      "sql",
+      "fabric-warehouse"
+    ]
+  },
+  "fabric.model": {
+    "stage": "Applied",
+    "prepare": [
+      "fabric.foundations",
+      "power-bi.model"
+    ],
+    "entrySkill": "Explain fact/dimension grain, relationships and a measure.",
+    "reason": "Semantic-model decisions build on dimensional concepts, not just platform vocabulary.",
+    "evidence": [
+      "star-schema",
+      "fabric-notes"
+    ]
+  },
+  "fabric.security": {
+    "stage": "Applied",
+    "prepare": [
+      "fabric.foundations"
+    ],
+    "entrySkill": "Identify the principal, object, access path and least-privilege requirement.",
+    "reason": "Security concepts are needed before production access; they are not postponed until after advanced streaming.",
+    "evidence": [
+      "fabric-architecture",
+      "fabric-notes"
+    ]
+  },
+  "fabric.delivery": {
+    "stage": "Advanced",
+    "prepare": [
+      "fabric.foundations",
+      "fabric.security"
+    ],
+    "entrySkill": "Understand workspace boundaries, permissions and the item being promoted or monitored.",
+    "reason": "Operational deployment integrates platform and access concepts. This preparation does not claim every item supports every deployment feature.",
+    "evidence": [
+      "fabric-notes"
+    ]
+  },
+  "fabric.streaming": {
+    "stage": "Applied",
+    "prepare": [
+      "fabric.foundations",
+      "fabric.ingestion"
+    ],
+    "entrySkill": "Distinguish events, streams, ingestion and an analytical query.",
+    "reason": "The official RTI introductory module expects Fabric core concepts, not prior completion of all SQL, DAX or deployment lessons.",
+    "evidence": [
+      "fabric-rti"
+    ]
+  },
+  "fabric.overview": {
+    "stage": "Reference",
+    "prepare": [
+      "fabric.foundations"
+    ],
+    "entrySkill": "Identify the workload and constraints in a cross-topic decision.",
+    "reason": "Cross-topic collections are reference/transfer material, not a final mandatory prerequisite node.",
+    "evidence": [
+      "fabric-notes"
+    ]
+  },
+  "statistics.foundations": {
+    "stage": "Foundation",
+    "prepare": [],
+    "entrySkill": "Read a table and basic arithmetic.",
+    "reason": "Population, sample, variable and parameter are the entry vocabulary of the source.",
+    "evidence": [
+      "stats-s1",
+      "stats-s2"
+    ]
+  },
+  "statistics.describe": {
+    "stage": "Foundation",
+    "prepare": [
+      "statistics.foundations"
+    ],
+    "entrySkill": "Identify the observational unit and variable type.",
+    "reason": "Center and spread describe data before inference is attempted.",
+    "evidence": [
+      "stats-s4",
+      "stats-s5",
+      "nist-eda"
+    ]
+  },
+  "statistics.probability": {
+    "stage": "Foundation",
+    "prepare": [
+      "statistics.foundations"
+    ],
+    "entrySkill": "Interpret proportions and distinguish an event from an observation.",
+    "reason": "Probability supplies the language for distributions and uncertainty.",
+    "evidence": [
+      "stats-s6"
+    ]
+  },
+  "statistics.distributions": {
+    "stage": "Applied",
+    "prepare": [
+      "statistics.probability",
+      "statistics.describe"
+    ],
+    "entrySkill": "Distinguish a discrete count from a continuous measurement; interpret center/spread.",
+    "reason": "PMF, density and distribution parameters require probability and descriptive vocabulary.",
+    "evidence": [
+      "stats-s7",
+      "stats-s8",
+      "stats-s9",
+      "stats-s10"
+    ]
+  },
+  "statistics.sampling": {
+    "stage": "Applied",
+    "prepare": [
+      "statistics.distributions",
+      "statistics.foundations"
+    ],
+    "entrySkill": "Distinguish one sample, a population and a statistic across repeated samples.",
+    "reason": "Standard error and intervals require a sampling distribution, rather than treating data spread as estimator uncertainty.",
+    "evidence": [
+      "stats-s11",
+      "stats-s12",
+      "stats-s13",
+      "stats-s14",
+      "nist-inference"
+    ]
+  },
+  "statistics.hypothesis": {
+    "stage": "Applied",
+    "prepare": [
+      "statistics.sampling",
+      "statistics.probability"
+    ],
+    "entrySkill": "Distinguish a null model, sampling variability, statistic and standard error.",
+    "reason": "A test statistic and p-value belong after sampling, not in elementary population/sample vocabulary.",
+    "evidence": [
+      "stats-s18",
+      "stats-s19",
+      "stats-s20",
+      "nist-inference"
+    ]
+  },
+  "statistics.experiments": {
+    "stage": "Applied",
+    "prepare": [
+      "statistics.foundations",
+      "statistics.probability"
+    ],
+    "entrySkill": "Distinguish assignment, treatment, outcome and chance variation.",
+    "reason": "Design and randomization can be introduced before formal testing; inferential interpretation additionally uses the hypothesis topic.",
+    "evidence": [
+      "stats-s24",
+      "stats-s26",
+      "stats-s28"
+    ]
+  },
+  "statistics.relationships": {
+    "stage": "Applied",
+    "prepare": [
+      "statistics.describe"
+    ],
+    "entrySkill": "Read a paired observation and distinguish association from a causal claim.",
+    "reason": "Describing correlation does not require completing experimental design; causal interpretation needs its safeguards.",
+    "evidence": [
+      "stats-s30",
+      "stats-s32",
+      "stats-s35"
+    ]
+  },
+  "statistics.synthesis": {
+    "stage": "Advanced",
+    "prepare": [
+      "statistics.hypothesis",
+      "statistics.experiments",
+      "statistics.relationships"
+    ],
+    "entrySkill": "Choose a method and state assumptions, uncertainty and the decision boundary.",
+    "reason": "The integrated source case combines description, inference and interpretation. Reference sheets remain available earlier.",
+    "evidence": [
+      "stats-s36",
+      "stats-s40"
+    ]
+  },
+  "visualization.foundations": {
+    "stage": "Foundation",
+    "prepare": [],
+    "entrySkill": "Identify the decision, observational grain and variable types.",
+    "reason": "Start with the question, not a preferred chart or software tool.",
+    "evidence": [
+      "viz-foundations",
+      "nist-eda"
+    ]
+  },
+  "visualization.comparison": {
+    "stage": "Foundation",
+    "prepare": [
+      "visualization.foundations"
+    ],
+    "entrySkill": "Recognize categories, numerical values and a comparison baseline.",
+    "reason": "Comparison requires suitable encodings and scale rather than advanced probability.",
+    "evidence": [
+      "viz-core-chart-types"
+    ]
+  },
+  "visualization.distribution": {
+    "stage": "Applied",
+    "prepare": [
+      "visualization.foundations",
+      "statistics.describe"
+    ],
+    "entrySkill": "Interpret a numerical variable, center, spread and outliers.",
+    "reason": "A histogram or box plot explains variation, not just a categorical ranking.",
+    "evidence": [
+      "viz-core-chart-types",
+      "stats-s4",
+      "stats-s5",
+      "nist-eda"
+    ]
+  },
+  "visualization.relationships": {
+    "stage": "Applied",
+    "prepare": [
+      "visualization.foundations",
+      "statistics.relationships"
+    ],
+    "entrySkill": "Read paired observations and explain association without a causal claim.",
+    "reason": "Scatter/multivariate interpretation uses relationship concepts.",
+    "evidence": [
+      "viz-advanced-multivariate",
+      "stats-s32"
+    ]
+  },
+  "visualization.time": {
+    "stage": "Foundation",
+    "prepare": [
+      "visualization.foundations"
+    ],
+    "entrySkill": "Distinguish ordered time from an arbitrary category and identify a baseline.",
+    "reason": "Time-series reading needs time ordering and context, not completion of all distribution labs.",
+    "evidence": [
+      "viz-core-chart-types"
+    ]
+  },
+  "visualization.composition": {
+    "stage": "Advanced",
+    "prepare": [
+      "visualization.foundations",
+      "visualization.comparison",
+      "visualization.accessibility"
+    ],
+    "entrySkill": "Name the audience, comparison task and accessible encoding.",
+    "reason": "Dashboard/story synthesis integrates simpler views; the audience lesson itself may be read at the start.",
+    "evidence": [
+      "viz-audience-story",
+      "viz-dashboard-design"
+    ]
+  },
+  "visualization.accessibility": {
+    "stage": "Foundation",
+    "prepare": [
+      "visualization.foundations"
+    ],
+    "entrySkill": "Distinguish color, label and non-color cues.",
+    "reason": "Accessibility and visual integrity are design constraints from the start, not an optional advanced afterthought.",
+    "evidence": [
+      "viz-accessibility-color-qa",
+      "viz-visual-integrity"
+    ]
+  },
+  "visualization.overview": {
+    "stage": "Reference",
+    "prepare": [],
+    "entrySkill": "Choose a topic or a source collection.",
+    "reason": "Library maps, references and interview collections are not prerequisite bottlenecks.",
+    "evidence": [
+      "viz-overview"
+    ]
+  },
+  "power-bi.prepare": {
+    "stage": "Foundation",
+    "prepare": [],
+    "entrySkill": "Identify data types, rows and the intended analytical output.",
+    "reason": "Preparation is an entry capability; no Fabric course completion is required.",
+    "evidence": [
+      "star-schema"
+    ]
+  },
+  "power-bi.model": {
+    "stage": "Applied",
+    "prepare": [
+      "power-bi.prepare"
+    ],
+    "entrySkill": "Explain grain, keys and the difference between a fact and dimension.",
+    "reason": "The star-schema guidance ties model structure to analytical meaning and preparation.",
+    "evidence": [
+      "star-schema"
+    ]
+  },
+  "power-bi.report": {
+    "stage": "Applied",
+    "prepare": [
+      "power-bi.model",
+      "visualization.foundations",
+      "visualization.accessibility"
+    ],
+    "entrySkill": "Identify the measure and audience, and read a model relationship.",
+    "reason": "A report is built on model meaning and usable visual encoding.",
+    "evidence": [
+      "star-schema",
+      "viz-power-bi-playbook"
+    ]
+  },
+  "power-bi.govern": {
+    "stage": "Advanced",
+    "prepare": [
+      "power-bi.model",
+      "power-bi.report"
+    ],
+    "entrySkill": "Distinguish model, report, workspace, user and access boundary.",
+    "reason": "Governance depends on knowing which artifact and audience is being secured or delivered.",
+    "evidence": [
+      "star-schema",
+      "viz-power-bi-playbook"
+    ]
+  },
+  "power-bi.overview": {
+    "stage": "Reference",
+    "prepare": [
+      "power-bi.prepare"
+    ],
+    "entrySkill": "Identify which Power BI capability the question is testing.",
+    "reason": "Mixed-topic practice is not a separate advanced subject or a universal prerequisite.",
+    "evidence": [
+      "star-schema"
+    ]
+  }
+}

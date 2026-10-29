@@ -1,0 +1,22 @@
+import assert from "node:assert/strict";
+import { readFileSync, readdirSync, existsSync } from "node:fs";
+import { resolve, dirname } from "node:path";
+import { fileURLToPath } from "node:url";
+import { createHash } from "node:crypto";
+import { implementationReceipt, ATLAS_IMPLEMENTATION } from "./atlas-implementation-receipt.mjs";
+const root=resolve(dirname(fileURLToPath(import.meta.url)),"..");
+const json=path=>JSON.parse(readFileSync(resolve(root,path),"utf8"));
+const hash=path=>createHash("sha256").update(readFileSync(resolve(root,path))).digest("hex");
+const receipt=implementationReceipt(root), manifest=json(ATLAS_IMPLEMENTATION), before=json("docs/knowledge-atlas/implementation/START_BASELINE.json");
+for(const [path,old] of Object.entries(before.files))assert.equal(hash(path),receipt.expected(path,old),"Unrelated work changed: "+path);
+for(const path of ["package.json","package-lock.json","next.config.ts","wrangler.jsonc","lib/academy/ingestion.ts","components/academy/ingestion-lab.tsx","lib/fabric/storage.ts","lib/fabric/engine.ts"])assert.equal(hash(path),before.files[path],"Protected progress/runtime contract: "+path);
+const data=json("content/atlas/editorial.json"), claims=data.semanticEdges.map(edge=>edge.claim);
+let publicFiles=0;
+function walk(folder){for(const entry of readdirSync(folder,{withFileTypes:true})){const path=resolve(folder,entry.name);if(entry.isDirectory())walk(path);else if(/\.(html|txt|js|json)$/.test(path)){const text=readFileSync(path,"utf8");assert.ok(!claims.some(claim=>text.includes(claim)),"Unpublished claim leaked into normal out/: "+path);publicFiles++;}}}
+walk(resolve(root,"out"));
+const preview=readFileSync(resolve(root,"build/atlas-preview/out/learn/dp-600/atlas/index.html"),"utf8");
+assert.ok(claims.every(claim=>preview.includes(claim)),"Review preview does not contain every documented relation");
+for(const path of ["learn/dp-600/atlas/index.html","learn/dp-600/atlas/journey/index.html","experience/index.html","work/hse-analytics/index.html"])assert.ok(existsSync(resolve(root,"out",path)));
+assert.ok(readFileSync(resolve(root,"out/sitemap.xml"),"utf8").includes("/learn/dp-600/atlas/"));
+assert.doesNotMatch(readFileSync(resolve(root,"out/index.html"),"utf8"),/<a[^>]*href="\/(?:work|experience|services|about)(?:\/|")/,"Professional links remain in server-rendered home HTML");
+console.log(`PASS: ${manifest.files.length} exact feature hashes; ${Object.keys(before.files).length-manifest.modifiedExisting.length} unrelated starting files preserved; package/progress/bank contracts retained; ${publicFiles} normal export files contain no unpublished claims; local review contains all ${claims.length} relations.`);

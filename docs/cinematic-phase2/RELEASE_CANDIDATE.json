@@ -1,0 +1,207 @@
+{
+  "date": "2026-10-28",
+  "state": "TESTED_LOCAL_OWNER_VISUAL_REVIEW_PENDING",
+  "deployed": false,
+  "canonical": "/",
+  "legacy": "/prototype-c/ remains a thin alias",
+  "unitTests": 196,
+  "phase2Browser": {
+    "passed": 126,
+    "total": 126
+  },
+  "canonicalBrowser": {
+    "passed": 45,
+    "total": 45
+  },
+  "exportedRoutesHTTP": 121,
+  "sitemapRoutes": 117,
+  "preservation": {
+    "preservedPreexistingFiles": 6067,
+    "unexpectedChanges": [],
+    "ownedChanges": [
+      "components/knowledge/atlas-peek-stage.tsx",
+      "components/knowledge/insight-experiment.tsx",
+      "components/knowledge/insight-rail.tsx",
+      "components/knowledge/insight-scene.tsx",
+      "components/knowledge/insight-stage.tsx",
+      "components/knowledge/knowledge-atmosphere.tsx",
+      "components/knowledge/knowledge-dealer.tsx",
+      "components/knowledge/knowledge-instrument.tsx",
+      "components/knowledge/observatory.css",
+      "components/site-header.tsx",
+      "scripts/canonical-home-receipt.mjs",
+      "scripts/cinematic-phase2-receipt.mjs",
+      "scripts/phase2-baseline.py",
+      "scripts/phase2-canonical-regression.mjs",
+      "scripts/phase2-capture.mjs",
+      "scripts/phase2-check.py",
+      "scripts/phase2-encode.py",
+      "scripts/phase2-performance.mjs",
+      "scripts/phase2-qa.mjs",
+      "scripts/phase2-receipt-negative.mjs",
+      "scripts/phase2-record.mjs",
+      "scripts/phase2-seal.py",
+      "scripts/verify-preservation-history.mjs"
+    ],
+    "generatedVerifierEvidence": "docs/canonical-home/evidence/verify-canonical-home.json is rewritten by the existing static verifier; original preflight hash retained in baseline-hashes.json."
+  },
+  "performance": {
+    "390": {
+      "medianLCP": 3144,
+      "maxLCP": 3152,
+      "maxCLS": 0,
+      "worstP95FrameMs": 200.10000000000036
+    },
+    "1440": {
+      "medianLCP": 2716,
+      "maxLCP": 2796,
+      "maxCLS": 0.008679158997503001,
+      "worstP95FrameMs": 100.10000000000036
+    }
+  },
+  "sourceManifestSHA256": "77f2f68ffcbdfb7e8227dfa2188e620cbd3a767f750f34629648ba788fb5df6a",
+  "exportFiles": 948,
+  "blocked": [
+    "Atlas connected-node scientific publication",
+    "Historical AGENTS.md/package.json reference drift predated this task and remains byte-preserved",
+    "Owner artistic acceptance"
+  ],
+  "notRun": [
+    "Physical phone/touch ergonomics",
+    "Human NVDA/JAWS/VoiceOver",
+    "Field CWV/field INP"
+  ],
+  "checks": {
+    "atlas-integrity": {
+      "command": [
+        "node",
+        "scripts/verify-knowledge-atlas.mjs"
+      ],
+      "exitCode": 1
+    },
+    "browser": {
+      "command": [
+        "node",
+        "scripts/phase2-qa.mjs"
+      ],
+      "exitCode": 0
+    },
+    "build": {
+      "command": [
+        "npm.cmd",
+        "run",
+        "build"
+      ],
+      "exitCode": 0
+    },
+    "canonical-browser": {
+      "command": [
+        "node",
+        "scripts/phase2-canonical-regression.mjs",
+        "--port",
+        "4328"
+      ],
+      "exitCode": 0
+    },
+    "canonical-integrity": {
+      "command": [
+        "node",
+        "scripts/verify-canonical-home.mjs",
+        "--port",
+        "4329"
+      ],
+      "exitCode": 0
+    },
+    "capture": {
+      "command": [
+        "node",
+        "scripts/phase2-capture.mjs",
+        "after"
+      ],
+      "exitCode": 0
+    },
+    "cinematic-integrity": {
+      "command": [
+        "node",
+        "--input-type=module",
+        "-e",
+        "import {cinematicReceipt} from './scripts/cinematic-phase2-receipt.mjs'; console.log('PASS exact successor:',cinematicReceipt(process.cwd()).paths().length,'bound files')"
+      ],
+      "exitCode": 0
+    },
+    "lint": {
+      "command": [
+        "npm.cmd",
+        "run",
+        "lint"
+      ],
+      "exitCode": 0
+    },
+    "performance": {
+      "command": [
+        "node",
+        "scripts/phase2-performance.mjs"
+      ],
+      "exitCode": 0
+    },
+    "preservation-chain": {
+      "command": [
+        "node",
+        "scripts/verify-preservation-history.mjs"
+      ],
+      "exitCode": 1
+    },
+    "receipt-negative": {
+      "command": [
+        "node",
+        "scripts/phase2-receipt-negative.mjs"
+      ],
+      "exitCode": 0
+    },
+    "recording": {
+      "command": [
+        "node",
+        "scripts/phase2-record.mjs"
+      ],
+      "exitCode": 0
+    },
+    "references": {
+      "command": [
+        "node",
+        "scripts/verify-agent-reference.mjs"
+      ],
+      "exitCode": 1
+    },
+    "search": {
+      "command": [
+        "node",
+        "scripts/qa-search.mjs"
+      ],
+      "exitCode": 0
+    },
+    "test-all": {
+      "command": [
+        "npm.cmd",
+        "run",
+        "test:all"
+      ],
+      "exitCode": 0
+    },
+    "typecheck": {
+      "command": [
+        "node",
+        "node_modules/typescript/bin/tsc",
+        "--noEmit",
+        "--incremental",
+        "false"
+      ],
+      "exitCode": 0
+    }
+  },
+  "performanceBudget": {
+    "status": "FAIL_PROVISIONAL_LCP_TARGET",
+    "lcpTargetMs": 2500,
+    "measurementHarness": "completed successfully",
+    "caveat": "4x CPU, 200000 bytes/sec, 75ms latency; local server transfers uncompressed resources. These are viewport profiles, not real handsets or field CWV. No performance certification."
+  }
+}

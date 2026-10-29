@@ -1,0 +1,80 @@
+schema_version: '1.0'
+page_id: sql-canonical-path-and-supporting-sources
+canonical_route: /learn/sql/
+page_title: SQL — one canonical path
+status: implemented
+language: mixed
+reading_direction: mixed
+audience: analysts learning relational querying and BI engineering
+learning_level: mixed
+sources:
+  - source_id: notion-sql-vault-4063906c5d6c814d9c38e19fc5418891
+    original_path: intake/sql-notion-2026-10-28/
+    subpage: true
+    verified_access: true
+    destination_sections: [canonical_00_17, supporting_references, source_self_checks]
+    preserve: [headings, prose, code, formulas, tables, images, citations, source_ids]
+    unresolved: [independent_engine_review_of_all_examples, unavailable_MovieNow_database]
+concept_model:
+  primary_concept: relational grain and analytically correct SQL
+  prerequisites: [tables, rows, columns, basic arithmetic]
+  introduces: [query_semantics, keys, null_logic, filters, cardinality, grouping, subqueries, sets, windows, time, text, data_quality, transactions, design, performance, warehouse_patterns]
+  reinforces: [population, denominator, validation, dialect_boundaries]
+  misconceptions: [JOIN_preserves_row_count, CTE_always_materializes, COUNT_column_counts_all_rows, AVG_of_averages_is_unweighted, source_snippet_implies_executed_SQL]
+  related_pages: [/study/sql/, /study/sql/path/, /practice/sql/, /lab/sql/]
+learning_objectives:
+  - id: sql-grain-and-decision
+    observable_verb: explain
+    statement: Define input/output grain and justify a query technique before trusting its result.
+    assessment_id: sql-source-self-checks
+  - id: sql-fanout
+    observable_verb: predict
+    statement: Predict duplicated sums from two child tables and reconcile totals after pre-aggregation.
+    assessment_id: sql-grain-lens
+sections:
+  - section_id: canonical_00_17
+    title: Canonical syllabus
+    source_ids: [content/sql/index.json, docs/sql-integration-20261028/SOURCE_COVERAGE.json]
+    content_forms: [definition, explanation, worked_example, code, comparison, reference]
+    primary_learning_objective: sql-grain-and-decision
+    representation:
+      type: prose
+      why_this_representation: Precise SQL examples, tables and readable source bodies carry the teaching.
+      static_alternative: server_rendered_html
+      data_kind: source_backed
+    interaction:
+      enabled: true
+      purpose: inspect source sections, follow canonical order and reveal source responses
+      controls: [native_links, details, temporary_textareas]
+      outputs: [local_source_content]
+      reset: false
+      invalid_input_behavior: no execution or grading of free text
+    library:
+      preferred: existing_local_or_native
+      exact_component_or_package: Hansa study registry, native HTML, Next Image and scoped CSS
+      beui_registry_checked_at: null
+      why_complementary_tool_needed: none; no component or package installed
+      external_runtime_service: none
+    accessibility:
+      keyboard_equivalent: native links, disclosures and textareas
+      descriptive_text: source prose and tables; code and original diagram notation retained
+      reduced_motion: no required animation
+      mobile_behavior: single reading column; bounded code/table scroll regions
+      rtl_behavior: per-block automatic direction; code stays LTR
+assessments:
+  - assessment_id: sql-source-self-checks
+    objective_ids: [sql-grain-and-decision]
+    question_type: open_response
+    source_ids: [content/sql/vault.json]
+    answer_key_verified: false
+    explanation_verified: source_parity_only
+    grading: disabled_unscored
+  - assessment_id: existing-sql-exam
+    objective_ids: [sql-grain-and-decision]
+    question_type: existing_mixed_bank
+    source_ids: [content/exams/sql.json]
+    answer_key_verified: existing_status_unchanged
+handoff:
+  added_dependencies_with_versions: []
+  external_services_and_costs: []
+  next_atomic_task: independently execute the PostgreSQL companion examples against explicit fixture schemas and record further errata

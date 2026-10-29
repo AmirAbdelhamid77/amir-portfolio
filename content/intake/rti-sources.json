@@ -1,0 +1,577 @@
+{
+  "kind": "intake-source-registry",
+  "version": 1,
+  "package": "Hansa_Fabric_RTI_Authentic_Source_Milestone.zip",
+  "packageSha256": "0113ff0a660661b7e09682b14fee7db0f36b247ed30c9b569d69284084bb389b",
+  "status": "COMPLETE_SOURCE_PACKAGE_WITH_EXPLICIT_HOLDS",
+  "statusLabel": "Authentic source provenance — links and metadata only, no source bodies are shipped",
+  "counts": {
+    "repositoriesCleared": 22,
+    "repositoriesHeldReferenceOnly": 2,
+    "datasetsCleared": 8,
+    "datasetsHeld": 1
+  },
+  "holds": [
+    {
+      "id": "no-root-license",
+      "count": 2,
+      "reason": "Two repositories have no license in their pinned trees; their bodies are absent from the deliverable and remain reference-only. Source identities stay inside the package's LICENSE_REPORT.md."
+    },
+    {
+      "id": "UCI-421",
+      "count": 1,
+      "reason": "Scania air-pressure archive: landing page says CC BY 4.0 but the CSV headers state GPL-3.0-or-later, so public integration is held pending reconciliation."
+    },
+    {
+      "id": "USAID-shipment",
+      "count": 1,
+      "reason": "Original endpoint unreachable and no mirror imported; the blocked dataset is absent from the catalogue entirely."
+    }
+  ],
+  "repositories": [
+    {
+      "source_id": "S01",
+      "repo": "MicrosoftDocs/dataexplorer-docs",
+      "canonical_url": "https://github.com/MicrosoftDocs/dataexplorer-docs",
+      "commit": "1e8d36ccbe02db619cc09010b227d40c9d524022",
+      "commit_date": "2026-10-26T17:03:42Z",
+      "retrieved_utc": "2026-10-27T13:40:50.461611+00:00",
+      "requested_ref": "HEAD at retrieval; snapshot, not release certification",
+      "frames": [
+        "D"
+      ],
+      "license": "MIT",
+      "downloaded_artifacts": 121,
+      "included_artifacts": 121,
+      "reference_only_artifacts": 0,
+      "tree_truncated": false
+    },
+    {
+      "source_id": "S02",
+      "repo": "MicrosoftDocs/fabric-docs",
+      "canonical_url": "https://github.com/MicrosoftDocs/fabric-docs",
+      "commit": "8e281e2c4f64a8042e03b92ba7fd80258d42bc84",
+      "commit_date": "2026-10-27T11:05:01Z",
+      "retrieved_utc": "2026-10-27T13:39:45.698064+00:00",
+      "requested_ref": "HEAD at retrieval; snapshot, not release certification",
+      "frames": [
+        "D",
+        "C",
+        "E"
+      ],
+      "license": "MIT",
+      "downloaded_artifacts": 625,
+      "included_artifacts": 612,
+      "reference_only_artifacts": 13,
+      "tree_truncated": false
+    },
+    {
+      "source_id": "S03",
+      "repo": "MicrosoftLearning/mslearn-fabric",
+      "canonical_url": "https://github.com/MicrosoftLearning/mslearn-fabric",
+      "commit": "27446a6a606a64fe078326fcdda59959a35d8b05",
+      "commit_date": "2026-10-12T14:35:04Z",
+      "retrieved_utc": "2026-10-27T13:39:38.343743+00:00",
+      "requested_ref": "HEAD at retrieval; snapshot, not release certification",
+      "frames": [
+        "C",
+        "D",
+        "E"
+      ],
+      "license": "MIT",
+      "downloaded_artifacts": 451,
+      "included_artifacts": 451,
+      "reference_only_artifacts": 0,
+      "tree_truncated": false
+    },
+    {
+      "source_id": "S04",
+      "repo": "NUKnightLab/sql-mysteries",
+      "canonical_url": "https://github.com/NUKnightLab/sql-mysteries",
+      "commit": "a7aa22701bd41b24e905be387fb17326db982df9",
+      "commit_date": "2025-04-14T15:05:33Z",
+      "retrieved_utc": "2026-10-27T13:39:42.169571+00:00",
+      "requested_ref": "HEAD at retrieval; snapshot, not release certification",
+      "frames": [
+        "G",
+        "H"
+      ],
+      "license": "MIT",
+      "downloaded_artifacts": 6,
+      "included_artifacts": 6,
+      "reference_only_artifacts": 0,
+      "tree_truncated": false
+    },
+    {
+      "source_id": "S05",
+      "repo": "apache/spark",
+      "canonical_url": "https://github.com/apache/spark",
+      "commit": "522140fad2cf3c08950cd6a16e5290d917b24d0b",
+      "commit_date": "2026-10-27T13:27:18Z",
+      "retrieved_utc": "2026-10-27T13:40:50.366102+00:00",
+      "requested_ref": "HEAD at retrieval; snapshot, not release certification",
+      "frames": [
+        "E",
+        "D"
+      ],
+      "license": "Apache-2.0",
+      "downloaded_artifacts": 112,
+      "included_artifacts": 50,
+      "reference_only_artifacts": 62,
+      "tree_truncated": false
+    },
+    {
+      "source_id": "S06",
+      "repo": "databricks/LearningSparkV2",
+      "canonical_url": "https://github.com/databricks/LearningSparkV2",
+      "commit": "8d5bdf6fd7b58da930855eb3d5ead38e6fb039e4",
+      "commit_date": "2025-01-28T04:30:40Z",
+      "retrieved_utc": "2026-10-27T13:39:40.383599+00:00",
+      "requested_ref": "HEAD at retrieval; snapshot, not release certification",
+      "frames": [
+        "E",
+        "H"
+      ],
+      "license": "Apache-2.0",
+      "downloaded_artifacts": 172,
+      "included_artifacts": 32,
+      "reference_only_artifacts": 140,
+      "tree_truncated": false
+    },
+    {
+      "source_id": "S07",
+      "repo": "duckdb/duckdb-wasm",
+      "canonical_url": "https://github.com/duckdb/duckdb-wasm",
+      "commit": "1f85a503e0c25f0c0980f205915de328c923f476",
+      "commit_date": "2026-10-22T14:15:23Z",
+      "retrieved_utc": "2026-10-27T13:39:40.294790+00:00",
+      "requested_ref": "HEAD at retrieval; snapshot, not release certification",
+      "frames": [
+        "H",
+        "G"
+      ],
+      "license": "MIT",
+      "downloaded_artifacts": 103,
+      "included_artifacts": 103,
+      "reference_only_artifacts": 0,
+      "tree_truncated": false
+    },
+    {
+      "source_id": "S08",
+      "repo": "eakmanrq/sqlframe",
+      "canonical_url": "https://github.com/eakmanrq/sqlframe",
+      "commit": "0398d4de3cc167f8cfcc58090e1f59126c80b0b9",
+      "commit_date": "2026-10-27T03:06:15Z",
+      "retrieved_utc": "2026-10-27T13:40:49.408675+00:00",
+      "requested_ref": "HEAD at retrieval; snapshot, not release certification",
+      "frames": [
+        "E",
+        "H"
+      ],
+      "license": "MIT",
+      "downloaded_artifacts": 37,
+      "included_artifacts": 37,
+      "reference_only_artifacts": 0,
+      "tree_truncated": false
+    },
+    {
+      "source_id": "S10",
+      "repo": "jupyterlite/jupyterlite",
+      "canonical_url": "https://github.com/jupyterlite/jupyterlite",
+      "commit": "e851060d83a820cb6f315c1792818c389ca25cb0",
+      "commit_date": "2026-10-16T13:04:54Z",
+      "retrieved_utc": "2026-10-27T13:39:41.451564+00:00",
+      "requested_ref": "HEAD at retrieval; snapshot, not release certification",
+      "frames": [
+        "H",
+        "G"
+      ],
+      "license": "BSD-3-Clause",
+      "downloaded_artifacts": 63,
+      "included_artifacts": 63,
+      "reference_only_artifacts": 0,
+      "tree_truncated": false
+    },
+    {
+      "source_id": "S11",
+      "repo": "kengio/dp-700-study-guide",
+      "canonical_url": "https://github.com/kengio/dp-700-study-guide",
+      "commit": "2c1de03a51a4891060b041058a48f521fa069423",
+      "commit_date": "2026-08-01T01:32:40Z",
+      "retrieved_utc": "2026-10-27T13:39:40.208494+00:00",
+      "requested_ref": "HEAD at retrieval; snapshot, not release certification",
+      "frames": [
+        "A",
+        "G",
+        "D",
+        "E"
+      ],
+      "license": "MIT",
+      "downloaded_artifacts": 36,
+      "included_artifacts": 36,
+      "reference_only_artifacts": 0,
+      "tree_truncated": false
+    },
+    {
+      "source_id": "S12",
+      "repo": "microsoft/FabConRTITutorial",
+      "canonical_url": "https://github.com/microsoft/FabConRTITutorial",
+      "commit": "dc22e8ac409bf953c1d13ff7439177671cb68120",
+      "commit_date": "2025-05-26T19:54:19Z",
+      "retrieved_utc": "2026-10-27T13:39:36.563917+00:00",
+      "requested_ref": "HEAD at retrieval; snapshot, not release certification",
+      "frames": [
+        "D",
+        "C",
+        "E"
+      ],
+      "license": "MIT",
+      "downloaded_artifacts": 316,
+      "included_artifacts": 316,
+      "reference_only_artifacts": 0,
+      "tree_truncated": false
+    },
+    {
+      "source_id": "S13",
+      "repo": "microsoft/FabConRTIWorkshop",
+      "canonical_url": "https://github.com/microsoft/FabConRTIWorkshop",
+      "commit": "4fb4c086f632f808ce38036c3be79e0b26f4e15b",
+      "commit_date": "2025-11-27T18:02:53Z",
+      "retrieved_utc": "2026-10-27T13:39:36.331573+00:00",
+      "requested_ref": "HEAD at retrieval; snapshot, not release certification",
+      "frames": [
+        "D",
+        "C",
+        "H"
+      ],
+      "license": "MIT",
+      "downloaded_artifacts": 372,
+      "included_artifacts": 372,
+      "reference_only_artifacts": 0,
+      "tree_truncated": false
+    },
+    {
+      "source_id": "S14",
+      "repo": "microsoft/FabricRTA-in-a-Day",
+      "canonical_url": "https://github.com/microsoft/FabricRTA-in-a-Day",
+      "commit": "6a7adf16c38f027f91774d1837eb3c2fdc81969c",
+      "commit_date": "2025-03-20T16:49:02Z",
+      "retrieved_utc": "2026-10-27T13:39:36.323747+00:00",
+      "requested_ref": "HEAD at retrieval; snapshot, not release certification",
+      "frames": [
+        "D",
+        "C"
+      ],
+      "license": "MIT",
+      "downloaded_artifacts": 112,
+      "included_artifacts": 112,
+      "reference_only_artifacts": 0,
+      "tree_truncated": false
+    },
+    {
+      "source_id": "S15",
+      "repo": "microsoft/WhatTheHack",
+      "canonical_url": "https://github.com/microsoft/WhatTheHack",
+      "commit": "90a10eaf0185960d09ccf6982c0ed91259d934a7",
+      "commit_date": "2026-10-21T05:53:07Z",
+      "retrieved_utc": "2026-10-27T13:40:49.856063+00:00",
+      "requested_ref": "HEAD at retrieval; snapshot, not release certification",
+      "frames": [
+        "G",
+        "D"
+      ],
+      "license": "MIT",
+      "downloaded_artifacts": 94,
+      "included_artifacts": 16,
+      "reference_only_artifacts": 78,
+      "tree_truncated": false
+    },
+    {
+      "source_id": "S16",
+      "repo": "microsoft/fabric-jumpstart",
+      "canonical_url": "https://github.com/microsoft/fabric-jumpstart",
+      "commit": "aca89d342820238b6bedf05ed72ab2c329b6f165",
+      "commit_date": "2026-10-15T14:40:30Z",
+      "retrieved_utc": "2026-10-27T13:39:38.430091+00:00",
+      "requested_ref": "HEAD at retrieval; snapshot, not release certification",
+      "frames": [
+        "C",
+        "D",
+        "E"
+      ],
+      "license": "MIT",
+      "downloaded_artifacts": 248,
+      "included_artifacts": 248,
+      "reference_only_artifacts": 0,
+      "tree_truncated": false
+    },
+    {
+      "source_id": "S17",
+      "repo": "microsoft/fabric-samples",
+      "canonical_url": "https://github.com/microsoft/fabric-samples",
+      "commit": "18b94bc8d5bd208f72493e92b5d0dd67629d3454",
+      "commit_date": "2026-10-23T05:48:44Z",
+      "retrieved_utc": "2026-10-27T13:39:38.107427+00:00",
+      "requested_ref": "HEAD at retrieval; snapshot, not release certification",
+      "frames": [
+        "C",
+        "D",
+        "H"
+      ],
+      "license": "MIT",
+      "downloaded_artifacts": 276,
+      "included_artifacts": 271,
+      "reference_only_artifacts": 5,
+      "tree_truncated": false
+    },
+    {
+      "source_id": "S18",
+      "repo": "microsoft/fabric-spark-performance-engineering",
+      "canonical_url": "https://github.com/microsoft/fabric-spark-performance-engineering",
+      "commit": "859bca45bdcf70dbe6a918f190b2391291617cce",
+      "commit_date": "2026-08-24T23:12:02Z",
+      "retrieved_utc": "2026-10-27T18:03:49.852684+00:00",
+      "requested_ref": "v0.1.0",
+      "frames": [
+        "E",
+        "C"
+      ],
+      "license": "MIT",
+      "downloaded_artifacts": 28,
+      "included_artifacts": 28,
+      "reference_only_artifacts": 0,
+      "tree_truncated": false
+    },
+    {
+      "source_id": "S19",
+      "repo": "microsoft/fabric-stateful-streaming-lakehouse",
+      "canonical_url": "https://github.com/microsoft/fabric-stateful-streaming-lakehouse",
+      "commit": "88b02a43dc0bcf632c15740bfb5bff55593be7ba",
+      "commit_date": "2026-08-24T22:01:57Z",
+      "retrieved_utc": "2026-10-27T18:03:45.229312+00:00",
+      "requested_ref": "v0.1.1",
+      "frames": [
+        "E",
+        "D",
+        "C"
+      ],
+      "license": "MIT",
+      "downloaded_artifacts": 16,
+      "included_artifacts": 16,
+      "reference_only_artifacts": 0,
+      "tree_truncated": false
+    },
+    {
+      "source_id": "S20",
+      "repo": "microsoft/fabriccatalyst",
+      "canonical_url": "https://github.com/microsoft/fabriccatalyst",
+      "commit": "3936c5b8979071a2506d19e0f251afa022140c88",
+      "commit_date": "2026-09-16T20:51:35Z",
+      "retrieved_utc": "2026-10-27T13:39:42.152817+00:00",
+      "requested_ref": "HEAD at retrieval; snapshot, not release certification",
+      "frames": [
+        "C",
+        "D"
+      ],
+      "license": "MIT",
+      "downloaded_artifacts": 54,
+      "included_artifacts": 54,
+      "reference_only_artifacts": 0,
+      "tree_truncated": false
+    },
+    {
+      "source_id": "S21",
+      "repo": "microsoft/fabricrealtimelab",
+      "canonical_url": "https://github.com/microsoft/fabricrealtimelab",
+      "commit": "e4b61e54df46ed2ee2b8a03a4b0895d71864b966",
+      "commit_date": "2024-10-02T15:30:50Z",
+      "retrieved_utc": "2026-10-27T13:39:36.565762+00:00",
+      "requested_ref": "HEAD at retrieval; snapshot, not release certification",
+      "frames": [
+        "D",
+        "C"
+      ],
+      "license": "MIT",
+      "downloaded_artifacts": 228,
+      "included_artifacts": 228,
+      "reference_only_artifacts": 0,
+      "tree_truncated": false
+    },
+    {
+      "source_id": "S22",
+      "repo": "rod-trent/KQLMysteries",
+      "canonical_url": "https://github.com/rod-trent/KQLMysteries",
+      "commit": "2519106d7b566505bdd3d1d6b40fb49251d9fba3",
+      "commit_date": "2024-03-08T18:16:39Z",
+      "retrieved_utc": "2026-10-27T13:39:39.715579+00:00",
+      "requested_ref": "HEAD at retrieval; snapshot, not release certification",
+      "frames": [
+        "G",
+        "D"
+      ],
+      "license": "MIT",
+      "downloaded_artifacts": 33,
+      "included_artifacts": 33,
+      "reference_only_artifacts": 0,
+      "tree_truncated": false
+    },
+    {
+      "source_id": "S23",
+      "repo": "rod-trent/MustLearnKQL",
+      "canonical_url": "https://github.com/rod-trent/MustLearnKQL",
+      "commit": "a5fa102f9cd461a19000367c1f34d1907e122208",
+      "commit_date": "2026-10-09T11:42:28Z",
+      "retrieved_utc": "2026-10-27T13:39:38.411619+00:00",
+      "requested_ref": "HEAD at retrieval; snapshot, not release certification",
+      "frames": [
+        "D",
+        "G"
+      ],
+      "license": "MIT",
+      "downloaded_artifacts": 64,
+      "included_artifacts": 64,
+      "reference_only_artifacts": 0,
+      "tree_truncated": false
+    }
+  ],
+  "datasets": [
+    {
+      "dataset_id": "UCI-179",
+      "name": "SECOM semiconductor manufacturing",
+      "origin_class": "observed_operational_manufacturing",
+      "authors": "Michael McCann and Adrian Johnston (2008)",
+      "doi": "https://doi.org/10.24432/C54305",
+      "canonical_url": "https://archive.ics.uci.edu/dataset/179/secom",
+      "version": "publisher archive retrieved on date; no upstream semantic version declared",
+      "sha256": "eea568baf3c2229096d7d294cf0b096b5502bd96d92c0b80a65b84714059be8e",
+      "bytes": 1964989,
+      "license": "CC-BY-4.0",
+      "license_url": "https://creativecommons.org/licenses/by/4.0/",
+      "changes": "None to archive; profiling is a separate derived QA artifact",
+      "description": "1,567 process examples. Numeric file has 590 sensor/process columns; the page says 591 features, creating a metadata discrepancy. Labels/timestamps are in the separate aligned file. Signal names, engineering units and machine identities are anonymized.",
+      "limitations": "Keep numeric row i aligned with label row i; do not fabricate sensor meanings. Preserve NaN. Do not infer a common timezone. Use chronological or production-aware splits only after reviewing the source timestamps.",
+      "row_grain": "see per-file schema; cycle/channel rows must not be summed as independent events",
+      "timezone": "not asserted unless original source declares it",
+      "refresh": "historical archive, not a live feed"
+    },
+    {
+      "dataset_id": "UCI-235",
+      "name": "Individual household electric power consumption",
+      "origin_class": "observed_household_not_factory",
+      "authors": "Georges Hebrail and Alice Berard (2006)",
+      "doi": "https://doi.org/10.24432/C58K54",
+      "canonical_url": "https://archive.ics.uci.edu/dataset/235/individual+household+electric+power+consumption",
+      "version": "publisher archive retrieved on date; no upstream semantic version declared",
+      "sha256": "9f84b46ade8a2d8e1286ec4b2b6c2987a45a755c59f263be3b3b3d10dfbda3ff",
+      "bytes": 20640916,
+      "license": "CC-BY-4.0",
+      "license_url": "https://creativecommons.org/licenses/by/4.0/",
+      "changes": "None to archive; profiling is a separate derived QA artifact",
+      "description": "2,075,259 minute records from one household in Sceaux, France, 2006–2010. This is measured energy data, not a factory dataset. Source units: active/reactive power kW, voltage V, intensity A, sub-metering Wh.",
+      "limitations": "Use as an energy/time-series companion. Preserve ? and empty missing measurements; never turn them into zeros. Do not relabel the residence as an industrial asset.",
+      "row_grain": "see per-file schema; cycle/channel rows must not be summed as independent events",
+      "timezone": "not asserted unless original source declares it",
+      "refresh": "historical archive, not a live feed"
+    },
+    {
+      "dataset_id": "UCI-447",
+      "name": "Hydraulic system condition monitoring",
+      "origin_class": "observed_controlled_test_rig_with_virtual_channels",
+      "authors": "Nikolai Helwig, Eliseo Pignanelli and Andreas Schuetze (2015), ZeMA",
+      "doi": "https://doi.org/10.24432/C5CW21",
+      "canonical_url": "https://archive.ics.uci.edu/dataset/447/condition+monitoring+of+hydraulic+systems",
+      "version": "publisher archive retrieved on date; no upstream semantic version declared",
+      "sha256": "24128aad2ee45eea7e6b63ebbd9992cdf25d0483a2cebefbfc13bc69079af1f2",
+      "bytes": 76601704,
+      "license": "CC-BY-4.0",
+      "license_url": "https://creativecommons.org/licenses/by/4.0/",
+      "changes": "None to archive; profiling is a separate derived QA artifact",
+      "description": "2,205 controlled 60-second cycles, 17 sensor/derived channels. PS1–PS6 pressure bar and EPS1 motor power W at 100 Hz; FS1–FS2 flow l/min at 10 Hz; TS1–TS4 temperature °C and VS1 vibration mm/s at 1 Hz. CE cooling efficiency and CP cooling power are explicitly virtual channels; SE is an efficiency factor.",
+      "limitations": "Rows are cycles, columns are relative samples. No absolute wall-clock timestamps are supplied. Preserve cycle/column positions; no invented UTC time or real-time replay presented as observed. Four fault-severity labels and the stability flag reside in profile.txt. This is a laboratory rig, not unrestricted field machinery telemetry.",
+      "row_grain": "see per-file schema; cycle/channel rows must not be summed as independent events",
+      "timezone": "not asserted unless original source declares it",
+      "refresh": "historical archive, not a live feed"
+    },
+    {
+      "dataset_id": "UCI-492",
+      "name": "Metro Interstate Traffic Volume",
+      "origin_class": "observed_transport_proxy_not_shipment_tracking",
+      "authors": "John Hogue (2019)",
+      "doi": "https://doi.org/10.24432/C5X60B",
+      "canonical_url": "https://archive.ics.uci.edu/dataset/492/metro+interstate+traffic+volume",
+      "version": "publisher archive retrieved on date; no upstream semantic version declared",
+      "sha256": "b99aeabcbd6cc86f642da3a79d90883425798f58abd3b3302da2fa19dda73768",
+      "bytes": 405547,
+      "license": "CC-BY-4.0",
+      "license_url": "https://creativecommons.org/licenses/by/4.0/",
+      "changes": "None to archive; profiling is a separate derived QA artifact",
+      "description": "48,204 hourly records at MN DoT ATR station 301, I-94 westbound, 2012–2018. Units include Kelvin, rain/snow mm, cloud %, and traffic volume. Source says local CST; naive values are retained.",
+      "limitations": "Multiple weather observations can share an hour. Do not sum duplicate timestamps as independent traffic counts without a declared rule. The string None in holiday means no holiday, not a missing observation. This is a transport-demand proxy, not carrier shipment events.",
+      "row_grain": "see per-file schema; cycle/channel rows must not be summed as independent events",
+      "timezone": "not asserted unless original source declares it",
+      "refresh": "historical archive, not a live feed"
+    },
+    {
+      "dataset_id": "UCI-597",
+      "name": "Garment employees productivity",
+      "origin_class": "observed_manually_collected_manufacturing",
+      "authors": "UCI dataset donation (2020); associated study by Al Imran, Rahim and Ahmed",
+      "doi": "https://doi.org/10.24432/C51S6D",
+      "canonical_url": "https://archive.ics.uci.edu/dataset/597/productivity+prediction+of+garment+employees",
+      "version": "publisher archive retrieved on date; no upstream semantic version declared",
+      "sha256": "446026846b37d73800d1fd01b852ceaf95f086f15a626802d784154f63885bc2",
+      "bytes": 95095,
+      "license": "CC-BY-4.0",
+      "license_url": "https://creativecommons.org/licenses/by/4.0/",
+      "changes": "None to archive; profiling is a separate derived QA artifact",
+      "description": "1,197 daily team/department production records, 2015-01-01 to 2015-03-11. Source says manually collected and industry-expert validated. WIP, standard minute value, overtime minutes, incentives BDT, idle time and productivity are present.",
+      "limitations": "Time grain is team/department/day, not high-frequency IoT. Preserve the source department spellings/whitespace and missing WIP. Do not use actual_productivity as an input to predicting itself or apply post-outcome features without a leakage review.",
+      "row_grain": "see per-file schema; cycle/channel rows must not be summed as independent events",
+      "timezone": "not asserted unless original source declares it",
+      "refresh": "historical archive, not a live feed"
+    },
+    {
+      "dataset_id": "UCI-851",
+      "name": "Steel industry energy consumption",
+      "origin_class": "observed_operational_factory_energy",
+      "authors": "Sathishkumar V E, Changsun Shin and Yongyun Cho (2021)",
+      "doi": "https://doi.org/10.24432/C52G8C",
+      "canonical_url": "https://archive.ics.uci.edu/dataset/851/steel+industry+energy+consumption",
+      "version": "publisher archive retrieved on date; no upstream semantic version declared",
+      "sha256": "d82d28b33780ff1582507fcf08ae764ff648af459d58234370c551e62aadeaef",
+      "bytes": 481973,
+      "license": "CC-BY-4.0",
+      "license_url": "https://creativecommons.org/licenses/by/4.0/",
+      "changes": "None to archive; profiling is a separate derived QA artifact",
+      "description": "35,040 measured records in 2018 from DAEWOO Steel Co. Ltd, Gwangyang, South Korea. Actual timestamps have an uninterrupted 900-second step. Usage_kWh, reactive energy kVarh, power factors %, seconds from midnight, calendar fields and load type are present.",
+      "limitations": "The source labels CO2(tCO2) while describing ppm; retain both and mark the unit unresolved. Location does not establish timestamp timezone. No alarm threshold, anomaly ground truth or equipment identity was invented.",
+      "row_grain": "see per-file schema; cycle/channel rows must not be summed as independent events",
+      "timezone": "not asserted unless original source declares it",
+      "refresh": "historical archive, not a live feed"
+    },
+    {
+      "dataset_id": "worldbank_lpi",
+      "name": "Logistics Performance Index",
+      "origin_class": "published_survey_derived_aggregate",
+      "canonical_url": "https://data.worldbank.org/indicator/LP.LPI.OVRL.XQ",
+      "sha256": "135077698326cfa9b75c250ad758cda6217603e0ee6389ae3f1eebd6cbd8f78b",
+      "bytes": 4176404,
+      "license": "CC-BY-4.0 plus World Bank dataset additional terms; displayed on indicator page",
+      "license_url": "https://data.worldbank.org/summary-terms-of-use",
+      "description": "Perception-based country/economy logistics index, scale 1–5. It is an aggregate of survey responses, not actual shipment timings.",
+      "limitations": "API returns countries and regional/income aggregates together; null slots are not observations. Do not sum overlapping aggregates with their member countries. Source metadata retained separately; no microdata or causal conclusion."
+    },
+    {
+      "dataset_id": "worldbank_port",
+      "name": "Container port traffic",
+      "origin_class": "published_aggregate_may_include_estimates",
+      "canonical_url": "https://data.worldbank.org/indicator/IS.SHP.GOOD.TU",
+      "sha256": "7afe78a920982b46a24405c2fbe5b9ef0303fa5e0fd31e1ba13331381e14d159",
+      "bytes": 4181584,
+      "license": "CC-BY-4.0 plus World Bank dataset additional terms; displayed on indicator page",
+      "license_url": "https://data.worldbank.org/summary-terms-of-use",
+      "description": "Country/economy annual container traffic in TEU, sourced through World Bank WDI from UNCTAD. Empty containers and transshipment lifts are included; this is an aggregate, not a container-event trace.",
+      "limitations": "API returns countries and regional/income aggregates together; null slots are not observations. Do not sum overlapping aggregates with their member countries. Source metadata retained separately; no microdata or causal conclusion."
+    }
+  ]
+}

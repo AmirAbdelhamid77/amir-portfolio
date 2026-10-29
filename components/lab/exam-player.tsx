@@ -108,6 +108,8 @@ export function ExamPlayer({ exam }: { exam: Exam }) {
   const [autoSubmitted, setAutoSubmitted] = useState(false);
   const [confirming, setConfirming] = useState(false);
   const [drill, setDrill] = useState(false);
+  const [linkedQuestion, setLinkedQuestion] = useState(false);
+  useEffect(()=>{const id=new URLSearchParams(location.search).get('question');queueMicrotask(()=>setLinkedQuestion(exam.questions.some(q=>q.id===id)));},[exam]);
   const store = useLabStore();
   const record = store[exam.slug];
   const best = record?.best ?? null;
@@ -183,9 +185,13 @@ export function ExamPlayer({ exam }: { exam: Exam }) {
   }, [phase, mode, remaining, finish]);
 
   function start(nextMode: Mode, questions?: Question[]) {
+    // Topic links can start an unscored single-question drill. Mock exams and
+    // existing retry subsets retain their original question/score contract.
+    const linkedId = new URLSearchParams(window.location.search).get('question');
+    const linked = !questions && nextMode === 'practice' ? exam.questions.find(q=>q.id===linkedId) : undefined;
     setMode(nextMode);
-    setActiveQuestions(questions ?? exam.questions);
-    setDrill(Boolean(questions));
+    setActiveQuestions(questions ?? (linked ? [linked] : exam.questions));
+    setDrill(Boolean(questions) || Boolean(linked));
     setAnswers({});
     setChecked({});
     setFlags(new Set());
@@ -272,6 +278,7 @@ export function ExamPlayer({ exam }: { exam: Exam }) {
             Practice gives you the explanation after every question. Mock exam
             hides feedback until you submit, and the clock is running.
           </p>
+          {linkedQuestion&&<p className="mt-4 border-l-2 border-primary pl-4 text-sm leading-7">This topic link selects one question. Practice opens it as an unscored drill; Mock uses the complete question set. Your saved best score is preserved.</p>}
 
           <div className="mt-6 grid gap-3 sm:grid-cols-2" role="radiogroup" aria-label="Exam mode">
             <button

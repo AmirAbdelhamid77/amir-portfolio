@@ -1,0 +1,37 @@
+PASS ROOT02/H052 — out/index.html exists
+PASS ROOT01 — all landing markers present
+PASS ROOT01b — the retired gateway directory is gone
+PASS R4 — no prototype framing in the exported root HTML
+PASS NOJS01 — introductory copy is server-rendered
+PASS ROUTE01 — out/prototype-c/index.html exists (alias)
+PASS R3 — alias renders the same experience (5/5 markers shared)
+PASS R4b — no prototype framing in the alias HTML
+PASS H045a — alias robots meta: noindex, nofollow
+PASS H045b — alias canonical: https://hansa.amir-portfolio.workers.dev/
+PASS H043 — root title: Hansa — interactive data learning and knowledge
+PASS H045c — root canonical: https://hansa.amir-portfolio.workers.dev/
+PASS H044 — og:title "Hansa — interactive data learning and knowledge" · twitter:title "Hansa — interactive data learning and knowledge"
+PASS H044b — og:image:alt: Hansa — a daily data decision, knowledge cards and a dated editions timeline
+PASS R9 — author identity is still credited
+PASS H046 — out/sitemap.xml exists
+PASS H046a — prototype alias is absent from the sitemap
+PASS H046b — canonical homepage appears 1× in the sitemap
+PASS H046c — 117 routes in the sitemap
+PASS H045d — out/robots.txt exists
+PASS H045e — robots.txt points at the sitemap
+PASS SITE02b — out/404.html exists so unknown paths are a real 404
+PASS server — static server answered on :4329
+PASS ROOT02 — GET / → 200
+PASS ROUTE01b — GET /prototype-c/ → 200
+PASS H054a — GET /prototype-c → 301 /prototype-c/
+PASS H054b — the alias does not redirect (no loop, no lost query)
+PASS URL01-05 — GET /?insight=hansa-insight-shortcut-reference-v1 → 200
+PASS URL01-05 — GET /?insight=hansa-insight-shortcut-delete-v1#archive → 200
+PASS URL01-05 — GET /?insight=hansa-insight-shortcut-discovery-v1 → 200
+PASS URL01-05 — GET /?insight=not-a-real-edition → 200
+PASS URL01-05 — GET /prototype-c/?insight=hansa-insight-shortcut-delete-v1#archive → 200
+PASS SITE02 — GET /intentionally-nonexistent-qa/ → 404
+PASS H063 — 121 exported routes answered 200
+
+34/34 checks passed
+

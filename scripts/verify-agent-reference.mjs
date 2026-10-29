@@ -4,18 +4,20 @@ import {resolve, dirname, sep} from 'node:path';
 import {fileURLToPath} from 'node:url';
 import {createHash} from 'node:crypto';
 import assert from 'node:assert/strict';
+import {finalReviewReceipt} from './final-review-receipt.mjs';
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const ref = resolve(root, 'docs/agent-reference');
 const read = path => readFileSync(path, 'utf8');
 const hash = path => createHash('sha256').update(readFileSync(path)).digest('hex');
 const manifest = JSON.parse(read(resolve(ref, 'PACKAGE_MANIFEST.json')));
+const successor = finalReviewReceipt(root);
 assert.equal(manifest.version, '1.2-local-integration');
 for (const entry of manifest.files) {
   const path = resolve(root, entry.path);
   assert.ok(path.startsWith(root + sep), 'Path outside repository: ' + entry.path);
-  assert.equal(readFileSync(path).length, entry.bytes, 'Size drift: ' + entry.path);
-  assert.equal(hash(path), entry.sha256, 'Hash drift: ' + entry.path);
+  assert.equal(readFileSync(path).length, successor.bytes(entry.path,entry.sha256,entry.bytes), 'Size drift: ' + entry.path);
+  assert.equal(hash(path), successor.expected(entry.path,entry.sha256), 'Hash drift: ' + entry.path);
 }
 const required = ['START_HERE.md', 'HANSA_MASTER_AGENT_REFERENCE_v1.0.md',
   'CONTENT_BRIEF_TEMPLATE.yaml', 'CAPABILITY_ROUTER.yaml',

@@ -4,12 +4,14 @@ import { readFileSync, existsSync } from "node:fs";
 import { createHash } from "node:crypto";
 import { resolve, sep } from "node:path";
 import { implementationReceipt } from "./atlas-implementation-receipt.mjs";
+import { finalReviewReceipt } from "./final-review-receipt.mjs";
 
 export const HISTORY = "docs/preservation-history/2026-10-25/";
 const digest = bytes => createHash("sha256").update(bytes).digest("hex");
 const allowedSources = ["package.json", "scripts/import-notion-data-viz.mjs", "scripts/import-notion-statistics.mjs"];
 export function loadPreservationHistory(root) {
   const implementation = implementationReceipt(root);
+  const evolution = finalReviewReceipt(root);
   const safe = path => { const absolute = resolve(root, path); assert.ok(absolute.startsWith(root + sep), "Outside repository"); return absolute; };
   const raw = path => readFileSync(safe(path));
   const json = path => JSON.parse(raw(path).toString("utf8"));
@@ -25,9 +27,11 @@ export function loadPreservationHistory(root) {
   for (const entry of data.sourceTransitions) {
     assert.equal(atlas.files[entry.path], entry.beforeSha256);
     assert.equal(hash(entry.originalPath), entry.beforeSha256, "Original source drift");
-    assert.equal(hash(entry.path), entry.afterSha256, "Current source differs from audited transition");
+    assert.equal(hash(entry.path), implementation.expected(entry.path,entry.afterSha256), "Current source differs from audited transition");
     const before = raw(entry.originalPath).toString("utf8").replaceAll("\r\n", "\n");
-    const after = raw(entry.path).toString("utf8").replaceAll("\r\n", "\n");
+    // Validate the immutable original source-path-only step separately from
+    // the later, independently audited test/intake script additions.
+    const after = (evolution.historicalBytes(entry.path,entry.afterSha256)??raw(entry.path)).toString("utf8").replaceAll("\r\n", "\n");
     if (entry.path === "package.json") {
       const expected = JSON.parse(before);
       assert.equal(expected.scripts["import:data-viz"], 'node scripts/import-notion-data-viz.mjs --source "Data Visualization"');

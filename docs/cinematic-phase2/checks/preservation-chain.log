@@ -1,0 +1,25 @@
+
+node:internal/modules/run_main:123
+    triggerUncaughtException(
+    ^
+
+AssertionError [ERR_ASSERTION]: Current source differs from audited transition
++ actual - expected
+
++ '18cf9597ff8d574df1c64a020efa525ab6a599e2ee65139dca2104932b5b9832'
+- '6561cd5806c9e436d8accdb74fb3a669d3620c848a710e22cb29c2dc9cc62d92'
+
+    at loadPreservationHistory (file:///D:/BeUI/amir-portfolio/scripts/preservation-history.mjs:28:12)
+    at file:///D:/BeUI/amir-portfolio/scripts/verify-preservation-history.mjs:19:17
+    at ModuleJob.run (node:internal/modules/esm/module_job:343:25)
+    at async onImport.tracePromise.__proto__ (node:internal/modules/esm/loader:681:26)
+    at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:117:5) {
+  generatedMessage: false,
+  code: 'ERR_ASSERTION',
+  actual: '18cf9597ff8d574df1c64a020efa525ab6a599e2ee65139dca2104932b5b9832',
+  expected: '6561cd5806c9e436d8accdb74fb3a669d3620c848a710e22cb29c2dc9cc62d92',
+  operator: 'strictEqual',
+  diff: 'simple'
+}
+
+Node.js v22.23.3

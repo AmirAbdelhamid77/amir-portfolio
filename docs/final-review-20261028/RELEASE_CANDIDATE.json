@@ -1,0 +1,315 @@
+{
+  "date": "2026-10-28",
+  "state": "LOCAL_REVIEW_CANDIDATE; OWNER_VISUAL_ACCEPTANCE_PENDING",
+  "deployed": false,
+  "canonical": "/",
+  "legacy": "/prototype-c/ thin alias unchanged",
+  "contentDataBytePreserved": true,
+  "unitTests": 196,
+  "academyTests": 8,
+  "browserChecks": {
+    "home": {
+      "pass": 126,
+      "total": 126
+    },
+    "canonical": {
+      "pass": 45,
+      "total": 45
+    },
+    "atlas": {
+      "pass": 245,
+      "total": 245
+    },
+    "routes": {
+      "pass": 137,
+      "total": 137
+    }
+  },
+  "preservation": {
+    "preserved": 2103,
+    "unexpected": [],
+    "owned": [
+      "app/globals.css",
+      "app/layout.tsx",
+      "app/learn/dp-600/atlas/page.tsx",
+      "components/atlas/circle-map.css",
+      "components/atlas/explorer.tsx",
+      "components/atlas/pending-desk.tsx",
+      "components/atlas/reading-desk.css",
+      "components/knowledge/insight-rail.tsx",
+      "components/knowledge/insight-stage.tsx",
+      "components/knowledge/knowledge-instrument.tsx",
+      "components/statistics/math.tsx",
+      "lib/atlas/server.ts",
+      "lib/touch.ts",
+      "scripts/cinematic-phase2-receipt.mjs",
+      "scripts/final-review-atlas-encode.py",
+      "scripts/final-review-atlas-focused.mjs",
+      "scripts/final-review-atlas-qa.mjs",
+      "scripts/final-review-atlas-record.mjs",
+      "scripts/final-review-audit-history.mjs",
+      "scripts/final-review-build-atlas.mjs",
+      "scripts/final-review-canonical-qa.mjs",
+      "scripts/final-review-capture.mjs",
+      "scripts/final-review-delivery-qa.mjs",
+      "scripts/final-review-encode.py",
+      "scripts/final-review-home-qa.mjs",
+      "scripts/final-review-negative.mjs",
+      "scripts/final-review-pacing.mjs",
+      "scripts/final-review-preserve-generated.py",
+      "scripts/final-review-profile.mjs",
+      "scripts/final-review-receipt.mjs",
+      "scripts/final-review-record.mjs",
+      "scripts/final-review-route-qa.mjs",
+      "scripts/final-review-run.py",
+      "scripts/final-review-seal.py",
+      "scripts/final-review-serve.mjs",
+      "scripts/preservation-history.mjs",
+      "scripts/verify-agent-reference.mjs",
+      "scripts/verify-easyui-integration.mjs",
+      "scripts/verify-preservation-history.mjs"
+    ]
+  },
+  "historicalTransitions": 7,
+  "negativeCases": {
+    "final": 17,
+    "originalChain": 6,
+    "publication": 16
+  },
+  "performance": {
+    "390": {
+      "initialSingleSampleLCP": 3288,
+      "medianLCP": 2704,
+      "samples": [
+        3140,
+        2704,
+        2596
+      ],
+      "maxCLS": 0,
+      "pacingP95Range": [
+        50.100000000000364,
+        133.40000000000055
+      ]
+    },
+    "1440": {
+      "initialSingleSampleLCP": 2664,
+      "medianLCP": 2332,
+      "samples": [
+        2312,
+        2800,
+        2332
+      ],
+      "maxCLS": 0.03342687949767983,
+      "pacingP95Range": [
+        83.39999999999964,
+        166.70000000000073
+      ]
+    }
+  },
+  "performanceGate": "MOBILE_LCP_TARGET_NOT_MET; NO_60FPS_CERTIFICATION",
+  "publicAtlas": {
+    "sources": 32,
+    "publishedConcepts": 0,
+    "publishedEdges": 0
+  },
+  "localReviewOnlyAtlas": {
+    "candidateConcepts": 42,
+    "candidateEdges": 49,
+    "scientificApprovalPending": true
+  },
+  "exportFiles": 949,
+  "htmlFiles": 123,
+  "sitemapURLs": 117,
+  "sourceManifestSHA256": "59eb91447b73120e7264f9a56ed625bae659db7f6a5ef16a29253db4b893f0a4",
+  "checks": {
+    "build": {
+      "command": [
+        "npm.cmd",
+        "run",
+        "build"
+      ],
+      "exitCode": 0
+    },
+    "lint": {
+      "command": [
+        "npm.cmd",
+        "run",
+        "lint"
+      ],
+      "exitCode": 0
+    },
+    "typecheck": {
+      "command": [
+        "node",
+        "node_modules/typescript/bin/tsc",
+        "--noEmit",
+        "--incremental",
+        "false"
+      ],
+      "exitCode": 0
+    },
+    "tests": {
+      "command": [
+        "npm.cmd",
+        "run",
+        "test:all"
+      ],
+      "exitCode": 0
+    },
+    "academy": {
+      "command": [
+        "node",
+        "--experimental-strip-types",
+        "--test",
+        "tests/academy/ingestion.test.mjs"
+      ],
+      "exitCode": 0
+    },
+    "references": {
+      "command": [
+        "node",
+        "scripts/verify-agent-reference.mjs"
+      ],
+      "exitCode": 0
+    },
+    "history": {
+      "command": [
+        "node",
+        "scripts/verify-preservation-history.mjs"
+      ],
+      "exitCode": 0
+    },
+    "knowledge-integrity": {
+      "command": [
+        "node",
+        "scripts/verify-knowledge-atlas.mjs"
+      ],
+      "exitCode": 0
+    },
+    "integration": {
+      "command": [
+        "node",
+        "scripts/verify-easyui-integration.mjs"
+      ],
+      "exitCode": 0
+    },
+    "final-negative": {
+      "command": [
+        "node",
+        "scripts/final-review-negative.mjs"
+      ],
+      "exitCode": 0
+    },
+    "home-browser": {
+      "command": [
+        "node",
+        "scripts/final-review-home-qa.mjs"
+      ],
+      "exitCode": 0
+    },
+    "canonical-browser": {
+      "command": [
+        "node",
+        "scripts/final-review-canonical-qa.mjs",
+        "--port",
+        "4319"
+      ],
+      "exitCode": 0
+    },
+    "canonical-integrity": {
+      "command": [
+        "node",
+        "scripts/verify-canonical-home.mjs"
+      ],
+      "exitCode": 0
+    },
+    "atlas-browser": {
+      "command": [
+        "node",
+        "scripts/final-review-atlas-qa.mjs"
+      ],
+      "exitCode": 0
+    },
+    "atlas-focused": {
+      "command": [
+        "node",
+        "scripts/final-review-atlas-focused.mjs"
+      ],
+      "exitCode": 0
+    },
+    "routes": {
+      "command": [
+        "node",
+        "scripts/final-review-route-qa.mjs"
+      ],
+      "exitCode": 0
+    },
+    "search": {
+      "command": [
+        "node",
+        "scripts/qa-search.mjs",
+        "--base",
+        "http://127.0.0.1:4318"
+      ],
+      "exitCode": 0
+    },
+    "performance": {
+      "command": [
+        "node",
+        "scripts/final-review-profile.mjs",
+        "after",
+        "3"
+      ],
+      "exitCode": 0
+    },
+    "pacing": {
+      "command": [
+        "node",
+        "scripts/final-review-pacing.mjs"
+      ],
+      "exitCode": 0
+    },
+    "atlas-review-build": {
+      "command": [
+        "node",
+        "scripts/final-review-build-atlas.mjs"
+      ],
+      "exitCode": 0
+    },
+    "screenshots": {
+      "command": [
+        "node",
+        "scripts/final-review-capture.mjs",
+        "after"
+      ],
+      "exitCode": 0
+    },
+    "home-recordings": {
+      "command": [
+        "node",
+        "scripts/final-review-record.mjs"
+      ],
+      "exitCode": 0
+    },
+    "atlas-recordings": {
+      "command": [
+        "node",
+        "scripts/final-review-atlas-record.mjs"
+      ],
+      "exitCode": 0
+    },
+    "delivery": {
+      "command": [
+        "node",
+        "scripts/final-review-delivery-qa.mjs"
+      ],
+      "exitCode": 0
+    }
+  },
+  "pending": [
+    "Owner visual acceptance",
+    "Human scientific publication approval for graph",
+    "Mobile LCP below 2500ms under slow local test",
+    "Physical handset, human screen-reader and field CWV/INP validation"
+  ]
+}

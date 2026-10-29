@@ -36,12 +36,41 @@ export const SITE = {
  * About family rather than a peer of `Work`.
  */
 export const NAV = [
-  { href: "/work", label: "Work", description: "Case studies and evidence" },
-  { href: "/learn/catalogue", label: "Learn", description: "Courses, references, labs" },
-  { href: "/practice/catalogue", label: "Practice", description: "Question banks and drills" },
-  { href: "/services", label: "Services", description: "Dashboards, cleanup, training" },
-  { href: "/about", label: "About", description: "Background, experience, contact" },
+  { href: "/", label: "Today", description: "Daily insight and editions" },
+  { href: "/learn/catalogue", label: "Learn", description: "Subjects, topics and explanations" },
+  { href: "/practice/catalogue", label: "Practice", description: "Questions in their learning context" },
+  { href: "/learn/dp-600/atlas/", label: "Atlas", description: "Evidence and publication state" },
+  { href: "/about", label: "About", description: "Background and professional work" },
 ] as const;
+
+/**
+ * The canonical landing and its one compatibility address.
+ *
+ * `source` is the single module both route files render. Nothing here forks the
+ * implementation: the legacy address exists only because bookmarks and shared
+ * links already point at it, and a hosted redirect cannot preserve the
+ * `#archive` fragment.
+ */
+export const LANDING = {
+  source: "components/knowledge/hansa-landing.tsx",
+  canonical: "/",
+  legacy: "/prototype-c/",
+} as const;
+
+/** Shorthand for the compatibility address, used by the alias route itself. */
+export const LEGACY_LANDING = LANDING.legacy;
+
+/**
+ * The landing's own primary navigation.
+ *
+ * The landing leads with the work a reader does there — read today's edition,
+ * learn the concept, practise it, check the Atlas state — while the rest of the
+ * site keeps NAV. Both sets share `Today`, `Learn`, `Practice` and `About`, so
+ * every page still reaches Home, learning, practice and the professional pages;
+ * the landing adds Atlas because that is the context of the stage itself, and
+ * the interior pages add Work and Services because those pages are that work.
+ */
+export const LANDING_NAV = [...NAV] as const;
 
 /**
  * Which route prefixes should light up a primary nav item.
@@ -51,9 +80,13 @@ export const NAV = [
  * URLs keep their meaning; only the highlight is computed from the family.
  */
 export const NAV_SECTIONS: Record<string, readonly string[]> = {
+  // The landing itself. Only an exact match lights it, so `/learn` never looks
+  // like the homepage.
+  "/": ["/"],
+  "/learn/dp-600/atlas/": ["/learn/dp-600/atlas"],
   "/work": ["/work"],
   // `/explore/` is the visualization lab gallery: part of the learning material.
-  "/learn/catalogue": ["/learn", "/explore"],
+  "/learn/catalogue": ["/learn", "/explore", "/study"],
   // `/lab/` holds the question banks: part of practice, not of learning.
   "/practice/catalogue": ["/practice", "/lab"],
   "/services": ["/services"],
@@ -62,6 +95,8 @@ export const NAV_SECTIONS: Record<string, readonly string[]> = {
 
 /** Secondary destinations that stay one tap away without becoming top-level peers. */
 export const SECONDARY_NAV = [
+  { href: "/work", label: "Work & case studies" },
+  { href: "/services", label: "Services" },
   { href: "/experience", label: "Experience & skills" },
   { href: "/contact", label: "Contact" },
 ] as const;

@@ -37,7 +37,7 @@ export type DealerCard = {
   label: string;
 };
 
-const FLIGHT_STRENGTH = -0.35;
+const FLIGHT_STRENGTH = -0.48;
 const HOP_STRENGTH = -0.3;
 const STAGGER = 0.05;
 const MAX_STAGGER_WINDOW = 0.18;
@@ -64,6 +64,7 @@ export function KnowledgeDealer({
   onCollect,
   onCloseReader,
   status,
+  density = "tray",
   className,
 }: {
   cards: DealerCard[];
@@ -74,6 +75,12 @@ export function KnowledgeDealer({
   onCollect: () => void;
   onCloseReader: () => void;
   status: string;
+  /**
+   * `hero` gives the tray the room of an Act I centrepiece; `tray` keeps the
+   * workbench geometry. Identity, zones, flight and keyboard behaviour are the
+   * same in both — only the measured card size and tray height change.
+   */
+  density?: "tray" | "hero";
   className?: string;
 }) {
   const reduce = useReducedMotion();
@@ -118,14 +125,21 @@ export function KnowledgeDealer({
     if (closing) cardRefs.current.get(closing)?.focus({ preventScroll: true });
   }, [activeId]);
 
-  const deckWidth = Math.min(size?.width ?? 360, 420);
+  const deckWidth = Math.min(
+    size?.width ?? 360,
+    density === "hero" ? 600 : 420,
+  );
   // Below ~300px a three-card fan cannot keep a readable strip per card, so the
   // hand becomes one upright card with two backing edges, as the design spec
   // requires at 320px. Identity, deal and collect are unchanged.
-  const narrow = (size?.width ?? 400) < 300;
+  const narrow = (size?.width ?? 400) < 420;
   const cardWidth = narrow
     ? clamp(deckWidth * 0.62, 120, 168)
-    : clamp(deckWidth * 0.36, 100, 150);
+    : clamp(
+        deckWidth * (density === "hero" ? 0.42 : 0.36),
+        100,
+        density === "hero" ? 198 : 150,
+      );
   const cardHeight = Math.round(cardWidth * 1.32);
   const deckPoseY = clamp((size?.height ?? 300) / 2 - cardHeight / 2 - 14, EDGE, 300);
   // A fan, not a stack: cards fill the measured tray, so each keeps an exposed
@@ -292,7 +306,10 @@ export function KnowledgeDealer({
         ref={stageRef}
         role="group"
         aria-label="Knowledge card tray"
-        className="relative mt-3 h-[236px] w-full touch-manipulation select-none sm:h-[300px]"
+        className={cn(
+          "dealer-tray relative mt-3 w-full touch-manipulation select-none",
+          density === "hero" ? "h-[286px] sm:h-[392px]" : "h-[236px] sm:h-[300px]",
+        )}
       >
         {/* At rest the landing area is visible, so the deck reads as a deck and
             not as the only card. Once cards are dealt the hand occupies it, and
@@ -432,7 +449,7 @@ export function KnowledgeDealer({
                 onCloseReader();
               }
             }}
-            className="mt-4 rounded-[22px] border border-border-strong bg-background/90 p-4 outline-none shadow-[0_1px_0_0_rgb(255_255_255/0.05)_inset,0_18px_40px_-30px_rgb(0_0_0/0.7)] focus-visible:ring-2 focus-visible:ring-ring sm:p-5"
+            className="dealer-reader mt-4 rounded-[22px] border border-border-strong bg-background/90 p-4 outline-none shadow-[0_1px_0_0_rgb(255_255_255/0.05)_inset,0_18px_40px_-30px_rgb(0_0_0/0.7)] focus-visible:ring-2 focus-visible:ring-ring sm:p-5"
           >
             <div className="flex items-start justify-between gap-3">
               <p className="font-mono text-[10px] uppercase tracking-[0.16em] text-primary">
@@ -442,7 +459,7 @@ export function KnowledgeDealer({
                 type="button"
                 onClick={onCloseReader}
                 aria-label="Back to the hand"
-                className="-m-2 grid size-9 place-items-center rounded-full text-muted-foreground transition-colors hover:text-foreground focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
+                className="-m-2 grid size-11 place-items-center rounded-full text-muted-foreground transition-colors hover:text-foreground focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
               >
                 <X className="size-4" aria-hidden="true" />
               </button>
@@ -530,7 +547,7 @@ function CardFrame({
   return (
     <div
       ref={frame}
-      className="absolute left-0 top-0"
+      className="dealer-card-frame absolute left-0 top-0"
       style={{ width, height, zIndex: pose.z }}
     >
       {children}
@@ -586,7 +603,7 @@ function CardFace({
 
 function CardBack() {
   return (
-    <span className="relative flex size-full flex-col justify-between overflow-hidden rounded-[18px] border border-border-strong bg-[linear-gradient(145deg,color-mix(in_oklch,var(--primary)_16%,var(--card)),var(--card))] p-2.5">
+    <span className="dealer-card-back relative flex size-full flex-col justify-between overflow-hidden rounded-[18px] border border-border-strong bg-[linear-gradient(145deg,color-mix(in_oklch,var(--primary)_16%,var(--card)),var(--card))] p-2.5">
       <span className="font-mono text-[8px] uppercase tracking-[0.16em] text-primary/80">
         Hansa
       </span>

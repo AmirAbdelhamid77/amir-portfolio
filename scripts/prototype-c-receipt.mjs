@@ -6,7 +6,7 @@ import { r11QuestionReceipt } from './r11-question-receipt.mjs';
 export const PROTOTYPE_C='docs/prototype-c/INTEGRATION_MANIFEST.json';
 export function prototypeReceipt(root) {
   const successor=r11QuestionReceipt(root);
-  if(!existsSync(resolve(root,PROTOTYPE_C))) return {expected:(_path,old)=>old};
+  if(!existsSync(resolve(root,PROTOTYPE_C))) return successor;
   const read=p=>readFileSync(resolve(root,p));
   const hash=p=>createHash('sha256').update(read(p)).digest('hex');
   const m=JSON.parse(read(PROTOTYPE_C));
@@ -15,6 +15,9 @@ export function prototypeReceipt(root) {
   const baseline=JSON.parse(read(m.baselinePath));
   assert.equal(new Set(m.files.map(e=>e.path)).size,m.files.length);
   for(const e of m.files){
+    // A path the newest layer declares removed was retired by a bound successor
+    // (the canonical-home migration); there is no current file to hash.
+    if(successor.removed(e.path))continue;
     assert.ok(resolve(root,e.path).startsWith(root+sep),'Prototype path outside checkout');
     assert.equal(e.beforeSha256,baseline.files[e.path]??null,'Unbound prototype before-hash '+e.path);
     if(e.beforeSha256!==null)assert.equal(hash('docs/prototype-c/preservation/originals/'+e.path),e.beforeSha256,'Prototype rollback drift '+e.path);
@@ -25,7 +28,11 @@ export function prototypeReceipt(root) {
     assert.equal(hash(e.basisPath),e.basisSha256,'Generated-cache predecessor receipt changed');
     const basis=JSON.parse(read(e.basisPath));
     assert.equal(basis.files.find(f=>f.path===e.path)?.sha256,e.beforeSha256,'Unbound generated-cache before-hash');
-    assert.equal(hash(e.path),e.sha256,'Generated-cache drift; rebuild then explicitly reseal');
+    assert.equal(hash(e.path),successor.expected(e.path,e.sha256),'Generated-cache drift; rebuild then explicitly reseal');
   }
-  return {expected(path,old){return successor.expected(path,[...m.files,...(m.generatedArtifacts??[])].find(e=>e.path===path&&e.beforeSha256===old)?.sha256??old);}};
+  return {
+    expected(path,old){return successor.expected(path,[...m.files,...(m.generatedArtifacts??[])].find(e=>e.path===path&&e.beforeSha256===old)?.sha256??old);},
+    removed:path=>successor.removed(path),
+    removedPaths:()=>successor.removedPaths(),
+  };
 }

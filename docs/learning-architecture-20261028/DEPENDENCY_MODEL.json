@@ -1,0 +1,302 @@
+{
+  "existingReviewDeclarations": 52,
+  "normalizedReviewEdges": [
+    {
+      "from": "lesson:creative:distribution",
+      "to": "lesson:creative:decision-contract",
+      "status": "existing-review-only-prerequisite"
+    },
+    {
+      "from": "lesson:creative:field-parameters",
+      "to": "lesson:creative:decision-contract",
+      "status": "existing-review-only-prerequisite"
+    },
+    {
+      "from": "lesson:creative:field-parameters",
+      "to": "lesson:creative:filter-context",
+      "status": "existing-review-only-prerequisite"
+    },
+    {
+      "from": "lesson:creative:metric-map",
+      "to": "lesson:creative:decision-contract",
+      "status": "existing-review-only-prerequisite"
+    },
+    {
+      "from": "lesson:creative:metric-map",
+      "to": "lesson:creative:grain-and-ratios",
+      "status": "existing-review-only-prerequisite"
+    },
+    {
+      "from": "lesson:creative:svg-microvisual",
+      "to": "lesson:creative:decision-contract",
+      "status": "existing-review-only-prerequisite"
+    },
+    {
+      "from": "lesson:creative:bump-chart",
+      "to": "lesson:creative:filter-context",
+      "status": "existing-review-only-prerequisite"
+    },
+    {
+      "from": "lesson:creative:ternary",
+      "to": "lesson:creative:grain-and-ratios",
+      "status": "existing-review-only-prerequisite"
+    },
+    {
+      "from": "lesson:creative:accessibility",
+      "to": "lesson:creative:decision-contract",
+      "status": "existing-review-only-prerequisite"
+    },
+    {
+      "from": "lesson:creative:performance",
+      "to": "lesson:creative:filter-context",
+      "status": "existing-review-only-prerequisite"
+    },
+    {
+      "from": "lesson:creative:renderer-choice",
+      "to": "lesson:creative:decision-contract",
+      "status": "existing-review-only-prerequisite"
+    },
+    {
+      "from": "lesson:creative:renderer-choice",
+      "to": "lesson:creative:accessibility",
+      "status": "existing-review-only-prerequisite"
+    },
+    {
+      "from": "lesson:creative:visual-integrity",
+      "to": "lesson:creative:decision-contract",
+      "status": "existing-review-only-prerequisite"
+    },
+    {
+      "from": "lesson:creative:small-multiples",
+      "to": "lesson:creative:distribution",
+      "status": "existing-review-only-prerequisite"
+    },
+    {
+      "from": "lesson:creative:small-multiples",
+      "to": "lesson:creative:visual-integrity",
+      "status": "existing-review-only-prerequisite"
+    },
+    {
+      "from": "lesson:creative:uncertainty",
+      "to": "lesson:creative:distribution",
+      "status": "existing-review-only-prerequisite"
+    },
+    {
+      "from": "lesson:creative:uncertainty",
+      "to": "lesson:creative:grain-and-ratios",
+      "status": "existing-review-only-prerequisite"
+    },
+    {
+      "from": "lesson:creative:story-framework",
+      "to": "lesson:creative:uncertainty",
+      "status": "existing-review-only-prerequisite"
+    },
+    {
+      "from": "lesson:creative:story-framework",
+      "to": "lesson:creative:decision-contract",
+      "status": "existing-review-only-prerequisite"
+    },
+    {
+      "from": "lesson:creative:insight-and-trust",
+      "to": "lesson:creative:decision-contract",
+      "status": "existing-review-only-prerequisite"
+    },
+    {
+      "from": "lesson:creative:insight-and-trust",
+      "to": "lesson:creative:story-framework",
+      "status": "existing-review-only-prerequisite"
+    },
+    {
+      "from": "lesson:creative:mobile-export",
+      "to": "lesson:creative:accessibility",
+      "status": "existing-review-only-prerequisite"
+    },
+    {
+      "from": "lesson:creative:mobile-export",
+      "to": "lesson:creative:renderer-choice",
+      "status": "existing-review-only-prerequisite"
+    },
+    {
+      "from": "lesson:creative:pbip-lifecycle",
+      "to": "lesson:creative:filter-context",
+      "status": "existing-review-only-prerequisite"
+    },
+    {
+      "from": "lesson:creative:pbip-lifecycle",
+      "to": "lesson:creative:performance",
+      "status": "existing-review-only-prerequisite"
+    },
+    {
+      "from": "lesson:creative:source-contract",
+      "to": "lesson:creative:decision-contract",
+      "status": "existing-review-only-prerequisite"
+    }
+  ],
+  "cycles": [],
+  "suggestedReadingOrder": [
+    {
+      "from": "fabric.foundations",
+      "to": "fabric.ingestion",
+      "relation": "suggested-reading-order",
+      "scientificPrerequisite": false
+    },
+    {
+      "from": "fabric.ingestion",
+      "to": "fabric.transform",
+      "relation": "suggested-reading-order",
+      "scientificPrerequisite": false
+    },
+    {
+      "from": "fabric.transform",
+      "to": "fabric.query",
+      "relation": "suggested-reading-order",
+      "scientificPrerequisite": false
+    },
+    {
+      "from": "fabric.query",
+      "to": "fabric.model",
+      "relation": "suggested-reading-order",
+      "scientificPrerequisite": false
+    },
+    {
+      "from": "fabric.model",
+      "to": "fabric.security",
+      "relation": "suggested-reading-order",
+      "scientificPrerequisite": false
+    },
+    {
+      "from": "fabric.security",
+      "to": "fabric.delivery",
+      "relation": "suggested-reading-order",
+      "scientificPrerequisite": false
+    },
+    {
+      "from": "fabric.delivery",
+      "to": "fabric.streaming",
+      "relation": "suggested-reading-order",
+      "scientificPrerequisite": false
+    },
+    {
+      "from": "fabric.streaming",
+      "to": "fabric.overview",
+      "relation": "suggested-reading-order",
+      "scientificPrerequisite": false
+    },
+    {
+      "from": "statistics.foundations",
+      "to": "statistics.describe",
+      "relation": "suggested-reading-order",
+      "scientificPrerequisite": false
+    },
+    {
+      "from": "statistics.describe",
+      "to": "statistics.probability",
+      "relation": "suggested-reading-order",
+      "scientificPrerequisite": false
+    },
+    {
+      "from": "statistics.probability",
+      "to": "statistics.distributions",
+      "relation": "suggested-reading-order",
+      "scientificPrerequisite": false
+    },
+    {
+      "from": "statistics.distributions",
+      "to": "statistics.sampling",
+      "relation": "suggested-reading-order",
+      "scientificPrerequisite": false
+    },
+    {
+      "from": "statistics.sampling",
+      "to": "statistics.hypothesis",
+      "relation": "suggested-reading-order",
+      "scientificPrerequisite": false
+    },
+    {
+      "from": "statistics.hypothesis",
+      "to": "statistics.experiments",
+      "relation": "suggested-reading-order",
+      "scientificPrerequisite": false
+    },
+    {
+      "from": "statistics.experiments",
+      "to": "statistics.relationships",
+      "relation": "suggested-reading-order",
+      "scientificPrerequisite": false
+    },
+    {
+      "from": "statistics.relationships",
+      "to": "statistics.synthesis",
+      "relation": "suggested-reading-order",
+      "scientificPrerequisite": false
+    },
+    {
+      "from": "visualization.foundations",
+      "to": "visualization.comparison",
+      "relation": "suggested-reading-order",
+      "scientificPrerequisite": false
+    },
+    {
+      "from": "visualization.comparison",
+      "to": "visualization.distribution",
+      "relation": "suggested-reading-order",
+      "scientificPrerequisite": false
+    },
+    {
+      "from": "visualization.distribution",
+      "to": "visualization.relationships",
+      "relation": "suggested-reading-order",
+      "scientificPrerequisite": false
+    },
+    {
+      "from": "visualization.relationships",
+      "to": "visualization.time",
+      "relation": "suggested-reading-order",
+      "scientificPrerequisite": false
+    },
+    {
+      "from": "visualization.time",
+      "to": "visualization.composition",
+      "relation": "suggested-reading-order",
+      "scientificPrerequisite": false
+    },
+    {
+      "from": "visualization.composition",
+      "to": "visualization.accessibility",
+      "relation": "suggested-reading-order",
+      "scientificPrerequisite": false
+    },
+    {
+      "from": "visualization.accessibility",
+      "to": "visualization.overview",
+      "relation": "suggested-reading-order",
+      "scientificPrerequisite": false
+    },
+    {
+      "from": "power-bi.prepare",
+      "to": "power-bi.model",
+      "relation": "suggested-reading-order",
+      "scientificPrerequisite": false
+    },
+    {
+      "from": "power-bi.model",
+      "to": "power-bi.report",
+      "relation": "suggested-reading-order",
+      "scientificPrerequisite": false
+    },
+    {
+      "from": "power-bi.report",
+      "to": "power-bi.govern",
+      "relation": "suggested-reading-order",
+      "scientificPrerequisite": false
+    },
+    {
+      "from": "power-bi.govern",
+      "to": "power-bi.overview",
+      "relation": "suggested-reading-order",
+      "scientificPrerequisite": false
+    }
+  ],
+  "publishedAtlasEdges": 0,
+  "notice": "Intake prerequisites remain review-only. Reading order is not a semantic graph. No new scientific edge is approved."
+}

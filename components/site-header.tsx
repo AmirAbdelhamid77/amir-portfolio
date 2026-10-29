@@ -4,23 +4,19 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 import { ArrowUpRight, Menu, Search, X } from "lucide-react";
-import { NAV, NAV_SECTIONS, SECONDARY_NAV } from "@/lib/site";
+import { LANDING_NAV, NAV, NAV_SECTIONS, SECONDARY_NAV } from "@/lib/site";
 import { cn } from "@/lib/utils";
 import { ThemeControls } from "@/components/theme-controls";
 
 export function SiteHeader() {
   const pathname = usePathname();
-  const isHome = pathname === "/";
-  const isPrototype = pathname === "/prototype-c" || pathname === "/prototype-c/" || (isHome && process.env.NEXT_PUBLIC_HANSA_PROTOTYPE_C === "1");
-  const navigation = isPrototype ? [
-    { href: "/prototype-c/", label: "Today", description: "Daily scenario and insight archive" },
-    { href: "/learn/catalogue", label: "Learn", description: "Courses, references and labs" },
-    { href: "/practice/catalogue", label: "Practice", description: "Independent practice and saved sessions" },
-    { href: "/learn/dp-600/atlas/", label: "Atlas", description: "Evidence behind concept connections" },
-    { href: "/about", label: "About", description: "Background and contact" },
-  ] : isHome
-    ? [{ href: "/learn/dp-600/atlas/", label: "Atlas", description: "Documented concept connections" }, ...NAV.filter(item => ["/learn/catalogue", "/practice/catalogue"].includes(item.href))]
-    : NAV;
+  // `/prototype-c/` is a compatibility alias for the landing, not a separate
+  // product, so it is treated as the landing everywhere below.
+  const isLanding =
+    pathname === "/" || pathname === "/prototype-c" || pathname === "/prototype-c/";
+  const isLearning = /^\/(study|learn|practice|lab|explore)(\/|$)/.test(pathname);
+  const navigation = isLanding ? LANDING_NAV : NAV;
+  const activeHref = isLanding ? "/" : activeHrefFor(pathname, navigation);
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
   const headerRef = useRef<HTMLElement>(null);
@@ -54,16 +50,7 @@ export function SiteHeader() {
     };
   }, [open]);
 
-  // A nav item can own a family of routes: `/learn/chapter/04/` is still Learn,
-  // `/lab/dp-600/mock/` is still Practice. The mapping lives in lib/site.ts so the
-  // footer and the catalogues highlight the same families.
-  const isActive = (href: string) => {
-    if (isPrototype && href === "/prototype-c/") return pathname.replace(/\/$/, "") === "/prototype-c" || isHome;
-    const prefixes = NAV_SECTIONS[href] ?? [href];
-    return prefixes.some(
-      (prefix) => pathname === prefix || pathname.startsWith(`${prefix}/`),
-    );
-  };
+  const isActive = (href: string) => href === activeHref;
 
   return (
     <header
@@ -82,16 +69,16 @@ export function SiteHeader() {
             className="group flex items-center gap-2.5 rounded-lg text-sm font-semibold tracking-tight"
           >
             <span className="relative flex h-7 w-7 items-center justify-center overflow-hidden rounded-[9px] bg-[color-mix(in_oklch,var(--primary)_78%,black)] text-[11px] font-bold tracking-tight text-primary-foreground shadow-sm">
-              AA
+              {isLanding || isLearning ? "H" : "AA"}
               <span
                 aria-hidden="true"
                 className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-black/15 to-transparent"
               />
             </span>
-            <span className="hidden sm:inline">
-              Amir Abdelhamid
+            <span className={isLanding || isLearning ? "inline" : "hidden sm:inline"}>
+              {isLanding || isLearning ? "Hansa" : "Amir Abdelhamid"}
               <span className="ml-2 hidden rounded-full border border-border px-1.5 py-0.5 font-mono text-[9px] font-normal uppercase tracking-wider text-muted-foreground md:inline">
-                Data
+                {isLanding ? "Observatory" : isLearning ? "Learning library" : "Data"}
               </span>
             </span>
             <span className="sr-only"> — home</span>
@@ -125,7 +112,7 @@ export function SiteHeader() {
             <Search className="h-4 w-4" aria-hidden="true" />
           </Link>
           <ThemeControls />
-          {!isHome && !isPrototype && <Link
+          {!isLanding && !isLearning && <Link
             href="/contact"
             className="press hidden h-9 items-center gap-1.5 rounded-full bg-foreground px-4 text-xs font-medium text-background hover:bg-foreground/90 sm:inline-flex"
           >
@@ -181,12 +168,16 @@ export function SiteHeader() {
               </li>
             ))}
             <li aria-hidden="true" className="my-1 border-t border-border" />
-            {SECONDARY_NAV.filter(item => !(isHome || isPrototype) || item.href !== "/experience").map((item) => (
+            {SECONDARY_NAV.map((item) => (
               <li key={item.href}>
                 <Link
                   href={item.href}
                   onClick={() => setOpen(false)}
-                  aria-current={pathname === item.href || pathname.startsWith(`${item.href}/`) ? "page" : undefined}
+                  aria-current={
+                    pathname === item.href || pathname.startsWith(`${item.href}/`)
+                      ? "page"
+                      : undefined
+                  }
                   className="flex items-center justify-between rounded-lg px-3 py-2.5 text-sm text-muted-foreground hover:bg-card hover:text-foreground"
                 >
                   {item.label}
@@ -209,4 +200,33 @@ export function SiteHeader() {
       </div>
     </header>
   );
+}
+
+/**
+ * One active destination per page, chosen by the longest matching route family.
+ *
+ * A nested route such as `/learn/dp-600/atlas/` matches both the Atlas family and
+ * the Learn family; the longest prefix wins, so exactly one nav item can carry
+ * `aria-current="page"`. `lib/site.ts` holds the families so the header, the
+ * footer and the catalogues agree on them.
+ */
+export function activeHrefFor(
+  pathname: string,
+  items: readonly { href: string }[],
+): string | null {
+  const cleaned = pathname.replace(/\/+$/, "") || "/";
+  let best: { href: string; length: number } | null = null;
+  for (const item of items) {
+    for (const prefix of NAV_SECTIONS[item.href] ?? [item.href]) {
+      const normalized = prefix.replace(/\/+$/, "") || "/";
+      const matches =
+        normalized === "/"
+          ? cleaned === "/"
+          : cleaned === normalized || cleaned.startsWith(`${normalized}/`);
+      if (matches && (!best || normalized.length > best.length)) {
+        best = { href: item.href, length: normalized.length };
+      }
+    }
+  }
+  return best?.href ?? null;
 }

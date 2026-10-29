@@ -1,0 +1,5 @@
+<!-- HANSA_CREATIVE_INTELLIGENCE_START -->
+## Hansa Creative Intelligence — standing visual-design behavior
+
+For any Hansa task affecting a visible frontend page, lesson, dashboard, Atlas graph, chart, interactive UI, or landing experience, **automatically invoke** the repo skill `.agents/skills/hansa-creative-intelligence/SKILL.md` before implementation, even when the user does not say "animation", "D3", "creative", or "visual". This skill is an additive creative-execution layer to existing Hansa content-faithfulness, QA, design-system and accessibility policies. Use it to run a Visual Opportunity Pass, invent a context-specific rich composition, choose only justified chart/motion technology, and verify non-generic depth, real stateful interaction, responsiveness and reduced-motion accessibility. Do not add visualizations to pure backend/scientific-QA tasks or invent source data. Respect existing `AGENTS.md`, source of truth, current edits by other agents, deployment limitations and higher-priority owner directions. No deployment unless requested.
+<!-- HANSA_CREATIVE_INTELLIGENCE_END -->

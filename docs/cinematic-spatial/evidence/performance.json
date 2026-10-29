@@ -1,0 +1,616 @@
+{
+  "generatedAt": "2026-10-29T13:24:11.030Z",
+  "base": "http://127.0.0.1:4394",
+  "browser": "156.0.4314.50",
+  "conditions": {
+    "cpuThrottlingRate": 4,
+    "network": "1.6 Mbit/s down / 0.75 Mbit/s up / 75ms latency (CDP emulation)",
+    "server": "local static export via scripts/serve-out.mjs (no CDN, no compression negotiation beyond the server defaults)",
+    "headless": true,
+    "gpu": "headless software rasteriser — a real GPU composite is typically cheaper"
+  },
+  "byWidth": {
+    "390": {
+      "samples": 3,
+      "lcpMedian": 2900,
+      "clsMedian": 0,
+      "jsKbMedian": 777.4,
+      "domNodes": 824,
+      "heroP95": 16.8,
+      "atlasP95": 33.4,
+      "atlasOver50": 0,
+      "scrollP95": 16.8,
+      "canvas": {
+        "width": 350,
+        "height": 360,
+        "cssWidth": 350,
+        "cssHeight": 360,
+        "dpr": 1
+      },
+      "reducedP95": 16.8,
+      "reducedDrawsPerSecond": 0
+    },
+    "768": {
+      "samples": 3,
+      "lcpMedian": 3096,
+      "clsMedian": 0.0033,
+      "jsKbMedian": 777.4,
+      "domNodes": 825,
+      "heroP95": 16.8,
+      "atlasP95": 16.8,
+      "atlasOver50": 1,
+      "scrollP95": 16.9,
+      "canvas": {
+        "width": 704,
+        "height": 396,
+        "cssWidth": 704,
+        "cssHeight": 396,
+        "dpr": 1
+      },
+      "reducedP95": null,
+      "reducedDrawsPerSecond": null
+    },
+    "1440": {
+      "samples": 3,
+      "lcpMedian": 2744,
+      "clsMedian": 0.0012,
+      "jsKbMedian": 778.2,
+      "domNodes": 829,
+      "heroP95": 16.8,
+      "atlasP95": 16.8,
+      "atlasOver50": 0,
+      "scrollP95": 16.8,
+      "canvas": {
+        "width": 916,
+        "height": 414,
+        "cssWidth": 916,
+        "cssHeight": 414,
+        "dpr": 1
+      },
+      "reducedP95": 16.8,
+      "reducedDrawsPerSecond": 0
+    }
+  },
+  "samples": [
+    {
+      "width": 390,
+      "sample": 0,
+      "widthKind": "mobile (adapted, not reduced)",
+      "load": {
+        "lcp": 2900,
+        "cls": 0,
+        "longTasks": 6,
+        "longTaskMs": 1056,
+        "jsFiles": 13,
+        "jsBytes": 796034,
+        "jsRawBytes": 792134,
+        "totalResources": 24,
+        "domNodes": 824,
+        "domInteractive": 3095,
+        "domComplete": 6080
+      },
+      "canvas": {
+        "width": 350,
+        "height": 360,
+        "cssWidth": 350,
+        "cssHeight": 360,
+        "dpr": 1
+      },
+      "hero": {
+        "frames": 120,
+        "p50": 16.7,
+        "p95": 16.8,
+        "worst": 16.8,
+        "over34ms": 0,
+        "over50ms": 0
+      },
+      "atlas": {
+        "frames": 150,
+        "p50": 16.7,
+        "p95": 16.8,
+        "worst": 16.9,
+        "over34ms": 0,
+        "over50ms": 0
+      },
+      "scroll": {
+        "frames": 89,
+        "p50": 16.7,
+        "p95": 16.8,
+        "worst": 149.9,
+        "over34ms": 1,
+        "over50ms": 1
+      },
+      "deal": {
+        "clickToNextPaint": 101
+      },
+      "orbit": {
+        "keyToNextPaint": 23
+      },
+      "interactionEvents": []
+    },
+    {
+      "width": 390,
+      "sample": 1,
+      "widthKind": "mobile (adapted, not reduced)",
+      "load": {
+        "lcp": 3324,
+        "cls": 0,
+        "longTasks": 7,
+        "longTaskMs": 1977,
+        "jsFiles": 13,
+        "jsBytes": 796034,
+        "jsRawBytes": 792134,
+        "totalResources": 19,
+        "domNodes": 824,
+        "domInteractive": 3948,
+        "domComplete": 6232
+      },
+      "canvas": {
+        "width": 350,
+        "height": 360,
+        "cssWidth": 350,
+        "cssHeight": 360,
+        "dpr": 1
+      },
+      "hero": {
+        "frames": 120,
+        "p50": 16.7,
+        "p95": 16.8,
+        "worst": 66.7,
+        "over34ms": 2,
+        "over50ms": 1
+      },
+      "atlas": {
+        "frames": 150,
+        "p50": 16.7,
+        "p95": 33.4,
+        "worst": 116.7,
+        "over34ms": 7,
+        "over50ms": 5
+      },
+      "scroll": {
+        "frames": 89,
+        "p50": 16.7,
+        "p95": 16.8,
+        "worst": 66.7,
+        "over34ms": 1,
+        "over50ms": 1
+      },
+      "deal": {
+        "clickToNextPaint": 113
+      },
+      "orbit": {
+        "keyToNextPaint": 26
+      },
+      "interactionEvents": []
+    },
+    {
+      "width": 390,
+      "sample": 2,
+      "widthKind": "mobile (adapted, not reduced)",
+      "load": {
+        "lcp": 2724,
+        "cls": 0,
+        "longTasks": 12,
+        "longTaskMs": 1495,
+        "jsFiles": 13,
+        "jsBytes": 796034,
+        "jsRawBytes": 792134,
+        "totalResources": 24,
+        "domNodes": 824,
+        "domInteractive": 2949,
+        "domComplete": 6056
+      },
+      "canvas": {
+        "width": 350,
+        "height": 360,
+        "cssWidth": 350,
+        "cssHeight": 360,
+        "dpr": 1
+      },
+      "hero": {
+        "frames": 120,
+        "p50": 16.7,
+        "p95": 49.8,
+        "worst": 133.5,
+        "over34ms": 6,
+        "over50ms": 4
+      },
+      "atlas": {
+        "frames": 150,
+        "p50": 16.7,
+        "p95": 50,
+        "worst": 116.7,
+        "over34ms": 10,
+        "over50ms": 7
+      },
+      "scroll": {
+        "frames": 89,
+        "p50": 16.7,
+        "p95": 33.3,
+        "worst": 50,
+        "over34ms": 1,
+        "over50ms": 0
+      },
+      "deal": {
+        "clickToNextPaint": 223
+      },
+      "orbit": {
+        "keyToNextPaint": 56
+      },
+      "interactionEvents": []
+    },
+    {
+      "width": 768,
+      "sample": 0,
+      "widthKind": "mobile (adapted, not reduced)",
+      "load": {
+        "lcp": 3528,
+        "cls": 0.0033,
+        "longTasks": 7,
+        "longTaskMs": 1517,
+        "jsFiles": 13,
+        "jsBytes": 796034,
+        "jsRawBytes": 792134,
+        "totalResources": 22,
+        "domNodes": 825,
+        "domInteractive": 3426,
+        "domComplete": 6131
+      },
+      "canvas": {
+        "width": 704,
+        "height": 396,
+        "cssWidth": 704,
+        "cssHeight": 396,
+        "dpr": 1
+      },
+      "hero": {
+        "frames": 120,
+        "p50": 16.7,
+        "p95": 16.8,
+        "worst": 50,
+        "over34ms": 2,
+        "over50ms": 0
+      },
+      "atlas": {
+        "frames": 150,
+        "p50": 16.7,
+        "p95": 33.4,
+        "worst": 66.7,
+        "over34ms": 5,
+        "over50ms": 1
+      },
+      "scroll": {
+        "frames": 89,
+        "p50": 16.7,
+        "p95": 16.9,
+        "worst": 49.9,
+        "over34ms": 1,
+        "over50ms": 0
+      },
+      "deal": {
+        "clickToNextPaint": 137
+      },
+      "orbit": {
+        "keyToNextPaint": 32
+      },
+      "interactionEvents": []
+    },
+    {
+      "width": 768,
+      "sample": 1,
+      "widthKind": "mobile (adapted, not reduced)",
+      "load": {
+        "lcp": 3096,
+        "cls": 0.0033,
+        "longTasks": 7,
+        "longTaskMs": 1418,
+        "jsFiles": 13,
+        "jsBytes": 796034,
+        "jsRawBytes": 792134,
+        "totalResources": 19,
+        "domNodes": 825,
+        "domInteractive": 3396,
+        "domComplete": 6253
+      },
+      "canvas": {
+        "width": 704,
+        "height": 396,
+        "cssWidth": 704,
+        "cssHeight": 396,
+        "dpr": 1
+      },
+      "hero": {
+        "frames": 120,
+        "p50": 16.7,
+        "p95": 16.8,
+        "worst": 50.1,
+        "over34ms": 1,
+        "over50ms": 1
+      },
+      "atlas": {
+        "frames": 150,
+        "p50": 16.7,
+        "p95": 16.8,
+        "worst": 33.3,
+        "over34ms": 0,
+        "over50ms": 0
+      },
+      "scroll": {
+        "frames": 89,
+        "p50": 16.7,
+        "p95": 33.3,
+        "worst": 33.4,
+        "over34ms": 0,
+        "over50ms": 0
+      },
+      "deal": {
+        "clickToNextPaint": 112
+      },
+      "orbit": {
+        "keyToNextPaint": 27
+      },
+      "interactionEvents": []
+    },
+    {
+      "width": 768,
+      "sample": 2,
+      "widthKind": "mobile (adapted, not reduced)",
+      "load": {
+        "lcp": 2896,
+        "cls": 0.0033,
+        "longTasks": 6,
+        "longTaskMs": 872,
+        "jsFiles": 13,
+        "jsBytes": 796034,
+        "jsRawBytes": 792134,
+        "totalResources": 24,
+        "domNodes": 825,
+        "domInteractive": 3275,
+        "domComplete": 6065
+      },
+      "canvas": {
+        "width": 704,
+        "height": 396,
+        "cssWidth": 704,
+        "cssHeight": 396,
+        "dpr": 1
+      },
+      "hero": {
+        "frames": 120,
+        "p50": 16.7,
+        "p95": 16.8,
+        "worst": 16.8,
+        "over34ms": 0,
+        "over50ms": 0
+      },
+      "atlas": {
+        "frames": 150,
+        "p50": 16.7,
+        "p95": 16.7,
+        "worst": 16.8,
+        "over34ms": 0,
+        "over50ms": 0
+      },
+      "scroll": {
+        "frames": 89,
+        "p50": 16.7,
+        "p95": 16.7,
+        "worst": 16.8,
+        "over34ms": 0,
+        "over50ms": 0
+      },
+      "deal": {
+        "clickToNextPaint": 76
+      },
+      "orbit": {
+        "keyToNextPaint": 20
+      },
+      "interactionEvents": []
+    },
+    {
+      "width": 1440,
+      "sample": 0,
+      "widthKind": "desktop",
+      "load": {
+        "lcp": 2772,
+        "cls": 0.0012,
+        "longTasks": 6,
+        "longTaskMs": 986,
+        "jsFiles": 14,
+        "jsBytes": 796845,
+        "jsRawBytes": 792645,
+        "totalResources": 38,
+        "domNodes": 829,
+        "domInteractive": 2939,
+        "domComplete": 6146
+      },
+      "canvas": {
+        "width": 916,
+        "height": 414,
+        "cssWidth": 916,
+        "cssHeight": 414,
+        "dpr": 1
+      },
+      "hero": {
+        "frames": 120,
+        "p50": 16.7,
+        "p95": 16.8,
+        "worst": 16.8,
+        "over34ms": 0,
+        "over50ms": 0
+      },
+      "atlas": {
+        "frames": 150,
+        "p50": 16.7,
+        "p95": 16.8,
+        "worst": 16.9,
+        "over34ms": 0,
+        "over50ms": 0
+      },
+      "scroll": {
+        "frames": 89,
+        "p50": 16.7,
+        "p95": 16.8,
+        "worst": 16.8,
+        "over34ms": 0,
+        "over50ms": 0
+      },
+      "deal": {
+        "clickToNextPaint": 99
+      },
+      "orbit": {
+        "keyToNextPaint": 23
+      },
+      "interactionEvents": []
+    },
+    {
+      "width": 1440,
+      "sample": 1,
+      "widthKind": "desktop",
+      "load": {
+        "lcp": 2724,
+        "cls": 0.0012,
+        "longTasks": 7,
+        "longTaskMs": 973,
+        "jsFiles": 14,
+        "jsBytes": 796845,
+        "jsRawBytes": 792645,
+        "totalResources": 38,
+        "domNodes": 829,
+        "domInteractive": 3229,
+        "domComplete": 6116
+      },
+      "canvas": {
+        "width": 916,
+        "height": 414,
+        "cssWidth": 916,
+        "cssHeight": 414,
+        "dpr": 1
+      },
+      "hero": {
+        "frames": 120,
+        "p50": 16.7,
+        "p95": 16.8,
+        "worst": 16.9,
+        "over34ms": 0,
+        "over50ms": 0
+      },
+      "atlas": {
+        "frames": 150,
+        "p50": 16.7,
+        "p95": 16.8,
+        "worst": 49.9,
+        "over34ms": 1,
+        "over50ms": 0
+      },
+      "scroll": {
+        "frames": 89,
+        "p50": 16.7,
+        "p95": 16.8,
+        "worst": 16.8,
+        "over34ms": 0,
+        "over50ms": 0
+      },
+      "deal": {
+        "clickToNextPaint": 79
+      },
+      "orbit": {
+        "keyToNextPaint": 18
+      },
+      "interactionEvents": []
+    },
+    {
+      "width": 1440,
+      "sample": 2,
+      "widthKind": "desktop",
+      "load": {
+        "lcp": 2744,
+        "cls": 0.0012,
+        "longTasks": 6,
+        "longTaskMs": 1016,
+        "jsFiles": 14,
+        "jsBytes": 796845,
+        "jsRawBytes": 792645,
+        "totalResources": 37,
+        "domNodes": 828,
+        "domInteractive": 2914,
+        "domComplete": 6157
+      },
+      "canvas": {
+        "width": 916,
+        "height": 414,
+        "cssWidth": 916,
+        "cssHeight": 414,
+        "dpr": 1
+      },
+      "hero": {
+        "frames": 120,
+        "p50": 16.7,
+        "p95": 16.8,
+        "worst": 16.8,
+        "over34ms": 0,
+        "over50ms": 0
+      },
+      "atlas": {
+        "frames": 150,
+        "p50": 16.7,
+        "p95": 16.7,
+        "worst": 16.9,
+        "over34ms": 0,
+        "over50ms": 0
+      },
+      "scroll": {
+        "frames": 89,
+        "p50": 16.7,
+        "p95": 16.8,
+        "worst": 66.7,
+        "over34ms": 1,
+        "over50ms": 1
+      },
+      "deal": {
+        "clickToNextPaint": 107
+      },
+      "orbit": {
+        "keyToNextPaint": 28
+      },
+      "interactionEvents": []
+    },
+    {
+      "width": 390,
+      "sample": "reduced",
+      "widthKind": "reduced motion",
+      "reducedFrames": {
+        "frames": 150,
+        "p50": 16.7,
+        "p95": 16.8,
+        "worst": 16.8,
+        "over34ms": 0,
+        "over50ms": 0
+      },
+      "drawsPerSecond": 0
+    },
+    {
+      "width": 1440,
+      "sample": "reduced",
+      "widthKind": "reduced motion",
+      "reducedFrames": {
+        "frames": 150,
+        "p50": 16.7,
+        "p95": 16.8,
+        "worst": 16.8,
+        "over34ms": 0,
+        "over50ms": 0
+      },
+      "drawsPerSecond": 0
+    }
+  ],
+  "limits": [
+    "Synthetic local lab on a throttled headless browser. This is NOT field Core Web Vitals, NOT field INP, and NOT Lighthouse.",
+    "Event Timing durations are diagnostics, not a claimed INP score.",
+    "Frame gaps include the scripted scroll driver, CPU throttling and host load; they are not pure GPU frame drops.",
+    "The scroll phase scrolls once per animation frame, which is a harsher test than a trackpad flick.",
+    "No physical handset, no thermal soak, no Safari/Firefox, no screen reader.",
+    "Offscreen and backgrounded tabs pause the canvas loop; that behaviour is covered by the QA script, not measured here."
+  ]
+}

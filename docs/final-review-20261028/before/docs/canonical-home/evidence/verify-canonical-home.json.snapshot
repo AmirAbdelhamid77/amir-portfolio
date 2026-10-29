@@ -1,0 +1,180 @@
+{
+  "generatedAt": "2026-10-28T00:09:00.016Z",
+  "command": "node scripts/verify-canonical-home.mjs --port 4329",
+  "head": "ref: refs/heads/feat/dp600-academy-ingestion-20261025",
+  "exportedRoutes": 121,
+  "checks": [
+    {
+      "id": "ROOT02/H052",
+      "status": "PASS",
+      "detail": "out/index.html exists"
+    },
+    {
+      "id": "ROOT01",
+      "status": "PASS",
+      "detail": "all landing markers present"
+    },
+    {
+      "id": "ROOT01b",
+      "status": "PASS",
+      "detail": "the retired gateway directory is gone"
+    },
+    {
+      "id": "R4",
+      "status": "PASS",
+      "detail": "no prototype framing in the exported root HTML"
+    },
+    {
+      "id": "NOJS01",
+      "status": "PASS",
+      "detail": "introductory copy is server-rendered"
+    },
+    {
+      "id": "ROUTE01",
+      "status": "PASS",
+      "detail": "out/prototype-c/index.html exists (alias)"
+    },
+    {
+      "id": "R3",
+      "status": "PASS",
+      "detail": "alias renders the same experience (5/5 markers shared)"
+    },
+    {
+      "id": "R4b",
+      "status": "PASS",
+      "detail": "no prototype framing in the alias HTML"
+    },
+    {
+      "id": "H045a",
+      "status": "PASS",
+      "detail": "alias robots meta: noindex, nofollow"
+    },
+    {
+      "id": "H045b",
+      "status": "PASS",
+      "detail": "alias canonical: https://hansa.amir-portfolio.workers.dev/"
+    },
+    {
+      "id": "H043",
+      "status": "PASS",
+      "detail": "root title: Hansa — interactive data learning and knowledge"
+    },
+    {
+      "id": "H045c",
+      "status": "PASS",
+      "detail": "root canonical: https://hansa.amir-portfolio.workers.dev/"
+    },
+    {
+      "id": "H044",
+      "status": "PASS",
+      "detail": "og:title \"Hansa — interactive data learning and knowledge\" · twitter:title \"Hansa — interactive data learning and knowledge\""
+    },
+    {
+      "id": "H044b",
+      "status": "PASS",
+      "detail": "og:image:alt: Hansa — a daily data decision, knowledge cards and a dated editions timeline"
+    },
+    {
+      "id": "R9",
+      "status": "PASS",
+      "detail": "author identity is still credited"
+    },
+    {
+      "id": "H046",
+      "status": "PASS",
+      "detail": "out/sitemap.xml exists"
+    },
+    {
+      "id": "H046a",
+      "status": "PASS",
+      "detail": "prototype alias is absent from the sitemap"
+    },
+    {
+      "id": "H046b",
+      "status": "PASS",
+      "detail": "canonical homepage appears 1× in the sitemap"
+    },
+    {
+      "id": "H046c",
+      "status": "PASS",
+      "detail": "117 routes in the sitemap"
+    },
+    {
+      "id": "H045d",
+      "status": "PASS",
+      "detail": "out/robots.txt exists"
+    },
+    {
+      "id": "H045e",
+      "status": "PASS",
+      "detail": "robots.txt points at the sitemap"
+    },
+    {
+      "id": "SITE02b",
+      "status": "PASS",
+      "detail": "out/404.html exists so unknown paths are a real 404"
+    },
+    {
+      "id": "server",
+      "status": "PASS",
+      "detail": "static server answered on :4329"
+    },
+    {
+      "id": "ROOT02",
+      "status": "PASS",
+      "detail": "GET / → 200"
+    },
+    {
+      "id": "ROUTE01b",
+      "status": "PASS",
+      "detail": "GET /prototype-c/ → 200"
+    },
+    {
+      "id": "H054a",
+      "status": "PASS",
+      "detail": "GET /prototype-c → 301 /prototype-c/"
+    },
+    {
+      "id": "H054b",
+      "status": "PASS",
+      "detail": "the alias does not redirect (no loop, no lost query)"
+    },
+    {
+      "id": "URL01-05",
+      "status": "PASS",
+      "detail": "GET /?insight=hansa-insight-shortcut-reference-v1 → 200"
+    },
+    {
+      "id": "URL01-05",
+      "status": "PASS",
+      "detail": "GET /?insight=hansa-insight-shortcut-delete-v1#archive → 200"
+    },
+    {
+      "id": "URL01-05",
+      "status": "PASS",
+      "detail": "GET /?insight=hansa-insight-shortcut-discovery-v1 → 200"
+    },
+    {
+      "id": "URL01-05",
+      "status": "PASS",
+      "detail": "GET /?insight=not-a-real-edition → 200"
+    },
+    {
+      "id": "URL01-05",
+      "status": "PASS",
+      "detail": "GET /prototype-c/?insight=hansa-insight-shortcut-delete-v1#archive → 200"
+    },
+    {
+      "id": "SITE02",
+      "status": "PASS",
+      "detail": "GET /intentionally-nonexistent-qa/ → 404"
+    },
+    {
+      "id": "H063",
+      "status": "PASS",
+      "detail": "121 exported routes answered 200"
+    }
+  ],
+  "failed": [],
+  "routeCrawlFailures": []
+}

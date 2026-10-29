@@ -44,3 +44,8 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# Private intake mirror: package files that carry answer keys, historical keys,
+# review logs and agent guides. Kept on disk for review, never committed and
+# never served — no file under this path is imported by any app code.
+intake-private/

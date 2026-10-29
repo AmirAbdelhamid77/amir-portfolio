@@ -44,19 +44,19 @@ export function InsightScene({
           layer rather than appearing flat on the page. */}
       <div
         aria-hidden="true"
-        className="absolute inset-0 -z-10 rounded-[28px] border border-border-strong bg-card/50"
+        className="insight-backing absolute inset-0 -z-10 rounded-[28px] border border-border-strong bg-card/50"
         style={{ transform: "translate3d(10px, 10px, 0)" }}
       />
       <div
         aria-hidden="true"
-        className="absolute inset-0 -z-20 rounded-[28px] border border-border/60 bg-background/40"
+        className="insight-backing absolute inset-0 -z-20 rounded-[28px] border border-border/60 bg-background/40"
         style={{ transform: "translate3d(20px, 22px, 0)" }}
       />
 
       <article
         aria-labelledby={`${insight.id}-title`}
         className={cn(
-          "relative overflow-hidden rounded-[28px] border border-border-strong bg-card/95 p-5 sm:p-7",
+          "insight-reading relative overflow-hidden rounded-[28px] border border-border-strong bg-card/95 p-5 sm:p-7",
           "shadow-[0_1px_0_0_rgb(255_255_255/0.05)_inset,0_30px_60px_-40px_rgb(0_0_0/0.65)]",
         )}
       >

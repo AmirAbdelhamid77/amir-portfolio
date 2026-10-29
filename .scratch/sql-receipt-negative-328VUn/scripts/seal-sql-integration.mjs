@@ -1,0 +1,10 @@
+import fs from 'node:fs';import path from 'node:path';import {createHash} from 'node:crypto';
+const root=process.cwd(),dir='docs/sql-integration-20261028';
+const hash=p=>createHash('sha256').update(fs.readFileSync(p)).digest('hex');
+const walk=d=>fs.existsSync(d)?fs.readdirSync(d,{withFileTypes:true}).flatMap(e=>e.isDirectory()?walk(d+'/'+e.name):[d+'/'+e.name]):[];
+const before=walk(dir+'/before');const existing=before.map(p=>p.slice((dir+'/before/').length,-'.snapshot'.length));
+const additions=['content/sql','components/sql','lib/sql','app/learn/sql','app/practice/sql','intake/sql-notion-2026-10-28','public/media/sql'].flatMap(walk);
+const files=[...new Set([...existing,...additions,'scripts/import-sql-vault.mjs','scripts/qa-sql-vault.mjs','scripts/sql-integration-receipt.mjs','scripts/seal-sql-integration.mjs','scripts/verify-sql-integration.mjs','tests/content/sql-vault.test.mjs',...walk(dir).filter(p=>!p.includes('/before/')&&!p.endsWith('/MANIFEST.json'))])].sort();
+const previous='docs/learning-path-review-20261028/MANIFEST.json';
+const manifest={scope:'notion-sql-source-integration-20261028',previous,previousSha256:hash(previous),files:files.map(p=>{const rollbackPath=dir+'/before/'+p+'.snapshot';return {path:p,beforeSha256:fs.existsSync(rollbackPath)?hash(rollbackPath):null,sha256:hash(p),bytes:fs.statSync(p).size,...(fs.existsSync(rollbackPath)?{rollbackPath}:{})};}),notice:'Exact additive successor hashes, with immutable starting snapshots. No production deployment.'};
+fs.writeFileSync(path.join(root,dir,'MANIFEST.json'),JSON.stringify(manifest,null,2)+'\n');console.log('Sealed SQL integration:',manifest.files.length,'files');

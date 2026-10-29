@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useMemo, useState } from "react";
 import {
+  Activity,
   ArrowRight,
   BarChart3,
   Code2,
@@ -24,6 +25,7 @@ const ICONS = {
   code: Code2,
   sigma: Sigma,
   layers: Layers,
+  activity: Activity,
 } as const;
 
 const TOPIC_ICON: Record<string, keyof typeof ICONS> = {
@@ -33,6 +35,7 @@ const TOPIC_ICON: Record<string, keyof typeof ICONS> = {
   Python: "code",
   Statistics: "sigma",
   Fundamentals: "layers",
+  "Fabric RTI": "activity",
 };
 
 const TOPIC_CHIP: Record<string, string> = {
@@ -42,6 +45,7 @@ const TOPIC_CHIP: Record<string, string> = {
   Python: "bg-violet/15 text-foreground",
   Statistics: "bg-accent/20 text-foreground",
   Fundamentals: "bg-rose-500/10 text-foreground",
+  "Fabric RTI": "bg-accent/20 text-foreground",
 };
 
 export function ExamCatalog({ exams }: { exams: ExamSummary[] }) {

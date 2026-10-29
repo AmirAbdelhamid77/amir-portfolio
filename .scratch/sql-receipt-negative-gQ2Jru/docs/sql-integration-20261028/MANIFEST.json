@@ -1,0 +1,521 @@
+{
+  "scope": "notion-sql-source-integration-20261028",
+  "previous": "docs/learning-path-review-20261028/MANIFEST.json",
+  "previousSha256": "e85ac89559a81f3f7cd61bbddbf35daf621eb9c4942aeceae7969a8c4f4cb5c2",
+  "files": [
+    {
+      "path": "app/learn/fabric-rti/[slug]/page.tsx",
+      "beforeSha256": "b034363b2d4709b7b74dd2ee686e36fe32f37515c688baae3e897081123e59f2",
+      "sha256": "8ae178fd71a692eaf866cccb26265b491e9a48e12eb67b1fe664667adead309b",
+      "bytes": 16285,
+      "rollbackPath": "docs/sql-integration-20261028/before/app/learn/fabric-rti/[slug]/page.tsx.snapshot"
+    },
+    {
+      "path": "app/learn/sql/[module]/page.tsx",
+      "beforeSha256": null,
+      "sha256": "91314abe51c9c8ca13e02e56e9f4a69d60d847842e6781e03aa1b85af27d49fa",
+      "bytes": 774
+    },
+    {
+      "path": "app/learn/sql/page.tsx",
+      "beforeSha256": null,
+      "sha256": "c112ec045214bc94fc82ec69b584096fc18df0057b4a06d7f08bc0ea28514d01",
+      "bytes": 2410
+    },
+    {
+      "path": "app/learn/sql/reference/[id]/page.tsx",
+      "beforeSha256": null,
+      "sha256": "743cdbf0648029f898e5a357dea6d4227fd4fc647c0842eb161ed567a755c03c",
+      "bytes": 700
+    },
+    {
+      "path": "app/practice/sql/page.tsx",
+      "beforeSha256": null,
+      "sha256": "0232557a0ae92f5fcb8e60b4c882708cb4a310ae333996b0869e8f3c5b9c8c47",
+      "bytes": 2149
+    },
+    {
+      "path": "app/sitemap.ts",
+      "beforeSha256": "92289aaca63821e8424d75f45b5c48f01abea8ea27dc0c323941b98b43bbd8bf",
+      "sha256": "1fb2a75936dd778a45948aadf92fb526fead0f4bb3730371a77438eb7b42c6ac",
+      "bytes": 4458,
+      "rollbackPath": "docs/sql-integration-20261028/before/app/sitemap.ts.snapshot"
+    },
+    {
+      "path": "components/sql/grain-lens.tsx",
+      "beforeSha256": null,
+      "sha256": "4200d08372d9176e3dd45608dc8f175528ac87de12cf8bf3455ef6a78487fbe2",
+      "bytes": 2220
+    },
+    {
+      "path": "components/sql/lesson.tsx",
+      "beforeSha256": null,
+      "sha256": "8e2e351f672918a1148d5bf1d7bc40cf8f75dfff4094b6335cff4dc14e81d243",
+      "bytes": 3263
+    },
+    {
+      "path": "components/sql/source.tsx",
+      "beforeSha256": null,
+      "sha256": "e6dc5f62d3ec5a74bd6ee07d5ea8c19e114fa6a47a16e48b558248513df0899f",
+      "bytes": 4769
+    },
+    {
+      "path": "components/sql/sql.css",
+      "beforeSha256": null,
+      "sha256": "c3bec18228b080c42a7bc3fcf5c2216c571c9860dcaaa21b3efd673dfa50f5b3",
+      "bytes": 5493
+    },
+    {
+      "path": "components/study/orientation.tsx",
+      "beforeSha256": "6bb67878752298ae42ff0591b11c16b73ccc5b0993f41b8810167ccd79ba073d",
+      "sha256": "dabdf612a0a3d2b53263a9b2b39dadcbe8d3fa52c6d03a62b0577ee03f01028b",
+      "bytes": 2348,
+      "rollbackPath": "docs/sql-integration-20261028/before/components/study/orientation.tsx.snapshot"
+    },
+    {
+      "path": "content/sql/index.json",
+      "beforeSha256": null,
+      "sha256": "5f1b24248c47fdf41493e4a523471c89fbb4ae2f93aa7c9ff5717ae30e291082",
+      "bytes": 36920
+    },
+    {
+      "path": "content/sql/vault.json",
+      "beforeSha256": null,
+      "sha256": "f87aabb6eebf8e5807dd5d5e69e77110faa4fcd6121eab129f4a1c879572ddb6",
+      "bytes": 998389
+    },
+    {
+      "path": "docs/sql-integration-20261028/BASELINE.json",
+      "beforeSha256": null,
+      "sha256": "d7c7e3016d9b1976570cb265b39db7b6d1c67265d15b114e04c3f828088da5d1",
+      "bytes": 7597
+    },
+    {
+      "path": "docs/sql-integration-20261028/CONTENT_BRIEF.yaml",
+      "beforeSha256": null,
+      "sha256": "9031edc961f02d43a5dda681f49a10eef9c0048523a975e70b9ddfd6e439c280",
+      "bytes": 4002
+    },
+    {
+      "path": "docs/sql-integration-20261028/SOURCE_AUDIT.md",
+      "beforeSha256": null,
+      "sha256": "65a164269a3c1a65599fa7034c2dbd17e77503a49b068a6643a4f3a3123ac0bd",
+      "bytes": 5182
+    },
+    {
+      "path": "docs/sql-integration-20261028/SOURCE_COVERAGE.json",
+      "beforeSha256": null,
+      "sha256": "9c9516ffd0643da0d49d4a74ea4abf012c4fdd6efb6b45fb30dca07e17c4b62d",
+      "bytes": 96494
+    },
+    {
+      "path": "docs/sql-integration-20261028/VISUAL_DECISIONS.md",
+      "beforeSha256": null,
+      "sha256": "afca54c88fd9112b510cc174e7bc2e39380fa018e4ddfd8307752d54df4e19d0",
+      "bytes": 3259
+    },
+    {
+      "path": "docs/sql-integration-20261028/build-final.log",
+      "beforeSha256": null,
+      "sha256": "8e53684bfb69f433ba5137284934dcbf734bd71bcc36761779c7da5e69e5c8cc",
+      "bytes": 4359
+    },
+    {
+      "path": "docs/sql-integration-20261028/build-native.log",
+      "beforeSha256": null,
+      "sha256": "2877d264f53e017609b4155b74ccede77480a80f90f66a80cf805ac8f5b811bc",
+      "bytes": 4359
+    },
+    {
+      "path": "docs/sql-integration-20261028/build-production.log",
+      "beforeSha256": null,
+      "sha256": "78f02aa94ee92edb7726462ce8ce99447983e1ddc590047584409dcba8b751f2",
+      "bytes": 4331
+    },
+    {
+      "path": "docs/sql-integration-20261028/build-turbopack-final.log",
+      "beforeSha256": null,
+      "sha256": "384dd18a3f785ac5d7fc898a3ea9739874b7930a1d3ac028f5aaebad86f895a3",
+      "bytes": 4329
+    },
+    {
+      "path": "docs/sql-integration-20261028/build-turbopack.log",
+      "beforeSha256": null,
+      "sha256": "b347c61c67d2053ece6dbef2a54d1131be6a0f513db923a868a98599eb8a0289",
+      "bytes": 266
+    },
+    {
+      "path": "docs/sql-integration-20261028/build-verified.log",
+      "beforeSha256": null,
+      "sha256": "6bc19d8453a70777868540837830cbbae9f425793848f92def252b044b498387",
+      "bytes": 4358
+    },
+    {
+      "path": "docs/sql-integration-20261028/build.log",
+      "beforeSha256": null,
+      "sha256": "7429fabb0b5f4c3d00b9c7d031e906708630449d557d3c5fc4fb3a782e5049a3",
+      "bytes": 1060
+    },
+    {
+      "path": "docs/sql-integration-20261028/content-tests.log",
+      "beforeSha256": null,
+      "sha256": "4c8d5a857925fa76d1374ae82c237414484f2fb94b9a8cbb419d07aa2aa2028f",
+      "bytes": 9564
+    },
+    {
+      "path": "docs/sql-integration-20261028/lint.log",
+      "beforeSha256": null,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "docs/sql-integration-20261028/qa.log",
+      "beforeSha256": null,
+      "sha256": "c339e74cca33c38d01453c444f61f344cf6144715fb2241d4ab71dab856c7c0f",
+      "bytes": 221727
+    },
+    {
+      "path": "docs/sql-integration-20261028/qa/1280-dark--learn-sql-.png",
+      "beforeSha256": null,
+      "sha256": "4f2535e989f06b70782cacada284d0ae45df8a8d39dee37e170241eb51b9c5a8",
+      "bytes": 91188
+    },
+    {
+      "path": "docs/sql-integration-20261028/qa/1280-dark--learn-sql-05-.png",
+      "beforeSha256": null,
+      "sha256": "f2fbe918b620b9f5f7bae8799d667cc045090683fadaf65fda56e5748e768c94",
+      "bytes": 71586
+    },
+    {
+      "path": "docs/sql-integration-20261028/qa/1280-dark--learn-sql-10-.png",
+      "beforeSha256": null,
+      "sha256": "86f5da9efa8fad022b945df4e4e28c64544458c88e13aa5d09ea96ba362b950b",
+      "bytes": 66168
+    },
+    {
+      "path": "docs/sql-integration-20261028/qa/1280-dark--practice-sql-.png",
+      "beforeSha256": null,
+      "sha256": "e42361a904d324bd4d3e9903f68a030bf9c582ddd3ca9f26bda5c7e39424ac6d",
+      "bytes": 60597
+    },
+    {
+      "path": "docs/sql-integration-20261028/qa/1280-dark--study-sql-windows-.png",
+      "beforeSha256": null,
+      "sha256": "e2323739fc1deac23a6a0c30282d9a715c0fff5917d57b93207611448c90f321",
+      "bytes": 46822
+    },
+    {
+      "path": "docs/sql-integration-20261028/qa/1280-light--learn-sql-.png",
+      "beforeSha256": null,
+      "sha256": "0d333696a0f9543a281229b9beaca9f416f3b9bb14957d154b697a77935752eb",
+      "bytes": 90228
+    },
+    {
+      "path": "docs/sql-integration-20261028/qa/1280-light--learn-sql-05-.png",
+      "beforeSha256": null,
+      "sha256": "f90503387b66b370582e048debc5705aab6b3c269e3dcb80146495948479af4e",
+      "bytes": 92621
+    },
+    {
+      "path": "docs/sql-integration-20261028/qa/1280-light--learn-sql-09-.png",
+      "beforeSha256": null,
+      "sha256": "fada64905bf29fce94fd2fdc41797b1d34eb73d94cf9e6691dc996a6a668051b",
+      "bytes": 90984
+    },
+    {
+      "path": "docs/sql-integration-20261028/qa/1280-light--learn-sql-10-.png",
+      "beforeSha256": null,
+      "sha256": "e76bde52565b958f3fd573f29192c34cf1c1d2bfd4b42b1433ce8e60513b8bdf",
+      "bytes": 92372
+    },
+    {
+      "path": "docs/sql-integration-20261028/qa/1280-light--practice-sql-.png",
+      "beforeSha256": null,
+      "sha256": "8deb646e3c7fa6531df2a0e7e8645728150014167767e080e9accc3551ba21af",
+      "bytes": 85513
+    },
+    {
+      "path": "docs/sql-integration-20261028/qa/1280-light--study-sql-windows-.png",
+      "beforeSha256": null,
+      "sha256": "443dcd671d1bc87b3b88aa432878f1d85a5a02b2984674893da645ac86841578",
+      "bytes": 74286
+    },
+    {
+      "path": "docs/sql-integration-20261028/qa/390-dark--learn-sql-.png",
+      "beforeSha256": null,
+      "sha256": "247f53b6ebf880578e3ba0ffa255590bcbd9bc8d6ac008727d0226522eed03e0",
+      "bytes": 64846
+    },
+    {
+      "path": "docs/sql-integration-20261028/qa/390-dark--learn-sql-05-.png",
+      "beforeSha256": null,
+      "sha256": "12ece0200defdd191edf8115b7b2b722e9c401f53e03dacf02322b15beaa0e9b",
+      "bytes": 62984
+    },
+    {
+      "path": "docs/sql-integration-20261028/qa/390-dark--learn-sql-09-.png",
+      "beforeSha256": null,
+      "sha256": "ef8c0868f50a590228bf9f7b47a98fd7cea63f76a7ef9e3c11a01e8e82329833",
+      "bytes": 69137
+    },
+    {
+      "path": "docs/sql-integration-20261028/qa/390-dark--learn-sql-10-.png",
+      "beforeSha256": null,
+      "sha256": "0df4ec946fbbeb06b8b8e0e3799f0763a794e8b724e854605e06a1456d2d76eb",
+      "bytes": 74599
+    },
+    {
+      "path": "docs/sql-integration-20261028/qa/390-dark--practice-sql-.png",
+      "beforeSha256": null,
+      "sha256": "13d2bba111901bfbe9d4b11b42ac691ec5ce2b10b7155baa4aabd46c0d357bd1",
+      "bytes": 69765
+    },
+    {
+      "path": "docs/sql-integration-20261028/qa/390-dark--study-sql-windows-.png",
+      "beforeSha256": null,
+      "sha256": "3a3eccd067871cc628051118575e68c9e0e403dde13e8456dd6eade21ac66eeb",
+      "bytes": 48415
+    },
+    {
+      "path": "docs/sql-integration-20261028/qa/390-light--learn-sql-.png",
+      "beforeSha256": null,
+      "sha256": "fbaa089a1cde5c07a8dc9462271fc816b4b7469440abaf64f32fae6a7fb7d2d8",
+      "bytes": 63270
+    },
+    {
+      "path": "docs/sql-integration-20261028/qa/390-light--learn-sql-05-.png",
+      "beforeSha256": null,
+      "sha256": "bdd1fd62a7617fc6a0c65b8b8a4062e46e9a5a6fb1352b1ffef213480eaa3351",
+      "bytes": 61935
+    },
+    {
+      "path": "docs/sql-integration-20261028/qa/390-light--learn-sql-09-.png",
+      "beforeSha256": null,
+      "sha256": "42a58751d3fe1c213186b4148dda560376160b0ab011784893e8e6dd177db992",
+      "bytes": 68064
+    },
+    {
+      "path": "docs/sql-integration-20261028/qa/390-light--learn-sql-10-.png",
+      "beforeSha256": null,
+      "sha256": "aacc86dcc17edd208d4b3cae52d50dec93fd4a088f0961e25a9419b526e6159b",
+      "bytes": 73072
+    },
+    {
+      "path": "docs/sql-integration-20261028/qa/390-light--practice-sql-.png",
+      "beforeSha256": null,
+      "sha256": "9b76eb874967d214b4d41746ae3204ed5a555f2448f9571249d5202b20949335",
+      "bytes": 67959
+    },
+    {
+      "path": "docs/sql-integration-20261028/qa/390-light--study-sql-windows-.png",
+      "beforeSha256": null,
+      "sha256": "1b1776bb4c3a95c819d193726517669b1310a1abb9049d51cc5bb1c37d1253e5",
+      "bytes": 48091
+    },
+    {
+      "path": "docs/sql-integration-20261028/qa/results.json",
+      "beforeSha256": null,
+      "sha256": "66fd34705d29e84dbba20cd4418029fd3e0492eed75cdf5431bb0c1765e26be0",
+      "bytes": 246751
+    },
+    {
+      "path": "docs/sql-integration-20261028/regression-tests.log",
+      "beforeSha256": null,
+      "sha256": "a94e531a4e0984a3a87072cb992556ab8f7baf78dc1ad9ec6f0d1386b5000705",
+      "bytes": 21985
+    },
+    {
+      "path": "docs/sql-integration-20261028/typecheck.log",
+      "beforeSha256": null,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "intake/sql-notion-2026-10-28/Hansa_SQL_Archive_Administration.json",
+      "beforeSha256": null,
+      "sha256": "da12171348028e2808e53b987a4451b6bb4d28bad1fa1f27a50fb334093ee83f",
+      "bytes": 20392
+    },
+    {
+      "path": "intake/sql-notion-2026-10-28/Hansa_SQL_Archive_Duplicate_Pages.json",
+      "beforeSha256": null,
+      "sha256": "ac742d2440408214272a60c23cf64c7d7b6fda921b61c8bd1dad1d2780ca381c",
+      "bytes": 17696
+    },
+    {
+      "path": "intake/sql-notion-2026-10-28/Hansa_SQL_Canonical_00_08.json",
+      "beforeSha256": null,
+      "sha256": "52f814824953418bda274826e522ef7e8f591f6ee1c45cbda6825cba14b5ec5a",
+      "bytes": 62593
+    },
+    {
+      "path": "intake/sql-notion-2026-10-28/Hansa_SQL_Canonical_09_17.json",
+      "beforeSha256": null,
+      "sha256": "c72ad0092ffcf01d4f671193633276170bb8b69bfb16f2830693fa7006192feb",
+      "bytes": 70618
+    },
+    {
+      "path": "intake/sql-notion-2026-10-28/Hansa_SQL_Deep_Companion_References.json",
+      "beforeSha256": null,
+      "sha256": "3818bda99d1da3322d53dfa3d9891d916503db19ed316dde6ad153019cfda524",
+      "bytes": 104212
+    },
+    {
+      "path": "intake/sql-notion-2026-10-28/Hansa_SQL_Interview_Toolkit_References.json",
+      "beforeSha256": null,
+      "sha256": "e26669eb0fae3fa5af4b8dc3f9f045e950adbd0e5a098b469f1a76f65233e772",
+      "bytes": 71914
+    },
+    {
+      "path": "intake/sql-notion-2026-10-28/Hansa_SQL_PostgreSQL_9_References.json",
+      "beforeSha256": null,
+      "sha256": "46bedb5d90e768b28c75fdaa5a7344c73545a0ad88aff0a84a2dbb5f0d3a6ca8",
+      "bytes": 44177
+    },
+    {
+      "path": "intake/sql-notion-2026-10-28/Hansa_SQL_Root_Navigation_and_Crosswalk.json",
+      "beforeSha256": null,
+      "sha256": "cb9fd9c55e2133974e4e633bda5cfb4a3e13b036418defe4b2b98c50a135ce9e",
+      "bytes": 40881
+    },
+    {
+      "path": "intake/sql-notion-2026-10-28/Hansa_SQL_Window_Functions_8_Chapters.json",
+      "beforeSha256": null,
+      "sha256": "509e05d5583e58cd67abba3974df6b583313a8a3a4fbdf9f0a96732a5d7b251f",
+      "bytes": 48516
+    },
+    {
+      "path": "intake/sql-notion-2026-10-28/assets.json",
+      "beforeSha256": null,
+      "sha256": "99766683812090c2552973588994d330e5ba303945e7144909be8b8d6c22057d",
+      "bytes": 956
+    },
+    {
+      "path": "intake/sql-notion-2026-10-28/hansa_sql_canonical_00_17_part_1.json",
+      "beforeSha256": null,
+      "sha256": "600356450be4dcafa0d557879af8fe5dfbde1859ab1ae58e236ec51f0ef85dc7",
+      "bytes": 63102
+    },
+    {
+      "path": "lib/sql/grain.ts",
+      "beforeSha256": null,
+      "sha256": "8f6f2804fb1b6e4993826aafe7342fdabd05fa900e950006113bcda458d61bbf",
+      "bytes": 792
+    },
+    {
+      "path": "lib/sql/registry.ts",
+      "beforeSha256": null,
+      "sha256": "4efa0f7c975b5647889e9dae2aebc82fa1432298ef78552a5854ed2869588a3f",
+      "bytes": 3474
+    },
+    {
+      "path": "lib/sql/source.ts",
+      "beforeSha256": null,
+      "sha256": "4cbe3004f66fbdf5cecb1eb3b0095dad0544d153fda9258984d5b5eea68ed4b2",
+      "bytes": 2331
+    },
+    {
+      "path": "lib/study/learning-path.ts",
+      "beforeSha256": "1be8c8d9e74d677324dadfb2a1e378646fc8083626539fec05a62ef1569fb10f",
+      "sha256": "b035680ec211f69fc9a67247ed69ef7a7d17a857a18adfb17b3352377f71a238",
+      "bytes": 13477,
+      "rollbackPath": "docs/sql-integration-20261028/before/lib/study/learning-path.ts.snapshot"
+    },
+    {
+      "path": "lib/study/server.ts",
+      "beforeSha256": "8ed2878c07c286cf06dd0b0db541e710d260ba59c7bf94c40041eee802561c1b",
+      "sha256": "e4b9cb6c1ad44073bfd3258d055763b7cc63ac3d3c1f3a17401b17a826f36b08",
+      "bytes": 6201,
+      "rollbackPath": "docs/sql-integration-20261028/before/lib/study/server.ts.snapshot"
+    },
+    {
+      "path": "lib/study/source-documents.ts",
+      "beforeSha256": "241caf870375b0e2d8f29f4439d7eeaeef100246eae6cc7e2d86e64d144a93c8",
+      "sha256": "654b095a5dceb73805d08828d666af6e62074653db4b27b31d76cc0f0bd96306",
+      "bytes": 11890,
+      "rollbackPath": "docs/sql-integration-20261028/before/lib/study/source-documents.ts.snapshot"
+    },
+    {
+      "path": "lib/study/taxonomy.ts",
+      "beforeSha256": "74fb715f0dce81b692461ca86aa6e338b36aa110f82f2e46de9a9fe11bb2f129",
+      "sha256": "2cb5208d9e45d21ef40db7c0f11208c388672f7e6f6b7ab05c81b96a1b4d587c",
+      "bytes": 7112,
+      "rollbackPath": "docs/sql-integration-20261028/before/lib/study/taxonomy.ts.snapshot"
+    },
+    {
+      "path": "lib/study/topic-review.ts",
+      "beforeSha256": "71db68462e6e114c76f826e34d66963e43a21ef6943dda0e3e131c60fdb385e0",
+      "sha256": "c33bac1083ed9a7e1280e3368ad330a63c738d371ecd3ceb39ddcefd826e3195",
+      "bytes": 10677,
+      "rollbackPath": "docs/sql-integration-20261028/before/lib/study/topic-review.ts.snapshot"
+    },
+    {
+      "path": "public/media/sql/sql-logical-query-order.jpg",
+      "beforeSha256": null,
+      "sha256": "3e3677ed1786a58d6aecf0f1a33ac675e5b4d12f62c83b0c49e5cd995520110b",
+      "bytes": 254590
+    },
+    {
+      "path": "public/media/sql/sql-set-operations.jpg",
+      "beforeSha256": null,
+      "sha256": "f25894ec74b0297615c3acbb4129120ce29655f4d26146fe22e01dcdef0520c8",
+      "bytes": 307830
+    },
+    {
+      "path": "public/media/sql/sql-which-tool.jpg",
+      "beforeSha256": null,
+      "sha256": "bb1f4eae52a21eee24ee2d141b3d9bc1456a3186e93008ed09db8132e34452ad",
+      "bytes": 298904
+    },
+    {
+      "path": "public/media/sql/sql-window-frame.jpg",
+      "beforeSha256": null,
+      "sha256": "6a43b844c845295d6005aadc37619716e0868aa68ab48407c541330c0ea8999c",
+      "bytes": 330010
+    },
+    {
+      "path": "scripts/import-sql-vault.mjs",
+      "beforeSha256": null,
+      "sha256": "6d53747d0837f5ccd19ecfae507d07e5f089bb070340547edf3a3b7d0e09a2fb",
+      "bytes": 9652
+    },
+    {
+      "path": "scripts/path-review-receipt.mjs",
+      "beforeSha256": "8f520141a0c47cbb83d488882d39686faed93cf33549e7fdd3575564d450d8a7",
+      "sha256": "b46d4d6a39a930476db9e2e236118969cbc878a272b2662d4d413481483fa8cd",
+      "bytes": 1357,
+      "rollbackPath": "docs/sql-integration-20261028/before/scripts/path-review-receipt.mjs.snapshot"
+    },
+    {
+      "path": "scripts/qa-sql-vault.mjs",
+      "beforeSha256": null,
+      "sha256": "c3b26a1d12ee886046d3da01bf1699ae6c855a26d6ed5baa44ac0c991d8e279b",
+      "bytes": 5764
+    },
+    {
+      "path": "scripts/seal-sql-integration.mjs",
+      "beforeSha256": null,
+      "sha256": "570e1e72aa7ab1ebcf9259647f0b0e5858b8bc8e58da345382202ffbe6921b83",
+      "bytes": 1667
+    },
+    {
+      "path": "scripts/sql-integration-receipt.mjs",
+      "beforeSha256": null,
+      "sha256": "9334967eb60e6cf2a3cee7619e398318fa763e2e044fd67e75ac2d86235ecf04",
+      "bytes": 1231
+    },
+    {
+      "path": "scripts/verify-sql-integration.mjs",
+      "beforeSha256": null,
+      "sha256": "daaeaf38ba1cbbf688aaca9d64cb4f83cd81760038623021a48a24b50d4a178f",
+      "bytes": 1292
+    },
+    {
+      "path": "tests/content/sql-vault.test.mjs",
+      "beforeSha256": null,
+      "sha256": "c49ac0311297c31a466896fd42260ad02d0b8703ccc9c528ba4cc6f25e2a3df6",
+      "bytes": 5783
+    }
+  ],
+  "notice": "Exact additive successor hashes, with immutable starting snapshots. No production deployment."
+}

@@ -1,0 +1,85 @@
+{
+  "intake": "pl300-v88-2026-10-27",
+  "exam": "PL-300",
+  "package": "PL300_V88_CODEX_SOURCE_KEY_RECOVERY_AND_SCOPED_REPAIRS_NONFINAL_2026-10-27.zip",
+  "packageSha256": "1a68a5ab8f489245ad1475036f518f8a8f982580ebd7b100634169919f330ce3",
+  "packageBytes": 5527868,
+  "packagePath": "C:\\Users\\amira\\Documents\\Codex\\2026-10-27\\referenced-chatgpt-conversation-this-is-an-2\\outputs\\PL300_V88_CODEX_SOURCE_KEY_RECOVERY_AND_SCOPED_REPAIRS_NONFINAL_2026-10-27.zip",
+  "receipt": "C:\\Users\\amira\\Documents\\Codex\\2026-10-27\\referenced-chatgpt-conversation-this-is-an-2\\outputs\\PL300_V88_VERIFIED_DELIVERY_RECEIPT.json",
+  "archiveHashVerified": true,
+  "packageFiles": 194,
+  "status": "NONFINAL",
+  "finalReady": false,
+  "questions": 1285,
+  "preservedHistoricalOptionReviews": 5160,
+  "recoveredHistoricalSourceKeys": 1285,
+  "reversibleChangedQuestions": 27,
+  "newOptionReviews": 108,
+  "claimReceiptLinks": 27,
+  "historicalLeakageItemsPreserved": 782,
+  "nativeTestsRun": 0,
+  "humanSmeApprovals": 0,
+  "candidateKeysChanged": 0,
+  "hansaModifiedByPackage": false,
+  "verification": {
+    "portableVerifier": {
+      "command": "python TOOLS/verify_v88.py",
+      "result": "PASS",
+      "status": "PASS_STRUCTURAL_AND_PROVENANCE_ONLY",
+      "matchesReceipt": true
+    },
+    "originalParentVerifier": {
+      "command": "python TOOLS/verify_checkpoint.py (PARENT/PL300_V87_Codex_Archive.zip extracted to a fresh directory)",
+      "result": "PASS",
+      "note": "Pass in Python UTF-8 mode; the script reads UTF-8 JSON with the platform default encoding, which is cp1252 on this Windows locale. The original script was executed unchanged and the parent archive remains byte-identical (sha256 2a175a5cd38be9f94e6ebca7e740f6bc6815ba1888ebfbff7b60442770cf8829)."
+    }
+  },
+  "openGates": [
+    "Whole-bank scientific adjudication: 27 of 1,285 newly reviewed, 1,258 without new review",
+    "Historical key semantics: recovered key labels are not semantic equivalence",
+    "Leakage/distractor finalization: 782-item queue preserved, 21 touched, 761 untouched",
+    "Exact official evidence validation: 133 URLs tested, 14 were 404",
+    "Native product execution: NOT_RUN",
+    "Human SME acceptance: 0 approvals",
+    "Hansa integration/deployment: not authorized by the package; staged as a draft under explicit user instruction only"
+  ],
+  "privateMirror": {
+    "path": "intake-private/pl300-v88/",
+    "committed": false,
+    "gitignored": true,
+    "contains": [
+      "DATA/WORKING_BANK_1285_V88_NONFINAL.json (contains `correct`, per-option `why`, explanations)",
+      "SOURCE_RECOVERY (historical original keys, mappings, source inventory)",
+      "PRESERVED_V87_DATA (byte-identical parent data files)",
+      "QA ledgers, queues, scoped review diffs and gate ledger",
+      "EVIDENCE (URL retrieval register, claim traces, failed attempts)",
+      "HANDOFF, README and the unchanged PARENT archive"
+    ],
+    "note": "No file under intake-private/ is imported by any app code, and the directory is excluded from git, so it is neither committed nor served."
+  },
+  "projection": {
+    "output": "content/drafts/pl300-v88.json",
+    "sha256": "9631037cfa278c216c4940ce81466fc5d07f88dff780e7a76454ce7d58a17cbe",
+    "builder": "scripts/build-draft-banks.mjs",
+    "questions": 1285,
+    "gradingEnabled": false,
+    "answersShipped": false,
+    "stripped": [
+      "correct",
+      "explanation",
+      "options[].why",
+      "historical_original_key",
+      "evidence / claim traces",
+      "review_status and all per-question review logs",
+      "human SME and native-runtime QA fields"
+    ],
+    "relationToExistingBank": "0 id overlap with any existing Hansa bank; staged beside the 80 existing PL-300 study-hub records as a separate draft bank."
+  },
+  "authorization": {
+    "source": "Explicit user instruction of 2026-10-27 to merge both packages as disabled review drafts.",
+    "grading": "not enabled",
+    "approvedContentReplaced": false,
+    "deployed": false,
+    "packageFileAuthorization": "The package documents claim no FINAL_READY, no grading activation and no Hansa modification; only the user instruction authorizes this draft staging."
+  }
+}

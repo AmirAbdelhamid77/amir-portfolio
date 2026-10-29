@@ -1,0 +1,1207 @@
+{
+  "version": "2.0",
+  "license": "MIT",
+  "usage": "Ideation aid, not a mandated component registry",
+  "patterns": [
+    {
+      "id": "P01",
+      "name": "Living Constellation",
+      "family": "spatial-navigation",
+      "spatial_mode": "3d-possible",
+      "intended_value": "focus-preserving concept constellation with semantic links.",
+      "required_checks": [
+        "semantic truth",
+        "keyboard alternative",
+        "touch alternative",
+        "reduced motion",
+        "real-device performance"
+      ],
+      "implementation_note": "Select renderer after repo audit; no default dependency install."
+    },
+    {
+      "id": "P02",
+      "name": "Knowledge Atrium",
+      "family": "spatial-navigation",
+      "spatial_mode": "3d-possible",
+      "intended_value": "walkable 3D gallery with semantic rooms and DOM index.",
+      "required_checks": [
+        "semantic truth",
+        "keyboard alternative",
+        "touch alternative",
+        "reduced motion",
+        "real-device performance"
+      ],
+      "implementation_note": "Select renderer after repo audit; no default dependency install."
+    },
+    {
+      "id": "P03",
+      "name": "Orbital Library",
+      "family": "spatial-navigation",
+      "spatial_mode": "3d-possible",
+      "intended_value": "concentric rings by genuine category (not invented importance).",
+      "required_checks": [
+        "semantic truth",
+        "keyboard alternative",
+        "touch alternative",
+        "reduced motion",
+        "real-device performance"
+      ],
+      "implementation_note": "Select renderer after repo audit; no default dependency install."
+    },
+    {
+      "id": "P04",
+      "name": "Exploded Navigation Shell",
+      "family": "spatial-navigation",
+      "spatial_mode": "3d-possible",
+      "intended_value": "sections detach around central concept.",
+      "required_checks": [
+        "semantic truth",
+        "keyboard alternative",
+        "touch alternative",
+        "reduced motion",
+        "real-device performance"
+      ],
+      "implementation_note": "Select renderer after repo audit; no default dependency install."
+    },
+    {
+      "id": "P05",
+      "name": "Relational Terrarium",
+      "family": "spatial-navigation",
+      "spatial_mode": "3d-possible",
+      "intended_value": "organic clusters grounded in graph edges.",
+      "required_checks": [
+        "semantic truth",
+        "keyboard alternative",
+        "touch alternative",
+        "reduced motion",
+        "real-device performance"
+      ],
+      "implementation_note": "Select renderer after repo audit; no default dependency install."
+    },
+    {
+      "id": "P06",
+      "name": "Layered Index Wall",
+      "family": "spatial-navigation",
+      "spatial_mode": "3d-possible",
+      "intended_value": "2.5D wall of content facets and searchable headings.",
+      "required_checks": [
+        "semantic truth",
+        "keyboard alternative",
+        "touch alternative",
+        "reduced motion",
+        "real-device performance"
+      ],
+      "implementation_note": "Select renderer after repo audit; no default dependency install."
+    },
+    {
+      "id": "P07",
+      "name": "Deep Focus Stage",
+      "family": "spatial-navigation",
+      "spatial_mode": "3d-possible",
+      "intended_value": "selected entity grows into central stage, nearby links retained.",
+      "required_checks": [
+        "semantic truth",
+        "keyboard alternative",
+        "touch alternative",
+        "reduced motion",
+        "real-device performance"
+      ],
+      "implementation_note": "Select renderer after repo audit; no default dependency install."
+    },
+    {
+      "id": "P08",
+      "name": "Contextual Portal",
+      "family": "spatial-navigation",
+      "spatial_mode": "3d-possible",
+      "intended_value": "node click opens related environment with continuity cues.",
+      "required_checks": [
+        "semantic truth",
+        "keyboard alternative",
+        "touch alternative",
+        "reduced motion",
+        "real-device performance"
+      ],
+      "implementation_note": "Select renderer after repo audit; no default dependency install."
+    },
+    {
+      "id": "P09",
+      "name": "Spatial Search Lens",
+      "family": "spatial-navigation",
+      "spatial_mode": "3d-possible",
+      "intended_value": "filter result highlights while camera reorients.",
+      "required_checks": [
+        "semantic truth",
+        "keyboard alternative",
+        "touch alternative",
+        "reduced motion",
+        "real-device performance"
+      ],
+      "implementation_note": "Select renderer after repo audit; no default dependency install."
+    },
+    {
+      "id": "P10",
+      "name": "Knowledge Topology Map",
+      "family": "spatial-navigation",
+      "spatial_mode": "3d-possible",
+      "intended_value": "graph local neighborhoods + list/minimap.",
+      "required_checks": [
+        "semantic truth",
+        "keyboard alternative",
+        "touch alternative",
+        "reduced motion",
+        "real-device performance"
+      ],
+      "implementation_note": "Select renderer after repo audit; no default dependency install."
+    },
+    {
+      "id": "P11",
+      "name": "Assembly / Disassembly",
+      "family": "learning-mechanics",
+      "spatial_mode": "3d-possible",
+      "intended_value": "mechanisms separated into educational parts.",
+      "required_checks": [
+        "semantic truth",
+        "keyboard alternative",
+        "touch alternative",
+        "reduced motion",
+        "real-device performance"
+      ],
+      "implementation_note": "Select renderer after repo audit; no default dependency install."
+    },
+    {
+      "id": "P12",
+      "name": "Process Conveyor",
+      "family": "learning-mechanics",
+      "spatial_mode": "3d-possible",
+      "intended_value": "state flows through ordered verified stages.",
+      "required_checks": [
+        "semantic truth",
+        "keyboard alternative",
+        "touch alternative",
+        "reduced motion",
+        "real-device performance"
+      ],
+      "implementation_note": "Select renderer after repo audit; no default dependency install."
+    },
+    {
+      "id": "P13",
+      "name": "Dependency Loom",
+      "family": "learning-mechanics",
+      "spatial_mode": "3d-possible",
+      "intended_value": "threads reveal actual prerequisites.",
+      "required_checks": [
+        "semantic truth",
+        "keyboard alternative",
+        "touch alternative",
+        "reduced motion",
+        "real-device performance"
+      ],
+      "implementation_note": "Select renderer after repo audit; no default dependency install."
+    },
+    {
+      "id": "P14",
+      "name": "Layered Storage Cross-Section",
+      "family": "learning-mechanics",
+      "spatial_mode": "3d-possible",
+      "intended_value": "cutaway of conceptual architecture.",
+      "required_checks": [
+        "semantic truth",
+        "keyboard alternative",
+        "touch alternative",
+        "reduced motion",
+        "real-device performance"
+      ],
+      "implementation_note": "Select renderer after repo audit; no default dependency install."
+    },
+    {
+      "id": "P15",
+      "name": "Execution Microscope",
+      "family": "learning-mechanics",
+      "spatial_mode": "3d-possible",
+      "intended_value": "step-through rows or objects in code execution.",
+      "required_checks": [
+        "semantic truth",
+        "keyboard alternative",
+        "touch alternative",
+        "reduced motion",
+        "real-device performance"
+      ],
+      "implementation_note": "Select renderer after repo audit; no default dependency install."
+    },
+    {
+      "id": "P16",
+      "name": "Decision Fork Theater",
+      "family": "learning-mechanics",
+      "spatial_mode": "3d-possible",
+      "intended_value": "two pathways split from a grounded tradeoff.",
+      "required_checks": [
+        "semantic truth",
+        "keyboard alternative",
+        "touch alternative",
+        "reduced motion",
+        "real-device performance"
+      ],
+      "implementation_note": "Select renderer after repo audit; no default dependency install."
+    },
+    {
+      "id": "P17",
+      "name": "Causal Domino Walk",
+      "family": "learning-mechanics",
+      "spatial_mode": "3d-possible",
+      "intended_value": "sequence of documented downstream effects.",
+      "required_checks": [
+        "semantic truth",
+        "keyboard alternative",
+        "touch alternative",
+        "reduced motion",
+        "real-device performance"
+      ],
+      "implementation_note": "Select renderer after repo audit; no default dependency install."
+    },
+    {
+      "id": "P18",
+      "name": "Time-Travel Archive",
+      "family": "learning-mechanics",
+      "spatial_mode": "3d-possible",
+      "intended_value": "navigate valid temporal versions with explicit dates.",
+      "required_checks": [
+        "semantic truth",
+        "keyboard alternative",
+        "touch alternative",
+        "reduced motion",
+        "real-device performance"
+      ],
+      "implementation_note": "Select renderer after repo audit; no default dependency install."
+    },
+    {
+      "id": "P19",
+      "name": "Interactive System Blueprint",
+      "family": "learning-mechanics",
+      "spatial_mode": "3d-possible",
+      "intended_value": "layered architecture with hotspots.",
+      "required_checks": [
+        "semantic truth",
+        "keyboard alternative",
+        "touch alternative",
+        "reduced motion",
+        "real-device performance"
+      ],
+      "implementation_note": "Select renderer after repo audit; no default dependency install."
+    },
+    {
+      "id": "P20",
+      "name": "Proof-by-Transformation",
+      "family": "learning-mechanics",
+      "spatial_mode": "3d-possible",
+      "intended_value": "morph equivalent intermediate representations.",
+      "required_checks": [
+        "semantic truth",
+        "keyboard alternative",
+        "touch alternative",
+        "reduced motion",
+        "real-device performance"
+      ],
+      "implementation_note": "Select renderer after repo audit; no default dependency install."
+    },
+    {
+      "id": "P21",
+      "name": "Distribution Terrain",
+      "family": "analytical-storytelling",
+      "spatial_mode": "choose-by-data",
+      "intended_value": "qualitative framing only; 2D axes always available.",
+      "required_checks": [
+        "semantic truth",
+        "keyboard alternative",
+        "touch alternative",
+        "reduced motion",
+        "real-device performance"
+      ],
+      "implementation_note": "Select renderer after repo audit; no default dependency install."
+    },
+    {
+      "id": "P22",
+      "name": "Sliceable Metric Object",
+      "family": "analytical-storytelling",
+      "spatial_mode": "choose-by-data",
+      "intended_value": "3D object with cross-section and accessible table.",
+      "required_checks": [
+        "semantic truth",
+        "keyboard alternative",
+        "touch alternative",
+        "reduced motion",
+        "real-device performance"
+      ],
+      "implementation_note": "Select renderer after repo audit; no default dependency install."
+    },
+    {
+      "id": "P23",
+      "name": "Time Ribbon Observatory",
+      "family": "analytical-storytelling",
+      "spatial_mode": "choose-by-data",
+      "intended_value": "inspect trends via scrub and aligned 2D graph.",
+      "required_checks": [
+        "semantic truth",
+        "keyboard alternative",
+        "touch alternative",
+        "reduced motion",
+        "real-device performance"
+      ],
+      "implementation_note": "Select renderer after repo audit; no default dependency install."
+    },
+    {
+      "id": "P24",
+      "name": "Scenario Chamber",
+      "family": "analytical-storytelling",
+      "spatial_mode": "choose-by-data",
+      "intended_value": "compare user-selected parameter settings, not fake values.",
+      "required_checks": [
+        "semantic truth",
+        "keyboard alternative",
+        "touch alternative",
+        "reduced motion",
+        "real-device performance"
+      ],
+      "implementation_note": "Select renderer after repo audit; no default dependency install."
+    },
+    {
+      "id": "P25",
+      "name": "Data Provenance Thread",
+      "family": "analytical-storytelling",
+      "spatial_mode": "choose-by-data",
+      "intended_value": "follow measure calculation/lineage.",
+      "required_checks": [
+        "semantic truth",
+        "keyboard alternative",
+        "touch alternative",
+        "reduced motion",
+        "real-device performance"
+      ],
+      "implementation_note": "Select renderer after repo audit; no default dependency install."
+    },
+    {
+      "id": "P26",
+      "name": "Coordinated Viewport Ensemble",
+      "family": "analytical-storytelling",
+      "spatial_mode": "choose-by-data",
+      "intended_value": "2D exact charts plus 3D contextual stage.",
+      "required_checks": [
+        "semantic truth",
+        "keyboard alternative",
+        "touch alternative",
+        "reduced motion",
+        "real-device performance"
+      ],
+      "implementation_note": "Select renderer after repo audit; no default dependency install."
+    },
+    {
+      "id": "P27",
+      "name": "Variance Spotlight",
+      "family": "analytical-storytelling",
+      "spatial_mode": "choose-by-data",
+      "intended_value": "direct comparable scales before visual drama.",
+      "required_checks": [
+        "semantic truth",
+        "keyboard alternative",
+        "touch alternative",
+        "reduced motion",
+        "real-device performance"
+      ],
+      "implementation_note": "Select renderer after repo audit; no default dependency install."
+    },
+    {
+      "id": "P28",
+      "name": "Density Observatory",
+      "family": "analytical-storytelling",
+      "spatial_mode": "choose-by-data",
+      "intended_value": "3D spatial distribution only when coordinates genuinely spatial.",
+      "required_checks": [
+        "semantic truth",
+        "keyboard alternative",
+        "touch alternative",
+        "reduced motion",
+        "real-device performance"
+      ],
+      "implementation_note": "Select renderer after repo audit; no default dependency install."
+    },
+    {
+      "id": "P29",
+      "name": "Filter Morph Studio",
+      "family": "analytical-storytelling",
+      "spatial_mode": "choose-by-data",
+      "intended_value": "selections continuously update grounded charts.",
+      "required_checks": [
+        "semantic truth",
+        "keyboard alternative",
+        "touch alternative",
+        "reduced motion",
+        "real-device performance"
+      ],
+      "implementation_note": "Select renderer after repo audit; no default dependency install."
+    },
+    {
+      "id": "P30",
+      "name": "Outlier Telescope",
+      "family": "analytical-storytelling",
+      "spatial_mode": "choose-by-data",
+      "intended_value": "stage a specific extreme while keeping underlying distribution visible.",
+      "required_checks": [
+        "semantic truth",
+        "keyboard alternative",
+        "touch alternative",
+        "reduced motion",
+        "real-device performance"
+      ],
+      "implementation_note": "Select renderer after repo audit; no default dependency install."
+    },
+    {
+      "id": "P31",
+      "name": "Kinetic Type Architecture",
+      "family": "editorial-home",
+      "spatial_mode": "choose-by-data",
+      "intended_value": "text forms composed spatial scene.",
+      "required_checks": [
+        "semantic truth",
+        "keyboard alternative",
+        "touch alternative",
+        "reduced motion",
+        "real-device performance"
+      ],
+      "implementation_note": "Select renderer after repo audit; no default dependency install."
+    },
+    {
+      "id": "P32",
+      "name": "Chapter Portal Sequence",
+      "family": "editorial-home",
+      "spatial_mode": "choose-by-data",
+      "intended_value": "cinematic transitions between content themes.",
+      "required_checks": [
+        "semantic truth",
+        "keyboard alternative",
+        "touch alternative",
+        "reduced motion",
+        "real-device performance"
+      ],
+      "implementation_note": "Select renderer after repo audit; no default dependency install."
+    },
+    {
+      "id": "P33",
+      "name": "Editorial Gravity Field",
+      "family": "editorial-home",
+      "spatial_mode": "choose-by-data",
+      "intended_value": "headlines cluster by topical relationship.",
+      "required_checks": [
+        "semantic truth",
+        "keyboard alternative",
+        "touch alternative",
+        "reduced motion",
+        "real-device performance"
+      ],
+      "implementation_note": "Select renderer after repo audit; no default dependency install."
+    },
+    {
+      "id": "P34",
+      "name": "Knowledge Reveal Stage",
+      "family": "editorial-home",
+      "spatial_mode": "choose-by-data",
+      "intended_value": "insight emerges then relations materialize.",
+      "required_checks": [
+        "semantic truth",
+        "keyboard alternative",
+        "touch alternative",
+        "reduced motion",
+        "real-device performance"
+      ],
+      "implementation_note": "Select renderer after repo audit; no default dependency install."
+    },
+    {
+      "id": "P35",
+      "name": "Time-Sculpture Timeline",
+      "family": "editorial-home",
+      "spatial_mode": "choose-by-data",
+      "intended_value": "temporal milestones as authored 3D installation.",
+      "required_checks": [
+        "semantic truth",
+        "keyboard alternative",
+        "touch alternative",
+        "reduced motion",
+        "real-device performance"
+      ],
+      "implementation_note": "Select renderer after repo audit; no default dependency install."
+    },
+    {
+      "id": "P36",
+      "name": "Project Diorama",
+      "family": "editorial-home",
+      "spatial_mode": "choose-by-data",
+      "intended_value": "miniature portfolio case study with linked facts.",
+      "required_checks": [
+        "semantic truth",
+        "keyboard alternative",
+        "touch alternative",
+        "reduced motion",
+        "real-device performance"
+      ],
+      "implementation_note": "Select renderer after repo audit; no default dependency install."
+    },
+    {
+      "id": "P37",
+      "name": "Case Study Filmstrip",
+      "family": "editorial-home",
+      "spatial_mode": "choose-by-data",
+      "intended_value": "chronological frames with user scrub.",
+      "required_checks": [
+        "semantic truth",
+        "keyboard alternative",
+        "touch alternative",
+        "reduced motion",
+        "real-device performance"
+      ],
+      "implementation_note": "Select renderer after repo audit; no default dependency install."
+    },
+    {
+      "id": "P38",
+      "name": "Interactive Thesis Board",
+      "family": "editorial-home",
+      "spatial_mode": "choose-by-data",
+      "intended_value": "arguments/evidence arranged as pinboard, not unsourced claims.",
+      "required_checks": [
+        "semantic truth",
+        "keyboard alternative",
+        "touch alternative",
+        "reduced motion",
+        "real-device performance"
+      ],
+      "implementation_note": "Select renderer after repo audit; no default dependency install."
+    },
+    {
+      "id": "P39",
+      "name": "Multi-Plane Hero",
+      "family": "editorial-home",
+      "spatial_mode": "choose-by-data",
+      "intended_value": "2.5D editorial layers with contextual depth.",
+      "required_checks": [
+        "semantic truth",
+        "keyboard alternative",
+        "touch alternative",
+        "reduced motion",
+        "real-device performance"
+      ],
+      "implementation_note": "Select renderer after repo audit; no default dependency install."
+    },
+    {
+      "id": "P40",
+      "name": "Spotlight Exchange",
+      "family": "editorial-home",
+      "spatial_mode": "choose-by-data",
+      "intended_value": "selected item transitions into focused workspace.",
+      "required_checks": [
+        "semantic truth",
+        "keyboard alternative",
+        "touch alternative",
+        "reduced motion",
+        "real-device performance"
+      ],
+      "implementation_note": "Select renderer after repo audit; no default dependency install."
+    },
+    {
+      "id": "P41",
+      "name": "Branching Growth",
+      "family": "organic-procedural",
+      "spatial_mode": "3d-possible",
+      "intended_value": "actual hierarchy/dependency revealed organically.",
+      "required_checks": [
+        "semantic truth",
+        "keyboard alternative",
+        "touch alternative",
+        "reduced motion",
+        "real-device performance"
+      ],
+      "implementation_note": "Select renderer after repo audit; no default dependency install."
+    },
+    {
+      "id": "P42",
+      "name": "Particle Aggregation",
+      "family": "organic-procedural",
+      "spatial_mode": "3d-possible",
+      "intended_value": "points represent real events/entities or labeled synthetic illustration.",
+      "required_checks": [
+        "semantic truth",
+        "keyboard alternative",
+        "touch alternative",
+        "reduced motion",
+        "real-device performance"
+      ],
+      "implementation_note": "Select renderer after repo audit; no default dependency install."
+    },
+    {
+      "id": "P43",
+      "name": "Crystal Formation",
+      "family": "organic-procedural",
+      "spatial_mode": "3d-possible",
+      "intended_value": "data categories assemble; not quantities unless encoded.",
+      "required_checks": [
+        "semantic truth",
+        "keyboard alternative",
+        "touch alternative",
+        "reduced motion",
+        "real-device performance"
+      ],
+      "implementation_note": "Select renderer after repo audit; no default dependency install."
+    },
+    {
+      "id": "P44",
+      "name": "Soft Body Concept Cells",
+      "family": "organic-procedural",
+      "spatial_mode": "3d-possible",
+      "intended_value": "connected topical neighborhoods move responsively.",
+      "required_checks": [
+        "semantic truth",
+        "keyboard alternative",
+        "touch alternative",
+        "reduced motion",
+        "real-device performance"
+      ],
+      "implementation_note": "Select renderer after repo audit; no default dependency install."
+    },
+    {
+      "id": "P45",
+      "name": "Kinetic Wire Sculpture",
+      "family": "organic-procedural",
+      "spatial_mode": "3d-possible",
+      "intended_value": "relationships form stable spatial arcs.",
+      "required_checks": [
+        "semantic truth",
+        "keyboard alternative",
+        "touch alternative",
+        "reduced motion",
+        "real-device performance"
+      ],
+      "implementation_note": "Select renderer after repo audit; no default dependency install."
+    },
+    {
+      "id": "P46",
+      "name": "Fluid Path Tracing",
+      "family": "organic-procedural",
+      "spatial_mode": "3d-possible",
+      "intended_value": "trace verified data/knowledge flow.",
+      "required_checks": [
+        "semantic truth",
+        "keyboard alternative",
+        "touch alternative",
+        "reduced motion",
+        "real-device performance"
+      ],
+      "implementation_note": "Select renderer after repo audit; no default dependency install."
+    },
+    {
+      "id": "P47",
+      "name": "Material Metamorphosis",
+      "family": "organic-procedural",
+      "spatial_mode": "3d-possible",
+      "intended_value": "materials change in response to actual state.",
+      "required_checks": [
+        "semantic truth",
+        "keyboard alternative",
+        "touch alternative",
+        "reduced motion",
+        "real-device performance"
+      ],
+      "implementation_note": "Select renderer after repo audit; no default dependency install."
+    },
+    {
+      "id": "P48",
+      "name": "Volumetric Annotation Field",
+      "family": "organic-procedural",
+      "spatial_mode": "3d-possible",
+      "intended_value": "real spatial annotations with readable overlays.",
+      "required_checks": [
+        "semantic truth",
+        "keyboard alternative",
+        "touch alternative",
+        "reduced motion",
+        "real-device performance"
+      ],
+      "implementation_note": "Select renderer after repo audit; no default dependency install."
+    },
+    {
+      "id": "P49",
+      "name": "Responsive Filament Garden",
+      "family": "organic-procedural",
+      "spatial_mode": "3d-possible",
+      "intended_value": "organic concept discovery and selection.",
+      "required_checks": [
+        "semantic truth",
+        "keyboard alternative",
+        "touch alternative",
+        "reduced motion",
+        "real-device performance"
+      ],
+      "implementation_note": "Select renderer after repo audit; no default dependency install."
+    },
+    {
+      "id": "P50",
+      "name": "Procedural Relief Map",
+      "family": "organic-procedural",
+      "spatial_mode": "3d-possible",
+      "intended_value": "categories/hierarchy as sculpted surface with legend.",
+      "required_checks": [
+        "semantic truth",
+        "keyboard alternative",
+        "touch alternative",
+        "reduced motion",
+        "real-device performance"
+      ],
+      "implementation_note": "Select renderer after repo audit; no default dependency install."
+    },
+    {
+      "id": "P51",
+      "name": "Physical Toggle Mechanism",
+      "family": "interactions",
+      "spatial_mode": "choose-by-data",
+      "intended_value": "state transition visible and tactile.",
+      "required_checks": [
+        "semantic truth",
+        "keyboard alternative",
+        "touch alternative",
+        "reduced motion",
+        "real-device performance"
+      ],
+      "implementation_note": "Select renderer after repo audit; no default dependency install."
+    },
+    {
+      "id": "P52",
+      "name": "Radial Decision Dial",
+      "family": "interactions",
+      "spatial_mode": "choose-by-data",
+      "intended_value": "small bounded choices, keyboard equivalent.",
+      "required_checks": [
+        "semantic truth",
+        "keyboard alternative",
+        "touch alternative",
+        "reduced motion",
+        "real-device performance"
+      ],
+      "implementation_note": "Select renderer after repo audit; no default dependency install."
+    },
+    {
+      "id": "P53",
+      "name": "Drag-to-Assemble",
+      "family": "interactions",
+      "spatial_mode": "choose-by-data",
+      "intended_value": "exercise with actual validation and accessible alternative.",
+      "required_checks": [
+        "semantic truth",
+        "keyboard alternative",
+        "touch alternative",
+        "reduced motion",
+        "real-device performance"
+      ],
+      "implementation_note": "Select renderer after repo audit; no default dependency install."
+    },
+    {
+      "id": "P54",
+      "name": "Scroll-Scrubbed Explainer",
+      "family": "interactions",
+      "spatial_mode": "choose-by-data",
+      "intended_value": "user controls stages, no trapped scrolling.",
+      "required_checks": [
+        "semantic truth",
+        "keyboard alternative",
+        "touch alternative",
+        "reduced motion",
+        "real-device performance"
+      ],
+      "implementation_note": "Select renderer after repo audit; no default dependency install."
+    },
+    {
+      "id": "P55",
+      "name": "Lens Reveal",
+      "family": "interactions",
+      "spatial_mode": "choose-by-data",
+      "intended_value": "focused comparison + accessibility equivalent.",
+      "required_checks": [
+        "semantic truth",
+        "keyboard alternative",
+        "touch alternative",
+        "reduced motion",
+        "real-device performance"
+      ],
+      "implementation_note": "Select renderer after repo audit; no default dependency install."
+    },
+    {
+      "id": "P56",
+      "name": "Hover/Focus Material Response",
+      "family": "interactions",
+      "spatial_mode": "choose-by-data",
+      "intended_value": "meaningful affordance, not only effect.",
+      "required_checks": [
+        "semantic truth",
+        "keyboard alternative",
+        "touch alternative",
+        "reduced motion",
+        "real-device performance"
+      ],
+      "implementation_note": "Select renderer after repo audit; no default dependency install."
+    },
+    {
+      "id": "P57",
+      "name": "Camera Focus Choreography",
+      "family": "interactions",
+      "spatial_mode": "choose-by-data",
+      "intended_value": "click moves scene without disorientation.",
+      "required_checks": [
+        "semantic truth",
+        "keyboard alternative",
+        "touch alternative",
+        "reduced motion",
+        "real-device performance"
+      ],
+      "implementation_note": "Select renderer after repo audit; no default dependency install."
+    },
+    {
+      "id": "P58",
+      "name": "Object-to-Panel Morph",
+      "family": "interactions",
+      "spatial_mode": "choose-by-data",
+      "intended_value": "orientation-preserving detail open.",
+      "required_checks": [
+        "semantic truth",
+        "keyboard alternative",
+        "touch alternative",
+        "reduced motion",
+        "real-device performance"
+      ],
+      "implementation_note": "Select renderer after repo audit; no default dependency install."
+    },
+    {
+      "id": "P59",
+      "name": "Reveal-on-Proximity",
+      "family": "interactions",
+      "spatial_mode": "choose-by-data",
+      "intended_value": "when nodes approach, show real relationships.",
+      "required_checks": [
+        "semantic truth",
+        "keyboard alternative",
+        "touch alternative",
+        "reduced motion",
+        "real-device performance"
+      ],
+      "implementation_note": "Select renderer after repo audit; no default dependency install."
+    },
+    {
+      "id": "P60",
+      "name": "Progressive Detail Halo",
+      "family": "interactions",
+      "spatial_mode": "choose-by-data",
+      "intended_value": "density unfolds through explicit input.",
+      "required_checks": [
+        "semantic truth",
+        "keyboard alternative",
+        "touch alternative",
+        "reduced motion",
+        "real-device performance"
+      ],
+      "implementation_note": "Select renderer after repo audit; no default dependency install."
+    },
+    {
+      "id": "P61",
+      "name": "Collage Storyboarding",
+      "family": "lightweight-depth",
+      "spatial_mode": "choose-by-data",
+      "intended_value": "imagery and typography form authored asymmetry.",
+      "required_checks": [
+        "semantic truth",
+        "keyboard alternative",
+        "touch alternative",
+        "reduced motion",
+        "real-device performance"
+      ],
+      "implementation_note": "Select renderer after repo audit; no default dependency install."
+    },
+    {
+      "id": "P62",
+      "name": "Layered SVG Isometric Engine",
+      "family": "lightweight-depth",
+      "spatial_mode": "choose-by-data",
+      "intended_value": "pseudo-depth diagrams.",
+      "required_checks": [
+        "semantic truth",
+        "keyboard alternative",
+        "touch alternative",
+        "reduced motion",
+        "real-device performance"
+      ],
+      "implementation_note": "Select renderer after repo audit; no default dependency install."
+    },
+    {
+      "id": "P63",
+      "name": "CSS 3D Card Theater",
+      "family": "lightweight-depth",
+      "spatial_mode": "choose-by-data",
+      "intended_value": "depth only where meaningful, not generic grid.",
+      "required_checks": [
+        "semantic truth",
+        "keyboard alternative",
+        "touch alternative",
+        "reduced motion",
+        "real-device performance"
+      ],
+      "implementation_note": "Select renderer after repo audit; no default dependency install."
+    },
+    {
+      "id": "P64",
+      "name": "Motion-Driven Table Explanation",
+      "family": "lightweight-depth",
+      "spatial_mode": "choose-by-data",
+      "intended_value": "precise tables with animated grouping.",
+      "required_checks": [
+        "semantic truth",
+        "keyboard alternative",
+        "touch alternative",
+        "reduced motion",
+        "real-device performance"
+      ],
+      "implementation_note": "Select renderer after repo audit; no default dependency install."
+    },
+    {
+      "id": "P65",
+      "name": "Data-Linked Editorial Tiles",
+      "family": "lightweight-depth",
+      "spatial_mode": "choose-by-data",
+      "intended_value": "varied dimensional compositions, not uniform cards.",
+      "required_checks": [
+        "semantic truth",
+        "keyboard alternative",
+        "touch alternative",
+        "reduced motion",
+        "real-device performance"
+      ],
+      "implementation_note": "Select renderer after repo audit; no default dependency install."
+    },
+    {
+      "id": "P66",
+      "name": "Scroll-Linked Typography",
+      "family": "lightweight-depth",
+      "spatial_mode": "choose-by-data",
+      "intended_value": "narrative hierarchy without hijacking input.",
+      "required_checks": [
+        "semantic truth",
+        "keyboard alternative",
+        "touch alternative",
+        "reduced motion",
+        "real-device performance"
+      ],
+      "implementation_note": "Select renderer after repo audit; no default dependency install."
+    },
+    {
+      "id": "P67",
+      "name": "Canvas Geometry Garden",
+      "family": "lightweight-depth",
+      "spatial_mode": "choose-by-data",
+      "intended_value": "many procedural shapes with DOM text labels.",
+      "required_checks": [
+        "semantic truth",
+        "keyboard alternative",
+        "touch alternative",
+        "reduced motion",
+        "real-device performance"
+      ],
+      "implementation_note": "Select renderer after repo audit; no default dependency install."
+    },
+    {
+      "id": "P68",
+      "name": "Flipbook Process Explanation",
+      "family": "lightweight-depth",
+      "spatial_mode": "choose-by-data",
+      "intended_value": "authentic states not fake playback.",
+      "required_checks": [
+        "semantic truth",
+        "keyboard alternative",
+        "touch alternative",
+        "reduced motion",
+        "real-device performance"
+      ],
+      "implementation_note": "Select renderer after repo audit; no default dependency install."
+    },
+    {
+      "id": "P69",
+      "name": "Responsive Depth Stack",
+      "family": "lightweight-depth",
+      "spatial_mode": "choose-by-data",
+      "intended_value": "layered scene becomes usable 1D content mobile.",
+      "required_checks": [
+        "semantic truth",
+        "keyboard alternative",
+        "touch alternative",
+        "reduced motion",
+        "real-device performance"
+      ],
+      "implementation_note": "Select renderer after repo audit; no default dependency install."
+    },
+    {
+      "id": "P70",
+      "name": "Interactive Constraint Surface",
+      "family": "lightweight-depth",
+      "spatial_mode": "choose-by-data",
+      "intended_value": "manipulate tradeoffs in exact numeric views.",
+      "required_checks": [
+        "semantic truth",
+        "keyboard alternative",
+        "touch alternative",
+        "reduced motion",
+        "real-device performance"
+      ],
+      "implementation_note": "Select renderer after repo audit; no default dependency install."
+    },
+    {
+      "id": "P71",
+      "name": "GPU Instanced Swarm",
+      "family": "advanced-3d",
+      "spatial_mode": "3d-possible",
+      "intended_value": "dense true entities with an alternate selection list.",
+      "required_checks": [
+        "semantic truth",
+        "keyboard alternative",
+        "touch alternative",
+        "reduced motion",
+        "real-device performance"
+      ],
+      "implementation_note": "Select renderer after repo audit; no default dependency install."
+    },
+    {
+      "id": "P72",
+      "name": "Morphing Architectural Model",
+      "family": "advanced-3d",
+      "spatial_mode": "3d-possible",
+      "intended_value": "navigate real system layers.",
+      "required_checks": [
+        "semantic truth",
+        "keyboard alternative",
+        "touch alternative",
+        "reduced motion",
+        "real-device performance"
+      ],
+      "implementation_note": "Select renderer after repo audit; no default dependency install."
+    },
+    {
+      "id": "P73",
+      "name": "Shader-Driven Material Narrative",
+      "family": "advanced-3d",
+      "spatial_mode": "3d-possible",
+      "intended_value": "shader effect encodes stage/category, not status without source.",
+      "required_checks": [
+        "semantic truth",
+        "keyboard alternative",
+        "touch alternative",
+        "reduced motion",
+        "real-device performance"
+      ],
+      "implementation_note": "Select renderer after repo audit; no default dependency install."
+    },
+    {
+      "id": "P74",
+      "name": "Camera-Rail Museum",
+      "family": "advanced-3d",
+      "spatial_mode": "3d-possible",
+      "intended_value": "skippable spatial tour with bookmarks.",
+      "required_checks": [
+        "semantic truth",
+        "keyboard alternative",
+        "touch alternative",
+        "reduced motion",
+        "real-device performance"
+      ],
+      "implementation_note": "Select renderer after repo audit; no default dependency install."
+    },
+    {
+      "id": "P75",
+      "name": "Audio-Reactive Visual",
+      "family": "advanced-3d",
+      "spatial_mode": "3d-possible",
+      "intended_value": "ONLY when audio exists, user opts in and provides controls/transcript.",
+      "required_checks": [
+        "semantic truth",
+        "keyboard alternative",
+        "touch alternative",
+        "reduced motion",
+        "real-device performance"
+      ],
+      "implementation_note": "Select renderer after repo audit; no default dependency install."
+    },
+    {
+      "id": "P76",
+      "name": "Generative Scroll Relief",
+      "family": "advanced-3d",
+      "spatial_mode": "3d-possible",
+      "intended_value": "procedural texture with clear semantic companion.",
+      "required_checks": [
+        "semantic truth",
+        "keyboard alternative",
+        "touch alternative",
+        "reduced motion",
+        "real-device performance"
+      ],
+      "implementation_note": "Select renderer after repo audit; no default dependency install."
+    },
+    {
+      "id": "P77",
+      "name": "Spatial Comparison Chamber",
+      "family": "advanced-3d",
+      "spatial_mode": "3d-possible",
+      "intended_value": "paired architecture/choices aligned consistently.",
+      "required_checks": [
+        "semantic truth",
+        "keyboard alternative",
+        "touch alternative",
+        "reduced motion",
+        "real-device performance"
+      ],
+      "implementation_note": "Select renderer after repo audit; no default dependency install."
+    },
+    {
+      "id": "P78",
+      "name": "Temporal Layer Peel",
+      "family": "advanced-3d",
+      "spatial_mode": "3d-possible",
+      "intended_value": "reveal historical states with exact timestamps.",
+      "required_checks": [
+        "semantic truth",
+        "keyboard alternative",
+        "touch alternative",
+        "reduced motion",
+        "real-device performance"
+      ],
+      "implementation_note": "Select renderer after repo audit; no default dependency install."
+    },
+    {
+      "id": "P79",
+      "name": "Relationship Pulse Field",
+      "family": "advanced-3d",
+      "spatial_mode": "3d-possible",
+      "intended_value": "user-triggered highlight of supported edges.",
+      "required_checks": [
+        "semantic truth",
+        "keyboard alternative",
+        "touch alternative",
+        "reduced motion",
+        "real-device performance"
+      ],
+      "implementation_note": "Select renderer after repo audit; no default dependency install."
+    },
+    {
+      "id": "P80",
+      "name": "Explanatory Cutaway Sculpture",
+      "family": "advanced-3d",
+      "spatial_mode": "3d-possible",
+      "intended_value": "visible cross-section tied to conceptual layers.",
+      "required_checks": [
+        "semantic truth",
+        "keyboard alternative",
+        "touch alternative",
+        "reduced motion",
+        "real-device performance"
+      ],
+      "implementation_note": "Select renderer after repo audit; no default dependency install."
+    }
+  ]
+}

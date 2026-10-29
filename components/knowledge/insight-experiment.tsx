@@ -6,6 +6,7 @@
 import { AnimatePresence, motion, useReducedMotion } from "motion/react";
 import {
   deriveVerdict,
+  INITIAL_EXPERIMENT,
   type ExperimentId,
   type ExperimentState,
 } from "@/lib/knowledge/models";
@@ -23,7 +24,7 @@ export function InsightExperiment({ id, state, onChange }: Props) {
   const reduce = useReducedMotion() ?? false;
 
   return (
-    <div className="mt-6 rounded-[20px] border border-border-strong bg-background/70 p-4 sm:p-5">
+    <div className="insight-experiment mt-6 rounded-[20px] border border-border-strong bg-background/70 p-4 sm:p-5">
       <div className="flex flex-wrap items-center justify-between gap-2">
         <p className="font-mono text-[10px] uppercase tracking-[0.16em] text-muted-foreground">
           Try the decision
@@ -101,7 +102,7 @@ export function InsightExperiment({ id, state, onChange }: Props) {
               <dl className="mt-3 flex flex-wrap gap-x-4 gap-y-1 font-mono text-[10px] uppercase tracking-[0.1em] text-muted-foreground">
                 {verdict.rows.map((row) => (
                   <div key={row.label} className="flex items-baseline gap-1.5">
-                    <dt className="text-muted-foreground/70">{row.label}</dt>
+                    <dt className="text-muted-foreground">{row.label}</dt>
                     <dd className="text-foreground/80">{row.state}</dd>
                   </div>
                 ))}
@@ -110,6 +111,11 @@ export function InsightExperiment({ id, state, onChange }: Props) {
           </AnimatePresence>
         </div>
       </div>
+      <details className="mt-4 text-xs">
+        <summary className="inline-flex min-h-11 cursor-pointer items-center underline underline-offset-4">Read the model as a table</summary>
+        <table className="model-table"><caption className="sr-only">Current decision model: {verdict.headline}</caption><thead><tr><th scope="col">Object</th><th scope="col">Derived state</th></tr></thead><tbody>{verdict.rows.map(row=><tr key={row.label}><th scope="row">{row.label}</th><td>{row.state}</td></tr>)}</tbody></table>
+      </details>
+      <button type="button" onClick={()=>onChange(INITIAL_EXPERIMENT)} className="mt-2 min-h-11 px-1 text-xs underline underline-offset-4">Reset the decision</button>
       <p className="mt-4 border-t border-border pt-3 text-[11px] leading-5 text-muted-foreground">
         A reasoning model for this scenario, not company data. It changes as you
         change the assumption.

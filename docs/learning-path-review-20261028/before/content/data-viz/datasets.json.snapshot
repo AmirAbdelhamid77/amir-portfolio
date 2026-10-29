@@ -1,0 +1,1381 @@
+{
+  "meta": {
+    "synthetic": true,
+    "generatedBy": "scripts/build-datasets.mjs",
+    "seed": 20261023,
+    "generatedFor": "Hansa Data Visualization learning path",
+    "note": "Every value is generated locally for teaching. These are not real customers, employees, patients or employers. Charts, tables and tests all read this file, so the numbers stay consistent.",
+    "updated": "2026-10-23"
+  },
+  "datasets": {
+    "order-values": {
+      "id": "order-values",
+      "label": "Order value",
+      "unit": "USD",
+      "kind": "continuous",
+      "synthetic": true,
+      "note": "Right-skewed so the histogram bin width visibly changes the story.",
+      "values": [
+        59.336,
+        105.429,
+        67.588,
+        57.404,
+        95.209,
+        74.298,
+        76.147,
+        62.19,
+        50.808,
+        64.617,
+        77.649,
+        67.825,
+        88.462,
+        112.684,
+        63.438,
+        86.078,
+        95.293,
+        81.467,
+        127.315,
+        72.482,
+        43.784,
+        71.922,
+        71.52,
+        100.858,
+        69.149,
+        66.094,
+        62.806,
+        115.856,
+        70.884,
+        47.605,
+        85.663,
+        94.548,
+        97.916,
+        71.494,
+        81.761,
+        63.252,
+        128.341,
+        70.609,
+        61.588,
+        51.788,
+        99.76,
+        79.453,
+        69.805,
+        55.992,
+        93.299,
+        111.1,
+        115.105,
+        85.529,
+        56.936,
+        72.805,
+        84.392,
+        39.746,
+        54.993,
+        67.915,
+        60.394,
+        61.059,
+        122.815,
+        65.085,
+        53.785,
+        65.187,
+        85.327,
+        56.13,
+        142.856,
+        88.745,
+        69.634,
+        71.869,
+        50.501,
+        95.897,
+        107.466,
+        80.11,
+        95.741,
+        57.647,
+        53.464,
+        64.584,
+        71.018,
+        66.649,
+        83.322,
+        80.897,
+        84.198,
+        71.892,
+        80.091,
+        99.175,
+        64.471,
+        111.254,
+        87.699,
+        63.238,
+        107.083,
+        101.481,
+        79.442,
+        76.576,
+        69.316,
+        48.054,
+        71.782,
+        46.709,
+        99.607,
+        135.797,
+        82.468,
+        84.109,
+        54.511,
+        78.331,
+        183.432,
+        133.688,
+        56.523,
+        90.124,
+        84.699,
+        62.784,
+        94.214,
+        49.295,
+        110.797,
+        150.442,
+        103.641,
+        61.766,
+        91.964,
+        98.022,
+        67.276,
+        53.726,
+        77.059,
+        97.66,
+        69.177,
+        69.18,
+        46.71,
+        55.57,
+        75.701,
+        90.633,
+        117.548,
+        62.109,
+        72.687,
+        103.31,
+        64.582,
+        69.123,
+        97.715,
+        61.503,
+        53.868,
+        73.286,
+        64.687,
+        120.674,
+        101.18,
+        92.786,
+        73.215,
+        60.465
+      ]
+    },
+    "delivery-times": {
+      "id": "delivery-times",
+      "label": "Delivery time",
+      "unit": "minutes",
+      "kind": "continuous-by-category",
+      "synthetic": true,
+      "note": "Four depots with different medians and spreads.",
+      "groups": [
+        {
+          "id": "north",
+          "label": "North depot",
+          "values": [
+            29.649,
+            30.68,
+            21.085,
+            36.038,
+            26.149,
+            20.913,
+            32.591,
+            21.666,
+            31.663,
+            31.114,
+            29.835,
+            27.599,
+            25.158,
+            26.42,
+            32.014,
+            13.279,
+            30.869,
+            23.172,
+            23.987,
+            35.032,
+            23.394,
+            35.731,
+            21.755,
+            26.069,
+            19.967,
+            35.331,
+            21.015,
+            28.703
+          ]
+        },
+        {
+          "id": "east",
+          "label": "East depot",
+          "values": [
+            30.557,
+            40.914,
+            46.016,
+            35.3,
+            46.872,
+            34.531,
+            32.597,
+            12,
+            40.891,
+            27.849,
+            31.097,
+            26.053,
+            21.178,
+            28.876,
+            32.584,
+            20.624,
+            31.891,
+            24.275,
+            29.753,
+            14.698,
+            27.609,
+            39.017,
+            24.521,
+            31.633,
+            33.816,
+            23.998,
+            31.515,
+            26.186
+          ]
+        },
+        {
+          "id": "south",
+          "label": "South depot",
+          "values": [
+            15.002,
+            46.714,
+            46.889,
+            38.147,
+            35.169,
+            44.274,
+            33.065,
+            41.229,
+            31.871,
+            41.741,
+            37.855,
+            40.83,
+            31.644,
+            32.286,
+            40.897,
+            40.533,
+            36.018,
+            31.319,
+            42.946,
+            47.459,
+            36.857,
+            36.416,
+            40.105,
+            42.948,
+            37.191,
+            36.642,
+            36.07,
+            50.667
+          ]
+        },
+        {
+          "id": "west",
+          "label": "West depot",
+          "values": [
+            26.218,
+            23.067,
+            25.336,
+            18.482,
+            23.916,
+            19.562,
+            27.877,
+            24.741,
+            27.924,
+            25.873,
+            21.444,
+            26.05,
+            24.763,
+            28.056,
+            22.647,
+            27.258,
+            27.62,
+            28.396,
+            21.982,
+            21.014,
+            31.927,
+            23.333,
+            20.723,
+            24.216,
+            32.064,
+            21.242,
+            21.868,
+            19.198
+          ]
+        }
+      ]
+    },
+    "campaign-spend": {
+      "id": "campaign-spend",
+      "label": "Campaign spend and sign-ups",
+      "unit": "USD / sign-ups",
+      "kind": "two-continuous",
+      "synthetic": true,
+      "note": "Search and Social have different efficiency, so the pooled trend hides a group effect.",
+      "points": [
+        {
+          "channel": "Search",
+          "spend": 4.2,
+          "signups": 9
+        },
+        {
+          "channel": "Social",
+          "spend": 37.9,
+          "signups": 11
+        },
+        {
+          "channel": "Search",
+          "spend": 28.3,
+          "signups": 18
+        },
+        {
+          "channel": "Social",
+          "spend": 38.4,
+          "signups": 14
+        },
+        {
+          "channel": "Search",
+          "spend": 17.9,
+          "signups": 10
+        },
+        {
+          "channel": "Social",
+          "spend": 25.3,
+          "signups": 15
+        },
+        {
+          "channel": "Search",
+          "spend": 23.9,
+          "signups": 14
+        },
+        {
+          "channel": "Social",
+          "spend": 21.9,
+          "signups": 13
+        },
+        {
+          "channel": "Search",
+          "spend": 14.9,
+          "signups": 15
+        },
+        {
+          "channel": "Social",
+          "spend": 34.3,
+          "signups": 6
+        },
+        {
+          "channel": "Search",
+          "spend": 20.9,
+          "signups": 14
+        },
+        {
+          "channel": "Social",
+          "spend": 31.5,
+          "signups": 15
+        },
+        {
+          "channel": "Search",
+          "spend": 27.1,
+          "signups": 18
+        },
+        {
+          "channel": "Social",
+          "spend": 23.1,
+          "signups": 5
+        },
+        {
+          "channel": "Search",
+          "spend": 36.1,
+          "signups": 26
+        },
+        {
+          "channel": "Social",
+          "spend": 4.5,
+          "signups": 7
+        },
+        {
+          "channel": "Search",
+          "spend": 10.5,
+          "signups": 15
+        },
+        {
+          "channel": "Social",
+          "spend": 28.4,
+          "signups": 17
+        },
+        {
+          "channel": "Search",
+          "spend": 37.7,
+          "signups": 25
+        },
+        {
+          "channel": "Social",
+          "spend": 27.7,
+          "signups": 7
+        },
+        {
+          "channel": "Search",
+          "spend": 12.5,
+          "signups": 15
+        },
+        {
+          "channel": "Social",
+          "spend": 26,
+          "signups": 8
+        },
+        {
+          "channel": "Search",
+          "spend": 5.3,
+          "signups": 5
+        },
+        {
+          "channel": "Social",
+          "spend": 28.6,
+          "signups": 17
+        },
+        {
+          "channel": "Search",
+          "spend": 25.9,
+          "signups": 16
+        },
+        {
+          "channel": "Social",
+          "spend": 25.7,
+          "signups": 15
+        },
+        {
+          "channel": "Search",
+          "spend": 21.6,
+          "signups": 17
+        },
+        {
+          "channel": "Social",
+          "spend": 4.7,
+          "signups": 11
+        },
+        {
+          "channel": "Search",
+          "spend": 18,
+          "signups": 13
+        },
+        {
+          "channel": "Social",
+          "spend": 6.4,
+          "signups": 10
+        },
+        {
+          "channel": "Search",
+          "spend": 9.9,
+          "signups": 13
+        },
+        {
+          "channel": "Social",
+          "spend": 8.1,
+          "signups": 9
+        },
+        {
+          "channel": "Search",
+          "spend": 26.7,
+          "signups": 14
+        },
+        {
+          "channel": "Social",
+          "spend": 28.8,
+          "signups": 13
+        },
+        {
+          "channel": "Search",
+          "spend": 26.2,
+          "signups": 15
+        },
+        {
+          "channel": "Social",
+          "spend": 39.3,
+          "signups": 13
+        },
+        {
+          "channel": "Search",
+          "spend": 19.9,
+          "signups": 18
+        },
+        {
+          "channel": "Social",
+          "spend": 34.6,
+          "signups": 15
+        },
+        {
+          "channel": "Search",
+          "spend": 8.4,
+          "signups": 11
+        },
+        {
+          "channel": "Social",
+          "spend": 36.1,
+          "signups": 8
+        },
+        {
+          "channel": "Search",
+          "spend": 35.8,
+          "signups": 23
+        },
+        {
+          "channel": "Social",
+          "spend": 34.3,
+          "signups": 9
+        },
+        {
+          "channel": "Search",
+          "spend": 7,
+          "signups": 6
+        },
+        {
+          "channel": "Social",
+          "spend": 25.3,
+          "signups": 12
+        },
+        {
+          "channel": "Search",
+          "spend": 36.8,
+          "signups": 19
+        },
+        {
+          "channel": "Social",
+          "spend": 10.7,
+          "signups": 15
+        },
+        {
+          "channel": "Search",
+          "spend": 14.8,
+          "signups": 15
+        },
+        {
+          "channel": "Social",
+          "spend": 38.9,
+          "signups": 17
+        }
+      ]
+    },
+    "weekly-sessions": {
+      "id": "weekly-sessions",
+      "label": "Weekly sessions",
+      "unit": "sessions",
+      "kind": "time-series",
+      "synthetic": true,
+      "note": "Three channels over 26 weeks.",
+      "series": [
+        {
+          "id": "organic",
+          "label": "Organic",
+          "points": [
+            5470,
+            5324,
+            5137,
+            5599,
+            5698,
+            5796,
+            5611,
+            5999,
+            5959,
+            5641,
+            5642,
+            5945,
+            5360,
+            4992,
+            5561,
+            5139,
+            5122,
+            5120,
+            5476,
+            5020,
+            5538,
+            5346,
+            5591,
+            5717,
+            5951,
+            6003
+          ]
+        },
+        {
+          "id": "paid",
+          "label": "Paid",
+          "points": [
+            3304,
+            3530,
+            3317,
+            3509,
+            3479,
+            3287,
+            3228,
+            3309,
+            3240,
+            3240,
+            3259,
+            3308,
+            2824,
+            3075,
+            3041,
+            3071,
+            3110,
+            3298,
+            3029,
+            3219,
+            3254,
+            3066,
+            3515,
+            3414,
+            3918,
+            3558
+          ]
+        },
+        {
+          "id": "email",
+          "label": "Email",
+          "points": [
+            1798,
+            1939,
+            1824,
+            1777,
+            1647,
+            1875,
+            1909,
+            1676,
+            1755,
+            1945,
+            1394,
+            1720,
+            1636,
+            1759,
+            1502,
+            1656,
+            1791,
+            1963,
+            1922,
+            2156,
+            1869,
+            2211,
+            2150,
+            2374,
+            2032,
+            2142
+          ]
+        }
+      ]
+    },
+    "regional-revenue": {
+      "id": "regional-revenue",
+      "label": "Revenue by region",
+      "unit": "thousand USD",
+      "kind": "category-value",
+      "synthetic": true,
+      "note": "Eight regions, sorted descending in the default view.",
+      "rows": [
+        {
+          "id": "north",
+          "label": "North",
+          "value": 184
+        },
+        {
+          "id": "east",
+          "label": "East",
+          "value": 152
+        },
+        {
+          "id": "south",
+          "label": "South",
+          "value": 138
+        },
+        {
+          "id": "west",
+          "label": "West",
+          "value": 121
+        },
+        {
+          "id": "central",
+          "label": "Central",
+          "value": 96
+        },
+        {
+          "id": "coastal",
+          "label": "Coastal",
+          "value": 74
+        },
+        {
+          "id": "inland",
+          "label": "Inland",
+          "value": 52
+        },
+        {
+          "id": "islands",
+          "label": "Islands",
+          "value": 31
+        }
+      ]
+    },
+    "clinic-wait": {
+      "id": "clinic-wait",
+      "label": "Median wait by clinic",
+      "unit": "minutes",
+      "kind": "category-multi-value",
+      "synthetic": true,
+      "note": "Three departments per clinic, so a dot plot carries all three without stacking.",
+      "rows": [
+        {
+          "clinic": "Central",
+          "emergency": 40,
+          "urgent": 60,
+          "routine": 65
+        },
+        {
+          "clinic": "Riverside",
+          "emergency": 26,
+          "urgent": 62,
+          "routine": 109
+        },
+        {
+          "clinic": "Hilltop",
+          "emergency": 31,
+          "urgent": 46,
+          "routine": 99
+        },
+        {
+          "clinic": "Northgate",
+          "emergency": 22,
+          "urgent": 58,
+          "routine": 58
+        },
+        {
+          "clinic": "Eastfield",
+          "emergency": 42,
+          "urgent": 38,
+          "routine": 96
+        },
+        {
+          "clinic": "Southbank",
+          "emergency": 40,
+          "urgent": 61,
+          "routine": 94
+        },
+        {
+          "clinic": "Westmere",
+          "emergency": 26,
+          "urgent": 46,
+          "routine": 84
+        },
+        {
+          "clinic": "Oakdale",
+          "emergency": 20,
+          "urgent": 44,
+          "routine": 96
+        },
+        {
+          "clinic": "Harbour",
+          "emergency": 34,
+          "urgent": 41,
+          "routine": 59
+        },
+        {
+          "clinic": "Meadow",
+          "emergency": 42,
+          "urgent": 49,
+          "routine": 87
+        }
+      ],
+      "series": [
+        {
+          "id": "emergency",
+          "label": "Emergency"
+        },
+        {
+          "id": "urgent",
+          "label": "Urgent"
+        },
+        {
+          "id": "routine",
+          "label": "Routine"
+        }
+      ]
+    },
+    "hiring-funnel": {
+      "id": "hiring-funnel",
+      "label": "Hiring funnel",
+      "unit": "people",
+      "kind": "funnel",
+      "synthetic": true,
+      "note": "Ordered stages; each step is a subset of the one above.",
+      "stages": [
+        {
+          "id": "applied",
+          "label": "Applications",
+          "value": 12400
+        },
+        {
+          "id": "screened",
+          "label": "Screened",
+          "value": 5400
+        },
+        {
+          "id": "interviewed",
+          "label": "Interviewed",
+          "value": 2100
+        },
+        {
+          "id": "offered",
+          "label": "Offered",
+          "value": 640
+        },
+        {
+          "id": "hired",
+          "label": "Hired",
+          "value": 512
+        }
+      ]
+    },
+    "revenue-mix": {
+      "id": "revenue-mix",
+      "label": "Revenue mix",
+      "unit": "thousand USD",
+      "kind": "hierarchy",
+      "synthetic": true,
+      "note": "Two-level hierarchy; tile area maps to revenue.",
+      "nodes": [
+        {
+          "id": "subscriptions",
+          "label": "Subscriptions",
+          "children": [
+            {
+              "id": "starter",
+              "label": "Starter",
+              "value": 420
+            },
+            {
+              "id": "growth",
+              "label": "Growth",
+              "value": 610
+            },
+            {
+              "id": "enterprise",
+              "label": "Enterprise",
+              "value": 380
+            }
+          ]
+        },
+        {
+          "id": "services",
+          "label": "Services",
+          "children": [
+            {
+              "id": "implementation",
+              "label": "Implementation",
+              "value": 260
+            },
+            {
+              "id": "training",
+              "label": "Training",
+              "value": 90
+            }
+          ]
+        },
+        {
+          "id": "marketplace",
+          "label": "Marketplace",
+          "children": [
+            {
+              "id": "addons",
+              "label": "Add-ons",
+              "value": 140
+            },
+            {
+              "id": "templates",
+              "label": "Templates",
+              "value": 60
+            }
+          ]
+        }
+      ]
+    },
+    "baseline-bars": {
+      "id": "baseline-bars",
+      "label": "Revenue by region (indexed)",
+      "unit": "index",
+      "kind": "category-value",
+      "synthetic": true,
+      "note": "Differences are small; a truncated axis manufactures drama.",
+      "rows": [
+        {
+          "id": "north",
+          "label": "North",
+          "value": 102
+        },
+        {
+          "id": "east",
+          "label": "East",
+          "value": 104
+        },
+        {
+          "id": "south",
+          "label": "South",
+          "value": 101
+        },
+        {
+          "id": "west",
+          "label": "West",
+          "value": 106
+        }
+      ]
+    },
+    "dual-metric": {
+      "id": "dual-metric",
+      "label": "Ad spend and revenue",
+      "unit": "thousand USD",
+      "kind": "time-series",
+      "synthetic": true,
+      "note": "Two series with different scales, used to demonstrate why dual axes are dangerous.",
+      "rows": [
+        {
+          "month": "M01",
+          "spend": 23,
+          "revenue": 191
+        },
+        {
+          "month": "M02",
+          "spend": 27,
+          "revenue": 196
+        },
+        {
+          "month": "M03",
+          "spend": 26,
+          "revenue": 193
+        },
+        {
+          "month": "M04",
+          "spend": 28,
+          "revenue": 197
+        },
+        {
+          "month": "M05",
+          "spend": 35,
+          "revenue": 201
+        },
+        {
+          "month": "M06",
+          "spend": 28,
+          "revenue": 197
+        },
+        {
+          "month": "M07",
+          "spend": 33,
+          "revenue": 207
+        },
+        {
+          "month": "M08",
+          "spend": 28,
+          "revenue": 191
+        },
+        {
+          "month": "M09",
+          "spend": 30,
+          "revenue": 208
+        },
+        {
+          "month": "M10",
+          "spend": 35,
+          "revenue": 211
+        },
+        {
+          "month": "M11",
+          "spend": 32,
+          "revenue": 211
+        },
+        {
+          "month": "M12",
+          "spend": 36,
+          "revenue": 210
+        },
+        {
+          "month": "M13",
+          "spend": 34,
+          "revenue": 203
+        },
+        {
+          "month": "M14",
+          "spend": 38,
+          "revenue": 208
+        },
+        {
+          "month": "M15",
+          "spend": 39,
+          "revenue": 231
+        },
+        {
+          "month": "M16",
+          "spend": 45,
+          "revenue": 223
+        },
+        {
+          "month": "M17",
+          "spend": 48,
+          "revenue": 231
+        },
+        {
+          "month": "M18",
+          "spend": 41,
+          "revenue": 224
+        },
+        {
+          "month": "M19",
+          "spend": 46,
+          "revenue": 228
+        },
+        {
+          "month": "M20",
+          "spend": 44,
+          "revenue": 236
+        },
+        {
+          "month": "M21",
+          "spend": 53,
+          "revenue": 251
+        },
+        {
+          "month": "M22",
+          "spend": 47,
+          "revenue": 226
+        },
+        {
+          "month": "M23",
+          "spend": 47,
+          "revenue": 230
+        },
+        {
+          "month": "M24",
+          "spend": 54,
+          "revenue": 233
+        }
+      ]
+    },
+    "channel-mix": {
+      "id": "channel-mix",
+      "label": "Sessions by channel",
+      "unit": "% of total",
+      "kind": "composition",
+      "synthetic": true,
+      "note": "Five parts of a whole; both pie and sorted bar are defensible here.",
+      "rows": [
+        {
+          "id": "organic",
+          "label": "Organic search",
+          "value": 41
+        },
+        {
+          "id": "paid",
+          "label": "Paid search",
+          "value": 24
+        },
+        {
+          "id": "direct",
+          "label": "Direct",
+          "value": 16
+        },
+        {
+          "id": "email",
+          "label": "Email",
+          "value": 11
+        },
+        {
+          "id": "referral",
+          "label": "Referral",
+          "value": 8
+        }
+      ]
+    },
+    "same-mean": {
+      "id": "same-mean",
+      "label": "Four groups with the same mean",
+      "unit": "score",
+      "kind": "distribution-groups",
+      "synthetic": true,
+      "note": "All four groups average 50 but have very different shapes.",
+      "groups": [
+        {
+          "id": "uniform",
+          "label": "Uniform",
+          "values": [
+            51,
+            51.6,
+            63.1,
+            46.2,
+            28.8,
+            51.9,
+            62.5,
+            68.5,
+            25.9,
+            64,
+            31.7,
+            52.2,
+            42.1,
+            62.9,
+            40.8,
+            60.5,
+            47.2,
+            65.9,
+            48.3,
+            66.3,
+            64.6,
+            63.7,
+            48.2,
+            37.1,
+            64.9,
+            57.7,
+            38,
+            40.8,
+            55.7,
+            67,
+            68,
+            37.8,
+            27.4,
+            56.7,
+            45.9,
+            35,
+            54.7,
+            39,
+            31.7,
+            34.7
+          ]
+        },
+        {
+          "id": "normal",
+          "label": "Normal",
+          "values": [
+            48.7,
+            61.7,
+            44.4,
+            58.1,
+            62.8,
+            62.2,
+            61.7,
+            56.8,
+            47.9,
+            49.2,
+            56.6,
+            43.5,
+            52.8,
+            41.9,
+            62.4,
+            33.9,
+            41.1,
+            50.8,
+            46.3,
+            35.9,
+            49.2,
+            40.9,
+            55.9,
+            17.5,
+            60.2,
+            64,
+            48,
+            58.3,
+            56.6,
+            68.7,
+            48.3,
+            57.5,
+            44.3,
+            40.2,
+            39.7,
+            57.1,
+            40.5,
+            36.6,
+            52.2,
+            45.6
+          ]
+        },
+        {
+          "id": "bimodal",
+          "label": "Bimodal",
+          "values": [
+            34.4,
+            66.9,
+            28.9,
+            65.7,
+            42.2,
+            69.5,
+            38,
+            66.8,
+            29.7,
+            63.5,
+            30.7,
+            66.1,
+            34,
+            64,
+            25.1,
+            67,
+            29.7,
+            66.2,
+            35.8,
+            64.1,
+            31.3,
+            65.3,
+            33.9,
+            62.2,
+            37.6,
+            64,
+            37.6,
+            61,
+            31,
+            64.7,
+            25.1,
+            70.7,
+            33.3,
+            71.6,
+            36.8,
+            68.2,
+            39.9,
+            68.8,
+            40.8,
+            67.8
+          ]
+        },
+        {
+          "id": "skewed",
+          "label": "Skewed",
+          "values": [
+            50.8,
+            46.3,
+            43.2,
+            50.2,
+            50.3,
+            48.3,
+            43.1,
+            50.2,
+            41.6,
+            58.8,
+            39.5,
+            65.4,
+            57.2,
+            39.9,
+            43.5,
+            68.6,
+            42.3,
+            62.3,
+            44.7,
+            72.7,
+            80.6,
+            48.1,
+            57.1,
+            47,
+            36.9,
+            46.9,
+            64.4,
+            37.6,
+            59.5,
+            52.5,
+            38.9,
+            43.4,
+            39,
+            53.1,
+            37.6,
+            56.7,
+            46.4,
+            40.8,
+            48.3,
+            46.1
+          ]
+        }
+      ]
+    },
+    "long-series": {
+      "id": "long-series",
+      "label": "Weekly sessions, 52 weeks",
+      "unit": "sessions",
+      "kind": "time-series",
+      "synthetic": true,
+      "note": "The last eight weeks fall while the full year rises — a window choice changes the conclusion.",
+      "values": [
+        8116,
+        8308,
+        8463,
+        8496,
+        8541,
+        8835,
+        8928,
+        8954,
+        8907,
+        9059,
+        9255,
+        9309,
+        9440,
+        9358,
+        9471,
+        9514,
+        9677,
+        9728,
+        9716,
+        9690,
+        9906,
+        9936,
+        10105,
+        10176,
+        10330,
+        10248,
+        10435,
+        10617,
+        10598,
+        10670,
+        11012,
+        11002,
+        11229,
+        11070,
+        11380,
+        11399,
+        11615,
+        11513,
+        11685,
+        11839,
+        11637,
+        11541,
+        11207,
+        10908,
+        10765,
+        10389,
+        10075,
+        9758,
+        9619,
+        9362,
+        8957,
+        8773
+      ]
+    },
+    "simpson": {
+      "id": "simpson",
+      "label": "Conversion by customer segment",
+      "unit": "%",
+      "kind": "aggregate-groups",
+      "synthetic": true,
+      "note": "Treatment wins inside both segments and loses in the pooled total because the mix differs.",
+      "segments": [
+        {
+          "id": "new",
+          "label": "New customers",
+          "control": {
+            "converted": 20,
+            "total": 100
+          },
+          "treatment": {
+            "converted": 260,
+            "total": 1000
+          }
+        },
+        {
+          "id": "returning",
+          "label": "Returning customers",
+          "control": {
+            "converted": 800,
+            "total": 900
+          },
+          "treatment": {
+            "converted": 180,
+            "total": 200
+          }
+        }
+      ]
+    }
+  }
+}

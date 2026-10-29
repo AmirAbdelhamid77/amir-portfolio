@@ -1,0 +1,76 @@
+{
+  "intake": "dp600-r18-2026-10-27",
+  "exam": "DP-600",
+  "package": "Hansa_DP600_R18_ISOLATED_VERIFIED_HANDOFF_NO_GO_2026-10-27.zip",
+  "packageSha256": "80b390705506c2e3c3bdef75d7ab1e5fada04bf1b4dab39ba04ccf33d2eebf67",
+  "packageBytes": 32797877,
+  "packagePath": "C:\\Users\\amira\\Documents\\Codex\\2026-10-27\\referenced-chatgpt-conversation-this-is-an-2\\outputs\\Hansa_DP600_R18_ISOLATED_VERIFIED_HANDOFF_NO_GO_2026-10-27.zip",
+  "receipt": "C:\\Users\\amira\\Documents\\Codex\\2026-10-27\\referenced-chatgpt-conversation-this-is-an-2\\outputs\\DP600_R18_ISOLATED_DELIVERY_RECEIPT.json",
+  "archiveHashVerified": true,
+  "files": 30,
+  "status": "NO_GO",
+  "questions": 222,
+  "unchangedFromR17": 207,
+  "reversibleEdits": 15,
+  "repairs": 9,
+  "reauthoredVariants": 6,
+  "perOptionRecords": 93,
+  "gradingEnabled": 0,
+  "answerKeyFieldsInLearner": 0,
+  "hansaChangesBeforeThisIntake": "NONE",
+  "verification": {
+    "portableIsolatedVerifier": {
+      "command": "python TOOLS/verify_isolated.py",
+      "result": "PASS",
+      "status": "PASS_PACKAGE_INTEGRITY_AND_PARENT_PARITY_ONLY",
+      "matchesReceipt": true
+    },
+    "originalNestedVerifier": {
+      "command": "python TOOLS/verify_r18.py",
+      "result": "PASS",
+      "note": "Run in Python UTF-8 mode; the script reads UTF-8 JSON with the platform default encoding, which is cp1252 on this Windows locale. No script or archived file was modified."
+    },
+    "originalNestedDeepVerifier": {
+      "command": "python TOOLS/verify_r18.py --deep",
+      "result": "FAIL_PATH_SEPARATOR_COMPATIBILITY",
+      "note": "The documented original sequential failure on Windows: the R16 ancestor compares backslash relative paths against slash-delimited manifest entries. Preserved as a failure, exactly as delivered."
+    },
+    "declaredCompatibilityAdaptedCheck": {
+      "command": "python AUDIT_SCRIPTS/windows_r16_adapter.py <extracted>/TOOLS/verify_r16.py",
+      "result": "PASS_COMPATIBILITY_ADAPTED",
+      "originalVerifierSha256": "9c8d213963b2cab5b456ef214512f25db96a948191c16f2a818b252e65e4ea37",
+      "fileOnDiskUnchanged": true,
+      "scientificApproval": false,
+      "note": "In-memory normalization of one manifest-coverage comparison only. This must never be reported as an unmodified original deep-verifier PASS, and it is not treated as one here."
+    }
+  },
+  "privateMirror": {
+    "path": "intake-private/dp600-r18/",
+    "committed": false,
+    "gitignored": true,
+    "contains": [
+      "LEARNER_CANDIDATE (key-free 222-record projection)",
+      "PRIVATE_QA (expected answers, per-option evidence, scientific notes)",
+      "QA status, receipts, nested hash inventories",
+      "READ_ONLY_INTEGRATION_HANDOFF.md and inherited reports",
+      "nested ORIGINAL archive with full ancestry"
+    ],
+    "note": "No file under intake-private/ is imported by any app code, and the directory is excluded from git, so it is neither committed nor served."
+  },
+  "projection": {
+    "output": "content/drafts/dp600-r18.json",
+    "sha256": "7dfc610198c5ef60a0539d09c1a5dc933cc9a317b3a4f5d35a3f5978c3f253a0",
+    "builder": "scripts/build-draft-banks.mjs",
+    "questions": 222,
+    "gradingEnabled": false,
+    "answersShipped": false,
+    "relationToExistingBank": "All 222 source ids (T1Q1…T1Q222) already exist in the approved Hansa DP-600 bank, so this is staged as a parallel candidate revision under namespaced draft ids — not merged, not replacing."
+  },
+  "authorization": {
+    "source": "Explicit user instruction of 2026-10-27 to merge both packages as disabled review drafts.",
+    "grading": "not enabled",
+    "approvedContentReplaced": false,
+    "deployed": false,
+    "packageFileAuthorization": "The package documents grant no repository write, build, browser or deployment authorization on their own; only the user instruction does."
+  }
+}

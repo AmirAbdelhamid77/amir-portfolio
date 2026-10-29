@@ -1,0 +1,9 @@
+{
+  "command": [
+    "node",
+    "--input-type=module",
+    "-e",
+    "import {cinematicReceipt} from './scripts/cinematic-phase2-receipt.mjs'; console.log('PASS exact successor:',cinematicReceipt(process.cwd()).paths().length,'bound files')"
+  ],
+  "exitCode": 0
+}

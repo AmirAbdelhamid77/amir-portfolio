@@ -1,0 +1,29 @@
+--- historical/package.json
++++ current/package.json
+@@ -12,7 +12,10 @@
+     "test:statistics": "node --experimental-strip-types --test \"tests/statistics/*.test.mjs\"",
+     "test:fabric": "node --experimental-strip-types --test \"tests/fabric/*.test.mjs\"",
+     "test:content": "node --experimental-strip-types --test \"tests/content/*.test.mjs\"",
+-    "test:all": "npm test && npm run test:statistics && npm run test:fabric && npm run test:content",
++    "test:knowledge": "node --experimental-strip-types --test \"tests/knowledge/*.test.mjs\"",
++    "test:atlas": "node --experimental-strip-types --test \"tests/atlas/*.test.mjs\"",
++    "qa:prototype-c": "node scripts/qa-prototype-c-v2.mjs",
++    "test:all": "npm test && npm run test:statistics && npm run test:fabric && npm run test:content && npm run test:knowledge && npm run test:atlas",
+     "inventory:routes": "node scripts/inventory-routes.mjs",
+     "inventory:content": "node scripts/inventory-content.mjs",
+     "inventory:compare": "node scripts/compare-inventory.mjs",
+@@ -31,10 +34,13 @@
+     "validate:data-viz": "node scripts/validate-data-viz.mjs",
+     "import:data-viz": "node scripts/import-notion-data-viz.mjs --source \"intake/source-exports/data-visualization\"",
+     "build:data-viz": "node scripts/build-datasets.mjs",
++    "build:drafts": "node scripts/build-draft-banks.mjs",
+     "preview": "node scripts/serve-out.mjs",
+     "preview:worker": "wrangler dev",
+     "deploy": "npm run build && wrangler deploy",
+-    "perf:fabric": "node scripts/measure-payload.mjs"
++    "perf:fabric": "node scripts/measure-payload.mjs",
++    "qa:drafts": "node scripts/qa-drafts.mjs",
++    "build:intake": "node scripts/build-intake-content.mjs"
+   },
+   "dependencies": {
+     "@floating-ui/dom": "^1.8.0",

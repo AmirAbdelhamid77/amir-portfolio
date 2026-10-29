@@ -1,0 +1,130 @@
+{
+  "slug": "fundamentals",
+  "title": "Analytics Fundamentals",
+  "topic": "Fundamentals",
+  "level": "beginner",
+  "description": "Grain, data quality, KPI design, leading versus lagging measures, and the communication habits that make analysis useful.",
+  "durationMinutes": 15,
+  "passMark": 70,
+  "questions": [
+    {
+      "id": "fun-01",
+      "type": "single",
+      "topic": "Modelling",
+      "prompt": "What does the grain of a table describe?",
+      "options": [
+        "The number of columns",
+        "What one row represents",
+        "The file format",
+        "The storage cost"
+      ],
+      "answer": 1,
+      "explanation": "Grain is the level of detail of a single row — for example, one order line or one site per day. Every measure must respect it."
+    },
+    {
+      "id": "fun-02",
+      "type": "multi",
+      "topic": "Data quality",
+      "prompt": "Which are recognised dimensions of data quality? Select all that apply.",
+      "options": ["Accuracy", "Completeness", "Timeliness", "Colour saturation"],
+      "answer": [0, 1, 2],
+      "explanation": "Accuracy, completeness, timeliness, consistency, validity, and uniqueness are quality dimensions. Colour is a design choice."
+    },
+    {
+      "id": "fun-03",
+      "type": "single",
+      "topic": "KPIs",
+      "prompt": "Which is a leading indicator?",
+      "options": [
+        "Lost-time incidents last quarter",
+        "Number of safety observations closed this week",
+        "Annual revenue",
+        "Customer churn last year"
+      ],
+      "answer": 1,
+      "explanation": "Closed observations are a proactive activity that precedes outcomes. The others describe results that have already happened."
+    },
+    {
+      "id": "fun-04",
+      "type": "single",
+      "topic": "KPIs",
+      "prompt": "A good KPI should be:",
+      "options": [
+        "Tied to an objective, measurable, and actionable",
+        "As precise as possible, with six decimal places",
+        "Different on every dashboard",
+        "Based only on data that is easy to collect"
+      ],
+      "answer": 0,
+      "explanation": "A KPI earns its place by connecting to a goal, being measurable, and implying an action when it moves."
+    },
+    {
+      "id": "fun-05",
+      "type": "single",
+      "topic": "Pipelines",
+      "prompt": "How does ELT differ from ETL?",
+      "options": [
+        "ELT transforms after loading into the warehouse; ETL transforms before loading",
+        "ELT has no extraction step",
+        "ETL only works with APIs",
+        "They are the same thing"
+      ],
+      "answer": 0,
+      "explanation": "ELT loads raw data first and uses warehouse compute to transform it; ETL transforms in a separate engine before loading."
+    },
+    {
+      "id": "fun-06",
+      "type": "boolean",
+      "topic": "Communication",
+      "prompt": "Showing more decimal places makes a dashboard KPI more credible.",
+      "answer": false,
+      "explanation": "Precision is not accuracy. Rounding to a decision-relevant precision usually improves clarity and honesty."
+    },
+    {
+      "id": "fun-07",
+      "type": "single",
+      "topic": "Modelling",
+      "prompt": "What is cardinality in a data model?",
+      "options": [
+        "The number of distinct values in a column",
+        "The number of report pages",
+        "The refresh frequency",
+        "The size of the database file"
+      ],
+      "answer": 0,
+      "explanation": "Cardinality is the count of distinct values. High-cardinality columns cost more to store and can slow relationships."
+    },
+    {
+      "id": "fun-08",
+      "type": "multi",
+      "topic": "Dashboard design",
+      "prompt": "Which are sound dashboard practices? Select all that apply.",
+      "options": [
+        "One clear question per view",
+        "Labelling thresholds and units",
+        "Encoding status with colour alone",
+        "Consistent filters and definitions across pages"
+      ],
+      "answer": [0, 1, 3],
+      "explanation": "Focus, explicit labels, and consistency help. Colour-only encoding excludes colour-blind users and disappears in print."
+    },
+    {
+      "id": "fun-09",
+      "type": "numeric",
+      "topic": "Volumetrics",
+      "prompt": "A report tracks 4 KPIs for 24 sites over 24 months. How many site-month-KPI values are there?",
+      "answer": 2304,
+      "tolerance": 0,
+      "explanation": "24 sites × 24 months × 4 KPIs = 2,304 values."
+    },
+    {
+      "id": "fun-10",
+      "type": "single",
+      "topic": "Visualisation",
+      "prompt": "Which chart best shows the distribution of a single numeric variable?",
+      "options": ["Pie chart", "Histogram", "Stacked area chart", "Scatter plot"],
+      "answer": 1,
+      "explanation": "A histogram bins one numeric variable and shows frequency per bin. A scatter plot needs two variables."
+    }
+  ]
+}

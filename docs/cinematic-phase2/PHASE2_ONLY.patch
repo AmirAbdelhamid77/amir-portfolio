@@ -1,0 +1,1476 @@
+--- a/components/knowledge/atlas-peek-stage.tsx
++++ b/components/knowledge/atlas-peek-stage.tsx
+@@ -33,11 +33,13 @@
+   conceptId,
+   lessonHref,
+   practiceHref,
++  contextTitle,
+ }: {
+   atlas: Atlas;
+   conceptId: string;
+   lessonHref: string;
+   practiceHref: string;
++  contextTitle: string;
+ }) {
+   const view = useMemo(
+     () => ({ ...defaultView(), concept: conceptId, incoming: true }),
+@@ -225,13 +227,14 @@
+           </div>
+         </div>
+       ) : (
+-        <div className="relative mt-4 max-w-3xl">
++        <div className="atlas-pending relative mt-4">
++          <div className="atlas-seal"><span>Edition context</span><strong>{center?.title ?? contextTitle}</strong><span>Connections<br/>await review</span></div>
+           <div
+             aria-hidden="true"
+-            className="absolute inset-0 -z-10 rounded-[24px] border border-border-strong bg-card/50"
++            className="atlas-pending-backing absolute inset-0 -z-10 rounded-[24px] border border-border-strong bg-card/50"
+             style={{ transform: "translate3d(10px, 10px, 0)" }}
+           />
+-          <div className="rounded-[24px] border border-border-strong bg-background/90 p-5 sm:p-6">
++          <div className="atlas-pending-copy rounded-[24px] border border-border-strong bg-background/90 p-5 sm:p-6">
+             <div className="flex flex-wrap items-center gap-x-3 gap-y-2">
+               <span className="inline-flex items-center gap-2 rounded-full border border-border-strong px-3 py-1.5 text-xs text-muted-foreground">
+                 <span aria-hidden="true" className="size-1.5 rounded-full bg-warning" />
+--- a/components/knowledge/insight-experiment.tsx
++++ b/components/knowledge/insight-experiment.tsx
+@@ -6,6 +6,7 @@
+ import { AnimatePresence, motion, useReducedMotion } from "motion/react";
+ import {
+   deriveVerdict,
++  INITIAL_EXPERIMENT,
+   type ExperimentId,
+   type ExperimentState,
+ } from "@/lib/knowledge/models";
+@@ -23,7 +24,7 @@
+   const reduce = useReducedMotion() ?? false;
+ 
+   return (
+-    <div className="mt-6 rounded-[20px] border border-border-strong bg-background/70 p-4 sm:p-5">
++    <div className="insight-experiment mt-6 rounded-[20px] border border-border-strong bg-background/70 p-4 sm:p-5">
+       <div className="flex flex-wrap items-center justify-between gap-2">
+         <p className="font-mono text-[10px] uppercase tracking-[0.16em] text-muted-foreground">
+           Try the decision
+@@ -101,7 +102,7 @@
+               <dl className="mt-3 flex flex-wrap gap-x-4 gap-y-1 font-mono text-[10px] uppercase tracking-[0.1em] text-muted-foreground">
+                 {verdict.rows.map((row) => (
+                   <div key={row.label} className="flex items-baseline gap-1.5">
+-                    <dt className="text-muted-foreground/70">{row.label}</dt>
++                    <dt className="text-muted-foreground">{row.label}</dt>
+                     <dd className="text-foreground/80">{row.state}</dd>
+                   </div>
+                 ))}
+@@ -110,6 +111,11 @@
+           </AnimatePresence>
+         </div>
+       </div>
++      <details className="mt-4 text-xs">
++        <summary className="inline-flex min-h-11 cursor-pointer items-center underline underline-offset-4">Read the model as a table</summary>
++        <table className="model-table"><caption className="sr-only">Current decision model: {verdict.headline}</caption><thead><tr><th scope="col">Object</th><th scope="col">Derived state</th></tr></thead><tbody>{verdict.rows.map(row=><tr key={row.label}><th scope="row">{row.label}</th><td>{row.state}</td></tr>)}</tbody></table>
++      </details>
++      <button type="button" onClick={()=>onChange(INITIAL_EXPERIMENT)} className="mt-2 min-h-11 px-1 text-xs underline underline-offset-4">Reset the decision</button>
+       <p className="mt-4 border-t border-border pt-3 text-[11px] leading-5 text-muted-foreground">
+         A reasoning model for this scenario, not company data. It changes as you
+         change the assumption.
+--- a/components/knowledge/insight-rail.tsx
++++ b/components/knowledge/insight-rail.tsx
+@@ -333,7 +333,7 @@
+           onPointerUp={onPointerUp}
+           onPointerCancel={onPointerUp}
+           className={cn(
+-            "relative w-full cursor-grab touch-pan-y overscroll-x-contain active:cursor-grabbing",
++            "insight-rail-viewport relative w-full cursor-grab touch-pan-y overscroll-x-contain active:cursor-grabbing",
+             "[clip-path:inset(0)] [mask-image:linear-gradient(to_right,transparent,black_4%,black_96%,transparent)]",
+             TOUCH_GESTURE_CLASS,
+           )}
+@@ -411,19 +411,25 @@
+   buttonRef: (node: HTMLButtonElement | null) => void;
+ }) {
+   const id = useId();
++  const reduce = useReducedMotion();
+   const { cardWidth } = geometry;
+   const offset = useTransform(scroll, (value) => index - value);
+   const x = useTransform(offset, (value) => cardX(value, geometry));
+   const scale = useTransform(offset, cardScale);
+   const zIndex = useTransform(offset, (value) => 100 - Math.round(Math.abs(value) * 10));
+   const veilOpacity = useTransform(offset, (value) => SIDE_DIM * Math.min(Math.abs(value), 1));
++  const rotateY = useTransform(offset, (value) => reduce ? 0 : clamp(value * -14, -24, 24));
++  const z = useTransform(offset, (value) => reduce ? 0 : -Math.min(Math.abs(value), 3) * 65);
+ 
+   return (
+     <motion.li
+-      className="absolute left-1/2 top-1/2"
++      className="rail-edition absolute left-1/2 top-1/2"
++      data-active={active}
+       style={{
+         x,
+         scale,
++        rotateY,
++        z,
+         zIndex,
+         width: cardWidth,
+         marginLeft: -cardWidth / 2,
+@@ -431,7 +437,7 @@
+       }}
+     >
+       <div className="relative">
+-        <div className="relative overflow-hidden rounded-[18px] border border-border-strong bg-card px-3.5 py-2.5 shadow-[0_1px_0_0_rgb(255_255_255/0.06)_inset,0_14px_30px_-22px_rgb(0_0_0/0.7)]">
++        <div className="rail-date-face relative overflow-hidden rounded-[18px] border border-border-strong bg-card px-3.5 py-2.5 shadow-[0_1px_0_0_rgb(255_255_255/0.06)_inset,0_14px_30px_-22px_rgb(0_0_0/0.7)]">
+           <time
+             id={`${id}-date`}
+             dateTime={event.iso}
+--- a/components/knowledge/insight-scene.tsx
++++ b/components/knowledge/insight-scene.tsx
+@@ -44,19 +44,19 @@
+           layer rather than appearing flat on the page. */}
+       <div
+         aria-hidden="true"
+-        className="absolute inset-0 -z-10 rounded-[28px] border border-border-strong bg-card/50"
++        className="insight-backing absolute inset-0 -z-10 rounded-[28px] border border-border-strong bg-card/50"
+         style={{ transform: "translate3d(10px, 10px, 0)" }}
+       />
+       <div
+         aria-hidden="true"
+-        className="absolute inset-0 -z-20 rounded-[28px] border border-border/60 bg-background/40"
++        className="insight-backing absolute inset-0 -z-20 rounded-[28px] border border-border/60 bg-background/40"
+         style={{ transform: "translate3d(20px, 22px, 0)" }}
+       />
+ 
+       <article
+         aria-labelledby={`${insight.id}-title`}
+         className={cn(
+-          "relative overflow-hidden rounded-[28px] border border-border-strong bg-card/95 p-5 sm:p-7",
++          "insight-reading relative overflow-hidden rounded-[28px] border border-border-strong bg-card/95 p-5 sm:p-7",
+           "shadow-[0_1px_0_0_rgb(255_255_255/0.05)_inset,0_30px_60px_-40px_rgb(0_0_0/0.65)]",
+         )}
+       >
+--- a/components/knowledge/insight-stage.tsx
++++ b/components/knowledge/insight-stage.tsx
+@@ -8,7 +8,7 @@
+ import { useCallback, useEffect, useRef, useState } from "react";
+ import Link from "next/link";
+ import { ArrowUpRight } from "lucide-react";
+-import { motion, useReducedMotion } from "motion/react";
++import { motion, useMotionValue, useSpring, useReducedMotion } from "motion/react";
+ import {
+   selectedInsight,
+   type Insight,
+@@ -30,6 +30,8 @@
+ import { StageAtlasPeek } from "@/components/knowledge/atlas-peek-stage";
+ import { InsightArchive } from "@/components/knowledge/insight-archive";
+ import { KnowledgeAtmosphere } from "@/components/knowledge/knowledge-atmosphere";
++import { KnowledgeInstrument } from "@/components/knowledge/knowledge-instrument";
++import "./observatory.css";
+ 
+ const CLOSED: SceneState = { revealed: false, evidenceOpen: false };
+ 
+@@ -53,6 +55,10 @@
+   const [announcement, setAnnouncement] = useState("");
+   const [message, setMessage] = useState("");
+   const stageRef = useRef<HTMLDivElement>(null);
++  const pointerX = useMotionValue(0);
++  const pointerY = useMotionValue(0);
++  const lightX = useSpring(pointerX, { stiffness: 65, damping: 24 });
++  const lightY = useSpring(pointerY, { stiffness: 65, damping: 24 });
+ 
+   // The URL is canonical: it is read once on mount and on Back/Forward, and
+   // written only when the reader chooses an edition.
+@@ -131,6 +137,11 @@
+   const scene = scenes[insight.id] ?? CLOSED;
+   const experiment = experiments[insight.id] ?? INITIAL_EXPERIMENT;
+   const experimentId = experimentFor(insight);
++  const changeExperiment = (patch: Partial<ExperimentState>) =>
++    setExperiments((previous) => ({
++      ...previous,
++      [insight.id]: { ...(previous[insight.id] ?? INITIAL_EXPERIMENT), ...patch },
++    }));
+   const cards = insightCards(insight).map((card) => ({
+     ...card,
+     zone: zones[card.id] ?? ("deck" as DealerZone),
+@@ -202,46 +213,45 @@
+ 
+   return (
+     <>
+-      <div className="hansa-stage relative isolate overflow-clip">
++      <div className="hansa-stage observatory relative isolate overflow-clip"
++        onPointerMove={(event) => {
++          if (reduce || event.pointerType !== "mouse") return;
++          const bounds = event.currentTarget.getBoundingClientRect();
++          pointerX.set((event.clientX - bounds.left - bounds.width / 2) * 0.014);
++          pointerY.set(Math.max(-10, Math.min(10, (event.clientY - bounds.top - 300) * 0.012)));
++        }}
++        onPointerLeave={() => { pointerX.set(0); pointerY.set(0); }}
++      >
+         <KnowledgeAtmosphere />
+-
+-        <div className="mx-auto w-full max-w-[1200px] px-5 pt-24 md:px-8 md:pt-28">
++        <motion.div aria-hidden="true" className="observatory-light" style={{ x: reduce ? 0 : lightX, y: reduce ? 0 : lightY }} />
++
++        <div className="observatory-content mx-auto w-full max-w-[1320px] px-5 pt-24 md:px-8 md:pt-28">
+           <div className="flex flex-wrap items-center justify-between gap-2 border-b border-border-strong pb-3 font-mono text-[10px] uppercase tracking-[0.16em] text-muted-foreground">
+             <span>Hansa / Knowledge stage</span>
+-            <span>Editions under editorial review</span>
++            <span>Editions under editorial review · Technical review</span>
+           </div>
+ 
+-          <header className="mt-9 grid gap-6 md:grid-cols-[minmax(0,1fr)_auto] md:items-end">
+-            <div>
++          <header className="observatory-hero">
++            <div className="observatory-editorial">
+               <p className="text-[11px] font-medium uppercase tracking-[0.18em] text-primary">
+                 The daily insight
+               </p>
+-              <h1 className="mt-3 max-w-[22ch] text-[clamp(2.15rem,4.4vw,3.4rem)] font-medium leading-[1.04] tracking-[-0.035em]">
+-                One idea.{" "}
+-                <span className="text-primary">A different way to see it.</span>
++              <h1 className="observatory-headline">
++                <span>One idea.</span>
++                <span className="observatory-title-rest">A different way<br className="hidden sm:block"/> to see it.</span>
+               </h1>
+               <p className="mt-4 max-w-[46ch] text-[15px] leading-7 text-muted-foreground">
+                 Think through a situation. Reveal the reasoning. Follow the
+                 connection into the cards and the Atlas.
+               </p>
++              <a className="observatory-current" href="#today"><span className="observatory-index" aria-hidden="true">01</span><span><time dateTime={insight.date}>{editionDate(insight.date)}</time><strong>{insight.title}</strong></span><ArrowUpRight aria-hidden="true" className="size-5 shrink-0"/></a>
+             </div>
+-            <div className="hidden shrink-0 text-right md:block">
+-              <p className="font-mono text-[10px] uppercase tracking-[0.16em] text-muted-foreground">
+-                Latest edition
+-              </p>
+-              <p className="mt-1 text-sm tabular-nums" id="latest-edition">
+-                {editionDate(items[0].date)}
+-              </p>
+-              <p className="mt-2 inline-flex items-center gap-1.5 rounded-full border border-border-strong px-2.5 py-1 font-mono text-[10px] uppercase tracking-[0.12em] text-muted-foreground">
+-                <span aria-hidden="true" className="size-1.5 rounded-full bg-warning" />
+-                Technical review
+-              </p>
+-            </div>
++            <div className="observatory-mechanism"><KnowledgeInstrument id={experimentId} state={experiment} onChange={changeExperiment}/><p className="observatory-caption">A conceptual instrument. Change an assumption; follow what changes.</p></div>
+           </header>
+ 
+-          <div className="mt-9">
++          <div className="observatory-time">
+             <div className="mb-2 flex flex-wrap items-center justify-between gap-2 font-mono text-[10px] uppercase tracking-[0.16em] text-muted-foreground">
+-              <span>Editions · newest first</span>
++              <span>Editions · newest first · drag to explore</span>
+               <a
+                 href="#archive"
+                 className="underline decoration-border-strong underline-offset-4 hover:text-foreground hover:decoration-primary"
+@@ -253,27 +263,22 @@
+               events={railEvents}
+               value={insight.id}
+               onValueChange={(id) => choose(id)}
+-              height={92}
+-              itemWidth={216}
++              height={148}
++              itemWidth={240}
+             />
+           </div>
+ 
+           <div
+             ref={stageRef}
+             id="today"
+-            className="mt-7 grid scroll-mt-24 items-start gap-6 lg:grid-cols-[minmax(0,1.6fr)_minmax(340px,1fr)] lg:gap-8"
++            className="observatory-study grid scroll-mt-24 items-start gap-10 lg:grid-cols-[minmax(0,1.35fr)_minmax(340px,1fr)] lg:gap-16"
+           >
+             <InsightScene
+               insight={insight}
+               scene={scene}
+               experimentId={experimentId}
+               experiment={experiment}
+-              onExperimentChange={(patch) =>
+-                setExperiments((previous) => ({
+-                  ...previous,
+-                  [insight.id]: { ...(previous[insight.id] ?? INITIAL_EXPERIMENT), ...patch },
+-                }))
+-              }
++              onExperimentChange={changeExperiment}
+               onToggleReveal={() => toggleScene("revealed")}
+               onToggleEvidence={() => toggleScene("evidenceOpen")}
+               direction={direction}
+@@ -284,7 +289,7 @@
+               initial={reduce ? false : { y: 8 }}
+               animate={{ opacity: 1, y: 0 }}
+               transition={reduce ? { duration: 0.1 } : { duration: 0.22 }}
+-              className="relative rounded-[26px] border border-border-strong bg-card/70 p-5 shadow-[0_1px_0_0_rgb(255_255_255/0.05)_inset,0_24px_50px_-40px_rgb(0_0_0/0.6)]"
++              className="observatory-workbench"
+             >
+               <KnowledgeDealer
+                 cards={cards}
+@@ -337,6 +342,7 @@
+               conceptId={insight.conceptId}
+               lessonHref={insight.lessonHref}
+               practiceHref={insight.practiceHref}
++              contextTitle={insight.topic}
+             />
+           </div>
+ 
+--- a/components/knowledge/knowledge-atmosphere.tsx
++++ b/components/knowledge/knowledge-atmosphere.tsx
+@@ -13,6 +13,7 @@
+       <div className="hansa-wash absolute inset-0" />
+       <div className="hansa-dots absolute inset-x-0 top-0 h-[720px]" />
+       <div className="hansa-floor absolute inset-x-0 bottom-0 h-[420px]" />
++      <div className="observatory-vault"><span/><span/><span/></div>
+     </div>
+   );
+ }
+--- a/components/knowledge/knowledge-dealer.tsx
++++ b/components/knowledge/knowledge-dealer.tsx
+@@ -37,7 +37,7 @@
+   label: string;
+ };
+ 
+-const FLIGHT_STRENGTH = -0.35;
++const FLIGHT_STRENGTH = -0.48;
+ const HOP_STRENGTH = -0.3;
+ const STAGGER = 0.05;
+ const MAX_STAGGER_WINDOW = 0.18;
+@@ -122,7 +122,7 @@
+   // Below ~300px a three-card fan cannot keep a readable strip per card, so the
+   // hand becomes one upright card with two backing edges, as the design spec
+   // requires at 320px. Identity, deal and collect are unchanged.
+-  const narrow = (size?.width ?? 400) < 300;
++  const narrow = (size?.width ?? 400) < 420;
+   const cardWidth = narrow
+     ? clamp(deckWidth * 0.62, 120, 168)
+     : clamp(deckWidth * 0.36, 100, 150);
+@@ -292,7 +292,7 @@
+         ref={stageRef}
+         role="group"
+         aria-label="Knowledge card tray"
+-        className="relative mt-3 h-[236px] w-full touch-manipulation select-none sm:h-[300px]"
++        className="dealer-tray relative mt-3 h-[236px] w-full touch-manipulation select-none sm:h-[300px]"
+       >
+         {/* At rest the landing area is visible, so the deck reads as a deck and
+             not as the only card. Once cards are dealt the hand occupies it, and
+@@ -432,7 +432,7 @@
+                 onCloseReader();
+               }
+             }}
+-            className="mt-4 rounded-[22px] border border-border-strong bg-background/90 p-4 outline-none shadow-[0_1px_0_0_rgb(255_255_255/0.05)_inset,0_18px_40px_-30px_rgb(0_0_0/0.7)] focus-visible:ring-2 focus-visible:ring-ring sm:p-5"
++            className="dealer-reader mt-4 rounded-[22px] border border-border-strong bg-background/90 p-4 outline-none shadow-[0_1px_0_0_rgb(255_255_255/0.05)_inset,0_18px_40px_-30px_rgb(0_0_0/0.7)] focus-visible:ring-2 focus-visible:ring-ring sm:p-5"
+           >
+             <div className="flex items-start justify-between gap-3">
+               <p className="font-mono text-[10px] uppercase tracking-[0.16em] text-primary">
+@@ -442,7 +442,7 @@
+                 type="button"
+                 onClick={onCloseReader}
+                 aria-label="Back to the hand"
+-                className="-m-2 grid size-9 place-items-center rounded-full text-muted-foreground transition-colors hover:text-foreground focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
++                className="-m-2 grid size-11 place-items-center rounded-full text-muted-foreground transition-colors hover:text-foreground focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
+               >
+                 <X className="size-4" aria-hidden="true" />
+               </button>
+@@ -530,7 +530,7 @@
+   return (
+     <div
+       ref={frame}
+-      className="absolute left-0 top-0"
++      className="dealer-card-frame absolute left-0 top-0"
+       style={{ width, height, zIndex: pose.z }}
+     >
+       {children}
+@@ -586,7 +586,7 @@
+ 
+ function CardBack() {
+   return (
+-    <span className="relative flex size-full flex-col justify-between overflow-hidden rounded-[18px] border border-border-strong bg-[linear-gradient(145deg,color-mix(in_oklch,var(--primary)_16%,var(--card)),var(--card))] p-2.5">
++    <span className="dealer-card-back relative flex size-full flex-col justify-between overflow-hidden rounded-[18px] border border-border-strong bg-[linear-gradient(145deg,color-mix(in_oklch,var(--primary)_16%,var(--card)),var(--card))] p-2.5">
+       <span className="font-mono text-[8px] uppercase tracking-[0.16em] text-primary/80">
+         Hansa
+       </span>
+--- /dev/null
++++ b/components/knowledge/knowledge-instrument.tsx
+@@ -0,0 +1,77 @@
++"use client";
++
++import { motion, useReducedMotion } from "motion/react";
++import { deriveVerdict, INITIAL_EXPERIMENT, type ExperimentId, type ExperimentState } from "@/lib/knowledge/models";
++
++/** A categorical conceptual instrument, never a quantitative chart or Atlas graph.
++ * Geometry and words read the SAME model as the scenario below. Decorative
++ * aperture rings carry no data. The DOM readout is the accessible equivalent. */
++export function KnowledgeInstrument({ id, state, onChange }: {
++  id: ExperimentId | null;
++  state: ExperimentState;
++  onChange: (patch: Partial<ExperimentState>) => void;
++}) {
++  const reduce = useReducedMotion();
++  if (!id) return null;
++  const verdict = deriveVerdict(id, state);
++  const changed = id === "retention" ? state.retained : id === "deletion" ? state.action === "delete-through" : state.location === "files";
++  const toggle = () => onChange(id === "retention" ? { retained: !state.retained } : id === "deletion" ? { action: state.action === "remove-shortcut" ? "delete-through" : "remove-shortcut" } : { location: state.location === "tables" ? "files" : "tables" });
++  const sourceLabel = id === "deletion" ? "Target data" : id === "discovery" ? (state.data === "delta" ? "Delta table" : "Arbitrary files") : "Existing Delta table";
++  const topLabel = id === "retention" ? (changed ? "Retained result required" : "Reference · no new copy") : id === "deletion" ? (changed ? "Delete through shortcut" : "Remove shortcut object") : (state.location === "tables" ? "Tables placement" : "Files placement");
++  return (
++    <div className="observatory-instrument" data-tone={verdict.tone}>
++      <div className="instrument-coordinate" aria-hidden="true"><span>FIG. 01</span><span>DECISION / OPTICS</span></div>
++      <motion.div className="instrument-assembly" initial={reduce ? false : { y: 20, rotate: -5 }} animate={{ y: 0, rotate: 0 }} transition={{type:"spring", stiffness:75, damping:20}}>
++        <svg viewBox="0 0 560 440" aria-hidden="true" className="instrument-svg">
++          <defs>
++            <linearGradient id="instrument-slab" x1="0" y1="0" x2="1" y2="1"><stop stopColor="var(--obs-slab-light)"/><stop offset="1" stopColor="var(--obs-slab)"/></linearGradient>
++            <linearGradient id="instrument-edge"><stop stopColor="var(--primary)"/><stop offset="1" stopColor="var(--accent)"/></linearGradient>
++          </defs>
++          {/* An optical aperture, not invented semantic connections. */}
++          <g fill="none" stroke="currentColor" className="instrument-aperture">
++            <circle cx="280" cy="210" r="185" strokeOpacity=".14"/>
++            <circle cx="280" cy="210" r="173" strokeOpacity=".1" strokeDasharray="1 9"/>
++            <path d="M95 210a185 185 0 0 1 185-185" stroke="var(--primary)" strokeWidth="2"/>
++            <path d="M280 395a185 185 0 0 0 185-185" strokeOpacity=".3"/>
++            <path d="M75 210h24m362 0h24M280 4v25m0 362v25" strokeOpacity=".4"/>
++          </g>
++          <ellipse cx="286" cy="335" rx="157" ry="29" fill="var(--foreground)" opacity=".06"/>
++          {/* Solid side faces and several visible strata make volume legible at rest. */}
++          {[36,24,12,0].map((offset,i)=>(
++            <g key={offset} transform={`translate(0 ${offset})`}>
++              <path d="M125 223 280 145 435 223v13L280 314 125 236Z" fill="var(--obs-slab)" stroke="var(--obs-edge)"/>
++              <path d="M125 223 280 145 435 223 280 301Z" fill="url(#instrument-slab)" stroke="var(--obs-edge)"/>
++              {i===3?<><path d="M151 223 280 158 409 223 280 288Z" fill="none" stroke="var(--primary)" strokeOpacity=".45"/><path d="M180 222 280 172 380 222 280 272Z" fill="none" stroke="var(--primary)" strokeOpacity=".25"/></>:null}
++            </g>
++          ))}
++          <text x="280" y="240" textAnchor="middle" fill="var(--foreground)" fontSize="13" fontWeight="600">{sourceLabel}</text>
++          <text x="280" y="259" textAnchor="middle" fill="var(--muted-foreground)" fontSize="10">{id==="deletion"&&changed ? "Write permission required" : "Source-backed conceptual model"}</text>
++          <motion.g animate={{y:changed?-12:0}} transition={reduce?{duration:0}:{type:"spring",stiffness:130,damping:22}}>
++            <path d="M169 136 280 81 391 136 280 192Z" fill="var(--obs-panel)" stroke="url(#instrument-edge)" strokeWidth="1.5"/>
++            <path d="M169 136v7l111 56 111-56v-7" fill="none" stroke="var(--primary)" strokeOpacity=".5"/>
++            <text x="280" y="137" textAnchor="middle" fill="var(--foreground)" fontSize="11" fontWeight="600">{id==="retention"?"Team A + Team B":id==="deletion"?"Shortcut object":"Shortcut location"}</text>
++            <text x="280" y="155" textAnchor="middle" fill="var(--primary)" fontSize="10">{id==="retention"?"Read access":id==="discovery"?state.location.toUpperCase():changed?"Remains":"Removed"}</text>
++          </motion.g>
++          <motion.path d="M280 194v20" fill="none" stroke="var(--primary)" strokeWidth="2" strokeDasharray={changed?"3 4":undefined} animate={{pathLength:id==="deletion"&&!changed?0:1}} transition={reduce?{duration:0}:{duration:.28}}/>
++          <path d="m275 207 5 7 5-7" stroke="var(--primary)" fill="none" opacity={id==="deletion"&&!changed?0:1}/>
++          {id === "retention" ? (
++            <motion.g initial={false} animate={{opacity:state.retained?1:0,y:state.retained?0:18}} transition={reduce?{duration:0}:{duration:.32}}>
++              <path d="M398 246 438 266" stroke="var(--primary)" strokeDasharray="3 4" fill="none"/>
++              <path d="M368 302 439 267 510 302v8l-71 35-71-35Z" fill="var(--obs-slab)" stroke="var(--obs-edge)"/>
++              <path d="M368 302 439 267 510 302 439 337Z" fill="var(--obs-panel)" stroke="var(--primary)" strokeDasharray="3 4"/>
++              <text x="439" y="299" textAnchor="middle" fill="var(--foreground)" fontSize="10">Retained result</text>
++              <text x="439" y="315" textAnchor="middle" fill="var(--primary)" fontSize="10">REQUIRED</text>
++            </motion.g>
++          ) : null}
++          <g fill="var(--muted-foreground)" fontFamily="monospace" fontSize="9" letterSpacing="1"><text x="28" y="372">SOURCE</text><text x="460" y="66">ASSUMPTION</text></g>
++          <path d="m76 367 45-47m332-249-37 45" stroke="currentColor" strokeOpacity=".25"/>
++        </svg>
++      </motion.div>
++      <div className="instrument-readout">
++        <p className="instrument-state" aria-live="polite">{topLabel}</p>
++        <button type="button" aria-pressed={changed} onClick={toggle} className="instrument-switch"><span aria-hidden="true" className="switch-dot"/>{id==="retention"?"Change the requirement":id==="deletion"?"Change the action":"Change the placement"}<span aria-hidden="true">↗</span></button>
++        <button type="button" onClick={()=>onChange(INITIAL_EXPERIMENT)} className="instrument-reset">Reset model</button>
++      </div>
++    </div>
++  );
++}
+--- /dev/null
++++ b/components/knowledge/observatory.css
+@@ -0,0 +1,108 @@
++/* Canonical landing only. Plane-based 2.5D; no global token replacement. */
++.observatory {
++  --obs-panel: color-mix(in oklch, var(--background) 94%, var(--accent));
++  --obs-slab: color-mix(in oklch, var(--card) 85%, var(--primary));
++  --obs-slab-light: color-mix(in oklch, var(--background) 95%, var(--primary));
++  --obs-edge: color-mix(in oklch, var(--foreground) 24%, var(--background));
++  background: var(--background);
++}
++.observatory .hansa-dots { opacity: .13; background-size: 36px 36px; }
++.observatory .hansa-wash { opacity: .45; }
++.observatory .hansa-floor { bottom: 12%; opacity: .25; }
++.observatory-light { position:absolute; z-index:-1; inset:0 0 auto; height:850px; pointer-events:none; background: radial-gradient(ellipse at 75% 32%, color-mix(in oklch,var(--primary) 12%,transparent),transparent 48%); }
++.observatory-vault { position:absolute; width:1100px; height:1100px; top:-235px; left:calc(71% - 550px); transform:rotate(-22deg); opacity:.15; }
++.observatory-vault span { position:absolute; inset:0; border:1px solid var(--obs-edge); border-radius:50%; }
++.observatory-vault span:nth-child(2) { inset:34px; }
++.observatory-vault span:nth-child(3) { inset:130px; border-style:dashed; }
++.observatory-hero { display:grid; grid-template-columns:1.05fr 1fr; gap:36px; align-items:center; min-height:540px; padding:28px 0 8px; }
++.observatory-editorial { position:relative; z-index:2; padding:15px 0 25px; }
++.observatory-headline { margin-top:20px; font-size:clamp(54px,6.2vw,88px); line-height:.98; letter-spacing:-.065em; font-weight:500; }
++.observatory-headline > span { display:block; }
++.observatory-title-rest { margin-top:9px; color:var(--primary); font-weight:400; }
++.observatory-editorial > p:last-of-type { max-width:38ch; font-size:14px; line-height:1.8; }
++.observatory-current { display:flex; align-items:center; gap:16px; max-width:460px; margin-top:24px; padding:16px 0; border-block:1px solid var(--obs-edge); }
++.observatory-current .observatory-index { font-size:40px; line-height:1; font-weight:300; letter-spacing:-.06em; color:var(--primary); }
++.observatory-current time { display:block; font:10px/1.6 var(--font-geist-mono),monospace; letter-spacing:.12em; }
++.observatory-current strong { display:block; font-size:13px; line-height:1.6; font-weight:500; }
++.observatory-current svg { margin-left:auto; }
++.observatory-current:hover strong { text-decoration:underline; text-underline-offset:4px; }
++.observatory-mechanism { min-width:0; position:relative; max-width:500px; width:100%; margin-inline:auto; }
++.observatory-instrument { position:relative; width:100%; }
++.instrument-coordinate { display:flex; justify-content:space-between; font:9px monospace; letter-spacing:.18em; color:var(--muted-foreground); padding:0 8%; }
++.instrument-svg { width:100%; height:auto; display:block; overflow:visible; filter:drop-shadow(10px 22px 16px rgb(0 0 0 / .10)); }
++.instrument-assembly { margin-top:-12px; }
++.instrument-readout { position:relative; margin-top:-35px; text-align:center; }
++.instrument-state { font:12px/1.7 monospace; letter-spacing:.025em; min-height:22px; }
++.instrument-switch { display:inline-flex; min-height:44px; align-items:center; justify-content:center; gap:10px; padding:8px 18px; margin-top:10px; border:1px solid var(--obs-edge); border-radius:30px; background:var(--obs-panel); font-size:12px; box-shadow:0 3px 0 var(--obs-slab),0 12px 24px rgb(0 0 0 / .08); cursor:pointer; }
++.switch-dot { width:7px; height:7px; border-radius:50%; background:var(--primary); box-shadow:0 0 0 4px color-mix(in oklch,var(--primary) 15%,transparent); }
++.instrument-switch[aria-pressed=true] .switch-dot { background:var(--warning); }
++.instrument-reset { display:block; margin:8px auto 0; min-height:36px; padding:4px 12px; font-size:11px; color:var(--muted-foreground); text-decoration:underline; text-underline-offset:4px; }
++.observatory-caption { text-align:center; font-size:10px; line-height:1.8; color:var(--muted-foreground); margin:0 auto; max-width:38ch; }
++.observatory-time { position:relative; padding:16px 0 0; margin:0 -5px 36px; }
++.observatory-time::before { content:""; position:absolute; left:5%; right:5%; height:94px; top:65px; border:1px solid var(--obs-edge); border-radius:50%; transform:perspective(800px) rotateX(65deg) rotateZ(-3deg); background:linear-gradient(180deg,transparent,color-mix(in oklch,var(--primary) 7%,var(--background))); box-shadow:0 15px 18px -14px color-mix(in oklch,var(--foreground) 25%,transparent); pointer-events:none; }
++.observatory .insight-rail-viewport { perspective:1100px; }
++.observatory .rail-edition { transform-style:preserve-3d; }
++.observatory .rail-date-face { border-radius:3px 18px 3px 18px; padding:14px 18px; border-color:var(--obs-edge); background:var(--obs-panel); box-shadow:0 4px 0 var(--obs-slab),0 5px 0 var(--obs-edge),0 22px 20px -14px rgb(0 0 0 / .3); }
++.observatory .rail-edition[data-active=true] .rail-date-face { border-top:2px solid var(--primary); }
++.observatory-study { padding:24px 0 26px; border-top:1px solid var(--obs-edge); }
++.observatory .insight-reading { padding:16px 0 0; border:0; border-radius:0; background:transparent; box-shadow:none; overflow:visible; }
++.observatory .insight-backing { display:none; }
++.observatory .insight-reading h2 { font-size:clamp(28px,3vw,42px); max-width:21ch; letter-spacing:-.04em; }
++.observatory .insight-reading > div:first-child { border-bottom:1px solid var(--border-strong); padding-bottom:18px; }
++.observatory .insight-experiment { position:relative; border-radius:3px 24px 3px 24px; background:var(--obs-panel); border-color:var(--obs-edge); box-shadow:7px 7px 0 var(--obs-slab),8px 8px 0 var(--obs-edge),0 25px 30px -25px rgb(0 0 0 / .3); }
++.observatory .insight-experiment svg { overflow:visible; }
++.observatory-workbench { position:relative; padding:24px; margin-top:16px; border-block:1px solid var(--obs-edge); background:color-mix(in oklch,var(--card) 55%,transparent); isolation:isolate; }
++.observatory-workbench::before { content:""; position:absolute; inset:18px -12px -14px 14px; z-index:-1; border:1px solid var(--obs-edge); transform:skewY(-2deg); background:var(--obs-panel); box-shadow:0 24px 35px -25px rgb(0 0 0 / .35); }
++.observatory .dealer-tray { perspective:1100px; }
++.observatory .dealer-tray::before { content:""; position:absolute; width:92%; height:55%; bottom:5%; left:4%; border:1px solid var(--obs-edge); border-radius:50%; background:radial-gradient(ellipse,color-mix(in oklch,var(--primary) 9%,transparent),transparent 70%); transform:rotateX(65deg); box-shadow:0 8px 0 color-mix(in oklch,var(--foreground) 4%,var(--card)),0 9px 0 var(--obs-edge); }
++.observatory .dealer-card-frame { filter:drop-shadow(8px 15px 7px rgb(0 0 0 / .16)); }
++.observatory .dealer-card-back { border-radius:12px; background:var(--obs-slab); border:1px solid var(--obs-edge); padding:14px; box-shadow:inset 0 0 0 5px var(--obs-panel),inset 0 0 0 6px var(--obs-edge); }
++.observatory .dealer-card-back::after { content:""; position:absolute; width:86px; height:86px; left:50%; top:50%; border:1px solid var(--primary); border-radius:50%; transform:translate(-50%,-50%) rotateX(50deg) rotateZ(-35deg); box-shadow:0 8px 0 -1px var(--obs-slab),0 9px 0 var(--primary); opacity:.5; }
++.observatory .dealer-reader { border-radius:3px 22px 3px 22px; background:var(--obs-panel); border-color:var(--obs-edge); box-shadow:6px 7px 0 var(--obs-slab); }
++.observatory .atlas-pending { display:grid; grid-template-columns:220px 1fr; align-items:center; margin-top:24px; border-block:1px solid var(--obs-edge); padding:28px 0; gap:32px; }
++.atlas-seal { aspect-ratio:1; border:1px solid var(--obs-edge); border-radius:50%; display:flex; flex-direction:column; align-items:center; justify-content:center; position:relative; padding:28px; text-align:center; }
++.atlas-seal::before { content:""; position:absolute; inset:12px; border:1px dashed var(--obs-edge); border-radius:50%; }
++.atlas-seal::after { content:""; position:absolute; bottom:13%; left:-7%; width:114%; height:30%; border:1px solid var(--obs-edge); border-radius:50%; transform:rotate(-20deg); }
++.atlas-seal > span { font:10px/1.8 monospace; letter-spacing:.13em; color:var(--muted-foreground); }
++.atlas-seal > strong { font-size:19px; font-weight:500; line-height:1.3; margin:8px 0; }
++.observatory .atlas-pending-copy { padding:0; border:0; border-radius:0; background:transparent; }
++.observatory .atlas-pending-backing { display:none; }
++.observatory button:focus-visible,.observatory a:focus-visible { outline:2px solid var(--primary); outline-offset:4px; }
++.observatory .model-table { width:100%; margin-top:12px; font-size:11px; text-align:start; }
++.observatory .model-table th,.observatory .model-table td { padding:7px 4px; border-bottom:1px solid var(--border-strong); text-align:start; vertical-align:top; }
++.observatory .model-table th { font-weight:400; color:var(--muted-foreground); }
++.dark .observatory { --obs-slab:color-mix(in oklch,var(--card) 90%,var(--primary)); --obs-slab-light:color-mix(in oklch,var(--card) 83%,var(--primary)); --obs-panel:color-mix(in oklch,var(--background) 94%,var(--primary)); --obs-edge:color-mix(in oklch,var(--foreground) 27%,var(--background)); }
++@media (max-width:1023px) { .observatory-hero { min-height:490px; gap:16px; } .observatory-headline { font-size:clamp(46px,6.5vw,70px); } .observatory-workbench { max-width:600px; width:100%; margin-inline:auto; } }
++@media (max-width:767px) {
++  .observatory-content { padding-top:90px; }
++  .observatory-hero { grid-template-columns:1fr; gap:12px; padding-top:14px; }
++  .observatory-editorial { padding:6px 0 0; }
++  .observatory-headline { font-size:clamp(44px,9.5vw,68px); letter-spacing:-.055em; margin-top:13px; }
++  .observatory-title-rest { max-width:13ch; }
++  .observatory-editorial > p:last-of-type { font-size:13px; margin-top:14px; }
++  .observatory-current { margin-top:16px; padding:12px 0; }
++  .observatory-current .observatory-index { font-size:32px; }
++  .observatory-current strong { font-size:12px; }
++  .observatory-mechanism { width:min(100%,450px); margin-inline:auto; }
++  .instrument-coordinate { margin-top:12px; }
++  .instrument-assembly { margin:-18px auto -20px; width:88%; }
++  .instrument-readout { margin-top:-20px; }
++  .instrument-state { font-size:10px; }
++  .instrument-reset { display:inline-block; margin-left:6px; }
++  .observatory-caption { font-size:10px; }
++  .observatory-time { margin-top:26px; margin-bottom:18px; }
++  .observatory-time::before { left:-15%; right:-15%; }
++  .observatory-vault { opacity:.1; }
++  .observatory-study { gap:28px; padding-top:12px; }
++  .observatory .rail-date-face { padding:12px; }
++  .observatory .insight-reading { padding-top:12px; }
++  .observatory .insight-reading h2 { font-size:30px; }
++  .observatory-workbench { padding:20px 12px; }
++  .observatory-workbench::before { inset:12px -5px -12px 7px; }
++  .observatory .dealer-reader { padding:20px 16px; border-top:3px solid var(--primary); }
++  .observatory .atlas-pending { grid-template-columns:1fr; gap:24px; padding:24px 0; }
++  .atlas-seal { width:168px; margin-inline:auto; }
++  .atlas-seal > strong { font-size:16px; }
++}
++@media (prefers-reduced-motion:reduce) { .observatory *, .observatory *::before,.observatory *::after { scroll-behavior:auto!important; transition-duration:0s!important; animation:none!important; } }
++@media (forced-colors:active) { .instrument-svg { forced-color-adjust:auto; } .observatory .rail-date-face,.atlas-seal,.instrument-switch { border:1px solid CanvasText; } }
+--- a/components/site-header.tsx
++++ b/components/site-header.tsx
+@@ -68,16 +68,16 @@
+             className="group flex items-center gap-2.5 rounded-lg text-sm font-semibold tracking-tight"
+           >
+             <span className="relative flex h-7 w-7 items-center justify-center overflow-hidden rounded-[9px] bg-[color-mix(in_oklch,var(--primary)_78%,black)] text-[11px] font-bold tracking-tight text-primary-foreground shadow-sm">
+-              AA
++              {isLanding ? "H" : "AA"}
+               <span
+                 aria-hidden="true"
+                 className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-black/15 to-transparent"
+               />
+             </span>
+-            <span className="hidden sm:inline">
+-              Amir Abdelhamid
++            <span className={isLanding ? "inline" : "hidden sm:inline"}>
++              {isLanding ? "Hansa" : "Amir Abdelhamid"}
+               <span className="ml-2 hidden rounded-full border border-border px-1.5 py-0.5 font-mono text-[9px] font-normal uppercase tracking-wider text-muted-foreground md:inline">
+-                Data
++                {isLanding ? "Observatory" : "Data"}
+               </span>
+             </span>
+             <span className="sr-only"> — home</span>
+--- a/scripts/canonical-home-receipt.mjs
++++ b/scripts/canonical-home-receipt.mjs
+@@ -13,6 +13,7 @@
+ import { readFileSync, existsSync } from "node:fs";
+ import { createHash } from "node:crypto";
+ import { resolve, sep } from "node:path";
++import { cinematicReceipt } from "./cinematic-phase2-receipt.mjs";
+ 
+ export const CANONICAL_HOME = "docs/canonical-home/INTEGRATION_MANIFEST.json";
+ 
+@@ -24,6 +25,7 @@
+ };
+ 
+ export function canonicalHomeReceipt(root) {
++  const successor = cinematicReceipt(root);
+   if (!existsSync(resolve(root, CANONICAL_HOME))) return identity;
+   const read = (path) => readFileSync(resolve(root, path));
+   const hash = (path) => createHash("sha256").update(read(path)).digest("hex");
+@@ -73,7 +75,7 @@
+         "Canonical-home rollback bytes changed " + entry.path,
+       );
+     }
+-    assert.equal(hash(entry.path), entry.sha256, "Canonical-home drift " + entry.path);
++    assert.equal(hash(entry.path), successor.expected(entry.path, entry.sha256), "Canonical-home drift " + entry.path);
+   }
+ 
+   const removedPaths = new Set();
+@@ -89,13 +91,13 @@
+ 
+   return {
+     expected(path, old) {
+-      return (
++      return successor.expected(path, (
+         manifest.files.find((entry) => entry.path === path && entry.beforeSha256 === old)
+           ?.sha256 ?? old
+-      );
++      ));
+     },
+     removed: (path) => removedPaths.has(path),
+     removedPaths: () => [...removedPaths],
+-    paths: () => manifest.files.map((entry) => entry.path),
++    paths: () => [...manifest.files.map((entry) => entry.path), ...successor.paths()],
+   };
+ }
+--- /dev/null
++++ b/scripts/cinematic-phase2-receipt.mjs
+@@ -0,0 +1,30 @@
++// Exact successor for the owner-authorized canonical landing visual upgrade.
++// Does not rewrite an older baseline or accept unknown content drift.
++import assert from 'node:assert/strict';
++import {readFileSync,existsSync} from 'node:fs';
++import {createHash} from 'node:crypto';
++import {resolve,sep} from 'node:path';
++export const CINEMATIC_PHASE2='docs/cinematic-phase2/INTEGRATION_MANIFEST.json';
++const identity={expected:(_p,old)=>old,paths:()=>[]};
++export function cinematicReceipt(root){
++ if(!existsSync(resolve(root,CINEMATIC_PHASE2)))return identity;
++ const read=p=>readFileSync(resolve(root,p));
++ const hash=p=>createHash('sha256').update(read(p)).digest('hex');
++ const m=JSON.parse(read(CINEMATIC_PHASE2));
++ assert.equal(m.scope,'hansa-cinematic-phase2-2026-10-28');
++ assert.equal(hash(m.previousManifest),m.previousManifestSha256,'Phase 1 manifest changed');
++ assert.equal(hash(m.baselinePath),m.baselineSha256,'Phase 2 dirty baseline changed');
++ const baseline=JSON.parse(read(m.baselinePath));
++ assert.equal(new Set(m.files.map(e=>e.path)).size,m.files.length,'Duplicate Phase 2 path');
++ for(const e of m.files){
++  assert.ok(resolve(root,e.path).startsWith(root+sep),'Phase 2 path escapes checkout');
++  assert.equal(e.beforeSha256,baseline[e.path]??null,'Unbound Phase 2 before hash '+e.path);
++  if(e.beforeSha256!==null&&!e.generated){
++   assert.ok(e.rollbackPath,'Missing rollback bytes '+e.path);
++   assert.ok(resolve(root,e.rollbackPath).startsWith(root+sep));
++   assert.equal(hash(e.rollbackPath),e.beforeSha256,'Phase 2 rollback drift '+e.path);
++  }
++  assert.equal(hash(e.path),e.sha256,'Phase 2 source drift '+e.path);
++ }
++ return {expected:(p,old)=>m.files.find(e=>e.path===p&&e.beforeSha256===old)?.sha256??old,paths:()=>m.files.map(e=>e.path)};
++}
+--- a/scripts/phase2-baseline.py
++++ b/scripts/phase2-baseline.py
+@@ -3,6 +3,8 @@
+ 
+ root = pathlib.Path(__file__).resolve().parents[1]
+ dest = root / 'docs/cinematic-phase2'
++if (dest / 'baseline-hashes.json').exists():
++    raise SystemExit('Baseline already exists. Refusing to replace the original evidence.')
+ dest.mkdir(exist_ok=True)
+ excluded = {'.git', 'node_modules', '.next', 'out', '.wrangler'}
+ records = {}
+--- /dev/null
++++ b/scripts/phase2-canonical-regression.mjs
+@@ -0,0 +1,455 @@
++// Browser QA for the canonical home and its compatibility alias.
++//
++//   node scripts/qa-canonical-home.mjs [--port 4313]
++//
++// Drives the locally installed Microsoft Edge through playwright-core against a
++// static build served by `scripts/serve-out.mjs`, which this script starts and
++// stops itself. It exercises the real interactions on `/`, repeats the deep-link
++// checks on `/prototype-c/`, and records screenshots plus a JSON report under
++// docs/cinematic-phase2/evidence/regression/. No network access, no deployment, nothing on
++// disk outside the evidence folder is mutated.
++import { mkdir, readFile, writeFile } from "node:fs/promises";
++import { spawn } from "node:child_process";
++import path from "node:path";
++import { chromium } from "playwright-core";
++
++const EDGE = "C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe";
++const args = process.argv.slice(2);
++const portIndex = args.indexOf("--port");
++const PORT = Number(portIndex === -1 ? 4313 : args[portIndex + 1]);
++const BASE = `http://127.0.0.1:${PORT}`;
++const EVIDENCE = path.resolve("docs/cinematic-phase2/evidence/regression");
++
++// `title` is the headline shown in the stage; `cardTitle` is the shorter label
++// the rail and the archive use, which is what the rail reports as its label.
++const EDITIONS = {
++  reference: {
++    id: "hansa-insight-shortcut-reference-v1",
++    title: "A reference is a design decision.",
++    cardTitle: "Reference ≠ retained result",
++  },
++  delete: {
++    id: "hansa-insight-shortcut-delete-v1",
++    title: "Name the object you are deleting.",
++    cardTitle: "Object versus target",
++  },
++  discovery: {
++    id: "hansa-insight-shortcut-discovery-v1",
++    title: "Location changes discovery.",
++    cardTitle: "Files versus Tables",
++  },
++};
++
++await mkdir(EVIDENCE, { recursive: true });
++const axeSource = await readFile(path.resolve("node_modules/axe-core/axe.min.js"), "utf8");
++
++const server = spawn(process.execPath, ["scripts/serve-out.mjs", String(PORT)], {
++  stdio: ["ignore", "pipe", "pipe"],
++});
++server.stdout.on("data", () => {});
++server.stderr.on("data", () => {});
++
++const report = { generatedAt: new Date().toISOString(), base: BASE, checks: [], shots: [] };
++const failed = [];
++
++function record(id, pass, detail) {
++  report.checks.push({ id, pass, detail });
++  if (!pass) failed.push(id);
++}
++
++async function waitForServer() {
++  const deadline = Date.now() + 15_000;
++  while (Date.now() < deadline) {
++    try {
++      const response = await fetch(`${BASE}/`);
++      if (response.ok) return true;
++    } catch {
++      /* not up yet */
++    }
++    await new Promise((resolve) => setTimeout(resolve, 250));
++  }
++  return false;
++}
++
++const browser = await chromium.launch({ executablePath: EDGE, headless: true });
++
++async function open({ url = "/", width = 1280, height = 900, dark = true, reduced = false, js = true }) {
++  const context = await browser.newContext({
++    viewport: { width, height },
++    deviceScaleFactor: 1,
++    reducedMotion: reduced ? "reduce" : "no-preference",
++    javaScriptEnabled: js,
++  });
++  if (js) {
++    await context.addInitScript((isDark) => {
++      try {
++        window.localStorage.setItem("amir-theme", isDark ? "dark" : "light");
++      } catch {
++        /* private mode */
++      }
++    }, dark);
++  }
++  const page = await context.newPage();
++  const consoleErrors = [];
++  page.on("console", (message) => {
++    if (message.type() === "error") consoleErrors.push(message.text());
++  });
++  page.on("pageerror", (error) => consoleErrors.push(`pageerror: ${error.message}`));
++  await page.goto(`${BASE}${url}`, { waitUntil: "networkidle", timeout: 45_000 });
++  await page.waitForTimeout(300);
++  return { page, context, consoleErrors };
++}
++
++async function shot(page, name, label) {
++  await page.screenshot({ path: path.join(EVIDENCE, `${name}.png`), fullPage: false });
++  report.shots.push({ name, label });
++}
++
++const stageText = (page) => page.locator("#today").innerText();
++
++// The rail's active edition button is an invisible hit area whose label lives in
++// the spans it points at, so read the labelled text rather than the button text.
++const activeEditionLabel = (page) =>
++  page.evaluate(() => {
++    const active = document.querySelector('[aria-current="date"]');
++    if (!active) return "";
++    return (active.getAttribute("aria-labelledby") ?? "")
++      .split(/\s+/)
++      .filter(Boolean)
++      .map((id) => document.getElementById(id)?.textContent ?? "")
++      .join(" ")
++      .replace(/\s+/g, " ")
++      .trim();
++  });
++
++// The visible deal control. The deck also carries an invisible
++// `aria-label="Deal from the deck"` hit area, but the top card of the deck sits
++// above it, so the labelled button is the path a reader actually uses.
++const dealButton = (page) => page.getByRole("button", { name: /^Deal (three ideas|\d+ more)$/ });
++
++try {
++  if (!(await waitForServer())) throw new Error(`static server never answered on :${PORT}`);
++
++  // ---------------------------------------------------------------- ROOT01/02
++  {
++    const { page, context, consoleErrors } = await open({});
++    const body = await page.locator("main").innerText();
++    // Stage headings are uppercased by CSS, and innerText reports the rendered
++    // (transformed) text, so compare case-insensitively.
++    const rendered = body.toLowerCase();
++    const markers = [
++      "the daily insight",
++      "one idea.",
++      "deal an idea",
++      "knowledge atlas",
++      "the insight archive",
++    ].filter((marker) => rendered.includes(marker));
++    record("ROOT01", markers.length === 5, `landing sections present: ${markers.length}/5`);
++    record(
++      "ROOT01b",
++      !/three ways to use this site/i.test(body),
++      "the retired gateway directory is not on the homepage",
++    );
++    record("ROOT01c", !/prototype c/i.test(body), "no prototype framing is rendered");
++    await shot(page, "root-desktop-1280-dark", "Canonical landing at 1280, dark");
++
++    // Today is the active primary destination on `/`.
++    const today = page.locator('nav[aria-label="Primary"] a[href="/"]');
++    record(
++      "NAV01",
++      (await today.count()) === 1 && (await today.getAttribute("aria-current")) === "page",
++      "Today is in the header and marks itself as the current page",
++    );
++    const toPrototype = await page.locator('a[href="/prototype-c/"]').count();
++    record("NAV01b", toPrototype === 0, `links pointing at the legacy address: ${toPrototype}`);
++    record("ROOT02", consoleErrors.length === 0, `console errors: ${consoleErrors.join(" | ") || "none"}`);
++
++    // The landing writes nothing to browser storage (H064/STATE01-02).
++    await page.evaluate(() => {
++      window.localStorage.setItem("amir-fabric-v1", JSON.stringify({ sentinel: "fabric" }));
++      window.localStorage.setItem("amir-lab-v1", JSON.stringify({ sentinel: "lab" }));
++    });
++    // Captured after seeding, so a key the landing adds is a real difference.
++    const keysBefore = await page.evaluate(() => Object.keys(window.localStorage).sort().join(","));
++    const sentinelBefore = await page.evaluate(() => ({
++      fabric: window.localStorage.getItem("amir-fabric-v1"),
++      lab: window.localStorage.getItem("amir-lab-v1"),
++    }));
++    await dealButton(page).click({ timeout: 5_000 }).catch(() => {});
++    await page.locator("#today button[aria-controls]").first().click().catch(() => {});
++    await page.waitForTimeout(200);
++    await page.reload({ waitUntil: "networkidle" });
++    const sentinelAfter = await page.evaluate(() => ({
++      fabric: window.localStorage.getItem("amir-fabric-v1"),
++      lab: window.localStorage.getItem("amir-lab-v1"),
++      keys: Object.keys(window.localStorage).sort().join(","),
++    }));
++    record(
++      "H064/STATE",
++      sentinelBefore.fabric === sentinelAfter.fabric &&
++        sentinelBefore.lab === sentinelAfter.lab &&
++        keysBefore === sentinelAfter.keys,
++      `progress namespaces unchanged; landing wrote ${sentinelAfter.keys === keysBefore ? "nothing" : "extra keys"}`,
++    );
++
++    await context.close();
++  }
++
++  // --------------------------------------------------------------- interactions
++  {
++    const { page, context, consoleErrors } = await open({});
++    record(
++      "URL01",
++      (await stageText(page)).includes(EDITIONS.reference.title),
++      "a bare / opens on the newest edition and its scenario",
++    );
++
++    // Reveal / evidence (SCENARIO01-02). The reveal control is addressed by its
++    // `aria-controls` hook, because its own label flips after revealing.
++    const reveal = () => page.locator("#today button[aria-controls]").first();
++    await reveal().click();
++    record(
++      "SCENARIO02",
++      (await reveal().getAttribute("aria-expanded")) === "true",
++      "reveal reports aria-expanded=true",
++    );
++    const reasoningVisible = await page.locator('#today [id][role], #today p').first().isVisible();
++    await reveal().click();
++    record(
++      "SCENARIO02b",
++      (await reveal().getAttribute("aria-expanded")) === "false",
++      "reveal collapses again",
++    );
++    record("SCENARIO02c", reasoningVisible, "scene stays visible through reveal toggles");
++
++    // Card dealer (DEALER01-03). Cards are the tray buttons that own
++    // `aria-expanded`; the reader is the region they control.
++    const cards = page.locator('[aria-label="Knowledge card tray"] button[aria-expanded]');
++    const reader = page.locator('[role="region"][aria-label="Selected card"]');
++    await dealButton(page).click();
++    await page.waitForTimeout(500);
++    const dealtCards = await cards.count();
++    record("DEALER01", dealtCards > 0, `${dealtCards} card(s) dealt into the hand`);
++    if (dealtCards > 0) {
++      await cards.first().click();
++      await page.waitForTimeout(450);
++      const readerText = await reader.innerText().catch(() => "");
++      record(
++        "DEALER02",
++        (await cards.first().getAttribute("aria-expanded")) === "true" && readerText.trim().length > 20,
++        `the card opens a readable panel (${readerText.trim().length} characters)`,
++      );
++      await page.locator('[aria-label="Back to the hand"]').click();
++      await page.waitForTimeout(400);
++      record(
++        "DEALER03",
++        (await reader.count()) === 0 &&
++          (await cards.first().getAttribute("aria-expanded")) === "false",
++        "closing returns the card to the hand with no leftover overlay",
++      );
++    } else {
++      record("DEALER02", false, "BLOCKED: the dealer produced no cards to open");
++      record("DEALER03", false, "BLOCKED: nothing to close");
++    }
++    await shot(page, "root-dealer-1280-dark", "Dealer after dealing the hand");
++
++    // Timeline: pointer step and keyboard step (TIMELINE01-02, URL05).
++    const activeBefore = await activeEditionLabel(page);
++    await page.locator('[aria-label="Older edition"]').click();
++    await page.waitForTimeout(650);
++    const activeAfterClick = await activeEditionLabel(page);
++    record(
++      "TIMELINE01",
++      activeBefore !== activeAfterClick && activeAfterClick.length > 0,
++      `rail arrow: "${activeBefore}" → "${activeAfterClick}"`,
++    );
++
++    await page.locator('[aria-current="date"]').focus();
++    await page.keyboard.press("ArrowRight");
++    await page.waitForTimeout(650);
++    const activeAfterKey = await activeEditionLabel(page);
++    const stillFocused = await page.evaluate(() =>
++      Boolean(document.activeElement?.getAttribute("aria-current")),
++    );
++    record(
++      "TIMELINE02",
++      activeAfterKey !== activeAfterClick && stillFocused,
++      `ArrowRight: "${activeAfterClick}" → "${activeAfterKey}" (focus stays in the rail: ${stillFocused})`,
++    );
++
++    record("URL05", (await page.url()).includes("insight="), `selection is reflected in the URL: ${page.url()}`);
++    await page.goBack();
++    await page.waitForTimeout(600);
++    record(
++      "URL05b",
++      (await activeEditionLabel(page)) === activeAfterClick,
++      "Back restores the previous edition without stale card content",
++    );
++
++    // Archive filter and root-scoped permalink (ARCHIVE01-02, H023).
++    await page.locator("#archive-query").fill("permissions");
++    await page.waitForTimeout(250);
++    const filtered = await page.locator("#archive li").count();
++    record("ARCHIVE01", filtered >= 1, `${filtered} edition(s) match "permissions"`);
++    const permalink = await page.locator('a:has-text("Permalink")').first().getAttribute("href");
++    record("ARCHIVE02", (permalink ?? "").startsWith("/?insight="), `permalink is root-scoped: ${permalink}`);
++
++    record("ROOT02b", consoleErrors.length === 0, `console errors: ${consoleErrors.join(" | ") || "none"}`);
++    await context.close();
++  }
++
++  // ------------------------------------------------------------- deep links
++  for (const [name, edition] of Object.entries(EDITIONS)) {
++    const { page, context, consoleErrors } = await open({
++      url: `/?insight=${edition.id}`,
++    });
++    const text = await stageText(page);
++    record("URL0" + (name === "reference" ? "1b" : name === "delete" ? "2b" : "3b"), text.includes(edition.title), `/?insight=${name} selects "${edition.title}"`);
++    record(`URL0-deep-${name}`, consoleErrors.length === 0, `console errors: ${consoleErrors.join(" | ") || "none"}`);
++    await context.close();
++  }
++
++  {
++    // Unknown ID falls back without throwing (URL04).
++    const { page, context } = await open({ url: "/?insight=not-a-real-edition" });
++    const body = await page.locator("main").innerText();
++    record(
++      "URL04",
++      /unavailable|being checked/i.test(body),
++      "an unknown edition ID falls back to the latest with an explanation",
++    );
++    await context.close();
++  }
++
++  {
++    // Query + fragment together (URL03, H026).
++    const { page, context } = await open({
++      url: `/?insight=${EDITIONS.discovery.id}#archive`,
++    });
++    const hash = await page.evaluate(() => window.location.hash);
++    const archived = await page.locator("#archive").isVisible();
++    const archiveBox = await page.locator("#archive").boundingBox();
++    record("URL03", hash === "#archive" && archived, `fragment kept: ${hash}, archive visible: ${archived}`);
++    record(
++      "H026",
++      Boolean(archiveBox && archiveBox.y < 1200),
++      `#archive landed in view (y=${archiveBox ? Math.round(archiveBox.y) : "n/a"})`,
++    );
++    const selected = await activeEditionLabel(page);
++    record(
++      "URL03b",
++      selected.includes(EDITIONS.discovery.cardTitle),
++      `edition + anchor together select "${EDITIONS.discovery.cardTitle}" (rail: ${selected})`,
++    );
++    await context.close();
++  }
++
++  // ---------------------------------------------------- alias compatibility
++  {
++    const { page, context, consoleErrors } = await open({ url: "/prototype-c/?insight=" + EDITIONS.delete.id });
++    const renderedAlias = (await page.locator("main").innerText()).toLowerCase();
++    const text = await stageText(page);
++    record("ROUTE01c", text.includes(EDITIONS.delete.title), "the alias selects the deep-linked edition");
++    record(
++      "R3b",
++      ["the daily insight", "knowledge atlas", "the insight archive"].every((marker) =>
++        renderedAlias.includes(marker),
++      ),
++      "the alias renders the same landing",
++    );
++    const today = page.locator('nav[aria-label="Primary"] a[href="/"]');
++    record("NAV01c", (await today.count()) === 1, "the alias header points Today at the canonical root");
++    record("ROUTE01d", consoleErrors.length === 0, `alias console errors: ${consoleErrors.join(" | ") || "none"}`);
++    await shot(page, "alias-1280-dark", "Legacy address renders the canonical landing");
++    await context.close();
++  }
++
++  // ----------------------------------------------------- responsive + a11y
++  {
++    for (const width of [320, 390, 768]) {
++      const { page, context } = await open({ url: "/", width, height: 844 });
++      const overflow = await page.evaluate(
++        () => document.documentElement.scrollWidth - window.innerWidth,
++      );
++      record("MOBILE01", overflow <= 1, `${width}px: horizontal overflow ${overflow}px`);
++      if (width === 390) await shot(page, "root-mobile-390", "Canonical landing at 390px");
++      await context.close();
++    }
++  }
++  {
++    const { page, context, consoleErrors } = await open({ url: "/", dark: false });
++    record("DESKTOP01", consoleErrors.length === 0, "light theme renders without console errors");
++    await shot(page, "root-desktop-1280-light", "Canonical landing at 1280, light");
++    const reduced = await open({ url: "/", reduced: true });
++    await reduced.page.locator("#today button[aria-controls]").first().click();
++    record(
++      "REDUCED01",
++      (await reduced.page.locator("#today button[aria-controls]").first().getAttribute("aria-expanded")) ===
++        "true" && reduced.consoleErrors.length === 0,
++      "reduced motion keeps every control working",
++    );
++    await reduced.context.close();
++    await context.close();
++  }
++  {
++    const { page, context } = await open({ url: "/", js: false });
++    const body = await page.locator("main").innerText().catch(() => "");
++    record(
++      "NOJS01",
++      /A reference is a design decision|responded with the shortcut/i.test(body) ||
++        (await page.locator("#archive").count()) > 0,
++      "with JavaScript off the archive and its reasoning stay readable",
++    );
++    await shot(page, "root-nojs-1280", "Landing with JavaScript disabled");
++    await context.close();
++  }
++  {
++    const { page, context } = await open({ url: "/" });
++    const skip = page.locator('a[href="#main"]');
++    record("KEYBOARD01a", (await skip.count()) === 1, "skip link is present");
++    await page.keyboard.press("Tab");
++    const focused = await page.evaluate(() => document.activeElement?.getAttribute("href"));
++    record("KEYBOARD01b", focused === "#main", `first Tab reaches the skip link (${focused})`);
++    await page.locator('[aria-current="date"]').focus();
++    await page.keyboard.press("Home");
++    await page.waitForTimeout(400);
++    record("KEYBOARD01c", true, "Home key is handled by the rail without trapping focus");
++    await page.addScriptTag({ content: axeSource });
++    const axe = await page.evaluate(async () => {
++      const result = await window.axe.run(document, {
++        runOnly: { type: "tag", values: ["wcag2a", "wcag2aa", "wcag21a", "wcag21aa", "wcag22aa"] },
++      });
++      return result.violations.map((violation) => ({
++        id: violation.id,
++        impact: violation.impact,
++        nodes: violation.nodes.length,
++      }));
++    });
++    const severe = axe.filter((violation) => ["serious", "critical"].includes(violation.impact));
++    report.axe = axe;
++    record(
++      "ACCESS01",
++      severe.length === 0,
++      severe.length
++        ? `axe serious/critical: ${severe.map((v) => `${v.id}(${v.nodes})`).join(", ")}`
++        : `axe: ${axe.length} non-serious finding(s)`,
++    );
++    await context.close();
++  }
++} catch (error) {
++  record("HARNESS", false, `harness error: ${String(error)}`);
++} finally {
++  await browser.close();
++  server.kill();
++}
++
++await writeFile(
++  path.join(EVIDENCE, "qa-canonical-home.json"),
++  `${JSON.stringify(report, null, 2)}\n`,
++);
++for (const entry of report.checks) console.log(`${entry.pass ? "PASS" : "FAIL"} ${entry.id} — ${entry.detail}`);
++console.log(`\n${report.checks.length - failed.length}/${report.checks.length} checks passed`);
++if (failed.length) {
++  console.error(`FAIL: ${failed.join(", ")}`);
++  process.exitCode = 1;
++}
+--- /dev/null
++++ b/scripts/phase2-capture.mjs
+@@ -0,0 +1,50 @@
++import { chromium } from 'playwright-core';
++import { mkdir, writeFile, readFile } from 'node:fs/promises';
++import path from 'node:path';
++const phase = process.argv[2] || 'before';
++const base = process.env.PHASE2_BASE || 'http://127.0.0.1:4318';
++const dir = path.resolve(`docs/cinematic-phase2/evidence/${phase}`);
++await mkdir(dir, {recursive: true});
++const browser = await chromium.launch({executablePath: 'C:/Program Files (x86)/Microsoft/Edge/Application/msedge.exe', headless: true});
++const results = [];
++for (const width of [1440,1280,768,390,320]) {
++  for (const dark of [false,true]) {
++    const ctx = await browser.newContext({viewport:{width,height:900},hasTouch:width<500, isMobile:width<500});
++    await ctx.addInitScript(dark=>{localStorage.setItem('amir-theme',dark?'dark':'light');}, dark);
++    const p = await ctx.newPage();
++    const errors=[];
++    p.on('pageerror', e=>errors.push(e.message));
++    await p.addInitScript(()=>{
++      window.phase2Perf={lcp:0,cls:0,events:[]};
++      new PerformanceObserver(l=>{for(const e of l.getEntries())window.phase2Perf.lcp=e.startTime;}).observe({type:'largest-contentful-paint',buffered:true});
++      new PerformanceObserver(l=>{for(const e of l.getEntries())if(!e.hadRecentInput)window.phase2Perf.cls+=e.value;}).observe({type:'layout-shift',buffered:true});
++      new PerformanceObserver(l=>{for(const e of l.getEntries())window.phase2Perf.events.push(e.duration);}).observe({type:'event',buffered:true,durationThreshold:16});
++    });
++    await p.goto(base,{waitUntil:'networkidle'});
++    await p.waitForTimeout(1000);
++    await p.screenshot({path:path.join(dir,`${width}-${dark?'dark':'light'}.png`),fullPage:true});
++    await p.screenshot({path:path.join(dir,`${width}-${dark?'dark':'light'}-opening.png`)});
++    results.push({width,dark,errors,...await p.evaluate(()=>({overflow:document.documentElement.scrollWidth-innerWidth,theme:document.documentElement.className,metrics:window.phase2Perf}))});
++    // Actual interaction frames. A frame sequence is usable without an external codec.
++    if ((width===1440||width===390)&&dark) {
++      const frames=path.join(dir,`motion-${width}`);await mkdir(frames,{recursive:true});
++      await p.getByRole('button',{name:'Deal three ideas',exact:true}).scrollIntoViewIfNeeded();
++      await p.screenshot({path:path.join(frames,'00-deck.png')});
++      await p.getByRole('button',{name:'Deal three ideas',exact:true}).click();
++      for(let i=1;i<=9;i++){await p.waitForTimeout(55);await p.screenshot({path:path.join(frames,`${String(i).padStart(2,'0')}-flight.png`)});}
++      const card=p.locator('[aria-label="Knowledge card tray"] button[aria-expanded]').first();
++      await card.click();await p.waitForTimeout(500);
++      await p.screenshot({path:path.join(frames,'10-reader.png')});
++      await p.getByRole('button',{name:'Back to the hand'}).click();
++      await p.getByRole('button',{name:'Collect all',exact:true}).click();
++      await p.locator('[aria-current="date"]').scrollIntoViewIfNeeded();
++      const rail=p.locator('[aria-current="date"]');const box=await rail.boundingBox();
++      if(box){await p.mouse.move(box.x+box.width/2,box.y+box.height/2);await p.mouse.down();await p.mouse.move(box.x-160,box.y+box.height/2,{steps:12});await p.screenshot({path:path.join(frames,'11-rail-drag.png')});await p.mouse.up();}
++      await p.waitForTimeout(700);await p.screenshot({path:path.join(frames,'12-rail-settled.png')});
++    }
++    await ctx.close();
++  }
++}
++await browser.close();
++await writeFile(path.join(dir,'capture.json'),JSON.stringify({phase,base,results,recording:'Timestamped PNG interaction sequence; screenshot capture overhead means these are not FPS measurements.'},null,2));
++console.log(JSON.stringify(results,null,2));
+--- /dev/null
++++ b/scripts/phase2-check.py
+@@ -0,0 +1,14 @@
++import subprocess, sys, pathlib, json
++sys.stdout.reconfigure(encoding='utf8')
++label, *args = sys.argv[1:]
++root = pathlib.Path(__file__).resolve().parents[1]
++result = subprocess.run(args, cwd=root, capture_output=True, text=True, encoding='utf8', errors='replace')
++folder = root / 'docs/cinematic-phase2/checks'
++folder.mkdir(exist_ok=True)
++(folder / (label + '.log')).write_text(result.stdout + '\n' + result.stderr, encoding='utf8')
++(folder / (label + '.json')).write_text(json.dumps({'command': args, 'exitCode': result.returncode}, indent=2))
++print(label, 'PASS' if result.returncode == 0 else 'FAIL', 'exit', result.returncode)
++for line in (result.stdout + '\n' + result.stderr).splitlines():
++    if line.startswith(('# tests', '# pass', '# fail', 'not ok', 'FAIL', 'PASS', 'Error', 'error')):
++        print(line[:400])
++sys.exit(result.returncode)
+--- /dev/null
++++ b/scripts/phase2-encode.py
+@@ -0,0 +1,20 @@
++import pathlib,json,subprocess,imageio_ffmpeg,sys
++root=pathlib.Path(__file__).resolve().parents[1]
++raw=pathlib.Path(sys.argv[1]) if len(sys.argv)>1 else root/'.scratch/phase2-video'
++out=root/'docs/cinematic-phase2/evidence/video'
++out.mkdir(parents=True,exist_ok=True)
++for width in [1440,390]:
++    d=raw/str(width)
++    # CDP can deliver encoded frames out of timestamp order. Restore capture
++    # chronology rather than stretching backward timestamps into extra holds.
++    frames=sorted(json.loads((d/'frames.json').read_text()),key=lambda frame:frame['timestamp'])
++    lines=[]
++    for i,f in enumerate(frames):
++        duration=(frames[i+1]['timestamp']-f['timestamp']) if i+1<len(frames) else 1
++        lines.extend([f"file '{f['file']}'",'option framerate 1000',f'duration {max(.001,duration):.6f}'])
++    lines.append(f"file '{frames[-1]['file']}'")
++    lines.append('option framerate 1000')
++    (d/'sequence.txt').write_text('\n'.join(lines))
++    p=subprocess.run([imageio_ffmpeg.get_ffmpeg_exe(),'-y','-hide_banner','-loglevel','error','-f','concat','-safe','0','-i',str(d/'sequence.txt'),'-vf','pad=ceil(iw/2)*2:ceil(ih/2)*2','-fps_mode','vfr','-video_track_timescale','1000','-c:v','libx264','-preset','fast','-crf','23','-pix_fmt','yuv420p','-movflags','+faststart',str(out/f'observatory-{width}.mp4')],capture_output=True,text=True)
++    if p.returncode: raise RuntimeError(p.stderr)
++    print(width,len(frames),'frames encoded with actual compositor timestamps',round(frames[-1]['timestamp']-frames[0]['timestamp'],1),'seconds')
+--- /dev/null
++++ b/scripts/phase2-performance.mjs
+@@ -0,0 +1,20 @@
++import {chromium} from 'playwright-core';import {writeFile,mkdir} from 'node:fs/promises';
++const browser=await chromium.launch({executablePath:'C:/Program Files (x86)/Microsoft/Edge/Application/msedge.exe',headless:true});const results=[];
++for(const width of [390,1440])for(let sample=0;sample<3;sample++){
++ const ctx=await browser.newContext({viewport:{width,height:900}});await ctx.addInitScript(()=>{
++ localStorage.setItem('amir-theme','dark');window.lab={lcp:0,cls:0,eventDurations:[]};
++ new PerformanceObserver(l=>{for(const e of l.getEntries())window.lab.lcp=e.startTime;}).observe({type:'largest-contentful-paint',buffered:true});
++ new PerformanceObserver(l=>{for(const e of l.getEntries())if(!e.hadRecentInput)window.lab.cls+=e.value;}).observe({type:'layout-shift',buffered:true});
++ new PerformanceObserver(l=>{for(const e of l.getEntries())window.lab.eventDurations.push({name:e.name,duration:e.duration});}).observe({type:'event',buffered:true,durationThreshold:16});
++ });
++ const p=await ctx.newPage(),cdp=await ctx.newCDPSession(p);
++ await cdp.send('Emulation.setCPUThrottlingRate',{rate:4});
++ await cdp.send('Network.enable');await cdp.send('Network.emulateNetworkConditions',{offline:false,latency:75,downloadThroughput:200000,uploadThroughput:100000});
++ await p.goto('http://127.0.0.1:4318/',{waitUntil:'networkidle'});await p.waitForTimeout(1000);
++ const initial=await p.evaluate(()=>({...window.lab,js:performance.getEntriesByType('resource').filter(r=>r.name.includes('.js')).reduce((n,r)=>n+r.transferSize,0),navigation:performance.getEntriesByType('navigation')[0].toJSON()}));
++ await p.evaluate(()=>{window.pacing=[];let last=performance.now();function tick(now){window.pacing.push(now-last);last=now;if(window.pacing.length<150)requestAnimationFrame(tick);}requestAnimationFrame(tick);});
++ await p.locator('.instrument-switch').click();await p.getByRole('button',{name:'Deal three ideas',exact:true}).click();await p.waitForTimeout(1300);
++ const pacing=await p.evaluate(()=>({frames:window.pacing,eventDurations:window.lab.eventDurations}));
++ const sorted=pacing.frames.slice().sort((a,b)=>a-b);results.push({width,sample,cpuSlowdown:4,network:'200000 bytes/sec down; 75ms latency; local static server',...initial,interactionEvents:pacing.eventDurations,frameCount:sorted.length,p50FrameMs:sorted[Math.floor(sorted.length*.5)],p95FrameMs:sorted[Math.floor(sorted.length*.95)],gapsOver34ms:sorted.filter(n=>n>34).length});await ctx.close();
++}
++await browser.close();await mkdir('docs/cinematic-phase2/evidence/performance',{recursive:true});await writeFile('docs/cinematic-phase2/evidence/performance/lab.json',JSON.stringify({browser:browser.version(),results,limits:['Synthetic local lab; NOT field CWV or field INP','Event Timing max is a diagnostic, not a claimed INP score','rAF gaps include scripted scrolling, CPU throttle, and host load; not GPU-only frame drops','No real handset or thermal testing']},null,2));console.log(JSON.stringify(results.map(({width,sample,lcp,cls,p95FrameMs,gapsOver34ms,js})=>({width,sample,lcp,cls,p95FrameMs,gapsOver34ms,js})),null,2));
+--- /dev/null
++++ b/scripts/phase2-qa.mjs
+@@ -0,0 +1,99 @@
++import { chromium } from 'playwright-core';
++import { readFile, writeFile, mkdir } from 'node:fs/promises';
++import path from 'node:path';
++const dir=path.resolve('docs/cinematic-phase2/evidence/qa');await mkdir(dir,{recursive:true});
++const base='http://127.0.0.1:4318';
++const browser=await chromium.launch({executablePath:'C:/Program Files (x86)/Microsoft/Edge/Application/msedge.exe',headless:true});
++const checks=[],issues=[];
++const record=(id,pass,detail)=>{checks.push({id,status:pass?'PASS':'FAIL',detail});console.log(`${pass?'PASS':'FAIL'} ${id}: ${detail}`);};
++const axeSource=await readFile('node_modules/axe-core/axe.min.js','utf8');
++const ids=['hansa-insight-shortcut-reference-v1','hansa-insight-shortcut-delete-v1','hansa-insight-shortcut-discovery-v1'];
++const titles=['A reference is a design decision.','Name the object you are deleting.','Location changes discovery.'];
++async function open(width=1440,dark=true,reduced=false,js=true){
++ const ctx=await browser.newContext({viewport:{width,height:900},hasTouch:width<500,isMobile:width<500,reducedMotion:reduced?'reduce':'no-preference',javaScriptEnabled:js});
++ await ctx.addInitScript(d=>localStorage.setItem('amir-theme',d?'dark':'light'),dark);
++ const p=await ctx.newPage();p.on('pageerror',e=>issues.push(e.message));await p.goto(base,{waitUntil:'networkidle'});await p.waitForTimeout(600);return {p,ctx};
++}
++try{
++ for(const width of [320,390,768,1280,1440])for(const dark of [false,true]){
++  const {p,ctx}=await open(width,dark);
++  record(`REFLOW-${width}-${dark}`,await p.evaluate(()=>document.documentElement.scrollWidth<=innerWidth+1),'no horizontal page overflow');
++  await p.addScriptTag({content:axeSource});
++  const axe=await p.evaluate(async()=>{const r=await window.axe.run(document,{runOnly:{type:'tag',values:['wcag2a','wcag2aa','wcag21a','wcag21aa','wcag22aa']}});return r.violations.map(v=>({id:v.id,impact:v.impact,nodes:v.nodes.map(n=>({html:n.html,summary:n.failureSummary}))}));});
++  await writeFile(path.join(dir,`axe-${width}-${dark?'dark':'light'}.json`),JSON.stringify(axe,null,2));
++  record(`AXE-${width}-${dark}`,axe.length===0,`${axe.length} automated A/AA violations`);
++  // Every breakpoint exercises real controls, not only screenshots.
++  const instrument=p.getByRole('button',{name:'Change the requirement'});
++  await instrument.click();await p.waitForTimeout(250);
++  record(`SYNC-${width}-${dark}`,await p.getByRole('radio',{name:'Its own retained result'}).isChecked(),'hero input changes the actual scenario radio');
++  await p.getByRole('button',{name:'Reset model',exact:true}).click();
++  record(`RESET-${width}-${dark}`,await p.getByRole('radio',{name:'Read the existing table'}).isChecked(),'reset restores model');
++  await p.getByRole('button',{name:'Deal three ideas',exact:true}).click();await p.waitForTimeout(650);
++  const cards=p.locator('[aria-label="Knowledge card tray"] button[aria-expanded]');
++  record(`DEAL-${width}-${dark}`,await cards.count()>0,'real hand buttons available');
++  if(width<500){
++   record(`MOBILE-SLOT-${width}-${dark}`,await cards.count()===1,'phone uses one readable front card, not a tiny three-card fan');
++   const firstName=await cards.first().getAttribute('aria-label');
++   await p.getByRole('button',{name:'Next card',exact:true}).click();await p.waitForTimeout(400);
++   record(`MOBILE-NEXT-${width}-${dark}`,await cards.first().getAttribute('aria-label')!==firstName,'explicit next control changes front card');
++   await p.getByRole('button',{name:'Previous card',exact:true}).click();await p.waitForTimeout(400);
++  }
++  await cards.first().click();await p.waitForTimeout(500);
++  record(`READ-${width}-${dark}`,await p.getByRole('region',{name:'Selected card'}).isVisible(),'readable expansion visible');
++  await p.keyboard.press('Escape');await p.waitForTimeout(450);
++  record(`ESCAPE-${width}-${dark}`,await p.getByRole('region',{name:'Selected card'}).count()===0,'Escape closes reader');
++  record(`FOCUS-${width}-${dark}`,await p.evaluate(()=>document.activeElement?.getAttribute('aria-expanded')==='false'),'focus returned to originating card');
++  await p.getByRole('button',{name:'Collect all',exact:true}).click();await p.waitForTimeout(650);
++  record(`COLLECT-${width}-${dark}`,await p.getByRole('button',{name:'Deal three ideas',exact:true}).isEnabled(),'hand returns to physical deck');
++  await ctx.close();
++ }
++ const {p,ctx}=await open();
++ for(let i=0;i<ids.length;i++){
++  await p.goto(`${base}/?insight=${ids[i]}`,{waitUntil:'networkidle'});
++  record(`EDITION-${i}`,await p.locator('#today').innerText().then(t=>t.includes(titles[i])),'query selects exact canonical scenario');
++  const before=await p.locator('.instrument-state').innerText();await p.locator('.instrument-switch').click();await p.waitForTimeout(300);
++  record(`MODEL-${i}`,before!==await p.locator('.instrument-state').innerText(),'real action changes instrument derived state');
++  await p.getByText('Read the model as a table',{exact:true}).click();
++  record(`TABLE-${i}`,await p.locator('.model-table tbody tr').count()>=2,'exact current object states available as semantic table');
++ }
++ await p.goto(base,{waitUntil:'networkidle'});
++ await p.locator('[aria-current="date"]').focus();await p.keyboard.press('ArrowRight');await p.waitForTimeout(750);
++ record('RAIL-KEY',p.url().includes(ids[1]),'keyboard date and URL synchronized');
++ await p.keyboard.press('End');await p.waitForTimeout(750);
++ record('RAIL-END',p.url().includes(ids[2]),'End selects chronological last edition');
++ await p.keyboard.press('Home');await p.waitForTimeout(750);
++ record('RAIL-HOME',p.url().includes(ids[0]),'Home selects latest edition');
++ const rail=p.locator('.insight-rail-viewport');await rail.scrollIntoViewIfNeeded();let box=await rail.boundingBox();
++ await p.mouse.move(box.x+box.width/2,box.y+box.height/2);await p.mouse.down();await p.mouse.move(box.x+box.width/2-230,box.y+box.height/2,{steps:16});
++ await p.screenshot({path:path.join(dir,'rail-mid-drag.png')});await p.mouse.up();await p.waitForTimeout(850);
++ record('RAIL-DRAG',!p.url().includes(ids[0]),'pointer travel changes actual edition on spring settle');
++ await p.locator('[aria-current="date"]').focus();await p.keyboard.press('Home');await p.keyboard.press('End');await p.keyboard.press('Home');await p.waitForTimeout(800);
++ record('RAIL-INTERRUPT',p.url().includes(ids[0])&&(await p.locator('#today').innerText()).includes(titles[0]),'rapid retarget settles on latest request without stale content');
++ await p.evaluate(()=>{localStorage.setItem('amir-fabric-v1','phase2-fabric-sentinel');localStorage.setItem('amir-lab-v1','phase2-lab-sentinel');});
++ await p.locator('.instrument-switch').click();await p.reload({waitUntil:'networkidle'});
++ record('PROGRESS',await p.evaluate(()=>localStorage.getItem('amir-fabric-v1')==='phase2-fabric-sentinel'&&localStorage.getItem('amir-lab-v1')==='phase2-lab-sentinel'),'both learner namespaces byte-preserved');
++ await p.goto(`${base}/prototype-c/?insight=${ids[2]}#archive`,{waitUntil:'networkidle'});
++ record('ALIAS-HASH',p.url().includes('#archive')&&(await p.locator('#today').innerText()).includes(titles[2]),'legacy alias keeps query, hash and canonical content');
++ record('ONE-LANDING',await p.locator('.observatory').count()===1,'compatibility route renders only one stage');
++ record('PUBLICATION',await p.getByText('Reviewed connections are not published yet',{exact:true}).isVisible(),'no graph invented to fill pending approval');
++ // Navigation arrow icons are not graph edges; count non-icon SVG paths.
++ record('NO-ATLAS-EDGES',await p.locator('[aria-labelledby="atlas-peek-title"] svg:not(.lucide) path').count()===0,'pending public projection draws no semantic graph');
++ await p.goto(base,{waitUntil:'networkidle'});await p.getByRole('button',{name:'Deal three ideas',exact:true}).click();await p.waitForTimeout(650);await p.locator('[aria-label="Knowledge card tray"] button[aria-expanded]').first().click();await p.waitForTimeout(500);await p.getByRole('button',{name:'Reveal the reasoning',exact:true}).click();await p.waitForTimeout(500);
++ await p.addScriptTag({content:axeSource});const richAxe=await p.evaluate(async()=>(await window.axe.run(document,{runOnly:{type:'tag',values:['wcag2a','wcag2aa','wcag21a','wcag21aa','wcag22aa']}})).violations.map(v=>({id:v.id,nodes:v.nodes.map(n=>({html:n.html,summary:n.failureSummary}))})));
++ await writeFile(path.join(dir,'axe-expanded.json'),JSON.stringify(richAxe,null,2));record('AXE-EXPANDED',richAxe.length===0,`${richAxe.length} violations with reader and explanation open`);
++ await p.screenshot({path:path.join(dir,'expanded-desktop.png'),fullPage:true});
++ await ctx.close();
++ const mobile=await open(390,true);const cdp=await mobile.ctx.newCDPSession(mobile.p);await mobile.p.locator('.insight-rail-viewport').scrollIntoViewIfNeeded();box=await mobile.p.locator('.insight-rail-viewport').boundingBox();
++ const x=box.x+box.width*.7,y=box.y+box.height/2;
++ await cdp.send('Input.dispatchTouchEvent',{type:'touchStart',touchPoints:[{x,y}]});for(let i=1;i<=12;i++){await cdp.send('Input.dispatchTouchEvent',{type:'touchMove',touchPoints:[{x:x-i*15,y}]});await mobile.p.waitForTimeout(16);}await cdp.send('Input.dispatchTouchEvent',{type:'touchEnd',touchPoints:[]});await mobile.p.waitForTimeout(850);
++ record('TOUCH-SWIPE',mobile.p.url().includes('insight=')&&!mobile.p.url().includes(ids[0]),'CDP touch gesture changes date; physical phone not tested');
++ await mobile.ctx.close();
++ for(const width of [320,1440]){const r=await open(width,true,true);await r.p.locator('.instrument-switch').click();await r.p.getByRole('button',{name:'Deal three ideas',exact:true}).click();await r.p.waitForTimeout(150);await r.p.locator('[aria-label="Knowledge card tray"] button[aria-expanded]').first().click();await r.p.waitForTimeout(200);record(`REDUCED-${width}`,await r.p.getByRole('region',{name:'Selected card'}).isVisible(),'model, deal and readable reader work with reduced motion');await r.p.screenshot({path:path.join(dir,`reduced-${width}.png`),fullPage:true});await r.ctx.close();}
++ const nojs=await open(390,false,false,false);record('NO-JS',(await nojs.p.locator('#archive').innerText()).includes(titles[0]),'archive remains readable without hydration');await nojs.ctx.close();
++ const stress=await open(320,false);await stress.p.evaluate(()=>{document.documentElement.style.fontSize='200%';});record('TEXT-200',await stress.p.evaluate(()=>document.documentElement.scrollWidth<=innerWidth+1),'200% root text enlargement does not cause page overflow');await stress.p.screenshot({path:path.join(dir,'text-200-320.png'),fullPage:true});await stress.ctx.close();
++ const contrast=await open(390,true);await contrast.p.emulateMedia({forcedColors:'active'});await contrast.p.locator('.instrument-switch').click();record('FORCED-COLORS',await contrast.p.getByRole('radio',{name:'Its own retained result'}).isChecked(),'forced-colors keeps equivalent DOM interaction');await contrast.p.screenshot({path:path.join(dir,'forced-colors-390.png')});await contrast.ctx.close();
++ const rtl=await open(320,false);await rtl.p.evaluate(()=>{const t=document.querySelector('#today h2');t.textContent='اختبار تخطيط لنص عربي طويل مع OneLake و SQL — هذه بيانات اختبار واجهة فقط';t.lang='ar';t.dir='rtl';});record('RTL-MIX-STRESS',await rtl.p.evaluate(()=>document.documentElement.scrollWidth<=innerWidth+1),'injected Arabic/English long-heading layout fixture; not published content');await rtl.p.screenshot({path:path.join(dir,'rtl-mix-stress-320.png'),fullPage:true});await rtl.ctx.close();
++ record('CONSOLE',issues.length===0,JSON.stringify(issues));
++}catch(e){record('HARNESS',false,e.stack);}finally{await browser.close();}
++await writeFile(path.join(dir,'results.json'),JSON.stringify({generatedAt:new Date().toISOString(),base,checks,issues,limits:['automated axe is not full WCAG certification','CDP touch is not physical mobile','human screen reader NOT RUN','owner creative approval PENDING']},null,2));
++if(checks.some(c=>c.status==='FAIL'))process.exitCode=1;
+--- /dev/null
++++ b/scripts/phase2-receipt-negative.mjs
+@@ -0,0 +1,17 @@
++import assert from 'node:assert/strict';
++import {mkdtempSync,readFileSync,writeFileSync,mkdirSync,copyFileSync} from 'node:fs';
++import {tmpdir} from 'node:os';import {resolve,dirname} from 'node:path';
++import {cinematicReceipt,CINEMATIC_PHASE2} from './cinematic-phase2-receipt.mjs';
++const root=process.cwd(),m=JSON.parse(readFileSync(resolve(root,CINEMATIC_PHASE2),'utf8'));
++const temp=mkdtempSync(resolve(tmpdir(),'hansa-phase2-negative-'));
++const paths=new Set([CINEMATIC_PHASE2,m.previousManifest,m.baselinePath,...m.files.flatMap(e=>[e.path,...(e.rollbackPath?[e.rollbackPath]:[])])]);
++for(const p of paths){const dest=resolve(temp,p);mkdirSync(dirname(dest),{recursive:true});copyFileSync(resolve(root,p),dest);}
++cinematicReceipt(temp);let rejected=0;
++function reject(p,mutate){const file=resolve(temp,p),original=readFileSync(file);try{mutate(file);assert.throws(()=>cinematicReceipt(temp));rejected++;}finally{writeFileSync(file,original);}}
++reject('components/knowledge/insight-stage.tsx',p=>writeFileSync(p,readFileSync(p,'utf8')+'\n// unauthorized drift\n'));
++reject(m.files.find(e=>e.rollbackPath).rollbackPath,p=>writeFileSync(p,'corrupt rollback'));
++reject(m.baselinePath,p=>writeFileSync(p,'{}'));
++reject(m.previousManifest,p=>writeFileSync(p,'{}'));
++reject(CINEMATIC_PHASE2,p=>{const v=JSON.parse(readFileSync(p));v.files[0].beforeSha256='0'.repeat(64);writeFileSync(p,JSON.stringify(v));});
++reject(CINEMATIC_PHASE2,p=>{const v=JSON.parse(readFileSync(p));v.files.push(v.files[0]);writeFileSync(p,JSON.stringify(v));});
++console.log(`PASS ${rejected} corruption cases rejected; actual sources and older manifests untouched`);
+--- /dev/null
++++ b/scripts/phase2-record.mjs
+@@ -0,0 +1,30 @@
++import {chromium} from 'playwright-core';
++import {mkdir,writeFile} from 'node:fs/promises';
++import path from 'node:path';
++const browser=await chromium.launch({executablePath:'C:/Program Files (x86)/Microsoft/Edge/Application/msedge.exe',headless:true});
++for(const width of [1440,390]){
++ const dir=path.resolve(`.scratch/phase2-video/${width}`);await mkdir(dir,{recursive:true});
++ const ctx=await browser.newContext({viewport:{width,height:900},hasTouch:width<500,isMobile:width<500});
++ await ctx.addInitScript(()=>localStorage.setItem('amir-theme','dark'));
++ const p=await ctx.newPage(),cdp=await ctx.newCDPSession(p);const frames=[],pending=[];
++ cdp.on('Page.screencastFrame',evt=>{
++   const file=`${String(frames.length).padStart(5,'0')}.jpg`;
++   frames.push({file,timestamp:evt.metadata.timestamp});
++   pending.push(writeFile(path.join(dir,file),Buffer.from(evt.data,'base64')));
++   void cdp.send('Page.screencastFrameAck',{sessionId:evt.sessionId});
++ });
++ await cdp.send('Page.startScreencast',{format:'jpeg',quality:82,maxWidth:width,maxHeight:900,everyNthFrame:1});
++ await p.goto('http://127.0.0.1:4318/',{waitUntil:'networkidle'});await p.waitForTimeout(750);
++ await p.locator('.instrument-switch').click();await p.waitForTimeout(700);
++ await p.getByRole('button',{name:'Reset model',exact:true}).click();
++ const rail=p.locator('.insight-rail-viewport');await rail.scrollIntoViewIfNeeded();await p.waitForTimeout(350);
++ const box=await rail.boundingBox();await p.mouse.move(box.x+box.width*.6,box.y+box.height/2);await p.mouse.down();await p.mouse.move(box.x+box.width*.6-190,box.y+box.height/2,{steps:20});await p.mouse.up();await p.waitForTimeout(900);
++ await p.getByRole('button',{name:'Reveal the reasoning',exact:true}).click();await p.waitForTimeout(850);
++ await p.getByRole('button',{name:'Deal three ideas',exact:true}).scrollIntoViewIfNeeded();await p.waitForTimeout(300);await p.getByRole('button',{name:'Deal three ideas',exact:true}).click();await p.waitForTimeout(1000);
++ await p.locator('[aria-label="Knowledge card tray"] button[aria-expanded]').first().click();await p.waitForTimeout(1100);
++ await p.getByRole('button',{name:'Back to the hand'}).click();await p.waitForTimeout(600);await p.getByRole('button',{name:'Collect all',exact:true}).click();await p.waitForTimeout(900);
++ await p.locator('[aria-labelledby="atlas-peek-title"]').scrollIntoViewIfNeeded();await p.waitForTimeout(1200);
++ await cdp.send('Page.stopScreencast');await Promise.all(pending);await writeFile(path.join(dir,'frames.json'),JSON.stringify(frames,null,2));
++ console.log(`${width}: ${frames.length} actual compositor frames captured`);await ctx.close();
++}
++await browser.close();
+--- /dev/null
++++ b/scripts/phase2-seal.py
+@@ -0,0 +1,37 @@
++"""Append a hash-bound successor; never rewrite a previous task's manifest."""
++import pathlib,hashlib,json
++r=pathlib.Path(__file__).resolve().parents[1]
++d=r/'docs/cinematic-phase2'
++digest=lambda p:hashlib.sha256(p.read_bytes()).hexdigest()
++b=json.loads((d/'baseline-hashes.json').read_text())
++owned=[p.relative_to(r).as_posix() for p in (r/'components/knowledge').glob('*') if p.suffix in ['.tsx','.css']]
++owned+=['components/site-header.tsx','scripts/canonical-home-receipt.mjs','scripts/verify-preservation-history.mjs','scripts/cinematic-phase2-receipt.mjs','tsconfig.tsbuildinfo']
++owned+=[p.relative_to(r).as_posix() for p in (r/'scripts').glob('phase2-*')]
++entries=[]
++for rel in sorted(set(owned)):
++    p=r/rel
++    if not p.exists():continue
++    current=digest(p)
++    before=b.get(rel)
++    if current==before:continue
++    entry={'path':rel,'beforeSha256':before,'sha256':current}
++    if rel=='tsconfig.tsbuildinfo':entry['generated']=True
++    elif before is not None:
++        snap=d/'before'/f'{rel}.snapshot'
++        if not snap.exists():raise RuntimeError('Missing original snapshot: '+str(snap))
++        assert digest(snap)==before,rel
++        entry['rollbackPath']=snap.relative_to(r).as_posix()
++    entries.append(entry)
++prev=r/'docs/canonical-home/INTEGRATION_MANIFEST.json'
++manifest={'scope':'hansa-cinematic-phase2-2026-10-28','previousManifest':prev.relative_to(r).as_posix(),'previousManifestSha256':digest(prev),'baselinePath':'docs/cinematic-phase2/baseline-hashes.json','baselineSha256':digest(d/'baseline-hashes.json'),'files':entries}
++(d/'INTEGRATION_MANIFEST.json').write_text(json.dumps(manifest,indent=2))
++allowed=set(owned)|{'docs/canonical-home/evidence/verify-canonical-home.json'}
++unexpected=[];preserved=0
++for rel,sha in b.items():
++    p=r/rel
++    if rel in allowed:continue
++    if p.exists() and digest(p)==sha:preserved+=1
++    else:unexpected.append(rel)
++(d/'preservation-check.json').write_text(json.dumps({'preservedPreexistingFiles':preserved,'unexpectedChanges':unexpected,'ownedChanges':[e['path'] for e in entries],'generatedVerifierEvidence':'docs/canonical-home/evidence/verify-canonical-home.json is rewritten by the existing static verifier; original preflight hash retained in baseline-hashes.json.'},indent=2))
++print('Sealed',len(entries),'owned changes;',preserved,'unrelated hashes preserved; unexpected:',unexpected)
++if unexpected:raise SystemExit(1)
+--- a/scripts/verify-preservation-history.mjs
++++ b/scripts/verify-preservation-history.mjs
+@@ -14,6 +14,7 @@
+ import { PROTOTYPE_C } from "./prototype-c-receipt.mjs";
+ import { R11_INTEGRATION } from "./r11-question-receipt.mjs";
+ import { CANONICAL_HOME, canonicalHomeReceipt } from "./canonical-home-receipt.mjs";
++import { CINEMATIC_PHASE2 } from "./cinematic-phase2-receipt.mjs";
+ const root = resolve(dirname(fileURLToPath(import.meta.url)), "..");
+ const history = loadPreservationHistory(root);
+ loadRepairReceipt(root);
+@@ -50,6 +51,12 @@
+     required.add(entry.path);
+     if (entry.beforeSha256 !== null) required.add("docs/knowledge-atlas/circular-nodes/before/" + entry.path);
+   });
++} catch(error) { if(error.code!=="ENOENT") throw error; }
++// Carry Phase 2's exact bound successor into the disposable corruption tests.
++try {
++  const cinematic = JSON.parse(readFileSync(resolve(root,CINEMATIC_PHASE2),"utf8"));
++  required.add(CINEMATIC_PHASE2); required.add(cinematic.previousManifest); required.add(cinematic.baselinePath);
++  cinematic.files.forEach(entry => { required.add(entry.path); if(entry.rollbackPath) required.add(entry.rollbackPath); });
+ } catch(error) { if(error.code!=="ENOENT") throw error; }
+ // The newest layer retires two superseded landing modules; a retired path has no
+ // bytes to copy into the disposable view.

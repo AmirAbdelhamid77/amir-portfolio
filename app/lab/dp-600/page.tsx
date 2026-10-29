@@ -198,7 +198,7 @@ export default function FabricHubPage() {
 
       <div className="border-b border-border bg-background/60">
         <Container>
-          <nav aria-label="DP-600 sections" className="scrollbar-hide -mx-1 flex gap-1 overflow-x-auto py-2.5">
+          <details className="py-3"><summary className="min-h-11 cursor-pointer py-3 text-sm">Original bank modes, saved sessions & resources</summary><nav aria-label="DP-600 sections" className="-mx-1 flex flex-wrap gap-1 py-2.5">
             {HUB_NAV.map((item) => (
               <Link
                 key={item.href}
@@ -208,7 +208,7 @@ export default function FabricHubPage() {
                 {item.label}
               </Link>
             ))}
-          </nav>
+          </nav></details>
         </Container>
       </div>
 

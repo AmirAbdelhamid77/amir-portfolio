@@ -1,0 +1,48 @@
+PASS ROOT01 — landing sections present: 5/5
+PASS ROOT01b — the retired gateway directory is not on the homepage
+PASS ROOT01c — no prototype framing is rendered
+PASS NAV01 — Today is in the header and marks itself as the current page
+PASS NAV01b — links pointing at the legacy address: 0
+PASS ROOT02 — console errors: none
+PASS H064/STATE — progress namespaces unchanged; landing wrote nothing
+PASS URL01 — a bare / opens on the newest edition and its scenario
+PASS SCENARIO02 — reveal reports aria-expanded=true
+PASS SCENARIO02b — reveal collapses again
+PASS SCENARIO02c — scene stays visible through reveal toggles
+PASS DEALER01 — 3 card(s) dealt into the hand
+PASS DEALER02 — the card opens a readable panel (335 characters)
+PASS DEALER03 — closing returns the card to the hand with no leftover overlay
+PASS TIMELINE01 — rail arrow: "26 OCT 2026 Reference ≠ retained result" → "25 OCT 2026 Object versus target"
+PASS TIMELINE02 — ArrowRight: "25 OCT 2026 Object versus target" → "24 OCT 2026 Files versus Tables" (focus stays in the rail: true)
+PASS URL05 — selection is reflected in the URL: http://127.0.0.1:4328/?insight=hansa-insight-shortcut-discovery-v1
+PASS URL05b — Back restores the previous edition without stale card content
+PASS ARCHIVE01 — 1 edition(s) match "permissions"
+PASS ARCHIVE02 — permalink is root-scoped: /?insight=hansa-insight-shortcut-delete-v1
+PASS ROOT02b — console errors: none
+PASS URL01b — /?insight=reference selects "A reference is a design decision."
+PASS URL0-deep-reference — console errors: none
+PASS URL02b — /?insight=delete selects "Name the object you are deleting."
+PASS URL0-deep-delete — console errors: none
+PASS URL03b — /?insight=discovery selects "Location changes discovery."
+PASS URL0-deep-discovery — console errors: none
+PASS URL04 — an unknown edition ID falls back to the latest with an explanation
+PASS URL03 — fragment kept: #archive, archive visible: true
+PASS H026 — #archive landed in view (y=274)
+PASS URL03b — edition + anchor together select "Files versus Tables" (rail: 24 OCT 2026 Files versus Tables)
+PASS ROUTE01c — the alias selects the deep-linked edition
+PASS R3b — the alias renders the same landing
+PASS NAV01c — the alias header points Today at the canonical root
+PASS ROUTE01d — alias console errors: none
+PASS MOBILE01 — 320px: horizontal overflow 0px
+PASS MOBILE01 — 390px: horizontal overflow 0px
+PASS MOBILE01 — 768px: horizontal overflow 0px
+PASS DESKTOP01 — light theme renders without console errors
+PASS REDUCED01 — reduced motion keeps every control working
+PASS NOJS01 — with JavaScript off the archive and its reasoning stay readable
+PASS KEYBOARD01a — skip link is present
+PASS KEYBOARD01b — first Tab reaches the skip link (#main)
+PASS KEYBOARD01c — Home key is handled by the rail without trapping focus
+PASS ACCESS01 — axe: 0 non-serious finding(s)
+
+45/45 checks passed
+

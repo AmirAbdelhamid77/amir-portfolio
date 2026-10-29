@@ -32,3 +32,10 @@ For Atlas/books/semantic learning navigation, read docs/knowledge-atlas/START_HE
 
 ## EasyUI contextual integration - 2026-10-25
 For component selection, read docs/design-system/easyui-v2/INTEGRATION_REPORT.md and docs/design-system/easyui-v2/CONTEXTUAL_COMPONENT_REGISTRY.json. Supplied V2 matrices remain upstream recommendations, not installation or QA proof. Reuse current local components first; only the native ingestion comparison pilot is implemented. Preserve Atlas semantic/publication gates; no automatic graph-engine installation or deployment. Run node scripts/verify-easyui-integration.mjs for successor integrity.
+
+<!-- HANSA_CREATIVE_INTELLIGENCE_START -->
+## Hansa Creative Intelligence — standing visual-design behavior
+
+For any Hansa task affecting a visible frontend page, lesson, dashboard, Atlas graph, chart, interactive UI, or landing experience, **automatically invoke** the repo skill `.agents/skills/hansa-creative-intelligence/SKILL.md` before implementation, even when the user does not say "animation", "D3", "creative", or "visual". This skill is an additive creative-execution layer to existing Hansa content-faithfulness, QA, design-system and accessibility policies. Use it to run a Visual Opportunity Pass, invent a context-specific rich composition, choose only justified chart/motion technology, and verify non-generic depth, real stateful interaction, responsiveness and reduced-motion accessibility. Do not add visualizations to pure backend/scientific-QA tasks or invent source data. Respect existing `AGENTS.md`, source of truth, current edits by other agents, deployment limitations and higher-priority owner directions. No deployment unless requested.
+<!-- HANSA_CREATIVE_INTELLIGENCE_END -->
+

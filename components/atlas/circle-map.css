@@ -1,4 +1,6 @@
 .atlas-circle-viewport { height: min(620px, 70svh); min-height: 280px; overflow: auto; overscroll-behavior: contain; }
+.atlas-concept-list { max-height:min(430px,42svh); overflow:auto; padding:4px; margin-inline:-4px; scrollbar-gutter:stable; }
+.atlas-navigator { scroll-margin-top:80px; }
 .atlas-circle-node { cursor: pointer; outline: none; }
 .atlas-circle-surface { fill: var(--background); stroke: var(--muted-foreground); stroke-width: 1.5; }
 .atlas-circle-ring { fill: none; stroke: var(--primary); stroke-width: 3; opacity: 0; }
@@ -8,6 +10,9 @@
 .atlas-circle-node[data-state="Related"] .atlas-circle-surface { stroke: var(--primary); stroke-width: 2; }
 .atlas-circle-node[data-state="Prerequisite"] .atlas-circle-surface { stroke: var(--foreground); stroke-width: 3; stroke-dasharray: 5 4; }
 .atlas-circle-node:focus-visible .atlas-circle-ring { opacity: 1; }
+.atlas-circle-node[data-edge-focus="endpoint"] .atlas-circle-ring { opacity:1; stroke-width:2; }
+.atlas-circle-node[data-edge-focus="context"] { opacity:.75; }
+.atlas-edge-caption { fill:var(--primary); stroke:var(--background); stroke-width:5; paint-order:stroke; font-size:12px; font-weight:500; pointer-events:none; }
 .atlas-circle-node:active .atlas-circle-face { transform: scale(.96); }
 .atlas-circle-edge { cursor: pointer; outline: none; }
 .atlas-circle-edge:focus-visible { color: var(--primary); }

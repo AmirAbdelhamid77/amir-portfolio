@@ -3,18 +3,20 @@ import { motion, useReducedMotion } from "motion/react";
 import { circleLayout, circleEndpoints, circleState } from "@/lib/atlas/circle-layout";
 import "./circle-map.css";
 import Link from "next/link";
-import { useEffect, useId, useRef, useState } from "react";
+import { useEffect, useId, useRef, useState, useMemo } from "react";
 import { defaultView, resourceReturnHref, neighborhood, parseView, viewHref, searchConcepts, RELATIONS, type Atlas, type View, type Edge } from "@/lib/atlas/model";
 const button = "min-h-11 rounded-xl border border-border-strong bg-background px-3 py-2 text-sm hover:bg-card focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary";
 
 export function AtlasExplorer({ atlas }: { atlas: Atlas }) {
   const [view, setView] = useState<View>(defaultView), [query, setQuery] = useState(""), [map, setMap] = useState(false), [notice, setNotice] = useState("");
   const inspector = useRef<HTMLElement>(null), uid = useId().replaceAll(":", "");
+  const returnFocus = useRef<HTMLElement | SVGElement | null>(null);
   useEffect(() => {
     const sync = () => { const result = parseView(window.location.search, atlas); setView(result.view); setNotice(result.warning); };
     Promise.resolve().then(sync); window.addEventListener("popstate", sync); return () => window.removeEventListener("popstate", sync);
   }, [atlas]);
   function update(patch: Partial<View>, focusInspector = false) {
+    if(focusInspector && document.activeElement instanceof Element) returnFocus.current=document.activeElement as HTMLElement | SVGElement;
     const next = { ...view, ...patch }; setView(next); window.history.pushState(null, "", viewHref(next));
     if (focusInspector) window.requestAnimationFrame(() => { inspector.current?.focus({ preventScroll: true }); if (window.matchMedia("(max-width: 1279px)").matches) inspector.current?.scrollIntoView({ block: "start", behavior: "instant" }); });
   }
@@ -26,25 +28,27 @@ export function AtlasExplorer({ atlas }: { atlas: Atlas }) {
     const observer = new ResizeObserver(entries => { const width = entries[0]?.contentRect.width; if (width) setMapWidth(width); });
     observer.observe(element); return () => observer.disconnect();
   }, [map, atlas.concepts.length]);
-  const slice = neighborhood(atlas, view);
-  const layout = circleLayout(slice.concepts, mapWidth);
+  // Camera changes do not change semantic neighborhoods or label geometry.
+  const focusView = useMemo(()=>({...defaultView(),concept:view.concept,source:view.source,relation:view.relation,hops:view.hops,incoming:view.incoming}),[view.concept,view.source,view.relation,view.hops,view.incoming]);
+  const slice = useMemo(()=>neighborhood(atlas, focusView),[atlas,focusView]);
+  const layout = useMemo(()=>circleLayout(slice.concepts, mapWidth),[slice.concepts,mapWidth]);
   const transition = { duration: reduceMotion ? 0 : .18, ease: "easeOut" as const };
-  const matches = searchConcepts(atlas, query);
+  const matches = useMemo(()=>searchConcepts(atlas, query),[atlas,query]);
   const concept = atlas.concepts.find(item => item.id === view.concept) ?? atlas.concepts[0];
-  const selectedEdge = atlas.semanticEdges.find(item => item.id === view.edge);
+  const selectedEdge = slice.edges.find(item => item.id === view.edge);
   const edgeLabel = (edge: Edge) => `${atlas.concepts.find(item => item.id === edge.from)?.title} ${RELATIONS[edge.relationType].toLowerCase()} ${atlas.concepts.find(item => item.id === edge.to)?.title}`;
   const resourceHref = (href: string) => resourceReturnHref(href, view);
   function evidence(ids: string[]) { return <ul className="mt-3 space-y-3">{ids.map(id => { const source = atlas.sources.find(item => item.id === id)!; return <li key={id} className="text-sm leading-6"><a href={source.url} className="inline-block min-h-11 py-2 font-medium text-primary underline underline-offset-4">{source.title} — Microsoft Learn</a><p className="text-xs text-muted-foreground">{source.locator} · checked {source.checkedAt}</p></li>; })}</ul>; }
   if (!atlas.concepts.length) return <section className="rounded-3xl border border-border-strong p-6"><h2 className="text-xl font-medium">Publication review is pending</h2><p className="mt-3 text-sm leading-7">{atlas.notice}</p><Link href="/learn/dp-600/ingestion/" className="mt-4 inline-block min-h-11 py-3 text-primary underline">Continue with the ingestion lesson</Link></section>;
-  return <div data-testid="atlas-explorer" className="space-y-5">
+  return <div data-testid="atlas-explorer" className="space-y-5" onKeyDown={event=>{if(event.key==="Escape" && inspector.current?.contains(event.target as Node)){event.stopPropagation();if(view.edge)update({edge:""});requestAnimationFrame(()=>returnFocus.current?.focus({preventScroll:true}));}}}>
     {atlas.preview && <p className="rounded-2xl border border-primary/30 bg-primary/5 p-4 text-sm leading-7" data-testid="review-notice">{atlas.notice}</p>}
     <div className="flex flex-wrap items-center gap-3"><Link className={button} href="/learn/dp-600/ingestion/">← Back to the lesson</Link><Link className={button} href="/learn/dp-600/atlas/journey/">Guided journey →</Link><button className={button} onClick={() => { const next = defaultView(); setQuery(""); update(next); setNotice("View reset. Your learning progress was not changed."); }}>Reset view</button><button className={button} onClick={async () => { try { await navigator.clipboard.writeText(window.location.href); setNotice("Atlas link copied. It contains view settings only, no answers or progress."); } catch { setNotice("Copy is unavailable. Select the address in your browser to share this view."); } }}>Copy view link</button></div>
-    <p role="status" aria-live="polite" className="min-h-6 text-sm text-muted-foreground">{notice}</p>
+    <p role="status" aria-live="polite" className="min-h-6 text-sm text-muted-foreground">{notice || (view.edge&&!selectedEdge?"The requested connection is outside this focus. Choose a visible connection or reset the view.":"")}</p>
     <div className="grid items-start gap-5 xl:grid-cols-[240px_minmax(0,1fr)_320px]">
-      <aside className="min-w-0 rounded-3xl border border-border-strong bg-card/40 p-4" aria-label="Atlas navigator">
+      <aside className="atlas-navigator min-w-0 rounded-3xl border border-border-strong bg-card/40 p-4" aria-label="Atlas navigator">
         <label className="block text-sm font-medium">Find a concept<input type="search" className="mt-2 block min-h-11 w-full rounded-xl border border-border-strong bg-background px-3 text-sm" value={query} onChange={event => setQuery(event.target.value.slice(0, 80))} /></label>
         <p className="mt-2 text-xs leading-6 text-muted-foreground">{matches.length} of {atlas.concepts.length} concepts · aliases included</p>
-        <ul className="mt-3 space-y-2">{matches.map(item => <li key={item.id}><button className={`${button} w-full text-start ${item.id === view.concept ? "border-primary bg-primary/5 font-medium" : ""}`} aria-pressed={item.id === view.concept} onClick={() => update({ concept: item.id, edge: "" }, true)}>{item.title}</button></li>)}</ul>
+        <ul className="atlas-concept-list mt-3 space-y-2">{matches.map(item => <li key={item.id}><button className={`${button} w-full text-start ${item.id === view.concept ? "border-primary bg-primary/5 font-medium" : ""}`} aria-pressed={item.id === view.concept} onClick={() => update({ concept: item.id, edge: "" }, true)}>{item.title}</button></li>)}</ul>
         {!matches.length && <p className="mt-4 text-sm leading-7">No concept matches. Try a shorter term or an alias.</p>}
         <details className="mt-5 border-t border-border pt-3"><summary className="min-h-11 cursor-pointer py-3 text-sm font-medium">Guide navigator — separate from the graph</summary><p className="text-xs leading-6 text-muted-foreground">Source order and chapter membership do not create semantic connections.</p><ul className="mt-3">{atlas.toc.map(item => <li key={item.id}><a className="inline-block min-h-11 py-2 text-sm text-primary underline" href={resourceHref(atlas.catalog.find(resource => resource.id === item.resourceId)!.href)}>{item.title}</a></li>)}</ul><p className="text-xs leading-6 text-muted-foreground">Representative coverage across the three DP-600 domains. Detailed objective coverage and question mapping remain in progress.</p></details>
       </aside>
@@ -58,7 +62,7 @@ export function AtlasExplorer({ atlas }: { atlas: Atlas }) {
         <div className={`${map ? "block" : "hidden xl:block"} overflow-hidden rounded-3xl border border-border-strong bg-card/30`} data-testid="atlas-map">
           <div className="flex flex-wrap gap-2 border-b border-border p-3">{[["Zoom in", { zoom: Math.min(2.5, view.zoom + .2) }], ["Zoom out", { zoom: Math.max(.6, view.zoom - .2) }], ["Fit map", { zoom: 1, x: 0, y: 0 }], ["Pan left", { x: Math.max(-400, view.x - 70) }], ["Pan right", { x: Math.min(400, view.x + 70) }], ["Pan up", { y: Math.max(-400, view.y - 70) }], ["Pan down", { y: Math.min(400, view.y + 70) }]].map(([title, patch]) => <button key={String(title)} className={button} onClick={() => update(patch as Partial<View>)}>{String(title)}</button>)}</div>
           <p id={uid + "-map-help"} className="px-4 pt-3 text-xs leading-6 text-muted-foreground">Select a circle to open its definition, evidence and learning links. Tab between concepts and connections; Enter or Space opens details. Selected: filled circle. Related: solid outline. Prerequisite: dashed outline. Size fits the label, not importance.</p>
-          <div ref={mapContainer} className={"atlas-circle-viewport"}>
+          <div ref={mapContainer} className={"atlas-circle-viewport"} style={{height:`min(${layout.height}px, 620px, 70svh)`}}>
           <svg role="group" aria-label="Semantic concept map; equivalent labeled connection list follows" aria-describedby={uid + "-map-help"} style={{ width: "100%", height: layout.height, minWidth: 280 }} viewBox={`${view.x + layout.width/2 - layout.width/2 / view.zoom} ${view.y + layout.height/2 - layout.height/2 / view.zoom} ${layout.width / view.zoom} ${layout.height / view.zoom}`}>
             <title>Documented DP-600 relationships</title><defs><marker id={`${uid}-arrow`} markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8" fill="currentColor" /></marker></defs>
             {slice.edges.map(edge => {
@@ -68,11 +72,12 @@ export function AtlasExplorer({ atlas }: { atlas: Atlas }) {
                 <title>{edge.claim}</title>
                 <motion.line initial={false} animate={endpoints} transition={transition} className={"atlas-circle-edgeLine"} stroke="currentColor" strokeWidth={edge.id===view.edge ? 4 : 2} strokeDasharray={edge.direction === "symmetric" ? "6 4" : undefined} markerEnd={edge.direction === "directed" ? `url(#${uid}-arrow)` : undefined} />
                 <motion.line initial={false} animate={endpoints} transition={transition} stroke="transparent" strokeWidth="20" />
+                {edge.id===selectedEdge?.id?<text x={(endpoints.x1+endpoints.x2)/2} y={(endpoints.y1+endpoints.y2)/2-12} className="atlas-edge-caption" textAnchor="middle" aria-hidden="true">{RELATIONS[edge.relationType]}</text>:null}
               </g>;
             })}
             {layout.nodes.map(item => {
               const state = circleState(item.id, view.concept, atlas.semanticEdges);
-              return <motion.g initial={false} animate={{ x: item.position[0], y: item.position[1] }} transition={transition} key={item.id} role="button" tabIndex={0} aria-label={`Select ${item.lines.join(" ")} ${state}. ${item.title}`} aria-pressed={item.id === view.concept} data-concept-id={item.id} data-state={state} className={"atlas-circle-node"} onClick={() => update({ concept: item.id, edge: "" }, true)} onKeyDown={event => { if (["Enter", " "].includes(event.key)) { event.preventDefault(); update({ concept: item.id, edge: "" }, true); } }}>
+              return <motion.g initial={false} animate={{ x: item.position[0], y: item.position[1] }} transition={transition} key={item.id} role="button" tabIndex={0} aria-label={`Select ${item.lines.join(" ")} ${state}. ${item.title}`} aria-pressed={item.id === view.concept} data-concept-id={item.id} data-state={state} data-edge-focus={selectedEdge?(item.id===selectedEdge.from||item.id===selectedEdge.to?"endpoint":"context"):undefined} className={"atlas-circle-node"} onClick={() => update({ concept: item.id, edge: "" }, true)} onKeyDown={event => { if (["Enter", " "].includes(event.key)) { event.preventDefault(); update({ concept: item.id, edge: "" }, true); } }}>
                 <title>{`${item.title} — ${state}. Open definition, evidence and learning links.`}</title>
                 <circle r={item.radius + 9} className={"atlas-circle-ring"} aria-hidden="true" />
                 <g className={"atlas-circle-face"}>

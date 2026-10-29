@@ -1,0 +1,125 @@
+{
+  "generatedAt": "2026-10-27T21:07:35.407Z",
+  "base": "(loopback static export)",
+  "checks": [
+    {
+      "id": "drafts-page-renders",
+      "pass": true,
+      "detail": "Two packages, staged as drafts and kept apart."
+    },
+    {
+      "id": "drafts-show-both-statuses",
+      "pass": true,
+      "detail": "NO_GO + NONFINAL visible"
+    },
+    {
+      "id": "drafts-show-counts",
+      "pass": true,
+      "detail": "222 and 1285 visible"
+    },
+    {
+      "id": "drafts-noindex",
+      "pass": true,
+      "detail": "meta robots noindex"
+    },
+    {
+      "id": "dp600-first-page-rows",
+      "pass": true,
+      "detail": "40 rows on the first page"
+    },
+    {
+      "id": "dp600-source-ids-shown",
+      "pass": true,
+      "detail": "T1Q1 · TOPIC 1 ›"
+    },
+    {
+      "id": "dp600-search-filters",
+      "pass": true,
+      "detail": "2 matches for \"litware\""
+    },
+    {
+      "id": "dp600-search-count-updated",
+      "pass": true,
+      "detail": "match counter visible"
+    },
+    {
+      "id": "draft-row-states-graded-off",
+      "pass": true,
+      "detail": "footer label present"
+    },
+    {
+      "id": "draft-row-has-no-answer",
+      "pass": true,
+      "detail": "T1Q1 · TOPIC 1 › Contoso wants version control with branching for the Research division semantic models and reports. Its"
+    },
+    {
+      "id": "draft-row-has-options",
+      "pass": true,
+      "detail": "lettered options listed"
+    },
+    {
+      "id": "pl300-bank-switches",
+      "pass": true,
+      "detail": "1285 draft questions header"
+    },
+    {
+      "id": "pl300-ids-namespaced",
+      "pass": true,
+      "detail": "PL300-RB01-V10-001 · TOPIC ETL OWNERSHIP · PREPARE THE DATA ›"
+    },
+    {
+      "id": "pl300-search-filters",
+      "pass": true,
+      "detail": "40 matches for \"power query\""
+    },
+    {
+      "id": "no-private-material-in-any-response",
+      "pass": true,
+      "detail": "23 responses scanned, 0 hits: []"
+    },
+    {
+      "id": "fabric-progress-preserved",
+      "pass": true,
+      "detail": "amir-fabric-v1 byte-identical"
+    },
+    {
+      "id": "lab-progress-preserved",
+      "pass": true,
+      "detail": "amir-lab-v1 byte-identical"
+    },
+    {
+      "id": "draft-review-writes-nothing",
+      "pass": true,
+      "detail": "new storage keys: []"
+    },
+    {
+      "id": "catalogue-has-no-drafts",
+      "pass": true,
+      "detail": "catalogue clean"
+    },
+    {
+      "id": "hub-has-no-drafts",
+      "pass": true,
+      "detail": "DP-600 hub clean"
+    },
+    {
+      "id": "sitemap-has-no-drafts",
+      "pass": true,
+      "detail": "sitemap clean"
+    },
+    {
+      "id": "console-no-errors",
+      "pass": true,
+      "detail": "0 console errors"
+    }
+  ],
+  "summary": {
+    "total": 22,
+    "passed": 22,
+    "failed": 0
+  },
+  "scannedResponses": 43,
+  "evidence": [
+    "draft-review-1440.png"
+  ]
+}

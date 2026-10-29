@@ -1,0 +1,125 @@
+{
+  "slug": "excel",
+  "title": "Excel for Analysis",
+  "topic": "Excel",
+  "level": "beginner",
+  "description": "Lookups, conditional aggregation, pivot tables, Power Query, and the spreadsheet habits that stop a workbook from becoming a liability.",
+  "durationMinutes": 15,
+  "passMark": 70,
+  "questions": [
+    {
+      "id": "xl-01",
+      "type": "single",
+      "topic": "Lookups",
+      "prompt": "Which is an advantage of XLOOKUP over VLOOKUP?",
+      "options": [
+        "It can look to the left of the lookup column and has a built-in not-found argument",
+        "It only works with numeric keys",
+        "It requires the table to be sorted ascending",
+        "It cannot return an array"
+      ],
+      "answer": 0,
+      "explanation": "XLOOKUP removes VLOOKUP's left-lookup limitation and lets you specify the result when no match is found."
+    },
+    {
+      "id": "xl-02",
+      "type": "single",
+      "topic": "References",
+      "prompt": "What does $A$1 mean when a formula is copied?",
+      "options": [
+        "Both the column and the row stay fixed",
+        "The column changes but the row stays fixed",
+        "The row changes but the column stays fixed",
+        "Both change relative to the new cell"
+      ],
+      "answer": 0,
+      "explanation": "The dollar signs make the reference absolute, so copying the formula keeps it pointed at A1."
+    },
+    {
+      "id": "xl-03",
+      "type": "multi",
+      "topic": "Pivot tables",
+      "prompt": "Which tasks can a PivotTable perform? Select all that apply.",
+      "options": [
+        "Group and summarise a large table",
+        "Filter and slice by category",
+        "Refresh when the source data changes",
+        "Permanently delete invalid source rows"
+      ],
+      "answer": [0, 1, 2],
+      "explanation": "A PivotTable summarises, filters, and refreshes from its source. It does not clean or delete source records."
+    },
+    {
+      "id": "xl-04",
+      "type": "single",
+      "topic": "Power Query",
+      "prompt": "You import the same CSV every week, clean it identically, and load it to a sheet. Which tool is the best fit?",
+      "options": [
+        "Power Query, because the steps are recorded and repeatable",
+        "Manual find-and-replace each week",
+        "A macro that copies and pastes",
+        "A PivotTable"
+      ],
+      "answer": 0,
+      "explanation": "Power Query stores the transformation steps, so the weekly refresh repeats the same clean automatically."
+    },
+    {
+      "id": "xl-05",
+      "type": "single",
+      "topic": "Aggregation",
+      "prompt": "Which function sums values that meet two or more conditions?",
+      "options": ["SUM", "SUMIF", "SUMIFS", "SUBTOTAL"],
+      "answer": 2,
+      "explanation": "SUMIF handles one condition; SUMIFS handles multiple criteria across ranges."
+    },
+    {
+      "id": "xl-06",
+      "type": "boolean",
+      "topic": "Lookups",
+      "prompt": "INDEX/MATCH can return a value from a column to the left of the lookup column.",
+      "answer": true,
+      "explanation": "MATCH finds the position and INDEX retrieves from any column, so direction does not matter."
+    },
+    {
+      "id": "xl-07",
+      "type": "numeric",
+      "topic": "Text",
+      "prompt": "What does =LEN(\"Data Lab\") return?",
+      "answer": 8,
+      "tolerance": 0,
+      "explanation": "LEN counts every character including the space: D-a-t-a-space-L-a-b = 8."
+    },
+    {
+      "id": "xl-08",
+      "type": "single",
+      "topic": "Errors",
+      "prompt": "What does IFERROR(A1/B1, 0) return when B1 is zero?",
+      "options": ["#DIV/0!", "0", "BLANK", "A1"],
+      "answer": 1,
+      "explanation": "IFERROR returns its second argument when the first produces an error, so the result is 0."
+    },
+    {
+      "id": "xl-09",
+      "type": "multi",
+      "topic": "Data hygiene",
+      "prompt": "Which practices make an Excel table safe to analyse? Select all that apply.",
+      "options": [
+        "One header row with unique column names",
+        "Structured references via an Excel Table",
+        "No merged cells inside the data range",
+        "Blank rows between each record for readability"
+      ],
+      "answer": [0, 1, 2],
+      "explanation": "Clean headers, table objects, and no merged cells keep formulas and pivots reliable. Blank separator rows break ranges and sorting."
+    },
+    {
+      "id": "xl-10",
+      "type": "single",
+      "topic": "Dynamic arrays",
+      "prompt": "Which dynamic array function returns rows that meet a condition?",
+      "options": ["FILTER", "CONCAT", "LEN", "ROUND"],
+      "answer": 0,
+      "explanation": "FILTER returns the matching rows and spills them into the neighbouring cells."
+    }
+  ]
+}

@@ -1,0 +1,980 @@
+[
+  {
+    "id": "stats-formula-test-statistic",
+    "before": "foundations",
+    "after": "hypothesis",
+    "reason": "Content-reviewed correction: A test statistic standardizes evidence under a null model; it is not the elementary definition of a statistic. Evidence: stats-s18"
+  },
+  {
+    "id": "stats-glossary-test-statistic",
+    "before": "foundations",
+    "after": "hypothesis",
+    "reason": "Content-reviewed correction: The glossary entry concerns hypothesis testing and standard error. Evidence: stats-s18"
+  },
+  {
+    "id": "note-delta-partitioning",
+    "before": "transform",
+    "after": "foundations",
+    "reason": "Content-context review: distinguish the named access/movement/table-state decision within the Lakehouse source."
+  },
+  {
+    "id": "note-delta-partition-demo",
+    "before": "transform",
+    "after": "foundations",
+    "reason": "Content-context review: distinguish the named access/movement/table-state decision within the Lakehouse source."
+  },
+  {
+    "id": "note-delta-maintenance-demo",
+    "before": "transform",
+    "after": "foundations",
+    "reason": "Content-context review: distinguish the named access/movement/table-state decision within the Lakehouse source."
+  },
+  {
+    "id": "note-delta-connection",
+    "before": "transform",
+    "after": "foundations",
+    "reason": "Content-context review: distinguish the named access/movement/table-state decision within the Lakehouse source."
+  },
+  {
+    "id": "note-pipelines-schedule",
+    "before": "delivery",
+    "after": "ingestion",
+    "reason": "Content-context review: retain the source pack’s documented focal decision; incidental object vocabulary does not define the lesson topic."
+  },
+  {
+    "id": "note-pipelines-target",
+    "before": "transform",
+    "after": "ingestion",
+    "reason": "Content-context review: retain the source pack’s documented focal decision; incidental object vocabulary does not define the lesson topic."
+  },
+  {
+    "id": "note-scd-engine",
+    "before": "query",
+    "after": "model",
+    "reason": "Content-context review: retain the source pack’s documented focal decision; incidental object vocabulary does not define the lesson topic."
+  },
+  {
+    "id": "note-eventhouse-objects",
+    "before": "ingestion",
+    "after": "streaming",
+    "reason": "Content-context review: retain the source pack’s documented focal decision; incidental object vocabulary does not define the lesson topic."
+  },
+  {
+    "id": "note-eventhouse-mv",
+    "before": "transform",
+    "after": "streaming",
+    "reason": "Content-context review: retain the source pack’s documented focal decision; incidental object vocabulary does not define the lesson topic."
+  },
+  {
+    "id": "note-eventhouse-availability",
+    "before": "transform",
+    "after": "streaming",
+    "reason": "Content-context review: retain the source pack’s documented focal decision; incidental object vocabulary does not define the lesson topic."
+  },
+  {
+    "id": "note-eventhouse-databaseui",
+    "before": "security",
+    "after": "streaming",
+    "reason": "Content-context review: retain the source pack’s documented focal decision; incidental object vocabulary does not define the lesson topic."
+  },
+  {
+    "id": "note-eventhouse-shortcuts",
+    "before": "ingestion",
+    "after": "streaming",
+    "reason": "Content-context review: retain the source pack’s documented focal decision; incidental object vocabulary does not define the lesson topic."
+  },
+  {
+    "id": "note-eventhouse-onelakedemo",
+    "before": "ingestion",
+    "after": "streaming",
+    "reason": "Content-context review: retain the source pack’s documented focal decision; incidental object vocabulary does not define the lesson topic."
+  },
+  {
+    "id": "note-eventhouse-backfilldemo",
+    "before": "ingestion",
+    "after": "streaming",
+    "reason": "Content-context review: retain the source pack’s documented focal decision; incidental object vocabulary does not define the lesson topic."
+  },
+  {
+    "id": "note-video06-V6-SEC-003",
+    "before": "model",
+    "after": "security",
+    "reason": "Content-context review: retain the source pack’s documented focal decision; incidental object vocabulary does not define the lesson topic."
+  },
+  {
+    "id": "note-video06-V6-SEC-006",
+    "before": "query",
+    "after": "security",
+    "reason": "Content-context review: retain the source pack’s documented focal decision; incidental object vocabulary does not define the lesson topic."
+  },
+  {
+    "id": "note-video06-V6-SEC-033",
+    "before": "query",
+    "after": "security",
+    "reason": "Content-context review: retain the source pack’s documented focal decision; incidental object vocabulary does not define the lesson topic."
+  },
+  {
+    "id": "note-video06-V6-SEC-035",
+    "before": "model",
+    "after": "security",
+    "reason": "Content-context review: retain the source pack’s documented focal decision; incidental object vocabulary does not define the lesson topic."
+  },
+  {
+    "id": "note-video06-V6-SEC-038",
+    "before": "ingestion",
+    "after": "security",
+    "reason": "Content-context review: retain the source pack’s documented focal decision; incidental object vocabulary does not define the lesson topic."
+  },
+  {
+    "id": "note-video06-V6-SEC-043",
+    "before": "query",
+    "after": "security",
+    "reason": "Content-context review: retain the source pack’s documented focal decision; incidental object vocabulary does not define the lesson topic."
+  },
+  {
+    "id": "note-video07-V7-DDM-017",
+    "before": "delivery",
+    "after": "security",
+    "reason": "Content-context review: retain the source pack’s documented focal decision; incidental object vocabulary does not define the lesson topic."
+  },
+  {
+    "id": "note-video07-V7-DDM-018",
+    "before": "query",
+    "after": "security",
+    "reason": "Content-context review: retain the source pack’s documented focal decision; incidental object vocabulary does not define the lesson topic."
+  },
+  {
+    "id": "note-video07-V7-DDM-019",
+    "before": "model",
+    "after": "security",
+    "reason": "Content-context review: retain the source pack’s documented focal decision; incidental object vocabulary does not define the lesson topic."
+  },
+  {
+    "id": "note-video07-V7-DDM-020",
+    "before": "model",
+    "after": "security",
+    "reason": "Content-context review: retain the source pack’s documented focal decision; incidental object vocabulary does not define the lesson topic."
+  },
+  {
+    "id": "note-video07-V7-DDM-021",
+    "before": "model",
+    "after": "security",
+    "reason": "Content-context review: retain the source pack’s documented focal decision; incidental object vocabulary does not define the lesson topic."
+  },
+  {
+    "id": "note-video07-V7-DDM-022",
+    "before": "model",
+    "after": "security",
+    "reason": "Content-context review: retain the source pack’s documented focal decision; incidental object vocabulary does not define the lesson topic."
+  },
+  {
+    "id": "note-video07-V7-DDM-023",
+    "before": "foundations",
+    "after": "security",
+    "reason": "Content-context review: retain the source pack’s documented focal decision; incidental object vocabulary does not define the lesson topic."
+  },
+  {
+    "id": "note-video07-V7-DDM-029",
+    "before": "delivery",
+    "after": "security",
+    "reason": "Content-context review: retain the source pack’s documented focal decision; incidental object vocabulary does not define the lesson topic."
+  },
+  {
+    "id": "note-video08-V8-GOV-016",
+    "before": "model",
+    "after": "security",
+    "reason": "Content-context review: retain the source pack’s documented focal decision; incidental object vocabulary does not define the lesson topic."
+  },
+  {
+    "id": "note-video08-V8-GOV-033",
+    "before": "model",
+    "after": "security",
+    "reason": "Content-context review: retain the source pack’s documented focal decision; incidental object vocabulary does not define the lesson topic."
+  },
+  {
+    "id": "note-video08-V8-GOV-045",
+    "before": "delivery",
+    "after": "security",
+    "reason": "Content-context review: retain the source pack’s documented focal decision; incidental object vocabulary does not define the lesson topic."
+  },
+  {
+    "id": "note-video09-V9-GIT-011",
+    "before": "security",
+    "after": "delivery",
+    "reason": "Content-context review: retain the source pack’s documented focal decision; incidental object vocabulary does not define the lesson topic."
+  },
+  {
+    "id": "note-video09-V9-GIT-019",
+    "before": "transform",
+    "after": "delivery",
+    "reason": "Content-context review: retain the source pack’s documented focal decision; incidental object vocabulary does not define the lesson topic."
+  },
+  {
+    "id": "note-video09-V9-GIT-022",
+    "before": "ingestion",
+    "after": "delivery",
+    "reason": "Content-context review: retain the source pack’s documented focal decision; incidental object vocabulary does not define the lesson topic."
+  },
+  {
+    "id": "note-video09-V9-GIT-026",
+    "before": "security",
+    "after": "delivery",
+    "reason": "Content-context review: retain the source pack’s documented focal decision; incidental object vocabulary does not define the lesson topic."
+  },
+  {
+    "id": "note-video09-V9-GIT-027",
+    "before": "model",
+    "after": "delivery",
+    "reason": "Content-context review: retain the source pack’s documented focal decision; incidental object vocabulary does not define the lesson topic."
+  },
+  {
+    "id": "note-video09-V9-GIT-031",
+    "before": "foundations",
+    "after": "delivery",
+    "reason": "Content-context review: retain the source pack’s documented focal decision; incidental object vocabulary does not define the lesson topic."
+  },
+  {
+    "id": "note-video09-V9-GIT-032",
+    "before": "ingestion",
+    "after": "delivery",
+    "reason": "Content-context review: retain the source pack’s documented focal decision; incidental object vocabulary does not define the lesson topic."
+  },
+  {
+    "id": "note-video09-V9-GIT-033",
+    "before": "ingestion",
+    "after": "delivery",
+    "reason": "Content-context review: retain the source pack’s documented focal decision; incidental object vocabulary does not define the lesson topic."
+  },
+  {
+    "id": "note-video09-V9-GIT-035",
+    "before": "security",
+    "after": "delivery",
+    "reason": "Content-context review: retain the source pack’s documented focal decision; incidental object vocabulary does not define the lesson topic."
+  },
+  {
+    "id": "note-video09-V9-GIT-040",
+    "before": "model",
+    "after": "delivery",
+    "reason": "Content-context review: retain the source pack’s documented focal decision; incidental object vocabulary does not define the lesson topic."
+  },
+  {
+    "id": "note-video10-V10-DEP-004",
+    "before": "security",
+    "after": "delivery",
+    "reason": "Content-context review: retain the source pack’s documented focal decision; incidental object vocabulary does not define the lesson topic."
+  },
+  {
+    "id": "note-video10-V10-DEP-013",
+    "before": "transform",
+    "after": "delivery",
+    "reason": "Content-context review: retain the source pack’s documented focal decision; incidental object vocabulary does not define the lesson topic."
+  },
+  {
+    "id": "note-video10-V10-DEP-016",
+    "before": "ingestion",
+    "after": "delivery",
+    "reason": "Content-context review: retain the source pack’s documented focal decision; incidental object vocabulary does not define the lesson topic."
+  },
+  {
+    "id": "note-video10-V10-DEP-023",
+    "before": "transform",
+    "after": "delivery",
+    "reason": "Content-context review: retain the source pack’s documented focal decision; incidental object vocabulary does not define the lesson topic."
+  },
+  {
+    "id": "note-video10-V10-DEP-024",
+    "before": "model",
+    "after": "delivery",
+    "reason": "Content-context review: retain the source pack’s documented focal decision; incidental object vocabulary does not define the lesson topic."
+  },
+  {
+    "id": "note-video10-V10-DEP-025",
+    "before": "ingestion",
+    "after": "delivery",
+    "reason": "Content-context review: retain the source pack’s documented focal decision; incidental object vocabulary does not define the lesson topic."
+  },
+  {
+    "id": "note-video10-V10-DEP-029",
+    "before": "security",
+    "after": "delivery",
+    "reason": "Content-context review: retain the source pack’s documented focal decision; incidental object vocabulary does not define the lesson topic."
+  },
+  {
+    "id": "note-video12-V12-MON-009",
+    "before": "ingestion",
+    "after": "delivery",
+    "reason": "Content-context review: retain the source pack’s documented focal decision; incidental object vocabulary does not define the lesson topic."
+  },
+  {
+    "id": "note-video12-V12-MON-010",
+    "before": "ingestion",
+    "after": "delivery",
+    "reason": "Content-context review: retain the source pack’s documented focal decision; incidental object vocabulary does not define the lesson topic."
+  },
+  {
+    "id": "note-video12-V12-MON-011",
+    "before": "ingestion",
+    "after": "delivery",
+    "reason": "Content-context review: retain the source pack’s documented focal decision; incidental object vocabulary does not define the lesson topic."
+  },
+  {
+    "id": "note-video12-V12-MON-012",
+    "before": "ingestion",
+    "after": "delivery",
+    "reason": "Content-context review: retain the source pack’s documented focal decision; incidental object vocabulary does not define the lesson topic."
+  },
+  {
+    "id": "note-video12-V12-MON-013",
+    "before": "ingestion",
+    "after": "delivery",
+    "reason": "Content-context review: retain the source pack’s documented focal decision; incidental object vocabulary does not define the lesson topic."
+  },
+  {
+    "id": "note-video12-V12-MON-014",
+    "before": "ingestion",
+    "after": "delivery",
+    "reason": "Content-context review: retain the source pack’s documented focal decision; incidental object vocabulary does not define the lesson topic."
+  },
+  {
+    "id": "note-video12-V12-MON-015",
+    "before": "ingestion",
+    "after": "delivery",
+    "reason": "Content-context review: retain the source pack’s documented focal decision; incidental object vocabulary does not define the lesson topic."
+  },
+  {
+    "id": "note-video12-V12-MON-031",
+    "before": "security",
+    "after": "delivery",
+    "reason": "Content-context review: retain the source pack’s documented focal decision; incidental object vocabulary does not define the lesson topic."
+  },
+  {
+    "id": "note-video12-V12-MON-032",
+    "before": "security",
+    "after": "delivery",
+    "reason": "Content-context review: retain the source pack’s documented focal decision; incidental object vocabulary does not define the lesson topic."
+  },
+  {
+    "id": "note-video12-V12-MON-033",
+    "before": "security",
+    "after": "delivery",
+    "reason": "Content-context review: retain the source pack’s documented focal decision; incidental object vocabulary does not define the lesson topic."
+  },
+  {
+    "id": "note-video12-V12-MON-034",
+    "before": "security",
+    "after": "delivery",
+    "reason": "Content-context review: retain the source pack’s documented focal decision; incidental object vocabulary does not define the lesson topic."
+  },
+  {
+    "id": "note-video12-V12-MON-042",
+    "before": "query",
+    "after": "delivery",
+    "reason": "Content-context review: retain the source pack’s documented focal decision; incidental object vocabulary does not define the lesson topic."
+  },
+  {
+    "id": "note-video12-V12-MON-043",
+    "before": "query",
+    "after": "delivery",
+    "reason": "Content-context review: retain the source pack’s documented focal decision; incidental object vocabulary does not define the lesson topic."
+  },
+  {
+    "id": "note-video12-V12-MON-044",
+    "before": "query",
+    "after": "delivery",
+    "reason": "Content-context review: retain the source pack’s documented focal decision; incidental object vocabulary does not define the lesson topic."
+  },
+  {
+    "id": "note-video12-V12-MON-045",
+    "before": "query",
+    "after": "delivery",
+    "reason": "Content-context review: retain the source pack’s documented focal decision; incidental object vocabulary does not define the lesson topic."
+  },
+  {
+    "id": "note-video12-V12-MON-046",
+    "before": "query",
+    "after": "delivery",
+    "reason": "Content-context review: retain the source pack’s documented focal decision; incidental object vocabulary does not define the lesson topic."
+  },
+  {
+    "id": "note-video12-V12-MON-047",
+    "before": "query",
+    "after": "delivery",
+    "reason": "Content-context review: retain the source pack’s documented focal decision; incidental object vocabulary does not define the lesson topic."
+  },
+  {
+    "id": "note-video12-V12-MON-048",
+    "before": "query",
+    "after": "delivery",
+    "reason": "Content-context review: retain the source pack’s documented focal decision; incidental object vocabulary does not define the lesson topic."
+  },
+  {
+    "id": "note-video12-V12-MON-049",
+    "before": "query",
+    "after": "delivery",
+    "reason": "Content-context review: retain the source pack’s documented focal decision; incidental object vocabulary does not define the lesson topic."
+  },
+  {
+    "id": "note-video12-V12-MON-050",
+    "before": "query",
+    "after": "delivery",
+    "reason": "Content-context review: retain the source pack’s documented focal decision; incidental object vocabulary does not define the lesson topic."
+  },
+  {
+    "id": "note-video14-V14-PIPE-049",
+    "before": "delivery",
+    "after": "ingestion",
+    "reason": "Content-context review: retain the source pack’s documented focal decision; incidental object vocabulary does not define the lesson topic."
+  },
+  {
+    "id": "note-video14-V14-PIPE-050",
+    "before": "delivery",
+    "after": "ingestion",
+    "reason": "Content-context review: retain the source pack’s documented focal decision; incidental object vocabulary does not define the lesson topic."
+  },
+  {
+    "id": "note-video14-V14-PIPE-051",
+    "before": "delivery",
+    "after": "ingestion",
+    "reason": "Content-context review: retain the source pack’s documented focal decision; incidental object vocabulary does not define the lesson topic."
+  },
+  {
+    "id": "note-video14-V14-PIPE-052",
+    "before": "delivery",
+    "after": "ingestion",
+    "reason": "Content-context review: retain the source pack’s documented focal decision; incidental object vocabulary does not define the lesson topic."
+  },
+  {
+    "id": "note-video14-V14-PIPE-053",
+    "before": "delivery",
+    "after": "ingestion",
+    "reason": "Content-context review: retain the source pack’s documented focal decision; incidental object vocabulary does not define the lesson topic."
+  },
+  {
+    "id": "note-video14-V14-PIPE-054",
+    "before": "delivery",
+    "after": "ingestion",
+    "reason": "Content-context review: retain the source pack’s documented focal decision; incidental object vocabulary does not define the lesson topic."
+  },
+  {
+    "id": "note-video14-V14-PIPE-055",
+    "before": "delivery",
+    "after": "ingestion",
+    "reason": "Content-context review: retain the source pack’s documented focal decision; incidental object vocabulary does not define the lesson topic."
+  },
+  {
+    "id": "note-video14-V14-PIPE-056",
+    "before": "delivery",
+    "after": "ingestion",
+    "reason": "Content-context review: retain the source pack’s documented focal decision; incidental object vocabulary does not define the lesson topic."
+  },
+  {
+    "id": "note-video15-V15-OLS-022",
+    "before": "query",
+    "after": "security",
+    "reason": "Content-context review: retain the source pack’s documented focal decision; incidental object vocabulary does not define the lesson topic."
+  },
+  {
+    "id": "note-video15-V15-OLS-023",
+    "before": "query",
+    "after": "security",
+    "reason": "Content-context review: retain the source pack’s documented focal decision; incidental object vocabulary does not define the lesson topic."
+  },
+  {
+    "id": "note-video15-V15-OLS-024",
+    "before": "query",
+    "after": "security",
+    "reason": "Content-context review: retain the source pack’s documented focal decision; incidental object vocabulary does not define the lesson topic."
+  },
+  {
+    "id": "note-video15-V15-OLS-025",
+    "before": "query",
+    "after": "security",
+    "reason": "Content-context review: retain the source pack’s documented focal decision; incidental object vocabulary does not define the lesson topic."
+  },
+  {
+    "id": "note-video15-V15-OLS-026",
+    "before": "query",
+    "after": "security",
+    "reason": "Content-context review: retain the source pack’s documented focal decision; incidental object vocabulary does not define the lesson topic."
+  },
+  {
+    "id": "note-video15-V15-OLS-027",
+    "before": "query",
+    "after": "security",
+    "reason": "Content-context review: retain the source pack’s documented focal decision; incidental object vocabulary does not define the lesson topic."
+  },
+  {
+    "id": "note-video15-V15-OLS-028",
+    "before": "query",
+    "after": "security",
+    "reason": "Content-context review: retain the source pack’s documented focal decision; incidental object vocabulary does not define the lesson topic."
+  },
+  {
+    "id": "note-video15-V15-OLS-029",
+    "before": "transform",
+    "after": "security",
+    "reason": "Content-context review: retain the source pack’s documented focal decision; incidental object vocabulary does not define the lesson topic."
+  },
+  {
+    "id": "note-video15-V15-OLS-030",
+    "before": "transform",
+    "after": "security",
+    "reason": "Content-context review: retain the source pack’s documented focal decision; incidental object vocabulary does not define the lesson topic."
+  },
+  {
+    "id": "note-video15-V15-OLS-031",
+    "before": "transform",
+    "after": "security",
+    "reason": "Content-context review: retain the source pack’s documented focal decision; incidental object vocabulary does not define the lesson topic."
+  },
+  {
+    "id": "note-video15-V15-OLS-032",
+    "before": "transform",
+    "after": "security",
+    "reason": "Content-context review: retain the source pack’s documented focal decision; incidental object vocabulary does not define the lesson topic."
+  },
+  {
+    "id": "note-video15-V15-OLS-033",
+    "before": "transform",
+    "after": "security",
+    "reason": "Content-context review: retain the source pack’s documented focal decision; incidental object vocabulary does not define the lesson topic."
+  },
+  {
+    "id": "note-video15-V15-OLS-034",
+    "before": "transform",
+    "after": "security",
+    "reason": "Content-context review: retain the source pack’s documented focal decision; incidental object vocabulary does not define the lesson topic."
+  },
+  {
+    "id": "note-video15-V15-OLS-035",
+    "before": "transform",
+    "after": "security",
+    "reason": "Content-context review: retain the source pack’s documented focal decision; incidental object vocabulary does not define the lesson topic."
+  },
+  {
+    "id": "note-video15-V15-OLS-036",
+    "before": "model",
+    "after": "security",
+    "reason": "Content-context review: retain the source pack’s documented focal decision; incidental object vocabulary does not define the lesson topic."
+  },
+  {
+    "id": "note-video15-V15-OLS-037",
+    "before": "model",
+    "after": "security",
+    "reason": "Content-context review: retain the source pack’s documented focal decision; incidental object vocabulary does not define the lesson topic."
+  },
+  {
+    "id": "note-video15-V15-OLS-038",
+    "before": "model",
+    "after": "security",
+    "reason": "Content-context review: retain the source pack’s documented focal decision; incidental object vocabulary does not define the lesson topic."
+  },
+  {
+    "id": "note-video15-V15-OLS-039",
+    "before": "model",
+    "after": "security",
+    "reason": "Content-context review: retain the source pack’s documented focal decision; incidental object vocabulary does not define the lesson topic."
+  },
+  {
+    "id": "note-video15-V15-OLS-040",
+    "before": "model",
+    "after": "security",
+    "reason": "Content-context review: retain the source pack’s documented focal decision; incidental object vocabulary does not define the lesson topic."
+  },
+  {
+    "id": "note-video15-V15-OLS-041",
+    "before": "model",
+    "after": "security",
+    "reason": "Content-context review: retain the source pack’s documented focal decision; incidental object vocabulary does not define the lesson topic."
+  },
+  {
+    "id": "note-video15-V15-OLS-042",
+    "before": "model",
+    "after": "security",
+    "reason": "Content-context review: retain the source pack’s documented focal decision; incidental object vocabulary does not define the lesson topic."
+  },
+  {
+    "id": "note-video16-V16-SQL-001",
+    "before": "foundations",
+    "after": "query",
+    "reason": "Content-context review: retain the source pack’s documented focal decision; incidental object vocabulary does not define the lesson topic."
+  },
+  {
+    "id": "note-video16-V16-SQL-002",
+    "before": "foundations",
+    "after": "query",
+    "reason": "Content-context review: retain the source pack’s documented focal decision; incidental object vocabulary does not define the lesson topic."
+  },
+  {
+    "id": "note-video16-V16-SQL-003",
+    "before": "foundations",
+    "after": "query",
+    "reason": "Content-context review: retain the source pack’s documented focal decision; incidental object vocabulary does not define the lesson topic."
+  },
+  {
+    "id": "note-video16-V16-SQL-004",
+    "before": "foundations",
+    "after": "query",
+    "reason": "Content-context review: retain the source pack’s documented focal decision; incidental object vocabulary does not define the lesson topic."
+  },
+  {
+    "id": "note-video16-V16-SQL-005",
+    "before": "foundations",
+    "after": "query",
+    "reason": "Content-context review: retain the source pack’s documented focal decision; incidental object vocabulary does not define the lesson topic."
+  },
+  {
+    "id": "note-video16-V16-SQL-006",
+    "before": "foundations",
+    "after": "query",
+    "reason": "Content-context review: retain the source pack’s documented focal decision; incidental object vocabulary does not define the lesson topic."
+  },
+  {
+    "id": "note-video16-V16-SQL-013",
+    "before": "ingestion",
+    "after": "query",
+    "reason": "Content-context review: retain the source pack’s documented focal decision; incidental object vocabulary does not define the lesson topic."
+  },
+  {
+    "id": "note-video16-V16-SQL-014",
+    "before": "ingestion",
+    "after": "query",
+    "reason": "Content-context review: retain the source pack’s documented focal decision; incidental object vocabulary does not define the lesson topic."
+  },
+  {
+    "id": "note-video16-V16-SQL-015",
+    "before": "ingestion",
+    "after": "query",
+    "reason": "Content-context review: retain the source pack’s documented focal decision; incidental object vocabulary does not define the lesson topic."
+  },
+  {
+    "id": "note-video16-V16-SQL-016",
+    "before": "ingestion",
+    "after": "query",
+    "reason": "Content-context review: retain the source pack’s documented focal decision; incidental object vocabulary does not define the lesson topic."
+  },
+  {
+    "id": "note-video16-V16-SQL-017",
+    "before": "ingestion",
+    "after": "query",
+    "reason": "Content-context review: retain the source pack’s documented focal decision; incidental object vocabulary does not define the lesson topic."
+  },
+  {
+    "id": "note-video16-V16-SQL-018",
+    "before": "ingestion",
+    "after": "query",
+    "reason": "Content-context review: retain the source pack’s documented focal decision; incidental object vocabulary does not define the lesson topic."
+  },
+  {
+    "id": "note-video16-V16-SQL-031",
+    "before": "security",
+    "after": "query",
+    "reason": "Content-context review: retain the source pack’s documented focal decision; incidental object vocabulary does not define the lesson topic."
+  },
+  {
+    "id": "note-video16-V16-SQL-032",
+    "before": "security",
+    "after": "query",
+    "reason": "Content-context review: retain the source pack’s documented focal decision; incidental object vocabulary does not define the lesson topic."
+  },
+  {
+    "id": "note-video16-V16-SQL-033",
+    "before": "security",
+    "after": "query",
+    "reason": "Content-context review: retain the source pack’s documented focal decision; incidental object vocabulary does not define the lesson topic."
+  },
+  {
+    "id": "note-video16-V16-SQL-034",
+    "before": "security",
+    "after": "query",
+    "reason": "Content-context review: retain the source pack’s documented focal decision; incidental object vocabulary does not define the lesson topic."
+  },
+  {
+    "id": "note-video16-V16-SQL-035",
+    "before": "security",
+    "after": "query",
+    "reason": "Content-context review: retain the source pack’s documented focal decision; incidental object vocabulary does not define the lesson topic."
+  },
+  {
+    "id": "note-video16-V16-SQL-036",
+    "before": "security",
+    "after": "query",
+    "reason": "Content-context review: retain the source pack’s documented focal decision; incidental object vocabulary does not define the lesson topic."
+  },
+  {
+    "id": "note-video16-V16-SQL-041",
+    "before": "model",
+    "after": "query",
+    "reason": "Content-context review: retain the source pack’s documented focal decision; incidental object vocabulary does not define the lesson topic."
+  },
+  {
+    "id": "note-video16-V16-SQL-042",
+    "before": "model",
+    "after": "query",
+    "reason": "Content-context review: retain the source pack’s documented focal decision; incidental object vocabulary does not define the lesson topic."
+  },
+  {
+    "id": "note-video19-V19-LH-002",
+    "before": "transform",
+    "after": "foundations",
+    "reason": "Content-context review: distinguish the named access/movement/table-state decision within the Lakehouse source."
+  },
+  {
+    "id": "note-video19-V19-LH-003",
+    "before": "transform",
+    "after": "foundations",
+    "reason": "Content-context review: distinguish the named access/movement/table-state decision within the Lakehouse source."
+  },
+  {
+    "id": "note-video19-V19-LH-004",
+    "before": "transform",
+    "after": "foundations",
+    "reason": "Content-context review: distinguish the named access/movement/table-state decision within the Lakehouse source."
+  },
+  {
+    "id": "note-video19-V19-LH-005",
+    "before": "transform",
+    "after": "foundations",
+    "reason": "Content-context review: distinguish the named access/movement/table-state decision within the Lakehouse source."
+  },
+  {
+    "id": "note-video19-V19-LH-006",
+    "before": "transform",
+    "after": "foundations",
+    "reason": "Content-context review: distinguish the named access/movement/table-state decision within the Lakehouse source."
+  },
+  {
+    "id": "note-video19-V19-LH-007",
+    "before": "transform",
+    "after": "foundations",
+    "reason": "Content-context review: distinguish the named access/movement/table-state decision within the Lakehouse source."
+  },
+  {
+    "id": "note-video19-V19-LH-008",
+    "before": "transform",
+    "after": "foundations",
+    "reason": "Content-context review: distinguish the named access/movement/table-state decision within the Lakehouse source."
+  },
+  {
+    "id": "note-video19-V19-LH-009",
+    "before": "transform",
+    "after": "foundations",
+    "reason": "Content-context review: distinguish the named access/movement/table-state decision within the Lakehouse source."
+  },
+  {
+    "id": "note-video19-V19-LH-010",
+    "before": "transform",
+    "after": "foundations",
+    "reason": "Content-context review: distinguish the named access/movement/table-state decision within the Lakehouse source."
+  },
+  {
+    "id": "note-video19-V19-LH-011",
+    "before": "ingestion",
+    "after": "foundations",
+    "reason": "Content-context review: distinguish the named access/movement/table-state decision within the Lakehouse source."
+  },
+  {
+    "id": "note-video19-V19-LH-012",
+    "before": "ingestion",
+    "after": "foundations",
+    "reason": "Content-context review: distinguish the named access/movement/table-state decision within the Lakehouse source."
+  },
+  {
+    "id": "note-video19-V19-LH-013",
+    "before": "ingestion",
+    "after": "foundations",
+    "reason": "Content-context review: distinguish the named access/movement/table-state decision within the Lakehouse source."
+  },
+  {
+    "id": "note-video19-V19-LH-014",
+    "before": "ingestion",
+    "after": "foundations",
+    "reason": "Content-context review: distinguish the named access/movement/table-state decision within the Lakehouse source."
+  },
+  {
+    "id": "note-video19-V19-LH-015",
+    "before": "ingestion",
+    "after": "foundations",
+    "reason": "Content-context review: distinguish the named access/movement/table-state decision within the Lakehouse source."
+  },
+  {
+    "id": "note-video19-V19-LH-016",
+    "before": "ingestion",
+    "after": "foundations",
+    "reason": "Content-context review: distinguish the named access/movement/table-state decision within the Lakehouse source."
+  },
+  {
+    "id": "note-video19-V19-LH-017",
+    "before": "ingestion",
+    "after": "foundations",
+    "reason": "Content-context review: distinguish the named access/movement/table-state decision within the Lakehouse source."
+  },
+  {
+    "id": "note-video19-V19-LH-018",
+    "before": "ingestion",
+    "after": "foundations",
+    "reason": "Content-context review: distinguish the named access/movement/table-state decision within the Lakehouse source."
+  },
+  {
+    "id": "note-video19-V19-LH-019",
+    "before": "ingestion",
+    "after": "foundations",
+    "reason": "Content-context review: distinguish the named access/movement/table-state decision within the Lakehouse source."
+  },
+  {
+    "id": "note-video19-V19-LH-020",
+    "before": "ingestion",
+    "after": "foundations",
+    "reason": "Content-context review: distinguish the named access/movement/table-state decision within the Lakehouse source."
+  },
+  {
+    "id": "note-video19-V19-LH-021",
+    "before": "ingestion",
+    "after": "foundations",
+    "reason": "Content-context review: distinguish the named access/movement/table-state decision within the Lakehouse source."
+  },
+  {
+    "id": "note-video19-V19-LH-022",
+    "before": "ingestion",
+    "after": "foundations",
+    "reason": "Content-context review: distinguish the named access/movement/table-state decision within the Lakehouse source."
+  },
+  {
+    "id": "note-video19-V19-LH-023",
+    "before": "ingestion",
+    "after": "foundations",
+    "reason": "Content-context review: distinguish the named access/movement/table-state decision within the Lakehouse source."
+  },
+  {
+    "id": "note-video19-V19-LH-024",
+    "before": "ingestion",
+    "after": "foundations",
+    "reason": "Content-context review: distinguish the named access/movement/table-state decision within the Lakehouse source."
+  },
+  {
+    "id": "note-video19-V19-LH-025",
+    "before": "ingestion",
+    "after": "foundations",
+    "reason": "Content-context review: distinguish the named access/movement/table-state decision within the Lakehouse source."
+  },
+  {
+    "id": "note-video19-V19-LH-026",
+    "before": "ingestion",
+    "after": "foundations",
+    "reason": "Content-context review: distinguish the named access/movement/table-state decision within the Lakehouse source."
+  },
+  {
+    "id": "note-video19-V19-LH-027",
+    "before": "ingestion",
+    "after": "foundations",
+    "reason": "Content-context review: distinguish the named access/movement/table-state decision within the Lakehouse source."
+  },
+  {
+    "id": "note-video19-V19-LH-030",
+    "before": "delivery",
+    "after": "foundations",
+    "reason": "Content-context review: distinguish the named access/movement/table-state decision within the Lakehouse source."
+  },
+  {
+    "id": "note-video19-V19-LH-031",
+    "before": "delivery",
+    "after": "foundations",
+    "reason": "Content-context review: distinguish the named access/movement/table-state decision within the Lakehouse source."
+  },
+  {
+    "id": "note-video19-V19-LH-033",
+    "before": "transform",
+    "after": "foundations",
+    "reason": "Content-context review: distinguish the named access/movement/table-state decision within the Lakehouse source."
+  },
+  {
+    "id": "note-video19-V19-LH-036",
+    "before": "ingestion",
+    "after": "foundations",
+    "reason": "Content-context review: distinguish the named access/movement/table-state decision within the Lakehouse source."
+  },
+  {
+    "id": "note-video19-V19-LH-037",
+    "before": "ingestion",
+    "after": "foundations",
+    "reason": "Content-context review: distinguish the named access/movement/table-state decision within the Lakehouse source."
+  },
+  {
+    "id": "note-video19-V19-LH-039",
+    "before": "ingestion",
+    "after": "foundations",
+    "reason": "Content-context review: distinguish the named access/movement/table-state decision within the Lakehouse source."
+  },
+  {
+    "id": "note-video19-V19-LH-040",
+    "before": "ingestion",
+    "after": "foundations",
+    "reason": "Content-context review: distinguish the named access/movement/table-state decision within the Lakehouse source."
+  },
+  {
+    "id": "note-video20-V20-DELTA-005",
+    "before": "foundations",
+    "after": "transform",
+    "reason": "Content-context review: retain the source pack’s documented focal decision; incidental object vocabulary does not define the lesson topic."
+  },
+  {
+    "id": "note-video20-V20-DELTA-021",
+    "before": "security",
+    "after": "transform",
+    "reason": "Content-context review: retain the source pack’s documented focal decision; incidental object vocabulary does not define the lesson topic."
+  },
+  {
+    "id": "note-video20-V20-DELTA-028",
+    "before": "streaming",
+    "after": "transform",
+    "reason": "Content-context review: retain the source pack’s documented focal decision; incidental object vocabulary does not define the lesson topic."
+  },
+  {
+    "id": "note-video20-V20-DELTA-039",
+    "before": "query",
+    "after": "transform",
+    "reason": "Content-context review: retain the source pack’s documented focal decision; incidental object vocabulary does not define the lesson topic."
+  },
+  {
+    "id": "note-video21-V21-CAT-010",
+    "before": "query",
+    "after": "delivery",
+    "reason": "Content-context review: retain the source pack’s documented focal decision; incidental object vocabulary does not define the lesson topic."
+  },
+  {
+    "id": "note-video21-V21-CAT-014",
+    "before": "transform",
+    "after": "delivery",
+    "reason": "Content-context review: retain the source pack’s documented focal decision; incidental object vocabulary does not define the lesson topic."
+  },
+  {
+    "id": "note-video21-V21-CAT-015",
+    "before": "model",
+    "after": "delivery",
+    "reason": "Content-context review: retain the source pack’s documented focal decision; incidental object vocabulary does not define the lesson topic."
+  },
+  {
+    "id": "note-video21-V21-CAT-016",
+    "before": "security",
+    "after": "delivery",
+    "reason": "Content-context review: retain the source pack’s documented focal decision; incidental object vocabulary does not define the lesson topic."
+  },
+  {
+    "id": "note-video21-V21-CAT-028",
+    "before": "security",
+    "after": "delivery",
+    "reason": "Content-context review: retain the source pack’s documented focal decision; incidental object vocabulary does not define the lesson topic."
+  },
+  {
+    "id": "q-statistics-stat-01",
+    "before": "synthesis",
+    "after": "describe",
+    "reason": "Content-reviewed correction: The prompt asks about a right-skewed distribution and measures of center. Evidence: stats-s4"
+  },
+  {
+    "id": "q-statistics-stat-05",
+    "before": "describe",
+    "after": "distributions",
+    "reason": "Content-reviewed correction: The prompt standardizes an observation with a mean and standard deviation. Evidence: stats-s9"
+  }
+]

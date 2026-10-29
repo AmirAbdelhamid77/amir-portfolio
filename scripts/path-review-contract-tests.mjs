@@ -1,0 +1,11 @@
+import {register} from 'node:module';register('./study-loader.mjs',import.meta.url);import assert from 'node:assert/strict';
+const {learningUnits,resolveEvidence}=await import('../lib/study/learning-path.ts'),{TOPIC_REVIEW}=await import('../lib/study/topic-review.ts'),{studyRecords}=await import('../lib/study/server.ts');const units=learningUnits(),records=studyRecords();
+assert.equal(records.find(r=>r.id==='stats-formula-test-statistic').topic,'hypothesis');assert.equal(records.find(r=>r.id==='q-statistics-stat-05').topic,'distributions');
+assert.ok(units.findIndex(u=>u.id==='stats-section-s12')<units.findIndex(u=>u.id==='stats-section-s11'));assert.ok(!units.find(u=>u.id==='stats-section-s27').questions.some(q=>q.id==='q-statistics-stat-10'),'Peeking must not masquerade as assessment of blinding');assert.equal(units.find(u=>u.id==='stats-section-s18').questions.length,0,'A p-value interpretation item is not calculation of a test statistic');
+assert.equal(units.find(u=>u.id==='note-video07-V7-DDM-023').topics[0],'security','An incidental OneLake object must not erase the masking decision');assert.ok(TOPIC_REVIEW['fabric.streaming'].prepare.includes('fabric.foundations'));assert.ok(!TOPIC_REVIEW['fabric.streaming'].prepare.includes('fabric.delivery'),'Introductory RTI must not be locked behind all deployment material');
+assert.ok(TOPIC_REVIEW['python.overview'].entrySkill.includes('programming'));assert.ok(TOPIC_REVIEW['visualization.accessibility'].stage==='Foundation');
+assert.ok(!units.find(u=>u.id==='stats-section-s15').questions.some(q=>q.id.endsWith('stat-07')),'Naming hypotheses is not assessing Type I errors');
+assert.equal(units.find(u=>u.id==='stats-section-s28').questions.length,0,'Peeking does not assess RCT versus A/B design');
+assert.ok(units.find(u=>u.id==='stats-section-s20').questions.some(q=>q.id.endsWith('stat-10')),'Optional stopping belongs with the predeclared threshold rule');
+assert.ok(units.find(u=>u.id==='stats-section-s15').caveat.startsWith('Common misconception and correction:'));
+for(const p of Object.values(TOPIC_REVIEW))for(const key of p.evidence)assert.ok(resolveEvidence(key).href);assert.ok(units.every(u=>u.reflection&&u.reviewPoints.length));console.log('PASS 16 conceptual regression contracts plus all topic evidence references');

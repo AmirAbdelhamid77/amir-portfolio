@@ -1,0 +1,62 @@
+{
+  "kind": "hansa-intake-projections",
+  "version": 1,
+  "generatedBy": "scripts/build-intake-content.mjs",
+  "policy": "Reviewed learner projections of two external packages, staged additively behind isolated review routes. Grading stays off, no proposed key or option reasoning is shipped, no approved bank, lesson route or progress key is modified, held and blocked sources stay out of the shipped lists, and both package statuses (REVIEW_REQUIRED, COMPLETE_WITH_DOCUMENTED_HOLDS) travel with the data.",
+  "packages": [
+    {
+      "name": "Hansa_Notion_Creative_Patterns_Knowledge_Package_2026-10-27.zip",
+      "sha256": "906a9402d45ef1dc00f85267b3e438b7d014fed92e5187e41cea31ba74d63009",
+      "receipt": "Hansa_Notion_Creative_Patterns_DELIVERY_RECEIPT.json",
+      "verifier": "PASS_ARTIFACT_INTEGRITY_AND_CONTENT_REFERENCES_ONLY",
+      "status": "REVIEW_REQUIRED",
+      "publicationApproved": false,
+      "nativeProductTests": "NOT_RUN",
+      "scientificallyFinalAssessments": 0,
+      "canonicalSchemaCompatibility": "NOT_VERIFIED"
+    },
+    {
+      "name": "Hansa_Fabric_RTI_Authentic_Source_Milestone.zip",
+      "sha256": "0113ff0a660661b7e09682b14fee7db0f36b247ed30c9b569d69284084bb389b",
+      "receipt": "Hansa_Fabric_RTI_Package_Receipt.json",
+      "verifier": "PASS",
+      "status": "COMPLETE_SOURCE_PACKAGE_WITH_EXPLICIT_HOLDS",
+      "runtimeStatus": "NOT_RUN",
+      "sourceSemanticCertification": "PARTIAL_CURATED_REVIEW_ONLY",
+      "holds": "Two no-license repositories reference-only; Scania conflict blocks public integration; external third-party copies held",
+      "dataFabrication": "NONE; no source values generated, imputed or assigned artificial timestamps"
+    }
+  ],
+  "integration": {
+    "questionBank": "28 ungraded candidates registered outside the approved DP-600/PL-300 banks, surfaced for review only",
+    "dataLessons": "20 lessons + 6 modules + 3 paths + 9 code templates and 17 lab blueprints staged for review; the 27 approved data-viz lessons and their routes are untouched",
+    "collisionNote": "Notion lesson slug `visual-integrity` duplicates an existing data-viz lesson slug; the draft set keeps its own `lesson:creative:*` ids and never registers with /learn/[slug], which is exactly why it cannot be merged into the approved lane without a rename decision",
+    "holds": "Lab L11 withheld (Scania GPL), 2 no-license repositories reference-only, USAID dataset blocked, UCI-421 dataset withheld",
+    "progressKeys": "no localStorage key is read or written by either review surface",
+    "deployed": false,
+    "gradingEnabled": false,
+    "localPathsShipped": false
+  },
+  "outputs": [
+    {
+      "file": "content/intake/notion-lessons.json",
+      "bytes": 147944,
+      "sha256": "3b35f55b1c277448a9f4c5f5c7eacad8d4f14a4d0a28c422c0926849b94c4f28"
+    },
+    {
+      "file": "content/intake/notion-assessments.json",
+      "bytes": 141713,
+      "sha256": "9c1163ea35900ccfacd76b8c7d25e33869d09b87ce028a905b6cb4bda299e498"
+    },
+    {
+      "file": "content/intake/rti-labs.json",
+      "bytes": 19035,
+      "sha256": "0f99a232cd7d6eba72a3b3558cac3c589fdbe311ab726fa96f0f27c4a2dd9832"
+    },
+    {
+      "file": "content/intake/rti-sources.json",
+      "bytes": 25776,
+      "sha256": "81fd8bfe8b8bae70de6d30e3f0dbd3ae17d7b3ebca70f66730ea4d8eefb31974"
+    }
+  ]
+}

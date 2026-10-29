@@ -34,10 +34,13 @@
     "validate:data-viz": "node scripts/validate-data-viz.mjs",
     "import:data-viz": "node scripts/import-notion-data-viz.mjs --source \"intake/source-exports/data-visualization\"",
     "build:data-viz": "node scripts/build-datasets.mjs",
+    "build:drafts": "node scripts/build-draft-banks.mjs",
     "preview": "node scripts/serve-out.mjs",
     "preview:worker": "wrangler dev",
     "deploy": "npm run build && wrangler deploy",
-    "perf:fabric": "node scripts/measure-payload.mjs"
+    "perf:fabric": "node scripts/measure-payload.mjs",
+    "qa:drafts": "node scripts/qa-drafts.mjs",
+    "build:intake": "node scripts/build-intake-content.mjs"
   },
   "dependencies": {
     "@floating-ui/dom": "^1.8.0",

@@ -10,13 +10,17 @@ import {
 import { CHART_LABS } from "@/lib/data-viz/labs";
 import { JOURNEYS, LABS, journeyHref, labHref } from "@/lib/statistics/content";
 import { EXAMS } from "@/lib/exams";
+import { RTI_LESSONS } from "@/lib/rti/lessons";
 import { SITE } from "@/lib/site";
+import { SUBJECTS, topicHref } from "@/lib/study/taxonomy";
+import { SQL_INDEX } from '@/lib/sql/registry';
 
 export const dynamic = "force-static";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const updated = new Date();
   const pages = [
+    ...[{path:'study',priority:0.9},...SUBJECTS.flatMap(s=>[{path:`study/${s.id}`,priority:0.8},{path:`study/${s.id}/path`,priority:0.8},...s.topics.map(([t])=>({path:topicHref(s.id,t).slice(1,-1),priority:0.7}))])],
     { path: "", priority: 1 },
     { path: "work", priority: 0.9 },
     { path: "experience", priority: 0.8 },
@@ -33,7 +37,15 @@ export default function sitemap(): MetadataRoute.Sitemap {
   ];
 
   const curriculum = [
+    {path:'/learn/sql',priority:0.8},
+    {path:'/practice/sql',priority:0.7},
+    ...SQL_INDEX.pages.map(p=>({path:p.href.slice(0,-1),priority:p.module===null?0.5:0.7})),
     { path: "/learn/dp-600", priority: 0.8 },
+    { path: "/learn/fabric-rti", priority: 0.8 },
+    ...RTI_LESSONS.map((lesson) => ({
+      path: `/learn/fabric-rti/${lesson.slug}`,
+      priority: 0.6,
+    })),
     { path: "/learn/dp-600/ingestion", priority: 0.8 },
     { path: "/learn/dp-600/atlas", priority: 0.8 },
     { path: "/learn/dp-600/atlas/journey", priority: 0.7 },

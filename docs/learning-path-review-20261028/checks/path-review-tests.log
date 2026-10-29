@@ -1,0 +1,1346 @@
+
+> amir-portfolio@0.1.0 test:all
+> npm test && npm run test:statistics && npm run test:fabric && npm run test:content && npm run test:knowledge && npm run test:atlas
+
+
+> amir-portfolio@0.1.0 test
+> node --experimental-strip-types --test "tests/data-viz/*.test.mjs"
+
+TAP version 13
+# (node:8304) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///D:/BeUI/amir-portfolio/lib/data-viz/assistant.ts is not specified and it doesn't parse as CommonJS.
+# Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+# To eliminate this warning, add "type": "module" to D:\\BeUI\\amir-portfolio\\package.json.
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# Subtest: every suggestion produces a recommendation, not a clarification
+ok 1 - every suggestion produces a recommendation, not a clarification
+  ---
+  duration_ms: 34.698
+  type: 'test'
+  ...
+# Subtest: a prompt with no task asks what the reader is trying to do
+ok 2 - a prompt with no task asks what the reader is trying to do
+  ---
+  duration_ms: 0.8229
+  type: 'test'
+  ...
+# Subtest: a task without a shape asks about the data shape
+ok 3 - a task without a shape asks about the data shape
+  ---
+  duration_ms: 0.4717
+  type: 'test'
+  ...
+# Subtest: the same prompt always yields the same recommendation
+ok 4 - the same prompt always yields the same recommendation
+  ---
+  duration_ms: 3.2426
+  type: 'test'
+  ...
+# Subtest: answering the task question infers the canonical shape and says so
+ok 5 - answering the task question infers the canonical shape and says so
+  ---
+  duration_ms: 0.5966
+  type: 'test'
+  ...
+# Subtest: explicit category counts survive and change the pie advice
+ok 6 - explicit category counts survive and change the pie advice
+  ---
+  duration_ms: 0.5699
+  type: 'test'
+  ...
+# Subtest: exact-value prompts still produce a defensible primary chart
+ok 7 - exact-value prompts still produce a defensible primary chart
+  ---
+  duration_ms: 0.5618
+  type: 'test'
+  ...
+# Subtest: spelled-out counts are read as categories; year windows are not
+ok 8 - spelled-out counts are read as categories; year windows are not
+  ---
+  duration_ms: 0.47
+  type: 'test'
+  ...
+# Subtest: a scatter or correlation prompt is classified as a relationship
+ok 9 - a scatter or correlation prompt is classified as a relationship
+  ---
+  duration_ms: 0.7677
+  type: 'test'
+  ...
+# Subtest: clarification answers map back to the right override
+ok 10 - clarification answers map back to the right override
+  ---
+  duration_ms: 1.4641
+  type: 'test'
+  ...
+# Subtest: every citation stays inside the site and every activity step is explained
+ok 11 - every citation stays inside the site and every activity step is explained
+  ---
+  duration_ms: 0.5895
+  type: 'test'
+  ...
+# Subtest: block counts match the text the workspace will reveal
+ok 12 - block counts match the text the workspace will reveal
+  ---
+  duration_ms: 1.9101
+  type: 'test'
+  ...
+# (node:13276) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///D:/BeUI/amir-portfolio/lib/data-viz/chart-math.ts is not specified and it doesn't parse as CommonJS.
+# Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+# To eliminate this warning, add "type": "module" to D:\\BeUI\\amir-portfolio\\package.json.
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# Subtest: extent ignores non-finite values and handles empty input
+ok 13 - extent ignores non-finite values and handles empty input
+  ---
+  duration_ms: 3.4978
+  type: 'test'
+  ...
+# Subtest: sum and mean agree with a hand calculation
+ok 14 - sum and mean agree with a hand calculation
+  ---
+  duration_ms: 0.5817
+  type: 'test'
+  ...
+# Subtest: niceScale produces round, evenly spaced ticks that contain the domain
+ok 15 - niceScale produces round, evenly spaced ticks that contain the domain
+  ---
+  duration_ms: 0.7307
+  type: 'test'
+  ...
+# Subtest: niceScale keeps negative ranges ordered
+ok 16 - niceScale keeps negative ranges ordered
+  ---
+  duration_ms: 0.2841
+  type: 'test'
+  ...
+# Subtest: histogram counts every observation exactly once
+ok 17 - histogram counts every observation exactly once
+  ---
+  duration_ms: 1.127
+  type: 'test'
+  ...
+# Subtest: histogram bin width changes the visible shape of the same data
+ok 18 - histogram bin width changes the visible shape of the same data
+  ---
+  duration_ms: 0.5004
+  type: 'test'
+  ...
+# Subtest: quantile matches the linear-interpolation definition
+ok 19 - quantile matches the linear-interpolation definition
+  ---
+  duration_ms: 0.506
+  type: 'test'
+  ...
+# Subtest: boxStats reports a five-number summary and Tukey outliers
+ok 20 - boxStats reports a five-number summary and Tukey outliers
+  ---
+  duration_ms: 0.5932
+  type: 'test'
+  ...
+# Subtest: pearson returns a perfect correlation for a straight line and NaN for a constant
+ok 21 - pearson returns a perfect correlation for a straight line and NaN for a constant
+  ---
+  duration_ms: 1.0124
+  type: 'test'
+  ...
+# Subtest: linearRegression recovers the generating line
+ok 22 - linearRegression recovers the generating line
+  ---
+  duration_ms: 1.3512
+  type: 'test'
+  ...
+# Subtest: scaleLinear maps domain onto range and inverts back
+ok 23 - scaleLinear maps domain onto range and inverts back
+  ---
+  duration_ms: 0.5558
+  type: 'test'
+  ...
+# Subtest: formatters are locale-stable and never round silently in the wrong direction
+ok 24 - formatters are locale-stable and never round silently in the wrong direction
+  ---
+  duration_ms: 67.9621
+  type: 'test'
+  ...
+# Subtest: tail returns the last N items without mutating the input
+ok 25 - tail returns the last N items without mutating the input
+  ---
+  duration_ms: 0.3221
+  type: 'test'
+  ...
+# Subtest: the export is accounted for exactly once
+ok 26 - the export is accounted for exactly once
+  ---
+  duration_ms: 3.5378
+  type: 'test'
+  ...
+# Subtest: every chapter lists lessons that exist, and every lesson sits in a chapter
+ok 27 - every chapter lists lessons that exist, and every lesson sits in a chapter
+  ---
+  duration_ms: 0.814
+  type: 'test'
+  ...
+# Subtest: English and Arabic paths are both complete
+ok 28 - English and Arabic paths are both complete
+  ---
+  duration_ms: 0.6623
+  type: 'test'
+  ...
+# Subtest: editorial lessons never claim a source page
+ok 29 - editorial lessons never claim a source page
+  ---
+  duration_ms: 0.3934
+  type: 'test'
+  ...
+# Subtest: no authored text carries executable markup
+ok 30 - no authored text carries executable markup
+  ---
+  duration_ms: 3.7352
+  type: 'test'
+  ...
+# Subtest: every figure is local, hashed, sized, and has an accessible name
+ok 31 - every figure is local, hashed, sized, and has an accessible name
+  ---
+  duration_ms: 3.2792
+  type: 'test'
+  ...
+# Subtest: source-level links never point at a missing page or an executable URL
+ok 32 - source-level links never point at a missing page or an executable URL
+  ---
+  duration_ms: 3.5612
+  type: 'test'
+  ...
+# Subtest: the dataset file is byte-identical to a fresh build
+ok 33 - the dataset file is byte-identical to a fresh build
+  ---
+  duration_ms: 225.5016
+  type: 'test'
+  ...
+# Subtest: datasets are synthetic, seeded, and internally consistent
+ok 34 - datasets are synthetic, seeded, and internally consistent
+  ---
+  duration_ms: 0.8136
+  type: 'test'
+  ...
+# (node:17068) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///D:/BeUI/amir-portfolio/lib/data-viz/decision.ts is not specified and it doesn't parse as CommonJS.
+# Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+# To eliminate this warning, add "type": "module" to D:\\BeUI\\amir-portfolio\\package.json.
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# Subtest: every exact task/shape pair maps to its documented rule
+ok 35 - every exact task/shape pair maps to its documented rule
+  ---
+  duration_ms: 3.6393
+  type: 'test'
+  ...
+# Subtest: the assistant is deterministic
+ok 36 - the assistant is deterministic
+  ---
+  duration_ms: 1.591
+  type: 'test'
+  ...
+# Subtest: a missing exact pair falls back to shape, then task
+ok 37 - a missing exact pair falls back to shape, then task
+  ---
+  duration_ms: 0.2945
+  type: 'test'
+  ...
+# Subtest: no chart is ever both acceptable and forbidden
+ok 38 - no chart is ever both acceptable and forbidden
+  ---
+  duration_ms: 6.4842
+  type: 'test'
+  ...
+# Subtest: pie charts are discouraged once the slices cannot be ranked
+ok 39 - pie charts are discouraged once the slices cannot be ranked
+  ---
+  duration_ms: 0.4141
+  type: 'test'
+  ...
+# Subtest: bar charts over time are only acceptable for a handful of periods
+ok 40 - bar charts over time are only acceptable for a handful of periods
+  ---
+  duration_ms: 0.3283
+  type: 'test'
+  ...
+# Subtest: many categories change the bar advice rather than silently passing
+ok 41 - many categories change the bar advice rather than silently passing
+  ---
+  duration_ms: 0.6527
+  type: 'test'
+  ...
+# Subtest: exact-value questions get a warning attached to the box summary
+ok 42 - exact-value questions get a warning attached to the box summary
+  ---
+  duration_ms: 0.4607
+  type: 'test'
+  ...
+# Subtest: every chart in the metadata table has a title and the labs point at real routes
+ok 43 - every chart in the metadata table has a title and the labs point at real routes
+  ---
+  duration_ms: 1.8102
+  type: 'test'
+  ...
+# (node:12300) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///D:/BeUI/amir-portfolio/lib/data-viz/figure-data.ts is not specified and it doesn't parse as CommonJS.
+# Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+# To eliminate this warning, add "type": "module" to D:\\BeUI\\amir-portfolio\\package.json.
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# Subtest: the registry describes twelve unique figures with unique source paths
+ok 44 - the registry describes twelve unique figures with unique source paths
+  ---
+  duration_ms: 2.6774
+  type: 'test'
+  ...
+# Subtest: every registered figure exists in the static export folder
+ok 45 - every registered figure exists in the static export folder
+  ---
+  duration_ms: 1.2941
+  type: 'test'
+  ...
+# Subtest: unknown source paths do not resolve to a live module
+ok 46 - unknown source paths do not resolve to a live module
+  ---
+  duration_ms: 0.2037
+  type: 'test'
+  ...
+# Subtest: Anscombe's quartet reproduces the published summary statistics
+ok 47 - Anscombe's quartet reproduces the published summary statistics
+  ---
+  duration_ms: 0.3068
+  type: 'test'
+  ...
+# Subtest: the four sets differ only by rounding in their summary table
+ok 48 - the four sets differ only by rounding in their summary table
+  ---
+  duration_ms: 0.8125
+  type: 'test'
+  ...
+# Subtest: a constant series produces no correlation rather than NaN
+ok 49 - a constant series produces no correlation rather than NaN
+  ---
+  duration_ms: 0.7119
+  type: 'test'
+  ...
+# Subtest: histogram samples are deterministic and correctly sized
+ok 50 - histogram samples are deterministic and correctly sized
+  ---
+  duration_ms: 2.9052
+  type: 'test'
+  ...
+# Subtest: the drawn bins recover one peak for unimodal and two for bimodal
+ok 51 - the drawn bins recover one peak for unimodal and two for bimodal
+  ---
+  duration_ms: 3.7036
+  type: 'test'
+  ...
+# Subtest: the mixture keeps Team B's mean at 70 while its spread grows
+ok 52 - the mixture keeps Team B's mean at 70 while its spread grows
+  ---
+  duration_ms: 2.1459
+  type: 'test'
+  ...
+# Subtest: the Simpson dataset reverses only in the pooled comparison
+ok 53 - the Simpson dataset reverses only in the pooled comparison
+  ---
+  duration_ms: 1.2137
+  type: 'test'
+  ...
+# Subtest: the mix slider moves the pooled rate without touching segment rates
+ok 54 - the mix slider moves the pooled rate without touching segment rates
+  ---
+  duration_ms: 0.8489
+  type: 'test'
+  ...
+# Subtest: every funnel node's outgoing links balance its stage count
+ok 55 - every funnel node's outgoing links balance its stage count
+  ---
+  duration_ms: 0.5058
+  type: 'test'
+  ...
+# Subtest: composition shares always sum to one hundred percent
+ok 56 - composition shares always sum to one hundred percent
+  ---
+  duration_ms: 0.6136
+  type: 'test'
+  ...
+# Subtest: uncertainty verdicts distinguish decision-sized from detectable
+ok 57 - uncertainty verdicts distinguish decision-sized from detectable
+  ---
+  duration_ms: 0.3691
+  type: 'test'
+  ...
+# (node:8888) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///D:/BeUI/amir-portfolio/lib/data-viz/practice.ts is not specified and it doesn't parse as CommonJS.
+# Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+# To eliminate this warning, add "type": "module" to D:\\BeUI\\amir-portfolio\\package.json.
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# Subtest: the practice bank has twelve questions with four options each
+ok 58 - the practice bank has twelve questions with four options each
+  ---
+  duration_ms: 2.08
+  type: 'test'
+  ...
+# Subtest: every correct index points at a real option
+ok 59 - every correct index points at a real option
+  ---
+  duration_ms: 0.4542
+  type: 'test'
+  ...
+# Subtest: ids and questions are unique
+ok 60 - ids and questions are unique
+  ---
+  duration_ms: 0.3171
+  type: 'test'
+  ...
+# Subtest: chapter links stay inside the curriculum and lab links resolve
+ok 61 - chapter links stay inside the curriculum and lab links resolve
+  ---
+  duration_ms: 1.4704
+  type: 'test'
+  ...
+# Subtest: all ten chapters' topics are represented
+ok 62 - all ten chapters' topics are represented
+  ---
+  duration_ms: 1.9076
+  type: 'test'
+  ...
+1..62
+# tests 62
+# suites 0
+# pass 62
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 544.6791
+
+> amir-portfolio@0.1.0 test:statistics
+> node --experimental-strip-types --test "tests/statistics/*.test.mjs"
+
+TAP version 13
+# (node:19524) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///D:/BeUI/amir-portfolio/lib/statistics/math.ts is not specified and it doesn't parse as CommonJS.
+# Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+# To eliminate this warning, add "type": "module" to D:\\BeUI\\amir-portfolio\\package.json.
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# Subtest: Poisson reproduces the brief's verified λ=20 values
+ok 1 - Poisson reproduces the brief's verified λ=20 values
+  ---
+  duration_ms: 3.2027
+  type: 'test'
+  ...
+# Subtest: Poisson normalises and its tails complement its CDF
+ok 2 - Poisson normalises and its tails complement its CDF
+  ---
+  duration_ms: 1.7107
+  type: 'test'
+  ...
+# Subtest: Binomial PMF normalises, respects boundaries, and matches its tail
+ok 3 - Binomial PMF normalises, respects boundaries, and matches its tail
+  ---
+  duration_ms: 0.9347
+  type: 'test'
+  ...
+# Subtest: Normal density integrates to 1 and the empirical-rule areas hold
+ok 4 - Normal density integrates to 1 and the empirical-rule areas hold
+  ---
+  duration_ms: 3.0542
+  type: 'test'
+  ...
+# Subtest: Normal quantile inverts the CDF across the working range
+ok 5 - Normal quantile inverts the CDF across the working range
+  ---
+  duration_ms: 0.6993
+  type: 'test'
+  ...
+# Subtest: Student t quantiles match published two-sided critical values
+ok 6 - Student t quantiles match published two-sided critical values
+  ---
+  duration_ms: 8.2546
+  type: 'test'
+  ...
+# Subtest: Descriptive statistics use n−1 for samples and resist one outlier
+ok 7 - Descriptive statistics use n−1 for samples and resist one outlier
+  ---
+  duration_ms: 2.1653
+  type: 'test'
+  ...
+# Subtest: Five-number summary uses Tukey fences and includes both whiskers
+ok 8 - Five-number summary uses Tukey fences and includes both whiskers
+  ---
+  duration_ms: 0.2562
+  type: 'test'
+  ...
+# Subtest: Confidence interval: t critical value, margin, and bounds
+ok 9 - Confidence interval: t critical value, margin, and bounds
+  ---
+  duration_ms: 1.1972
+  type: 'test'
+  ...
+# Subtest: Wilson interval stays inside [0,1] at the edges
+ok 10 - Wilson interval stays inside [0,1] at the edges
+  ---
+  duration_ms: 0.7123
+  type: 'test'
+  ...
+# Subtest: Two-proportion test: rates, pooled SE, p-value and unpooled CI
+ok 11 - Two-proportion test: rates, pooled SE, p-value and unpooled CI
+  ---
+  duration_ms: 0.5428
+  type: 'test'
+  ...
+# Subtest: Power rises with sample size and effect, and never exceeds 1
+ok 12 - Power rises with sample size and effect, and never exceeds 1
+  ---
+  duration_ms: 0.2391
+  type: 'test'
+  ...
+# Subtest: Pearson r is bounded, detects perfect lines, and regression is not r
+ok 13 - Pearson r is bounded, detects perfect lines, and regression is not r
+  ---
+  duration_ms: 0.3769
+  type: 'test'
+  ...
+# Subtest: Sampling simulation is seeded, and empirical SE tracks σ/√n
+ok 14 - Sampling simulation is seeded, and empirical SE tracks σ/√n
+  ---
+  duration_ms: 17.722
+  type: 'test'
+  ...
+# Subtest: Coverage simulation is honest and does not force exactly 95%
+ok 15 - Coverage simulation is honest and does not force exactly 95%
+  ---
+  duration_ms: 19.2376
+  type: 'test'
+  ...
+# Subtest: Histogram counts every observation and reports density that integrates to 1
+ok 16 - Histogram counts every observation and reports density that integrates to 1
+  ---
+  duration_ms: 0.6733
+  type: 'test'
+  ...
+# Subtest: log-gamma matches factorial identities used by the PMFs
+ok 17 - log-gamma matches factorial identities used by the PMFs
+  ---
+  duration_ms: 0.1202
+  type: 'test'
+  ...
+# Subtest: Formatters never print NaN or Infinity as a number
+ok 18 - Formatters never print NaN or Infinity as a number
+  ---
+  duration_ms: 27.4427
+  type: 'test'
+  ...
+1..18
+# tests 18
+# suites 0
+# pass 18
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 323.9563
+
+> amir-portfolio@0.1.0 test:fabric
+> node --experimental-strip-types --test "tests/fabric/*.test.mjs"
+
+TAP version 13
+# (node:25408) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///D:/BeUI/amir-portfolio/lib/fabric/classify.ts is not specified and it doesn't parse as CommonJS.
+# Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+# To eliminate this warning, add "type": "module" to D:\\BeUI\\amir-portfolio\\package.json.
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# Subtest: the declared baseline counts are reproduced exactly
+ok 1 - the declared baseline counts are reproduced exactly
+  ---
+  duration_ms: 3.09
+  type: 'test'
+  ...
+# Subtest: every question is imported once, under a unique namespaced id
+ok 2 - every question is imported once, under a unique namespaced id
+  ---
+  duration_ms: 3.0253
+  type: 'test'
+  ...
+# Subtest: each question keeps a valid answer key, rationales and explanation
+ok 3 - each question keeps a valid answer key, rationales and explanation
+  ---
+  duration_ms: 6.4594
+  type: 'test'
+  ...
+# Subtest: source references resolve to the registry
+ok 4 - source references resolve to the registry
+  ---
+  duration_ms: 1.0289
+  type: 'test'
+  ...
+# Subtest: case studies keep their text and link every question they own
+ok 5 - case studies keep their text and link every question they own
+  ---
+  duration_ms: 1.6039
+  type: 'test'
+  ...
+# Subtest: the index is a faithful projection of the raw records
+ok 6 - the index is a faithful projection of the raw records
+  ---
+  duration_ms: 3.6026
+  type: 'test'
+  ...
+# Subtest: classification is deterministic and reproducible from the raw record
+ok 7 - classification is deterministic and reproducible from the raw record
+  ---
+  duration_ms: 96.3542
+  type: 'test'
+  ...
+# Subtest: the shipped coverage report equals a fresh aggregation
+ok 8 - the shipped coverage report equals a fresh aggregation
+  ---
+  duration_ms: 2.5895
+  type: 'test'
+  ...
+# Subtest: domain shares reconcile with the sub-objective table under one rule
+ok 9 - domain shares reconcile with the sub-objective table under one rule
+  ---
+  duration_ms: 0.9418
+  type: 'test'
+  ...
+# Subtest: difficulty metadata is only what the source supplied
+ok 10 - difficulty metadata is only what the source supplied
+  ---
+  duration_ms: 0.6108
+  type: 'test'
+  ...
+# Subtest: questions without a video timestamp are the documented foundation set
+ok 11 - questions without a video timestamp are the documented foundation set
+  ---
+  duration_ms: 0.2998
+  type: 'test'
+  ...
+# Subtest: the import audit records no silent repair
+ok 12 - the import audit records no silent repair
+  ---
+  duration_ms: 0.1609
+  type: 'test'
+  ...
+# Subtest: classification labels stay inside their documented meaning
+ok 13 - classification labels stay inside their documented meaning
+  ---
+  duration_ms: 0.4029
+  type: 'test'
+  ...
+# Subtest: pack metadata preserves the source video identity
+ok 14 - pack metadata preserves the source video identity
+  ---
+  duration_ms: 0.2655
+  type: 'test'
+  ...
+# (node:22508) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///D:/BeUI/amir-portfolio/lib/fabric/r11.ts is not specified and it doesn't parse as CommonJS.
+# Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+# To eliminate this warning, add "type": "module" to D:\\BeUI\\amir-portfolio\\package.json.
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# Subtest: R11 enriches exactly the existing 222 source IDs; all 532 imports remain immutable
+ok 15 - R11 enriches exactly the existing 222 source IDs; all 532 imports remain immutable
+  ---
+  duration_ms: 13.5963
+  type: 'test'
+  ...
+# Subtest: only approved patches reach the learner view; unapproved candidate rewrites remain private
+ok 16 - only approved patches reach the learner view; unapproved candidate rewrites remain private
+  ---
+  duration_ms: 5.4228
+  type: 'test'
+  ...
+# Subtest: all seven control formats retain their source subparts and valid option mappings
+ok 17 - all seven control formats retain their source subparts and valid option mappings
+  ---
+  duration_ms: 1.2442
+  type: 'test'
+  ...
+# Subtest: progress rejects corrupt, oversized, unknown revision and malformed states while retaining a separate namespace
+ok 18 - progress rejects corrupt, oversized, unknown revision and malformed states while retaining a separate namespace
+  ---
+  duration_ms: 0.8544
+  type: 'test'
+  ...
+# Subtest: search publishes question metadata and deep links, with no answer/explanation payload
+ok 19 - search publishes question metadata and deep links, with no answer/explanation payload
+  ---
+  duration_ms: 4.2983
+  type: 'test'
+  ...
+# (node:8444) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///D:/BeUI/amir-portfolio/lib/fabric/engine.ts is not specified and it doesn't parse as CommonJS.
+# Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+# To eliminate this warning, add "type": "module" to D:\\BeUI\\amir-portfolio\\package.json.
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# Subtest: a single-answer question is correct only for its one key
+ok 20 - a single-answer question is correct only for its one key
+  ---
+  duration_ms: 3.385
+  type: 'test'
+  ...
+# Subtest: a multi-select question requires an exact set
+ok 21 - a multi-select question requires an exact set
+  ---
+  duration_ms: 0.4751
+  type: 'test'
+  ...
+# Subtest: a sequence question requires the exact order
+ok 22 - a sequence question requires the exact order
+  ---
+  duration_ms: 0.4918
+  type: 'test'
+  ...
+# Subtest: an empty response is never correct
+ok 23 - an empty response is never correct
+  ---
+  duration_ms: 1.9234
+  type: 'test'
+  ...
+# Subtest: every one of the 834 questions scores its own key as correct
+ok 24 - every one of the 834 questions scores its own key as correct
+  ---
+  duration_ms: 2.2228
+  type: 'test'
+  ...
+# Subtest: every question rejects a deliberately broken key
+ok 25 - every question rejects a deliberately broken key
+  ---
+  duration_ms: 4.2293
+  type: 'test'
+  ...
+# Subtest: a five-option question grades using its real option ids
+ok 26 - a five-option question grades using its real option ids
+  ---
+  duration_ms: 0.4522
+  type: 'test'
+  ...
+# Subtest: shuffled display order cannot change the verdict
+ok 27 - shuffled display order cannot change the verdict
+  ---
+  duration_ms: 0.5455
+  type: 'test'
+  ...
+# Subtest: session grading aggregates by objective, subject and type
+ok 28 - session grading aggregates by objective, subject and type
+  ---
+  duration_ms: 2.1611
+  type: 'test'
+  ...
+# Subtest: session selection is deterministic, bounded and filter-aware
+ok 29 - session selection is deterministic, bounded and filter-aware
+  ---
+  duration_ms: 23.807
+  type: 'test'
+  ...
+# Subtest: selection respects every filter dimension
+ok 30 - selection respects every filter dimension
+  ---
+  duration_ms: 3.3316
+  type: 'test'
+  ...
+# Subtest: selection clamps the requested count instead of padding it
+ok 31 - selection clamps the requested count instead of padding it
+  ---
+  duration_ms: 0.7102
+  type: 'test'
+  ...
+# Subtest: option order is deterministic, permutation-safe and never shuffles a sequence
+ok 32 - option order is deterministic, permutation-safe and never shuffles a sequence
+  ---
+  duration_ms: 0.9771
+  type: 'test'
+  ...
+# Subtest: manifest identity and timers are stable
+ok 33 - manifest identity and timers are stable
+  ---
+  duration_ms: 2.1121
+  type: 'test'
+  ...
+# Subtest: a case scenario stays with its questions
+ok 34 - a case scenario stays with its questions
+  ---
+  duration_ms: 0.3611
+  type: 'test'
+  ...
+1..34
+# tests 34
+# suites 0
+# pass 34
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 452.5864
+
+> amir-portfolio@0.1.0 test:content
+> node --experimental-strip-types --test "tests/content/*.test.mjs"
+
+TAP version 13
+# (node:18444) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///D:/BeUI/amir-portfolio/lib/case-studies.ts is not specified and it doesn't parse as CommonJS.
+# Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+# To eliminate this warning, add "type": "module" to D:\\BeUI\\amir-portfolio\\package.json.
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# Subtest: every case study declares a role, timeframe, limitation and outcome
+ok 1 - every case study declares a role, timeframe, limitation and outcome
+  ---
+  duration_ms: 1.8668
+  type: 'test'
+  ...
+# Subtest: every metric exposes a label and a qualifying note
+ok 2 - every metric exposes a label and a qualifying note
+  ---
+  duration_ms: 0.4312
+  type: 'test'
+  ...
+# Subtest: the HSE safety rates declare their hour base and stay mutually consistent
+ok 3 - the HSE safety rates declare their hour base and stay mutually consistent
+  ---
+  duration_ms: 1.8853
+  type: 'test'
+  ...
+# Subtest: screenshots referenced by case studies exist in public/
+ok 4 - screenshots referenced by case studies exist in public/
+  ---
+  duration_ms: 1.6533
+  type: 'test'
+  ...
+# Subtest: DP-600 R18 draft: 222 records, unique namespaced ids, grading off, NO_GO
+ok 5 - DP-600 R18 draft: 222 records, unique namespaced ids, grading off, NO_GO
+  ---
+  duration_ms: 10.4
+  type: 'test'
+  ...
+# Subtest: PL-300 V88 draft: 1,285 records, unique namespaced ids, grading off, NONFINAL
+ok 6 - PL-300 V88 draft: 1,285 records, unique namespaced ids, grading off, NONFINAL
+  ---
+  duration_ms: 24.4441
+  type: 'test'
+  ...
+# Subtest: no answer-bearing field reaches either shipped projection
+ok 7 - no answer-bearing field reaches either shipped projection
+  ---
+  duration_ms: 64.2099
+  type: 'test'
+  ...
+# Subtest: shipped drafts contain none of the private mirror's marker strings
+ok 8 - shipped drafts contain none of the private mirror's marker strings
+  ---
+  duration_ms: 15.5659
+  type: 'test'
+  ...
+# Subtest: the two banks stay separate and never collide
+ok 9 - the two banks stay separate and never collide
+  ---
+  duration_ms: 18.6289
+  type: 'test'
+  ...
+# Subtest: drafts are not merged into the approved banks
+ok 10 - drafts are not merged into the approved banks
+  ---
+  duration_ms: 80.519
+  type: 'test'
+  ...
+# Subtest: the draft route is isolated: noindex, out of the sitemap and catalogue
+ok 11 - the draft route is isolated: noindex, out of the sitemap and catalogue
+  ---
+  duration_ms: 0.631
+  type: 'test'
+  ...
+# Subtest: draft code never touches learner progress storage
+ok 12 - draft code never touches learner progress storage
+  ---
+  duration_ms: 0.5946
+  type: 'test'
+  ...
+# Subtest: no app code imports the private intake mirror or the intake manifests
+ok 13 - no app code imports the private intake mirror or the intake manifests
+  ---
+  duration_ms: 58.4257
+  type: 'test'
+  ...
+# Subtest: the private mirror is gitignored and excluded from version control
+ok 14 - the private mirror is gitignored and excluded from version control
+  ---
+  duration_ms: 0.7407
+  type: 'test'
+  ...
+# Subtest: projection hashes recorded in the intake manifests still match the shipped files
+ok 15 - projection hashes recorded in the intake manifests still match the shipped files
+  ---
+  duration_ms: 7.2948
+  type: 'test'
+  ...
+# Subtest: both intake packages' declared statuses survive into the shipped manifest
+ok 16 - both intake packages' declared statuses survive into the shipped manifest
+  ---
+  duration_ms: 0.3279
+  type: 'test'
+  ...
+# (node:12032) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///D:/BeUI/amir-portfolio/lib/hse/rates.ts is not specified and it doesn't parse as CommonJS.
+# Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+# To eliminate this warning, add "type": "module" to D:\\BeUI\\amir-portfolio\\package.json.
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# Subtest: TRIR uses the 200,000-hour base and LTIFR the 1,000,000-hour base
+ok 17 - TRIR uses the 200,000-hour base and LTIFR the 1,000,000-hour base
+  ---
+  duration_ms: 1.921
+  type: 'test'
+  ...
+# Subtest: the illustrative counts reproduce the published display values after rounding
+ok 18 - the illustrative counts reproduce the published display values after rounding
+  ---
+  duration_ms: 0.5271
+  type: 'test'
+  ...
+# Subtest: converting a rate between bases is exact and reversible
+ok 19 - converting a rate between bases is exact and reversible
+  ---
+  duration_ms: 0.2816
+  type: 'test'
+  ...
+# Subtest: on a common base the recordable rate is at least the lost-time rate
+ok 20 - on a common base the recordable rate is at least the lost-time rate
+  ---
+  duration_ms: 0.5258
+  type: 'test'
+  ...
+# Subtest: rates scale inversely with hours worked
+ok 21 - rates scale inversely with hours worked
+  ---
+  duration_ms: 0.3477
+  type: 'test'
+  ...
+# Subtest: invalid inputs produce no rate and an explicit reason
+ok 22 - invalid inputs produce no rate and an explicit reason
+  ---
+  duration_ms: 0.5159
+  type: 'test'
+  ...
+# Subtest: a lost-time count above the recordable count is rejected
+ok 23 - a lost-time count above the recordable count is rejected
+  ---
+  duration_ms: 0.2607
+  type: 'test'
+  ...
+# Subtest: zero cases give a zero rate, and zero lost-time cases leave the ratio undefined
+ok 24 - zero cases give a zero rate, and zero lost-time cases leave the ratio undefined
+  ---
+  duration_ms: 0.389
+  type: 'test'
+  ...
+# Subtest: formatRate never prints NaN or Infinity
+ok 25 - formatRate never prints NaN or Infinity
+  ---
+  duration_ms: 0.7056
+  type: 'test'
+  ...
+# (node:19716) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///D:/BeUI/amir-portfolio/lib/search/query.ts is not specified and it doesn't parse as CommonJS.
+# Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+# To eliminate this warning, add "type": "module" to D:\\BeUI\\amir-portfolio\\package.json.
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# Subtest: normalisation folds case, punctuation, diacritics and Arabic letter variants
+ok 26 - normalisation folds case, punctuation, diacritics and Arabic letter variants
+  ---
+  duration_ms: 3.1889
+  type: 'test'
+  ...
+# Subtest: the v2 benchmark queries reach a relevant destination
+ok 27 - the v2 benchmark queries reach a relevant destination
+  ---
+  duration_ms: 1.7264
+  type: 'test'
+  ...
+# Subtest: every token must match, so extra words narrow the set
+ok 28 - every token must match, so extra words narrow the set
+  ---
+  duration_ms: 1.6478
+  type: 'test'
+  ...
+# Subtest: title matches outrank summary-only matches
+ok 29 - title matches outrank summary-only matches
+  ---
+  duration_ms: 0.4401
+  type: 'test'
+  ...
+# Subtest: filters narrow by kind and language without dropping the query
+ok 30 - filters narrow by kind and language without dropping the query
+  ---
+  duration_ms: 2.0435
+  type: 'test'
+  ...
+# Subtest: an empty query lists everything rather than nothing
+ok 31 - an empty query lists everything rather than nothing
+  ---
+  duration_ms: 15.5722
+  type: 'test'
+  ...
+# Subtest: scoring is deterministic and symmetric for repeated calls
+ok 32 - scoring is deterministic and symmetric for repeated calls
+  ---
+  duration_ms: 0.6561
+  type: 'test'
+  ...
+1..32
+# tests 32
+# suites 0
+# pass 32
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 520.7963
+
+> amir-portfolio@0.1.0 test:knowledge
+> node --experimental-strip-types --test "tests/knowledge/*.test.mjs"
+
+TAP version 13
+# (node:7260) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///D:/BeUI/amir-portfolio/lib/knowledge/insights.ts is not specified and it doesn't parse as CommonJS.
+# Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+# To eliminate this warning, add "type": "module" to D:\\BeUI\\amir-portfolio\\package.json.
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# Subtest: exactly one landing implementation exists and both routes render it
+ok 1 - exactly one landing implementation exists and both routes render it
+  ---
+  duration_ms: 4.6753
+  type: 'test'
+  ...
+# Subtest: the retired landing implementations are gone, not merely unused
+ok 2 - the retired landing implementations are gone, not merely unused
+  ---
+  duration_ms: 0.6598
+  type: 'test'
+  ...
+# Subtest: only the canonical landing module imports the stage
+ok 3 - only the canonical landing module imports the stage
+  ---
+  duration_ms: 57.3564
+  type: 'test'
+  ...
+# Subtest: no build-time switch re-selects a different homepage
+ok 4 - no build-time switch re-selects a different homepage
+  ---
+  duration_ms: 120.3744
+  type: 'test'
+  ...
+# Subtest: the reviewed editions survive the migration byte-for-byte in meaning
+ok 5 - the reviewed editions survive the migration byte-for-byte in meaning
+  ---
+  duration_ms: 16.5928
+  type: 'test'
+  ...
+# Subtest: public copy drops the prototype framing but keeps the review status
+ok 6 - public copy drops the prototype framing but keeps the review status
+  ---
+  duration_ms: 2.1243
+  type: 'test'
+  ...
+# Subtest: the landing never promises a published Atlas graph
+ok 7 - the landing never promises a published Atlas graph
+  ---
+  duration_ms: 0.727
+  type: 'test'
+  ...
+# Subtest: landing permalinks are root-scoped and the archive anchor is intact
+ok 8 - landing permalinks are root-scoped and the archive anchor is intact
+  ---
+  duration_ms: 0.4919
+  type: 'test'
+  ...
+# Subtest: the route registry names one landing source and one canonical URL
+ok 9 - the route registry names one landing source and one canonical URL
+  ---
+  duration_ms: 0.6739
+  type: 'test'
+  ...
+# Subtest: Today is reachable from every page and the landing adds Atlas
+ok 10 - Today is reachable from every page and the landing adds Atlas
+  ---
+  duration_ms: 0.9933
+  type: 'test'
+  ...
+# Subtest: the legacy URL stays out of sitemap, robots and the search index
+ok 11 - the legacy URL stays out of sitemap, robots and the search index
+  ---
+  duration_ms: 0.6191
+  type: 'test'
+  ...
+# Subtest: the professional routes stay discoverable from the landing
+ok 12 - the professional routes stay discoverable from the landing
+  ---
+  duration_ms: 0.438
+  type: 'test'
+  ...
+# Subtest: the landing never writes learner progress or question state
+ok 13 - the landing never writes learner progress or question state
+  ---
+  duration_ms: 1.1644
+  type: 'test'
+  ...
+# (node:18916) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///D:/BeUI/amir-portfolio/lib/knowledge/insights.ts is not specified and it doesn't parse as CommonJS.
+# Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+# To eliminate this warning, add "type": "module" to D:\\BeUI\\amir-portfolio\\package.json.
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# Subtest: Public projection excludes every unreviewed scenario; preview has three stable original IDs
+ok 14 - Public projection excludes every unreviewed scenario; preview has three stable original IDs
+  ---
+  duration_ms: 18.0917
+  type: 'test'
+  ...
+# Subtest: Unknown editorial states and missing essential evidence never become eligible
+ok 15 - Unknown editorial states and missing essential evidence never become eligible
+  ---
+  duration_ms: 0.2963
+  type: 'test'
+  ...
+# Subtest: Published eligibility does not mutate original records
+ok 16 - Published eligibility does not mutate original records
+  ---
+  duration_ms: 0.3201
+  type: 'test'
+  ...
+# Subtest: Search includes caveats, is case-insensitive, combines topic and recovers empty results
+ok 17 - Search includes caveats, is case-insensitive, combines topic and recovers empty results
+  ---
+  duration_ms: 0.3392
+  type: 'test'
+  ...
+# Subtest: Invalid, stale or hostile permalink falls back without manufacturing content
+ok 18 - Invalid, stale or hostile permalink falls back without manufacturing content
+  ---
+  duration_ms: 0.3403
+  type: 'test'
+  ...
+# (node:18112) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///D:/BeUI/amir-portfolio/lib/knowledge/models.ts is not specified and it doesn't parse as CommonJS.
+# Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+# To eliminate this warning, add "type": "module" to D:\\BeUI\\amir-portfolio\\package.json.
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# Subtest: every preview edition maps to the interaction its objective supports
+ok 19 - every preview edition maps to the interaction its objective supports
+  ---
+  duration_ms: 1.1732
+  type: 'test'
+  ...
+# Subtest: the retention model derives a different pattern from the same input
+ok 20 - the retention model derives a different pattern from the same input
+  ---
+  duration_ms: 0.4437
+  type: 'test'
+  ...
+# Subtest: the deletion model distinguishes the reference object from its target
+ok 21 - the deletion model distinguishes the reference object from its target
+  ---
+  duration_ms: 0.2919
+  type: 'test'
+  ...
+# Subtest: table discovery needs both Tables and supported table data
+ok 22 - table discovery needs both Tables and supported table data
+  ---
+  duration_ms: 0.2906
+  type: 'test'
+  ...
+# Subtest: derived cards use stable IDs and never invent a fourth claim
+ok 23 - derived cards use stable IDs and never invent a fourth claim
+  ---
+  duration_ms: 44.5183
+  type: 'test'
+  ...
+# Subtest: card bodies quote the reviewed fields and keep their destinations
+ok 24 - card bodies quote the reviewed fields and keep their destinations
+  ---
+  duration_ms: 0.3206
+  type: 'test'
+  ...
+# Subtest: derivation does not mutate the edition
+ok 25 - derivation does not mutate the edition
+  ---
+  duration_ms: 0.9084
+  type: 'test'
+  ...
+1..25
+# tests 25
+# suites 0
+# pass 25
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 446.0787
+
+> amir-portfolio@0.1.0 test:atlas
+> node --experimental-strip-types --test "tests/atlas/*.test.mjs"
+
+TAP version 13
+# (node:25056) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///D:/BeUI/amir-portfolio/lib/atlas/circle-layout.ts is not specified and it doesn't parse as CommonJS.
+# Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+# To eliminate this warning, add "type": "module" to D:\\BeUI\\amir-portfolio\\package.json.
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# Subtest: all 42 labels fit nonoverlapping circles at narrow and wide widths without mutating source positions
+ok 1 - all 42 labels fit nonoverlapping circles at narrow and wide widths without mutating source positions
+  ---
+  duration_ms: 9.5541
+  type: 'test'
+  ...
+# Subtest: edge endpoints terminate outside each circle for horizontal, vertical and diagonal links
+ok 2 - edge endpoints terminate outside each circle for horizontal, vertical and diagonal links
+  ---
+  duration_ms: 0.2933
+  type: 'test'
+  ...
+# Subtest: prerequisite state uses explicit outgoing understanding edges only, with selection precedence
+ok 3 - prerequisite state uses explicit outgoing understanding edges only, with selection precedence
+  ---
+  duration_ms: 0.5665
+  type: 'test'
+  ...
+# (node:12608) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///D:/BeUI/amir-portfolio/lib/atlas/model.ts is not specified and it doesn't parse as CommonJS.
+# Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+# To eliminate this warning, add "type": "module" to D:\\BeUI\\amir-portfolio\\package.json.
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# Subtest: continuation layer validates, adds objective coverage, and stays out of the public projection
+ok 4 - continuation layer validates, adds objective coverage, and stays out of the public projection
+  ---
+  duration_ms: 12.3969
+  type: 'test'
+  ...
+# Subtest: every continuation concept is connected and every added relation is reachable in the review map
+ok 5 - every continuation concept is connected and every added relation is reachable in the review map
+  ---
+  duration_ms: 2.5841
+  type: 'test'
+  ...
+# Subtest: added sources are official, dated, uniquely identified and locatable
+ok 6 - added sources are official, dated, uniquely identified and locatable
+  ---
+  duration_ms: 1.5433
+  type: 'test'
+  ...
+# Subtest: reviewed catalogue associations resolve to real records and stay catalogue metadata
+ok 7 - reviewed catalogue associations resolve to real records and stay catalogue metadata
+  ---
+  duration_ms: 41.7001
+  type: 'test'
+  ...
+# Subtest: objective coverage names only reviewable concepts and records what is still missing
+ok 8 - objective coverage names only reviewable concepts and records what is still missing
+  ---
+  duration_ms: 0.9507
+  type: 'test'
+  ...
+# (node:16112) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///D:/BeUI/amir-portfolio/lib/atlas/model.ts is not specified and it doesn't parse as CommonJS.
+# Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+# To eliminate this warning, add "type": "module" to D:\\BeUI\\amir-portfolio\\package.json.
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# Subtest: full expansion is valid, semantic-only, and never published through normal projection
+ok 9 - full expansion is valid, semantic-only, and never published through normal projection
+  ---
+  duration_ms: 7.2468
+  type: 'test'
+  ...
+# Subtest: catalogue question and learning-note associations resolve to real records without becoming graph edges
+ok 10 - catalogue question and learning-note associations resolve to real records without becoming graph edges
+  ---
+  duration_ms: 8.9499
+  type: 'test'
+  ...
+# Subtest: all four exact source bytes, original question records and supplied image assets retained
+ok 11 - all four exact source bytes, original question records and supplied image assets retained
+  ---
+  duration_ms: 19.0597
+  type: 'test'
+  ...
+# Subtest: every complete source question grades its supplied answer, and absent exhibits never score
+ok 12 - every complete source question grades its supplied answer, and absent exhibits never score
+  ---
+  duration_ms: 3.9141
+  type: 'test'
+  ...
+# Subtest: new progress is bounded and fail-closed; unknown formats and corrupt data are never repaired silently
+ok 13 - new progress is bounded and fail-closed; unknown formats and corrupt data are never repaired silently
+  ---
+  duration_ms: 2.161
+  type: 'test'
+  ...
+# 2,000-concept synthetic selector: 2.80ms in this Node run; not a browser/CWV benchmark.
+# (node:2712) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///D:/BeUI/amir-portfolio/lib/atlas/model.ts is not specified and it doesn't parse as CommonJS.
+# Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+# To eliminate this warning, add "type": "module" to D:\\BeUI\\amir-portfolio\\package.json.
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# Subtest: real documented pilot is valid and public export excludes every unpublished record
+ok 14 - real documented pilot is valid and public export excludes every unpublished record
+  ---
+  duration_ms: 2.9874
+  type: 'test'
+  ...
+# Subtest: publication, structure, evidence, alias and identity gates fail closed
+ok 15 - publication, structure, evidence, alias and identity gates fail closed
+  ---
+  duration_ms: 6.4594
+  type: 'test'
+  ...
+# Subtest: directed traversal does not prove an inverse; incoming mode is explicit
+ok 16 - directed traversal does not prove an inverse; incoming mode is explicit
+  ---
+  duration_ms: 0.5779
+  type: 'test'
+  ...
+# Subtest: filters intersect; symmetric comparisons remain traversable from either endpoint
+ok 17 - filters intersect; symmetric comparisons remain traversable from either endpoint
+  ---
+  duration_ms: 0.5844
+  type: 'test'
+  ...
+# Subtest: safe versioned URL state round-trips and rejects malicious return targets
+ok 18 - safe versioned URL state round-trips and rejects malicious return targets
+  ---
+  duration_ms: 1.8555
+  type: 'test'
+  ...
+# Subtest: journey storage accepts only bounded known data and never a mastery flag
+ok 19 - journey storage accepts only bounded known data and never a mastery flag
+  ---
+  duration_ms: 0.5241
+  type: 'test'
+  ...
+# Subtest: second source reuses canonical identities; 2,000-concept fixture is capped
+ok 20 - second source reuses canonical identities; 2,000-concept fixture is capped
+  ---
+  duration_ms: 5.8823
+  type: 'test'
+  ...
+# (node:20716) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///D:/BeUI/amir-portfolio/lib/atlas/peek-layout.ts is not specified and it doesn't parse as CommonJS.
+# Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+# To eliminate this warning, add "type": "module" to D:\\BeUI\\amir-portfolio\\package.json.
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# Subtest: node slots are deterministic
+ok 21 - node slots are deterministic
+  ---
+  duration_ms: 3.2782
+  type: 'test'
+  ...
+# Subtest: the first slot sits above the core, the rest go clockwise
+ok 22 - the first slot sits above the core, the rest go clockwise
+  ---
+  duration_ms: 0.5963
+  type: 'test'
+  ...
+# Subtest: every slot stays inside the drawing box with room for a label
+ok 23 - every slot stays inside the drawing box with room for a label
+  ---
+  duration_ms: 0.5553
+  type: 'test'
+  ...
+# Subtest: more than four relations cannot crowd the stage
+ok 24 - more than four relations cannot crowd the stage
+  ---
+  duration_ms: 0.2623
+  type: 'test'
+  ...
+# Subtest: the edge control point bows above the straight midpoint
+ok 25 - the edge control point bows above the straight midpoint
+  ---
+  duration_ms: 0.3406
+  type: 'test'
+  ...
+1..25
+# tests 25
+# suites 0
+# pass 25
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 463.6276
+

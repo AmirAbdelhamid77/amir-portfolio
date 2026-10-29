@@ -13,6 +13,7 @@ export function KnowledgeAtmosphere() {
       <div className="hansa-wash absolute inset-0" />
       <div className="hansa-dots absolute inset-x-0 top-0 h-[720px]" />
       <div className="hansa-floor absolute inset-x-0 bottom-0 h-[420px]" />
+      <div className="observatory-vault"><span/><span/><span/></div>
     </div>
   );
 }

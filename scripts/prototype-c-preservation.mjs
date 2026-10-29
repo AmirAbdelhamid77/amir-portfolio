@@ -17,7 +17,18 @@ if(process.argv.includes('--capture')) {
   const b=JSON.parse(fs.readFileSync(path.join(dir,'baseline.json'),'utf8'));
   const manifestPath=path.join(root,'docs/prototype-c/INTEGRATION_MANIFEST.json');
   const manifest=fs.existsSync(manifestPath)?JSON.parse(fs.readFileSync(manifestPath,'utf8')):null;
-  const allowed=manifest?manifest.files.filter(e=>e.beforeSha256!==null).map(e=>e.path):b.owned;
+  // The newest layer may retire a path this baseline captured; a retired file is
+  // an accounted change, not unexpected drift.
+  const {canonicalHomeReceipt}=await import('./canonical-home-receipt.mjs');
+  const retired=canonicalHomeReceipt(root).removedPaths();
+  // Later layers bind the files they supersede, so a change recorded by a
+  // successor is an accounted change here as well.
+  const bound=new Set(retired);
+  for(const manifestPath of ['docs/dp600-r11-integration/INTEGRATION_MANIFEST.json','docs/canonical-home/INTEGRATION_MANIFEST.json']){
+    if(!fs.existsSync(path.join(root,manifestPath)))continue;
+    for(const e of JSON.parse(fs.readFileSync(path.join(root,manifestPath),'utf8')).files??[])bound.add(e.path);
+  }
+  const allowed=manifest?[...manifest.files.filter(e=>e.beforeSha256!==null).map(e=>e.path),...bound]:b.owned;
   const changed=Object.keys(b.files).filter(p=>!allowed.includes(p)&&(!fs.existsSync(p)||hash(p)!==b.files[p]));
   if(manifest){const {prototypeReceipt}=await import('./prototype-c-receipt.mjs');prototypeReceipt(root);}
   const result={checkedAt:new Date().toISOString(),status:changed.length?'FAIL':'PASS',preexistingFiles:Object.keys(b.files).length,allowedModified:allowed,unexpectedChanges:changed};

@@ -1,0 +1,1833 @@
+--- a/app/lab/dp-600/page.tsx
++++ b/app/lab/dp-600/page.tsx
+@@ -198,7 +198,7 @@
+ 
+       <div className="border-b border-border bg-background/60">
+         <Container>
+-          <nav aria-label="DP-600 sections" className="scrollbar-hide -mx-1 flex gap-1 overflow-x-auto py-2.5">
++          <details className="py-3"><summary className="min-h-11 cursor-pointer py-3 text-sm">Original bank modes, saved sessions & resources</summary><nav aria-label="DP-600 sections" className="-mx-1 flex flex-wrap gap-1 py-2.5">
+             {HUB_NAV.map((item) => (
+               <Link
+                 key={item.href}
+@@ -208,7 +208,7 @@
+                 {item.label}
+               </Link>
+             ))}
+-          </nav>
++          </nav></details>
+         </Container>
+       </div>
+ 
+--- a/app/layout.tsx
++++ b/app/layout.tsx
+@@ -4,6 +4,7 @@
+ import { SiteHeader } from "@/components/site-header";
+ import { SiteFooter } from "@/components/site-footer";
+ import { SITE } from "@/lib/site";
++import { StudyOrientation } from "@/components/study/orientation";
+ 
+ const geistSans = Geist({
+   variable: "--font-geist-sans",
+@@ -100,6 +101,7 @@
+           Skip to content
+         </a>
+         <SiteHeader />
++        <StudyOrientation />
+         <main id="main" className="flex-1">
+           {children}
+         </main>
+--- a/app/learn/catalogue/page.tsx
++++ b/app/learn/catalogue/page.tsx
+@@ -1,248 +1,3 @@
+-import type { Metadata } from "next";
+-import Link from "next/link";
+-import { ArrowRight } from "lucide-react";
+-import { CatalogueCard } from "@/components/catalogue-card";
+-import { Breadcrumbs } from "@/components/breadcrumbs";
+-import {
+-  LEARNING_ENTRIES,
+-  LEARNING_TOTALS,
+-  MODE_DESCRIPTION,
+-  MODE_LABEL,
+-  TASKS,
+-  type StudyMode,
+-} from "@/lib/catalogue";
+-import { ButtonLink, Container, Eyebrow, SectionHeading, Stat } from "@/components/ui";
+-import { SITE } from "@/lib/site";
+-
+-export const metadata: Metadata = {
+-  title: "Learn — courses, references and labs",
+-  description:
+-    "The learning catalogue: a ten-chapter data-visualization course, a 43-section statistics reference, chart labs, a chart decision assistant, an integrity lab and an Arabic companion path. Read, experiment, then test.",
+-  alternates: { canonical: "/learn/catalogue" },
+-  openGraph: {
+-    title: "Learn — courses, references and labs",
+-    description:
+-      "Data visualization, statistics and the interactive labs that sit between them. Every route says whether you are reading, experimenting or testing.",
+-    url: "/learn/catalogue",
+-    images: [{ url: "/og.png", width: 1200, height: 630, alt: "Hansa learning catalogue" }],
+-  },
+-};
+-
+-const MODES: StudyMode[] = ["read", "experiment", "test"];
+-
+-export default function LearnCataloguePage() {
+-  const courses = LEARNING_ENTRIES.filter((entry) => entry.kind === "course");
+-  const references = LEARNING_ENTRIES.filter((entry) => entry.kind === "reference");
+-  const tools = LEARNING_ENTRIES.filter((entry) => entry.kind === "tool");
+-
+-  const jsonLd = [
+-    {
+-      "@context": "https://schema.org",
+-      "@type": "CollectionPage",
+-      name: "Learn — Hansa learning catalogue",
+-      url: `${SITE.url}/learn/catalogue/`,
+-      description:
+-        "Courses, references and interactive labs for data visualization and statistics.",
+-      hasPart: LEARNING_ENTRIES.map((entry) => ({
+-        "@type": "LearningResource",
+-        name: entry.title,
+-        url: `${SITE.url}${entry.href}/`,
+-        learningResourceType: entry.kind,
+-        isAccessibleForFree: true,
+-      })),
+-    },
+-    {
+-      "@context": "https://schema.org",
+-      "@type": "BreadcrumbList",
+-      itemListElement: [
+-        { "@type": "ListItem", position: 1, name: "Home", item: `${SITE.url}/` },
+-        { "@type": "ListItem", position: 2, name: "Learn", item: `${SITE.url}/learn/catalogue/` },
+-      ],
+-    },
+-  ];
+-
+-  return (
+-    <>
+-      <script
+-        type="application/ld+json"
+-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+-      />
+-
+-      <section className="border-b border-border">
+-        <Container className="pb-10 pt-20 md:pb-14 md:pt-24">
+-          <Breadcrumbs items={[{ href: "/", label: "Home" }, { label: "Learn" }]} />
+-
+-          <Eyebrow className="mt-6" dot>
+-            Learn · catalogue
+-          </Eyebrow>
+-          <h1 className="mt-4 max-w-3xl text-balance text-4xl font-medium tracking-tight md:text-5xl">
+-            Read it, move it, then explain it.
+-          </h1>
+-          <p className="mt-5 max-w-2xl text-sm leading-7 text-muted-foreground sm:text-base sm:leading-8">
+-            Two courses, the reference material behind them, and the labs that sit in
+-            between. Every card says what you will be doing — reading, experimenting or
+-            testing — because those are different jobs and the site used to blur them.
+-          </p>
+-
+-          <div className="mt-8 flex flex-wrap items-center gap-2.5">
+-            <ButtonLink href="/learn" icon>
+-              Start the visualization course
+-            </ButtonLink>
+-            <ButtonLink href="/learn/statistics" variant="secondary">
+-              Open the statistics reference
+-            </ButtonLink>
+-            <ButtonLink href="/practice/catalogue" variant="ghost">
+-              Looking for questions instead?
+-            </ButtonLink>
+-          </div>
+-
+-          <div className="mt-10 grid grid-cols-2 gap-3 sm:grid-cols-4">
+-            <Stat
+-              value={String(LEARNING_TOTALS.chapters)}
+-              label="Chapters"
+-              note="Data Visualization spine"
+-            />
+-            <Stat
+-              value={String(LEARNING_TOTALS.statisticSections)}
+-              label="Source sections"
+-              note="Statistics reference"
+-            />
+-            <Stat
+-              value={String(LEARNING_TOTALS.interactiveLabs)}
+-              label="Interactive labs"
+-              note="Charts + statistics"
+-            />
+-            <Stat
+-              value={String(LEARNING_TOTALS.arabicLessons)}
+-              label="Arabic lessons"
+-              note="Companion lane, RTL"
+-            />
+-          </div>
+-        </Container>
+-      </section>
+-
+-      {/* Three modes */}
+-      <section className="border-b border-border bg-card/20 py-10 md:py-12">
+-        <Container>
+-          <h2 className="text-sm font-medium">Three kinds of work, and where each happens</h2>
+-          <ul className="mt-4 grid gap-3 sm:grid-cols-3">
+-            {MODES.map((mode) => (
+-              <li key={mode} className="rounded-2xl border border-border bg-background/60 p-4">
+-                <p className="font-mono text-[10px] uppercase tracking-[0.14em] text-muted-foreground">
+-                  {MODE_LABEL[mode]}
+-                </p>
+-                <p className="mt-1.5 text-xs leading-6 text-foreground/80">
+-                  {MODE_DESCRIPTION[mode]}
+-                </p>
+-              </li>
+-            ))}
+-          </ul>
+-        </Container>
+-      </section>
+-
+-      {/* Task entry points */}
+-      <section className="py-12 md:py-16">
+-        <Container>
+-          <SectionHeading
+-            eyebrow="I want to…"
+-            title="Start from the job, not the table of contents"
+-            description="Six routes into the same material. Each link names the destination, so it still makes sense out of context."
+-          />
+-          <div className="mt-8 grid gap-2 sm:grid-cols-2 lg:grid-cols-3">
+-            {TASKS.map((task) => (
+-              <Link
+-                key={task.id}
+-                href={task.href}
+-                className="group flex items-center justify-between gap-3 rounded-2xl border border-border bg-card/40 px-4 py-3.5 transition-colors hover:border-border-strong hover:bg-card/70"
+-              >
+-                <span className="min-w-0">
+-                  <span className="block text-sm font-medium text-foreground">{task.label}</span>
+-                  <span className="block text-[11px] leading-5 text-muted-foreground">
+-                    {task.detail}
+-                  </span>
+-                </span>
+-                <ArrowRight
+-                  className="h-3.5 w-3.5 shrink-0 text-muted-foreground transition-transform group-hover:translate-x-0.5 motion-reduce:transition-none"
+-                  aria-hidden="true"
+-                />
+-              </Link>
+-            ))}
+-          </div>
+-        </Container>
+-      </section>
+-
+-      {/* Courses */}
+-      <section className="border-t border-border py-12 md:py-16">
+-        <Container>
+-          <SectionHeading
+-            eyebrow="Courses"
+-            title="Structured paths with a beginning"
+-            description="Each course has a first lesson, an order, and a place to resume. Counts come from the content modules, not from a marketing sentence."
+-          />
+-          <div className="mt-8 grid gap-4 md:grid-cols-2">
+-            {courses.map((entry) => (
+-              <CatalogueCard key={entry.id} entry={entry} />
+-            ))}
+-          </div>
+-        </Container>
+-      </section>
+-
+-      {/* References */}
+-      <section className="border-t border-border bg-card/20 py-12 md:py-16">
+-        <Container>
+-          <SectionHeading
+-            eyebrow="References"
+-            title="Look something up, precisely"
+-            description="Reference pages are for arriving with a question — a formula, a term, a source hash. They keep their own search and anchors."
+-          />
+-          <div className="mt-8 grid gap-4 md:grid-cols-2">
+-            {references.map((entry) => (
+-              <CatalogueCard key={entry.id} entry={entry} />
+-            ))}
+-          </div>
+-        </Container>
+-      </section>
+-
+-      {/* Tools */}
+-      <section className="border-t border-border py-12 md:py-16">
+-        <Container>
+-          <SectionHeading
+-            eyebrow="Experiments"
+-            title="Move one thing and see what changes"
+-            description="Every lab has a reset, a stated synthetic or sourced dataset, and a numeric or table answer for anyone who cannot use the chart."
+-          />
+-          <div className="mt-8 grid gap-4 md:grid-cols-2">
+-            {tools.map((entry) => (
+-              <CatalogueCard key={entry.id} entry={entry} />
+-            ))}
+-          </div>
+-        </Container>
+-      </section>
+-
+-      <section className="border-t border-border py-12 md:py-16">
+-        <Container>
+-          <div className="rounded-3xl border border-border bg-card/40 p-6 md:p-8">
+-            <div className="flex flex-col gap-5 md:flex-row md:items-center md:justify-between">
+-              <div className="max-w-xl">
+-                <Eyebrow>Next</Eyebrow>
+-                <h2 className="mt-3 text-2xl font-medium tracking-tight">
+-                  Reading is not the same as being able to do it.
+-                </h2>
+-                <p className="mt-2 text-sm leading-7 text-muted-foreground">
+-                  The practice catalogue holds the question banks: 60 analyst questions, 834
+-                  Fabric questions and 12 visualization scenarios, with answer keys and
+-                  rationales.
+-                </p>
+-              </div>
+-              <div className="flex shrink-0 flex-wrap gap-2">
+-                <ButtonLink href="/practice/catalogue" icon>
+-                  Open the practice catalogue
+-                </ButtonLink>
+-              </div>
+-            </div>
+-          </div>
+-        </Container>
+-      </section>
+-    </>
+-  );
+-}
++import {StudyDirectory} from '@/components/study/directory';
++export const metadata={title:'Learn — subjects, topics and activities',alternates:{canonical:'/study/'}};
++export default function Page(){return <StudyDirectory />;}
+--- a/app/practice/catalogue/page.tsx
++++ b/app/practice/catalogue/page.tsx
+@@ -1,194 +1,3 @@
+-import type { Metadata } from "next";
+-import Link from "next/link";
+-import { ArrowRight, ShieldCheck } from "lucide-react";
+-import { CatalogueCard } from "@/components/catalogue-card";
+-import { Breadcrumbs } from "@/components/breadcrumbs";
+-import { PRACTICE_ENTRIES, PRACTICE_TOTALS } from "@/lib/catalogue";
+-import { ButtonLink, Container, Eyebrow, SectionHeading, Stat } from "@/components/ui";
+-import { SITE } from "@/lib/site";
+-
+-export const metadata: Metadata = {
+-  title: "Practice — question banks and scenario drills",
+-  description:
+-    "The practice catalogue: 60 data-analyst questions across six topics, 834 Microsoft Fabric questions with object-level rationales, and 12 visualization scenarios. Practice or timed mock mode, with explanations.",
+-  alternates: { canonical: "/practice/catalogue" },
+-  openGraph: {
+-    title: "Practice — question banks and scenario drills",
+-    description:
+-      "Six analyst sets, the 834-question Fabric hub and twelve visualization scenarios. Progress stays in this browser.",
+-    url: "/practice/catalogue",
+-    images: [{ url: "/og.png", width: 1200, height: 630, alt: "Hansa practice catalogue" }],
+-  },
+-};
+-
+-const HOW_IT_WORKS = [
+-  {
+-    title: "Practice mode explains immediately",
+-    body: "Check one question at a time. The rationale appears before you move on, including why the plausible wrong option is wrong.",
+-  },
+-  {
+-    title: "Mock mode holds feedback",
+-    body: "A countdown, flags and a navigator; you review before submitting. The Fabric clock is stored, so a refresh does not restart it.",
+-  },
+-  {
+-    title: "Nothing leaves this browser",
+-    body: "Results, bookmarks and saved sessions live in localStorage on this device. There is no account, no sync and no server-side grading.",
+-  },
+-];
+-
+-export default function PracticeCataloguePage() {
+-  const jsonLd = [
+-    {
+-      "@context": "https://schema.org",
+-      "@type": "CollectionPage",
+-      name: "Practice — Hansa practice catalogue",
+-      url: `${SITE.url}/practice/catalogue/`,
+-      description:
+-        "Practice question banks for data analysis, Microsoft Fabric and data visualization.",
+-      hasPart: PRACTICE_ENTRIES.map((entry) => ({
+-        "@type": "LearningResource",
+-        name: entry.title,
+-        url: `${SITE.url}${entry.href}/`,
+-        learningResourceType: entry.kind,
+-        isAccessibleForFree: true,
+-      })),
+-    },
+-    {
+-      "@context": "https://schema.org",
+-      "@type": "BreadcrumbList",
+-      itemListElement: [
+-        { "@type": "ListItem", position: 1, name: "Home", item: `${SITE.url}/` },
+-        {
+-          "@type": "ListItem",
+-          position: 2,
+-          name: "Practice",
+-          item: `${SITE.url}/practice/catalogue/`,
+-        },
+-      ],
+-    },
+-  ];
+-
+-  return (
+-    <>
+-      <script
+-        type="application/ld+json"
+-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+-      />
+-
+-      <section className="border-b border-border">
+-        <Container className="pb-10 pt-20 md:pb-14 md:pt-24">
+-          <Breadcrumbs items={[{ href: "/", label: "Home" }, { label: "Practice" }]} />
+-
+-          <Eyebrow className="mt-6" dot>
+-            Practice · catalogue
+-          </Eyebrow>
+-          <h1 className="mt-4 max-w-3xl text-balance text-4xl font-medium tracking-tight md:text-5xl">
+-            Test the skill, not the vocabulary.
+-          </h1>
+-          <p className="mt-5 max-w-2xl text-sm leading-7 text-muted-foreground sm:text-base sm:leading-8">
+-            Three question banks, all free, none of them a real exam. Every answer carries a
+-            rationale, every session can be resumed, and every coverage number says what it
+-            counts.
+-          </p>
+-
+-          <div className="mt-8 flex flex-wrap items-center gap-2.5">
+-            <ButtonLink href="/lab/dp-600/study" icon>
+-              Start a guided Fabric session
+-            </ButtonLink>
+-            <ButtonLink href="/lab" variant="secondary">
+-              Browse the analyst bank
+-            </ButtonLink>
+-            <ButtonLink href="/learn/catalogue" variant="ghost">
+-              Catching up on theory first?
+-            </ButtonLink>
+-          </div>
+-
+-          <div className="mt-10 grid grid-cols-2 gap-3 sm:grid-cols-4">
+-            <Stat value={String(PRACTICE_TOTALS.banks)} label="Question banks" note="Analyst, Fabric, scenarios" />
+-            <Stat value={String(PRACTICE_TOTALS.general)} label="Analyst questions" note="6 sets of 10" />
+-            <Stat value={String(PRACTICE_TOTALS.fabric)} label="Fabric questions" note="18 source packs" />
+-            <Stat value={String(PRACTICE_TOTALS.scenarios)} label="Scenario drills" note="Model answers" />
+-          </div>
+-        </Container>
+-      </section>
+-
+-      <section className="border-b border-border bg-card/20 py-10">
+-        <Container>
+-          <h2 className="text-sm font-medium">Before you start</h2>
+-          <ul className="mt-4 grid gap-3 sm:grid-cols-3">
+-            {HOW_IT_WORKS.map((item) => (
+-              <li key={item.title} className="rounded-2xl border border-border bg-background/60 p-4">
+-                <p className="text-xs font-medium text-foreground">{item.title}</p>
+-                <p className="mt-1.5 text-xs leading-6 text-muted-foreground">{item.body}</p>
+-              </li>
+-            ))}
+-          </ul>
+-          <p className="mt-4 flex items-start gap-2 text-[11px] leading-5 text-muted-foreground">
+-            <ShieldCheck className="mt-0.5 h-3.5 w-3.5 shrink-0 text-success" aria-hidden="true" />
+-            <span>
+-              The Fabric bank is original practice material. It is not official, leaked or
+-              recalled exam content, and timed runs here are custom simulations rather than
+-              blueprint-authentic exams.
+-            </span>
+-          </p>
+-        </Container>
+-      </section>
+-
+-      <section className="py-12 md:py-16">
+-        <Container>
+-          <SectionHeading
+-            eyebrow="Banks"
+-            title="Pick the one that matches the interview"
+-            description="Counts, pass marks and what each session does are stated on the card. Nothing here needs an account."
+-          />
+-          <div className="mt-8 grid gap-4 md:grid-cols-3">
+-            {PRACTICE_ENTRIES.map((entry) => (
+-              <CatalogueCard key={entry.id} entry={entry} />
+-            ))}
+-          </div>
+-        </Container>
+-      </section>
+-
+-      <section className="border-t border-border py-12 md:py-16">
+-        <Container>
+-          <div className="grid gap-4 md:grid-cols-2">
+-            <Link
+-              href="/lab/dp-600/progress"
+-              className="group flex flex-col rounded-3xl border border-border bg-card/40 p-5 transition-colors hover:border-border-strong"
+-            >
+-              <h2 className="text-sm font-medium">Your progress and saved sessions</h2>
+-              <p className="mt-1.5 text-xs leading-6 text-muted-foreground">
+-                Mastery by objective and subject, saved sessions you can resume, your attempt
+-                history, and JSON export/import for the Fabric bank.
+-              </p>
+-              <span className="mt-4 inline-flex items-center gap-1.5 text-xs text-foreground">
+-                Open progress and backup
+-                <ArrowRight
+-                  className="h-3 w-3 transition-transform group-hover:translate-x-0.5 motion-reduce:transition-none"
+-                  aria-hidden="true"
+-                />
+-              </span>
+-            </Link>
+-            <Link
+-              href="/practice"
+-              className="group flex flex-col rounded-3xl border border-border bg-card/40 p-5 transition-colors hover:border-border-strong"
+-            >
+-              <h2 className="text-sm font-medium">Visualization scenarios, with the reasoning</h2>
+-              <p className="mt-1.5 text-xs leading-6 text-muted-foreground">
+-                Twelve decisions where more than one chart is defensible and only one is right
+-                for the question. The explanation is the point, not the score.
+-              </p>
+-              <span className="mt-4 inline-flex items-center gap-1.5 text-xs text-foreground">
+-                Open the scenario bank
+-                <ArrowRight
+-                  className="h-3 w-3 transition-transform group-hover:translate-x-0.5 motion-reduce:transition-none"
+-                  aria-hidden="true"
+-                />
+-              </span>
+-            </Link>
+-          </div>
+-        </Container>
+-      </section>
+-    </>
+-  );
+-}
++import {StudyDirectory} from '@/components/study/directory';
++export const metadata={title:'Practise — subjects, topics and activities',alternates:{canonical:'/practice/catalogue/'}};
++export default function Page(){return <StudyDirectory practice/>;}
+--- a/app/sitemap.ts
++++ b/app/sitemap.ts
+@@ -11,12 +11,14 @@
+ import { JOURNEYS, LABS, journeyHref, labHref } from "@/lib/statistics/content";
+ import { EXAMS } from "@/lib/exams";
+ import { SITE } from "@/lib/site";
++import { SUBJECTS, topicHref } from "@/lib/study/taxonomy";
+ 
+ export const dynamic = "force-static";
+ 
+ export default function sitemap(): MetadataRoute.Sitemap {
+   const updated = new Date();
+   const pages = [
++    ...[{path:'study',priority:0.9},...SUBJECTS.flatMap(s=>[{path:`study/${s.id}`,priority:0.8},...s.topics.map(([t])=>({path:topicHref(s.id,t).slice(1,-1),priority:0.7}))])],
+     { path: "", priority: 1 },
+     { path: "work", priority: 0.9 },
+     { path: "experience", priority: 0.8 },
+--- /dev/null
++++ b/app/study/[subject]/[topic]/page.tsx
+@@ -0,0 +1,5 @@
++import {TOPIC_GOALS} from '@/lib/study/briefs';
++import Link from 'next/link';import {SUBJECTS,subjectById,topicHref} from '@/lib/study/taxonomy';import {studyRecords} from '@/lib/study/server';import {TopicBrowser} from '@/components/study/topic-browser';import '@/components/study/study.css';
++export const dynamicParams=false;export function generateStaticParams(){return SUBJECTS.flatMap(s=>s.topics.map(([topic])=>({subject:s.id,topic})));}
++export async function generateMetadata({params}:{params:Promise<{subject:string;topic:string}>}){const p=await params,s=subjectById(p.subject);return {title:`${s?.topics.find(t=>t[0]===p.topic)?.[1]} — ${s?.title}`,alternates:{canonical:topicHref(p.subject,p.topic)}};}
++export default async function Page({params}:{params:Promise<{subject:string;topic:string}>}){const {subject,topic}=await params,s=subjectById(subject)!,index=s.topics.findIndex(t=>t[0]===topic),title=s.topics[index][1],items=studyRecords().filter(r=>r.subject===subject&&r.topic===topic);return <div className="study-shell"><header className="study-heading"><nav aria-label="Breadcrumb"><Link href="/study/">Subjects</Link><Link href={`/study/${subject}/`}>{s.title}</Link><span aria-current="page">{title}</span></nav><p className="study-eyebrow">{s.title} / TOPIC DESK</p><h1>{title}</h1><p>{TOPIC_GOALS[`${subject}.${topic}`]??s.goal}</p></header><TopicBrowser items={items}/><details className="study-topic-guide"><summary className="min-h-11 cursor-pointer py-3">Study order, prerequisites & source context</summary><p>Use this desk to understand the topic, try an experiment and practise its decisions. Source order and exam pack labels are kept in the source details.</p><p>There is no mandatory unlock or claimed prerequisite chain here. Topic grouping is organizational; each original lesson retains its actual prerequisites and each question retains its review status.</p>{index>0&&<p>Suggested earlier reading in this subject: <Link className="underline" href={topicHref(subject,s.topics[index-1][0])}>{s.topics[index-1][1]}</Link>. This is a reading sequence, not a scientific dependency.</p>}</details><nav className="study-source-shelf" aria-label="Continue through subject"><Link href={`/study/${subject}/`}>All topics in {s.title}</Link>{index<s.topics.length-1&&<Link href={topicHref(subject,s.topics[index+1][0])}>Suggested next topic: {s.topics[index+1][1]} ↗</Link>}</nav></div>;}
+--- /dev/null
++++ b/app/study/[subject]/page.tsx
+@@ -0,0 +1,4 @@
++import {StudyDirectory} from '@/components/study/directory';import {SUBJECTS} from '@/lib/study/taxonomy';
++export const dynamicParams=false;export function generateStaticParams(){return SUBJECTS.map(s=>({subject:s.id}));}
++export async function generateMetadata({params}:{params:Promise<{subject:string}>}){const {subject}=await params;const s=SUBJECTS.find(s=>s.id===subject)!;return {title:s.title+' — learning topics',description:s.goal,alternates:{canonical:`/study/${subject}/`}};}
++export default async function Page({params}:{params:Promise<{subject:string}>}){return <StudyDirectory subject={(await params).subject}/>;}
+--- /dev/null
++++ b/app/study/page.tsx
+@@ -0,0 +1,3 @@
++import {StudyDirectory} from '@/components/study/directory';
++export const metadata={title:'Learning library — subjects, topics and practice',description:'One topic-led map across the existing lessons, experiments, question banks and sources.',alternates:{canonical:'/study/'}};
++export default function Page(){return <StudyDirectory/>;}
+--- /dev/null
++++ b/app/study/review/page.tsx
+@@ -0,0 +1,3 @@
++import Link from 'next/link';import {reviewRecords} from '@/lib/study/review';import {TopicBrowser} from '@/components/study/topic-browser';import '@/components/study/study.css';
++export const metadata={title:'Editorial review inventory — not approved learning material',robots:{index:false,follow:false}};
++export default function Page(){return <div className="study-shell"><header className="study-heading"><Link href="/study/">← Published learning library</Link><p className="study-eyebrow">EDITORIAL REVIEW / NO APPROVAL CHANGE</p><h1>Review the intake in context.</h1><p>NO_GO, NONFINAL and REVIEW_REQUIRED states remain unchanged. These records are isolated from the normal learning library. No grading or expected answer is enabled; the withheld source lab remains withheld.</p></header><TopicBrowser items={reviewRecords()}/></div>;}
+--- a/components/lab/exam-player.tsx
++++ b/components/lab/exam-player.tsx
+@@ -108,6 +108,8 @@
+   const [autoSubmitted, setAutoSubmitted] = useState(false);
+   const [confirming, setConfirming] = useState(false);
+   const [drill, setDrill] = useState(false);
++  const [linkedQuestion, setLinkedQuestion] = useState(false);
++  useEffect(()=>{const id=new URLSearchParams(location.search).get('question');queueMicrotask(()=>setLinkedQuestion(exam.questions.some(q=>q.id===id)));},[exam]);
+   const store = useLabStore();
+   const record = store[exam.slug];
+   const best = record?.best ?? null;
+@@ -183,9 +185,13 @@
+   }, [phase, mode, remaining, finish]);
+ 
+   function start(nextMode: Mode, questions?: Question[]) {
++    // Topic links can start an unscored single-question drill. Mock exams and
++    // existing retry subsets retain their original question/score contract.
++    const linkedId = new URLSearchParams(window.location.search).get('question');
++    const linked = !questions && nextMode === 'practice' ? exam.questions.find(q=>q.id===linkedId) : undefined;
+     setMode(nextMode);
+-    setActiveQuestions(questions ?? exam.questions);
+-    setDrill(Boolean(questions));
++    setActiveQuestions(questions ?? (linked ? [linked] : exam.questions));
++    setDrill(Boolean(questions) || Boolean(linked));
+     setAnswers({});
+     setChecked({});
+     setFlags(new Set());
+@@ -272,6 +278,7 @@
+             Practice gives you the explanation after every question. Mock exam
+             hides feedback until you submit, and the clock is running.
+           </p>
++          {linkedQuestion&&<p className="mt-4 border-l-2 border-primary pl-4 text-sm leading-7">This topic link selects one question. Practice opens it as an unscored drill; Mock uses the complete question set. Your saved best score is preserved.</p>}
+ 
+           <div className="mt-6 grid gap-3 sm:grid-cols-2" role="radiogroup" aria-label="Exam mode">
+             <button
+--- a/components/learn/intake-review.tsx
++++ b/components/learn/intake-review.tsx
+@@ -42,6 +42,7 @@
+   }>({});
+   const [error, setError] = useState("");
+   const [query, setQuery] = useState("");
++  useEffect(()=>{const restore=()=>{const u=new URL(location.href),tab=u.searchParams.get('tab');if(tab==='lessons'||tab==='labs'||tab==='structure'||tab==='sources')setTab(tab);setQuery((u.searchParams.get('q')??'').slice(0,200));};queueMicrotask(restore);addEventListener('popstate',restore);return()=>removeEventListener('popstate',restore);},[]);
+ 
+   useEffect(() => {
+     let alive = true;
+--- a/components/practice/draft-review.tsx
++++ b/components/practice/draft-review.tsx
+@@ -44,6 +44,7 @@
+   const [banks, setBanks] = useState<Partial<Record<BankId, DraftBank>>>({});
+   const [error, setError] = useState("");
+   const [query, setQuery] = useState("");
++  useEffect(()=>{const restore=()=>{const u=new URL(location.href),bank=u.searchParams.get('bank');if(bank==='dp600-r18'||bank==='pl300-v88'||bank==='notion-28')setBankId(bank);setQuery((u.searchParams.get('q')??'').slice(0,160));};queueMicrotask(restore);addEventListener('popstate',restore);return()=>removeEventListener('popstate',restore);},[]);
+   // One counter per bank, so switching banks starts from the first page
+   // without an effect that resets state after render.
+   const [limits, setLimits] = useState<Record<BankId, number>>({
+--- a/components/site-header.tsx
++++ b/components/site-header.tsx
+@@ -14,6 +14,7 @@
+   // product, so it is treated as the landing everywhere below.
+   const isLanding =
+     pathname === "/" || pathname === "/prototype-c" || pathname === "/prototype-c/";
++  const isLearning = /^\/(study|learn|practice|lab|explore)(\/|$)/.test(pathname);
+   const navigation = isLanding ? LANDING_NAV : NAV;
+   const activeHref = isLanding ? "/" : activeHrefFor(pathname, navigation);
+   const [scrolled, setScrolled] = useState(false);
+@@ -68,16 +69,16 @@
+             className="group flex items-center gap-2.5 rounded-lg text-sm font-semibold tracking-tight"
+           >
+             <span className="relative flex h-7 w-7 items-center justify-center overflow-hidden rounded-[9px] bg-[color-mix(in_oklch,var(--primary)_78%,black)] text-[11px] font-bold tracking-tight text-primary-foreground shadow-sm">
+-              {isLanding ? "H" : "AA"}
++              {isLanding || isLearning ? "H" : "AA"}
+               <span
+                 aria-hidden="true"
+                 className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-black/15 to-transparent"
+               />
+             </span>
+-            <span className={isLanding ? "inline" : "hidden sm:inline"}>
+-              {isLanding ? "Hansa" : "Amir Abdelhamid"}
++            <span className={isLanding || isLearning ? "inline" : "hidden sm:inline"}>
++              {isLanding || isLearning ? "Hansa" : "Amir Abdelhamid"}
+               <span className="ml-2 hidden rounded-full border border-border px-1.5 py-0.5 font-mono text-[9px] font-normal uppercase tracking-wider text-muted-foreground md:inline">
+-                {isLanding ? "Observatory" : "Data"}
++                {isLanding ? "Observatory" : isLearning ? "Learning library" : "Data"}
+               </span>
+             </span>
+             <span className="sr-only"> — home</span>
+@@ -111,7 +112,7 @@
+             <Search className="h-4 w-4" aria-hidden="true" />
+           </Link>
+           <ThemeControls />
+-          {!isLanding && <Link
++          {!isLanding && !isLearning && <Link
+             href="/contact"
+             className="press hidden h-9 items-center gap-1.5 rounded-full bg-foreground px-4 text-xs font-medium text-background hover:bg-foreground/90 sm:inline-flex"
+           >
+--- /dev/null
++++ b/components/study/directory.tsx
+@@ -0,0 +1,12 @@
++import {StudyIntentLink} from './intent-link';
++import Link from 'next/link';
++import {SUBJECTS,topicHref} from '@/lib/study/taxonomy';
++import {studyRecords} from '@/lib/study/server';
++import './study.css';
++export function StudyDirectory({practice=false,subject}:{practice?:boolean;subject?:string}){
++ const records=studyRecords();const subjects=SUBJECTS.filter(s=>!subject||s.id===subject);
++ return <div className="study-shell"><header className="study-heading"><p className="study-eyebrow">HANSA / THE LEARNING LIBRARY</p><h1>{subject?subjects[0]?.title:practice?'Practise a topic.':'Find the idea. Follow it through.'}</h1><p>{practice?'Choose the subject you want to practise. The explanation and experiments stay beside the questions.':'Start with a subject, then a topic. Read the explanation, try the mechanism and practise in the same context.'}</p><nav aria-label="Learning library"><Link href="/study/">All subjects</Link><Link href="/search/">Search everything</Link><Link href="/lab/dp-600/progress/">Saved Fabric progress</Link></nav></header>
++ {!subject&&<div className="study-principle"><span>01 / Understand</span><span>02 / Experiment</span><span>03 / Practise</span><span>04 / Revisit the evidence</span><p>This is a suggested study workflow, not a claim that every topic has a complete course or a scientifically approved prerequisite chain.</p></div>}
++ <div className="study-subjects">{subjects.map((s,i)=>{const subset=records.filter(r=>r.subject===s.id);return <section key={s.id} className="study-subject" aria-labelledby={`subject-${s.id}`}><div className="study-subject-intro">{!subject&&<span className="study-number" aria-hidden="true">{String(i+1).padStart(2,'0')}</span>}{!subject&&<h2 id={`subject-${s.id}`}><StudyIntentLink practice={practice} href={`/study/${s.id}/`}>{s.title}</StudyIntentLink></h2>}{!subject&&<p>{s.goal}</p>}<small>{subset.filter(r=>r.kind==='question').length} question records · {subset.filter(r=>r.kind!=='question').length} learning resources</small></div>{subject?<ol className="study-topic-list">{s.topics.map(([id,title])=>{const items=subset.filter(r=>r.topic===id),q=items.filter(r=>r.kind==='question').length;return <li key={id}><StudyIntentLink practice={practice} href={topicHref(s.id,id)}><span>{title}</span><small>{items.length?`${items.length-q} learning resources · ${q} questions`:'Coverage gap — no mapped resource yet'}</small><span aria-hidden="true">↗</span></StudyIntentLink></li>;})}</ol>:<StudyIntentLink practice={practice} className="study-open" href={`/study/${s.id}/`}>Explore {s.topics.length} topics ↗</StudyIntentLink>}</section>;})}</div>
++ <details className="study-source-shelf"><summary>Original collections, exam modes and review workspace</summary><p>These retain original source order and review states. Their order does not define dependencies.</p><div><Link href="/learn/">Original visualization course</Link><Link href="/learn/statistics/">Statistics reference</Link><Link href="/learn/dp-600/ingestion/">Fabric ingestion lesson</Link><Link href="/lab/dp-600/">Fabric study & exam modes</Link><Link href="/lab/">Analyst question sets</Link><Link href="/learn/dp-600/atlas/">Atlas & publication state</Link><Link href="/study/review/">Editorial review inventory — not approved</Link><Link href="/learn/drafts/">Unapproved lesson intake</Link><Link href="/practice/drafts/">Unapproved question intake — grading disabled</Link></div></details></div>;
++}
+--- /dev/null
++++ b/components/study/intent-link.tsx
+@@ -0,0 +1,4 @@
++'use client';
++import Link from 'next/link';import {useEffect,useState,type ReactNode} from 'react';
++/** Carry an activity choice through the static subject page without a dynamic server. */
++export function StudyIntentLink({href,practice=false,className,children}:{href:string;practice?:boolean;className?:string;children:ReactNode}){const [inherited,setInherited]=useState(false);useEffect(()=>{queueMicrotask(()=>setInherited(new URL(location.href).searchParams.get('mode')==='question'));},[]);return <Link className={className} href={practice||inherited?href+(href.includes('?')?'&':'?')+'mode=question':href}>{children}</Link>;}
+--- /dev/null
++++ b/components/study/orientation.tsx
+@@ -0,0 +1,9 @@
++'use client';
++import Link from 'next/link';import {usePathname} from 'next/navigation';import {useEffect,useState} from 'react';import {SUBJECTS,topicHref} from '@/lib/study/taxonomy';
++// Route orientation only. Does not invent question-level prerequisite edges.
++export function StudyOrientation(){const path=usePathname();const [context,setContext]=useState('');useEffect(()=>{const restore=()=>setContext(new URL(location.href).searchParams.get('learningContext')??'');queueMicrotask(restore);addEventListener('popstate',restore);return()=>removeEventListener('popstate',restore);},[path]);if(!/^\/(learn|lab|practice|explore)(\/|$)/.test(path)||path.includes('/catalogue'))return null;
++ const [contextSubject,contextTopic]=context.split('.');const selected=SUBJECTS.find(s=>s.id===contextSubject);const topic=selected?.topics.find(t=>t[0]===contextTopic);
++ const subject=path.includes('dp-600')?'fabric':path.includes('statistics')?'statistics':path.includes('/lab/power-bi')?'power-bi':path.includes('/lab/sql')?'sql':path.includes('/lab/python')?'python':path.includes('/lab/excel')?'excel':path==='/lab'||path==='/lab/'?'analysis':'visualization';
++ const label=subject==='fabric'?'Microsoft Fabric':subject==='statistics'?'Statistics':subject==='visualization'?'Data visualization':subject==='power-bi'?'Power BI':subject==='analysis'?'Analytical foundations':subject.toUpperCase();
++ return <nav aria-label="Learning context" className="relative z-10 mx-auto mt-20 mb-[-48px] flex w-full max-w-6xl flex-wrap gap-x-5 gap-y-2 px-5 text-xs leading-6 text-muted-foreground"><Link className="min-h-11 py-2 underline underline-offset-4" href="/study/">Learning library</Link>{!path.includes('drafts')&&<Link className="min-h-11 py-2 underline underline-offset-4" href={`/study/${subject}/`}>{label} topics</Link>}{selected&&topic&&<Link className="min-h-11 py-2 underline underline-offset-4" href={path.includes('drafts')?'/study/review/':topicHref(selected.id,topic[0])}>Return to {topic[1]}</Link>}<span className="min-h-11 py-2">{path.includes('drafts')?'Review workspace · not approved':path.startsWith('/lab')||path.startsWith('/practice')?'Practice & review':'Learning & experiments'}</span></nav>;
++}
+--- /dev/null
++++ b/components/study/study.css
+@@ -0,0 +1 @@
++.study-shell{max-width:1120px;margin:auto;padding:100px 24px 60px}.study-heading{max-width:880px;margin-bottom:38px}.study-eyebrow{font:11px/1.7 monospace;letter-spacing:.1em;text-transform:uppercase;color:var(--muted-foreground)}.study-heading h1{font-size:clamp(34px,5vw,64px);font-weight:400;letter-spacing:-.045em;line-height:1.1;margin:16px 0 24px}.study-heading>p{max-width:65ch;line-height:1.9;color:var(--muted-foreground)}.study-heading nav{display:flex;flex-wrap:wrap;gap:8px 24px;margin-top:24px}.study-shell a{text-underline-offset:5px}.study-heading nav a,.study-source-shelf a{display:inline-flex;align-items:center;min-height:44px;text-decoration:underline;font-size:13px}.study-principle{border-block:1px solid var(--border-strong);padding:22px 0;display:flex;gap:16px 35px;flex-wrap:wrap;font-size:13px;color:var(--primary)}.study-principle p{width:100%;font-size:12px;line-height:1.8;color:var(--muted-foreground);max-width:85ch}.study-subject{display:grid;grid-template-columns:1fr 1.5fr;gap:56px;padding:46px 0;border-bottom:1px solid var(--border-strong)}.study-number{font:46px/1 monospace;color:var(--primary);opacity:.8}.study-subject h2{font-size:27px;letter-spacing:-.025em;margin:18px 0 12px}.study-subject-intro p{color:var(--muted-foreground);font-size:14px;line-height:1.8;max-width:34ch}.study-subject small{display:block;font-size:11px;line-height:1.8;color:var(--muted-foreground);margin-top:10px}.study-topic-list a{display:grid;grid-template-columns:1fr 24px;min-height:68px;align-items:center;padding:14px 12px;border-bottom:1px solid var(--border);border-inline-start:2px solid transparent;transition:background-color .15s,border-color .15s}.study-topic-list a:hover{border-inline-start-color:var(--primary);background:var(--card)}.study-topic-list small{grid-column:1;margin:4px 0 0}.study-topic-list a>span:last-child{grid-column:2;grid-row:1/3;color:var(--primary)}.study-source-shelf{margin-top:40px;padding:22px;border:1px solid var(--border-strong)}.study-source-shelf summary{min-height:44px;cursor:pointer;line-height:1.8}.study-source-shelf p{color:var(--muted-foreground);font-size:13px;line-height:1.8}.study-source-shelf>div{display:flex;gap:12px 30px;flex-wrap:wrap}.study-controls{display:flex;gap:18px;align-items:end;flex-wrap:wrap;padding:24px 0;border-block:1px solid var(--border-strong)}.study-controls label{display:flex;flex-direction:column;gap:10px;font-size:13px;flex:1;min-width:180px}.study-controls input,.study-controls select,.study-controls button,.study-more{min-height:44px;background:var(--background);border:1px solid var(--border-strong);padding:10px;font-size:14px}.study-controls button,.study-more{cursor:pointer}.study-result-count{font-size:12px;color:var(--muted-foreground);padding:16px 0}.study-records>li{display:grid;grid-template-columns:1fr auto;gap:24px;padding:25px 0;border-bottom:1px solid var(--border)}.study-records h2{font-size:21px;line-height:1.5;letter-spacing:-.02em;margin:8px 0}.study-records h2 a:hover{text-decoration:underline}.study-records p{max-width:80ch;font-size:13px;line-height:1.9;color:var(--muted-foreground);overflow-wrap:anywhere}.study-records details{font-size:11px;margin-top:15px}.study-records summary{cursor:pointer;min-height:44px;padding:12px 0;color:var(--muted-foreground)}.study-open{min-height:44px;align-self:start;padding:12px;color:var(--primary);font-size:13px}.study-more{margin-top:24px}.study-empty{padding:30px 0;line-height:1.9}.study-shell :is(a,button,input,select,summary):focus-visible{outline:2px solid var(--primary);outline-offset:4px}.study-topic-guide{margin:20px 0 32px;padding-inline-start:18px;border-inline-start:2px solid var(--primary);font-size:13px;line-height:1.9;max-width:80ch;color:var(--muted-foreground)}@media(max-width:767px){.study-shell{padding:90px 20px 45px}.study-subject{grid-template-columns:1fr;gap:22px;padding:32px 0}.study-number{font-size:32px}.study-subject h2{margin-top:10px}.study-subject-intro p{max-width:60ch}.study-records>li{grid-template-columns:1fr;gap:4px}.study-open{justify-self:start;padding-inline:0}.study-controls{display:grid;grid-template-columns:1fr}.study-controls label{min-width:0}}@media(prefers-reduced-motion:reduce){.study-shell *{transition:none!important}}
+--- /dev/null
++++ b/components/study/topic-browser.tsx
+@@ -0,0 +1,17 @@
++'use client';
++import Link from 'next/link';import {useEffect,useMemo,useState} from 'react';import {SUBJECTS,type StudyRecord} from '@/lib/study/taxonomy';
++export function TopicBrowser({items}:{items:StudyRecord[]}){
++ const [mode,setMode]=useState('all'),[query,setQuery]=useState(''),[limit,setLimit]=useState(30);
++ const [subject,setSubject]=useState('all'),[topic,setTopic]=useState('all');
++ const multiSubject=new Set(items.map(r=>r.subject)).size>1;
++ useEffect(()=>{const restore=()=>{const u=new URL(location.href);const m=u.searchParams.get('mode')??'all';setMode(['all','read','experiment','question','reference'].includes(m)?m:'all');setQuery(u.searchParams.get('q')??'');setLimit(30);};queueMicrotask(restore);addEventListener('popstate',restore);return()=>removeEventListener('popstate',restore);},[]);
++ const filtered=useMemo(()=>items.filter(r=>(subject==='all'||r.subject===subject)&&(topic==='all'||r.topic===topic)&&(mode==='all'||r.kind===mode)&&query.toLowerCase().split(/\s+/).every(w=>[r.title,r.context,r.source].join(' ').toLowerCase().includes(w))),[items,mode,query,subject,topic]);
++ function update(m:string,q:string){setMode(m);setQuery(q);setLimit(30);const u=new URL(location.href);if(m==='all')u.searchParams.delete('mode');else u.searchParams.set('mode',m);if(q)u.searchParams.set('q',q);else u.searchParams.delete('q');history.replaceState(null,'',u);}
++ const labels=[['all','All material'],['read','Understand'],['experiment','Experiment'],['question','Practise'],['reference','Reference']];
++ const href=(r:StudyRecord)=>{const url=new URL(r.href,'https://hansa.invalid');url.searchParams.set('learningContext',`${r.subject}.${r.topic}`);return url.pathname+url.search+url.hash;};
++ const reviewFilters=multiSubject?<div className="study-controls"><label>Subject<select aria-label="Subject" value={subject} onChange={e=>{setSubject(e.target.value);setTopic('all');setLimit(30);}}><option value="all">All review subjects</option>{SUBJECTS.filter(s=>items.some(r=>r.subject===s.id)).map(s=><option value={s.id} key={s.id}>{s.title}</option>)}</select></label><label>Topic<select aria-label="Topic" value={topic} onChange={e=>{setTopic(e.target.value);setLimit(30);}}><option value="all">All topics</option>{SUBJECTS.filter(s=>s.id===subject).flatMap(s=>s.topics.map(([id,title])=><option key={id} value={id}>{title}</option>))}</select></label></div>:null;
++ return <section aria-label="Topic material">{reviewFilters}<div className="study-controls"><label>Find within this topic<input type="search" value={query} onChange={e=>update(mode,e.target.value.slice(0,160))}/></label><label>Learning activity<select aria-label="Learning activity" value={mode} onChange={e=>update(e.target.value,query)}>{labels.map(([id,label])=><option key={id} value={id}>{label} ({id==='all'?items.length:items.filter(r=>r.kind===id).length})</option>)}</select></label><button type="button" onClick={()=>{setSubject('all');setTopic('all');update('all','');}}>Reset filters</button></div><p role="status" className="study-result-count">{filtered.length} matching records. Showing {Math.min(limit,filtered.length)}.</p>
++ {!filtered.length&&<p className="study-empty">No material matches this activity and search. Reset the filters, or return to the subject. A missing explanation is a coverage gap, not a prerequisite you have failed.</p>}
++ <ol className="study-records">{filtered.slice(0,limit).map(r=><li key={r.id}><div><span className="study-eyebrow">{labels.find(x=>x[0]===r.kind)?.[1]} · {r.language==='ar'?'العربية':'English'}</span><h2 dir="auto"><Link href={href(r)}>{r.title}</Link></h2><p dir="auto">{r.context.slice(0,360)}{r.context.length>360?'…':''}</p><details><summary>Source, placement & review status</summary><p>{r.status}</p><p>Source: {r.source} · ID: {r.id}</p><p>{r.basis}. This grouping does not validate the answer or establish a prerequisite.</p></details></div><Link className="study-open" href={href(r)} aria-label={`Open ${r.title}`}>Open ↗</Link></li>)}</ol>{filtered.length>limit&&<button className="study-more" onClick={()=>setLimit(v=>v+30)}>Show 30 more</button>}
++ </section>;
++}
+--- a/lib/search/documents.ts
++++ b/lib/search/documents.ts
+@@ -1,315 +1,11 @@
+-// Builds the site-wide search index from typed content metadata.
+-//
+-// Server-side only: it imports the content modules so the client never has to.
+-// Every document points at a canonical URL that already exists; the index adds
+-// navigation, not new pages. Question documents carry the stem and topic, never
+-// an answer key.
+-
+-import { CASE_STUDIES } from "@/lib/case-studies";
+-import { SERVICES } from "@/lib/services";
+-import {
+-  CHAPTERS,
+-  ArabicLessons,
+-  EnglishLessons,
+-  chapterHref,
+-  lessonHref,
+-} from "@/lib/data-viz/content";
+-import { CHART_LABS } from "@/lib/data-viz/labs";
+-import { PRACTICE_QUESTIONS } from "@/lib/data-viz/practice";
+-import {
+-  JOURNEYS,
+-  LABS,
+-  SECTIONS,
+-  buildSearchIndex,
+-  journeyHref,
+-  labHref,
+-  sectionHref,
+-} from "@/lib/statistics/content";
+-import { EXAMS } from "@/lib/exams";
+-import R11_SEARCH from "@/content/fabric/r11/search.json";
++// Search and the learning registry consume the same source adapter.
++// Search never owns the learning taxonomy or controls publication eligibility.
++import { sourceDocuments } from "@/lib/study/source-documents";
++import { SUBJECTS, topicHref } from "@/lib/study/taxonomy";
+ import type { SearchDocument } from "./query";
+-
+-const MANUAL: SearchDocument[] = [
+-  {
+-    id: "page-home",
+-    title: "Today — the daily data insight",
+-    url: "/",
+-    kind: "lesson",
+-    summary:
+-      "One decision to think through, the reasoning behind it, the knowledge cards that change the lens, the Atlas review state and the full editions archive.",
+-    topic: ["insight", "editions", "knowledge stage"],
+-    language: "en",
+-    keywords: ["today", "daily insight", "knowledge stage", "archive", "editions"],
+-  },
+-  { id: "page-fabric-atlas", title: "Knowledge Atlas — Fabric decisions", url: "/learn/dp-600/atlas/", kind: "tool", summary: "Explore documented concept relationships, conditions and sources. Human publication review remains separate.", topic: ["Fabric", "Atlas"], language: "en", keywords: ["knowledge", "graph", "shortcuts", "mirroring", "أطلس"] },
+-  { id: "page-fabric-journey", title: "Guided journey — Reference to replica", url: "/learn/dp-600/atlas/journey/", kind: "lesson", summary: "Learn, explore, practise and reflect on Fabric ingestion decisions.", topic: ["Fabric", "ingestion"], language: "en" },
+-  {
+-    id: "page-learn-catalogue",
+-    title: "Learning catalogue",
+-    url: "/learn/catalogue/",
+-    kind: "course",
+-    summary:
+-      "Every course, reference and lab in one place, labelled Read, Experiment or Test.",
+-    topic: ["catalogue", "learn"],
+-    language: "en",
+-    keywords: ["courses", "index", "study"],
+-  },
+-  {
+-    id: "page-practice-catalogue",
+-    title: "Practice catalogue",
+-    url: "/practice/catalogue/",
+-    kind: "tool",
+-    summary:
+-      "The three question banks: 60 analyst questions, 834 Fabric questions and 12 visualization scenarios.",
+-    topic: ["catalogue", "practice"],
+-    language: "en",
+-    keywords: ["exams", "questions", "quiz"],
+-  },
+-  {
+-    id: "page-search",
+-    title: "Search the site",
+-    url: "/search/",
+-    kind: "tool",
+-    summary: "One index across courses, lessons, sections, labs, tools, questions and case studies.",
+-    topic: ["search"],
+-    language: "en",
+-  },
+-  {
+-    id: "page-contact",
+-    title: "Contact",
+-    url: "/contact/",
+-    kind: "tool",
+-    summary: "Email address, copy-to-clipboard and a message composer that opens your mail app.",
+-    topic: ["contact", "hire"],
+-    language: "en",
+-    keywords: ["email", "work together"],
+-  },
+-];
+-
+ export function buildSiteSearchIndex(): SearchDocument[] {
+-  const documents: SearchDocument[] = [...MANUAL, ...(R11_SEARCH as SearchDocument[])];
+-
+-  for (const study of CASE_STUDIES) {
+-    documents.push({
+-      id: `case-${study.slug}`,
+-      title: study.title,
+-      url: `/work/${study.slug}/`,
+-      kind: "case-study",
+-      summary: `${study.subtitle} ${study.summary}`.slice(0, 240),
+-      topic: [study.status, ...study.tools.slice(0, 4)],
+-      language: "en",
+-      level: "advanced",
+-      keywords: [study.role, study.timeframe, ...study.outcome.slice(0, 3)],
+-    });
+-  }
+-
+-  for (const service of SERVICES) {
+-    documents.push({
+-      id: `service-${service.slug}`,
+-      title: service.name,
+-      url: `/services/#${service.slug}`,
+-      kind: "tool",
+-      summary: `${service.tagline} ${service.description}`.slice(0, 200),
+-      topic: ["services", service.slug],
+-      language: "en",
+-      keywords: [service.bestFor, service.turnaround],
+-    });
+-  }
+-
+-  for (const chapter of CHAPTERS) {
+-    documents.push({
+-      id: `chapter-${chapter.number}`,
+-      title: `${chapter.number}. ${chapter.title}`,
+-      url: chapterHref(chapter),
+-      kind: "course",
+-      summary: `${chapter.question} ${chapter.summary}`.slice(0, 240),
+-      topic: ["data visualization", "chapter"],
+-      language: "en",
+-      level: "beginner",
+-      course: "Data Visualization",
+-      keywords: [chapter.question, chapter.lab.label],
+-    });
+-  }
+-
+-  for (const lesson of [...EnglishLessons, ...ArabicLessons]) {
+-    const isArabic = lesson.section === "ar";
+-    documents.push({
+-      id: `lesson-${lesson.section}-${lesson.slug}`,
+-      title: lesson.title,
+-      url: lessonHref(lesson),
+-      kind: "lesson",
+-      summary: (lesson.intro ?? lesson.takeaways.join(" · ")).slice(0, 240),
+-      topic: isArabic ? ["data visualization", "العربية"] : ["data visualization"],
+-      language: isArabic ? "ar" : "en",
+-      level: "beginner",
+-      course: "Data Visualization",
+-      keywords: lesson.takeaways,
+-    });
+-  }
+-
+-  documents.push({
+-    id: "tool-chart-labs",
+-    title: "Six chart labs",
+-    url: "/explore/charts/",
+-    kind: "lab",
+-    summary: "Histogram, box, scatter, line, bar and dot — each with the one control that changes the story.",
+-    topic: ["data visualization", "labs"],
+-    language: "en",
+-    keywords: ["interactive", "bins", "baseline"],
+-  });
+-
+-  for (const lab of CHART_LABS) {
+-    documents.push({
+-      id: `chartlab-${lab.type}`,
+-      title: `${lab.title} lab`,
+-      url: `/explore/charts/${lab.type}/`,
+-      kind: "lab",
+-      summary: `${lab.question} ${lab.summary}`.slice(0, 220),
+-      topic: ["data visualization", "chart", lab.type],
+-      language: "en",
+-      course: "Data Visualization",
+-      keywords: [lab.type, ...lab.teaches, ...lab.mistakes],
+-    });
+-  }
+-
+-  for (const [path, title, summary] of [
+-    ["/explore/choose/", "Chart decision assistant", "Answer two questions about the task and the data shape; get a defensible chart and its failure modes."],
+-    ["/explore/integrity/", "Integrity lab", "The same numbers drawn honestly and dishonestly, side by side."],
+-    ["/explore/dashboards/", "Dashboard composition", "Compose a page from the decision backwards."],
+-    ["/explore/specialty/", "Specialty charts", "Sankey, treemap and funnel — what each one actually encodes."],
+-    ["/learn/ar/", "المسار العربي", "Arabic companion path for the visualisation course."],
+-    ["/learn/statistics/formulas/", "Formula workbench", "Every formula with its meaning, units, assumptions and a worked example."],
+-    ["/learn/statistics/glossary/", "Bilingual glossary", "Statistics terms in English and Arabic."],
+-    ["/learn/statistics/atlas/", "Concept atlas", "Map of the statistics reference: what to look up, and where it sits."],
+-    ["/learn/statistics/decision/", "Decision navigator", "Choose a method from the question you are actually asking."],
+-    ["/lab/dp-600/resources/", "Fabric sources and coverage", "Source credits, study-guide mapping and the coverage reconciliation."],
+-  ] as const) {
+-    documents.push({
+-      id: `tool-${path.replace(/\W+/g, "-")}`,
+-      title,
+-      url: path,
+-      kind: "tool",
+-      summary,
+-      topic: ["tool"],
+-      language: title.includes("ع") ? "ar" : "en",
+-    });
+-  }
+-
+-  for (const journey of JOURNEYS) {
+-    documents.push({
+-      id: `journey-${journey.slug}`,
+-      title: `Journey ${journey.number}: ${journey.title}`,
+-      url: journeyHref(journey.slug),
+-      kind: "course",
+-      summary: journey.summary,
+-      topic: ["statistics", "journey", journey.arabic],
+-      language: "en",
+-      level: "intermediate",
+-      course: "Comprehensive Statistics Reference",
+-      keywords: [journey.question, ...journey.outcomes],
+-    });
+-  }
+-
+-  for (const section of SECTIONS) {
+-    documents.push({
+-      id: `stats-section-${section.id}`,
+-      title: `${section.number}. ${section.titleEn}`,
+-      url: sectionHref(section),
+-      kind: "section",
+-      summary: section.misconception || section.objectives.join(" · "),
+-      topic: ["statistics", section.journey, section.titleAr ?? ""],
+-      language: section.titleAr ? "mixed" : "en",
+-      level: "intermediate",
+-      course: "Comprehensive Statistics Reference",
+-      keywords: [section.titleAr ?? "", ...section.objectives],
+-    });
+-  }
+-
+-  for (const lab of LABS) {
+-    documents.push({
+-      id: `stats-lab-${lab.slug}`,
+-      title: lab.title,
+-      url: labHref(lab.slug),
+-      kind: "lab",
+-      summary: `${lab.question} ${lab.description}`.slice(0, 220),
+-      topic: ["statistics", "lab", lab.journey],
+-      language: "en",
+-      level: "intermediate",
+-      course: "Comprehensive Statistics Reference",
+-      keywords: lab.controls,
+-    });
+-  }
+-
+-  for (const item of buildSearchIndex()) {
+-    // The statistics module already builds a keyword-rich index; keep its
+-    // groups as kinds so the filters stay meaningful.
+-    const kind: SearchDocument["kind"] =
+-      item.group === "Journeys"
+-        ? "course"
+-        : item.group === "Interactive labs"
+-          ? "lab"
+-          : item.group.toLowerCase().includes("formula")
+-            ? "formula"
+-            : item.group.toLowerCase().includes("glossary")
+-              ? "glossary"
+-              : "section";
+-    if (documents.some((document) => document.url === item.href && document.title === item.label)) {
+-      continue;
+-    }
+-    documents.push({
+-      id: `stats-${item.id}`,
+-      title: item.label,
+-      url: item.href,
+-      kind,
+-      summary: item.group,
+-      topic: ["statistics", item.group],
+-      language: /[\u0600-\u06FF]/.test(item.keywords.join(" ")) ? "mixed" : "en",
+-      course: "Comprehensive Statistics Reference",
+-      keywords: item.keywords.filter(Boolean),
+-    });
+-  }
+-
+-  for (const exam of EXAMS) {
+-    documents.push({
+-      id: `exam-${exam.slug}`,
+-      title: `${exam.title} question set`,
+-      url: `/lab/${exam.slug}/`,
+-      kind: "question",
+-      summary: `${exam.questions.length} questions · ${exam.durationMinutes} minutes · ${exam.passMark}% pass mark. ${exam.description}`.slice(0, 240),
+-      topic: ["practice", exam.topic, exam.level],
+-      language: "en",
+-      level: exam.level,
+-      keywords: ["exam", "quiz", exam.topic.toLowerCase()],
+-    });
+-    for (const question of exam.questions) {
+-      documents.push({
+-        id: `q-${exam.slug}-${question.id}`,
+-        title: question.prompt.slice(0, 120),
+-        url: `/lab/${exam.slug}/`,
+-        kind: "question",
+-        summary: `${exam.topic} · ${exam.title}`,
+-        topic: ["practice", exam.topic],
+-        language: "en",
+-        level: exam.level,
+-        sourceId: question.id,
+-        keywords: [question.explanation.slice(0, 120)],
+-      });
+-    }
+-  }
+-
+-  for (const scenario of PRACTICE_QUESTIONS) {
+-    documents.push({
+-      id: `scenario-${scenario.id}`,
+-      title: scenario.prompt.slice(0, 120),
+-      url: `/practice/#${scenario.id}`,
+-      kind: "question",
+-      summary: `Visualization scenario · chapter ${scenario.chapter}`,
+-      topic: ["practice", "data visualization"],
+-      language: "en",
+-      sourceId: scenario.id,
+-      keywords: [scenario.explanation.slice(0, 160), ...scenario.options],
+-    });
+-  }
+-
++  const documents=sourceDocuments().map(doc=>doc.id==='page-home'?{...doc,url: "/",}:doc);
++  for(const doc of documents)if(doc.id==='page-learn-catalogue'||doc.id==='page-practice-catalogue'){doc.summary='Subject-led learning: explanations, experiments, questions and sources grouped in their topic context. Unapproved intake remains isolated.';doc.title=doc.id==='page-learn-catalogue'?'Learn by subject and topic':'Practise by subject and topic';}
++  for(const subject of SUBJECTS)for(const [topic,title] of subject.topics)documents.push({id:`topic-${subject.id}-${topic}`,title:`${title} — ${subject.title}`,url:topicHref(subject.id,topic),kind:'course',summary:subject.goal,topic:[subject.title,title],language:'en',keywords:['learning path','topic','practice','explanation']});
+   return documents;
+ }
+--- a/lib/site.ts
++++ b/lib/site.ts
+@@ -36,12 +36,11 @@
+  * About family rather than a peer of `Work`.
+  */
+ export const NAV = [
+-  { href: "/", label: "Today", description: "The daily insight and the editions archive" },
+-  { href: "/work", label: "Work", description: "Case studies and evidence" },
+-  { href: "/learn/catalogue", label: "Learn", description: "Courses, references, labs" },
+-  { href: "/practice/catalogue", label: "Practice", description: "Question banks and drills" },
+-  { href: "/services", label: "Services", description: "Dashboards, cleanup, training" },
+-  { href: "/about", label: "About", description: "Background, experience, contact" },
++  { href: "/", label: "Today", description: "Daily insight and editions" },
++  { href: "/learn/catalogue", label: "Learn", description: "Subjects, topics and explanations" },
++  { href: "/practice/catalogue", label: "Practice", description: "Questions in their learning context" },
++  { href: "/learn/dp-600/atlas/", label: "Atlas", description: "Evidence and publication state" },
++  { href: "/about", label: "About", description: "Background and professional work" },
+ ] as const;
+ 
+ /**
+@@ -71,13 +70,7 @@
+  * the landing adds Atlas because that is the context of the stage itself, and
+  * the interior pages add Work and Services because those pages are that work.
+  */
+-export const LANDING_NAV = [
+-  { href: "/", label: "Today", description: "The daily insight and the editions archive" },
+-  { href: "/learn/catalogue", label: "Learn", description: "Courses, references, labs" },
+-  { href: "/practice/catalogue", label: "Practice", description: "Question banks and drills" },
+-  { href: "/learn/dp-600/atlas/", label: "Atlas", description: "Concept relations and their review status" },
+-  { href: "/about", label: "About", description: "Background, Work and contact" },
+-] as const;
++export const LANDING_NAV = [...NAV] as const;
+ 
+ /**
+  * Which route prefixes should light up a primary nav item.
+@@ -93,7 +86,7 @@
+   "/learn/dp-600/atlas/": ["/learn/dp-600/atlas"],
+   "/work": ["/work"],
+   // `/explore/` is the visualization lab gallery: part of the learning material.
+-  "/learn/catalogue": ["/learn", "/explore"],
++  "/learn/catalogue": ["/learn", "/explore", "/study"],
+   // `/lab/` holds the question banks: part of practice, not of learning.
+   "/practice/catalogue": ["/practice", "/lab"],
+   "/services": ["/services"],
+@@ -102,6 +95,8 @@
+ 
+ /** Secondary destinations that stay one tap away without becoming top-level peers. */
+ export const SECONDARY_NAV = [
++  { href: "/work", label: "Work & case studies" },
++  { href: "/services", label: "Services" },
+   { href: "/experience", label: "Experience & skills" },
+   { href: "/contact", label: "Contact" },
+ ] as const;
+--- /dev/null
++++ b/lib/study/briefs.ts
+@@ -0,0 +1,31 @@
++// Editorial learning goals; no factual claim or prerequisite edge is added.
++export const TOPIC_GOALS:Record<string,string>={
++ 'fabric.foundations':'Explain what each storage and query surface is responsible for before selecting an architecture.',
++ 'fabric.ingestion':'Choose reference, replication or retained movement from the actual freshness, access and ownership constraints.',
++ 'fabric.transform':'Reason about transformations and committed table state without confusing files with a table.',
++ 'fabric.query':'Choose and explain a query surface, its supported operations and its boundaries.',
++ 'fabric.model':'Connect grain, relationships, calculations and storage mode to the analytical question.',
++ 'fabric.security':'Trace who can access which object through which permission boundary.',
++ 'fabric.delivery':'Separate development, deployment and operational monitoring responsibilities.',
++ 'fabric.streaming':'Choose and inspect an event-processing path using the documented source conditions.',
++ 'statistics.foundations':'Identify the population, sample, variable and observation grain in a claim.',
++ 'statistics.describe':'Explain what a summary reveals and what it hides about a distribution.',
++ 'statistics.probability':'Express uncertainty and conditional information before calculating a result.',
++ 'statistics.distributions':'Choose and inspect a distribution model and its assumptions.',
++ 'statistics.sampling':'Distinguish variation in observations from uncertainty in an estimate.',
++ 'statistics.hypothesis':'State the hypotheses, test conditions and limits of the conclusion.',
++ 'statistics.experiments':'Distinguish experimental evidence from an observational association.',
++ 'statistics.relationships':'Describe a relationship and explain the limits of prediction.',
++ 'statistics.synthesis':'Choose a method from the question and evidence rather than from a familiar formula.',
++ 'visualization.foundations':'Define the decision, variable types and observation grain before selecting an encoding.',
++ 'visualization.comparison':'Choose an encoding that supports accurate comparison and ranking.',
++ 'visualization.distribution':'Read shape, spread and unusual observations without hiding the underlying variation.',
++ 'visualization.relationships':'Investigate association while separating visual pattern from causal explanation.',
++ 'visualization.time':'Explain change over time with an explicit interval and comparison baseline.',
++ 'visualization.composition':'Organize a visual explanation around its audience and decision.',
++ 'visualization.accessibility':'Check whether the visual remains honest and usable with different access needs.',
++ 'power-bi.prepare':'Choose a preparation step that matches the data and ownership requirements.',
++ 'power-bi.model':'Explain model grain, relationships and calculations in their reporting context.',
++ 'power-bi.report':'Choose report interactions and visuals that support the intended decision.',
++ 'power-bi.govern':'Explain delivery, access and lifecycle constraints in a Power BI scenario.',
++};
+--- /dev/null
++++ b/lib/study/review.ts
+@@ -0,0 +1,7 @@
++import dp from '@/content/drafts/dp600-r18.json';import pl from '@/content/drafts/pl300-v88.json';import notion from '@/content/intake/notion-lessons.json';import assessments from '@/content/intake/notion-assessments.json';import rti from '@/content/intake/rti-labs.json';import {classify,type StudyRecord,type SubjectId} from './taxonomy';
++// Explicit metadata allowlist: never project options, keys or answer rationales.
++export function reviewRecords():StudyRecord[]{const out:StudyRecord[]=[];
++ function question(q:Record<string,unknown>,bank:string,subject:SubjectId,status:string){const text=String(q.prompt??q.stem??q.question??q.title??q.sourceId),id=String(q.draftId??q.id??q.sourceId),sourceId=String(q.sourceId??q.id);out.push({id,title:text.slice(0,170),href:`/practice/drafts/?bank=${bank}&q=${encodeURIComponent(sourceId)}`,subject,...classify(subject,String(q.exam_subobjective??q.topic??'')+' '+text),kind:'question',context:'REVIEW ONLY — '+status,source:bank+' / '+sourceId,status,language:'en'});}
++ for(const q of dp.questions)question(q,'dp600-r18','fabric',dp.status);for(const q of pl.questions)question(q,'pl300-v88','power-bi',pl.status);for(const q of assessments.questions)question(q,'notion-28','visualization',assessments.status);
++ for(const l of notion.lessons)out.push({id:l.id,title:l.title,href:`/learn/drafts/?tab=lessons&q=${encodeURIComponent(l.title)}`,subject:'visualization',...classify('visualization',l.title),kind:'read',context:'REVIEW ONLY — '+l.explanation,source:'Creative-patterns intake / '+l.id,status:notion.status,language:'en'});
++ for(const l of rti.labs)out.push({id:l.lab_id,title:l.title,href:`/learn/drafts/?tab=labs&q=${encodeURIComponent(l.title)}`,subject:'fabric',...classify('fabric',l.title),kind:'experiment',context:'REVIEW ONLY — '+l.task,source:'RTI source lab / '+l.lab_id,status:rti.status+' · '+rti.runtimeStatus,language:'en'});return out;}
+--- /dev/null
++++ b/lib/study/server.ts
+@@ -0,0 +1,35 @@
++import {sourceDocuments} from './source-documents';
++import fabric from '@/content/fabric/index.json';
++import additions from '@/content/fabric/additions/questions.json';
++import notes from '@/content/fabric/notes.json';
++import revisions from '@/content/fabric/r11/questions.json';
++import {LESSON,TRANSFER} from '@/lib/academy/ingestion';
++import feed from '@/content/knowledge/insights.json';
++import {eligibleInsights} from '@/lib/knowledge/insights';
++import {SUBJECTS,classify,type StudyRecord,type SubjectId} from './taxonomy';
++function clean(s:string){return s.replace(/<[^>]*>/g,' ').replace(/\\n/g,' ').replace(/\s+/g,' ').trim();}
++const PACK_CONTEXT:Record<string,string>={delta:'transform',warehouse:'query',pipelines:'ingestion',scd:'model',eventhouse:'streaming',video06:'security',video07:'security',video08:'security',video09:'delivery',video10:'delivery',video11:'streaming',video12:'delivery',video14:'ingestion',video15:'security',video16:'query',video19:'ingestion',video20:'transform',video21:'delivery'};
++function fabricPlacement(text:string,pack:string){const m=classify('fabric',text);return m.topic==='overview'&&PACK_CONTEXT[pack]?{topic:PACK_CONTEXT[pack],basis:'Existing source pack context; no prerequisite or answer-validation claim'}:m;}
++export function studyRecords():StudyRecord[]{
++ const records:StudyRecord[]=[];
++ for(const doc of sourceDocuments()){
++  // The R11 search view reuses the existing addition IDs below, never a second question.
++  if(doc.id.startsWith('r11-'))continue;
++  const href=doc.url, path=href.split(/[?#]/)[0];
++  if(!/^\/(learn|explore|practice|lab)\//.test(path)||/catalogue|drafts|atlas/.test(path))continue;
++  let subject:SubjectId=path.includes('statistics')||href.includes('/lab/statistics')?'statistics':path.includes('dp-600')?'fabric':path.includes('/lab/power-bi')?'power-bi':path.includes('/lab/python')?'python':path.includes('/lab/excel')?'excel':path.includes('/lab/sql')?'sql':path.includes('/lab/fundamentals')?'analysis':'visualization';
++  if(doc.id==='page-home')continue;
++  if((subject==='visualization')&&doc.topic.some(t=>t.toLowerCase().includes('statistics')))subject='statistics';
++  const mapping=classify(subject,[doc.title,...doc.topic].join(' '),subject==='statistics'?doc.topic.find(t=>SUBJECTS[1].topics.some(a=>a[0]===t)):undefined);
++  const destination=doc.id.startsWith('q-')&&doc.sourceId?`${href}?question=${encodeURIComponent(doc.sourceId)}`:href;
++  records.push({id:doc.id,title:doc.title,href:destination,subject,...mapping,kind:doc.id.startsWith('exam-')?'reference':doc.kind==='question'?'question':doc.kind==='lab'?'experiment':doc.kind==='tool'?'reference':'read',context:doc.summary,language:doc.language,source:doc.sourceId??'Existing learning catalogue',status:doc.id.startsWith('q-')?'Start practice to open this question as an unscored drill; mock exams remain complete':'Existing published surface; review labels remain at source'});
++ }
++ for(const q of fabric){const mapping=fabricPlacement([q.topic,q.title,...q.subjects].join(' '),q.pack);records.push({id:q.id,title:q.title,href:`/lab/dp-600/explore/?question=${encodeURIComponent(q.id)}`,subject:'fabric',...mapping,kind:'question',context:q.prompt,language:'en',source:`${q.pack} / ${q.sourceId}`,status:'Existing bank; original source/answer status retained'});}
++ for(const q of additions){const revision=revisions.find(r=>r.hansaId===q.id);const text=revision?.stem??clean(q.stemHtml);const status=revision?`${revision.scientificStatus} · ${revision.reviewNote}`:q.review;const subject=q.exam==='PL-300'?'power-bi':'fabric';const mapping=classify(subject,text);records.push({id:q.id,title:text.slice(0,170),href:`/lab/dp-600/explore/?question=${encodeURIComponent(q.id)}`,subject,...mapping,kind:'question',context:`${q.exam} · ${status}`,language:'en',source:q.sourceRecords.join(', ')+(revision?' · current R11 revision':''),status:q.blockers.length&&!revision?'Existing source with blockers — inspect before use':status});}
++ for(const pack of notes)for(const chapter of pack.chapters){const mapping=fabricPlacement(chapter.title,pack.pack);records.push({id:`note-${pack.pack}-${chapter.id}`,title:chapter.title,href:`/lab/dp-600/resources/`,subject:'fabric',...mapping,kind:'read',context:chapter.points.join(' '),language:'en',source:`Learning notes / ${pack.pack} / ${chapter.id}`,status:'Existing note; open resources and choose the named pack/section'});}
++ const base={subject:'fabric' as const,topic:'ingestion',basis:'Existing authored ingestion lesson / scenario metadata',language:'en',source:LESSON.id,status:LESSON.origin};
++ records.push({...base,id:LESSON.id,title:LESSON.title,href:LESSON.href+'#understand',kind:'read',context:LESSON.objective+' Before starting: '+LESSON.prerequisites.join('; ')},{...base,id:LESSON.id+'-experiment',title:'Compare access and movement constraints',href:LESSON.href+'#experiment',kind:'experiment',context:LESSON.objective});
++ for(const q of TRANSFER)records.push({...base,id:q.id,title:q.title,href:LESSON.href+'#'+q.id,kind:'question',context:q.prompt});
++ for(const insight of eligibleInsights(feed.items,true))records.push({...base,id:insight.id,title:insight.title,href:'/?insight='+insight.id+'#today',kind:'experiment',context:insight.topic,source:'Dated Daily Insight / '+insight.date});
++ const order={read:0,experiment:1,question:2,reference:3};return records.sort((a,b)=>order[a.kind]-order[b.kind]);
++}
+--- /dev/null
++++ b/lib/study/source-documents.ts
+@@ -0,0 +1,315 @@
++// Builds the site-wide search index from typed content metadata.
++//
++// Server-side only: it imports the content modules so the client never has to.
++// Every document points at a canonical URL that already exists; the index adds
++// navigation, not new pages. Question documents carry the stem and topic, never
++// an answer key.
++
++import { CASE_STUDIES } from "@/lib/case-studies";
++import { SERVICES } from "@/lib/services";
++import {
++  CHAPTERS,
++  ArabicLessons,
++  EnglishLessons,
++  chapterHref,
++  lessonHref,
++} from "@/lib/data-viz/content";
++import { CHART_LABS } from "@/lib/data-viz/labs";
++import { PRACTICE_QUESTIONS } from "@/lib/data-viz/practice";
++import {
++  JOURNEYS,
++  LABS,
++  SECTIONS,
++  buildSearchIndex,
++  journeyHref,
++  labHref,
++  sectionHref,
++} from "@/lib/statistics/content";
++import { EXAMS } from "@/lib/exams";
++import R11_SEARCH from "@/content/fabric/r11/search.json";
++import type { SearchDocument } from "@/lib/search/query";
++
++const MANUAL: SearchDocument[] = [
++  {
++    id: "page-home",
++    title: "Today — the daily data insight",
++    url: "/",
++    kind: "lesson",
++    summary:
++      "One decision to think through, the reasoning behind it, the knowledge cards that change the lens, the Atlas review state and the full editions archive.",
++    topic: ["insight", "editions", "knowledge stage"],
++    language: "en",
++    keywords: ["today", "daily insight", "knowledge stage", "archive", "editions"],
++  },
++  { id: "page-fabric-atlas", title: "Knowledge Atlas — Fabric decisions", url: "/learn/dp-600/atlas/", kind: "tool", summary: "Explore documented concept relationships, conditions and sources. Human publication review remains separate.", topic: ["Fabric", "Atlas"], language: "en", keywords: ["knowledge", "graph", "shortcuts", "mirroring", "أطلس"] },
++  { id: "page-fabric-journey", title: "Guided journey — Reference to replica", url: "/learn/dp-600/atlas/journey/", kind: "lesson", summary: "Learn, explore, practise and reflect on Fabric ingestion decisions.", topic: ["Fabric", "ingestion"], language: "en" },
++  {
++    id: "page-learn-catalogue",
++    title: "Learning catalogue",
++    url: "/learn/catalogue/",
++    kind: "course",
++    summary:
++      "Every course, reference and lab in one place, labelled Read, Experiment or Test.",
++    topic: ["catalogue", "learn"],
++    language: "en",
++    keywords: ["courses", "index", "study"],
++  },
++  {
++    id: "page-practice-catalogue",
++    title: "Practice catalogue",
++    url: "/practice/catalogue/",
++    kind: "tool",
++    summary:
++      "The three question banks: 60 analyst questions, 834 Fabric questions and 12 visualization scenarios.",
++    topic: ["catalogue", "practice"],
++    language: "en",
++    keywords: ["exams", "questions", "quiz"],
++  },
++  {
++    id: "page-search",
++    title: "Search the site",
++    url: "/search/",
++    kind: "tool",
++    summary: "One index across courses, lessons, sections, labs, tools, questions and case studies.",
++    topic: ["search"],
++    language: "en",
++  },
++  {
++    id: "page-contact",
++    title: "Contact",
++    url: "/contact/",
++    kind: "tool",
++    summary: "Email address, copy-to-clipboard and a message composer that opens your mail app.",
++    topic: ["contact", "hire"],
++    language: "en",
++    keywords: ["email", "work together"],
++  },
++];
++
++export function sourceDocuments(): SearchDocument[] {
++  const documents: SearchDocument[] = [...MANUAL, ...(R11_SEARCH as SearchDocument[])];
++
++  for (const study of CASE_STUDIES) {
++    documents.push({
++      id: `case-${study.slug}`,
++      title: study.title,
++      url: `/work/${study.slug}/`,
++      kind: "case-study",
++      summary: `${study.subtitle} ${study.summary}`.slice(0, 240),
++      topic: [study.status, ...study.tools.slice(0, 4)],
++      language: "en",
++      level: "advanced",
++      keywords: [study.role, study.timeframe, ...study.outcome.slice(0, 3)],
++    });
++  }
++
++  for (const service of SERVICES) {
++    documents.push({
++      id: `service-${service.slug}`,
++      title: service.name,
++      url: `/services/#${service.slug}`,
++      kind: "tool",
++      summary: `${service.tagline} ${service.description}`.slice(0, 200),
++      topic: ["services", service.slug],
++      language: "en",
++      keywords: [service.bestFor, service.turnaround],
++    });
++  }
++
++  for (const chapter of CHAPTERS) {
++    documents.push({
++      id: `chapter-${chapter.number}`,
++      title: `${chapter.number}. ${chapter.title}`,
++      url: chapterHref(chapter),
++      kind: "course",
++      summary: `${chapter.question} ${chapter.summary}`.slice(0, 240),
++      topic: ["data visualization", "chapter"],
++      language: "en",
++      level: "beginner",
++      course: "Data Visualization",
++      keywords: [chapter.question, chapter.lab.label],
++    });
++  }
++
++  for (const lesson of [...EnglishLessons, ...ArabicLessons]) {
++    const isArabic = lesson.section === "ar";
++    documents.push({
++      id: `lesson-${lesson.section}-${lesson.slug}`,
++      title: lesson.title,
++      url: lessonHref(lesson),
++      kind: "lesson",
++      summary: (lesson.intro ?? lesson.takeaways.join(" · ")).slice(0, 240),
++      topic: isArabic ? ["data visualization", "العربية"] : ["data visualization"],
++      language: isArabic ? "ar" : "en",
++      level: "beginner",
++      course: "Data Visualization",
++      keywords: lesson.takeaways,
++    });
++  }
++
++  documents.push({
++    id: "tool-chart-labs",
++    title: "Six chart labs",
++    url: "/explore/charts/",
++    kind: "lab",
++    summary: "Histogram, box, scatter, line, bar and dot — each with the one control that changes the story.",
++    topic: ["data visualization", "labs"],
++    language: "en",
++    keywords: ["interactive", "bins", "baseline"],
++  });
++
++  for (const lab of CHART_LABS) {
++    documents.push({
++      id: `chartlab-${lab.type}`,
++      title: `${lab.title} lab`,
++      url: `/explore/charts/${lab.type}/`,
++      kind: "lab",
++      summary: `${lab.question} ${lab.summary}`.slice(0, 220),
++      topic: ["data visualization", "chart", lab.type],
++      language: "en",
++      course: "Data Visualization",
++      keywords: [lab.type, ...lab.teaches, ...lab.mistakes],
++    });
++  }
++
++  for (const [path, title, summary] of [
++    ["/explore/choose/", "Chart decision assistant", "Answer two questions about the task and the data shape; get a defensible chart and its failure modes."],
++    ["/explore/integrity/", "Integrity lab", "The same numbers drawn honestly and dishonestly, side by side."],
++    ["/explore/dashboards/", "Dashboard composition", "Compose a page from the decision backwards."],
++    ["/explore/specialty/", "Specialty charts", "Sankey, treemap and funnel — what each one actually encodes."],
++    ["/learn/ar/", "المسار العربي", "Arabic companion path for the visualisation course."],
++    ["/learn/statistics/formulas/", "Formula workbench", "Every formula with its meaning, units, assumptions and a worked example."],
++    ["/learn/statistics/glossary/", "Bilingual glossary", "Statistics terms in English and Arabic."],
++    ["/learn/statistics/atlas/", "Concept atlas", "Map of the statistics reference: what to look up, and where it sits."],
++    ["/learn/statistics/decision/", "Decision navigator", "Choose a method from the question you are actually asking."],
++    ["/lab/dp-600/resources/", "Fabric sources and coverage", "Source credits, study-guide mapping and the coverage reconciliation."],
++  ] as const) {
++    documents.push({
++      id: `tool-${path.replace(/\W+/g, "-")}`,
++      title,
++      url: path,
++      kind: "tool",
++      summary,
++      topic: ["tool"],
++      language: title.includes("ع") ? "ar" : "en",
++    });
++  }
++
++  for (const journey of JOURNEYS) {
++    documents.push({
++      id: `journey-${journey.slug}`,
++      title: `Journey ${journey.number}: ${journey.title}`,
++      url: journeyHref(journey.slug),
++      kind: "course",
++      summary: journey.summary,
++      topic: ["statistics", "journey", journey.arabic],
++      language: "en",
++      level: "intermediate",
++      course: "Comprehensive Statistics Reference",
++      keywords: [journey.question, ...journey.outcomes],
++    });
++  }
++
++  for (const section of SECTIONS) {
++    documents.push({
++      id: `stats-section-${section.id}`,
++      title: `${section.number}. ${section.titleEn}`,
++      url: sectionHref(section),
++      kind: "section",
++      summary: section.misconception || section.objectives.join(" · "),
++      topic: ["statistics", section.journey, section.titleAr ?? ""],
++      language: section.titleAr ? "mixed" : "en",
++      level: "intermediate",
++      course: "Comprehensive Statistics Reference",
++      keywords: [section.titleAr ?? "", ...section.objectives],
++    });
++  }
++
++  for (const lab of LABS) {
++    documents.push({
++      id: `stats-lab-${lab.slug}`,
++      title: lab.title,
++      url: labHref(lab.slug),
++      kind: "lab",
++      summary: `${lab.question} ${lab.description}`.slice(0, 220),
++      topic: ["statistics", "lab", lab.journey],
++      language: "en",
++      level: "intermediate",
++      course: "Comprehensive Statistics Reference",
++      keywords: lab.controls,
++    });
++  }
++
++  for (const item of buildSearchIndex()) {
++    // The statistics module already builds a keyword-rich index; keep its
++    // groups as kinds so the filters stay meaningful.
++    const kind: SearchDocument["kind"] =
++      item.group === "Journeys"
++        ? "course"
++        : item.group === "Interactive labs"
++          ? "lab"
++          : item.group.toLowerCase().includes("formula")
++            ? "formula"
++            : item.group.toLowerCase().includes("glossary")
++              ? "glossary"
++              : "section";
++    if (documents.some((document) => document.url === item.href && document.title === item.label)) {
++      continue;
++    }
++    documents.push({
++      id: `stats-${item.id}`,
++      title: item.label,
++      url: item.href,
++      kind,
++      summary: item.group,
++      topic: ["statistics", item.group],
++      language: /[\u0600-\u06FF]/.test(item.keywords.join(" ")) ? "mixed" : "en",
++      course: "Comprehensive Statistics Reference",
++      keywords: item.keywords.filter(Boolean),
++    });
++  }
++
++  for (const exam of EXAMS) {
++    documents.push({
++      id: `exam-${exam.slug}`,
++      title: `${exam.title} question set`,
++      url: `/lab/${exam.slug}/`,
++      kind: "question",
++      summary: `${exam.questions.length} questions · ${exam.durationMinutes} minutes · ${exam.passMark}% pass mark. ${exam.description}`.slice(0, 240),
++      topic: ["practice", exam.topic, exam.level],
++      language: "en",
++      level: exam.level,
++      keywords: ["exam", "quiz", exam.topic.toLowerCase()],
++    });
++    for (const question of exam.questions) {
++      documents.push({
++        id: `q-${exam.slug}-${question.id}`,
++        title: question.prompt.slice(0, 120),
++        url: `/lab/${exam.slug}/`,
++        kind: "question",
++        summary: `${exam.topic} · ${exam.title}`,
++        topic: ["practice", exam.topic],
++        language: "en",
++        level: exam.level,
++        sourceId: question.id,
++        keywords: [question.explanation.slice(0, 120)],
++      });
++    }
++  }
++
++  for (const scenario of PRACTICE_QUESTIONS) {
++    documents.push({
++      id: `scenario-${scenario.id}`,
++      title: scenario.prompt.slice(0, 120),
++      url: `/practice/#${scenario.id}`,
++      kind: "question",
++      summary: `Visualization scenario · chapter ${scenario.chapter}`,
++      topic: ["practice", "data visualization"],
++      language: "en",
++      sourceId: scenario.id,
++      keywords: [scenario.explanation.slice(0, 160), ...scenario.options],
++    });
++  }
++
++  return documents;
++}
+--- /dev/null
++++ b/lib/study/taxonomy.ts
+@@ -0,0 +1,29 @@
++// Navigation taxonomy, not an assertion of scientific prerequisite edges.
++export const SUBJECTS = [
++ {id:'fabric',title:'Microsoft Fabric',goal:'Build, query and govern an analytical data platform.',topics:[['foundations','Storage & architecture'],['ingestion','Data ingestion & orchestration'],['transform','Transformation & Delta'],['query','SQL & analytical queries'],['model','Semantic models & DAX'],['security','Security & governance'],['delivery','Lifecycle & operations'],['streaming','Real-time intelligence'],['overview','Cross-topic decisions']]},
++ {id:'statistics',title:'Statistics & reasoning',goal:'Describe evidence, quantify uncertainty and test an explanation.',topics:[['foundations','Questions, populations & samples'],['describe','Describe & compare'],['probability','Probability'],['distributions','Distributions'],['sampling','Sampling & estimation'],['hypothesis','Hypothesis tests'],['experiments','Experiment design'],['relationships','Relationships & prediction'],['synthesis','Synthesis & method selection']]},
++ {id:'visualization',title:'Data visualization',goal:'Choose an honest visual explanation for a specific decision.',topics:[['foundations','Questions, grain & encodings'],['comparison','Comparison & ranking'],['distribution','Distributions & outliers'],['relationships','Relationships & multivariate data'],['time','Time & change'],['composition','Composition, dashboards & story'],['accessibility','Accessibility & visual integrity'],['overview','Whole-course resources']]},
++ {id:'power-bi',title:'Power BI',goal:'Prepare data, model meaning and communicate a decision.',topics:[['prepare','Prepare & transform'],['model','Model & calculate'],['report','Reports & interactions'],['govern','Publish & govern'],['overview','Cross-topic questions']]},
++ {id:'sql',title:'SQL',goal:'Read and reason about relational queries.',topics:[['overview','Query practice']]},
++ {id:'python',title:'Python',goal:'Practise programming for analysis.',topics:[['overview','Analysis practice']]},
++ {id:'excel',title:'Excel',goal:'Practise spreadsheet analysis.',topics:[['overview','Spreadsheet practice']]},
++ {id:'analysis',title:'Analytical foundations',goal:'Frame a question before selecting a tool.',topics:[['overview','Analyst decisions & foundations']]},
++] as const;
++export type SubjectId=typeof SUBJECTS[number]['id'];
++export type StudyRecord={id:string;title:string;href:string;subject:SubjectId;topic:string;kind:'read'|'experiment'|'question'|'reference';context:string;language:string;source:string;basis:string;status:string};
++export const subjectById=(id:string)=>SUBJECTS.find(s=>s.id===id);
++export const topicHref=(subject:string,topic:string)=>`/study/${subject}/${topic}/`;
++export function classify(subject:SubjectId,text:string,existingTopic?:string):{topic:string;basis:string}{
++ const s=subjectById(subject)!;
++ if(existingTopic&&s.topics.some(t=>t[0]===existingTopic))return {topic:existingTopic,basis:'Existing editorial journey metadata'};
++ const rules:Partial<Record<SubjectId,[string,RegExp][]>>={
++  fabric:[['security',/security|permission|grant|mask|rls|ols|access control|governance|endorse|certif/i],['delivery',/deployment|git|lifecycle|monitor|cicd|ci\/cd|capacity|migration/i],['model',/semantic|dax|star schema|dimension|slowly changing|direct lake|directlake|scd/i],['streaming',/kql|eventhouse|eventstream|real.time|streaming/i],['ingestion',/ingest|pipeline|orchestrat|copy job|data movement|mirroring|shortcut/i],['transform',/delta|spark|notebook|parquet|vacuum|optimiz|transformation|dataflow/i],['query',/sql|warehouse|query|t-sql/i],['foundations',/onelake|lakehouse|storage|architecture/i]],
++  visualization:[['accessibility',/accessib|contrast|integrity|color|colour|mislead|honest/i],['distribution',/histogram|distribution|outlier|box plot|boxplot|density/i],['relationships',/scatter|correlation|relationship|multivariate/i],['time',/time|trend|line chart|temporal/i],['comparison',/comparison|ranking|bar chart|dot plot/i],['composition',/dashboard|story|audience|composition|part.to.whole|pie|treemap/i],['foundations',/foundation|encoding|grain|variable|decision|choose/i]],
++  statistics:[['hypothesis',/hypothes|p.value|significance|type i|type ii/i],['experiments',/experiment|causal|randomiz|a\/b/i],['relationships',/regress|correl|relationship|prediction/i],['sampling',/sampling|estimat|interval|bootstrap|standard error/i],['distributions',/distribution|normal|binomial|poisson/i],['probability',/probab|bayes|conditional/i],['describe',/describ|median|mean|variance|quartile|summary/i],['foundations',/population|sample|foundation|measurement|variable/i]],
++  'power-bi':[['govern',/publish|security|permission|workspace|deploy|rls|refresh/i],['model',/dax|model|relationship|measure|calculate/i],['prepare',/power query|transform|prepare|etl|load/i],['report',/visual|report|dashboard|filter|slicer/i]],
++ };
++ const glossaryRules:[string,RegExp][]=subject==='statistics'?[['describe',/standard deviation|\biqr\b|outlier|descriptive statistics|\bmode\b/i],['foundations',/\bparameter\b|\bstatistic\b/i],['probability',/complement|independence|mutually exclusive/i],['distributions',/\bpmf\b|\bpdf\b|z.score|empirical rule|lambda/i],['sampling',/central limit theorem|coverage|inferential statistics/i],['hypothesis',/test statistic|decision rule|alpha|power|accept.*h/i],['experiments',/blinding|\brct\b|confounder|lift/i],['relationships',/pearson/i]]:subject==='visualization'?[['time',/line plot|الرسم الخطي/i],['comparison',/bar plot|مخطط الأعمدة/i],['accessibility',/الألوان|statistical.*traps/i],['foundations',/grammar|core chart|chart selection|encoding|univariate|bivariate/i],['composition',/power bi.*playbook|applied cases/i]]:[];
++ const direct=glossaryRules.find(([,pattern])=>pattern.test(text));if(direct)return {topic:direct[0],basis:'Explicit term-to-topic editorial mapping; original definition retained'};
++ const match=rules[subject]?.find(([,pattern])=>pattern.test(text));
++ return {topic:match?.[0]??(subject==='statistics'?'synthesis':'overview'),basis:match?'Metadata/title rule; organizational placement, not scientific validation':'Broad subject placement; finer editorial mapping pending'};
++}
+--- a/scripts/final-review-receipt.mjs
++++ b/scripts/final-review-receipt.mjs
+@@ -3,6 +3,7 @@
+ import {createHash} from 'node:crypto';
+ import {resolve,sep} from 'node:path';
+ import ts from 'typescript';
++import {studyReceipt} from './study-receipt.mjs';
+ export const FINAL_REVIEW='docs/final-review-20261028/INTEGRATION_MANIFEST.json';
+ export const FINAL_HISTORY='docs/final-review-20261028/HISTORICAL_RECONCILIATION.json';
+ const digest=b=>createHash('sha256').update(b).digest('hex');
+@@ -14,6 +15,7 @@
+  const safe=p=>{const a=resolve(root,p);assert.ok(a.startsWith(root+sep),'Final receipt path escapes checkout');return a;};
+  const raw=p=>readFileSync(safe(p)),hash=p=>digest(raw(p)),json=p=>JSON.parse(raw(p));
+  const m=json(FINAL_REVIEW);
++ const successor=studyReceipt(root);
+  assert.equal(m.scope,'hansa-final-review-20261028');
+  assert.equal(hash(m.previousManifest),m.previousManifestSha256,'Original Phase 2 manifest changed');
+  assert.equal(hash(m.baselinePath),m.baselineSha256,'Final-review starting baseline changed');
+@@ -27,7 +29,7 @@
+   assert.equal(e.toSha256,baseline[e.path],'Historical evolution not bound to starting state');
+   const captured=e.capturedPath?raw(e.capturedPath):raw(e.path);
+   assert.equal(digest(captured),e.toSha256,'Unaudited historical successor bytes '+e.path);
+-  assert.equal(hash(e.path),m.files.find(f=>f.path===e.path)?.sha256??e.toSha256,'Unaudited current historical source '+e.path);
++  assert.equal(hash(e.path),successor.expected(e.path,m.files.find(f=>f.path===e.path)?.sha256??e.toSha256),'Unaudited current historical source '+e.path);
+   const original=raw(e.originalPath).toString('utf8'),current=captured.toString('utf8');
+   if(e.path==='package.json'){
+    assert.equal(e.fromSha256,'6561cd5806c9e436d8accdb74fb3a669d3620c848a710e22cb29c2dc9cc62d92');
+@@ -82,13 +84,13 @@
+  for(const e of m.files){
+   assert.equal(e.beforeSha256,baseline[e.path]??null,'Unbound final-review change '+e.path);
+   if(e.beforeSha256!==null&&!e.generated)assert.equal(hash(e.rollbackPath),e.beforeSha256,'Rollback drift '+e.path);
+-  assert.equal(hash(e.path),e.sha256,'Final-review drift '+e.path);
++  assert.equal(hash(e.path),successor.expected(e.path,e.sha256),'Final-review drift '+e.path);
+  }
+  // A preserved addition may itself be changed by this authorized successor.
+- for(const e of h.additions){const change=m.files.find(f=>f.path===e.path);assert.equal(hash(e.path),change?.sha256??e.sha256,'Preexisting addition drift '+e.path);}
+- function expected(p,old){const historic=transitions.find(e=>e.path===p&&e.fromSha256===old)?.toSha256??(old===null?h.additions.find(e=>e.path===p)?.sha256:undefined)??old;return m.files.find(e=>e.path===p&&e.beforeSha256===historic)?.sha256??historic;}
+- return {expected,paths:()=>[...m.files.map(e=>e.path),...h.additions.map(e=>e.path)],
+-  bytes(p,old,n){const next=expected(p,old);return next===old?n:(m.files.find(e=>e.path===p&&e.sha256===next)?.bytes??transitions.find(e=>e.path===p&&e.toSha256===next)?.toBytes??n);},
++ for(const e of h.additions){const change=m.files.find(f=>f.path===e.path);assert.equal(hash(e.path),successor.expected(e.path,change?.sha256??e.sha256),'Preexisting addition drift '+e.path);}
++ function expected(p,old){const historic=transitions.find(e=>e.path===p&&e.fromSha256===old)?.toSha256??(old===null?h.additions.find(e=>e.path===p)?.sha256:undefined)??old;return successor.expected(p,m.files.find(e=>e.path===p&&e.beforeSha256===historic)?.sha256??historic);}
++ return {expected,paths:()=>[...m.files.map(e=>e.path),...h.additions.map(e=>e.path),...successor.paths()],
++  bytes(p,old,n){const next=expected(p,old);return next===old?n:successor.bytes(p,m.files.find(e=>e.path===p&&e.sha256===next)?.bytes??transitions.find(e=>e.path===p&&e.toSha256===next)?.toBytes??n);},
+   historicalBytes(p,sha){const e=transitions.find(e=>e.path===p&&e.fromSha256===sha);return e?raw(e.originalPath):null;},
+  };
+ }
+--- /dev/null
++++ b/scripts/study-audit.mjs
+@@ -0,0 +1,15 @@
++import {register} from 'node:module';register('./study-loader.mjs',import.meta.url);
++import {readFileSync,writeFileSync,readdirSync,mkdirSync} from 'node:fs';import {createHash} from 'node:crypto';import assert from 'node:assert/strict';
++const {studyRecords}=await import('../lib/study/server.ts'),{SUBJECTS}=await import('../lib/study/taxonomy.ts');const records=studyRecords(),dir='docs/learning-architecture-20261028';mkdirSync(dir,{recursive:true});
++const {reviewRecords}=await import('../lib/study/review.ts');const review=reviewRecords();assert.equal(review.length,1572);assert.equal(new Set(review.map(r=>r.id)).size,review.length);writeFileSync(dir+'/REVIEW_RECORDS.json',JSON.stringify(review,null,2));
++assert.equal(new Set(records.map(r=>r.id)).size,records.length,'Duplicate identities in learning registry');
++assert.equal(records.filter(r=>r.kind==='question').length,1441,'834 original + 532 additions + 60 analyst + 12 scenarios + 3 authored transfer cases; R11 is a revision overlay');
++assert.equal(records.filter(r=>r.source.includes('current R11 revision')).length,222,'Every current R11 revised stem must replace its older index text');
++for(const r of records){assert.ok(SUBJECTS.find(s=>s.id===r.subject)?.topics.some(t=>t[0]===r.topic));assert.ok(r.title&&r.href.startsWith('/'));assert.ok(!/^draft-|^r18-|^v88-/i.test(r.id),'Unapproved draft escaped isolation: '+r.id);assert.ok(!('answer'in r)&&!('options'in r));}
++const walk=d=>readdirSync(d,{withFileTypes:true}).flatMap(e=>e.isDirectory()?walk(d+'/'+e.name):[d+'/'+e.name]);
++const baseline=JSON.parse(readFileSync(dir+'/BASELINE.json','utf8')).files;const changedContent=[];for(const [p,hash]of Object.entries(baseline))if(p.startsWith('content/')){if(createHash('sha256').update(readFileSync(p)).digest('hex')!==hash)changedContent.push(p);}assert.deepEqual(changedContent,[],'Original content changed');
++const inventory=walk('content').filter(p=>p.endsWith('.json')).map(p=>{const data=JSON.parse(readFileSync(p));return {path:p,sha256:createHash('sha256').update(readFileSync(p)).digest('hex'),arrays:Array.isArray(data)?{records:data.length}:Object.fromEntries(Object.entries(data).filter(([,v])=>Array.isArray(v)).map(([k,v])=>[k,v.length])),role:/drafts|intake/.test(p)?'isolated-review':/r11/.test(p)?'revision-overlay-not-extra-questions':'canonical-source-or-derived-view'};});
++const imports=walk('app').concat(walk('components'),walk('lib')).filter(p=>/\.tsx?$/.test(p)).flatMap(p=>[...readFileSync(p,'utf8').matchAll(/(?:from\s+|import\s*)["']([^"']+)["']/g)].map(m=>({from:p,to:m[1]})));
++const lessons=JSON.parse(readFileSync('content/intake/notion-lessons.json')).lessons;const deps=lessons.flatMap(l=>[...(l.prerequisite_lesson_ids??[]),...(l.prerequisite_slugs??[])].map(target=>({from:l.id,to:target,status:'existing-review-only-prerequisite'})));const ids=new Set(lessons.flatMap(l=>[l.id,l.slug]));const dangling=deps.filter(e=>!ids.has(e.to));
++writeFileSync(dir+'/RECORDS.json',JSON.stringify(records,null,2));writeFileSync(dir+'/SOURCE_INVENTORY.json',JSON.stringify(inventory,null,2));writeFileSync(dir+'/IMPORT_DEPENDENCIES.json',JSON.stringify(imports,null,2));writeFileSync(dir+'/REVIEW_DEPENDENCIES.json',JSON.stringify({dependencies:deps,dangling,notice:'Existing review-only declarations retained. Topic order does not create semantic dependencies.'},null,2));
++const summary={records:records.length,uniqueIDs:records.length,subjects:SUBJECTS.map(s=>({id:s.id,records:records.filter(r=>r.subject===s.id).length,topics:s.topics.map(([id])=>({id,records:records.filter(r=>r.subject===s.id&&r.topic===id).length}))})),questionRecords:records.filter(r=>r.kind==='question').length,broadPlacement:records.filter(r=>r.basis.startsWith('Broad')).length,contentFilesPreserved:inventory.length,importEdges:imports.length,reviewDependencies:deps.length,danglingReviewDependencies:dangling};writeFileSync(dir+'/AUDIT.json',JSON.stringify(summary,null,2));console.log(JSON.stringify(summary,null,2));
+--- /dev/null
++++ b/scripts/study-decouple.py
+@@ -0,0 +1,15 @@
++from pathlib import Path
++import re
++r=Path(__file__).resolve().parents[1];p=r/'lib/search/documents.ts';s=p.read_text(encoding='utf8');s=s.replace('import { SUBJECTS, topicHref } from "@/lib/study/taxonomy";\n','');s=re.sub(r'  for\(const subject of SUBJECTS\)for\(const \[topic,title\] of subject.topics\)documents.push\(.*?\);\n','',s);s=s.replace('export function buildSiteSearchIndex()', 'export function sourceDocuments()');(r/'lib/study/source-documents.ts').write_text(s,encoding='utf8')
++p.write_text('''// Search and the learning registry consume the same source adapter.
++// Search never owns the learning taxonomy or controls publication eligibility.
++import { sourceDocuments } from "@/lib/study/source-documents";
++import { SUBJECTS, topicHref } from "@/lib/study/taxonomy";
++import type { SearchDocument } from "./query";
++export function buildSiteSearchIndex(): SearchDocument[] {
++  const documents=sourceDocuments().map(doc=>doc.id==='page-home'?{...doc,url: "/",}:doc);
++  for(const subject of SUBJECTS)for(const [topic,title] of subject.topics)documents.push({id:`topic-${subject.id}-${topic}`,title:`${title} — ${subject.title}`,url:topicHref(subject.id,topic),kind:'course',summary:subject.goal,topic:[subject.title,title],language:'en',keywords:['learning path','topic','practice','explanation']});
++  return documents;
++}
++''',encoding='utf8')
++p=r/'lib/study/server.ts';s=p.read_text(encoding='utf8').replace("import {buildSiteSearchIndex} from '@/lib/search/documents';","import {sourceDocuments} from './source-documents';").replace('buildSiteSearchIndex()','sourceDocuments()');p.write_text(s,encoding='utf8')
+--- /dev/null
++++ b/scripts/study-dependencies.mjs
+@@ -0,0 +1,4 @@
++import {readFileSync,writeFileSync} from 'node:fs';import assert from 'node:assert/strict';import {register} from 'node:module';register('./study-loader.mjs',import.meta.url);const {SUBJECTS}=await import('../lib/study/taxonomy.ts');
++const file='docs/learning-architecture-20261028/REVIEW_DEPENDENCIES.json',data=JSON.parse(readFileSync(file)),lessons=JSON.parse(readFileSync('content/intake/notion-lessons.json')).lessons,map=new Map(lessons.flatMap(l=>[[l.id,l.id],[l.slug,l.id]]));const edges=[...new Map(data.dependencies.map(e=>{const v={...e,from:map.get(e.from),to:map.get(e.to)};return [v.from+'|'+v.to,v];})).values()],cycles=[];function walk(id,path){if(path.includes(id)){cycles.push([...path,id]);return;}for(const e of edges.filter(e=>e.from===id))walk(e.to,[...path,id]);}for(const l of lessons)walk(l.id,[]);
++assert.equal(data.dangling.length,0);assert.doesNotMatch(readFileSync('lib/study/server.ts','utf8'),/lib\/search\/documents/,'Learning registry must not depend on search delivery');
++writeFileSync('docs/learning-architecture-20261028/DEPENDENCY_MODEL.json',JSON.stringify({existingReviewDeclarations:data.dependencies.length,normalizedReviewEdges:edges,cycles,suggestedReadingOrder:SUBJECTS.flatMap(s=>s.topics.slice(1).map(([topic],i)=>({from:`${s.id}.${s.topics[i][0]}`,to:`${s.id}.${topic}`,relation:'suggested-reading-order',scientificPrerequisite:false}))),publishedAtlasEdges:0,notice:'Intake prerequisites remain review-only. Reading order is not a semantic graph. No new scientific edge is approved.'},null,2));console.log('PASS dependency references; cycles:',cycles.length,'; published semantic edges remain 0');
+--- /dev/null
++++ b/scripts/study-drill-qa.mjs
+@@ -0,0 +1,4 @@
++import {chromium} from 'playwright-core';import {writeFile} from 'node:fs/promises';
++const b=await chromium.launch({executablePath:'C:/Program Files (x86)/Microsoft/Edge/Application/msedge.exe',headless:true}),p=await b.newPage({viewport:{width:390,height:900}}),checks=[];const check=(id,pass)=>{checks.push({id,status:pass?'PASS':'FAIL'});console.log(`${pass?'PASS':'FAIL'} ${id}`);};
++try{await p.addInitScript(()=>localStorage.setItem('amir-lab-v1',JSON.stringify({sql:{best:80,attempts:2,lastAt:'2026-10-27T00:00:00Z'}})));await p.goto('http://127.0.0.1:4318/lab/sql/?question=sql-07&learningContext=sql.overview',{waitUntil:'networkidle'});await p.getByRole('button',{name:'Start practice',exact:true}).click();await p.getByText('Which expression numbers employees 1, 2, 3… within each department by descending salary?',{exact:true}).waitFor();check('EXACT-QUESTION',true);check('SINGLE-QUESTION',await p.locator('main').innerText().then(t=>/Question\s+1\s+of\s+1\b/.test(t)));await p.getByRole('button',{name:'Finish now',exact:true}).click();await p.getByRole('button',{name:'Finish',exact:true}).click();check('DRILL-DOES-NOT-SCORE',await p.evaluate(()=>{const s=JSON.parse(localStorage.getItem('amir-lab-v1'));return s.sql.best===80&&s.sql.attempts===2;}));await p.goto('http://127.0.0.1:4318/lab/sql/?question=sql-07',{waitUntil:'networkidle'});await p.getByRole('radio',{name:/Mock/}).click();await p.getByRole('button',{name:'Start mock exam',exact:true}).click();check('MOCK-REMAINS-FULL',await p.locator('main').innerText().then(t=>/Question\s+1\s+of\s+10\b/.test(t)));}
++finally{await b.close();await writeFile('docs/learning-architecture-20261028/evidence/drill-results.json',JSON.stringify({checks},null,2));}if(checks.some(c=>c.status==='FAIL'))process.exitCode=1;
+--- /dev/null
++++ b/scripts/study-encode.py
+@@ -0,0 +1,7 @@
++import pathlib,json,subprocess,imageio_ffmpeg
++r=pathlib.Path(__file__).resolve().parents[1];out=r/'docs/learning-architecture-20261028/evidence/video';out.mkdir(parents=True,exist_ok=True)
++for width in [1440,390]:
++ d=r/'.scratch/study-video'/str(width);frames=sorted(json.loads((d/'frames.json').read_text()),key=lambda f:f['timestamp']);lines=[]
++ for i,f in enumerate(frames):
++  duration=frames[i+1]['timestamp']-f['timestamp']if i+1<len(frames)else 1;lines.extend([f"file '{f['file']}'",'option framerate 1000',f'duration {max(.001,duration):.6f}'])
++ lines.extend([f"file '{frames[-1]['file']}'",'option framerate 1000']);(d/'sequence.txt').write_text('\n'.join(lines));p=subprocess.run([imageio_ffmpeg.get_ffmpeg_exe(),'-y','-hide_banner','-loglevel','error','-f','concat','-safe','0','-i',str(d/'sequence.txt'),'-vf','pad=ceil(iw/2)*2:ceil(ih/2)*2','-fps_mode','vfr','-video_track_timescale','1000','-c:v','libx264','-crf','23','-pix_fmt','yuv420p','-movflags','+faststart',str(out/f'study-{width}.mp4')],capture_output=True,text=True);assert p.returncode==0,p.stderr;print(width,len(frames),'timestamped frames encoded')
+--- /dev/null
++++ b/scripts/study-finish.py
+@@ -0,0 +1,2 @@
++from pathlib import Path
++r=Path(__file__).resolve().parents[1];p=r/'app/study/[subject]/[topic]/page.tsx';s=p.read_text(encoding='utf8');s="import {TOPIC_GOALS} from '@/lib/study/briefs';\n"+s;s=s.replace('<p>{s.goal}</p>','<p>{TOPIC_GOALS[`${subject}.${topic}`]??s.goal}</p>');a=s.index('<div className="study-topic-guide">');z=s.index('</div><TopicBrowser items={items}/>',a);guide=s[a:z+6].replace('<div className="study-topic-guide">','<details className="study-topic-guide"><summary className="min-h-11 cursor-pointer py-3">Study order, prerequisites & source context</summary>').replace('</div>','</details>');s=s[:a]+'<TopicBrowser items={items}/>'+guide+s[z+len('</div><TopicBrowser items={items}/>'):];p.write_text(s,encoding='utf8')
+--- /dev/null
++++ b/scripts/study-home-qa.mjs
+@@ -0,0 +1,99 @@
++import { chromium } from 'playwright-core';
++import { readFile, writeFile, mkdir } from 'node:fs/promises';
++import path from 'node:path';
++const dir=path.resolve('docs/learning-architecture-20261028/evidence/home');await mkdir(dir,{recursive:true});
++const base='http://127.0.0.1:4318';
++const browser=await chromium.launch({executablePath:'C:/Program Files (x86)/Microsoft/Edge/Application/msedge.exe',headless:true});
++const checks=[],issues=[];
++const record=(id,pass,detail)=>{checks.push({id,status:pass?'PASS':'FAIL',detail});console.log(`${pass?'PASS':'FAIL'} ${id}: ${detail}`);};
++const axeSource=await readFile('node_modules/axe-core/axe.min.js','utf8');
++const ids=['hansa-insight-shortcut-reference-v1','hansa-insight-shortcut-delete-v1','hansa-insight-shortcut-discovery-v1'];
++const titles=['A reference is a design decision.','Name the object you are deleting.','Location changes discovery.'];
++async function open(width=1440,dark=true,reduced=false,js=true){
++ const ctx=await browser.newContext({viewport:{width,height:900},hasTouch:width<500,isMobile:width<500,reducedMotion:reduced?'reduce':'no-preference',javaScriptEnabled:js});
++ await ctx.addInitScript(d=>localStorage.setItem('amir-theme',d?'dark':'light'),dark);
++ const p=await ctx.newPage();p.on('pageerror',e=>issues.push(e.message));await p.goto(base,{waitUntil:'networkidle'});await p.waitForTimeout(600);return {p,ctx};
++}
++try{
++ for(const width of [320,390,768,1280,1440])for(const dark of [false,true]){
++  const {p,ctx}=await open(width,dark);
++  record(`REFLOW-${width}-${dark}`,await p.evaluate(()=>document.documentElement.scrollWidth<=innerWidth+1),'no horizontal page overflow');
++  await p.addScriptTag({content:axeSource});
++  const axe=await p.evaluate(async()=>{const r=await window.axe.run(document,{runOnly:{type:'tag',values:['wcag2a','wcag2aa','wcag21a','wcag21aa','wcag22aa']}});return r.violations.map(v=>({id:v.id,impact:v.impact,nodes:v.nodes.map(n=>({html:n.html,summary:n.failureSummary}))}));});
++  await writeFile(path.join(dir,`axe-${width}-${dark?'dark':'light'}.json`),JSON.stringify(axe,null,2));
++  record(`AXE-${width}-${dark}`,axe.length===0,`${axe.length} automated A/AA violations`);
++  // Every breakpoint exercises real controls, not only screenshots.
++  const instrument=p.getByRole('button',{name:'Change the requirement'});
++  await instrument.click();await p.waitForTimeout(250);
++  record(`SYNC-${width}-${dark}`,await p.getByRole('radio',{name:'Its own retained result'}).isChecked(),'hero input changes the actual scenario radio');
++  await p.getByRole('button',{name:'Reset model',exact:true}).click();
++  record(`RESET-${width}-${dark}`,await p.getByRole('radio',{name:'Read the existing table'}).isChecked(),'reset restores model');
++  await p.getByRole('button',{name:'Deal three ideas',exact:true}).click();await p.waitForTimeout(650);
++  const cards=p.locator('[aria-label="Knowledge card tray"] button[aria-expanded]');
++  record(`DEAL-${width}-${dark}`,await cards.count()>0,'real hand buttons available');
++  if(width<500){
++   record(`MOBILE-SLOT-${width}-${dark}`,await cards.count()===1,'phone uses one readable front card, not a tiny three-card fan');
++   const firstName=await cards.first().getAttribute('aria-label');
++   await p.getByRole('button',{name:'Next card',exact:true}).click();await p.waitForTimeout(400);
++   record(`MOBILE-NEXT-${width}-${dark}`,await cards.first().getAttribute('aria-label')!==firstName,'explicit next control changes front card');
++   await p.getByRole('button',{name:'Previous card',exact:true}).click();await p.waitForTimeout(400);
++  }
++  await cards.first().click();await p.waitForTimeout(500);
++  record(`READ-${width}-${dark}`,await p.getByRole('region',{name:'Selected card'}).isVisible(),'readable expansion visible');
++  await p.keyboard.press('Escape');await p.waitForTimeout(450);
++  record(`ESCAPE-${width}-${dark}`,await p.getByRole('region',{name:'Selected card'}).count()===0,'Escape closes reader');
++  record(`FOCUS-${width}-${dark}`,await p.evaluate(()=>document.activeElement?.getAttribute('aria-expanded')==='false'),'focus returned to originating card');
++  await p.getByRole('button',{name:'Collect all',exact:true}).click();await p.waitForTimeout(650);
++  record(`COLLECT-${width}-${dark}`,await p.getByRole('button',{name:'Deal three ideas',exact:true}).isEnabled(),'hand returns to physical deck');
++  await ctx.close();
++ }
++ const {p,ctx}=await open();
++ for(let i=0;i<ids.length;i++){
++  await p.goto(`${base}/?insight=${ids[i]}`,{waitUntil:'networkidle'});
++  record(`EDITION-${i}`,await p.locator('#today').innerText().then(t=>t.includes(titles[i])),'query selects exact canonical scenario');
++  const before=await p.locator('.instrument-state').innerText();await p.locator('.instrument-switch').click();await p.waitForTimeout(300);
++  record(`MODEL-${i}`,before!==await p.locator('.instrument-state').innerText(),'real action changes instrument derived state');
++  await p.getByText('Read the model as a table',{exact:true}).click();
++  record(`TABLE-${i}`,await p.locator('.model-table tbody tr').count()>=2,'exact current object states available as semantic table');
++ }
++ await p.goto(base,{waitUntil:'networkidle'});
++ await p.locator('[aria-current="date"]').focus();await p.keyboard.press('ArrowRight');await p.waitForTimeout(750);
++ record('RAIL-KEY',p.url().includes(ids[1]),'keyboard date and URL synchronized');
++ await p.keyboard.press('End');await p.waitForTimeout(750);
++ record('RAIL-END',p.url().includes(ids[2]),'End selects chronological last edition');
++ await p.keyboard.press('Home');await p.waitForTimeout(750);
++ record('RAIL-HOME',p.url().includes(ids[0]),'Home selects latest edition');
++ const rail=p.locator('.insight-rail-viewport');await rail.scrollIntoViewIfNeeded();let box=await rail.boundingBox();
++ await p.mouse.move(box.x+box.width/2,box.y+box.height/2);await p.mouse.down();await p.mouse.move(box.x+box.width/2-230,box.y+box.height/2,{steps:16});
++ await p.screenshot({path:path.join(dir,'rail-mid-drag.png')});await p.mouse.up();await p.waitForTimeout(850);
++ record('RAIL-DRAG',!p.url().includes(ids[0]),'pointer travel changes actual edition on spring settle');
++ await p.locator('[aria-current="date"]').focus();await p.keyboard.press('Home');await p.keyboard.press('End');await p.keyboard.press('Home');await p.waitForTimeout(800);
++ record('RAIL-INTERRUPT',p.url().includes(ids[0])&&(await p.locator('#today').innerText()).includes(titles[0]),'rapid retarget settles on latest request without stale content');
++ await p.evaluate(()=>{localStorage.setItem('amir-fabric-v1','phase2-fabric-sentinel');localStorage.setItem('amir-lab-v1','phase2-lab-sentinel');});
++ await p.locator('.instrument-switch').click();await p.reload({waitUntil:'networkidle'});
++ record('PROGRESS',await p.evaluate(()=>localStorage.getItem('amir-fabric-v1')==='phase2-fabric-sentinel'&&localStorage.getItem('amir-lab-v1')==='phase2-lab-sentinel'),'both learner namespaces byte-preserved');
++ await p.goto(`${base}/prototype-c/?insight=${ids[2]}#archive`,{waitUntil:'networkidle'});
++ record('ALIAS-HASH',p.url().includes('#archive')&&(await p.locator('#today').innerText()).includes(titles[2]),'legacy alias keeps query, hash and canonical content');
++ record('ONE-LANDING',await p.locator('.observatory').count()===1,'compatibility route renders only one stage');
++ record('PUBLICATION',await p.getByText('Reviewed connections are not published yet',{exact:true}).isVisible(),'no graph invented to fill pending approval');
++ // Navigation arrow icons are not graph edges; count non-icon SVG paths.
++ record('NO-ATLAS-EDGES',await p.locator('[aria-labelledby="atlas-peek-title"] svg:not(.lucide) path').count()===0,'pending public projection draws no semantic graph');
++ await p.goto(base,{waitUntil:'networkidle'});await p.getByRole('button',{name:'Deal three ideas',exact:true}).click();await p.waitForTimeout(650);await p.locator('[aria-label="Knowledge card tray"] button[aria-expanded]').first().click();await p.waitForTimeout(500);await p.getByRole('button',{name:'Reveal the reasoning',exact:true}).click();await p.waitForTimeout(500);
++ await p.addScriptTag({content:axeSource});const richAxe=await p.evaluate(async()=>(await window.axe.run(document,{runOnly:{type:'tag',values:['wcag2a','wcag2aa','wcag21a','wcag21aa','wcag22aa']}})).violations.map(v=>({id:v.id,nodes:v.nodes.map(n=>({html:n.html,summary:n.failureSummary}))})));
++ await writeFile(path.join(dir,'axe-expanded.json'),JSON.stringify(richAxe,null,2));record('AXE-EXPANDED',richAxe.length===0,`${richAxe.length} violations with reader and explanation open`);
++ await p.screenshot({path:path.join(dir,'expanded-desktop.png'),fullPage:true});
++ await ctx.close();
++ const mobile=await open(390,true);const cdp=await mobile.ctx.newCDPSession(mobile.p);await mobile.p.locator('.insight-rail-viewport').scrollIntoViewIfNeeded();box=await mobile.p.locator('.insight-rail-viewport').boundingBox();
++ const x=box.x+box.width*.7,y=box.y+box.height/2;
++ await cdp.send('Input.dispatchTouchEvent',{type:'touchStart',touchPoints:[{x,y}]});for(let i=1;i<=12;i++){await cdp.send('Input.dispatchTouchEvent',{type:'touchMove',touchPoints:[{x:x-i*15,y}]});await mobile.p.waitForTimeout(16);}await cdp.send('Input.dispatchTouchEvent',{type:'touchEnd',touchPoints:[]});await mobile.p.waitForTimeout(850);
++ record('TOUCH-SWIPE',mobile.p.url().includes('insight=')&&!mobile.p.url().includes(ids[0]),'CDP touch gesture changes date; physical phone not tested');
++ await mobile.ctx.close();
++ for(const width of [320,1440]){const r=await open(width,true,true);await r.p.locator('.instrument-switch').click();await r.p.getByRole('button',{name:'Deal three ideas',exact:true}).click();await r.p.waitForTimeout(150);await r.p.locator('[aria-label="Knowledge card tray"] button[aria-expanded]').first().click();await r.p.waitForTimeout(200);record(`REDUCED-${width}`,await r.p.getByRole('region',{name:'Selected card'}).isVisible(),'model, deal and readable reader work with reduced motion');await r.p.screenshot({path:path.join(dir,`reduced-${width}.png`),fullPage:true});await r.ctx.close();}
++ const nojs=await open(390,false,false,false);record('NO-JS',(await nojs.p.locator('#archive').innerText()).includes(titles[0]),'archive remains readable without hydration');await nojs.ctx.close();
++ const stress=await open(320,false);await stress.p.evaluate(()=>{document.documentElement.style.fontSize='200%';});record('TEXT-200',await stress.p.evaluate(()=>document.documentElement.scrollWidth<=innerWidth+1),'200% root text enlargement does not cause page overflow');await stress.p.screenshot({path:path.join(dir,'text-200-320.png'),fullPage:true});await stress.ctx.close();
++ const contrast=await open(390,true);await contrast.p.emulateMedia({forcedColors:'active'});await contrast.p.locator('.instrument-switch').click();record('FORCED-COLORS',await contrast.p.getByRole('radio',{name:'Its own retained result'}).isChecked(),'forced-colors keeps equivalent DOM interaction');await contrast.p.screenshot({path:path.join(dir,'forced-colors-390.png')});await contrast.ctx.close();
++ const rtl=await open(320,false);await rtl.p.evaluate(()=>{const t=document.querySelector('#today h2');t.textContent='اختبار تخطيط لنص عربي طويل مع OneLake و SQL — هذه بيانات اختبار واجهة فقط';t.lang='ar';t.dir='rtl';});record('RTL-MIX-STRESS',await rtl.p.evaluate(()=>document.documentElement.scrollWidth<=innerWidth+1),'injected Arabic/English long-heading layout fixture; not published content');await rtl.p.screenshot({path:path.join(dir,'rtl-mix-stress-320.png'),fullPage:true});await rtl.ctx.close();
++ record('CONSOLE',issues.length===0,JSON.stringify(issues));
++}catch(e){record('HARNESS',false,e.stack);}finally{await browser.close();}
++await writeFile(path.join(dir,'results.json'),JSON.stringify({generatedAt:new Date().toISOString(),base,checks,issues,limits:['automated axe is not full WCAG certification','CDP touch is not physical mobile','human screen reader NOT RUN','owner creative approval PENDING']},null,2));
++if(checks.some(c=>c.status==='FAIL'))process.exitCode=1;
+--- /dev/null
++++ b/scripts/study-intent-qa.mjs
+@@ -0,0 +1 @@
++import {chromium} from 'playwright-core';import {writeFile} from 'node:fs/promises';const b=await chromium.launch({executablePath:'C:/Program Files (x86)/Microsoft/Edge/Application/msedge.exe',headless:true}),checks=[];try{for(const width of [390,1440]){const c=await b.newContext({viewport:{width,height:900},isMobile:width<500,hasTouch:width<500}),p=await c.newPage();await p.goto('http://127.0.0.1:4318/practice/catalogue/',{waitUntil:'networkidle'});await p.locator('.study-open').first().click();await p.waitForURL('**/study/fabric/?mode=question');const link=p.getByRole('link',{name:/Data ingestion & orchestration/});await link.waitFor();await p.waitForFunction(()=>document.querySelector('a[href*="/study/fabric/ingestion/"]')?.getAttribute('href')?.includes('mode=question'));await link.click();await p.getByLabel('Learning activity',{exact:true}).waitFor();await p.waitForFunction(()=>document.querySelector('select[aria-label="Learning activity"]')?.value==='question');checks.push({id:'PRACTICE-INTENT-'+width,status:'PASS'});await c.close();}}finally{await b.close();await writeFile('docs/learning-architecture-20261028/evidence/intent-results.json',JSON.stringify({checks},null,2));}console.log('PASS practice intent retained through subject and topic on mobile and desktop');
+--- /dev/null
++++ b/scripts/study-intent.py
+@@ -0,0 +1,6 @@
++from pathlib import Path
++r=Path(__file__).resolve().parents[1];p=r/'components/study/directory.tsx';s=p.read_text(encoding='utf8');s="import {StudyIntentLink} from './intent-link';\n"+s
++s=s.replace('<Link href={`/study/${s.id}/`}>{s.title}</Link>','<StudyIntentLink practice={practice} href={`/study/${s.id}/`}>{s.title}</StudyIntentLink>')
++s=s.replace('<Link href={topicHref(s.id,id)+(practice?\'?mode=question\':\'\')}>','<StudyIntentLink practice={practice} href={topicHref(s.id,id)}>').replace('<span aria-hidden="true">↗</span></Link></li>','<span aria-hidden="true">↗</span></StudyIntentLink></li>')
++s=s.replace('<Link className="study-open" href={`/study/${s.id}/`}>Explore {s.topics.length} topics ↗</Link>','<StudyIntentLink practice={practice} className="study-open" href={`/study/${s.id}/`}>Explore {s.topics.length} topics ↗</StudyIntentLink>')
++p.write_text(s,encoding='utf8')
+--- /dev/null
++++ b/scripts/study-loader.mjs
+@@ -0,0 +1,3 @@
++import {readFileSync,existsSync} from 'node:fs';import {resolve as pathResolve} from 'node:path';import {pathToFileURL,fileURLToPath} from 'node:url';import ts from 'typescript';
++export async function resolve(specifier,context,next){if(specifier.startsWith('@/')||specifier.startsWith('.')){let p=specifier.startsWith('@/')?pathResolve(process.cwd(),specifier.slice(2)):fileURLToPath(new URL(specifier,context.parentURL));for(const candidate of [p,p+'.ts',p+'.tsx',p+'.json',p+'/index.ts'])if(existsSync(candidate))return {url:pathToFileURL(candidate).href,shortCircuit:true};}return next(specifier,context);}
++export async function load(url,context,next){if(url.endsWith('.json'))return {format:'module',source:'export default '+readFileSync(fileURLToPath(url),'utf8'),shortCircuit:true};if(/\.tsx?$/.test(url))return {format:'module',source:ts.transpileModule(readFileSync(fileURLToPath(url),'utf8'),{compilerOptions:{module:ts.ModuleKind.ESNext,target:ts.ScriptTarget.ES2022,jsx:ts.JsxEmit.ReactJSX}}).outputText,shortCircuit:true};return next(url,context);}
+--- /dev/null
++++ b/scripts/study-migrate.py
+@@ -0,0 +1,14 @@
++import pathlib,re
++r=pathlib.Path(__file__).resolve().parents[1]
++for rel,title,props in [('app/learn/catalogue/page.tsx','Learn',''),('app/practice/catalogue/page.tsx','Practise','practice')]:
++ (r/rel).write_text("import {StudyDirectory} from '@/components/study/directory';\nexport const metadata={title:'"+title+" — subjects, topics and activities'};\nexport default function Page(){return <StudyDirectory "+props+"/>;}\n",encoding='utf8')
++p=r/'lib/site.ts';s=p.read_text(encoding='utf8');s=re.sub(r'export const NAV = \[.*?\] as const;', '''export const NAV = [
++  { href: "/", label: "Today", description: "Daily insight and editions" },
++  { href: "/learn/catalogue", label: "Learn", description: "Subjects, topics and explanations" },
++  { href: "/practice/catalogue", label: "Practice", description: "Questions in their learning context" },
++  { href: "/learn/dp-600/atlas/", label: "Atlas", description: "Evidence and publication state" },
++  { href: "/about", label: "About", description: "Background and professional work" },
++] as const;''',s,count=1,flags=re.S)
++s=re.sub(r'export const LANDING_NAV = \[.*?\] as const;', 'export const LANDING_NAV = NAV;',s,count=1,flags=re.S)
++s=s.replace('export const SECONDARY_NAV = [','export const SECONDARY_NAV = [\n  { href: "/work", label: "Work & case studies" },\n  { href: "/services", label: "Services" },')
++p.write_text(s,encoding='utf8')
+--- /dev/null
++++ b/scripts/study-negative.mjs
+@@ -0,0 +1,6 @@
++import {mkdtempSync,readFileSync,writeFileSync,mkdirSync,copyFileSync} from 'node:fs';import {resolve,dirname} from 'node:path';import {tmpdir} from 'node:os';import assert from 'node:assert/strict';import {studyReceipt} from './study-receipt.mjs';
++const manifest='docs/learning-architecture-20261028/MANIFEST.json',m=JSON.parse(readFileSync(manifest)),baseline=JSON.parse(readFileSync(m.baseline)),temp=mkdtempSync(resolve(tmpdir(),'hansa-study-integrity-'));const paths=new Set([manifest,m.baseline,m.previous,...m.files.flatMap(e=>[e.path,...(e.rollbackPath?[e.rollbackPath]:[])])]);for(const p of paths){const to=resolve(temp,p);mkdirSync(dirname(to),{recursive:true});copyFileSync(p,to);}studyReceipt(temp);let rejected=0;
++function reject(p,fn){const file=resolve(temp,p),bytes=readFileSync(file);try{fn(file);assert.throws(()=>studyReceipt(temp));rejected++;}finally{writeFileSync(file,bytes);}}
++for(const p of ['lib/study/server.ts','lib/study/taxonomy.ts','components/lab/exam-player.tsx','components/study/topic-browser.tsx','lib/site.ts'])reject(p,f=>writeFileSync(f,readFileSync(f,'utf8')+'\n// drift'));
++reject(m.baseline,f=>writeFileSync(f,'{}'));reject(m.previous,f=>writeFileSync(f,'{}'));reject(m.files.find(e=>e.rollbackPath).rollbackPath,f=>writeFileSync(f,'corrupt'));reject(manifest,f=>{const x=JSON.parse(readFileSync(f));x.files.push(x.files[0]);writeFileSync(f,JSON.stringify(x));});reject(manifest,f=>{const x=JSON.parse(readFileSync(f));x.files[0].beforeSha256='0'.repeat(64);writeFileSync(f,JSON.stringify(x));});
++assert.ok(Object.keys(baseline.files).some(p=>p.startsWith('content/')));console.log(`PASS ${rejected} corruption cases rejected; source documents remain unchanged`);
+--- /dev/null
++++ b/scripts/study-polish.py
+@@ -0,0 +1,4 @@
++from pathlib import Path
++r=Path(__file__).resolve().parents[1]
++p=r/'components/study/directory.tsx';s=p.read_text(encoding='utf8');s=s.replace('<Link href="/learn/catalogue/">Learn</Link><Link href="/practice/catalogue/">Practise</Link>','');s=s.replace('<div className="study-principle">','{!subject&&<div className="study-principle">').replace('prerequisite chain.</p></div>','prerequisite chain.</p></div>}');s=s.replace('<span className="study-number" aria-hidden="true">{String(i+1).padStart(2,\'0\')}</span><h2','{!subject&&<span className="study-number" aria-hidden="true">{String(i+1).padStart(2,\'0\')}</span>}{!subject&&<h2').replace('{s.title}</Link></h2><p>{s.goal}</p>','{s.title}</Link></h2>}{!subject&&<p>{s.goal}</p>}');p.write_text(s,encoding='utf8')
++p=r/'scripts/study-qa.mjs';s=p.read_text(encoding='utf8').replace("localStorage.setItem('amir-lab-v1','preserve-study-probe');localStorage.setItem('amir-fabric-v1','preserve-study-probe');", "localStorage.setItem('amir-lab-v1',JSON.stringify({sql:{best:80,attempts:2,lastAt:'2026-10-27T00:00:00Z'}}));localStorage.setItem('amir-fabric-v1',JSON.stringify({version:1,updatedAt:'2026-10-27T00:00:00Z',bookmarks:['fb-v01'],flags:[],questions:{},sessions:{},history:[],settings:{shuffleQuestions:true,shuffleOptions:true}}));");s=s.replace("record(`RETURN:${width}:${dark}`,await p.getByRole", "await p.getByRole('link',{name:'Return to Data ingestion & orchestration',exact:true}).waitFor({state:'visible'});record(`RETURN:${width}:${dark}`,await p.getByRole");s=s.replace("localStorage.getItem('amir-lab-v1')==='preserve-study-probe'&&localStorage.getItem('amir-fabric-v1')==='preserve-study-probe'", "JSON.parse(localStorage.getItem('amir-lab-v1')).sql.best===80&&JSON.parse(localStorage.getItem('amir-fabric-v1')).bookmarks.includes('fb-v01')");p.write_text(s,encoding='utf8')
+--- /dev/null
++++ b/scripts/study-qa.mjs
+@@ -0,0 +1,10 @@
++import {chromium} from 'playwright-core';import {readFile,writeFile,mkdir} from 'node:fs/promises';
++const d='docs/learning-architecture-20261028/evidence';await mkdir(d,{recursive:true});const checks=[],record=(id,pass,detail='')=>{checks.push({id,status:pass?'PASS':'FAIL',detail});console.log(`${pass?'PASS':'FAIL'} ${id} ${detail}`);};const axe=await readFile('node_modules/axe-core/axe.min.js','utf8');const browser=await chromium.launch({executablePath:'C:/Program Files (x86)/Microsoft/Edge/Application/msedge.exe',headless:true});
++try{
++for(const width of [320,390,768,1280,1440])for(const dark of [false,true]){const ctx=await browser.newContext({viewport:{width,height:900},hasTouch:width<500,isMobile:width<500});await ctx.addInitScript(dark=>{localStorage.setItem('amir-theme',dark?'dark':'light');localStorage.setItem('amir-lab-v1',JSON.stringify({sql:{best:80,attempts:2,lastAt:'2026-10-27T00:00:00Z'}}));localStorage.setItem('amir-fabric-v1',JSON.stringify({version:1,updatedAt:'2026-10-27T00:00:00Z',bookmarks:['fb-v01'],flags:[],questions:{},sessions:{},history:[],settings:{shuffleQuestions:true,shuffleOptions:true}}));},dark);const p=await ctx.newPage();const errors=[];p.on('pageerror',e=>errors.push(e.message));
++for(const route of ['/learn/catalogue/','/study/fabric/','/study/fabric/ingestion/','/study/review/']){await p.goto('http://127.0.0.1:4318'+route,{waitUntil:'networkidle'});record(`REFLOW:${width}:${dark}:${route}`,await p.evaluate(()=>document.documentElement.scrollWidth<=innerWidth+1));await p.addScriptTag({content:axe});const violations=await p.evaluate(async()=>{const r=await window.axe.run(document,{runOnly:{type:'tag',values:['wcag2a','wcag2aa','wcag21aa','wcag22aa']}});return r.violations.map(v=>({id:v.id,nodes:v.nodes.map(n=>n.html)}));});record(`AXE:${width}:${dark}:${route}`,!violations.length,JSON.stringify(violations));if(width===390||width===1440)await p.screenshot({path:`${d}/${width}-${dark?'dark':'light'}-${route.includes('review')?'review':route.includes('ingestion')?'topic':route.includes('fabric')?'subject':'directory'}.png`});}
++await p.goto('http://127.0.0.1:4318/study/fabric/ingestion/?mode=question',{waitUntil:'networkidle'});record(`MODE:${width}:${dark}`,await p.getByLabel('Learning activity',{exact:true}).inputValue()==='question');await p.getByLabel('Find within this topic').fill('zzzz-no-such-topic');record(`EMPTY:${width}:${dark}`,await p.locator('.study-empty').isVisible());await p.getByRole('button',{name:'Reset filters'}).click();record(`RESET:${width}:${dark}`,await p.locator('.study-records>li').count()>0);
++await p.getByLabel('Learning activity',{exact:true}).selectOption('question');const link=p.locator('.study-records h2 a').first();const href=await link.getAttribute('href');record(`CONTEXT-LINK:${width}:${dark}`,href.includes('learningContext=fabric.ingestion')&&href.includes('question='));await link.click();await p.waitForLoadState('networkidle');await p.getByRole('link',{name:'Return to Data ingestion & orchestration',exact:true}).waitFor({state:'visible'});record(`RETURN:${width}:${dark}`,await p.getByRole('link',{name:'Return to Data ingestion & orchestration',exact:true}).isVisible());await p.getByRole("link",{name:"Return to Data ingestion & orchestration",exact:true}).click();await p.waitForURL("**/study/fabric/ingestion/");record(`RETURN-CLICK:${width}:${dark}`,true);record(`PROGRESS:${width}:${dark}`,await p.evaluate(()=>JSON.parse(localStorage.getItem('amir-lab-v1')).sql.best===80&&JSON.parse(localStorage.getItem('amir-fabric-v1')).bookmarks.includes('fb-v01')));record(`ERRORS:${width}:${dark}`,!errors.length,errors.join('; '));await ctx.close();}
++const ctx=await browser.newContext({reducedMotion:'reduce',viewport:{width:390,height:900}}),p=await ctx.newPage();await p.goto('http://127.0.0.1:4318/study/review/',{waitUntil:'networkidle'});await p.getByLabel('Subject',{exact:true}).selectOption('power-bi');await p.getByLabel('Topic',{exact:true}).selectOption('prepare');record('REVIEW-TOPIC-FILTER',await p.locator('.study-records>li').count()>0);await p.getByLabel('Learning activity',{exact:true}).selectOption('question');await p.locator('.study-records h2 a').first().click();await p.waitForLoadState('networkidle');await p.waitForTimeout(500);record('DRAFT-BANK-DEEP-LINK',p.url().includes('bank=pl300-v88')&&await p.getByRole('searchbox').inputValue().then(v=>v.length>0));record('REDUCED-MOTION',await p.evaluate(()=>matchMedia('(prefers-reduced-motion: reduce)').matches));await ctx.close();
++const records=JSON.parse(await readFile('docs/learning-architecture-20261028/RECORDS.json','utf8'));for(const url of new Set(records.map(r=>r.href.split(/[?#]/)[0]))){const response=await fetch('http://127.0.0.1:4318'+url);record('SOURCE-ROUTE:'+url,response.status===200);}
++}finally{await browser.close();await writeFile(d+'/results.json',JSON.stringify({checks},null,2));}if(checks.some(c=>c.status==='FAIL'))process.exitCode=1;
+--- /dev/null
++++ b/scripts/study-receipt.mjs
+@@ -0,0 +1,2 @@
++import {readFileSync,existsSync} from 'node:fs';import {resolve,sep} from 'node:path';import {createHash} from 'node:crypto';import assert from 'node:assert/strict';
++export function studyReceipt(root){const path='docs/learning-architecture-20261028/MANIFEST.json';if(!existsSync(resolve(root,path)))return {expected:(_p,h)=>h,paths:()=>[],bytes:(_p,n)=>n};const hash=p=>createHash('sha256').update(readFileSync(resolve(root,p))).digest('hex');const m=JSON.parse(readFileSync(resolve(root,path)));assert.equal(hash(m.baseline),m.baselineSha256);assert.equal(hash(m.previous),m.previousSha256);const baseline=JSON.parse(readFileSync(resolve(root,m.baseline))).files;assert.equal(new Set(m.files.map(e=>e.path)).size,m.files.length);for(const e of m.files){assert.ok(resolve(root,e.path).startsWith(root+sep));assert.equal(e.beforeSha256,baseline[e.path]??null);if(e.beforeSha256!==null)assert.equal(hash(e.rollbackPath),e.beforeSha256);assert.equal(hash(e.path),e.sha256,'Learning architecture drift '+e.path);}return {expected:(p,h)=>m.files.find(e=>e.path===p&&e.beforeSha256===h)?.sha256??h,paths:()=>m.files.map(e=>e.path),bytes:(p,n)=>m.files.find(e=>e.path===p)?.bytes??n};}
+--- /dev/null
++++ b/scripts/study-record.mjs
+@@ -0,0 +1,2 @@
++import {chromium} from 'playwright-core';import {mkdir,writeFile} from 'node:fs/promises';import path from 'node:path';
++const b=await chromium.launch({executablePath:'C:/Program Files (x86)/Microsoft/Edge/Application/msedge.exe',headless:true});for(const width of [1440,390]){const ctx=await b.newContext({viewport:{width,height:900},hasTouch:width<500,isMobile:width<500});await ctx.addInitScript(()=>localStorage.setItem('amir-theme','dark'));const p=await ctx.newPage(),cdp=await ctx.newCDPSession(p),frames=[],pending=[],dir=path.resolve(`.scratch/study-video/${width}`);await mkdir(dir,{recursive:true});cdp.on('Page.screencastFrame',e=>{const file=`${String(frames.length).padStart(5,'0')}.jpg`;frames.push({file,timestamp:e.metadata.timestamp});pending.push(writeFile(path.join(dir,file),Buffer.from(e.data,'base64')));void cdp.send('Page.screencastFrameAck',{sessionId:e.sessionId});});await cdp.send('Page.startScreencast',{format:'jpeg',quality:80,maxWidth:width,maxHeight:900,everyNthFrame:1});await p.goto('http://127.0.0.1:4318/study/',{waitUntil:'networkidle'});await p.waitForTimeout(750);await p.locator('.study-open').first().click();await p.waitForTimeout(600);await p.getByRole('link',{name:/Data ingestion & orchestration/}).click();await p.getByLabel('Learning activity',{exact:true}).waitFor();await p.waitForTimeout(700);await p.getByLabel('Learning activity',{exact:true}).selectOption('question');await p.waitForTimeout(700);await p.locator('.study-records h2 a').first().click();await p.getByRole('link',{name:'Return to Data ingestion & orchestration',exact:true}).waitFor();await p.waitForTimeout(1000);await p.getByRole('link',{name:'Return to Data ingestion & orchestration',exact:true}).click();await p.waitForTimeout(700);await cdp.send('Page.stopScreencast');await Promise.all(pending);await writeFile(path.join(dir,'frames.json'),JSON.stringify(frames,null,2));console.log(width,frames.length,'actual compositor frames');await ctx.close();}await b.close();
+--- /dev/null
++++ b/scripts/study-refine.py
+@@ -0,0 +1,6 @@
++from pathlib import Path
++r=Path(__file__).resolve().parents[1]
++p=r/'components/study/directory.tsx';s=p.read_text(encoding='utf8').replace('<ol className="study-topic-list">','{subject?<ol className="study-topic-list">').replace('})}</ol></section>','})}</ol>:<Link className="study-open" href={`/study/${s.id}/${practice?\'?mode=question\':\'\'}`}>Explore {s.topics.length} topics ↗</Link>}</section>');p.write_text(s,encoding='utf8')
++p=r/'app/study/[subject]/page.tsx';p.write_text("import {StudyDirectory} from '@/components/study/directory';import {SUBJECTS} from '@/lib/study/taxonomy';\nexport const dynamicParams=false;export function generateStaticParams(){return SUBJECTS.map(s=>({subject:s.id}));}\nexport default async function Page({params}:{params:Promise<{subject:string}>}){return <StudyDirectory subject={(await params).subject}/>;}\n",encoding='utf8')
++# Subject pages keep the intent in the browser, without making static pages depend on request search params.
++p=r/'components/study/directory.tsx';s=p.read_text(encoding='utf8').replace("href={`/study/${s.id}/${practice?'?mode=question':''}`}" ,"href={`/study/${s.id}/`}");p.write_text(s,encoding='utf8')
+--- /dev/null
++++ b/scripts/study-routes.mjs
+@@ -0,0 +1,3 @@
++import {readdir,readFile,writeFile} from 'node:fs/promises';import path from 'node:path';const checks=[];const walk=async d=>(await Promise.all((await readdir(d,{withFileTypes:true})).map(e=>e.isDirectory()?walk(path.join(d,e.name)):[path.join(d,e.name)]))).flat();
++for(const file of(await walk('out')).filter(p=>p.endsWith('index.html'))){const route='/'+path.relative('out',path.dirname(file)).replaceAll('\\','/')+'/';const response=await fetch('http://127.0.0.1:4318'+route.replace('//','/'));checks.push({id:route,status:response.status===200?'PASS':'FAIL'});if(route.startsWith('/study/')&&!route.includes('/review/')){const html=await readFile(file,'utf8');checks.push({id:'CANONICAL:'+route,status:html.includes('rel="canonical" href="https://hansa.amir-portfolio.workers.dev'+route+'"')?'PASS':'FAIL'});}}
++const review=await readFile('out/study/review/index.html','utf8'),sitemap=await readFile('out/sitemap.xml','utf8');checks.push({id:'REVIEW-NOINDEX',status:review.includes('noindex')&&!sitemap.includes('/study/review')?'PASS':'FAIL'});await writeFile('docs/learning-architecture-20261028/evidence/route-results.json',JSON.stringify({checks},null,2));console.log(checks.filter(c=>c.status==='FAIL'));console.log(`${checks.filter(c=>c.status==='PASS').length}/${checks.length} route/canonical/publication checks`);if(checks.some(c=>c.status==='FAIL'))process.exitCode=1;
+--- /dev/null
++++ b/scripts/study-seal.py
+@@ -0,0 +1,18 @@
++import pathlib,json,hashlib
++r=pathlib.Path(__file__).resolve().parents[1];d=r/'docs/learning-architecture-20261028';digest=lambda p:hashlib.sha256(p.read_bytes()).hexdigest();b=json.loads((d/'BASELINE.json').read_text())['files']
++allowed={'app/layout.tsx','app/sitemap.ts','app/learn/catalogue/page.tsx','app/practice/catalogue/page.tsx','app/lab/dp-600/page.tsx','components/site-header.tsx','components/practice/draft-review.tsx','components/learn/intake-review.tsx','lib/site.ts','lib/search/documents.ts','scripts/final-review-receipt.mjs'}
++allowed.add('scripts/verify-preservation-history.mjs')
++allowed.add('components/lab/exam-player.tsx')
++for folder in ['app/study','lib/study','components/study']:
++ allowed.update(p.relative_to(r).as_posix()for p in(r/folder).rglob('*')if p.is_file())
++allowed.update(p.relative_to(r).as_posix()for p in(r/'scripts').glob('study-*'))
++entries=[]
++for rel in sorted(allowed):
++ p=r/rel
++ if not p.exists()or digest(p)==b.get(rel):continue
++ e={'path':rel,'beforeSha256':b.get(rel),'sha256':digest(p),'bytes':p.stat().st_size}
++ if b.get(rel):e['rollbackPath']='docs/learning-architecture-20261028/before/'+rel+'.snapshot'
++ entries.append(e)
++unexpected=[p for p,h in b.items()if p not in allowed and digest(r/p)!=h]
++assert not unexpected,unexpected
++previous=r/'docs/final-review-20261028/INTEGRATION_MANIFEST.json';(d/'MANIFEST.json').write_text(json.dumps({'scope':'topic-led-learning-architecture','baseline':'docs/learning-architecture-20261028/BASELINE.json','baselineSha256':digest(d/'BASELINE.json'),'previous':previous.relative_to(r).as_posix(),'previousSha256':digest(previous),'files':entries,'unchanged':len(b)-sum(e['beforeSha256']is not None for e in entries),'unexpected':unexpected},indent=2));print(len(entries),'owned source changes; all other baseline bytes preserved')
+--- a/scripts/verify-preservation-history.mjs
++++ b/scripts/verify-preservation-history.mjs
+@@ -28,6 +28,7 @@
+   ...data.sourceTransitions.flatMap(entry => [entry.path, entry.originalPath]),
+   ...data.legacyAliases.map(entry => entry.currentPath), ...Object.keys(data.testFiles), data.registrySnapshotLicense.path,
+ ]);
++if(existsSync(resolve(root,'docs/learning-architecture-20261028/MANIFEST.json'))){const name='docs/learning-architecture-20261028/MANIFEST.json',m=JSON.parse(readFileSync(resolve(root,name),'utf8'));[name,m.baseline,m.previous].forEach(p=>required.add(p));m.files.forEach(e=>{required.add(e.path);if(e.rollbackPath)required.add(e.rollbackPath);});Object.keys(JSON.parse(readFileSync(resolve(root,m.baseline),'utf8')).files).filter(p=>p.startsWith('content/')).forEach(p=>required.add(p));}
+ // Carry the exact current successor and the audited historical before-bytes
+ // into disposable views; the original rejection cases remain unchanged.
+ if (existsSync(resolve(root,FINAL_REVIEW))) {

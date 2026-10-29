@@ -1,0 +1,89 @@
+{
+  "version": "1.2-local-integration",
+  "as_of": "2026-10-24",
+  "status": "active-agent-references-not-website-implementation",
+  "upstream_package_version": "1.1",
+  "manifest_excludes_self": true,
+  "files": [
+    {
+      "path": "AGENTS.md",
+      "bytes": 5470,
+      "sha256": "806c749ff9cea0eeda69ef65bef5c5eee8809e3f59f8904779907ebff1039c4c"
+    },
+    {
+      "path": "README.md",
+      "bytes": 16674,
+      "sha256": "4de46bccc4b5108600427bc031db21c8a1e961e3a2be437dc3495842ae4fede5"
+    },
+    {
+      "path": "scripts/verify-agent-reference.mjs",
+      "bytes": 3061,
+      "sha256": "8dcde9e7b58c237c66a45e0086c26f053e22a61b09e58e1616df88621fd630a7"
+    },
+    {
+      "path": "docs/agent-reference/START_HERE.md",
+      "bytes": 6674,
+      "sha256": "043c6317214cdd125b268d2fcfadaa5763a6f13d3b787d7729a33fc7d365a67c"
+    },
+    {
+      "path": "docs/agent-reference/HANSA_MASTER_AGENT_REFERENCE_v1.0.md",
+      "bytes": 73575,
+      "sha256": "dba9e96e7f4ae160ad1acb68cbf119e0bfacb85774a584c5ed72a392e39c26c0",
+      "source": "../new design guide/docs/agent-reference/HANSA_MASTER_AGENT_REFERENCE_v1.0.md"
+    },
+    {
+      "path": "docs/agent-reference/CONTENT_BRIEF_TEMPLATE.yaml",
+      "bytes": 3097,
+      "sha256": "001a419deb0814ef5a3d336b5ca57db7263a4c71c2245fb5fba0795c52fe4dcf",
+      "source": "../new design guide/docs/agent-reference/CONTENT_BRIEF_TEMPLATE.yaml"
+    },
+    {
+      "path": "docs/agent-reference/CAPABILITY_ROUTER.yaml",
+      "bytes": 4793,
+      "sha256": "330ec254994756b45d0c175c457ac3fba375fe6e401f298ba7723e723f767af0",
+      "source": "../new design guide/docs/agent-reference/CAPABILITY_ROUTER.yaml"
+    },
+    {
+      "path": "docs/agent-reference/HANSA_ADAPTIVE_VISUALIZATION_AGENT_POLICY.md",
+      "bytes": 17983,
+      "sha256": "5f4cd1351c27ae61695b43446b11d6e1f2d25c4887820c35d8dc0e88258eddf2",
+      "source": "../new design guide/docs/agent-reference/HANSA_ADAPTIVE_VISUALIZATION_AGENT_POLICY.md"
+    },
+    {
+      "path": "docs/agent-reference/Hansa_Master_Audit_Reorganization_Plan_v2_2026-10-24.md",
+      "bytes": 67070,
+      "sha256": "56ea245aad6982084b8b701509e7280be2235674e91b579933120037fd2fc44e",
+      "source": "../Hansa_Master_Audit_Reorganization_Plan_v2_2026-10-24.md"
+    },
+    {
+      "path": "docs/agent-reference/README_AR.md",
+      "bytes": 4043,
+      "sha256": "3761e6300c3f30cfb4b8c2c642bbf9427870f2c90562a39ae16ec52f33f7fb71",
+      "source": "../new design guide/docs/agent-reference/README_AR.md"
+    },
+    {
+      "path": "docs/agent-reference/UPSTREAM_PACKAGE_MANIFEST_v1.1.json",
+      "bytes": 1301,
+      "sha256": "5f0d9bf1d2c197d86a56864ff231bf7861561de2ded2b6a1ed4098c514f7a5c6"
+    },
+    {
+      "path": "docs/agent-reference/WORKSPACE_INVENTORY_2026-10-24.json",
+      "bytes": 79883,
+      "sha256": "1c98a6d31f9920a72045a6be6ea694216a8f0cbe7774749de550e66bf552139e"
+    },
+    {
+      "path": "docs/agent-reference/REFERENCE_INTEGRATION_REPORT_2026-10-24.md",
+      "bytes": 8021,
+      "sha256": "b5f378affeef21e28cef8e85045c351c29556c7f9c25a8c6ba770fa62d58727a"
+    }
+  ],
+  "amendments": [
+    {
+      "date": "2026-10-25",
+      "scope": "Atlas documentation entry points only",
+      "entry": "docs/knowledge-atlas/START_HERE.md",
+      "note": "Preserved upstream references unchanged; current owner scope overrides historical next-workflow."
+    }
+  ],
+  "successorAmendment": "2026-10-25: EasyUI native comparison; only owned reference hashes refreshed. Immutable Atlas/preflight baselines retained. See docs/design-system/easyui-v2/INTEGRATION_MANIFEST.json."
+}

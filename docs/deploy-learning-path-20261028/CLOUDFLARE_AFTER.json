@@ -1,0 +1,76 @@
+{
+  "checkedAt": "2026-10-28T08:26:57.736Z",
+  "accountId": "b84c4bfbf06e399ceb5f5267f87cb37e",
+  "worker": "hansa",
+  "deployments": {
+    "result": {
+      "deployments": [
+        {
+          "id": "bc1ceb2a-1113-4f3b-a3bd-15a8adbda1b9",
+          "source": "wrangler",
+          "strategy": "percentage",
+          "author_email": "amirabdelhamid227@gmail.com",
+          "annotations": {
+            "workers/message": "Reviewed canonical cinematic homepage, topic navigation and learning paths; original content/progress and scientific publication gates retained",
+            "workers/triggered_by": "deployment"
+          },
+          "versions": [
+            {
+              "version_id": "75cc4171-37f2-4301-ba30-f99baa299c41",
+              "percentage": 100
+            }
+          ],
+          "created_on": "2026-10-28T08:25:58.100761Z"
+        },
+        {
+          "id": "dcf503f4-b88c-4c94-8761-7fb5930a0bcd",
+          "source": "wrangler",
+          "strategy": "percentage",
+          "author_email": "amirabdelhamid227@gmail.com",
+          "annotations": {
+            "workers/triggered_by": "deployment"
+          },
+          "versions": [
+            {
+              "version_id": "b63f1fd6-45aa-4eb8-bad5-19fce2c91966",
+              "percentage": 100
+            }
+          ],
+          "created_on": "2026-10-27T23:39:06.744812Z"
+        }
+      ]
+    },
+    "success": true,
+    "errors": [],
+    "messages": [],
+    "result_info": {
+      "page": 1,
+      "per_page": 2,
+      "count": 2,
+      "total_count": 16,
+      "total_pages": 8
+    },
+    "status": 200
+  },
+  "settings": {
+    "result": {
+      "placement": {},
+      "compatibility_date": "2026-10-23",
+      "compatibility_flags": [],
+      "usage_model": "standard",
+      "tags": [],
+      "tail_consumers": [],
+      "logpush": false,
+      "annotations": {
+        "workers/message": "Reviewed canonical cinematic homepage, topic navigation and learning paths; original content/progress and scientific publication gates retained",
+        "workers/tag": "hansa-path-20261028",
+        "workers/triggered_by": "version_upload"
+      },
+      "bindings": []
+    },
+    "success": true,
+    "errors": [],
+    "messages": [],
+    "status": 200
+  }
+}

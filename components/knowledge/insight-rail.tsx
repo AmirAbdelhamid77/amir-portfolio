@@ -26,6 +26,7 @@ import {
   useLayoutEffect,
   useRef,
   useState,
+  memo,
 } from "react";
 import { capturePointer, releasePointer, TOUCH_GESTURE_CLASS } from "@/lib/touch";
 import { STAGE_RAIL_GLIDE } from "@/lib/knowledge/motion";
@@ -88,7 +89,7 @@ function cardScale(offset: number) {
   return 1 - (1 - SIDE_SCALE) * Math.min(Math.abs(offset), 1);
 }
 
-export function InsightRail({
+export const InsightRail = memo(function InsightRail({
   events,
   value,
   onValueChange,
@@ -333,7 +334,7 @@ export function InsightRail({
           onPointerUp={onPointerUp}
           onPointerCancel={onPointerUp}
           className={cn(
-            "relative w-full cursor-grab touch-pan-y overscroll-x-contain active:cursor-grabbing",
+            "insight-rail-viewport relative w-full cursor-grab touch-pan-y overscroll-x-contain active:cursor-grabbing",
             "[clip-path:inset(0)] [mask-image:linear-gradient(to_right,transparent,black_4%,black_96%,transparent)]",
             TOUCH_GESTURE_CLASS,
           )}
@@ -386,7 +387,7 @@ export function InsightRail({
       />
     </div>
   );
-}
+});
 
 function RailChip({
   event,
@@ -411,19 +412,25 @@ function RailChip({
   buttonRef: (node: HTMLButtonElement | null) => void;
 }) {
   const id = useId();
+  const reduce = useReducedMotion();
   const { cardWidth } = geometry;
   const offset = useTransform(scroll, (value) => index - value);
   const x = useTransform(offset, (value) => cardX(value, geometry));
   const scale = useTransform(offset, cardScale);
   const zIndex = useTransform(offset, (value) => 100 - Math.round(Math.abs(value) * 10));
   const veilOpacity = useTransform(offset, (value) => SIDE_DIM * Math.min(Math.abs(value), 1));
+  const rotateY = useTransform(offset, (value) => reduce ? 0 : clamp(value * -14, -24, 24));
+  const z = useTransform(offset, (value) => reduce ? 0 : -Math.min(Math.abs(value), 3) * 65);
 
   return (
     <motion.li
-      className="absolute left-1/2 top-1/2"
+      className="rail-edition absolute left-1/2 top-1/2"
+      data-active={active}
       style={{
         x,
         scale,
+        rotateY,
+        z,
         zIndex,
         width: cardWidth,
         marginLeft: -cardWidth / 2,
@@ -431,7 +438,7 @@ function RailChip({
       }}
     >
       <div className="relative">
-        <div className="relative overflow-hidden rounded-[18px] border border-border-strong bg-card px-3.5 py-2.5 shadow-[0_1px_0_0_rgb(255_255_255/0.06)_inset,0_14px_30px_-22px_rgb(0_0_0/0.7)]">
+        <div className="rail-date-face relative overflow-hidden rounded-[18px] border border-border-strong bg-card px-3.5 py-2.5 shadow-[0_1px_0_0_rgb(255_255_255/0.06)_inset,0_14px_30px_-22px_rgb(0_0_0/0.7)]">
           <time
             id={`${id}-date`}
             dateTime={event.iso}

@@ -1,0 +1,213 @@
+{
+  "scope": "source-grounded-learning-path-review",
+  "baseline": "docs/learning-path-review-20261028/BASELINE.json",
+  "baselineSha256": "e639c1f5a9c049d1c192a06eb23e37e86a056641231d916b425f9a7b3e71a91a",
+  "previous": "docs/learning-architecture-20261028/MANIFEST.json",
+  "previousSha256": "1ec23e8c9ef0e759e3907a9dc44e847773940c0a5368a5a5381a947382897cb5",
+  "files": [
+    {
+      "path": "app/sitemap.ts",
+      "beforeSha256": "e5659f05966bcbc71fb6dcad7dabbb98898ff01dfdd5e44dfe2377df8d11511a",
+      "sha256": "92289aaca63821e8424d75f45b5c48f01abea8ea27dc0c323941b98b43bbd8bf",
+      "bytes": 4234,
+      "rollbackPath": "docs/learning-path-review-20261028/before/app/sitemap.ts.snapshot"
+    },
+    {
+      "path": "app/study/[subject]/[topic]/page.tsx",
+      "beforeSha256": "2d2946ac5acdfc8e5d3abecfdab6e3da008e841f5d59ff7898d259a7d6de7ac0",
+      "sha256": "2738db36f9d4c8eca1056dc6cdfaaf0d270f48b94b247132e75a2c60d1c804bf",
+      "bytes": 1774,
+      "rollbackPath": "docs/learning-path-review-20261028/before/app/study/[subject]/[topic]/page.tsx.snapshot"
+    },
+    {
+      "path": "app/study/[subject]/path/page.tsx",
+      "beforeSha256": null,
+      "sha256": "098a296add86470d9086c757d9522b2b89250a4c0ec4b275f1db638c8a7749e2",
+      "bytes": 1570
+    },
+    {
+      "path": "app/study/review/page.tsx",
+      "beforeSha256": "2c78bd25f5144407786212f56bcaf7aec7d5915b9d5eb13f05daf9e8de0defc9",
+      "sha256": "e9dec4b55602e5654f47d48047d20175c4da4541fac079dab8b68b1cdb6d8029",
+      "bytes": 967,
+      "rollbackPath": "docs/learning-path-review-20261028/before/app/study/review/page.tsx.snapshot"
+    },
+    {
+      "path": "app/study/review/path/page.tsx",
+      "beforeSha256": null,
+      "sha256": "969670dfe6e098a0c1975233b57ebd2fa198673b63c123f7470a2909afa52e23",
+      "bytes": 1040
+    },
+    {
+      "path": "components/fabric/pack-notes.tsx",
+      "beforeSha256": "ac6ecae333eca8151ff9e805898c2f35abbe5103e597ffb5eae616c4aaaa5f5c",
+      "sha256": "333d9f433c6e09ed7a2fa3e0b25525db547a8008640336e826ad8cb8e048c8ea",
+      "bytes": 7168,
+      "rollbackPath": "docs/learning-path-review-20261028/before/components/fabric/pack-notes.tsx.snapshot"
+    },
+    {
+      "path": "components/study/directory.tsx",
+      "beforeSha256": "902fcec347a58e8a0be5bafb4b577551970079550fff3088f33e70c297daa4d6",
+      "sha256": "e7d08a414a22943728666609f48c86b5ccce61450685dc64da4ed05254f60367",
+      "bytes": 3561,
+      "rollbackPath": "docs/learning-path-review-20261028/before/components/study/directory.tsx.snapshot"
+    },
+    {
+      "path": "components/study/orientation.tsx",
+      "beforeSha256": "123dcc56a941159a98b97acafdbc17291cf8b91789ef3f4bc8a98679d988707d",
+      "sha256": "6bb67878752298ae42ff0591b11c16b73ccc5b0993f41b8810167ccd79ba073d",
+      "bytes": 2324,
+      "rollbackPath": "docs/learning-path-review-20261028/before/components/study/orientation.tsx.snapshot"
+    },
+    {
+      "path": "components/study/path-units.tsx",
+      "beforeSha256": null,
+      "sha256": "2ebb41f80a5bf921a448ba91e57ac6fed47563f71b95b20eb3d912dcd94fad26",
+      "bytes": 5413
+    },
+    {
+      "path": "components/study/path.css",
+      "beforeSha256": null,
+      "sha256": "c191dd3b7b76331d362eede5a08f36abb0d5e7a9f241035db39b68f112b66831",
+      "bytes": 3611
+    },
+    {
+      "path": "components/study/topic-preparation.tsx",
+      "beforeSha256": null,
+      "sha256": "48edb69417b74646c8b2c22862e8e395c0cb6ac872dd1a5e31194122da91f54d",
+      "bytes": 1336
+    },
+    {
+      "path": "lib/study/classification-review.ts",
+      "beforeSha256": null,
+      "sha256": "3a2f0de697b141297fa6c24c0596b75c9f56bb82d7f788531da9ce5ae58968fe",
+      "bytes": 3151
+    },
+    {
+      "path": "lib/study/evidence.ts",
+      "beforeSha256": null,
+      "sha256": "4c5c325da7a6aca2d3ad874c9953390629e575eb17532aac42894bcbf139cb05",
+      "bytes": 3546
+    },
+    {
+      "path": "lib/study/learning-path.ts",
+      "beforeSha256": null,
+      "sha256": "1be8c8d9e74d677324dadfb2a1e378646fc8083626539fec05a62ef1569fb10f",
+      "bytes": 13137
+    },
+    {
+      "path": "lib/study/review-learning-path.ts",
+      "beforeSha256": null,
+      "sha256": "aff1a2882a30c8453c5d4b52b07d0ba283fdac304023556d6a9a68cb6c4386e9",
+      "bytes": 1768
+    },
+    {
+      "path": "lib/study/server.ts",
+      "beforeSha256": "45b279333342effd8cbfcbd70d39afe772575b0b17257f033e42ce932e8c7ed8",
+      "sha256": "8ed2878c07c286cf06dd0b0db541e710d260ba59c7bf94c40041eee802561c1b",
+      "bytes": 5793,
+      "rollbackPath": "docs/learning-path-review-20261028/before/lib/study/server.ts.snapshot"
+    },
+    {
+      "path": "lib/study/topic-review.ts",
+      "beforeSha256": null,
+      "sha256": "71db68462e6e114c76f826e34d66963e43a21ef6943dda0e3e131c60fdb385e0",
+      "bytes": 9964
+    },
+    {
+      "path": "scripts/path-review-audit.mjs",
+      "beforeSha256": null,
+      "sha256": "98b4f3f22bf93dbca3f22a79a372dfc2c09cda6d713665f8ba8cd425c94a4fb6",
+      "bytes": 5547
+    },
+    {
+      "path": "scripts/path-review-chain.py",
+      "beforeSha256": null,
+      "sha256": "f3592b19b50b82597eda458fc991ff8cef649d7f68354d3558e538416ccd1324",
+      "bytes": 1821
+    },
+    {
+      "path": "scripts/path-review-contract-tests.mjs",
+      "beforeSha256": null,
+      "sha256": "3602d5af3be290e4058a0339e07638ba3653772a351dcaa623ff291f8326f41b",
+      "bytes": 2307
+    },
+    {
+      "path": "scripts/path-review-encode.py",
+      "beforeSha256": null,
+      "sha256": "7a0b12e71fc689b70b81f058682c59541df603aba0814ebe3f530bf378b07a64",
+      "bytes": 1118
+    },
+    {
+      "path": "scripts/path-review-focused.mjs",
+      "beforeSha256": null,
+      "sha256": "ad70cb6148627f43bff1f805d6107d1a1fb25db09852d6ce5089d7894399951b",
+      "bytes": 4155
+    },
+    {
+      "path": "scripts/path-review-integrate.py",
+      "beforeSha256": null,
+      "sha256": "9c91ded4a4bcf76999d002da506c710c57afb778c279c809cdbb57154536afce",
+      "bytes": 1480
+    },
+    {
+      "path": "scripts/path-review-negative.mjs",
+      "beforeSha256": null,
+      "sha256": "f34640d0b3806901effd742498306c81a536f3fa91a2a08d0a4c55f09dc4fe13",
+      "bytes": 1672
+    },
+    {
+      "path": "scripts/path-review-orientation.py",
+      "beforeSha256": null,
+      "sha256": "adc3bb418596228072ce15bcc1ad0f880ebbe61334343bb6eccc4e924d9862d3",
+      "bytes": 3086
+    },
+    {
+      "path": "scripts/path-review-qa.mjs",
+      "beforeSha256": null,
+      "sha256": "42ee65449a21dcaa7efa8e51bb956692a487f9c41cabeda653df4b1e00aff172",
+      "bytes": 4742
+    },
+    {
+      "path": "scripts/path-review-receipt.mjs",
+      "beforeSha256": null,
+      "sha256": "8f520141a0c47cbb83d488882d39686faed93cf33549e7fdd3575564d450d8a7",
+      "bytes": 1156
+    },
+    {
+      "path": "scripts/path-review-record.mjs",
+      "beforeSha256": null,
+      "sha256": "8986e0e977937695fa48c42d7edf819eb4f85c58f6639c6461bd213dd0218302",
+      "bytes": 2386
+    },
+    {
+      "path": "scripts/path-review-seal.py",
+      "beforeSha256": null,
+      "sha256": "ac9cafaec0acc6369d8211eeab1ad51418814f86d70cfae6acb66bdc4780e014",
+      "bytes": 1730
+    },
+    {
+      "path": "scripts/study-negative.mjs",
+      "beforeSha256": "27256ee23b2ac70db3c3bd81641d12a82e2acb072f5405738015b27f5eadf667",
+      "sha256": "eadd622ef6a2810e9cc860d64d1261cd93bfe81deb9044278b5602131cbdcf23",
+      "bytes": 2082,
+      "rollbackPath": "docs/learning-path-review-20261028/before/scripts/study-negative.mjs.snapshot"
+    },
+    {
+      "path": "scripts/study-receipt.mjs",
+      "beforeSha256": "705a4d0421d46cacdae61fdb87be5ca8852d21dc936d236b4db6b51fe346b2d4",
+      "sha256": "8f0bf9d60cd6f86da7ed41c6995e488812aaff340f1ff3d04e1d4e78977b5cca",
+      "bytes": 1371,
+      "rollbackPath": "docs/learning-path-review-20261028/before/scripts/study-receipt.mjs.snapshot"
+    },
+    {
+      "path": "scripts/verify-preservation-history.mjs",
+      "beforeSha256": "0cc787ca5ecc0e38fae798c5c6c158caa3d49f05ad26ca4de6c0df534722dd35",
+      "sha256": "0a512a8e4779d0da59b9a7850abf86b3c5c465d668db6b9c61a2ed0880a5b924",
+      "bytes": 10132,
+      "rollbackPath": "docs/learning-path-review-20261028/before/scripts/verify-preservation-history.mjs.snapshot"
+    }
+  ],
+  "preserved": 489,
+  "unexpected": []
+}

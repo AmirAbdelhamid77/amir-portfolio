@@ -37,6 +37,7 @@ export function PackNotes() {
   };
 
   const current = notes?.find((entry) => entry.pack === pack);
+  useEffect(()=>{if(!notes||!location.hash.startsWith('#note-'))return;const element=document.getElementById(location.hash.slice(1));if(element instanceof HTMLDetailsElement){element.open=true;requestAnimationFrame(()=>element.scrollIntoView({block:'start',behavior:'instant'}));}},[notes,pack]);
   const meta = PACKS.find((entry) => entry.key === pack);
 
   return (
@@ -108,6 +109,7 @@ export function PackNotes() {
             return (
               <details
                 key={`${current.pack}-${chapter.id}`}
+                id={`note-${current.pack}-${chapter.id}`}
                 className="group rounded-2xl border border-border bg-background/60 p-3.5"
               >
                 <summary className="flex cursor-pointer list-none items-start justify-between gap-3">
