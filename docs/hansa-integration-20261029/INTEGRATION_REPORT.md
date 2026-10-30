@@ -435,3 +435,39 @@ expert review of the 280 answer keys**, particularly the 83 no-corpus-coverage
 questions and the 15 highest-difficulty (level-5) questions. The KU pass
 closes the loop between the authored bank and the corpus to the extent the
 corpus's coverage allows — and honestly reports where it doesn't reach.
+
+## Community bank integration — Howard Ginsburg + Patrick Wiloak (30 October 2026)
+
+Two externally authored, rights-cleared community question banks were extracted
+from their pinned GitHub sources and integrated into the bank. Bank final
+state: **1,264 questions, 27 packs, 623 registry entries, 78 case studies**
+(834 baseline + 280 authored + 150 community).
+
+- **`howard-dp600`** (120 questions, MIT): Community-authored DP-600 practice
+  questions by Howard Ginsburg, grounded in public Microsoft Learn
+  documentation. Source: `howardginsburg/MicrosoftStudyGuides` at pinned SHA
+  `e4c78864b7aa`. Includes 24 multi-select, 8 shared scenarios, and per-domain
+  coverage across all three DP-600 domains. Hansa did not author, review, or
+  independently validate these questions.
+- **`patrick-dp600`** (30 questions, CC BY 4.0): Community-authored DP-600
+  practice questions by Patrick Wiloak, weighted per the exam skills outline.
+  Source: `PatrickWiloak/data-zero-to-hero` at pinned SHA `aa04a0c0562b`.
+  Each question carries its own scenario context. Hansa did not author,
+  review, or independently validate these questions.
+
+**Rights and provenance.** Both banks are mirrored under their respective
+licenses (MIT and CC BY 4.0) with full attribution on every question. The
+provenance strings on each record state: "Hansa did not author, review, or
+independently validate these questions or their answer keys." Answer keys
+are preserved verbatim from the source. Neither bank's keys have been
+independently validated by Hansa.
+
+**Extraction method.** `scripts/convert-community-banks.mjs` converts the
+source formats (JSON and Markdown) into the Hansa pack schema, preserving
+answer keys, explanations, references, and scenarios. Both packs were merged
+through `scripts/import-corpus-pack.mjs` with 5,452 and 2,586 structural
+checks respectively (0 failures). Registry entries (242 + 3) were created
+from the source URLs referenced by the questions.
+
+**Evidence.** `npm run test:all` **220 tests PASS**; all six integrity
+verifiers PASS; build PASS. Browser e2e NOT RUN (environment stall).

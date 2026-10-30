@@ -105,6 +105,14 @@ export const PACK_LOADERS: Record<string, FabricPackLoader> = {
     import("@/content/fabric/questions/incremental-copy.json").then((module) => ({
       default: module.default as unknown as FabricQuestion[],
     })),
+  "howard-dp600": () =>
+    import("@/content/fabric/questions/howard-dp600.json").then((module) => ({
+      default: module.default as unknown as FabricQuestion[],
+    })),
+  "patrick-dp600": () =>
+    import("@/content/fabric/questions/patrick-dp600.json").then((module) => ({
+      default: module.default as unknown as FabricQuestion[],
+    })),
 };
 
 export function loadPack(key: string): Promise<FabricQuestion[]> {

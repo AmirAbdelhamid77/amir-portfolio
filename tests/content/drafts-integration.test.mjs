@@ -144,7 +144,7 @@ test("drafts are not merged into the approved banks", () => {
   const index = json("content/fabric/index.json");
   const additions = json("content/fabric/additions/questions.json");
   const manifest = json("content/fabric/additions/manifest.json");
-  assert.equal(index.length, 1114, "approved Fabric index unchanged apart from the authored corpus packs (834 baseline + 280 phase-C questions)");
+  assert.equal(index.length, 1264, "approved Fabric index unchanged apart from the authored corpus packs (834 baseline + 280 authored + 150 community phase-C questions)");
   assert.equal(additions.length, 532, "approved additions must be unchanged");
   assert.equal(manifest.pl300, 80, "existing PL-300 records must be unchanged");
   const approvedIds = new Set([
