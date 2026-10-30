@@ -371,3 +371,67 @@ browser e2e remains NOT RUN (environment stall).
 **Next atomic task:** the KU verification pass — sampling the corpus's 594
 DAX knowledge units against the authored packs' answer keys, per the
 authorship discussion of 29–30 Oct.
+
+## KU verification pass (30 October 2026)
+
+Tested the 280 authored answer keys against the corpus's 56,937 knowledge-unit
+texts. Method: keyword extraction from each question's correct answer and
+explanation (technical terms weighted 3×), searched against all KU
+statements/definitions/code_examples/bullet_points. Full report:
+`KU_VERIFICATION.json` (per-question, with matching KU texts and scores).
+
+### Results
+
+| Status | Count | What it means |
+|---|---:|---|
+| Verified (score ≥ 15) | 30 (11%) | A KU directly addresses the question's core technical claim (e.g. KU-00767 "Direct Lake overview" confirms the Direct Lake storage-mode answer) |
+| Partially supported (score 8–14) | 167 (60%) | KUs touch related concepts but don't directly verify the specific claim |
+| No corpus coverage | 83 (30%) | The corpus's KU extraction didn't reach these topics |
+
+**70% of questions have some corpus overlap; 11% are directly confirmed.**
+
+### Per-pack
+
+| Pack | Verified | Partial | No coverage | Avg score |
+|---|---:|---:|---:|---:|
+| semantic-models-dax | 6 | 25 | 9 | 10.3 |
+| eventstream-windowing | 3 | 30 | 7 | 9.8 |
+| dataflow-gen2 | 1 | 28 | 11 | 9.0 |
+| mirroring | 11 | 21 | 8 | 11.4 |
+| activator | 0 | 17 | 23 | 6.2 |
+| notebooks-pyspark | 9 | 27 | 4 | 11.4 |
+| incremental-copy | 0 | 19 | 21 | 7.5 |
+
+### What the numbers mean — and what they don't
+
+The verification rate (70%) means 70% of questions have *topical overlap* with
+the corpus's KU texts. It does NOT mean 70% are confirmed correct — the KUs
+touch related concepts without necessarily verifying the specific answer key.
+
+The 83 no-coverage questions cluster in exactly the areas where the corpus's
+harvest didn't reach (not where answers are likely wrong):
+- **Activator** (23): the corpus's harvest didn't produce Activator
+  documentation KUs — the concept wasn't in the harvested repos' scope
+- **Pipeline activities** (Lookup, Script, ForEach): Data Factory pipeline
+  documentation wasn't harvested into KUs
+- **DAX function details** (variables, filter modifiers, iterators): the
+  corpus's harvest focused on Fabric platform pages, not DAX function references
+
+The verified matches that DO exist are genuine and load-bearing: e.g.
+KU-00767 "Direct Lake overview" directly confirms the Direct Lake
+storage-mode answer; KU-06037 "DirectQuery fallback" confirms the fallback
+diagnosis. These are the corpus working as intended.
+
+### Honest conclusion
+
+The corpus's KU collection **cannot be the primary verification source** for
+the authored packs because its harvest scope (third-party tool documentation,
+not systematic DP-600/DP-700 exam coverage) doesn't align with the packs'
+scope. The questions' own `refs` (pointing to live Microsoft Learn pages) are
+the real verification ground truth — the pack authoring already used them.
+
+**The actual quality gate for the authored packs is a human subject-matter
+expert review of the 280 answer keys**, particularly the 83 no-corpus-coverage
+questions and the 15 highest-difficulty (level-5) questions. The KU pass
+closes the loop between the authored bank and the corpus to the extent the
+corpus's coverage allows — and honestly reports where it doesn't reach.
