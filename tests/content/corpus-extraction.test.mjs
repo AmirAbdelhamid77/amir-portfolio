@@ -51,6 +51,22 @@ test("draft banks ship no answer keys and keep grading disabled", () => {
   }
   assert.equal(kengio.questions.length, 150, "150 kengio questions");
   assert.equal(candidates.questions.length, 37, "37 corpus candidates (deduplicated)");
+  const chatur = readJson("content/drafts/chaturcr48-dp600.json");
+  const warren = readJson("content/drafts/warren-dp600.json");
+  const stark = readJson("content/drafts/stark-v2-dp600.json");
+  for (const [name, bank] of [["chaturcr48", chatur], ["warren", warren], ["stark-v2", stark]]) {
+    assert.equal(bank.gradingEnabled, false, name + " grading disabled");
+    assert.equal(bank.answersShipped, false, name + " ships no answers");
+    for (const question of bank.questions) {
+      for (const key of Object.keys(question)) {
+        assert.ok(!/^(correctAnswer|correct|explanation|shortAnswer)$/i.test(key), name + "/" + question.draftId + " carries no answer field");
+      }
+      assert.ok(question.stem?.trim(), name + "/" + question.draftId + " has a stem");
+    }
+  }
+  assert.equal(chatur.questions.length, 71, "71 chaturcr48 questions");
+  assert.equal(warren.questions.length, 122, "122 warren questions");
+  assert.ok(stark.questions.length >= 1000, "stark-v2 extraction stays substantial");
 });
 
 test("kengio attribution and candidate provenance name their sources", () => {

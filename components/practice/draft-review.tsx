@@ -17,7 +17,7 @@ import type { DraftBank, DraftQuestion } from "@/lib/drafts/data";
 import { draftBody, filterDrafts } from "@/lib/drafts/data";
 import { cn } from "@/lib/utils";
 
-type BankId = "dp600-r18" | "pl300-v88" | "notion-28" | "corpus-candidates" | "kengio-dp700";
+type BankId = "dp600-r18" | "pl300-v88" | "notion-28" | "corpus-candidates" | "kengio-dp700" | "chaturcr48-dp600" | "warren-dp600" | "stark-v2-dp600";
 
 const BANK_LABEL: Record<BankId, string> = {
   "dp600-r18": "DP-600 · R18 candidate",
@@ -25,6 +25,9 @@ const BANK_LABEL: Record<BankId, string> = {
   "notion-28": "Creative patterns · 28 candidates",
   "corpus-candidates": "Corpus intake · 37 candidates",
   "kengio-dp700": "DP-700 · kengio community bank (MIT)",
+  "chaturcr48-dp600": "DP-600 · chaturcr48 (71 Q)",
+  "warren-dp600": "DP-600 · Warren (122 Q)",
+  "stark-v2-dp600": "DP-600 · Stark V2 (1,213 Q)",
 };
 
 const control = "min-h-11 rounded-xl border border-border-strong bg-background p-3 text-sm";
@@ -42,6 +45,18 @@ async function loadBank(id: BankId): Promise<DraftBank> {
     const loaded = await import("@/content/drafts/kengio-dp700.json");
     return loaded.default as unknown as DraftBank;
   }
+  if (id === "chaturcr48-dp600") {
+    const loaded = await import("@/content/drafts/chaturcr48-dp600.json");
+    return loaded.default as unknown as DraftBank;
+  }
+  if (id === "warren-dp600") {
+    const loaded = await import("@/content/drafts/warren-dp600.json");
+    return loaded.default as unknown as DraftBank;
+  }
+  if (id === "stark-v2-dp600") {
+    const loaded = await import("@/content/drafts/stark-v2-dp600.json");
+    return loaded.default as unknown as DraftBank;
+  }
   const loaded =
     id === "dp600-r18"
       ? await import("@/content/drafts/dp600-r18.json")
@@ -54,7 +69,7 @@ export function DraftReview() {
   const [banks, setBanks] = useState<Partial<Record<BankId, DraftBank>>>({});
   const [error, setError] = useState("");
   const [query, setQuery] = useState("");
-  useEffect(()=>{const restore=()=>{const u=new URL(location.href),bank=u.searchParams.get('bank');if(bank==='dp600-r18'||bank==='pl300-v88'||bank==='notion-28'||bank==='corpus-candidates'||bank==='kengio-dp700')setBankId(bank);setQuery((u.searchParams.get('q')??'').slice(0,160));};queueMicrotask(restore);addEventListener('popstate',restore);return()=>removeEventListener('popstate',restore);},[]);
+  useEffect(()=>{const restore=()=>{const u=new URL(location.href),bank=u.searchParams.get('bank');if(bank==='dp600-r18'||bank==='pl300-v88'||bank==='notion-28'||bank==='corpus-candidates'||bank==='kengio-dp700'||bank==='chaturcr48-dp600'||bank==='warren-dp600'||bank==='stark-v2-dp600')setBankId(bank);setQuery((u.searchParams.get('q')??'').slice(0,160));};queueMicrotask(restore);addEventListener('popstate',restore);return()=>removeEventListener('popstate',restore);},[]);
   // One counter per bank, so switching banks starts from the first page
   // without an effect that resets state after render.
   const [limits, setLimits] = useState<Record<BankId, number>>({
@@ -63,6 +78,9 @@ export function DraftReview() {
     "notion-28": 40,
     "corpus-candidates": 40,
     "kengio-dp700": 40,
+    "chaturcr48-dp600": 40,
+    "warren-dp600": 40,
+    "stark-v2-dp600": 40,
   });
   const limit = limits[bankId];
 

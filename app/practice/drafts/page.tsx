@@ -34,7 +34,7 @@ export default function DraftReviewPage() {
           </nav>
           <Eyebrow className="mt-6">Isolated review mode · not an approved bank</Eyebrow>
           <h1 className="mt-4 max-w-3xl text-balance text-3xl font-medium tracking-tight md:text-4xl">
-            Four packages, staged as drafts and kept apart.
+            Multiple packages, staged as drafts and kept apart.
           </h1>
           <p className="mt-4 max-w-2xl text-sm leading-7 text-muted-foreground sm:text-base sm:leading-8">
             {dp.questions} DP-600 R18 candidate questions arrive at status{" "}
@@ -45,7 +45,7 @@ export default function DraftReviewPage() {
             DP-600 and PL-300 banks.
             File and build checks passed for both — that is package integrity, not academic approval. Both banks
             are staged here for review only: grading is disabled, no expected answer is shipped to this browser,
-            and none of the banks replaces anything in the approved catalogue. The two corpus-wave additions arrive with 37 keyless candidates and 150 community questions whose answer keys stay at their MIT source.
+            and none of the banks replaces anything in the approved catalogue. The corpus-wave additions bring 37 keyless candidates, 150 community questions (keys at MIT source), and 1,406 unlicensed review-only questions (no keys shipped).
           </p>
         </Container>
       </section>

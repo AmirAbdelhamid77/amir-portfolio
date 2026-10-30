@@ -375,10 +375,11 @@
     "cf214ae21d05945459f57a041cb79720831650711eddede40a666b4cdaa9f54c",
     "cb6d646af9c62f4eddd3d6fdb1193681276c8eed26cdd35c92185bfcc4d66fbf",
     "b5b130cc1244bfc8a736a0e28970c6cf2558b76c4bbcc709944a5e6a30165e8d",
-    "b662028cef5bb8a75ece7dcf8d47b529d9aed9e8133718cf4dfeda883e971d86"
+    "b662028cef5bb8a75ece7dcf8d47b529d9aed9e8133718cf4dfeda883e971d86",
+    "3847dd9dd0bf7d1a04a4605acf945379982fb55f2f405dac6c569e5e46d21e91"
    ],
-   "sha256": "3847dd9dd0bf7d1a04a4605acf945379982fb55f2f405dac6c569e5e46d21e91",
-   "bytes": 2729,
+   "sha256": "6b933e10d02be6d83bc98f398ee63ce4cd788c35581746b0840f7d1e60fc6b4a",
+   "bytes": 2730,
    "rollbackPath": "docs/hansa-integration-20261029/before/lib/site-metrics.ts.snapshot",
    "observeOnly": true,
    "note": "Pre-existing drift (29 Oct work streams) that this wave then modified on top of; rollback snapshot holds the pre-wave working-tree bytes (9d22906320). Pre-existing state observed at wave start: modified/added by the uncommitted 29 Oct RTI-academy/cinematic/knowledge work streams after the last recorded receipt; this wave did not author it. Recorded (observeOnly) so the runtime gate pins the observed bytes explicitly; any later change fails the gate. Phase C: fabric counts updated for the merged bank (874/19/264/77). Pack 2: counts 914/20/306/78. Packs 3-7: counts 1114/25/378/78. Extraction wave (Academy + draft banks) refreshed this artifact. Community bank wave (Howard+Patrick) refreshed this artifact."
@@ -388,10 +389,11 @@
    "beforeSha256": "7401e9002a763d22ea96d57d45a5d6339192db36185e7f9a360ffebd81e7944f",
    "acceptedDrift": [
     "62e6e0094882b75c666ab65e233ab9b21468edc82893266f499cee5cf237933a",
-    "30294069db3d452a04269c2d26e7427027de0bd8836c43fd42e99e98b3809437"
+    "30294069db3d452a04269c2d26e7427027de0bd8836c43fd42e99e98b3809437",
+    "efc243e2b409748b7a6f9ba0175509d8cbb0c76128103cfe0f69ad73d5c9160a"
    ],
-   "sha256": "efc243e2b409748b7a6f9ba0175509d8cbb0c76128103cfe0f69ad73d5c9160a",
-   "bytes": 4941,
+   "sha256": "7863ebba962ddab006158678ff2259f4f94d606c755cbddfb700ba4ed0abb515",
+   "bytes": 5248,
    "rollbackPath": "docs/hansa-integration-20261029/before/scripts/verify-site-metrics.mjs.snapshot",
    "observeOnly": true,
    "note": "Pre-existing drift (29 Oct work streams) that this wave then modified on top of; rollback snapshot holds the pre-wave working-tree bytes (62e6e00948). Pre-existing state observed at wave start: modified/added by the uncommitted 29 Oct RTI-academy/cinematic/knowledge work streams after the last recorded receipt; this wave did not author it. Recorded (observeOnly) so the runtime gate pins the observed bytes explicitly; any later change fails the gate. Extraction wave (Academy + draft banks) refreshed this artifact. Community bank wave (Howard+Patrick) refreshed this artifact."
@@ -430,10 +432,11 @@
    "path": "tsconfig.tsbuildinfo",
    "beforeSha256": "cbdf9fc15359fec2ff4b6f477dbd63594d3ffc23fac2b64be4b4c885a36789e4",
    "acceptedDrift": [
-    "71aeb4454bddc57ecf423cd833c6e805a638ff643a356e34ac215bbf4e6fa93a"
+    "71aeb4454bddc57ecf423cd833c6e805a638ff643a356e34ac215bbf4e6fa93a",
+    "626804aa08b805b9a382aa6e565abff33431b1ef744c9f74e36a913ca3ec35fa"
    ],
-   "sha256": "626804aa08b805b9a382aa6e565abff33431b1ef744c9f74e36a913ca3ec35fa",
-   "bytes": 213473,
+   "sha256": "b76ed13a1f9841e911c11d1c95ca6305035254e189ec7cb23b29410d2c26b107",
+   "bytes": 220172,
    "rollbackPath": null,
    "observeOnly": true,
    "note": "Generated build cache (incremental tsc), reproducible by rebuilding — the canonical-home receipt records it with generated:true and no rollback bytes by design. The cache regenerated during this wave typecheck/build; pinned here so the successor translation stays exact. Refresh this row after any rebuild. The dp600-continuation layer also pins a regenerated state of this cache; its recorded hash is accepted as drift here too. Refresh after any rebuild."
@@ -710,10 +713,11 @@
     "7ce94b5d2ab1ac6e274957a46537b3eaf8890144dc3638d7fc75b1b6073dffc4",
     "0d01e20ce7b4781ac684111283682c286c2cbf593741e4b21baf1b4562d2d96b",
     "24395f1d70e0a76826d963df594e86924aa34fac133a9d87a8a450ab51418b6f",
-    "73962741749ce6bb7b678a3a4e82d93682889f1d4d41d6608fd8b1391089d190"
+    "73962741749ce6bb7b678a3a4e82d93682889f1d4d41d6608fd8b1391089d190",
+    "7f8f4b275bc9885cf2465759f78eae552bb31caab8520274764c9fbb2fea6803"
    ],
-   "sha256": "7f8f4b275bc9885cf2465759f78eae552bb31caab8520274764c9fbb2fea6803",
-   "bytes": 8482,
+   "sha256": "833465ee40dfac855d3b18c56f5c39b68e12452b8397aeaa00bfd519e028acc6",
+   "bytes": 8535,
    "rollbackPath": "docs/hansa-integration-20261029/before/docs__sql-integration-20261028__BASELINE.json.snapshot",
    "note": "Phase C: the seven content/fabric entries the corpus pack merge changed were re-hashed in the SQL wave's preservation baseline (the merge legitimately evolves the shared bank artifacts; every other entry keeps its frozen hash). Rollback holds the pre-phase-C bytes; the SQL receipt's recorded pre-merge state is accepted as drift here. Pack 2 re-hash on 30 Oct; the pack-1 state is accepted as drift. Packs 3-7 re-hash on 30 Oct; intermediate states accepted as drift. Extraction wave: content/drafts/manifest.json entry re-hashed (two new draft banks). Community banks (Howard+Patrick) re-hash."
   },
@@ -1158,9 +1162,11 @@
   {
    "path": "lib/study/review.ts",
    "beforeSha256": "4fa3f57f831d1b16c72032e31294f037c1b69efeddf653d419a28a96964acff5",
-   "acceptedDrift": [],
-   "sha256": "0e12c3b00497824fa3c244587168ef8a53a3cac1c0200e10e220830a913042b2",
-   "bytes": 2399,
+   "acceptedDrift": [
+    "0e12c3b00497824fa3c244587168ef8a53a3cac1c0200e10e220830a913042b2"
+   ],
+   "sha256": "538eec3538d946950f81bef0f84d841cde052b93482e188bf0d9aba12e5b6b7d",
+   "bytes": 3016,
    "rollbackPath": null,
    "observeOnly": true,
    "note": "Extraction wave (corpus Academy + draft banks): authored by this wave; pinned per-path."
@@ -1168,9 +1174,11 @@
   {
    "path": "content/drafts/manifest.json",
    "beforeSha256": "2d62279d0c4af1d0b71d480131d802a088e96853d3442326c3aa51318d54d055",
-   "acceptedDrift": [],
-   "sha256": "297e3b1987173841e3c99dc3c351c1aa9be8a2a7d0970b17074b48581320554b",
-   "bytes": 3830,
+   "acceptedDrift": [
+    "297e3b1987173841e3c99dc3c351c1aa9be8a2a7d0970b17074b48581320554b"
+   ],
+   "sha256": "3fc488a9c8f5e3ab6ecdd0a96889604fd35603607b4a839b9f5a998ef9505221",
+   "bytes": 4982,
    "rollbackPath": null,
    "observeOnly": true,
    "note": "Extraction wave (corpus Academy + draft banks): authored by this wave; pinned per-path."
@@ -1178,9 +1186,11 @@
   {
    "path": "components/practice/draft-review.tsx",
    "beforeSha256": "9b102a2e608181b9d4903f497ad8a3aa331b07a06b2d3334373d9c8aea7fbc01",
-   "acceptedDrift": [],
-   "sha256": "a6377c9c8ad8c08e1920f4bb94dd2592083b9a6ae677458d200cb9c130a1b00f",
-   "bytes": 10422,
+   "acceptedDrift": [
+    "a6377c9c8ad8c08e1920f4bb94dd2592083b9a6ae677458d200cb9c130a1b00f"
+   ],
+   "sha256": "dcaeede680c8df70400e00b6d8124434ddc06b778f154a7133bf05ca81cae8eb",
+   "bytes": 11266,
    "rollbackPath": null,
    "observeOnly": true,
    "note": "Extraction wave (corpus Academy + draft banks): authored by this wave; pinned per-path."
@@ -1188,9 +1198,11 @@
   {
    "path": "app/practice/drafts/page.tsx",
    "beforeSha256": "df05abee5402678ab78cebe584b94fe6e94726b056ca7dbf00b9446ed15d8b0e",
-   "acceptedDrift": [],
-   "sha256": "721152d7d47f2b6f86d6126658b8ee1dbaff9852f14523443d6165f1bf04630e",
-   "bytes": 5398,
+   "acceptedDrift": [
+    "721152d7d47f2b6f86d6126658b8ee1dbaff9852f14523443d6165f1bf04630e"
+   ],
+   "sha256": "b1a49f61b296800710b63a4f8a7dacc3f60b7fd186e001394049db3bf319f0ff",
+   "bytes": 5429,
    "rollbackPath": null,
    "observeOnly": true,
    "note": "Extraction wave (corpus Academy + draft banks): authored by this wave; pinned per-path."
@@ -1278,9 +1290,11 @@
   {
    "path": "tests/content/corpus-extraction.test.mjs",
    "beforeSha256": null,
-   "acceptedDrift": [],
-   "sha256": "f0b5003b3c9f50ad3c0252e2311198da1c58b800cc59e066ab5ed1dc803badf4",
-   "bytes": 3950,
+   "acceptedDrift": [
+    "f0b5003b3c9f50ad3c0252e2311198da1c58b800cc59e066ab5ed1dc803badf4"
+   ],
+   "sha256": "e0bb2684618b821ffb898d2bce2e129d6f0cd53cbbb7a47367f6c0d462b3147e",
+   "bytes": 4961,
    "rollbackPath": null,
    "observeOnly": true,
    "note": "Extraction wave addition: mirrored MIT courseware / disabled review bank, pinned at the observed state."
@@ -1454,6 +1468,56 @@
    "rollbackPath": null,
    "observeOnly": true,
    "note": "Community bank wave addition: mirrored MIT/CC-BY content, pinned at the observed state."
+  },
+  {
+   "path": "content/drafts/chaturcr48-dp600.json",
+   "beforeSha256": null,
+   "acceptedDrift": [],
+   "sha256": "672ac674033a9a9719013a5e6a771be727d45327e42d95d5d0f13eea15b25b1f",
+   "bytes": 46477,
+   "rollbackPath": null,
+   "observeOnly": true,
+   "note": "Community extraction wave addition: unlicensed review-only bank."
+  },
+  {
+   "path": "content/drafts/warren-dp600.json",
+   "beforeSha256": null,
+   "acceptedDrift": [],
+   "sha256": "3e6e777b988a20d355b2b5ffc98894e1300ac4873158ed851d73165fd943d05d",
+   "bytes": 92053,
+   "rollbackPath": null,
+   "observeOnly": true,
+   "note": "Community extraction wave addition: unlicensed review-only bank."
+  },
+  {
+   "path": "content/drafts/stark-v2-dp600.json",
+   "beforeSha256": null,
+   "acceptedDrift": [],
+   "sha256": "a872443a9997021b1c5293539d091db643985111ee247cb4225d48c507fa3fb6",
+   "bytes": 885630,
+   "rollbackPath": null,
+   "observeOnly": true,
+   "note": "Community extraction wave addition: unlicensed review-only bank."
+  },
+  {
+   "path": "content/intake/community/chaturcr48/questions.json",
+   "beforeSha256": null,
+   "acceptedDrift": [],
+   "sha256": "90298ab63d504360900b39da7c94453bd5342f86041dc9ba197fac19574c2a85",
+   "bytes": 44501,
+   "rollbackPath": null,
+   "observeOnly": true,
+   "note": "Community extraction wave: raw source file fetched from GitHub (no license), pinned at observed state."
+  },
+  {
+   "path": "content/intake/community/warren/index.html",
+   "beforeSha256": null,
+   "acceptedDrift": [],
+   "sha256": "f793e7d5be8521fadbec6b8751cfae514d9d4b28140fc43b17501740289e73f0",
+   "bytes": 17606355,
+   "rollbackPath": null,
+   "observeOnly": true,
+   "note": "Community extraction wave: raw source file fetched from GitHub (no license), pinned at observed state."
   }
  ]
 }

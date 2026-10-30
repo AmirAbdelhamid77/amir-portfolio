@@ -51,6 +51,9 @@ const studyReferences = await readJson("content/study/references.json");
 const academyLessons = await readJson("content/academy/lessons.json");
 const kengioDraft = await readJson("content/drafts/kengio-dp700.json");
 const corpusCandidates = await readJson("content/drafts/corpus-candidates.json");
+const chaturBank = await readJson("content/drafts/chaturcr48-dp600.json");
+const warrenBank = await readJson("content/drafts/warren-dp600.json");
+const starkBank = await readJson("content/drafts/stark-v2-dp600.json");
 const studyExperiments = await readJson("content/study/experiments.json");
 
 const examFiles = (await readdir(path.join(ROOT, "content/exams"))).filter((file) => file.endsWith(".json"));
@@ -77,7 +80,7 @@ const actual = {
   repositories: rtiSources.counts.repositoriesCleared,
   studyReferences: studyReferences.records.length,
   academyLessons: academyLessons.tracks.reduce((sum, track) => sum + track.lessons.length, 0),
-  reviewDraftQuestions: kengioDraft.questions.length + corpusCandidates.questions.length,
+  reviewDraftQuestions: kengioDraft.questions.length + corpusCandidates.questions.length + chaturBank.questions.length + warrenBank.questions.length + starkBank.questions.length,
   studyExperiments: studyExperiments.labs.length,
 };
 

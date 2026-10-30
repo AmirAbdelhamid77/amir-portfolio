@@ -64,7 +64,7 @@ export const SITE_METRICS = {
     /** content/academy/lessons.json → mirrored MIT lessons */
     academyLessons: 74,
     /** kengio + corpus-candidates draft banks (grading disabled) */
-    reviewDraftQuestions: 187,
+    reviewDraftQuestions: 1593,
   },
 } as const;
 

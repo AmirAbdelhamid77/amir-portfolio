@@ -471,3 +471,32 @@ from the source URLs referenced by the questions.
 
 **Evidence.** `npm run test:all` **220 tests PASS**; all six integrity
 verifiers PASS; build PASS. Browser e2e NOT RUN (environment stall).
+
+## Community extraction wave — five unlicensed sources (30 October 2026)
+
+The five remaining community sources from the DP-600 handbook were extracted
+into review-only draft banks (grading disabled, no answer keys shipped, no
+redistribution). These are integrated into `/practice/drafts/` alongside the
+kengio and corpus-candidates banks.
+
+| Bank | Questions | Source | License |
+|---|---:|---|---|
+| chaturcr48-dp600 | 71 | chaturcr48/dp600_questions | None |
+| warren-dp600 | 122 (MCQ/multi from 222) | Warren-530/dp600-practice | None — likely exam dump |
+| stark-v2-dp600 | 1,213 | mattamundson/dp600-stark-v2 (archived) | None |
+| **Total new** | **1,406** | | |
+
+All three banks carry `gradingEnabled: false`, `answersShipped: false`, and
+"NO LICENSE" status labels. Answer-shaped fields were verified absent from
+all shipped payloads by the content test suite.
+
+Not extractable: SebastiaanBoon (DOCX — not web-parseable), MicrosoftLearnHub
+(topic outlines only, no questions).
+
+The Warren bank is flagged as likely containing actual exam-dump content
+(source PDF: `DP-600_en_with_discussion.pdf`). The site's drafts surface is
+already isolated (noindex, no grading, no promotion to the approved bank).
+
+**Evidence.** 224 tests PASS; all six integrity verifiers PASS; build PASS.
+The five community sources' raw files are pinned in the wave manifest at
+their observed state with "no license" notes.
