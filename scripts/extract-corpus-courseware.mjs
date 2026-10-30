@@ -58,6 +58,14 @@ function parseFrontmatter(text) {
       meta[currentKey].push(value);
     }
   }
+  // Also extract commonly nested fields (title, module, description, duration, level)
+  // regardless of indentation depth — the labs nest them under `lab:`.
+  for (const field of ["title", "module", "description", "duration", "level"]) {
+    if (!meta[field]) {
+      const nested = match[1].match(new RegExp(`^\\s+${field}:\\s*(.+)$`, "m"));
+      if (nested) meta[field] = nested[1].trim();
+    }
+  }
   return { meta, body: text.slice(match[0].length) };
 }
 

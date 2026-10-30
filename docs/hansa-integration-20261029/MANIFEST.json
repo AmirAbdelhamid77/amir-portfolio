@@ -1210,9 +1210,11 @@
   {
    "path": "scripts/extract-corpus-courseware.mjs",
    "beforeSha256": null,
-   "acceptedDrift": [],
-   "sha256": "3dcef56fe20c3cea53f5f9c5e3ac0102b30bbc9c643d770cb3df60c398a2e09d",
-   "bytes": 15034,
+   "acceptedDrift": [
+    "3dcef56fe20c3cea53f5f9c5e3ac0102b30bbc9c643d770cb3df60c398a2e09d"
+   ],
+   "sha256": "fda082995c74552ed68e2967cefa07587f6a6a85e8e1a2e830f443d40351e48b",
+   "bytes": 15441,
    "rollbackPath": null,
    "observeOnly": true,
    "note": "Extraction wave addition: mirrored MIT courseware / disabled review bank, pinned at the observed state."
@@ -1220,12 +1222,15 @@
   {
    "path": "content/academy/lessons.json",
    "beforeSha256": null,
-   "acceptedDrift": [],
-   "sha256": "6d828b20c94e6ee1fca0d18575b5dc04a128107a79b4fb51ad7b03d89e4b658f",
-   "bytes": 980210,
+   "acceptedDrift": [
+    "6d828b20c94e6ee1fca0d18575b5dc04a128107a79b4fb51ad7b03d89e4b658f",
+    null
+   ],
+   "sha256": "a7cc3d55d291678dff5bdef3ab3893691413cc9b3c7bccf30c66c6b9dc032034",
+   "bytes": 1003345,
    "rollbackPath": null,
    "observeOnly": true,
-   "note": "Extraction wave addition: mirrored MIT courseware / disabled review bank, pinned at the observed state."
+   "note": "Extraction wave addition: mirrored MIT courseware / disabled review bank, pinned at the observed state. Title extraction fixed: nested YAML frontmatter fields now captured."
   },
   {
    "path": "lib/academy/corpus.ts",
