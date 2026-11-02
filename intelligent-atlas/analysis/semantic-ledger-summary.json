@@ -1,0 +1,262 @@
+{
+  "schemaVersion": "intelligent-atlas-semantic-ledger-summary/2.0",
+  "generatedAt": "2026-11-01",
+  "graphBuildId": "ia-graph-bed4e12d0986",
+  "ledgerFingerprint": "20809d682d986e1b678e15896d52e2c25fdc68e60dae283f3a80ffa49112740d",
+  "reviewer": "agent technical review (DeepSeek V4.1 Flash Free); human review pending",
+  "method": "Each unit was opened with its parent context, read for its actual claim, and only then compared with the matcher's candidates. Evidence quotes are verbatim substrings of the extracted unit text and are verified by the ledger builder. A decision never promotes a unit to published state.",
+  "denominators": {
+    "units": 6201,
+    "eligible": 4337,
+    "metadataOnly": 1859,
+    "nonLearning": 5,
+    "uniqueCanonicalResources": 4925
+  },
+  "candidateMatch": {
+    "matched": 3609,
+    "unmatched": 728,
+    "note": "Candidate matching is a lexical proposal state. It is not semantic reading and it is not a publication state."
+  },
+  "semanticReading": {
+    "read": 38,
+    "notRead": 4299,
+    "readShareOfEligible": 0.0088,
+    "readShareOfCorpus": 0.0061
+  },
+  "decisions": {
+    "accepted": 10,
+    "revised": 17,
+    "held": 7,
+    "unresolvedGap": 4,
+    "unreviewed": 4299,
+    "outOfScope": 1864
+  },
+  "candidateVerdicts": {
+    "confirmed": 12,
+    "unverified": 3579,
+    "unverified-unmatched": 720,
+    "revised": 12,
+    "missed": 8,
+    "false-positive": 6,
+    "not-applicable": 1864
+  },
+  "publication": {
+    "published": 0,
+    "withheld": 6201,
+    "note": "Zero units are published. Technical review by an agent is not human publication approval."
+  },
+  "qualitySample": {
+    "selected": 21,
+    "decided": 21,
+    "method": "Deterministic SHA-256 ordering of eligible unit IDs, stratified by domain, language, content form, matched/unmatched state, prerequisite risk and cross-domain placement."
+  },
+  "families": {
+    "daily-insights": {
+      "units": 3,
+      "eligible": 3,
+      "metadataOnly": 0,
+      "nonLearning": 0,
+      "matched": 3,
+      "unmatched": 0,
+      "read": 3,
+      "accepted": 3,
+      "revised": 0,
+      "held": 0,
+      "unresolvedGap": 0
+    },
+    "fabric-questions": {
+      "units": 1264,
+      "eligible": 1264,
+      "metadataOnly": 0,
+      "nonLearning": 0,
+      "matched": 1170,
+      "unmatched": 94,
+      "read": 4,
+      "accepted": 0,
+      "revised": 3,
+      "held": 1,
+      "unresolvedGap": 0
+    },
+    "fabric-additions": {
+      "units": 532,
+      "eligible": 532,
+      "metadataOnly": 0,
+      "nonLearning": 0,
+      "matched": 480,
+      "unmatched": 52,
+      "read": 1,
+      "accepted": 0,
+      "revised": 1,
+      "held": 0,
+      "unresolvedGap": 0
+    },
+    "fabric-r11": {
+      "units": 222,
+      "eligible": 222,
+      "metadataOnly": 0,
+      "nonLearning": 0,
+      "matched": 210,
+      "unmatched": 12,
+      "read": 1,
+      "accepted": 0,
+      "revised": 0,
+      "held": 1,
+      "unresolvedGap": 0
+    },
+    "fabric-notes": {
+      "units": 720,
+      "eligible": 720,
+      "metadataOnly": 0,
+      "nonLearning": 0,
+      "matched": 529,
+      "unmatched": 191,
+      "read": 5,
+      "accepted": 1,
+      "revised": 2,
+      "held": 2,
+      "unresolvedGap": 0
+    },
+    "fabric-cases": {
+      "units": 78,
+      "eligible": 78,
+      "metadataOnly": 0,
+      "nonLearning": 0,
+      "matched": 71,
+      "unmatched": 7,
+      "read": 0,
+      "accepted": 0,
+      "revised": 0,
+      "held": 0,
+      "unresolvedGap": 0
+    },
+    "academy": {
+      "units": 593,
+      "eligible": 593,
+      "metadataOnly": 0,
+      "nonLearning": 0,
+      "matched": 457,
+      "unmatched": 136,
+      "read": 2,
+      "accepted": 0,
+      "revised": 1,
+      "held": 0,
+      "unresolvedGap": 1
+    },
+    "sql": {
+      "units": 535,
+      "eligible": 535,
+      "metadataOnly": 0,
+      "nonLearning": 0,
+      "matched": 440,
+      "unmatched": 95,
+      "read": 3,
+      "accepted": 1,
+      "revised": 2,
+      "held": 0,
+      "unresolvedGap": 0
+    },
+    "statistics": {
+      "units": 145,
+      "eligible": 145,
+      "metadataOnly": 0,
+      "nonLearning": 0,
+      "matched": 65,
+      "unmatched": 80,
+      "read": 6,
+      "accepted": 2,
+      "revised": 2,
+      "held": 0,
+      "unresolvedGap": 2
+    },
+    "visualization": {
+      "units": 138,
+      "eligible": 138,
+      "metadataOnly": 0,
+      "nonLearning": 0,
+      "matched": 117,
+      "unmatched": 21,
+      "read": 10,
+      "accepted": 3,
+      "revised": 6,
+      "held": 1,
+      "unresolvedGap": 0
+    },
+    "exams": {
+      "units": 70,
+      "eligible": 70,
+      "metadataOnly": 0,
+      "nonLearning": 0,
+      "matched": 47,
+      "unmatched": 23,
+      "read": 2,
+      "accepted": 0,
+      "revised": 0,
+      "held": 2,
+      "unresolvedGap": 0
+    },
+    "curated-references": {
+      "units": 1859,
+      "eligible": 0,
+      "metadataOnly": 1859,
+      "nonLearning": 0,
+      "matched": 0,
+      "unmatched": 0,
+      "read": 0,
+      "accepted": 0,
+      "revised": 0,
+      "held": 0,
+      "unresolvedGap": 0
+    },
+    "hands-on-labs": {
+      "units": 29,
+      "eligible": 29,
+      "metadataOnly": 0,
+      "nonLearning": 0,
+      "matched": 13,
+      "unmatched": 16,
+      "read": 1,
+      "accepted": 0,
+      "revised": 0,
+      "held": 0,
+      "unresolvedGap": 1
+    },
+    "fabric-rti": {
+      "units": 8,
+      "eligible": 8,
+      "metadataOnly": 0,
+      "nonLearning": 0,
+      "matched": 7,
+      "unmatched": 1,
+      "read": 0,
+      "accepted": 0,
+      "revised": 0,
+      "held": 0,
+      "unresolvedGap": 0
+    },
+    "professional-pages": {
+      "units": 5,
+      "eligible": 0,
+      "metadataOnly": 0,
+      "nonLearning": 5,
+      "matched": 0,
+      "unmatched": 0,
+      "read": 0,
+      "accepted": 0,
+      "revised": 0,
+      "held": 0,
+      "unresolvedGap": 0
+    }
+  },
+  "coverageClaims": [
+    "Semantic reading was performed for 38 of 4337 eligible units (0.88%).",
+    "This is a documented subset, not full semantic reading of the corpus.",
+    "The 728 unmatched units were not excluded from review: the sample deliberately includes unmatched units and four prioritised unmatched decisions.",
+    "No sampled slice is reported as full semantic reading."
+  ],
+  "limits": [
+    "Agent technical review is not human publication, scientific or rights review.",
+    "Candidate matching remains lexical; false positives are documented rather than silently repaired.",
+    "Media, figures and rendered pages were not visually reviewed.",
+    "Extraction defects found during review are recorded as unresolved gaps, not repaired by inference."
+  ]
+}

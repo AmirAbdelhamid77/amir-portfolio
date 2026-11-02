@@ -1,0 +1,568 @@
+{
+  "schemaVersion": "intelligent-atlas-storyboard-capture/3.1",
+  "generatedAt": "2026-11-01T21:22:39.372Z",
+  "viewport": "1440x960",
+  "edge": "156.0.4314.58",
+  "summary": {
+    "total": 22,
+    "passed": 22,
+    "failed": 0,
+    "frames": 11,
+    "motionRecords": 6
+  },
+  "consoleErrors": [],
+  "pageErrors": [],
+  "checks": [
+    {
+      "id": "frame-01:selected-edition",
+      "status": "PASS",
+      "detail": "{\"date\":\"2026-10-26\",\"title\":\"A reference is a design decision.\",\"today\":\"2026-11-01\",\"editions\":3,\"cards\":\"1 card\"}"
+    },
+    {
+      "id": "frame-01:today-visible",
+      "status": "PASS",
+      "detail": "today=2026-11-01"
+    },
+    {
+      "id": "frame-02:dealer-real-card",
+      "status": "PASS",
+      "detail": "{\"hidden\":false,\"cards\":1,\"title\":\"Daily edition — OneLake\",\"cardTitle\":\"Reference ≠ retained result\",\"handCount\":\"1 card\"}"
+    },
+    {
+      "id": "keyframe-05:dealer-dark",
+      "status": "PASS",
+      "detail": "{\"theme\":\"dark\",\"cards\":1}"
+    },
+    {
+      "id": "handoff:progress-0",
+      "status": "PASS",
+      "detail": "{\"cssProgress\":0,\"sectionHeight\":1440,\"viewportHeight\":960,\"tokenTransform\":\"matrix(0.99863, -0.052336, 0.052336, 0.99863, 0, 0)\",\"tokenRadius\":\"26px\",\"tokenKindOpacity\":\"1\",\"tokenTitleOpacity\":\"1\",\"tokenMetaOpacity\":\"1\",\"scrollY\":960}"
+    },
+    {
+      "id": "handoff:progress-50",
+      "status": "PASS",
+      "detail": "{\"cssProgress\":0.5,\"sectionHeight\":1440,\"viewportHeight\":960,\"tokenTransform\":\"matrix(0.999657, -0.0261769, 0.0261769, 0.999657, -18.2, 0)\",\"tokenRadius\":\"19px\",\"tokenKindOpacity\":\"0.7\",\"tokenTitleOpacity\":\"0.7\",\"tokenMetaOpacity\":\"0.7\",\"scrollY\":1200}"
+    },
+    {
+      "id": "handoff:progress-100",
+      "status": "PASS",
+      "detail": "{\"cssProgress\":1,\"sectionHeight\":1440,\"viewportHeight\":960,\"tokenTransform\":\"matrix(1, 0, 0, 1, -25.2, 0)\",\"tokenRadius\":\"12px\",\"tokenKindOpacity\":\"0\",\"tokenTitleOpacity\":\"0\",\"tokenMetaOpacity\":\"0\",\"scrollY\":1440}"
+    },
+    {
+      "id": "frame-04:understand-neighbourhood",
+      "status": "PASS",
+      "detail": "{\"title\":\"Confidence interval\",\"branches\":3,\"activeNodes\":1,\"neighbourNodes\":3,\"dense\":false}"
+    },
+    {
+      "id": "frame-05:why-and-evidence",
+      "status": "PASS",
+      "detail": "{\"why\":\"\\\"فنحن لا نقول بدقة إن هناك\\\"\",\"unit\":\"stats:s14\",\"requires\":\"prior\\n        Standard error\\n        \\n      \\n      A confidence interval is built from an estimate plus or minus a criti\",\"offset\":228}"
+    },
+    {
+      "id": "frame-05:panel-scrolled",
+      "status": "PASS",
+      "detail": "scrollTop=228"
+    },
+    {
+      "id": "frame-06:comparison-board",
+      "status": "PASS",
+      "detail": "{\"board\":true,\"title\":\"OneLake shortcut ↔ Copy job\",\"select\":\"assert:ia:fabric-shortcut-copy\",\"involvesSelected\":true}"
+    },
+    {
+      "id": "frame-07:goal-route",
+      "status": "PASS",
+      "detail": "{\"steps\":5,\"gaps\":0,\"reasons\":7,\"alternatives\":3,\"active\":\"Hypothesis test\\n        Named target of the selected goal: Decide whether an obs\",\"title\":\"Decide whether an observed difference is real or sampling noise\"}"
+    },
+    {
+      "id": "frame-08:pocket-and-thread",
+      "status": "PASS",
+      "detail": "{\"open\":true,\"items\":1,\"thread\":4,\"threadCount\":\"4\"}"
+    },
+    {
+      "id": "frame-08:resource-return",
+      "status": "PASS",
+      "detail": "{\"toast\":\"Standard Error — SE · /learn/statistics/source/#s13 — application route, not served by this isolated prototype.\",\"title\":\"Standard error\",\"concept\":\"concept:stats:standard-error\"}"
+    },
+    {
+      "id": "frame-09:closing-ledger",
+      "status": "PASS",
+      "detail": "{\"idea\":\"“Deleting the shortcut object leaves its target intact.” — OneLake shortcut. Removing a shortcut obj\",\"ledger\":8,\"action\":\"Reopen the 26 Oct edition\"}"
+    },
+    {
+      "id": "frame-09b:public-sparse",
+      "status": "PASS",
+      "detail": "{\"counts\":{\"concepts\":0,\"assertions\":0,\"insights\":0},\"gateCards\":4,\"hasReviewData\":false}"
+    },
+    {
+      "id": "reduced-motion:static-equivalent",
+      "status": "PASS",
+      "detail": "{\"handoffHeight\":540,\"viewportHeight\":960,\"tokenTransform\":\"none\",\"tokenKindOpacity\":\"1\",\"tokenTitleOpacity\":\"1\",\"tokenMetaOpacity\":\"1\",\"tokenRadius\":\"50%\",\"scrollBehavior\":\"auto\"}"
+    },
+    {
+      "id": "sequence:compare-cancel",
+      "status": "PASS",
+      "detail": "{\"theme\":\"light\",\"intent\":\"understand\",\"date\":\"2026-10-26\",\"conceptId\":\"concept:stats:confidence-interval\",\"comparisonId\":\"assert:ia:fabric-shortcut-copy\",\"goalId\":\"goal:ia:reference-without-copy\",\"pocket\":[],\"thread\":[\"concept:fabric:shortcut\",\"concept:stats:confidence-interval\"],\"selfReported\":{},\"dealer\":null}"
+    },
+    {
+      "id": "sequence:rapid-interrupt-settles",
+      "status": "PASS",
+      "detail": "{\"theme\":\"light\",\"intent\":\"understand\",\"date\":\"2026-10-26\",\"conceptId\":\"concept:stats:confidence-interval\",\"comparisonId\":\"assert:ia:fabric-shortcut-copy\",\"goalId\":\"goal:ia:reference-without-copy\",\"pocket\":[],\"thread\":[\"concept:fabric:shortcut\",\"concept:fabric:semantic-model\",\"concept:sql:join\",\"concept:stats:confidence-interval\"],\"selfReported\":{},\"dealer\":null}"
+    },
+    {
+      "id": "sequence:keyboard-escape",
+      "status": "PASS",
+      "detail": "{\"hidden\":true,\"focus\":\"open-edition\",\"dialogOpen\":false}"
+    },
+    {
+      "id": "runtime:no-console-errors",
+      "status": "PASS",
+      "detail": "none"
+    },
+    {
+      "id": "runtime:no-page-errors",
+      "status": "PASS",
+      "detail": "none"
+    }
+  ],
+  "frames": [
+    {
+      "number": 1,
+      "title": "Timeline entry",
+      "file": "frame-01-timeline.png",
+      "note": "Latest recorded edition selected; today is visibly present with no edition.",
+      "data": "candidate review",
+      "state": {
+        "theme": "light",
+        "intent": "understand",
+        "date": "2026-10-26",
+        "conceptId": "concept:fabric:shortcut",
+        "comparisonId": "assert:ia:fabric-shortcut-copy",
+        "goalId": "goal:ia:reference-without-copy",
+        "pocket": [],
+        "thread": [
+          "concept:fabric:shortcut"
+        ],
+        "selfReported": {},
+        "dealer": null
+      },
+      "at": "2026-11-01T21:22:12.913Z"
+    },
+    {
+      "number": 2,
+      "title": "Dealer open",
+      "file": "frame-02-dealer.png",
+      "note": "One real edition card; the hand count is the resolved card count, not a facet estimate.",
+      "data": "candidate review",
+      "state": {
+        "theme": "light",
+        "intent": "understand",
+        "date": "2026-10-26",
+        "conceptId": "concept:fabric:shortcut",
+        "comparisonId": "assert:ia:fabric-shortcut-copy",
+        "goalId": "goal:ia:reference-without-copy",
+        "pocket": [],
+        "thread": [
+          "concept:fabric:shortcut"
+        ],
+        "selfReported": {},
+        "dealer": "daily:2026-10-26"
+      },
+      "at": "2026-11-01T21:22:13.701Z"
+    },
+    {
+      "number": 3,
+      "title": "Scroll handoff at midpoint",
+      "file": "frame-03-handoff.png",
+      "note": "The edition token is halfway into the field; the left copy keeps the active information readable.",
+      "data": "candidate review",
+      "state": {
+        "theme": "light",
+        "intent": "understand",
+        "date": "2026-10-26",
+        "conceptId": "concept:fabric:shortcut",
+        "comparisonId": "assert:ia:fabric-shortcut-copy",
+        "goalId": "goal:ia:reference-without-copy",
+        "pocket": [],
+        "thread": [
+          "concept:fabric:shortcut"
+        ],
+        "selfReported": {},
+        "dealer": null
+      },
+      "at": "2026-11-01T21:22:17.514Z"
+    },
+    {
+      "number": 4,
+      "title": "Understand focus",
+      "file": "frame-04-understand.png",
+      "note": "Selected concept, readable neighbourhood and explicit prior/next branch claims.",
+      "data": "candidate review",
+      "state": {
+        "theme": "light",
+        "intent": "understand",
+        "date": "2026-10-26",
+        "conceptId": "concept:stats:confidence-interval",
+        "comparisonId": "assert:ia:fabric-shortcut-copy",
+        "goalId": "goal:ia:reference-without-copy",
+        "pocket": [],
+        "thread": [
+          "concept:fabric:shortcut",
+          "concept:stats:confidence-interval"
+        ],
+        "selfReported": {},
+        "dealer": null
+      },
+      "at": "2026-11-01T21:22:18.477Z"
+    },
+    {
+      "number": 5,
+      "title": "Why connected",
+      "file": "frame-05-why-connected.png",
+      "note": "Evidence quote, unit, decision and the prerequisite claim behind the connection.",
+      "data": "candidate review",
+      "state": {
+        "theme": "light",
+        "intent": "understand",
+        "date": "2026-10-26",
+        "conceptId": "concept:stats:confidence-interval",
+        "comparisonId": "assert:ia:fabric-shortcut-copy",
+        "goalId": "goal:ia:reference-without-copy",
+        "pocket": [],
+        "thread": [
+          "concept:fabric:shortcut",
+          "concept:stats:confidence-interval"
+        ],
+        "selfReported": {},
+        "dealer": null
+      },
+      "at": "2026-11-01T21:22:19.106Z"
+    },
+    {
+      "number": 6,
+      "title": "Comparison Desk",
+      "file": "frame-06-comparison.png",
+      "note": "Two candidate concepts, their changed condition and the reason the contrast is claimed.",
+      "data": "candidate review",
+      "state": {
+        "theme": "light",
+        "intent": "compare",
+        "date": "2026-10-26",
+        "conceptId": "concept:fabric:shortcut",
+        "comparisonId": "assert:ia:fabric-shortcut-copy",
+        "goalId": "goal:ia:reference-without-copy",
+        "pocket": [],
+        "thread": [
+          "concept:stats:confidence-interval",
+          "concept:fabric:shortcut"
+        ],
+        "selfReported": {},
+        "dealer": null
+      },
+      "at": "2026-11-01T21:22:20.538Z"
+    },
+    {
+      "number": 7,
+      "title": "Goal route",
+      "file": "frame-07-goal-route.png",
+      "note": "Topological route with step reasons, three alternative goals and the recorded gap count.",
+      "data": "candidate review",
+      "state": {
+        "theme": "light",
+        "intent": "goal",
+        "date": "2026-10-26",
+        "conceptId": "concept:stats:hypothesis-test",
+        "comparisonId": "assert:ia:fabric-shortcut-copy",
+        "goalId": "goal:ia:is-the-difference-real",
+        "pocket": [],
+        "thread": [
+          "concept:stats:confidence-interval",
+          "concept:fabric:shortcut",
+          "concept:stats:hypothesis-test"
+        ],
+        "selfReported": {},
+        "dealer": null
+      },
+      "at": "2026-11-01T21:22:22.983Z"
+    },
+    {
+      "number": 8,
+      "title": "Pocket and thread",
+      "file": "frame-08-pocket-thread.png",
+      "note": "A saved concept, the visited-concept thread and the current context behind the drawer.",
+      "data": "local browser state",
+      "state": {
+        "theme": "light",
+        "intent": "understand",
+        "date": "2026-10-26",
+        "conceptId": "concept:stats:standard-error",
+        "comparisonId": "assert:ia:fabric-shortcut-copy",
+        "goalId": "goal:ia:is-the-difference-real",
+        "pocket": [
+          {
+            "key": "concept:concept:stats:confidence-interval",
+            "kind": "concept",
+            "label": "Confidence interval",
+            "meta": "Statistics & inference · read in context",
+            "conceptId": "concept:stats:confidence-interval"
+          }
+        ],
+        "thread": [
+          "concept:fabric:shortcut",
+          "concept:stats:hypothesis-test",
+          "concept:stats:confidence-interval",
+          "concept:stats:standard-error"
+        ],
+        "selfReported": {},
+        "dealer": null
+      },
+      "at": "2026-11-01T21:22:25.720Z"
+    },
+    {
+      "number": "08b",
+      "title": "Return from a resource route",
+      "file": "frame-08b-resource-return.png",
+      "note": "The isolated prototype reports the route instead of faking navigation; the selected context is restored.",
+      "data": "candidate review",
+      "state": {
+        "theme": "light",
+        "intent": "understand",
+        "date": "2026-10-26",
+        "conceptId": "concept:stats:standard-error",
+        "comparisonId": "assert:ia:fabric-shortcut-copy",
+        "goalId": "goal:ia:is-the-difference-real",
+        "pocket": [
+          {
+            "key": "concept:concept:stats:confidence-interval",
+            "kind": "concept",
+            "label": "Confidence interval",
+            "meta": "Statistics & inference · read in context",
+            "conceptId": "concept:stats:confidence-interval"
+          }
+        ],
+        "thread": [
+          "concept:fabric:shortcut",
+          "concept:stats:hypothesis-test",
+          "concept:stats:confidence-interval",
+          "concept:stats:standard-error"
+        ],
+        "selfReported": {},
+        "dealer": null
+      },
+      "at": "2026-11-01T21:22:26.422Z"
+    },
+    {
+      "number": 9,
+      "title": "Closing ledger",
+      "file": "frame-09-closing.png",
+      "note": "One remembered idea, the coverage ledger and a concrete way back to the edition.",
+      "data": "candidate review",
+      "state": {
+        "theme": "light",
+        "intent": "understand",
+        "date": "2026-10-26",
+        "conceptId": "concept:fabric:shortcut",
+        "comparisonId": "assert:ia:fabric-shortcut-copy",
+        "goalId": "goal:ia:is-the-difference-real",
+        "pocket": [
+          {
+            "key": "concept:concept:stats:confidence-interval",
+            "kind": "concept",
+            "label": "Confidence interval",
+            "meta": "Statistics & inference · read in context",
+            "conceptId": "concept:stats:confidence-interval"
+          }
+        ],
+        "thread": [
+          "concept:stats:hypothesis-test",
+          "concept:stats:confidence-interval",
+          "concept:stats:standard-error",
+          "concept:fabric:shortcut"
+        ],
+        "selfReported": {},
+        "dealer": null
+      },
+      "at": "2026-11-01T21:22:27.061Z"
+    },
+    {
+      "number": "09b",
+      "title": "Public sparse-state alternative",
+      "file": "frame-09b-public-sparse.png",
+      "note": "Same editorial language, zero published semantics, four unmet gate conditions.",
+      "data": "public projection",
+      "state": {
+        "counts": {
+          "concepts": 0,
+          "assertions": 0,
+          "insights": 0
+        },
+        "gateCards": 4,
+        "hasReviewData": false
+      },
+      "at": "2026-11-01T21:22:27.918Z"
+    }
+  ],
+  "motion": [
+    {
+      "id": "handoff-progress",
+      "kind": "frame-sequence",
+      "frames": [
+        "handoff-000.png",
+        "handoff-050.png",
+        "handoff-100.png"
+      ],
+      "snapshots": [
+        {
+          "cssProgress": 0,
+          "sectionHeight": 1440,
+          "viewportHeight": 960,
+          "tokenTransform": "matrix(0.99863, -0.052336, 0.052336, 0.99863, 0, 0)",
+          "tokenRadius": "26px",
+          "tokenKindOpacity": "1",
+          "tokenTitleOpacity": "1",
+          "tokenMetaOpacity": "1",
+          "scrollY": 960
+        },
+        {
+          "cssProgress": 0.5,
+          "sectionHeight": 1440,
+          "viewportHeight": 960,
+          "tokenTransform": "matrix(0.999657, -0.0261769, 0.0261769, 0.999657, -18.2, 0)",
+          "tokenRadius": "19px",
+          "tokenKindOpacity": "0.7",
+          "tokenTitleOpacity": "0.7",
+          "tokenMetaOpacity": "0.7",
+          "scrollY": 1200
+        },
+        {
+          "cssProgress": 1,
+          "sectionHeight": 1440,
+          "viewportHeight": 960,
+          "tokenTransform": "matrix(1, 0, 0, 1, -25.2, 0)",
+          "tokenRadius": "12px",
+          "tokenKindOpacity": "0",
+          "tokenTitleOpacity": "0",
+          "tokenMetaOpacity": "0",
+          "scrollY": 1440
+        }
+      ],
+      "note": "The handoff is scroll-linked. Stills show 0%, 50% and 100%; they do not prove the interpolation between them.",
+      "at": "2026-11-01T21:22:17.514Z"
+    },
+    {
+      "id": "reduced-motion",
+      "kind": "static-equivalent",
+      "frames": [
+        "reduced-motion-handoff.png"
+      ],
+      "snapshots": [
+        {
+          "handoffHeight": 540,
+          "viewportHeight": 960,
+          "tokenTransform": "none",
+          "tokenKindOpacity": "1",
+          "tokenTitleOpacity": "1",
+          "tokenMetaOpacity": "1",
+          "tokenRadius": "50%",
+          "scrollBehavior": "auto"
+        }
+      ],
+      "note": "Reduced motion removes the sticky scroll scrub and the orbit, and shows the token text immediately.",
+      "at": "2026-11-01T21:22:30.139Z"
+    },
+    {
+      "id": "timeline-dealer-graph-resource-return",
+      "kind": "frame-sequence",
+      "frames": [
+        "seq-01-timeline.png",
+        "seq-02-dealer.png",
+        "seq-03-graph.png",
+        "seq-04-resource.png",
+        "seq-05-return.png"
+      ],
+      "snapshots": {
+        "theme": "light",
+        "intent": "understand",
+        "date": "2026-10-26",
+        "conceptId": "concept:fabric:shortcut",
+        "comparisonId": "assert:ia:fabric-shortcut-copy",
+        "goalId": "goal:ia:reference-without-copy",
+        "pocket": [],
+        "thread": [
+          "concept:fabric:shortcut"
+        ],
+        "selfReported": {},
+        "dealer": null
+      },
+      "note": "Dealer locate opens the graph; a resource route reports itself instead of navigating; the timeline remains one scroll away.",
+      "at": "2026-11-01T21:22:34.350Z"
+    },
+    {
+      "id": "understand-compare-cancel",
+      "kind": "frame-sequence",
+      "frames": [
+        "seq-06-understand.png",
+        "seq-07-compare.png",
+        "seq-08-compare-cancelled.png"
+      ],
+      "snapshots": {
+        "theme": "light",
+        "intent": "understand",
+        "date": "2026-10-26",
+        "conceptId": "concept:stats:confidence-interval",
+        "comparisonId": "assert:ia:fabric-shortcut-copy",
+        "goalId": "goal:ia:reference-without-copy",
+        "pocket": [],
+        "thread": [
+          "concept:fabric:shortcut",
+          "concept:stats:confidence-interval"
+        ],
+        "selfReported": {},
+        "dealer": null
+      },
+      "note": "Compare is reversible: Return to Understand restores the prior intention without losing the selected concept.",
+      "at": "2026-11-01T21:22:36.607Z"
+    },
+    {
+      "id": "rapid-interrupted-expansion",
+      "kind": "frame-sequence",
+      "frames": [
+        "seq-09-rapid-interrupt.png",
+        "seq-10-rapid-settled.png"
+      ],
+      "snapshots": {
+        "theme": "light",
+        "intent": "understand",
+        "date": "2026-10-26",
+        "conceptId": "concept:stats:confidence-interval",
+        "comparisonId": "assert:ia:fabric-shortcut-copy",
+        "goalId": "goal:ia:reference-without-copy",
+        "pocket": [],
+        "thread": [
+          "concept:fabric:shortcut",
+          "concept:fabric:semantic-model",
+          "concept:sql:join",
+          "concept:stats:confidence-interval"
+        ],
+        "selfReported": {},
+        "dealer": null
+      },
+      "note": "Three selections in one task settle on the last requested concept; no stale panel or console error remains.",
+      "at": "2026-11-01T21:22:37.933Z"
+    },
+    {
+      "id": "keyboard-modal-escape",
+      "kind": "frame-sequence",
+      "frames": [
+        "seq-11-dealer-keyboard.png",
+        "seq-12-dealer-escaped.png"
+      ],
+      "snapshots": {
+        "hidden": true,
+        "focus": "open-edition",
+        "dialogOpen": false
+      },
+      "note": "Escape closes the Dealer, releases the scroll lock and returns focus to the opener.",
+      "at": "2026-11-01T21:22:38.916Z"
+    }
+  ]
+}

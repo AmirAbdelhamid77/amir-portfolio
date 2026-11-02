@@ -1,0 +1,37 @@
+
+> amir-portfolio@0.1.0 lint
+> eslint
+
+
+D:\BeUI\amir-portfolio\app\lab\hands-on\[slug]\page.tsx
+  19:10  warning  'SUBJECTS' is defined but never used  @typescript-eslint/no-unused-vars
+
+D:\BeUI\amir-portfolio\app\practice\drafts\page.tsx
+  21:9  warning  'corpus' is assigned a value but never used  @typescript-eslint/no-unused-vars
+  22:9  warning  'kengio' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+D:\BeUI\amir-portfolio\docs\deploy-learning-path-20261028\verify_path_live_browser.mjs
+  2:67  warning  'createHash' is defined but never used  @typescript-eslint/no-unused-vars
+
+D:\BeUI\amir-portfolio\lib\atlas\field.ts
+  414:7  warning  'scale' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+D:\BeUI\amir-portfolio\scripts\extract-corpus-courseware.mjs
+   36:7   warning  'sha256' is assigned a value but never used               @typescript-eslint/no-unused-vars
+  315:78  warning  'duplicateCandidates' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+D:\BeUI\amir-portfolio\scripts\import-corpus-pack.mjs
+  294:68  warning  'classification' is defined but never used  @typescript-eslint/no-unused-vars
+  423:66  warning  'classification' is defined but never used  @typescript-eslint/no-unused-vars
+
+D:\BeUI\amir-portfolio\scripts\import-sql-vault.mjs
+  82:103  warning  'body' is defined but never used          @typescript-eslint/no-unused-vars
+  82:108  warning  'blocks' is defined but never used        @typescript-eslint/no-unused-vars
+  82:160  warning  'answer' is defined but never used        @typescript-eslint/no-unused-vars
+  82:167  warning  'answerBlocks' is defined but never used  @typescript-eslint/no-unused-vars
+
+D:\BeUI\amir-portfolio\scripts\phase2-capture.mjs
+  2:28  warning  'readFile' is defined but never used  @typescript-eslint/no-unused-vars
+
+✖ 14 problems (0 errors, 14 warnings)
+

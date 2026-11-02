@@ -1,0 +1,444 @@
+{
+  "schemaVersion": "intelligent-atlas-semantic/1.0",
+  "graphBuildId": "ia-graph-bed4e12d0986",
+  "notice": "Ambiguity and entity-resolution register.",
+  "ambiguities": [
+    {
+      "id": "amb:grain",
+      "term": "grain",
+      "kind": "homonym-with-shared-scope",
+      "senses": [
+        {
+          "conceptId": "concept:sql:grain",
+          "scope": "Meaning of one row in a query result."
+        },
+        {
+          "conceptId": "concept:fabric:grain",
+          "scope": "Meaning of one row in a fact table."
+        }
+      ],
+      "resolution": "keep-separate",
+      "decision": "Keep two IDs because the scopes differ: query result shape versus model row meaning. Record a crosswalk and a related_in_decision assertion instead of merging.",
+      "evidence": [
+        {
+          "unitId": "sql:00#opening",
+          "sourcePath": "content/sql/vault.json",
+          "locator": "pages[id=3cd3906c5d6c810c9e01e8ca9ac89172] > Opening",
+          "canonicalHref": "/learn/sql/00/#opening",
+          "language": "mixed",
+          "quote": "flowchart TD Q[\"What should one output row represent?\"] -- C[\"More columns from a related table\"] Q -- E[\"Do related rows exist?\"] Q -- G[\"One row per group\"] Q -- W[\"Keep every detail row and add a value\"] Q -- S[\"Stack compatible rows\"] Q -- N[\"Name the steps\"] C -- JOIN[\"JOIN\"] E -- EX[\"EXISTS\"] G -- GB[\"GROUP BY\"] W -- WIN[\"Window function\"] S -- SET[\"UNION / INTERSECT / EXCEPT\"] N -- CTE[\"CTE\"] شكل النتيجة وا…",
+          "quoteFingerprint": "abc474e722dca611"
+        },
+        {
+          "unitId": "fabric-q:fb-smd-004",
+          "sourcePath": "content/fabric/index.json",
+          "locator": "id=fb-smd-004",
+          "canonicalHref": "/lab/dp-600/explore/?question=fb-smd-004",
+          "language": "en",
+          "quote": "Fact grain semantic-models-dax 3.1 smd-star-schema smd-model-relationships modeling semantic-models",
+          "quoteFingerprint": "6ad68b37b580cec5"
+        }
+      ],
+      "reviewState": "candidate",
+      "collisionRegistered": false
+    },
+    {
+      "id": "amb:population",
+      "term": "population",
+      "terms": [
+        "population",
+        "المجتمع"
+      ],
+      "kind": "cross-domain-polysemy",
+      "senses": [
+        {
+          "conceptId": "concept:sql:population",
+          "scope": "Denominator set of rows for a query."
+        },
+        {
+          "conceptId": "concept:stats:population-sample",
+          "scope": "Statistical population from which a sample is drawn."
+        }
+      ],
+      "resolution": "keep-separate",
+      "decision": "The two senses often align but are not identical; a SQL population can be a filtered subset of a statistical population.",
+      "evidence": [
+        {
+          "unitId": "sql:00#opening",
+          "sourcePath": "content/sql/vault.json",
+          "locator": "pages[id=3cd3906c5d6c810c9e01e8ca9ac89172] > Opening",
+          "canonicalHref": "/learn/sql/00/#opening",
+          "language": "mixed",
+          "quote": "🧭 00 — Learning Map & Decision Framework Choose a SQL technique from the required population and output grain.",
+          "quoteFingerprint": "ad3fdc8ecd9da76c"
+        },
+        {
+          "unitId": "stats:s1",
+          "sourcePath": "content/statistics/source.json",
+          "locator": "sections[id=s1]",
+          "canonicalHref": "/learn/statistics/source/#s1",
+          "language": "mixed",
+          "quote": "1.1 Population vs Sample Population : المجتمع الكامل الذي نهتم بدراسته.",
+          "quoteFingerprint": "f45c6f7524a4cac8"
+        }
+      ],
+      "reviewState": "candidate",
+      "collisionRegistered": true
+    },
+    {
+      "id": "amb:denominator",
+      "term": "denominator",
+      "kind": "cross-domain-polysemy",
+      "senses": [
+        {
+          "conceptId": "concept:sql:population",
+          "scope": "The row set that supplies the denominator in a query."
+        },
+        {
+          "conceptId": "concept:analysis:metric-definition",
+          "scope": "The documented definition of a metric, including its denominator."
+        }
+      ],
+      "resolution": "keep-separate",
+      "decision": "A query population is an operational set; a metric definition is the documented contract that names it. The definition concept depends on the population concept rather than duplicating it.",
+      "evidence": [
+        {
+          "unitId": "sql:06#section-1",
+          "sourcePath": "content/sql/vault.json",
+          "locator": "pages[id=3ce3906c5d6c813a95abc3b25b698b3e] > خريطة بصرية",
+          "canonicalHref": "/learn/sql/06/#section-1",
+          "language": "mixed",
+          "quote": "📊 06 — Aggregation & Grouping — Complete Reference Choose the grouping grain and define a correct KPI denominator.",
+          "quoteFingerprint": "6f7d8b53f31b15b2"
+        },
+        {
+          "unitId": "sql:06#section-1",
+          "sourcePath": "content/sql/vault.json",
+          "locator": "pages[id=3ce3906c5d6c813a95abc3b25b698b3e] > خريطة بصرية",
+          "canonicalHref": "/learn/sql/06/#section-1",
+          "language": "mixed",
+          "quote": "📊 06 — Aggregation & Grouping — Complete Reference Choose the grouping grain and define a correct KPI denominator.",
+          "quoteFingerprint": "6f7d8b53f31b15b2"
+        }
+      ],
+      "reviewState": "candidate",
+      "collisionRegistered": true
+    },
+    {
+      "id": "amb:arabic-contrast-variance",
+      "term": "التباين",
+      "kind": "translation-homonym",
+      "senses": [
+        {
+          "conceptId": "concept:stats:spread",
+          "scope": "Variance as a measure of dispersion."
+        },
+        {
+          "conceptId": "concept:viz:accessibility-contrast",
+          "scope": "Contrast as a visual accessibility property."
+        }
+      ],
+      "resolution": "keep-separate",
+      "decision": "The Arabic word is used for both statistical variance and visual contrast. Labels must be qualified by domain; no shared identity is created from the string alone.",
+      "evidence": [
+        {
+          "unitId": "stats:s8",
+          "sourcePath": "content/statistics/source.json",
+          "locator": "sections[id=s8]",
+          "canonicalHref": "/learn/statistics/source/#s8",
+          "language": "en",
+          "quote": "إذا كان: (n) = عدد التجارب (p) = احتمال النجاح (X) = عدد النجاحات فإن: المتوسط: والتباين: متى أفكر في Binomial؟",
+          "quoteFingerprint": "a3b130170c1273e6"
+        },
+        {
+          "unitId": "dv:ar-scatter-plot#opening",
+          "sourcePath": "content/data-viz/pages.json",
+          "locator": "pages[slug=ar-scatter-plot] > Opening",
+          "canonicalHref": "/learn/ar/scatter-plot/",
+          "language": "ar",
+          "quote": "تغير التباين: هل يتغير الانتشار الرأسي مع X؟",
+          "quoteFingerprint": "909480339503b38a"
+        }
+      ],
+      "reviewState": "candidate",
+      "collisionRegistered": true
+    },
+    {
+      "id": "amb:confidence-interval-display",
+      "term": "فترة الثقة",
+      "kind": "object-vs-display",
+      "senses": [
+        {
+          "conceptId": "concept:stats:confidence-interval",
+          "scope": "The statistical interval and its coverage interpretation."
+        },
+        {
+          "conceptId": "concept:viz:uncertainty-display",
+          "scope": "The visual mark that displays an interval."
+        }
+      ],
+      "resolution": "keep-separate",
+      "decision": "The statistical object and its visual representation have different correctness rules; a display concept must not inherit the interval's statistical claims.",
+      "evidence": [
+        {
+          "unitId": "stats:s14",
+          "sourcePath": "content/statistics/source.json",
+          "locator": "sections[id=s14]",
+          "canonicalHref": "/learn/statistics/source/#s14",
+          "language": "en",
+          "quote": "Confidence Intervals Confidence Interval يعطي نطاقًا من القيم المعقولة لمعلمة Population بناءً على Sample وطريقة إحصائية محددة.",
+          "quoteFingerprint": "da78196dd67a7d39"
+        },
+        {
+          "unitId": "dv:ar-comprehensive#canonical-map",
+          "sourcePath": "content/data-viz/pages.json",
+          "locator": "pages[slug=ar-comprehensive] > Canonical Map",
+          "canonicalHref": "/learn/overview/",
+          "language": "en",
+          "quote": "Accessibility, Contrast & Color QA 07 · Integrity, Uncertainty & Traps Misleading encodings, ethics, and inference errors that look like chart errors.",
+          "quoteFingerprint": "6546cef74cbe2aa1"
+        }
+      ],
+      "reviewState": "candidate",
+      "collisionRegistered": true
+    },
+    {
+      "id": "amb:partition",
+      "term": "partition",
+      "kind": "cross-domain-polysemy",
+      "senses": [
+        {
+          "conceptId": "concept:fabric:partitioning",
+          "scope": "Physical file/directory layout for pruning."
+        },
+        {
+          "conceptId": "concept:fabric:incremental-refresh",
+          "scope": "Semantic-model refresh partitions."
+        }
+      ],
+      "resolution": "keep-separate",
+      "decision": "Physical partitioning and refresh partitions are different mechanisms with different failure modes; the shared word must not merge them.",
+      "evidence": [
+        {
+          "unitId": "fabric-note:delta/partitioning",
+          "sourcePath": "content/fabric/notes.json",
+          "locator": "pack=delta; chapter=partitioning",
+          "canonicalHref": "/lab/dp-600/resources/?pack=delta#study-notes",
+          "language": "en",
+          "quote": "Partition hierarchy, pruning, and cardinality Hive-style partitioning places data into directories for populated value combinations of one or more keys.",
+          "quoteFingerprint": "018266215322cfaa"
+        },
+        {
+          "unitId": "fabric-q:fb-v19-lh-015",
+          "sourcePath": "content/fabric/index.json",
+          "locator": "id=fb-v19-lh-015",
+          "canonicalHref": "/lab/dp-600/explore/?question=fb-v19-lh-015",
+          "language": "en",
+          "quote": "The team expects the same incremental refresh behavior.",
+          "quoteFingerprint": "7c9570cc65169e5b"
+        }
+      ],
+      "reviewState": "candidate",
+      "collisionRegistered": true
+    },
+    {
+      "id": "amb:arabic-partition-segment",
+      "term": "التقسيم",
+      "kind": "translation-homonym",
+      "senses": [
+        {
+          "conceptId": "concept:fabric:partitioning",
+          "scope": "Physical data partitioning."
+        },
+        {
+          "conceptId": "concept:analysis:segmentation",
+          "scope": "Analytical subgroup segmentation."
+        }
+      ],
+      "resolution": "keep-separate",
+      "decision": "The Arabic word covers both physical partitioning and analytical segmentation. Resolve by domain context, never by the string alone.",
+      "evidence": [
+        {
+          "unitId": "fabric-note:delta/partitioning",
+          "sourcePath": "content/fabric/notes.json",
+          "locator": "pack=delta; chapter=partitioning",
+          "canonicalHref": "/lab/dp-600/resources/?pack=delta#study-notes",
+          "language": "en",
+          "quote": "Partition hierarchy, pruning, and cardinality Hive-style partitioning places data into directories for populated value combinations of one or more keys.",
+          "quoteFingerprint": "018266215322cfaa"
+        },
+        {
+          "unitId": "fabric-note:pipelines/setup",
+          "sourcePath": "content/fabric/notes.json",
+          "locator": "pack=pipelines; chapter=setup",
+          "canonicalHref": "/lab/dp-600/resources/?pack=pipelines#study-notes",
+          "language": "en",
+          "quote": "Demo setup: artifact, templates, sample data, assistant After a short channel-support segment, the demo uploads movies.csv to a new folder in Lakehouse Files, creates a data pipeline, and selects a blank canvas.",
+          "quoteFingerprint": "f5c77d37fefaec3e"
+        }
+      ],
+      "reviewState": "candidate",
+      "collisionRegistered": true
+    },
+    {
+      "id": "amb:commit",
+      "term": "commit",
+      "kind": "cross-domain-polysemy",
+      "senses": [
+        {
+          "conceptId": "concept:fabric:git",
+          "scope": "A version-control commit."
+        },
+        {
+          "conceptId": "concept:sql:transactions",
+          "scope": "A database transaction commit."
+        }
+      ],
+      "resolution": "keep-separate",
+      "decision": "Both are durable state changes, but the recovery, rollback and audit semantics differ. The label must be qualified by system.",
+      "evidence": [
+        {
+          "unitId": "fabric-add:new-json-t1q69",
+          "sourcePath": "content/fabric/additions/questions.json",
+          "locator": "id=new-json-t1q69",
+          "canonicalHref": "/lab/dp-600/explore/?question=new-json-t1q69",
+          "language": "en",
+          "quote": "Git integration is enabled at the workspace level.",
+          "quoteFingerprint": "3cc890dd2fb1fd3f"
+        },
+        {
+          "unitId": "sql:06#section-21",
+          "sourcePath": "content/sql/vault.json",
+          "locator": "pages[id=3ce3906c5d6c813a95abc3b25b698b3e] > 18. Interview Traps",
+          "canonicalHref": "/learn/sql/06/#section-21",
+          "language": "en",
+          "quote": "Because rows may represent transactions, not customers.",
+          "quoteFingerprint": "d0371d4b940356c1"
+        }
+      ],
+      "reviewState": "candidate",
+      "collisionRegistered": true
+    },
+    {
+      "id": "amb:distribution",
+      "term": "distribution",
+      "kind": "qualified-variant",
+      "senses": [
+        {
+          "conceptId": "concept:stats:distribution",
+          "scope": "Distribution of a variable."
+        },
+        {
+          "conceptId": "concept:stats:sampling-distribution",
+          "scope": "Distribution of a statistic across samples."
+        }
+      ],
+      "resolution": "keep-separate",
+      "decision": "The corpus explicitly warns against confusing the two; keep separate IDs and a prerequisite assertion.",
+      "evidence": [
+        {
+          "unitId": "stats:s11",
+          "sourcePath": "content/statistics/source.json",
+          "locator": "sections[id=s11]",
+          "canonicalHref": "/learn/statistics/source/#s11",
+          "language": "en",
+          "quote": "الفكرة: Population → Many Samples → Mean of each Sample → Sampling Distribution of Means → Approximately Normal كما أن متوسط Sampling Distribution للمتوسط يساوي Population Mean:",
+          "quoteFingerprint": "5be9801deebb00d1"
+        },
+        {
+          "unitId": "stats:s12",
+          "sourcePath": "content/statistics/source.json",
+          "locator": "sections[id=s12]",
+          "canonicalHref": "/learn/statistics/source/#s12",
+          "language": "en",
+          "quote": "لا يجب الخلط بين: Population Distribution : توزيع الأفراد/القيم في المجتمع.",
+          "quoteFingerprint": "42896d7d5238a3bb"
+        }
+      ],
+      "reviewState": "candidate",
+      "collisionRegistered": false
+    },
+    {
+      "id": "amb:model",
+      "term": "model",
+      "kind": "overloaded-term",
+      "senses": [
+        {
+          "conceptId": "concept:fabric:star-schema",
+          "scope": "Dimensional model shape."
+        },
+        {
+          "conceptId": "concept:fabric:direct-lake",
+          "scope": "Semantic-model storage mode."
+        },
+        {
+          "conceptId": "concept:stats:distribution",
+          "scope": "Statistical model of a distribution."
+        }
+      ],
+      "resolution": "no-concept-created",
+      "decision": "Do not create a generic 'model' concept. Every occurrence must resolve to a scoped concept or stay unmapped.",
+      "evidence": [
+        {
+          "unitId": "fabric-q:fb-p30",
+          "sourcePath": "content/fabric/index.json",
+          "locator": "id=fb-p30",
+          "canonicalHref": "/lab/dp-600/explore/?question=fb-p30",
+          "language": "en",
+          "quote": "Distinguish orchestration and promotion An engineer says a Data Factory pipeline's Copy and Notebook activities will automatically promote a semantic model from development to production.",
+          "quoteFingerprint": "1e3ab48b2619400c"
+        },
+        {
+          "unitId": "fabric-q:fb-w01",
+          "sourcePath": "content/fabric/index.json",
+          "locator": "id=fb-w01",
+          "canonicalHref": "/lab/dp-600/explore/?question=fb-w01",
+          "language": "en",
+          "quote": "Assess an analytics platform A SQL team must maintain a curated star schema with T-SQL writes and multi-table transactions.",
+          "quoteFingerprint": "2e17a447b7cfe960"
+        }
+      ],
+      "reviewState": "candidate",
+      "collisionRegistered": false
+    },
+    {
+      "id": "amb:shortcut-caching",
+      "term": "shortcut caching",
+      "kind": "apparent-contradiction",
+      "senses": [
+        {
+          "conceptId": "concept:fabric:shortcut",
+          "scope": "Reference to an existing target."
+        },
+        {
+          "conceptId": "concept:fabric:copy-job",
+          "scope": "Cached or copied data."
+        }
+      ],
+      "resolution": "scope-qualified",
+      "decision": "A shortcut is not a retained result, but external shortcut caching can materialize data. Keep the reference claim qualified by the caching caveat.",
+      "evidence": [
+        {
+          "unitId": "insight:hansa-insight-shortcut-reference-v1",
+          "sourcePath": "content/knowledge/insights.json",
+          "locator": "items[id=hansa-insight-shortcut-reference-v1]",
+          "canonicalHref": "/?insight=hansa-insight-shortcut-reference-v1#today",
+          "language": "en",
+          "quote": "A shortcut alone is not a retained, transformed snapshot; external shortcut caching is a separate consideration.",
+          "quoteFingerprint": "c06db129a339309c"
+        },
+        {
+          "unitId": "insight:hansa-insight-shortcut-reference-v1",
+          "sourcePath": "content/knowledge/insights.json",
+          "locator": "items[id=hansa-insight-shortcut-reference-v1]",
+          "canonicalHref": "/?insight=hansa-insight-shortcut-reference-v1#today",
+          "language": "en",
+          "quote": "Investigate an internal OneLake shortcut: it points to an existing location rather than requiring a separate copy pipeline.",
+          "quoteFingerprint": "38381e1c955af9fd"
+        }
+      ],
+      "reviewState": "candidate",
+      "collisionRegistered": false
+    }
+  ]
+}

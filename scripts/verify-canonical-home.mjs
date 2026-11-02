@@ -36,10 +36,14 @@ const aliasHtml = existsSync(path.join(OUT, "prototype-c/index.html"))
   ? readOut("prototype-c/index.html")
   : null;
 
+// Updated with the v3 gate flow (2026-10-30): the full-screen date hero, the
+// Learn Gate and the certificate gate are the landing's section identity. The
+// markers are the gate kickers — contiguous text nodes, unlike the titles
+// whose emphasis splits them across <em> elements.
 const LANDING_MARKERS = [
   "Knowledge stage",
-  "The daily insight",
-  "Knowledge Atlas",
+  "The Learn Gate",
+  "Certificate preparation",
   "The insight archive",
   "Editions under editorial review",
 ];

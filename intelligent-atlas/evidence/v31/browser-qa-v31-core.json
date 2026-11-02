@@ -1,0 +1,171 @@
+{
+  "schemaVersion": "intelligent-atlas-browser-qa/3.1",
+  "generatedAt": "2026-11-01T21:29:06.468Z",
+  "target": "file:///D:/BeUI/amir-portfolio/intelligent-atlas/prototype/index.html",
+  "edge": "156.0.4314.58",
+  "viewport": "1440x960",
+  "summary": {
+    "total": 31,
+    "passed": 31,
+    "failed": 0
+  },
+  "consoleErrors": [],
+  "pageErrors": [],
+  "results": [
+    {
+      "id": "runtime:no-console-errors",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "id": "runtime:no-page-errors",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "id": "timeline:default-date-is-latest",
+      "status": "PASS",
+      "detail": "date=2026-10-26"
+    },
+    {
+      "id": "timeline:default-intent",
+      "status": "PASS",
+      "detail": "intent=understand"
+    },
+    {
+      "id": "field:all-nodes",
+      "status": "PASS",
+      "detail": "nodes=132"
+    },
+    {
+      "id": "field:all-edges",
+      "status": "PASS",
+      "detail": "edges=86"
+    },
+    {
+      "id": "timeline:all-days",
+      "status": "PASS",
+      "detail": "days=15"
+    },
+    {
+      "id": "dealer:latest-has-one-card",
+      "status": "PASS",
+      "detail": "cards=1"
+    },
+    {
+      "id": "dealer:today-is-empty",
+      "status": "PASS",
+      "detail": "cards=0"
+    },
+    {
+      "id": "field:default-overview-dense",
+      "status": "PASS",
+      "detail": "scale=0.361 dense=true"
+    },
+    {
+      "id": "dealer:opens-from-timeline",
+      "status": "PASS",
+      "detail": "{\"hidden\":false,\"cards\":1,\"title\":\"Daily edition — OneLake\",\"readerTitle\":\"Reference ≠ retained result\",\"focus\":\"card card-select\"}"
+    },
+    {
+      "id": "dealer:reader-rendered",
+      "status": "PASS",
+      "detail": "reader=Reference ≠ retained result"
+    },
+    {
+      "id": "timeline:today-selected-empty-band",
+      "status": "PASS",
+      "detail": "{\"title\":\"Today has no edition — on purpose.\",\"button\":\"Open the empty hand\",\"selected\":\"2026-11-01\"}"
+    },
+    {
+      "id": "timeline:empty-hand-label",
+      "status": "PASS",
+      "detail": "Open the empty hand"
+    },
+    {
+      "id": "dealer:today-empty-hand",
+      "status": "PASS",
+      "detail": "{\"hidden\":false,\"cards\":0,\"empty\":true,\"title\":\"Nothing was resolved.\"}"
+    },
+    {
+      "id": "search:matches-shortcut",
+      "status": "PASS",
+      "detail": "{\"matches\":2,\"dimmed\":130,\"summary\":\"2 concepts match “shortcut”. Press Enter to open the first.\"}"
+    },
+    {
+      "id": "search:field-dims-non-matches",
+      "status": "PASS",
+      "detail": "dimmed=130"
+    },
+    {
+      "id": "search:enter-opens-first",
+      "status": "PASS",
+      "detail": "concept=concept:fabric:shortcut"
+    },
+    {
+      "id": "compare:board-rendered",
+      "status": "PASS",
+      "detail": "{\"board\":true,\"select\":\"assert:ia:fabric-shortcut-copy\",\"panel\":\"OneLake shortcut ↔ Copy job\"}"
+    },
+    {
+      "id": "compare:no-board-state-is-honest",
+      "status": "PASS",
+      "detail": "{\"note\":\"Selected concept: Standard error. No board includes it yet. Return to Understand\",\"board\":true}"
+    },
+    {
+      "id": "apply:standard-error-coverage-gap",
+      "status": "PASS",
+      "detail": "{\"title\":\"Use Standard error\",\"empty\":\"No application resource is mapped to this concept in the current index. That is a coverage gap, not evidence that no exercise exists.\",\"open\":0}"
+    },
+    {
+      "id": "goal:route-rendered",
+      "status": "PASS",
+      "detail": "{\"steps\":2,\"title\":\"Read existing OneLake data without building another copy\",\"first\":\"OneLake\",\"badges\":9}"
+    },
+    {
+      "id": "goal:self-report-is-local",
+      "status": "PASS",
+      "detail": "{\"concept:fabric:onelake\":true}"
+    },
+    {
+      "id": "pocket:saves-concept",
+      "status": "PASS",
+      "detail": "{\"count\":\"1\",\"expanded\":\"false\"}"
+    },
+    {
+      "id": "pocket:opens-drawer",
+      "status": "PASS",
+      "detail": "{\"hidden\":false,\"items\":1}"
+    },
+    {
+      "id": "thread:tracks-visited",
+      "status": "PASS",
+      "detail": "{\"count\":\"2\",\"chips\":2}"
+    },
+    {
+      "id": "theme:dark-preset",
+      "status": "PASS",
+      "detail": "{\"theme\":\"dark\",\"pressed\":\"true\",\"meta\":\"#090c11\"}"
+    },
+    {
+      "id": "closing:ledger-rendered",
+      "status": "PASS",
+      "detail": "{\"ledger\":8,\"idea\":\"“Deleting the shortcut object leaves its target intact.” — OneLake shortcut. Rem\",\"action\":\"Reopen the 26 Oct edition\"}"
+    },
+    {
+      "id": "about:coverage-note",
+      "status": "PASS",
+      "detail": "{\"hidden\":false,\"headings\":9}"
+    },
+    {
+      "id": "reduced-motion:state-intact",
+      "status": "PASS",
+      "detail": "{\"intent\":\"compare\",\"board\":true,\"behavior\":\"auto\"}"
+    },
+    {
+      "id": "url:state-restored",
+      "status": "PASS",
+      "detail": "{\"theme\":\"dark\",\"intent\":\"goal\",\"date\":\"2026-10-24\",\"conceptId\":\"concept:fabric:shortcut\",\"comparisonId\":\"assert:ia:fabric-shortcut-copy\",\"goalId\":\"goal:ia:reference-without-copy\",\"pocket\":[{\"key\":\"concept:concept:fabric:shortcut\",\"kind\":\"concept\",\"label\":\"OneLake shortcut\",\"meta\":\"Microsoft Fabric · read in context\",\"conceptId\":\"concept:fabric:shortcut\"}],\"thread\":[\"concept:stats:standard-error\",\"concept:fabric:shortcut\"],\"selfReported\":{},\"dealer\":null}"
+    }
+  ]
+}

@@ -1,0 +1,7342 @@
+{
+  "schemaVersion": "intelligent-atlas-semantic/1.0",
+  "registryVersion": "2026-10-31.1",
+  "graphBuildId": "ia-graph-bed4e12d0986",
+  "notice": "Candidate canonical concepts. No concept is approved or published.",
+  "domains": [
+    {
+      "id": "fabric",
+      "label": "Microsoft Fabric",
+      "short": "Fabric",
+      "colorToken": "fabric"
+    },
+    {
+      "id": "sql",
+      "label": "SQL & relational querying",
+      "short": "SQL",
+      "colorToken": "sql"
+    },
+    {
+      "id": "statistics",
+      "label": "Statistics & inference",
+      "short": "Statistics",
+      "colorToken": "statistics"
+    },
+    {
+      "id": "visualization",
+      "label": "Data visualization",
+      "short": "Visualization",
+      "colorToken": "visualization"
+    },
+    {
+      "id": "analysis",
+      "label": "Analytical reasoning",
+      "short": "Analysis",
+      "colorToken": "analysis"
+    }
+  ],
+  "concepts": [
+    {
+      "id": "concept:fabric:shortcut",
+      "prefLabel": "OneLake shortcut",
+      "domain": "fabric",
+      "kind": "technology_mechanism",
+      "definition": "A named OneLake path that references an existing supported storage target instead of maintaining a separate copy.",
+      "scope": "Reference object and the data it exposes are distinct; shortcut caching is a separate behaviour.",
+      "discriminatingContext": "Distinguish referencing an existing target from copying, replicating or transforming it.",
+      "aliases": {
+        "en": [
+          "shortcut",
+          "shortcuts",
+          "internal shortcut",
+          "external shortcut",
+          "shortcut caching"
+        ],
+        "ar": [
+          "اختصار",
+          "الاختصارات"
+        ]
+      },
+      "patterns": [
+        "\\b(?:shortcuts?)\\b",
+        "الاختصارات?",
+        "\\b(?:shortcut caching)\\b"
+      ],
+      "matchFamilies": [],
+      "packTags": [],
+      "exclude": [],
+      "existingAtlasId": "concept:fabric:shortcut",
+      "sourceRefs": [
+        "content/fabric/notes.json",
+        "content/knowledge/insights.json"
+      ],
+      "reviewState": "candidate",
+      "stats": {
+        "unitCount": 100,
+        "byFamily": {
+          "daily-insights": 3,
+          "fabric-questions": 43,
+          "fabric-additions": 11,
+          "fabric-r11": 5,
+          "fabric-notes": 27,
+          "fabric-cases": 5,
+          "academy": 6
+        },
+        "byLanguage": {
+          "en": 100
+        },
+        "primary": 35,
+        "roles": {
+          "explains": 28,
+          "practices": 59,
+          "applies": 13
+        }
+      },
+      "crosswalk": {
+        "existingAtlasId": "concept:fabric:shortcut",
+        "relation": "reused-identity"
+      }
+    },
+    {
+      "id": "concept:fabric:onelake",
+      "prefLabel": "OneLake",
+      "domain": "fabric",
+      "kind": "platform",
+      "definition": "The tenant-wide logical data lake that stores Fabric items and exposes them through familiar storage paths.",
+      "scope": "Storage substrate, not a query engine or a modelling layer.",
+      "discriminatingContext": "",
+      "aliases": {
+        "en": [
+          "OneLake",
+          "logical data lake"
+        ],
+        "ar": [
+          "ون ليك",
+          "بحيرة البيانات"
+        ]
+      },
+      "patterns": [
+        "\\b(?:OneLake)\\b",
+        "\\b(?:logical data lake)\\b"
+      ],
+      "matchFamilies": [],
+      "packTags": [],
+      "exclude": [],
+      "existingAtlasId": "concept:fabric:onelake",
+      "sourceRefs": [
+        "content/fabric/notes.json"
+      ],
+      "reviewState": "candidate",
+      "stats": {
+        "unitCount": 57,
+        "byFamily": {
+          "fabric-questions": 21,
+          "fabric-additions": 13,
+          "fabric-r11": 7,
+          "fabric-notes": 10,
+          "fabric-cases": 1,
+          "academy": 4,
+          "exams": 1
+        },
+        "byLanguage": {
+          "en": 57
+        },
+        "primary": 0,
+        "roles": {
+          "practices": 42,
+          "explains": 10,
+          "applies": 5
+        }
+      },
+      "crosswalk": {
+        "existingAtlasId": "concept:fabric:onelake",
+        "relation": "reused-identity"
+      }
+    },
+    {
+      "id": "concept:fabric:delta",
+      "prefLabel": "Delta table",
+      "domain": "fabric",
+      "kind": "storage_format",
+      "definition": "A table format of Parquet files plus a transaction log that provides schema, history and transactional reads.",
+      "scope": "Table format; Delta does not by itself define refresh, security or semantic-model behaviour.",
+      "discriminatingContext": "",
+      "aliases": {
+        "en": [
+          "Delta table",
+          "Delta Lake",
+          "Delta log",
+          "transaction log",
+          "Delta format"
+        ],
+        "ar": [
+          "دلتا",
+          "جدول دلتا"
+        ]
+      },
+      "patterns": [
+        "\\b(?:Delta(?: Lake| table| tables| log| format)?)\\b",
+        "دلتا"
+      ],
+      "matchFamilies": [],
+      "packTags": [
+        "delta"
+      ],
+      "exclude": [],
+      "existingAtlasId": "concept:fabric:delta",
+      "sourceRefs": [
+        "content/fabric/notes.json",
+        "lib/rti/lessons.ts"
+      ],
+      "reviewState": "candidate",
+      "stats": {
+        "unitCount": 265,
+        "byFamily": {
+          "daily-insights": 2,
+          "fabric-questions": 114,
+          "fabric-additions": 46,
+          "fabric-r11": 16,
+          "fabric-notes": 32,
+          "fabric-cases": 28,
+          "academy": 26,
+          "hands-on-labs": 1
+        },
+        "byLanguage": {
+          "en": 265
+        },
+        "primary": 82,
+        "roles": {
+          "explains": 30,
+          "practices": 176,
+          "applies": 59
+        }
+      },
+      "crosswalk": {
+        "existingAtlasId": "concept:fabric:delta",
+        "relation": "reused-identity"
+      }
+    },
+    {
+      "id": "concept:fabric:lakehouse",
+      "prefLabel": "Lakehouse",
+      "domain": "fabric",
+      "kind": "data_store",
+      "definition": "A Fabric data store that combines Files and managed Delta Tables with Spark and SQL access surfaces.",
+      "scope": "Files and Tables are different locations with different discovery rules.",
+      "discriminatingContext": "",
+      "aliases": {
+        "en": [
+          "lakehouse",
+          "lakehouses",
+          "Files",
+          "Tables"
+        ],
+        "ar": [
+          "ليك هاوس",
+          "ليكهاوس"
+        ]
+      },
+      "patterns": [
+        "\\b(?:lakehouses?)\\b",
+        "ليك ?هاوس"
+      ],
+      "matchFamilies": [],
+      "packTags": [],
+      "exclude": [],
+      "existingAtlasId": "concept:fabric:lakehouse",
+      "sourceRefs": [
+        "content/fabric/notes.json",
+        "content/academy/lessons.json"
+      ],
+      "reviewState": "candidate",
+      "stats": {
+        "unitCount": 591,
+        "byFamily": {
+          "daily-insights": 2,
+          "fabric-questions": 280,
+          "fabric-additions": 100,
+          "fabric-r11": 42,
+          "fabric-notes": 27,
+          "fabric-cases": 34,
+          "academy": 104,
+          "hands-on-labs": 1,
+          "fabric-rti": 1
+        },
+        "byLanguage": {
+          "en": 591
+        },
+        "primary": 161,
+        "roles": {
+          "explains": 25,
+          "practices": 422,
+          "applies": 144
+        }
+      },
+      "crosswalk": {
+        "existingAtlasId": "concept:fabric:lakehouse",
+        "relation": "reused-identity"
+      }
+    },
+    {
+      "id": "concept:fabric:warehouse",
+      "prefLabel": "Data Warehouse",
+      "domain": "fabric",
+      "kind": "data_store",
+      "definition": "A SQL-first Fabric store for structured analytical tables, views and multi-table transactions.",
+      "scope": "Warehouse writes and T-SQL surface differ from lakehouse Files and Spark writes.",
+      "discriminatingContext": "",
+      "aliases": {
+        "en": [
+          "warehouse",
+          "warehouses",
+          "Fabric Warehouse"
+        ],
+        "ar": [
+          "مستودع البيانات",
+          "المستودع"
+        ]
+      },
+      "patterns": [
+        "\\b(?:warehouses?)\\b",
+        "مستودع البيانات"
+      ],
+      "matchFamilies": [],
+      "packTags": [
+        "warehouse"
+      ],
+      "exclude": [],
+      "existingAtlasId": "concept:fabric:warehouse",
+      "sourceRefs": [
+        "content/fabric/notes.json"
+      ],
+      "reviewState": "candidate",
+      "stats": {
+        "unitCount": 356,
+        "byFamily": {
+          "fabric-questions": 108,
+          "fabric-additions": 75,
+          "fabric-r11": 48,
+          "fabric-notes": 25,
+          "fabric-cases": 6,
+          "academy": 72,
+          "sql": 20,
+          "hands-on-labs": 2
+        },
+        "byLanguage": {
+          "en": 356
+        },
+        "primary": 178,
+        "roles": {
+          "practices": 231,
+          "explains": 45,
+          "applies": 80
+        }
+      },
+      "crosswalk": {
+        "existingAtlasId": "concept:fabric:warehouse",
+        "relation": "reused-identity"
+      }
+    },
+    {
+      "id": "concept:fabric:sql-endpoint",
+      "prefLabel": "SQL analytics endpoint",
+      "domain": "fabric",
+      "kind": "query_surface",
+      "definition": "A read-oriented T-SQL surface over lakehouse Delta tables, with its own object and security behaviour.",
+      "scope": "Read surface over lakehouse tables; not the same object as a Warehouse.",
+      "discriminatingContext": "",
+      "aliases": {
+        "en": [
+          "SQL analytics endpoint",
+          "SQL endpoint",
+          "analytics endpoint"
+        ],
+        "ar": [
+          "نقطة نهاية SQL"
+        ]
+      },
+      "patterns": [
+        "\\b(?:SQL analytics endpoint)\\b",
+        "\\b(?:SQL endpoint)\\b",
+        "\\b(?:analytics endpoint)\\b"
+      ],
+      "matchFamilies": [],
+      "packTags": [],
+      "exclude": [],
+      "existingAtlasId": "concept:fabric:sql-endpoint",
+      "sourceRefs": [
+        "content/fabric/notes.json"
+      ],
+      "reviewState": "candidate",
+      "stats": {
+        "unitCount": 106,
+        "byFamily": {
+          "fabric-questions": 49,
+          "fabric-additions": 8,
+          "fabric-r11": 3,
+          "fabric-notes": 17,
+          "fabric-cases": 16,
+          "academy": 13
+        },
+        "byLanguage": {
+          "en": 106
+        },
+        "primary": 62,
+        "roles": {
+          "practices": 60,
+          "applies": 31,
+          "explains": 15
+        }
+      },
+      "crosswalk": {
+        "existingAtlasId": "concept:fabric:sql-endpoint",
+        "relation": "reused-identity"
+      }
+    },
+    {
+      "id": "concept:fabric:pipeline",
+      "prefLabel": "Data pipeline",
+      "domain": "fabric",
+      "kind": "orchestration",
+      "definition": "Orchestration that coordinates data movement, transformation activities and control flow.",
+      "scope": "Orchestration, not the transformation engine itself.",
+      "discriminatingContext": "",
+      "aliases": {
+        "en": [
+          "data pipeline",
+          "pipelines",
+          "pipeline activity"
+        ],
+        "ar": [
+          "خط أنابيب البيانات",
+          "خط الأنابيب"
+        ]
+      },
+      "patterns": [
+        "\\b(?:data pipelines?)\\b",
+        "\\b(?:pipelines?)\\b",
+        "خط أنابيب"
+      ],
+      "matchFamilies": [],
+      "packTags": [
+        "pipelines",
+        "incremental-copy"
+      ],
+      "exclude": [],
+      "existingAtlasId": "concept:fabric:pipeline",
+      "sourceRefs": [
+        "content/fabric/notes.json",
+        "content/fabric/cases.json"
+      ],
+      "reviewState": "candidate",
+      "stats": {
+        "unitCount": 400,
+        "byFamily": {
+          "daily-insights": 1,
+          "fabric-questions": 248,
+          "fabric-additions": 45,
+          "fabric-r11": 22,
+          "fabric-notes": 42,
+          "fabric-cases": 10,
+          "academy": 23,
+          "sql": 5,
+          "visualization": 1,
+          "exams": 1,
+          "fabric-rti": 2
+        },
+        "byLanguage": {
+          "en": 396,
+          "mixed": 4
+        },
+        "primary": 196,
+        "roles": {
+          "explains": 50,
+          "practices": 316,
+          "applies": 34
+        }
+      },
+      "crosswalk": {
+        "existingAtlasId": "concept:fabric:pipeline",
+        "relation": "reused-identity"
+      }
+    },
+    {
+      "id": "concept:fabric:dataflow-gen2",
+      "prefLabel": "Dataflow Gen2",
+      "domain": "fabric",
+      "kind": "transformation",
+      "definition": "Low-code data preparation using Power Query transformations with a defined output destination.",
+      "scope": "Preparation layer; does not replace orchestration or semantic modelling.",
+      "discriminatingContext": "",
+      "aliases": {
+        "en": [
+          "Dataflow Gen2",
+          "dataflow",
+          "Power Query"
+        ],
+        "ar": [
+          "تدفق البيانات"
+        ]
+      },
+      "patterns": [
+        "\\b(?:Dataflow Gen2)\\b",
+        "\\b(?:dataflows?)\\b",
+        "\\b(?:Power Query)\\b"
+      ],
+      "matchFamilies": [],
+      "packTags": [
+        "dataflow-gen2"
+      ],
+      "exclude": [],
+      "existingAtlasId": "concept:fabric:dataflow-gen2",
+      "sourceRefs": [
+        "content/fabric/notes.json",
+        "content/fabric/additions/questions.json"
+      ],
+      "reviewState": "candidate",
+      "stats": {
+        "unitCount": 207,
+        "byFamily": {
+          "fabric-questions": 67,
+          "fabric-additions": 72,
+          "fabric-r11": 18,
+          "fabric-notes": 8,
+          "fabric-cases": 2,
+          "academy": 38,
+          "exams": 1,
+          "hands-on-labs": 1
+        },
+        "byLanguage": {
+          "en": 207
+        },
+        "primary": 132,
+        "roles": {
+          "practices": 158,
+          "applies": 42,
+          "explains": 7
+        }
+      },
+      "crosswalk": {
+        "existingAtlasId": "concept:fabric:dataflow-gen2",
+        "relation": "reused-identity"
+      }
+    },
+    {
+      "id": "concept:fabric:notebook",
+      "prefLabel": "Spark notebook",
+      "domain": "fabric",
+      "kind": "compute",
+      "definition": "Code-based preparation and exploration of lakehouse data using Spark languages.",
+      "scope": "Engineering surface for Delta writes; not the SQL analytics endpoint.",
+      "discriminatingContext": "",
+      "aliases": {
+        "en": [
+          "notebook",
+          "notebooks",
+          "PySpark",
+          "Spark notebook"
+        ],
+        "ar": [
+          "دفتر سبارك",
+          "نوتبوك"
+        ]
+      },
+      "patterns": [
+        "\\b(?:notebooks?)\\b",
+        "\\b(?:PySpark)\\b",
+        "\\b(?:Spark notebook)\\b"
+      ],
+      "matchFamilies": [],
+      "packTags": [
+        "notebooks-pyspark"
+      ],
+      "exclude": [],
+      "existingAtlasId": "concept:fabric:notebook",
+      "sourceRefs": [
+        "content/fabric/notes.json",
+        "content/academy/lessons.json"
+      ],
+      "reviewState": "candidate",
+      "stats": {
+        "unitCount": 300,
+        "byFamily": {
+          "fabric-questions": 118,
+          "fabric-additions": 55,
+          "fabric-r11": 23,
+          "fabric-notes": 15,
+          "fabric-cases": 7,
+          "academy": 76,
+          "exams": 1,
+          "hands-on-labs": 2,
+          "fabric-rti": 3
+        },
+        "byLanguage": {
+          "en": 300
+        },
+        "primary": 134,
+        "roles": {
+          "practices": 197,
+          "applies": 87,
+          "explains": 16
+        }
+      },
+      "crosswalk": {
+        "existingAtlasId": "concept:fabric:notebook",
+        "relation": "reused-identity"
+      }
+    },
+    {
+      "id": "concept:fabric:direct-lake",
+      "prefLabel": "Direct Lake",
+      "domain": "fabric",
+      "kind": "storage_mode",
+      "definition": "A semantic-model storage mode that reads eligible OneLake Delta data without an Import copy.",
+      "scope": "Requires eligible Delta/OneLake conditions; fallback behaviour is a separate decision.",
+      "discriminatingContext": "",
+      "aliases": {
+        "en": [
+          "Direct Lake",
+          "Direct Lake fallback"
+        ],
+        "ar": [
+          "ديركت ليك"
+        ]
+      },
+      "patterns": [
+        "\\b(?:Direct Lake)\\b",
+        "ديركت ليك"
+      ],
+      "matchFamilies": [],
+      "packTags": [],
+      "exclude": [],
+      "existingAtlasId": "concept:fabric:direct-lake",
+      "sourceRefs": [
+        "content/fabric/r11/questions.json",
+        "content/fabric/notes.json"
+      ],
+      "reviewState": "candidate",
+      "stats": {
+        "unitCount": 73,
+        "byFamily": {
+          "fabric-questions": 34,
+          "fabric-additions": 16,
+          "fabric-r11": 6,
+          "fabric-notes": 12,
+          "fabric-cases": 3,
+          "academy": 2
+        },
+        "byLanguage": {
+          "en": 73
+        },
+        "primary": 41,
+        "roles": {
+          "practices": 56,
+          "explains": 12,
+          "applies": 5
+        }
+      },
+      "crosswalk": {
+        "existingAtlasId": "concept:fabric:direct-lake",
+        "relation": "reused-identity"
+      }
+    },
+    {
+      "id": "concept:fabric:import",
+      "prefLabel": "Import mode",
+      "domain": "fabric",
+      "kind": "storage_mode",
+      "definition": "A semantic-table storage mode that loads and compresses data into the model at refresh time.",
+      "scope": "Freshness is bounded by refresh; model size and refresh cost are the trade-off.",
+      "discriminatingContext": "",
+      "aliases": {
+        "en": [
+          "Import mode",
+          "Import storage",
+          "imported model"
+        ],
+        "ar": [
+          "وضع الاستيراد"
+        ]
+      },
+      "patterns": [
+        "\\b(?:Import mode)\\b",
+        "\\b(?:Import storage)\\b",
+        "\\b(?:imported model)\\b"
+      ],
+      "matchFamilies": [],
+      "packTags": [],
+      "exclude": [],
+      "existingAtlasId": "concept:fabric:import",
+      "sourceRefs": [
+        "content/fabric/r11/questions.json"
+      ],
+      "reviewState": "candidate",
+      "stats": {
+        "unitCount": 12,
+        "byFamily": {
+          "fabric-additions": 8,
+          "fabric-r11": 4
+        },
+        "byLanguage": {
+          "en": 12
+        },
+        "primary": 5,
+        "roles": {
+          "practices": 12
+        }
+      },
+      "crosswalk": {
+        "existingAtlasId": "concept:fabric:import",
+        "relation": "reused-identity"
+      }
+    },
+    {
+      "id": "concept:fabric:directquery",
+      "prefLabel": "DirectQuery",
+      "domain": "fabric",
+      "kind": "storage_mode",
+      "definition": "A semantic-table storage mode that sends queries to the source at report time instead of storing a copy.",
+      "scope": "Source round-trips and source limits constrain the experience.",
+      "discriminatingContext": "",
+      "aliases": {
+        "en": [
+          "DirectQuery",
+          "direct query"
+        ],
+        "ar": [
+          "ديركت كويري"
+        ]
+      },
+      "patterns": [
+        "\\b(?:DirectQuery)\\b",
+        "\\b(?:direct query)\\b"
+      ],
+      "matchFamilies": [],
+      "packTags": [],
+      "exclude": [],
+      "existingAtlasId": "concept:fabric:directquery",
+      "sourceRefs": [
+        "content/fabric/r11/questions.json"
+      ],
+      "reviewState": "candidate",
+      "stats": {
+        "unitCount": 25,
+        "byFamily": {
+          "fabric-questions": 9,
+          "fabric-additions": 13,
+          "fabric-r11": 2,
+          "academy": 1
+        },
+        "byLanguage": {
+          "en": 25
+        },
+        "primary": 8,
+        "roles": {
+          "practices": 24,
+          "applies": 1
+        }
+      },
+      "crosswalk": {
+        "existingAtlasId": "concept:fabric:directquery",
+        "relation": "reused-identity"
+      }
+    },
+    {
+      "id": "concept:fabric:star-schema",
+      "prefLabel": "Star schema",
+      "domain": "fabric",
+      "kind": "modelling_pattern",
+      "definition": "A dimensional model with fact tables at a declared grain and conformed dimension tables around them.",
+      "scope": "Model shape; relationship cardinality and filter direction are separate decisions.",
+      "discriminatingContext": "",
+      "aliases": {
+        "en": [
+          "star schema",
+          "dimensional model",
+          "fact table",
+          "dimension table",
+          "bridge table"
+        ],
+        "ar": [
+          "نجمة",
+          "جدول الأبعاد"
+        ]
+      },
+      "patterns": [
+        "\\b(?:star schema)\\b",
+        "\\b(?:fact tables?)\\b",
+        "\\b(?:dimension tables?)\\b",
+        "\\b(?:bridge tables?)\\b",
+        "\\b(?:facts and dimensions)\\b"
+      ],
+      "matchFamilies": [],
+      "packTags": [],
+      "exclude": [],
+      "existingAtlasId": "concept:fabric:star-schema",
+      "sourceRefs": [
+        "content/fabric/r11/questions.json",
+        "content/fabric/notes.json"
+      ],
+      "reviewState": "candidate",
+      "stats": {
+        "unitCount": 87,
+        "byFamily": {
+          "fabric-questions": 14,
+          "fabric-additions": 24,
+          "fabric-r11": 11,
+          "academy": 29,
+          "sql": 5,
+          "visualization": 1,
+          "exams": 2,
+          "hands-on-labs": 1
+        },
+        "byLanguage": {
+          "en": 86,
+          "ar": 1
+        },
+        "primary": 56,
+        "roles": {
+          "practices": 51,
+          "applies": 30,
+          "explains": 6
+        }
+      },
+      "crosswalk": {
+        "existingAtlasId": "concept:fabric:star-schema",
+        "relation": "reused-identity"
+      }
+    },
+    {
+      "id": "concept:fabric:grain",
+      "prefLabel": "Fact-table grain",
+      "domain": "fabric",
+      "kind": "modelling_pattern",
+      "definition": "The business meaning of one row in a fact table, declared before measures and relationships are designed.",
+      "scope": "Model grain. Distinct from the grain of a query result; see concept:sql:grain.",
+      "discriminatingContext": "Same everyday word as SQL output grain but a different scope.",
+      "aliases": {
+        "en": [
+          "fact grain",
+          "grain of the fact",
+          "declared grain",
+          "one row per"
+        ],
+        "ar": [
+          "حبيبة الجدول"
+        ]
+      },
+      "patterns": [
+        "\\b(?:fact grain)\\b",
+        "\\b(?:grain of the fact)\\b",
+        "\\b(?:declared grain)\\b",
+        "\\b(?:choose grain)\\b",
+        "\\b(?:grain before)\\b",
+        "\\b(?:grain of a table)\\b"
+      ],
+      "matchFamilies": [],
+      "packTags": [],
+      "exclude": [],
+      "existingAtlasId": "concept:fabric:grain",
+      "sourceRefs": [
+        "content/fabric/notes.json"
+      ],
+      "reviewState": "candidate",
+      "stats": {
+        "unitCount": 8,
+        "byFamily": {
+          "fabric-questions": 3,
+          "sql": 4,
+          "exams": 1
+        },
+        "byLanguage": {
+          "en": 8
+        },
+        "primary": 2,
+        "roles": {
+          "practices": 4,
+          "explains": 4
+        }
+      },
+      "crosswalk": {
+        "existingAtlasId": "concept:fabric:grain",
+        "relation": "reused-identity"
+      }
+    },
+    {
+      "id": "concept:fabric:rls",
+      "prefLabel": "Row-level security",
+      "domain": "fabric",
+      "kind": "security",
+      "definition": "A filter model that restricts which rows a identity can read through a supported query surface.",
+      "scope": "Engine-specific behaviour; Spark, SQL endpoint and semantic models can differ.",
+      "discriminatingContext": "",
+      "aliases": {
+        "en": [
+          "row-level security",
+          "RLS",
+          "security predicate"
+        ],
+        "ar": [
+          "أمان مستوى الصف"
+        ]
+      },
+      "patterns": [
+        "\\b(?:row-level security)\\b",
+        "\\b(?:RLS)\\b"
+      ],
+      "matchFamilies": [],
+      "packTags": [],
+      "exclude": [],
+      "existingAtlasId": "concept:fabric:rls",
+      "sourceRefs": [
+        "content/fabric/r11/questions.json",
+        "content/fabric/notes.json"
+      ],
+      "reviewState": "candidate",
+      "stats": {
+        "unitCount": 80,
+        "byFamily": {
+          "fabric-questions": 18,
+          "fabric-additions": 19,
+          "fabric-r11": 8,
+          "fabric-notes": 19,
+          "fabric-cases": 2,
+          "academy": 13,
+          "hands-on-labs": 1
+        },
+        "byLanguage": {
+          "en": 80
+        },
+        "primary": 9,
+        "roles": {
+          "practices": 45,
+          "explains": 19,
+          "applies": 16
+        }
+      },
+      "crosswalk": {
+        "existingAtlasId": "concept:fabric:rls",
+        "relation": "reused-identity"
+      }
+    },
+    {
+      "id": "concept:fabric:eventhouse",
+      "prefLabel": "Eventhouse",
+      "domain": "fabric",
+      "kind": "real_time",
+      "definition": "A Real-Time Intelligence store for streaming and event data queried with KQL.",
+      "scope": "Streaming store; retention and KQL limits are separate constraints.",
+      "discriminatingContext": "",
+      "aliases": {
+        "en": [
+          "eventhouse",
+          "eventhouses",
+          "KQL database"
+        ],
+        "ar": [
+          "بيت الأحداث"
+        ]
+      },
+      "patterns": [
+        "\\b(?:eventhouses?)\\b",
+        "\\b(?:KQL database)\\b",
+        "\\b(?:backfill)\\b",
+        "\\b(?:effectiveDateTime)\\b",
+        "\\b(?:retention)\\b"
+      ],
+      "matchFamilies": [],
+      "packTags": [
+        "eventhouse"
+      ],
+      "exclude": [],
+      "existingAtlasId": "concept:fabric:eventhouse",
+      "sourceRefs": [
+        "content/fabric/notes.json",
+        "lib/rti/lessons.ts"
+      ],
+      "reviewState": "candidate",
+      "stats": {
+        "unitCount": 235,
+        "byFamily": {
+          "fabric-questions": 162,
+          "fabric-additions": 5,
+          "fabric-r11": 5,
+          "fabric-notes": 25,
+          "fabric-cases": 6,
+          "academy": 29,
+          "sql": 2,
+          "fabric-rti": 1
+        },
+        "byLanguage": {
+          "en": 235
+        },
+        "primary": 95,
+        "roles": {
+          "practices": 172,
+          "explains": 27,
+          "applies": 36
+        }
+      },
+      "crosswalk": {
+        "existingAtlasId": "concept:fabric:eventhouse",
+        "relation": "reused-identity"
+      }
+    },
+    {
+      "id": "concept:fabric:optimize",
+      "prefLabel": "OPTIMIZE compaction",
+      "domain": "fabric",
+      "kind": "maintenance",
+      "definition": "A Delta maintenance operation that compacts small files; it does not by itself choose data layout for queries.",
+      "scope": "Compaction. Different goal from Z-Order co-location and from V-Order write layout.",
+      "discriminatingContext": "",
+      "aliases": {
+        "en": [
+          "OPTIMIZE",
+          "compaction",
+          "small files"
+        ],
+        "ar": [
+          "ضغط الملفات"
+        ]
+      },
+      "patterns": [
+        "\\b(?:OPTIMIZE)\\b",
+        "\\b(?:compaction)\\b",
+        "\\b(?:small files)\\b"
+      ],
+      "matchFamilies": [],
+      "packTags": [],
+      "exclude": [],
+      "existingAtlasId": "concept:fabric:optimize",
+      "sourceRefs": [
+        "content/fabric/notes.json"
+      ],
+      "reviewState": "candidate",
+      "stats": {
+        "unitCount": 23,
+        "byFamily": {
+          "fabric-questions": 9,
+          "fabric-additions": 5,
+          "fabric-r11": 1,
+          "fabric-notes": 4,
+          "academy": 3,
+          "hands-on-labs": 1
+        },
+        "byLanguage": {
+          "en": 23
+        },
+        "primary": 6,
+        "roles": {
+          "practices": 15,
+          "explains": 4,
+          "applies": 4
+        }
+      },
+      "crosswalk": {
+        "existingAtlasId": "concept:fabric:optimize",
+        "relation": "reused-identity"
+      }
+    },
+    {
+      "id": "concept:fabric:z-order",
+      "prefLabel": "Z-Order",
+      "domain": "fabric",
+      "kind": "maintenance",
+      "definition": "A layout technique that co-locates related values to improve data skipping for selected columns.",
+      "scope": "Co-location for skipping; not the same as file compaction.",
+      "discriminatingContext": "",
+      "aliases": {
+        "en": [
+          "Z-Order",
+          "ZORDER",
+          "data skipping"
+        ],
+        "ar": [
+          "ترتيب Z"
+        ]
+      },
+      "patterns": [
+        "\\b(?:Z-?Order)\\b",
+        "\\b(?:ZORDER)\\b",
+        "\\b(?:data skipping)\\b"
+      ],
+      "matchFamilies": [],
+      "packTags": [],
+      "exclude": [],
+      "existingAtlasId": "concept:fabric:z-order",
+      "sourceRefs": [
+        "content/fabric/notes.json"
+      ],
+      "reviewState": "candidate",
+      "stats": {
+        "unitCount": 0,
+        "byFamily": {},
+        "byLanguage": {},
+        "primary": 0,
+        "roles": {}
+      },
+      "crosswalk": {
+        "existingAtlasId": "concept:fabric:z-order",
+        "relation": "reused-identity"
+      }
+    },
+    {
+      "id": "concept:fabric:calculate",
+      "prefLabel": "DAX CALCULATE",
+      "domain": "fabric",
+      "kind": "dax",
+      "definition": "A DAX function that evaluates an expression in a modified filter context.",
+      "scope": "Filter-context modification; not a general-purpose row filter.",
+      "discriminatingContext": "",
+      "aliases": {
+        "en": [
+          "CALCULATE",
+          "CALCULATETABLE"
+        ],
+        "ar": [
+          "كالكلويت"
+        ]
+      },
+      "patterns": [
+        "\\b(?:CALCULATE)\\b",
+        "\\b(?:CALCULATETABLE)\\b"
+      ],
+      "matchFamilies": [],
+      "packTags": [],
+      "exclude": [],
+      "existingAtlasId": "concept:fabric:calculate",
+      "sourceRefs": [
+        "content/fabric/r11/questions.json"
+      ],
+      "reviewState": "candidate",
+      "stats": {
+        "unitCount": 67,
+        "byFamily": {
+          "fabric-questions": 7,
+          "fabric-additions": 22,
+          "fabric-r11": 14,
+          "academy": 17,
+          "sql": 6,
+          "exams": 1
+        },
+        "byLanguage": {
+          "en": 64,
+          "mixed": 3
+        },
+        "primary": 11,
+        "roles": {
+          "practices": 44,
+          "applies": 17,
+          "explains": 6
+        }
+      },
+      "crosswalk": {
+        "existingAtlasId": "concept:fabric:calculate",
+        "relation": "reused-identity"
+      }
+    },
+    {
+      "id": "concept:fabric:filter-context",
+      "prefLabel": "DAX filter context",
+      "domain": "fabric",
+      "kind": "dax",
+      "definition": "The set of filters active when a DAX expression is evaluated, including filters from visuals and CALCULATE.",
+      "scope": "Evaluation context; row context and filter context are not interchangeable.",
+      "discriminatingContext": "",
+      "aliases": {
+        "en": [
+          "filter context",
+          "row context",
+          "context transition"
+        ],
+        "ar": [
+          "سياق التصفية"
+        ]
+      },
+      "patterns": [
+        "\\b(?:filter context)\\b",
+        "\\b(?:row context)\\b",
+        "\\b(?:context transition)\\b"
+      ],
+      "matchFamilies": [],
+      "packTags": [],
+      "exclude": [],
+      "existingAtlasId": "concept:fabric:filter-context",
+      "sourceRefs": [
+        "content/fabric/r11/questions.json"
+      ],
+      "reviewState": "candidate",
+      "stats": {
+        "unitCount": 12,
+        "byFamily": {
+          "fabric-questions": 1,
+          "academy": 9,
+          "visualization": 1,
+          "exams": 1
+        },
+        "byLanguage": {
+          "en": 11,
+          "ar": 1
+        },
+        "primary": 2,
+        "roles": {
+          "practices": 2,
+          "applies": 9,
+          "explains": 1
+        }
+      },
+      "crosswalk": {
+        "existingAtlasId": "concept:fabric:filter-context",
+        "relation": "reused-identity"
+      }
+    },
+    {
+      "id": "concept:fabric:database-mirroring",
+      "prefLabel": "Database mirroring",
+      "domain": "fabric",
+      "kind": "replication",
+      "definition": "Continuous replication of a supported operational database into Fabric analytical storage.",
+      "scope": "Replica, not a reference. Metadata mirroring is a different case.",
+      "discriminatingContext": "",
+      "aliases": {
+        "en": [
+          "database mirroring",
+          "mirrored database",
+          "mirroring"
+        ],
+        "ar": [
+          "النسخ المتطابق"
+        ]
+      },
+      "patterns": [
+        "\\b(?:database mirroring)\\b",
+        "\\b(?:mirrored database)\\b",
+        "\\b(?:mirroring)\\b"
+      ],
+      "matchFamilies": [],
+      "packTags": [
+        "mirroring"
+      ],
+      "exclude": [],
+      "existingAtlasId": "concept:fabric:database-mirroring",
+      "sourceRefs": [
+        "content/fabric/notes.json"
+      ],
+      "reviewState": "candidate",
+      "stats": {
+        "unitCount": 48,
+        "byFamily": {
+          "fabric-questions": 45,
+          "fabric-notes": 2,
+          "sql": 1
+        },
+        "byLanguage": {
+          "en": 48
+        },
+        "primary": 45,
+        "roles": {
+          "practices": 45,
+          "explains": 3
+        }
+      },
+      "crosswalk": {
+        "existingAtlasId": "concept:fabric:database-mirroring",
+        "relation": "reused-identity"
+      }
+    },
+    {
+      "id": "concept:fabric:copy-job",
+      "prefLabel": "Copy job",
+      "domain": "fabric",
+      "kind": "data_movement",
+      "definition": "A Fabric data-movement item that copies data between supported sources and destinations.",
+      "scope": "Copy semantics; distinct from referencing a target through a shortcut.",
+      "discriminatingContext": "",
+      "aliases": {
+        "en": [
+          "copy job",
+          "copy jobs",
+          "Copy activity"
+        ],
+        "ar": [
+          "مهمة النسخ"
+        ]
+      },
+      "patterns": [
+        "\\b(?:copy jobs?)\\b",
+        "\\b(?:Copy activity)\\b"
+      ],
+      "matchFamilies": [],
+      "packTags": [],
+      "exclude": [],
+      "existingAtlasId": "concept:fabric:copy-job",
+      "sourceRefs": [
+        "content/fabric/notes.json"
+      ],
+      "reviewState": "candidate",
+      "stats": {
+        "unitCount": 26,
+        "byFamily": {
+          "fabric-questions": 18,
+          "fabric-additions": 4,
+          "fabric-r11": 1,
+          "fabric-notes": 2,
+          "academy": 1
+        },
+        "byLanguage": {
+          "en": 26
+        },
+        "primary": 3,
+        "roles": {
+          "practices": 23,
+          "explains": 2,
+          "applies": 1
+        }
+      },
+      "crosswalk": {
+        "existingAtlasId": "concept:fabric:copy-job",
+        "relation": "reused-identity"
+      }
+    },
+    {
+      "id": "concept:fabric:permissions",
+      "prefLabel": "Identity and permissions",
+      "domain": "fabric",
+      "kind": "security",
+      "definition": "The identity, role and item-permission model that decides which operations and rows are available.",
+      "scope": "Authorization layer; engine behaviour can still differ for the same identity.",
+      "discriminatingContext": "",
+      "aliases": {
+        "en": [
+          "permissions",
+          "workspace role",
+          "access",
+          "authorization"
+        ],
+        "ar": [
+          "الأذونات",
+          "الصلاحيات"
+        ]
+      },
+      "patterns": [
+        "\\b(?:permissions?)\\b",
+        "\\b(?:workspace roles?)\\b",
+        "\\b(?:authorization)\\b"
+      ],
+      "matchFamilies": [],
+      "packTags": [],
+      "exclude": [],
+      "existingAtlasId": "concept:fabric:permissions",
+      "sourceRefs": [
+        "content/fabric/notes.json",
+        "content/fabric/r11/questions.json"
+      ],
+      "reviewState": "candidate",
+      "stats": {
+        "unitCount": 259,
+        "byFamily": {
+          "daily-insights": 2,
+          "fabric-questions": 64,
+          "fabric-additions": 17,
+          "fabric-r11": 10,
+          "fabric-notes": 142,
+          "fabric-cases": 6,
+          "academy": 16,
+          "fabric-rti": 2
+        },
+        "byLanguage": {
+          "en": 259
+        },
+        "primary": 52,
+        "roles": {
+          "explains": 145,
+          "practices": 91,
+          "applies": 23
+        }
+      },
+      "crosswalk": {
+        "existingAtlasId": "concept:fabric:permissions",
+        "relation": "reused-identity"
+      }
+    },
+    {
+      "id": "concept:fabric:kql",
+      "prefLabel": "KQL query",
+      "domain": "fabric",
+      "kind": "query_language",
+      "definition": "Kusto Query Language, the pipelined query language used by Real-Time Intelligence and Eventhouse.",
+      "scope": "Query language; not T-SQL and not DAX.",
+      "discriminatingContext": "",
+      "aliases": {
+        "en": [
+          "KQL",
+          "Kusto Query Language",
+          "Kusto"
+        ],
+        "ar": [
+          "كي كيو إل"
+        ]
+      },
+      "patterns": [
+        "\\b(?:KQL)\\b",
+        "\\b(?:Kusto)\\b"
+      ],
+      "matchFamilies": [],
+      "packTags": [],
+      "exclude": [],
+      "existingAtlasId": "concept:fabric:kql",
+      "sourceRefs": [
+        "lib/rti/lessons.ts",
+        "content/fabric/notes.json"
+      ],
+      "reviewState": "candidate",
+      "stats": {
+        "unitCount": 30,
+        "byFamily": {
+          "fabric-questions": 14,
+          "fabric-additions": 6,
+          "fabric-r11": 3,
+          "fabric-notes": 3,
+          "academy": 4
+        },
+        "byLanguage": {
+          "en": 30
+        },
+        "primary": 1,
+        "roles": {
+          "practices": 23,
+          "explains": 3,
+          "applies": 4
+        }
+      },
+      "crosswalk": {
+        "existingAtlasId": "concept:fabric:kql",
+        "relation": "reused-identity"
+      }
+    },
+    {
+      "id": "concept:fabric:t-sql",
+      "prefLabel": "T-SQL query surface",
+      "domain": "fabric",
+      "kind": "query_language",
+      "definition": "The T-SQL dialect and execution surface exposed by Fabric Warehouses and SQL analytics endpoints.",
+      "scope": "Dialect and surface; supported writes differ between Warehouse and endpoint.",
+      "discriminatingContext": "",
+      "aliases": {
+        "en": [
+          "T-SQL",
+          "Transact-SQL",
+          "SQL query editor"
+        ],
+        "ar": [
+          "تي سكوال"
+        ]
+      },
+      "patterns": [
+        "\\b(?:T-SQL)\\b",
+        "\\b(?:Transact-SQL)\\b",
+        "\\b(?:SQL query editor)\\b"
+      ],
+      "matchFamilies": [],
+      "packTags": [],
+      "exclude": [],
+      "existingAtlasId": "concept:fabric:t-sql",
+      "sourceRefs": [
+        "content/fabric/notes.json"
+      ],
+      "reviewState": "candidate",
+      "stats": {
+        "unitCount": 40,
+        "byFamily": {
+          "fabric-questions": 8,
+          "fabric-additions": 11,
+          "fabric-r11": 5,
+          "fabric-notes": 6,
+          "academy": 9,
+          "hands-on-labs": 1
+        },
+        "byLanguage": {
+          "en": 40
+        },
+        "primary": 1,
+        "roles": {
+          "practices": 24,
+          "explains": 6,
+          "applies": 10
+        }
+      },
+      "crosswalk": {
+        "existingAtlasId": "concept:fabric:t-sql",
+        "relation": "reused-identity"
+      }
+    },
+    {
+      "id": "concept:fabric:incremental-refresh",
+      "prefLabel": "Incremental refresh",
+      "domain": "fabric",
+      "kind": "refresh",
+      "definition": "A refresh policy that processes a bounded recent window and keeps older partitions instead of reloading everything.",
+      "scope": "Applies to supported model tables; partitioning and policy ranges must be defined.",
+      "discriminatingContext": "",
+      "aliases": {
+        "en": [
+          "incremental refresh",
+          "refresh policy",
+          "partition"
+        ],
+        "ar": [
+          "التحديث التراكمي"
+        ]
+      },
+      "patterns": [
+        "\\b(?:incremental refresh)\\b",
+        "\\b(?:refresh policy)\\b"
+      ],
+      "matchFamilies": [],
+      "packTags": [],
+      "exclude": [],
+      "existingAtlasId": "concept:fabric:incremental-refresh",
+      "sourceRefs": [
+        "content/fabric/r11/questions.json"
+      ],
+      "reviewState": "candidate",
+      "stats": {
+        "unitCount": 15,
+        "byFamily": {
+          "fabric-questions": 6,
+          "fabric-additions": 5,
+          "fabric-r11": 3,
+          "fabric-notes": 1
+        },
+        "byLanguage": {
+          "en": 15
+        },
+        "primary": 5,
+        "roles": {
+          "practices": 14,
+          "explains": 1
+        }
+      },
+      "crosswalk": {
+        "existingAtlasId": "concept:fabric:incremental-refresh",
+        "relation": "reused-identity"
+      }
+    },
+    {
+      "id": "concept:fabric:semantic-model",
+      "prefLabel": "Semantic model",
+      "domain": "fabric",
+      "kind": "modelling_container",
+      "definition": "A Power BI/Fabric model of tables, relationships, measures and security that reports query.",
+      "scope": "Container concept. Storage mode, relationship cardinality, DAX and security are separate concepts.",
+      "discriminatingContext": "Do not use 'model' generically; a semantic model is a specific Fabric item.",
+      "aliases": {
+        "en": [
+          "semantic model",
+          "semantic models",
+          "dataset"
+        ],
+        "ar": [
+          "النموذج الدلالي"
+        ]
+      },
+      "patterns": [
+        "\\b(?:semantic models?)\\b"
+      ],
+      "matchFamilies": [],
+      "packTags": [
+        "semantic-models-dax"
+      ],
+      "exclude": [],
+      "existingAtlasId": null,
+      "sourceRefs": [
+        "content/fabric/questions.json",
+        "content/fabric/notes.json"
+      ],
+      "reviewState": "candidate",
+      "stats": {
+        "unitCount": 517,
+        "byFamily": {
+          "fabric-questions": 146,
+          "fabric-additions": 149,
+          "fabric-r11": 79,
+          "fabric-notes": 10,
+          "fabric-cases": 5,
+          "academy": 123,
+          "hands-on-labs": 5
+        },
+        "byLanguage": {
+          "en": 517
+        },
+        "primary": 208,
+        "roles": {
+          "practices": 374,
+          "explains": 10,
+          "applies": 133
+        }
+      },
+      "crosswalk": null
+    },
+    {
+      "id": "concept:fabric:scd",
+      "prefLabel": "Slowly changing dimension",
+      "domain": "fabric",
+      "kind": "modelling_pattern",
+      "definition": "A dimension design that preserves some history of attribute changes, commonly types 1, 2 and 3.",
+      "scope": "History design. Type 2 adds versions; type 1 overwrites; type 3 keeps a previous column.",
+      "discriminatingContext": "",
+      "aliases": {
+        "en": [
+          "SCD",
+          "slowly changing dimension",
+          "type 2 dimension",
+          "type 1",
+          "type 3"
+        ],
+        "ar": [
+          "الأبعاد بطيئة التغير"
+        ]
+      },
+      "patterns": [
+        "\\b(?:SCDs?)\\b",
+        "\\b(?:SCD[123])\\b",
+        "\\b(?:slowly changing dimensions?)\\b",
+        "\\b(?:type [123] dimension)\\b"
+      ],
+      "matchFamilies": [],
+      "packTags": [
+        "scd"
+      ],
+      "exclude": [],
+      "existingAtlasId": null,
+      "sourceRefs": [
+        "content/fabric/questions.json",
+        "content/fabric/notes.json"
+      ],
+      "reviewState": "candidate",
+      "stats": {
+        "unitCount": 68,
+        "byFamily": {
+          "fabric-questions": 41,
+          "fabric-additions": 10,
+          "fabric-r11": 6,
+          "fabric-notes": 8,
+          "academy": 2,
+          "sql": 1
+        },
+        "byLanguage": {
+          "en": 68
+        },
+        "primary": 10,
+        "roles": {
+          "practices": 57,
+          "explains": 9,
+          "applies": 2
+        }
+      },
+      "crosswalk": null
+    },
+    {
+      "id": "concept:fabric:surrogate-key",
+      "prefLabel": "Surrogate key",
+      "domain": "fabric",
+      "kind": "modelling_pattern",
+      "definition": "A generated, stable key that identifies a dimension version independently of the business key.",
+      "scope": "Version identity. A surrogate key is not the natural/business key and must not be reused across versions.",
+      "discriminatingContext": "",
+      "aliases": {
+        "en": [
+          "surrogate key",
+          "surrogate keys",
+          "business key",
+          "natural key"
+        ],
+        "ar": [
+          "المفتاح البديل"
+        ]
+      },
+      "patterns": [
+        "\\b(?:surrogate keys?)\\b",
+        "\\b(?:business keys?)\\b"
+      ],
+      "matchFamilies": [],
+      "packTags": [],
+      "exclude": [],
+      "existingAtlasId": null,
+      "sourceRefs": [
+        "content/fabric/questions.json",
+        "content/fabric/notes.json"
+      ],
+      "reviewState": "candidate",
+      "stats": {
+        "unitCount": 18,
+        "byFamily": {
+          "fabric-questions": 5,
+          "fabric-additions": 4,
+          "fabric-r11": 2,
+          "fabric-cases": 1,
+          "academy": 4,
+          "sql": 2
+        },
+        "byLanguage": {
+          "en": 18
+        },
+        "primary": 7,
+        "roles": {
+          "practices": 11,
+          "applies": 5,
+          "explains": 2
+        }
+      },
+      "crosswalk": null
+    },
+    {
+      "id": "concept:fabric:partitioning",
+      "prefLabel": "Partitioning and pruning",
+      "domain": "fabric",
+      "kind": "physical_design",
+      "definition": "Splitting data into files or directories by key values so a query can skip irrelevant data.",
+      "scope": "Physical layout for pruning; not the same as incremental-refresh partitions in a semantic model.",
+      "discriminatingContext": "",
+      "aliases": {
+        "en": [
+          "partition",
+          "partitions",
+          "partitioning",
+          "pruning",
+          "partition hierarchy"
+        ],
+        "ar": [
+          "التقسيم"
+        ]
+      },
+      "patterns": [
+        "\\b(?:partitions?)\\b",
+        "\\b(?:partitioning)\\b",
+        "\\b(?:pruning)\\b"
+      ],
+      "matchFamilies": [],
+      "packTags": [],
+      "exclude": [],
+      "existingAtlasId": null,
+      "sourceRefs": [
+        "content/fabric/notes.json"
+      ],
+      "reviewState": "candidate",
+      "stats": {
+        "unitCount": 73,
+        "byFamily": {
+          "fabric-questions": 18,
+          "fabric-additions": 9,
+          "fabric-r11": 3,
+          "fabric-notes": 8,
+          "academy": 4,
+          "sql": 31
+        },
+        "byLanguage": {
+          "en": 47,
+          "mixed": 26
+        },
+        "primary": 18,
+        "roles": {
+          "practices": 30,
+          "explains": 38,
+          "applies": 5
+        }
+      },
+      "crosswalk": null
+    },
+    {
+      "id": "concept:fabric:clone",
+      "prefLabel": "Table clone",
+      "domain": "fabric",
+      "kind": "storage_operation",
+      "definition": "A zero-copy table clone that initially shares data files through copied metadata and diverges as either side changes.",
+      "scope": "Initial sharing is not a guarantee of free future storage.",
+      "discriminatingContext": "",
+      "aliases": {
+        "en": [
+          "clone",
+          "clones",
+          "zero-copy clone",
+          "table clone"
+        ],
+        "ar": [
+          "استنساخ"
+        ]
+      },
+      "patterns": [
+        "\\b(?:clones?)\\b",
+        "\\b(?:zero-?copy)\\b"
+      ],
+      "matchFamilies": [],
+      "packTags": [],
+      "exclude": [],
+      "existingAtlasId": null,
+      "sourceRefs": [
+        "content/fabric/notes.json"
+      ],
+      "reviewState": "candidate",
+      "stats": {
+        "unitCount": 6,
+        "byFamily": {
+          "fabric-questions": 3,
+          "fabric-notes": 3
+        },
+        "byLanguage": {
+          "en": 6
+        },
+        "primary": 3,
+        "roles": {
+          "practices": 3,
+          "explains": 3
+        }
+      },
+      "crosswalk": null
+    },
+    {
+      "id": "concept:fabric:delta-history",
+      "prefLabel": "Delta history and time travel",
+      "domain": "fabric",
+      "kind": "storage_behaviour",
+      "definition": "Delta transaction-log history enables version reads, while VACUUM removes old files and bounds that history.",
+      "scope": "History retention. A version can be listed and still be unreadable after file cleanup.",
+      "discriminatingContext": "",
+      "aliases": {
+        "en": [
+          "time travel",
+          "DESCRIBE HISTORY",
+          "VACUUM",
+          "version as of"
+        ],
+        "ar": [
+          "السفر بالزمن"
+        ]
+      },
+      "patterns": [
+        "\\b(?:time-?travel)\\b",
+        "\\b(?:DESCRIBE HISTORY)\\b",
+        "\\b(?:VACUUM)\\b",
+        "\\b(?:VERSION AS OF)\\b"
+      ],
+      "matchFamilies": [],
+      "packTags": [],
+      "exclude": [],
+      "existingAtlasId": null,
+      "sourceRefs": [
+        "content/fabric/notes.json",
+        "content/fabric/questions.json"
+      ],
+      "reviewState": "candidate",
+      "stats": {
+        "unitCount": 14,
+        "byFamily": {
+          "fabric-questions": 6,
+          "fabric-additions": 2,
+          "fabric-r11": 2,
+          "fabric-notes": 3,
+          "academy": 1
+        },
+        "byLanguage": {
+          "en": 14
+        },
+        "primary": 5,
+        "roles": {
+          "practices": 10,
+          "explains": 3,
+          "applies": 1
+        }
+      },
+      "crosswalk": null
+    },
+    {
+      "id": "concept:fabric:eventstream",
+      "prefLabel": "Eventstream",
+      "domain": "fabric",
+      "kind": "real_time",
+      "definition": "A Real-Time Intelligence pipeline that ingests, transforms and routes streaming events to destinations.",
+      "scope": "Streaming ingestion and transformation; Eventhouse is a destination/query store.",
+      "discriminatingContext": "",
+      "aliases": {
+        "en": [
+          "eventstream",
+          "event stream",
+          "streaming ingestion"
+        ],
+        "ar": [
+          "تدفق الأحداث"
+        ]
+      },
+      "patterns": [
+        "\\b(?:eventstreams?)\\b",
+        "\\b(?:event streams?)\\b"
+      ],
+      "matchFamilies": [],
+      "packTags": [
+        "eventstream-windowing"
+      ],
+      "exclude": [],
+      "existingAtlasId": null,
+      "sourceRefs": [
+        "content/fabric/notes.json",
+        "content/academy/lessons.json"
+      ],
+      "reviewState": "candidate",
+      "stats": {
+        "unitCount": 75,
+        "byFamily": {
+          "fabric-questions": 49,
+          "fabric-additions": 1,
+          "fabric-r11": 1,
+          "fabric-notes": 3,
+          "fabric-cases": 1,
+          "academy": 19,
+          "fabric-rti": 1
+        },
+        "byLanguage": {
+          "en": 75
+        },
+        "primary": 52,
+        "roles": {
+          "practices": 51,
+          "explains": 4,
+          "applies": 20
+        }
+      },
+      "crosswalk": null
+    },
+    {
+      "id": "concept:fabric:ols",
+      "prefLabel": "Object-level security",
+      "domain": "fabric",
+      "kind": "security",
+      "definition": "A model permission that hides whole tables or columns from an identity, independently of row filters.",
+      "scope": "Metadata and object visibility; not a row filter and not a substitute for RLS.",
+      "discriminatingContext": "",
+      "aliases": {
+        "en": [
+          "object-level security",
+          "OLS"
+        ],
+        "ar": [
+          "أمان مستوى الكائن"
+        ]
+      },
+      "patterns": [
+        "\\b(?:object-?level security)\\b",
+        "\\b(?:OLS)\\b"
+      ],
+      "matchFamilies": [],
+      "packTags": [],
+      "exclude": [],
+      "existingAtlasId": null,
+      "sourceRefs": [
+        "content/fabric/questions.json",
+        "content/fabric/notes.json"
+      ],
+      "reviewState": "candidate",
+      "stats": {
+        "unitCount": 5,
+        "byFamily": {
+          "fabric-questions": 2,
+          "fabric-additions": 2,
+          "fabric-r11": 1
+        },
+        "byLanguage": {
+          "en": 5
+        },
+        "primary": 4,
+        "roles": {
+          "practices": 5
+        }
+      },
+      "crosswalk": null
+    },
+    {
+      "id": "concept:fabric:cls",
+      "prefLabel": "Column-level security",
+      "domain": "fabric",
+      "kind": "security",
+      "definition": "A permission that restricts selected columns while leaving the rest of the object readable.",
+      "scope": "Column projection control; row visibility is a different mechanism.",
+      "discriminatingContext": "",
+      "aliases": {
+        "en": [
+          "column-level security",
+          "CLS",
+          "column-level"
+        ],
+        "ar": [
+          "أمان مستوى العمود"
+        ]
+      },
+      "patterns": [
+        "\\b(?:column-?level security)\\b",
+        "\\b(?:CLS)\\b"
+      ],
+      "matchFamilies": [],
+      "packTags": [],
+      "exclude": [],
+      "existingAtlasId": null,
+      "sourceRefs": [
+        "content/fabric/questions.json",
+        "content/fabric/notes.json"
+      ],
+      "reviewState": "candidate",
+      "stats": {
+        "unitCount": 11,
+        "byFamily": {
+          "fabric-questions": 4,
+          "fabric-additions": 1,
+          "fabric-notes": 3,
+          "academy": 3
+        },
+        "byLanguage": {
+          "en": 11
+        },
+        "primary": 1,
+        "roles": {
+          "practices": 5,
+          "explains": 3,
+          "applies": 3
+        }
+      },
+      "crosswalk": null
+    },
+    {
+      "id": "concept:fabric:relationship-cardinality",
+      "prefLabel": "Relationship cardinality",
+      "domain": "fabric",
+      "kind": "modelling_pattern",
+      "definition": "The one-to-one, one-to-many or many-to-many shape of a model relationship, including filter direction.",
+      "scope": "Model relationship shape; join fan-out at query time is related but not identical.",
+      "discriminatingContext": "",
+      "aliases": {
+        "en": [
+          "cardinality",
+          "one-to-many",
+          "many-to-many",
+          "filter direction",
+          "cross-filter"
+        ],
+        "ar": [
+          "العلاقة"
+        ]
+      },
+      "patterns": [
+        "\\b(?:cardinality)\\b",
+        "\\b(?:one-to-many)\\b",
+        "\\b(?:many-to-many)\\b",
+        "\\b(?:filter direction)\\b"
+      ],
+      "matchFamilies": [],
+      "packTags": [],
+      "exclude": [],
+      "existingAtlasId": null,
+      "sourceRefs": [
+        "content/fabric/questions.json",
+        "content/fabric/notes.json"
+      ],
+      "reviewState": "candidate",
+      "stats": {
+        "unitCount": 54,
+        "byFamily": {
+          "fabric-questions": 7,
+          "fabric-additions": 2,
+          "fabric-r11": 1,
+          "fabric-notes": 4,
+          "academy": 8,
+          "sql": 27,
+          "visualization": 3,
+          "exams": 1,
+          "fabric-rti": 1
+        },
+        "byLanguage": {
+          "en": 51,
+          "mixed": 1,
+          "ar": 2
+        },
+        "primary": 19,
+        "roles": {
+          "practices": 11,
+          "explains": 35,
+          "applies": 8
+        }
+      },
+      "crosswalk": null
+    },
+    {
+      "id": "concept:fabric:gateway",
+      "prefLabel": "Gateway",
+      "domain": "fabric",
+      "kind": "connectivity",
+      "definition": "A bridge that lets Fabric services reach data sources that are not directly reachable from the cloud.",
+      "scope": "Connectivity and authentication; gateway type depends on the source and network path.",
+      "discriminatingContext": "",
+      "aliases": {
+        "en": [
+          "gateway",
+          "gateways",
+          "on-premises data gateway"
+        ],
+        "ar": [
+          "البوابة"
+        ]
+      },
+      "patterns": [
+        "\\b(?:gateways?)\\b",
+        "\\b(?:on-?premises data gateway)\\b"
+      ],
+      "matchFamilies": [],
+      "packTags": [],
+      "exclude": [],
+      "existingAtlasId": null,
+      "sourceRefs": [
+        "content/fabric/notes.json",
+        "content/fabric/questions.json"
+      ],
+      "reviewState": "candidate",
+      "stats": {
+        "unitCount": 14,
+        "byFamily": {
+          "fabric-questions": 3,
+          "fabric-additions": 1,
+          "fabric-notes": 9,
+          "academy": 1
+        },
+        "byLanguage": {
+          "en": 14
+        },
+        "primary": 0,
+        "roles": {
+          "practices": 4,
+          "explains": 9,
+          "applies": 1
+        }
+      },
+      "crosswalk": null
+    },
+    {
+      "id": "concept:fabric:pipeline-parameter",
+      "prefLabel": "Pipeline parameter",
+      "domain": "fabric",
+      "kind": "orchestration",
+      "definition": "A run-time input that makes a pipeline reusable and can be passed from a parent to a child activity.",
+      "scope": "Orchestration input; distinct from a semantic-model field parameter.",
+      "discriminatingContext": "",
+      "aliases": {
+        "en": [
+          "parameter",
+          "parameters",
+          "child input",
+          "pipeline parameter"
+        ],
+        "ar": [
+          "المعامل"
+        ]
+      },
+      "patterns": [
+        "\\b(?:parameters?)\\b",
+        "\\b(?:child inputs?)\\b"
+      ],
+      "matchFamilies": [],
+      "packTags": [],
+      "exclude": [],
+      "existingAtlasId": null,
+      "sourceRefs": [
+        "content/fabric/notes.json"
+      ],
+      "reviewState": "candidate",
+      "stats": {
+        "unitCount": 61,
+        "byFamily": {
+          "fabric-questions": 21,
+          "fabric-additions": 4,
+          "fabric-r11": 2,
+          "fabric-notes": 15,
+          "fabric-cases": 2,
+          "academy": 14,
+          "statistics": 3
+        },
+        "byLanguage": {
+          "en": 60,
+          "mixed": 1
+        },
+        "primary": 25,
+        "roles": {
+          "practices": 27,
+          "explains": 18,
+          "applies": 16
+        }
+      },
+      "crosswalk": null
+    },
+    {
+      "id": "concept:fabric:monitoring",
+      "prefLabel": "Monitoring",
+      "domain": "fabric",
+      "kind": "operations",
+      "definition": "Run history, traces and telemetry that show whether items and refreshes succeeded, failed or were skipped.",
+      "scope": "Operational observation; not a guarantee that the data is correct.",
+      "discriminatingContext": "",
+      "aliases": {
+        "en": [
+          "monitoring",
+          "monitor hub",
+          "run history",
+          "telemetry"
+        ],
+        "ar": [
+          "المراقبة"
+        ]
+      },
+      "patterns": [
+        "\\b(?:monitoring)\\b",
+        "\\b(?:monitor hub)\\b",
+        "\\b(?:run history)\\b"
+      ],
+      "matchFamilies": [],
+      "packTags": [],
+      "exclude": [],
+      "existingAtlasId": null,
+      "sourceRefs": [
+        "content/fabric/notes.json",
+        "content/fabric/questions.json"
+      ],
+      "reviewState": "candidate",
+      "stats": {
+        "unitCount": 128,
+        "byFamily": {
+          "fabric-questions": 77,
+          "fabric-notes": 31,
+          "fabric-cases": 2,
+          "academy": 16,
+          "exams": 1,
+          "fabric-rti": 1
+        },
+        "byLanguage": {
+          "en": 128
+        },
+        "primary": 57,
+        "roles": {
+          "practices": 78,
+          "explains": 32,
+          "applies": 18
+        }
+      },
+      "crosswalk": null
+    },
+    {
+      "id": "concept:fabric:activator",
+      "prefLabel": "Activator",
+      "domain": "fabric",
+      "kind": "real_time",
+      "definition": "A Real-Time Intelligence capability that evaluates conditions on streaming data and triggers actions.",
+      "scope": "Condition-to-action alerting; not a scheduled batch refresh.",
+      "discriminatingContext": "",
+      "aliases": {
+        "en": [
+          "Activator",
+          "reflex",
+          "alert"
+        ],
+        "ar": [
+          "المفعّل"
+        ]
+      },
+      "patterns": [
+        "\\b(?:Activator)\\b",
+        "\\b(?:reflex)\\b"
+      ],
+      "matchFamilies": [],
+      "packTags": [
+        "activator"
+      ],
+      "exclude": [],
+      "existingAtlasId": null,
+      "sourceRefs": [
+        "content/fabric/notes.json",
+        "lib/rti/lessons.ts"
+      ],
+      "reviewState": "candidate",
+      "stats": {
+        "unitCount": 58,
+        "byFamily": {
+          "fabric-questions": 43,
+          "fabric-cases": 1,
+          "academy": 11,
+          "exams": 1,
+          "fabric-rti": 2
+        },
+        "byLanguage": {
+          "en": 58
+        },
+        "primary": 45,
+        "roles": {
+          "practices": 44,
+          "applies": 12,
+          "explains": 2
+        }
+      },
+      "crosswalk": null
+    },
+    {
+      "id": "concept:fabric:snowflake-schema",
+      "prefLabel": "Snowflake schema",
+      "domain": "fabric",
+      "kind": "modelling_pattern",
+      "definition": "A normalized dimensional model where dimensions are split into related sub-dimensions, trading joins for reduced redundancy.",
+      "scope": "Normalized alternative to a star; the reporting trade-off is additional joins and complexity.",
+      "discriminatingContext": "",
+      "aliases": {
+        "en": [
+          "snowflake schema",
+          "snowflaked",
+          "normalized dimension"
+        ],
+        "ar": [
+          "نجمة الثلج"
+        ]
+      },
+      "patterns": [
+        "\\b(?:snowflake schema)\\b",
+        "\\b(?:snowflak(?:e|ed|ing))\\b"
+      ],
+      "matchFamilies": [],
+      "packTags": [],
+      "exclude": [],
+      "existingAtlasId": null,
+      "sourceRefs": [
+        "content/fabric/notes.json"
+      ],
+      "reviewState": "candidate",
+      "stats": {
+        "unitCount": 8,
+        "byFamily": {
+          "fabric-questions": 5,
+          "fabric-additions": 1,
+          "fabric-notes": 2
+        },
+        "byLanguage": {
+          "en": 8
+        },
+        "primary": 4,
+        "roles": {
+          "practices": 6,
+          "explains": 2
+        }
+      },
+      "crosswalk": null
+    },
+    {
+      "id": "concept:fabric:medallion",
+      "prefLabel": "Medallion architecture",
+      "domain": "fabric",
+      "kind": "architecture",
+      "definition": "A layered data design (bronze, silver, gold) that separates raw evidence, cleaned data and curated analytical output.",
+      "scope": "Layering convention; layer names do not by themselves guarantee quality or governance.",
+      "discriminatingContext": "",
+      "aliases": {
+        "en": [
+          "medallion",
+          "bronze",
+          "silver",
+          "gold layer"
+        ],
+        "ar": [
+          "الميدالية"
+        ]
+      },
+      "patterns": [
+        "\\b(?:medallion)\\b",
+        "\\b(?:bronze)\\b",
+        "\\b(?:silver)\\b",
+        "\\b(?:gold layers?)\\b"
+      ],
+      "matchFamilies": [],
+      "packTags": [],
+      "exclude": [],
+      "existingAtlasId": null,
+      "sourceRefs": [
+        "content/fabric/notes.json",
+        "content/fabric/additions/questions.json"
+      ],
+      "reviewState": "candidate",
+      "stats": {
+        "unitCount": 27,
+        "byFamily": {
+          "fabric-questions": 9,
+          "fabric-additions": 3,
+          "fabric-r11": 1,
+          "fabric-notes": 3,
+          "fabric-cases": 1,
+          "academy": 9,
+          "fabric-rti": 1
+        },
+        "byLanguage": {
+          "en": 27
+        },
+        "primary": 17,
+        "roles": {
+          "practices": 13,
+          "explains": 3,
+          "applies": 11
+        }
+      },
+      "crosswalk": null
+    },
+    {
+      "id": "concept:fabric:capacity",
+      "prefLabel": "Capacity",
+      "domain": "fabric",
+      "kind": "licensing",
+      "definition": "The compute resource that powers Fabric workloads and bounds what a workspace can run.",
+      "scope": "Compute and licensing; not a workspace role or an item permission.",
+      "discriminatingContext": "",
+      "aliases": {
+        "en": [
+          "capacity",
+          "capacities",
+          "F capacity",
+          "trial capacity"
+        ],
+        "ar": [
+          "السعة"
+        ]
+      },
+      "patterns": [
+        "\\b(?:capacit(?:y|ies))\\b",
+        "\\b(?:trial capacity)\\b"
+      ],
+      "matchFamilies": [],
+      "packTags": [],
+      "exclude": [],
+      "existingAtlasId": null,
+      "sourceRefs": [
+        "content/fabric/additions/questions.json",
+        "content/academy/lessons.json"
+      ],
+      "reviewState": "candidate",
+      "stats": {
+        "unitCount": 143,
+        "byFamily": {
+          "fabric-questions": 30,
+          "fabric-additions": 28,
+          "fabric-r11": 10,
+          "fabric-notes": 21,
+          "fabric-cases": 2,
+          "academy": 49,
+          "fabric-rti": 3
+        },
+        "byLanguage": {
+          "en": 143
+        },
+        "primary": 83,
+        "roles": {
+          "practices": 68,
+          "explains": 24,
+          "applies": 51
+        }
+      },
+      "crosswalk": null
+    },
+    {
+      "id": "concept:fabric:endorsement",
+      "prefLabel": "Endorsement",
+      "domain": "fabric",
+      "kind": "governance",
+      "definition": "Promotion or certification that signals an item's review and intended trust level.",
+      "scope": "Governance signal; promotion is not the same review bar as certification.",
+      "discriminatingContext": "",
+      "aliases": {
+        "en": [
+          "endorsement",
+          "promotion",
+          "certification",
+          "certified"
+        ],
+        "ar": [
+          "الاعتماد"
+        ]
+      },
+      "patterns": [
+        "\\b(?:endorsements?)\\b",
+        "\\b(?:promotions?)\\b",
+        "\\b(?:certif(?:ication|ied))\\b"
+      ],
+      "matchFamilies": [],
+      "packTags": [],
+      "exclude": [],
+      "existingAtlasId": null,
+      "sourceRefs": [
+        "content/fabric/additions/questions.json",
+        "content/fabric/notes.json"
+      ],
+      "reviewState": "candidate",
+      "stats": {
+        "unitCount": 37,
+        "byFamily": {
+          "fabric-questions": 18,
+          "fabric-additions": 1,
+          "fabric-notes": 13,
+          "academy": 4,
+          "sql": 1
+        },
+        "byLanguage": {
+          "en": 37
+        },
+        "primary": 20,
+        "roles": {
+          "practices": 19,
+          "explains": 14,
+          "applies": 4
+        }
+      },
+      "crosswalk": null
+    },
+    {
+      "id": "concept:fabric:git",
+      "prefLabel": "Git integration",
+      "domain": "fabric",
+      "kind": "governance",
+      "definition": "Version control of workspace items through a connected Git repository, including branch and commit behaviour.",
+      "scope": "Source control; deployment pipelines are a separate release mechanism.",
+      "discriminatingContext": "",
+      "aliases": {
+        "en": [
+          "Git integration",
+          "Git",
+          "branch",
+          "commit",
+          "version control"
+        ],
+        "ar": [
+          "تكامل Git"
+        ]
+      },
+      "patterns": [
+        "\\b(?:Git)\\b",
+        "\\b(?:version control)\\b",
+        "\\b(?:branch(?:es|ing)?)\\b"
+      ],
+      "matchFamilies": [],
+      "packTags": [],
+      "exclude": [],
+      "existingAtlasId": null,
+      "sourceRefs": [
+        "content/fabric/notes.json",
+        "content/fabric/additions/questions.json"
+      ],
+      "reviewState": "candidate",
+      "stats": {
+        "unitCount": 95,
+        "byFamily": {
+          "fabric-questions": 48,
+          "fabric-additions": 12,
+          "fabric-r11": 5,
+          "fabric-notes": 29,
+          "statistics": 1
+        },
+        "byLanguage": {
+          "en": 95
+        },
+        "primary": 38,
+        "roles": {
+          "practices": 65,
+          "explains": 30
+        }
+      },
+      "crosswalk": null
+    },
+    {
+      "id": "concept:fabric:deployment",
+      "prefLabel": "Deployment pipeline",
+      "domain": "fabric",
+      "kind": "governance",
+      "definition": "A staged release mechanism that promotes workspace content across development, test and production stages.",
+      "scope": "Release stages; not the same as Git branching or item endorsement.",
+      "discriminatingContext": "",
+      "aliases": {
+        "en": [
+          "deployment pipeline",
+          "deployment pipelines",
+          "stage",
+          "promote"
+        ],
+        "ar": [
+          "خط نشر"
+        ]
+      },
+      "patterns": [
+        "\\b(?:deployment pipelines?)\\b",
+        "\\b(?:deployment stages?)\\b"
+      ],
+      "matchFamilies": [],
+      "packTags": [],
+      "exclude": [],
+      "existingAtlasId": null,
+      "sourceRefs": [
+        "content/fabric/notes.json",
+        "content/fabric/additions/questions.json"
+      ],
+      "reviewState": "candidate",
+      "stats": {
+        "unitCount": 53,
+        "byFamily": {
+          "fabric-questions": 13,
+          "fabric-additions": 16,
+          "fabric-r11": 9,
+          "fabric-notes": 1,
+          "fabric-cases": 2,
+          "academy": 12
+        },
+        "byLanguage": {
+          "en": 53
+        },
+        "primary": 17,
+        "roles": {
+          "practices": 38,
+          "explains": 1,
+          "applies": 14
+        }
+      },
+      "crosswalk": null
+    },
+    {
+      "id": "concept:fabric:sql-object",
+      "prefLabel": "SQL schema objects",
+      "domain": "fabric",
+      "kind": "database_object",
+      "definition": "Schemas, tables, views, functions and procedures as named database objects with separate permissions.",
+      "scope": "Object model; a view stores read logic while a procedure stores an executable body.",
+      "discriminatingContext": "",
+      "aliases": {
+        "en": [
+          "schema",
+          "view",
+          "stored procedure",
+          "function",
+          "database object"
+        ],
+        "ar": [
+          "العرض",
+          "الإجراء"
+        ]
+      },
+      "patterns": [
+        "\\b(?:CREATE VIEW)\\b",
+        "\\b(?:stored procedures?)\\b",
+        "\\b(?:database objects?)\\b",
+        "\\b(?:schemas?)\\b"
+      ],
+      "matchFamilies": [],
+      "packTags": [],
+      "exclude": [],
+      "existingAtlasId": null,
+      "sourceRefs": [
+        "content/fabric/notes.json",
+        "content/sql/index.json"
+      ],
+      "reviewState": "candidate",
+      "stats": {
+        "unitCount": 89,
+        "byFamily": {
+          "fabric-questions": 23,
+          "fabric-additions": 18,
+          "fabric-r11": 12,
+          "fabric-notes": 15,
+          "fabric-cases": 3,
+          "academy": 13,
+          "sql": 2,
+          "exams": 3
+        },
+        "byLanguage": {
+          "en": 87,
+          "mixed": 2
+        },
+        "primary": 18,
+        "roles": {
+          "practices": 56,
+          "applies": 19,
+          "explains": 14
+        }
+      },
+      "crosswalk": null
+    },
+    {
+      "id": "concept:fabric:ml-model",
+      "prefLabel": "Machine-learning experiment",
+      "domain": "fabric",
+      "kind": "data_science",
+      "definition": "Training, comparing and saving models in a Fabric data-science workflow, including experiment tracking.",
+      "scope": "Model training and tracking; not a semantic model or a reporting layer.",
+      "discriminatingContext": "",
+      "aliases": {
+        "en": [
+          "machine learning",
+          "ML model",
+          "experiment",
+          "train a model"
+        ],
+        "ar": [
+          "تعلم الآلة"
+        ]
+      },
+      "patterns": [
+        "\\b(?:machine learning)\\b",
+        "\\b(?:ML models?)\\b",
+        "\\b(?:train(?:ing)? (?:a )?models?)\\b",
+        "\\b(?:experiments?)\\b"
+      ],
+      "matchFamilies": [],
+      "packTags": [],
+      "exclude": [],
+      "existingAtlasId": null,
+      "sourceRefs": [
+        "content/academy/lessons.json",
+        "content/fabric/notes.json"
+      ],
+      "reviewState": "candidate",
+      "stats": {
+        "unitCount": 46,
+        "byFamily": {
+          "fabric-questions": 4,
+          "fabric-additions": 3,
+          "fabric-r11": 2,
+          "academy": 27,
+          "statistics": 9,
+          "exams": 1
+        },
+        "byLanguage": {
+          "en": 42,
+          "mixed": 4
+        },
+        "primary": 23,
+        "roles": {
+          "practices": 10,
+          "applies": 27,
+          "explains": 9
+        }
+      },
+      "crosswalk": null
+    },
+    {
+      "id": "concept:fabric:sql-permissions",
+      "prefLabel": "SQL permission statements",
+      "domain": "fabric",
+      "kind": "security",
+      "definition": "GRANT, REVOKE and DENY statements that add or remove explicit permissions on database objects.",
+      "scope": "Explicit SQL permission rules; a DENY can override a grant, and REVOKE removes only the named rule.",
+      "discriminatingContext": "",
+      "aliases": {
+        "en": [
+          "GRANT",
+          "REVOKE",
+          "DENY",
+          "least privilege"
+        ],
+        "ar": [
+          "المنح",
+          "السحب"
+        ]
+      },
+      "patterns": [
+        "\\b(?:GRANT)\\b",
+        "\\b(?:REVOKE)\\b",
+        "\\b(?:DENY)\\b",
+        "\\b(?:least privilege)\\b"
+      ],
+      "matchFamilies": [],
+      "packTags": [],
+      "exclude": [],
+      "existingAtlasId": null,
+      "sourceRefs": [
+        "content/fabric/questions.json",
+        "content/fabric/notes.json"
+      ],
+      "reviewState": "candidate",
+      "stats": {
+        "unitCount": 56,
+        "byFamily": {
+          "fabric-questions": 14,
+          "fabric-additions": 19,
+          "fabric-r11": 8,
+          "fabric-notes": 12,
+          "fabric-cases": 1,
+          "academy": 2
+        },
+        "byLanguage": {
+          "en": 56
+        },
+        "primary": 9,
+        "roles": {
+          "practices": 41,
+          "explains": 12,
+          "applies": 3
+        }
+      },
+      "crosswalk": null
+    },
+    {
+      "id": "concept:fabric:data-masking",
+      "prefLabel": "Data masking",
+      "domain": "fabric",
+      "kind": "security",
+      "definition": "A column-level masking function that changes the value shown to an identity without changing the stored value.",
+      "scope": "Presentation masking; UNMASK grants reveal the original value and must be audited.",
+      "discriminatingContext": "",
+      "aliases": {
+        "en": [
+          "masking",
+          "MASKED WITH",
+          "UNMASK",
+          "dynamic data masking"
+        ],
+        "ar": [
+          "إخفاء البيانات"
+        ]
+      },
+      "patterns": [
+        "\\b(?:masking)\\b",
+        "\\b(?:MASKED WITH)\\b",
+        "\\b(?:UNMASK)\\b"
+      ],
+      "matchFamilies": [],
+      "packTags": [],
+      "exclude": [],
+      "existingAtlasId": null,
+      "sourceRefs": [
+        "content/fabric/questions.json",
+        "content/fabric/notes.json"
+      ],
+      "reviewState": "candidate",
+      "stats": {
+        "unitCount": 22,
+        "byFamily": {
+          "fabric-questions": 15,
+          "fabric-notes": 6,
+          "academy": 1
+        },
+        "byLanguage": {
+          "en": 22
+        },
+        "primary": 5,
+        "roles": {
+          "practices": 15,
+          "explains": 6,
+          "applies": 1
+        }
+      },
+      "crosswalk": null
+    },
+    {
+      "id": "concept:fabric:onelake-security-role",
+      "prefLabel": "OneLake security role",
+      "domain": "fabric",
+      "kind": "security",
+      "definition": "A data-access role that grants table, folder or column access in OneLake across supported engines.",
+      "scope": "OneLake data-plane role; workspace roles are a different control plane.",
+      "discriminatingContext": "",
+      "aliases": {
+        "en": [
+          "OneLake security role",
+          "OneLake role",
+          "data access role"
+        ],
+        "ar": [
+          "دور أمان OneLake"
+        ]
+      },
+      "patterns": [
+        "\\b(?:OneLake security roles?)\\b",
+        "\\b(?:OneLake roles?)\\b",
+        "\\b(?:data access roles?)\\b"
+      ],
+      "matchFamilies": [],
+      "packTags": [],
+      "exclude": [],
+      "existingAtlasId": null,
+      "sourceRefs": [
+        "content/fabric/questions.json",
+        "content/fabric/notes.json"
+      ],
+      "reviewState": "candidate",
+      "stats": {
+        "unitCount": 24,
+        "byFamily": {
+          "fabric-questions": 17,
+          "fabric-notes": 3,
+          "fabric-cases": 1,
+          "academy": 3
+        },
+        "byLanguage": {
+          "en": 24
+        },
+        "primary": 0,
+        "roles": {
+          "practices": 17,
+          "explains": 3,
+          "applies": 4
+        }
+      },
+      "crosswalk": null
+    },
+    {
+      "id": "concept:fabric:workload",
+      "prefLabel": "Fabric workload",
+      "domain": "fabric",
+      "kind": "platform",
+      "definition": "A Fabric capability area such as Data Factory, Data Engineering, Data Warehouse, Real-Time Intelligence or Data Science.",
+      "scope": "Product workload; a workload name does not decide the correct item for a requirement.",
+      "discriminatingContext": "",
+      "aliases": {
+        "en": [
+          "workload",
+          "workloads",
+          "Data Factory",
+          "Data Engineering"
+        ],
+        "ar": [
+          "حمل العمل"
+        ]
+      },
+      "patterns": [
+        "\\b(?:workloads?)\\b",
+        "\\b(?:Data Factory)\\b",
+        "\\b(?:Data Engineering)\\b"
+      ],
+      "matchFamilies": [],
+      "packTags": [],
+      "exclude": [],
+      "existingAtlasId": null,
+      "sourceRefs": [
+        "content/fabric/additions/questions.json",
+        "content/fabric/notes.json"
+      ],
+      "reviewState": "candidate",
+      "stats": {
+        "unitCount": 66,
+        "byFamily": {
+          "fabric-questions": 21,
+          "fabric-additions": 8,
+          "fabric-r11": 6,
+          "fabric-notes": 20,
+          "fabric-cases": 2,
+          "academy": 8,
+          "sql": 1
+        },
+        "byLanguage": {
+          "en": 66
+        },
+        "primary": 28,
+        "roles": {
+          "practices": 35,
+          "applies": 11,
+          "explains": 20
+        }
+      },
+      "crosswalk": null
+    },
+    {
+      "id": "concept:sql:grain",
+      "prefLabel": "Query output grain",
+      "domain": "sql",
+      "kind": "query_design",
+      "definition": "The meaning of one row in a query result, stated before joins, grouping or window functions are chosen.",
+      "scope": "Query result grain. Related to, but not identical with, fact-table grain.",
+      "discriminatingContext": "Homonym with concept:fabric:grain; scope differs (result shape vs model row meaning).",
+      "aliases": {
+        "en": [
+          "output grain",
+          "result grain",
+          "one output row",
+          "row grain"
+        ],
+        "ar": [
+          "حبيبة النتيجة",
+          "صف النتيجة"
+        ]
+      },
+      "patterns": [
+        "\\b(?:output grain)\\b",
+        "\\b(?:result grain)\\b",
+        "\\b(?:one output row)\\b",
+        "\\b(?:grain check)\\b"
+      ],
+      "matchFamilies": [],
+      "packTags": [],
+      "exclude": [],
+      "existingAtlasId": null,
+      "sourceRefs": [
+        "content/sql/index.json",
+        "content/sql/vault.json"
+      ],
+      "reviewState": "candidate",
+      "stats": {
+        "unitCount": 14,
+        "byFamily": {
+          "sql": 14
+        },
+        "byLanguage": {
+          "mixed": 2,
+          "en": 12
+        },
+        "primary": 2,
+        "roles": {
+          "explains": 14
+        }
+      },
+      "crosswalk": null
+    },
+    {
+      "id": "concept:sql:population",
+      "prefLabel": "Query population",
+      "domain": "sql",
+      "kind": "query_design",
+      "definition": "The set of rows a question is about before filtering, used as the denominator for rates and comparisons.",
+      "scope": "Denominator definition; distinct from a statistical population although the two often align.",
+      "discriminatingContext": "",
+      "aliases": {
+        "en": [
+          "population",
+          "denominator",
+          "universe of rows"
+        ],
+        "ar": [
+          "المجتمع",
+          "المقام"
+        ]
+      },
+      "patterns": [
+        "\\b(?:population)\\b",
+        "\\b(?:denominator)\\b"
+      ],
+      "matchFamilies": [],
+      "packTags": [],
+      "exclude": [],
+      "existingAtlasId": null,
+      "sourceRefs": [
+        "content/sql/index.json"
+      ],
+      "reviewState": "candidate",
+      "stats": {
+        "unitCount": 80,
+        "byFamily": {
+          "fabric-questions": 2,
+          "academy": 12,
+          "sql": 52,
+          "statistics": 10,
+          "visualization": 4
+        },
+        "byLanguage": {
+          "en": 59,
+          "mixed": 19,
+          "ar": 2
+        },
+        "primary": 5,
+        "roles": {
+          "practices": 2,
+          "applies": 12,
+          "explains": 64,
+          "demonstrates": 2
+        }
+      },
+      "crosswalk": null
+    },
+    {
+      "id": "concept:sql:join",
+      "prefLabel": "Join",
+      "domain": "sql",
+      "kind": "relational_operation",
+      "definition": "A relational operation that combines rows from two inputs according to a predicate and join kind.",
+      "scope": "Row-combining operation; cardinality determines whether rows multiply.",
+      "discriminatingContext": "",
+      "aliases": {
+        "en": [
+          "JOIN",
+          "joins",
+          "inner join",
+          "left join",
+          "join fan-out"
+        ],
+        "ar": [
+          "الربط",
+          "Join"
+        ]
+      },
+      "patterns": [
+        "\\b(?:JOINs?)\\b",
+        "\\b(?:inner join)\\b",
+        "\\b(?:left join)\\b",
+        "\\b(?:join fan-?out)\\b"
+      ],
+      "matchFamilies": [],
+      "packTags": [],
+      "exclude": [],
+      "existingAtlasId": null,
+      "sourceRefs": [
+        "content/sql/index.json",
+        "content/fabric/additions/questions.json"
+      ],
+      "reviewState": "candidate",
+      "stats": {
+        "unitCount": 69,
+        "byFamily": {
+          "fabric-questions": 12,
+          "fabric-additions": 3,
+          "fabric-r11": 1,
+          "academy": 10,
+          "sql": 41,
+          "exams": 2
+        },
+        "byLanguage": {
+          "en": 52,
+          "mixed": 17
+        },
+        "primary": 15,
+        "roles": {
+          "practices": 25,
+          "applies": 10,
+          "explains": 34
+        }
+      },
+      "crosswalk": null
+    },
+    {
+      "id": "concept:sql:null",
+      "prefLabel": "NULL semantics",
+      "domain": "sql",
+      "kind": "data_semantics",
+      "definition": "The representation of an unknown or absent value, with three-valued logic and aggregate-specific behaviour.",
+      "scope": "Unknown is not zero and not an empty string; COUNT(column) and comparisons treat it specially.",
+      "discriminatingContext": "",
+      "aliases": {
+        "en": [
+          "NULL",
+          "NULLs",
+          "three-valued logic",
+          "IS NULL",
+          "COALESCE"
+        ],
+        "ar": [
+          "NULL",
+          "القيم الفارغة"
+        ]
+      },
+      "patterns": [
+        "\\b(?:NULLs?)\\b",
+        "\\b(?:three-?valued)\\b",
+        "\\b(?:COALESCE)\\b"
+      ],
+      "matchFamilies": [],
+      "packTags": [],
+      "exclude": [],
+      "existingAtlasId": null,
+      "sourceRefs": [
+        "content/sql/index.json"
+      ],
+      "reviewState": "candidate",
+      "stats": {
+        "unitCount": 40,
+        "byFamily": {
+          "fabric-questions": 5,
+          "fabric-notes": 1,
+          "academy": 1,
+          "sql": 31,
+          "exams": 2
+        },
+        "byLanguage": {
+          "en": 30,
+          "mixed": 10
+        },
+        "primary": 9,
+        "roles": {
+          "practices": 9,
+          "explains": 30,
+          "applies": 1
+        }
+      },
+      "crosswalk": null
+    },
+    {
+      "id": "concept:sql:window-function",
+      "prefLabel": "Window function",
+      "domain": "sql",
+      "kind": "relational_operation",
+      "definition": "An analytic function that computes across a partition while preserving the underlying rows.",
+      "scope": "Evaluated after grouping; cannot generally be filtered directly in WHERE.",
+      "discriminatingContext": "",
+      "aliases": {
+        "en": [
+          "window function",
+          "window functions",
+          "OVER clause",
+          "analytic function"
+        ],
+        "ar": [
+          "دوال النافذة"
+        ]
+      },
+      "patterns": [
+        "\\b(?:window functions?)\\b",
+        "\\b(?:OVER clause)\\b",
+        "\\b(?:analytic function)\\b"
+      ],
+      "matchFamilies": [],
+      "packTags": [],
+      "exclude": [],
+      "existingAtlasId": null,
+      "sourceRefs": [
+        "content/sql/index.json"
+      ],
+      "reviewState": "candidate",
+      "stats": {
+        "unitCount": 54,
+        "byFamily": {
+          "fabric-questions": 3,
+          "fabric-cases": 1,
+          "academy": 1,
+          "sql": 47,
+          "exams": 1,
+          "fabric-rti": 1
+        },
+        "byLanguage": {
+          "en": 20,
+          "mixed": 34
+        },
+        "primary": 19,
+        "roles": {
+          "practices": 6,
+          "applies": 2,
+          "explains": 46
+        }
+      },
+      "crosswalk": null
+    },
+    {
+      "id": "concept:sql:aggregation",
+      "prefLabel": "Aggregation",
+      "domain": "sql",
+      "kind": "relational_operation",
+      "definition": "Collapsing many input rows into summary values, with explicit choices about NULLs and denominators.",
+      "scope": "SUM/AVG/COUNT semantics; aggregation changes grain.",
+      "discriminatingContext": "",
+      "aliases": {
+        "en": [
+          "aggregation",
+          "aggregate",
+          "SUM",
+          "AVG",
+          "COUNT"
+        ],
+        "ar": [
+          "التجميع",
+          "التجميعي"
+        ]
+      },
+      "patterns": [
+        "\\b(?:aggregations?)\\b",
+        "\\b(?:aggregate functions?)\\b",
+        "\\b(?:COUNT\\(\\*\\))\\b"
+      ],
+      "matchFamilies": [],
+      "packTags": [],
+      "exclude": [],
+      "existingAtlasId": null,
+      "sourceRefs": [
+        "content/sql/index.json"
+      ],
+      "reviewState": "candidate",
+      "stats": {
+        "unitCount": 111,
+        "byFamily": {
+          "fabric-questions": 10,
+          "fabric-additions": 1,
+          "fabric-r11": 2,
+          "fabric-notes": 8,
+          "academy": 17,
+          "sql": 64,
+          "visualization": 3,
+          "exams": 5,
+          "fabric-rti": 1
+        },
+        "byLanguage": {
+          "en": 90,
+          "mixed": 19,
+          "ar": 2
+        },
+        "primary": 23,
+        "roles": {
+          "practices": 23,
+          "explains": 71,
+          "applies": 17
+        }
+      },
+      "crosswalk": null
+    },
+    {
+      "id": "concept:sql:group-by",
+      "prefLabel": "GROUP BY",
+      "domain": "sql",
+      "kind": "relational_operation",
+      "definition": "The clause that partitions rows into groups so each group produces one result row.",
+      "scope": "Grouping key defines the grouped result grain.",
+      "discriminatingContext": "",
+      "aliases": {
+        "en": [
+          "GROUP BY",
+          "grouping",
+          "grouped result"
+        ],
+        "ar": [
+          "التجميع حسب"
+        ]
+      },
+      "patterns": [
+        "\\b(?:GROUP BY)\\b",
+        "\\b(?:grouped result)\\b"
+      ],
+      "matchFamilies": [],
+      "packTags": [],
+      "exclude": [],
+      "existingAtlasId": null,
+      "sourceRefs": [
+        "content/sql/index.json"
+      ],
+      "reviewState": "candidate",
+      "stats": {
+        "unitCount": 101,
+        "byFamily": {
+          "fabric-questions": 1,
+          "fabric-r11": 3,
+          "fabric-notes": 1,
+          "academy": 18,
+          "sql": 78
+        },
+        "byLanguage": {
+          "en": 46,
+          "mixed": 55
+        },
+        "primary": 5,
+        "roles": {
+          "practices": 5,
+          "explains": 78,
+          "applies": 18
+        }
+      },
+      "crosswalk": null
+    },
+    {
+      "id": "concept:sql:having-filter",
+      "prefLabel": "HAVING filter",
+      "domain": "sql",
+      "kind": "relational_operation",
+      "definition": "A filter applied to groups after aggregation, unlike WHERE which filters rows before grouping.",
+      "scope": "Post-aggregation filter; not a second WHERE.",
+      "discriminatingContext": "",
+      "aliases": {
+        "en": [
+          "HAVING",
+          "post-aggregation filter"
+        ],
+        "ar": [
+          "HAVING"
+        ]
+      },
+      "patterns": [
+        "\\b(?:HAVING)\\b"
+      ],
+      "matchFamilies": [],
+      "packTags": [],
+      "exclude": [],
+      "existingAtlasId": null,
+      "sourceRefs": [
+        "content/sql/index.json"
+      ],
+      "reviewState": "candidate",
+      "stats": {
+        "unitCount": 4,
+        "byFamily": {
+          "sql": 3,
+          "exams": 1
+        },
+        "byLanguage": {
+          "en": 4
+        },
+        "primary": 0,
+        "roles": {
+          "explains": 3,
+          "practices": 1
+        }
+      },
+      "crosswalk": null
+    },
+    {
+      "id": "concept:sql:logical-processing-order",
+      "prefLabel": "Logical query processing order",
+      "domain": "sql",
+      "kind": "mental_model",
+      "definition": "The conceptual order FROM/JOIN, WHERE, GROUP BY, HAVING, SELECT, DISTINCT, ORDER BY, LIMIT that explains clause visibility.",
+      "scope": "Logical meaning, not physical execution order.",
+      "discriminatingContext": "",
+      "aliases": {
+        "en": [
+          "logical query processing",
+          "logical order",
+          "processing order"
+        ],
+        "ar": [
+          "ترتيب المعنى"
+        ]
+      },
+      "patterns": [
+        "\\b(?:logical query processing)\\b",
+        "\\b(?:logical order)\\b",
+        "\\b(?:processing order)\\b"
+      ],
+      "matchFamilies": [],
+      "packTags": [],
+      "exclude": [],
+      "existingAtlasId": null,
+      "sourceRefs": [
+        "content/sql/index.json"
+      ],
+      "reviewState": "candidate",
+      "stats": {
+        "unitCount": 3,
+        "byFamily": {
+          "sql": 3
+        },
+        "byLanguage": {
+          "en": 2,
+          "mixed": 1
+        },
+        "primary": 2,
+        "roles": {
+          "explains": 3
+        }
+      },
+      "crosswalk": null
+    },
+    {
+      "id": "concept:sql:subquery-cte",
+      "prefLabel": "Subquery and CTE",
+      "domain": "sql",
+      "kind": "query_structure",
+      "definition": "A named or inline intermediate rowset used to stage a result before the outer query filters or joins it.",
+      "scope": "Structural device; a CTE is not automatically materialized.",
+      "discriminatingContext": "",
+      "aliases": {
+        "en": [
+          "CTE",
+          "common table expression",
+          "subquery",
+          "derived table"
+        ],
+        "ar": [
+          "استعلام فرعي"
+        ]
+      },
+      "patterns": [
+        "\\b(?:CTEs?)\\b",
+        "\\b(?:common table expressions?)\\b",
+        "\\b(?:subquer(?:y|ies))\\b",
+        "\\b(?:derived tables?)\\b"
+      ],
+      "matchFamilies": [],
+      "packTags": [],
+      "exclude": [],
+      "existingAtlasId": null,
+      "sourceRefs": [
+        "content/sql/index.json"
+      ],
+      "reviewState": "candidate",
+      "stats": {
+        "unitCount": 118,
+        "byFamily": {
+          "sql": 118
+        },
+        "byLanguage": {
+          "en": 45,
+          "mixed": 73
+        },
+        "primary": 53,
+        "roles": {
+          "explains": 113,
+          "practices": 5
+        }
+      },
+      "crosswalk": null
+    },
+    {
+      "id": "concept:sql:set-operations",
+      "prefLabel": "Set operations",
+      "domain": "sql",
+      "kind": "relational_operation",
+      "definition": "UNION, INTERSECT and EXCEPT combine compatible rowsets vertically rather than adding columns.",
+      "scope": "Row stacking with compatibility rules; not a join.",
+      "discriminatingContext": "",
+      "aliases": {
+        "en": [
+          "UNION",
+          "INTERSECT",
+          "EXCEPT",
+          "set operation"
+        ],
+        "ar": [
+          "UNION"
+        ]
+      },
+      "patterns": [
+        "\\b(?:UNION)\\b",
+        "\\b(?:INTERSECT)\\b",
+        "\\b(?:EXCEPT)\\b",
+        "\\b(?:set operations?)\\b"
+      ],
+      "matchFamilies": [],
+      "packTags": [],
+      "exclude": [],
+      "existingAtlasId": null,
+      "sourceRefs": [
+        "content/sql/index.json"
+      ],
+      "reviewState": "candidate",
+      "stats": {
+        "unitCount": 17,
+        "byFamily": {
+          "fabric-questions": 4,
+          "sql": 13
+        },
+        "byLanguage": {
+          "en": 14,
+          "mixed": 3
+        },
+        "primary": 9,
+        "roles": {
+          "practices": 4,
+          "explains": 13
+        }
+      },
+      "crosswalk": null
+    },
+    {
+      "id": "concept:sql:case-expression",
+      "prefLabel": "CASE expression",
+      "domain": "sql",
+      "kind": "expression",
+      "definition": "A conditional expression that maps conditions to values inside a query, including conditional aggregation.",
+      "scope": "Expression-level branching; evaluation order and ELSE matter.",
+      "discriminatingContext": "",
+      "aliases": {
+        "en": [
+          "CASE WHEN",
+          "CASE expression",
+          "conditional aggregation"
+        ],
+        "ar": [
+          "CASE"
+        ]
+      },
+      "patterns": [
+        "\\b(?:CASE WHEN)\\b",
+        "\\b(?:CASE expressions?)\\b",
+        "\\b(?:conditional aggregation)\\b"
+      ],
+      "matchFamilies": [],
+      "packTags": [],
+      "exclude": [],
+      "existingAtlasId": null,
+      "sourceRefs": [
+        "content/sql/index.json"
+      ],
+      "reviewState": "candidate",
+      "stats": {
+        "unitCount": 31,
+        "byFamily": {
+          "academy": 4,
+          "sql": 27
+        },
+        "byLanguage": {
+          "en": 17,
+          "mixed": 14
+        },
+        "primary": 4,
+        "roles": {
+          "applies": 4,
+          "explains": 27
+        }
+      },
+      "crosswalk": null
+    },
+    {
+      "id": "concept:sql:data-types",
+      "prefLabel": "SQL data types",
+      "domain": "sql",
+      "kind": "data_semantics",
+      "definition": "The declared and inferred types that govern arithmetic, comparison, casting and division behaviour.",
+      "scope": "Type precedence and integer division are correctness issues, not formatting details.",
+      "discriminatingContext": "",
+      "aliases": {
+        "en": [
+          "data type",
+          "data types",
+          "CAST",
+          "integer division",
+          "type precedence"
+        ],
+        "ar": [
+          "نوع البيانات"
+        ]
+      },
+      "patterns": [
+        "\\b(?:data types?)\\b",
+        "\\b(?:CAST)\\b",
+        "\\b(?:integer division)\\b",
+        "\\b(?:type precedence)\\b"
+      ],
+      "matchFamilies": [],
+      "packTags": [],
+      "exclude": [],
+      "existingAtlasId": null,
+      "sourceRefs": [
+        "content/sql/index.json"
+      ],
+      "reviewState": "candidate",
+      "stats": {
+        "unitCount": 74,
+        "byFamily": {
+          "fabric-questions": 2,
+          "fabric-additions": 11,
+          "fabric-r11": 3,
+          "fabric-notes": 3,
+          "academy": 12,
+          "sql": 42,
+          "statistics": 1
+        },
+        "byLanguage": {
+          "en": 53,
+          "mixed": 21
+        },
+        "primary": 12,
+        "roles": {
+          "practices": 16,
+          "explains": 46,
+          "applies": 12
+        }
+      },
+      "crosswalk": null
+    },
+    {
+      "id": "concept:sql:keys",
+      "prefLabel": "Keys and relationships",
+      "domain": "sql",
+      "kind": "schema_design",
+      "definition": "Primary, foreign, candidate and composite keys that declare identity, uniqueness and referential links.",
+      "scope": "Declared schema constraints. An unenforced declaration is metadata, not a guarantee.",
+      "discriminatingContext": "",
+      "aliases": {
+        "en": [
+          "primary key",
+          "foreign key",
+          "candidate key",
+          "composite key",
+          "constraint"
+        ],
+        "ar": [
+          "المفتاح الأساسي",
+          "المفتاح الأجنبي"
+        ]
+      },
+      "patterns": [
+        "\\b(?:primary keys?)\\b",
+        "\\b(?:foreign keys?)\\b",
+        "\\b(?:candidate keys?)\\b",
+        "\\b(?:composite keys?)\\b"
+      ],
+      "matchFamilies": [],
+      "packTags": [],
+      "exclude": [],
+      "existingAtlasId": null,
+      "sourceRefs": [
+        "content/sql/index.json"
+      ],
+      "reviewState": "candidate",
+      "stats": {
+        "unitCount": 20,
+        "byFamily": {
+          "fabric-questions": 1,
+          "fabric-additions": 4,
+          "fabric-r11": 4,
+          "fabric-notes": 1,
+          "academy": 5,
+          "sql": 5
+        },
+        "byLanguage": {
+          "en": 18,
+          "mixed": 2
+        },
+        "primary": 10,
+        "roles": {
+          "practices": 9,
+          "explains": 6,
+          "applies": 5
+        }
+      },
+      "crosswalk": null
+    },
+    {
+      "id": "concept:sql:distinct",
+      "prefLabel": "DISTINCT",
+      "domain": "sql",
+      "kind": "relational_operation",
+      "definition": "A deduplication operator that removes duplicate result rows after projection, not a row filter.",
+      "scope": "Whole-row deduplication; it does not choose which duplicate to keep.",
+      "discriminatingContext": "",
+      "aliases": {
+        "en": [
+          "DISTINCT",
+          "deduplicate",
+          "duplicate rows"
+        ],
+        "ar": [
+          "DISTINCT"
+        ]
+      },
+      "patterns": [
+        "\\b(?:DISTINCT)\\b",
+        "\\b(?:deduplicat(?:e|es|ed|ion))\\b"
+      ],
+      "matchFamilies": [],
+      "packTags": [],
+      "exclude": [],
+      "existingAtlasId": null,
+      "sourceRefs": [
+        "content/sql/index.json"
+      ],
+      "reviewState": "candidate",
+      "stats": {
+        "unitCount": 15,
+        "byFamily": {
+          "fabric-questions": 6,
+          "fabric-additions": 1,
+          "fabric-r11": 2,
+          "fabric-notes": 2,
+          "sql": 4
+        },
+        "byLanguage": {
+          "en": 15
+        },
+        "primary": 3,
+        "roles": {
+          "practices": 9,
+          "explains": 6
+        }
+      },
+      "crosswalk": null
+    },
+    {
+      "id": "concept:sql:ordering",
+      "prefLabel": "Ordering and determinism",
+      "domain": "sql",
+      "kind": "query_behaviour",
+      "definition": "ORDER BY and the conditions under which a result order is deterministic rather than incidental.",
+      "scope": "Result order; without ORDER BY, row order is not guaranteed.",
+      "discriminatingContext": "",
+      "aliases": {
+        "en": [
+          "ORDER BY",
+          "deterministic",
+          "determinism",
+          "stable order"
+        ],
+        "ar": [
+          "الترتيب"
+        ]
+      },
+      "patterns": [
+        "\\b(?:ORDER BY)\\b",
+        "\\b(?:determinis(?:m|tic))\\b"
+      ],
+      "matchFamilies": [],
+      "packTags": [],
+      "exclude": [],
+      "existingAtlasId": null,
+      "sourceRefs": [
+        "content/sql/index.json"
+      ],
+      "reviewState": "candidate",
+      "stats": {
+        "unitCount": 103,
+        "byFamily": {
+          "fabric-questions": 2,
+          "fabric-additions": 1,
+          "fabric-r11": 1,
+          "fabric-notes": 2,
+          "fabric-cases": 1,
+          "academy": 26,
+          "sql": 70
+        },
+        "byLanguage": {
+          "en": 42,
+          "mixed": 61
+        },
+        "primary": 2,
+        "roles": {
+          "practices": 4,
+          "explains": 72,
+          "applies": 27
+        }
+      },
+      "crosswalk": null
+    },
+    {
+      "id": "concept:sql:filtering",
+      "prefLabel": "Row filtering",
+      "domain": "sql",
+      "kind": "relational_operation",
+      "definition": "WHERE predicates that decide which input rows enter the rest of the query, including NULL behaviour.",
+      "scope": "Pre-grouping row filter; HAVING is a different stage.",
+      "discriminatingContext": "",
+      "aliases": {
+        "en": [
+          "WHERE",
+          "predicate",
+          "filtering",
+          "row filter"
+        ],
+        "ar": [
+          "التصفية"
+        ]
+      },
+      "patterns": [
+        "\\b(?:WHERE)\\b",
+        "\\b(?:predicates?)\\b",
+        "\\b(?:row filters?)\\b"
+      ],
+      "matchFamilies": [],
+      "packTags": [],
+      "exclude": [],
+      "existingAtlasId": null,
+      "sourceRefs": [
+        "content/sql/index.json"
+      ],
+      "reviewState": "candidate",
+      "stats": {
+        "unitCount": 51,
+        "byFamily": {
+          "fabric-questions": 20,
+          "fabric-notes": 10,
+          "academy": 1,
+          "sql": 19,
+          "exams": 1
+        },
+        "byLanguage": {
+          "en": 46,
+          "mixed": 5
+        },
+        "primary": 4,
+        "roles": {
+          "practices": 23,
+          "explains": 27,
+          "applies": 1
+        }
+      },
+      "crosswalk": null
+    },
+    {
+      "id": "concept:sql:deduplication",
+      "prefLabel": "Deduplication pattern",
+      "domain": "sql",
+      "kind": "query_pattern",
+      "definition": "Choosing one row per entity with ROW_NUMBER, DISTINCT or a key-based anti-join instead of arbitrary deletion.",
+      "scope": "Business-record deduplication; physical compaction does not deduplicate records.",
+      "discriminatingContext": "",
+      "aliases": {
+        "en": [
+          "ROW_NUMBER",
+          "deduplication",
+          "duplicate order",
+          "anti-join"
+        ],
+        "ar": [
+          "إزالة التكرار"
+        ]
+      },
+      "patterns": [
+        "\\b(?:ROW_NUMBER)\\b",
+        "\\b(?:deduplication)\\b",
+        "\\b(?:anti-?join)\\b"
+      ],
+      "matchFamilies": [],
+      "packTags": [],
+      "exclude": [],
+      "existingAtlasId": null,
+      "sourceRefs": [
+        "content/sql/index.json",
+        "content/fabric/questions.json"
+      ],
+      "reviewState": "candidate",
+      "stats": {
+        "unitCount": 10,
+        "byFamily": {
+          "fabric-questions": 3,
+          "fabric-r11": 2,
+          "fabric-notes": 2,
+          "sql": 3
+        },
+        "byLanguage": {
+          "en": 10
+        },
+        "primary": 3,
+        "roles": {
+          "practices": 5,
+          "explains": 5
+        }
+      },
+      "crosswalk": null
+    },
+    {
+      "id": "concept:sql:mental-model",
+      "prefLabel": "Relational query mental model",
+      "domain": "sql",
+      "kind": "mental_model",
+      "definition": "SQL as a declarative description of a result, with the optimizer choosing physical execution.",
+      "scope": "Declarative meaning; the written order is not the engine's execution order.",
+      "discriminatingContext": "",
+      "aliases": {
+        "en": [
+          "declarative",
+          "mental model",
+          "relational model",
+          "optimizer"
+        ],
+        "ar": [
+          "النموذج الذهني"
+        ]
+      },
+      "patterns": [
+        "\\b(?:declarative)\\b",
+        "\\b(?:mental model)\\b",
+        "\\b(?:relational model)\\b",
+        "\\b(?:optimizer)\\b"
+      ],
+      "matchFamilies": [],
+      "packTags": [],
+      "exclude": [],
+      "existingAtlasId": null,
+      "sourceRefs": [
+        "content/sql/index.json"
+      ],
+      "reviewState": "candidate",
+      "stats": {
+        "unitCount": 43,
+        "byFamily": {
+          "sql": 37,
+          "statistics": 1,
+          "visualization": 5
+        },
+        "byLanguage": {
+          "en": 17,
+          "mixed": 24,
+          "ar": 2
+        },
+        "primary": 16,
+        "roles": {
+          "explains": 42,
+          "demonstrates": 1
+        }
+      },
+      "crosswalk": null
+    },
+    {
+      "id": "concept:sql:select",
+      "prefLabel": "SELECT projection",
+      "domain": "sql",
+      "kind": "relational_operation",
+      "definition": "The projection and expression stage that chooses output columns, aliases and computed values.",
+      "scope": "Projection happens logically after grouping; SELECT aliases are not generally visible in WHERE.",
+      "discriminatingContext": "",
+      "aliases": {
+        "en": [
+          "SELECT",
+          "projection",
+          "alias",
+          "expression"
+        ],
+        "ar": [
+          "SELECT"
+        ]
+      },
+      "patterns": [
+        "\\b(?:SELECT)\\b",
+        "\\b(?:projections?)\\b",
+        "\\b(?:aliases?)\\b"
+      ],
+      "matchFamilies": [],
+      "packTags": [],
+      "exclude": [],
+      "existingAtlasId": null,
+      "sourceRefs": [
+        "content/sql/index.json"
+      ],
+      "reviewState": "candidate",
+      "stats": {
+        "unitCount": 70,
+        "byFamily": {
+          "fabric-questions": 22,
+          "fabric-additions": 3,
+          "fabric-r11": 2,
+          "fabric-notes": 13,
+          "fabric-cases": 1,
+          "academy": 8,
+          "sql": 10,
+          "exams": 11
+        },
+        "byLanguage": {
+          "en": 66,
+          "mixed": 4
+        },
+        "primary": 4,
+        "roles": {
+          "practices": 41,
+          "explains": 20,
+          "applies": 9
+        }
+      },
+      "crosswalk": null
+    },
+    {
+      "id": "concept:sql:date-time",
+      "prefLabel": "Date and time analytics",
+      "domain": "sql",
+      "kind": "data_semantics",
+      "definition": "Bucketing, truncating and joining time periods, including missing periods and event-time boundaries.",
+      "scope": "Time semantics; a date bucket is not automatically a complete calendar spine.",
+      "discriminatingContext": "",
+      "aliases": {
+        "en": [
+          "date",
+          "time bucket",
+          "date trunc",
+          "calendar",
+          "time zone"
+        ],
+        "ar": [
+          "التاريخ",
+          "الوقت"
+        ]
+      },
+      "patterns": [
+        "\\b(?:date(?:s|time)?)\\b",
+        "\\b(?:time buckets?)\\b",
+        "\\b(?:date_trunc)\\b",
+        "\\b(?:calendar)\\b"
+      ],
+      "matchFamilies": [],
+      "packTags": [],
+      "exclude": [],
+      "existingAtlasId": null,
+      "sourceRefs": [
+        "content/sql/index.json"
+      ],
+      "reviewState": "candidate",
+      "stats": {
+        "unitCount": 209,
+        "byFamily": {
+          "fabric-questions": 36,
+          "fabric-additions": 42,
+          "fabric-r11": 17,
+          "fabric-notes": 9,
+          "fabric-cases": 1,
+          "academy": 52,
+          "sql": 44,
+          "visualization": 6,
+          "fabric-rti": 2
+        },
+        "byLanguage": {
+          "en": 175,
+          "mixed": 31,
+          "ar": 3
+        },
+        "primary": 38,
+        "roles": {
+          "practices": 95,
+          "explains": 60,
+          "applies": 53,
+          "demonstrates": 1
+        }
+      },
+      "crosswalk": null
+    },
+    {
+      "id": "concept:sql:text-matching",
+      "prefLabel": "Text and pattern matching",
+      "domain": "sql",
+      "kind": "data_semantics",
+      "definition": "LIKE, pattern matching and text normalisation, including NULL and case-sensitivity traps.",
+      "scope": "String comparison; collation and case behaviour are dialect-dependent.",
+      "discriminatingContext": "",
+      "aliases": {
+        "en": [
+          "LIKE",
+          "pattern matching",
+          "string",
+          "text"
+        ],
+        "ar": [
+          "النص"
+        ]
+      },
+      "patterns": [
+        "\\b(?:LIKE)\\b",
+        "\\b(?:pattern matching)\\b",
+        "\\b(?:strings?)\\b"
+      ],
+      "matchFamilies": [],
+      "packTags": [],
+      "exclude": [],
+      "existingAtlasId": null,
+      "sourceRefs": [
+        "content/sql/index.json"
+      ],
+      "reviewState": "candidate",
+      "stats": {
+        "unitCount": 36,
+        "byFamily": {
+          "fabric-questions": 4,
+          "fabric-notes": 1,
+          "academy": 1,
+          "sql": 28,
+          "visualization": 1,
+          "exams": 1
+        },
+        "byLanguage": {
+          "en": 11,
+          "mixed": 25
+        },
+        "primary": 5,
+        "roles": {
+          "practices": 7,
+          "explains": 27,
+          "applies": 1,
+          "demonstrates": 1
+        }
+      },
+      "crosswalk": null
+    },
+    {
+      "id": "concept:sql:transactions",
+      "prefLabel": "DDL, DML and transactions",
+      "domain": "sql",
+      "kind": "data_change",
+      "definition": "Schema changes, row changes and the commit/rollback boundaries that make a data change safe.",
+      "scope": "Data-change semantics; a committed change cannot be undone by rerunning the query.",
+      "discriminatingContext": "",
+      "aliases": {
+        "en": [
+          "DDL",
+          "DML",
+          "transaction",
+          "COMMIT",
+          "ROLLBACK",
+          "INSERT",
+          "DELETE"
+        ],
+        "ar": [
+          "المعاملة",
+          "الإدراج"
+        ]
+      },
+      "patterns": [
+        "\\b(?:DDL)\\b",
+        "\\b(?:DML)\\b",
+        "\\b(?:transactions?)\\b",
+        "\\b(?:COMMIT)\\b",
+        "\\b(?:ROLLBACK)\\b"
+      ],
+      "matchFamilies": [],
+      "packTags": [],
+      "exclude": [],
+      "existingAtlasId": null,
+      "sourceRefs": [
+        "content/sql/index.json"
+      ],
+      "reviewState": "candidate",
+      "stats": {
+        "unitCount": 102,
+        "byFamily": {
+          "fabric-questions": 30,
+          "fabric-additions": 15,
+          "fabric-r11": 10,
+          "fabric-notes": 16,
+          "fabric-cases": 3,
+          "academy": 12,
+          "sql": 16
+        },
+        "byLanguage": {
+          "en": 101,
+          "mixed": 1
+        },
+        "primary": 22,
+        "roles": {
+          "practices": 55,
+          "explains": 32,
+          "applies": 15
+        }
+      },
+      "crosswalk": null
+    },
+    {
+      "id": "concept:stats:population-sample",
+      "prefLabel": "Population and sample",
+      "domain": "statistics",
+      "kind": "foundation",
+      "definition": "The distinction between the full set of interest and the observed subset used to reason about it.",
+      "scope": "Statistical population; related to but not identical with a SQL query population.",
+      "discriminatingContext": "",
+      "aliases": {
+        "en": [
+          "population",
+          "sample",
+          "sampling frame"
+        ],
+        "ar": [
+          "المجتمع",
+          "العينة"
+        ]
+      },
+      "patterns": [
+        "\\b(?:populations?)\\b",
+        "\\b(?:samples?)\\b",
+        "\\b(?:sampling frame)\\b"
+      ],
+      "matchFamilies": [
+        "statistics",
+        "visualization",
+        "exams"
+      ],
+      "packTags": [],
+      "exclude": [],
+      "existingAtlasId": null,
+      "sourceRefs": [
+        "content/statistics/source.json"
+      ],
+      "reviewState": "candidate",
+      "stats": {
+        "unitCount": 13,
+        "byFamily": {
+          "statistics": 9,
+          "visualization": 2,
+          "exams": 2
+        },
+        "byLanguage": {
+          "mixed": 1,
+          "en": 12
+        },
+        "primary": 0,
+        "roles": {
+          "explains": 10,
+          "demonstrates": 1,
+          "practices": 2
+        }
+      },
+      "crosswalk": null
+    },
+    {
+      "id": "concept:stats:descriptive-inferential",
+      "prefLabel": "Descriptive vs inferential statistics",
+      "domain": "statistics",
+      "kind": "foundation",
+      "definition": "Descriptive statistics summarize observed data; inferential statistics generalize from a sample with uncertainty.",
+      "scope": "Two different claims: what the data show vs what the population may do.",
+      "discriminatingContext": "",
+      "aliases": {
+        "en": [
+          "descriptive statistics",
+          "inferential statistics",
+          "descriptive and inferential"
+        ],
+        "ar": [
+          "الإحصاء الوصفي",
+          "الإحصاء الاستدلالي"
+        ]
+      },
+      "patterns": [
+        "\\b(?:descriptive statistics)\\b",
+        "\\b(?:inferential statistics)\\b"
+      ],
+      "matchFamilies": [
+        "statistics",
+        "visualization",
+        "exams"
+      ],
+      "packTags": [],
+      "exclude": [],
+      "existingAtlasId": null,
+      "sourceRefs": [
+        "content/statistics/source.json"
+      ],
+      "reviewState": "candidate",
+      "stats": {
+        "unitCount": 1,
+        "byFamily": {
+          "statistics": 1
+        },
+        "byLanguage": {
+          "en": 1
+        },
+        "primary": 1,
+        "roles": {
+          "explains": 1
+        }
+      },
+      "crosswalk": null
+    },
+    {
+      "id": "concept:stats:center",
+      "prefLabel": "Measures of center",
+      "domain": "statistics",
+      "kind": "summary",
+      "definition": "Mean, median and mode, which summarize a typical value with different sensitivity to skew and outliers.",
+      "scope": "Center only; says nothing about spread or shape.",
+      "discriminatingContext": "",
+      "aliases": {
+        "en": [
+          "mean",
+          "median",
+          "mode",
+          "measures of center"
+        ],
+        "ar": [
+          "المتوسط",
+          "الوسيط",
+          "المنوال"
+        ]
+      },
+      "patterns": [
+        "\\b(?:means?)\\b",
+        "\\b(?:medians?)\\b",
+        "\\b(?:modes?)\\b",
+        "المتوسط",
+        "الوسيط"
+      ],
+      "matchFamilies": [
+        "statistics",
+        "visualization",
+        "exams"
+      ],
+      "packTags": [],
+      "exclude": [],
+      "existingAtlasId": null,
+      "sourceRefs": [
+        "content/statistics/source.json"
+      ],
+      "reviewState": "candidate",
+      "stats": {
+        "unitCount": 17,
+        "byFamily": {
+          "statistics": 5,
+          "visualization": 6,
+          "exams": 6
+        },
+        "byLanguage": {
+          "en": 12,
+          "mixed": 2,
+          "ar": 3
+        },
+        "primary": 2,
+        "roles": {
+          "explains": 8,
+          "demonstrates": 3,
+          "practices": 6
+        }
+      },
+      "crosswalk": null
+    },
+    {
+      "id": "concept:stats:spread",
+      "prefLabel": "Measures of spread",
+      "domain": "statistics",
+      "kind": "summary",
+      "definition": "Range, variance, standard deviation and IQR, which describe how dispersed values are.",
+      "scope": "Spread of observations; standard error is a different quantity.",
+      "discriminatingContext": "",
+      "aliases": {
+        "en": [
+          "variance",
+          "standard deviation",
+          "IQR",
+          "interquartile range",
+          "range"
+        ],
+        "ar": [
+          "التباين",
+          "الانحراف المعياري",
+          "المدى"
+        ]
+      },
+      "patterns": [
+        "\\b(?:variances?)\\b",
+        "\\b(?:standard deviations?)\\b",
+        "\\b(?:IQR)\\b",
+        "الانحراف المعياري"
+      ],
+      "matchFamilies": [
+        "statistics",
+        "visualization",
+        "exams"
+      ],
+      "packTags": [],
+      "exclude": [],
+      "existingAtlasId": null,
+      "sourceRefs": [
+        "content/statistics/source.json"
+      ],
+      "reviewState": "candidate",
+      "stats": {
+        "unitCount": 11,
+        "byFamily": {
+          "statistics": 8,
+          "visualization": 2,
+          "exams": 1
+        },
+        "byLanguage": {
+          "mixed": 6,
+          "en": 4,
+          "ar": 1
+        },
+        "primary": 5,
+        "roles": {
+          "explains": 5,
+          "demonstrates": 5,
+          "practices": 1
+        }
+      },
+      "crosswalk": null
+    },
+    {
+      "id": "concept:stats:distribution",
+      "prefLabel": "Probability distribution",
+      "domain": "statistics",
+      "kind": "model",
+      "definition": "A model of how values or outcomes are distributed, such as normal, binomial or Poisson.",
+      "scope": "Distribution of a variable; the sampling distribution is a different object.",
+      "discriminatingContext": "",
+      "aliases": {
+        "en": [
+          "probability distribution",
+          "normal distribution",
+          "binomial",
+          "Poisson"
+        ],
+        "ar": [
+          "التوزيع",
+          "التوزيع الطبيعي"
+        ]
+      },
+      "patterns": [
+        "\\b(?:probability distributions?)\\b",
+        "\\b(?:normal distributions?)\\b",
+        "\\b(?:binomial)\\b",
+        "\\b(?:Poisson)\\b"
+      ],
+      "matchFamilies": [
+        "statistics",
+        "visualization",
+        "exams"
+      ],
+      "packTags": [],
+      "exclude": [],
+      "existingAtlasId": null,
+      "sourceRefs": [
+        "content/statistics/source.json"
+      ],
+      "reviewState": "candidate",
+      "stats": {
+        "unitCount": 6,
+        "byFamily": {
+          "statistics": 6
+        },
+        "byLanguage": {
+          "en": 4,
+          "mixed": 2
+        },
+        "primary": 3,
+        "roles": {
+          "explains": 6
+        }
+      },
+      "crosswalk": null
+    },
+    {
+      "id": "concept:stats:clt",
+      "prefLabel": "Central limit theorem",
+      "domain": "statistics",
+      "kind": "theorem",
+      "definition": "Under suitable conditions the sampling distribution of the sample mean approaches normality as sample size grows.",
+      "scope": "About the sampling distribution of a statistic, not about the raw population becoming normal.",
+      "discriminatingContext": "",
+      "aliases": {
+        "en": [
+          "central limit theorem",
+          "CLT"
+        ],
+        "ar": [
+          "نظرية الحد المركزي"
+        ]
+      },
+      "patterns": [
+        "\\b(?:central limit theorem)\\b",
+        "\\b(?:CLT)\\b"
+      ],
+      "matchFamilies": [
+        "statistics",
+        "visualization",
+        "exams"
+      ],
+      "packTags": [],
+      "exclude": [],
+      "existingAtlasId": null,
+      "sourceRefs": [
+        "content/statistics/source.json"
+      ],
+      "reviewState": "candidate",
+      "stats": {
+        "unitCount": 2,
+        "byFamily": {
+          "statistics": 1,
+          "exams": 1
+        },
+        "byLanguage": {
+          "en": 2
+        },
+        "primary": 2,
+        "roles": {
+          "explains": 1,
+          "practices": 1
+        }
+      },
+      "crosswalk": null
+    },
+    {
+      "id": "concept:stats:sampling-distribution",
+      "prefLabel": "Sampling distribution",
+      "domain": "statistics",
+      "kind": "model",
+      "definition": "The distribution of a statistic across repeated samples from the same population.",
+      "scope": "Distribution of a statistic; not the distribution of individual observations.",
+      "discriminatingContext": "",
+      "aliases": {
+        "en": [
+          "sampling distribution",
+          "distribution of sample means"
+        ],
+        "ar": [
+          "توزيع المعاينة"
+        ]
+      },
+      "patterns": [
+        "\\b(?:sampling distributions?)\\b",
+        "\\b(?:distribution of (?:the )?sample means)\\b"
+      ],
+      "matchFamilies": [
+        "statistics",
+        "visualization",
+        "exams"
+      ],
+      "packTags": [],
+      "exclude": [],
+      "existingAtlasId": null,
+      "sourceRefs": [
+        "content/statistics/source.json"
+      ],
+      "reviewState": "candidate",
+      "stats": {
+        "unitCount": 4,
+        "byFamily": {
+          "statistics": 4
+        },
+        "byLanguage": {
+          "en": 4
+        },
+        "primary": 1,
+        "roles": {
+          "explains": 4
+        }
+      },
+      "crosswalk": null
+    },
+    {
+      "id": "concept:stats:standard-error",
+      "prefLabel": "Standard error",
+      "domain": "statistics",
+      "kind": "uncertainty",
+      "definition": "The standard deviation of a statistic's sampling distribution, estimating how much an estimate would vary.",
+      "scope": "Uncertainty of an estimate; not the spread of individual observations.",
+      "discriminatingContext": "",
+      "aliases": {
+        "en": [
+          "standard error",
+          "SE of the mean",
+          "standard error of the mean"
+        ],
+        "ar": [
+          "الخطأ المعياري"
+        ]
+      },
+      "patterns": [
+        "\\b(?:standard errors?)\\b",
+        "\\b(?:SE)\\b",
+        "الخطأ المعياري"
+      ],
+      "matchFamilies": [
+        "statistics",
+        "visualization",
+        "exams"
+      ],
+      "packTags": [],
+      "exclude": [],
+      "existingAtlasId": null,
+      "sourceRefs": [
+        "content/statistics/source.json"
+      ],
+      "reviewState": "candidate",
+      "stats": {
+        "unitCount": 16,
+        "byFamily": {
+          "statistics": 16
+        },
+        "byLanguage": {
+          "mixed": 15,
+          "en": 1
+        },
+        "primary": 2,
+        "roles": {
+          "explains": 5,
+          "demonstrates": 11
+        }
+      },
+      "crosswalk": null
+    },
+    {
+      "id": "concept:stats:confidence-interval",
+      "prefLabel": "Confidence interval",
+      "domain": "statistics",
+      "kind": "uncertainty",
+      "definition": "An interval produced by a procedure that would capture the parameter at a stated rate across repeated samples.",
+      "scope": "Procedure-based coverage statement; not the probability that this interval contains the parameter.",
+      "discriminatingContext": "",
+      "aliases": {
+        "en": [
+          "confidence interval",
+          "confidence intervals",
+          "95% CI"
+        ],
+        "ar": [
+          "فترة الثقة"
+        ]
+      },
+      "patterns": [
+        "\\b(?:confidence intervals?)\\b",
+        "فترة الثقة"
+      ],
+      "matchFamilies": [
+        "statistics",
+        "visualization",
+        "exams"
+      ],
+      "packTags": [],
+      "exclude": [],
+      "existingAtlasId": null,
+      "sourceRefs": [
+        "content/statistics/source.json"
+      ],
+      "reviewState": "candidate",
+      "stats": {
+        "unitCount": 5,
+        "byFamily": {
+          "statistics": 3,
+          "visualization": 1,
+          "exams": 1
+        },
+        "byLanguage": {
+          "en": 2,
+          "mixed": 2,
+          "ar": 1
+        },
+        "primary": 2,
+        "roles": {
+          "explains": 3,
+          "demonstrates": 1,
+          "practices": 1
+        }
+      },
+      "crosswalk": null
+    },
+    {
+      "id": "concept:stats:hypothesis-test",
+      "prefLabel": "Hypothesis test",
+      "domain": "statistics",
+      "kind": "inference",
+      "definition": "A procedure that compares observed evidence with a null model and a stated decision rule.",
+      "scope": "Decision procedure with assumptions; not proof of the alternative.",
+      "discriminatingContext": "",
+      "aliases": {
+        "en": [
+          "hypothesis test",
+          "hypothesis testing",
+          "null hypothesis",
+          "alternative hypothesis"
+        ],
+        "ar": [
+          "اختبار الفرض"
+        ]
+      },
+      "patterns": [
+        "\\b(?:hypothesis tests?)\\b",
+        "\\b(?:hypothesis testing)\\b",
+        "\\b(?:null hypothesis)\\b"
+      ],
+      "matchFamilies": [
+        "statistics",
+        "visualization",
+        "exams"
+      ],
+      "packTags": [],
+      "exclude": [],
+      "existingAtlasId": null,
+      "sourceRefs": [
+        "content/statistics/source.json"
+      ],
+      "reviewState": "candidate",
+      "stats": {
+        "unitCount": 6,
+        "byFamily": {
+          "statistics": 5,
+          "exams": 1
+        },
+        "byLanguage": {
+          "en": 5,
+          "mixed": 1
+        },
+        "primary": 3,
+        "roles": {
+          "explains": 5,
+          "practices": 1
+        }
+      },
+      "crosswalk": null
+    },
+    {
+      "id": "concept:stats:p-value",
+      "prefLabel": "p-value",
+      "domain": "statistics",
+      "kind": "inference",
+      "definition": "The probability, under the null model, of evidence at least as extreme as that observed.",
+      "scope": "Tail probability under H0; not the probability that H0 is true.",
+      "discriminatingContext": "",
+      "aliases": {
+        "en": [
+          "p-value",
+          "p value",
+          "p-values"
+        ],
+        "ar": [
+          "قيمة p"
+        ]
+      },
+      "patterns": [
+        "\\b(?:p-?values?)\\b"
+      ],
+      "matchFamilies": [
+        "statistics",
+        "visualization",
+        "exams"
+      ],
+      "packTags": [],
+      "exclude": [],
+      "existingAtlasId": null,
+      "sourceRefs": [
+        "content/statistics/source.json"
+      ],
+      "reviewState": "candidate",
+      "stats": {
+        "unitCount": 2,
+        "byFamily": {
+          "statistics": 1,
+          "exams": 1
+        },
+        "byLanguage": {
+          "en": 2
+        },
+        "primary": 0,
+        "roles": {
+          "explains": 1,
+          "practices": 1
+        }
+      },
+      "crosswalk": null
+    },
+    {
+      "id": "concept:stats:significance-level",
+      "prefLabel": "Significance level",
+      "domain": "statistics",
+      "kind": "decision_rule",
+      "definition": "The threshold alpha chosen before analysis that defines the rejection region and the accepted Type I error rate.",
+      "scope": "Pre-declared decision rule; changing it after seeing results is a bias.",
+      "discriminatingContext": "",
+      "aliases": {
+        "en": [
+          "significance level",
+          "alpha",
+          "rejection threshold"
+        ],
+        "ar": [
+          "مستوى الدلالة"
+        ]
+      },
+      "patterns": [
+        "\\b(?:significance levels?)\\b",
+        "\\b(?:alpha)\\b",
+        "\\b(?:statistically significant)\\b",
+        "\\b(?:Reject H0)\\b",
+        "\\b(?:Reject H₀)\\b",
+        "مستوى الدلالة"
+      ],
+      "matchFamilies": [
+        "statistics",
+        "visualization",
+        "exams"
+      ],
+      "packTags": [],
+      "exclude": [],
+      "existingAtlasId": null,
+      "sourceRefs": [
+        "content/statistics/source.json"
+      ],
+      "reviewState": "candidate",
+      "stats": {
+        "unitCount": 13,
+        "byFamily": {
+          "statistics": 13
+        },
+        "byLanguage": {
+          "en": 2,
+          "mixed": 11
+        },
+        "primary": 1,
+        "roles": {
+          "explains": 4,
+          "demonstrates": 9
+        }
+      },
+      "crosswalk": null
+    },
+    {
+      "id": "concept:stats:error-types",
+      "prefLabel": "Type I and Type II errors",
+      "domain": "statistics",
+      "kind": "inference",
+      "definition": "False positive and false negative decisions, traded off through alpha, power and sample size.",
+      "scope": "Decision errors; distinct from data-quality errors.",
+      "discriminatingContext": "",
+      "aliases": {
+        "en": [
+          "Type I error",
+          "Type II error",
+          "false positive",
+          "false negative"
+        ],
+        "ar": [
+          "الخطأ من النوع الأول",
+          "الخطأ من النوع الثاني"
+        ]
+      },
+      "patterns": [
+        "\\b(?:Type I)\\b",
+        "\\b(?:Type II)\\b",
+        "\\b(?:false positives?)\\b",
+        "\\b(?:false negatives?)\\b"
+      ],
+      "matchFamilies": [
+        "statistics",
+        "visualization",
+        "exams"
+      ],
+      "packTags": [],
+      "exclude": [],
+      "existingAtlasId": null,
+      "sourceRefs": [
+        "content/statistics/source.json"
+      ],
+      "reviewState": "candidate",
+      "stats": {
+        "unitCount": 3,
+        "byFamily": {
+          "statistics": 2,
+          "exams": 1
+        },
+        "byLanguage": {
+          "en": 3
+        },
+        "primary": 2,
+        "roles": {
+          "explains": 2,
+          "practices": 1
+        }
+      },
+      "crosswalk": null
+    },
+    {
+      "id": "concept:stats:power",
+      "prefLabel": "Statistical power",
+      "domain": "statistics",
+      "kind": "inference",
+      "definition": "The probability of detecting an effect of a given size under the alternative, driven by effect size, sample size and alpha.",
+      "scope": "Design property; not a property of an observed result.",
+      "discriminatingContext": "",
+      "aliases": {
+        "en": [
+          "statistical power",
+          "power of a test",
+          "sample size calculation"
+        ],
+        "ar": [
+          "القوة الإحصائية"
+        ]
+      },
+      "patterns": [
+        "\\b(?:statistical power)\\b",
+        "\\b(?:power of (?:a|the) test)\\b"
+      ],
+      "matchFamilies": [
+        "statistics",
+        "visualization",
+        "exams"
+      ],
+      "packTags": [],
+      "exclude": [],
+      "existingAtlasId": null,
+      "sourceRefs": [
+        "content/statistics/source.json"
+      ],
+      "reviewState": "candidate",
+      "stats": {
+        "unitCount": 1,
+        "byFamily": {
+          "statistics": 1
+        },
+        "byLanguage": {
+          "mixed": 1
+        },
+        "primary": 0,
+        "roles": {
+          "explains": 1
+        }
+      },
+      "crosswalk": null
+    },
+    {
+      "id": "concept:stats:correlation",
+      "prefLabel": "Correlation",
+      "domain": "statistics",
+      "kind": "association",
+      "definition": "A measure of the strength and direction of a linear association between two variables.",
+      "scope": "Linear association; a near-zero correlation does not rule out a strong non-linear relationship.",
+      "discriminatingContext": "",
+      "aliases": {
+        "en": [
+          "correlation",
+          "Pearson",
+          "correlation coefficient"
+        ],
+        "ar": [
+          "الارتباط",
+          "معامل الارتباط"
+        ]
+      },
+      "patterns": [
+        "\\b(?:correlations?)\\b",
+        "\\b(?:Pearson)\\b",
+        "الارتباط"
+      ],
+      "matchFamilies": [
+        "statistics",
+        "visualization",
+        "exams"
+      ],
+      "packTags": [],
+      "exclude": [],
+      "existingAtlasId": null,
+      "sourceRefs": [
+        "content/statistics/source.json",
+        "content/data-viz/pages.json"
+      ],
+      "reviewState": "candidate",
+      "stats": {
+        "unitCount": 26,
+        "byFamily": {
+          "statistics": 8,
+          "visualization": 17,
+          "exams": 1
+        },
+        "byLanguage": {
+          "en": 18,
+          "mixed": 4,
+          "ar": 4
+        },
+        "primary": 6,
+        "roles": {
+          "explains": 20,
+          "demonstrates": 5,
+          "practices": 1
+        }
+      },
+      "crosswalk": null
+    },
+    {
+      "id": "concept:stats:causation",
+      "prefLabel": "Causation",
+      "domain": "statistics",
+      "kind": "causal_claim",
+      "definition": "A claim that a change in one variable produces a change in another, requiring more than association.",
+      "scope": "Causal claim; requires design or assumptions that correlation alone does not supply.",
+      "discriminatingContext": "",
+      "aliases": {
+        "en": [
+          "causation",
+          "causal",
+          "cause and effect"
+        ],
+        "ar": [
+          "السببية"
+        ]
+      },
+      "patterns": [
+        "\\b(?:causations?)\\b",
+        "\\b(?:causal(?:ity)?)\\b",
+        "السببية"
+      ],
+      "matchFamilies": [
+        "statistics",
+        "visualization",
+        "exams"
+      ],
+      "packTags": [],
+      "exclude": [],
+      "existingAtlasId": null,
+      "sourceRefs": [
+        "content/statistics/source.json",
+        "content/data-viz/pages.json"
+      ],
+      "reviewState": "candidate",
+      "stats": {
+        "unitCount": 9,
+        "byFamily": {
+          "statistics": 5,
+          "visualization": 4
+        },
+        "byLanguage": {
+          "en": 4,
+          "mixed": 2,
+          "ar": 3
+        },
+        "primary": 2,
+        "roles": {
+          "explains": 9
+        }
+      },
+      "crosswalk": null
+    },
+    {
+      "id": "concept:stats:confounding",
+      "prefLabel": "Confounding",
+      "domain": "statistics",
+      "kind": "causal_threat",
+      "definition": "A third factor associated with both exposure and outcome that can create or mask an apparent effect.",
+      "scope": "Threat to causal interpretation; distinct from measurement error.",
+      "discriminatingContext": "",
+      "aliases": {
+        "en": [
+          "confounding",
+          "confounder",
+          "third variable"
+        ],
+        "ar": [
+          "المتغيرات المربكة",
+          "التداخل"
+        ]
+      },
+      "patterns": [
+        "\\b(?:confound(?:ing|er|ers|ed)?)\\b",
+        "المتغيرات المربكة"
+      ],
+      "matchFamilies": [
+        "statistics",
+        "visualization",
+        "exams"
+      ],
+      "packTags": [],
+      "exclude": [],
+      "existingAtlasId": null,
+      "sourceRefs": [
+        "content/statistics/source.json",
+        "content/fabric/notes.json"
+      ],
+      "reviewState": "candidate",
+      "stats": {
+        "unitCount": 6,
+        "byFamily": {
+          "statistics": 5,
+          "visualization": 1
+        },
+        "byLanguage": {
+          "en": 3,
+          "mixed": 2,
+          "ar": 1
+        },
+        "primary": 1,
+        "roles": {
+          "explains": 6
+        }
+      },
+      "crosswalk": null
+    },
+    {
+      "id": "concept:stats:sampling-method",
+      "prefLabel": "Sampling method",
+      "domain": "statistics",
+      "kind": "design",
+      "definition": "The procedure used to select observations, such as random, stratified or convenience sampling.",
+      "scope": "Selection procedure; determines which inferences are defensible.",
+      "discriminatingContext": "",
+      "aliases": {
+        "en": [
+          "random sampling",
+          "stratified sampling",
+          "sampling method",
+          "randomization"
+        ],
+        "ar": [
+          "العينة العشوائية",
+          "التوزيع العشوائي"
+        ]
+      },
+      "patterns": [
+        "\\b(?:random sampling)\\b",
+        "\\b(?:stratified sampling)\\b",
+        "\\b(?:sampling methods?)\\b",
+        "\\b(?:randomization)\\b"
+      ],
+      "matchFamilies": [
+        "statistics",
+        "visualization",
+        "exams"
+      ],
+      "packTags": [],
+      "exclude": [],
+      "existingAtlasId": null,
+      "sourceRefs": [
+        "content/statistics/source.json"
+      ],
+      "reviewState": "candidate",
+      "stats": {
+        "unitCount": 2,
+        "byFamily": {
+          "statistics": 2
+        },
+        "byLanguage": {
+          "en": 1,
+          "mixed": 1
+        },
+        "primary": 1,
+        "roles": {
+          "explains": 2
+        }
+      },
+      "crosswalk": null
+    },
+    {
+      "id": "concept:stats:sampling-bias",
+      "prefLabel": "Sampling bias",
+      "domain": "statistics",
+      "kind": "threat",
+      "definition": "Systematic distortion from how observations were selected, not from random variation.",
+      "scope": "Selection distortion; larger samples do not remove it.",
+      "discriminatingContext": "",
+      "aliases": {
+        "en": [
+          "sampling bias",
+          "selection bias",
+          "biased sample"
+        ],
+        "ar": [
+          "تحيز المعاينة"
+        ]
+      },
+      "patterns": [
+        "\\b(?:sampling bias)\\b",
+        "\\b(?:selection bias)\\b",
+        "\\b(?:biased sample)\\b"
+      ],
+      "matchFamilies": [
+        "statistics",
+        "visualization",
+        "exams"
+      ],
+      "packTags": [],
+      "exclude": [],
+      "existingAtlasId": null,
+      "sourceRefs": [
+        "content/statistics/source.json"
+      ],
+      "reviewState": "candidate",
+      "stats": {
+        "unitCount": 3,
+        "byFamily": {
+          "visualization": 2,
+          "exams": 1
+        },
+        "byLanguage": {
+          "ar": 1,
+          "en": 2
+        },
+        "primary": 2,
+        "roles": {
+          "explains": 2,
+          "practices": 1
+        }
+      },
+      "crosswalk": null
+    },
+    {
+      "id": "concept:stats:outlier",
+      "prefLabel": "Outlier",
+      "domain": "statistics",
+      "kind": "data_quality",
+      "definition": "An observation far from the general pattern, which may be an error or a genuine extreme value.",
+      "scope": "Investigate before removing; an outlier is not automatically invalid.",
+      "discriminatingContext": "",
+      "aliases": {
+        "en": [
+          "outlier",
+          "outliers",
+          "extreme value"
+        ],
+        "ar": [
+          "القيم المتطرفة",
+          "الشاذة"
+        ]
+      },
+      "patterns": [
+        "\\b(?:outliers?)\\b",
+        "المتطرفة",
+        "الشاذة"
+      ],
+      "matchFamilies": [
+        "statistics",
+        "visualization",
+        "exams"
+      ],
+      "packTags": [],
+      "exclude": [],
+      "existingAtlasId": null,
+      "sourceRefs": [
+        "content/statistics/source.json"
+      ],
+      "reviewState": "candidate",
+      "stats": {
+        "unitCount": 3,
+        "byFamily": {
+          "statistics": 2,
+          "exams": 1
+        },
+        "byLanguage": {
+          "mixed": 2,
+          "en": 1
+        },
+        "primary": 0,
+        "roles": {
+          "explains": 2,
+          "practices": 1
+        }
+      },
+      "crosswalk": null
+    },
+    {
+      "id": "concept:stats:probability",
+      "prefLabel": "Probability",
+      "domain": "statistics",
+      "kind": "foundation",
+      "definition": "A number between zero and one describing how likely an event is under a stated model.",
+      "scope": "Model-based likelihood; not a guarantee about a single observed outcome.",
+      "discriminatingContext": "",
+      "aliases": {
+        "en": [
+          "probability",
+          "event",
+          "independent events",
+          "conditional probability"
+        ],
+        "ar": [
+          "الاحتمال",
+          "الحدث"
+        ]
+      },
+      "patterns": [
+        "\\b(?:probabilit(?:y|ies))\\b",
+        "الاحتمال"
+      ],
+      "matchFamilies": [
+        "statistics",
+        "visualization",
+        "exams"
+      ],
+      "packTags": [],
+      "exclude": [],
+      "existingAtlasId": null,
+      "sourceRefs": [
+        "content/statistics/source.json"
+      ],
+      "reviewState": "candidate",
+      "stats": {
+        "unitCount": 5,
+        "byFamily": {
+          "statistics": 5
+        },
+        "byLanguage": {
+          "mixed": 3,
+          "en": 2
+        },
+        "primary": 2,
+        "roles": {
+          "explains": 5
+        }
+      },
+      "crosswalk": null
+    },
+    {
+      "id": "concept:stats:experiment-design",
+      "prefLabel": "Experiment design",
+      "domain": "statistics",
+      "kind": "design",
+      "definition": "Controlled comparison through randomization, blinding, placebo controls and explicit treatment groups.",
+      "scope": "Design features that support causal interpretation; an observational comparison does not acquire them by labelling.",
+      "discriminatingContext": "",
+      "aliases": {
+        "en": [
+          "controlled experiment",
+          "randomized controlled trial",
+          "RCT",
+          "blinding",
+          "placebo",
+          "A/B test"
+        ],
+        "ar": [
+          "التجربة العشوائية",
+          "التعمية"
+        ]
+      },
+      "patterns": [
+        "\\b(?:controlled experiments?)\\b",
+        "\\b(?:randomized controlled trials?)\\b",
+        "\\b(?:RCT)\\b",
+        "\\b(?:blinding)\\b",
+        "\\b(?:placebo)\\b",
+        "\\b(?:A/B test)\\b"
+      ],
+      "matchFamilies": [
+        "statistics",
+        "visualization",
+        "exams"
+      ],
+      "packTags": [],
+      "exclude": [],
+      "existingAtlasId": null,
+      "sourceRefs": [
+        "content/statistics/source.json"
+      ],
+      "reviewState": "candidate",
+      "stats": {
+        "unitCount": 6,
+        "byFamily": {
+          "statistics": 5,
+          "exams": 1
+        },
+        "byLanguage": {
+          "en": 5,
+          "mixed": 1
+        },
+        "primary": 4,
+        "roles": {
+          "explains": 5,
+          "practices": 1
+        }
+      },
+      "crosswalk": null
+    },
+    {
+      "id": "concept:stats:practical-significance",
+      "prefLabel": "Practical significance",
+      "domain": "statistics",
+      "kind": "interpretation",
+      "definition": "Whether an effect is large enough to matter in context, as distinct from whether it is statistically detectable.",
+      "scope": "Decision relevance; statistical significance does not establish practical importance.",
+      "discriminatingContext": "",
+      "aliases": {
+        "en": [
+          "practical significance",
+          "effect size",
+          "statistically significant"
+        ],
+        "ar": [
+          "الأهمية العملية"
+        ]
+      },
+      "patterns": [
+        "\\b(?:practical significance)\\b",
+        "\\b(?:effect sizes?)\\b"
+      ],
+      "matchFamilies": [
+        "statistics",
+        "visualization",
+        "exams"
+      ],
+      "packTags": [],
+      "exclude": [],
+      "existingAtlasId": null,
+      "sourceRefs": [
+        "content/statistics/source.json"
+      ],
+      "reviewState": "candidate",
+      "stats": {
+        "unitCount": 5,
+        "byFamily": {
+          "statistics": 3,
+          "visualization": 2
+        },
+        "byLanguage": {
+          "en": 1,
+          "mixed": 2,
+          "ar": 2
+        },
+        "primary": 2,
+        "roles": {
+          "explains": 5
+        }
+      },
+      "crosswalk": null
+    },
+    {
+      "id": "concept:viz:variable-type",
+      "prefLabel": "Variable type",
+      "domain": "visualization",
+      "kind": "foundation",
+      "definition": "Whether a variable is categorical, ordinal, discrete or continuous, which constrains valid encodings and summaries.",
+      "scope": "Property of the question and measure, not only of the storage column.",
+      "discriminatingContext": "",
+      "aliases": {
+        "en": [
+          "variable type",
+          "categorical",
+          "continuous",
+          "discrete",
+          "ordinal"
+        ],
+        "ar": [
+          "نوع المتغير",
+          "متغير كمي"
+        ]
+      },
+      "patterns": [
+        "\\b(?:variable types?)\\b",
+        "\\b(?:categorical)\\b",
+        "\\b(?:continuous variables?)\\b",
+        "\\b(?:classify your variable)\\b",
+        "نوع المتغير"
+      ],
+      "matchFamilies": [
+        "visualization",
+        "sql",
+        "exams"
+      ],
+      "packTags": [],
+      "exclude": [],
+      "existingAtlasId": null,
+      "sourceRefs": [
+        "content/data-viz/pages.json"
+      ],
+      "reviewState": "candidate",
+      "stats": {
+        "unitCount": 17,
+        "byFamily": {
+          "sql": 4,
+          "visualization": 13
+        },
+        "byLanguage": {
+          "mixed": 2,
+          "en": 12,
+          "ar": 3
+        },
+        "primary": 5,
+        "roles": {
+          "explains": 13,
+          "demonstrates": 4
+        }
+      },
+      "crosswalk": null
+    },
+    {
+      "id": "concept:viz:analytical-task",
+      "prefLabel": "Analytical task",
+      "domain": "visualization",
+      "kind": "foundation",
+      "definition": "The comparison, distribution, relationship, composition or trend question the view must answer.",
+      "scope": "Task precedes chart type; a chart is evidence for a task.",
+      "discriminatingContext": "",
+      "aliases": {
+        "en": [
+          "analytical task",
+          "analytical question",
+          "comparison task"
+        ],
+        "ar": [
+          "المهمة التحليلية"
+        ]
+      },
+      "patterns": [
+        "\\b(?:analytical tasks?)\\b",
+        "\\b(?:analytical questions?)\\b",
+        "المهمة التحليلية"
+      ],
+      "matchFamilies": [
+        "visualization",
+        "sql",
+        "exams"
+      ],
+      "packTags": [],
+      "exclude": [],
+      "existingAtlasId": null,
+      "sourceRefs": [
+        "content/data-viz/pages.json"
+      ],
+      "reviewState": "candidate",
+      "stats": {
+        "unitCount": 9,
+        "byFamily": {
+          "visualization": 9
+        },
+        "byLanguage": {
+          "en": 7,
+          "ar": 2
+        },
+        "primary": 0,
+        "roles": {
+          "explains": 5,
+          "demonstrates": 4
+        }
+      },
+      "crosswalk": null
+    },
+    {
+      "id": "concept:viz:visual-encoding",
+      "prefLabel": "Visual encoding",
+      "domain": "visualization",
+      "kind": "grammar",
+      "definition": "The mapping of data variables to visual channels such as position, length, angle, color, size and shape.",
+      "scope": "Channel choice affects precision; position is generally more accurate than area or hue.",
+      "discriminatingContext": "",
+      "aliases": {
+        "en": [
+          "visual encoding",
+          "encoding channel",
+          "position",
+          "length",
+          "pre-attentive"
+        ],
+        "ar": [
+          "الترميز البصري"
+        ]
+      },
+      "patterns": [
+        "\\b(?:visual encodings?)\\b",
+        "\\b(?:encoding channels?)\\b",
+        "\\b(?:pre-?attentive)\\b"
+      ],
+      "matchFamilies": [
+        "visualization",
+        "sql",
+        "exams"
+      ],
+      "packTags": [],
+      "exclude": [],
+      "existingAtlasId": null,
+      "sourceRefs": [
+        "content/data-viz/pages.json"
+      ],
+      "reviewState": "candidate",
+      "stats": {
+        "unitCount": 3,
+        "byFamily": {
+          "visualization": 3
+        },
+        "byLanguage": {
+          "en": 2,
+          "ar": 1
+        },
+        "primary": 0,
+        "roles": {
+          "demonstrates": 3
+        }
+      },
+      "crosswalk": null
+    },
+    {
+      "id": "concept:viz:chart-selection",
+      "prefLabel": "Chart selection",
+      "domain": "visualization",
+      "kind": "decision",
+      "definition": "Choosing a chart form from the task, variable types and precision requirements rather than habit.",
+      "scope": "Decision rule; not a list of banned charts.",
+      "discriminatingContext": "",
+      "aliases": {
+        "en": [
+          "chart selection",
+          "choose a chart",
+          "chart choice",
+          "chart type"
+        ],
+        "ar": [
+          "اختيار الرسم"
+        ]
+      },
+      "patterns": [
+        "\\b(?:chart selections?)\\b",
+        "\\b(?:chart choices?)\\b",
+        "\\b(?:chart types?)\\b",
+        "\\b(?:chart-to-task)\\b",
+        "\\b(?:choose (?:a )?chart)\\b",
+        "اختيار الرسم"
+      ],
+      "matchFamilies": [
+        "visualization",
+        "sql",
+        "exams"
+      ],
+      "packTags": [],
+      "exclude": [],
+      "existingAtlasId": null,
+      "sourceRefs": [
+        "content/data-viz/pages.json",
+        "content/data-viz/curriculum.json"
+      ],
+      "reviewState": "candidate",
+      "stats": {
+        "unitCount": 23,
+        "byFamily": {
+          "visualization": 23
+        },
+        "byLanguage": {
+          "en": 15,
+          "ar": 8
+        },
+        "primary": 7,
+        "roles": {
+          "demonstrates": 4,
+          "explains": 19
+        }
+      },
+      "crosswalk": null
+    },
+    {
+      "id": "concept:viz:color-palette",
+      "prefLabel": "Color palette semantics",
+      "domain": "visualization",
+      "kind": "encoding",
+      "definition": "Qualitative, sequential and diverging palettes matched to the structure of the variable.",
+      "scope": "Palette type follows meaning; diverging requires a meaningful midpoint.",
+      "discriminatingContext": "",
+      "aliases": {
+        "en": [
+          "qualitative palette",
+          "sequential palette",
+          "diverging palette",
+          "color scale"
+        ],
+        "ar": [
+          "لوحة الألوان",
+          "التدرج اللوني"
+        ]
+      },
+      "patterns": [
+        "\\b(?:qualitative)\\b",
+        "\\b(?:sequential)\\b",
+        "\\b(?:diverging)\\b",
+        "\\b(?:color scales?)\\b",
+        "\\b(?:color theory)\\b",
+        "\\b(?:color semantics)\\b",
+        "لوحة الألوان"
+      ],
+      "matchFamilies": [
+        "visualization",
+        "sql",
+        "exams"
+      ],
+      "packTags": [],
+      "exclude": [],
+      "existingAtlasId": null,
+      "sourceRefs": [
+        "content/data-viz/pages.json"
+      ],
+      "reviewState": "candidate",
+      "stats": {
+        "unitCount": 13,
+        "byFamily": {
+          "sql": 1,
+          "visualization": 12
+        },
+        "byLanguage": {
+          "mixed": 1,
+          "ar": 4,
+          "en": 8
+        },
+        "primary": 9,
+        "roles": {
+          "explains": 11,
+          "demonstrates": 2
+        }
+      },
+      "crosswalk": null
+    },
+    {
+      "id": "concept:viz:accessibility-contrast",
+      "prefLabel": "Accessibility and contrast",
+      "domain": "visualization",
+      "kind": "quality",
+      "definition": "Contrast, non-color cues, grayscale legibility and readable states that keep a view usable for more people.",
+      "scope": "Accessibility duty; complementary to palette semantics, not a substitute.",
+      "discriminatingContext": "",
+      "aliases": {
+        "en": [
+          "contrast",
+          "colorblind",
+          "grayscale",
+          "accessible"
+        ],
+        "ar": [
+          "التباين",
+          "عمى الألوان"
+        ]
+      },
+      "patterns": [
+        "\\b(?:contrast)\\b",
+        "\\b(?:colorblind)\\b",
+        "\\b(?:grayscale)\\b",
+        "\\b(?:accessibility)\\b",
+        "\\b(?:accessible)\\b",
+        "التباين"
+      ],
+      "matchFamilies": [
+        "visualization",
+        "sql",
+        "exams"
+      ],
+      "packTags": [],
+      "exclude": [],
+      "existingAtlasId": null,
+      "sourceRefs": [
+        "content/data-viz/pages.json"
+      ],
+      "reviewState": "candidate",
+      "stats": {
+        "unitCount": 17,
+        "byFamily": {
+          "sql": 1,
+          "visualization": 16
+        },
+        "byLanguage": {
+          "en": 7,
+          "ar": 10
+        },
+        "primary": 6,
+        "roles": {
+          "explains": 15,
+          "demonstrates": 2
+        }
+      },
+      "crosswalk": null
+    },
+    {
+      "id": "concept:viz:visual-integrity",
+      "prefLabel": "Visual integrity",
+      "domain": "visualization",
+      "kind": "ethics",
+      "definition": "The duty not to distort magnitude, uncertainty or comparison through encoding, axes, cropping or framing.",
+      "scope": "Honest representation; distinct from statistical validity of the underlying claim.",
+      "discriminatingContext": "",
+      "aliases": {
+        "en": [
+          "visual integrity",
+          "misleading",
+          "distortion",
+          "honest"
+        ],
+        "ar": [
+          "نزاهة التصوير",
+          "مضلل"
+        ]
+      },
+      "patterns": [
+        "\\b(?:visual integrity)\\b",
+        "\\b(?:misleading)\\b",
+        "\\b(?:distort(?:ed|ion|s)?)\\b",
+        "\\b(?:dual axis)\\b",
+        "\\b(?:ecological fallacy)\\b",
+        "\\b(?:multiple comparisons)\\b",
+        "مضلل"
+      ],
+      "matchFamilies": [
+        "visualization",
+        "sql",
+        "exams"
+      ],
+      "packTags": [],
+      "exclude": [],
+      "existingAtlasId": null,
+      "sourceRefs": [
+        "content/data-viz/pages.json"
+      ],
+      "reviewState": "candidate",
+      "stats": {
+        "unitCount": 17,
+        "byFamily": {
+          "sql": 1,
+          "visualization": 16
+        },
+        "byLanguage": {
+          "mixed": 1,
+          "en": 11,
+          "ar": 5
+        },
+        "primary": 7,
+        "roles": {
+          "explains": 12,
+          "demonstrates": 5
+        }
+      },
+      "crosswalk": null
+    },
+    {
+      "id": "concept:viz:axis-baseline",
+      "prefLabel": "Axis and baseline",
+      "domain": "visualization",
+      "kind": "grammar",
+      "definition": "The choice of axis range and zero baseline, which changes how magnitude differences read.",
+      "scope": "Bar length encodes magnitude from zero; line position does not carry the same baseline obligation.",
+      "discriminatingContext": "",
+      "aliases": {
+        "en": [
+          "zero baseline",
+          "baseline",
+          "truncated axis",
+          "axis range"
+        ],
+        "ar": [
+          "خط الأساس",
+          "قطع المحور"
+        ]
+      },
+      "patterns": [
+        "\\b(?:zero baseline)\\b",
+        "\\b(?:baselines?)\\b",
+        "\\b(?:truncat(?:ed|ing) (?:the )?axis)\\b",
+        "خط الأساس"
+      ],
+      "matchFamilies": [
+        "visualization",
+        "sql",
+        "exams"
+      ],
+      "packTags": [],
+      "exclude": [],
+      "existingAtlasId": null,
+      "sourceRefs": [
+        "content/data-viz/pages.json"
+      ],
+      "reviewState": "candidate",
+      "stats": {
+        "unitCount": 11,
+        "byFamily": {
+          "visualization": 11
+        },
+        "byLanguage": {
+          "ar": 5,
+          "en": 6
+        },
+        "primary": 6,
+        "roles": {
+          "explains": 10,
+          "demonstrates": 1
+        }
+      },
+      "crosswalk": null
+    },
+    {
+      "id": "concept:viz:dashboard-design",
+      "prefLabel": "Dashboard composition",
+      "domain": "visualization",
+      "kind": "composition",
+      "definition": "Arranging views, hierarchy and context so a dashboard supports a decision without excess cognitive load.",
+      "scope": "Composition and attention; not merely a grid of charts.",
+      "discriminatingContext": "",
+      "aliases": {
+        "en": [
+          "dashboard design",
+          "dashboard composition",
+          "cognitive load",
+          "visual hierarchy"
+        ],
+        "ar": [
+          "تصميم الداشبورد",
+          "الحمل المعرفي"
+        ]
+      },
+      "patterns": [
+        "\\b(?:dashboard designs?)\\b",
+        "\\b(?:cognitive load)\\b",
+        "\\b(?:visual hierarchy)\\b",
+        "\\b(?:scan path)\\b",
+        "لوحة المعلومات"
+      ],
+      "matchFamilies": [
+        "visualization",
+        "sql",
+        "exams"
+      ],
+      "packTags": [],
+      "exclude": [],
+      "existingAtlasId": null,
+      "sourceRefs": [
+        "content/data-viz/pages.json"
+      ],
+      "reviewState": "candidate",
+      "stats": {
+        "unitCount": 18,
+        "byFamily": {
+          "sql": 1,
+          "visualization": 16,
+          "exams": 1
+        },
+        "byLanguage": {
+          "en": 9,
+          "ar": 9
+        },
+        "primary": 13,
+        "roles": {
+          "explains": 13,
+          "demonstrates": 4,
+          "practices": 1
+        }
+      },
+      "crosswalk": null
+    },
+    {
+      "id": "concept:viz:part-to-whole",
+      "prefLabel": "Part-to-whole",
+      "domain": "visualization",
+      "kind": "task",
+      "definition": "Showing how parts compose a whole, where angle and area are weaker for precise comparison than position.",
+      "scope": "Composition task; pie and polar forms are defensible mainly for genuine composition or circularity.",
+      "discriminatingContext": "",
+      "aliases": {
+        "en": [
+          "part-to-whole",
+          "pie chart",
+          "polar coordinates",
+          "composition"
+        ],
+        "ar": [
+          "الرسم الدائري",
+          "الأجزاء"
+        ]
+      },
+      "patterns": [
+        "\\b(?:part-?to-?whole)\\b",
+        "\\b(?:pie charts?)\\b",
+        "\\b(?:polar coordinates?)\\b",
+        "الرسم الدائري"
+      ],
+      "matchFamilies": [
+        "visualization",
+        "sql",
+        "exams"
+      ],
+      "packTags": [],
+      "exclude": [],
+      "existingAtlasId": null,
+      "sourceRefs": [
+        "content/data-viz/pages.json"
+      ],
+      "reviewState": "candidate",
+      "stats": {
+        "unitCount": 4,
+        "byFamily": {
+          "visualization": 4
+        },
+        "byLanguage": {
+          "en": 4
+        },
+        "primary": 2,
+        "roles": {
+          "explains": 4
+        }
+      },
+      "crosswalk": null
+    },
+    {
+      "id": "concept:viz:distribution-plot",
+      "prefLabel": "Distribution plot",
+      "domain": "visualization",
+      "kind": "chart_family",
+      "definition": "Histograms, box plots, dot plots and density views that expose the shape and spread of a variable.",
+      "scope": "Distribution task; bin width and summary choice change what is visible.",
+      "discriminatingContext": "",
+      "aliases": {
+        "en": [
+          "histogram",
+          "box plot",
+          "density plot",
+          "distribution plot"
+        ],
+        "ar": [
+          "المدرج التكراري",
+          "مخطط الصندوق"
+        ]
+      },
+      "patterns": [
+        "\\b(?:histograms?)\\b",
+        "\\b(?:box plots?)\\b",
+        "\\b(?:density plots?)\\b",
+        "\\b(?:dot plots?)\\b",
+        "المدرج التكراري",
+        "مخطط النقاط"
+      ],
+      "matchFamilies": [
+        "visualization",
+        "sql",
+        "exams"
+      ],
+      "packTags": [],
+      "exclude": [],
+      "existingAtlasId": null,
+      "sourceRefs": [
+        "content/data-viz/pages.json"
+      ],
+      "reviewState": "candidate",
+      "stats": {
+        "unitCount": 29,
+        "byFamily": {
+          "sql": 1,
+          "visualization": 28
+        },
+        "byLanguage": {
+          "en": 17,
+          "ar": 12
+        },
+        "primary": 20,
+        "roles": {
+          "explains": 25,
+          "demonstrates": 4
+        }
+      },
+      "crosswalk": null
+    },
+    {
+      "id": "concept:viz:time-series-plot",
+      "prefLabel": "Time-series plot",
+      "domain": "visualization",
+      "kind": "chart_family",
+      "definition": "A line or connected view for observations whose order is conceptually meaningful.",
+      "scope": "Requires conceptual continuity; independent observations belong in a scatter plot.",
+      "discriminatingContext": "",
+      "aliases": {
+        "en": [
+          "line plot",
+          "line chart",
+          "time series",
+          "temporal continuity"
+        ],
+        "ar": [
+          "الرسم الخطي",
+          "السلسلة الزمنية"
+        ]
+      },
+      "patterns": [
+        "\\b(?:line plots?)\\b",
+        "\\b(?:line charts?)\\b",
+        "\\b(?:time series)\\b",
+        "الرسم الخطي"
+      ],
+      "matchFamilies": [
+        "visualization",
+        "sql",
+        "exams"
+      ],
+      "packTags": [],
+      "exclude": [],
+      "existingAtlasId": null,
+      "sourceRefs": [
+        "content/data-viz/pages.json"
+      ],
+      "reviewState": "candidate",
+      "stats": {
+        "unitCount": 9,
+        "byFamily": {
+          "visualization": 9
+        },
+        "byLanguage": {
+          "ar": 4,
+          "en": 5
+        },
+        "primary": 4,
+        "roles": {
+          "explains": 9
+        }
+      },
+      "crosswalk": null
+    },
+    {
+      "id": "concept:viz:relationship-plot",
+      "prefLabel": "Relationship plot",
+      "domain": "visualization",
+      "kind": "chart_family",
+      "definition": "Scatter plots and related views that expose association, clusters and non-linearity between variables.",
+      "scope": "Relationship task; correlation summaries can hide non-linear shape.",
+      "discriminatingContext": "",
+      "aliases": {
+        "en": [
+          "scatter plot",
+          "scatterplot",
+          "relationship plot",
+          "trend line"
+        ],
+        "ar": [
+          "مخطط التشتت"
+        ]
+      },
+      "patterns": [
+        "\\b(?:scatter ?plots?)\\b",
+        "\\b(?:relationship plots?)\\b",
+        "مخطط التشتت"
+      ],
+      "matchFamilies": [
+        "visualization",
+        "sql",
+        "exams"
+      ],
+      "packTags": [],
+      "exclude": [],
+      "existingAtlasId": null,
+      "sourceRefs": [
+        "content/data-viz/pages.json"
+      ],
+      "reviewState": "candidate",
+      "stats": {
+        "unitCount": 16,
+        "byFamily": {
+          "visualization": 16
+        },
+        "byLanguage": {
+          "en": 11,
+          "ar": 5
+        },
+        "primary": 4,
+        "roles": {
+          "explains": 16
+        }
+      },
+      "crosswalk": null
+    },
+    {
+      "id": "concept:viz:uncertainty-display",
+      "prefLabel": "Uncertainty display",
+      "domain": "visualization",
+      "kind": "encoding",
+      "definition": "Showing intervals, error bars, bands or ranges so a reader can judge estimate precision.",
+      "scope": "Display of uncertainty; must match the interval's actual meaning.",
+      "discriminatingContext": "",
+      "aliases": {
+        "en": [
+          "error bar",
+          "confidence band",
+          "uncertainty",
+          "interval"
+        ],
+        "ar": [
+          "عدم اليقين",
+          "فترة الثقة"
+        ]
+      },
+      "patterns": [
+        "\\b(?:error bars?)\\b",
+        "\\b(?:confidence bands?)\\b",
+        "\\b(?:uncertaint(?:y|ies))\\b",
+        "عدم اليقين"
+      ],
+      "matchFamilies": [
+        "visualization",
+        "sql",
+        "exams"
+      ],
+      "packTags": [],
+      "exclude": [],
+      "existingAtlasId": null,
+      "sourceRefs": [
+        "content/data-viz/pages.json"
+      ],
+      "reviewState": "candidate",
+      "stats": {
+        "unitCount": 7,
+        "byFamily": {
+          "visualization": 7
+        },
+        "byLanguage": {
+          "ar": 4,
+          "en": 3
+        },
+        "primary": 1,
+        "roles": {
+          "explains": 5,
+          "demonstrates": 2
+        }
+      },
+      "crosswalk": null
+    },
+    {
+      "id": "concept:viz:annotation-context",
+      "prefLabel": "Annotation and context",
+      "domain": "visualization",
+      "kind": "composition",
+      "definition": "Titles, labels, units, source notes and annotations that make a view interpretable without guesswork.",
+      "scope": "Context layer; a chart without units or source is incomplete.",
+      "discriminatingContext": "",
+      "aliases": {
+        "en": [
+          "annotation",
+          "title",
+          "label",
+          "source note",
+          "context"
+        ],
+        "ar": [
+          "التعليق",
+          "العنوان"
+        ]
+      },
+      "patterns": [
+        "\\b(?:annotations?)\\b",
+        "\\b(?:source notes?)\\b",
+        "\\b(?:titles? and labels?)\\b"
+      ],
+      "matchFamilies": [
+        "visualization",
+        "sql",
+        "exams"
+      ],
+      "packTags": [],
+      "exclude": [],
+      "existingAtlasId": null,
+      "sourceRefs": [
+        "content/data-viz/pages.json"
+      ],
+      "reviewState": "candidate",
+      "stats": {
+        "unitCount": 3,
+        "byFamily": {
+          "visualization": 3
+        },
+        "byLanguage": {
+          "ar": 1,
+          "en": 2
+        },
+        "primary": 0,
+        "roles": {
+          "explains": 2,
+          "demonstrates": 1
+        }
+      },
+      "crosswalk": null
+    },
+    {
+      "id": "concept:viz:scale",
+      "prefLabel": "Scale",
+      "domain": "visualization",
+      "kind": "grammar",
+      "definition": "Linear, logarithmic or other axis transformations that change how equal data steps appear on the page.",
+      "scope": "Axis transformation; a log scale cannot represent zero and changes the meaning of distance.",
+      "discriminatingContext": "",
+      "aliases": {
+        "en": [
+          "log scale",
+          "logarithmic",
+          "linear scale",
+          "axis scale"
+        ],
+        "ar": [
+          "المقياس اللوغاريتمي"
+        ]
+      },
+      "patterns": [
+        "\\b(?:log scales?)\\b",
+        "\\b(?:logarithmic)\\b",
+        "\\b(?:linear scales?)\\b",
+        "\\b(?:logarithmic axis)\\b"
+      ],
+      "matchFamilies": [
+        "visualization",
+        "sql",
+        "exams"
+      ],
+      "packTags": [],
+      "exclude": [],
+      "existingAtlasId": null,
+      "sourceRefs": [
+        "content/data-viz/pages.json"
+      ],
+      "reviewState": "candidate",
+      "stats": {
+        "unitCount": 11,
+        "byFamily": {
+          "visualization": 11
+        },
+        "byLanguage": {
+          "ar": 2,
+          "en": 9
+        },
+        "primary": 5,
+        "roles": {
+          "explains": 10,
+          "demonstrates": 1
+        }
+      },
+      "crosswalk": null
+    },
+    {
+      "id": "concept:analysis:decision-frame",
+      "prefLabel": "Decision frame",
+      "domain": "analysis",
+      "kind": "reasoning",
+      "definition": "The decision, audience and action that justify an analysis before data or chart choices are made.",
+      "scope": "Frames the work; not itself a statistical claim.",
+      "discriminatingContext": "",
+      "aliases": {
+        "en": [
+          "decision frame",
+          "decision first",
+          "audience and action"
+        ],
+        "ar": [
+          "إطار القرار"
+        ]
+      },
+      "patterns": [
+        "\\b(?:decision frame)\\b",
+        "\\b(?:start from the decision)\\b",
+        "\\b(?:audience and (?:the )?action)\\b"
+      ],
+      "matchFamilies": [],
+      "packTags": [],
+      "exclude": [],
+      "existingAtlasId": null,
+      "sourceRefs": [
+        "content/data-viz/pages.json",
+        "content/knowledge/insights.json"
+      ],
+      "reviewState": "candidate",
+      "stats": {
+        "unitCount": 1,
+        "byFamily": {
+          "visualization": 1
+        },
+        "byLanguage": {
+          "en": 1
+        },
+        "primary": 0,
+        "roles": {
+          "demonstrates": 1
+        }
+      },
+      "crosswalk": null
+    },
+    {
+      "id": "concept:analysis:metric-definition",
+      "prefLabel": "Metric definition",
+      "domain": "analysis",
+      "kind": "reasoning",
+      "definition": "A precise numerator, denominator, population and time window for a measure used in a decision.",
+      "scope": "Definition discipline; prevents two teams reporting different numbers under one name.",
+      "discriminatingContext": "",
+      "aliases": {
+        "en": [
+          "metric definition",
+          "numerator",
+          "denominator",
+          "measure definition"
+        ],
+        "ar": [
+          "تعريف المقياس"
+        ]
+      },
+      "patterns": [
+        "\\b(?:metric definitions?)\\b",
+        "\\b(?:numerators?)\\b",
+        "\\b(?:denominators?)\\b",
+        "\\b(?:metrics?)\\b",
+        "تعريف المقياس"
+      ],
+      "matchFamilies": [],
+      "packTags": [],
+      "exclude": [],
+      "existingAtlasId": null,
+      "sourceRefs": [
+        "content/sql/index.json",
+        "content/fabric/notes.json"
+      ],
+      "reviewState": "candidate",
+      "stats": {
+        "unitCount": 44,
+        "byFamily": {
+          "fabric-questions": 11,
+          "fabric-notes": 1,
+          "academy": 1,
+          "sql": 28,
+          "visualization": 3
+        },
+        "byLanguage": {
+          "en": 36,
+          "mixed": 6,
+          "ar": 2
+        },
+        "primary": 2,
+        "roles": {
+          "practices": 11,
+          "explains": 31,
+          "applies": 1,
+          "demonstrates": 1
+        }
+      },
+      "crosswalk": null
+    },
+    {
+      "id": "concept:analysis:data-quality",
+      "prefLabel": "Data quality",
+      "domain": "analysis",
+      "kind": "reasoning",
+      "definition": "Completeness, validity, uniqueness and consistency checks that decide whether a result can be trusted.",
+      "scope": "Fitness of the data; distinct from statistical uncertainty.",
+      "discriminatingContext": "",
+      "aliases": {
+        "en": [
+          "data quality",
+          "null count",
+          "distinct count",
+          "validation"
+        ],
+        "ar": [
+          "جودة البيانات"
+        ]
+      },
+      "patterns": [
+        "\\b(?:data quality)\\b",
+        "\\b(?:null counts?)\\b",
+        "\\b(?:distinct counts?)\\b",
+        "جودة البيانات"
+      ],
+      "matchFamilies": [],
+      "packTags": [],
+      "exclude": [],
+      "existingAtlasId": null,
+      "sourceRefs": [
+        "content/fabric/additions/questions.json",
+        "content/sql/index.json"
+      ],
+      "reviewState": "candidate",
+      "stats": {
+        "unitCount": 48,
+        "byFamily": {
+          "fabric-questions": 3,
+          "fabric-additions": 3,
+          "fabric-r11": 1,
+          "fabric-notes": 1,
+          "academy": 6,
+          "sql": 30,
+          "visualization": 2,
+          "exams": 2
+        },
+        "byLanguage": {
+          "en": 38,
+          "mixed": 8,
+          "ar": 2
+        },
+        "primary": 11,
+        "roles": {
+          "practices": 9,
+          "explains": 33,
+          "applies": 6
+        }
+      },
+      "crosswalk": null
+    },
+    {
+      "id": "concept:analysis:segmentation",
+      "prefLabel": "Segmentation",
+      "domain": "analysis",
+      "kind": "reasoning",
+      "definition": "Comparing defined subgroups while keeping the population and denominator explicit.",
+      "scope": "Subgroup comparison; segments must be defined before results are read.",
+      "discriminatingContext": "",
+      "aliases": {
+        "en": [
+          "segmentation",
+          "segment",
+          "subgroup",
+          "cohort"
+        ],
+        "ar": [
+          "التقسيم",
+          "الشرائح"
+        ]
+      },
+      "patterns": [
+        "\\b(?:segments?)\\b",
+        "\\b(?:subgroups?)\\b",
+        "\\b(?:cohorts?)\\b",
+        "التقسيم"
+      ],
+      "matchFamilies": [],
+      "packTags": [],
+      "exclude": [],
+      "existingAtlasId": null,
+      "sourceRefs": [
+        "content/sql/index.json",
+        "content/fabric/notes.json"
+      ],
+      "reviewState": "candidate",
+      "stats": {
+        "unitCount": 5,
+        "byFamily": {
+          "sql": 3,
+          "visualization": 2
+        },
+        "byLanguage": {
+          "en": 3,
+          "mixed": 1,
+          "ar": 1
+        },
+        "primary": 0,
+        "roles": {
+          "explains": 4,
+          "demonstrates": 1
+        }
+      },
+      "crosswalk": null
+    },
+    {
+      "id": "concept:analysis:evidence-strength",
+      "prefLabel": "Evidence strength",
+      "domain": "analysis",
+      "kind": "reasoning",
+      "definition": "How much confidence a decision can take from the available data, design and uncertainty.",
+      "scope": "Calibrated judgement; not a percentage readiness score.",
+      "discriminatingContext": "",
+      "aliases": {
+        "en": [
+          "evidence strength",
+          "strength of evidence",
+          "uncertainty and decision"
+        ],
+        "ar": [
+          "قوة الدليل"
+        ]
+      },
+      "patterns": [
+        "\\b(?:evidence strength)\\b",
+        "\\b(?:strength of evidence)\\b",
+        "\\b(?:evidence and uncertainty)\\b"
+      ],
+      "matchFamilies": [],
+      "packTags": [],
+      "exclude": [],
+      "existingAtlasId": null,
+      "sourceRefs": [
+        "content/statistics/source.json",
+        "content/data-viz/pages.json"
+      ],
+      "reviewState": "candidate",
+      "stats": {
+        "unitCount": 0,
+        "byFamily": {},
+        "byLanguage": {},
+        "primary": 0,
+        "roles": {}
+      },
+      "crosswalk": null
+    },
+    {
+      "id": "concept:analysis:kpi",
+      "prefLabel": "KPI definition",
+      "domain": "analysis",
+      "kind": "reasoning",
+      "definition": "A decision metric with an owner, definition, target and leading or lagging behaviour.",
+      "scope": "Decision metric; a KPI is not any number on a dashboard.",
+      "discriminatingContext": "",
+      "aliases": {
+        "en": [
+          "KPI",
+          "leading indicator",
+          "lagging indicator",
+          "target"
+        ],
+        "ar": [
+          "مؤشر الأداء"
+        ]
+      },
+      "patterns": [
+        "\\b(?:KPIs?)\\b",
+        "\\b(?:leading indicators?)\\b",
+        "\\b(?:lagging indicators?)\\b"
+      ],
+      "matchFamilies": [],
+      "packTags": [],
+      "exclude": [],
+      "existingAtlasId": null,
+      "sourceRefs": [
+        "content/exams/fundamentals.json",
+        "content/sql/index.json"
+      ],
+      "reviewState": "candidate",
+      "stats": {
+        "unitCount": 9,
+        "byFamily": {
+          "fabric-cases": 1,
+          "sql": 3,
+          "visualization": 1,
+          "exams": 4
+        },
+        "byLanguage": {
+          "en": 8,
+          "ar": 1
+        },
+        "primary": 1,
+        "roles": {
+          "applies": 1,
+          "explains": 3,
+          "demonstrates": 1,
+          "practices": 4
+        }
+      },
+      "crosswalk": null
+    },
+    {
+      "id": "concept:fabric:security-model",
+      "prefLabel": "Layered security model",
+      "domain": "fabric",
+      "kind": "security",
+      "definition": "The combined effect of tenant, workspace-role, item-permission, OneLake data-access and model security controls on what an identity can actually read or change.",
+      "scope": "Effective access across layers; not a synonym for RLS, OLS, CLS, a workspace role or a sensitivity label.",
+      "discriminatingContext": "Distinguish one mechanism from the effective access produced by every applicable layer.",
+      "aliases": {
+        "en": [
+          "layered security",
+          "effective access",
+          "security boundary"
+        ],
+        "ar": [
+          "نموذج الأمان الطبقي",
+          "الوصول الفعلي",
+          "الامتياز الأدنى"
+        ]
+      },
+      "patterns": [
+        "\\b(?:layered security)\\b",
+        "\\b(?:security models?)\\b",
+        "\\b(?:security controls?)\\b",
+        "\\b(?:effective access)\\b",
+        "\\b(?:effective grants?)\\b",
+        "\\b(?:least privilege)\\b",
+        "\\b(?:security boundar(?:y|ies))\\b",
+        "\\b(?:defense in depth)\\b",
+        "\\b(?:role membership)\\b",
+        "\\b(?:overlapping roles?)\\b"
+      ],
+      "matchFamilies": [],
+      "packTags": [],
+      "exclude": [],
+      "existingAtlasId": null,
+      "sourceRefs": [
+        "content/fabric/notes.json",
+        "content/fabric/index.json"
+      ],
+      "reviewState": "candidate",
+      "stats": {
+        "unitCount": 60,
+        "byFamily": {
+          "fabric-questions": 12,
+          "fabric-additions": 20,
+          "fabric-r11": 10,
+          "fabric-notes": 16,
+          "fabric-cases": 1,
+          "academy": 1
+        },
+        "byLanguage": {
+          "en": 60
+        },
+        "primary": 10,
+        "roles": {
+          "practices": 42,
+          "explains": 16,
+          "applies": 2
+        }
+      },
+      "crosswalk": null
+    },
+    {
+      "id": "concept:fabric:sensitivity-label",
+      "prefLabel": "Sensitivity label",
+      "domain": "fabric",
+      "kind": "governance",
+      "definition": "A Purview-managed classification that travels with a Fabric item and can carry protection settings, separate from item access.",
+      "scope": "Classification and protection metadata; a label does not replace a workspace role or an OneLake data-access role.",
+      "discriminatingContext": "Separate classification from authorization, and label inheritance from explicit access grants.",
+      "aliases": {
+        "en": [
+          "sensitivity label",
+          "label inheritance",
+          "label priority",
+          "information protection",
+          "Purview"
+        ],
+        "ar": [
+          "تسمية الحساسية",
+          "وراثة التسمية",
+          "حماية المعلومات"
+        ]
+      },
+      "patterns": [
+        "\\b(?:sensitivity labels?)\\b",
+        "\\b(?:label inheritance)\\b",
+        "\\b(?:label priority)\\b",
+        "\\b(?:information protection)\\b",
+        "\\b(?:Purview)\\b"
+      ],
+      "matchFamilies": [],
+      "packTags": [],
+      "exclude": [],
+      "existingAtlasId": null,
+      "sourceRefs": [
+        "content/fabric/index.json",
+        "content/fabric/notes.json"
+      ],
+      "reviewState": "candidate",
+      "stats": {
+        "unitCount": 11,
+        "byFamily": {
+          "fabric-questions": 9,
+          "fabric-notes": 2
+        },
+        "byLanguage": {
+          "en": 11
+        },
+        "primary": 5,
+        "roles": {
+          "practices": 9,
+          "explains": 2
+        }
+      },
+      "crosswalk": null
+    },
+    {
+      "id": "concept:fabric:lineage",
+      "prefLabel": "Data lineage and impact",
+      "domain": "fabric",
+      "kind": "governance",
+      "definition": "The recorded upstream and downstream relationships between items, used to inspect provenance and estimate the blast radius of a change.",
+      "scope": "Dependency evidence; lineage visibility is not the same as data access and does not prove data correctness.",
+      "discriminatingContext": "Distinguish provenance inspection from permission to read the underlying data.",
+      "aliases": {
+        "en": [
+          "data lineage",
+          "impact analysis",
+          "lineage view",
+          "blast radius"
+        ],
+        "ar": [
+          "نسب البيانات",
+          "تحليل الأثر"
+        ]
+      },
+      "patterns": [
+        "\\b(?:data lineage)\\b",
+        "\\b(?:lineage)\\b",
+        "\\b(?:impact analysis)\\b",
+        "\\b(?:blast radius)\\b",
+        "\\b(?:downstream dependenc(?:y|ies))\\b"
+      ],
+      "matchFamilies": [],
+      "packTags": [],
+      "exclude": [],
+      "existingAtlasId": null,
+      "sourceRefs": [
+        "content/fabric/index.json",
+        "content/fabric/notes.json"
+      ],
+      "reviewState": "candidate",
+      "stats": {
+        "unitCount": 24,
+        "byFamily": {
+          "fabric-questions": 14,
+          "fabric-notes": 8,
+          "academy": 2
+        },
+        "byLanguage": {
+          "en": 24
+        },
+        "primary": 7,
+        "roles": {
+          "practices": 14,
+          "explains": 8,
+          "applies": 2
+        }
+      },
+      "crosswalk": null
+    },
+    {
+      "id": "concept:fabric:governance-domain",
+      "prefLabel": "Governance domain",
+      "domain": "fabric",
+      "kind": "governance",
+      "definition": "A tenant-level grouping of workspaces and items with delegated administrators, tags and policy scope.",
+      "scope": "Administrative boundary; a governance domain is not a workspace, a capacity or a security role.",
+      "discriminatingContext": "Distinguish delegated domain administration from tenant-wide administration.",
+      "aliases": {
+        "en": [
+          "governance domain",
+          "data domain",
+          "domain administrator",
+          "tenant-wide governance"
+        ],
+        "ar": [
+          "نطاق الحوكمة",
+          "نطاق البيانات"
+        ]
+      },
+      "patterns": [
+        "\\b(?:governance domains?)\\b",
+        "\\b(?:data domains?)\\b",
+        "\\b(?:domain admin(?:istrator)?s?)\\b",
+        "\\b(?:tenant-wide governance)\\b"
+      ],
+      "matchFamilies": [],
+      "packTags": [],
+      "exclude": [],
+      "existingAtlasId": null,
+      "sourceRefs": [
+        "content/fabric/index.json",
+        "content/fabric/notes.json"
+      ],
+      "reviewState": "candidate",
+      "stats": {
+        "unitCount": 4,
+        "byFamily": {
+          "fabric-questions": 2,
+          "fabric-additions": 1,
+          "academy": 1
+        },
+        "byLanguage": {
+          "en": 4
+        },
+        "primary": 0,
+        "roles": {
+          "practices": 3,
+          "applies": 1
+        }
+      },
+      "crosswalk": null
+    },
+    {
+      "id": "concept:fabric:control-flow",
+      "prefLabel": "Pipeline control flow",
+      "domain": "fabric",
+      "kind": "orchestration",
+      "definition": "Activity sequencing, iteration, conditional routing and metadata discovery inside a data pipeline.",
+      "scope": "Orchestration semantics; control flow does not itself transform data and is not the Copy activity's movement contract.",
+      "discriminatingContext": "Distinguish orchestration from the activity that performs the work.",
+      "aliases": {
+        "en": [
+          "control flow",
+          "ForEach activity",
+          "If Condition activity",
+          "Get Metadata activity"
+        ],
+        "ar": [
+          "تدفق التحكم",
+          "نشاط التكرار",
+          "الشرط"
+        ]
+      },
+      "patterns": [
+        "\\b(?:control flow)\\b",
+        "\\b(?:ForEach)\\b",
+        "\\b(?:If Condition)\\b",
+        "\\b(?:Get Metadata)\\b",
+        "\\b(?:activity dependenc(?:y|ies))\\b"
+      ],
+      "matchFamilies": [],
+      "packTags": [],
+      "exclude": [],
+      "existingAtlasId": null,
+      "sourceRefs": [
+        "content/fabric/notes.json",
+        "content/fabric/index.json"
+      ],
+      "reviewState": "candidate",
+      "stats": {
+        "unitCount": 44,
+        "byFamily": {
+          "fabric-questions": 20,
+          "fabric-notes": 24
+        },
+        "byLanguage": {
+          "en": 44
+        },
+        "primary": 20,
+        "roles": {
+          "practices": 20,
+          "explains": 24
+        }
+      },
+      "crosswalk": null
+    },
+    {
+      "id": "concept:fabric:expression-language",
+      "prefLabel": "Pipeline expression language",
+      "domain": "fabric",
+      "kind": "orchestration",
+      "definition": "The typed expression and dynamic-content system that resolves parameters, activity outputs and run-scoped values before an activity executes.",
+      "scope": "Expression evaluation; distinct from a semantic-model DAX expression and from a SQL expression.",
+      "discriminatingContext": "Distinguish interpolation, typed evaluation and the JSON shape of an activity output.",
+      "aliases": {
+        "en": [
+          "expression language",
+          "dynamic content",
+          "pipeline expression",
+          "expression reference"
+        ],
+        "ar": [
+          "لغة التعبيرات",
+          "المحتوى الديناميكي"
+        ]
+      },
+      "patterns": [
+        "\\b(?:expression language)\\b",
+        "\\b(?:dynamic content)\\b",
+        "\\b(?:pipeline expressions?)\\b",
+        "\\b(?:expression references?)\\b"
+      ],
+      "matchFamilies": [],
+      "packTags": [],
+      "exclude": [],
+      "existingAtlasId": null,
+      "sourceRefs": [
+        "content/fabric/notes.json",
+        "content/fabric/index.json"
+      ],
+      "reviewState": "candidate",
+      "stats": {
+        "unitCount": 19,
+        "byFamily": {
+          "fabric-questions": 9,
+          "fabric-notes": 9,
+          "academy": 1
+        },
+        "byLanguage": {
+          "en": 19
+        },
+        "primary": 16,
+        "roles": {
+          "practices": 9,
+          "explains": 9,
+          "applies": 1
+        }
+      },
+      "crosswalk": null
+    },
+    {
+      "id": "concept:fabric:pipeline-reliability",
+      "prefLabel": "Pipeline reliability",
+      "domain": "fabric",
+      "kind": "operations",
+      "definition": "Retry, idempotency, replay safety and readiness checks that keep a pipeline correct across transient failures.",
+      "scope": "Operational correctness; a successful activity run is not proof that the target data is correct.",
+      "discriminatingContext": "Distinguish transport success from content validation and replay safety.",
+      "aliases": {
+        "en": [
+          "pipeline reliability",
+          "idempotent write",
+          "replay-safe",
+          "retry policy",
+          "production readiness"
+        ],
+        "ar": [
+          "موثوقية خط الأنابيب",
+          "إعادة المحاولة",
+          "الكتابة المتكررة بأمان"
+        ]
+      },
+      "patterns": [
+        "\\b(?:idempoten(?:t|cy))\\b",
+        "\\b(?:replay-safe)\\b",
+        "\\b(?:retry polic(?:y|ies))\\b",
+        "\\b(?:exponential backoff)\\b",
+        "\\b(?:production readiness)\\b"
+      ],
+      "matchFamilies": [],
+      "packTags": [],
+      "exclude": [],
+      "existingAtlasId": null,
+      "sourceRefs": [
+        "content/fabric/notes.json",
+        "content/fabric/index.json"
+      ],
+      "reviewState": "candidate",
+      "stats": {
+        "unitCount": 10,
+        "byFamily": {
+          "fabric-questions": 3,
+          "fabric-notes": 7
+        },
+        "byLanguage": {
+          "en": 10
+        },
+        "primary": 2,
+        "roles": {
+          "practices": 3,
+          "explains": 7
+        }
+      },
+      "crosswalk": null
+    },
+    {
+      "id": "concept:fabric:v-order",
+      "prefLabel": "V-Order",
+      "domain": "fabric",
+      "kind": "storage_optimization",
+      "definition": "A write-time Parquet layout that trades additional write cost for faster reads by supported engines.",
+      "scope": "Write-layout optimization; distinct from OPTIMIZE compaction and from Z-Order multi-dimensional clustering.",
+      "discriminatingContext": "Distinguish write amplification from read acceleration and measure the workload before enabling it.",
+      "aliases": {
+        "en": [
+          "V-Order",
+          "write layout",
+          "Parquet write"
+        ],
+        "ar": [
+          "ترتيب الكتابة",
+          "تحسين القراءة"
+        ]
+      },
+      "patterns": [
+        "\\b(?:V-Order)\\b",
+        "\\b(?:write layout)\\b"
+      ],
+      "matchFamilies": [],
+      "packTags": [],
+      "exclude": [],
+      "existingAtlasId": null,
+      "sourceRefs": [
+        "content/fabric/notes.json",
+        "content/fabric/index.json"
+      ],
+      "reviewState": "candidate",
+      "stats": {
+        "unitCount": 4,
+        "byFamily": {
+          "fabric-questions": 1,
+          "fabric-additions": 1,
+          "fabric-notes": 2
+        },
+        "byLanguage": {
+          "en": 4
+        },
+        "primary": 0,
+        "roles": {
+          "practices": 2,
+          "explains": 2
+        }
+      },
+      "crosswalk": null
+    },
+    {
+      "id": "concept:fabric:deletion-vectors",
+      "prefLabel": "Deletion vectors",
+      "domain": "fabric",
+      "kind": "storage_format",
+      "definition": "Metadata that marks rows deleted without rewriting the underlying Parquet files, subject to reader compatibility.",
+      "scope": "Logical deletion metadata; distinct from physical file removal and from time-travel retention.",
+      "discriminatingContext": "Distinguish a logical delete from a physical rewrite and from a retained historical snapshot.",
+      "aliases": {
+        "en": [
+          "deletion vector",
+          "logical deletion"
+        ],
+        "ar": [
+          "نواقل الحذف",
+          "الحذف المنطقي"
+        ]
+      },
+      "patterns": [
+        "\\b(?:deletion vectors?)\\b",
+        "\\b(?:logical deletion)\\b"
+      ],
+      "matchFamilies": [],
+      "packTags": [],
+      "exclude": [],
+      "existingAtlasId": null,
+      "sourceRefs": [
+        "content/fabric/notes.json",
+        "content/fabric/index.json"
+      ],
+      "reviewState": "candidate",
+      "stats": {
+        "unitCount": 5,
+        "byFamily": {
+          "fabric-questions": 3,
+          "fabric-notes": 2
+        },
+        "byLanguage": {
+          "en": 5
+        },
+        "primary": 4,
+        "roles": {
+          "practices": 3,
+          "explains": 2
+        }
+      },
+      "crosswalk": null
+    },
+    {
+      "id": "concept:fabric:materialized-lake-view",
+      "prefLabel": "Materialized lake view",
+      "domain": "fabric",
+      "kind": "transformation",
+      "definition": "A persisted, refreshable view over lakehouse data with its own schedule, lineage and incremental-processing rules.",
+      "scope": "Persisted transformation object; not an ad-hoc SQL view and not a semantic-model table.",
+      "discriminatingContext": "Distinguish the stored result from the query definition and from the refresh schedule.",
+      "aliases": {
+        "en": [
+          "materialized lake view",
+          "MLV",
+          "single-view run"
+        ],
+        "ar": [
+          "عرض البحيرة المادي",
+          "العرض المادي"
+        ]
+      },
+      "patterns": [
+        "\\b(?:materialized lake views?)\\b",
+        "\\b(?:MLVs?)\\b"
+      ],
+      "matchFamilies": [],
+      "packTags": [],
+      "exclude": [],
+      "existingAtlasId": null,
+      "sourceRefs": [
+        "content/fabric/notes.json",
+        "content/fabric/index.json"
+      ],
+      "reviewState": "candidate",
+      "stats": {
+        "unitCount": 18,
+        "byFamily": {
+          "fabric-notes": 18
+        },
+        "byLanguage": {
+          "en": 18
+        },
+        "primary": 0,
+        "roles": {
+          "explains": 18
+        }
+      },
+      "crosswalk": null
+    },
+    {
+      "id": "concept:fabric:metadata-sync",
+      "prefLabel": "SQL endpoint metadata sync",
+      "domain": "fabric",
+      "kind": "query_surface",
+      "definition": "The process that publishes lakehouse table metadata to the SQL analytics endpoint, with its own readiness and limitation states.",
+      "scope": "Metadata publication; completion of a Spark write does not prove that endpoint metadata is ready.",
+      "discriminatingContext": "Distinguish write completion, metadata visibility and query availability.",
+      "aliases": {
+        "en": [
+          "metadata sync",
+          "endpoint sync",
+          "SQL metadata",
+          "schema synchronization"
+        ],
+        "ar": [
+          "مزامنة البيانات الوصفية",
+          "مزامنة نقطة النهاية"
+        ]
+      },
+      "patterns": [
+        "\\b(?:metadata sync(?:hronization)?)\\b",
+        "\\b(?:endpoint sync)\\b",
+        "\\b(?:schema synchronization)\\b"
+      ],
+      "matchFamilies": [],
+      "packTags": [],
+      "exclude": [],
+      "existingAtlasId": null,
+      "sourceRefs": [
+        "content/fabric/notes.json",
+        "content/fabric/index.json"
+      ],
+      "reviewState": "candidate",
+      "stats": {
+        "unitCount": 30,
+        "byFamily": {
+          "fabric-questions": 13,
+          "fabric-notes": 13,
+          "fabric-cases": 4
+        },
+        "byLanguage": {
+          "en": 30
+        },
+        "primary": 15,
+        "roles": {
+          "practices": 13,
+          "explains": 13,
+          "applies": 4
+        }
+      },
+      "crosswalk": null
+    },
+    {
+      "id": "concept:fabric:dmv",
+      "prefLabel": "Dynamic management view",
+      "domain": "fabric",
+      "kind": "observability",
+      "definition": "A live SQL server view of sessions, connections and requests, scoped by workspace role and distinct from retained query history.",
+      "scope": "Live operational inspection; not a historical audit log and not a performance score.",
+      "discriminatingContext": "Distinguish live request state from retained Query Insights history and from role-scoped visibility.",
+      "aliases": {
+        "en": [
+          "dynamic management view",
+          "DMV",
+          "Query Insights"
+        ],
+        "ar": [
+          "عرض الإدارة الديناميكي",
+          "رؤى الاستعلام"
+        ]
+      },
+      "patterns": [
+        "\\b(?:dynamic management views?)\\b",
+        "\\b(?:DMVs?)\\b",
+        "sys\\.dm[\\w_]*",
+        "\\b(?:Query Insights)\\b"
+      ],
+      "matchFamilies": [],
+      "packTags": [],
+      "exclude": [],
+      "existingAtlasId": null,
+      "sourceRefs": [
+        "content/fabric/notes.json",
+        "content/academy/fabric-analytics/lessons.json"
+      ],
+      "reviewState": "candidate",
+      "stats": {
+        "unitCount": 36,
+        "byFamily": {
+          "fabric-questions": 16,
+          "fabric-additions": 2,
+          "fabric-r11": 1,
+          "fabric-notes": 13,
+          "academy": 4
+        },
+        "byLanguage": {
+          "en": 36
+        },
+        "primary": 16,
+        "roles": {
+          "practices": 19,
+          "explains": 13,
+          "applies": 4
+        }
+      },
+      "crosswalk": null
+    }
+  ],
+  "aliasCollisions": [
+    {
+      "term": "partition",
+      "conceptIds": [
+        "concept:fabric:incremental-refresh",
+        "concept:fabric:partitioning"
+      ]
+    },
+    {
+      "term": "التقسيم",
+      "conceptIds": [
+        "concept:fabric:partitioning",
+        "concept:analysis:segmentation"
+      ]
+    },
+    {
+      "term": "commit",
+      "conceptIds": [
+        "concept:fabric:git",
+        "concept:sql:transactions"
+      ]
+    },
+    {
+      "term": "population",
+      "conceptIds": [
+        "concept:sql:population",
+        "concept:stats:population-sample"
+      ]
+    },
+    {
+      "term": "denominator",
+      "conceptIds": [
+        "concept:sql:population",
+        "concept:analysis:metric-definition"
+      ]
+    },
+    {
+      "term": "المجتمع",
+      "conceptIds": [
+        "concept:sql:population",
+        "concept:stats:population-sample"
+      ]
+    },
+    {
+      "term": "التباين",
+      "conceptIds": [
+        "concept:stats:spread",
+        "concept:viz:accessibility-contrast"
+      ]
+    },
+    {
+      "term": "فترة الثقة",
+      "conceptIds": [
+        "concept:stats:confidence-interval",
+        "concept:viz:uncertainty-display"
+      ]
+    }
+  ]
+}

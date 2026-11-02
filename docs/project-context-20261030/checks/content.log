@@ -1,0 +1,338 @@
+TAP version 13
+# (node:25144) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///D:/BeUI/amir-portfolio/lib/case-studies.ts is not specified and it doesn't parse as CommonJS.
+# Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+# To eliminate this warning, add "type": "module" to D:\\BeUI\\amir-portfolio\\package.json.
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# Subtest: every case study declares a role, timeframe, limitation and outcome
+ok 1 - every case study declares a role, timeframe, limitation and outcome
+  ---
+  duration_ms: 2.3149
+  type: 'test'
+  ...
+# Subtest: every metric exposes a label and a qualifying note
+ok 2 - every metric exposes a label and a qualifying note
+  ---
+  duration_ms: 0.7204
+  type: 'test'
+  ...
+# Subtest: the HSE safety rates declare their hour base and stay mutually consistent
+ok 3 - the HSE safety rates declare their hour base and stay mutually consistent
+  ---
+  duration_ms: 2.2727
+  type: 'test'
+  ...
+# Subtest: screenshots referenced by case studies exist in public/
+ok 4 - screenshots referenced by case studies exist in public/
+  ---
+  duration_ms: 2.0455
+  type: 'test'
+  ...
+# (node:9596) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///D:/BeUI/amir-portfolio/lib/academy/corpus.ts is not specified and it doesn't parse as CommonJS.
+# Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+# To eliminate this warning, add "type": "module" to D:\\BeUI\\amir-portfolio\\package.json.
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# Subtest: the Academy mirrors the MIT courseware with attribution on every lesson
+ok 5 - the Academy mirrors the MIT courseware with attribution on every lesson
+  ---
+  duration_ms: 11.866
+  type: 'test'
+  ...
+# Subtest: draft banks ship no answer keys and keep grading disabled
+ok 6 - draft banks ship no answer keys and keep grading disabled
+  ---
+  duration_ms: 72.1977
+  type: 'test'
+  ...
+# Subtest: kengio attribution and candidate provenance name their sources
+ok 7 - kengio attribution and candidate provenance name their sources
+  ---
+  duration_ms: 0.5114
+  type: 'test'
+  ...
+# Subtest: both banks appear once in the review inventory with disabled grading
+ok 8 - both banks appear once in the review inventory with disabled grading
+  ---
+  duration_ms: 444.8745
+  type: 'test'
+  ...
+# Subtest: DP-600 R18 draft: 222 records, unique namespaced ids, grading off, NO_GO
+ok 9 - DP-600 R18 draft: 222 records, unique namespaced ids, grading off, NO_GO
+  ---
+  duration_ms: 20.7969
+  type: 'test'
+  ...
+# Subtest: PL-300 V88 draft: 1,285 records, unique namespaced ids, grading off, NONFINAL
+ok 10 - PL-300 V88 draft: 1,285 records, unique namespaced ids, grading off, NONFINAL
+  ---
+  duration_ms: 28.3062
+  type: 'test'
+  ...
+# Subtest: no answer-bearing field reaches either shipped projection
+ok 11 - no answer-bearing field reaches either shipped projection
+  ---
+  duration_ms: 148.6052
+  type: 'test'
+  ...
+# Subtest: shipped drafts contain none of the private mirror's marker strings
+ok 12 - shipped drafts contain none of the private mirror's marker strings
+  ---
+  duration_ms: 69.7757
+  type: 'test'
+  ...
+# Subtest: the two banks stay separate and never collide
+ok 13 - the two banks stay separate and never collide
+  ---
+  duration_ms: 104.6795
+  type: 'test'
+  ...
+# Subtest: drafts are not merged into the approved banks
+ok 14 - drafts are not merged into the approved banks
+  ---
+  duration_ms: 407.728
+  type: 'test'
+  ...
+# Subtest: the draft route is isolated: noindex, out of the sitemap and catalogue
+ok 15 - the draft route is isolated: noindex, out of the sitemap and catalogue
+  ---
+  duration_ms: 1.0716
+  type: 'test'
+  ...
+# Subtest: draft code never touches learner progress storage
+ok 16 - draft code never touches learner progress storage
+  ---
+  duration_ms: 0.8423
+  type: 'test'
+  ...
+# Subtest: no app code imports the private intake mirror or the intake manifests
+ok 17 - no app code imports the private intake mirror or the intake manifests
+  ---
+  duration_ms: 234.0332
+  type: 'test'
+  ...
+# Subtest: the private mirror is gitignored and excluded from version control
+ok 18 - the private mirror is gitignored and excluded from version control
+  ---
+  duration_ms: 1.2432
+  type: 'test'
+  ...
+# Subtest: projection hashes recorded in the intake manifests still match the shipped files
+ok 19 - projection hashes recorded in the intake manifests still match the shipped files
+  ---
+  duration_ms: 17.3197
+  type: 'test'
+  ...
+# Subtest: both intake packages' declared statuses survive into the shipped manifest
+ok 20 - both intake packages' declared statuses survive into the shipped manifest
+  ---
+  duration_ms: 0.5162
+  type: 'test'
+  ...
+# (node:18764) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///D:/BeUI/amir-portfolio/lib/hse/rates.ts is not specified and it doesn't parse as CommonJS.
+# Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+# To eliminate this warning, add "type": "module" to D:\\BeUI\\amir-portfolio\\package.json.
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# Subtest: TRIR uses the 200,000-hour base and LTIFR the 1,000,000-hour base
+ok 21 - TRIR uses the 200,000-hour base and LTIFR the 1,000,000-hour base
+  ---
+  duration_ms: 3.4378
+  type: 'test'
+  ...
+# Subtest: the illustrative counts reproduce the published display values after rounding
+ok 22 - the illustrative counts reproduce the published display values after rounding
+  ---
+  duration_ms: 8.1495
+  type: 'test'
+  ...
+# Subtest: converting a rate between bases is exact and reversible
+ok 23 - converting a rate between bases is exact and reversible
+  ---
+  duration_ms: 0.3386
+  type: 'test'
+  ...
+# Subtest: on a common base the recordable rate is at least the lost-time rate
+ok 24 - on a common base the recordable rate is at least the lost-time rate
+  ---
+  duration_ms: 0.5635
+  type: 'test'
+  ...
+# Subtest: rates scale inversely with hours worked
+ok 25 - rates scale inversely with hours worked
+  ---
+  duration_ms: 0.375
+  type: 'test'
+  ...
+# Subtest: invalid inputs produce no rate and an explicit reason
+ok 26 - invalid inputs produce no rate and an explicit reason
+  ---
+  duration_ms: 0.5479
+  type: 'test'
+  ...
+# Subtest: a lost-time count above the recordable count is rejected
+ok 27 - a lost-time count above the recordable count is rejected
+  ---
+  duration_ms: 0.317
+  type: 'test'
+  ...
+# Subtest: zero cases give a zero rate, and zero lost-time cases leave the ratio undefined
+ok 28 - zero cases give a zero rate, and zero lost-time cases leave the ratio undefined
+  ---
+  duration_ms: 0.4293
+  type: 'test'
+  ...
+# Subtest: formatRate never prints NaN or Infinity
+ok 29 - formatRate never prints NaN or Infinity
+  ---
+  duration_ms: 0.8891
+  type: 'test'
+  ...
+# (node:24528) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///D:/BeUI/amir-portfolio/lib/search/query.ts is not specified and it doesn't parse as CommonJS.
+# Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+# To eliminate this warning, add "type": "module" to D:\\BeUI\\amir-portfolio\\package.json.
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# Subtest: normalisation folds case, punctuation, diacritics and Arabic letter variants
+ok 30 - normalisation folds case, punctuation, diacritics and Arabic letter variants
+  ---
+  duration_ms: 5.5685
+  type: 'test'
+  ...
+# Subtest: the v2 benchmark queries reach a relevant destination
+ok 31 - the v2 benchmark queries reach a relevant destination
+  ---
+  duration_ms: 2.7938
+  type: 'test'
+  ...
+# Subtest: every token must match, so extra words narrow the set
+ok 32 - every token must match, so extra words narrow the set
+  ---
+  duration_ms: 2.23
+  type: 'test'
+  ...
+# Subtest: title matches outrank summary-only matches
+ok 33 - title matches outrank summary-only matches
+  ---
+  duration_ms: 0.6571
+  type: 'test'
+  ...
+# Subtest: filters narrow by kind and language without dropping the query
+ok 34 - filters narrow by kind and language without dropping the query
+  ---
+  duration_ms: 1.622
+  type: 'test'
+  ...
+# Subtest: an empty query lists everything rather than nothing
+ok 35 - an empty query lists everything rather than nothing
+  ---
+  duration_ms: 40.2737
+  type: 'test'
+  ...
+# Subtest: scoring is deterministic and symmetric for repeated calls
+ok 36 - scoring is deterministic and symmetric for repeated calls
+  ---
+  duration_ms: 1.2516
+  type: 'test'
+  ...
+# (node:29568) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# Subtest: every source entry is accounted for and canonical order has exactly one owner
+ok 37 - every source entry is accounted for and canonical order has exactly one owner
+  ---
+  duration_ms: 11.0656
+  type: 'test'
+  ...
+# Subtest: source diagrams, code, media and bilingual bodies survive import
+ok 38 - source diagrams, code, media and bilingual bodies survive import
+  ---
+  duration_ms: 7.5896
+  type: 'test'
+  ...
+# Subtest: pre-existing content, exam answers and identities remain byte-identical
+ok 39 - pre-existing content, exam answers and identities remain byte-identical
+  ---
+  duration_ms: 76.4112
+  type: 'test'
+  ...
+# Subtest: source self-checks retain prompts and responses without adding grading keys to discovery
+ok 40 - source self-checks retain prompts and responses without adding grading keys to discovery
+  ---
+  duration_ms: 0.8254
+  type: 'test'
+  ...
+# Subtest: grain trace agrees with independently executed SQL and preserves pre-aggregation grain
+ok 41 - grain trace agrees with independently executed SQL and preserves pre-aggregation grain
+  ---
+  duration_ms: 183.7253
+  type: 'test'
+  ...
+# Subtest: corrected window figure includes only the two preceding rows and current row
+ok 42 - corrected window figure includes only the two preceding rows and current row
+  ---
+  duration_ms: 0.9798
+  type: 'test'
+  ...
+# Subtest: new SQL discovery is unique, topic-valid and has a complete canonical reading sequence
+ok 43 - new SQL discovery is unique, topic-valid and has a complete canonical reading sequence
+  ---
+  duration_ms: 1587.3736
+  type: 'test'
+  ...
+# (node:19508) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///D:/BeUI/amir-portfolio/lib/study/taxonomy.ts is not specified and it doesn't parse as CommonJS.
+# Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+# To eliminate this warning, add "type": "module" to D:\\BeUI\\amir-portfolio\\package.json.
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# Subtest: reference records are placed on real subject desks
+ok 44 - reference records are placed on real subject desks
+  ---
+  duration_ms: 30.0349
+  type: 'test'
+  ...
+# Subtest: every fabric module desk gains reference material
+ok 45 - every fabric module desk gains reference material
+  ---
+  duration_ms: 13.8178
+  type: 'test'
+  ...
+# Subtest: reference ids, URLs and provenance are intact
+ok 46 - reference ids, URLs and provenance are intact
+  ---
+  duration_ms: 9.0874
+  type: 'test'
+  ...
+# Subtest: no exam-prep or answer-key source survives curation
+ok 47 - no exam-prep or answer-key source survives curation
+  ---
+  duration_ms: 2.9362
+  type: 'test'
+  ...
+# Subtest: the curation ledger accounts for every input record
+ok 48 - the curation ledger accounts for every input record
+  ---
+  duration_ms: 0.4939
+  type: 'test'
+  ...
+# Subtest: hands-on labs carry license, provenance and a real source
+ok 49 - hands-on labs carry license, provenance and a real source
+  ---
+  duration_ms: 0.8776
+  type: 'test'
+  ...
+# Subtest: mslearn-fabric labs carry recovered titles, not folder names
+ok 50 - mslearn-fabric labs carry recovered titles, not folder names
+  ---
+  duration_ms: 0.6949
+  type: 'test'
+  ...
+# Subtest: study record ids never collide across the catalogue
+ok 51 - study record ids never collide across the catalogue
+  ---
+  duration_ms: 1579.8032
+  type: 'test'
+  ...
+1..51
+# tests 51
+# suites 0
+# pass 51
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 4475.0628

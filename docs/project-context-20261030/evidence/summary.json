@@ -1,0 +1,836 @@
+{
+  "head": "45704b586237ae26a4c55be944d27147e84f491b",
+  "branch": "feat/dp600-academy-ingestion-20261025",
+  "files": 4531,
+  "codeFiles": 551,
+  "routeFiles": 76,
+  "contentJsonFiles": 124,
+  "byRoot": {
+    ".agents": 48,
+    ".github": 2,
+    ".gitignore": 1,
+    "AGENTS.md": 1,
+    "app": 80,
+    "components": 211,
+    "content": 131,
+    "docs": 3267,
+    "eslint.config.mjs": 1,
+    "graphify-out": 398,
+    "HANSA_EASYUI_V2_START_HERE.md": 1,
+    "intake": 86,
+    "legacy-redirect": 1,
+    "lib": 81,
+    "next-env.d.ts": 1,
+    "next.config.ts": 1,
+    "package-lock.json": 1,
+    "package.json": 1,
+    "public": 33,
+    "README.md": 1,
+    "scripts": 141,
+    "tests": 40,
+    "tsconfig.json": 1,
+    "tsconfig.tsbuildinfo": 1,
+    "wrangler.jsonc": 1
+  },
+  "largestCodeFiles": [
+    {
+      "path": "lib/statistics/content.ts",
+      "bytes": 88869,
+      "sha256": "309e17e5cd71cfdeecefc222504c1b7c74fd9ce3726520b6dfdaa4b567f7ed9b",
+      "lines": 1924,
+      "client": false,
+      "imports": [],
+      "exports": [
+        "JourneySlug",
+        "Journey",
+        "VisualKind",
+        "SectionMeta",
+        "JOURNEYS",
+        "JOURNEY_BY_SLUG",
+        "SECTIONS",
+        "SECTION_BY_ID",
+        "sectionsForJourney",
+        "journeyHref",
+        "sectionHref",
+        "LabMeta",
+        "LABS",
+        "LAB_BY_SLUG",
+        "labHref",
+        "FormulaEntry",
+        "FORMULAS",
+        "GlossaryEntry",
+        "GLOSSARY",
+        "Myth",
+        "MYTHS",
+        "DecisionOption",
+        "DecisionNode",
+        "DecisionResult",
+        "DECISION_NODES",
+        "DECISION_RESULTS",
+        "DECISION_RESULT_BY_ID",
+        "SearchItem",
+        "buildSearchIndex"
+      ]
+    },
+    {
+      "path": "scripts/import-notion-statistics.mjs",
+      "bytes": 35748,
+      "sha256": "1215099eb46015c0767e6294221dac392dbfddee30ff052a50d3a78dc9a2e9ec",
+      "lines": 985,
+      "client": false,
+      "imports": [
+        "node:crypto",
+        "node:fs",
+        "node:fs/promises",
+        "node:path",
+        "node:url",
+        "node-html-parser"
+      ],
+      "exports": [
+        "FORMULA_TEX",
+        "repairFormula"
+      ]
+    },
+    {
+      "path": "components/data-viz/integrity-lab.tsx",
+      "bytes": 37396,
+      "sha256": "6c0e9a8ea7ceed0694d95e46813356a68203b4aadf443bba33a89f63b5e8cc6e",
+      "lines": 968,
+      "client": true,
+      "imports": [
+        "react",
+        "lucide-react",
+        "@/lib/data-viz/datasets",
+        "@/lib/data-viz/chart-math",
+        "@/components/data-viz/lab-ui",
+        "@/lib/utils"
+      ],
+      "exports": [
+        "IntegrityLab"
+      ]
+    },
+    {
+      "path": "components/lab/exam-player.tsx",
+      "bytes": 40377,
+      "sha256": "9859ef5bcbb13c91fd8f16a3b6e6c56a59c1cc691e50f39e23f795ee6be46b8d",
+      "lines": 967,
+      "client": true,
+      "imports": [
+        "next/link",
+        "react",
+        "lucide-react",
+        "@/lib/exams",
+        "@/lib/exams",
+        "@/lib/lab-storage",
+        "@/lib/utils"
+      ],
+      "exports": [
+        "ExamPlayer"
+      ]
+    },
+    {
+      "path": "lib/statistics/math.ts",
+      "bytes": 30316,
+      "sha256": "8c0ba7493dd73254eda2aae72a86ebefd3bf0de8c70dc5cdebeece64f6c8db47",
+      "lines": 952,
+      "client": false,
+      "imports": [],
+      "exports": [
+        "Z95",
+        "Z99",
+        "clamp",
+        "isFiniteNumber",
+        "sum",
+        "mean",
+        "sorted",
+        "median",
+        "quantile",
+        "modes",
+        "range",
+        "variance",
+        "standardDeviation",
+        "FiveNumber",
+        "fiveNumber",
+        "Summary",
+        "summarize",
+        "mulberry32",
+        "normalRandom",
+        "uniformRandom",
+        "exponentialRandom",
+        "sampleMean",
+        "logGamma",
+        "logFactorial",
+        "erfc",
+        "erf",
+        "normalPdf",
+        "normalCdf",
+        "normalQuantile",
+        "incompleteBeta",
+        "studentTCdf",
+        "studentTQuantile",
+        "studentTPdf",
+        "binomialPmf",
+        "binomialCdf",
+        "binomialTailAtLeast",
+        "binomialMoments",
+        "poissonPmf",
+        "poissonCdf",
+        "poissonTailAtLeast",
+        "poissonMoments",
+        "poissonRandom",
+        "MeanInterval",
+        "meanConfidenceInterval",
+        "wilsonInterval",
+        "ProportionTest",
+        "Alternative",
+        "zTestPValue",
+        "twoProportionTest",
+        "zTestPower",
+        "Regression",
+        "pearson",
+        "linearRegression",
+        "PopulationShape",
+        "PopulationSpec",
+        "populationSpec",
+        "SamplingResult",
+        "simulateSampleMeans",
+        "CoverageTrial",
+        "CoverageResult",
+        "simulateCoverage",
+        "HistogramBin",
+        "histogram",
+        "formatNumber",
+        "formatPercent",
+        "formatPValue",
+        "formatSigned"
+      ]
+    },
+    {
+      "path": "scripts/import-notion-data-viz.mjs",
+      "bytes": 32780,
+      "sha256": "a37df2b2629432f738f535a8dfb20066ca1fe4b6e08923d77bc86ba33ceaeb14",
+      "lines": 864,
+      "client": false,
+      "imports": [
+        "node:crypto",
+        "node:fs",
+        "node:fs/promises",
+        "node:path",
+        "node:url",
+        "node-html-parser"
+      ],
+      "exports": []
+    },
+    {
+      "path": "components/data-viz/choose-assistant.tsx",
+      "bytes": 28760,
+      "sha256": "f8e4d07cfe0dc98fbc6c9106bced14766475d6f4288eaa7310e0f575c74b8f6e",
+      "lines": 765,
+      "client": true,
+      "imports": [
+        "react",
+        "motion/react",
+        "lucide-react",
+        "@/components/agents/approval-card",
+        "@/components/agents/approval-card",
+        "@/components/agents/agent-activity",
+        "@/components/agents/citations",
+        "@/components/agents/loading-states/reasoning-text",
+        "@/components/agents/message",
+        "@/components/agents/prompt-input",
+        "@/components/agents/streaming-response",
+        "@/components/data-viz/lab-ui",
+        "@/lib/data-viz/decision",
+        "@/lib/data-viz/assistant",
+        "@/lib/utils"
+      ],
+      "exports": [
+        "ChooseAssistant"
+      ]
+    },
+    {
+      "path": "components/fabric/session-runner.tsx",
+      "bytes": 28774,
+      "sha256": "dcc03ebf15a89a8d55d514d511d298915c47856370c7aa88295d82249a831471",
+      "lines": 762,
+      "client": true,
+      "imports": [
+        "react",
+        "next/link",
+        "lucide-react",
+        "@/components/fabric/question-view",
+        "@/components/fabric/session-results",
+        "@/components/fabric/session-setup",
+        "@/components/fabric/ui",
+        "@/lib/fabric/engine",
+        "@/lib/fabric/storage",
+        "@/lib/fabric/data",
+        "@/lib/fabric/types",
+        "@/lib/utils"
+      ],
+      "exports": [
+        "SessionRunnerProps",
+        "SessionRunner"
+      ]
+    },
+    {
+      "path": "components/motion/tooltip.tsx",
+      "bytes": 22172,
+      "sha256": "05aa29e1cac3ac96d2ea5f1320e48cc65f905b26ccee8044971d6a0318c776b4",
+      "lines": 674,
+      "client": true,
+      "imports": [
+        "motion/react",
+        "react",
+        "react-dom",
+        "@/components/motion/tooltip-surface",
+        "@/lib/hooks/use-dismiss",
+        "@/lib/hooks/use-hover-gesture",
+        "@/lib/hooks/use-tap-gesture",
+        "@/lib/utils",
+        "./tooltip/grace",
+        "./tooltip/positioner",
+        "./tooltip/use-position"
+      ],
+      "exports": [
+        "TooltipProviderProps",
+        "TooltipProvider",
+        "TooltipRootProps",
+        "TooltipTriggerProps",
+        "TooltipTrigger",
+        "TooltipContentProps",
+        "TooltipContent",
+        "TooltipProps",
+        "Tooltip"
+      ]
+    },
+    {
+      "path": "lib/data-viz/figure-data.ts",
+      "bytes": 22407,
+      "sha256": "a1a7bad27f480e2f9c1fdd58b03e41dc612fb13667a0cf6bffcdaec3b163775b",
+      "lines": 674,
+      "client": false,
+      "imports": [],
+      "exports": [
+        "XY",
+        "ANSCOMBE_LABELS",
+        "ANSCOMBE",
+        "QuartetSummary",
+        "quartetSummary",
+        "QUARTET_SUMMARIES",
+        "quartetMaxDifference",
+        "mulberry32",
+        "HistogramShape",
+        "HISTOGRAM_SHAPES",
+        "histogramSample",
+        "histogramCopy",
+        "countModes",
+        "MixtureSample",
+        "mixtureSample",
+        "SegmentArm",
+        "Segment",
+        "armRate",
+        "pooledRate",
+        "standardizedRate",
+        "simpsonAtMix",
+        "FunnelStage",
+        "FunnelLink",
+        "funnelLinks",
+        "CompositionSeriesData",
+        "COMPOSITION_PERIODS",
+        "COMPOSITION_SERIES",
+        "compositionShares",
+        "CHANNEL_MIX",
+        "ENCODING_CHANNELS",
+        "PIPELINE_STAGES",
+        "PipelineScenario",
+        "PIPELINE_SCENARIOS",
+        "DASHBOARD_TIERS",
+        "DASHBOARD_SCENARIOS",
+        "KPI",
+        "Estimate",
+        "UNCERTAINTY_ESTIMATES",
+        "uncertaintyVerdict"
+      ]
+    },
+    {
+      "path": "components/fabric/explorer.tsx",
+      "bytes": 26576,
+      "sha256": "7505f4cff3fcf53042e90512bd31ebed729e1f196fc7309b772fbeef280c19c9",
+      "lines": 663,
+      "client": true,
+      "imports": [
+        "react",
+        "next/link",
+        "lucide-react",
+        "@/components/fabric/question-view",
+        "@/components/fabric/ui",
+        "@/lib/fabric/data",
+        "@/lib/fabric/engine",
+        "@/lib/fabric/storage",
+        "@/lib/fabric/taxonomy",
+        "@/lib/fabric/types",
+        "@/lib/utils"
+      ],
+      "exports": [
+        "Explorer"
+      ]
+    },
+    {
+      "path": "lib/atlas/field.ts",
+      "bytes": 21510,
+      "sha256": "da571a671ce66a538f6050e6fe8d8ae3caf6b5e4a4befe6ea184e598a9d8af95",
+      "lines": 657,
+      "client": false,
+      "imports": [
+        "./model",
+        "one card"
+      ],
+      "exports": [
+        "Vec3",
+        "FieldNodeKind",
+        "FieldLinkKind",
+        "FieldNode",
+        "FieldLink",
+        "Field",
+        "buildField",
+        "Camera",
+        "Orbit",
+        "DEFAULT_ORBIT",
+        "clamp",
+        "clamp01",
+        "lerp",
+        "smoothstep",
+        "cameraFor",
+        "Projected",
+        "Viewport",
+        "project",
+        "lens",
+        "RenderNode",
+        "RenderLink",
+        "RenderFrame",
+        "renderField",
+        "pickNode",
+        "dust"
+      ]
+    },
+    {
+      "path": "components/knowledge/knowledge-dealer.tsx",
+      "bytes": 23795,
+      "sha256": "911a993aa05a2de6dda282ddbcc84dc28d8a00cd7b939ce871a9b2ec8773571f",
+      "lines": 627,
+      "client": true,
+      "imports": [
+        "motion/react",
+        "react",
+        "lucide-react",
+        "@/lib/hooks/use-hover-capable",
+        "@/lib/knowledge/motion",
+        "@/lib/knowledge/models",
+        "@/lib/utils"
+      ],
+      "exports": [
+        "DealerZone",
+        "DealerCard",
+        "KnowledgeDealer"
+      ]
+    },
+    {
+      "path": "components/motion/loader.tsx",
+      "bytes": 18266,
+      "sha256": "24a3255b7a9b106cd60c246853864b541d9dd665c9fda99d314b74c98a01d66c",
+      "lines": 616,
+      "client": true,
+      "imports": [
+        "motion/react",
+        "react",
+        "@/lib/ease",
+        "@/lib/utils"
+      ],
+      "exports": [
+        "LoaderVariant",
+        "LoaderProps",
+        "Loader"
+      ]
+    },
+    {
+      "path": "components/knowledge/insight-stage.tsx",
+      "bytes": 25478,
+      "sha256": "b365b5efc7d2e4d2dc7ade70bffd83fc7c392ee11692081b850d36d097046212",
+      "lines": 613,
+      "client": true,
+      "imports": [
+        "react",
+        "next/link",
+        "lucide-react",
+        "motion/react",
+        "@/lib/knowledge/insights",
+        "@/lib/atlas/model",
+        "@/lib/knowledge/models",
+        "@/lib/atlas/field",
+        "@/lib/motion/cinematic",
+        "@/components/knowledge/insight-rail",
+        "@/components/knowledge/insight-scene",
+        "@/components/knowledge/knowledge-dealer",
+        "@/components/knowledge/atlas-peek-stage",
+        "@/components/knowledge/insight-archive",
+        "@/components/knowledge/knowledge-instrument",
+        "@/components/cinematic/reveal",
+        "@/components/cinematic/use-calm-motion",
+        "@/components/cinematic/use-scroll-progress",
+        "./stage-today",
+        "./stage-learn-gate",
+        "./stage-cert-gate",
+        "./stage-about",
+        "./observatory.css",
+        "./stage-editorial.css"
+      ],
+      "exports": [
+        "InsightStage",
+        "editionDate"
+      ]
+    },
+    {
+      "path": "app/globals.css",
+      "bytes": 18505,
+      "sha256": "9547dcceaeef59f43ff8b1180531bf2892025ecda0f8cdbdf80965f411805847",
+      "lines": 594,
+      "client": false,
+      "imports": [
+        "tailwindcss"
+      ],
+      "exports": []
+    },
+    {
+      "path": "components/fabric/question-view.tsx",
+      "bytes": 21255,
+      "sha256": "2558f25b1fecb941e6fbf6c90837cc534001c3939bf75e50d004cb10f14d7e4c",
+      "lines": 586,
+      "client": true,
+      "imports": [
+        "react",
+        "lucide-react",
+        "@/lib/fabric/types",
+        "@/lib/fabric/engine",
+        "@/lib/utils"
+      ],
+      "exports": [
+        "QuestionViewProps",
+        "QuestionView",
+        "AnswerReview"
+      ]
+    },
+    {
+      "path": "lib/fabric/storage.ts",
+      "bytes": 18990,
+      "sha256": "16471c3b98c2b660d4fa20ba70c09a58360b358ec6f26616add5e551c88f5141",
+      "lines": 572,
+      "client": true,
+      "imports": [
+        "react",
+        "./engine"
+      ],
+      "exports": [
+        "FABRIC_STORAGE_KEY",
+        "FABRIC_EXPORT_APP",
+        "FABRIC_STORAGE_VERSION",
+        "QuestionStats",
+        "StoredSession",
+        "AttemptHistoryEntry",
+        "FabricStore",
+        "StorageState",
+        "subscribeFabricStore",
+        "normalizeStore",
+        "getFabricState",
+        "getServerFabricState",
+        "useFabricStore",
+        "saveSession",
+        "getSession",
+        "listSessions",
+        "deleteSession",
+        "toggleBookmark",
+        "toggleFlag",
+        "setSettings",
+        "recordResult",
+        "learnerFromStore",
+        "ExportEnvelope",
+        "exportStore",
+        "ImportSummary",
+        "importStore",
+        "clearFabricStore"
+      ]
+    },
+    {
+      "path": "scripts/import-fabric-bank.mjs",
+      "bytes": 24342,
+      "sha256": "2e0cf3fce98ddd217d1bebeb23b586ee19009ecad75ad59a9fc1af2da515a256",
+      "lines": 566,
+      "client": false,
+      "imports": [
+        "node:crypto",
+        "node:fs/promises",
+        "node:path",
+        "node:url",
+        "../lib/fabric/classify.ts",
+        "../lib/fabric/taxonomy.ts",
+        "./types",
+        "@/content/fabric/questions/${pack.key}.json"
+      ],
+      "exports": [
+        "FabricPackLoader",
+        "PACK_LOADERS",
+        "loadPack"
+      ]
+    },
+    {
+      "path": "components/knowledge/insight-rail.tsx",
+      "bytes": 17544,
+      "sha256": "0bc0e60fd53bf8a6aab2aa8ce44be84bc23f601342894c4374de48b6818423c2",
+      "lines": 555,
+      "client": true,
+      "imports": [
+        "motion/react",
+        "react",
+        "@/lib/touch",
+        "@/lib/knowledge/motion",
+        "@/lib/utils"
+      ],
+      "exports": [
+        "RailEvent",
+        "InsightRailProps",
+        "InsightRail"
+      ]
+    },
+    {
+      "path": "components/motion/popover-morph.tsx",
+      "bytes": 19685,
+      "sha256": "b2bc2c9db80275203b7a069ea21b143a4219367e99a55e2615c2b9029aeb8965",
+      "lines": 554,
+      "client": true,
+      "imports": [
+        "motion/react",
+        "react",
+        "react-dom",
+        "@/components/motion/popover-position",
+        "@/lib/ease",
+        "@/lib/focusable",
+        "@/lib/utils"
+      ],
+      "exports": [
+        "MorphPopoverProps",
+        "MorphPopover",
+        "MorphPopoverTriggerProps",
+        "MorphPopoverTrigger",
+        "MorphPopoverContentProps",
+        "MorphPopoverContent"
+      ]
+    },
+    {
+      "path": "app/lab/dp-600/page.tsx",
+      "bytes": 24722,
+      "sha256": "5744d829918d56232469ef2eca3a4df968b2c4dc9b89a71897c2c145e883a533",
+      "lines": 529,
+      "client": false,
+      "imports": [
+        "next",
+        "next/link",
+        "lucide-react",
+        "@/components/ui",
+        "@/components/fabric/ui",
+        "@/components/fabric/hub-panels",
+        "@/lib/fabric/data",
+        "@/lib/fabric/taxonomy",
+        "@/lib/fabric/nav",
+        "@/lib/site"
+      ],
+      "exports": [
+        "metadata",
+        "FabricHubPage"
+      ]
+    },
+    {
+      "path": "components/statistics/lab-kit.tsx",
+      "bytes": 16022,
+      "sha256": "358502773631a230519076ca426f73b6d6e5f054023ac18d7164239e1276b08c",
+      "lines": 527,
+      "client": true,
+      "imports": [
+        "react",
+        "lucide-react",
+        "@/components/motion/number-ticker",
+        "@/components/statistics/chart-kit",
+        "@/lib/utils"
+      ],
+      "exports": [
+        "LabShell",
+        "Panel",
+        "Segmented",
+        "LabSlider",
+        "LabNumber",
+        "LabSelect",
+        "LabToggle",
+        "PresetButtons",
+        "ResetButton",
+        "LiveNumber",
+        "ReadoutGrid",
+        "Interpretation",
+        "Assumptions",
+        "FormulaStrip",
+        "PredictionPrompt",
+        "LabDataTable",
+        "SyntheticNote"
+      ]
+    },
+    {
+      "path": "components/motion/select.tsx",
+      "bytes": 16719,
+      "sha256": "79ff0aa16f5efa1cef2419e21961af63b262c6c69b748ad5b20138d0c6a5cab9",
+      "lines": 526,
+      "client": true,
+      "imports": [
+        "lucide-react",
+        "motion/react",
+        "react",
+        "@/lib/ease",
+        "@/lib/hooks/use-listbox",
+        "@/lib/utils"
+      ],
+      "exports": [
+        "SelectProps",
+        "Select",
+        "SelectTriggerProps",
+        "SelectTrigger",
+        "SelectValueProps",
+        "SelectValue",
+        "SelectContentProps",
+        "SelectContent",
+        "SelectItemProps",
+        "SelectItem"
+      ]
+    },
+    {
+      "path": "lib/fabric/classify.ts",
+      "bytes": 18615,
+      "sha256": "a7d2ca8f582ec7abd5424b0692a11cceda12fb5a2ccd55bbbdf227a15005d8d6",
+      "lines": 516,
+      "client": false,
+      "imports": [
+        "./taxonomy.ts",
+        "./types"
+      ],
+      "exports": [
+        "FabricDomainId",
+        "ObjectiveBasis",
+        "Classification",
+        "scoreSubjects",
+        "objectiveFromSource",
+        "scopeFromSource",
+        "classify",
+        "emptyCoverage",
+        "buildCoverage"
+      ]
+    }
+  ],
+  "mostImported": [
+    [
+      "lib/utils.ts",
+      95
+    ],
+    [
+      "components/ui.tsx",
+      47
+    ],
+    [
+      "lib/ease.ts",
+      37
+    ],
+    [
+      "lib/statistics/math.ts",
+      29
+    ],
+    [
+      "components/data-viz/lab-ui.tsx",
+      27
+    ],
+    [
+      "lib/study/taxonomy.ts",
+      26
+    ],
+    [
+      "components/statistics/chart-kit.tsx",
+      24
+    ],
+    [
+      "components/fabric/ui.tsx",
+      23
+    ],
+    [
+      "lib/site.ts",
+      22
+    ],
+    [
+      "lib/statistics/content.ts",
+      21
+    ],
+    [
+      "lib/data-viz/chart-math.ts",
+      19
+    ],
+    [
+      "components/statistics/lab-kit.tsx",
+      17
+    ],
+    [
+      "lib/atlas/model.ts",
+      15
+    ],
+    [
+      "lib/fabric/types.ts",
+      15
+    ],
+    [
+      "lib/data-viz/datasets.ts",
+      14
+    ],
+    [
+      "lib/fabric/data.ts",
+      13
+    ],
+    [
+      "lib/data-viz/figure-data.ts",
+      13
+    ],
+    [
+      "lib/fabric/taxonomy.ts",
+      12
+    ],
+    [
+      "components/data-viz/figures/kit.tsx",
+      12
+    ],
+    [
+      "lib/data-viz/content.ts",
+      11
+    ],
+    [
+      "lib/fabric/engine.ts",
+      11
+    ],
+    [
+      "lib/data-viz/labs.ts",
+      10
+    ],
+    [
+      "lib/academy/ingestion.ts",
+      10
+    ],
+    [
+      "lib/sql/registry.ts",
+      10
+    ],
+    [
+      "components/statistics/page-header.tsx",
+      10
+    ]
+  ]
+}

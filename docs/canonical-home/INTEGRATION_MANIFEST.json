@@ -127,6 +127,48 @@
       "committedSha256": "ae9ec5694278d300d7ecf2ba5d5119c12615ded4367b9d580e64d614dd5cb235",
       "reason": "Superseded: this was the previous root landing implementation, replaced by components/knowledge/hansa-landing.tsx.",
       "note": "The committed bytes match the layer-1 expectation."
+    },
+    {
+      "path": "components/cinematic/spacetime-atlas.tsx",
+      "expectedSha256": "92c9051377b59571a10b1fd31aa84d27ad28725b4e4f17194288950cd84e8f66",
+      "committedSha256": "92c9051377b59571a10b1fd31aa84d27ad28725b4e4f17194288950cd84e8f66",
+      "reason": "Retired with the editorial re-stage of 2026-10-30: the pinned Act II camera was replaced by the published-only StageAtlasPeek, leaving this renderer with no importer.",
+      "note": "Bytes hashed at deletion time (git hash-object verified); no importer remained at removal, re-verified by grep."
+    },
+    {
+      "path": "components/cinematic/spacetime.css",
+      "expectedSha256": "bbf3237ffb9e148db2ad30f6a18e44718ddb8a3eea9e86a94b37ff80304a5d78",
+      "committedSha256": "bbf3237ffb9e148db2ad30f6a18e44718ddb8a3eea9e86a94b37ff80304a5d78",
+      "reason": "Retired with its only consumer, spacetime-atlas.tsx, in the editorial re-stage of 2026-10-30.",
+      "note": "Bytes hashed at deletion time (git hash-object verified); no importer remained at removal, re-verified by grep."
+    },
+    {
+      "path": "components/cinematic/cinematic.css",
+      "expectedSha256": "bb538a90a2e8ce6f2ae8b7cfdf3671cf31cc0214306d206e4bdf35707e6fc9f3",
+      "committedSha256": "bb538a90a2e8ce6f2ae8b7cfdf3671cf31cc0214306d206e4bdf35707e6fc9f3",
+      "reason": "Retired with the editorial re-stage of 2026-10-30: every cine-* class it defined belonged to the hero, handoff, pinned-Atlas and content wrappers the re-stage replaced; the kept visual language now lives in components/knowledge/stage-editorial.css.",
+      "note": "Bytes hashed at deletion time (git hash-object verified); no importer remained at removal, re-verified by grep."
+    },
+    {
+      "path": "components/knowledge/knowledge-atmosphere.tsx",
+      "expectedSha256": "a4fbe9f71e364a777398afd19f064a0cedb0dc093a816a54e7618bc456a2ca14",
+      "committedSha256": "a4fbe9f71e364a777398afd19f064a0cedb0dc093a816a54e7618bc456a2ca14",
+      "reason": "Retired with the editorial re-stage of 2026-10-30: the aurora/wash atmosphere was replaced by the flat ink canvas on .stage-ink tokens.",
+      "note": "Bytes hashed at deletion time (git hash-object verified); no importer remained at removal, re-verified by grep."
+    },
+    {
+      "path": "components/knowledge/stage-marquee.tsx",
+      "expectedSha256": "be8c7eb069236be383e2b419d6d5b6433c93dae8820d2d916babd0f590c79a73",
+      "committedSha256": "be8c7eb069236be383e2b419d6d5b6433c93dae8820d2d916babd0f590c79a73",
+      "reason": "Superseded by the v3 gate flow (2026-10-30): the manifesto marquee gave way to the full-screen date hero the owner asked for. Display-marquee mechanics remain recorded in git history.",
+      "note": "Receipted in the same working pass that created it; nothing committed between."
+    },
+    {
+      "path": "components/knowledge/stage-works.tsx",
+      "expectedSha256": "66bc0cc4063745d5dc0c7444a1c271c035ee14956d1943fbd2ff0c0099fba533",
+      "committedSha256": "66bc0cc4063745d5dc0c7444a1c271c035ee14956d1943fbd2ff0c0099fba533",
+      "reason": "Off the landing in the v3 gate flow by owner decision; the works marquee stays a candidate for a /work showcase task. Case studies remain reachable at /work via nav and footer.",
+      "note": "The duplicated-group drift pattern (hover/focus pause, reduced-motion scroll row) is preserved in git history for reuse."
     }
   ]
 }

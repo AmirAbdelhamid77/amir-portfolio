@@ -1,0 +1,272 @@
+schema_version: '1.0'
+page_id: hansa-home-timeline-atlas-proposal-20261030
+canonical_route: /
+page_title: 'Hansa — Timeline, Atlas, concise closing'
+status: planned
+language: mixed
+reading_direction: mixed
+audience: 'New and returning learners exploring the existing Hansa library'
+learning_level: mixed
+
+sources:
+  - source_id: existing-insight-feed
+    original_path: content/knowledge/insights.json
+    subpage: false
+    verified_access: true
+    destination_sections: [timeline, daily-dealer]
+    preserve: [ids, dates, prose, citations, review_status, question_ids, route_links]
+    unresolved: ['Three technical-review editions currently; no daily publication guarantee']
+  - source_id: existing-study-library
+    original_path: lib/study/server.ts
+    subpage: false
+    verified_access: true
+    destination_sections: [atlas]
+    preserve: [source_ids, routes, query_parameters, anchors, review_status, classification_basis]
+    unresolved: ['Full public-site coverage manifest must reconcile all source families and non-learning pages']
+  - source_id: existing-study-taxonomy
+    original_path: lib/study/taxonomy.ts
+    subpage: false
+    verified_access: true
+    destination_sections: [atlas]
+    preserve: [subject_ids, topic_ids, scope]
+    unresolved: ['Navigation membership must not become a semantic assertion']
+  - source_id: existing-atlas-public-projection
+    original_path: lib/atlas/model.ts
+    subpage: false
+    verified_access: true
+    destination_sections: [atlas]
+    preserve: [concept_ids, edge_ids, evidence, direction, publication_gates, progress]
+    unresolved: ['Public semantic layer has no published concepts or edges in the audit snapshot', 'Existing link and source contracts are DP-600 scoped']
+
+concept_model:
+  primary_concept: 'Orient in Hansa and choose a learning destination deliberately'
+  prerequisites: []
+  introduces: [temporal_entry, progressive_content_discovery, optional_goal_selection]
+  reinforces: [source_awareness, review_status_awareness, context_preservation]
+  misconceptions:
+    - 'Browsing a resource implies mastery'
+    - 'Catalogue membership implies a scientific prerequisite'
+    - 'A visible preview implies human publication approval'
+    - 'Displaying today implies that a new edition was published today'
+  related_pages: ['/study/', '/learn/catalogue/', '/practice/catalogue/', '/learn/dp-600/atlas/', '/about/']
+
+learning_objectives:
+  - id: OBJ-1
+    observable_verb: locate
+    statement: 'Locate an edition and distinguish its idea, caveat, source and review status.'
+    assessment_id: UX-1
+  - id: OBJ-2
+    observable_verb: navigate
+    statement: 'Find an eligible existing resource through a subject/topic or search and return to the same context.'
+    assessment_id: UX-2
+  - id: OBJ-3
+    observable_verb: distinguish
+    statement: 'Distinguish content membership, proposed sequence, browsing history and published semantic relations.'
+    assessment_id: UX-3
+
+sections:
+  - section_id: timeline
+    title: 'A full-viewport timeline'
+    source_ids: [existing-insight-feed]
+    content_forms: [dated_index]
+    primary_learning_objective: OBJ-1
+    representation:
+      type: story
+      why_this_representation: 'One temporal entry, focused date, accessible horizontal exploration.'
+      static_alternative: dated_links_and_latest_edition
+      data_kind: source_backed
+      data_provenance: 'Existing eligible editions; visitor date is display state, not publication metadata.'
+      metric_units: []
+      semantic_checks: [no_invented_editions, explicit_preview, honest_latest_fallback]
+    interaction:
+      enabled: true
+      purpose: 'Select a date and intentionally activate the dealer.'
+      controls: [drag_horizontal, previous_next, arrow_keys, enter_space, close]
+      outputs: [selected_edition, dealer_open]
+      reset: true
+      invalid_input_behavior: 'Explain unavailable edition and offer an eligible fallback.'
+    library:
+      preferred: existing_local_or_beui
+      exact_component_or_package: 'beUI timeline with a documented local activation adaptation'
+      beui_registry_checked_at: '2026-10-30'
+      why_complementary_tool_needed: not_applicable
+      license_verified: false
+      external_runtime_service: none
+    accessibility:
+      keyboard_equivalent: 'Arrows select; Enter/Space activate; Escape closes and restores focus.'
+      descriptive_text: 'Visible date, edition date, title and review state.'
+      data_table_if_chart: not_applicable
+      reduced_motion: 'No spatial travel or animated blur; identical navigation.'
+      mobile_behavior: 'Horizontal gestures preserve vertical page scrolling; safe areas respected.'
+      rtl_behavior: 'Readable mixed labels; chronological semantics remain explicit.'
+    references: ['https://beui.dev/components/motion/timeline']
+  - section_id: daily-dealer
+    title: 'A date opens a knowledge hand'
+    source_ids: [existing-insight-feed]
+    content_forms: [claim, caveat, source, optional_existing_experiment]
+    primary_learning_objective: OBJ-1
+    representation:
+      type: prose
+      why_this_representation: 'Separate the idea, its qualification and its evidence while preserving one edition.'
+      static_alternative: readable_edition_and_archive
+      data_kind: source_backed
+      data_provenance: 'Existing insightCards/cardBody and validated per-edition fields.'
+      metric_units: []
+      semantic_checks: [three_cards_not_three_ideas, no_review_promotion]
+    interaction:
+      enabled: true
+      purpose: 'Inspect the chosen edition and continue into its real learning context.'
+      controls: [select_card, close_reader, close_dealer, open_resource, locate_in_atlas]
+      outputs: [active_card, resource_navigation, atlas_selection]
+      reset: true
+      invalid_input_behavior: 'Do not create missing experiments or unpublished concept mappings.'
+    library:
+      preferred: existing_local_or_beui
+      exact_component_or_package: 'Existing KnowledgeDealer adapted from beUI card-dealer'
+      beui_registry_checked_at: '2026-10-30'
+      why_complementary_tool_needed: not_applicable
+      license_verified: false
+      external_runtime_service: none
+    accessibility:
+      keyboard_equivalent: 'Named dialog, managed focus, semantic controls, immediate close.'
+      descriptive_text: 'Full text in a reader; cards carry readable concise labels.'
+      data_table_if_chart: not_applicable
+      reduced_motion: 'Instant deal and reader state changes.'
+      mobile_behavior: 'Low-angle readable hand and a full-width reader.'
+      rtl_behavior: 'Logical control order; no meaning conveyed only through flight direction.'
+    references: ['https://beui.dev/components/blocks/card-dealer']
+  - section_id: atlas
+    title: 'An explorable two-dimensional library with a separate semantic layer'
+    source_ids: [existing-study-library, existing-study-taxonomy, existing-atlas-public-projection]
+    content_forms: [catalogue, source_backed_relations, existing_learning_sequences]
+    primary_learning_objective: OBJ-2
+    representation:
+      type: diagram
+      why_this_representation: 'Progressively expose choices and retain the route taken through a large library.'
+      static_alternative: semantic_hierarchical_catalogue
+      data_kind: source_backed
+      data_provenance: 'Derived public-site index; published Atlas projection kept separate.'
+      metric_units: [resources_by_kind]
+      semantic_checks: [coverage_manifest, canonical_identity, labelled_relation_types, no_inferred_mastery, no_unpublished_edges]
+    interaction:
+      enabled: true
+      purpose: 'Explore, preview, choose an optional route, open real content and recover context.'
+      controls: [select, expand, collapse, breadcrumb, search, goal, open_content, list_view, reset]
+      outputs: [selected_scope, selected_resource, visible_branches, optional_goal, valid_return_link]
+      reset: true
+      invalid_input_behavior: 'Keep a usable parent/list view with explanatory fallback; reject arbitrary return URLs.'
+    library:
+      preferred: existing_local_or_beui
+      exact_component_or_package: 'React semantic DOM + scoped SVG/CSS + installed Motion'
+      beui_registry_checked_at: '2026-10-30'
+      why_complementary_tool_needed: 'Custom composition and typed navigation state; no new chart dependency planned.'
+      license_verified: false
+      external_runtime_service: none
+    accessibility:
+      keyboard_equivalent: 'Every branch/resource action has a semantic control and list equivalent.'
+      descriptive_text: 'Location, resource type, source, review state and meaning of any relation.'
+      data_table_if_chart: semantic_catalogue
+      reduced_motion: 'Stable sections and instantaneous selection; no forced scroll or camera movement.'
+      mobile_behavior: 'Focus view with fewer visible options, complete list/search and readable details.'
+      rtl_behavior: 'Mirror layout as appropriate without reversing relation semantics.'
+    references: []
+  - section_id: closing
+    title: 'A concise practical closing'
+    source_ids: [existing-study-library]
+    content_forms: [site_summary, practice_link, optional_real_resume]
+    primary_learning_objective: OBJ-2
+    representation:
+      type: prose
+      why_this_representation: 'A small amount of useful context after the main discovery experience.'
+      static_alternative: semantic_links
+      data_kind: source_backed
+      data_provenance: 'Existing site information and legitimate local session state.'
+      metric_units: []
+      semantic_checks: [no_fake_resume, no_hardcoded_counts]
+    interaction:
+      enabled: true
+      purpose: 'Start practice, resume actual work or read about Hansa.'
+      controls: [links, theme_control]
+      outputs: [navigation]
+      reset: false
+      invalid_input_behavior: 'Hide unavailable resume action; always offer catalogue access.'
+    library:
+      preferred: existing_local_or_beui
+      exact_component_or_package: existing_local_links_and_controls
+      beui_registry_checked_at: null
+      why_complementary_tool_needed: not_applicable
+      license_verified: false
+      external_runtime_service: none
+    accessibility:
+      keyboard_equivalent: standard_links_and_buttons
+      descriptive_text: visible_labels
+      data_table_if_chart: not_applicable
+      reduced_motion: static_section
+      mobile_behavior: natural_reflow
+      rtl_behavior: logical_layout
+    references: []
+
+assessments:
+  - assessment_id: UX-1
+    objective_ids: [OBJ-1]
+    question_type: usability_task
+    source_ids: [existing-insight-feed]
+    answer_key_verified: false
+    explanation_verified: false
+  - assessment_id: UX-2
+    objective_ids: [OBJ-2]
+    question_type: navigation_task
+    source_ids: [existing-study-library, existing-study-taxonomy]
+    answer_key_verified: false
+    explanation_verified: false
+  - assessment_id: UX-3
+    objective_ids: [OBJ-3]
+    question_type: relation_meaning_check
+    source_ids: [existing-atlas-public-projection]
+    answer_key_verified: false
+    explanation_verified: false
+
+quality:
+  source_units_found: null
+  source_units_mapped: null
+  source_units_verified: null
+  formulas_checked: false
+  chart_math_checked: false
+  accessibility_tested: false
+  mobile_tested: false
+  static_build_tested: false
+  existing_behavior_regression_checked: false
+  overall_score_out_of_100: null
+  release_blockers:
+    - 'Planning only; implementation is not authorized by this request.'
+    - 'Full coverage reconciliation, baseline ownership and acceptance testing required before implementation completion.'
+    - 'Semantic relations require existing publication gates; a library index cannot replace them.'
+  evidence_links_or_paths: [PLAN_AR.md, ../project-context-20261030/README.md]
+
+handoff:
+  inspected_paths:
+    - components/knowledge/hansa-landing.tsx
+    - components/knowledge/stage-today.tsx
+    - components/knowledge/insight-stage.tsx
+    - components/knowledge/insight-rail.tsx
+    - components/knowledge/knowledge-dealer.tsx
+    - lib/knowledge/insights.ts
+    - lib/knowledge/models.ts
+    - lib/study/server.ts
+    - lib/study/taxonomy.ts
+    - lib/atlas/model.ts
+    - lib/atlas/server.ts
+    - components/site-header.tsx
+    - components/site-footer.tsx
+    - lib/site.ts
+  changed_paths: [docs/homepage-timeline-atlas-plan-20261030/PLAN_AR.md, docs/homepage-timeline-atlas-plan-20261030/PAGE_BRIEF.yaml]
+  added_dependencies_with_versions: []
+  external_services_and_costs: []
+  tests_passed: []
+  tests_failed: []
+  tests_not_run: [application_build, unit_suites, browser_motion, accessibility, real_devices, performance, scientific_review]
+  unresolved_questions:
+    - 'Future public coverage manifest must establish exact eligible item totals and resolve orphans.'
+    - 'Precise animation distances and budget values require a measured prototype after implementation is requested.'
+    - 'Daily fresh editions require a separate editorial cadence; honest latest-edition fallback is specified.'
+  next_atomic_task: 'On a later implementation request: preserve baseline, reconcile the public atlas index, then storyboard the three scenes.'

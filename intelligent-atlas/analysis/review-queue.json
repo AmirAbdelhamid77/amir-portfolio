@@ -1,0 +1,1527 @@
+{
+  "schemaVersion": "intelligent-atlas-semantic/1.0",
+  "graphBuildId": "ia-graph-bed4e12d0986",
+  "notice": "Editorial review queue. Nothing here is approved or published. Ordering is a review-triage heuristic, not a truth probability.",
+  "counts": {
+    "concepts": 132,
+    "assertions": 86,
+    "mappings": 7309,
+    "ambiguities": 11,
+    "contradictions": 4
+  },
+  "concepts": [
+    {
+      "conceptId": "concept:analysis:decision-frame",
+      "label": "Decision frame",
+      "reason": "low corpus support (fewer than three mapped units)",
+      "unitCount": 1,
+      "assertionCount": 2,
+      "reviewState": "candidate"
+    },
+    {
+      "conceptId": "concept:analysis:evidence-strength",
+      "label": "Evidence strength",
+      "reason": "low corpus support (fewer than three mapped units)",
+      "unitCount": 0,
+      "assertionCount": 1,
+      "reviewState": "candidate"
+    },
+    {
+      "conceptId": "concept:analysis:kpi",
+      "label": "KPI definition",
+      "reason": "registry-only concept with no candidate assertion",
+      "unitCount": 9,
+      "assertionCount": 0,
+      "reviewState": "candidate"
+    },
+    {
+      "conceptId": "concept:fabric:activator",
+      "label": "Activator",
+      "reason": "registry-only concept with no candidate assertion",
+      "unitCount": 58,
+      "assertionCount": 0,
+      "reviewState": "candidate"
+    },
+    {
+      "conceptId": "concept:fabric:calculate",
+      "label": "DAX CALCULATE",
+      "reason": "registry-only concept with no candidate assertion",
+      "unitCount": 67,
+      "assertionCount": 0,
+      "reviewState": "candidate"
+    },
+    {
+      "conceptId": "concept:fabric:capacity",
+      "label": "Capacity",
+      "reason": "registry-only concept with no candidate assertion",
+      "unitCount": 143,
+      "assertionCount": 0,
+      "reviewState": "candidate"
+    },
+    {
+      "conceptId": "concept:fabric:data-masking",
+      "label": "Data masking",
+      "reason": "registry-only concept with no candidate assertion",
+      "unitCount": 22,
+      "assertionCount": 0,
+      "reviewState": "candidate"
+    },
+    {
+      "conceptId": "concept:fabric:dataflow-gen2",
+      "label": "Dataflow Gen2",
+      "reason": "registry-only concept with no candidate assertion",
+      "unitCount": 207,
+      "assertionCount": 0,
+      "reviewState": "candidate"
+    },
+    {
+      "conceptId": "concept:fabric:deployment",
+      "label": "Deployment pipeline",
+      "reason": "registry-only concept with no candidate assertion",
+      "unitCount": 53,
+      "assertionCount": 0,
+      "reviewState": "candidate"
+    },
+    {
+      "conceptId": "concept:fabric:filter-context",
+      "label": "DAX filter context",
+      "reason": "registry-only concept with no candidate assertion",
+      "unitCount": 12,
+      "assertionCount": 0,
+      "reviewState": "candidate"
+    },
+    {
+      "conceptId": "concept:fabric:gateway",
+      "label": "Gateway",
+      "reason": "registry-only concept with no candidate assertion",
+      "unitCount": 14,
+      "assertionCount": 0,
+      "reviewState": "candidate"
+    },
+    {
+      "conceptId": "concept:fabric:git",
+      "label": "Git integration",
+      "reason": "registry-only concept with no candidate assertion",
+      "unitCount": 95,
+      "assertionCount": 0,
+      "reviewState": "candidate"
+    },
+    {
+      "conceptId": "concept:fabric:medallion",
+      "label": "Medallion architecture",
+      "reason": "registry-only concept with no candidate assertion",
+      "unitCount": 27,
+      "assertionCount": 0,
+      "reviewState": "candidate"
+    },
+    {
+      "conceptId": "concept:fabric:ml-model",
+      "label": "Machine-learning experiment",
+      "reason": "registry-only concept with no candidate assertion",
+      "unitCount": 46,
+      "assertionCount": 0,
+      "reviewState": "candidate"
+    },
+    {
+      "conceptId": "concept:fabric:notebook",
+      "label": "Spark notebook",
+      "reason": "registry-only concept with no candidate assertion",
+      "unitCount": 300,
+      "assertionCount": 0,
+      "reviewState": "candidate"
+    },
+    {
+      "conceptId": "concept:fabric:snowflake-schema",
+      "label": "Snowflake schema",
+      "reason": "registry-only concept with no candidate assertion",
+      "unitCount": 8,
+      "assertionCount": 0,
+      "reviewState": "candidate"
+    },
+    {
+      "conceptId": "concept:fabric:sql-object",
+      "label": "SQL schema objects",
+      "reason": "registry-only concept with no candidate assertion",
+      "unitCount": 89,
+      "assertionCount": 0,
+      "reviewState": "candidate"
+    },
+    {
+      "conceptId": "concept:fabric:sql-permissions",
+      "label": "SQL permission statements",
+      "reason": "registry-only concept with no candidate assertion",
+      "unitCount": 56,
+      "assertionCount": 0,
+      "reviewState": "candidate"
+    },
+    {
+      "conceptId": "concept:fabric:warehouse",
+      "label": "Data Warehouse",
+      "reason": "registry-only concept with no candidate assertion",
+      "unitCount": 356,
+      "assertionCount": 0,
+      "reviewState": "candidate"
+    },
+    {
+      "conceptId": "concept:fabric:workload",
+      "label": "Fabric workload",
+      "reason": "registry-only concept with no candidate assertion",
+      "unitCount": 66,
+      "assertionCount": 0,
+      "reviewState": "candidate"
+    },
+    {
+      "conceptId": "concept:fabric:z-order",
+      "label": "Z-Order",
+      "reason": "low corpus support (fewer than three mapped units)",
+      "unitCount": 0,
+      "assertionCount": 0,
+      "reviewState": "candidate"
+    },
+    {
+      "conceptId": "concept:sql:case-expression",
+      "label": "CASE expression",
+      "reason": "registry-only concept with no candidate assertion",
+      "unitCount": 31,
+      "assertionCount": 0,
+      "reviewState": "candidate"
+    },
+    {
+      "conceptId": "concept:sql:date-time",
+      "label": "Date and time analytics",
+      "reason": "registry-only concept with no candidate assertion",
+      "unitCount": 209,
+      "assertionCount": 0,
+      "reviewState": "candidate"
+    },
+    {
+      "conceptId": "concept:sql:mental-model",
+      "label": "Relational query mental model",
+      "reason": "registry-only concept with no candidate assertion",
+      "unitCount": 43,
+      "assertionCount": 0,
+      "reviewState": "candidate"
+    },
+    {
+      "conceptId": "concept:sql:select",
+      "label": "SELECT projection",
+      "reason": "registry-only concept with no candidate assertion",
+      "unitCount": 70,
+      "assertionCount": 0,
+      "reviewState": "candidate"
+    },
+    {
+      "conceptId": "concept:sql:text-matching",
+      "label": "Text and pattern matching",
+      "reason": "registry-only concept with no candidate assertion",
+      "unitCount": 36,
+      "assertionCount": 0,
+      "reviewState": "candidate"
+    },
+    {
+      "conceptId": "concept:sql:transactions",
+      "label": "DDL, DML and transactions",
+      "reason": "registry-only concept with no candidate assertion",
+      "unitCount": 102,
+      "assertionCount": 0,
+      "reviewState": "candidate"
+    },
+    {
+      "conceptId": "concept:stats:clt",
+      "label": "Central limit theorem",
+      "reason": "low corpus support (fewer than three mapped units)",
+      "unitCount": 2,
+      "assertionCount": 1,
+      "reviewState": "candidate"
+    },
+    {
+      "conceptId": "concept:stats:descriptive-inferential",
+      "label": "Descriptive vs inferential statistics",
+      "reason": "low corpus support (fewer than three mapped units)",
+      "unitCount": 1,
+      "assertionCount": 1,
+      "reviewState": "candidate"
+    },
+    {
+      "conceptId": "concept:stats:p-value",
+      "label": "p-value",
+      "reason": "low corpus support (fewer than three mapped units)",
+      "unitCount": 2,
+      "assertionCount": 1,
+      "reviewState": "candidate"
+    },
+    {
+      "conceptId": "concept:stats:power",
+      "label": "Statistical power",
+      "reason": "low corpus support (fewer than three mapped units)",
+      "unitCount": 1,
+      "assertionCount": 1,
+      "reviewState": "candidate"
+    },
+    {
+      "conceptId": "concept:stats:sampling-method",
+      "label": "Sampling method",
+      "reason": "low corpus support (fewer than three mapped units)",
+      "unitCount": 2,
+      "assertionCount": 1,
+      "reviewState": "candidate"
+    }
+  ],
+  "assertions": [
+    {
+      "assertionId": "assert:ia:analysis-evidence-ci",
+      "from": "concept:analysis:evidence-strength",
+      "to": "concept:stats:confidence-interval",
+      "relationType": "requires_understanding_of",
+      "claim": "Judging evidence strength requires reading the estimate together with its uncertainty, not only its point value.",
+      "supportKind": "inference",
+      "evidenceCount": 3,
+      "riskScore": 7,
+      "riskReasons": [
+        "cross-domain bridge",
+        "inferred support",
+        "prerequisite direction"
+      ],
+      "reviewState": "candidate"
+    },
+    {
+      "assertionId": "assert:ia:analysis-segment-population",
+      "from": "concept:analysis:segmentation",
+      "to": "concept:sql:population",
+      "relationType": "requires_understanding_of",
+      "claim": "A segment comparison is only valid when each segment's population and denominator are defined before the comparison.",
+      "supportKind": "inference",
+      "evidenceCount": 2,
+      "riskScore": 7,
+      "riskReasons": [
+        "cross-domain bridge",
+        "inferred support",
+        "prerequisite direction"
+      ],
+      "reviewState": "candidate"
+    },
+    {
+      "assertionId": "assert:ia:cross-dashboard-decision",
+      "from": "concept:viz:dashboard-design",
+      "to": "concept:analysis:decision-frame",
+      "relationType": "requires_understanding_of",
+      "claim": "Dashboard composition serves a decision: without a named decision and audience, hierarchy and detail have no basis.",
+      "supportKind": "inference",
+      "evidenceCount": 3,
+      "riskScore": 7,
+      "riskReasons": [
+        "cross-domain bridge",
+        "inferred support",
+        "prerequisite direction"
+      ],
+      "reviewState": "candidate"
+    },
+    {
+      "assertionId": "assert:ia:cross-viz-grain-sql",
+      "from": "concept:viz:analytical-task",
+      "to": "concept:sql:grain",
+      "relationType": "requires_understanding_of",
+      "claim": "A visualization aggregates rows, so the chart's mark grain must match the query grain or the picture will overstate or hide detail.",
+      "supportKind": "inference",
+      "evidenceCount": 4,
+      "riskScore": 7,
+      "riskReasons": [
+        "cross-domain bridge",
+        "inferred support",
+        "prerequisite direction"
+      ],
+      "reviewState": "candidate"
+    },
+    {
+      "assertionId": "assert:ia:fabric-star-join",
+      "from": "concept:fabric:star-schema",
+      "to": "concept:sql:join",
+      "relationType": "requires_understanding_of",
+      "claim": "Star-schema relationships are realized through joins, so join cardinality must be understood to avoid fan-out when querying the model.",
+      "supportKind": "inference",
+      "evidenceCount": 2,
+      "riskScore": 7,
+      "riskReasons": [
+        "cross-domain bridge",
+        "inferred support",
+        "prerequisite direction"
+      ],
+      "reviewState": "candidate"
+    },
+    {
+      "assertionId": "assert:ia:viz-uncertainty-ci",
+      "from": "concept:viz:uncertainty-display",
+      "to": "concept:stats:confidence-interval",
+      "relationType": "requires_understanding_of",
+      "claim": "An uncertainty display is only interpretable when the interval's meaning is understood; the display must not imply a probability that this interval contains the parameter.",
+      "supportKind": "inference",
+      "evidenceCount": 4,
+      "riskScore": 7,
+      "riskReasons": [
+        "cross-domain bridge",
+        "inferred support",
+        "prerequisite direction"
+      ],
+      "reviewState": "candidate"
+    },
+    {
+      "assertionId": "assert:ia:analysis-metric-population",
+      "from": "concept:analysis:metric-definition",
+      "to": "concept:sql:population",
+      "relationType": "requires_understanding_of",
+      "claim": "A metric definition is incomplete until its population and denominator are fixed, because the same numerator can mean different things over different row sets.",
+      "supportKind": "direct",
+      "evidenceCount": 3,
+      "riskScore": 5,
+      "riskReasons": [
+        "cross-domain bridge",
+        "prerequisite direction"
+      ],
+      "reviewState": "candidate"
+    },
+    {
+      "assertionId": "assert:ia:cross-grain-query-model",
+      "from": "concept:sql:grain",
+      "to": "concept:fabric:grain",
+      "relationType": "related_in_decision",
+      "claim": "Query output grain and fact-table grain are different scopes of the same question: what does one row mean? A query can preserve, aggregate or intentionally change the model grain.",
+      "supportKind": "inference",
+      "evidenceCount": 3,
+      "riskScore": 5,
+      "riskReasons": [
+        "cross-domain bridge",
+        "inferred support"
+      ],
+      "reviewState": "candidate"
+    },
+    {
+      "assertionId": "assert:ia:viz-distribution-stats",
+      "from": "concept:viz:distribution-plot",
+      "to": "concept:stats:distribution",
+      "relationType": "requires_understanding_of",
+      "claim": "A histogram or box plot is only interpretable against the distribution it summarizes, including bin width and summary choices.",
+      "supportKind": "direct",
+      "evidenceCount": 3,
+      "riskScore": 5,
+      "riskReasons": [
+        "cross-domain bridge",
+        "prerequisite direction"
+      ],
+      "reviewState": "candidate"
+    },
+    {
+      "assertionId": "assert:ia:viz-relationship-correlation",
+      "from": "concept:viz:relationship-plot",
+      "to": "concept:stats:correlation",
+      "relationType": "requires_understanding_of",
+      "claim": "A scatter plot exposes shape that a correlation coefficient can hide, so the plot is required before treating correlation as a description of the relationship.",
+      "supportKind": "direct",
+      "evidenceCount": 3,
+      "riskScore": 5,
+      "riskReasons": [
+        "cross-domain bridge",
+        "prerequisite direction"
+      ],
+      "reviewState": "candidate"
+    },
+    {
+      "assertionId": "assert:ia:fabric-incremental-import",
+      "from": "concept:fabric:incremental-refresh",
+      "to": "concept:fabric:import",
+      "relationType": "requires_understanding_of",
+      "claim": "Incremental refresh is a policy over stored model partitions, so it presupposes an Import-style stored table rather than a pure DirectQuery source.",
+      "supportKind": "inference",
+      "evidenceCount": 4,
+      "riskScore": 4,
+      "riskReasons": [
+        "inferred support",
+        "prerequisite direction"
+      ],
+      "reviewState": "candidate"
+    },
+    {
+      "assertionId": "assert:ia:fabric-star-grain",
+      "from": "concept:fabric:star-schema",
+      "to": "concept:fabric:grain",
+      "relationType": "requires_understanding_of",
+      "claim": "A star schema cannot be designed before the fact table's grain is declared, because the grain decides which dimensions and measures are valid.",
+      "supportKind": "inference",
+      "evidenceCount": 4,
+      "riskScore": 4,
+      "riskReasons": [
+        "inferred support",
+        "prerequisite direction"
+      ],
+      "reviewState": "candidate"
+    },
+    {
+      "assertionId": "assert:ia:sql-keys-grain",
+      "from": "concept:sql:keys",
+      "to": "concept:sql:grain",
+      "relationType": "requires_understanding_of",
+      "claim": "A key declares uniqueness at a grain; without the grain, a primary or foreign key cannot be interpreted as a guarantee about rows.",
+      "supportKind": "inference",
+      "evidenceCount": 4,
+      "riskScore": 4,
+      "riskReasons": [
+        "inferred support",
+        "prerequisite direction"
+      ],
+      "reviewState": "candidate"
+    },
+    {
+      "assertionId": "assert:ia:viz-dashboard-encoding",
+      "from": "concept:viz:dashboard-design",
+      "to": "concept:viz:visual-encoding",
+      "relationType": "requires_understanding_of",
+      "claim": "Dashboard composition depends on encoding and attention: each view must carry a readable signal before layout can organize it.",
+      "supportKind": "inference",
+      "evidenceCount": 3,
+      "riskScore": 4,
+      "riskReasons": [
+        "inferred support",
+        "prerequisite direction"
+      ],
+      "reviewState": "candidate"
+    },
+    {
+      "assertionId": "assert:ia:analysis-decision-task",
+      "from": "concept:analysis:decision-frame",
+      "to": "concept:viz:analytical-task",
+      "relationType": "enables",
+      "claim": "Naming the decision and audience enables a concrete analytical task, which in turn constrains the encoding.",
+      "supportKind": "direct",
+      "evidenceCount": 2,
+      "riskScore": 3,
+      "riskReasons": [
+        "cross-domain bridge"
+      ],
+      "reviewState": "candidate"
+    },
+    {
+      "assertionId": "assert:ia:cross-stats-sql-null",
+      "from": "concept:sql:null",
+      "to": "concept:analysis:data-quality",
+      "relationType": "related_in_decision",
+      "claim": "NULL semantics are a data-quality decision: missing, unknown and zero are different states and must be counted separately before analysis.",
+      "supportKind": "direct",
+      "evidenceCount": 3,
+      "riskScore": 3,
+      "riskReasons": [
+        "cross-domain bridge"
+      ],
+      "reviewState": "candidate"
+    },
+    {
+      "assertionId": "assert:ia:fabric-shortcut-mirroring",
+      "from": "concept:fabric:shortcut",
+      "to": "concept:fabric:database-mirroring",
+      "relationType": "contrasts_with",
+      "claim": "A shortcut references a target; database mirroring maintains a replica. They are not interchangeable ways to obtain the same freshness.",
+      "supportKind": "inference",
+      "evidenceCount": 3,
+      "riskScore": 3,
+      "riskReasons": [
+        "inferred support",
+        "duplicates an existing technical_review edge; merge decision needed"
+      ],
+      "reviewState": "candidate"
+    },
+    {
+      "assertionId": "assert:ia:sql-having-groupby",
+      "from": "concept:sql:having-filter",
+      "to": "concept:sql:group-by",
+      "relationType": "requires_understanding_of",
+      "claim": "HAVING filters groups after aggregation, so it cannot be understood without the grouping step it operates on.",
+      "supportKind": "direct",
+      "evidenceCount": 1,
+      "riskScore": 3,
+      "riskReasons": [
+        "prerequisite direction",
+        "single evidence passage"
+      ],
+      "reviewState": "candidate"
+    },
+    {
+      "assertionId": "assert:ia:stats-desc-inf",
+      "from": "concept:stats:descriptive-inferential",
+      "to": "concept:stats:population-sample",
+      "relationType": "requires_understanding_of",
+      "claim": "Inferential statistics generalizes from a sample to a population, so the population/sample distinction is a prerequisite.",
+      "supportKind": "direct",
+      "evidenceCount": 1,
+      "riskScore": 3,
+      "riskReasons": [
+        "prerequisite direction",
+        "single evidence passage"
+      ],
+      "reviewState": "candidate"
+    },
+    {
+      "assertionId": "assert:ia:stats-se-sampling",
+      "from": "concept:stats:standard-error",
+      "to": "concept:stats:sampling-distribution",
+      "relationType": "requires_understanding_of",
+      "claim": "Standard error is the standard deviation of a statistic's sampling distribution, so it cannot be interpreted without that distribution.",
+      "supportKind": "direct",
+      "evidenceCount": 1,
+      "riskScore": 3,
+      "riskReasons": [
+        "prerequisite direction",
+        "single evidence passage"
+      ],
+      "reviewState": "candidate"
+    },
+    {
+      "assertionId": "assert:ia:viz-encoding-type",
+      "from": "concept:viz:visual-encoding",
+      "to": "concept:viz:variable-type",
+      "relationType": "requires_understanding_of",
+      "claim": "A valid encoding depends on the variable's type and on the precision the channel can carry.",
+      "supportKind": "direct",
+      "evidenceCount": 1,
+      "riskScore": 3,
+      "riskReasons": [
+        "prerequisite direction",
+        "single evidence passage"
+      ],
+      "reviewState": "candidate"
+    },
+    {
+      "assertionId": "assert:ia:cross-viz-uncertainty-integrity",
+      "from": "concept:viz:uncertainty-display",
+      "to": "concept:viz:visual-integrity",
+      "relationType": "part_of_mechanism",
+      "claim": "Showing or hiding uncertainty changes the integrity of a claim; a point estimate presented alone can imply more precision than the evidence supports.",
+      "supportKind": "inference",
+      "evidenceCount": 3,
+      "riskScore": 2,
+      "riskReasons": [
+        "inferred support"
+      ],
+      "reviewState": "candidate"
+    },
+    {
+      "assertionId": "assert:ia:expression-parameter",
+      "from": "concept:fabric:expression-language",
+      "to": "concept:fabric:pipeline-parameter",
+      "relationType": "requires_understanding_of",
+      "claim": "Dynamic content resolves parameters and activity outputs before execution, so the expression cannot be evaluated correctly without knowing the parameter and output shape.",
+      "supportKind": "direct",
+      "evidenceCount": 2,
+      "riskScore": 2,
+      "riskReasons": [
+        "prerequisite direction"
+      ],
+      "reviewState": "candidate"
+    },
+    {
+      "assertionId": "assert:ia:fabric-history-delta",
+      "from": "concept:fabric:delta-history",
+      "to": "concept:fabric:delta",
+      "relationType": "requires_understanding_of",
+      "claim": "Time travel reads an earlier Delta version through the transaction log, so Delta history is a prerequisite for version queries.",
+      "supportKind": "direct",
+      "evidenceCount": 3,
+      "riskScore": 2,
+      "riskReasons": [
+        "prerequisite direction"
+      ],
+      "reviewState": "candidate"
+    },
+    {
+      "assertionId": "assert:ia:fabric-import-directlake",
+      "from": "concept:fabric:import",
+      "to": "concept:fabric:direct-lake",
+      "relationType": "tradeoff_with",
+      "claim": "Import guarantees a stored model copy; Direct Lake avoids the copy but depends on Delta/OneLake eligibility and fallback behaviour.",
+      "supportKind": "inference",
+      "evidenceCount": 4,
+      "riskScore": 2,
+      "riskReasons": [
+        "inferred support"
+      ],
+      "reviewState": "candidate"
+    },
+    {
+      "assertionId": "assert:ia:fabric-model-cardinality",
+      "from": "concept:fabric:semantic-model",
+      "to": "concept:fabric:relationship-cardinality",
+      "relationType": "requires_understanding_of",
+      "claim": "A semantic model's relationships declare cardinality and filter direction, so the model cannot be reasoned about without that layer.",
+      "supportKind": "direct",
+      "evidenceCount": 4,
+      "riskScore": 2,
+      "riskReasons": [
+        "prerequisite direction"
+      ],
+      "reviewState": "candidate"
+    },
+    {
+      "assertionId": "assert:ia:fabric-rls-permissions",
+      "from": "concept:fabric:rls",
+      "to": "concept:fabric:permissions",
+      "relationType": "requires_understanding_of",
+      "claim": "Row-level security is a permission mechanism: the identity, role and engine decide which rows the predicate can filter.",
+      "supportKind": "direct",
+      "evidenceCount": 4,
+      "riskScore": 2,
+      "riskReasons": [
+        "prerequisite direction"
+      ],
+      "reviewState": "candidate"
+    },
+    {
+      "assertionId": "assert:ia:fabric-scd-surrogate",
+      "from": "concept:fabric:scd",
+      "to": "concept:fabric:surrogate-key",
+      "relationType": "requires_understanding_of",
+      "claim": "A type-2 history design needs a stable per-version surrogate key so facts can reference the exact version they saw.",
+      "supportKind": "direct",
+      "evidenceCount": 4,
+      "riskScore": 2,
+      "riskReasons": [
+        "prerequisite direction"
+      ],
+      "reviewState": "candidate"
+    },
+    {
+      "assertionId": "assert:ia:security-model-cls",
+      "from": "concept:fabric:security-model",
+      "to": "concept:fabric:cls",
+      "relationType": "requires_understanding_of",
+      "claim": "A column allowlist is a policy that must be reviewed when the schema changes, not a one-time configuration.",
+      "supportKind": "direct",
+      "evidenceCount": 2,
+      "riskScore": 2,
+      "riskReasons": [
+        "prerequisite direction"
+      ],
+      "reviewState": "candidate"
+    },
+    {
+      "assertionId": "assert:ia:security-model-ols",
+      "from": "concept:fabric:security-model",
+      "to": "concept:fabric:ols",
+      "relationType": "requires_understanding_of",
+      "claim": "Object-level protection changes metadata visibility, but it does not by itself guarantee that every name or value is concealed.",
+      "supportKind": "direct",
+      "evidenceCount": 2,
+      "riskScore": 2,
+      "riskReasons": [
+        "prerequisite direction"
+      ],
+      "reviewState": "candidate"
+    },
+    {
+      "assertionId": "assert:ia:security-model-onelake-role",
+      "from": "concept:fabric:security-model",
+      "to": "concept:fabric:onelake-security-role",
+      "relationType": "requires_understanding_of",
+      "claim": "OneLake data-access roles are a separate layer from workspace roles; a broad workspace role does not replace a scoped data role.",
+      "supportKind": "direct",
+      "evidenceCount": 2,
+      "riskScore": 2,
+      "riskReasons": [
+        "prerequisite direction"
+      ],
+      "reviewState": "candidate"
+    },
+    {
+      "assertionId": "assert:ia:security-model-rls",
+      "from": "concept:fabric:security-model",
+      "to": "concept:fabric:rls",
+      "relationType": "requires_understanding_of",
+      "claim": "Effective access cannot be reasoned about from a workspace role alone; row-level rules can intersect or union across roles.",
+      "supportKind": "direct",
+      "evidenceCount": 2,
+      "riskScore": 2,
+      "riskReasons": [
+        "prerequisite direction"
+      ],
+      "reviewState": "candidate"
+    },
+    {
+      "assertionId": "assert:ia:sql-dedup-window",
+      "from": "concept:sql:deduplication",
+      "to": "concept:sql:window-function",
+      "relationType": "requires_understanding_of",
+      "claim": "Choosing one row per entity with ROW_NUMBER requires a window function and an explicit ordering rule.",
+      "supportKind": "direct",
+      "evidenceCount": 4,
+      "riskScore": 2,
+      "riskReasons": [
+        "prerequisite direction"
+      ],
+      "reviewState": "candidate"
+    },
+    {
+      "assertionId": "assert:ia:sql-join-grain",
+      "from": "concept:sql:join",
+      "to": "concept:sql:grain",
+      "relationType": "requires_understanding_of",
+      "claim": "A join can multiply or preserve rows, so the intended output grain must be stated before a join kind is chosen.",
+      "supportKind": "direct",
+      "evidenceCount": 2,
+      "riskScore": 2,
+      "riskReasons": [
+        "prerequisite direction"
+      ],
+      "reviewState": "candidate"
+    },
+    {
+      "assertionId": "assert:ia:sql-window-aggregation",
+      "from": "concept:sql:window-function",
+      "to": "concept:sql:aggregation",
+      "relationType": "requires_understanding_of",
+      "claim": "Window functions are evaluated after the grouped result exists, so their behaviour depends on understanding aggregation first.",
+      "supportKind": "direct",
+      "evidenceCount": 2,
+      "riskScore": 2,
+      "riskReasons": [
+        "prerequisite direction"
+      ],
+      "reviewState": "candidate"
+    },
+    {
+      "assertionId": "assert:ia:stats-causation-confound",
+      "from": "concept:stats:causation",
+      "to": "concept:stats:confounding",
+      "relationType": "requires_understanding_of",
+      "claim": "A causal claim must address confounding, because a third factor can create or mask the apparent effect.",
+      "supportKind": "direct",
+      "evidenceCount": 2,
+      "riskScore": 2,
+      "riskReasons": [
+        "prerequisite direction"
+      ],
+      "reviewState": "candidate"
+    },
+    {
+      "assertionId": "assert:ia:stats-ci-se",
+      "from": "concept:stats:confidence-interval",
+      "to": "concept:stats:standard-error",
+      "relationType": "requires_understanding_of",
+      "claim": "A confidence interval is built from an estimate plus or minus a critical value times the standard error, so SE is a prerequisite.",
+      "supportKind": "direct",
+      "evidenceCount": 4,
+      "riskScore": 2,
+      "riskReasons": [
+        "prerequisite direction"
+      ],
+      "reviewState": "candidate"
+    },
+    {
+      "assertionId": "assert:ia:stats-clt-sampling",
+      "from": "concept:stats:clt",
+      "to": "concept:stats:sampling-distribution",
+      "relationType": "requires_understanding_of",
+      "claim": "The central limit theorem is a statement about the sampling distribution of the mean, so that distribution must be understood first.",
+      "supportKind": "direct",
+      "evidenceCount": 2,
+      "riskScore": 2,
+      "riskReasons": [
+        "prerequisite direction"
+      ],
+      "reviewState": "candidate"
+    },
+    {
+      "assertionId": "assert:ia:stats-distribution-probability",
+      "from": "concept:stats:distribution",
+      "to": "concept:stats:probability",
+      "relationType": "requires_understanding_of",
+      "claim": "A probability distribution assigns likelihoods to values, so probability is a prerequisite for reading one.",
+      "supportKind": "direct",
+      "evidenceCount": 3,
+      "riskScore": 2,
+      "riskReasons": [
+        "prerequisite direction"
+      ],
+      "reviewState": "candidate"
+    },
+    {
+      "assertionId": "assert:ia:stats-experiment-confound",
+      "from": "concept:stats:experiment-design",
+      "to": "concept:stats:confounding",
+      "relationType": "requires_understanding_of",
+      "claim": "Randomization and control groups are design responses to confounding, so the threat must be understood before the design is chosen.",
+      "supportKind": "direct",
+      "evidenceCount": 3,
+      "riskScore": 2,
+      "riskReasons": [
+        "prerequisite direction"
+      ],
+      "reviewState": "candidate"
+    },
+    {
+      "assertionId": "assert:ia:stats-power-errors",
+      "from": "concept:stats:power",
+      "to": "concept:stats:error-types",
+      "relationType": "related_in_decision",
+      "claim": "Power is the complement of Type II error for a given effect, so sample-size and alpha decisions trade one error against the other.",
+      "supportKind": "inference",
+      "evidenceCount": 2,
+      "riskScore": 2,
+      "riskReasons": [
+        "inferred support"
+      ],
+      "reviewState": "candidate"
+    },
+    {
+      "assertionId": "assert:ia:stats-sampling-bias",
+      "from": "concept:stats:sampling-method",
+      "to": "concept:stats:sampling-bias",
+      "relationType": "related_in_decision",
+      "claim": "The sampling method determines which biases are plausible; a larger sample does not repair a biased selection procedure.",
+      "supportKind": "inference",
+      "evidenceCount": 3,
+      "riskScore": 2,
+      "riskReasons": [
+        "inferred support"
+      ],
+      "reviewState": "candidate"
+    },
+    {
+      "assertionId": "assert:ia:viz-annotation-integrity",
+      "from": "concept:viz:annotation-context",
+      "to": "concept:viz:visual-integrity",
+      "relationType": "complements",
+      "claim": "Titles, units, labels and source notes supply the context that prevents a technically correct chart from being misread.",
+      "supportKind": "inference",
+      "evidenceCount": 4,
+      "riskScore": 2,
+      "riskReasons": [
+        "inferred support"
+      ],
+      "reviewState": "candidate"
+    },
+    {
+      "assertionId": "assert:ia:viz-chart-task",
+      "from": "concept:viz:chart-selection",
+      "to": "concept:viz:analytical-task",
+      "relationType": "requires_understanding_of",
+      "claim": "Chart selection starts from the analytical task and decision, not from a preferred chart type.",
+      "supportKind": "direct",
+      "evidenceCount": 2,
+      "riskScore": 2,
+      "riskReasons": [
+        "prerequisite direction"
+      ],
+      "reviewState": "candidate"
+    },
+    {
+      "assertionId": "assert:ia:viz-line-continuity",
+      "from": "concept:viz:time-series-plot",
+      "to": "concept:viz:variable-type",
+      "relationType": "requires_understanding_of",
+      "claim": "A line plot requires observations whose order is conceptually continuous; independent observations belong in a scatter plot.",
+      "supportKind": "direct",
+      "evidenceCount": 3,
+      "riskScore": 2,
+      "riskReasons": [
+        "prerequisite direction"
+      ],
+      "reviewState": "candidate"
+    },
+    {
+      "assertionId": "assert:ia:viz-palette-type",
+      "from": "concept:viz:color-palette",
+      "to": "concept:viz:variable-type",
+      "relationType": "requires_understanding_of",
+      "claim": "Qualitative, sequential and diverging palettes follow the structure of the variable, including whether a meaningful midpoint exists.",
+      "supportKind": "direct",
+      "evidenceCount": 3,
+      "riskScore": 2,
+      "riskReasons": [
+        "prerequisite direction"
+      ],
+      "reviewState": "candidate"
+    },
+    {
+      "assertionId": "assert:ia:fabric-shortcut-copy",
+      "from": "concept:fabric:shortcut",
+      "to": "concept:fabric:copy-job",
+      "relationType": "contrasts_with",
+      "claim": "A shortcut references an existing target, while a copy job creates a separate copy; the choice is reference versus retained data.",
+      "supportKind": "direct",
+      "evidenceCount": 1,
+      "riskScore": 1,
+      "riskReasons": [
+        "single evidence passage"
+      ],
+      "reviewState": "candidate"
+    },
+    {
+      "assertionId": "assert:ia:governance-domain-endorsement",
+      "from": "concept:fabric:governance-domain",
+      "to": "concept:fabric:endorsement",
+      "relationType": "related_in_decision",
+      "claim": "Domain administration and endorsement are different privileges; a domain administrator is not automatically a tenant administrator or a certification authority.",
+      "supportKind": "direct",
+      "evidenceCount": 1,
+      "riskScore": 1,
+      "riskReasons": [
+        "single evidence passage"
+      ],
+      "reviewState": "candidate"
+    },
+    {
+      "assertionId": "assert:ia:sql-cte-window",
+      "from": "concept:sql:subquery-cte",
+      "to": "concept:sql:window-function",
+      "relationType": "enables",
+      "claim": "A subquery or CTE enables filtering a window-function result, because the window value cannot generally be referenced directly in WHERE.",
+      "supportKind": "direct",
+      "evidenceCount": 1,
+      "riskScore": 1,
+      "riskReasons": [
+        "single evidence passage"
+      ],
+      "reviewState": "candidate"
+    },
+    {
+      "assertionId": "assert:ia:sql-set-join-contrast",
+      "from": "concept:sql:set-operations",
+      "to": "concept:sql:join",
+      "relationType": "contrasts_with",
+      "claim": "Set operations stack compatible rows vertically, while joins add columns from related rows; they answer different result-shape questions.",
+      "supportKind": "direct",
+      "evidenceCount": 1,
+      "riskScore": 1,
+      "riskReasons": [
+        "single evidence passage"
+      ],
+      "reviewState": "candidate"
+    },
+    {
+      "assertionId": "assert:ia:viz-baseline-integrity",
+      "from": "concept:viz:axis-baseline",
+      "to": "concept:viz:visual-integrity",
+      "relationType": "part_of_mechanism",
+      "claim": "A truncated bar baseline exaggerates differences, so baseline choice is part of visual integrity rather than cosmetic styling.",
+      "supportKind": "direct",
+      "evidenceCount": 1,
+      "riskScore": 1,
+      "riskReasons": [
+        "single evidence passage"
+      ],
+      "reviewState": "candidate"
+    },
+    {
+      "assertionId": "assert:ia:viz-partwhole-selection",
+      "from": "concept:viz:part-to-whole",
+      "to": "concept:viz:chart-selection",
+      "relationType": "related_in_decision",
+      "claim": "Pie and polar forms are defensible for genuine composition or circularity; for precise category comparison the corpus prefers bars.",
+      "supportKind": "direct",
+      "evidenceCount": 1,
+      "riskScore": 1,
+      "riskReasons": [
+        "single evidence passage"
+      ],
+      "reviewState": "candidate"
+    },
+    {
+      "assertionId": "assert:ia:analysis-quality-metric",
+      "from": "concept:analysis:data-quality",
+      "to": "concept:analysis:metric-definition",
+      "relationType": "related_in_decision",
+      "claim": "Null counts, distinct counts and validation checks decide whether a metric can be computed as defined.",
+      "supportKind": "direct",
+      "evidenceCount": 2,
+      "riskScore": 0,
+      "riskReasons": [],
+      "reviewState": "candidate"
+    },
+    {
+      "assertionId": "assert:ia:control-flow-pipeline",
+      "from": "concept:fabric:control-flow",
+      "to": "concept:fabric:pipeline",
+      "relationType": "part_of_mechanism",
+      "claim": "Iteration, conditional routing and metadata discovery are control-flow parts of a pipeline, not separate transformation engines.",
+      "supportKind": "direct",
+      "evidenceCount": 2,
+      "riskScore": 0,
+      "riskReasons": [],
+      "reviewState": "candidate"
+    },
+    {
+      "assertionId": "assert:ia:deletion-vectors-history",
+      "from": "concept:fabric:deletion-vectors",
+      "to": "concept:fabric:delta-history",
+      "relationType": "related_in_decision",
+      "claim": "A logical delete changes what current readers see without removing the retained history; recovery still depends on the retention window and an independent source.",
+      "supportKind": "direct",
+      "evidenceCount": 2,
+      "riskScore": 0,
+      "riskReasons": [],
+      "reviewState": "candidate"
+    },
+    {
+      "assertionId": "assert:ia:dmv-monitoring",
+      "from": "concept:fabric:dmv",
+      "to": "concept:fabric:monitoring",
+      "relationType": "part_of_mechanism",
+      "claim": "Live DMV output is one observability surface inside monitoring, distinct from retained query history and from a performance score.",
+      "supportKind": "direct",
+      "evidenceCount": 2,
+      "riskScore": 0,
+      "riskReasons": [],
+      "reviewState": "candidate"
+    },
+    {
+      "assertionId": "assert:ia:fabric-clone-copy",
+      "from": "concept:fabric:clone",
+      "to": "concept:fabric:copy-job",
+      "relationType": "contrasts_with",
+      "claim": "A clone initially shares data files and diverges on change; a copy job creates an independent copy from the start.",
+      "supportKind": "direct",
+      "evidenceCount": 4,
+      "riskScore": 0,
+      "riskReasons": [],
+      "reviewState": "candidate"
+    },
+    {
+      "assertionId": "assert:ia:fabric-cls-permissions",
+      "from": "concept:fabric:cls",
+      "to": "concept:fabric:permissions",
+      "relationType": "part_of_mechanism",
+      "claim": "Column-level security is a permission mechanism that restricts selected columns while leaving the object readable.",
+      "supportKind": "direct",
+      "evidenceCount": 4,
+      "riskScore": 0,
+      "riskReasons": [],
+      "reviewState": "candidate"
+    },
+    {
+      "assertionId": "assert:ia:fabric-delta-directlake",
+      "from": "concept:fabric:delta",
+      "to": "concept:fabric:direct-lake",
+      "relationType": "enables",
+      "claim": "Direct Lake can read eligible Delta tables in OneLake without an Import copy, so Delta table eligibility is a precondition.",
+      "supportKind": "direct",
+      "evidenceCount": 4,
+      "riskScore": 0,
+      "riskReasons": [],
+      "reviewState": "candidate"
+    },
+    {
+      "assertionId": "assert:ia:fabric-endpoint-tsql",
+      "from": "concept:fabric:sql-endpoint",
+      "to": "concept:fabric:t-sql",
+      "relationType": "enables",
+      "claim": "The SQL analytics endpoint exposes lakehouse tables through T-SQL, with read-oriented behaviour that differs from Warehouse writes.",
+      "supportKind": "direct",
+      "evidenceCount": 2,
+      "riskScore": 0,
+      "riskReasons": [],
+      "reviewState": "candidate"
+    },
+    {
+      "assertionId": "assert:ia:fabric-eventhouse-kql",
+      "from": "concept:fabric:eventhouse",
+      "to": "concept:fabric:kql",
+      "relationType": "enables",
+      "claim": "An Eventhouse exposes event data through KQL, so KQL is the query language for that store.",
+      "supportKind": "direct",
+      "evidenceCount": 2,
+      "riskScore": 0,
+      "riskReasons": [],
+      "reviewState": "candidate"
+    },
+    {
+      "assertionId": "assert:ia:fabric-eventstream-eventhouse",
+      "from": "concept:fabric:eventstream",
+      "to": "concept:fabric:eventhouse",
+      "relationType": "enables",
+      "claim": "An eventstream can route transformed streaming data into an Eventhouse, where KQL queries it.",
+      "supportKind": "direct",
+      "evidenceCount": 4,
+      "riskScore": 0,
+      "riskReasons": [],
+      "reviewState": "candidate"
+    },
+    {
+      "assertionId": "assert:ia:fabric-import-directquery",
+      "from": "concept:fabric:import",
+      "to": "concept:fabric:directquery",
+      "relationType": "tradeoff_with",
+      "claim": "Import stores a compressed copy refreshed on a schedule; DirectQuery queries the source at report time. The trade-off is freshness and source load against model size and query speed.",
+      "supportKind": "direct",
+      "evidenceCount": 4,
+      "riskScore": 0,
+      "riskReasons": [],
+      "reviewState": "candidate"
+    },
+    {
+      "assertionId": "assert:ia:fabric-ols-permissions",
+      "from": "concept:fabric:ols",
+      "to": "concept:fabric:permissions",
+      "relationType": "part_of_mechanism",
+      "claim": "Object-level security is part of the permission model: it hides objects or columns from identities that would otherwise see them.",
+      "supportKind": "direct",
+      "evidenceCount": 3,
+      "riskScore": 0,
+      "riskReasons": [],
+      "reviewState": "candidate"
+    },
+    {
+      "assertionId": "assert:ia:fabric-onelake-shortcut",
+      "from": "concept:fabric:onelake",
+      "to": "concept:fabric:shortcut",
+      "relationType": "enables",
+      "claim": "OneLake provides the path model that lets a shortcut reference an existing target without a copy pipeline.",
+      "supportKind": "direct",
+      "evidenceCount": 3,
+      "riskScore": 0,
+      "riskReasons": [],
+      "reviewState": "candidate"
+    },
+    {
+      "assertionId": "assert:ia:fabric-partition-delta",
+      "from": "concept:fabric:partitioning",
+      "to": "concept:fabric:delta",
+      "relationType": "part_of_mechanism",
+      "claim": "Partition layout is part of how a Delta table prunes files; a poor hierarchy leaves irrelevant files in the scan.",
+      "supportKind": "direct",
+      "evidenceCount": 3,
+      "riskScore": 0,
+      "riskReasons": [],
+      "reviewState": "candidate"
+    },
+    {
+      "assertionId": "assert:ia:lineage-governance-domain",
+      "from": "concept:fabric:lineage",
+      "to": "concept:fabric:governance-domain",
+      "relationType": "related_in_decision",
+      "claim": "Moving a workspace between governance domains is a change whose downstream impact must be inspected, not only an administrative reassignment.",
+      "supportKind": "direct",
+      "evidenceCount": 2,
+      "riskScore": 0,
+      "riskReasons": [],
+      "reviewState": "candidate"
+    },
+    {
+      "assertionId": "assert:ia:metadata-sync-endpoint",
+      "from": "concept:fabric:metadata-sync",
+      "to": "concept:fabric:sql-endpoint",
+      "relationType": "part_of_mechanism",
+      "claim": "The SQL analytics endpoint depends on a metadata-publication step; a completed write is not the same as a queryable table.",
+      "supportKind": "direct",
+      "evidenceCount": 2,
+      "riskScore": 0,
+      "riskReasons": [],
+      "reviewState": "candidate"
+    },
+    {
+      "assertionId": "assert:ia:mlv-lakehouse",
+      "from": "concept:fabric:materialized-lake-view",
+      "to": "concept:fabric:lakehouse",
+      "relationType": "part_of_mechanism",
+      "claim": "A materialized lake view is a persisted transformation inside the lakehouse, with its own refresh and lineage behaviour.",
+      "supportKind": "direct",
+      "evidenceCount": 2,
+      "riskScore": 0,
+      "riskReasons": [],
+      "reviewState": "candidate"
+    },
+    {
+      "assertionId": "assert:ia:pipeline-reliability-monitoring",
+      "from": "concept:fabric:pipeline-reliability",
+      "to": "concept:fabric:monitoring",
+      "relationType": "related_in_decision",
+      "claim": "A green activity status is an operational signal, not proof of correct data; reliability requires a separate correctness check.",
+      "supportKind": "direct",
+      "evidenceCount": 2,
+      "riskScore": 0,
+      "riskReasons": [],
+      "reviewState": "candidate"
+    },
+    {
+      "assertionId": "assert:ia:sensitivity-label-permissions",
+      "from": "concept:fabric:sensitivity-label",
+      "to": "concept:fabric:permissions",
+      "relationType": "complements",
+      "claim": "A sensitivity label classifies and can carry protection settings; item permissions authorize access. They are complementary controls, not substitutes.",
+      "supportKind": "direct",
+      "evidenceCount": 2,
+      "riskScore": 0,
+      "riskReasons": [],
+      "reviewState": "candidate"
+    },
+    {
+      "assertionId": "assert:ia:sql-distinct-groupby",
+      "from": "concept:sql:distinct",
+      "to": "concept:sql:group-by",
+      "relationType": "contrasts_with",
+      "claim": "DISTINCT removes duplicate result rows; GROUP BY collapses rows into groups with aggregates. They are not interchangeable.",
+      "supportKind": "direct",
+      "evidenceCount": 3,
+      "riskScore": 0,
+      "riskReasons": [],
+      "reviewState": "candidate"
+    },
+    {
+      "assertionId": "assert:ia:sql-filtering-null",
+      "from": "concept:sql:filtering",
+      "to": "concept:sql:null",
+      "relationType": "related_in_decision",
+      "claim": "A WHERE predicate can silently exclude NULL rows because a comparison with NULL is unknown rather than true.",
+      "supportKind": "direct",
+      "evidenceCount": 4,
+      "riskScore": 0,
+      "riskReasons": [],
+      "reviewState": "candidate"
+    },
+    {
+      "assertionId": "assert:ia:sql-null-aggregation",
+      "from": "concept:sql:null",
+      "to": "concept:sql:aggregation",
+      "relationType": "related_in_decision",
+      "claim": "NULL handling changes what an aggregate counts or averages; the choice between COUNT(*), COUNT(column) and NULL-aware expressions is a decision, not a style preference.",
+      "supportKind": "direct",
+      "evidenceCount": 2,
+      "riskScore": 0,
+      "riskReasons": [],
+      "reviewState": "candidate"
+    },
+    {
+      "assertionId": "assert:ia:sql-ordering-logical",
+      "from": "concept:sql:ordering",
+      "to": "concept:sql:logical-processing-order",
+      "relationType": "related_in_decision",
+      "claim": "ORDER BY is the last logical step, so it can use SELECT aliases and window results but cannot change which rows enter the result.",
+      "supportKind": "direct",
+      "evidenceCount": 3,
+      "riskScore": 0,
+      "riskReasons": [],
+      "reviewState": "candidate"
+    },
+    {
+      "assertionId": "assert:ia:sql-population-aggregation",
+      "from": "concept:sql:population",
+      "to": "concept:sql:aggregation",
+      "relationType": "related_in_decision",
+      "claim": "Percentages and conditional aggregates are only interpretable when the population that supplies the denominator is fixed first.",
+      "supportKind": "direct",
+      "evidenceCount": 3,
+      "riskScore": 0,
+      "riskReasons": [],
+      "reviewState": "candidate"
+    },
+    {
+      "assertionId": "assert:ia:sql-types-aggregation",
+      "from": "concept:sql:data-types",
+      "to": "concept:sql:aggregation",
+      "relationType": "related_in_decision",
+      "claim": "Type precedence and integer division can change an aggregate result before any business interpretation begins.",
+      "supportKind": "direct",
+      "evidenceCount": 2,
+      "riskScore": 0,
+      "riskReasons": [],
+      "reviewState": "candidate"
+    },
+    {
+      "assertionId": "assert:ia:stats-alpha-errors",
+      "from": "concept:stats:significance-level",
+      "to": "concept:stats:error-types",
+      "relationType": "related_in_decision",
+      "claim": "Alpha is the accepted Type I error rate under the null, so choosing it is a decision about false positives.",
+      "supportKind": "direct",
+      "evidenceCount": 2,
+      "riskScore": 0,
+      "riskReasons": [],
+      "reviewState": "candidate"
+    },
+    {
+      "assertionId": "assert:ia:stats-center-spread",
+      "from": "concept:stats:center",
+      "to": "concept:stats:spread",
+      "relationType": "complements",
+      "claim": "Center and spread describe different properties of a distribution; neither alone characterizes the data.",
+      "supportKind": "direct",
+      "evidenceCount": 2,
+      "riskScore": 0,
+      "riskReasons": [],
+      "reviewState": "candidate"
+    },
+    {
+      "assertionId": "assert:ia:stats-corr-causation",
+      "from": "concept:stats:correlation",
+      "to": "concept:stats:causation",
+      "relationType": "contrasts_with",
+      "claim": "Correlation measures linear association; causation requires a design or assumptions that association alone does not supply.",
+      "supportKind": "direct",
+      "evidenceCount": 2,
+      "riskScore": 0,
+      "riskReasons": [],
+      "reviewState": "candidate"
+    },
+    {
+      "assertionId": "assert:ia:stats-outlier-spread",
+      "from": "concept:stats:outlier",
+      "to": "concept:stats:spread",
+      "relationType": "related_in_decision",
+      "claim": "The choice of spread measure depends on outlier sensitivity: IQR is resistant while range and standard deviation are not.",
+      "supportKind": "direct",
+      "evidenceCount": 3,
+      "riskScore": 0,
+      "riskReasons": [],
+      "reviewState": "candidate"
+    },
+    {
+      "assertionId": "assert:ia:stats-practical-significance",
+      "from": "concept:stats:practical-significance",
+      "to": "concept:stats:significance-level",
+      "relationType": "contrasts_with",
+      "claim": "Statistical significance is a decision-rule outcome; practical significance asks whether the effect is large enough to matter.",
+      "supportKind": "direct",
+      "evidenceCount": 3,
+      "riskScore": 0,
+      "riskReasons": [],
+      "reviewState": "candidate"
+    },
+    {
+      "assertionId": "assert:ia:stats-pvalue-test",
+      "from": "concept:stats:p-value",
+      "to": "concept:stats:hypothesis-test",
+      "relationType": "part_of_mechanism",
+      "claim": "The p-value is the tail probability computed inside a hypothesis test and compared with a pre-declared significance level.",
+      "supportKind": "direct",
+      "evidenceCount": 2,
+      "riskScore": 0,
+      "riskReasons": [],
+      "reviewState": "candidate"
+    },
+    {
+      "assertionId": "assert:ia:viz-a11y-palette",
+      "from": "concept:viz:accessibility-contrast",
+      "to": "concept:viz:color-palette",
+      "relationType": "complements",
+      "claim": "Palette semantics and contrast/grayscale checks are complementary duties: a meaningful palette can still fail accessibility.",
+      "supportKind": "direct",
+      "evidenceCount": 2,
+      "riskScore": 0,
+      "riskReasons": [],
+      "reviewState": "candidate"
+    },
+    {
+      "assertionId": "assert:ia:viz-scale-baseline",
+      "from": "concept:viz:scale",
+      "to": "concept:viz:axis-baseline",
+      "relationType": "tradeoff_with",
+      "claim": "A log scale can reveal multiplicative structure but cannot include zero, so it trades against the zero-baseline rule that bar length depends on.",
+      "supportKind": "direct",
+      "evidenceCount": 4,
+      "riskScore": 0,
+      "riskReasons": [],
+      "reviewState": "candidate"
+    },
+    {
+      "assertionId": "assert:ia:vorder-optimize-tradeoff",
+      "from": "concept:fabric:v-order",
+      "to": "concept:fabric:optimize",
+      "relationType": "tradeoff_with",
+      "claim": "V-Order changes the write layout for faster reads, while compaction reduces file fragmentation; both consume write work and must be evaluated against the actual workload.",
+      "supportKind": "direct",
+      "evidenceCount": 2,
+      "riskScore": 0,
+      "riskReasons": [],
+      "reviewState": "candidate"
+    }
+  ],
+  "ambiguities": [
+    {
+      "id": "amb:grain",
+      "term": "grain",
+      "resolution": "keep-separate",
+      "decision": "Keep two IDs because the scopes differ: query result shape versus model row meaning. Record a crosswalk and a related_in_decision assertion instead of merging."
+    },
+    {
+      "id": "amb:population",
+      "term": "population",
+      "resolution": "keep-separate",
+      "decision": "The two senses often align but are not identical; a SQL population can be a filtered subset of a statistical population."
+    },
+    {
+      "id": "amb:denominator",
+      "term": "denominator",
+      "resolution": "keep-separate",
+      "decision": "A query population is an operational set; a metric definition is the documented contract that names it. The definition concept depends on the population concept rather than duplicating it."
+    },
+    {
+      "id": "amb:arabic-contrast-variance",
+      "term": "التباين",
+      "resolution": "keep-separate",
+      "decision": "The Arabic word is used for both statistical variance and visual contrast. Labels must be qualified by domain; no shared identity is created from the string alone."
+    },
+    {
+      "id": "amb:confidence-interval-display",
+      "term": "فترة الثقة",
+      "resolution": "keep-separate",
+      "decision": "The statistical object and its visual representation have different correctness rules; a display concept must not inherit the interval's statistical claims."
+    },
+    {
+      "id": "amb:partition",
+      "term": "partition",
+      "resolution": "keep-separate",
+      "decision": "Physical partitioning and refresh partitions are different mechanisms with different failure modes; the shared word must not merge them."
+    },
+    {
+      "id": "amb:arabic-partition-segment",
+      "term": "التقسيم",
+      "resolution": "keep-separate",
+      "decision": "The Arabic word covers both physical partitioning and analytical segmentation. Resolve by domain context, never by the string alone."
+    },
+    {
+      "id": "amb:commit",
+      "term": "commit",
+      "resolution": "keep-separate",
+      "decision": "Both are durable state changes, but the recovery, rollback and audit semantics differ. The label must be qualified by system."
+    },
+    {
+      "id": "amb:distribution",
+      "term": "distribution",
+      "resolution": "keep-separate",
+      "decision": "The corpus explicitly warns against confusing the two; keep separate IDs and a prerequisite assertion."
+    },
+    {
+      "id": "amb:model",
+      "term": "model",
+      "resolution": "no-concept-created",
+      "decision": "Do not create a generic 'model' concept. Every occurrence must resolve to a scoped concept or stay unmapped."
+    },
+    {
+      "id": "amb:shortcut-caching",
+      "term": "shortcut caching",
+      "resolution": "scope-qualified",
+      "decision": "A shortcut is not a retained result, but external shortcut caching can materialize data. Keep the reference claim qualified by the caching caveat."
+    }
+  ],
+  "contradictions": [
+    {
+      "id": "con:vorder-default",
+      "topic": "V-Order default state",
+      "classification": "version-scope-difference",
+      "status": "open-for-editorial-review"
+    },
+    {
+      "id": "con:pie-vs-lab",
+      "topic": "Pie charts: guidance versus lab instruction",
+      "classification": "context-difference",
+      "status": "resolved-by-scope"
+    },
+    {
+      "id": "con:bar-zero-line",
+      "topic": "Zero baseline for bars versus lines",
+      "classification": "scope-difference",
+      "status": "resolved-by-scope"
+    },
+    {
+      "id": "con:mean-median",
+      "topic": "Mean versus median as the typical value",
+      "classification": "assumption-difference",
+      "status": "resolved-by-scope"
+    }
+  ]
+}

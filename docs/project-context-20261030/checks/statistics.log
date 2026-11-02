@@ -1,0 +1,122 @@
+TAP version 13
+# (node:28580) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///D:/BeUI/amir-portfolio/lib/statistics/math.ts is not specified and it doesn't parse as CommonJS.
+# Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+# To eliminate this warning, add "type": "module" to D:\\BeUI\\amir-portfolio\\package.json.
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# Subtest: Poisson reproduces the brief's verified λ=20 values
+ok 1 - Poisson reproduces the brief's verified λ=20 values
+  ---
+  duration_ms: 2.5395
+  type: 'test'
+  ...
+# Subtest: Poisson normalises and its tails complement its CDF
+ok 2 - Poisson normalises and its tails complement its CDF
+  ---
+  duration_ms: 40.3261
+  type: 'test'
+  ...
+# Subtest: Binomial PMF normalises, respects boundaries, and matches its tail
+ok 3 - Binomial PMF normalises, respects boundaries, and matches its tail
+  ---
+  duration_ms: 3.283
+  type: 'test'
+  ...
+# Subtest: Normal density integrates to 1 and the empirical-rule areas hold
+ok 4 - Normal density integrates to 1 and the empirical-rule areas hold
+  ---
+  duration_ms: 3.3639
+  type: 'test'
+  ...
+# Subtest: Normal quantile inverts the CDF across the working range
+ok 5 - Normal quantile inverts the CDF across the working range
+  ---
+  duration_ms: 0.8866
+  type: 'test'
+  ...
+# Subtest: Student t quantiles match published two-sided critical values
+ok 6 - Student t quantiles match published two-sided critical values
+  ---
+  duration_ms: 12.3891
+  type: 'test'
+  ...
+# Subtest: Descriptive statistics use n−1 for samples and resist one outlier
+ok 7 - Descriptive statistics use n−1 for samples and resist one outlier
+  ---
+  duration_ms: 3.1501
+  type: 'test'
+  ...
+# Subtest: Five-number summary uses Tukey fences and includes both whiskers
+ok 8 - Five-number summary uses Tukey fences and includes both whiskers
+  ---
+  duration_ms: 0.3407
+  type: 'test'
+  ...
+# Subtest: Confidence interval: t critical value, margin, and bounds
+ok 9 - Confidence interval: t critical value, margin, and bounds
+  ---
+  duration_ms: 1.693
+  type: 'test'
+  ...
+# Subtest: Wilson interval stays inside [0,1] at the edges
+ok 10 - Wilson interval stays inside [0,1] at the edges
+  ---
+  duration_ms: 0.9689
+  type: 'test'
+  ...
+# Subtest: Two-proportion test: rates, pooled SE, p-value and unpooled CI
+ok 11 - Two-proportion test: rates, pooled SE, p-value and unpooled CI
+  ---
+  duration_ms: 0.7869
+  type: 'test'
+  ...
+# Subtest: Power rises with sample size and effect, and never exceeds 1
+ok 12 - Power rises with sample size and effect, and never exceeds 1
+  ---
+  duration_ms: 0.4472
+  type: 'test'
+  ...
+# Subtest: Pearson r is bounded, detects perfect lines, and regression is not r
+ok 13 - Pearson r is bounded, detects perfect lines, and regression is not r
+  ---
+  duration_ms: 0.6077
+  type: 'test'
+  ...
+# Subtest: Sampling simulation is seeded, and empirical SE tracks σ/√n
+ok 14 - Sampling simulation is seeded, and empirical SE tracks σ/√n
+  ---
+  duration_ms: 96.8547
+  type: 'test'
+  ...
+# Subtest: Coverage simulation is honest and does not force exactly 95%
+ok 15 - Coverage simulation is honest and does not force exactly 95%
+  ---
+  duration_ms: 43.5058
+  type: 'test'
+  ...
+# Subtest: Histogram counts every observation and reports density that integrates to 1
+ok 16 - Histogram counts every observation and reports density that integrates to 1
+  ---
+  duration_ms: 0.9753
+  type: 'test'
+  ...
+# Subtest: log-gamma matches factorial identities used by the PMFs
+ok 17 - log-gamma matches factorial identities used by the PMFs
+  ---
+  duration_ms: 0.1769
+  type: 'test'
+  ...
+# Subtest: Formatters never print NaN or Infinity as a number
+ok 18 - Formatters never print NaN or Infinity as a number
+  ---
+  duration_ms: 84.7202
+  type: 'test'
+  ...
+1..18
+# tests 18
+# suites 0
+# pass 18
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 890.398

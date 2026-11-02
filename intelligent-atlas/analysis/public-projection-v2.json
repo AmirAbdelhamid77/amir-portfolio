@@ -1,0 +1,37 @@
+{
+  "schemaVersion": "intelligent-atlas-public-projection/2.0",
+  "generatedAt": "2026-11-01",
+  "graphBuildId": "ia-graph-bed4e12d0986",
+  "mode": "public",
+  "publicationGate": {
+    "requiresAll": [
+      "publicationState = published",
+      "publicEligible = true",
+      "reviewedBy is a named reviewer",
+      "reviewedAt is recorded"
+    ],
+    "note": "A candidate or technical_review record is never projected, even when it has strong evidence."
+  },
+  "publishedConcepts": [],
+  "publishedAssertions": [],
+  "publishedInsights": [],
+  "withheld": {
+    "conceptCount": 132,
+    "assertionCount": 86,
+    "insightCount": 3,
+    "unitCount": 6201,
+    "assertionsDroppedForMissingEndpoint": 0,
+    "reason": "No concept, assertion or edition has completed human publication review."
+  },
+  "structural": {
+    "domainCount": 5,
+    "routeCount": 73,
+    "sourceCount": 22,
+    "unitCount": 6201,
+    "note": "Structural discovery is navigation metadata. It does not imply semantic publication."
+  },
+  "emptyState": {
+    "isPubliclyEmpty": true,
+    "learnerMessage": "The reviewed knowledge graph is not published yet. You can still browse the reading library and the study routes; the semantic layer will appear here once it passes publication review."
+  }
+}

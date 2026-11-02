@@ -1,0 +1,232 @@
+TAP version 13
+# (node:31068) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///D:/BeUI/amir-portfolio/lib/fabric/classify.ts is not specified and it doesn't parse as CommonJS.
+# Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+# To eliminate this warning, add "type": "module" to D:\\BeUI\\amir-portfolio\\package.json.
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# Subtest: the declared baseline counts are reproduced exactly
+ok 1 - the declared baseline counts are reproduced exactly
+  ---
+  duration_ms: 3.1072
+  type: 'test'
+  ...
+# Subtest: the merged bank carries the corpus waves on top of the baseline
+ok 2 - the merged bank carries the corpus waves on top of the baseline
+  ---
+  duration_ms: 1.152
+  type: 'test'
+  ...
+# Subtest: every question is imported once, under a unique namespaced id
+ok 3 - every question is imported once, under a unique namespaced id
+  ---
+  duration_ms: 54.218
+  type: 'test'
+  ...
+# Subtest: each question keeps a valid answer key, rationales and explanation
+ok 4 - each question keeps a valid answer key, rationales and explanation
+  ---
+  duration_ms: 18.2222
+  type: 'test'
+  ...
+# Subtest: source references resolve to the registry
+ok 5 - source references resolve to the registry
+  ---
+  duration_ms: 3.5595
+  type: 'test'
+  ...
+# Subtest: case studies keep their text and link every question they own
+ok 6 - case studies keep their text and link every question they own
+  ---
+  duration_ms: 1.1505
+  type: 'test'
+  ...
+# Subtest: the index is a faithful projection of the raw records
+ok 7 - the index is a faithful projection of the raw records
+  ---
+  duration_ms: 5.2729
+  type: 'test'
+  ...
+# Subtest: classification is deterministic and reproducible from the raw record
+ok 8 - classification is deterministic and reproducible from the raw record
+  ---
+  duration_ms: 231.5303
+  type: 'test'
+  ...
+# Subtest: the shipped coverage report equals a fresh aggregation
+ok 9 - the shipped coverage report equals a fresh aggregation
+  ---
+  duration_ms: 6.3838
+  type: 'test'
+  ...
+# Subtest: domain shares reconcile with the sub-objective table under one rule
+ok 10 - domain shares reconcile with the sub-objective table under one rule
+  ---
+  duration_ms: 3.0706
+  type: 'test'
+  ...
+# Subtest: difficulty metadata is only what the source supplied
+ok 11 - difficulty metadata is only what the source supplied
+  ---
+  duration_ms: 1.5466
+  type: 'test'
+  ...
+# Subtest: questions without a video timestamp are the documented foundation set
+ok 12 - questions without a video timestamp are the documented foundation set
+  ---
+  duration_ms: 0.509
+  type: 'test'
+  ...
+# Subtest: the import audit records no silent repair
+ok 13 - the import audit records no silent repair
+  ---
+  duration_ms: 0.2124
+  type: 'test'
+  ...
+# Subtest: classification labels stay inside their documented meaning
+ok 14 - classification labels stay inside their documented meaning
+  ---
+  duration_ms: 1.0146
+  type: 'test'
+  ...
+# Subtest: pack metadata preserves the source video identity
+ok 15 - pack metadata preserves the source video identity
+  ---
+  duration_ms: 0.3881
+  type: 'test'
+  ...
+# (node:12572) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///D:/BeUI/amir-portfolio/lib/fabric/r11.ts is not specified and it doesn't parse as CommonJS.
+# Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+# To eliminate this warning, add "type": "module" to D:\\BeUI\\amir-portfolio\\package.json.
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# Subtest: R11 enriches exactly the existing 222 source IDs; all 532 imports remain immutable
+ok 16 - R11 enriches exactly the existing 222 source IDs; all 532 imports remain immutable
+  ---
+  duration_ms: 20.7784
+  type: 'test'
+  ...
+# Subtest: only approved patches reach the learner view; unapproved candidate rewrites remain private
+ok 17 - only approved patches reach the learner view; unapproved candidate rewrites remain private
+  ---
+  duration_ms: 6.0266
+  type: 'test'
+  ...
+# Subtest: all seven control formats retain their source subparts and valid option mappings
+ok 18 - all seven control formats retain their source subparts and valid option mappings
+  ---
+  duration_ms: 1.511
+  type: 'test'
+  ...
+# Subtest: progress rejects corrupt, oversized, unknown revision and malformed states while retaining a separate namespace
+ok 19 - progress rejects corrupt, oversized, unknown revision and malformed states while retaining a separate namespace
+  ---
+  duration_ms: 1.1542
+  type: 'test'
+  ...
+# Subtest: search publishes question metadata and deep links, with no answer/explanation payload
+ok 20 - search publishes question metadata and deep links, with no answer/explanation payload
+  ---
+  duration_ms: 8.1344
+  type: 'test'
+  ...
+# (node:11284) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///D:/BeUI/amir-portfolio/lib/fabric/engine.ts is not specified and it doesn't parse as CommonJS.
+# Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+# To eliminate this warning, add "type": "module" to D:\\BeUI\\amir-portfolio\\package.json.
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# Subtest: a single-answer question is correct only for its one key
+ok 21 - a single-answer question is correct only for its one key
+  ---
+  duration_ms: 3.8597
+  type: 'test'
+  ...
+# Subtest: a multi-select question requires an exact set
+ok 22 - a multi-select question requires an exact set
+  ---
+  duration_ms: 0.5625
+  type: 'test'
+  ...
+# Subtest: a sequence question requires the exact order
+ok 23 - a sequence question requires the exact order
+  ---
+  duration_ms: 0.5421
+  type: 'test'
+  ...
+# Subtest: an empty response is never correct
+ok 24 - an empty response is never correct
+  ---
+  duration_ms: 6.2651
+  type: 'test'
+  ...
+# Subtest: every question scores its own key as correct
+ok 25 - every question scores its own key as correct
+  ---
+  duration_ms: 5.3179
+  type: 'test'
+  ...
+# Subtest: every question rejects a deliberately broken key
+ok 26 - every question rejects a deliberately broken key
+  ---
+  duration_ms: 8.8637
+  type: 'test'
+  ...
+# Subtest: a five-option question grades using its real option ids
+ok 27 - a five-option question grades using its real option ids
+  ---
+  duration_ms: 0.6567
+  type: 'test'
+  ...
+# Subtest: shuffled display order cannot change the verdict
+ok 28 - shuffled display order cannot change the verdict
+  ---
+  duration_ms: 0.7413
+  type: 'test'
+  ...
+# Subtest: session grading aggregates by objective, subject and type
+ok 29 - session grading aggregates by objective, subject and type
+  ---
+  duration_ms: 3.4156
+  type: 'test'
+  ...
+# Subtest: session selection is deterministic, bounded and filter-aware
+ok 30 - session selection is deterministic, bounded and filter-aware
+  ---
+  duration_ms: 98.9877
+  type: 'test'
+  ...
+# Subtest: selection respects every filter dimension
+ok 31 - selection respects every filter dimension
+  ---
+  duration_ms: 34.1838
+  type: 'test'
+  ...
+# Subtest: selection clamps the requested count instead of padding it
+ok 32 - selection clamps the requested count instead of padding it
+  ---
+  duration_ms: 0.8282
+  type: 'test'
+  ...
+# Subtest: option order is deterministic, permutation-safe and never shuffles a sequence
+ok 33 - option order is deterministic, permutation-safe and never shuffles a sequence
+  ---
+  duration_ms: 14.2853
+  type: 'test'
+  ...
+# Subtest: manifest identity and timers are stable
+ok 34 - manifest identity and timers are stable
+  ---
+  duration_ms: 5.4866
+  type: 'test'
+  ...
+# Subtest: a case scenario stays with its questions
+ok 35 - a case scenario stays with its questions
+  ---
+  duration_ms: 0.5659
+  type: 'test'
+  ...
+1..35
+# tests 35
+# suites 0
+# pass 35
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 1097.2484

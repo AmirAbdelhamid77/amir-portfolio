@@ -1,0 +1,500 @@
+{
+  "suite": "qa-stage-recovery",
+  "at": "2026-11-02T17:53:24.842Z",
+  "counts": {
+    "PASS": 61,
+    "FAIL": 0,
+    "BLOCKED": 0,
+    "NOT RUN": 0
+  },
+  "checks": [
+    {
+      "id": "runtime:no-errors",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "id": "timeline:latest-edition",
+      "status": "PASS",
+      "detail": "2026-10-26"
+    },
+    {
+      "id": "timeline:no-concept-selected",
+      "status": "PASS",
+      "detail": "null"
+    },
+    {
+      "id": "timeline:scene",
+      "status": "PASS",
+      "detail": "timeline"
+    },
+    {
+      "id": "timeline:15-cards",
+      "status": "PASS",
+      "detail": "15"
+    },
+    {
+      "id": "timeline:beui-year-backdrop",
+      "status": "PASS",
+      "detail": "2026"
+    },
+    {
+      "id": "timeline:beui-four-cables",
+      "status": "PASS",
+      "detail": "[4,4,4,4,4,4,4,4,4,4,4,4,4,4,4]"
+    },
+    {
+      "id": "timeline:beui-cable-fan",
+      "status": "PASS",
+      "detail": "3"
+    },
+    {
+      "id": "timeline:beui-gap-ruler",
+      "status": "PASS",
+      "detail": "70 ticks / 0 date labels"
+    },
+    {
+      "id": "timeline:beui-date-captions",
+      "status": "PASS",
+      "detail": "[\"18 Oct\",\"1 Nov\"]"
+    },
+    {
+      "id": "timeline:beui-deck-stacks",
+      "status": "PASS",
+      "detail": "15"
+    },
+    {
+      "id": "timeline:focused-card",
+      "status": "PASS",
+      "detail": "Reference ≠ retained result"
+    },
+    {
+      "id": "timeline:today-empty",
+      "status": "PASS",
+      "detail": "SUN | TODAY | 1 | NOV | No edition today | 0 CARDS · TODAY"
+    },
+    {
+      "id": "timeline:today-zero-cards",
+      "status": "PASS",
+      "detail": "SUN | TODAY | 1 | NOV | No edition today | 0 CARDS · TODAY"
+    },
+    {
+      "id": "timeline:edition-peek",
+      "status": "PASS",
+      "detail": "SELECTED MOMENT · EDITION 03\nMONDAY, 26 OCTOBER 2026\n\n01\nReference ≠ retained result\n\nOneLake · 1 card · technical review · human publication review pending."
+    },
+    {
+      "id": "layout:no-horizontal-overflow",
+      "status": "PASS",
+      "detail": "{\"documentScrollWidth\":1425,\"bodyScrollWidth\":1425,\"innerWidth\":1440,\"overflowX\":false}"
+    },
+    {
+      "id": "timeline:arrow-left",
+      "status": "PASS",
+      "detail": "2026-10-25"
+    },
+    {
+      "id": "timeline:end-today",
+      "status": "PASS",
+      "detail": "2026-11-01"
+    },
+    {
+      "id": "timeline:today-action-label",
+      "status": "PASS",
+      "detail": "Open empty hand"
+    },
+    {
+      "id": "timeline:home-first",
+      "status": "PASS",
+      "detail": "2026-10-18"
+    },
+    {
+      "id": "dealer:today-empty-hand",
+      "status": "PASS",
+      "detail": "0 CARDS"
+    },
+    {
+      "id": "dealer:today-label",
+      "status": "PASS",
+      "detail": "The empty hand"
+    },
+    {
+      "id": "dealer:today-locate-copy",
+      "status": "PASS",
+      "detail": "Show subject entrances"
+    },
+    {
+      "id": "dealer:lock",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "id": "empty:no-unrelated-concept",
+      "status": "PASS",
+      "detail": "null"
+    },
+    {
+      "id": "empty:scene-knowledge",
+      "status": "PASS",
+      "detail": "knowledge"
+    },
+    {
+      "id": "empty:origin-empty",
+      "status": "PASS",
+      "detail": "empty"
+    },
+    {
+      "id": "empty:entrances",
+      "status": "PASS",
+      "detail": "5"
+    },
+    {
+      "id": "dealer:unlock",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "id": "dealer:one-card",
+      "status": "PASS",
+      "detail": "1 CARD"
+    },
+    {
+      "id": "dealer:card-title",
+      "status": "PASS",
+      "detail": "Reference ≠ retained result"
+    },
+    {
+      "id": "dealer:restore-scroll",
+      "status": "PASS",
+      "detail": "146/146"
+    },
+    {
+      "id": "card:concept",
+      "status": "PASS",
+      "detail": "concept:fabric:shortcut"
+    },
+    {
+      "id": "card:origin",
+      "status": "PASS",
+      "detail": "card"
+    },
+    {
+      "id": "card:transition-from",
+      "status": "PASS",
+      "detail": "26 Oct edition · Reference ≠ retained result"
+    },
+    {
+      "id": "card:transition-current",
+      "status": "PASS",
+      "detail": "YOUR CURRENT SELECTION · ONELAKE SHORTCUT"
+    },
+    {
+      "id": "card:center",
+      "status": "PASS",
+      "detail": "OneLake shortcut"
+    },
+    {
+      "id": "card:three-labels",
+      "status": "PASS",
+      "detail": "[\"Copy job\",\"Database mirroring\",\"OneLake\"]"
+    },
+    {
+      "id": "card:no-overlap",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "id": "card:inside-canvas",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "id": "motion:no-blank-frame",
+      "status": "PASS",
+      "detail": "0.000:1.00 0.100:1.00 0.150:1.00 0.200:0.28 0.220:0.26 0.250:0.42 0.300:0.68 0.400:1.00 0.500:1.00 0.600:1.00 0.680:1.00 0.700:0.67 0.720:0.34 0.740:0.38 0.750:0.46 0.800:0.85 0.900:1.00 1.000:1.00"
+    },
+    {
+      "id": "motion:timeline-start",
+      "status": "PASS",
+      "detail": "1"
+    },
+    {
+      "id": "motion:closing-end",
+      "status": "PASS",
+      "detail": "1"
+    },
+    {
+      "id": "motion:timeline-cleared-at-25",
+      "status": "PASS",
+      "detail": "0"
+    },
+    {
+      "id": "motion:knowledge-emerging-at-25",
+      "status": "PASS",
+      "detail": "0.4211"
+    },
+    {
+      "id": "motion:knowledge-cleared-at-75",
+      "status": "PASS",
+      "detail": "0"
+    },
+    {
+      "id": "motion:closing-emerging-at-75",
+      "status": "PASS",
+      "detail": "0.4615"
+    },
+    {
+      "id": "motion:zone-knowledge",
+      "status": "PASS",
+      "detail": "knowledge"
+    },
+    {
+      "id": "motion:zone-closing",
+      "status": "PASS",
+      "detail": "closing"
+    },
+    {
+      "id": "motion:reverse-returns-timeline",
+      "status": "PASS",
+      "detail": "timeline"
+    },
+    {
+      "id": "dealer:locks-exact-progress",
+      "status": "PASS",
+      "detail": "1056/1056"
+    },
+    {
+      "id": "dealer:stage-stays-on-screen",
+      "status": "PASS",
+      "detail": "{\"stageTop\":64,\"stageBottom\":960,\"topbarBottom\":64}"
+    },
+    {
+      "id": "dealer:wheel-does-not-scroll",
+      "status": "PASS",
+      "detail": "1056/1056"
+    },
+    {
+      "id": "dealer:restores-exact-progress",
+      "status": "PASS",
+      "detail": "1056/1056"
+    },
+    {
+      "id": "theme:dark",
+      "status": "PASS",
+      "detail": "dark"
+    },
+    {
+      "id": "theme:dark-secondary-readable",
+      "status": "PASS",
+      "detail": "{\"bg\":\"rgb(18, 24, 34)\",\"color\":\"rgb(241, 244, 249)\"}"
+    },
+    {
+      "id": "reduced:static-layout",
+      "status": "PASS",
+      "detail": "true"
+    },
+    {
+      "id": "reduced:normal-flow",
+      "status": "PASS",
+      "detail": "[{\"id\":\"scene-timeline\",\"position\":\"relative\",\"opacity\":\"1\",\"inert\":false},{\"id\":\"scene-knowledge\",\"position\":\"relative\",\"opacity\":\"1\",\"inert\":false},{\"id\":\"scene-closing\",\"position\":\"relative\",\"opacity\":\"1\",\"inert\":false}]"
+    },
+    {
+      "id": "reduced:no-overflow",
+      "status": "PASS",
+      "detail": "false"
+    },
+    {
+      "id": "reduced:nav-knowledge",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "id": "runtime:no-errors-after-all",
+      "status": "PASS",
+      "detail": ""
+    }
+  ],
+  "errors": [],
+  "opacities": [
+    {
+      "progress": 0,
+      "scene": "timeline",
+      "timeline": 1,
+      "knowledge": 0,
+      "closing": 0,
+      "timelineVeil": 0,
+      "knowledgeVeil": 0,
+      "closingVeil": 0
+    },
+    {
+      "progress": 0.09979838709677419,
+      "scene": "timeline",
+      "timeline": 1,
+      "knowledge": 0,
+      "closing": 0,
+      "timelineVeil": 0,
+      "knowledgeVeil": 0,
+      "closingVeil": 0
+    },
+    {
+      "progress": 0.1502016129032258,
+      "scene": "timeline",
+      "timeline": 0.9971,
+      "knowledge": 0,
+      "closing": 0,
+      "timelineVeil": 0,
+      "knowledgeVeil": 0.002,
+      "closingVeil": 0
+    },
+    {
+      "progress": 0.2001008064516129,
+      "scene": "timeline",
+      "timeline": 0.2843,
+      "knowledge": 0.1584,
+      "closing": 0,
+      "timelineVeil": 0,
+      "knowledgeVeil": 0.501,
+      "closingVeil": 0
+    },
+    {
+      "progress": 0.21975806451612903,
+      "scene": "timeline",
+      "timeline": 0.0035,
+      "knowledge": 0.2619,
+      "closing": 0,
+      "timelineVeil": 0,
+      "knowledgeVeil": 0.6976,
+      "closingVeil": 0
+    },
+    {
+      "progress": 0.25,
+      "scene": "knowledge",
+      "timeline": 0,
+      "knowledge": 0.4211,
+      "closing": 0,
+      "timelineVeil": 0,
+      "knowledgeVeil": 1,
+      "closingVeil": 0
+    },
+    {
+      "progress": 0.2998991935483871,
+      "scene": "knowledge",
+      "timeline": 0,
+      "knowledge": 0.6837,
+      "closing": 0,
+      "timelineVeil": 0,
+      "knowledgeVeil": 1,
+      "closingVeil": 0
+    },
+    {
+      "progress": 0.4002016129032258,
+      "scene": "knowledge",
+      "timeline": 0,
+      "knowledge": 1,
+      "closing": 0,
+      "timelineVeil": 0,
+      "knowledgeVeil": 1,
+      "closingVeil": 0
+    },
+    {
+      "progress": 0.5,
+      "scene": "knowledge",
+      "timeline": 0,
+      "knowledge": 1,
+      "closing": 0,
+      "timelineVeil": 0,
+      "knowledgeVeil": 1,
+      "closingVeil": 0
+    },
+    {
+      "progress": 0.5997983870967742,
+      "scene": "knowledge",
+      "timeline": 0,
+      "knowledge": 1,
+      "closing": 0,
+      "timelineVeil": 0,
+      "knowledgeVeil": 1,
+      "closingVeil": 0
+    },
+    {
+      "progress": 0.6799395161290323,
+      "scene": "knowledge",
+      "timeline": 0,
+      "knowledge": 1,
+      "closing": 0,
+      "timelineVeil": 0,
+      "knowledgeVeil": 1,
+      "closingVeil": 0
+    },
+    {
+      "progress": 0.7001008064516129,
+      "scene": "knowledge",
+      "timeline": 0,
+      "knowledge": 0.665,
+      "closing": 0.0777,
+      "timelineVeil": 0,
+      "knowledgeVeil": 1,
+      "closingVeil": 0.2872
+    },
+    {
+      "progress": 0.719758064516129,
+      "scene": "knowledge",
+      "timeline": 0,
+      "knowledge": 0.3374,
+      "closing": 0.2289,
+      "timelineVeil": 0,
+      "knowledgeVeil": 1,
+      "closingVeil": 0.568
+    },
+    {
+      "progress": 0.7399193548387096,
+      "scene": "knowledge",
+      "timeline": 0,
+      "knowledge": 0.0013,
+      "closing": 0.384,
+      "timelineVeil": 0,
+      "knowledgeVeil": 1,
+      "closingVeil": 0.856
+    },
+    {
+      "progress": 0.75,
+      "scene": "closing",
+      "timeline": 0,
+      "knowledge": 0,
+      "closing": 0.4615,
+      "timelineVeil": 0,
+      "knowledgeVeil": 1,
+      "closingVeil": 1
+    },
+    {
+      "progress": 0.7998991935483871,
+      "scene": "closing",
+      "timeline": 0,
+      "knowledge": 0,
+      "closing": 0.8454,
+      "timelineVeil": 0,
+      "knowledgeVeil": 1,
+      "closingVeil": 1
+    },
+    {
+      "progress": 0.9002016129032258,
+      "scene": "closing",
+      "timeline": 0,
+      "knowledge": 0,
+      "closing": 1,
+      "timelineVeil": 0,
+      "knowledgeVeil": 1,
+      "closingVeil": 1
+    },
+    {
+      "progress": 1,
+      "scene": "closing",
+      "timeline": 0,
+      "knowledge": 0,
+      "closing": 1,
+      "timelineVeil": 0,
+      "knowledgeVeil": 1,
+      "closingVeil": 1
+    }
+  ]
+}

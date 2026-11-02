@@ -1,0 +1,399 @@
+{
+  "suite": "qa-recovery",
+  "at": "2026-11-02T17:34:32.754Z",
+  "counts": {
+    "PASS": 70,
+    "FAIL": 0,
+    "BLOCKED": 0,
+    "NOT RUN": 0
+  },
+  "checks": [
+    {
+      "id": "data:132-concepts",
+      "status": "PASS",
+      "detail": "132"
+    },
+    {
+      "id": "data:86-candidate-edges",
+      "status": "PASS",
+      "detail": "86"
+    },
+    {
+      "id": "data:5-subjects",
+      "status": "PASS",
+      "detail": "5"
+    },
+    {
+      "id": "data:15-days",
+      "status": "PASS",
+      "detail": "15"
+    },
+    {
+      "id": "data:3-editions",
+      "status": "PASS",
+      "detail": "3"
+    },
+    {
+      "id": "data:150-decks",
+      "status": "PASS",
+      "detail": "150"
+    },
+    {
+      "id": "data:136-ready-14-empty",
+      "status": "PASS",
+      "detail": "136/14"
+    },
+    {
+      "id": "data:latest-deck-one-card",
+      "status": "PASS",
+      "detail": "1"
+    },
+    {
+      "id": "data:today-deck-empty",
+      "status": "PASS",
+      "detail": "0"
+    },
+    {
+      "id": "data:graph-build-id",
+      "status": "PASS",
+      "detail": "ia-graph-bed4e12d0986"
+    },
+    {
+      "id": "data:source-build-id",
+      "status": "PASS",
+      "detail": "ia-source-e0f38b64d252"
+    },
+    {
+      "id": "data:prototype-clock",
+      "status": "PASS",
+      "detail": "2026-11-01"
+    },
+    {
+      "id": "data:latest-is-26-oct",
+      "status": "PASS",
+      "detail": "2026-10-26"
+    },
+    {
+      "id": "data:today-is-1-nov",
+      "status": "PASS",
+      "detail": "2026-11-01"
+    },
+    {
+      "id": "data:zero-published",
+      "status": "PASS",
+      "detail": "0"
+    },
+    {
+      "id": "data:withheld-86",
+      "status": "PASS",
+      "detail": "86"
+    },
+    {
+      "id": "data:withheld-132",
+      "status": "PASS",
+      "detail": "132"
+    },
+    {
+      "id": "flow:dealer-open",
+      "status": "PASS",
+      "detail": "daily:2026-10-26"
+    },
+    {
+      "id": "flow:dealer-card",
+      "status": "PASS",
+      "detail": "Reference ≠ retained result"
+    },
+    {
+      "id": "flow:concept-selected",
+      "status": "PASS",
+      "detail": "concept:fabric:shortcut"
+    },
+    {
+      "id": "flow:origin-card",
+      "status": "PASS",
+      "detail": "card"
+    },
+    {
+      "id": "flow:edition-stated-separately",
+      "status": "PASS",
+      "detail": "26 Oct edition · Reference ≠ retained result"
+    },
+    {
+      "id": "flow:selection-stated-separately",
+      "status": "PASS",
+      "detail": "YOUR CURRENT SELECTION · ONELAKE SHORTCUT"
+    },
+    {
+      "id": "flow:center",
+      "status": "PASS",
+      "detail": "OneLake shortcut"
+    },
+    {
+      "id": "flow:three-branches",
+      "status": "PASS",
+      "detail": "3"
+    },
+    {
+      "id": "flow:branch-labels",
+      "status": "PASS",
+      "detail": "Copy job | Database mirroring | OneLake"
+    },
+    {
+      "id": "flow:no-node-overlap",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "id": "flow:nodes-inside-canvas",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "id": "flow:no-unneeded-membership",
+      "status": "PASS",
+      "detail": "0"
+    },
+    {
+      "id": "preview:visible",
+      "status": "PASS",
+      "detail": "1"
+    },
+    {
+      "id": "preview:two-actions",
+      "status": "PASS",
+      "detail": "2"
+    },
+    {
+      "id": "preview:actions-distinct",
+      "status": "PASS",
+      "detail": "Explore connections | Open content"
+    },
+    {
+      "id": "preview:open-content-opens-deck",
+      "status": "PASS",
+      "detail": "concept:concept:fabric:copy-job"
+    },
+    {
+      "id": "preview:explore-moves-neighbourhood",
+      "status": "PASS",
+      "detail": "Copy job -> Copy job"
+    },
+    {
+      "id": "flow:back-to-entrances",
+      "status": "PASS",
+      "detail": "5"
+    },
+    {
+      "id": "membership:two-relations",
+      "status": "PASS",
+      "detail": "2"
+    },
+    {
+      "id": "membership:three-chips",
+      "status": "PASS",
+      "detail": "3"
+    },
+    {
+      "id": "membership:explicitly-not-a-relation",
+      "status": "PASS",
+      "detail": "ALSO IN ANALYTICAL REASONING · MEMBERSHIP, NOT A RELATION\n\nDecision frame\nREAD\nSegmentation\nREAD\nEvidence strength\nCANDIDATE"
+    },
+    {
+      "id": "membership:chip-opens-concept",
+      "status": "PASS",
+      "detail": "Decision frame -> Decision frame"
+    },
+    {
+      "id": "search:results",
+      "status": "PASS",
+      "detail": "3"
+    },
+    {
+      "id": "search:opens-first",
+      "status": "PASS",
+      "detail": "concept:stats:confidence-interval"
+    },
+    {
+      "id": "search:empty-state",
+      "status": "PASS",
+      "detail": "No concept matches “zzzz”. Try a shorter term."
+    },
+    {
+      "id": "search:escape-clears",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "id": "table:132-rows",
+      "status": "PASS",
+      "detail": "132"
+    },
+    {
+      "id": "table:opens-concept",
+      "status": "PASS",
+      "detail": "Data quality -> Data quality"
+    },
+    {
+      "id": "expand:limit-three",
+      "status": "PASS",
+      "detail": "Layered security model 3"
+    },
+    {
+      "id": "expand:more-than-three",
+      "status": "PASS",
+      "detail": "4"
+    },
+    {
+      "id": "expand:no-overlap",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "id": "expand:inside-canvas",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "id": "return:timeline",
+      "status": "PASS",
+      "detail": "timeline"
+    },
+    {
+      "id": "return:no-concept",
+      "status": "PASS",
+      "detail": "null"
+    },
+    {
+      "id": "saved:concept",
+      "status": "PASS",
+      "detail": "concept:stats:confidence-interval"
+    },
+    {
+      "id": "saved:date",
+      "status": "PASS",
+      "detail": "2026-10-25"
+    },
+    {
+      "id": "saved:pocket",
+      "status": "PASS",
+      "detail": "1"
+    },
+    {
+      "id": "saved:thread",
+      "status": "PASS",
+      "detail": "concept:stats:confidence-interval"
+    },
+    {
+      "id": "saved:concept-restored",
+      "status": "PASS",
+      "detail": "concept:stats:confidence-interval"
+    },
+    {
+      "id": "saved:date-restored",
+      "status": "PASS",
+      "detail": "2026-10-25"
+    },
+    {
+      "id": "saved:pocket-restored",
+      "status": "PASS",
+      "detail": "[{\"key\":\"concept:concept:stats:confidence-interval\",\"kind\":\"concept\",\"label\":\"Confidence interval\",\"meta\":\"Statistics & inference · read in context\",\"conceptId\":\"concept:stats:confidence-interval\"}]"
+    },
+    {
+      "id": "saved:thread-restored",
+      "status": "PASS",
+      "detail": "concept:stats:confidence-interval"
+    },
+    {
+      "id": "saved:storage-key",
+      "status": "PASS",
+      "detail": "\"2026-10-25\""
+    },
+    {
+      "id": "saved:theme-restored",
+      "status": "PASS",
+      "detail": "dark"
+    },
+    {
+      "id": "preserve:payload-fingerprint",
+      "status": "PASS",
+      "detail": "7e4aba62eee04d7908d6145c4ddbba54e6901c8a6b2cd8086d5dfacc4d18ee36"
+    },
+    {
+      "id": "preserve:data-file-hash-recorded",
+      "status": "PASS",
+      "detail": "b5d92307dde3232fa3c00055b76bac8a688d734ae806e96f718c2225750ebfb0"
+    },
+    {
+      "id": "public:no-published-concepts",
+      "status": "PASS",
+      "detail": "0"
+    },
+    {
+      "id": "public:no-published-assertions",
+      "status": "PASS",
+      "detail": "0"
+    },
+    {
+      "id": "public:withheld-86",
+      "status": "PASS",
+      "detail": "86"
+    },
+    {
+      "id": "public:mode",
+      "status": "PASS",
+      "detail": "public"
+    },
+    {
+      "id": "public:no-candidate-edge-ids",
+      "status": "PASS",
+      "detail": "candidate edge id scan"
+    },
+    {
+      "id": "public:no-candidate-concept-ids",
+      "status": "PASS",
+      "detail": "candidate concept id scan"
+    },
+    {
+      "id": "public:only-public-data",
+      "status": "PASS",
+      "detail": "public script reference"
+    }
+  ],
+  "errors": [],
+  "data": {
+    "concepts": 132,
+    "edges": 86,
+    "domains": 5,
+    "days": 15,
+    "editions": 3,
+    "decks": 150,
+    "latest": "2026-10-26",
+    "today": "2026-11-01",
+    "graphBuildId": "ia-graph-bed4e12d0986",
+    "sourceIndexBuildId": "ia-source-e0f38b64d252",
+    "ledgerFingerprint": "bed4e12d09866bcf1cb7d997b31a6d21a22c79065f7f9166a905e57fabd1aced",
+    "clock": "2026-11-01",
+    "publishedAssertions": 0,
+    "withheldAssertions": 86,
+    "withheldConcepts": 132,
+    "latestDeckCards": 1,
+    "todayDeckCards": 0,
+    "emptyDecks": 14,
+    "readyDecks": 136
+  },
+  "dataFileSha256": "b5d92307dde3232fa3c00055b76bac8a688d734ae806e96f718c2225750ebfb0",
+  "payloadFingerprint": "7e4aba62eee04d7908d6145c4ddbba54e6901c8a6b2cd8086d5dfacc4d18ee36",
+  "publicData": {
+    "mode": "public",
+    "publishedConcepts": 0,
+    "publishedAssertions": 0,
+    "withheld": {
+      "conceptCount": 132,
+      "assertionCount": 86,
+      "insightCount": 3,
+      "unitCount": 6201,
+      "assertionsDroppedForMissingEndpoint": 0,
+      "reason": "No concept, assertion or edition has completed human publication review."
+    }
+  }
+}

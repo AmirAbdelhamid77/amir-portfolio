@@ -1,0 +1,737 @@
+[
+  {
+    "file": "app/lab/dp-600/page.tsx",
+    "line": 517,
+    "text": "Progress lives in <code className=\"rounded bg-background px-1 py-0.5 font-mono text-[10px]\">localStorage</code>{\" \"}"
+  },
+  {
+    "file": "app/lab/page.tsx",
+    "line": 151,
+    "text": "Results and personal bests are stored in <code className=\"rounded bg-background px-1 py-0.5 font-mono text-[10px]\">localStorage</code> on this"
+  },
+  {
+    "file": "app/layout.tsx",
+    "line": 87,
+    "text": "const themeScript = `(function(){try{var t=localStorage.getItem(\"amir-theme\");var d=window.matchMedia(\"(prefers-color-scheme: dark)\").matches;var dark=t?t===\"dark\":d;document.documentElement.classList.toggle(\"dark\",dark);var a=localStorage.getItem(\"amir-accent\");if(a&&a!==\"default\")document.documentElement.setAttribute(\"data-theme\",a);}catch(e){}})();`;"
+  },
+  {
+    "file": "components/academy/ingestion-lab.tsx",
+    "line": 16,
+    "text": "const parsed = parseLessonState(localStorage.getItem(ACADEMY_KEY));"
+  },
+  {
+    "file": "components/academy/ingestion-lab.tsx",
+    "line": 31,
+    "text": "localStorage.setItem(ACADEMY_KEY, JSON.stringify(next));"
+  },
+  {
+    "file": "components/academy/ingestion-lab.tsx",
+    "line": 39,
+    "text": "localStorage.setItem(ACADEMY_KEY, JSON.stringify(next));"
+  },
+  {
+    "file": "components/atlas/journey.tsx",
+    "line": 10,
+    "text": "useEffect(() => { Promise.resolve().then(() => { try { const parsed=parseJourney(localStorage.getItem(JOURNEY_KEY)); if(parsed) { setState(parsed); writable.current=true; setMessage(\"Journey notes stay in this browser. Visited steps are not a mastery score.\"); } else setMessage(\"Existing journey data is unreadable and has been preserved. You can use this visit without saving; Reset journey replaces only this journey’s data.\"); } catch { setMessage(\"Storage is unavailable. This journey works for this visit without saving.\"); } setReady(true); }); },[]);"
+  },
+  {
+    "file": "components/atlas/journey.tsx",
+    "line": 11,
+    "text": "function save(next: JourneyState) { setState(next); if(writable.current)try { localStorage.setItem(JOURNEY_KEY,JSON.stringify(next)); } catch { writable.current=false; setMessage(\"Could not save. Copy your reflection before leaving; other progress is unchanged.\"); } }"
+  },
+  {
+    "file": "components/atlas/journey.tsx",
+    "line": 21,
+    "text": "<div className=\"mt-7 flex flex-wrap gap-3\"><button disabled={!ready||state.step===0} className={button} onClick={()=>save({...state,step:state.step-1})}>Previous step</button><button disabled={!ready} className={button} onClick={()=>save({...state,visited:[...new Set([...state.visited,state.step])],step:Math.min(3,state.step+1)})}>Mark visited{state.step<3?\" & continue\":\"\"}</button><button disabled={!ready} className={button} onClick={()=>{ const next=emptyJourney();try {localStorage.setItem(JOURNEY_KEY,JSON.stringify(next));writable.current=true;setMessage(\"Only this Atlas journey was reset. Existing lesson and quiz progress is preserved.\");}catch{setMessage(\"Journey reset for this visit. Storage is unavailable.\");}setState(next);}}>Reset this journey</button></div>"
+  },
+  {
+    "file": "components/fabric/r11-question.tsx",
+    "line": 4,
+    "text": "import { gradeR11, parseR11Progress, r11Approved, r11Expected, R11_REVISION, R11_STORAGE_KEY, type R11Answer, type R11Block, type R11Question, type R11Study } from \"@/lib/fabric/r11\";"
+  },
+  {
+    "file": "components/fabric/r11-question.tsx",
+    "line": 15,
+    "text": "const progress = parseR11Progress(localStorage.getItem(R11_STORAGE_KEY));"
+  },
+  {
+    "file": "components/fabric/r11-question.tsx",
+    "line": 18,
+    "text": "const legacy = parseAddedProgress(localStorage.getItem(ADDITIONS_KEY));"
+  },
+  {
+    "file": "components/fabric/r11-question.tsx",
+    "line": 28,
+    "text": "const latest = parseR11Progress(localStorage.getItem(R11_STORAGE_KEY));"
+  },
+  {
+    "file": "components/fabric/r11-question.tsx",
+    "line": 30,
+    "text": "localStorage.setItem(R11_STORAGE_KEY, JSON.stringify({ version: 1, revision: R11_REVISION, questions: { ...latest, [q.sourceId]: { answer: value, revealed: show, checked: grade } } }));"
+  },
+  {
+    "file": "components/fabric/unified-bank.tsx",
+    "line": 57,
+    "text": "useEffect(()=>{let alive=true;Promise.resolve().then(()=>{if(!alive)return;try{const d=parseAddedProgress(localStorage.getItem(ADDITIONS_KEY));if(d===null){setStorage(\"blocked\");setNotice(\"Saved imported-question data is unreadable and was preserved. This question stays in memory.\");return;}setProgress(d);setValues(d[q.id]?.values||{});setChecked(d[q.id]?.checked||false);setStorage(\"ready\");}catch{setStorage(\"blocked\");setNotice(\"Saving is unavailable; answers stay in memory.\");}});return()=>{alive=false;};},[q.id]);"
+  },
+  {
+    "file": "components/fabric/unified-bank.tsx",
+    "line": 58,
+    "text": "function save(v:Record<string,string>,c=false){setValues(v);setChecked(c);if(storage!==\"ready\")return;try{const latest=parseAddedProgress(localStorage.getItem(ADDITIONS_KEY));if(!latest)throw new Error();const next={...latest,[q.id]:{values:v,checked:c}};localStorage.setItem(ADDITIONS_KEY,JSON.stringify({version:1,questions:next}));setProgress(next);}catch{setStorage(\"blocked\");setNotice(\"Saving failed; existing saved data was preserved.\");}}"
+  },
+  {
+    "file": "components/statistics/lab-kit.tsx",
+    "line": 456,
+    "text": "storageKey,"
+  },
+  {
+    "file": "components/statistics/lab-kit.tsx",
+    "line": 462,
+    "text": "storageKey?: string;"
+  },
+  {
+    "file": "components/statistics/lab-kit.tsx",
+    "line": 467,
+    "text": "<div className=\"rounded-2xl border border-border bg-card/40 p-3 sm:p-4\" data-prediction={storageKey}>"
+  },
+  {
+    "file": "components/theme-controls.tsx",
+    "line": 55,
+    "text": "localStorage.setItem(THEME_KEY, next ? \"dark\" : \"light\");"
+  },
+  {
+    "file": "components/theme-controls.tsx",
+    "line": 64,
+    "text": "localStorage.setItem(ACCENT_KEY, id);"
+  },
+  {
+    "file": "lib/fabric/r11.ts",
+    "line": 23,
+    "text": "export const R11_STORAGE_KEY = \"hansa-dp600-r11-progress-v1\";"
+  },
+  {
+    "file": "lib/fabric/storage.ts",
+    "line": 14,
+    "text": "export const FABRIC_STORAGE_KEY = \"amir-fabric-v1\";"
+  },
+  {
+    "file": "lib/fabric/storage.ts",
+    "line": 104,
+    "text": "if (event.key === null || event.key === FABRIC_STORAGE_KEY) {"
+  },
+  {
+    "file": "lib/fabric/storage.ts",
+    "line": 248,
+    "text": "const raw = window.localStorage.getItem(FABRIC_STORAGE_KEY);"
+  },
+  {
+    "file": "lib/fabric/storage.ts",
+    "line": 261,
+    "text": "window.localStorage.setItem(`${FABRIC_STORAGE_KEY}-unreadable-${Date.now()}`, raw);"
+  },
+  {
+    "file": "lib/fabric/storage.ts",
+    "line": 265,
+    "text": "window.localStorage.removeItem(FABRIC_STORAGE_KEY);"
+  },
+  {
+    "file": "lib/fabric/storage.ts",
+    "line": 272,
+    "text": "window.localStorage.setItem(`${FABRIC_STORAGE_KEY}-v${String((parsed as { version?: unknown }).version ?? \"unknown\")}`, raw);"
+  },
+  {
+    "file": "lib/fabric/storage.ts",
+    "line": 293,
+    "text": "window.localStorage.setItem(FABRIC_STORAGE_KEY, serialized);"
+  },
+  {
+    "file": "lib/fabric/storage.ts",
+    "line": 563,
+    "text": "window.localStorage.setItem(`${FABRIC_STORAGE_KEY}-cleared-${Date.now()}`, JSON.stringify(store));"
+  },
+  {
+    "file": "lib/fabric/storage.ts",
+    "line": 564,
+    "text": "window.localStorage.removeItem(FABRIC_STORAGE_KEY);"
+  },
+  {
+    "file": "lib/lab-storage.ts",
+    "line": 8,
+    "text": "export const LAB_STORAGE_KEY = \"amir-lab-v1\";"
+  },
+  {
+    "file": "lib/lab-storage.ts",
+    "line": 22,
+    "text": "if (event.key === null || event.key === LAB_STORAGE_KEY) {"
+  },
+  {
+    "file": "lib/lab-storage.ts",
+    "line": 36,
+    "text": "const raw = window.localStorage.getItem(LAB_STORAGE_KEY);"
+  },
+  {
+    "file": "lib/lab-storage.ts",
+    "line": 54,
+    "text": "window.localStorage.setItem(LAB_STORAGE_KEY, JSON.stringify(next));"
+  },
+  {
+    "file": "scripts/build-intake-content.mjs",
+    "line": 326,
+    "text": "progressKeys: \"no localStorage key is read or written by either review surface\","
+  },
+  {
+    "file": "scripts/final-review-atlas-focused.mjs",
+    "line": 6,
+    "text": "try{for(const width of [390,1440])for(const dark of [false,true]){const ctx=await browser.newContext({viewport:{width,height:950},hasTouch:width<500,isMobile:width<500});await ctx.addInitScript(d=>localStorage.setItem('amir-theme',d?'dark':'light'),dark);const p=await ctx.newPage();"
+  },
+  {
+    "file": "scripts/final-review-atlas-qa.mjs",
+    "line": 7,
+    "text": "async function open(width,dark,review=false,reduced=false){const ctx=await browser.newContext({viewport:{width,height:950},hasTouch:width<500,isMobile:width<500,reducedMotion:reduced?'reduce':'no-preference'});await ctx.addInitScript(d=>{localStorage.setItem('amir-theme',d?'dark':'light');localStorage.setItem('final-atlas-preservation-probe','keep');},dark);const p=await ctx.newPage();p.on('pageerror',e=>errors.push(e.message));await p.goto(`http://127.0.0.1:${review?4320:4318}/learn/dp-600/atlas/`,{waitUntil:'networkidle'});return {p,ctx};}"
+  },
+  {
+    "file": "scripts/final-review-atlas-qa.mjs",
+    "line": 24,
+    "text": "check(id+'-PROGRESS',await p.evaluate(()=>localStorage.getItem('final-atlas-preservation-probe'))==='keep','Unrelated saved state retained');"
+  },
+  {
+    "file": "scripts/final-review-atlas-qa.mjs",
+    "line": 40,
+    "text": "check(id+'-PROGRESS',await p.evaluate(()=>localStorage.getItem('final-atlas-preservation-probe'))==='keep','Reset keeps unrelated saved state');"
+  },
+  {
+    "file": "scripts/final-review-atlas-record.mjs",
+    "line": 4,
+    "text": "const dir=path.resolve(`.scratch/final-review-atlas/${review?'review':'public'}-${width}`);await mkdir(dir,{recursive:true});const ctx=await browser.newContext({viewport:{width,height:900},hasTouch:width<500,isMobile:width<500});await ctx.addInitScript(()=>localStorage.setItem('amir-theme','dark'));const p=await ctx.newPage(),cdp=await ctx.newCDPSession(p),frames=[],pending=[];"
+  },
+  {
+    "file": "scripts/final-review-canonical-qa.mjs",
+    "line": 86,
+    "text": "window.localStorage.setItem(\"amir-theme\", isDark ? \"dark\" : \"light\");"
+  },
+  {
+    "file": "scripts/final-review-canonical-qa.mjs",
+    "line": 169,
+    "text": "window.localStorage.setItem(\"amir-fabric-v1\", JSON.stringify({ sentinel: \"fabric\" }));"
+  },
+  {
+    "file": "scripts/final-review-canonical-qa.mjs",
+    "line": 170,
+    "text": "window.localStorage.setItem(\"amir-lab-v1\", JSON.stringify({ sentinel: \"lab\" }));"
+  },
+  {
+    "file": "scripts/final-review-canonical-qa.mjs",
+    "line": 173,
+    "text": "const keysBefore = await page.evaluate(() => Object.keys(window.localStorage).sort().join(\",\"));"
+  },
+  {
+    "file": "scripts/final-review-canonical-qa.mjs",
+    "line": 175,
+    "text": "fabric: window.localStorage.getItem(\"amir-fabric-v1\"),"
+  },
+  {
+    "file": "scripts/final-review-canonical-qa.mjs",
+    "line": 176,
+    "text": "lab: window.localStorage.getItem(\"amir-lab-v1\"),"
+  },
+  {
+    "file": "scripts/final-review-canonical-qa.mjs",
+    "line": 183,
+    "text": "fabric: window.localStorage.getItem(\"amir-fabric-v1\"),"
+  },
+  {
+    "file": "scripts/final-review-canonical-qa.mjs",
+    "line": 184,
+    "text": "lab: window.localStorage.getItem(\"amir-lab-v1\"),"
+  },
+  {
+    "file": "scripts/final-review-canonical-qa.mjs",
+    "line": 185,
+    "text": "keys: Object.keys(window.localStorage).sort().join(\",\"),"
+  },
+  {
+    "file": "scripts/final-review-capture.mjs",
+    "line": 13,
+    "text": "await ctx.addInitScript(dark=>{localStorage.setItem('amir-theme',dark?'dark':'light');}, dark);"
+  },
+  {
+    "file": "scripts/final-review-home-qa.mjs",
+    "line": 14,
+    "text": "await ctx.addInitScript(d=>localStorage.setItem('amir-theme',d?'dark':'light'),dark);"
+  },
+  {
+    "file": "scripts/final-review-home-qa.mjs",
+    "line": 72,
+    "text": "await p.evaluate(()=>{localStorage.setItem('amir-fabric-v1','phase2-fabric-sentinel');localStorage.setItem('amir-lab-v1','phase2-lab-sentinel');});"
+  },
+  {
+    "file": "scripts/final-review-home-qa.mjs",
+    "line": 74,
+    "text": "record('PROGRESS',await p.evaluate(()=>localStorage.getItem('amir-fabric-v1')==='phase2-fabric-sentinel'&&localStorage.getItem('amir-lab-v1')==='phase2-lab-sentinel'),'both learner namespaces byte-preserved');"
+  },
+  {
+    "file": "scripts/final-review-pacing.mjs",
+    "line": 5,
+    "text": "localStorage.setItem('amir-theme','dark');window.lab={lcp:0,cls:0,eventDurations:[]};"
+  },
+  {
+    "file": "scripts/final-review-profile.mjs",
+    "line": 9,
+    "text": "await ctx.addInitScript(()=>{localStorage.setItem('amir-theme','dark');window.finalLab={lcp:0,element:'',cls:0,events:[]};new PerformanceObserver(l=>{for(const e of l.getEntries()){window.finalLab.lcp=e.startTime;window.finalLab.element=e.element?.outerHTML.slice(0,400);}}).observe({type:'largest-contentful-paint',buffered:true});new PerformanceObserver(l=>{for(const e of l.getEntries())if(!e.hadRecentInput)window.finalLab.cls+=e.value;}).observe({type:'layout-shift',buffered:true});new PerformanceObserver(l=>{for(const e of l.getEntries())if(['click','pointerdown','pointerup'].includes(e.name))window.finalLab.events.push({name:e.name,duration:e.duration});}).observe({type:'event',buffered:true,durationThreshold:16});});"
+  },
+  {
+    "file": "scripts/final-review-record.mjs",
+    "line": 8,
+    "text": "await ctx.addInitScript(()=>localStorage.setItem('amir-theme','dark'));"
+  },
+  {
+    "file": "scripts/inventory-content.mjs",
+    "line": 86,
+    "text": "const storageKeys = {"
+  },
+  {
+    "file": "scripts/inventory-content.mjs",
+    "line": 126,
+    "text": "storageKeys,"
+  },
+  {
+    "file": "scripts/path-review-focused.mjs",
+    "line": 11,
+    "text": "const c=await b.newContext({viewport:{width:390,height:900},hasTouch:true,isMobile:true,reducedMotion:'reduce'});await c.addInitScript(()=>localStorage.setItem('amir-theme','dark'));const p=await c.newPage();"
+  },
+  {
+    "file": "scripts/path-review-qa.mjs",
+    "line": 3,
+    "text": "async function open(width,dark,reduced=false){const c=await b.newContext({viewport:{width,height:950},hasTouch:width<500,isMobile:width<500,reducedMotion:reduced?'reduce':'no-preference'});await c.addInitScript(d=>{localStorage.setItem('amir-theme',d?'dark':'light');localStorage.setItem('amir-lab-v1',JSON.stringify({statistics:{best:80,attempts:2,lastAt:'2026-10-27T00:00:00Z'}}));localStorage.setItem('amir-fabric-v1',JSON.stringify({version:1,updatedAt:'2026-10-27T00:00:00Z',bookmarks:['fb-v01'],flags:[],questions:{},sessions:{},history:[],settings:{shuffleQuestions:true,shuffleOptions:true}}));},dark);const p=await c.newPage();p.on('pageerror',e=>errors.push(e.message));return {c,p};}"
+  },
+  {
+    "file": "scripts/path-review-qa.mjs",
+    "line": 7,
+    "text": "await p.getByRole('link',{name:'Next step →',exact:true}).click();await p.locator('#stats-section-s11').waitFor();record(`NEXT-${width}-${dark}`,true,'Reviewed order places sampling distribution before CLT');await p.getByRole('button',{name:'Reset path filters',exact:true}).click();await p.getByLabel('Find a lesson',{exact:true}).fill('zzzzz-no-such-lesson');record(`EMPTY-${width}-${dark}`,await p.locator('.path-unit').count()===0);await p.getByRole('button',{name:'Reset path filters',exact:true}).click();record(`RESET-${width}-${dark}`,await p.locator('.path-unit').count()>0);record(`PROGRESS-${width}-${dark}`,await p.evaluate(()=>JSON.parse(localStorage.getItem('amir-lab-v1')).statistics.best===80&&JSON.parse(localStorage.getItem('amir-fabric-v1')).bookmarks.includes('fb-v01')));await c.close();}"
+  },
+  {
+    "file": "scripts/path-review-record.mjs",
+    "line": 2,
+    "text": "const b=await chromium.launch({executablePath:'C:/Program Files (x86)/Microsoft/Edge/Application/msedge.exe',headless:true});try{for(const width of [1440,390]){const ctx=await b.newContext({viewport:{width,height:900},hasTouch:width<500,isMobile:width<500});await ctx.addInitScript(()=>localStorage.setItem('amir-theme','dark'));const p=await ctx.newPage(),cdp=await ctx.newCDPSession(p),frames=[],pending=[],dir=path.resolve(`.scratch/path-review-video/${width}`);await mkdir(dir,{recursive:true});cdp.on('Page.screencastFrame',e=>{const file=`${String(frames.length).padStart(5,'0')}.jpg`;frames.push({file,timestamp:e.metadata.timestamp});pending.push(writeFile(path.join(dir,file),Buffer.from(e.data,'base64')));void cdp.send('Page.screencastFrameAck',{sessionId:e.sessionId});});await cdp.send('Page.startScreencast',{format:'jpeg',quality:80,maxWidth:width,maxHeight:900,everyNthFrame:1});"
+  },
+  {
+    "file": "scripts/phase2-canonical-regression.mjs",
+    "line": 86,
+    "text": "window.localStorage.setItem(\"amir-theme\", isDark ? \"dark\" : \"light\");"
+  },
+  {
+    "file": "scripts/phase2-canonical-regression.mjs",
+    "line": 169,
+    "text": "window.localStorage.setItem(\"amir-fabric-v1\", JSON.stringify({ sentinel: \"fabric\" }));"
+  },
+  {
+    "file": "scripts/phase2-canonical-regression.mjs",
+    "line": 170,
+    "text": "window.localStorage.setItem(\"amir-lab-v1\", JSON.stringify({ sentinel: \"lab\" }));"
+  },
+  {
+    "file": "scripts/phase2-canonical-regression.mjs",
+    "line": 173,
+    "text": "const keysBefore = await page.evaluate(() => Object.keys(window.localStorage).sort().join(\",\"));"
+  },
+  {
+    "file": "scripts/phase2-canonical-regression.mjs",
+    "line": 175,
+    "text": "fabric: window.localStorage.getItem(\"amir-fabric-v1\"),"
+  },
+  {
+    "file": "scripts/phase2-canonical-regression.mjs",
+    "line": 176,
+    "text": "lab: window.localStorage.getItem(\"amir-lab-v1\"),"
+  },
+  {
+    "file": "scripts/phase2-canonical-regression.mjs",
+    "line": 183,
+    "text": "fabric: window.localStorage.getItem(\"amir-fabric-v1\"),"
+  },
+  {
+    "file": "scripts/phase2-canonical-regression.mjs",
+    "line": 184,
+    "text": "lab: window.localStorage.getItem(\"amir-lab-v1\"),"
+  },
+  {
+    "file": "scripts/phase2-canonical-regression.mjs",
+    "line": 185,
+    "text": "keys: Object.keys(window.localStorage).sort().join(\",\"),"
+  },
+  {
+    "file": "scripts/phase2-capture.mjs",
+    "line": 13,
+    "text": "await ctx.addInitScript(dark=>{localStorage.setItem('amir-theme',dark?'dark':'light');}, dark);"
+  },
+  {
+    "file": "scripts/phase2-performance.mjs",
+    "line": 5,
+    "text": "localStorage.setItem('amir-theme','dark');window.lab={lcp:0,cls:0,eventDurations:[]};"
+  },
+  {
+    "file": "scripts/phase2-qa.mjs",
+    "line": 14,
+    "text": "await ctx.addInitScript(d=>localStorage.setItem('amir-theme',d?'dark':'light'),dark);"
+  },
+  {
+    "file": "scripts/phase2-qa.mjs",
+    "line": 72,
+    "text": "await p.evaluate(()=>{localStorage.setItem('amir-fabric-v1','phase2-fabric-sentinel');localStorage.setItem('amir-lab-v1','phase2-lab-sentinel');});"
+  },
+  {
+    "file": "scripts/phase2-qa.mjs",
+    "line": 74,
+    "text": "record('PROGRESS',await p.evaluate(()=>localStorage.getItem('amir-fabric-v1')==='phase2-fabric-sentinel'&&localStorage.getItem('amir-lab-v1')==='phase2-lab-sentinel'),'both learner namespaces byte-preserved');"
+  },
+  {
+    "file": "scripts/phase2-record.mjs",
+    "line": 8,
+    "text": "await ctx.addInitScript(()=>localStorage.setItem('amir-theme','dark'));"
+  },
+  {
+    "file": "scripts/phase2-spatial-perf.mjs",
+    "line": 55,
+    "text": "localStorage.setItem(\"amir-theme\", \"dark\");"
+  },
+  {
+    "file": "scripts/phase2-spatial-qa.mjs",
+    "line": 80,
+    "text": "window.localStorage.setItem(\"amir-theme\", isDark ? \"dark\" : \"light\");"
+  },
+  {
+    "file": "scripts/qa-browser.mjs",
+    "line": 128,
+    "text": "window.localStorage.setItem(\"amir-theme\", \"dark\");"
+  },
+  {
+    "file": "scripts/qa-canonical-home.mjs",
+    "line": 86,
+    "text": "window.localStorage.setItem(\"amir-theme\", isDark ? \"dark\" : \"light\");"
+  },
+  {
+    "file": "scripts/qa-canonical-home.mjs",
+    "line": 173,
+    "text": "window.localStorage.setItem(\"amir-fabric-v1\", JSON.stringify({ sentinel: \"fabric\" }));"
+  },
+  {
+    "file": "scripts/qa-canonical-home.mjs",
+    "line": 174,
+    "text": "window.localStorage.setItem(\"amir-lab-v1\", JSON.stringify({ sentinel: \"lab\" }));"
+  },
+  {
+    "file": "scripts/qa-canonical-home.mjs",
+    "line": 177,
+    "text": "const keysBefore = await page.evaluate(() => Object.keys(window.localStorage).sort().join(\",\"));"
+  },
+  {
+    "file": "scripts/qa-canonical-home.mjs",
+    "line": 179,
+    "text": "fabric: window.localStorage.getItem(\"amir-fabric-v1\"),"
+  },
+  {
+    "file": "scripts/qa-canonical-home.mjs",
+    "line": 180,
+    "text": "lab: window.localStorage.getItem(\"amir-lab-v1\"),"
+  },
+  {
+    "file": "scripts/qa-canonical-home.mjs",
+    "line": 187,
+    "text": "fabric: window.localStorage.getItem(\"amir-fabric-v1\"),"
+  },
+  {
+    "file": "scripts/qa-canonical-home.mjs",
+    "line": 188,
+    "text": "lab: window.localStorage.getItem(\"amir-lab-v1\"),"
+  },
+  {
+    "file": "scripts/qa-canonical-home.mjs",
+    "line": 189,
+    "text": "keys: Object.keys(window.localStorage).sort().join(\",\"),"
+  },
+  {
+    "file": "scripts/qa-drafts.mjs",
+    "line": 111,
+    "text": "window.localStorage.setItem(fabricKey, JSON.stringify(fabric));"
+  },
+  {
+    "file": "scripts/qa-drafts.mjs",
+    "line": 112,
+    "text": "window.localStorage.setItem(labKey, JSON.stringify(lab));"
+  },
+  {
+    "file": "scripts/qa-drafts.mjs",
+    "line": 118,
+    "text": "for (let i = 0; i < window.localStorage.length; i += 1) {"
+  },
+  {
+    "file": "scripts/qa-drafts.mjs",
+    "line": 119,
+    "text": "const key = window.localStorage.key(i);"
+  },
+  {
+    "file": "scripts/qa-drafts.mjs",
+    "line": 120,
+    "text": "snapshot[key] = window.localStorage.getItem(key);"
+  },
+  {
+    "file": "scripts/qa-drafts.mjs",
+    "line": 219,
+    "text": "for (let i = 0; i < window.localStorage.length; i += 1) {"
+  },
+  {
+    "file": "scripts/qa-drafts.mjs",
+    "line": 220,
+    "text": "const key = window.localStorage.key(i);"
+  },
+  {
+    "file": "scripts/qa-drafts.mjs",
+    "line": 221,
+    "text": "snapshot[key] = window.localStorage.getItem(key);"
+  },
+  {
+    "file": "scripts/qa-production-smoke.mjs",
+    "line": 32,
+    "text": "localStorage.setItem(\"amir-theme\", \"dark\");"
+  },
+  {
+    "file": "scripts/qa-prototype-c-v2.mjs",
+    "line": 42,
+    "text": "window.localStorage.setItem(\"amir-theme\", isDark ? \"dark\" : \"light\");"
+  },
+  {
+    "file": "scripts/qa-prototype-c.mjs",
+    "line": 13,
+    "text": "await context.addInitScript(()=>{for(const key of ['amir-lab-v1','amir-fabric-v1','hansa-question-additions-v1','hansa-atlas-journey-v1'])localStorage.setItem(key,'preservation-sentinel-'+key);});"
+  },
+  {
+    "file": "scripts/qa-prototype-c.mjs",
+    "line": 32,
+    "text": "assert.deepEqual(await page.evaluate(()=>Object.fromEntries(Object.keys(localStorage).filter(k=>['amir-lab-v1','amir-fabric-v1','hansa-question-additions-v1','hansa-atlas-journey-v1'].includes(k)).map(k=>[k,localStorage.getItem(k)]))),Object.fromEntries(['amir-lab-v1','amir-fabric-v1','hansa-question-additions-v1','hansa-atlas-journey-v1'].map(k=>[k,'preservation-sentinel-'+k])));"
+  },
+  {
+    "file": "scripts/qa-sql-vault.mjs",
+    "line": 16,
+    "text": "await context.addInitScript(dark=>{localStorage.setItem('amir-theme',dark?'dark':'light');localStorage.setItem('amir-lab-v1',JSON.stringify({sql:{best:80,attempts:2,lastAt:'2026-10-27T00:00:00Z'}}));localStorage.setItem('amir-fabric-v1','sql-preservation-sentinel');},dark);"
+  },
+  {
+    "file": "scripts/qa-sql-vault.mjs",
+    "line": 33,
+    "text": "check(`LOCAL-PROGRESS:${width}:${dark}`,await page.evaluate(()=>JSON.parse(localStorage.getItem('amir-lab-v1')).sql.best===80&&localStorage.getItem('amir-fabric-v1')==='sql-preservation-sentinel'));"
+  },
+  {
+    "file": "scripts/study-drill-qa.mjs",
+    "line": 3,
+    "text": "try{await p.addInitScript(()=>localStorage.setItem('amir-lab-v1',JSON.stringify({sql:{best:80,attempts:2,lastAt:'2026-10-27T00:00:00Z'}})));await p.goto('http://127.0.0.1:4318/lab/sql/?question=sql-07&learningContext=sql.overview',{waitUntil:'networkidle'});await p.getByRole('button',{name:'Start practice',exact:true}).click();await p.getByText('Which expression numbers employees 1, 2, 3… within each department by descending salary?',{exact:true}).waitFor();check('EXACT-QUESTION',true);check('SINGLE-QUESTION',await p.locator('main').innerText().then(t=>/Question\\s+1\\s+of\\s+1\\b/.test(t)));await p.getByRole('button',{name:'Finish now',exact:true}).click();await p.getByRole('button',{name:'Finish',exact:true}).click();check('DRILL-DOES-NOT-SCORE',await p.evaluate(()=>{const s=JSON.parse(localStorage.getItem('amir-lab-v1'));return s.sql.best===80&&s.sql.attempts===2;}));await p.goto('http://127.0.0.1:4318/lab/sql/?question=sql-07',{waitUntil:'networkidle'});await p.getByRole('radio',{name:/Mock/}).click();await p.getByRole('button',{name:'Start mock exam',exact:true}).click();check('MOCK-REMAINS-FULL',await p.locator('main').innerText().then(t=>/Question\\s+1\\s+of\\s+10\\b/.test(t)));}"
+  },
+  {
+    "file": "scripts/study-home-qa.mjs",
+    "line": 14,
+    "text": "await ctx.addInitScript(d=>localStorage.setItem('amir-theme',d?'dark':'light'),dark);"
+  },
+  {
+    "file": "scripts/study-home-qa.mjs",
+    "line": 72,
+    "text": "await p.evaluate(()=>{localStorage.setItem('amir-fabric-v1','phase2-fabric-sentinel');localStorage.setItem('amir-lab-v1','phase2-lab-sentinel');});"
+  },
+  {
+    "file": "scripts/study-home-qa.mjs",
+    "line": 74,
+    "text": "record('PROGRESS',await p.evaluate(()=>localStorage.getItem('amir-fabric-v1')==='phase2-fabric-sentinel'&&localStorage.getItem('amir-lab-v1')==='phase2-lab-sentinel'),'both learner namespaces byte-preserved');"
+  },
+  {
+    "file": "scripts/study-polish.py",
+    "line": 4,
+    "text": "p=r/'scripts/study-qa.mjs';s=p.read_text(encoding='utf8').replace(\"localStorage.setItem('amir-lab-v1','preserve-study-probe');localStorage.setItem('amir-fabric-v1','preserve-study-probe');\", \"localStorage.setItem('amir-lab-v1',JSON.stringify({sql:{best:80,attempts:2,lastAt:'2026-10-27T00:00:00Z'}}));localStorage.setItem('amir-fabric-v1',JSON.stringify({version:1,updatedAt:'2026-10-27T00:00:00Z',bookmarks:['fb-v01'],flags:[],questions:{},sessions:{},history:[],settings:{shuffleQuestions:true,shuffleOptions:true}}));\");s=s.replace(\"record(`RETURN:${width}:${dark}`,await p.getByRole\", \"await p.getByRole('link',{name:'Return to Data ingestion & orchestration',exact:true}).waitFor({state:'visible'});record(`RETURN:${width}:${dark}`,await p.getByRole\");s=s.replace(\"localStorage.getItem('amir-lab-v1')==='preserve-study-probe'&&localStorage.getItem('amir-fabric-v1')==='preserve-study-probe'\", \"JSON.parse(localStorage.getItem('amir-lab-v1')).sql.best===80&&JSON.parse(localStorage.getItem('amir-fabric-v1')).bookmarks.includes('fb-v01')\");p.write_text(s,encoding='utf8')"
+  },
+  {
+    "file": "scripts/study-qa.mjs",
+    "line": 4,
+    "text": "for(const width of [320,390,768,1280,1440])for(const dark of [false,true]){const ctx=await browser.newContext({viewport:{width,height:900},hasTouch:width<500,isMobile:width<500});await ctx.addInitScript(dark=>{localStorage.setItem('amir-theme',dark?'dark':'light');localStorage.setItem('amir-lab-v1',JSON.stringify({sql:{best:80,attempts:2,lastAt:'2026-10-27T00:00:00Z'}}));localStorage.setItem('amir-fabric-v1',JSON.stringify({version:1,updatedAt:'2026-10-27T00:00:00Z',bookmarks:['fb-v01'],flags:[],questions:{},sessions:{},history:[],settings:{shuffleQuestions:true,shuffleOptions:true}}));},dark);const p=await ctx.newPage();const errors=[];p.on('pageerror',e=>errors.push(e.message));"
+  },
+  {
+    "file": "scripts/study-qa.mjs",
+    "line": 7,
+    "text": "await p.getByLabel('Learning activity',{exact:true}).selectOption('question');const link=p.locator('.study-records h2 a').first();const href=await link.getAttribute('href');record(`CONTEXT-LINK:${width}:${dark}`,href.includes('learningContext=fabric.ingestion')&&href.includes('question='));await link.click();await p.waitForLoadState('networkidle');await p.getByRole('link',{name:'Return to Data ingestion & orchestration',exact:true}).waitFor({state:'visible'});record(`RETURN:${width}:${dark}`,await p.getByRole('link',{name:'Return to Data ingestion & orchestration',exact:true}).isVisible());await p.getByRole(\"link\",{name:\"Return to Data ingestion & orchestration\",exact:true}).click();await p.waitForURL(\"**/study/fabric/ingestion/\");record(`RETURN-CLICK:${width}:${dark}`,true);record(`PROGRESS:${width}:${dark}`,await p.evaluate(()=>JSON.parse(localStorage.getItem('amir-lab-v1')).sql.best===80&&JSON.parse(localStorage.getItem('amir-fabric-v1')).bookmarks.includes('fb-v01')));record(`ERRORS:${width}:${dark}`,!errors.length,errors.join('; '));await ctx.close();}"
+  },
+  {
+    "file": "scripts/study-record.mjs",
+    "line": 2,
+    "text": "const b=await chromium.launch({executablePath:'C:/Program Files (x86)/Microsoft/Edge/Application/msedge.exe',headless:true});for(const width of [1440,390]){const ctx=await b.newContext({viewport:{width,height:900},hasTouch:width<500,isMobile:width<500});await ctx.addInitScript(()=>localStorage.setItem('amir-theme','dark'));const p=await ctx.newPage(),cdp=await ctx.newCDPSession(p),frames=[],pending=[],dir=path.resolve(`.scratch/study-video/${width}`);await mkdir(dir,{recursive:true});cdp.on('Page.screencastFrame',e=>{const file=`${String(frames.length).padStart(5,'0')}.jpg`;frames.push({file,timestamp:e.metadata.timestamp});pending.push(writeFile(path.join(dir,file),Buffer.from(e.data,'base64')));void cdp.send('Page.screencastFrameAck',{sessionId:e.sessionId});});await cdp.send('Page.startScreencast',{format:'jpeg',quality:80,maxWidth:width,maxHeight:900,everyNthFrame:1});await p.goto('http://127.0.0.1:4318/study/',{waitUntil:'networkidle'});await p.waitForTimeout(750);await p.locator('.study-open').first().click();await p.waitForTimeout(600);await p.getByRole('link',{name:/Data ingestion & orchestration/}).click();await p.getByLabel('Learning activity',{exact:true}).waitFor();await p.waitForTimeout(700);await p.getByLabel('Learning activity',{exact:true}).selectOption('question');await p.waitForTimeout(700);await p.locator('.study-records h2 a').first().click();await p.getByRole('link',{name:'Return to Data ingestion & orchestration',exact:true}).waitFor();await p.waitForTimeout(1000);await p.getByRole('link',{name:'Return to Data ingestion & orchestration',exact:true}).click();await p.waitForTimeout(700);await cdp.send('Page.stopScreencast');await Promise.all(pending);await writeFile(path.join(dir,'frames.json'),JSON.stringify(frames,null,2));console.log(width,frames.length,'actual compositor frames');await ctx.close();}await b.close();"
+  },
+  {
+    "file": "tests/academy/e2e.mjs",
+    "line": 35,
+    "text": "await page.evaluate(()=>{localStorage.setItem('amir-fabric-v1','legacy-fabric-sentinel');localStorage.setItem('amir-lab-v1','legacy-lab-sentinel');});"
+  },
+  {
+    "file": "tests/academy/e2e.mjs",
+    "line": 39,
+    "text": "assert.deepEqual(await page.evaluate(()=>[localStorage.getItem('amir-fabric-v1'),localStorage.getItem('amir-lab-v1')]),['legacy-fabric-sentinel','legacy-lab-sentinel']);"
+  },
+  {
+    "file": "tests/academy/e2e.mjs",
+    "line": 53,
+    "text": "await page.evaluate(()=>localStorage.setItem('hansa-academy-ingestion-v1','{broken'));await page.reload();await page.getByText(/Saved lesson data could not be read/).waitFor();await page.locator(`input[name=\"${ids[0]}\"]`).first().check();await page.getByRole('button',{name:'Check case 1',exact:true}).click();assert.equal(await page.evaluate(()=>localStorage.getItem('hansa-academy-ingestion-v1')),'{broken');await page.getByRole('button',{name:'Reset this lesson',exact:true}).click();assert.equal(JSON.parse(await page.evaluate(()=>localStorage.getItem('hansa-academy-ingestion-v1'))).version,1);assert.equal(await page.evaluate(()=>localStorage.getItem('amir-fabric-v1')),'legacy-fabric-sentinel');"
+  },
+  {
+    "file": "tests/academy/e2e.mjs",
+    "line": 61,
+    "text": "await check('denied storage degrades to session practice',async()=>{const c=await browser.newContext();await attachStaticHost(c);await c.addInitScript(()=>Object.defineProperty(window,'localStorage',{get(){throw new DOMException('Denied','SecurityError');}}));const p=await c.newPage();await p.goto(BASE+route);await p.getByText(/Browser storage is unavailable/).waitFor();await p.locator(`input[name=\"${ids[0]}\"]`).first().check();await p.getByRole('button',{name:'Check case 1',exact:true}).click();assert.ok((await p.getByTestId('lesson-progress').textContent()).includes('1 of 3'));await c.close();});"
+  },
+  {
+    "file": "tests/academy/legacy-smoke.mjs",
+    "line": 14,
+    "text": "await page.goto(BASE+'/lab/dp-600/study/');await page.getByRole('button',{name:'Start guided study',exact:true}).click();const article=page.locator('article').first();await article.waitFor();await answerFirst(article);await page.getByRole('button',{name:'Check answer',exact:true}).click();await page.getByText(/Why each option does or does not fit/).waitFor();const save=article.getByRole('button',{name:/Save|Saved/}).first();if(await save.getAttribute('aria-pressed')!=='true')await save.click();before=await page.evaluate(()=>localStorage.getItem('amir-fabric-v1'));assert.ok(JSON.parse(before).bookmarks.length);"
+  },
+  {
+    "file": "tests/academy/legacy-smoke.mjs",
+    "line": 15,
+    "text": "await page.goto(BASE+'/learn/dp-600/ingestion/');await page.waitForFunction(()=>!document.querySelector('select[aria-label=\"Confidence for your next answer\"]').disabled);await page.getByRole('button',{name:'Reset this lesson',exact:true}).click();assert.deepEqual(learningState(await page.evaluate(()=>localStorage.getItem('amir-fabric-v1'))),learningState(before));assert.equal(await page.evaluate(()=>localStorage.getItem('amir-lab-v1')),null);"
+  },
+  {
+    "file": "tests/academy/legacy-smoke.mjs",
+    "line": 20,
+    "text": "const first=await p.evaluate(()=>Object.values(JSON.parse(localStorage.getItem('amir-fabric-v1')).sessions).find(s=>s.status==='active'));assert.ok(first.deadlineAt);assert.ok(Object.keys(first.answers).length);"
+  },
+  {
+    "file": "tests/academy/legacy-smoke.mjs",
+    "line": 21,
+    "text": "await p.reload();await p.getByRole('button',{name:'Resume session',exact:true}).click();await p.getByRole('timer').waitFor();const next=await p.evaluate(()=>Object.values(JSON.parse(localStorage.getItem('amir-fabric-v1')).sessions).find(s=>s.id===Object.keys(JSON.parse(localStorage.getItem('amir-fabric-v1')).sessions)[0]));assert.equal(next.deadlineAt,first.deadlineAt);assert.deepEqual(next.manifest.questionIds,first.manifest.questionIds);assert.deepEqual(next.answers,first.answers);await c.close();"
+  },
+  {
+    "file": "tests/academy/pattern-comparison.e2e.mjs",
+    "line": 29,
+    "text": "await context.addInitScript(values => { for (const [key, value] of Object.entries(values)) localStorage.setItem(key, value); }, sentinels);"
+  },
+  {
+    "file": "tests/academy/pattern-comparison.e2e.mjs",
+    "line": 49,
+    "text": "const after = await page.evaluate(keys => Object.fromEntries(keys.map(key => [key, localStorage.getItem(key)])), Object.keys(sentinels));"
+  },
+  {
+    "file": "tests/atlas/circles-e2e.mjs",
+    "line": 15,
+    "text": "await page.evaluate(()=>{for(const key of ['amir-lab-v1','amir-fabric-v1','hansa-academy-ingestion-v1','hansa-atlas-journey-v1']) localStorage.setItem(key,'circle-regression-sentinel');});"
+  },
+  {
+    "file": "tests/atlas/circles-e2e.mjs",
+    "line": 16,
+    "text": "const before=await page.evaluate(()=>JSON.stringify(localStorage));"
+  },
+  {
+    "file": "tests/atlas/circles-e2e.mjs",
+    "line": 52,
+    "text": "assert.equal(await page.evaluate(()=>JSON.stringify(localStorage)),before,'all existing state values unchanged');"
+  },
+  {
+    "file": "tests/atlas/e2e.mjs",
+    "line": 13,
+    "text": "await context.addInitScript(values=>{for(const [key,value] of Object.entries(values))localStorage.setItem(key,value);},legacy);"
+  },
+  {
+    "file": "tests/atlas/e2e.mjs",
+    "line": 68,
+    "text": "const preserved=await page.evaluate(keys=>Object.fromEntries(keys.map(key=>[key,localStorage.getItem(key)])),Object.keys(legacy)); assert.deepEqual(preserved,legacy);"
+  },
+  {
+    "file": "tests/atlas/e2e.mjs",
+    "line": 70,
+    "text": "const afterReset=await page.evaluate(keys=>Object.fromEntries(keys.map(key=>[key,localStorage.getItem(key)])),Object.keys(legacy)); assert.deepEqual(afterReset,legacy);"
+  },
+  {
+    "file": "tests/atlas/e2e.mjs",
+    "line": 74,
+    "text": "const corrupt=await browser.newContext(); await corrupt.addInitScript(()=>localStorage.setItem(\"hansa-atlas-journey-v1\",\"not-json\")); const page=await corrupt.newPage();"
+  },
+  {
+    "file": "tests/atlas/e2e.mjs",
+    "line": 76,
+    "text": "await page.getByRole(\"button\",{name:\"Mark visited & continue\",exact:true}).click(); assert.equal(await page.evaluate(()=>localStorage.getItem(\"hansa-atlas-journey-v1\")),\"not-json\"); await corrupt.close(); pass(\"Corrupt Atlas progress is preserved without silent replacement\");"
+  },
+  {
+    "file": "tests/atlas/expansion-e2e.mjs",
+    "line": 13,
+    "text": "await page.evaluate(()=>{for(const k of ['amir-fabric-v1','amir-lab-v1','hansa-atlas-journey-v1','hansa-academy-ingestion-v1'])localStorage.setItem(k,'preserve-'+k);});"
+  },
+  {
+    "file": "tests/atlas/expansion-e2e.mjs",
+    "line": 17,
+    "text": "assert.equal(await page.evaluate(()=>['amir-fabric-v1','amir-lab-v1','hansa-atlas-journey-v1','hansa-academy-ingestion-v1'].every(k=>localStorage.getItem(k)==='preserve-'+k)),true);"
+  },
+  {
+    "file": "tests/content/drafts-integration.test.mjs",
+    "line": 182,
+    "text": "assert.ok(!body.includes(\"localStorage\"), `${file} must not use localStorage`);"
+  },
+  {
+    "file": "tests/fabric/e2e.mjs",
+    "line": 164,
+    "text": "Object.values(JSON.parse(localStorage.getItem(\"amir-fabric-v1\") ?? \"{}\").sessions ?? {}).map((session) => ({"
+  },
+  {
+    "file": "tests/fabric/e2e.mjs",
+    "line": 187,
+    "text": "const stored = await desktop.evaluate(() => JSON.parse(localStorage.getItem(\"amir-fabric-v1\") ?? \"{}\"));"
+  },
+  {
+    "file": "tests/fabric/e2e.mjs",
+    "line": 189,
+    "text": "const labStore = await desktop.evaluate(() => localStorage.getItem(\"amir-lab-v1\"));"
+  },
+  {
+    "file": "tests/fabric/e2e.mjs",
+    "line": 250,
+    "text": "const stored = await desktop.evaluate(() => JSON.parse(localStorage.getItem(\"amir-fabric-v1\") ?? \"{}\"));"
+  },
+  {
+    "file": "tests/fabric/e2e.mjs",
+    "line": 286,
+    "text": "const store = JSON.parse(localStorage.getItem(\"amir-fabric-v1\") ?? \"{}\");"
+  },
+  {
+    "file": "tests/fabric/e2e.mjs",
+    "line": 290,
+    "text": "localStorage.setItem(\"amir-fabric-v1\", JSON.stringify(store));"
+  },
+  {
+    "file": "tests/fabric/e2e.mjs",
+    "line": 436,
+    "text": "const keys = await page.evaluate(() => Object.keys(localStorage));"
+  },
+  {
+    "file": "tests/fabric/r11-e2e.mjs",
+    "line": 20,
+    "text": "await ctx.addInitScript(s=>{for(const[k,v]of Object.entries(s))if(localStorage.getItem(k)===null)localStorage.setItem(k,v);},sentinels);"
+  },
+  {
+    "file": "tests/fabric/r11-e2e.mjs",
+    "line": 66,
+    "text": "const preserved=await p.evaluate(keys=>Object.fromEntries(keys.map(k=>[k,localStorage.getItem(k)])),Object.keys(sentinels));assert.deepEqual(preserved,sentinels);"
+  },
+  {
+    "file": "tests/fabric/r11-e2e.mjs",
+    "line": 70,
+    "text": "await p.evaluate(()=>localStorage.setItem('hansa-dp600-r11-progress-v1','{broken'));await p.reload();await p.getByTestId('r11-question').waitFor();await p.locator('[data-testid=\"r11-question\"] input[value=\"C\"]').check();assert.equal(await p.evaluate(()=>localStorage.getItem('hansa-dp600-r11-progress-v1')),'{broken');"
+  },
+  {
+    "file": "tests/fabric/r11-e2e.mjs",
+    "line": 72,
+    "text": "await ctx.close();const denied=await browser.newContext();await denied.addInitScript(()=>Object.defineProperty(window,'localStorage',{get(){throw new DOMException('denied','SecurityError')}}));const dp=await denied.newPage();await dp.goto(base+'/lab/dp-600/explore/?question=T1Q120');await dp.getByTestId('r11-question').waitFor();assert.match(await dp.getByTestId('r11-question').getByRole('status').innerText(),/unavailable/);await denied.close();"
+  },
+  {
+    "file": "tests/fabric/r11.test.mjs",
+    "line": 5,
+    "text": "import {gradeR11,r11Expected,r11Complete,parseR11Progress,R11_REVISION,R11_STORAGE_KEY} from '../../lib/fabric/r11.ts';"
+  },
+  {
+    "file": "tests/fabric/r11.test.mjs",
+    "line": 42,
+    "text": "assert.notEqual(R11_STORAGE_KEY,'hansa-question-additions-v1');assert.deepEqual(parseR11Progress(null),{});"
+  },
+  {
+    "file": "tests/knowledge/canonical-home.test.mjs",
+    "line": 282,
+    "text": "/localStorage|sessionStorage|indexedDB/,"
+  }
+]

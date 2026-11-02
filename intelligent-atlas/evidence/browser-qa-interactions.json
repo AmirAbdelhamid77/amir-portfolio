@@ -1,0 +1,107 @@
+[
+  {
+    "name": "drag timeline selects an earlier date",
+    "pass": true,
+    "detail": "2026-10-26 -> 2026-10-20"
+  },
+  {
+    "name": "horizontal wheel moves the timeline",
+    "pass": true,
+    "detail": "2026-10-20 -> 2026-10-23"
+  },
+  {
+    "name": "interrupted timeline transition settles on last request",
+    "pass": true,
+    "detail": "2026-10-31"
+  },
+  {
+    "name": "destination preview shows recorded routes",
+    "pass": true,
+    "detail": "Lesson route/learn/dp-600/ingestion/Practice route/lab/dp-600/explore/"
+  },
+  {
+    "name": "Escape from destination returns to card",
+    "pass": true,
+    "detail": ""
+  },
+  {
+    "name": "public mode renders fail-closed empty graph",
+    "pass": true,
+    "detail": "{\"mode\":\"public\",\"empty\":true,\"nodes\":0,\"edges\":0,\"legendHidden\":true,\"expandHidden\":true,\"goalHidden\":true,\"registerText\":\"15\",\"cardStatus\":\"editorial preview · not published\"}"
+  },
+  {
+    "name": "public mode hides legend, expand and goals",
+    "pass": true,
+    "detail": ""
+  },
+  {
+    "name": "public mode labels cards as editorial previews",
+    "pass": true,
+    "detail": "editorial preview · not published"
+  },
+  {
+    "name": "public Dealer withholds candidate concept",
+    "pass": true,
+    "detail": "TopicOneLakeEdition26 Oct 2026Sourcems-onelake-shortcuts · checked 26 Oct 2026Revieweditorial preview · not publishedConceptcandidate concep"
+  },
+  {
+    "name": "public evidence withholds candidate assertions",
+    "pass": true,
+    "detail": "← Back to cardEvidence recordeditorial previewSource recordA reference is a design decision. The edition and its locator are preserved from the corpus.Sourcems-"
+  },
+  {
+    "name": "returning to review restores candidate graph",
+    "pass": true,
+    "detail": "{\"mode\":\"review\",\"nodes\":5,\"emptyHidden\":true,\"goalVisible\":true}"
+  },
+  {
+    "name": "search returns concept matches",
+    "pass": true,
+    "detail": "1"
+  },
+  {
+    "name": "search result selects concept detail",
+    "pass": true,
+    "detail": "OneLake shortcut"
+  },
+  {
+    "name": "list view is a complete accessible alternative",
+    "pass": true,
+    "detail": "{\"listVisible\":true,\"graphHidden\":true,\"groups\":1,\"rows\":24}"
+  },
+  {
+    "name": "goal selection opens a supported route",
+    "pass": true,
+    "detail": "Read existing OneLake data without building another copy / 2 steps · 2/2 targets with a resource · no gaps"
+  },
+  {
+    "name": "goal next-step advances with coverage status",
+    "pass": true,
+    "detail": "Step 2 of 2 · every step has a recorded resource. Route support is not a mastery estimate."
+  },
+  {
+    "name": "goal step opens a recorded resource preview",
+    "pass": true,
+    "detail": ""
+  },
+  {
+    "name": "locate in Atlas carries a return context",
+    "pass": true,
+    "detail": "Return to 26 Oct 2026 editioncandidate context / OneLake shortcut"
+  },
+  {
+    "name": "return context reopens the edition",
+    "pass": true,
+    "detail": "26 Oct 2026"
+  },
+  {
+    "name": "coverage note separates analysis from prototype",
+    "pass": true,
+    "detail": ""
+  },
+  {
+    "name": "no runtime errors (interactions)",
+    "pass": true,
+    "detail": ""
+  }
+]

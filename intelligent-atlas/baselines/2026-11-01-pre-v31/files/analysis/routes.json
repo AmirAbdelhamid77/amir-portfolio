@@ -1,0 +1,589 @@
+{
+  "generatedAt": "2026-10-31T00:09:24.203Z",
+  "routes": [
+    {
+      "route": "/",
+      "file": "app/page.tsx",
+      "dynamic": false,
+      "title": "",
+      "kind": "home",
+      "analysisDisposition": "static-route-accounted"
+    },
+    {
+      "route": "/about/",
+      "file": "app/about/page.tsx",
+      "dynamic": false,
+      "title": "About",
+      "kind": "professional",
+      "analysisDisposition": "static-route-accounted"
+    },
+    {
+      "route": "/contact/",
+      "file": "app/contact/page.tsx",
+      "dynamic": false,
+      "title": "Contact",
+      "kind": "professional",
+      "analysisDisposition": "static-route-accounted"
+    },
+    {
+      "route": "/experience/",
+      "file": "app/experience/page.tsx",
+      "dynamic": false,
+      "title": "Experience",
+      "kind": "professional",
+      "analysisDisposition": "static-route-accounted"
+    },
+    {
+      "route": "/explore/",
+      "file": "app/explore/page.tsx",
+      "dynamic": false,
+      "title": "Explore the labs",
+      "kind": "learning",
+      "analysisDisposition": "static-route-accounted"
+    },
+    {
+      "route": "/explore/charts/",
+      "file": "app/explore/charts/page.tsx",
+      "dynamic": false,
+      "title": "Six chart labs",
+      "kind": "learning",
+      "analysisDisposition": "static-route-accounted"
+    },
+    {
+      "route": "/explore/charts/bar/",
+      "file": "app/explore/charts/bar/page.tsx",
+      "dynamic": false,
+      "title": "${LAB.title} lab",
+      "kind": "learning",
+      "analysisDisposition": "static-route-accounted"
+    },
+    {
+      "route": "/explore/charts/box/",
+      "file": "app/explore/charts/box/page.tsx",
+      "dynamic": false,
+      "title": "${LAB.title} lab",
+      "kind": "learning",
+      "analysisDisposition": "static-route-accounted"
+    },
+    {
+      "route": "/explore/charts/dot/",
+      "file": "app/explore/charts/dot/page.tsx",
+      "dynamic": false,
+      "title": "${LAB.title} lab",
+      "kind": "learning",
+      "analysisDisposition": "static-route-accounted"
+    },
+    {
+      "route": "/explore/charts/histogram/",
+      "file": "app/explore/charts/histogram/page.tsx",
+      "dynamic": false,
+      "title": "${LAB.title} lab",
+      "kind": "learning",
+      "analysisDisposition": "static-route-accounted"
+    },
+    {
+      "route": "/explore/charts/line/",
+      "file": "app/explore/charts/line/page.tsx",
+      "dynamic": false,
+      "title": "${LAB.title} lab",
+      "kind": "learning",
+      "analysisDisposition": "static-route-accounted"
+    },
+    {
+      "route": "/explore/charts/scatter/",
+      "file": "app/explore/charts/scatter/page.tsx",
+      "dynamic": false,
+      "title": "${LAB.title} lab",
+      "kind": "learning",
+      "analysisDisposition": "static-route-accounted"
+    },
+    {
+      "route": "/explore/choose/",
+      "file": "app/explore/choose/page.tsx",
+      "dynamic": false,
+      "title": "Chart decision assistant",
+      "kind": "learning",
+      "analysisDisposition": "static-route-accounted"
+    },
+    {
+      "route": "/explore/dashboards/",
+      "file": "app/explore/dashboards/page.tsx",
+      "dynamic": false,
+      "title": "Dashboard anatomy — executive and analyst views",
+      "kind": "learning",
+      "analysisDisposition": "static-route-accounted"
+    },
+    {
+      "route": "/explore/integrity/",
+      "file": "app/explore/integrity/page.tsx",
+      "dynamic": false,
+      "title": "Integrity lab — same data, honest and misleading",
+      "kind": "learning",
+      "analysisDisposition": "static-route-accounted"
+    },
+    {
+      "route": "/explore/specialty/",
+      "file": "app/explore/specialty/page.tsx",
+      "dynamic": false,
+      "title": "Specialty chart audit — BeUI funnel, treemap, flow and donut",
+      "kind": "learning",
+      "analysisDisposition": "static-route-accounted"
+    },
+    {
+      "route": "/lab/",
+      "file": "app/lab/page.tsx",
+      "dynamic": false,
+      "title": "Data Lab",
+      "kind": "practice",
+      "analysisDisposition": "static-route-accounted"
+    },
+    {
+      "route": "/lab/:slug/",
+      "file": "app/lab/[slug]/page.tsx",
+      "dynamic": true,
+      "title": "Exam not found",
+      "kind": "practice",
+      "analysisDisposition": "dynamic-pattern; concrete instances enumerated from content"
+    },
+    {
+      "route": "/lab/dp-600/",
+      "file": "app/lab/dp-600/page.tsx",
+      "dynamic": false,
+      "title": "Microsoft Fabric & DP-600 practice",
+      "kind": "practice",
+      "analysisDisposition": "static-route-accounted"
+    },
+    {
+      "route": "/lab/dp-600/cases/",
+      "file": "app/lab/dp-600/cases/page.tsx",
+      "dynamic": false,
+      "title": "Case studies — Microsoft Fabric DP-600",
+      "kind": "practice",
+      "analysisDisposition": "static-route-accounted"
+    },
+    {
+      "route": "/lab/dp-600/explore/",
+      "file": "app/lab/dp-600/explore/page.tsx",
+      "dynamic": false,
+      "title": "Explore the Fabric question bank",
+      "kind": "practice",
+      "analysisDisposition": "static-route-accounted"
+    },
+    {
+      "route": "/lab/dp-600/mock/",
+      "file": "app/lab/dp-600/mock/page.tsx",
+      "dynamic": false,
+      "title": "Mock exam — Microsoft Fabric DP-600",
+      "kind": "practice",
+      "analysisDisposition": "static-route-accounted"
+    },
+    {
+      "route": "/lab/dp-600/practice/",
+      "file": "app/lab/dp-600/practice/page.tsx",
+      "dynamic": false,
+      "title": "Topic practice — Microsoft Fabric DP-600",
+      "kind": "practice",
+      "analysisDisposition": "static-route-accounted"
+    },
+    {
+      "route": "/lab/dp-600/progress/",
+      "file": "app/lab/dp-600/progress/page.tsx",
+      "dynamic": false,
+      "title": "Progress & performance — Microsoft Fabric DP-600",
+      "kind": "practice",
+      "analysisDisposition": "static-route-accounted"
+    },
+    {
+      "route": "/lab/dp-600/resources/",
+      "file": "app/lab/dp-600/resources/page.tsx",
+      "dynamic": false,
+      "title": "Learning resources & sources — Microsoft Fabric DP-600",
+      "kind": "practice",
+      "analysisDisposition": "static-route-accounted"
+    },
+    {
+      "route": "/lab/dp-600/review/",
+      "file": "app/lab/dp-600/review/page.tsx",
+      "dynamic": false,
+      "title": "Mistakes & bookmarks — Microsoft Fabric DP-600",
+      "kind": "practice",
+      "analysisDisposition": "static-route-accounted"
+    },
+    {
+      "route": "/lab/dp-600/study/",
+      "file": "app/lab/dp-600/study/page.tsx",
+      "dynamic": false,
+      "title": "Guided study — Microsoft Fabric DP-600",
+      "kind": "practice",
+      "analysisDisposition": "static-route-accounted"
+    },
+    {
+      "route": "/lab/hands-on/",
+      "file": "app/lab/hands-on/page.tsx",
+      "dynamic": false,
+      "title": "Hands-on labs — Data Lab",
+      "kind": "practice",
+      "analysisDisposition": "static-route-accounted"
+    },
+    {
+      "route": "/lab/hands-on/:slug/",
+      "file": "app/lab/hands-on/[slug]/page.tsx",
+      "dynamic": true,
+      "title": "Hands-on lab not found",
+      "kind": "practice",
+      "analysisDisposition": "dynamic-pattern; concrete instances enumerated from content"
+    },
+    {
+      "route": "/learn/",
+      "file": "app/learn/page.tsx",
+      "dynamic": false,
+      "title": "Data Visualization — from question to decision",
+      "kind": "learning",
+      "analysisDisposition": "static-route-accounted"
+    },
+    {
+      "route": "/learn/:slug/",
+      "file": "app/learn/[slug]/page.tsx",
+      "dynamic": true,
+      "title": "Lesson not found",
+      "kind": "learning",
+      "analysisDisposition": "dynamic-pattern; concrete instances enumerated from content"
+    },
+    {
+      "route": "/learn/academy/",
+      "file": "app/learn/academy/page.tsx",
+      "dynamic": false,
+      "title": "Corpus Academy — mirrored Microsoft Learning courseware",
+      "kind": "learning",
+      "analysisDisposition": "static-route-accounted"
+    },
+    {
+      "route": "/learn/academy/:track/:lesson/",
+      "file": "app/learn/academy/[track]/[lesson]/page.tsx",
+      "dynamic": true,
+      "title": "Lesson not found",
+      "kind": "learning",
+      "analysisDisposition": "dynamic-pattern; concrete instances enumerated from content"
+    },
+    {
+      "route": "/learn/ar/",
+      "file": "app/learn/ar/page.tsx",
+      "dynamic": false,
+      "title": "المسار العربي — تصور البيانات",
+      "kind": "learning",
+      "analysisDisposition": "static-route-accounted"
+    },
+    {
+      "route": "/learn/ar/:slug/",
+      "file": "app/learn/ar/[slug]/page.tsx",
+      "dynamic": true,
+      "title": "الدرس غير موجود",
+      "kind": "learning",
+      "analysisDisposition": "dynamic-pattern; concrete instances enumerated from content"
+    },
+    {
+      "route": "/learn/catalogue/",
+      "file": "app/learn/catalogue/page.tsx",
+      "dynamic": false,
+      "title": "Learn — subjects, topics and activities",
+      "kind": "learning",
+      "analysisDisposition": "static-route-accounted"
+    },
+    {
+      "route": "/learn/chapter/:number/",
+      "file": "app/learn/chapter/[number]/page.tsx",
+      "dynamic": true,
+      "title": "Chapter not found",
+      "kind": "learning",
+      "analysisDisposition": "dynamic-pattern; concrete instances enumerated from content"
+    },
+    {
+      "route": "/learn/dp-600/",
+      "file": "app/learn/dp-600/page.tsx",
+      "dynamic": false,
+      "title": "DP-600 Learning Academy",
+      "kind": "learning",
+      "analysisDisposition": "static-route-accounted"
+    },
+    {
+      "route": "/learn/dp-600/atlas/",
+      "file": "app/learn/dp-600/atlas/page.tsx",
+      "dynamic": false,
+      "title": "Knowledge Atlas — Fabric decisions",
+      "kind": "learning",
+      "analysisDisposition": "static-route-accounted"
+    },
+    {
+      "route": "/learn/dp-600/atlas/journey/",
+      "file": "app/learn/dp-600/atlas/journey/page.tsx",
+      "dynamic": false,
+      "title": "Guided journey — From reference to replica",
+      "kind": "learning",
+      "analysisDisposition": "static-route-accounted"
+    },
+    {
+      "route": "/learn/dp-600/ingestion/",
+      "file": "app/learn/dp-600/ingestion/page.tsx",
+      "dynamic": false,
+      "title": "Ingestion Decision Lab — DP-600 Academy",
+      "kind": "learning",
+      "analysisDisposition": "static-route-accounted"
+    },
+    {
+      "route": "/learn/drafts/",
+      "file": "app/learn/drafts/page.tsx",
+      "dynamic": false,
+      "title": "Intake review — creative patterns lessons and RTI lab blueprints (not approved)",
+      "kind": "learning",
+      "analysisDisposition": "static-route-accounted"
+    },
+    {
+      "route": "/learn/fabric-rti/",
+      "file": "app/learn/fabric-rti/page.tsx",
+      "dynamic": false,
+      "title": "Fabric Real-Time Intelligence — authentic-source lessons",
+      "kind": "learning",
+      "analysisDisposition": "static-route-accounted"
+    },
+    {
+      "route": "/learn/fabric-rti/:slug/",
+      "file": "app/learn/fabric-rti/[slug]/page.tsx",
+      "dynamic": true,
+      "title": "Lesson not found",
+      "kind": "learning",
+      "analysisDisposition": "dynamic-pattern; concrete instances enumerated from content"
+    },
+    {
+      "route": "/learn/method/",
+      "file": "app/learn/method/page.tsx",
+      "dynamic": false,
+      "title": "How this library was built",
+      "kind": "learning",
+      "analysisDisposition": "static-route-accounted"
+    },
+    {
+      "route": "/learn/sql/",
+      "file": "app/learn/sql/page.tsx",
+      "dynamic": false,
+      "title": "SQL — canonical learning path",
+      "kind": "learning",
+      "analysisDisposition": "static-route-accounted"
+    },
+    {
+      "route": "/learn/sql/:module/",
+      "file": "app/learn/sql/[module]/page.tsx",
+      "dynamic": true,
+      "title": "",
+      "kind": "learning",
+      "analysisDisposition": "dynamic-pattern; concrete instances enumerated from content"
+    },
+    {
+      "route": "/learn/sql/reference/:id/",
+      "file": "app/learn/sql/reference/[id]/page.tsx",
+      "dynamic": true,
+      "title": "",
+      "kind": "learning",
+      "analysisDisposition": "dynamic-pattern; concrete instances enumerated from content"
+    },
+    {
+      "route": "/learn/statistics/",
+      "file": "app/learn/statistics/page.tsx",
+      "dynamic": false,
+      "title": "Comprehensive Statistics Reference — visual-first",
+      "kind": "learning",
+      "analysisDisposition": "static-route-accounted"
+    },
+    {
+      "route": "/learn/statistics/atlas/",
+      "file": "app/learn/statistics/atlas/page.tsx",
+      "dynamic": false,
+      "title": "Interactive concept atlas",
+      "kind": "learning",
+      "analysisDisposition": "static-route-accounted"
+    },
+    {
+      "route": "/learn/statistics/cheatsheet/",
+      "file": "app/learn/statistics/cheatsheet/page.tsx",
+      "dynamic": false,
+      "title": "One-page statistics field guide",
+      "kind": "learning",
+      "analysisDisposition": "static-route-accounted"
+    },
+    {
+      "route": "/learn/statistics/decision/",
+      "file": "app/learn/statistics/decision/page.tsx",
+      "dynamic": false,
+      "title": "Which statistical tool?",
+      "kind": "learning",
+      "analysisDisposition": "static-route-accounted"
+    },
+    {
+      "route": "/learn/statistics/formulas/",
+      "file": "app/learn/statistics/formulas/page.tsx",
+      "dynamic": false,
+      "title": "Formula workbench",
+      "kind": "learning",
+      "analysisDisposition": "static-route-accounted"
+    },
+    {
+      "route": "/learn/statistics/glossary/",
+      "file": "app/learn/statistics/glossary/page.tsx",
+      "dynamic": false,
+      "title": "Bilingual statistics glossary",
+      "kind": "learning",
+      "analysisDisposition": "static-route-accounted"
+    },
+    {
+      "route": "/learn/statistics/journey/:slug/",
+      "file": "app/learn/statistics/journey/[slug]/page.tsx",
+      "dynamic": true,
+      "title": "Journey not found",
+      "kind": "learning",
+      "analysisDisposition": "dynamic-pattern; concrete instances enumerated from content"
+    },
+    {
+      "route": "/learn/statistics/labs/",
+      "file": "app/learn/statistics/labs/page.tsx",
+      "dynamic": false,
+      "title": "Interactive statistics labs",
+      "kind": "learning",
+      "analysisDisposition": "static-route-accounted"
+    },
+    {
+      "route": "/learn/statistics/labs/:slug/",
+      "file": "app/learn/statistics/labs/[slug]/page.tsx",
+      "dynamic": true,
+      "title": "Lab not found",
+      "kind": "learning",
+      "analysisDisposition": "dynamic-pattern; concrete instances enumerated from content"
+    },
+    {
+      "route": "/learn/statistics/source/",
+      "file": "app/learn/statistics/source/page.tsx",
+      "dynamic": false,
+      "title": "Source audit, coverage and errata",
+      "kind": "learning",
+      "analysisDisposition": "static-route-accounted"
+    },
+    {
+      "route": "/practice/",
+      "file": "app/practice/page.tsx",
+      "dynamic": false,
+      "title": "Practice — select the chart, defend the trade-off",
+      "kind": "practice",
+      "analysisDisposition": "static-route-accounted"
+    },
+    {
+      "route": "/practice/catalogue/",
+      "file": "app/practice/catalogue/page.tsx",
+      "dynamic": false,
+      "title": "Practise — subjects, topics and activities",
+      "kind": "practice",
+      "analysisDisposition": "static-route-accounted"
+    },
+    {
+      "route": "/practice/drafts/",
+      "file": "app/practice/drafts/page.tsx",
+      "dynamic": false,
+      "title": "Draft review — corpus and intake candidates (not approved)",
+      "kind": "practice",
+      "analysisDisposition": "static-route-accounted"
+    },
+    {
+      "route": "/practice/sql/",
+      "file": "app/practice/sql/page.tsx",
+      "dynamic": false,
+      "title": "SQL source self-checks and exam",
+      "kind": "practice",
+      "analysisDisposition": "static-route-accounted"
+    },
+    {
+      "route": "/prototype-c/",
+      "file": "app/prototype-c/page.tsx",
+      "dynamic": false,
+      "title": "Hansa — interactive data learning and knowledge",
+      "kind": "utility",
+      "analysisDisposition": "static-route-accounted"
+    },
+    {
+      "route": "/search/",
+      "file": "app/search/page.tsx",
+      "dynamic": false,
+      "title": "Search — courses, lessons, labs, questions and case studies",
+      "kind": "utility",
+      "analysisDisposition": "static-route-accounted"
+    },
+    {
+      "route": "/services/",
+      "file": "app/services/page.tsx",
+      "dynamic": false,
+      "title": "Services",
+      "kind": "professional",
+      "analysisDisposition": "static-route-accounted"
+    },
+    {
+      "route": "/study/",
+      "file": "app/study/page.tsx",
+      "dynamic": false,
+      "title": "Learning library — subjects, topics and practice",
+      "kind": "learning",
+      "analysisDisposition": "static-route-accounted"
+    },
+    {
+      "route": "/study/:subject/",
+      "file": "app/study/[subject]/page.tsx",
+      "dynamic": true,
+      "title": "",
+      "kind": "learning",
+      "analysisDisposition": "dynamic-pattern; concrete instances enumerated from content"
+    },
+    {
+      "route": "/study/:subject/:topic/",
+      "file": "app/study/[subject]/[topic]/page.tsx",
+      "dynamic": true,
+      "title": "${s?.topics.find(t= t[0]===p.topic)?.[1]} — ${s?.title}",
+      "kind": "learning",
+      "analysisDisposition": "dynamic-pattern; concrete instances enumerated from content"
+    },
+    {
+      "route": "/study/:subject/path/",
+      "file": "app/study/[subject]/path/page.tsx",
+      "dynamic": true,
+      "title": "",
+      "kind": "learning",
+      "analysisDisposition": "dynamic-pattern; concrete instances enumerated from content"
+    },
+    {
+      "route": "/study/review/",
+      "file": "app/study/review/page.tsx",
+      "dynamic": false,
+      "title": "Editorial review inventory — not approved learning material",
+      "kind": "learning",
+      "analysisDisposition": "static-route-accounted"
+    },
+    {
+      "route": "/study/review/path/",
+      "file": "app/study/review/path/page.tsx",
+      "dynamic": false,
+      "title": "Review-only lesson associations — not approved",
+      "kind": "learning",
+      "analysisDisposition": "static-route-accounted"
+    },
+    {
+      "route": "/work/",
+      "file": "app/work/page.tsx",
+      "dynamic": false,
+      "title": "Work",
+      "kind": "professional",
+      "analysisDisposition": "static-route-accounted"
+    },
+    {
+      "route": "/work/:slug/",
+      "file": "app/work/[slug]/page.tsx",
+      "dynamic": true,
+      "title": "Case study not found",
+      "kind": "professional",
+      "analysisDisposition": "dynamic-pattern; concrete instances enumerated from content"
+    }
+  ]
+}

@@ -1,0 +1,224 @@
+TAP version 13
+# (node:8336) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///D:/BeUI/amir-portfolio/lib/knowledge/insights.ts is not specified and it doesn't parse as CommonJS.
+# Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+# To eliminate this warning, add "type": "module" to D:\\BeUI\\amir-portfolio\\package.json.
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# Subtest: exactly one landing implementation exists and both routes render it
+ok 1 - exactly one landing implementation exists and both routes render it
+  ---
+  duration_ms: 4.0718
+  type: 'test'
+  ...
+# Subtest: the retired landing implementations are gone, not merely unused
+ok 2 - the retired landing implementations are gone, not merely unused
+  ---
+  duration_ms: 0.5967
+  type: 'test'
+  ...
+# Subtest: only the canonical landing module imports the stage
+ok 3 - only the canonical landing module imports the stage
+  ---
+  duration_ms: 179.6547
+  type: 'test'
+  ...
+# Subtest: no build-time switch re-selects a different homepage
+ok 4 - no build-time switch re-selects a different homepage
+  ---
+  duration_ms: 422.5386
+  type: 'test'
+  ...
+# Subtest: the reviewed editions survive the migration byte-for-byte in meaning
+ok 5 - the reviewed editions survive the migration byte-for-byte in meaning
+  ---
+  duration_ms: 38.6471
+  type: 'test'
+  ...
+# Subtest: public copy drops the prototype framing but keeps the review status
+ok 6 - public copy drops the prototype framing but keeps the review status
+  ---
+  duration_ms: 2.8986
+  type: 'test'
+  ...
+# Subtest: the landing never promises a published Atlas graph
+ok 7 - the landing never promises a published Atlas graph
+  ---
+  duration_ms: 1.6795
+  type: 'test'
+  ...
+# Subtest: landing permalinks are root-scoped and the archive anchor is intact
+ok 8 - landing permalinks are root-scoped and the archive anchor is intact
+  ---
+  duration_ms: 1.6838
+  type: 'test'
+  ...
+# Subtest: the route registry names one landing source and one canonical URL
+ok 9 - the route registry names one landing source and one canonical URL
+  ---
+  duration_ms: 1.0742
+  type: 'test'
+  ...
+# Subtest: Today is reachable from every page and the landing adds Atlas
+ok 10 - Today is reachable from every page and the landing adds Atlas
+  ---
+  duration_ms: 1.6338
+  type: 'test'
+  ...
+# Subtest: the legacy URL stays out of sitemap, robots and the search index
+ok 11 - the legacy URL stays out of sitemap, robots and the search index
+  ---
+  duration_ms: 0.9185
+  type: 'test'
+  ...
+# Subtest: the professional routes stay discoverable from the landing
+ok 12 - the professional routes stay discoverable from the landing
+  ---
+  duration_ms: 0.7847
+  type: 'test'
+  ...
+# Subtest: the landing never writes learner progress or question state
+ok 13 - the landing never writes learner progress or question state
+  ---
+  duration_ms: 1.9288
+  type: 'test'
+  ...
+# (node:7056) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///D:/BeUI/amir-portfolio/lib/atlas/field.ts is not specified and it doesn't parse as CommonJS.
+# Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+# To eliminate this warning, add "type": "module" to D:\\BeUI\\amir-portfolio\\package.json.
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# Subtest: the public projection is still fail-closed, so the field carries no semantic edge
+ok 14 - the public projection is still fail-closed, so the field carries no semantic edge
+  ---
+  duration_ms: 24.8327
+  type: 'test'
+  ...
+# Subtest: every vertex is an edition, a stated concept, or a real destination
+ok 15 - every vertex is an edition, a stated concept, or a real destination
+  ---
+  duration_ms: 22.5659
+  type: 'test'
+  ...
+# Subtest: shared destinations collapse into one vertex with several visitors
+ok 16 - shared destinations collapse into one vertex with several visitors
+  ---
+  duration_ms: 1.5009
+  type: 'test'
+  ...
+# Subtest: the field is deterministic: two builds are identical
+ok 17 - the field is deterministic: two builds are identical
+  ---
+  duration_ms: 1.9418
+  type: 'test'
+  ...
+# Subtest: a published projection would add its semantic layer instead of being invented
+ok 18 - a published projection would add its semantic layer instead of being invented
+  ---
+  duration_ms: 3.9073
+  type: 'test'
+  ...
+# Subtest: the camera is a camera: dolly, orbit and perspective behave
+ok 19 - the camera is a camera: dolly, orbit and perspective behave
+  ---
+  duration_ms: 1.4993
+  type: 'test'
+  ...
+# Subtest: render order, fog, lensing and picking are consistent
+ok 20 - render order, fog, lensing and picking are consistent
+  ---
+  duration_ms: 6.7823
+  type: 'test'
+  ...
+# Subtest: helpers are bounded
+ok 21 - helpers are bounded
+  ---
+  duration_ms: 0.9156
+  type: 'test'
+  ...
+# (node:23244) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///D:/BeUI/amir-portfolio/lib/knowledge/insights.ts is not specified and it doesn't parse as CommonJS.
+# Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+# To eliminate this warning, add "type": "module" to D:\\BeUI\\amir-portfolio\\package.json.
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# Subtest: Public projection excludes every unreviewed scenario; preview has three stable original IDs
+ok 22 - Public projection excludes every unreviewed scenario; preview has three stable original IDs
+  ---
+  duration_ms: 64.2566
+  type: 'test'
+  ...
+# Subtest: Unknown editorial states and missing essential evidence never become eligible
+ok 23 - Unknown editorial states and missing essential evidence never become eligible
+  ---
+  duration_ms: 0.4411
+  type: 'test'
+  ...
+# Subtest: Published eligibility does not mutate original records
+ok 24 - Published eligibility does not mutate original records
+  ---
+  duration_ms: 0.4444
+  type: 'test'
+  ...
+# Subtest: Search includes caveats, is case-insensitive, combines topic and recovers empty results
+ok 25 - Search includes caveats, is case-insensitive, combines topic and recovers empty results
+  ---
+  duration_ms: 0.5888
+  type: 'test'
+  ...
+# Subtest: Invalid, stale or hostile permalink falls back without manufacturing content
+ok 26 - Invalid, stale or hostile permalink falls back without manufacturing content
+  ---
+  duration_ms: 8.4199
+  type: 'test'
+  ...
+# (node:27372) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///D:/BeUI/amir-portfolio/lib/knowledge/models.ts is not specified and it doesn't parse as CommonJS.
+# Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+# To eliminate this warning, add "type": "module" to D:\\BeUI\\amir-portfolio\\package.json.
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# Subtest: every preview edition maps to the interaction its objective supports
+ok 27 - every preview edition maps to the interaction its objective supports
+  ---
+  duration_ms: 1.9564
+  type: 'test'
+  ...
+# Subtest: the retention model derives a different pattern from the same input
+ok 28 - the retention model derives a different pattern from the same input
+  ---
+  duration_ms: 0.7406
+  type: 'test'
+  ...
+# Subtest: the deletion model distinguishes the reference object from its target
+ok 29 - the deletion model distinguishes the reference object from its target
+  ---
+  duration_ms: 0.4443
+  type: 'test'
+  ...
+# Subtest: table discovery needs both Tables and supported table data
+ok 30 - table discovery needs both Tables and supported table data
+  ---
+  duration_ms: 0.7067
+  type: 'test'
+  ...
+# Subtest: derived cards use stable IDs and never invent a fourth claim
+ok 31 - derived cards use stable IDs and never invent a fourth claim
+  ---
+  duration_ms: 62.106
+  type: 'test'
+  ...
+# Subtest: card bodies quote the reviewed fields and keep their destinations
+ok 32 - card bodies quote the reviewed fields and keep their destinations
+  ---
+  duration_ms: 0.4668
+  type: 'test'
+  ...
+# Subtest: derivation does not mutate the edition
+ok 33 - derivation does not mutate the edition
+  ---
+  duration_ms: 1.4162
+  type: 'test'
+  ...
+1..33
+# tests 33
+# suites 0
+# pass 33
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 1469.0664

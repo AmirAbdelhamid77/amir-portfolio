@@ -1,0 +1,426 @@
+{
+  "schemaVersion": "intelligent-atlas-quality-sample-selection/1.0",
+  "generatedAt": "2026-11-01",
+  "method": "Deterministic SHA-256 ordering of eligible unit IDs, stratified by domain, language, content form, matched/unmatched state, prerequisite risk and cross-domain placement.",
+  "population": 4337,
+  "sampleSize": 21,
+  "sample": [
+    {
+      "stratum": "domain:fabric",
+      "unitId": "fabric-q:fb-nb-025",
+      "family": "fabric-questions",
+      "state": "analyzed-mapped",
+      "reason": "",
+      "language": "en",
+      "forms": [
+        "question-stem"
+      ],
+      "title": "Job definitions in pipelines",
+      "text": "Job definitions in pipelines Which statement about Spark Job Definitions in CI/CD is accurate? Source control notebooks-pyspark 1.2 nb-sjd-source-control nb-sjd lakehouse",
+      "candidates": [
+        {
+          "conceptId": "concept:fabric:notebook",
+          "confidence": "primary"
+        },
+        {
+          "conceptId": "concept:fabric:pipeline",
+          "confidence": "primary"
+        },
+        {
+          "conceptId": "concept:fabric:lakehouse",
+          "confidence": "secondary"
+        }
+      ]
+    },
+    {
+      "stratum": "domain:sql",
+      "unitId": "exam:sql:sql-09",
+      "family": "exams",
+      "state": "analyzed-mapped",
+      "reason": "",
+      "language": "en",
+      "forms": [
+        "question-stem"
+      ],
+      "title": "Which practices make a production query easier to review? Select all that apply.",
+      "text": "Which practices make a production query easier to review? Select all that apply. Readability SQL for Analysts",
+      "candidates": [
+        {
+          "conceptId": "concept:sql:select",
+          "confidence": "secondary"
+        }
+      ]
+    },
+    {
+      "stratum": "domain:statistics",
+      "unitId": "stats-formula:21",
+      "family": "statistics",
+      "state": "analyzed-unmapped",
+      "reason": "formula-fragment",
+      "language": "mixed",
+      "forms": [
+        "formula"
+      ],
+      "title": "\\mu \\pm 2\\sigma",
+      "text": "mupm2sigma \\mu \\pm 2\\sigma s9",
+      "candidates": []
+    },
+    {
+      "stratum": "domain:visualization",
+      "unitId": "dv-lesson:en:overview",
+      "family": "visualization",
+      "state": "analyzed-mapped",
+      "reason": "",
+      "language": "en",
+      "forms": [
+        "editorial-overview"
+      ],
+      "title": "Library map & operating system",
+      "text": "Library map & operating system The exported hub page. It defines the working pipeline, the canonical chapter spine, and the figure pack — use it as the map for everything else. The pipeline is question → decision → grain → variables → task → encoding → scale → context → integrity → action. A chart is an evidence layer; storytelling is a separate communication layer. Pick one job before you pick one chapter.",
+      "candidates": [
+        {
+          "conceptId": "concept:fabric:pipeline",
+          "confidence": "secondary"
+        }
+      ]
+    },
+    {
+      "stratum": "domain:analysis",
+      "unitId": "exam:fundamentals:fun-06",
+      "family": "exams",
+      "state": "analyzed-mapped",
+      "reason": "",
+      "language": "en",
+      "forms": [
+        "question-stem"
+      ],
+      "title": "Showing more decimal places makes a dashboard KPI more credible.",
+      "text": "Showing more decimal places makes a dashboard KPI more credible. Communication Analytics Fundamentals",
+      "candidates": [
+        {
+          "conceptId": "concept:analysis:kpi",
+          "confidence": "secondary"
+        }
+      ]
+    },
+    {
+      "stratum": "language:en",
+      "unitId": "fabric-note:video14/V14-PIPE-068",
+      "family": "fabric-notes",
+      "state": "analyzed-unmapped",
+      "reason": "no-lexical-signal",
+      "language": "en",
+      "forms": [
+        "note",
+        "timestamped-summary"
+      ],
+      "title": "Lookup and configuration row shapes",
+      "text": "Lookup and configuration row shapes The first 5,000 can appear valid while the rest are omitted.",
+      "candidates": []
+    },
+    {
+      "stratum": "language:ar",
+      "unitId": "dv:statistical-traps#6-multiple-comparisons",
+      "family": "visualization",
+      "state": "analyzed-mapped",
+      "reason": "",
+      "language": "ar",
+      "forms": [
+        "lesson-section"
+      ],
+      "title": "6. Multiple Comparisons",
+      "text": "Statistical Interpretation Traps for Visualization 6. Multiple Comparisons كلما فحصت قطاعات ومقاييس أكثر، زادت فرصة ظهور patterns شاذة بالصدفة. اعتبر الـvisual استكشافًا يحتاج validation.",
+      "candidates": [
+        {
+          "conceptId": "concept:viz:visual-integrity",
+          "confidence": "primary"
+        }
+      ]
+    },
+    {
+      "stratum": "language:mixed",
+      "unitId": "sql:reference/3cd3906c5d6c81fca708ee9237596fb9#section-10",
+      "family": "sql",
+      "state": "analyzed-mapped",
+      "reason": "",
+      "language": "mixed",
+      "forms": [
+        "lesson-section",
+        "code"
+      ],
+      "title": "5. Subquery في SELECT — Scalar Subquery",
+      "text": "🔍 Simple Subqueries — Complete Reference Use this supporting source in the context of its canonical SQL module. 5. Subquery في SELECT — Scalar Subquery 5.1 الفكرة الأساسية مثال: عدد المباريات في كل Season + إجمالي عدد المباريات عبر كل Seasons. SELECT season, COUNT( ) AS matches, ( SELECT COUNT( ) FROM match ) AS total matches FROM match GROUP BY season; 5.2 Subquery في SELECT للحسابات الرياضية SELECT home goal, away goal, home goal + away goal AS total goals, (home goal + away goal) - ( SELECT AVG(home goal + away goal) FROM match ) AS difference from average FROM match; الفكرة: row value - overall scalar value 5.3 أهم قاعدة Subquery في SELECT يجب أن تنتج قيمة واحدة فقط . إذا أعادت الـ inner query أكثر من Row، ستحصل على error.",
+      "candidates": [
+        {
+          "conceptId": "concept:sql:subquery-cte",
+          "confidence": "primary"
+        },
+        {
+          "conceptId": "concept:sql:select",
+          "confidence": "secondary"
+        },
+        {
+          "conceptId": "concept:sql:group-by",
+          "confidence": "secondary"
+        }
+      ]
+    },
+    {
+      "stratum": "form:question-stem",
+      "unitId": "fabric-r11:T1Q168",
+      "family": "fabric-r11",
+      "state": "analyzed-mapped",
+      "reason": "",
+      "language": "en",
+      "forms": [
+        "question-stem",
+        "revision-overlay"
+      ],
+      "title": "You have a Fabric tenant that contains a workspace named Enterprise. Enterprise contains a semantic model named Model1.",
+      "text": "You have a Fabric tenant that contains a workspace named Enterprise. Enterprise contains a semantic model named Model1. Model1 contains a date parameter named Date1 that was created in Power Query. You build a deployment pipeline named Enterprise Data that includes two stages named Development and Test. You assign the Enterprise workspace to the Development stage. You need to perform the following actions: • Create a workspace named Enterprise [Test] and assign the workspace to the Test stage. • Configure a rule that will modify the value of Date1 when changes are deployed to the Test stage. Which two settings should you use? To answer, select the appropriate settings in the answer area. NOTE: Each correct answer is worth one point. R11 second-pass review not performed; retained R10 finding is a lead, not new verification. R11 second-pass review not performed; retained R10 finding is a l",
+      "candidates": [
+        {
+          "conceptId": "concept:fabric:semantic-model",
+          "confidence": "primary"
+        },
+        {
+          "conceptId": "concept:fabric:dataflow-gen2",
+          "confidence": "secondary"
+        },
+        {
+          "conceptId": "concept:fabric:deployment",
+          "confidence": "secondary"
+        },
+        {
+          "conceptId": "concept:fabric:pipeline",
+          "confidence": "secondary"
+        },
+        {
+          "conceptId": "concept:fabric:pipeline-parameter",
+          "confidence": "secondary"
+        }
+      ]
+    },
+    {
+      "stratum": "form:lesson-section",
+      "unitId": "academy:fabric-analytics:20a-work-with-graphql#section-4",
+      "family": "academy",
+      "state": "analyzed-mapped",
+      "reason": "",
+      "language": "en",
+      "forms": [
+        "lesson-section",
+        "lab-steps"
+      ],
+      "title": "Query a SQL database",
+      "text": "Work with API for GraphQL in Microsoft Fabric Query a SQL database The SQL query editor provides support for IntelliSense, code completion, syntax highlighting, client-side parsing, and validation. You can run Data Definition Language (DDL), Data Manipulation Language (DML) and Data Control Language (DCL) statements. sql SELECT p.Name AS ProductName, pc.Name AS CategoryName, p.ListPrice FROM SalesLT.Product p INNER JOIN SalesLT.ProductCategory pc ON p.ProductCategoryID = pc.ProductCategoryID ORDER BY p.ListPrice DESC; This query joins the Product and ProductCategory tables to display the product names, their categories, and their list prices, sorted by price in descending order.",
+      "candidates": [
+        {
+          "conceptId": "concept:sql:join",
+          "confidence": "secondary"
+        },
+        {
+          "conceptId": "concept:fabric:t-sql",
+          "confidence": "secondary"
+        },
+        {
+          "conceptId": "concept:sql:ordering",
+          "confidence": "secondary"
+        },
+        {
+          "conceptId": "concept:sql:transactions",
+          "confidence": "secondary"
+        }
+      ]
+    },
+    {
+      "stratum": "form:formula",
+      "unitId": "stats-formula:98",
+      "family": "statistics",
+      "state": "analyzed-mapped",
+      "reason": "",
+      "language": "mixed",
+      "forms": [
+        "formula"
+      ],
+      "title": "\\alpha",
+      "text": "alpha \\alpha s39",
+      "candidates": [
+        {
+          "conceptId": "concept:stats:significance-level",
+          "confidence": "secondary"
+        }
+      ]
+    },
+    {
+      "stratum": "form:lab-steps",
+      "unitId": "lab:hands-on-exp-0028-create-reusable-power-bi-assets",
+      "family": "hands-on-labs",
+      "state": "analyzed-unmapped",
+      "reason": "procedural-step",
+      "language": "en",
+      "forms": [
+        "lab-steps",
+        "validation-checks"
+      ],
+      "title": "Create reusable Power BI assets",
+      "text": "Create reusable Power BI assets Lab identified from the repository's own lab folder structure; instructions, expected outputs and validation checks were extracted from the contained markdown where present. Microsoft Fabric workspace (inferred; source record had none)",
+      "candidates": []
+    },
+    {
+      "stratum": "form:note",
+      "unitId": "fabric-note:video10/V10-DEP-021",
+      "family": "fabric-notes",
+      "state": "analyzed-mapped",
+      "reason": "",
+      "language": "en",
+      "forms": [
+        "note",
+        "timestamped-summary"
+      ],
+      "title": "Multiple environment settings",
+      "text": "Multiple environment settings Resolve coupled lifecycle, dependency, permissions, and change-control constraints; defend correct answer and rule out distractors.",
+      "candidates": [
+        {
+          "conceptId": "concept:fabric:permissions",
+          "confidence": "secondary"
+        }
+      ]
+    },
+    {
+      "stratum": "form:figure",
+      "unitId": "dv:visual-atlas#i-dual-axis-vs-small-multiples",
+      "family": "visualization",
+      "state": "analyzed-mapped",
+      "reason": "",
+      "language": "en",
+      "forms": [
+        "lesson-section",
+        "figure"
+      ],
+      "title": "I. Dual axis vs small multiples",
+      "text": "Visual Atlas — Teaching Charts & Figure Pack I. Dual axis vs small multiples",
+      "candidates": [
+        {
+          "conceptId": "concept:viz:visual-integrity",
+          "confidence": "primary"
+        }
+      ]
+    },
+    {
+      "stratum": "matched",
+      "unitId": "fabric-note:video10/V10-DEP-042",
+      "family": "fabric-notes",
+      "state": "analyzed-mapped",
+      "reason": "",
+      "language": "en",
+      "forms": [
+        "note",
+        "timestamped-summary"
+      ],
+      "title": "First-time target setup",
+      "text": "First-time target setup Resolve coupled lifecycle, dependency, permissions, and change-control constraints; defend correct answer and rule out distractors.",
+      "candidates": [
+        {
+          "conceptId": "concept:fabric:permissions",
+          "confidence": "secondary"
+        }
+      ]
+    },
+    {
+      "stratum": "unmatched",
+      "unitId": "fabric-q:fb-v11-choose-013",
+      "family": "fabric-questions",
+      "state": "analyzed-unmapped",
+      "reason": "question-paraphrase",
+      "language": "en",
+      "forms": [
+        "question-stem"
+      ],
+      "title": "Storage / mixed formats",
+      "text": "Storage / mixed formats A market intelligence program needs to retain PDF research notes, image attachments, JSON news payloads, and structured prices together before later refinement. Which store is the appropriate raw landing zone? (Select one answer.) Storage / mixed formats video11 2.1 vref e2df90d25000ea7c vref 9bc6e0fd33118950 eastore ingestion",
+      "candidates": []
+    },
+    {
+      "stratum": "unmatched-prioritized",
+      "unitId": "academy:power-bi:labs-02-transform-data-power-bi#section-1",
+      "family": "academy",
+      "state": "analyzed-unmapped",
+      "reason": "procedural-step",
+      "language": "en",
+      "forms": [
+        "lesson-section",
+        "lab-steps"
+      ],
+      "title": "Clean, transform, and load data in Power BI",
+      "text": "Clean, transform, and load data in Power BI Clean, transform, and load data in Power BI",
+      "candidates": []
+    },
+    {
+      "stratum": "unmatched-prioritized",
+      "unitId": "fabric-q:fb-v8-gov-012",
+      "family": "fabric-questions",
+      "state": "analyzed-unmapped",
+      "reason": "question-paraphrase",
+      "language": "en",
+      "forms": [
+        "question-stem"
+      ],
+      "title": "Metadata versus access controls",
+      "text": "Metadata versus access controls Select TWO statements that hold in the governed catalog design. Metadata versus access controls video08 1.1 vref 7dea17428555c8f4 vref 36fffcfcf98ad659 vref 965fd4060a38d4f3 vref 1c5166c34d68fcd0 governance",
+      "candidates": []
+    },
+    {
+      "stratum": "unmatched-prioritized",
+      "unitId": "sql:reference/3cb3906c5d6c817fb197f233646cda62#section-14",
+      "family": "sql",
+      "state": "analyzed-unmapped",
+      "reason": "no-lexical-signal",
+      "language": "en",
+      "forms": [
+        "lesson-section",
+        "code"
+      ],
+      "title": "Quick Reference",
+      "text": "🧩 6️⃣ Extensions & Fuzzy Matching Use this supporting source in the context of its canonical SQL module. Quick Reference pg available extensions → available extensions pg extension → enabled extensions CREATE EXTENSION → enable extension levenshtein(a,b) → edit distance (lower = closer) similarity(a,b) → trigram similarity (higher = closer)",
+      "candidates": []
+    },
+    {
+      "stratum": "unmatched-prioritized",
+      "unitId": "fabric-add:new-hub-dumps-21-r21",
+      "family": "fabric-additions",
+      "state": "analyzed-unmapped",
+      "reason": "question-paraphrase",
+      "language": "en",
+      "forms": [
+        "question-stem"
+      ],
+      "title": "You need to ensure the data loading activities in the AnalyticsPOC workspace are executed in the appropriate sequence. T",
+      "text": "You need to ensure the data loading activities in the AnalyticsPOC workspace are executed in the appropriate sequence. The solution must meet the technical requirements. What should you do? Litware DP-600",
+      "candidates": []
+    },
+    {
+      "stratum": "cross-domain",
+      "unitId": "fabric-q:fb-v6-sec-047",
+      "family": "fabric-questions",
+      "state": "analyzed-mapped",
+      "reason": "",
+      "language": "en",
+      "forms": [
+        "question-stem"
+      ],
+      "title": "security regression test matrix",
+      "text": "security regression test matrix Select THREE tests that best validate a new access-control deployment for restricted Lakehouse Delta tables. security regression test matrix video06 vref f4801325c6b9ca57 vref f513e79bbf83ae3f vref 3444302757631152 security",
+      "candidates": [
+        {
+          "conceptId": "concept:fabric:delta",
+          "confidence": "secondary"
+        },
+        {
+          "conceptId": "concept:fabric:lakehouse",
+          "confidence": "secondary"
+        }
+      ]
+    }
+  ]
+}

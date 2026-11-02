@@ -1,0 +1,54 @@
+{
+  "schemaVersion": "intelligent-atlas-prototype-provenance/1.0",
+  "payloadFingerprint": "8bf409f49a1851bd39a89a544b8826538aaff95cbf30db1eae42708182ad5561",
+  "publicPayloadFingerprint": "bc21cdf070d7f41b1f471913540cf82704f1685c0f79563f383f57e2d324e71b",
+  "graphBuildId": "ia-graph-bed4e12d0986",
+  "generatedAt": "2026-10-31",
+  "sourceFiles": [
+    "intelligent-atlas/analysis/graph-build.json",
+    "intelligent-atlas/analysis/analysis-summary.json",
+    "intelligent-atlas/analysis/public-projection.json",
+    "intelligent-atlas/analysis/mappings.json",
+    "intelligent-atlas/tools/semantic-model.mjs",
+    "content/knowledge/insights.json"
+  ],
+  "selection": {
+    "A": {
+      "label": "Reference without a copy",
+      "goalId": "goal:ia:reference-without-copy",
+      "seedConceptId": "concept:fabric:shortcut",
+      "requestedConcepts": 24,
+      "presentConcepts": 24
+    },
+    "B": {
+      "label": "A chart that survives review",
+      "goalId": "goal:ia:chart-that-survives-review",
+      "seedConceptId": "concept:viz:chart-selection",
+      "requestedConcepts": 18,
+      "presentConcepts": 18
+    },
+    "C": {
+      "label": "Is the difference real?",
+      "goalId": "goal:ia:is-the-difference-real",
+      "seedConceptId": "concept:stats:hypothesis-test",
+      "requestedConcepts": 17,
+      "presentConcepts": 17
+    }
+  },
+  "counts": {
+    "concepts": 59,
+    "edges": 46,
+    "resources": 166,
+    "insights": 3,
+    "goals": 3,
+    "ambiguities": 11,
+    "contradictions": 4
+  },
+  "limits": [
+    "The prototype renders a bounded subset; it is not the corpus analysis denominator.",
+    "No candidate concept, mapping or assertion is approved or published.",
+    "Media is not embedded; the prototype links to local routes only.",
+    "The public projection is simulated locally and contains zero published concepts and assertions.",
+    "The review register is corpus-level and pattern-based; it is not a set of approved semantic assertions."
+  ]
+}

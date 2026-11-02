@@ -1,0 +1,193 @@
+{
+  "suite": "storyboard-recovery",
+  "at": "2026-11-02T17:40:20.157Z",
+  "checkpoints": [
+    {
+      "requested": 0,
+      "progress": 0,
+      "scene": "timeline",
+      "timeline": 1,
+      "knowledge": 0,
+      "closing": 0,
+      "timelineVeil": 0,
+      "knowledgeVeil": 0,
+      "closingVeil": 0,
+      "file": "stage-000-1440-light.png"
+    },
+    {
+      "requested": 0.25,
+      "progress": 0.25,
+      "scene": "knowledge",
+      "timeline": 0,
+      "knowledge": 0.4211,
+      "closing": 0,
+      "timelineVeil": 0,
+      "knowledgeVeil": 1,
+      "closingVeil": 0,
+      "file": "stage-025-1440-light.png"
+    },
+    {
+      "requested": 0.5,
+      "progress": 0.5,
+      "scene": "knowledge",
+      "timeline": 0,
+      "knowledge": 1,
+      "closing": 0,
+      "timelineVeil": 0,
+      "knowledgeVeil": 1,
+      "closingVeil": 0,
+      "file": "stage-050-1440-light.png"
+    },
+    {
+      "requested": 0.75,
+      "progress": 0.75,
+      "scene": "closing",
+      "timeline": 0,
+      "knowledge": 0,
+      "closing": 0.4615,
+      "timelineVeil": 0,
+      "knowledgeVeil": 1,
+      "closingVeil": 1,
+      "file": "stage-075-1440-light.png"
+    },
+    {
+      "requested": 1,
+      "progress": 1,
+      "scene": "closing",
+      "timeline": 0,
+      "knowledge": 0,
+      "closing": 1,
+      "timelineVeil": 0,
+      "knowledgeVeil": 1,
+      "closingVeil": 1,
+      "file": "stage-100-1440-light.png"
+    }
+  ],
+  "recordings": {
+    "forward": {
+      "frames": 184,
+      "bytes": 4022168,
+      "width": 720,
+      "height": 480,
+      "minStdev": 10.2,
+      "blankFrames": [],
+      "progress": 1
+    },
+    "reverse": {
+      "frames": 177,
+      "bytes": 3733495,
+      "width": 720,
+      "height": 480,
+      "minStdev": 9.2,
+      "blankFrames": [],
+      "progress": 0
+    },
+    "interaction": {
+      "frames": 142,
+      "bytes": 3365130,
+      "width": 720,
+      "height": 480,
+      "minStdev": 10.1,
+      "blankFrames": []
+    }
+  },
+  "counts": {
+    "PASS": 18,
+    "FAIL": 0,
+    "BLOCKED": 0,
+    "NOT RUN": 0
+  },
+  "checks": [
+    {
+      "id": "before:timeline-captured",
+      "status": "PASS",
+      "detail": "before-timeline-1440-light.png"
+    },
+    {
+      "id": "before:handoff-captured",
+      "status": "PASS",
+      "detail": "before-handoff-1440-light.png"
+    },
+    {
+      "id": "storyboard:timeline",
+      "status": "PASS",
+      "detail": "01-timeline.png"
+    },
+    {
+      "id": "checkpoints:five",
+      "status": "PASS",
+      "detail": "stage-000-1440-light.png, stage-025-1440-light.png, stage-050-1440-light.png, stage-075-1440-light.png, stage-100-1440-light.png"
+    },
+    {
+      "id": "checkpoints:no-blank",
+      "status": "PASS",
+      "detail": "1.00 0.42 1.00 0.46 1.00"
+    },
+    {
+      "id": "storyboard:located",
+      "status": "PASS",
+      "detail": "concept:fabric:shortcut"
+    },
+    {
+      "id": "storyboard:open-content-deck",
+      "status": "PASS",
+      "detail": "concept:concept:fabric:copy-job"
+    },
+    {
+      "id": "storyboard:return",
+      "status": "PASS",
+      "detail": "timeline"
+    },
+    {
+      "id": "motion:forward-frames",
+      "status": "PASS",
+      "detail": "184"
+    },
+    {
+      "id": "motion:forward-no-blank",
+      "status": "PASS",
+      "detail": "min stdev 10.2"
+    },
+    {
+      "id": "motion:forward-reaches-close",
+      "status": "PASS",
+      "detail": "closing"
+    },
+    {
+      "id": "motion:reverse-frames",
+      "status": "PASS",
+      "detail": "177"
+    },
+    {
+      "id": "motion:reverse-no-blank",
+      "status": "PASS",
+      "detail": "min stdev 9.2"
+    },
+    {
+      "id": "motion:reverse-returns-timeline",
+      "status": "PASS",
+      "detail": "timeline"
+    },
+    {
+      "id": "motion:interaction-frames",
+      "status": "PASS",
+      "detail": "142"
+    },
+    {
+      "id": "motion:interaction-no-blank",
+      "status": "PASS",
+      "detail": "min stdev 10.1"
+    },
+    {
+      "id": "motion:interaction-ends-timeline",
+      "status": "PASS",
+      "detail": "timeline"
+    },
+    {
+      "id": "storyboard:mobile-list",
+      "status": "PASS",
+      "detail": ""
+    }
+  ],
+  "errors": []
+}

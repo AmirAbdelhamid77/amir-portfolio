@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Hansa Knowledge Stage — public projection. The reviewed knowledge graph is not published yet. Structure and provenance are shown; no candidate semantics are exposed."
+    />
+    <meta name="color-scheme" content="light dark" />
+    <meta name="theme-color" content="#f4f1e9" />
+    <title>Hansa · Knowledge Stage — public</title>
+    <script>
+      try {
+        const params = new URLSearchParams(location.search);
+        const stored = JSON.parse(localStorage.getItem("hansa.knowledge-stage.public.v31") || "null");
+        const requested = params.get("theme");
+        const theme = requested === "dark" || requested === "light"
+          ? requested
+          : stored?.theme || (matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+        document.documentElement.dataset.theme = theme;
+      } catch {}
+    </script>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to the public note</a>
+
+    <header class="topbar">
+      <a class="brand" href="#top" aria-label="Hansa Knowledge Stage, public projection">
+        <span class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 32 32" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.2">
+            <circle cx="16" cy="16" r="11.5" />
+            <circle cx="16" cy="16" r="4.5" />
+            <path d="M16 2.5v5M16 24.5v5M2.5 16h5M24.5 16h5" />
+          </svg>
+        </span>
+        <span class="brand-type">
+          <strong>Hansa</strong>
+          <span>Knowledge Stage · public</span>
+        </span>
+      </a>
+
+      <nav class="public-nav" aria-label="Public note sections">
+        <a href="#gate">Gate</a>
+        <a href="#structure">Structure</a>
+        <a href="#limits">Limits</a>
+      </nav>
+
+      <div class="topbar-actions">
+        <span class="public-badge">public projection</span>
+        <button type="button" class="icon-button" id="theme-toggle" aria-label="Switch to dark theme" aria-pressed="false">
+          <svg class="theme-icon theme-icon-sun" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.5">
+            <circle cx="12" cy="12" r="4.2" />
+            <path d="M12 2.5v2.4M12 19.1v2.4M2.5 12h2.4M19.1 12h2.4M5.2 5.2l1.7 1.7M17.1 17.1l1.7 1.7M18.8 5.2l-1.7 1.7M6.9 17.1l-1.7 1.7" />
+          </svg>
+          <svg class="theme-icon theme-icon-moon" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M20 14.2A8.2 8.2 0 0 1 9.8 4a8.4 8.4 0 1 0 10.2 10.2Z" />
+          </svg>
+        </button>
+      </div>
+    </header>
+
+    <main id="main">
+      <section class="hero" id="top" aria-labelledby="public-title">
+        <p class="kicker">Public knowledge stage <span class="slash">/</span> <span id="public-date">2026-11-01</span></p>
+        <div class="hero-grid">
+          <div class="hero-copy">
+            <h1 id="public-title">The graph is not published.<br /><em>That is the honest state.</em></h1>
+            <p class="lede">
+              No concept, assertion or edition has passed human publication review. This page shows only what the
+              public projection can prove: structure, provenance and an empty semantic layer.
+            </p>
+            <dl class="status-row" aria-label="Published record counts">
+              <div><dt>Published concepts</dt><dd id="published-concepts">0</dd></div>
+              <div><dt>Published assertions</dt><dd id="published-assertions">0</dd></div>
+              <div><dt>Published insights</dt><dd id="published-insights">0</dd></div>
+            </dl>
+            <p class="hero-note">
+              <span class="badge">projection gate</span>
+              Candidate records are withheld by the projection, not hidden by this page.
+            </p>
+          </div>
+
+          <div class="empty-stage" aria-hidden="true">
+            <div class="empty-orbit empty-orbit-1"></div>
+            <div class="empty-orbit empty-orbit-2"></div>
+            <div class="empty-orbit empty-orbit-3"></div>
+            <div class="empty-core">
+              <span class="empty-count">0</span>
+              <span class="empty-label">published relations</span>
+            </div>
+            <p class="empty-caption">Nothing to draw yet.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="gate" aria-labelledby="gate-title">
+        <div class="section-head">
+          <p class="kicker">The gate</p>
+          <h2 id="gate-title">Four conditions. <em>None met yet.</em></h2>
+        </div>
+        <div class="gate-grid" id="gate-grid"></div>
+        <p class="section-note" id="gate-note"></p>
+      </section>
+
+      <section class="section" id="structure" aria-labelledby="structure-title">
+        <div class="section-head">
+          <p class="kicker">What can be shown</p>
+          <h2 id="structure-title">Structure without semantics.</h2>
+        </div>
+        <dl class="stats-grid" id="stats-grid">
+          <div><dt>Domains</dt><dd id="stat-domains">—</dd></div>
+          <div><dt>Study routes</dt><dd id="stat-routes">—</dd></div>
+          <div><dt>Source files</dt><dd id="stat-sources">—</dd></div>
+          <div><dt>Indexed units</dt><dd id="stat-units">—</dd></div>
+        </dl>
+        <p class="section-note" id="structure-note"></p>
+      </section>
+
+      <section class="section" id="limits" aria-labelledby="limits-title">
+        <div class="section-head">
+          <p class="kicker">Limits</p>
+          <h2 id="limits-title">What this page <em>does not do.</em></h2>
+        </div>
+        <ul class="limits-list">
+          <li>It does not show concept definitions, prerequisite claims, comparisons or editions.</li>
+          <li>It does not draw a graph, because zero relations are published.</li>
+          <li>It does not read or store learner data, answers or progress.</li>
+          <li>It does not claim that the candidate corpus is complete or scientifically reviewed.</li>
+        </ul>
+        <details class="coverage-note">
+          <summary>Full coverage note</summary>
+          <div id="coverage-note-body"></div>
+        </details>
+      </section>
+
+      <section class="closing" aria-labelledby="closing-title">
+        <p class="kicker">Next step</p>
+        <h2 id="closing-title">Read the library. <em>Wait for the graph.</em></h2>
+        <p>
+          The reading library and study routes are not served by this isolated artifact. The semantic layer will
+          appear here only after a named human reviewer records publication approval.
+        </p>
+      </section>
+    </main>
+
+    <footer class="site-foot">
+      <span>Hansa · Knowledge Stage public projection</span>
+      <span class="mono" id="foot-build"></span>
+      <span class="mono">No candidate semantics</span>
+    </footer>
+
+    <p class="toast" id="toast" role="status" aria-live="polite"></p>
+
+    <script src="public-data.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>

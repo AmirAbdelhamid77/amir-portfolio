@@ -1,0 +1,48 @@
+[
+  {
+    "name": "verify-agent-reference",
+    "exitCode": 1,
+    "seconds": 0.67,
+    "command": [
+      "node",
+      "scripts/verify-agent-reference.mjs"
+    ]
+  },
+  {
+    "name": "verify-knowledge-atlas",
+    "exitCode": 1,
+    "seconds": 0.66,
+    "command": [
+      "node",
+      "scripts/verify-knowledge-atlas.mjs"
+    ]
+  },
+  {
+    "name": "verify-easyui-integration",
+    "exitCode": 1,
+    "seconds": 0.63,
+    "command": [
+      "node",
+      "scripts/verify-easyui-integration.mjs"
+    ]
+  },
+  {
+    "name": "verify-site-metrics",
+    "exitCode": 0,
+    "seconds": 0.25,
+    "command": [
+      "node",
+      "scripts/verify-site-metrics.mjs"
+    ]
+  },
+  {
+    "name": "build",
+    "exitCode": 0,
+    "seconds": 45.07,
+    "command": [
+      "npm.cmd",
+      "run",
+      "build"
+    ]
+  }
+]

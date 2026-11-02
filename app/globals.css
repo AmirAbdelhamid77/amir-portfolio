@@ -74,8 +74,11 @@
     --foreground: oklch(96% 0 0);
     --card: #1c1c1c;
     /* 62% landed at 4.48:1 on the tinted dark card surfaces — a hair under AA.
-       66% clears it with margin while staying visually secondary. */
-    --muted-foreground: oklch(66% 0 0);
+       66% cleared it there, but the v3 landing gates sit micro-labels directly
+       on the plain #151515 background, where 66% measured 4.43:1 — under the
+       4.5 floor for small text. 70% clears AA on both surfaces with margin
+       while staying visually secondary to the 96% foreground. */
+    --muted-foreground: oklch(70% 0 0);
     --border: rgb(255 255 255 / 0.05);
     --border-strong: rgb(255 255 255 / 0.1);
     /* Light brand ramp on a dark surface, with dark text on the solid fills —
@@ -106,6 +109,11 @@
         oklch(72% 0.18 295) 100%
     );
 }
+
+/* ---------------------------------------------------------------------------
+   (The landing "ink" scope was removed 2026-10-30: the owner wants the site's
+   own light/dark themes on the landing — the theme toggle must stay live.)
+--------------------------------------------------------------------------- */
 
 /* Colour presets lifted from BeUI's lib/themes.ts. Neutral surfaces are kept;
    only the brand ramp moves. */

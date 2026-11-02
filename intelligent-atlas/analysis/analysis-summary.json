@@ -1,0 +1,196 @@
+{
+  "schemaVersion": "intelligent-atlas-semantic/1.0",
+  "graphBuildId": "ia-graph-bed4e12d0986",
+  "ledgerFingerprint": "bed4e12d09866bcf1cb7d997b31a6d21a22c79065f7f9166a905e57fabd1aced",
+  "registryVersion": "2026-10-31.1",
+  "checkedAt": "2026-10-31",
+  "counts": {
+    "units": 6201,
+    "states": {
+      "analyzed-mapped": 3609,
+      "analyzed-unmapped": 728,
+      "excluded-metadata-only": 1859,
+      "excluded-nonlearning": 5
+    },
+    "unmappedReasons": {
+      "question-paraphrase": {
+        "code": "question-paraphrase",
+        "count": 186,
+        "byFamily": {
+          "fabric-questions": 94,
+          "fabric-additions": 52,
+          "fabric-r11": 12,
+          "sql": 5,
+          "exams": 23
+        },
+        "detail": "Paraphrased question stem with no registry term above threshold; held answers and options are excluded, so no inference from an answer is allowed."
+      },
+      "no-lexical-signal": {
+        "code": "no-lexical-signal",
+        "count": 170,
+        "byFamily": {
+          "fabric-notes": 86,
+          "fabric-cases": 3,
+          "sql": 76,
+          "visualization": 4,
+          "fabric-rti": 1
+        },
+        "detail": "Substantive text, but no registry term reached the confidence threshold; retained for review rather than forced."
+      },
+      "thin-fragment": {
+        "code": "thin-fragment",
+        "count": 46,
+        "byFamily": {
+          "fabric-notes": 24,
+          "fabric-cases": 2,
+          "sql": 9,
+          "statistics": 2,
+          "visualization": 9
+        },
+        "detail": "Heading or fragment without a complete proposition; too little context to identify a concept without guessing."
+      },
+      "template-boilerplate": {
+        "code": "template-boilerplate",
+        "count": 74,
+        "byFamily": {
+          "fabric-notes": 74
+        },
+        "detail": "Repeated study-prompt or repository scaffolding, not a source-specific teachable proposition."
+      },
+      "domain-not-modelled": {
+        "code": "domain-not-modelled",
+        "count": 9,
+        "byFamily": {
+          "fabric-notes": 7,
+          "fabric-cases": 2
+        },
+        "detail": "Python/Spark/Excel/NoSQL or another execution domain that the five-domain registry does not model as a canonical concept."
+      },
+      "procedural-step": {
+        "code": "procedural-step",
+        "count": 148,
+        "byFamily": {
+          "academy": 132,
+          "hands-on-labs": 16
+        },
+        "detail": "Setup, cleanup or exercise instruction; procedural rather than conceptual."
+      },
+      "navigation-index": {
+        "code": "navigation-index",
+        "count": 16,
+        "byFamily": {
+          "academy": 3,
+          "sql": 5,
+          "visualization": 8
+        },
+        "detail": "Opening, index, reading-path or ownership text; navigation rather than a teachable proposition."
+      },
+      "formula-fragment": {
+        "code": "formula-fragment",
+        "count": 79,
+        "byFamily": {
+          "academy": 1,
+          "statistics": 78
+        },
+        "detail": "Notation or formula fragment without a proposition that can carry a concept mapping."
+      }
+    },
+    "concepts": 132,
+    "conceptsWithCorpusSupport": 130,
+    "registryOnlyConcepts": [
+      "concept:analysis:evidence-strength",
+      "concept:fabric:z-order"
+    ],
+    "mappings": 7309,
+    "assertions": 86,
+    "crossDomainAssertions": 12,
+    "directSupport": 69,
+    "inferredSupport": 17,
+    "ambiguities": 11,
+    "contradictions": 4,
+    "publishedConcepts": 0,
+    "publishedAssertions": 0
+  },
+  "relationTypes": [
+    {
+      "type": "requires_understanding_of",
+      "count": 37
+    },
+    {
+      "type": "enables",
+      "count": 7
+    },
+    {
+      "type": "contrasts_with",
+      "count": 7
+    },
+    {
+      "type": "tradeoff_with",
+      "count": 4
+    },
+    {
+      "type": "complements",
+      "count": 4
+    },
+    {
+      "type": "related_in_decision",
+      "count": 17
+    },
+    {
+      "type": "part_of_mechanism",
+      "count": 10
+    }
+  ],
+  "domainEdges": [
+    {
+      "domain": "fabric",
+      "concepts": 64,
+      "internal": 34,
+      "outgoingCrossDomain": 1
+    },
+    {
+      "domain": "sql",
+      "concepts": 23,
+      "internal": 13,
+      "outgoingCrossDomain": 2
+    },
+    {
+      "domain": "statistics",
+      "concepts": 23,
+      "internal": 15,
+      "outgoingCrossDomain": 0
+    },
+    {
+      "domain": "visualization",
+      "concepts": 16,
+      "internal": 11,
+      "outgoingCrossDomain": 5
+    },
+    {
+      "domain": "analysis",
+      "concepts": 6,
+      "internal": 1,
+      "outgoingCrossDomain": 4
+    }
+  ],
+  "routes": [
+    {
+      "goalId": "goal:ia:reference-without-copy",
+      "supported": true,
+      "steps": 2,
+      "gaps": []
+    },
+    {
+      "goalId": "goal:ia:chart-that-survives-review",
+      "supported": true,
+      "steps": 7,
+      "gaps": []
+    },
+    {
+      "goalId": "goal:ia:is-the-difference-real",
+      "supported": true,
+      "steps": 5,
+      "gaps": []
+    }
+  ]
+}

@@ -1,0 +1,1212 @@
+[
+  {
+    "file": "app/lab/dp-600/explore/page.tsx",
+    "line": 17,
+    "text": "const atlasLinks = atlas.catalog.filter(r=>r.kind===\"question\").flatMap(r=>r.conceptIds.map(id=>({ questionId: new URL(r.href,\"https://local.invalid\").searchParams.get(\"question\")!, title: atlas.concepts.find(c=>c.id===id)!.title, href:viewHref({...defaultView(),concept:id,incoming:true}) })));"
+  },
+  {
+    "file": "app/lab/dp-600/page.tsx",
+    "line": 145,
+    "text": "\"@context\": \"https://schema.org\","
+  },
+  {
+    "file": "app/lab/dp-600/page.tsx",
+    "line": 160,
+    "text": "<script type=\"application/ld+json\" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />"
+  },
+  {
+    "file": "app/lab/dp-600/resources/page.tsx",
+    "line": 98,
+    "text": "href={`https://www.youtube.com/watch?v=${video.id}`}"
+  },
+  {
+    "file": "app/lab/dp-600/resources/page.tsx",
+    "line": 169,
+    "text": "href=\"https://learn.microsoft.com/en-us/fabric/\""
+  },
+  {
+    "file": "app/lab/hands-on/[slug]/page.tsx",
+    "line": 76,
+    "text": "\"@context\": \"https://schema.org\","
+  },
+  {
+    "file": "app/lab/hands-on/[slug]/page.tsx",
+    "line": 91,
+    "text": "dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}"
+  },
+  {
+    "file": "app/lab/[slug]/page.tsx",
+    "line": 43,
+    "text": "\"@context\": \"https://schema.org\","
+  },
+  {
+    "file": "app/lab/[slug]/page.tsx",
+    "line": 60,
+    "text": "dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}"
+  },
+  {
+    "file": "app/layout.tsx",
+    "line": 97,
+    "text": "<script dangerouslySetInnerHTML={{ __html: themeScript }} />"
+  },
+  {
+    "file": "app/learn/ar/[slug]/page.tsx",
+    "line": 42,
+    "text": "\"@context\": \"https://schema.org\","
+  },
+  {
+    "file": "app/learn/ar/[slug]/page.tsx",
+    "line": 62,
+    "text": "dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}"
+  },
+  {
+    "file": "app/learn/dp-600/ingestion/page.tsx",
+    "line": 25,
+    "text": "<section id=\"continue\" className=\"scroll-mt-24\"><h2 className=\"text-xl font-medium\">5. Reflect and continue</h2><p className=\"mt-3 text-sm leading-7\">Explain the requirement that would make you change your first choice. Could a source-support or permission issue invalidate it? A correct pattern without those assumptions is an incomplete design.</p><div className=\"mt-4 flex flex-wrap gap-4\"><Link className=\"min-h-11 rounded-full border border-border-strong px-5 py-3 text-sm\" href=\"/lab/dp-600/explore/?subject=ingestion\">Explore related existing questions</Link><Link className=\"min-h-11 rounded-full border border-border-strong px-5 py-3 text-sm\" href=\"/lab/dp-600/resources/\">Existing labs & so"
+  },
+  {
+    "file": "app/learn/fabric-rti/page.tsx",
+    "line": 222,
+    "text": "href=\"https://archive.ics.uci.edu/\""
+  },
+  {
+    "file": "app/learn/fabric-rti/page.tsx",
+    "line": 231,
+    "text": "href=\"https://data.worldbank.org/indicator/IS.SHP.GOOD.TU\""
+  },
+  {
+    "file": "app/learn/fabric-rti/[slug]/page.tsx",
+    "line": 63,
+    "text": "\"@context\": \"https://schema.org\","
+  },
+  {
+    "file": "app/learn/fabric-rti/[slug]/page.tsx",
+    "line": 79,
+    "text": "dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}"
+  },
+  {
+    "file": "app/learn/page.tsx",
+    "line": 96,
+    "text": "\"@context\": \"https://schema.org\","
+  },
+  {
+    "file": "app/learn/page.tsx",
+    "line": 116,
+    "text": "dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}"
+  },
+  {
+    "file": "app/learn/statistics/journey/[slug]/page.tsx",
+    "line": 58,
+    "text": "\"@context\": \"https://schema.org\","
+  },
+  {
+    "file": "app/learn/statistics/journey/[slug]/page.tsx",
+    "line": 78,
+    "text": "<script type=\"application/ld+json\" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />"
+  },
+  {
+    "file": "app/learn/statistics/labs/[slug]/page.tsx",
+    "line": 58,
+    "text": "\"@context\": \"https://schema.org\","
+  },
+  {
+    "file": "app/learn/statistics/labs/[slug]/page.tsx",
+    "line": 77,
+    "text": "<script type=\"application/ld+json\" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />"
+  },
+  {
+    "file": "app/learn/statistics/page.tsx",
+    "line": 80,
+    "text": "\"@context\": \"https://schema.org\","
+  },
+  {
+    "file": "app/learn/statistics/page.tsx",
+    "line": 97,
+    "text": "<script type=\"application/ld+json\" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />"
+  },
+  {
+    "file": "app/learn/statistics/source/page.tsx",
+    "line": 186,
+    "text": "<code className=\"font-mono\">dangerouslySetInnerHTML</code> of exported HTML. Formulas are KaTeX-rendered"
+  },
+  {
+    "file": "app/learn/[slug]/page.tsx",
+    "line": 45,
+    "text": "\"@context\": \"https://schema.org\","
+  },
+  {
+    "file": "app/learn/[slug]/page.tsx",
+    "line": 72,
+    "text": "dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}"
+  },
+  {
+    "file": "app/page.tsx",
+    "line": 57,
+    "text": "\"@context\": \"https://schema.org\","
+  },
+  {
+    "file": "app/page.tsx",
+    "line": 71,
+    "text": "dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}"
+  },
+  {
+    "file": "app/prototype-c/page.tsx",
+    "line": 18,
+    "text": "\"The legacy address of the Hansa landing. The canonical page is https://hansa.amir-portfolio.workers.dev/ — this address shows the same daily insight, editions timeline and knowledge cards.\","
+  },
+  {
+    "file": "app/work/[slug]/page.tsx",
+    "line": 54,
+    "text": "\"@context\": \"https://schema.org\","
+  },
+  {
+    "file": "app/work/[slug]/page.tsx",
+    "line": 67,
+    "text": "dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}"
+  },
+  {
+    "file": "components/academy/lesson-blocks.tsx",
+    "line": 43,
+    "text": "return <p key={key} dangerouslySetInnerHTML={{ __html: inline(block.text) }} />;"
+  },
+  {
+    "file": "components/academy/lesson-blocks.tsx",
+    "line": 49,
+    "text": "dangerouslySetInnerHTML={{ __html: inline(block.text) }}"
+  },
+  {
+    "file": "components/academy/lesson-blocks.tsx",
+    "line": 56,
+    "text": "<li key={itemIndex} dangerouslySetInnerHTML={{ __html: inline(item) }} />"
+  },
+  {
+    "file": "components/academy/lesson-blocks.tsx",
+    "line": 64,
+    "text": "<li key={itemIndex} dangerouslySetInnerHTML={{ __html: inline(item) }} />"
+  },
+  {
+    "file": "components/academy/lesson-blocks.tsx",
+    "line": 85,
+    "text": "<td key={cellIndex} className=\"border-border px-3 py-2 align-top\" dangerouslySetInnerHTML={{ __html: inline(cell) }} />"
+  },
+  {
+    "file": "components/charts/sankey-chart/context.tsx",
+    "line": 67,
+    "text": "if (process.env.NODE_ENV === \"production\") return;"
+  },
+  {
+    "file": "components/charts/treemap/model.ts",
+    "line": 95,
+    "text": "* See https://d3js.org/d3-hierarchy/treemap#treemapBinary for the tiling method."
+  },
+  {
+    "file": "components/contact-form.tsx",
+    "line": 81,
+    "text": "const response = await fetch(SITE.contactEndpoint, {"
+  },
+  {
+    "file": "components/data-viz/source-blocks.tsx",
+    "line": 11,
+    "text": "// `dangerouslySetInnerHTML`: every string is escaped by React, and only link"
+  },
+  {
+    "file": "components/fabric/r11-question.tsx",
+    "line": 49,
+    "text": "{revealed && <section className=\"space-y-4 border-t border-border pt-4\" aria-label=\"Answer and review notes\"><h3 className=\"font-medium\">{approved ? \"Reviewed explanation\" : \"Source discussion — not graded\"}</h3><p className=\"whitespace-pre-wrap text-sm leading-7\">{q.explanation}</p><p className=\"whitespace-pre-wrap text-sm\">{approved ? \"Reviewed response\" : \"Unverified source response\"}: {JSON.stringify(r11Expected(q))}</p><p className=\"text-xs text-muted-foreground\">The original source key is retained separately and may disagree with the learner key or reviewed response.</p><details><summary className=\"min-h-11 cursor-pointer py-3 text-sm\">Original answers and review history</summary><dl c"
+  },
+  {
+    "file": "components/fabric/unified-bank.tsx",
+    "line": 71,
+    "text": "function Html({value}:{value:string}){return <div className=\"overflow-x-auto break-words text-sm leading-7 [&_pre]:whitespace-pre-wrap [&_table]:min-w-full [&_td]:border [&_td]:p-2 [&_th]:border [&_th]:p-2 [&_p]:my-3 [&_li]:ml-5 [&_li]:list-disc\" dangerouslySetInnerHTML={{__html:value}}/>;}"
+  },
+  {
+    "file": "components/knowledge/insight-rail.tsx",
+    "line": 2,
+    "text": "// Adapted from BeUI's Timeline — https://beui.dev/components/motion/timeline,"
+  },
+  {
+    "file": "components/knowledge/insight-rail.tsx",
+    "line": 3,
+    "text": "// registry source https://beui.dev/r/timeline.json (retrieved 2026-10-26)."
+  },
+  {
+    "file": "components/knowledge/knowledge-dealer.tsx",
+    "line": 2,
+    "text": "// Adapted from BeUI's Card Dealer — https://beui.dev/components/blocks/card-dealer,"
+  },
+  {
+    "file": "components/knowledge/knowledge-dealer.tsx",
+    "line": 3,
+    "text": "// registry source https://beui.dev/r/card-dealer.json (retrieved 2026-10-26)."
+  },
+  {
+    "file": "components/motion/liquid.tsx",
+    "line": 277,
+    "text": "\"http://www.w3.org/2000/svg\","
+  },
+  {
+    "file": "components/motion/tooltip.tsx",
+    "line": 493,
+    "text": "if (process.env.NODE_ENV !== \"production\" && child && !attached.current) {"
+  },
+  {
+    "file": "components/sql/lesson.tsx",
+    "line": 10,
+    "text": "{notes.length>0&&<aside className=\"sql-qualification\" aria-label=\"Source qualifications\"><h2>Read with these qualifications</h2>{notes.map(n=><p key={n}>{n}</p>)}{moduleNumber===10&&<a href=\"https://www.postgresql.org/docs/current/functions-datetime.html\">PostgreSQL: date/time operators</a>}{moduleNumber===12&&<a href=\"https://www.postgresql.org/docs/current/functions-aggregate.html\">PostgreSQL: GROUPING and aggregates</a>}</aside>}"
+  },
+  {
+    "file": "components/statistics/math.tsx",
+    "line": 57,
+    "text": "dangerouslySetInnerHTML={{ __html: html }}"
+  },
+  {
+    "file": "components/study/path-units.tsx",
+    "line": 8,
+    "text": "const context=(u:LearningUnit,href:string)=>{if(!href.startsWith('/'))return href;const url=new URL(href,'https://local.invalid');url.searchParams.set('learningContext',u.subject+'.'+u.topics[0]);url.searchParams.set('learningUnit',u.id);if(review)url.searchParams.set('learningReview','1');return url.pathname+url.search+url.hash;};"
+  },
+  {
+    "file": "components/study/topic-browser.tsx",
+    "line": 9,
+    "text": "function href(r:StudyRecord){if(isExternal(r.href))return r.href;const url=new URL(r.href,'https://hansa.invalid');url.searchParams.set('learningContext',`${r.subject}.${r.topic}`);return url.pathname+url.search+url.hash;}"
+  },
+  {
+    "file": "lib/academy/ingestion.ts",
+    "line": 11,
+    "text": "{ id: \"MS-SHORTCUT\", title: \"OneLake shortcuts and caching\", url: \"https://learn.microsoft.com/en-us/fabric/onelake/onelake-shortcuts\" },"
+  },
+  {
+    "file": "lib/academy/ingestion.ts",
+    "line": 12,
+    "text": "{ id: \"MS-SECURITY\", title: \"Shortcut permissions and identity\", url: \"https://learn.microsoft.com/en-us/fabric/onelake/onelake-shortcut-security\" },"
+  },
+  {
+    "file": "lib/academy/ingestion.ts",
+    "line": 13,
+    "text": "{ id: \"MS-MIRROR\", title: \"Mirroring types and supported sources\", url: \"https://learn.microsoft.com/en-us/fabric/mirroring/overview\" },"
+  },
+  {
+    "file": "lib/academy/ingestion.ts",
+    "line": 14,
+    "text": "{ id: \"MS-COPY\", title: \"Copy jobs, incremental loads and CDC\", url: \"https://learn.microsoft.com/en-us/fabric/data-factory/what-is-copy-job\" },"
+  },
+  {
+    "file": "lib/academy/ingestion.ts",
+    "line": 15,
+    "text": "{ id: \"MS-DECISION\", title: \"Microsoft data movement decision guide\", url: \"https://learn.microsoft.com/en-us/fabric/data-factory/decision-guide-data-movement\" },"
+  },
+  {
+    "file": "lib/atlas/server.ts",
+    "line": 7,
+    "text": "return projectAtlas(data, process.env.HANSA_ATLAS_REVIEW_PREVIEW === \"1\");"
+  },
+  {
+    "file": "lib/fabric/data.ts",
+    "line": 124,
+    "text": "const base = `https://www.youtube.com/watch?v=${videoId}`;"
+  },
+  {
+    "file": "lib/fabric/taxonomy.ts",
+    "line": 493,
+    "text": "\"https://learn.microsoft.com/en-us/credentials/certifications/resources/study-guides/dp-600\";"
+  },
+  {
+    "file": "lib/hooks/use-hover-capable.ts",
+    "line": 2,
+    "text": "// BeUI registry source: https://beui.dev/r/card-dealer.json → lib/hooks/use-hover-capable.ts"
+  },
+  {
+    "file": "lib/knowledge/insights.ts",
+    "line": 15,
+    "text": "item.sourceUrl.startsWith(\"https://learn.microsoft.com/\") &&"
+  },
+  {
+    "file": "lib/site.ts",
+    "line": 5,
+    "text": "process.env.NEXT_PUBLIC_SITE_URL?.trim() || \"https://hansa.amir-portfolio.workers.dev\""
+  },
+  {
+    "file": "lib/site.ts",
+    "line": 21,
+    "text": "github: \"https://github.com/AmirAbdelhamid77\","
+  },
+  {
+    "file": "lib/site.ts",
+    "line": 22,
+    "text": "linkedin: \"https://linkedin.com/in/amir-abdelhamid-55093a19a\","
+  },
+  {
+    "file": "lib/site.ts",
+    "line": 26,
+    "text": "contactEndpoint: process.env.NEXT_PUBLIC_CONTACT_ENDPOINT ?? \"\","
+  },
+  {
+    "file": "lib/study/evidence.ts",
+    "line": 2,
+    "text": "'power-query':{title:'Microsoft Learn: Power Query',href:'https://learn.microsoft.com/en-us/power-query/power-query-what-is-power-query',scope:'External preparation reading; product/host capabilities retain their own constraints'},"
+  },
+  {
+    "file": "lib/study/evidence.ts",
+    "line": 3,
+    "text": "'power-bi-report':{title:'Microsoft Learn: reports and dashboards',href:'https://learn.microsoft.com/en-us/power-bi/create-reports/service-dashboards',scope:'Report/dashboard distinction and semantic-model context'},"
+  },
+  {
+    "file": "lib/study/evidence.ts",
+    "line": 4,
+    "text": "'power-bi-govern':{title:'Microsoft Learn: workspace roles',href:'https://learn.microsoft.com/en-us/power-bi/collaborate-share/service-roles-new-workspaces',scope:'Artifact and workspace access responsibilities'},"
+  },
+  {
+    "file": "lib/study/evidence.ts",
+    "line": 5,
+    "text": "'analytics':{title:'Microsoft Learn: analytics process',href:'https://learn.microsoft.com/en-us/training/modules/data-analytics-microsoft/',scope:'External primary-source entry expectations'},"
+  },
+  {
+    "file": "lib/study/evidence.ts",
+    "line": 6,
+    "text": "'excel':{title:'Microsoft Support: basic Excel tasks',href:'https://support.microsoft.com/en-us/excel/basic-tasks-in-excel',scope:'External foundation reading; no local Excel teaching course claimed'},"
+  },
+  {
+    "file": "lib/study/evidence.ts",
+    "line": 7,
+    "text": "'sql':{title:'Microsoft Learn: query relational data',href:'https://learn.microsoft.com/en-us/training/modules/query-relational-data/',scope:'Introductory SQL module and external exercise'},"
+  },
+  {
+    "file": "lib/study/evidence.ts",
+    "line": 8,
+    "text": "'python':{title:'Python tutorial: intended audience',href:'https://docs.python.org/3/tutorial/',scope:'Expects programming knowledge; external practice requires an interpreter'},"
+  },
+  {
+    "file": "lib/study/evidence.ts",
+    "line": 9,
+    "text": "'fabric-start':{title:'Microsoft Learn: get started with Fabric',href:'https://learn.microsoft.com/en-us/training/paths/get-started-fabric/',scope:'Recommends core data terminology'},"
+  },
+  {
+    "file": "lib/study/evidence.ts",
+    "line": 10,
+    "text": "'fabric-architecture':{title:'Microsoft Learn: Fabric introduction',href:'https://learn.microsoft.com/training/modules/introduction-end-analytics-use-microsoft-fabric/',scope:'Platform capabilities and entry concepts'},"
+  },
+  {
+    "file": "lib/study/evidence.ts",
+    "line": 11,
+    "text": "'fabric-ingestion':{title:'Microsoft Learn: ingest data with Fabric',href:'https://learn.microsoft.com/training/paths/ingest-data-with-microsoft-fabric/',scope:'Core Fabric familiarity is recommended'},"
+  },
+  {
+    "file": "lib/study/evidence.ts",
+    "line": 12,
+    "text": "'fabric-warehouse':{title:'Microsoft Learn: Fabric warehousing',href:'https://learn.microsoft.com/en-us/training/paths/work-with-data-warehouses-using-microsoft-fabric/',scope:'Core interface familiarity; local conceptual preparation is editorial inference'},"
+  },
+  {
+    "file": "lib/study/evidence.ts",
+    "line": 13,
+    "text": "'fabric-rti':{title:'Microsoft Learn: get started with RTI',href:'https://learn.microsoft.com/en-us/training/modules/get-started-kusto-fabric/',scope:'Introductory RTI and platform preparation'},"
+  },
+  {
+    "file": "lib/study/evidence.ts",
+    "line": 14,
+    "text": "'star-schema':{title:'Microsoft Learn: star schema guidance',href:'https://learn.microsoft.com/en-us/power-bi/guidance/star-schema',scope:'Preparation, grain, fact/dimension tables and semantic-model structure'},"
+  },
+  {
+    "file": "lib/study/evidence.ts",
+    "line": 15,
+    "text": "'nist-eda':{title:'NIST: exploratory data analysis',href:'https://www.itl.nist.gov/div898/handbook/eda/section1/eda11.htm',scope:'Graphical exploration, description and assumption checking'},"
+  },
+  {
+    "file": "lib/study/evidence.ts",
+    "line": 16,
+    "text": "'nist-inference':{title:'NIST: quantitative statistical techniques',href:'https://www.itl.nist.gov/div898/handbook/eda/section3/eda35.htm',scope:'Sampling uncertainty, interval estimates and hypothesis tests'},"
+  },
+  {
+    "file": "lib/touch.ts",
+    "line": 1,
+    "text": "// BeUI registry source: https://beui.dev/r/timeline.json → lib/touch.ts"
+  },
+  {
+    "file": "scripts/build-academy-preview.mjs",
+    "line": 41,
+    "text": "const result=spawnSync(process.execPath,[path.join(root,'node_modules/next/dist/bin/next'),'build','--webpack'],{cwd:preview,env:{...process.env,NEXT_FONT_GOOGLE_MOCKED_RESPONSES:mock,NODE_OPTIONS:((process.env.NODE_OPTIONS??'')+' --require='+normalize)},encoding:'utf8'});"
+  },
+  {
+    "file": "scripts/build-atlas-preview.mjs",
+    "line": 10,
+    "text": "const environment = { ...process.env, HANSA_ATLAS_REVIEW_PREVIEW: preview ? \"1\" : \"0\" };"
+  },
+  {
+    "file": "scripts/build-intake-content.mjs",
+    "line": 33,
+    "text": "process.env.INTAKE_NOTION_DIR ?? \"D:/BeUI/Hansa_Notion_Creative_Patterns_Knowledge_Package_2026-10-27\","
+  },
+  {
+    "file": "scripts/build-intake-content.mjs",
+    "line": 36,
+    "text": "process.env.INTAKE_RTI_DIR ?? \"D:/BeUI/Hansa_Fabric_RTI_Authentic_Source_Milestone\","
+  },
+  {
+    "file": "scripts/convert-community-banks.mjs",
+    "line": 77,
+    "text": "\"howard-source-repo\": [\"Howard Ginsburg — MicrosoftStudyGuides (MIT)\", \"https://github.com/howardginsburg/MicrosoftStudyGuides\"],"
+  },
+  {
+    "file": "scripts/convert-community-banks.mjs",
+    "line": 78,
+    "text": "\"howard-dp600-study-guide\": [\"Current Microsoft DP-600 study guide\", \"https://learn.microsoft.com/en-us/credentials/certifications/resources/study-guides/dp-600\"],"
+  },
+  {
+    "file": "scripts/convert-community-banks.mjs",
+    "line": 211,
+    "text": "\"patrick-source-repo\": [\"Patrick Wiloak — data-zero-to-hero (CC BY 4.0)\", \"https://github.com/PatrickWiloak/data-zero-to-hero\"],"
+  },
+  {
+    "file": "scripts/convert-community-banks.mjs",
+    "line": 212,
+    "text": "\"patrick-dp600-study-guide\": [\"Current Microsoft DP-600 study guide\", \"https://learn.microsoft.com/en-us/credentials/certifications/resources/study-guides/dp-600\"],"
+  },
+  {
+    "file": "scripts/extract-community-sources.mjs",
+    "line": 12,
+    "text": "const STARK = path.join(process.env.LOCALAPPDATA ?? COMMUNITY, \"Temp\", \"dp600-stark-v2-main\");"
+  },
+  {
+    "file": "scripts/extract-corpus-courseware.mjs",
+    "line": 179,
+    "text": "repoUrl: \"https://github.com/MicrosoftLearning/mslearn-fabric\","
+  },
+  {
+    "file": "scripts/extract-corpus-courseware.mjs",
+    "line": 188,
+    "text": "repoUrl: \"https://github.com/MicrosoftLearning/PL-300-Microsoft-Power-BI-Data-Analyst\","
+  },
+  {
+    "file": "scripts/fabric-report.mjs",
+    "line": 211,
+    "text": "(https://learn.microsoft.com/en-us/credentials/certifications/resources/study-guides/dp-600)."
+  },
+  {
+    "file": "scripts/final-review-atlas-focused.mjs",
+    "line": 7,
+    "text": "await p.goto('http://127.0.0.1:4320/learn/dp-600/atlas/?edge='+encodeURIComponent(distant.id),{waitUntil:'networkidle'});check(`OUTSIDE-FOCUS-${width}-${dark}`,await p.getByText('The requested connection is outside this focus. Choose a visible connection or reset the view.').isVisible()&&!(await p.getByTestId('atlas-inspector').innerText()).includes('Relationship inspector'));"
+  },
+  {
+    "file": "scripts/final-review-atlas-qa.mjs",
+    "line": 7,
+    "text": "async function open(width,dark,review=false,reduced=false){const ctx=await browser.newContext({viewport:{width,height:950},hasTouch:width<500,isMobile:width<500,reducedMotion:reduced?'reduce':'no-preference'});await ctx.addInitScript(d=>{localStorage.setItem('amir-theme',d?'dark':'light');localStorage.setItem('final-atlas-preservation-probe','keep');},dark);const p=await ctx.newPage();p.on('pageerror',e=>errors.push(e.message));await p.goto(`http://127.0.0.1:${review?4320:4318}/learn/dp-600/atlas/`,{waitUntil:'networkidle'});return {p,ctx};}"
+  },
+  {
+    "file": "scripts/final-review-atlas-qa.mjs",
+    "line": 19,
+    "text": "check(id+'-OFFICIAL',(await p.locator('.reading-folio a').getAttribute('href')).startsWith('https://learn.microsoft.com/'),'Official source URL');"
+  },
+  {
+    "file": "scripts/final-review-atlas-record.mjs",
+    "line": 6,
+    "text": "await p.goto(`http://127.0.0.1:${review?4320:4318}/learn/dp-600/atlas/`,{waitUntil:'networkidle'});await p.waitForTimeout(800);"
+  },
+  {
+    "file": "scripts/final-review-build-atlas.mjs",
+    "line": 19,
+    "text": "const result=spawnSync(process.execPath,[resolve(root,'node_modules/next/dist/bin/next'),'build',folder],{cwd:folder,env:{...process.env,HANSA_ATLAS_REVIEW_PREVIEW:'1'},stdio:'inherit',windowsHide:true});"
+  },
+  {
+    "file": "scripts/final-review-canonical-qa.mjs",
+    "line": 20,
+    "text": "const BASE = `http://127.0.0.1:${PORT}`;"
+  },
+  {
+    "file": "scripts/final-review-canonical-qa.mjs",
+    "line": 64,
+    "text": "const response = await fetch(`${BASE}/`);"
+  },
+  {
+    "file": "scripts/final-review-capture.mjs",
+    "line": 5,
+    "text": "const base = process.env.PHASE2_BASE || 'http://127.0.0.1:4318';"
+  },
+  {
+    "file": "scripts/final-review-delivery-qa.mjs",
+    "line": 3,
+    "text": "try{const p=await browser.newPage({viewport:{width:1280,height:900}});await p.goto('http://127.0.0.1:4321/Hansa_Final_Review/',{waitUntil:'networkidle'});for(const width of ['320','390','768','1280','1440'])for(const theme of ['light','dark']){await p.locator('#width').selectOption(width);await p.locator('#theme').selectOption(theme);await p.waitForFunction(()=>[...document.querySelectorAll('#before,#after')].every(i=>i.complete&&i.naturalWidth>0));check(`HOME-GALLERY-${width}-${theme}`,true);}for(const theme of ['light','dark']){await p.locator('#atlas-theme').selectOption(theme);await p.waitForFunction(()=>[...document.querySelectorAll('#atlas-public,#atlas-review,#atlas-phone,#atlas-map-p"
+  },
+  {
+    "file": "scripts/final-review-delivery-qa.mjs",
+    "line": 4,
+    "text": "const videos=await p.locator('video').evaluateAll(async videos=>{return await Promise.all(videos.map(v=>new Promise(resolve=>{v.preload='auto';const end=()=>resolve({src:v.getAttribute('src'),duration:v.duration,valid:Number.isFinite(v.duration)&&v.duration>4,width:v.videoWidth,height:v.videoHeight,error:v.error?.message});if(v.readyState>=1)end();else{v.addEventListener('loadedmetadata',end,{once:true});v.addEventListener('error',end,{once:true});setTimeout(end,15000);v.load();}})));});for(const v of videos)check('VIDEO:'+v.src,v.valid&&v.width>0);const links=await p.locator('a[href$=\".md\"],a[href$=\".json\"],a[href$=\".patch\"],a[href$=\".zip\"]').evaluateAll(a=>a.map(e=>e.href));for(const url o"
+  },
+  {
+    "file": "scripts/final-review-home-qa.mjs",
+    "line": 5,
+    "text": "const base='http://127.0.0.1:4318';"
+  },
+  {
+    "file": "scripts/final-review-pacing.mjs",
+    "line": 13,
+    "text": "await p.goto('http://127.0.0.1:4318/',{waitUntil:'networkidle'});await p.waitForTimeout(1000);"
+  },
+  {
+    "file": "scripts/final-review-profile.mjs",
+    "line": 12,
+    "text": "await p.goto('http://127.0.0.1:4318/',{waitUntil:'networkidle'});await p.waitForTimeout(1000);"
+  },
+  {
+    "file": "scripts/final-review-record.mjs",
+    "line": 17,
+    "text": "await p.goto('http://127.0.0.1:4318/',{waitUntil:'networkidle'});await p.waitForTimeout(750);"
+  },
+  {
+    "file": "scripts/final-review-route-qa.mjs",
+    "line": 5,
+    "text": "for(const file of htmls){const route='/'+path.relative('out',path.dirname(file)).replaceAll('\\\\','/')+'/';const response=await fetch('http://127.0.0.1:4318'+route.replace('//','/'));check('HTTP:'+route,response.status===200,`${response.status}`);}"
+  },
+  {
+    "file": "scripts/final-review-route-qa.mjs",
+    "line": 11,
+    "text": "await p.goto('http://127.0.0.1:4318/',{waitUntil:'networkidle'});const initialCSS=await p.evaluate(()=>[...document.querySelectorAll('link[rel=\"stylesheet\"]')].map(e=>e.href));let initialKaTeX=false;for(const url of initialCSS)if((await(await fetch(url)).text()).includes('KaTeX_Main'))initialKaTeX=true;check('HOME-NO-MATH-CSS',!initialKaTeX,'Cold home excludes KaTeX');"
+  },
+  {
+    "file": "scripts/final-review-route-qa.mjs",
+    "line": 12,
+    "text": "await p.goto('http://127.0.0.1:4318/learn/statistics/cheatsheet/',{waitUntil:'networkidle'});await p.evaluate(()=>document.fonts.ready);check('MATH-RENDER',await p.locator('.katex').count()>10,'Existing formulas still rendered');check('MATH-FONT',await p.locator('.katex').first().evaluate(e=>getComputedStyle(e).fontFamily.includes('KaTeX')),'Scoped math stylesheet applied');check('MATH-MATHML',await p.locator('.katex-mathml math').count()>10,'Accessible MathML retained');check('MATH-REFLOW',await p.evaluate(()=>document.documentElement.scrollWidth<=innerWidth+1),'390px formulas remain inside scroll containers');await p.screenshot({path:`${dir}/math-390.png`});"
+  },
+  {
+    "file": "scripts/final-review-route-qa.mjs",
+    "line": 13,
+    "text": "for(const route of ['/learn/catalogue/','/practice/catalogue/','/learn/dp-600/ingestion/','/lab/dp-600/explore/','/lab/dp-600/resources/','/search/']){await p.goto('http://127.0.0.1:4318'+route,{waitUntil:'networkidle'});check('BROWSER:'+route,await p.locator('main').innerText().then(t=>t.length>100),'Live route content and hydration');}check('ROUTE-PAGEERRORS',errors.length===0,errors.join('; '));await ctx.close();"
+  },
+  {
+    "file": "scripts/final-review-route-qa.mjs",
+    "line": 14,
+    "text": "const nojs=await browser.newContext({javaScriptEnabled:false});const page=await nojs.newPage();await page.goto('http://127.0.0.1:4318/learn/dp-600/atlas/');check('PUBLIC-NOJS-SOURCES',await page.locator('main a[href^=\"https://learn.microsoft.com/\"]').count()>=32,'Complete bibliographic links readable without JavaScript');await nojs.close();"
+  },
+  {
+    "file": "scripts/final-review-serve.mjs",
+    "line": 9,
+    "text": "const u=new URL(req.url??'/','http://127.0.0.1'),raw=decodeURIComponent(u.pathname);"
+  },
+  {
+    "file": "scripts/final-review-serve.mjs",
+    "line": 28,
+    "text": "}).listen(port,'127.0.0.1',()=>console.log(`Local-only preview: http://127.0.0.1:${port}/ ; ${root}`));"
+  },
+  {
+    "file": "scripts/import-dp600-additions.py",
+    "line": 79,
+    "text": "r['refs']=[dict(title=x['t'],url=x['u'])for x in q.get('refs',[])if x['u'].startswith('https://learn.microsoft.com/')]"
+  },
+  {
+    "file": "scripts/import-fabric-bank.mjs",
+    "line": 35,
+    "text": "arg(\"source\", process.env.FABRIC_BANK_DIR ?? \"../Amirs_Fabric_Lab_Merged_834_Deployment_Package\"),"
+  },
+  {
+    "file": "scripts/import-notion-data-viz.mjs",
+    "line": 38,
+    "text": "option(\"--source\", process.env.DATA_VIZ_EXPORT ?? \"intake/source-exports/data-visualization\"),"
+  },
+  {
+    "file": "scripts/import-notion-data-viz.mjs",
+    "line": 505,
+    "text": "canonicalUrl: notionId ? `https://app.notion.com/p/${notionId}` : null,"
+  },
+  {
+    "file": "scripts/import-notion-statistics.mjs",
+    "line": 30,
+    "text": "option(\"--source\", process.env.STATISTICS_EXPORT ?? \"intake/source-exports/statistics\"),"
+  },
+  {
+    "file": "scripts/import-notion-statistics.mjs",
+    "line": 750,
+    "text": "canonicalUrl: pageId ? `https://app.notion.com/p/${pageId}` : null,"
+  },
+  {
+    "file": "scripts/import-notion-statistics.mjs",
+    "line": 806,
+    "text": "| Canonical URL | ${pageId ? `https://app.notion.com/p/${pageId}` : \"—\"} |"
+  },
+  {
+    "file": "scripts/import-sql-vault.mjs",
+    "line": 80,
+    "text": "const output={schema:'hansa-sql-v1',vault:'https://app.notion.com/p/4063906c5d6c814d9c38e19fc5418891',pages,drills,legacyMap,legacyQuestions,topics,objectives};"
+  },
+  {
+    "file": "scripts/install-beui.mjs",
+    "line": 19,
+    "text": "// Verified against https://beui.dev/registry.json on 2026-10-23. Stable IDs use"
+  },
+  {
+    "file": "scripts/install-beui.mjs",
+    "line": 129,
+    "text": "const SOURCE = \"https://beui.dev/r\";"
+  },
+  {
+    "file": "scripts/install-beui.mjs",
+    "line": 139,
+    "text": "const response = await fetch(url, { headers: { \"user-agent\": \"hansa-beui-installer\" } });"
+  },
+  {
+    "file": "scripts/measure-payload.mjs",
+    "line": 47,
+    "text": "await page.goto(`http://127.0.0.1:${PORT}${route}`, { waitUntil: \"networkidle\" });"
+  },
+  {
+    "file": "scripts/path-review-focused.mjs",
+    "line": 7,
+    "text": "for(const file of(await walk('out')).filter(p=>p.endsWith('index.html'))){const route=('/'+path.relative('out',path.dirname(file)).replaceAll('\\\\','/')+'/').replace('//','/');const response=await fetch('http://127.0.0.1:4318'+route);record('ROUTE:'+route,response.status===200);if(route.startsWith('/study/')&&!route.includes('/review/')){const html=await readFile(file,'utf8');record('CANONICAL:'+route,html.includes('rel=\"canonical\" href=\"https://hansa.amir-portfolio.workers.dev'+route+'\"'));}}"
+  },
+  {
+    "file": "scripts/path-review-focused.mjs",
+    "line": 12,
+    "text": "await p.goto('http://127.0.0.1:4318/study/review/path/',{waitUntil:'networkidle'});const unit=p.locator('.path-unit').first(),id=await unit.getAttribute('id');const assessment=unit.locator('.path-activities a').first();"
+  },
+  {
+    "file": "scripts/path-review-focused.mjs",
+    "line": 15,
+    "text": "await p.goto('http://127.0.0.1:4318/study/statistics/path/#stats-section-s15',{waitUntil:'networkidle'});const target=p.locator('#stats-section-s15');await target.waitFor();await target.locator('details summary').first().click();await target.scrollIntoViewIfNeeded();await p.screenshot({path:dir+'/linked-unit-390-dark.png',fullPage:true});"
+  },
+  {
+    "file": "scripts/path-review-focused.mjs",
+    "line": 18,
+    "text": "await p.goto('http://127.0.0.1:4318/?insight=onelake-shortcuts#archive',{waitUntil:'networkidle'});record('CANONICAL-HOME',await p.locator('main').count()===1);await p.goto('http://127.0.0.1:4318/prototype-c/?insight=onelake-shortcuts#archive',{waitUntil:'networkidle'});await p.waitForURL('**/?insight=onelake-shortcuts#archive');record('LEGACY-QUERY-HASH',true);await c.close();"
+  },
+  {
+    "file": "scripts/path-review-focused.mjs",
+    "line": 19,
+    "text": "const desktop=await b.newPage({viewport:{width:1440,height:1000}});await desktop.goto('http://127.0.0.1:4318/study/statistics/path/#stats-section-s15',{waitUntil:'networkidle'});await desktop.locator('#stats-section-s15').waitFor();await desktop.locator('#stats-section-s15 details summary').first().click();await desktop.screenshot({path:dir+'/linked-unit-1440-light.png',fullPage:true});await desktop.close();"
+  },
+  {
+    "file": "scripts/path-review-focused.mjs",
+    "line": 20,
+    "text": "const nojs=await b.newContext({javaScriptEnabled:false,viewport:{width:390,height:900}}),staticPage=await nojs.newPage();await staticPage.goto('http://127.0.0.1:4318/study/statistics/path/');record('NO-JS-SOURCE-LINKS',(await staticPage.locator('.path-read').count())===12);await nojs.close();"
+  },
+  {
+    "file": "scripts/path-review-qa.mjs",
+    "line": 5,
+    "text": "for(const width of [320,390,768,1280,1440])for(const dark of [false,true]){const {c,p}=await open(width,dark);for(const [name,route]of [['stats','/study/statistics/path/'],['fabric','/study/fabric/path/'],['power-bi','/study/power-bi/path/'],['topic','/study/statistics/hypothesis/'],['review','/study/review/path/']]){await p.goto('http://127.0.0.1:4318'+route,{waitUntil:'networkidle'});record(`REFLOW-${width}-${dark}-${name}`,await p.evaluate(()=>document.documentElement.scrollWidth<=innerWidth+1));await p.addScriptTag({content:axe});const violations=await p.evaluate(async()=>{const r=await window.axe.run(document,{runOnly:{type:'tag',values:['wcag2a','wcag2aa','wcag21aa','wcag22aa']}});retu"
+  },
+  {
+    "file": "scripts/path-review-qa.mjs",
+    "line": 6,
+    "text": "await p.goto('http://127.0.0.1:4318/study/statistics/path/#stats-section-s11',{waitUntil:'networkidle'});await p.locator('#stats-section-s11').waitFor();record(`TARGET-${width}-${dark}`,await p.locator('.path-unit').count()===1,'Anchor restores one lesson without rendering all source notes');await p.getByRole('link',{name:'Sampling distribution',exact:true}).click();await p.locator('#stats-section-s12').waitFor();record(`PREREQUISITE-${width}-${dark}`,await p.locator('.path-unit').count()===1);await p.locator('.path-unit .path-read').first().click();await p.getByRole('link',{name:'Back to this lesson step',exact:true}).waitFor();await p.getByRole('link',{name:'Back to this lesson step',exact"
+  },
+  {
+    "file": "scripts/path-review-qa.mjs",
+    "line": 8,
+    "text": "const {c,p}=await open(390,true,true);await p.goto('http://127.0.0.1:4318/study/fabric/path/#note-delta-shortcuts',{waitUntil:'networkidle'});await p.locator('#note-delta-shortcuts .path-read').click();await p.locator('#note-delta-shortcuts[open]').waitFor();record('REAL-NOTE-DEEP-LINK',await p.locator('#note-delta-shortcuts').innerText().then(t=>t.includes('Internal/external shortcuts')));await p.getByRole('link',{name:'Back to this lesson step',exact:true}).click();await p.locator('#note-delta-shortcuts').waitFor();record('REDUCED-TOUCH-RETURN',await p.evaluate(()=>matchMedia('(prefers-reduced-motion: reduce)').matches));await c.close();"
+  },
+  {
+    "file": "scripts/path-review-record.mjs",
+    "line": 3,
+    "text": "await p.goto('http://127.0.0.1:4318/study/statistics/path/#stats-section-s15',{waitUntil:'networkidle'});await p.locator('#stats-section-s15').waitFor();await p.waitForTimeout(900);await p.locator('#stats-section-s15 details summary').first().click();await p.waitForTimeout(900);await p.locator('#stats-section-s15 .path-activities a').first().click();await p.waitForTimeout(900);await p.getByRole('link',{name:'Back to this lesson step',exact:true}).click();await p.locator('#stats-section-s15').waitFor();await p.waitForTimeout(800);await p.getByRole('link',{name:'Next step →',exact:true}).click();await p.waitForTimeout(800);"
+  },
+  {
+    "file": "scripts/path-review-record.mjs",
+    "line": 4,
+    "text": "await p.goto('http://127.0.0.1:4318/study/fabric/path/#note-delta-shortcuts',{waitUntil:'networkidle'});await p.locator('#note-delta-shortcuts').waitFor();await p.waitForTimeout(900);await p.locator('#note-delta-shortcuts .path-read').click();await p.locator('#note-delta-shortcuts[open]').waitFor();await p.waitForTimeout(900);await p.getByRole('link',{name:'Back to this lesson step',exact:true}).click();await p.locator('#note-delta-shortcuts').waitFor();await p.waitForTimeout(800);await cdp.send('Page.stopScreencast');await Promise.all(pending);await writeFile(path.join(dir,'frames.json'),JSON.stringify(frames,null,2));console.log(width,frames.length,'timestamped compositor frames');await ct"
+  },
+  {
+    "file": "scripts/phase2-canonical-regression.mjs",
+    "line": 20,
+    "text": "const BASE = `http://127.0.0.1:${PORT}`;"
+  },
+  {
+    "file": "scripts/phase2-canonical-regression.mjs",
+    "line": 64,
+    "text": "const response = await fetch(`${BASE}/`);"
+  },
+  {
+    "file": "scripts/phase2-capture-spatial.mjs",
+    "line": 19,
+    "text": "const BASE = `http://127.0.0.1:${PORT}`;"
+  },
+  {
+    "file": "scripts/phase2-capture-spatial.mjs",
+    "line": 35,
+    "text": "const response = await fetch(`${BASE}/`);"
+  },
+  {
+    "file": "scripts/phase2-capture.mjs",
+    "line": 5,
+    "text": "const base = process.env.PHASE2_BASE || 'http://127.0.0.1:4318';"
+  },
+  {
+    "file": "scripts/phase2-performance.mjs",
+    "line": 13,
+    "text": "await p.goto('http://127.0.0.1:4318/',{waitUntil:'networkidle'});await p.waitForTimeout(1000);"
+  },
+  {
+    "file": "scripts/phase2-qa.mjs",
+    "line": 5,
+    "text": "const base='http://127.0.0.1:4318';"
+  },
+  {
+    "file": "scripts/phase2-record.mjs",
+    "line": 17,
+    "text": "await p.goto('http://127.0.0.1:4318/',{waitUntil:'networkidle'});await p.waitForTimeout(750);"
+  },
+  {
+    "file": "scripts/phase2-spatial-perf.mjs",
+    "line": 26,
+    "text": "const BASE = `http://127.0.0.1:${PORT}`;"
+  },
+  {
+    "file": "scripts/phase2-spatial-perf.mjs",
+    "line": 43,
+    "text": "if ((await fetch(`${BASE}/`)).ok) return;"
+  },
+  {
+    "file": "scripts/phase2-spatial-qa.mjs",
+    "line": 21,
+    "text": "const BASE = `http://127.0.0.1:${PORT}`;"
+  },
+  {
+    "file": "scripts/phase2-spatial-qa.mjs",
+    "line": 50,
+    "text": "if ((await fetch(`${BASE}/`)).ok) return;"
+  },
+  {
+    "file": "scripts/prepare-academy-release.mjs",
+    "line": 27,
+    "text": "const manifest={release_id:path.basename(dir),status:'PREPARED FOR OWNER REVIEW; NOT DEPLOYED',account_id:baseline.account_id,worker:'hansa',production_url:'https://hansa.amir-portfolio.workers.dev/',rollback_version_at_last_read:baseline.active_version_id,baseline_checked_at:baseline.checked_at,refresh_live_baseline_before_deployment:true,source_files_checked:source.files.length,artifact_sha256:digest,asset_count:files.length,asset_bytes:files.reduce((n,f)=>n+f.bytes,0),assets_directory:assets,new_routes:['/learn/dp-600/','/learn/dp-600/ingestion/'],added_dependencies:[],added_runtime_services:[],production_deployment_authorized:false,validation,files};"
+  },
+  {
+    "file": "scripts/prepare-images.mjs",
+    "line": 36,
+    "text": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"1200\" height=\"630\" viewBox=\"0 0 1200 630\">"
+  },
+  {
+    "file": "scripts/preservation-history.mjs",
+    "line": 44,
+    "text": ".replace('process.env.DATA_VIZ_EXPORT ?? \"Data Visualization\"', 'process.env.DATA_VIZ_EXPORT ?? \"intake/source-exports/data-visualization\"');"
+  },
+  {
+    "file": "scripts/preservation-history.mjs",
+    "line": 45,
+    "text": "const oldLine = 'const SOURCE = path.resolve(ROOT, option(\"--source\", process.env.DATA_VIZ_EXPORT ?? \"intake/source-exports/data-visualization\"));';"
+  },
+  {
+    "file": "scripts/preservation-history.mjs",
+    "line": 47,
+    "text": "expected = expected.replace(oldLine, 'const SOURCE = path.resolve(\\n  ROOT,\\n  option(\"--source\", process.env.DATA_VIZ_EXPORT ?? \"intake/source-exports/data-visualization\"),\\n);');"
+  },
+  {
+    "file": "scripts/preservation-history.mjs",
+    "line": 50,
+    "text": "assert.equal(after, before.replace('process.env.STATISTICS_EXPORT ?? \"Comprehensive Statistics Reference\"', 'process.env.STATISTICS_EXPORT ?? \"intake/source-exports/statistics\"'), \"Statistics importer migration contains another edit\");"
+  },
+  {
+    "file": "scripts/preview-atlas.mjs",
+    "line": 9,
+    "text": "const pathname = decodeURIComponent(new URL(request.url ?? \"/\", \"http://127.0.0.1\").pathname);"
+  },
+  {
+    "file": "scripts/preview-atlas.mjs",
+    "line": 17,
+    "text": "}).listen(port, \"127.0.0.1\", () => console.log(`LOCAL REVIEW ONLY: http://127.0.0.1:${port}/learn/dp-600/atlas/`));"
+  },
+  {
+    "file": "scripts/preview-dp600-academy.mjs",
+    "line": 6,
+    "text": "const server=spawn(process.execPath,[path.join(root,'scripts/serve-out.mjs'),process.env.PORT??'4186'],{cwd:preview,stdio:'inherit'});"
+  },
+  {
+    "file": "scripts/prototype-c-live-snapshot.mjs",
+    "line": 6,
+    "text": "const url='https://hansa.amir-portfolio.workers.dev'+path;"
+  },
+  {
+    "file": "scripts/prototype-c-live-snapshot.mjs",
+    "line": 7,
+    "text": "try {const r=await fetch(url,{signal:AbortSignal.timeout(25000)}),body=await r.text();return {url,status:r.status,finalUrl:r.url,checkedAt:new Date().toISOString(),title:body.match(/<title>(.*?)<\\/title>/s)?.[1],h1:body.match(/<h1[^>]*>(.*?)<\\/h1>/s)?.[1]?.replace(/<[^>]*>/g,' '),sha256:crypto.createHash('sha256').update(body).digest('hex'),cacheControl:r.headers.get('cache-control'),bytes:Buffer.byteLength(body),prototypePresent:body.includes('Knowledge Stage'),deploymentId:'unavailable from public HTTP'};}"
+  },
+  {
+    "file": "scripts/qa-browser.mjs",
+    "line": 4,
+    "text": "//   node scripts/qa-browser.mjs [--base http://127.0.0.1:4321] [--only /,/learn/catalogue/]"
+  },
+  {
+    "file": "scripts/qa-browser.mjs",
+    "line": 45,
+    "text": "const url = new URL(request.url ?? \"/\", \"http://127.0.0.1\");"
+  },
+  {
+    "file": "scripts/qa-browser.mjs",
+    "line": 108,
+    "text": "const base = remoteBase ?? `http://127.0.0.1:${server.address().port}`;"
+  },
+  {
+    "file": "scripts/qa-canonical-home.mjs",
+    "line": 20,
+    "text": "const BASE = `http://127.0.0.1:${PORT}`;"
+  },
+  {
+    "file": "scripts/qa-canonical-home.mjs",
+    "line": 64,
+    "text": "const response = await fetch(`${BASE}/`);"
+  },
+  {
+    "file": "scripts/qa-drafts.mjs",
+    "line": 86,
+    "text": "server.listen(0, \"127.0.0.1\", () => resolve({ server, base: `http://127.0.0.1:${server.address().port}` }));"
+  },
+  {
+    "file": "scripts/qa-drafts.mjs",
+    "line": 235,
+    "text": "const catalogue = await (await fetch(`${base}/practice/catalogue/`)).text();"
+  },
+  {
+    "file": "scripts/qa-drafts.mjs",
+    "line": 236,
+    "text": "const hub = await (await fetch(`${base}/lab/dp-600/`)).text();"
+  },
+  {
+    "file": "scripts/qa-drafts.mjs",
+    "line": 237,
+    "text": "const sitemap = await (await fetch(`${base}/sitemap.xml`)).text();"
+  },
+  {
+    "file": "scripts/qa-hse-explainer.mjs",
+    "line": 15,
+    "text": "const url = new URL(request.url ?? \"/\", \"http://127.0.0.1\");"
+  },
+  {
+    "file": "scripts/qa-hse-explainer.mjs",
+    "line": 43,
+    "text": "const base = `http://127.0.0.1:${server.address().port}`;"
+  },
+  {
+    "file": "scripts/qa-production-smoke.mjs",
+    "line": 3,
+    "text": "//   node scripts/qa-production-smoke.mjs [--url https://hansa.amir-portfolio.workers.dev]"
+  },
+  {
+    "file": "scripts/qa-production-smoke.mjs",
+    "line": 14,
+    "text": "const BASE = urlIndex === -1 ? \"https://hansa.amir-portfolio.workers.dev\" : args[urlIndex + 1];"
+  },
+  {
+    "file": "scripts/qa-prototype-c-v2.mjs",
+    "line": 3,
+    "text": "//   node scripts/qa-prototype-c-v2.mjs [--base http://127.0.0.1:4210]"
+  },
+  {
+    "file": "scripts/qa-prototype-c-v2.mjs",
+    "line": 17,
+    "text": "const BASE = (baseIndex === -1 ? \"http://127.0.0.1:4210\" : args[baseIndex + 1]).replace(/\\/$/, \"\");"
+  },
+  {
+    "file": "scripts/qa-prototype-c.mjs",
+    "line": 6,
+    "text": "const base=process.env.PROTOTYPE_BASE||'http://127.0.0.1:4197';"
+  },
+  {
+    "file": "scripts/qa-search.mjs",
+    "line": 17,
+    "text": "const url = new URL(request.url ?? \"/\", \"http://127.0.0.1\");"
+  },
+  {
+    "file": "scripts/qa-search.mjs",
+    "line": 40,
+    "text": "const base = remoteBase ?? `http://127.0.0.1:${server.address().port}`;"
+  },
+  {
+    "file": "scripts/qa-sql-vault.mjs",
+    "line": 9,
+    "text": "const server=createServer(async(req,res)=>{try{const pathname=decodeURIComponent(new URL(req.url,'http://local').pathname),target=resolve(out,'.'+pathname+(pathname.endsWith('/')?'index.html':''));if(!target.startsWith(out+sep))throw Error('Path');const data=await readFile(target);res.writeHead(200,{'content-type':mime[extname(target)]??'application/octet-stream'});res.end(data);}catch{res.writeHead(404);res.end('Not found');}});await new Promise(resolve=>server.listen(0,'127.0.0.1',resolve));const base='http://127.0.0.1:'+server.address().port;"
+  },
+  {
+    "file": "scripts/qa-sql-vault.mjs",
+    "line": 40,
+    "text": "for(const route of destinations){const response=await fetch(base+route);check('ROUTE:'+route,response.status===200);}"
+  },
+  {
+    "file": "scripts/serve-out.mjs",
+    "line": 91,
+    "text": "console.log(`Serving ${ROOT} at http://localhost:${PORT}/`);"
+  },
+  {
+    "file": "scripts/study-drill-qa.mjs",
+    "line": 3,
+    "text": "try{await p.addInitScript(()=>localStorage.setItem('amir-lab-v1',JSON.stringify({sql:{best:80,attempts:2,lastAt:'2026-10-27T00:00:00Z'}})));await p.goto('http://127.0.0.1:4318/lab/sql/?question=sql-07&learningContext=sql.overview',{waitUntil:'networkidle'});await p.getByRole('button',{name:'Start practice',exact:true}).click();await p.getByText('Which expression numbers employees 1, 2, 3… within each department by descending salary?',{exact:true}).waitFor();check('EXACT-QUESTION',true);check('SINGLE-QUESTION',await p.locator('main').innerText().then(t=>/Question\\s+1\\s+of\\s+1\\b/.test(t)));await p.getByRole('button',{name:'Finish now',exact:true}).click();await p.getByRole('button',{name:'Fini"
+  },
+  {
+    "file": "scripts/study-home-qa.mjs",
+    "line": 5,
+    "text": "const base='http://127.0.0.1:4318';"
+  },
+  {
+    "file": "scripts/study-intent-qa.mjs",
+    "line": 1,
+    "text": "import {chromium} from 'playwright-core';import {writeFile} from 'node:fs/promises';const b=await chromium.launch({executablePath:'C:/Program Files (x86)/Microsoft/Edge/Application/msedge.exe',headless:true}),checks=[];try{for(const width of [390,1440]){const c=await b.newContext({viewport:{width,height:900},isMobile:width<500,hasTouch:width<500}),p=await c.newPage();await p.goto('http://127.0.0.1:4318/practice/catalogue/',{waitUntil:'networkidle'});await p.locator('.study-open').first().click();await p.waitForURL('**/study/fabric/?mode=question');const link=p.getByRole('link',{name:/Data ingestion & orchestration/});await link.waitFor();await p.waitForFunction(()=>document.querySelector('a["
+  },
+  {
+    "file": "scripts/study-qa.mjs",
+    "line": 5,
+    "text": "for(const route of ['/learn/catalogue/','/study/fabric/','/study/fabric/ingestion/','/study/review/']){await p.goto('http://127.0.0.1:4318'+route,{waitUntil:'networkidle'});record(`REFLOW:${width}:${dark}:${route}`,await p.evaluate(()=>document.documentElement.scrollWidth<=innerWidth+1));await p.addScriptTag({content:axe});const violations=await p.evaluate(async()=>{const r=await window.axe.run(document,{runOnly:{type:'tag',values:['wcag2a','wcag2aa','wcag21aa','wcag22aa']}});return r.violations.map(v=>({id:v.id,nodes:v.nodes.map(n=>n.html)}));});record(`AXE:${width}:${dark}:${route}`,!violations.length,JSON.stringify(violations));if(width===390||width===1440)await p.screenshot({path:`${d}/$"
+  },
+  {
+    "file": "scripts/study-qa.mjs",
+    "line": 6,
+    "text": "await p.goto('http://127.0.0.1:4318/study/fabric/ingestion/?mode=question',{waitUntil:'networkidle'});record(`MODE:${width}:${dark}`,await p.getByLabel('Learning activity',{exact:true}).inputValue()==='question');await p.getByLabel('Find within this topic').fill('zzzz-no-such-topic');record(`EMPTY:${width}:${dark}`,await p.locator('.study-empty').isVisible());await p.getByRole('button',{name:'Reset filters'}).click();record(`RESET:${width}:${dark}`,await p.locator('.study-records>li').count()>0);"
+  },
+  {
+    "file": "scripts/study-qa.mjs",
+    "line": 8,
+    "text": "const ctx=await browser.newContext({reducedMotion:'reduce',viewport:{width:390,height:900}}),p=await ctx.newPage();await p.goto('http://127.0.0.1:4318/study/review/',{waitUntil:'networkidle'});await p.getByLabel('Subject',{exact:true}).selectOption('power-bi');await p.getByLabel('Topic',{exact:true}).selectOption('prepare');record('REVIEW-TOPIC-FILTER',await p.locator('.study-records>li').count()>0);await p.getByLabel('Learning activity',{exact:true}).selectOption('question');await p.locator('.study-records h2 a').first().click();await p.waitForLoadState('networkidle');await p.waitForTimeout(500);record('DRAFT-BANK-DEEP-LINK',p.url().includes('bank=pl300-v88')&&await p.getByRole('searchbox')"
+  },
+  {
+    "file": "scripts/study-qa.mjs",
+    "line": 9,
+    "text": "const records=JSON.parse(await readFile('docs/learning-architecture-20261028/RECORDS.json','utf8'));for(const url of new Set(records.map(r=>r.href.split(/[?#]/)[0]))){const response=await fetch('http://127.0.0.1:4318'+url);record('SOURCE-ROUTE:'+url,response.status===200);}"
+  },
+  {
+    "file": "scripts/study-record.mjs",
+    "line": 2,
+    "text": "const b=await chromium.launch({executablePath:'C:/Program Files (x86)/Microsoft/Edge/Application/msedge.exe',headless:true});for(const width of [1440,390]){const ctx=await b.newContext({viewport:{width,height:900},hasTouch:width<500,isMobile:width<500});await ctx.addInitScript(()=>localStorage.setItem('amir-theme','dark'));const p=await ctx.newPage(),cdp=await ctx.newCDPSession(p),frames=[],pending=[],dir=path.resolve(`.scratch/study-video/${width}`);await mkdir(dir,{recursive:true});cdp.on('Page.screencastFrame',e=>{const file=`${String(frames.length).padStart(5,'0')}.jpg`;frames.push({file,timestamp:e.metadata.timestamp});pending.push(writeFile(path.join(dir,file),Buffer.from(e.data,'base6"
+  },
+  {
+    "file": "scripts/study-routes.mjs",
+    "line": 2,
+    "text": "for(const file of(await walk('out')).filter(p=>p.endsWith('index.html'))){const route='/'+path.relative('out',path.dirname(file)).replaceAll('\\\\','/')+'/';const response=await fetch('http://127.0.0.1:4318'+route.replace('//','/'));checks.push({id:route,status:response.status===200?'PASS':'FAIL'});if(route.startsWith('/study/')&&!route.includes('/review/')){const html=await readFile(file,'utf8');checks.push({id:'CANONICAL:'+route,status:html.includes('rel=\"canonical\" href=\"https://hansa.amir-portfolio.workers.dev'+route+'\"')?'PASS':'FAIL'});}}"
+  },
+  {
+    "file": "scripts/validate-academy-release.mjs",
+    "line": 19,
+    "text": "const r=spawnSync(process.execPath,args,{encoding:'utf8',timeout:180000,env:{...process.env,WRANGLER_SEND_METRICS:'false',WRANGLER_LOG_PATH:path.join(root,'build/wrangler-logs')}});"
+  },
+  {
+    "file": "scripts/verify-academy-live.mjs",
+    "line": 5,
+    "text": "const base='https://hansa.amir-portfolio.workers.dev';"
+  },
+  {
+    "file": "scripts/verify-academy-live.mjs",
+    "line": 14,
+    "text": "async function inspect(t){let last;for(let attempt=0;attempt<3;attempt++){try{const r=await fetch(base+t.route,{redirect:'follow',signal:AbortSignal.timeout(20000),headers:{'cache-control':'no-cache'}});const body=Buffer.from(await r.arrayBuffer());const sha=createHash('sha256').update(body).digest('hex');last={route:t.route,status:r.status,bytes:body.length,hash_matches:sha===t.sha256,expected_sha256:t.sha256,actual_sha256:sha};if(r.status===200&&sha===t.sha256)break;}catch(e){last={route:t.route,status:0,error:String(e)}}}checks.push(last);if(++done%30===0)console.log('Verified',done,'of',targets.size);}"
+  },
+  {
+    "file": "scripts/verify-academy-live.mjs",
+    "line": 16,
+    "text": "const missing=await fetch(base+'/__hansa-release-not-found-d1eb29b03dd3/',{signal:AbortSignal.timeout(20000)});const missingBody=Buffer.from(await missing.arrayBuffer());"
+  },
+  {
+    "file": "scripts/verify-academy-live.mjs",
+    "line": 18,
+    "text": "const slash=await fetch(base+'/learn/dp-600/ingestion',{redirect:'manual',signal:AbortSignal.timeout(20000)});const trailing_slash={status:slash.status,location:slash.headers.get('location')};"
+  },
+  {
+    "file": "scripts/verify-canonical-home.mjs",
+    "line": 23,
+    "text": "const BASE = `http://127.0.0.1:${PORT}`;"
+  },
+  {
+    "file": "scripts/verify-canonical-home.mjs",
+    "line": 183,
+    "text": "const response = await fetch(url, { redirect: \"manual\" });"
+  },
+  {
+    "file": "scripts/verify-production.mjs",
+    "line": 3,
+    "text": "//   node scripts/verify-production.mjs --base https://hansa.amir-portfolio.workers.dev --inventory docs/upgrade/baseline-2026-10-24/route-inventory.json --out docs/upgrade/qa/production-before.json"
+  },
+  {
+    "file": "scripts/verify-production.mjs",
+    "line": 19,
+    "text": "const BASE = (arg(\"base\", \"https://hansa.amir-portfolio.workers.dev\")).replace(/\\/+$/, \"\");"
+  },
+  {
+    "file": "scripts/verify-production.mjs",
+    "line": 32,
+    "text": "const response = await fetch(url, { redirect: \"follow\", headers: { \"cache-control\": \"no-cache\" } });"
+  },
+  {
+    "file": "tests/academy/e2e.mjs",
+    "line": 8,
+    "text": "const DIR=process.env.ACADEMY_QA_DIR??path.join(ROOT,'docs/dp600-academy/qa');mkdirSync(DIR,{recursive:true});"
+  },
+  {
+    "file": "tests/academy/e2e.mjs",
+    "line": 65,
+    "text": "finally{if(browser)await browser.close();writeFileSync(path.join(DIR,'browser-results.json'),JSON.stringify({transport:process.env.ACADEMY_LIVE_BASE?'Chrome against live HTTPS origin':'Chrome rendering actual export through static-file interception; not a delivery test',results,errors,externalRequests:network,infrastructureNotes},null,2));console.log(JSON.stringify(results,null,2));if(results.some(r=>r.status!=='PASS'))process.exitCode=1;}"
+  },
+  {
+    "file": "tests/academy/export.mjs",
+    "line": 14,
+    "text": "for(const a of doc.querySelectorAll('a[href]')){const href=a.getAttribute('href');if(!href.startsWith('/')&&!href.startsWith('#'))continue;const u=new URL(href,'http://local'+route),target=path.join(out,u.pathname);if(!existsSync(target)&&!existsSync(path.join(target,'index.html')))broken.push(href);if(href.startsWith('#'))assert.ok(doc.querySelector(`[id=\"${u.hash.slice(1)}\"]`),href);}"
+  },
+  {
+    "file": "tests/academy/export.mjs",
+    "line": 16,
+    "text": "for(const a of doc.querySelectorAll('script[src],link[rel=stylesheet]')){const src=a.getAttribute('src')??a.getAttribute('href');if(!src.startsWith('/'))continue;const asset=path.join(out,new URL(src,'http://local').pathname);assert.ok(existsSync(asset),src);if(src.endsWith('.js')){const b=readFileSync(asset);bytes+=b.length;gzip+=gzipSync(b).length;}}"
+  },
+  {
+    "file": "tests/academy/legacy-smoke.mjs",
+    "line": 4,
+    "text": "const QA=process.env.ACADEMY_QA_DIR??'docs/dp600-academy/qa';mkdirSync(QA,{recursive:true});"
+  },
+  {
+    "file": "tests/academy/legacy-smoke.mjs",
+    "line": 24,
+    "text": "}finally{await browser.close();writeFileSync(QA+'/legacy-browser-results.json',JSON.stringify({transport:process.env.ACADEMY_LIVE_BASE?'Chrome against live HTTPS origin':'Chrome, actual static files via interception; no live host verification',results,errors},null,2));console.log(JSON.stringify(results,null,2));if(results.some(r=>r.status!=='PASS'))process.exitCode=1;}"
+  },
+  {
+    "file": "tests/academy/pattern-comparison.e2e.mjs",
+    "line": 15,
+    "text": "const base = `http://127.0.0.1:${port}`;"
+  },
+  {
+    "file": "tests/academy/pattern-comparison.e2e.mjs",
+    "line": 21,
+    "text": "try { if ((await fetch(base)).ok) break; } catch {}"
+  },
+  {
+    "file": "tests/academy/static-host.mjs",
+    "line": 5,
+    "text": "export const PREVIEW=process.env.ACADEMY_PREVIEW_DIR??path.join(ROOT,'build/dp600-academy-preview');"
+  },
+  {
+    "file": "tests/academy/static-host.mjs",
+    "line": 6,
+    "text": "export const BASE=(process.env.ACADEMY_LIVE_BASE??'http://localhost:4186').replace(/\\/+$/,'');"
+  },
+  {
+    "file": "tests/academy/static-host.mjs",
+    "line": 17,
+    "text": "export async function attachStaticHost(context){if(process.env.ACADEMY_LIVE_BASE)return;await context.route('**/*',async route=>{if(new URL(route.request().url()).origin!==BASE)return route.abort();await route.fulfill(staticResponse(route.request().url()));});}"
+  },
+  {
+    "file": "tests/academy/static-host.mjs",
+    "line": 20,
+    "text": "const executablePath=process.env.BROWSER_PATH??(existsSync('C:/Program Files/Google/Chrome/Application/chrome.exe')?'C:/Program Files/Google/Chrome/Application/chrome.exe':'C:/Program Files (x86)/Microsoft/Edge/Application/msedge.exe');"
+  },
+  {
+    "file": "tests/academy/static-host.mjs",
+    "line": 21,
+    "text": "return chromium.launch({executablePath,headless:true,downloadsPath:path.join(ROOT,'build/browser-downloads'),timeout:20000,env:{...process.env,TEMP:path.join(ROOT,'build/browser-temp'),TMP:path.join(ROOT,'build/browser-temp')}});"
+  },
+  {
+    "file": "tests/atlas/circles-e2e.mjs",
+    "line": 6,
+    "text": "const base='http://127.0.0.1:4193',checks=[],errors=[];"
+  },
+  {
+    "file": "tests/atlas/circles-e2e.mjs",
+    "line": 42,
+    "text": "assert.ok(await page.getByTestId('atlas-inspector').locator('a[href^=\"https://learn.microsoft.com/\"]').count());"
+  },
+  {
+    "file": "tests/atlas/continuation-e2e.mjs",
+    "line": 9,
+    "text": "const base='http://localhost:4191',browser=await chromium.launch({executablePath:'C:\\\\Program Files (x86)\\\\Microsoft\\\\Edge\\\\Application\\\\msedge.exe',headless:true});"
+  },
+  {
+    "file": "tests/atlas/continuation-e2e.mjs",
+    "line": 25,
+    "text": "const sourceLinks=inspector.locator('a[href^=\"https://learn.microsoft.com/\"]');"
+  },
+  {
+    "file": "tests/atlas/continuation.test.mjs",
+    "line": 39,
+    "text": "const u=new URL(r.href,'https://local.invalid');assert.ok(validResourceHref(r.href));"
+  },
+  {
+    "file": "tests/atlas/continuation.test.mjs",
+    "line": 47,
+    "text": "assert.equal(new URL(href,'https://local.invalid').searchParams.get('question'),q.questionId);assert.ok(href.includes('atlasReturn='));"
+  },
+  {
+    "file": "tests/atlas/e2e.mjs",
+    "line": 4,
+    "text": "const base=process.env.ATLAS_PREVIEW_URL || \"http://127.0.0.1:4192\";"
+  },
+  {
+    "file": "tests/atlas/e2e.mjs",
+    "line": 27,
+    "text": "assert.equal(await inspector.locator('a[href^=\"https://learn.microsoft.com\"]').count(),2);"
+  },
+  {
+    "file": "tests/atlas/e2e.mjs",
+    "line": 80,
+    "text": "for(const route of [\"/experience/\",\"/work/hse-analytics/\"]) assert.equal((await fetch(base+route)).status,200); pass(\"Legacy professional routes remain available outside the landing page\");"
+  },
+  {
+    "file": "tests/atlas/expansion-e2e.mjs",
+    "line": 5,
+    "text": "const base='http://localhost:4191',browser=await chromium.launch({executablePath:'C:\\\\Program Files (x86)\\\\Microsoft\\\\Edge\\\\Application\\\\msedge.exe',headless:true});"
+  },
+  {
+    "file": "tests/atlas/expansion.test.mjs",
+    "line": 19,
+    "text": "for(const r of extension.catalog){assert.ok(r.mappingEvidence&&r.mappingReview);const u=new URL(r.href,'https://local.invalid');assert.ok(validResourceHref(r.href));if(r.kind==='question')assert.ok(ids.has(u.searchParams.get('question')));else assert.ok(packs.has(u.searchParams.get('pack')));}"
+  },
+  {
+    "file": "tests/atlas/expansion.test.mjs",
+    "line": 20,
+    "text": "const q=extension.catalog.find(r=>r.kind==='question');const href=resourceReturnHref(q.href,defaultView());assert.equal(new URL(href,'https://local.invalid').searchParams.get('question'),q.questionId);assert.ok(href.includes('atlasReturn='));"
+  },
+  {
+    "file": "tests/atlas/model.test.mjs",
+    "line": 20,
+    "text": "reject(d => d.catalog[0].href = \"https://unsafe.example/\"); reject(d => d.sources[0].url = \"https://unsafe.example/\");"
+  },
+  {
+    "file": "tests/fabric/e2e.mjs",
+    "line": 23,
+    "text": "const PORT = Number(process.env.PORT ?? 4175);"
+  },
+  {
+    "file": "tests/fabric/e2e.mjs",
+    "line": 24,
+    "text": "const BASE = process.env.BASE_URL ?? `http://127.0.0.1:${PORT}`;"
+  },
+  {
+    "file": "tests/fabric/e2e.mjs",
+    "line": 25,
+    "text": "const EDGE = process.env.EDGE_PATH ?? \"C:/Program Files (x86)/Microsoft/Edge/Application/msedge.exe\";"
+  },
+  {
+    "file": "tests/fabric/e2e.mjs",
+    "line": 28,
+    "text": "const server = process.env.BASE_URL"
+  },
+  {
+    "file": "tests/fabric/e2e.mjs",
+    "line": 39,
+    "text": "const response = await fetch(url);"
+  },
+  {
+    "file": "tests/fabric/r11-e2e.mjs",
+    "line": 11,
+    "text": "const base=process.env.R11_BASE_URL??'http://localhost:4196';"
+  },
+  {
+    "file": "tests/fabric/r11.test.mjs",
+    "line": 51,
+    "text": "const component=readFileSync('components/fabric/r11-question.tsx','utf8');assert.doesNotMatch(component,/<(?:img|picture|canvas)\\b/);assert.doesNotMatch(component,/dangerouslySetInnerHTML/);"
+  },
+  {
+    "file": "tests/knowledge/canonical-home.test.mjs",
+    "line": 36,
+    "text": "sourceUrl: \"https://learn.microsoft.com/en-us/fabric/onelake/onelake-shortcuts\","
+  },
+  {
+    "file": "tests/knowledge/canonical-home.test.mjs",
+    "line": 45,
+    "text": "sourceUrl: \"https://learn.microsoft.com/en-us/fabric/onelake/onelake-shortcuts\","
+  },
+  {
+    "file": "tests/knowledge/canonical-home.test.mjs",
+    "line": 54,
+    "text": "sourceUrl: \"https://learn.microsoft.com/en-us/fabric/onelake/onelake-shortcuts\","
+  },
+  {
+    "file": "tests/knowledge/cinematic-field.test.mjs",
+    "line": 107,
+    "text": "assert.equal(sources[0].href, \"https://learn.microsoft.com/en-us/fabric/onelake/onelake-shortcuts\");"
+  },
+  {
+    "file": "tests/statistics/e2e.mjs",
+    "line": 22,
+    "text": "const BASE = process.env.BASE_URL ?? \"http://127.0.0.1:4174\";"
+  },
+  {
+    "file": "tests/statistics/e2e.mjs",
+    "line": 23,
+    "text": "const EDGE = process.env.EDGE_PATH ?? \"C:/Program Files (x86)/Microsoft/Edge/Application/msedge.exe\";"
+  }
+]

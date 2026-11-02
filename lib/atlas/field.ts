@@ -15,9 +15,11 @@
 //      and otherwise from a deterministic layout seeded by the record id, so the
 //      first client render matches the static render.
 //
-// The renderer in `components/cinematic/spacetime-atlas.tsx` draws what this
-// module computes; the camera and projection are plain world-space maths, which
-// is what lets the unit tests check them in Node without a browser.
+// The stage's status line reads the connections this module computes from the
+// public projection. The pinned camera renderer that used to draw the full
+// field (`components/cinematic/spacetime-atlas.tsx`) was retired with the
+// editorial re-stage of 2026-10-30; the geometry rules above keep it honest
+// wherever a future renderer returns.
 
 import type { Atlas } from "./model";
 

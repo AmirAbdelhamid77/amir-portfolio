@@ -1,0 +1,222 @@
+[
+  {
+    "name": "keyboard Home selects first date",
+    "pass": true,
+    "detail": "start 2026-10-31 -> 2026-10-18"
+  },
+  {
+    "name": "keyboard End selects today",
+    "pass": true,
+    "detail": "2026-10-31"
+  },
+  {
+    "name": "keyboard ArrowLeft reaches latest edition",
+    "pass": true,
+    "detail": "2026-10-26 / LATEST EDITION"
+  },
+  {
+    "name": "latest edition focus label",
+    "pass": true,
+    "detail": "LATEST EDITION"
+  },
+  {
+    "name": "keyboard Enter opens the edition",
+    "pass": true,
+    "detail": "file:///D:/BeUI/amir-portfolio/intelligent-atlas/prototype/index.html#edition/2026-10-26"
+  },
+  {
+    "name": "edition rail has three editions",
+    "pass": true,
+    "detail": "3"
+  },
+  {
+    "name": "edition rail switches to 24 October",
+    "pass": true,
+    "detail": "24 Oct 2026 / true"
+  },
+  {
+    "name": "edition rail updates hash",
+    "pass": true,
+    "detail": "file:///D:/BeUI/amir-portfolio/intelligent-atlas/prototype/index.html#edition/2026-10-24"
+  },
+  {
+    "name": "evidence view opens and focuses back",
+    "pass": true,
+    "detail": "evidence true / focus true"
+  },
+  {
+    "name": "Escape from evidence returns to card",
+    "pass": true,
+    "detail": "card true / focus true"
+  },
+  {
+    "name": "Escape closes Dealer and restores opener",
+    "pass": true,
+    "detail": "closed true / focus true"
+  },
+  {
+    "name": "Shift+Tab from dialog lands inside",
+    "pass": true,
+    "detail": "dealer-locate"
+  },
+  {
+    "name": "Tab cycles stay inside Dealer",
+    "pass": true,
+    "detail": ""
+  },
+  {
+    "name": "browser Back closes Dealer",
+    "pass": true,
+    "detail": "file:///D:/BeUI/amir-portfolio/intelligent-atlas/prototype/index.html"
+  },
+  {
+    "name": "browser Forward reopens Dealer",
+    "pass": true,
+    "detail": "file:///D:/BeUI/amir-portfolio/intelligent-atlas/prototype/index.html#edition/2026-10-26"
+  },
+  {
+    "name": "session restores selected date",
+    "pass": true,
+    "detail": "2026-10-24 -> 2026-10-24"
+  },
+  {
+    "name": "dark theme toggles and persists",
+    "pass": true,
+    "detail": "dark -> dark"
+  },
+  {
+    "name": "no runtime errors (keyboard/dealer/history)",
+    "pass": true,
+    "detail": ""
+  },
+  {
+    "name": "reduced motion activates stacked scenes",
+    "pass": true,
+    "detail": ""
+  },
+  {
+    "name": "reduced motion removes journey rise",
+    "pass": true,
+    "detail": "(empty)"
+  },
+  {
+    "name": "reduced motion skips dealing animation",
+    "pass": true,
+    "detail": ""
+  },
+  {
+    "name": "no runtime errors (reduced motion)",
+    "pass": true,
+    "detail": ""
+  },
+  {
+    "name": "320px no horizontal overflow",
+    "pass": true,
+    "detail": "0"
+  },
+  {
+    "name": "320px Dealer fits viewport",
+    "pass": true,
+    "detail": "10..310 of 320"
+  },
+  {
+    "name": "320px Dealer has no inner horizontal overflow",
+    "pass": true,
+    "detail": "0"
+  },
+  {
+    "name": "320px Atlas no horizontal overflow",
+    "pass": true,
+    "detail": "0"
+  },
+  {
+    "name": "320px register fits viewport",
+    "pass": true,
+    "detail": "10..310 of 320"
+  },
+  {
+    "name": "320px About fits viewport",
+    "pass": true,
+    "detail": "10..310 of 320"
+  },
+  {
+    "name": "320px no runtime errors",
+    "pass": true,
+    "detail": ""
+  },
+  {
+    "name": "390px no horizontal overflow",
+    "pass": true,
+    "detail": "0"
+  },
+  {
+    "name": "390px Dealer fits viewport",
+    "pass": true,
+    "detail": "10..380 of 390"
+  },
+  {
+    "name": "390px Dealer has no inner horizontal overflow",
+    "pass": true,
+    "detail": "0"
+  },
+  {
+    "name": "390px Atlas no horizontal overflow",
+    "pass": true,
+    "detail": "0"
+  },
+  {
+    "name": "390px register fits viewport",
+    "pass": true,
+    "detail": "10..380 of 390"
+  },
+  {
+    "name": "390px About fits viewport",
+    "pass": true,
+    "detail": "10..380 of 390"
+  },
+  {
+    "name": "390px no runtime errors",
+    "pass": true,
+    "detail": ""
+  },
+  {
+    "name": "768px no horizontal overflow",
+    "pass": true,
+    "detail": "0"
+  },
+  {
+    "name": "768px Dealer fits viewport",
+    "pass": true,
+    "detail": "20..748 of 768"
+  },
+  {
+    "name": "768px Dealer has no inner horizontal overflow",
+    "pass": true,
+    "detail": "0"
+  },
+  {
+    "name": "768px Atlas no horizontal overflow",
+    "pass": true,
+    "detail": "0"
+  },
+  {
+    "name": "768px register fits viewport",
+    "pass": true,
+    "detail": "20..748 of 768"
+  },
+  {
+    "name": "768px About fits viewport",
+    "pass": true,
+    "detail": "20..748 of 768"
+  },
+  {
+    "name": "768px no runtime errors",
+    "pass": true,
+    "detail": ""
+  },
+  {
+    "name": "reader actions visible without inner scroll",
+    "pass": true,
+    "detail": "{\"scrollHeight\":697,\"clientHeight\":665,\"actionsTop\":763,\"actionsBottom\":803,\"readerBottom\":820,\"dialogHeight\":876}"
+  }
+]

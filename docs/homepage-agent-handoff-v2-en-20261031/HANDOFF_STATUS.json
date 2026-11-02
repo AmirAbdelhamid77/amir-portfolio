@@ -1,0 +1,63 @@
+{
+  "version": "2.0",
+  "date": "2026-10-31",
+  "language": "English",
+  "scope": "Planning documents only",
+  "source_preservation": "PASS",
+  "source_files_checked": 684,
+  "source_sha256": "e04f95192c3edac3552294c6c5b48c5e1d1910d3666070692242cf5f89af8937",
+  "preexisting_diff_sha256": "9f4cfae35431767efc1339144441b7e4913a4b65fa3b7a726dd45ad6ae35ca8b",
+  "document_checks": [
+    {
+      "file": "AGENT_GUIDE_EN.md",
+      "english_only": true,
+      "broken_local_links": [],
+      "has_placeholders": false
+    },
+    {
+      "file": "FUTURE_CONTRACTS_EN.md",
+      "english_only": true,
+      "broken_local_links": [],
+      "has_placeholders": false
+    },
+    {
+      "file": "INTELLIGENT_ATLAS_SPEC_EN.md",
+      "english_only": true,
+      "broken_local_links": [],
+      "has_placeholders": false
+    },
+    {
+      "file": "README_EN.md",
+      "english_only": true,
+      "broken_local_links": [],
+      "has_placeholders": false
+    },
+    {
+      "file": "START_PROMPT_EN.md",
+      "english_only": true,
+      "broken_local_links": [],
+      "has_placeholders": false
+    }
+  ],
+  "current_relation_keys": "PASS",
+  "independent_reviews": [
+    "Main guide and graph scope/UX consistency",
+    "Graph contracts, route directions, revision and eligibility consistency"
+  ],
+  "review_fixes": [
+    "Preserved part_of_mechanism key",
+    "Qualified incomplete corpus labels",
+    "Required analysis in both modes",
+    "Bound compatible data snapshots",
+    "Made conditional route semantics explicit"
+  ],
+  "proposed_graph_and_UI_execution": "NOT RUN",
+  "reference_verifiers": "Earlier same-day FAIL at preexisting lib/atlas/field.ts drift; not rerun for unchanged application sources",
+  "files": {
+    "AGENT_GUIDE_EN.md": "319e204eb80f423dbbf5397c2e22329312234f08d073c6db8edc84034b6dfbb0",
+    "FUTURE_CONTRACTS_EN.md": "f949a03cbf7a3455b66e7f883c4e1daed7f9aeaed6d5609951590e6cd315dcd3",
+    "INTELLIGENT_ATLAS_SPEC_EN.md": "64d4a23137078fc15f011604286c9f21f2cae600d65f683297d2548a41124dad",
+    "README_EN.md": "a5712633814df10cdc5c6a698a87e43837f19865dc4655127ad5404b88ec1d07",
+    "START_PROMPT_EN.md": "774665d3fa78ff332494987585be5bee21203a70449d0da880521ce34b1b03e7"
+  }
+}

@@ -66,3 +66,40 @@ the canonical-home migration, and this session did not touch them.
 | Screen-reader session | axe + keyboard traversal only. |
 | Baseline screenshots of the old `/` | Not captured before the change; the byte-level baseline serves restoration instead. |
 | Draft-review routes (`/learn/drafts/`, `/practice/drafts/`) | Different work stream; counted in the census, not exercised. |
+
+## Editorial re-stage — 2026-10-30
+
+Environment: Node `v22.23.3`, Windows (Git Bash), working tree of
+`45704b5` plus the uncommitted re-stage diff. No deployment, no push.
+
+| # | Command | Result | Evidence |
+|---|---|---|---|
+| 1 | `npm run test:knowledge` | **PASS** — 33/33 (all canonical-home guards) | guard strings, single-landing ownership, permalinks intact |
+| 2 | `npm run test:all` | **PASS** — 224/224 across 6 suites (62·18·35·51·33·25) | 3×: initial, after the header fix, after the ink-inheritance fix |
+| 3 | `npx tsc --noEmit` | **PASS** — exit 0 | includes the new stage modules |
+| 4 | `npm run lint` | **PASS** — 0 errors; 14 pre-existing warnings, none in touched files | touched files: `insight-stage.tsx`, `stage-*.tsx/css`, `site-header.tsx`, `layout.tsx`, `globals.css`, `verify/qa-canonical-home.mjs` |
+| 5 | `npm run build` | **PASS** — 370 static pages + postbuild aliases (ran 3×: initial, header-clearance fix, ink-inheritance fix) | — |
+| 6 | `node scripts/verify-canonical-home.mjs` | **PASS** — 34/34 (after marker list updated to the new editorial copy) | marker change recorded in the script |
+| 7 | `node scripts/qa-canonical-home.mjs` | **PASS** — 45/45 (after marker list updated likewise) | `evidence/qa-canonical-home.json` + screenshots incl. light/dark/mobile |
+| 8 | Visual QA of `evidence/*.png` | **PASS** | found and fixed 3 defects: header/masthead collision (104px clearance), light-theme transparent header unreadable on ink (`.stage-ink` on the landing header), light-theme body-text inheritance (scope now re-declares `color`/`background`); below-the-fold `#works`/`#archive` captured via `.scratch/capture-stage-sections.mjs` |
+| 9 | `node scripts/seal-canonical-home.mjs` (dry run) | **NOT WRITTEN** — deliberately | the 2026-10-28 seal layer must not absorb this redesign's bytes as its predecessors; the re-stage needs its own receipt layer (see next atomic task) |
+
+## Landing v3 — full-screen gate flow — 2026-10-30
+
+Owner-corrected direction: keep the reference's full-viewport scroll structure,
+drop the v2 black/amber palette entirely (the theme toggle must work), rebuild
+the flow as Date hero → card-dealer takeover → insight → Learn Gate →
+certificate gate. Same working tree as the v2 entry above, still uncommitted.
+
+| # | Command | Result | Evidence |
+|---|---|---|---|
+| 1 | `npx tsc --noEmit` | **PASS** | one missing import caught and fixed on the way |
+| 2 | `npm run test:knowledge` / `npm run test:all` | **PASS** — 33/33 and 224/224 (6 suites) | guard strings, single-landing ownership, permalinks |
+| 3 | `npm run lint` | **PASS** — 0 errors in touched files; 15 pre-existing warnings elsewhere; one new error (sync setState in effect) fixed by deferring the live-date swap to a rAF | — |
+| 4 | `npm run build` | **PASS** — 370 pages, ran 5× through the fix cycle | — |
+| 5 | `node scripts/verify-canonical-home.mjs` | **PASS** — 34/34 | markers moved to the gate kickers (contiguous text; `<em>` splits titles) |
+| 6 | `node scripts/qa-canonical-home.mjs` | **PASS** — 45/45 | three harness updates were required and are recorded in the script: (a) the DEALER steps now open the takeover first, (b) the run returns to scroll-top before clicking the pinned gate CTA, (c) axe waits out entrance reveals and reports node targets |
+| 7 | axe contrast | **PASS** after two real fixes | (a) the v2-style opacity crossfade left gate text at 25–60% opacity as a *persistent* mid-scroll state — replaced with transform rise + soft top-edge mask (content opacity always 1); (b) dark `--muted-foreground` measured 4.43:1 on the plain dark background the gates expose — raised 66%→70% |
+| 8 | `node scripts/seal-canonical-home.mjs` | **NOT WRITTEN** — deliberately | same reason as v2: the 2026-10-28 layer must not absorb the redesign; a new receipt layer is the next atomic task |
+| 9 | Visual QA (`evidence/*.png`) | **PASS** | theme proof: light/dark landings visibly differ (toggle restored); defects found+fixed: header/masthead clearance (restored pt-104), gate-0 takeover bleeding through the transparent insight section (opaque bg added) |
+| 10 | beUI bar-chart integration | **BLOCKED → local fallback** | `beui.dev/r/bar-chart` registry JSON carries no license field; under the free/local rules the 25 files cannot be copied. Gate 3 ships an honest proportional bar list of `coverage.byObjective` (label+count are real text; bars decorative; `META.generatedAt` caption) |

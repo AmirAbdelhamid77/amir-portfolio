@@ -1,0 +1,122 @@
+{
+  "schemaVersion": "intelligent-atlas-semantic/1.0",
+  "graphBuildId": "ia-graph-bed4e12d0986",
+  "notice": "Contradiction and stale-source register. Classification separates genuine contradictions from version and scope differences.",
+  "contradictions": [
+    {
+      "id": "con:vorder-default",
+      "topic": "V-Order default state",
+      "classification": "version-scope-difference",
+      "severity": "medium",
+      "claimA": "A 2025 tutorial states that V-Order is enabled by default.",
+      "claimB": "A workspace created today with write-heavy ingestion should not assume every newly written file is V-Ordered without checking.",
+      "resolution": "Not a scientific contradiction. The claims are separated by product version and workspace configuration; the review action is to attach a version and date to the tutorial claim.",
+      "status": "open-for-editorial-review",
+      "evidence": [
+        {
+          "unitId": "fabric-q:fb-v13",
+          "sourcePath": "content/fabric/index.json",
+          "locator": "id=fb-v13",
+          "canonicalHref": "/lab/dp-600/explore/?question=fb-v13",
+          "language": "en",
+          "quote": "Validate a new workspace configuration A 2025 tutorial says V-Order is enabled by default.",
+          "quoteFingerprint": "b802a8d44807fdf9"
+        }
+      ],
+      "reviewState": "candidate"
+    },
+    {
+      "id": "con:pie-vs-lab",
+      "topic": "Pie charts: guidance versus lab instruction",
+      "classification": "context-difference",
+      "severity": "low",
+      "claimA": "Prefer a bar chart when the analytical goal is accurate comparison of category magnitudes; polar forms are defensible for genuine circularity.",
+      "claimB": "A Spark visualization lab instructs the learner to create a pie chart of yearly order counts.",
+      "resolution": "Not a contradiction: the lab teaches a plotting API, not an analytical recommendation. Record the distinction so a reader does not treat the lab as endorsement.",
+      "status": "resolved-by-scope",
+      "evidence": [
+        {
+          "unitId": "dv:advanced-multivariate#14-polar-coordinates-pie-charts-and-rose-plots",
+          "sourcePath": "content/data-viz/pages.json",
+          "locator": "pages[slug=advanced-multivariate] > 14. Polar Coordinates, Pie Charts, and Rose Plots",
+          "canonicalHref": "/learn/advanced-multivariate/",
+          "language": "en",
+          "quote": "Default rule:prefer a bar chart when the analytical goal is accurate comparison of category magnitudes.",
+          "quoteFingerprint": "ec4bf7d304302564"
+        },
+        {
+          "unitId": "academy:fabric-analytics:02-analyze-spark#section-9",
+          "sourcePath": "content/academy/lessons.json",
+          "locator": "tracks[fabric-analytics].lessons[slug=02-analyze-spark] > Visualize data with Spark",
+          "canonicalHref": "/learn/academy/fabric-analytics/02-analyze-spark/#section-9",
+          "language": "en",
+          "quote": "View results as a chart python %%sql SELECT FROM salesorders Get started with matplotlib python sqlQuery = \"SELECT CAST(YEAR(OrderDate) AS CHAR(4)) AS OrderYear, \\ SUM((UnitPrice Quantity) + Tax) AS GrossRevenue, \\ COUNT(DISTINCT SalesOrderNumber) AS YearlyCounts \\ FROM salesorders \\ GROUP BY CAST(YEAR(OrderDate) AS CHAR(4)) \\ ORDER BY OrderYear\" df spark = spark.sql(sqlQuery) df spark.show() python from matplotli…",
+          "quoteFingerprint": "cf2c0f6037595015"
+        }
+      ],
+      "reviewState": "candidate"
+    },
+    {
+      "id": "con:bar-zero-line",
+      "topic": "Zero baseline for bars versus lines",
+      "classification": "scope-difference",
+      "severity": "low",
+      "claimA": "Bars encode magnitude through length from a baseline, so truncating a bar chart can exaggerate differences.",
+      "claimB": "Other marks, including line position, do not automatically follow the same zero-baseline rule.",
+      "resolution": "Not a contradiction. The obligation follows the encoding channel, not a universal chart rule; the qualification is already present in the curriculum overview.",
+      "status": "resolved-by-scope",
+      "evidence": [
+        {
+          "unitId": "dv:core-chart-types#8-bar-plot",
+          "sourcePath": "content/data-viz/pages.json",
+          "locator": "pages[slug=core-chart-types] > 8. Bar Plot",
+          "canonicalHref": "/learn/core-chart-types/",
+          "language": "en",
+          "quote": "Therefore, a zero baseline is conceptually important for honest magnitude comparisons.",
+          "quoteFingerprint": "572de4edb644959b"
+        },
+        {
+          "unitId": "dv-lesson:en:core-chart-types",
+          "sourcePath": "content/data-viz/curriculum.json",
+          "locator": "lessons[slug=core-chart-types]",
+          "canonicalHref": "/learn/core-chart-types/",
+          "language": "en",
+          "quote": "Bar length starts at zero; other marks do not automatically follow that rule.",
+          "quoteFingerprint": "d2c7a3ede6523bf2"
+        }
+      ],
+      "reviewState": "candidate"
+    },
+    {
+      "id": "con:mean-median",
+      "topic": "Mean versus median as the typical value",
+      "classification": "assumption-difference",
+      "severity": "low",
+      "claimA": "The mean is the arithmetic center and is affected by extreme values.",
+      "claimB": "In a skewed distribution or one containing outliers, the median may represent the typical value better.",
+      "resolution": "Not a contradiction: the claims answer different questions (arithmetic center vs robust typical value). The review action is to require the distribution shape to be stated when either is recommended.",
+      "status": "resolved-by-scope",
+      "evidence": [
+        {
+          "unitId": "stats:s4",
+          "sourcePath": "content/statistics/source.json",
+          "locator": "sections[id=s4]",
+          "canonicalHref": "/learn/statistics/source/#s4",
+          "language": "mixed",
+          "quote": "أكثر مقاومة للـ Outliers من الـ Mean.",
+          "quoteFingerprint": "8011abd40117f050"
+        },
+        {
+          "unitId": "stats:s4",
+          "sourcePath": "content/statistics/source.json",
+          "locator": "sections[id=s4]",
+          "canonicalHref": "/learn/statistics/source/#s4",
+          "language": "mixed",
+          "quote": "يتأثر بالقيم المتطرفة Outliers.",
+          "quoteFingerprint": "7f5c6edbf3a26bc9"
+        }
+      ],
+      "reviewState": "candidate"
+    }
+  ]
+}

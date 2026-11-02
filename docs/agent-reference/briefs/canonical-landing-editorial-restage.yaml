@@ -1,0 +1,463 @@
+# Content brief — canonical landing editorial re-stage (owner-approved 2026-10-30)
+# Filled from docs/agent-reference/CONTENT_BRIEF_TEMPLATE.yaml for the `/` landing
+# redesign. The landing is an experience page, not a lesson: assessment fields
+# are marked not applicable and learning objectives describe reader outcomes.
+schema_version: '1.0'
+page_id: canonical-landing-editorial-restage
+canonical_route: /
+page_title: Amir Abdelhamid — Data Analyst & BI Developer
+status: validated # v3 gate flow validated 2026-10-30 (see revision note at foot)
+language: en
+reading_direction: ltr
+audience: Prospective employers/clients and returning learners arriving at the homepage
+learning_level: mixed
+
+sources:
+  - source_id: SRC-DORGAM-REF
+    original_path: https://dorgambranding.com/ (external design reference, style only — no content copied)
+    subpage: false
+    verified_access: true
+    destination_sections: [sec-hero, sec-about, sec-works]
+    preserve: [] # style reference only; zero content reuse
+    unresolved: []
+  - source_id: SRC-HANSA-CASE-STUDIES
+    original_path: lib/case-studies.ts
+    subpage: false
+    verified_access: true
+    destination_sections: [sec-works]
+    preserve: [titles, subtitles, links, gallery images]
+    unresolved: []
+  - source_id: SRC-HANSA-INSIGHTS
+    original_path: content/knowledge/insights.json
+    subpage: false
+    verified_access: true
+    destination_sections: [sec-today, sec-rail, sec-archive]
+    preserve: [editions, scenario, prediction, takeaway, caveat, sources, review status]
+    unresolved: []
+  - source_id: SRC-HANSA-ATLAS
+    original_path: lib/atlas/server.ts (public projection only)
+    subpage: false
+    verified_access: true
+    destination_sections: [sec-atlas]
+    preserve: [published-only relation guard]
+    unresolved: []
+
+concept_model:
+  primary_concept: The homepage states what the practice is and hands the reader
+    today's insight, the professional work and the learning surface in one flow.
+  prerequisites: []
+  introduces: [today's insight edition, case studies, edition archive]
+  reinforces: [source-backed claims, review status honesty]
+  misconceptions: []
+  related_pages: [/work, /learn/catalogue, /practice/catalogue, /learn/dp-600/atlas/, /about]
+
+learning_objectives:
+  - id: OBJ-1
+    observable_verb: identify
+    statement: 'After reading the landing, the visitor can name what the practice
+      does (data analysis / BI), find today''s insight, and open a case study,
+      the catalogue, practice or the Atlas.'
+    assessment_id: not_applicable # experience page; verified by QA scripts
+
+sections:
+  - section_id: sec-masthead
+    title: Masthead bar
+    source_ids: [SRC-DORGAM-REF]
+    content_forms: [definition]
+    primary_learning_objective: OBJ-1
+    representation:
+      type: prose
+      why_this_representation: 'A one-line mono identity/status bar orients the
+        reader and carries the review status the guard test requires.'
+      static_alternative: accessible_text
+      data_kind: source_backed
+      data_provenance: insight feed status
+      metric_units: []
+      semantic_checks: []
+    interaction:
+      enabled: false
+      purpose: none
+      controls: []
+      outputs: []
+      reset: false
+      invalid_input_behavior: not_applicable
+    library:
+      preferred: existing_local_or_beui
+      exact_component_or_package: markup in components/knowledge/insight-stage.tsx
+      beui_registry_checked_at: 2026-10-30
+      why_complementary_tool_needed: not_applicable
+      license_verified: true
+      external_runtime_service: none
+    accessibility:
+      keyboard_equivalent: static text
+      descriptive_text: rendered text is the description
+      data_table_if_chart: not_applicable
+      reduced_motion: static
+      mobile_behavior: wraps to two lines
+      rtl_behavior: LTR page; layout is direction-agnostic flex
+    references: []
+
+  - section_id: sec-hero
+    title: Display marquee hero
+    source_ids: [SRC-DORGAM-REF]
+    content_forms: [story]
+    primary_learning_objective: OBJ-1
+    representation:
+      type: story
+      why_this_representation: 'The reference site''s signature device — a
+        typography-led repeated-word marquee — states the practice manifesto in
+        the site''s own words. Chosen over (a) a static headline for less
+        presence, and (c) keeping the 3-act pinned camera stage, which the
+        owner asked to replace with an editorial flow.'
+      static_alternative: accessible_text
+      data_kind: none
+      data_provenance: not_applicable
+      metric_units: []
+      semantic_checks: []
+    interaction:
+      enabled: true
+      purpose: orientation
+      controls: [marquee animation (decorative, aria-hidden), pill CTA anchor to #today]
+      outputs: [scroll to today's insight]
+      reset: false
+      invalid_input_behavior: not_applicable
+    library:
+      preferred: existing_local_or_beui
+      exact_component_or_package: components/knowledge/stage-marquee.tsx (CSS keyframe marquee)
+      beui_registry_checked_at: 2026-10-30
+      why_complementary_tool_needed: not_applicable
+      license_verified: true
+      external_runtime_service: none
+    accessibility:
+      keyboard_equivalent: CTA is a focusable anchor; marquee is aria-hidden decoration
+      descriptive_text: marquee repeats a short manifesto; full sentence in static hero copy
+      data_table_if_chart: not_applicable
+      reduced_motion: marquee does not animate; text rendered statically
+      mobile_behavior: clamp() type scale; marquee continues (60s loop), pausable via touch? no — animation keeps running but is decorative; reduced-motion honoured
+      rtl_behavior: LTR page
+    references: ['Visual Opportunity Pass options documented in the plan (2026-10-30): editorial re-stage (selected), keep-3-acts re-skin (rejected: half-measure), theme-only (rejected: insufficient)']
+
+  - section_id: sec-about
+    title: About / positioning block
+    source_ids: [SRC-DORGAM-REF, lib/site.ts SITE identity]
+    content_forms: [definition]
+    primary_learning_objective: OBJ-1
+    representation:
+      type: prose
+      why_this_representation: 'Name + positioning copy mirrors the reference
+        about pattern; uses verified identity facts from lib/site.ts (name, role,
+        location, availability). No invented claims.'
+      static_alternative: accessible_text
+      data_kind: source_backed
+      data_provenance: lib/site.ts SITE
+      metric_units: []
+      semantic_checks: []
+    interaction:
+      enabled: true
+      purpose: orientation
+      controls: [CSS line-reveal on scroll]
+      outputs: []
+      reset: false
+      invalid_input_behavior: not_applicable
+    library:
+      preferred: existing_local_or_beui
+      exact_component_or_package: components/knowledge/stage-about.tsx
+      beui_registry_checked_at: 2026-10-30
+      why_complementary_tool_needed: not_applicable
+      license_verified: true
+      external_runtime_service: none
+    accessibility:
+      keyboard_equivalent: static content
+      descriptive_text: plain text
+      data_table_if_chart: not_applicable
+      reduced_motion: lines visible without animation
+      mobile_behavior: stacked
+      rtl_behavior: LTR page
+    references: []
+
+  - section_id: sec-works
+    title: Featured works marquee
+    source_ids: [SRC-HANSA-CASE-STUDIES]
+    content_forms: [story]
+    primary_learning_objective: OBJ-1
+    representation:
+      type: story
+      why_this_representation: 'The three verified case studies become the
+        portfolio surface the landing never had, using the reference''s infinite
+        marquee with the accessibility pattern its own CSS uses: duplicated
+        groups for a seamless loop, hover/focus-within pause.'
+      static_alternative: accessible_text
+      data_kind: source_backed
+      data_provenance: lib/case-studies.ts (titles, subtitles, links, gallery)
+      metric_units: []
+      semantic_checks: []
+    interaction:
+      enabled: true
+      purpose: orientation
+      controls: [card links to /work/[slug], marquee pauses on hover and focus-within]
+      outputs: [navigation to case studies]
+      reset: false
+      invalid_input_behavior: not_applicable
+    library:
+      preferred: existing_local_or_beui
+      exact_component_or_package: components/knowledge/stage-works.tsx
+      beui_registry_checked_at: 2026-10-30
+      why_complementary_tool_needed: not_applicable
+      license_verified: true
+      external_runtime_service: none
+    accessibility:
+      keyboard_equivalent: every card is a normal focusable link; focus pauses the track
+      descriptive_text: card titles/subtitles are real text
+      data_table_if_chart: not_applicable
+      reduced_motion: static wrapped row instead of a moving track
+      mobile_behavior: single-row track at reduced card width; same pause/link behaviour
+      rtl_behavior: LTR page
+    references: []
+
+  - section_id: sec-today
+    title: The Day's Insight (dealer + reading scene)
+    source_ids: [SRC-HANSA-INSIGHTS]
+    content_forms: [story, simulator, definition]
+    primary_learning_objective: OBJ-1
+    representation:
+      type: simulator
+      why_this_representation: 'The card dealer is the landing''s interactive
+        signature (BeUI Card Dealer adaptation) and is kept functionally
+        unchanged: principle card in hand, caveat/evidence in the deck, reader
+        panel. The scene adds scenario → prediction → takeaway → caveat →
+        sources.'
+      static_alternative: accessible_text
+      data_kind: source_backed
+      data_provenance: content/knowledge/insights.json via eligibleInsights (fail-closed)
+      metric_units: []
+      semantic_checks: [no unreviewed record reaches the stage, no invented data]
+    interaction:
+      enabled: true
+      purpose: exploration
+      controls: [deal, collect, card select, reader close, reveal, evidence toggle, experiment controls]
+      outputs: [derived readout, aria-live announcements, URL ?insight= param]
+      reset: true
+      invalid_input_behavior: not_applicable
+    library:
+      preferred: existing_local_or_beui
+      exact_component_or_package: components/knowledge/knowledge-dealer.tsx + insight-scene.tsx + insight-experiment.tsx (unchanged logic, restyled via scope)
+      beui_registry_checked_at: 2026-10-30
+      why_complementary_tool_needed: not_applicable
+      license_verified: true
+      external_runtime_service: none
+    accessibility:
+      keyboard_equivalent: existing dealer/scene keyboard support preserved
+      descriptive_text: existing reader panel text preserved
+      data_table_if_chart: not_applicable
+      reduced_motion: existing reduce paths preserved (pointer tilt off, static states)
+      mobile_behavior: existing responsive behaviour preserved
+      rtl_behavior: LTR page
+    references: []
+
+  - section_id: sec-rail
+    title: Editions rail + archive
+    source_ids: [SRC-HANSA-INSIGHTS]
+    content_forms: [story]
+    primary_learning_objective: OBJ-1
+    representation:
+      type: story
+      why_this_representation: 'The dated edition rail (drag/flick/keyboard) and
+        the plain-document archive stay; the archive works with JavaScript off.'
+      static_alternative: accessible_text
+      data_kind: source_backed
+      data_provenance: content/knowledge/insights.json
+      metric_units: []
+      semantic_checks: [/?insight= permalinks keep working, #archive anchor intact]
+    interaction:
+      enabled: true
+      purpose: exploration
+      controls: [rail drag/keys, archive open links]
+      outputs: [edition selection]
+      reset: false
+      invalid_input_behavior: not_applicable
+    library:
+      preferred: existing_local_or_beui
+      exact_component_or_package: components/knowledge/insight-rail.tsx + insight-archive.tsx (unchanged)
+      beui_registry_checked_at: 2026-10-30
+      why_complementary_tool_needed: not_applicable
+      license_verified: true
+      external_runtime_service: none
+    accessibility:
+      keyboard_equivalent: existing rail arrow-key support preserved
+      descriptive_text: existing
+      data_table_if_chart: not_applicable
+      reduced_motion: existing fallbacks preserved
+      mobile_behavior: existing responsive behaviour preserved
+      rtl_behavior: LTR page
+    references: []
+
+  - section_id: sec-atlas
+    title: Atlas peek moment
+    source_ids: [SRC-HANSA-ATLAS]
+    content_forms: [graph]
+    primary_learning_objective: OBJ-1
+    representation:
+      type: graph
+      why_this_representation: 'The pinned 3D camera act is replaced by the
+        existing StageAtlasPeek (published-only, labelled as unpublished where
+        applicable). Simpler, lighter, and it is the state that is actually
+        verifiable.'
+      static_alternative: accessible_text
+      data_kind: source_backed
+      data_provenance: lib/atlas/server.ts public projection
+      metric_units: []
+      semantic_checks: [review-preview flag never enabled, no promise of a published graph]
+    interaction:
+      enabled: true
+      purpose: exploration
+      controls: [existing peek controls]
+      outputs: [link to Atlas]
+      reset: false
+      invalid_input_behavior: not_applicable
+    library:
+      preferred: existing_local_or_beui
+      exact_component_or_package: components/knowledge/atlas-peek-stage.tsx (unchanged)
+      beui_registry_checked_at: 2026-10-30
+      why_complementary_tool_needed: not_applicable
+      license_verified: true
+      external_runtime_service: none
+    accessibility:
+      keyboard_equivalent: existing peek support preserved
+      descriptive_text: existing
+      data_table_if_chart: not_applicable
+      reduced_motion: existing fallbacks preserved
+      mobile_behavior: existing responsive behaviour preserved
+      rtl_behavior: LTR page
+    references: []
+
+  - section_id: sec-continue
+    title: Editorial notice + continue learning row
+    source_ids: [SRC-HANSA-INSIGHTS]
+    content_forms: [definition]
+    primary_learning_objective: OBJ-1
+    representation:
+      type: prose
+      why_this_representation: 'Keeps the honest editorial notice and the
+        hand-off links (Learn, Practice, Atlas, Search).'
+      static_alternative: accessible_text
+      data_kind: source_backed
+      data_provenance: content/knowledge/insights.json notice
+      metric_units: []
+      semantic_checks: []
+    interaction:
+      enabled: false
+      purpose: none
+      controls: []
+      outputs: []
+      reset: false
+      invalid_input_behavior: not_applicable
+    library:
+      preferred: existing_local_or_beui
+      exact_component_or_package: markup in components/knowledge/insight-stage.tsx
+      beui_registry_checked_at: 2026-10-30
+      why_complementary_tool_needed: not_applicable
+      license_verified: true
+      external_runtime_service: none
+    accessibility:
+      keyboard_equivalent: links are focusable
+      descriptive_text: plain text
+      data_table_if_chart: not_applicable
+      reduced_motion: static
+      mobile_behavior: wraps
+      rtl_behavior: LTR page
+    references: []
+
+assessments: [] # experience page — no assessments
+
+quality:
+  source_units_found: 4
+  source_units_mapped: 4
+  source_units_verified: 4
+  formulas_checked: not_applicable
+  chart_math_checked: not_applicable
+  accessibility_tested: true # axe 0 findings (qa-canonical-home.mjs ACCESS01); keyboard path, skip link, reduced motion, focus-pause on marquees
+  mobile_tested: true # 320/390/768px in qa-canonical-home.mjs MOBILE01 — 0px horizontal overflow; clamp() type scale
+  static_build_tested: true # npm run build PASS ×3; verify-canonical-home.mjs 34/34
+  existing_behavior_regression_checked: true # test:all 224/224; qa-canonical-home.mjs 45/45 (dealer, rail, archive, permalinks, alias, reduced motion, no-JS)
+  overall_score_out_of_100: 92
+  release_blockers: []
+  evidence_links_or_paths:
+    - docs/canonical-home/BUILD_TEST_LOG.md (Editorial re-stage — 2026-10-30)
+    - docs/canonical-home/evidence/root-desktop-1280-dark.png
+    - docs/canonical-home/evidence/root-desktop-1280-light.png
+    - docs/canonical-home/evidence/root-mobile-390.png
+    - docs/canonical-home/evidence/root-dealer-1280-dark.png
+    - docs/canonical-home/evidence/stage-works-1280-dark.png
+    - docs/canonical-home/evidence/stage-archive-1280-dark.png
+    - docs/canonical-home/evidence/qa-canonical-home.json
+
+handoff:
+  inspected_paths:
+    - components/knowledge/insight-stage.tsx
+    - components/knowledge/hansa-landing.tsx
+    - components/knowledge/observatory.css
+    - components/cinematic/cinematic.css
+    - components/cinematic/spacetime-atlas.tsx
+    - app/globals.css
+    - app/layout.tsx
+    - lib/site.ts
+    - lib/case-studies.ts
+    - docs/canonical-home/FILE_OWNERSHIP.md
+    - tests/knowledge/canonical-home.test.mjs
+    - .agents/skills/hansa-creative-intelligence/SKILL.md
+  changed_paths:
+    - components/knowledge/insight-stage.tsx (re-staged: editorial flow, pinned acts removed, interactive core preserved)
+    - components/knowledge/stage-marquee.tsx (new)
+    - components/knowledge/stage-about.tsx (new)
+    - components/knowledge/stage-works.tsx (new)
+    - components/knowledge/stage-editorial.css (new)
+    - app/globals.css (.stage-ink token scope)
+    - app/layout.tsx (Anton display font, preload off)
+    - components/site-header.tsx (landing header joins .stage-ink scope)
+    - docs/canonical-home/FILE_OWNERSHIP.md (stage table, retired table, import graph)
+    - docs/canonical-home/INTEGRATION_MANIFEST.json (5 retirement receipts appended)
+    - docs/canonical-home/BUILD_TEST_LOG.md (re-stage section)
+    - scripts/verify-canonical-home.mjs + scripts/qa-canonical-home.mjs (marker lists follow the deliberate copy change)
+    - lib/atlas/field.ts (comment only — renderer reference retired)
+    - docs/agent-reference/briefs/canonical-landing-editorial-restage.yaml (this brief)
+  retired_paths:
+    - components/cinematic/spacetime-atlas.tsx
+    - components/cinematic/spacetime.css
+    - components/cinematic/cinematic.css
+    - components/cinematic/use-scroll-progress.ts
+    - components/knowledge/knowledge-atmosphere.tsx
+  added_dependencies_with_versions: [] # Anton via next/font/google (OFL, self-hosted) — no npm dependency
+  external_services_and_costs: [none — free/local only]
+  tests_passed:
+    - npm run test:knowledge (33/33)
+    - npm run test:all (224/224, 6 suites)
+    - npx tsc --noEmit
+    - npm run lint (0 errors; 14 warnings all pre-existing outside touched files)
+    - node scripts/verify-canonical-home.mjs (34/34)
+    - node scripts/qa-canonical-home.mjs (45/45, incl. axe ACCESS01: 0 findings)
+  tests_failed: []
+  tests_not_run:
+    - Production smoke test on the live host (deployment not authorized)
+    - Screen-reader session beyond axe + keyboard traversal
+  unresolved_questions:
+    - Manifesto wording is a proposal ('(DATA) IS (EVIDENCE) & (JUDGMENT)');
+      owner may adjust copy without structural change.
+    - The 2026-10-28 seal layer reports UNSEALED files (pre-existing drift in
+      lib/site.ts, tsconfig.json, preservation scripts — none from this task);
+      this re-stage deliberately did not re-seal into that layer.
+  next_atomic_task: Seal a new canonical-home receipt layer for the editorial
+    re-stage (own seal invocation, not a rewrite of the 2026-10-28 layer), then
+    owner review of the manifesto copy.
+
+# REVISION v3 (same day, owner-corrected): the v2 editorial re-stage took the
+# reference's black/amber skin; the owner wanted its full-viewport scroll
+# structure only. v3: palette reverted (site light/dark themes restored — the
+# theme toggle works again), Anton removed (Geist only), page rebuilt as gates:
+# date hero (live date, edition-date fallback) → full-viewport card-dealer
+# takeover → insight scene + rail → Learn Gate (lib/catalogue.ts) → certificate
+# gate (banks + coverage.byObjective bar list). stage-marquee/stage-works
+# retired with receipts; stage-about survives as the compact footer strip;
+# use-scroll-progress restored to drive the gate rises. beUI bar-chart blocked
+# (no license in registry JSON) → honest local bar list. Evidence:
+# docs/canonical-home/BUILD_TEST_LOG.md "Landing v3" section; gates captured in
+# docs/canonical-home/evidence/stage-*.png.

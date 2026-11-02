@@ -5,21 +5,34 @@
 // component below receives plain data and callbacks. Identity is always an
 // insight ID, never a visual position.
 //
-// Phase 2 turns the page into one continuous spatial narrative:
+// Gate flow (v3, 2026-10-30): the landing is a stack of full-viewport gates.
 //
-//   Act I   — the Day's Insight card dealer is the hero. A principle card is
-//             already on the table; the deck holds its caveat and evidence.
-//   Handoff — scrolling turns that card into a field seed. The card does not
-//             fade out and get replaced: it grows, squares up and dissolves into
-//             the same centre the Atlas camera is already orbiting.
-//   Act II  — the Spacetime Atlas: a real perspective camera travels through
-//             vertices that are all public records, with the semantic relation
-//             layer labelled as unpublished rather than invented.
-//   Act III — the constellation hands over to the existing scenario, instrument,
-//             date rail and archive, each entering with its own choreography.
+//   Gate 0  TODAY      — the date is the hero; the CTA swaps it for a
+//                        full-viewport card dealer, and dealing reveals the
+//                        day's insight cards.
+//   Gate 1  INSIGHT    — the full edition: scene, concept instrument, and the
+//                        dated editions rail (#today anchor).
+//   Gate 2  LEARN      — a hand-off into the learning catalogue.
+//   Gate 3  CERTIFY    — the question banks and the per-objective coverage.
+//   Footer  context    — about strip, Atlas peek, archive hand-off.
 //
-// The whole page shares one selection state. Choosing an edition in the dealer,
-// in the field, in the rail, in the archive or in the URL moves every act.
+// The choreography is native scrolling: compact gates are sticky 100svh
+// siblings and the next gate rises over the pinned previous one with a soft
+// top edge, behind which the covered gate dissolves. Two passive "enter"
+// readings drive the rise through custom properties written on the gate
+// canvases (never on the stage root — an inherited property there invalidated
+// ~800 nodes per frame in an earlier stage). Content opacity never drops, so
+// text stays AA-contrast at every scroll position. Reduced motion and small
+// screens drop the pinning entirely; every word stays readable.
+//
+// Every observable is already reviewed content:
+//   - the insights feed is read through `eligibleInsights` upstream, so an
+//     unreviewed record can never reach the stage;
+//   - the Atlas context is the default public projection — the review-preview
+//     flag is never switched on here, so a draft relation cannot leak in.
+//
+// The whole page shares one selection state. Choosing an edition in the
+// dealer, in the rail, in the archive or in the URL moves every gate.
 
 import {
   useCallback,
@@ -40,26 +53,41 @@ import {
   insightCards,
   type ExperimentState,
 } from "@/lib/knowledge/models";
-import { buildField, clamp01, smoothstep } from "@/lib/atlas/field";
+import { buildField, clamp01 } from "@/lib/atlas/field";
 import { CINEMATIC } from "@/lib/motion/cinematic";
 import { InsightRail, type RailEvent } from "@/components/knowledge/insight-rail";
 import { InsightScene, type SceneState } from "@/components/knowledge/insight-scene";
 import { KnowledgeDealer, type DealerZone } from "@/components/knowledge/knowledge-dealer";
 import { StageAtlasPeek } from "@/components/knowledge/atlas-peek-stage";
 import { InsightArchive } from "@/components/knowledge/insight-archive";
-import { KnowledgeAtmosphere } from "@/components/knowledge/knowledge-atmosphere";
 import { KnowledgeInstrument } from "@/components/knowledge/knowledge-instrument";
 import { Reveal } from "@/components/cinematic/reveal";
-import { SpacetimeAtlas } from "@/components/cinematic/spacetime-atlas";
 import { useCalmMotion } from "@/components/cinematic/use-calm-motion";
-import { useScrollProgress, staticReading, type ScrollReading } from "@/components/cinematic/use-scroll-progress";
+import { useScrollProgress } from "@/components/cinematic/use-scroll-progress";
+import { StageToday } from "./stage-today";
+import { StageLearnGate } from "./stage-learn-gate";
+import { StageCertGate } from "./stage-cert-gate";
+import { StageAbout } from "./stage-about";
 import "./observatory.css";
-import "@/components/cinematic/cinematic.css";
+import "./stage-editorial.css";
 
 const CLOSED: SceneState = { revealed: false, evidenceOpen: false };
 
 /** The principle card starts on the table; caveat and evidence stay in the deck. */
 const defaultZone = (kind: string): DealerZone => (kind === "principle" ? "hand" : "deck");
+
+/**
+ * An "enter" reading crosses 0→1 over viewport + height; a 100svh gate is
+ * pinned when its top reaches 0, i.e. at p = viewport/(viewport+height). The
+ * rise normalises the reading so a gate fully in place always reads 1 —
+ * including gates whose content grew them past one viewport.
+ */
+function riseOf(element: HTMLElement, progress: number) {
+  const rect = element.getBoundingClientRect();
+  const viewport = window.innerHeight || 1;
+  const atPin = viewport / (viewport + Math.max(rect.height, 1));
+  return clamp01(progress / atPin);
+}
 
 export function InsightStage({
   items,
@@ -82,64 +110,43 @@ export function InsightStage({
   const [announcement, setAnnouncement] = useState("");
   const [message, setMessage] = useState("");
   const stageRef = useRef<HTMLDivElement>(null);
-  const environmentRef = useRef<HTMLDivElement | null>(null);
-  const editionLinkRef = useRef<HTMLAnchorElement | null>(null);
-  const seedWrapRef = useRef<HTMLDivElement | null>(null);
 
-  // Act progress. Three passive readings: the hero's first viewport of travel,
-  // the handoff band, and the pinned Atlas. No scroll controller is installed,
-  // so native scrolling, scroll restoration and anchors are untouched.
-  const heroRef = useRef<HTMLElement | null>(null);
-  const handoffRef = useRef<HTMLDivElement | null>(null);
-  const fieldSectionRef = useRef<HTMLElement | null>(null);
-  const heroReading = useScrollProgress(heroRef, "leave");
-  const handoffReading = useScrollProgress(handoffRef, "pinned");
-  const fieldReading = useScrollProgress(fieldSectionRef, "pinned");
-  const fieldProgress = reduce ? staticReading(1) : fieldReading;
+  // Gate rises. Two "enter" readings for the two gates that arrive from
+  // below; each writes --gate-rise on its own canvas (transform + soft-edge
+  // mask only — content opacity never drops, so text stays AA-contrast at
+  // every scroll position).
+  const learnSectionRef = useRef<HTMLElement>(null);
+  const learnCanvasRef = useRef<HTMLDivElement>(null);
+  const certSectionRef = useRef<HTMLElement>(null);
+  const certCanvasRef = useRef<HTMLDivElement>(null);
+  const learnReading = useScrollProgress(learnSectionRef, "enter");
+  const certReading = useScrollProgress(certSectionRef, "enter");
 
-  // The three acts are choreographed through custom properties, not React
-  // state: a scroll frame writes six numbers and the compositor does the rest.
-  // Each property is written on the element that consumes it, never on the
-  // stage root — an inherited custom property on 800 nodes invalidates the whole
-  // subtree, which measured as ~100ms per frame on a throttled phone. Eased
-  // values are pre-computed here because CSS has no smoothstep.
   useEffect(() => {
-    const link = editionLinkRef.current;
-    const seed = seedWrapRef.current;
-    const environment = environmentRef.current;
-    if (!link || !seed || !environment) return;
-    const targets = [link, seed, environment];
+    const learnCanvas = learnCanvasRef.current;
+    const certCanvas = certCanvasRef.current;
+    if (!learnCanvas || !certCanvas) return;
+    const targets = [learnCanvas, certCanvas];
     if (reduce) {
       for (const target of targets) {
-        target.style.removeProperty("--hero-p");
-        target.style.removeProperty("--handoff-p");
-        target.style.removeProperty("--handoff-ease");
-        target.style.removeProperty("--handoff-fade");
-        target.style.removeProperty("--field-p");
+        target.style.removeProperty("--gate-rise");
       }
       return;
     }
     const paint = () => {
-      const handoff = handoffReading.current;
-      link.style.setProperty("--hero-p", heroReading.current.toFixed(4));
-      seed.style.setProperty("--handoff-p", handoff.toFixed(4));
-      seed.style.setProperty("--handoff-ease", smoothstep(handoff).toFixed(4));
-      seed.style.setProperty(
-        "--handoff-fade",
-        smoothstep(clamp01((handoff - 0.68) / 0.32)).toFixed(4),
-      );
-      environment.style.setProperty("--field-p", fieldReading.current.toFixed(4));
+      learnCanvas.style.setProperty("--gate-rise", riseOf(learnCanvas, learnReading.current).toFixed(4));
+      certCanvas.style.setProperty("--gate-rise", riseOf(certCanvas, certReading.current).toFixed(4));
     };
     paint();
-    const unsubscribes = [heroReading, handoffReading, fieldReading].map((reading) =>
+    const unsubscribes = [learnReading, certReading].map((reading) =>
       reading.subscribe(paint),
     );
     return () => {
       for (const unsubscribe of unsubscribes) unsubscribe();
     };
-  }, [heroReading, handoffReading, fieldReading, reduce]);
+  }, [learnReading, certReading, reduce]);
 
-  // Pointer tilt for the hero dealer. Motion values keep a pointer sweep off
+  // Pointer tilt for the dealer. Motion values keep a pointer sweep off
   // React's render path; they are switchable off through reduced motion or a
   // coarse pointer.
   const tiltX = useMotionValue(0);
@@ -224,8 +231,8 @@ export function InsightStage({
     [items, reduce, selectedId],
   );
 
-  // The field consumes the public Atlas projection and the approved editions,
-  // never the review-preview flag and never a hand-written vertex.
+  // The status line reads the public Atlas projection and the approved
+  // editions — never the review-preview flag and never a hand-written vertex.
   const field = useMemo(() => buildField(atlas, items), [atlas, items]);
 
   if (!insight) {
@@ -258,7 +265,6 @@ export function InsightStage({
   const deck = cards.filter((card) => card.zone === "deck");
   const activeCard = cards.find((card) => card.id === activeCardId) ?? null;
   const body = activeCard ? cardBody(insight, activeCard.kind) : null;
-  
 
   function toggleScene(key: keyof SceneState) {
     setScenes((previous) => {
@@ -311,307 +317,169 @@ export function InsightStage({
     );
   }
 
+  const dealer = (
+    <motion.div
+      className="stage-dealer-stage"
+      style={{
+        rotateX: reduce ? 0 : tiltXSpring,
+        rotateY: reduce ? 0 : tiltYSpring,
+        x: reduce ? 0 : magnetXSpring,
+        y: reduce ? 0 : magnetYSpring,
+        transformPerspective: CINEMATIC.depth.perspective,
+      }}
+      onPointerMove={(event) => {
+        if (reduce || event.pointerType !== "mouse" || window.innerWidth < 768) return;
+        const rect = event.currentTarget.getBoundingClientRect();
+        const x = (event.clientX - rect.left) / rect.width - 0.5;
+        const y = (event.clientY - rect.top) / rect.height - 0.5;
+        tiltY.set(x * CINEMATIC.pointer.tilt * 2);
+        tiltX.set(y * -CINEMATIC.pointer.tilt * 1.4);
+        magnetX.set(x * CINEMATIC.pointer.magnetic);
+        magnetY.set(y * CINEMATIC.pointer.magnetic * 0.6);
+      }}
+      onPointerLeave={() => {
+        tiltX.set(0);
+        tiltY.set(0);
+        magnetX.set(0);
+        magnetY.set(0);
+      }}
+    >
+      <div className="stage-dealer-halo" aria-hidden="true" />
+      <div className="stage-dealer-ring" aria-hidden="true" />
+      <KnowledgeDealer
+        cards={cards}
+        density="hero"
+        activeId={activeCardId}
+        onSelect={toggleCard}
+        onDeal={deal}
+        onCollect={collect}
+        onCloseReader={() => setActiveCardId(null)}
+        status={status}
+        reader={
+          activeCard && body ? (
+            <div>
+              <p className="text-[10px] font-medium uppercase tracking-[0.14em] text-muted-foreground">
+                {activeCard.eyebrow}
+              </p>
+              <h3 className="mt-1.5 text-[17px] font-medium leading-6 tracking-tight">
+                {activeCard.title}
+              </h3>
+              <p className="mt-2.5 text-[14px] leading-7">{body.quote}</p>
+              <p className="mt-2 text-xs leading-6 text-muted-foreground">
+                {body.note}
+              </p>
+              <div className="mt-3 flex flex-wrap items-center gap-x-4 gap-y-2 border-t border-border pt-3">
+                {body.href ? (
+                  <a
+                    href={body.href}
+                    {...(body.href.startsWith("http")
+                      ? { target: "_blank", rel: "noreferrer noopener" }
+                      : {})}
+                    className="inline-flex min-h-11 items-center gap-1.5 text-[13px] font-medium underline underline-offset-4"
+                  >
+                    {body.hrefLabel}
+                    <ArrowUpRight className="size-3.5" aria-hidden="true" />
+                  </a>
+                ) : null}
+                <span className="font-mono text-[10px] uppercase tracking-[0.12em] text-muted-foreground">
+                  {body.meta}
+                </span>
+              </div>
+            </div>
+          ) : null
+        }
+      />
+      <p className="stage-dealer-caption">
+        The principle card is on the table. Deal its caveat and its source
+        check; nothing here is generated copy.
+      </p>
+    </motion.div>
+  );
+
   return (
-    <>
-      <div
-        ref={stageRef}
-        className="hansa-stage observatory cine-root relative isolate overflow-clip"
-      >
-        <KnowledgeAtmosphere />
-        <div ref={environmentRef} className="cine-environment" aria-hidden="true">
-          <div className="cine-aurora" />
-          <div className="cine-thread" />
-        </div>
-
-        {/* ------------------------------------------------------------ ACT I */}
-        <section
-          ref={heroRef}
-          aria-labelledby="cine-hero-title"
-          className="cine-hero"
-        >
-          <div className="mx-auto w-full max-w-[1320px] px-5 md:px-8">
-            <div className="flex flex-wrap items-center justify-between gap-2 border-b border-border-strong pb-3 font-mono text-[10px] uppercase tracking-[0.16em] text-muted-foreground">
-              <span>Hansa / Knowledge stage</span>
-              <span>Editions under editorial review · Technical review</span>
-            </div>
-
-            <div className="cine-hero-grid">
-              <div>
-                <p className="cine-kicker">The daily insight</p>
-                <h1 id="cine-hero-title" className="cine-headline">
-                  <span>One idea.</span>
-                  <em>A different way to see it.</em>
-                </h1>
-                <p className="cine-lede">
-                  Deal the card. Read the claim, its caveat and its source. Then
-                  follow the same idea out of your hand and into a field you can
-                  travel through.
-                </p>
-
-                <a ref={editionLinkRef} className="cine-edition-link" href="#today">
-                  <span className="cine-edition-index" aria-hidden="true">
-                    01
-                  </span>
-                  <span>
-                    <time dateTime={insight.date}>{editionDate(insight.date)}</time>
-                    <strong>{insight.title}</strong>
-                  </span>
-                  <ArrowUpRight aria-hidden="true" className="size-5 shrink-0" />
-                </a>
-
-                <p className="cine-hero-status">
-                  <span>
-                    <span className="dot" aria-hidden="true" />
-                    {insight.topic} · {items.length} preview editions
-                  </span>
-                  <span>
-                    {field.pending
-                      ? "Atlas semantic layer awaiting publication"
-                      : `${field.links.length} published connections`}
-                  </span>
-                </p>
-              </div>
-
-              <motion.div
-                className="cine-dealer-stage"
-                style={{
-                  rotateX: reduce ? 0 : tiltXSpring,
-                  rotateY: reduce ? 0 : tiltYSpring,
-                  x: reduce ? 0 : magnetXSpring,
-                  y: reduce ? 0 : magnetYSpring,
-                  transformPerspective: CINEMATIC.depth.perspective,
-                }}
-                onPointerMove={(event) => {
-                  if (reduce || event.pointerType !== "mouse" || window.innerWidth < 768) return;
-                  const rect = event.currentTarget.getBoundingClientRect();
-                  const x = (event.clientX - rect.left) / rect.width - 0.5;
-                  const y = (event.clientY - rect.top) / rect.height - 0.5;
-                  tiltY.set(x * CINEMATIC.pointer.tilt * 2);
-                  tiltX.set(y * -CINEMATIC.pointer.tilt * 1.4);
-                  magnetX.set(x * CINEMATIC.pointer.magnetic);
-                  magnetY.set(y * CINEMATIC.pointer.magnetic * 0.6);
-                }}
-                onPointerLeave={() => {
-                  tiltX.set(0);
-                  tiltY.set(0);
-                  magnetX.set(0);
-                  magnetY.set(0);
-                }}
-              >
-                <div className="cine-dealer-halo" aria-hidden="true" />
-                <div className="cine-dealer-ring" aria-hidden="true" />
-                <KnowledgeDealer
-                  cards={cards}
-                  density="hero"
-                  activeId={activeCardId}
-                  onSelect={toggleCard}
-                  onDeal={deal}
-                  onCollect={collect}
-                  onCloseReader={() => setActiveCardId(null)}
-                  status={status}
-                  reader={
-                    activeCard && body ? (
-                      <div>
-                        <p className="text-[10px] font-medium uppercase tracking-[0.14em] text-muted-foreground">
-                          {activeCard.eyebrow}
-                        </p>
-                        <h3 className="mt-1.5 text-[17px] font-medium leading-6 tracking-tight">
-                          {activeCard.title}
-                        </h3>
-                        <p className="mt-2.5 text-[14px] leading-7">{body.quote}</p>
-                        <p className="mt-2 text-xs leading-6 text-muted-foreground">
-                          {body.note}
-                        </p>
-                        <div className="mt-3 flex flex-wrap items-center gap-x-4 gap-y-2 border-t border-border pt-3">
-                          {body.href ? (
-                            <a
-                              href={body.href}
-                              {...(body.href.startsWith("http")
-                                ? { target: "_blank", rel: "noreferrer noopener" }
-                                : {})}
-                              className="inline-flex min-h-11 items-center gap-1.5 text-[13px] font-medium underline underline-offset-4"
-                            >
-                              {body.hrefLabel}
-                              <ArrowUpRight className="size-3.5" aria-hidden="true" />
-                            </a>
-                          ) : null}
-                          <span className="font-mono text-[10px] uppercase tracking-[0.12em] text-muted-foreground">
-                            {body.meta}
-                          </span>
-                        </div>
-                      </div>
-                    ) : null
-                  }
-                />
-                <p className="cine-dealer-caption">
-                  The principle card is on the table. Deal its caveat and its
-                  source check; nothing here is generated copy.
-                </p>
-              </motion.div>
-            </div>
-
-            <p className="cine-cue" aria-hidden="true">
-              <span className="rail" />
-              <span>Scroll · the card becomes an idea</span>
-            </p>
-          </div>
-        </section>
-
-        {/* -------------------------------------------------------- HANDOFF */}
-        <section
-          ref={handoffRef}
-          aria-label="Transition from the card into the knowledge field"
-          className="cine-handoff"
-        >
-          <div className="cine-handoff-pin">
-            <div ref={seedWrapRef} className="cine-seed-wrap">
-              <span aria-hidden="true" className="cine-seed-orbit" />
-              <span aria-hidden="true" className="cine-seed-orbit" />
-              <article className="cine-seed" aria-hidden="true">
-                <div>
-                  <p className="seed-index">Principle · {insight.topic}</p>
-                  <h2>{insight.cardTitle}</h2>
-                  <p>{insight.takeaway}</p>
-                </div>
-                <p className="seed-foot">
-                  <span>{editionDate(insight.date)}</span>
-                  <span>→ field</span>
-                </p>
-              </article>
-            </div>
-            <p className="cine-seed-caption" aria-hidden="true">
-              A card becomes an idea · the field opens at the same centre
-            </p>
-          </div>
-        </section>
-
-        {/* ----------------------------------------------------------- ACT II */}
-        <section
-          ref={fieldSectionRef}
-          id="field"
-          aria-labelledby="cine-atlas-title"
-          className="cine-atlas"
-        >
-          <div className="cine-atlas-pin">
-            <div className="mx-auto w-full max-w-[1320px] px-5 md:px-8">
-              <div className="cine-atlas-head">
-                <div>
-                  <p className="cine-kicker" style={{ color: "var(--primary)" }}>
-                    02 / Knowledge Atlas
-                  </p>
-                  <h2 id="cine-atlas-title" className="cine-act-title">
-                    An idea becomes <em>a constellation</em>.
-                  </h2>
-                </div>
-                <p className="cine-atlas-note">
-                  Every vertex is a reviewed edition, the concept that edition
-                  states, or a real lesson, practice and source destination.
-                  Scrolling moves the camera; you can also orbit, zoom and select.
-                </p>
-              </div>
-
-              <SpacetimeAtlas
-                field={field}
-                progress={fieldProgress}
-                selectedEditionId={insight.id}
-                onSelectEdition={choose}
-                conceptLabel={insight.topic}
-              />
-
-              <AtlasDolly reading={fieldProgress} />
-            </div>
-          </div>
-        </section>
-
-        {/* The coda is a sibling of the pinned section, not a child: while the
-            camera is pinned the section owns the viewport, and the semantic
-            layer only arrives after the travel has finished. */}
-        <div className="cine-atlas-coda">
-          <div className="mx-auto w-full max-w-[1320px] px-5 md:px-8">
-            <Reveal pattern="depth" duration={CINEMATIC.duration.settle}>
-              <StageAtlasPeek
-                atlas={atlas}
-                conceptId={insight.conceptId}
-                lessonHref={insight.lessonHref}
-                practiceHref={insight.practiceHref}
-                contextTitle={insight.topic}
-              />
-            </Reveal>
+    <div>
+      {/* pt clears the fixed site header; the first gate's canvas padding keeps
+          its pinned content clear too. */}
+      <div className="hansa-stage observatory relative isolate overflow-clip pt-[104px]">
+        {/* ------------------------------------------------------- masthead */}
+        <div className="mx-auto w-full max-w-[1320px] px-5 pt-5 md:px-8">
+          <div className="flex flex-wrap items-center justify-between gap-2 border-b border-border-strong pb-3 font-mono text-[10px] uppercase tracking-[0.16em] text-muted-foreground">
+            <span>Hansa / Knowledge stage</span>
+            <span>Editions under editorial review · Technical review</span>
           </div>
         </div>
 
-        {/* ---------------------------------------------------------- ACT III */}
-        <div className="cine-content">
-          <div className="mx-auto w-full max-w-[1320px] px-5 md:px-8">
-            <div className="cine-seam" aria-hidden="true">
-              <span className="line" />
-              <span className="node" />
-              <span className="line" />
-            </div>
+        {/* ------------------------------------------------ GATE 0 — today */}
+        <section aria-label="Today" className="stage-gate">
+          <div className="stage-gate-canvas stage-gate-canvas-first">
+            <StageToday
+              editionDateLabel={editionDate(insight.date)}
+              topic={insight.topic}
+              editions={items.length}
+              connections={{ pending: field.pending, links: field.links.length }}
+              dealer={dealer}
+              dealerStatus={status}
+            />
+          </div>
+        </section>
 
-            <Reveal pattern="mask" className="cine-act-head">
-              <div>
-                <p className="cine-kicker">
-                  03 / Knowledge unfolds
-                </p>
-                <h2 className="cine-act-title">
-                  The constellation becomes <em>something to do</em>.
-                </h2>
-              </div>
-              <p>
-                The field has handed over the edition you chose. Work the
-                situation, change one assumption, then walk the dated editions.
-                Motion is here to show sequence and cause; every word stays
-                readable without it.
+        {/* --------------------------------------- GATE 1 — today's insight */}
+        {/* bg-background is structural, not decorative: this tall section is
+            what covers the pinned Gate 0 (and its open takeover) as the reader
+            scrolls on. */}
+        <section
+          ref={stageRef}
+          id="today"
+          aria-labelledby="stage-insight-title"
+          className="relative scroll-mt-24 border-t border-border-strong bg-background"
+        >
+          <div className="mx-auto w-full max-w-[1320px] px-5 py-14 md:px-8">
+            <Reveal pattern="mask">
+              <p className="stage-kicker">The day&rsquo;s insight</p>
+              <h2 id="stage-insight-title" className="stage-gate-title">
+                Today&rsquo;s idea, <em>dealt</em>.
+              </h2>
+              <p className="stage-section-note">
+                The cards you dealt above, unfolded: work the situation, change
+                one assumption, then walk the dated editions. Motion shows
+                sequence and cause; every word stays readable without it.
               </p>
             </Reveal>
 
-            <div ref={stageRef} id="today" className="cine-study scroll-mt-24">
-              <Reveal pattern="rise" order={0}>
-                <InsightScene
-                  insight={insight}
-                  scene={scene}
-                  experimentId={experimentId}
-                  experiment={experiment}
-                  onExperimentChange={changeExperiment}
-                  onToggleReveal={() => toggleScene("revealed")}
-                  onToggleEvidence={() => toggleScene("evidenceOpen")}
-                  direction={direction}
-                />
-              </Reveal>
+            <Reveal pattern="rise" order={1} className="mt-10">
+              <InsightScene
+                insight={insight}
+                scene={scene}
+                experimentId={experimentId}
+                experiment={experiment}
+                onExperimentChange={changeExperiment}
+                onToggleReveal={() => toggleScene("revealed")}
+                onToggleEvidence={() => toggleScene("evidenceOpen")}
+                direction={direction}
+              />
+            </Reveal>
 
-              <Reveal
-                pattern="rotate"
-                order={1}
-                interval={CINEMATIC.stagger.wide}
-                className="cine-instrument"
-              >
-                <div className="mb-3 flex items-center justify-between gap-3">
-                  <p className="font-mono text-[10px] uppercase tracking-[0.16em] text-muted-foreground">
-                    Concept instrument
-                  </p>
-                  <span className="font-mono text-[9px] uppercase tracking-[0.14em] text-muted-foreground">
-                    {insight.conceptId.replace("concept:fabric:", "")}
-                  </span>
-                </div>
-                <KnowledgeInstrument
-                  id={experimentId}
-                  state={experiment}
-                  onChange={changeExperiment}
-                />
-                <p className="observatory-caption">
-                  A conceptual instrument, not a live Fabric execution. Change an
-                  assumption; follow what changes, then read the exact model below.
+            <Reveal pattern="rotate" order={2} interval={CINEMATIC.stagger.wide} className="mt-14">
+              <div className="mb-3 flex items-center justify-between gap-3">
+                <p className="font-mono text-[10px] uppercase tracking-[0.16em] text-muted-foreground">
+                  Concept instrument
                 </p>
-              </Reveal>
-            </div>
+                <span className="font-mono text-[9px] uppercase tracking-[0.14em] text-muted-foreground">
+                  {insight.conceptId.replace("concept:fabric:", "")}
+                </span>
+              </div>
+              <KnowledgeInstrument
+                id={experimentId}
+                state={experiment}
+                onChange={changeExperiment}
+              />
+              <p className="observatory-caption">
+                A conceptual instrument, not a live Fabric execution. Change an
+                assumption; follow what changes, then read the exact model below.
+              </p>
+            </Reveal>
 
-            <Reveal
-              pattern="depth"
-              order={0}
-              className="cine-time cine-block"
-              duration={CINEMATIC.duration.entrySlow}
-            >
+            <Reveal pattern="depth" order={0} duration={CINEMATIC.duration.entrySlow} className="mt-16">
               <div className="mb-2 flex flex-wrap items-center justify-between gap-2 font-mono text-[10px] uppercase tracking-[0.16em] text-muted-foreground">
                 <span>Editions · newest first · drag to explore</span>
                 <a
@@ -629,50 +497,90 @@ export function InsightStage({
                 itemWidth={240}
               />
             </Reveal>
+          </div>
+        </section>
 
-            <Reveal pattern="slide-start" order={0} className="cine-block">
-              <p className="cine-scroll-hint">
-                Selected in the field · {insight.topic} · {insight.cardTitle}
-              </p>
-              <nav aria-label="Continue learning" className="cine-continue text-sm">
-                <span className="font-mono text-[10px] uppercase tracking-[0.16em] text-muted-foreground">
-                  Continue
-                </span>
-                <Link
-                  href="/learn/catalogue"
-                  className="inline-flex min-h-11 items-center underline decoration-border-strong underline-offset-4 hover:decoration-primary"
-                >
-                  Learn the craft
-                </Link>
-                <Link
-                  href={insight.practiceHref}
-                  className="inline-flex min-h-11 items-center underline decoration-border-strong underline-offset-4 hover:decoration-primary"
-                >
-                  Practise this area
-                </Link>
-                <Link
-                  href="/learn/dp-600/atlas/"
-                  className="inline-flex min-h-11 items-center underline decoration-border-strong underline-offset-4 hover:decoration-primary"
-                >
-                  Check the Atlas state
-                </Link>
-                <Link
-                  href="/search/"
-                  className="inline-flex min-h-11 items-center underline decoration-border-strong underline-offset-4 hover:decoration-primary"
-                >
-                  Search all of Hansa
-                </Link>
-              </nav>
+        {/* ------------------------------------------------ GATE 2 — learn */}
+        <section
+          ref={learnSectionRef}
+          aria-labelledby="stage-learn-title"
+          className="stage-gate border-t border-border-strong"
+        >
+          <div ref={learnCanvasRef} className="stage-gate-canvas">
+            <StageLearnGate />
+          </div>
+        </section>
+
+        {/* ------------------------------------------- GATE 3 — certificate */}
+        <section
+          ref={certSectionRef}
+          aria-labelledby="stage-cert-title"
+          className="stage-gate border-t border-border-strong"
+        >
+          <div ref={certCanvasRef} className="stage-gate-canvas">
+            <StageCertGate />
+          </div>
+        </section>
+
+        {/* ----------------------------------------- footer-context strips */}
+        <div className="border-t border-border-strong bg-background">
+          <StageAbout variant="compact" />
+        </div>
+
+        <section aria-label="Atlas context" className="border-t border-border-strong bg-background">
+          <div className="mx-auto w-full max-w-[1320px] px-5 py-12 md:px-8">
+            <Reveal pattern="depth" order={0} duration={CINEMATIC.duration.settle}>
+              <StageAtlasPeek
+                atlas={atlas}
+                conceptId={insight.conceptId}
+                lessonHref={insight.lessonHref}
+                practiceHref={insight.practiceHref}
+                contextTitle={insight.topic}
+              />
             </Reveal>
+          </div>
+        </section>
 
-            <p className="pb-10 text-[11px] leading-5 text-muted-foreground">
+        <section aria-label="Continue" className="border-t border-border-strong bg-background">
+          <div className="mx-auto w-full max-w-[1320px] px-5 py-12 md:px-8">
+            <p className="font-mono text-[10px] uppercase tracking-[0.16em] text-muted-foreground">
+              Selected · {insight.topic} · {insight.cardTitle}
+            </p>
+            <nav aria-label="Continue learning" className="mt-4 flex flex-wrap gap-x-6 gap-y-3 text-sm">
+              <Link
+                href="/learn/catalogue"
+                className="inline-flex min-h-11 items-center underline decoration-border-strong underline-offset-4 hover:decoration-primary"
+              >
+                Learn the craft
+              </Link>
+              <Link
+                href={insight.practiceHref}
+                className="inline-flex min-h-11 items-center underline decoration-border-strong underline-offset-4 hover:decoration-primary"
+              >
+                Practise this area
+              </Link>
+              <Link
+                href="/learn/dp-600/atlas/"
+                className="inline-flex min-h-11 items-center underline decoration-border-strong underline-offset-4 hover:decoration-primary"
+              >
+                Check the Atlas state
+              </Link>
+              <Link
+                href="/search/"
+                className="inline-flex min-h-11 items-center underline decoration-border-strong underline-offset-4 hover:decoration-primary"
+              >
+                Search all of Hansa
+              </Link>
+            </nav>
+
+            <p className="mt-10 text-[11px] leading-5 text-muted-foreground">
               {message || notice}
             </p>
             <p role="status" aria-live="polite" className="sr-only">
               {announcement}
             </p>
           </div>
-        </div>
+        </section>
       </div>
 
       <InsightArchive items={items} onOpen={(id) => choose(id, { scroll: true })} />
@@ -680,43 +588,16 @@ export function InsightStage({
       <noscript>
         <p className="mx-auto max-w-[1200px] px-5 pb-16 text-sm text-muted-foreground md:px-8">
           JavaScript is off. Every preview edition, its reasoning, caveat and
-          source is readable in the archive above; the rail, the card tray, the
-          spatial field and the reasoning disclosure need JavaScript.
+          source is readable in the archive above; the card table, the rail and
+          the reasoning disclosure need JavaScript.
         </p>
       </noscript>
-    </>
+    </div>
   );
 }
 
 function labelFor(insight: Insight) {
   return `Edition ${editionDate(insight.date)}`;
-}
-
-/**
- * The dolly readout is the one part of Act II that is real text, so it cannot be
- * a CSS variable. It subscribes to the reading in its own leaf component: a 1%
- * step re-renders this row and nothing else, while the camera itself moves every
- * frame without a React render.
- */
-function AtlasDolly({ reading }: { reading: ScrollReading }) {
-  const [percent, setPercent] = useState(() => Math.round(reading.current * 100));
-  useEffect(
-    () =>
-      reading.subscribe((value) => {
-        const next = Math.round(value * 100);
-        setPercent((previous) => (previous === next ? previous : next));
-      }),
-    [reading],
-  );
-  return (
-    <div className="cine-atlas-progress" aria-hidden="true">
-      <span>dolly {percent}%</span>
-      <span className="track">
-        <span style={{ width: `${percent}%` }} />
-      </span>
-      <span>continue</span>
-    </div>
-  );
 }
 
 export function editionDate(iso: string) {
@@ -730,4 +611,3 @@ export function editionDate(iso: string) {
     .format(date)
     .toUpperCase();
 }
-

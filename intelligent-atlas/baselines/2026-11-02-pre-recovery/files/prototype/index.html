@@ -1,0 +1,385 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Hansa Knowledge Stage — a review prototype. A daily edition timeline opens into an intent-led candidate knowledge graph. Nothing is published."
+    />
+    <meta name="color-scheme" content="light dark" />
+    <meta name="theme-color" content="#f4f1e9" />
+    <title>Hansa · Knowledge Stage — review prototype</title>
+    <script>
+      // Set the preset before first paint so the stage never flashes the wrong theme.
+      try {
+        const params = new URLSearchParams(location.search);
+        const stored = JSON.parse(localStorage.getItem("hansa.knowledge-stage.v31") || "null");
+        const requested = params.get("theme");
+        const theme = requested === "dark" || requested === "light"
+          ? requested
+          : stored?.theme || (matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+        document.documentElement.dataset.theme = theme;
+      } catch {}
+    </script>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body data-mode="review">
+    <a class="skip-link" href="#scene-timeline">Skip to the timeline</a>
+
+    <header class="topbar" id="topbar">
+      <a class="brand" href="#scene-timeline" data-scene-link="timeline" aria-label="Hansa Knowledge Stage, back to the timeline">
+        <span class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 32 32" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.2">
+            <circle cx="16" cy="16" r="11.5" />
+            <circle cx="16" cy="16" r="4.5" />
+            <path d="M16 2.5v5M16 24.5v5M2.5 16h5M24.5 16h5" />
+          </svg>
+        </span>
+        <span class="brand-type">
+          <strong>Hansa</strong>
+          <span>Knowledge Stage</span>
+        </span>
+      </a>
+
+      <nav class="scene-nav" aria-label="Scenes">
+        <a href="#scene-timeline" data-scene-link="timeline">Timeline</a>
+        <a href="#scene-knowledge" data-scene-link="knowledge">Knowledge</a>
+        <a href="#scene-closing" data-scene-link="closing">Close</a>
+      </nav>
+
+      <div class="topbar-actions">
+        <button type="button" class="chip-button" id="pocket-toggle" aria-expanded="false" aria-controls="pocket-panel">
+          <span class="chip-dot" aria-hidden="true"></span>
+          Pocket
+          <span class="count-badge" id="pocket-count">0</span>
+        </button>
+        <button type="button" class="icon-button" id="theme-toggle" aria-label="Switch to dark theme" aria-pressed="false">
+          <svg class="theme-icon theme-icon-sun" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.5">
+            <circle cx="12" cy="12" r="4.2" />
+            <path d="M12 2.5v2.4M12 19.1v2.4M2.5 12h2.4M19.1 12h2.4M5.2 5.2l1.7 1.7M17.1 17.1l1.7 1.7M18.8 5.2l-1.7 1.7M6.9 17.1l-1.7 1.7" />
+          </svg>
+          <svg class="theme-icon theme-icon-moon" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M20 14.2A8.2 8.2 0 0 1 9.8 4a8.4 8.4 0 1 0 10.2 10.2Z" />
+          </svg>
+        </button>
+        <button type="button" class="ghost-button" id="about-open">About</button>
+      </div>
+    </header>
+
+    <main class="journey" id="journey">
+      <!-- ------------------------------------------------------------ SCENE 1 -->
+      <section class="scene scene-timeline" id="scene-timeline" aria-labelledby="timeline-title">
+        <div class="scene-inner timeline-layout">
+          <div class="timeline-intro">
+            <p class="kicker">
+              The Knowledge Stage <span class="slash">/</span>
+              <span id="today-label">Sunday 1 November 2026</span>
+            </p>
+            <h1 id="timeline-title" tabindex="-1">A month of ideas,<br /><em>held to a line.</em></h1>
+            <p class="lede">
+              Every edition is a date you can reopen. Choose a day, deal its cards, then follow one idea into the
+              field that supports it — not the other way round.
+            </p>
+            <dl class="fact-strip" aria-label="Prototype coverage">
+              <div><dt>Editions</dt><dd id="fact-editions">3</dd></div>
+              <div><dt>Candidate concepts</dt><dd id="fact-concepts">132</dd></div>
+              <div><dt>Read in context</dt><dd id="fact-read">38</dd></div>
+              <div><dt>Published</dt><dd id="fact-published">0</dd></div>
+            </dl>
+            <p class="intro-note">
+              <span class="review-badge">technical review · human pending</span>
+              <span>Candidate semantics are shown on purpose. Nothing here is a published claim.</span>
+            </p>
+          </div>
+
+          <div class="timeline-rail-wrap">
+            <div class="rail-head">
+              <span class="mono" id="rail-range">18 Oct — 1 Nov 2026</span>
+              <span class="mono rail-status" id="rail-status">3 editions · 12 quiet days</span>
+            </div>
+
+            <div
+              class="timeline-rail"
+              id="timeline-rail"
+              role="listbox"
+              aria-label="Daily edition timeline, 18 October to 1 November 2026"
+              aria-describedby="rail-hint"
+            >
+              <div class="rail-line" aria-hidden="true"></div>
+              <div class="rail-progress" id="rail-progress" aria-hidden="true"></div>
+              <ul class="rail-days" id="rail-days"></ul>
+              <div class="rail-cursor" id="rail-cursor" aria-hidden="true">
+                <span class="rail-cursor-label" id="rail-cursor-label"></span>
+              </div>
+            </div>
+
+            <div class="edition-band" id="edition-band" aria-live="polite"></div>
+
+            <div class="rail-controls">
+              <div class="rail-steppers">
+                <button type="button" class="icon-button" id="day-prev" aria-label="Previous date">
+                  <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M14.5 5.5 8 12l6.5 6.5" /></svg>
+                </button>
+                <button type="button" class="icon-button" id="day-next" aria-label="Next date">
+                  <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M9.5 5.5 16 12l-6.5 6.5" /></svg>
+                </button>
+              </div>
+              <button type="button" class="primary-button" id="open-edition">Deal this edition</button>
+              <span class="mono rail-hint" id="rail-hint">← → move · Enter deal</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="timeline-foot">
+          <span class="mono">The line is the index. The edition is the door.</span>
+          <a class="scroll-cue" href="#handoff">
+            <span>Continue into the field</span>
+            <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 4v16M6 14l6 6 6-6" /></svg>
+          </a>
+        </div>
+      </section>
+
+      <!-- --------------------------------------------------------- HANDOFF -->
+      <section class="handoff" id="handoff" aria-label="Scroll handoff from the edition into the knowledge field">
+        <div class="handoff-sticky">
+          <div class="handoff-copy">
+            <p class="kicker">Handoff <span class="slash">/</span> scroll</p>
+            <p class="handoff-line">One card is a door.<br /><em>The field is what it depends on.</em></p>
+            <p class="handoff-concept" id="handoff-concept">OneLake shortcut</p>
+            <div class="handoff-meter" aria-hidden="true"><span id="handoff-fill"></span></div>
+            <p class="handoff-note" id="handoff-note">
+              The selected card carries its concept, its evidence and its return context into the graph.
+            </p>
+          </div>
+          <div class="handoff-stage" aria-hidden="true">
+            <div class="handoff-token" id="handoff-token">
+              <span class="token-kind">insight</span>
+              <span class="token-title">Reference ≠ retained result</span>
+              <span class="token-meta">26 Oct · technical review</span>
+            </div>
+            <div class="handoff-orbit"></div>
+            <div class="handoff-orbit handoff-orbit-2"></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ------------------------------------------------------------ SCENE 2 -->
+      <section class="scene scene-knowledge" id="scene-knowledge" aria-labelledby="knowledge-title">
+        <div class="scene-inner knowledge-layout">
+          <div class="knowledge-head">
+            <div>
+              <p class="kicker">Knowledge field <span class="slash">/</span> <span id="field-mode-label">candidate graph · 132 concepts</span></p>
+              <h2 id="knowledge-title" tabindex="-1">Start from an intention,<br /><em>not a node.</em></h2>
+            </div>
+            <div class="intent-switch" id="intent-switch" role="tablist" aria-label="Choose an intention">
+              <button type="button" role="tab" id="intent-understand" aria-selected="true" aria-controls="field" data-intent="understand">
+                <span class="intent-index">01</span>
+                <span class="intent-label">Understand</span>
+                <span class="intent-copy">What does this mean, and why is it here?</span>
+              </button>
+              <button type="button" role="tab" id="intent-compare" aria-selected="false" aria-controls="field" data-intent="compare" tabindex="-1">
+                <span class="intent-index">02</span>
+                <span class="intent-label">Compare</span>
+                <span class="intent-copy">Where does one idea end and another begin?</span>
+              </button>
+              <button type="button" role="tab" id="intent-apply" aria-selected="false" aria-controls="field" data-intent="apply" tabindex="-1">
+                <span class="intent-index">03</span>
+                <span class="intent-label">Apply</span>
+                <span class="intent-copy">Where can I actually use this?</span>
+              </button>
+              <button type="button" role="tab" id="intent-goal" aria-selected="false" aria-controls="field" data-intent="goal" tabindex="-1">
+                <span class="intent-index">04</span>
+                <span class="intent-label">Reach a goal</span>
+                <span class="intent-copy">What order does the evidence support?</span>
+              </button>
+            </div>
+          </div>
+
+          <div class="knowledge-body">
+            <div class="field" id="field" role="tabpanel" aria-labelledby="intent-understand">
+              <div class="field-toolbar">
+                <label class="field-search">
+                  <span class="sr-only">Search concepts by label, alias or definition</span>
+                  <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="11" cy="11" r="6.4" /><path d="m16 16 4 4" /></svg>
+                  <input id="field-search" type="search" placeholder="Search the field" autocomplete="off" aria-describedby="field-search-hint" />
+                  <kbd>/</kbd>
+                </label>
+                <p class="sr-only" id="field-search-hint">Search concept labels, aliases and definitions. Press Enter to open the first match.</p>
+                <div class="field-legend" id="field-legend" aria-label="Domain legend"></div>
+                <div class="field-tools">
+                  <button type="button" class="icon-button" id="field-zoom-out" aria-label="Zoom out">−</button>
+                  <button type="button" class="icon-button" id="field-zoom-in" aria-label="Zoom in">+</button>
+                  <button type="button" class="text-button" id="field-reset">Reset view</button>
+                </div>
+              </div>
+
+              <div class="field-canvas" id="field-canvas">
+                <div class="field-world" id="field-world">
+                  <svg class="field-edges" id="field-edges" viewBox="0 0 1200 800" preserveAspectRatio="none" aria-hidden="true">
+                    <defs>
+                      <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse">
+                        <path d="M 0 0 L 10 5 L 0 10 z" fill="currentColor" />
+                      </marker>
+                    </defs>
+                    <g id="field-edge-layer"></g>
+                  </svg>
+                  <div class="field-nodes" id="field-nodes" role="group" aria-label="Concepts in the candidate graph"></div>
+                </div>
+                <div class="field-empty" id="field-empty" hidden></div>
+                <div class="field-zoom-readout mono" id="field-zoom-readout" aria-hidden="true">100%</div>
+              </div>
+
+              <p class="sr-only" id="field-summary" aria-live="polite"></p>
+
+              <p class="field-hint mono">
+                Drag to pan · Ctrl/⌘ scroll to zoom · / to search · arrow keys walk the field
+              </p>
+
+              <details class="field-fallback" id="field-fallback">
+                <summary>Text and table alternative to the graph</summary>
+                <div id="field-fallback-body"></div>
+              </details>
+            </div>
+
+            <aside class="context-panel" id="context-panel" aria-label="Context for the current intention">
+              <div id="context-content"></div>
+            </aside>
+          </div>
+
+          <div class="thread-bar" id="thread-bar">
+            <div class="thread-label">
+              <span class="mono">Learning thread</span>
+              <span class="thread-count" id="thread-count">0</span>
+            </div>
+            <ol class="thread-list" id="thread-list" aria-label="Concepts you have visited"></ol>
+            <button type="button" class="text-button" id="thread-clear">Clear</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- ------------------------------------------------------------ SCENE 3 -->
+      <section class="scene scene-closing" id="scene-closing" aria-labelledby="closing-title">
+        <div class="scene-inner closing-layout">
+          <div class="closing-main">
+            <p class="kicker">Close <span class="slash">/</span> one idea, one action</p>
+            <h2 id="closing-title" tabindex="-1">Leave with one idea<br /><em>and one honest action.</em></h2>
+            <p class="lede" id="closing-idea">
+              A reference is not a copy. The graph can show you why that distinction matters — but it cannot publish
+              the claim for you.
+            </p>
+
+            <div class="closing-actions">
+              <a class="primary-button" id="closing-action" href="#scene-timeline">Reopen the latest edition</a>
+              <button type="button" class="secondary-button" id="closing-pocket">Open your pocket</button>
+            </div>
+
+            <div class="closing-note">
+              <h3>What this prototype does not claim</h3>
+              <ul>
+                <li>No concept, assertion or edition is published.</li>
+                <li>Semantic reading covers a documented subset of eligible units, not the whole corpus.</li>
+                <li>Media, figures and rendered pages were not visually reviewed.</li>
+                <li>Agent technical review is not human scientific, rights or assessment review.</li>
+              </ul>
+            </div>
+          </div>
+
+          <aside class="closing-ledger" aria-label="Coverage ledger">
+            <p class="mono">Coverage ledger · 2026-11-01</p>
+            <dl class="ledger-list" id="closing-ledger"></dl>
+            <p class="ledger-note" id="closing-ledger-note">
+              Denominators are not interchangeable. A unit is not a resource, and a revision overlay is not a new
+              question.
+            </p>
+            <button type="button" class="text-button" id="closing-about">Read the full coverage note</button>
+          </aside>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-foot">
+      <span>Hansa · Knowledge Stage review prototype</span>
+      <span class="mono" id="foot-build"></span>
+      <button type="button" class="text-button" id="foot-theme">Appearance</button>
+    </footer>
+
+    <!-- ------------------------------------------------------------- POCKET -->
+    <aside class="pocket-panel" id="pocket-panel" aria-label="Knowledge pocket" hidden>
+      <div class="pocket-head">
+        <div>
+          <p class="kicker">Knowledge pocket</p>
+          <h2>Kept for later</h2>
+        </div>
+        <button type="button" class="icon-button" id="pocket-close" aria-label="Close the pocket">
+          <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M6 6l12 12M18 6 6 18" /></svg>
+        </button>
+      </div>
+      <p class="pocket-intro">
+        Saved locally in this browser. A pocket entry is a bookmark, not a mastery record or a published claim.
+      </p>
+      <ul class="pocket-list" id="pocket-list"></ul>
+      <p class="pocket-empty" id="pocket-empty">Nothing saved yet. Use “Save to pocket” on a concept, comparison or card.</p>
+    </aside>
+
+    <!-- ------------------------------------------------------------- DEALER -->
+    <div class="dealer-backdrop" id="dealer-backdrop" hidden>
+      <div class="dealer" id="dealer" role="dialog" aria-modal="true" aria-labelledby="dealer-title" aria-describedby="dealer-summary">
+        <header class="dealer-head">
+          <div>
+            <p class="kicker"><span id="dealer-kicker-kind">daily</span> edition <span class="slash">/</span> <span id="dealer-kicker-date"></span></p>
+            <h2 id="dealer-title">Edition</h2>
+            <p id="dealer-summary" class="dealer-summary"></p>
+          </div>
+          <div class="dealer-head-actions">
+            <span class="review-badge" id="dealer-review-badge">technical review · human pending</span>
+            <button type="button" class="icon-button" id="dealer-close" aria-label="Close the edition">
+              <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M6 6l12 12M18 6 6 18" /></svg>
+            </button>
+          </div>
+        </header>
+
+        <div class="dealer-rail" id="dealer-rail" role="group" aria-label="Switch edition"></div>
+
+        <div class="dealer-body">
+          <div class="dealer-hand-wrap">
+            <p class="hand-label"><span id="hand-label">The hand</span> <span class="mono" id="hand-count">1 card</span></p>
+            <ul class="dealer-hand" id="dealer-hand" aria-label="Cards in this edition"></ul>
+            <p class="hand-hint" id="hand-hint">Every card states what it can do: discover, read, assess or relate.</p>
+          </div>
+          <article class="dealer-reader" id="dealer-reader" aria-label="Selected card reader"></article>
+        </div>
+
+        <footer class="dealer-foot">
+          <p class="dealer-foot-note" id="dealer-foot-note"></p>
+          <div class="dealer-foot-actions">
+            <button type="button" class="text-button" id="dealer-back-timeline">Back to the timeline</button>
+            <button type="button" class="primary-button" id="dealer-locate">Locate in knowledge</button>
+          </div>
+        </footer>
+        <p class="sr-only" role="status" aria-live="polite" id="dealer-status"></p>
+      </div>
+    </div>
+
+    <!-- -------------------------------------------------------------- ABOUT -->
+    <div class="about-backdrop" id="about-backdrop" hidden>
+      <div class="about" id="about" role="dialog" aria-modal="true" aria-labelledby="about-title">
+        <header class="about-head">
+          <div>
+            <p class="kicker">Coverage note</p>
+            <h2 id="about-title">What this review artifact is</h2>
+          </div>
+          <button type="button" class="icon-button" id="about-close" aria-label="Close the coverage note">
+            <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M6 6l12 12M18 6 6 18" /></svg>
+          </button>
+        </header>
+        <div class="about-body" id="about-body"></div>
+      </div>
+    </div>
+
+    <p class="toast" id="toast" role="status" aria-live="polite"></p>
+
+    <script src="data.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>

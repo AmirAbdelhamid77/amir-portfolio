@@ -1,0 +1,202 @@
+{
+  "schemaVersion": "intelligent-atlas-public-isolation/1.0",
+  "generatedAt": "2026-11-02T17:32:08.277Z",
+  "target": "file:///D:/BeUI/amir-portfolio/intelligent-atlas/public/index.html",
+  "summary": {
+    "total": 33,
+    "passed": 33,
+    "failed": 0
+  },
+  "files": [
+    {
+      "name": "app.js",
+      "bytes": 8081
+    },
+    {
+      "name": "index.html",
+      "bytes": 7294
+    },
+    {
+      "name": "public-data.js",
+      "bytes": 1430
+    },
+    {
+      "name": "styles.css",
+      "bytes": 17062
+    }
+  ],
+  "checked": {
+    "conceptIds": 132,
+    "conceptLabels": 132,
+    "editionDates": 3,
+    "deckKeys": 150
+  },
+  "consoleErrors": [],
+  "results": [
+    {
+      "id": "files:allowlist",
+      "status": "PASS",
+      "detail": "public files: app.js, index.html, public-data.js, styles.css"
+    },
+    {
+      "id": "files:no-review-artifact",
+      "status": "PASS",
+      "detail": "no review payload file is present"
+    },
+    {
+      "id": "source:no-ids:concept",
+      "status": "PASS",
+      "detail": "no candidate concept id"
+    },
+    {
+      "id": "source:no-ids:assertion",
+      "status": "PASS",
+      "detail": "no candidate assertion id"
+    },
+    {
+      "id": "source:no-ids:insight",
+      "status": "PASS",
+      "detail": "no candidate insight id"
+    },
+    {
+      "id": "source:no-ids:goal",
+      "status": "PASS",
+      "detail": "no candidate goal id"
+    },
+    {
+      "id": "source:no-ids:comparison",
+      "status": "PASS",
+      "detail": "no candidate comparison id"
+    },
+    {
+      "id": "source:no-ids:daily-deck",
+      "status": "PASS",
+      "detail": "no daily deck key"
+    },
+    {
+      "id": "source:no-ids:card",
+      "status": "PASS",
+      "detail": "no card key"
+    },
+    {
+      "id": "source:no-api:review-data",
+      "status": "PASS",
+      "detail": "no review API or review artifact name"
+    },
+    {
+      "id": "source:no-path:review-prototype",
+      "status": "PASS",
+      "detail": "no reference to the review prototype"
+    },
+    {
+      "id": "source:no-edition-dates",
+      "status": "PASS",
+      "detail": "checked 3 edition dates"
+    },
+    {
+      "id": "source:no-deck-keys",
+      "status": "PASS",
+      "detail": "checked 150 deck keys"
+    },
+    {
+      "id": "source:no-concept-ids",
+      "status": "PASS",
+      "detail": "checked 132 concept ids"
+    },
+    {
+      "id": "source:labels-only-in-render-check",
+      "status": "PASS",
+      "detail": "source label hits: Scale"
+    },
+    {
+      "id": "data:keys-allowlist",
+      "status": "PASS",
+      "detail": "keys: emptyState, generatedAt, graphBuildId, mode, publicationGate, publishedAssertions, publishedConcepts, publishedInsights, schemaVersion, structural, withheld"
+    },
+    {
+      "id": "data:mode-public",
+      "status": "PASS",
+      "detail": "mode=public"
+    },
+    {
+      "id": "data:zero-published",
+      "status": "PASS",
+      "detail": "published 0/0/0"
+    },
+    {
+      "id": "data:no-candidate-arrays",
+      "status": "PASS",
+      "detail": "no candidate concepts, edges, decks or editions"
+    },
+    {
+      "id": "html:scripts-are-local-public",
+      "status": "PASS",
+      "detail": "scripts: public-data.js, app.js"
+    },
+    {
+      "id": "html:no-review-path",
+      "status": "PASS",
+      "detail": "no parent-directory reference"
+    },
+    {
+      "id": "runtime:no-console-errors",
+      "status": "PASS",
+      "detail": "none"
+    },
+    {
+      "id": "runtime:no-review-data",
+      "status": "PASS",
+      "detail": "ATLAS_DATA=false __ATLAS_STAGE__=false"
+    },
+    {
+      "id": "runtime:zero-counts",
+      "status": "PASS",
+      "detail": "{\"concepts\":\"0\",\"assertions\":\"0\",\"insights\":\"0\"}"
+    },
+    {
+      "id": "runtime:gate-cards",
+      "status": "PASS",
+      "detail": "4 cards; not met"
+    },
+    {
+      "id": "runtime:structural-stats",
+      "status": "PASS",
+      "detail": "5 · 73 · 22 · 6,201"
+    },
+    {
+      "id": "runtime:empty-state",
+      "status": "PASS",
+      "detail": "state=empty-semantic-layer"
+    },
+    {
+      "id": "render:no-concept-labels",
+      "status": "PASS",
+      "detail": "checked 132 labels"
+    },
+    {
+      "id": "render:no-edition-dates",
+      "status": "PASS",
+      "detail": "checked 3 dates"
+    },
+    {
+      "id": "render:no-candidate-claims",
+      "status": "PASS",
+      "detail": "checked 128 candidate claims and readings"
+    },
+    {
+      "id": "render:no-record-identifiers",
+      "status": "PASS",
+      "detail": "no record identifier rendered"
+    },
+    {
+      "id": "tamper:url-and-storage-inert",
+      "status": "PASS",
+      "detail": "reviewData=false reviewApi=false labels=none"
+    },
+    {
+      "id": "fail-closed:missing-projection",
+      "status": "PASS",
+      "detail": "{\"state\":\"failed-closed\",\"text\":\"PUBLIC PROJECTION UNAVAILABLE\\n\\nNothing is shown without a verified projection.\\n\\nThe public data file did not load or did not match the expected schema. This page will not fall back to candidate data, a review payload or an inferred graph. window.ATLAS_PUBLIC is missing.\",\"foot\":\"projection unavailable\"}"
+    }
+  ]
+}

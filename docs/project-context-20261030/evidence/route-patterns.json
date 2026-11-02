@@ -1,0 +1,1030 @@
+[
+  {
+    "file": "app/about/page.tsx",
+    "pattern": "/about/",
+    "staticParams": false,
+    "metadata": true,
+    "imports": [
+      "next",
+      "next/link",
+      "lucide-react",
+      "@/lib/experience",
+      "@/lib/site",
+      "@/components/ui"
+    ]
+  },
+  {
+    "file": "app/contact/page.tsx",
+    "pattern": "/contact/",
+    "staticParams": false,
+    "metadata": true,
+    "imports": [
+      "next",
+      "lucide-react",
+      "@/components/icons",
+      "@/components/contact-form",
+      "@/components/ui",
+      "@/lib/site"
+    ]
+  },
+  {
+    "file": "app/experience/page.tsx",
+    "pattern": "/experience/",
+    "staticParams": false,
+    "metadata": true,
+    "imports": [
+      "next",
+      "next/link",
+      "lucide-react",
+      "@/lib/experience",
+      "@/components/ui",
+      "@/lib/utils"
+    ]
+  },
+  {
+    "file": "app/explore/charts/bar/page.tsx",
+    "pattern": "/explore/charts/bar/",
+    "staticParams": false,
+    "metadata": true,
+    "imports": [
+      "next",
+      "@/lib/data-viz/labs",
+      "@/components/data-viz/chart-lab-shell",
+      "@/components/data-viz/labs/bar-lab"
+    ]
+  },
+  {
+    "file": "app/explore/charts/box/page.tsx",
+    "pattern": "/explore/charts/box/",
+    "staticParams": false,
+    "metadata": true,
+    "imports": [
+      "next",
+      "@/lib/data-viz/labs",
+      "@/components/data-viz/chart-lab-shell",
+      "@/components/data-viz/labs/box-lab"
+    ]
+  },
+  {
+    "file": "app/explore/charts/dot/page.tsx",
+    "pattern": "/explore/charts/dot/",
+    "staticParams": false,
+    "metadata": true,
+    "imports": [
+      "next",
+      "@/lib/data-viz/labs",
+      "@/components/data-viz/chart-lab-shell",
+      "@/components/data-viz/labs/dot-lab"
+    ]
+  },
+  {
+    "file": "app/explore/charts/histogram/page.tsx",
+    "pattern": "/explore/charts/histogram/",
+    "staticParams": false,
+    "metadata": true,
+    "imports": [
+      "next",
+      "@/lib/data-viz/labs",
+      "@/components/data-viz/chart-lab-shell",
+      "@/components/data-viz/labs/histogram-lab"
+    ]
+  },
+  {
+    "file": "app/explore/charts/line/page.tsx",
+    "pattern": "/explore/charts/line/",
+    "staticParams": false,
+    "metadata": true,
+    "imports": [
+      "next",
+      "@/lib/data-viz/labs",
+      "@/components/data-viz/chart-lab-shell",
+      "@/components/data-viz/labs/line-lab"
+    ]
+  },
+  {
+    "file": "app/explore/charts/page.tsx",
+    "pattern": "/explore/charts/",
+    "staticParams": false,
+    "metadata": true,
+    "imports": [
+      "next",
+      "next/link",
+      "lucide-react",
+      "@/lib/data-viz/labs",
+      "@/lib/data-viz/datasets",
+      "@/components/ui"
+    ]
+  },
+  {
+    "file": "app/explore/charts/scatter/page.tsx",
+    "pattern": "/explore/charts/scatter/",
+    "staticParams": false,
+    "metadata": true,
+    "imports": [
+      "next",
+      "@/lib/data-viz/labs",
+      "@/components/data-viz/chart-lab-shell",
+      "@/components/data-viz/labs/scatter-lab"
+    ]
+  },
+  {
+    "file": "app/explore/choose/page.tsx",
+    "pattern": "/explore/choose/",
+    "staticParams": false,
+    "metadata": true,
+    "imports": [
+      "next",
+      "next/link",
+      "lucide-react",
+      "@/components/data-viz/choose-assistant",
+      "@/components/ui"
+    ]
+  },
+  {
+    "file": "app/explore/dashboards/page.tsx",
+    "pattern": "/explore/dashboards/",
+    "staticParams": false,
+    "metadata": true,
+    "imports": [
+      "next",
+      "next/link",
+      "lucide-react",
+      "@/components/data-viz/composition-demo",
+      "@/components/data-viz/dashboard-anatomy",
+      "@/components/ui"
+    ]
+  },
+  {
+    "file": "app/explore/integrity/page.tsx",
+    "pattern": "/explore/integrity/",
+    "staticParams": false,
+    "metadata": true,
+    "imports": [
+      "next",
+      "next/link",
+      "lucide-react",
+      "@/components/data-viz/integrity-lab",
+      "@/components/ui"
+    ]
+  },
+  {
+    "file": "app/explore/page.tsx",
+    "pattern": "/explore/",
+    "staticParams": false,
+    "metadata": true,
+    "imports": [
+      "next",
+      "next/link",
+      "lucide-react",
+      "@/components/ui"
+    ]
+  },
+  {
+    "file": "app/explore/specialty/page.tsx",
+    "pattern": "/explore/specialty/",
+    "staticParams": false,
+    "metadata": true,
+    "imports": [
+      "next",
+      "next/link",
+      "lucide-react",
+      "@/components/data-viz/angle-lab",
+      "@/components/data-viz/funnel-flow",
+      "@/components/data-viz/specialty-charts",
+      "@/lib/data-viz/datasets",
+      "@/lib/data-viz/chart-math",
+      "@/components/data-viz/lab-ui",
+      "@/components/ui"
+    ]
+  },
+  {
+    "file": "app/lab/dp-600/cases/page.tsx",
+    "pattern": "/lab/dp-600/cases/",
+    "staticParams": false,
+    "metadata": true,
+    "imports": [
+      "next",
+      "@/components/fabric/ui",
+      "@/components/fabric/session-runner",
+      "@/lib/fabric/data"
+    ]
+  },
+  {
+    "file": "app/lab/dp-600/explore/page.tsx",
+    "pattern": "/lab/dp-600/explore/",
+    "staticParams": false,
+    "metadata": true,
+    "imports": [
+      "next",
+      "@/components/fabric/ui",
+      "@/components/fabric/unified-bank",
+      "@/lib/fabric/data",
+      "@/lib/atlas/server",
+      "@/lib/atlas/model"
+    ]
+  },
+  {
+    "file": "app/lab/dp-600/mock/page.tsx",
+    "pattern": "/lab/dp-600/mock/",
+    "staticParams": false,
+    "metadata": true,
+    "imports": [
+      "next",
+      "@/components/fabric/ui",
+      "@/components/fabric/session-runner"
+    ]
+  },
+  {
+    "file": "app/lab/dp-600/page.tsx",
+    "pattern": "/lab/dp-600/",
+    "staticParams": false,
+    "metadata": true,
+    "imports": [
+      "next",
+      "next/link",
+      "lucide-react",
+      "@/components/ui",
+      "@/components/fabric/ui",
+      "@/components/fabric/hub-panels",
+      "@/lib/fabric/data",
+      "@/lib/fabric/taxonomy",
+      "@/lib/fabric/nav",
+      "@/lib/site"
+    ]
+  },
+  {
+    "file": "app/lab/dp-600/practice/page.tsx",
+    "pattern": "/lab/dp-600/practice/",
+    "staticParams": false,
+    "metadata": true,
+    "imports": [
+      "next",
+      "@/components/fabric/ui",
+      "@/components/fabric/session-runner"
+    ]
+  },
+  {
+    "file": "app/lab/dp-600/progress/page.tsx",
+    "pattern": "/lab/dp-600/progress/",
+    "staticParams": false,
+    "metadata": true,
+    "imports": [
+      "next",
+      "@/components/fabric/ui",
+      "@/components/fabric/progress-panel"
+    ]
+  },
+  {
+    "file": "app/lab/dp-600/resources/page.tsx",
+    "pattern": "/lab/dp-600/resources/",
+    "staticParams": false,
+    "metadata": true,
+    "imports": [
+      "next",
+      "lucide-react",
+      "@/components/fabric/ui",
+      "@/components/fabric/pack-notes",
+      "@/lib/fabric/data",
+      "@/lib/fabric/taxonomy"
+    ]
+  },
+  {
+    "file": "app/lab/dp-600/review/page.tsx",
+    "pattern": "/lab/dp-600/review/",
+    "staticParams": false,
+    "metadata": true,
+    "imports": [
+      "next",
+      "@/components/fabric/ui",
+      "@/components/fabric/session-runner"
+    ]
+  },
+  {
+    "file": "app/lab/dp-600/study/page.tsx",
+    "pattern": "/lab/dp-600/study/",
+    "staticParams": false,
+    "metadata": true,
+    "imports": [
+      "next",
+      "@/components/fabric/ui",
+      "@/components/fabric/session-runner"
+    ]
+  },
+  {
+    "file": "app/lab/hands-on/page.tsx",
+    "pattern": "/lab/hands-on/",
+    "staticParams": false,
+    "metadata": true,
+    "imports": [
+      "next",
+      "next/link",
+      "lucide-react",
+      "@/components/ui",
+      "@/lib/study/curated",
+      "@/lib/study/taxonomy"
+    ]
+  },
+  {
+    "file": "app/lab/hands-on/[slug]/page.tsx",
+    "pattern": "/lab/hands-on/[slug]/",
+    "staticParams": true,
+    "metadata": true,
+    "imports": [
+      "next",
+      "next/link",
+      "next/navigation",
+      "lucide-react",
+      "@/components/ui",
+      "@/components/fabric/ui",
+      "@/lib/study/curated",
+      "@/lib/study/taxonomy"
+    ]
+  },
+  {
+    "file": "app/lab/page.tsx",
+    "pattern": "/lab/",
+    "staticParams": false,
+    "metadata": true,
+    "imports": [
+      "next",
+      "next/link",
+      "lucide-react",
+      "@/lib/exams",
+      "@/components/lab/exam-catalog",
+      "@/components/ui"
+    ]
+  },
+  {
+    "file": "app/lab/[slug]/page.tsx",
+    "pattern": "/lab/[slug]/",
+    "staticParams": true,
+    "metadata": true,
+    "imports": [
+      "next",
+      "next/link",
+      "next/navigation",
+      "lucide-react",
+      "@/lib/exams",
+      "@/components/lab/exam-player",
+      "@/components/ui",
+      "@/lib/site",
+      "@/lib/utils"
+    ]
+  },
+  {
+    "file": "app/layout.tsx",
+    "pattern": "//",
+    "staticParams": false,
+    "metadata": true,
+    "imports": [
+      "next",
+      "next/font/google",
+      "./globals.css",
+      "@/components/site-header",
+      "@/components/site-footer",
+      "@/lib/site",
+      "@/components/study/orientation"
+    ]
+  },
+  {
+    "file": "app/learn/academy/page.tsx",
+    "pattern": "/learn/academy/",
+    "staticParams": false,
+    "metadata": true,
+    "imports": [
+      "next",
+      "next/link",
+      "lucide-react",
+      "@/components/ui",
+      "@/lib/academy/corpus"
+    ]
+  },
+  {
+    "file": "app/learn/academy/[track]/[lesson]/page.tsx",
+    "pattern": "/learn/academy/[track]/[lesson]/",
+    "staticParams": true,
+    "metadata": true,
+    "imports": [
+      "next",
+      "next/link",
+      "next/navigation",
+      "lucide-react",
+      "@/components/ui",
+      "@/components/academy/lesson-blocks",
+      "@/lib/academy/corpus"
+    ]
+  },
+  {
+    "file": "app/learn/ar/page.tsx",
+    "pattern": "/learn/ar/",
+    "staticParams": false,
+    "metadata": true,
+    "imports": [
+      "next",
+      "next/link",
+      "lucide-react",
+      "@/lib/data-viz/content",
+      "@/components/ui"
+    ]
+  },
+  {
+    "file": "app/learn/ar/[slug]/page.tsx",
+    "pattern": "/learn/ar/[slug]/",
+    "staticParams": true,
+    "metadata": true,
+    "imports": [
+      "next",
+      "next/navigation",
+      "@/lib/data-viz/content",
+      "@/components/data-viz/lesson-view",
+      "@/lib/site"
+    ]
+  },
+  {
+    "file": "app/learn/catalogue/page.tsx",
+    "pattern": "/learn/catalogue/",
+    "staticParams": false,
+    "metadata": true,
+    "imports": [
+      "@/components/study/directory"
+    ]
+  },
+  {
+    "file": "app/learn/chapter/[number]/page.tsx",
+    "pattern": "/learn/chapter/[number]/",
+    "staticParams": true,
+    "metadata": true,
+    "imports": [
+      "next",
+      "next/link",
+      "next/navigation",
+      "lucide-react",
+      "@/lib/data-viz/content",
+      "@/components/ui"
+    ]
+  },
+  {
+    "file": "app/learn/dp-600/atlas/journey/page.tsx",
+    "pattern": "/learn/dp-600/atlas/journey/",
+    "staticParams": false,
+    "metadata": true,
+    "imports": [
+      "next",
+      "next/link",
+      "@/components/ui",
+      "@/components/fabric/ui",
+      "@/components/atlas/journey"
+    ]
+  },
+  {
+    "file": "app/learn/dp-600/atlas/page.tsx",
+    "pattern": "/learn/dp-600/atlas/",
+    "staticParams": false,
+    "metadata": true,
+    "imports": [
+      "next",
+      "@/components/ui",
+      "@/components/fabric/ui",
+      "@/components/atlas/explorer",
+      "@/components/atlas/pending-desk",
+      "@/lib/atlas/server"
+    ]
+  },
+  {
+    "file": "app/learn/dp-600/ingestion/page.tsx",
+    "pattern": "/learn/dp-600/ingestion/",
+    "staticParams": false,
+    "metadata": true,
+    "imports": [
+      "next",
+      "next/link",
+      "@/components/ui",
+      "@/components/fabric/ui",
+      "@/components/academy/ingestion-lab",
+      "@/components/academy/pattern-comparison",
+      "@/components/atlas/peek",
+      "@/lib/atlas/server",
+      "@/lib/academy/ingestion"
+    ]
+  },
+  {
+    "file": "app/learn/dp-600/page.tsx",
+    "pattern": "/learn/dp-600/",
+    "staticParams": false,
+    "metadata": true,
+    "imports": [
+      "next",
+      "next/link",
+      "@/components/ui",
+      "@/components/fabric/ui",
+      "@/components/atlas/peek",
+      "@/lib/atlas/server",
+      "@/lib/academy/ingestion"
+    ]
+  },
+  {
+    "file": "app/learn/drafts/page.tsx",
+    "pattern": "/learn/drafts/",
+    "staticParams": false,
+    "metadata": true,
+    "imports": [
+      "next",
+      "next/link",
+      "@/components/learn/intake-review",
+      "@/components/ui",
+      "@/content/intake/manifest.json"
+    ]
+  },
+  {
+    "file": "app/learn/fabric-rti/page.tsx",
+    "pattern": "/learn/fabric-rti/",
+    "staticParams": false,
+    "metadata": true,
+    "imports": [
+      "next",
+      "next/link",
+      "lucide-react",
+      "@/components/ui",
+      "@/components/fabric/ui",
+      "@/lib/rti/lessons"
+    ]
+  },
+  {
+    "file": "app/learn/fabric-rti/[slug]/page.tsx",
+    "pattern": "/learn/fabric-rti/[slug]/",
+    "staticParams": true,
+    "metadata": true,
+    "imports": [
+      "next",
+      "next/link",
+      "next/navigation",
+      "lucide-react",
+      "@/components/ui",
+      "@/components/fabric/ui",
+      "@/lib/rti/lessons"
+    ]
+  },
+  {
+    "file": "app/learn/method/page.tsx",
+    "pattern": "/learn/method/",
+    "staticParams": false,
+    "metadata": true,
+    "imports": [
+      "next",
+      "next/link",
+      "lucide-react",
+      "@/lib/data-viz/content",
+      "@/components/ui",
+      "@/lib/site"
+    ]
+  },
+  {
+    "file": "app/learn/page.tsx",
+    "pattern": "/learn/",
+    "staticParams": false,
+    "metadata": true,
+    "imports": [
+      "next",
+      "next/link",
+      "lucide-react",
+      "@/lib/data-viz/content",
+      "@/components/data-viz/chapter-card",
+      "@/components/ui",
+      "@/lib/site"
+    ]
+  },
+  {
+    "file": "app/learn/sql/page.tsx",
+    "pattern": "/learn/sql/",
+    "staticParams": false,
+    "metadata": true,
+    "imports": [
+      "next/link",
+      "@/lib/sql/registry",
+      "@/components/sql/sql.css"
+    ]
+  },
+  {
+    "file": "app/learn/sql/reference/[id]/page.tsx",
+    "pattern": "/learn/sql/reference/[id]/",
+    "staticParams": true,
+    "metadata": true,
+    "imports": [
+      "next/navigation",
+      "@/lib/sql/registry",
+      "@/components/sql/lesson"
+    ]
+  },
+  {
+    "file": "app/learn/sql/[module]/page.tsx",
+    "pattern": "/learn/sql/[module]/",
+    "staticParams": true,
+    "metadata": true,
+    "imports": [
+      "next/navigation",
+      "@/lib/sql/registry",
+      "@/components/sql/lesson"
+    ]
+  },
+  {
+    "file": "app/learn/statistics/atlas/page.tsx",
+    "pattern": "/learn/statistics/atlas/",
+    "staticParams": false,
+    "metadata": true,
+    "imports": [
+      "next",
+      "next/link",
+      "lucide-react",
+      "@/components/statistics/concept-atlas",
+      "@/components/statistics/page-header",
+      "@/components/ui"
+    ]
+  },
+  {
+    "file": "app/learn/statistics/cheatsheet/page.tsx",
+    "pattern": "/learn/statistics/cheatsheet/",
+    "staticParams": false,
+    "metadata": true,
+    "imports": [
+      "next",
+      "next/link",
+      "@/lib/statistics/content",
+      "@/components/statistics/math",
+      "@/components/statistics/print-button",
+      "@/components/statistics/page-header",
+      "@/components/ui"
+    ]
+  },
+  {
+    "file": "app/learn/statistics/decision/page.tsx",
+    "pattern": "/learn/statistics/decision/",
+    "staticParams": false,
+    "metadata": true,
+    "imports": [
+      "next",
+      "next/link",
+      "@/lib/statistics/content",
+      "@/components/statistics/tool-navigator",
+      "@/components/statistics/page-header",
+      "@/components/ui"
+    ]
+  },
+  {
+    "file": "app/learn/statistics/formulas/page.tsx",
+    "pattern": "/learn/statistics/formulas/",
+    "staticParams": false,
+    "metadata": true,
+    "imports": [
+      "next",
+      "@/lib/statistics/content",
+      "@/components/statistics/formula-calculator",
+      "@/components/statistics/math",
+      "@/components/statistics/page-header",
+      "@/components/ui"
+    ]
+  },
+  {
+    "file": "app/learn/statistics/glossary/page.tsx",
+    "pattern": "/learn/statistics/glossary/",
+    "staticParams": false,
+    "metadata": true,
+    "imports": [
+      "next",
+      "@/components/statistics/glossary-search",
+      "@/components/statistics/page-header",
+      "@/components/ui"
+    ]
+  },
+  {
+    "file": "app/learn/statistics/journey/[slug]/page.tsx",
+    "pattern": "/learn/statistics/journey/[slug]/",
+    "staticParams": true,
+    "metadata": true,
+    "imports": [
+      "next",
+      "next/link",
+      "next/navigation",
+      "lucide-react",
+      "@/lib/statistics/content",
+      "@/lib/statistics/source",
+      "@/components/statistics/source-blocks",
+      "@/components/statistics/reading-progress",
+      "@/components/statistics/page-header",
+      "@/components/ui",
+      "@/lib/site"
+    ]
+  },
+  {
+    "file": "app/learn/statistics/labs/page.tsx",
+    "pattern": "/learn/statistics/labs/",
+    "staticParams": false,
+    "metadata": true,
+    "imports": [
+      "next",
+      "next/link",
+      "lucide-react",
+      "@/lib/statistics/content",
+      "@/components/statistics/page-header",
+      "@/components/ui",
+      "@/lib/site"
+    ]
+  },
+  {
+    "file": "app/learn/statistics/labs/[slug]/page.tsx",
+    "pattern": "/learn/statistics/labs/[slug]/",
+    "staticParams": true,
+    "metadata": true,
+    "imports": [
+      "next",
+      "next/link",
+      "next/navigation",
+      "lucide-react",
+      "@/lib/statistics/content",
+      "@/components/statistics/visual-registry",
+      "@/components/statistics/page-header",
+      "@/components/ui",
+      "@/lib/site"
+    ]
+  },
+  {
+    "file": "app/learn/statistics/page.tsx",
+    "pattern": "/learn/statistics/",
+    "staticParams": false,
+    "metadata": true,
+    "imports": [
+      "next",
+      "next/link",
+      "lucide-react",
+      "@/lib/statistics/content",
+      "@/lib/statistics/source",
+      "@/lib/statistics/flagship",
+      "@/lib/statistics/math",
+      "@/components/statistics/concept-search",
+      "@/components/statistics/exhibits/interactive",
+      "@/components/statistics/exhibits/static",
+      "@/components/statistics/page-header",
+      "@/components/ui",
+      "@/lib/site"
+    ]
+  },
+  {
+    "file": "app/learn/statistics/source/page.tsx",
+    "pattern": "/learn/statistics/source/",
+    "staticParams": false,
+    "metadata": true,
+    "imports": [
+      "next",
+      "next/link",
+      "lucide-react",
+      "@/lib/statistics/content",
+      "@/lib/statistics/source",
+      "@/components/statistics/source-blocks",
+      "@/components/statistics/page-header",
+      "@/components/ui"
+    ]
+  },
+  {
+    "file": "app/learn/[slug]/page.tsx",
+    "pattern": "/learn/[slug]/",
+    "staticParams": true,
+    "metadata": true,
+    "imports": [
+      "next",
+      "next/navigation",
+      "@/lib/data-viz/content",
+      "@/components/data-viz/lesson-view",
+      "@/lib/site"
+    ]
+  },
+  {
+    "file": "app/page.tsx",
+    "pattern": "//",
+    "staticParams": false,
+    "metadata": true,
+    "imports": [
+      "next",
+      "@/components/knowledge/hansa-landing",
+      "@/lib/site"
+    ]
+  },
+  {
+    "file": "app/practice/catalogue/page.tsx",
+    "pattern": "/practice/catalogue/",
+    "staticParams": false,
+    "metadata": true,
+    "imports": [
+      "@/components/study/directory"
+    ]
+  },
+  {
+    "file": "app/practice/drafts/page.tsx",
+    "pattern": "/practice/drafts/",
+    "staticParams": false,
+    "metadata": true,
+    "imports": [
+      "next",
+      "next/link",
+      "@/components/practice/draft-review",
+      "@/components/ui",
+      "@/content/drafts/manifest.json",
+      "@/content/intake/manifest.json"
+    ]
+  },
+  {
+    "file": "app/practice/page.tsx",
+    "pattern": "/practice/",
+    "staticParams": false,
+    "metadata": true,
+    "imports": [
+      "next",
+      "next/link",
+      "lucide-react",
+      "@/components/data-viz/practice-bank",
+      "@/components/ui"
+    ]
+  },
+  {
+    "file": "app/practice/sql/page.tsx",
+    "pattern": "/practice/sql/",
+    "staticParams": false,
+    "metadata": true,
+    "imports": [
+      "next/link",
+      "@/lib/sql/source",
+      "@/lib/sql/registry",
+      "@/components/sql/source",
+      "@/components/sql/sql.css"
+    ]
+  },
+  {
+    "file": "app/prototype-c/page.tsx",
+    "pattern": "/prototype-c/",
+    "staticParams": false,
+    "metadata": true,
+    "imports": [
+      "next",
+      "@/components/knowledge/hansa-landing",
+      "@/lib/site"
+    ]
+  },
+  {
+    "file": "app/robots.ts",
+    "pattern": "//",
+    "staticParams": false,
+    "metadata": true,
+    "imports": [
+      "next",
+      "@/lib/site"
+    ]
+  },
+  {
+    "file": "app/search/page.tsx",
+    "pattern": "/search/",
+    "staticParams": false,
+    "metadata": true,
+    "imports": [
+      "next",
+      "@/components/search/search-client",
+      "@/components/breadcrumbs",
+      "@/components/ui",
+      "@/lib/site-metrics",
+      "@/lib/search/documents",
+      "@/lib/search/query"
+    ]
+  },
+  {
+    "file": "app/services/page.tsx",
+    "pattern": "/services/",
+    "staticParams": false,
+    "metadata": true,
+    "imports": [
+      "next",
+      "lucide-react",
+      "@/lib/services",
+      "@/components/ui"
+    ]
+  },
+  {
+    "file": "app/sitemap.ts",
+    "pattern": "//",
+    "staticParams": false,
+    "metadata": true,
+    "imports": [
+      "next",
+      "@/lib/case-studies",
+      "@/lib/data-viz/content",
+      "@/lib/data-viz/labs",
+      "@/lib/statistics/content",
+      "@/lib/exams",
+      "@/lib/rti/lessons",
+      "@/lib/site",
+      "@/lib/study/taxonomy",
+      "@/lib/sql/registry",
+      "@/lib/study/curated",
+      "@/lib/academy/corpus"
+    ]
+  },
+  {
+    "file": "app/study/page.tsx",
+    "pattern": "/study/",
+    "staticParams": false,
+    "metadata": true,
+    "imports": [
+      "@/components/study/directory"
+    ]
+  },
+  {
+    "file": "app/study/review/page.tsx",
+    "pattern": "/study/review/",
+    "staticParams": false,
+    "metadata": true,
+    "imports": [
+      "next/link",
+      "@/lib/study/review",
+      "@/components/study/topic-browser",
+      "@/components/study/study.css"
+    ]
+  },
+  {
+    "file": "app/study/review/path/page.tsx",
+    "pattern": "/study/review/path/",
+    "staticParams": false,
+    "metadata": true,
+    "imports": [
+      "next/link",
+      "@/lib/study/review-learning-path",
+      "@/components/study/path-units",
+      "@/components/study/study.css",
+      "@/components/study/path.css"
+    ]
+  },
+  {
+    "file": "app/study/[subject]/page.tsx",
+    "pattern": "/study/[subject]/",
+    "staticParams": true,
+    "metadata": true,
+    "imports": [
+      "@/components/study/directory",
+      "@/lib/study/taxonomy"
+    ]
+  },
+  {
+    "file": "app/study/[subject]/path/page.tsx",
+    "pattern": "/study/[subject]/path/",
+    "staticParams": true,
+    "metadata": true,
+    "imports": [
+      "next/link",
+      "@/lib/study/taxonomy",
+      "@/lib/study/learning-path",
+      "@/components/study/path-units",
+      "@/components/study/study.css",
+      "@/components/study/path.css"
+    ]
+  },
+  {
+    "file": "app/study/[subject]/[topic]/page.tsx",
+    "pattern": "/study/[subject]/[topic]/",
+    "staticParams": true,
+    "metadata": true,
+    "imports": [
+      "@/components/study/topic-preparation",
+      "@/components/study/path.css",
+      "@/lib/study/briefs",
+      "next/link",
+      "@/lib/study/taxonomy",
+      "@/lib/study/server",
+      "@/components/study/topic-browser",
+      "@/components/study/study.css"
+    ]
+  },
+  {
+    "file": "app/work/page.tsx",
+    "pattern": "/work/",
+    "staticParams": false,
+    "metadata": true,
+    "imports": [
+      "next",
+      "@/lib/case-studies",
+      "@/components/case-study-card",
+      "@/components/ui"
+    ]
+  },
+  {
+    "file": "app/work/[slug]/page.tsx",
+    "pattern": "/work/[slug]/",
+    "staticParams": true,
+    "metadata": true,
+    "imports": [
+      "next",
+      "next/link",
+      "next/navigation",
+      "lucide-react",
+      "@/lib/case-studies",
+      "@/components/dashboard-gallery",
+      "@/components/hse/rate-basis-explainer",
+      "@/components/ui",
+      "@/lib/site"
+    ]
+  }
+]

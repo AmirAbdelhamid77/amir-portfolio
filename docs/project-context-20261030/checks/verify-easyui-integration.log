@@ -1,0 +1,29 @@
+node:internal/modules/run_main:123
+    triggerUncaughtException(
+    ^
+
+AssertionError [ERR_ASSERTION]: Hansa integration observed drift changed mid-flight lib/atlas/field.ts
++ actual - expected
+
++ 'da571a671ce66a538f6050e6fe8d8ae3caf6b5e4a4befe6ea184e598a9d8af95'
+- '79f985b31e5010a8ad2c910c45bd934bc34841217881fdca9273e991790001ff'
+
+    at hansaIntegrationReceipt (file:///D:/BeUI/amir-portfolio/scripts/hansa-integration-receipt.mjs:21:28)
+    at sqlIntegrationReceipt (file:///D:/BeUI/amir-portfolio/scripts/sql-integration-receipt.mjs:7:18)
+    at pathReviewReceipt (file:///D:/BeUI/amir-portfolio/scripts/path-review-receipt.mjs:3:57)
+    at studyReceipt (file:///D:/BeUI/amir-portfolio/scripts/study-receipt.mjs:3:52)
+    at finalReviewReceipt (file:///D:/BeUI/amir-portfolio/scripts/final-review-receipt.mjs:18:18)
+    at cinematicReceipt (file:///D:/BeUI/amir-portfolio/scripts/cinematic-phase2-receipt.mjs:11:18)
+    at canonicalHomeReceipt (file:///D:/BeUI/amir-portfolio/scripts/canonical-home-receipt.mjs:28:21)
+    at r11QuestionReceipt (file:///D:/BeUI/amir-portfolio/scripts/r11-question-receipt.mjs:10:18)
+    at prototypeReceipt (file:///D:/BeUI/amir-portfolio/scripts/prototype-c-receipt.mjs:8:19)
+    at circleReceipt (file:///D:/BeUI/amir-portfolio/scripts/atlas-circle-receipt.mjs:8:21) {
+  generatedMessage: false,
+  code: 'ERR_ASSERTION',
+  actual: 'da571a671ce66a538f6050e6fe8d8ae3caf6b5e4a4befe6ea184e598a9d8af95',
+  expected: '79f985b31e5010a8ad2c910c45bd934bc34841217881fdca9273e991790001ff',
+  operator: 'strictEqual',
+  diff: 'simple'
+}
+
+Node.js v22.23.3

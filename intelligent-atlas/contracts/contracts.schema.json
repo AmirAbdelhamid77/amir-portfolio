@@ -1,0 +1,281 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://hansa.local/contracts/knowledge-dealer.schema.json",
+  "title": "Hansa KnowledgeDealer and Atlas return contracts",
+  "description": "Development contract for a single-card edition reader, its deck request, and the return context that carries a learner from the Atlas back to an edition. Candidate data remains candidate; the public projection is fail-closed.",
+  "type": "object",
+  "$defs": {
+    "IsoDate": {
+      "type": "string",
+      "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+    },
+    "ProjectionMode": {
+      "type": "string",
+      "enum": ["editorial-review", "public"]
+    },
+    "ReviewState": {
+      "type": "string",
+      "enum": ["technical_review", "human_review", "published", "withheld"]
+    },
+    "DealerView": {
+      "type": "string",
+      "enum": ["card", "evidence", "destination"]
+    },
+    "GateState": {
+      "type": "string",
+      "enum": ["blocked", "pending", "passed", "not-applicable"]
+    },
+    "PublicationGates": {
+      "type": "object",
+      "description": "Publication is a set of independent gates. A technical source check never advances a gate by itself.",
+      "additionalProperties": false,
+      "required": ["humanPublicationReview", "scientificReview", "rightsReview", "assessmentReview"],
+      "properties": {
+        "humanPublicationReview": { "$ref": "#/$defs/GateState" },
+        "scientificReview": { "$ref": "#/$defs/GateState" },
+        "rightsReview": { "$ref": "#/$defs/GateState" },
+        "assessmentReview": { "$ref": "#/$defs/GateState" }
+      }
+    },
+    "EvidenceRecord": {
+      "type": "object",
+      "description": "A source locator preserved from the corpus. A quote, when present, must be a verbatim corpus slice.",
+      "additionalProperties": false,
+      "required": ["sourceId", "sourceUrl", "locator", "checkedAt"],
+      "properties": {
+        "sourceId": { "type": "string", "minLength": 1 },
+        "sourceUrl": { "type": "string", "format": "uri" },
+        "locator": { "type": "string", "minLength": 1 },
+        "checkedAt": { "$ref": "#/$defs/IsoDate" },
+        "unitId": { "type": "string", "minLength": 1 },
+        "quote": { "type": "string", "minLength": 1 },
+        "language": { "type": "string", "minLength": 2 }
+      }
+    },
+    "EditionCard": {
+      "type": "object",
+      "description": "One real editorial card. The prototype does not invent cards to fill a multi-card edition.",
+      "additionalProperties": false,
+      "required": [
+        "cardId",
+        "editionDate",
+        "title",
+        "takeaway",
+        "scenario",
+        "caveat",
+        "conceptId",
+        "lessonHref",
+        "practiceHref",
+        "reviewState",
+        "evidence",
+        "questionIds"
+      ],
+      "properties": {
+        "cardId": { "type": "string", "minLength": 1 },
+        "editionDate": { "$ref": "#/$defs/IsoDate" },
+        "title": { "type": "string", "minLength": 1 },
+        "takeaway": { "type": "string", "minLength": 1 },
+        "scenario": { "type": "string", "minLength": 1 },
+        "caveat": { "type": "string", "minLength": 1 },
+        "conceptId": { "type": "string", "minLength": 1 },
+        "lessonHref": { "type": "string", "pattern": "^/" },
+        "practiceHref": { "type": "string", "pattern": "^/" },
+        "reviewState": { "$ref": "#/$defs/ReviewState" },
+        "evidence": { "$ref": "#/$defs/EvidenceRecord" },
+        "questionIds": {
+          "type": "array",
+          "description": "Held assessment questions are referenced, never used as evidence or promoted to answers.",
+          "items": { "type": "string" }
+        }
+      }
+    },
+    "Edition": {
+      "type": "object",
+      "description": "A daily edition. The current contract is intentionally a single-card edition reader.",
+      "additionalProperties": false,
+      "required": ["date", "title", "cards", "cardCount", "reviewState", "sourceId", "checkedAt"],
+      "properties": {
+        "date": { "$ref": "#/$defs/IsoDate" },
+        "title": { "type": "string", "minLength": 1 },
+        "cards": {
+          "type": "array",
+          "minItems": 1,
+          "maxItems": 1,
+          "items": { "$ref": "#/$defs/EditionCard" }
+        },
+        "cardCount": { "type": "integer", "const": 1 },
+        "reviewState": { "$ref": "#/$defs/ReviewState" },
+        "sourceId": { "type": "string", "minLength": 1 },
+        "checkedAt": { "$ref": "#/$defs/IsoDate" }
+      }
+    },
+    "ReturnContext": {
+      "type": "object",
+      "description": "The minimum state needed to reopen the edition that started a thread. It carries no learner progress or assessment result.",
+      "additionalProperties": false,
+      "required": ["date", "conceptId", "view", "cardIndex", "origin", "returnLabel"],
+      "properties": {
+        "date": { "$ref": "#/$defs/IsoDate" },
+        "conceptId": { "type": "string", "minLength": 1 },
+        "view": { "$ref": "#/$defs/DealerView" },
+        "cardIndex": { "type": "integer", "minimum": 0 },
+        "origin": {
+          "type": "string",
+          "enum": ["timeline", "atlas", "goal", "search", "closing", "adapter-proof"]
+        },
+        "returnLabel": { "type": "string", "minLength": 1 }
+      }
+    },
+    "DeckRequest": {
+      "type": "object",
+      "description": "A request to open the KnowledgeDealer for one resolved topic. It is data-only and can be produced by a topic adapter, the timeline, the Atlas, a goal route or search.",
+      "additionalProperties": false,
+      "required": [
+        "schemaVersion",
+        "requestId",
+        "topic",
+        "conceptId",
+        "mode",
+        "editionDates",
+        "initialEdition",
+        "editions",
+        "reviewState",
+        "publicEligible",
+        "gates",
+        "returnContext",
+        "source",
+        "adapter"
+      ],
+      "properties": {
+        "schemaVersion": { "type": "integer", "const": 1 },
+        "requestId": { "type": "string", "pattern": "^deck:[a-z0-9-]+:[a-z0-9-]+$" },
+        "topic": { "type": "string", "minLength": 1 },
+        "conceptId": { "type": "string", "minLength": 1 },
+        "mode": { "$ref": "#/$defs/ProjectionMode" },
+        "editionDates": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": { "$ref": "#/$defs/IsoDate" }
+        },
+        "initialEdition": { "$ref": "#/$defs/IsoDate" },
+        "editions": {
+          "type": "array",
+          "minItems": 1,
+          "items": { "$ref": "#/$defs/Edition" }
+        },
+        "reviewState": { "$ref": "#/$defs/ReviewState" },
+        "publicEligible": {
+          "type": "boolean",
+          "description": "True only when every card and relation in the request is published. The current review corpus is false."
+        },
+        "gates": { "$ref": "#/$defs/PublicationGates" },
+        "returnContext": {
+          "oneOf": [{ "$ref": "#/$defs/ReturnContext" }, { "type": "null" }]
+        },
+        "source": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["kind", "path", "graphBuildId", "ledgerFingerprint"],
+          "properties": {
+            "kind": { "type": "string", "const": "generated-artifact" },
+            "path": { "type": "string", "minLength": 1 },
+            "graphBuildId": { "type": "string", "minLength": 1 },
+            "ledgerFingerprint": { "type": "string", "minLength": 1 }
+          }
+        },
+        "adapter": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["id", "version", "developmentOnly"],
+          "properties": {
+            "id": { "type": "string", "const": "development-topic-adapter" },
+            "version": { "type": "string", "minLength": 1 },
+            "developmentOnly": { "type": "boolean", "const": true }
+          }
+        }
+      }
+    },
+    "DealerState": {
+      "type": "object",
+      "description": "The serialisable state of the Dealer. A modal never opens a second modal; evidence and destination are reader states.",
+      "additionalProperties": false,
+      "required": [
+        "open",
+        "requestId",
+        "editionDate",
+        "view",
+        "cardIndex",
+        "focusRegion",
+        "returnContext",
+        "historyEntry",
+        "bodyLocked"
+      ],
+      "properties": {
+        "open": { "type": "boolean" },
+        "requestId": { "type": "string", "minLength": 1 },
+        "editionDate": { "$ref": "#/$defs/IsoDate" },
+        "view": { "$ref": "#/$defs/DealerView" },
+        "cardIndex": { "type": "integer", "minimum": 0 },
+        "focusRegion": {
+          "type": "string",
+          "enum": ["dialog", "edition-rail", "hand", "reader", "footer", "close"]
+        },
+        "returnContext": {
+          "oneOf": [{ "$ref": "#/$defs/ReturnContext" }, { "type": "null" }]
+        },
+        "historyEntry": {
+          "type": "string",
+          "pattern": "^#edition/\\d{4}-\\d{2}-\\d{2}$"
+        },
+        "bodyLocked": { "type": "boolean" }
+      }
+    },
+    "DealerEvent": {
+      "type": "object",
+      "description": "Events are observational. A consumer must not treat an event as publication approval.",
+      "additionalProperties": false,
+      "required": ["type", "requestId", "editionDate", "view"],
+      "properties": {
+        "type": {
+          "type": "string",
+          "enum": [
+            "dealer.opened",
+            "edition.changed",
+            "view.changed",
+            "evidence.opened",
+            "return.requested",
+            "dealer.closed"
+          ]
+        },
+        "requestId": { "type": "string", "minLength": 1 },
+        "editionDate": { "$ref": "#/$defs/IsoDate" },
+        "view": { "$ref": "#/$defs/DealerView" },
+        "returnContext": {
+          "oneOf": [{ "$ref": "#/$defs/ReturnContext" }, { "type": "null" }]
+        }
+      }
+    },
+    "PublicProjection": {
+      "type": "object",
+      "description": "Fail-closed public projection. The current corpus publishes nothing.",
+      "additionalProperties": false,
+      "required": ["publishedConcepts", "publishedAssertions", "gates", "withheld"],
+      "properties": {
+        "publishedConcepts": { "type": "array", "maxItems": 0 },
+        "publishedAssertions": { "type": "array", "maxItems": 0 },
+        "gates": { "$ref": "#/$defs/PublicationGates" },
+        "withheld": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["conceptCount", "mappingCount", "assertionCount"],
+          "properties": {
+            "conceptCount": { "type": "integer", "minimum": 0 },
+            "mappingCount": { "type": "integer", "minimum": 0 },
+            "assertionCount": { "type": "integer", "minimum": 0 }
+          }
+        }
+      }
+    }
+  }
+}

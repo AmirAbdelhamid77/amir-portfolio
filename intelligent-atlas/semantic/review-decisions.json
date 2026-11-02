@@ -1,0 +1,840 @@
+{
+  "schemaVersion": "intelligent-atlas-review-decisions/1.0",
+  "generatedAt": "2026-11-01",
+  "reviewer": "agent technical review (DeepSeek V4.1 Flash Free); human review pending",
+  "method": "Each unit was opened with its parent context, read for its actual claim, and only then compared with the matcher's candidates. Evidence quotes are verbatim substrings of the extracted unit text and are verified by the ledger builder. A decision never promotes a unit to published state.",
+  "scopes": {
+    "vertical-slice": "Every resource and edition used by the three review constellations and their goal routes.",
+    "quality-sample": "Deterministic SHA-256 stratified sample across domain, language, content form, matched/unmatched state and cross-domain placement."
+  },
+  "decisions": [
+    {
+      "unitId": "fabric-note:delta/architecture",
+      "scope": "vertical-slice",
+      "parentContext": "Fabric notes, delta pack, architecture section. The surrounding note distinguishes storage surfaces from processing stages.",
+      "reading": "The note separates four things that are usually conflated: raw Files, Delta Tables, OneLake as the tenant-wide storage foundation, and a lakehouse as one Fabric item that uses OneLake. Bronze/silver/gold are processing stages, not separate storage products. Spark, the SQL analytics endpoint, storage APIs, REST management and Power BI are different consumption surfaces.",
+      "essentialMeaning": "prose",
+      "evidenceQuote": "OneLake is the tenant-wide storage foundation, built on ADLS technology.",
+      "candidateVerdict": "revised",
+      "concepts": [
+        { "conceptId": "concept:fabric:lakehouse", "role": "primary" },
+        { "conceptId": "concept:fabric:onelake", "role": "primary" },
+        { "conceptId": "concept:fabric:delta", "role": "secondary" }
+      ],
+      "relationHints": [
+        {
+          "from": "concept:fabric:lakehouse",
+          "to": "concept:fabric:onelake",
+          "relationType": "requires_understanding_of",
+          "claim": "A lakehouse is a Fabric item that uses OneLake, so understanding what a lakehouse is depends on understanding the storage foundation it sits on.",
+          "conditions": "Holds for the OneLake-backed lakehouse described in the note; does not claim OneLake and lakehouse are the same object.",
+          "confidence": "high"
+        }
+      ],
+      "decision": "revised",
+      "decisionCode": "promoted-onelake-to-primary",
+      "rationale": "The matcher ranked OneLake secondary behind lakehouse. The passage defines OneLake explicitly and the review goal targets OneLake, so demoting it would misrepresent the unit.",
+      "unresolved": []
+    },
+    {
+      "unitId": "fabric-note:delta/shortcuts",
+      "scope": "vertical-slice",
+      "parentContext": "Fabric notes, delta pack, shortcut section. Follows the architecture note that defines OneLake and lakehouse.",
+      "reading": "A shortcut is a reference to existing files or tables rather than an independently managed copy. Internal shortcuts can expose Files and Delta Tables; external sources include ADLS, S3, GCS, Dataverse and supported Iceberg integrations. Workspace caching reduces repeat remote reads, with a documented 1-28 day inactivity retention and a 1 GB file exclusion.",
+      "essentialMeaning": "prose",
+      "evidenceQuote": "A plain shortcut references existing files or tables across workspaces or supported external systems",
+      "candidateVerdict": "confirmed",
+      "concepts": [
+        { "conceptId": "concept:fabric:shortcut", "role": "primary" },
+        { "conceptId": "concept:fabric:delta", "role": "secondary" }
+      ],
+      "relationHints": [],
+      "decision": "accepted",
+      "decisionCode": "confirmed-primary",
+      "rationale": "The matcher's primary candidate is the actual subject. The numeric caching limits are version-sensitive and are carried as conditions rather than as timeless facts.",
+      "unresolved": [
+        "Caching retention (1-28 days) and the 1 GB exclusion must be re-verified against current Microsoft documentation before publication."
+      ]
+    },
+    {
+      "unitId": "sql:00#opening",
+      "scope": "vertical-slice",
+      "parentContext": "Opening section of the SQL reference module: a learning map and decision framework, not a technique lesson.",
+      "reading": "The framework asks what one output row should represent before choosing a technique. Branches map to JOIN, EXISTS, GROUP BY, window functions, set operations and CTEs. Grain and population are the entry questions; the technique is downstream.",
+      "essentialMeaning": "prose",
+      "evidenceQuote": "Choose a SQL technique from the required population and output grain.",
+      "candidateVerdict": "revised",
+      "concepts": [
+        { "conceptId": "concept:sql:grain", "role": "primary" },
+        { "conceptId": "concept:sql:population", "role": "primary" },
+        { "conceptId": "concept:sql:set-operations", "role": "secondary" }
+      ],
+      "relationHints": [
+        {
+          "from": "concept:sql:set-operations",
+          "to": "concept:sql:grain",
+          "relationType": "requires_understanding_of",
+          "claim": "Choosing a set operation changes which rows survive, so the choice depends on the intended output grain.",
+          "conditions": "Applies when the set operation is selected to change the row population rather than only to concatenate disjoint results.",
+          "confidence": "medium"
+        }
+      ],
+      "decision": "revised",
+      "decisionCode": "demoted-branch-to-secondary",
+      "rationale": "Set operations appeared as a co-primary candidate but the unit mentions it as one branch of a decision tree. Population was only secondary even though the opening sentence names it alongside grain.",
+      "unresolved": [
+        "The decision flowchart lost its edge labels during extraction; only the branch targets survived, so the exact routing between questions cannot be reconstructed from the ledger alone."
+      ]
+    },
+    {
+      "unitId": "stats:s11",
+      "scope": "vertical-slice",
+      "parentContext": "Statistics source, section 11, in a sequence that introduces population/sample before the sampling distribution and the central limit theorem.",
+      "reading": "If many sufficiently sized samples are drawn from a population and each sample mean is computed, the distribution of those means approaches a normal distribution under suitable conditions, even when the population is not normal. The mean of that sampling distribution equals the population mean.",
+      "essentialMeaning": "prose",
+      "evidenceQuote": "إذا أخذنا عددًا كبيرًا من العينات ذات الحجم المناسب من Population",
+      "candidateVerdict": "confirmed",
+      "concepts": [
+        { "conceptId": "concept:stats:clt", "role": "primary" },
+        { "conceptId": "concept:stats:sampling-distribution", "role": "primary" },
+        { "conceptId": "concept:stats:population-sample", "role": "secondary" }
+      ],
+      "relationHints": [
+        {
+          "from": "concept:stats:clt",
+          "to": "concept:stats:sampling-distribution",
+          "relationType": "requires_understanding_of",
+          "claim": "The central limit theorem is a statement about the sampling distribution of the mean, so that distribution must be understood first.",
+          "conditions": "Under suitable conditions on sample size and dependence; the theorem does not make the raw population normal.",
+          "confidence": "high"
+        }
+      ],
+      "decision": "accepted",
+      "decisionCode": "confirmed-primary",
+      "rationale": "The matcher already had the right primary and the relation is supported verbatim. The secondary sampling-distribution candidate is promoted because the theorem is defined in terms of it.",
+      "unresolved": [
+        "The extracted text references the mean-equality formula but the formula body is not present in the ledger."
+      ]
+    },
+    {
+      "unitId": "stats:s13",
+      "scope": "vertical-slice",
+      "parentContext": "Statistics source, section 13, after the sampling distribution and before confidence intervals.",
+      "reading": "Standard error is the standard deviation of the sampling distribution of a statistic. For a sample mean it shrinks as sample size grows, which is why the estimate of the population mean becomes more stable. The section explicitly contrasts SD (spread of individual values) with SE (variation of the sample statistic between samples).",
+      "essentialMeaning": "prose",
+      "evidenceQuote": "Standard Error هو Standard Deviation الخاص بـ Sampling Distribution للـ Statistic.",
+      "candidateVerdict": "confirmed",
+      "concepts": [
+        { "conceptId": "concept:stats:standard-error", "role": "primary" },
+        { "conceptId": "concept:stats:sampling-distribution", "role": "primary" },
+        { "conceptId": "concept:stats:spread", "role": "secondary" }
+      ],
+      "relationHints": [
+        {
+          "from": "concept:stats:standard-error",
+          "to": "concept:stats:sampling-distribution",
+          "relationType": "requires_understanding_of",
+          "claim": "Standard error is defined as the standard deviation of the sampling distribution, so the sampling distribution is the prior idea.",
+          "conditions": "Applies to the sampling distribution of the statistic in question, not only the mean.",
+          "confidence": "high"
+        }
+      ],
+      "decision": "accepted",
+      "decisionCode": "confirmed-primary",
+      "rationale": "Direct definitional support. The SD/SE contrast is a misconception guard, not a second concept.",
+      "unresolved": [
+        "The sigma/sqrt(n) and s/sqrt(n) formulas are referenced but absent from the extracted text."
+      ]
+    },
+    {
+      "unitId": "stats:s14",
+      "scope": "vertical-slice",
+      "parentContext": "Statistics source, section 14, after standard error and before hypothesis testing.",
+      "reading": "A confidence interval gives a range of plausible values for a population parameter from a sample and a specified method. The section rejects the claim that a computed 95% interval has a 95% probability of containing a fixed parameter, and gives the frequentist repeated-sampling interpretation. Width increases with confidence level and standard error and decreases with sample size.",
+      "essentialMeaning": "prose",
+      "evidenceQuote": "فنحن لا نقول بدقة إن هناك",
+      "candidateVerdict": "revised",
+      "concepts": [
+        { "conceptId": "concept:stats:confidence-interval", "role": "primary" },
+        { "conceptId": "concept:stats:standard-error", "role": "primary" },
+        { "conceptId": "concept:stats:probability", "role": "secondary" }
+      ],
+      "relationHints": [
+        {
+          "from": "concept:stats:confidence-interval",
+          "to": "concept:stats:standard-error",
+          "relationType": "requires_understanding_of",
+          "claim": "Interval width is driven by standard error, so the interval cannot be interpreted without it.",
+          "conditions": "For the normal-approximation and t-based intervals described in the section.",
+          "confidence": "high"
+        }
+      ],
+      "decision": "revised",
+      "decisionCode": "removed-false-positive",
+      "rationale": "The matcher proposed concept:fabric:pipeline-parameter because the word parameter appears. Here parameter means a population parameter, so the fabric candidate is a lexical false positive and was removed.",
+      "unresolved": [
+        "The general and standard interval formulas are referenced but not extracted."
+      ]
+    },
+    {
+      "unitId": "stats:s15",
+      "scope": "vertical-slice",
+      "parentContext": "Statistics source, section 15, the hypothesis-testing section that closes the current slice.",
+      "reading": "Hypothesis testing is a set of methods for comparing populations or evaluating a claim about a population. It starts from a null hypothesis of no difference or no effect to limit bias. The alternative can be two-sided or one-sided, and that choice defines what counts as more extreme when the p-value is computed.",
+      "essentialMeaning": "prose",
+      "evidenceQuote": "نبدأ عادةً بافتراض عدم وجود فرق أو تأثير، لتقليل التحيز.",
+      "candidateVerdict": "revised",
+      "concepts": [
+        { "conceptId": "concept:stats:hypothesis-test", "role": "primary" },
+        { "conceptId": "concept:stats:p-value", "role": "primary" },
+        { "conceptId": "concept:stats:error-types", "role": "secondary" }
+      ],
+      "relationHints": [
+        {
+          "from": "concept:stats:p-value",
+          "to": "concept:stats:sampling-distribution",
+          "relationType": "requires_understanding_of",
+          "claim": "A p-value is the probability of results at least as extreme under the null, computed from the null sampling distribution.",
+          "conditions": "Requires a specified test statistic and a valid null model.",
+          "confidence": "high"
+        }
+      ],
+      "decision": "revised",
+      "decisionCode": "removed-false-positive",
+      "rationale": "The matcher proposed concept:sql:population from the word population. In this unit population is the statistical population, not the query row population, so the SQL candidate was removed and p-value was added from the section's own definition.",
+      "unresolved": [
+        "Only 15.1 and 15.2 are present in the extracted slice; the p-value and decision-rule subsections are outside the captured text."
+      ]
+    },
+    {
+      "unitId": "dv:core-chart-types#6-scatter-plot",
+      "scope": "vertical-slice",
+      "parentContext": "Visualization core chart types, section 6, inside the chart-by-chart reference. The page is a visualization lesson but the claim it makes is statistical.",
+      "reading": "A scatter plot is for two continuous variables when the goal is to understand their relationship. The reader inspects direction, strength, form, outliers, clusters and changing variance. Correlation quantifies the strength and direction of a linear association only, and the Datasaurus examples show that very different shapes can share a correlation.",
+      "essentialMeaning": "prose",
+      "evidenceQuote": "Positive correlation: larger X tends to accompany larger Y.",
+      "candidateVerdict": "revised",
+      "concepts": [
+        { "conceptId": "concept:viz:relationship-plot", "role": "primary" },
+        { "conceptId": "concept:stats:correlation", "role": "primary" },
+        { "conceptId": "concept:viz:scale", "role": "secondary" }
+      ],
+      "relationHints": [
+        {
+          "from": "concept:viz:relationship-plot",
+          "to": "concept:stats:correlation",
+          "relationType": "requires_understanding_of",
+          "claim": "Reading a relationship plot depends on understanding what correlation does and does not summarize.",
+          "conditions": "For linear association; the unit itself warns that correlation is not a complete description of arbitrary relationships.",
+          "confidence": "high"
+        }
+      ],
+      "decision": "revised",
+      "decisionCode": "promoted-cross-domain-concept",
+      "rationale": "Correlation was only a secondary candidate because the page lives in the visualization domain. The unit's central caution is statistical, and this is a genuine cross-domain reuse of a canonical concept rather than a shared term.",
+      "unresolved": [
+        "The page references figure content that was not visually reviewed.",
+        "Emphasis markers were stripped during extraction and adjacent words were joined (a linear association became alinearassociation), so exact quoting requires care."
+      ]
+    },
+    {
+      "unitId": "dv-lesson:en:accessibility-color-qa",
+      "scope": "vertical-slice",
+      "parentContext": "Visualization library, accessibility and color QA page. A short pre-publish checklist rather than a theory chapter.",
+      "reading": "Accessibility is a pre-publish pass: never let red/green alone carry status, apply contrast to labels, gridlines and states and not only body text, and run a grayscale check so the message survives without hue.",
+      "essentialMeaning": "prose",
+      "evidenceQuote": "Never use red/green alone to carry status.",
+      "candidateVerdict": "confirmed",
+      "concepts": [
+        { "conceptId": "concept:viz:accessibility-contrast", "role": "primary" },
+        { "conceptId": "concept:viz:color-palette", "role": "secondary" }
+      ],
+      "relationHints": [],
+      "decision": "accepted",
+      "decisionCode": "confirmed-primary",
+      "rationale": "The matcher's primary candidate matches the page's actual subject. Color palette is added as a secondary because the page treats palette semantics as part of the same check.",
+      "unresolved": []
+    },
+    {
+      "unitId": "dv-lesson:en:chart-selection",
+      "scope": "vertical-slice",
+      "parentContext": "Visualization library, chart selection matrix and anti-patterns page. It sits above the individual chart chapters.",
+      "reading": "Chart choice runs task, then data structure, then the simplest trustworthy encoding. Position on a common scale is preferred over angle, area or hue. The hazard should be named before the view is published.",
+      "essentialMeaning": "prose",
+      "evidenceQuote": "begin with the analytical task, then the data structure, then the simplest trustworthy encoding",
+      "candidateVerdict": "confirmed",
+      "concepts": [
+        { "conceptId": "concept:viz:chart-selection", "role": "primary" },
+        { "conceptId": "concept:viz:analytical-task", "role": "primary" },
+        { "conceptId": "concept:viz:visual-encoding", "role": "secondary" }
+      ],
+      "relationHints": [
+        {
+          "from": "concept:viz:chart-selection",
+          "to": "concept:viz:analytical-task",
+          "relationType": "requires_understanding_of",
+          "claim": "Chart selection starts from the analytical task, so the task must be understood before a chart can be chosen.",
+          "conditions": "As stated by the page's own ordering rule.",
+          "confidence": "high"
+        }
+      ],
+      "decision": "accepted",
+      "decisionCode": "confirmed-primary",
+      "rationale": "Both primary candidates are named in the unit's first rule. No correction was needed.",
+      "unresolved": []
+    },
+    {
+      "unitId": "dv-lesson:en:quick-reference",
+      "scope": "vertical-slice",
+      "parentContext": "Visualization library, quick reference and exam prep page. It compresses the library into a checklist and trap pairs.",
+      "reading": "The page is a pre-publish checklist plus a table of trap pairs: bar versus line, histogram versus bar, mean versus distribution, dual axis versus panels. It ends with the question-to-integrity pipeline.",
+      "essentialMeaning": "prose",
+      "evidenceQuote": "Know the trap pairs: bar vs line, histogram vs bar, mean vs distribution, dual axis vs panels.",
+      "candidateVerdict": "revised",
+      "concepts": [
+        { "conceptId": "concept:viz:visual-integrity", "role": "primary" },
+        { "conceptId": "concept:viz:distribution-plot", "role": "secondary" }
+      ],
+      "relationHints": [],
+      "decision": "revised",
+      "decisionCode": "promoted-primary-held-secondary",
+      "rationale": "Visual integrity was only secondary, but the checklist is the page's organizing claim. Distribution plot appears only inside a trap pair, so it is a comparison mention and not a claim about distribution plots.",
+      "unresolved": [
+        "The checklist items themselves are summarized rather than extracted, so the individual checks cannot be cited one by one."
+      ]
+    },
+    {
+      "unitId": "dv-lesson:ar:core-charts",
+      "scope": "vertical-slice",
+      "parentContext": "Arabic visualization track, index page for the six core chart lessons.",
+      "reading": "An Arabic index that connects the six chart lessons. It says to start from the variable type and the number of variables, that each chart suits a particular question and has limits that must be stated, and that the Arabic track re-expresses concepts rather than translating literally.",
+      "essentialMeaning": "index",
+      "evidenceQuote": "ابدأ من نوع المتغير وعدد المتغيرات.",
+      "candidateVerdict": "revised",
+      "concepts": [
+        { "conceptId": "concept:viz:variable-type", "role": "primary" },
+        { "conceptId": "concept:viz:chart-selection", "role": "secondary" }
+      ],
+      "relationHints": [],
+      "decision": "revised",
+      "decisionCode": "promoted-index-principle",
+      "rationale": "Variable type was secondary, but the page states it as the starting principle for the whole Arabic track. The unit is an index, so the claim strength is lower than a lesson body.",
+      "unresolved": [
+        "Index page: individual chart claims live in the linked lessons, not here."
+      ]
+    },
+    {
+      "unitId": "dv-lesson:ar:tips",
+      "scope": "vertical-slice",
+      "parentContext": "Arabic visualization track, practical tips and question bank page.",
+      "reading": "Chart choice inside Power BI starts from the question. Performance is part of visualization quality rather than a separate topic, and interview answers should be framed as trade-offs.",
+      "essentialMeaning": "prose",
+      "evidenceQuote": "اختيار الرسم داخل Power BI يبدأ من السؤال.",
+      "candidateVerdict": "confirmed",
+      "concepts": [
+        { "conceptId": "concept:viz:chart-selection", "role": "primary" },
+        { "conceptId": "concept:viz:analytical-task", "role": "secondary" }
+      ],
+      "relationHints": [],
+      "decision": "accepted",
+      "decisionCode": "confirmed-primary",
+      "rationale": "The matcher's candidate is the page's own opening claim. No correction was needed.",
+      "unresolved": []
+    },
+    {
+      "unitId": "dv:ar-comprehensive#operating-system",
+      "scope": "vertical-slice",
+      "parentContext": "Comprehensive visualization reference, operating-system section. It states the workflow the rest of the reference follows.",
+      "reading": "The reference defines an operating pipeline from question and decision through grain, variables, analytical task, encoding, scale, context, integrity and action. The explicit rule is to start from the decision, not from a chart type.",
+      "essentialMeaning": "prose",
+      "evidenceQuote": "Start from the decision, not from a chart type.",
+      "candidateVerdict": "revised",
+      "concepts": [
+        { "conceptId": "concept:analysis:decision-frame", "role": "primary" },
+        { "conceptId": "concept:viz:analytical-task", "role": "primary" },
+        { "conceptId": "concept:viz:chart-selection", "role": "secondary" }
+      ],
+      "relationHints": [],
+      "decision": "revised",
+      "decisionCode": "promoted-decision-frame",
+      "rationale": "Decision frame was secondary although the section's only imperative sentence names the decision as the starting point. Analytical task is kept as co-primary because the pipeline names it as a distinct stage.",
+      "unresolved": [
+        "The ten-stage pipeline is an editorial workflow, not a scientific prerequisite chain, so it must not be converted into requires_understanding_of edges."
+      ]
+    },
+    {
+      "unitId": "insight:hansa-insight-shortcut-reference-v1",
+      "scope": "vertical-slice",
+      "parentContext": "Daily insight edition for 2026-10-26, derived from OneLake shortcut documentation.",
+      "reading": "Two teams need to read the same existing Delta table without a separately retained result. The edition points to an internal OneLake shortcut as the thing to investigate, and warns that a shortcut is not a retained transformed snapshot and that external shortcut caching is separate.",
+      "essentialMeaning": "prose",
+      "evidenceQuote": "Investigate an internal OneLake shortcut: it points to an existing location rather than requiring a separate copy pipeline.",
+      "candidateVerdict": "confirmed",
+      "concepts": [
+        { "conceptId": "concept:fabric:shortcut", "role": "primary" },
+        { "conceptId": "concept:fabric:delta", "role": "secondary" }
+      ],
+      "relationHints": [],
+      "decision": "accepted",
+      "decisionCode": "accepted-editorial-synthesis",
+      "rationale": "The edition is an editorial synthesis with a source locator, not a verbatim source claim. It is accepted as technical-review content and explicitly not published.",
+      "unresolved": [
+        "No human publication review has been completed for this edition."
+      ]
+    },
+    {
+      "unitId": "insight:hansa-insight-shortcut-delete-v1",
+      "scope": "vertical-slice",
+      "parentContext": "Daily insight edition for 2026-10-25, derived from shortcut deletion guidance.",
+      "reading": "Removing a shortcut object is not the same operation as deleting the target through the shortcut. Deleting the shortcut leaves its target intact, while deleting a file or folder inside a shortcut can delete the target data when the caller has write permission.",
+      "essentialMeaning": "prose",
+      "evidenceQuote": "Deleting the shortcut object leaves its target intact.",
+      "candidateVerdict": "confirmed",
+      "concepts": [
+        { "conceptId": "concept:fabric:shortcut", "role": "primary" },
+        { "conceptId": "concept:fabric:permissions", "role": "secondary" }
+      ],
+      "relationHints": [],
+      "decision": "accepted",
+      "decisionCode": "accepted-editorial-synthesis",
+      "rationale": "The asymmetry between deleting the reference and deleting through the reference is the edition's actual claim and is stated with its permission condition.",
+      "unresolved": [
+        "No human publication review has been completed for this edition."
+      ]
+    },
+    {
+      "unitId": "insight:hansa-insight-shortcut-discovery-v1",
+      "scope": "vertical-slice",
+      "parentContext": "Daily insight edition for 2026-10-24, derived from shortcut placement rules.",
+      "reading": "Placing a shortcut to a folder of files under Files does not make it appear as a lakehouse table. Table discovery requires supported table data and the documented placement rules; a folder of arbitrary files is not automatically a Delta table.",
+      "essentialMeaning": "prose",
+      "evidenceQuote": "Table discovery does not happen in Files.",
+      "candidateVerdict": "confirmed",
+      "concepts": [
+        { "conceptId": "concept:fabric:shortcut", "role": "primary" },
+        { "conceptId": "concept:fabric:lakehouse", "role": "secondary" },
+        { "conceptId": "concept:fabric:delta", "role": "secondary" }
+      ],
+      "relationHints": [],
+      "decision": "accepted",
+      "decisionCode": "accepted-editorial-synthesis",
+      "rationale": "The edition corrects a specific learner assumption and states the placement condition. Accepted as technical-review content, not published.",
+      "unresolved": [
+        "No human publication review has been completed for this edition."
+      ]
+    },
+    {
+      "unitId": "fabric-q:fb-nb-025",
+      "scope": "quality-sample",
+      "parentContext": "Fabric question bank, notebooks-pyspark pack, section 1.2 on source control. Question stem only; answers and options are withheld from the ledger by policy.",
+      "reading": "The stem asks which statement about Spark Job Definitions in CI/CD is accurate. It tests source-control behaviour of a Fabric item type, not notebook authoring and not pipeline orchestration.",
+      "essentialMeaning": "question",
+      "evidenceQuote": "Which statement about Spark Job Definitions in CI/CD is accurate?",
+      "candidateVerdict": "false-positive",
+      "concepts": [
+        { "conceptId": "concept:fabric:git", "role": "secondary" }
+      ],
+      "relationHints": [],
+      "decision": "held",
+      "decisionCode": "missing-concept-and-withheld-answer",
+      "rationale": "The matcher proposed Spark notebook as primary and data pipeline as co-primary. The stem is about Spark Job Definitions, a distinct item type. Mapping it to notebooks would create a false semantic edge, so the unit is held pending a concept.",
+      "unresolved": [
+        "The registry has no Spark Job Definition concept.",
+        "The answer and options are withheld, so the tested distinction cannot be confirmed from the ledger."
+      ]
+    },
+    {
+      "unitId": "exam:sql:sql-09",
+      "scope": "quality-sample",
+      "parentContext": "SQL exam bank, readability section. Question stem only.",
+      "reading": "The stem asks which practices make a production query easier to review and says select all that apply. It tests reviewability conventions, not the SELECT clause.",
+      "essentialMeaning": "question",
+      "evidenceQuote": "Which practices make a production query easier to review? Select all that apply.",
+      "candidateVerdict": "false-positive",
+      "concepts": [],
+      "relationHints": [],
+      "decision": "held",
+      "decisionCode": "matcher-false-positive",
+      "rationale": "The only candidate, concept:sql:select, was produced by the phrase select all that apply. This is a pure lexical false positive and is the clearest single proof that matching is not semantic reading.",
+      "unresolved": [
+        "No registry concept covers SQL reviewability or readability conventions.",
+        "Answer withheld."
+      ]
+    },
+    {
+      "unitId": "stats-formula:21",
+      "scope": "quality-sample",
+      "parentContext": "Statistics formula fragments extracted from section 9. The fragment carries no surrounding sentence in the ledger.",
+      "reading": "The fragment is the expression mu plus or minus two sigma, a two-standard-deviation interval heuristic. Without the section text it is not possible to tell whether the source is describing a normal-range rule, a coverage claim, or a worked example.",
+      "essentialMeaning": "formula",
+      "evidenceQuote": "\\mu \\pm 2\\sigma",
+      "candidateVerdict": "missed",
+      "concepts": [],
+      "relationHints": [],
+      "decision": "unresolved-gap",
+      "decisionCode": "formula-without-parent-context",
+      "rationale": "A formula with no claim cannot become a semantic assertion. The unit is recorded as an extraction gap rather than guessed into concept:stats:spread.",
+      "unresolved": [
+        "The parent section 9 prose is not present in the unit text.",
+        "The extraction also retained a mangled plain-text form (mupm2sigma) alongside the LaTeX."
+      ]
+    },
+    {
+      "unitId": "dv-lesson:en:overview",
+      "scope": "quality-sample",
+      "parentContext": "Visualization library hub page. It is the map for the rest of the library.",
+      "reading": "The hub defines the working pipeline question to decision to grain to variables to task to encoding to scale to context to integrity to action. It separates the evidence layer of a chart from the storytelling layer and tells the reader to pick one job before one chapter.",
+      "essentialMeaning": "prose",
+      "evidenceQuote": "A chart is an evidence layer; storytelling is a separate communication layer.",
+      "candidateVerdict": "false-positive",
+      "concepts": [
+        { "conceptId": "concept:analysis:decision-frame", "role": "primary" },
+        { "conceptId": "concept:viz:chart-selection", "role": "secondary" }
+      ],
+      "relationHints": [],
+      "decision": "revised",
+      "decisionCode": "removed-cross-domain-false-positive",
+      "rationale": "The matcher proposed concept:fabric:pipeline because the page uses the word pipeline for an analytical workflow. A Fabric data pipeline is unrelated, so the candidate was removed and the actual decision-frame claim recorded.",
+      "unresolved": []
+    },
+    {
+      "unitId": "exam:fundamentals:fun-06",
+      "scope": "quality-sample",
+      "parentContext": "Analytics fundamentals exam bank, communication section. The statement is a true/false item.",
+      "reading": "The item presents the statement that showing more decimal places makes a dashboard KPI more credible. Read as a test item, the statement is the claim under judgement, not an assertion the corpus makes.",
+      "essentialMeaning": "question",
+      "evidenceQuote": "Showing more decimal places makes a dashboard KPI more credible.",
+      "candidateVerdict": "false-positive",
+      "concepts": [],
+      "relationHints": [],
+      "decision": "held",
+      "decisionCode": "misconception-prompt-not-claim",
+      "rationale": "The matcher proposed concept:analysis:kpi. Extracting a semantic claim here would invert the item's meaning, because the statement is a distractor to be rejected. Held as an assessment prompt.",
+      "unresolved": [
+        "The correct answer is withheld, so the intended judgement cannot be confirmed from the ledger."
+      ]
+    },
+    {
+      "unitId": "fabric-note:video14/V14-PIPE-068",
+      "scope": "quality-sample",
+      "parentContext": "Fabric notes, video14 pipeline pack, note 068 on lookup and configuration row shapes.",
+      "reading": "A Lookup activity can appear to succeed on a preview of the first 5,000 rows while the rest are omitted. The operational point is that a preview limit can hide truncation, so row counts and completeness must be checked.",
+      "essentialMeaning": "prose",
+      "evidenceQuote": "The first 5,000 can appear valid while the rest are omitted.",
+      "candidateVerdict": "missed",
+      "concepts": [
+        { "conceptId": "concept:fabric:pipeline-reliability", "role": "primary" },
+        { "conceptId": "concept:fabric:control-flow", "role": "secondary" }
+      ],
+      "relationHints": [],
+      "decision": "revised",
+      "decisionCode": "added-missed-concept",
+      "rationale": "The matcher found nothing because the note does not name a registry term. The note's actual claim is about silent truncation, which belongs to pipeline reliability.",
+      "unresolved": [
+        "The note is a condensed summary rather than a verbatim transcript, so the 5,000-row figure needs source verification before publication."
+      ]
+    },
+    {
+      "unitId": "dv:statistical-traps#6-multiple-comparisons",
+      "scope": "quality-sample",
+      "parentContext": "Visualization library, statistical interpretation traps, section 6. The page is Arabic with English technical terms.",
+      "reading": "The more segments and measures are examined, the greater the chance that odd patterns appear by chance. A visual should be treated as exploration that needs validation rather than as proof.",
+      "essentialMeaning": "prose",
+      "evidenceQuote": "كلما فحصت قطاعات ومقاييس أكثر، زادت فرصة ظهور patterns شاذة بالصدفة.",
+      "candidateVerdict": "revised",
+      "concepts": [
+        { "conceptId": "concept:viz:visual-integrity", "role": "primary" },
+        { "conceptId": "concept:stats:error-types", "role": "secondary" }
+      ],
+      "relationHints": [
+        {
+          "from": "concept:viz:visual-integrity",
+          "to": "concept:stats:error-types",
+          "relationType": "requires_understanding_of",
+          "claim": "Recognising multiple-comparison artefacts in a visual depends on understanding false-positive error.",
+          "conditions": "For the exploratory multi-segment reading described in the section.",
+          "confidence": "medium"
+        }
+      ],
+      "decision": "revised",
+      "decisionCode": "added-cross-domain-concept",
+      "rationale": "The primary candidate was correct. The statistical mechanism behind the trap is Type I error, so a cross-domain secondary was added rather than leaving the claim purely visual.",
+      "unresolved": [
+        "The registry has no multiple-comparisons concept; error-types is the nearest supported idea."
+      ]
+    },
+    {
+      "unitId": "sql:reference/3cd3906c5d6c81fca708ee9237596fb9#section-10",
+      "scope": "quality-sample",
+      "parentContext": "SQL reference, simple subqueries section, subsection 5 on scalar subqueries in SELECT.",
+      "reading": "A scalar subquery in the SELECT list computes one value and repeats it on every output row. The worked example counts matches per season and adds the total match count across all seasons as a second column.",
+      "essentialMeaning": "prose",
+      "evidenceQuote": "SELECT season, COUNT( ) AS matches",
+      "candidateVerdict": "confirmed",
+      "concepts": [
+        { "conceptId": "concept:sql:subquery-cte", "role": "primary" },
+        { "conceptId": "concept:sql:aggregation", "role": "secondary" },
+        { "conceptId": "concept:sql:group-by", "role": "secondary" }
+      ],
+      "relationHints": [],
+      "decision": "accepted",
+      "decisionCode": "confirmed-primary-with-extraction-defect",
+      "rationale": "The matcher's primary is correct. The code sample itself lost its asterisks during extraction, which is recorded as a defect rather than silently repaired.",
+      "unresolved": [
+        "Code extraction dropped asterisks: COUNT( ) should be COUNT(*). The same loss affects other code samples in this family."
+      ]
+    },
+    {
+      "unitId": "fabric-r11:T1Q168",
+      "scope": "quality-sample",
+      "parentContext": "Fabric R11 revision overlay. The unit is an overlay on an existing question identity, and its own text says the R11 second pass was not performed.",
+      "reading": "The scenario builds a deployment pipeline with Development and Test stages and asks which two settings create a Test workspace and modify a Power Query date parameter during deployment. It tests deployment-pipeline parameter rules.",
+      "essentialMeaning": "question",
+      "evidenceQuote": "Configure a rule that will modify the value of Date1 when changes are deployed to the Test stage.",
+      "candidateVerdict": "revised",
+      "concepts": [
+        { "conceptId": "concept:fabric:deployment", "role": "primary" },
+        { "conceptId": "concept:fabric:pipeline-parameter", "role": "primary" },
+        { "conceptId": "concept:fabric:semantic-model", "role": "secondary" }
+      ],
+      "relationHints": [],
+      "decision": "held",
+      "decisionCode": "revision-overlay-second-pass-missing",
+      "rationale": "The unit is a revision overlay, not a new question, and it states that the second-pass review was not performed. Concepts are recorded from the stem but the item cannot be promoted.",
+      "unresolved": [
+        "R11 second-pass review not performed; the retained R10 finding is a lead, not verification.",
+        "Answers withheld."
+      ]
+    },
+    {
+      "unitId": "academy:fabric-analytics:20a-work-with-graphql#section-4",
+      "scope": "quality-sample",
+      "parentContext": "Academy lesson on the Fabric GraphQL API, section 4 on querying a SQL database. The surrounding lesson is about GraphQL; this section is a T-SQL demonstration.",
+      "reading": "The section shows that the SQL query editor supports IntelliSense, parsing and validation and can run DDL, DML and DCL. The sample query inner-joins Product to ProductCategory and orders by list price descending.",
+      "essentialMeaning": "prose",
+      "evidenceQuote": "SELECT p.Name AS ProductName, pc.Name AS CategoryName, p.ListPrice",
+      "candidateVerdict": "revised",
+      "concepts": [
+        { "conceptId": "concept:sql:join", "role": "primary" },
+        { "conceptId": "concept:sql:ordering", "role": "secondary" },
+        { "conceptId": "concept:fabric:t-sql", "role": "secondary" }
+      ],
+      "relationHints": [],
+      "decision": "revised",
+      "decisionCode": "promoted-code-subject",
+      "rationale": "Join was only secondary although the section's worked example is a join. Reading the parent context is what makes this correct: the page is GraphQL, but this section teaches a SQL join.",
+      "unresolved": [
+        "The lesson's GraphQL claims are outside this section and were not read here."
+      ]
+    },
+    {
+      "unitId": "stats-formula:98",
+      "scope": "quality-sample",
+      "parentContext": "Statistics formula fragments from section 39. Only the symbol survives in the ledger.",
+      "reading": "The fragment is the symbol alpha, conventionally a significance level. The ledger contains no sentence stating what alpha is set to or how it is used here.",
+      "essentialMeaning": "formula",
+      "evidenceQuote": "\\alpha",
+      "candidateVerdict": "confirmed",
+      "concepts": [],
+      "relationHints": [],
+      "decision": "unresolved-gap",
+      "decisionCode": "symbol-without-parent-context",
+      "rationale": "The matcher proposed significance level from the symbol alone. A bare symbol is not a reading, so the unit is held as a gap even though the guess is plausible.",
+      "unresolved": [
+        "Parent section 39 prose is absent from the unit text."
+      ]
+    },
+    {
+      "unitId": "lab:hands-on-exp-0028-create-reusable-power-bi-assets",
+      "scope": "quality-sample",
+      "parentContext": "Hands-on labs family, lab 0028. The unit was identified from the repository lab folder structure.",
+      "reading": "The record describes the lab as creating reusable Power BI assets and states that instructions, expected outputs and validation checks were extracted from the contained markdown where present. In this record they are not present; only the description survives.",
+      "essentialMeaning": "procedure",
+      "evidenceQuote": "instructions, expected outputs and validation checks were extracted from the contained markdown where present",
+      "candidateVerdict": "missed",
+      "concepts": [],
+      "relationHints": [],
+      "decision": "unresolved-gap",
+      "decisionCode": "procedural-steps-not-extracted",
+      "rationale": "A lab whose steps are absent cannot support a procedural semantic claim. The unit is a real coverage gap in the hands-on-labs family, not a matcher failure.",
+      "unresolved": [
+        "Lab steps, expected outputs and validation checks are missing from the ledger.",
+        "The workspace prerequisite is marked inferred by the extractor itself."
+      ]
+    },
+    {
+      "unitId": "fabric-note:video10/V10-DEP-021",
+      "scope": "quality-sample",
+      "parentContext": "Fabric notes, video10 deployment pack, note 021 on multiple environment settings.",
+      "reading": "The stored text is a generic instruction to resolve lifecycle, dependency, permission and change-control constraints and to defend an answer against distractors. It is a study-strategy template, not a statement about environment settings.",
+      "essentialMeaning": "derived-summary",
+      "evidenceQuote": "Resolve coupled lifecycle, dependency, permissions, and change-control constraints; defend correct answer and rule out distractors.",
+      "candidateVerdict": "false-positive",
+      "concepts": [],
+      "relationHints": [],
+      "decision": "held",
+      "decisionCode": "templated-summary-not-source-claim",
+      "rationale": "The matcher proposed identity and permissions from the word permissions inside a template sentence. Reading the note shows there is no environment-specific claim to record.",
+      "unresolved": [
+        "The note body is a generated study template; the underlying video segment text is not in the ledger.",
+        "This pattern should be audited across the fabric-notes family before any of its notes are used as evidence."
+      ]
+    },
+    {
+      "unitId": "dv:visual-atlas#i-dual-axis-vs-small-multiples",
+      "scope": "quality-sample",
+      "parentContext": "Visual Atlas figure pack, section I. The unit is a figure entry whose meaning is carried by the image.",
+      "reading": "The entry contrasts dual axis with small multiples. The extracted text contains only the pack title and the section heading, so the actual comparison is in the figure, which was not reviewed.",
+      "essentialMeaning": "figure",
+      "evidenceQuote": "I. Dual axis vs small multiples",
+      "candidateVerdict": "confirmed",
+      "concepts": [
+        { "conceptId": "concept:viz:visual-integrity", "role": "secondary" }
+      ],
+      "relationHints": [],
+      "decision": "held",
+      "decisionCode": "essential-meaning-in-unreviewed-media",
+      "rationale": "The concept guess is plausible but unverifiable from text alone. Alt text and captions are not proof of what the figure shows, so the unit is held until the image is reviewed.",
+      "unresolved": [
+        "Figure pixels not independently reviewed; the media ledger records 628 references as not-inspected."
+      ]
+    },
+    {
+      "unitId": "fabric-note:video10/V10-DEP-042",
+      "scope": "quality-sample",
+      "parentContext": "Fabric notes, video10 deployment pack, note 042 on first-time target setup.",
+      "reading": "As with note 021, the stored text is the same generic study-strategy template rather than a statement about first-time target setup.",
+      "essentialMeaning": "derived-summary",
+      "evidenceQuote": "Resolve coupled lifecycle, dependency, permissions, and change-control constraints; defend correct answer and rule out distractors.",
+      "candidateVerdict": "false-positive",
+      "concepts": [],
+      "relationHints": [],
+      "decision": "held",
+      "decisionCode": "templated-summary-not-source-claim",
+      "rationale": "The identical template text across different note titles is direct evidence that the family contains generated summaries. No claim is recorded.",
+      "unresolved": [
+        "Underlying video segment text absent.",
+        "Template duplication across distinct titles must be resolved before the notes family is used as evidence."
+      ]
+    },
+    {
+      "unitId": "fabric-q:fb-v11-choose-013",
+      "scope": "quality-sample",
+      "parentContext": "Fabric question bank, video11 pack, ingestion section 2.1. Question stem only.",
+      "reading": "A market intelligence programme must retain PDFs, images, JSON payloads and structured prices together before refinement, and the stem asks which store is the appropriate raw landing zone. The tested distinction is a raw mixed-format landing area rather than a curated table.",
+      "essentialMeaning": "question",
+      "evidenceQuote": "Which store is the appropriate raw landing zone?",
+      "candidateVerdict": "missed",
+      "concepts": [
+        { "conceptId": "concept:fabric:lakehouse", "role": "primary" }
+      ],
+      "relationHints": [],
+      "decision": "revised",
+      "decisionCode": "recovered-unmatched-context",
+      "rationale": "The matcher returned nothing because raw landing zone is not a registry term. Reading the scenario makes the lakehouse Files area the clear subject. This is an unmatched unit that still received a contextual decision.",
+      "unresolved": [
+        "Answer withheld, so the intended option cannot be confirmed."
+      ]
+    },
+    {
+      "unitId": "academy:power-bi:labs-02-transform-data-power-bi#section-1",
+      "scope": "quality-sample",
+      "parentContext": "Academy Power BI lab, section 1. The section should contain the cleaning and transformation steps.",
+      "reading": "The stored text repeats the lab title twice. No instructions, no transformation steps and no expected output are present.",
+      "essentialMeaning": "procedure",
+      "evidenceQuote": "Clean, transform, and load data in Power BI",
+      "candidateVerdict": "missed",
+      "concepts": [],
+      "relationHints": [],
+      "decision": "unresolved-gap",
+      "decisionCode": "heading-only-extraction",
+      "rationale": "A duplicated heading is an extraction defect, not content. No concept is assigned.",
+      "unresolved": [
+        "Section body missing; only the heading was extracted.",
+        "Needs a re-extraction pass over academy lab sections before the family can be assessed."
+      ]
+    },
+    {
+      "unitId": "fabric-q:fb-v8-gov-012",
+      "scope": "quality-sample",
+      "parentContext": "Fabric question bank, video08 governance pack, section 1.1. Question stem only.",
+      "reading": "The stem asks for two statements that hold in a governed catalog design and is titled metadata versus access controls. The tested distinction is between describing an asset and enforcing who may read it.",
+      "essentialMeaning": "question",
+      "evidenceQuote": "Metadata versus access controls Select TWO statements that hold in the governed catalog design.",
+      "candidateVerdict": "missed",
+      "concepts": [
+        { "conceptId": "concept:fabric:permissions", "role": "primary" },
+        { "conceptId": "concept:fabric:security-model", "role": "secondary" }
+      ],
+      "relationHints": [],
+      "decision": "revised",
+      "decisionCode": "recovered-unmatched-context",
+      "rationale": "The matcher returned nothing. The stem's contrast is between metadata and access control, and enforcement is the permissions layer. Recorded as a partial reading with the metadata side left open.",
+      "unresolved": [
+        "No registry concept covers metadata discoverability or a governed catalog layer.",
+        "Answers withheld."
+      ]
+    },
+    {
+      "unitId": "sql:reference/3cb3906c5d6c817fb197f233646cda62#section-14",
+      "scope": "quality-sample",
+      "parentContext": "SQL reference, extensions and fuzzy matching section. A quick-reference list inside the canonical SQL module.",
+      "reading": "The section lists PostgreSQL extension commands and fuzzy-matching functions: available versus enabled extensions, CREATE EXTENSION, and levenshtein and similarity with their meaning.",
+      "essentialMeaning": "prose",
+      "evidenceQuote": "levenshtein(a,b) → edit distance (lower = closer)",
+      "candidateVerdict": "missed",
+      "concepts": [
+        { "conceptId": "concept:sql:text-matching", "role": "primary" }
+      ],
+      "relationHints": [],
+      "decision": "revised",
+      "decisionCode": "recovered-unmatched-context",
+      "rationale": "The matcher found no lexical signal. The fuzzy-matching half of the section is text and pattern matching, which is a supported concept; the extension-management half is not.",
+      "unresolved": [
+        "No registry concept covers PostgreSQL extension management.",
+        "The section mixes two unrelated topics, so a single unit-level concept assignment is a lossy summary."
+      ]
+    },
+    {
+      "unitId": "fabric-add:new-hub-dumps-21-r21",
+      "scope": "quality-sample",
+      "parentContext": "Fabric additions bank, Litware DP-600 case, item r21. Question stem only.",
+      "reading": "The stem requires data loading activities in the AnalyticsPOC workspace to run in the appropriate sequence while meeting technical requirements. It tests activity dependency and ordering, not the copy activity itself.",
+      "essentialMeaning": "question",
+      "evidenceQuote": "You need to ensure the data loading activities in the AnalyticsPOC workspace are executed in the appropriate sequence.",
+      "candidateVerdict": "missed",
+      "concepts": [
+        { "conceptId": "concept:fabric:control-flow", "role": "primary" },
+        { "conceptId": "concept:fabric:pipeline", "role": "secondary" }
+      ],
+      "relationHints": [],
+      "decision": "revised",
+      "decisionCode": "recovered-unmatched-context",
+      "rationale": "The matcher returned nothing. Sequencing of activities is pipeline control flow, which is a supported concept.",
+      "unresolved": [
+        "Answers withheld; the specific technical requirements are in the case body, not in this unit."
+      ]
+    },
+    {
+      "unitId": "fabric-q:fb-v6-sec-047",
+      "scope": "quality-sample",
+      "parentContext": "Fabric question bank, video06 security pack. Question stem only, tagged as a cross-domain placement.",
+      "reading": "The stem asks for three tests that best validate a new access-control deployment for restricted Lakehouse Delta tables. It tests whether access control actually holds, using the table format as the object under protection.",
+      "essentialMeaning": "question",
+      "evidenceQuote": "Select THREE tests that best validate a new access-control deployment for restricted Lakehouse Delta tables.",
+      "candidateVerdict": "revised",
+      "concepts": [
+        { "conceptId": "concept:fabric:permissions", "role": "primary" },
+        { "conceptId": "concept:fabric:delta", "role": "secondary" },
+        { "conceptId": "concept:fabric:lakehouse", "role": "secondary" }
+      ],
+      "relationHints": [],
+      "decision": "revised",
+      "decisionCode": "promoted-security-subject",
+      "rationale": "The matcher returned only Delta and Lakehouse. Those are the objects being protected, not the subject being tested, so permissions was promoted to primary.",
+      "unresolved": [
+        "Answers withheld."
+      ]
+    }
+  ]
+}

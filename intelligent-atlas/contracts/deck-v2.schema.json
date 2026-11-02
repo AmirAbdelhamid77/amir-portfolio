@@ -1,0 +1,264 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://hansa.local/contracts/deck-v2.schema.json",
+  "title": "Hansa Knowledge Dealer v2",
+  "description": "Successor contracts. v1 one-card editions remain supported through an explicit compatibility adapter; this schema does not impose a one-card limit.",
+  "$defs": {
+    "Href": {
+      "type": "string",
+      "maxLength": 2048,
+      "pattern": "^(/|https://learn\\.microsoft\\.com/)"
+    },
+    "Id": { "type": "string", "minLength": 1, "maxLength": 200 },
+    "Revision": { "type": "integer", "minimum": 1 },
+    "Capabilities": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["discover", "readFull", "assess", "relate"],
+      "properties": {
+        "discover": { "type": "boolean" },
+        "readFull": { "type": "boolean" },
+        "assess": { "type": "boolean" },
+        "relate": { "type": "boolean" }
+      }
+    },
+    "ContentRef": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["unitId", "sourcePath", "locator"],
+      "properties": {
+        "unitId": { "$ref": "#/$defs/Id" },
+        "sourceId": { "type": "string", "maxLength": 200 },
+        "sourcePath": { "type": "string", "maxLength": 500 },
+        "locator": { "type": "string", "maxLength": 500 },
+        "canonicalHref": { "$ref": "#/$defs/Href" },
+        "sourceUrl": { "$ref": "#/$defs/Href" },
+        "language": { "type": "string", "maxLength": 16 },
+        "revision": { "$ref": "#/$defs/Revision" },
+        "fingerprint": { "type": "string", "maxLength": 128 }
+      }
+    },
+    "EvidenceRef": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["unitId", "locator"],
+      "properties": {
+        "unitId": { "$ref": "#/$defs/Id" },
+        "locator": { "type": "string", "maxLength": 500 },
+        "quote": { "type": "string", "maxLength": 4000 },
+        "quoteFingerprint": { "type": "string", "maxLength": 128 },
+        "language": { "type": "string", "maxLength": 16 }
+      }
+    },
+    "AllowedAction": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["type", "label"],
+      "properties": {
+        "type": {
+          "enum": [
+            "open-resource",
+            "open-concept",
+            "open-timeline",
+            "open-search",
+            "locate-in-knowledge",
+            "preview-goal",
+            "save-to-pocket",
+            "close"
+          ]
+        },
+        "label": { "type": "string", "maxLength": 120 },
+        "href": { "$ref": "#/$defs/Href" },
+        "targetId": { "$ref": "#/$defs/Id" }
+      }
+    },
+    "CardDescriptor": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "cardId",
+        "revision",
+        "kind",
+        "title",
+        "contentRef",
+        "capabilities",
+        "allowedActions"
+      ],
+      "properties": {
+        "cardId": { "$ref": "#/$defs/Id" },
+        "revision": { "$ref": "#/$defs/Revision" },
+        "kind": { "enum": ["insight", "resource", "route-step", "evidence"] },
+        "title": { "type": "string", "maxLength": 240 },
+        "summary": { "type": "string", "maxLength": 1200 },
+        "contentRef": { "$ref": "#/$defs/ContentRef" },
+        "evidence": { "type": "array", "maxItems": 8, "items": { "$ref": "#/$defs/EvidenceRef" } },
+        "reader": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["mode"],
+          "properties": {
+            "mode": { "enum": ["inline", "reference"] },
+            "payload": {
+              "type": "object",
+              "additionalProperties": { "type": "string", "maxLength": 4000 }
+            },
+            "href": { "$ref": "#/$defs/Href" }
+          }
+        },
+        "capabilities": { "$ref": "#/$defs/Capabilities" },
+        "allowedActions": { "type": "array", "maxItems": 8, "items": { "$ref": "#/$defs/AllowedAction" } },
+        "reviewState": { "enum": ["candidate", "technical_review", "published", "withdrawn", "held"] }
+      }
+    },
+    "DeckOrigin": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["type"],
+      "properties": {
+        "type": { "enum": ["daily-edition", "concept", "goal", "saved-selection"] },
+        "date": { "type": "string", "pattern": "^\\d{4}-\\d{2}-\\d{2}$" },
+        "editionId": { "$ref": "#/$defs/Id" },
+        "conceptId": { "$ref": "#/$defs/Id" },
+        "goalId": { "$ref": "#/$defs/Id" },
+        "savedSelectionId": { "$ref": "#/$defs/Id" }
+      }
+    },
+    "ReturnContext": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["version", "scene"],
+      "properties": {
+        "version": { "const": "return-context/1.0" },
+        "scene": { "enum": ["timeline", "knowledge", "closing"] },
+        "date": { "type": "string", "pattern": "^\\d{4}-\\d{2}-\\d{2}$" },
+        "editionId": { "$ref": "#/$defs/Id" },
+        "conceptId": { "$ref": "#/$defs/Id" },
+        "intent": { "enum": ["understand", "compare", "apply", "goal"] },
+        "goalId": { "$ref": "#/$defs/Id" },
+        "resource": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "unitId": { "$ref": "#/$defs/Id" },
+            "href": { "$ref": "#/$defs/Href" }
+          }
+        },
+        "comparison": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "left": { "$ref": "#/$defs/Id" },
+            "right": { "$ref": "#/$defs/Id" },
+            "conditionId": { "$ref": "#/$defs/Id" }
+          }
+        },
+        "expansion": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "ids": { "type": "array", "maxItems": 20, "items": { "$ref": "#/$defs/Id" } },
+            "limit": { "type": "integer", "minimum": 0, "maximum": 20 }
+          }
+        },
+        "originFocusId": { "$ref": "#/$defs/Id" }
+      }
+    },
+    "DeckRequest": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["schemaVersion", "requestId", "origin", "graphBuildId"],
+      "properties": {
+        "schemaVersion": {
+          "enum": ["intelligent-atlas-deck-request/2.0", "intelligent-atlas-deck-request/1.0"]
+        },
+        "requestId": { "$ref": "#/$defs/Id" },
+        "origin": { "$ref": "#/$defs/DeckOrigin" },
+        "intent": { "enum": ["understand", "compare", "apply", "goal", "browse"] },
+        "graphBuildId": { "$ref": "#/$defs/Id" },
+        "sourceIndexBuildId": { "$ref": "#/$defs/Id" },
+        "returnContext": { "$ref": "#/$defs/ReturnContext" },
+        "mode": { "enum": ["review", "public"] }
+      }
+    },
+    "DeckDescriptor": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "deckId",
+        "revision",
+        "title",
+        "provenance",
+        "reason",
+        "cards",
+        "cardCount",
+        "capabilitySummary",
+        "limitations",
+        "allowedActions"
+      ],
+      "properties": {
+        "deckId": { "$ref": "#/$defs/Id" },
+        "revision": { "$ref": "#/$defs/Revision" },
+        "title": { "type": "string", "maxLength": 240 },
+        "provenance": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["source", "reviewState"],
+          "properties": {
+            "source": { "type": "string", "maxLength": 500 },
+            "reviewState": { "enum": ["candidate", "technical_review", "published"] },
+            "checkedAt": { "type": "string", "maxLength": 40 },
+            "basis": { "type": "string", "maxLength": 500 }
+          }
+        },
+        "reason": { "type": "string", "maxLength": 1000 },
+        "cards": {
+          "type": "array",
+          "maxItems": 12,
+          "items": { "$ref": "#/$defs/CardDescriptor" }
+        },
+        "cardCount": { "type": "integer", "minimum": 0, "maximum": 12 },
+        "capabilitySummary": { "$ref": "#/$defs/Capabilities" },
+        "limitations": { "type": "array", "maxItems": 20, "items": { "type": "string", "maxLength": 500 } },
+        "allowedActions": { "type": "array", "maxItems": 8, "items": { "$ref": "#/$defs/AllowedAction" } }
+      }
+    },
+    "DeckResolution": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "schemaVersion",
+        "status",
+        "requestId",
+        "graphBuildId",
+        "reasonCode",
+        "explanation",
+        "limitations",
+        "nextAction",
+        "deck"
+      ],
+      "properties": {
+        "schemaVersion": { "const": "intelligent-atlas-deck-resolution/2.0" },
+        "status": { "enum": ["ready", "empty", "unavailable", "unsupported", "error"] },
+        "requestId": { "$ref": "#/$defs/Id" },
+        "graphBuildId": { "$ref": "#/$defs/Id" },
+        "sourceIndexBuildId": { "$ref": "#/$defs/Id" },
+        "reasonCode": { "type": "string", "maxLength": 120 },
+        "explanation": { "type": "string", "maxLength": 2000 },
+        "limitations": { "type": "array", "maxItems": 20, "items": { "type": "string", "maxLength": 500 } },
+        "nextAction": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["type", "label"],
+          "properties": {
+            "type": {
+              "enum": ["open-timeline", "open-concept", "open-goal", "open-search", "retry", "close"]
+            },
+            "label": { "type": "string", "maxLength": 120 },
+            "targetId": { "$ref": "#/$defs/Id" }
+          }
+        },
+        "deck": { "oneOf": [{ "$ref": "#/$defs/DeckDescriptor" }, { "type": "null" }] }
+      }
+    }
+  }
+}

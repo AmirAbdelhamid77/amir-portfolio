@@ -1,0 +1,625 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Intelligent Atlas — five-frame storyboard</title>
+<style>
+  :root {
+    color-scheme: light;
+    --paper: #f4f1e9;
+    --paper-raised: #fbf9f4;
+    --ink: #191a1c;
+    --ink-soft: #4d4f53;
+    --ink-faint: #77787c;
+    --rule: #d8d2c5;
+    --rule-strong: #b9b1a2;
+    --blue: #0b62d6;
+    --blue-soft: #e7eefb;
+    --amber: #9a5c16;
+    --amber-soft: #f6ecdc;
+    --green: #1f6b4a;
+    --shadow: 0 1px 1px rgb(25 26 28 / 5%), 0 12px 30px rgb(25 26 28 / 8%);
+    --radius: 14px;
+    --measure: 1180px;
+  }
+
+  * { box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    margin: 0;
+    background:
+      radial-gradient(1200px 600px at 85% -10%, rgb(11 98 214 / 6%), transparent 60%),
+      var(--paper);
+    color: var(--ink);
+    font: 16px/1.6 "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  a { color: var(--blue); text-underline-offset: 3px; }
+  a:hover { text-decoration-thickness: 2px; }
+  a:focus-visible { outline: 2px solid var(--blue); outline-offset: 3px; border-radius: 3px; }
+
+  .skip {
+    position: absolute;
+    left: 16px;
+    top: -60px;
+    z-index: 10;
+    padding: 10px 14px;
+    background: var(--ink);
+    color: #fff;
+    border-radius: 8px;
+    text-decoration: none;
+  }
+  .skip:focus { top: 16px; }
+
+  .shell { width: min(calc(100% - 40px), var(--measure)); margin: 0 auto; }
+
+  header.masthead {
+    padding: 56px 0 34px;
+    border-bottom: 1px solid var(--rule);
+  }
+
+  .eyebrow {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 0 0 22px;
+    color: var(--ink-faint);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: .16em;
+    text-transform: uppercase;
+  }
+  .eyebrow::before {
+    content: "";
+    width: 26px;
+    height: 1px;
+    background: var(--blue);
+  }
+
+  h1 {
+    max-width: 900px;
+    margin: 0;
+    font-size: clamp(38px, 6.2vw, 76px);
+    line-height: .98;
+    letter-spacing: -.045em;
+    font-weight: 700;
+  }
+  h1 .accent { color: var(--blue); }
+
+  .lede {
+    max-width: 620px;
+    margin: 22px 0 0;
+    color: var(--ink-soft);
+    font-size: clamp(16px, 1.6vw, 19px);
+  }
+
+  .meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 26px;
+  }
+  .chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    padding: 6px 10px;
+    border: 1px solid var(--rule);
+    border-radius: 999px;
+    background: var(--paper-raised);
+    color: var(--ink-soft);
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: .01em;
+  }
+  .dot { width: 7px; height: 7px; border-radius: 50%; background: var(--ink-faint); }
+  .dot.amber { background: var(--amber); }
+  .dot.blue { background: var(--blue); }
+  .dot.green { background: var(--green); }
+
+  .jump {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px 18px;
+    padding: 16px 0;
+    border-bottom: 1px solid var(--rule);
+    font-size: 13px;
+  }
+  .jump a { color: var(--ink-soft); text-decoration: none; }
+  .jump a:hover { color: var(--blue); text-decoration: underline; }
+
+  main { padding: 26px 0 40px; }
+
+  .frame {
+    display: grid;
+    grid-template-columns: minmax(0, 1.55fr) minmax(280px, .85fr);
+    gap: clamp(24px, 4vw, 52px);
+    align-items: start;
+    padding: clamp(38px, 6vw, 72px) 0;
+    border-bottom: 1px solid var(--rule);
+  }
+  .frame:last-of-type { border-bottom: 0; }
+
+  .figure { margin: 0; min-width: 0; }
+
+  .shot {
+    position: relative;
+    border: 1px solid var(--rule-strong);
+    border-radius: var(--radius);
+    background: var(--paper-raised);
+    box-shadow: var(--shadow);
+    overflow: hidden;
+  }
+  .shot img {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+  .shot::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    box-shadow: inset 0 0 0 1px rgb(255 255 255 / 35%);
+    pointer-events: none;
+  }
+
+  figcaption {
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+    margin-top: 10px;
+    color: var(--ink-faint);
+    font-size: 12px;
+  }
+  figcaption strong { color: var(--ink-soft); font-weight: 600; }
+
+  .annotation { min-width: 0; }
+
+  .step {
+    display: flex;
+    align-items: baseline;
+    gap: 12px;
+    margin-bottom: 6px;
+  }
+  .step .number {
+    color: var(--blue);
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: .14em;
+  }
+  .step .state {
+    padding: 3px 8px;
+    border: 1px solid var(--rule);
+    border-radius: 999px;
+    color: var(--ink-faint);
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+  }
+
+  h2 {
+    margin: 0 0 10px;
+    font-size: clamp(24px, 3vw, 34px);
+    line-height: 1.08;
+    letter-spacing: -.025em;
+  }
+
+  .summary {
+    margin: 0 0 22px;
+    color: var(--ink-soft);
+    font-size: 15px;
+  }
+
+  dl { margin: 0; }
+  dl > div {
+    display: grid;
+    grid-template-columns: 92px minmax(0, 1fr);
+    gap: 14px;
+    padding: 12px 0;
+    border-top: 1px solid var(--rule);
+  }
+  dt {
+    color: var(--ink-faint);
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    padding-top: 2px;
+  }
+  dd { margin: 0; color: var(--ink-soft); font-size: 14px; }
+  dd strong { color: var(--ink); font-weight: 600; }
+  code {
+    padding: 1px 5px;
+    border: 1px solid var(--rule);
+    border-radius: 4px;
+    background: var(--paper);
+    color: var(--ink);
+    font: 12px/1.5 ui-monospace, SFMono-Regular, Consolas, monospace;
+    overflow-wrap: anywhere;
+  }
+
+  .appendix {
+    padding: clamp(38px, 6vw, 70px) 0;
+    border-top: 1px solid var(--rule);
+  }
+  .appendix h2 { margin-bottom: 8px; }
+  .appendix .summary { max-width: 680px; }
+
+  .gallery-group + .gallery-group { margin-top: 34px; }
+  .gallery-group h3 {
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+    margin: 0 0 12px;
+    font-size: 14px;
+    letter-spacing: -.01em;
+  }
+  .gallery-group h3 span {
+    color: var(--ink-faint);
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+  }
+  .gallery {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    align-items: start;
+    gap: 18px;
+  }
+  .gallery.four { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+  .gallery.three { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .gallery.one { grid-template-columns: 1fr; }
+  .gallery figure { margin: 0; }
+  .gallery .shot { border-radius: 10px; box-shadow: 0 1px 2px rgb(25 26 28 / 6%); }
+  .gallery figcaption { display: block; margin-top: 7px; font-size: 11px; line-height: 1.45; }
+
+  .legend {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 16px;
+    margin-top: 30px;
+    padding: 18px;
+    border: 1px solid var(--rule);
+    border-radius: 12px;
+    background: var(--paper-raised);
+  }
+  .legend p { margin: 0; color: var(--ink-soft); font-size: 12px; }
+  .legend strong { display: block; margin-bottom: 2px; color: var(--ink); font-size: 12px; }
+
+  footer {
+    padding: 28px 0 54px;
+    border-top: 1px solid var(--rule);
+    color: var(--ink-faint);
+    font-size: 12px;
+  }
+  footer p { margin: 0 0 8px; max-width: 860px; }
+  footer nav { display: flex; flex-wrap: wrap; gap: 8px 18px; margin-top: 14px; }
+
+  @media (max-width: 900px) {
+    .frame { grid-template-columns: 1fr; }
+    .annotation { max-width: 680px; }
+    .gallery.four, .gallery.three { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  }
+
+  @media (max-width: 600px) {
+    .shell { width: min(calc(100% - 28px), var(--measure)); }
+    header.masthead { padding-top: 38px; }
+    .frame { padding: 34px 0; }
+    dl > div { grid-template-columns: 1fr; gap: 3px; }
+    .gallery.four, .gallery.three { grid-template-columns: 1fr; }
+    .legend { grid-template-columns: 1fr; }
+    figcaption { flex-direction: column; gap: 2px; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    * { transition: none !important; animation: none !important; }
+  }
+
+  @media print {
+    body { background: #fff; }
+    .jump, .skip { display: none; }
+    .frame { break-inside: avoid; page-break-inside: avoid; }
+    .shot { box-shadow: none; }
+    a { color: inherit; text-decoration: none; }
+  }
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to storyboard</a>
+
+<header class="masthead">
+  <div class="shell">
+    <p class="eyebrow">Hansa · Intelligent Atlas · visual review</p>
+    <h1>Five frames.<br /><span class="accent">One thread.</span></h1>
+    <p class="lede">
+      A date becomes an edition, an edition becomes a card, and a card becomes a
+      supported next step. This is the standalone prototype storyboard — real
+      subset, candidate data, zero published semantic edges.
+    </p>
+    <div class="meta">
+      <span class="chip"><span class="dot blue"></span>Editorial review</span>
+      <span class="chip"><span class="dot amber"></span>Candidate, not published</span>
+      <span class="chip"><span class="dot green"></span>Public projection: empty</span>
+      <span class="chip">Fixed clock · 31 Oct 2026</span>
+    </div>
+  </div>
+</header>
+
+<div class="shell">
+  <nav class="jump" aria-label="Storyboard sections">
+    <a href="#frame-1">01 · Choose a moment</a>
+    <a href="#frame-2">02 · Read one card</a>
+    <a href="#frame-3">03 · Inspect evidence</a>
+    <a href="#frame-4">04 · Follow the thread</a>
+    <a href="#frame-5">05 · Leave with an action</a>
+    <a href="#appendix">Appendix</a>
+  </nav>
+</div>
+
+<main id="main" class="shell">
+
+  <section class="frame" id="frame-1" aria-labelledby="f1-title">
+    <figure class="figure">
+      <div class="shot">
+        <img src="frame-1-timeline-1280.png" width="1280" height="900"
+             alt="Timeline scene at 1280 pixels: date cards from 18 to 31 October, with 24, 25 and 26 October carrying real editions and 26 October selected." />
+      </div>
+      <figcaption><strong>Frame 1 · 1280 × 900</strong><span>Timeline · editorial review</span></figcaption>
+    </figure>
+    <div class="annotation">
+      <div class="step"><span class="number">01</span><span class="state">Entry</span></div>
+      <h2 id="f1-title">Choose a moment.</h2>
+      <p class="summary">
+        A fourteen-day ledger. Three real editions, eleven honest empty dates, one
+        selected moment.
+      </p>
+      <dl>
+        <div><dt>What</dt><dd>Date cards 18–31 October. <strong>24, 25, 26</strong> carry one real card each; later dates say <strong>No edition</strong>. The footer states <strong>3 editions · 59 concepts · 0 published semantic edges</strong>.</dd></div>
+        <div><dt>Why</dt><dd>The timeline is a ledger, not a carousel. The selected card is raised on a blue rule and linked to the latest-edition marker by thin cables. The giant background <strong>26</strong> is the selected date, cropped — not decoration.</dd></div>
+        <div><dt>Interaction</dt><dd>Arrow keys move; <code>Home</code>/<code>End</code> jump; <code>Enter</code> opens. Drag or wheel moves the rail. Empty dates open a labelled empty state, never a fabricated card.</dd></div>
+        <div><dt>Evidence</dt><dd>Real <code>content/knowledge/insights.json</code> editions only. The clock is fixed at 31 October 2026; no future edition is implied.</dd></div>
+      </dl>
+    </div>
+  </section>
+
+  <section class="frame" id="frame-2" aria-labelledby="f2-title">
+    <figure class="figure">
+      <div class="shot">
+        <img src="frame-2-dealer-1280.png" width="1280" height="900"
+             alt="KnowledgeDealer at 1280 pixels: edition rail for 24, 25 and 26 October, a single card in the hand, and the reader showing scenario, takeaway, caveat and actions." />
+      </div>
+      <figcaption><strong>Frame 2 · 1280 × 900</strong><span>Dealer · card view</span></figcaption>
+    </figure>
+    <div class="annotation">
+      <div class="step"><span class="number">02</span><span class="state">Card</span></div>
+      <h2 id="f2-title">Read one card.</h2>
+      <p class="summary">
+        One edition, one card, one reader. The deck metaphor never fans out cards
+        that do not exist.
+      </p>
+      <dl>
+        <div><dt>What</dt><dd>The 26 October edition. The rail shows <strong>24 · 25 · 26</strong>. The hand says <strong>1 card</strong> and <strong>01 / 01</strong>. The reader carries scenario, a before-you-read prompt, takeaway, caveat and metadata.</dd></div>
+        <div><dt>Why</dt><dd>The badge says <strong>Technical review · human pending</strong>, not published. The caveat has the same visual weight as the takeaway because the source has a real limitation.</dd></div>
+        <div><dt>Interaction</dt><dd><code>Escape</code> closes from the card. Evidence and destination are reader states, not nested dialogs. Edition switches preserve each edition's reader view.</dd></div>
+        <div><dt>Evidence</dt><dd>Card text is copied from the real insight; locator <code>What are shortcuts?; Internal OneLake shortcuts; Caching</code>. Held questions are listed as held and never used as evidence.</dd></div>
+      </dl>
+    </div>
+  </section>
+
+  <section class="frame" id="frame-3" aria-labelledby="f3-title">
+    <figure class="figure">
+      <div class="shot">
+        <img src="frame-3-evidence-1280.png" width="1280" height="900"
+             alt="Evidence reader at 1280 pixels: source record with locator, URL and checked date, followed by candidate relations and verbatim supporting quotes." />
+      </div>
+      <figcaption><strong>Frame 3 · 1280 × 900</strong><span>Dealer · evidence view</span></figcaption>
+    </figure>
+    <div class="annotation">
+      <div class="step"><span class="number">03</span><span class="state">Evidence</span></div>
+      <h2 id="f3-title">Inspect the evidence.</h2>
+      <p class="summary">
+        A locator and a verbatim slice — not a summary, not an answer, not a
+        publication claim.
+      </p>
+      <dl>
+        <div><dt>What</dt><dd>Source ID, locator, URL, checked date, review state and concept. Below: the candidate relations the card touches, each with a supporting quote and unit reference. The badge says <strong>Candidate</strong>.</dd></div>
+        <div><dt>Why</dt><dd>Showing relation context makes the difference between “the card says” and “the corpus supports” visible. Evidence is a reader state, so there is still one dialog and one focus trap.</dd></div>
+        <div><dt>Interaction</dt><dd><code>Escape</code> or <strong>Back to card</strong> returns. The primary-source link opens in a new tab with <code>rel="noreferrer"</code>. No answer, score or “correct” interpretation is exposed.</dd></div>
+        <div><dt>Evidence</dt><dd>The quote is a verbatim corpus slice; the locator resolves in the analysis ledger. Relation labels remain candidate assertions.</dd></div>
+      </dl>
+    </div>
+  </section>
+
+  <section class="frame" id="frame-4" aria-labelledby="f4-title">
+    <figure class="figure">
+      <div class="shot">
+        <img src="frame-4-atlas-1280.png" width="1280" height="900"
+             alt="Atlas at 1280 pixels: OneLake shortcut island with five concepts and four candidate relations, a concept detail panel, goal bar and return control." />
+      </div>
+      <figcaption><strong>Frame 4 · 1280 × 900</strong><span>Atlas · editorial review projection</span></figcaption>
+    </figure>
+    <div class="annotation">
+      <div class="step"><span class="number">04</span><span class="state">Context</span></div>
+      <h2 id="f4-title">Follow the thread.</h2>
+      <p class="summary">
+        An archipelago of real components. No invented bridges, no published
+        edges, no graph-only path.
+      </p>
+      <dl>
+        <div><dt>What</dt><dd>OneLake island: <strong>5 concepts · 4 relations · 6 other components</strong>. Detail: 100 mapped units, 35 primary, 3 candidate relations. Goal bar with three supported goals. Return control: <strong>Return to 26 Oct 2026 edition</strong>.</dd></div>
+        <div><dt>Why</dt><dd>Only real components are islands. The selected island is in focus; other components become aggregate cards. <strong>Show all</strong> reveals the bounded region. List view is the complete accessible alternative.</dd></div>
+        <div><dt>Interaction</dt><dd>Search, lens filters, arrow-key movement, <code>Enter</code> to select, Locate preserves the return context. Public mode replaces the graph with an empty plate and withholds candidates.</dd></div>
+        <div><dt>Evidence</dt><dd>Review state and mapped-unit count are named in the panel. Footer says <strong>0 published</strong>. The graph is explicitly an editorial-review projection.</dd></div>
+      </dl>
+    </div>
+  </section>
+
+  <section class="frame" id="frame-5" aria-labelledby="f5-title">
+    <figure class="figure">
+      <div class="shot">
+        <img src="frame-5-closing-1280.png" width="1280" height="900"
+             alt="Closing scene at 1280 pixels: practice route, return to the 26 October edition, and a coverage note stating 132 concepts and 86 typed assertions with none published." />
+      </div>
+      <figcaption><strong>Frame 5 · 1280 × 900</strong><span>Closing · hand-off</span></figcaption>
+    </figure>
+    <div class="annotation">
+      <div class="step"><span class="number">05</span><span class="state">Action</span></div>
+      <h2 id="f5-title">Leave with one honest action.</h2>
+      <p class="summary">
+        A real practice route, a preserved edition thread, and a coverage note
+        that refuses to round “analysed” up to “published”.
+      </p>
+      <dl>
+        <div><dt>What</dt><dd>Practice route <code>/lab/dp-600/explore/</code>; return to the 26 October edition; coverage note: <strong>132 concepts · 86 typed assertions · none published</strong>. Footer repeats the fixed clock and the no-progress/no-assessment boundary.</dd></div>
+        <div><dt>Why</dt><dd>The ending is a hand-off, not a completion badge. The practice route is real but previewed, not executed. The return keeps the thread alive.</dd></div>
+        <div><dt>Interaction</dt><dd>Preview the route inside the prototype boundary; return reopens the Dealer at the preserved view; the coverage note opens the About panel with withheld counts and gate states.</dd></div>
+        <div><dt>Evidence</dt><dd>Real route, real graph counts, gates still blocked/pending. No assessment result is fabricated.</dd></div>
+      </dl>
+    </div>
+  </section>
+
+  <section class="appendix" id="appendix" aria-labelledby="appendix-title">
+    <p class="eyebrow">Appendix · evidence of adaptation</p>
+    <h2 id="appendix-title">The same story at other sizes.</h2>
+    <p class="summary">
+      Sixteen captures cover 320, 390 and 768 pixels, dark theme, reduced
+      motion and the fail-closed public projection. They are visual evidence, not
+      a substitute for the interaction suites.
+    </p>
+
+    <div class="gallery-group">
+      <h3>320 px <span>small phone</span></h3>
+      <div class="gallery four">
+        <figure>
+          <div class="shot"><img src="appendix-320-timeline.png" alt="320 pixel timeline with no horizontal overflow." /></div>
+          <figcaption><strong>Timeline</strong><br />No horizontal overflow; date cards remain reachable.</figcaption>
+        </figure>
+        <figure>
+          <div class="shot"><img src="appendix-320-dealer.png" alt="320 pixel Dealer with a single visible card and scrollable reader." /></div>
+          <figcaption><strong>Dealer</strong><br />Body scrolls as one surface; hand card not clipped.</figcaption>
+        </figure>
+        <figure>
+          <div class="shot"><img src="appendix-320-atlas.png" alt="320 pixel Atlas focused graph and caption." /></div>
+          <figcaption><strong>Atlas</strong><br />Focused layout; caption shortened under 560 px.</figcaption>
+        </figure>
+        <figure>
+          <div class="shot"><img src="appendix-320-closing.png" alt="320 pixel closing cards stacked." /></div>
+          <figcaption><strong>Closing</strong><br />Cards stack; actions remain visible.</figcaption>
+        </figure>
+      </div>
+    </div>
+
+    <div class="gallery-group">
+      <h3>390 px <span>phone</span></h3>
+      <div class="gallery four">
+        <figure>
+          <div class="shot"><img src="appendix-390-timeline.png" alt="390 pixel timeline." /></div>
+          <figcaption><strong>Timeline</strong><br />Selected edition and journey progress remain legible.</figcaption>
+        </figure>
+        <figure>
+          <div class="shot"><img src="appendix-390-dealer.png" alt="390 pixel Dealer with edition rail and hand card." /></div>
+          <figcaption><strong>Dealer</strong><br />Edition rail and hand stay usable.</figcaption>
+        </figure>
+        <figure>
+          <div class="shot"><img src="appendix-390-atlas.png" alt="390 pixel Atlas with side-aware labels." /></div>
+          <figcaption><strong>Atlas</strong><br />Side-aware labels; right-edge nodes not clipped.</figcaption>
+        </figure>
+        <figure>
+          <div class="shot"><img src="appendix-390-closing.png" alt="390 pixel closing scene." /></div>
+          <figcaption><strong>Closing</strong><br />Practice and return actions fit.</figcaption>
+        </figure>
+      </div>
+    </div>
+
+    <div class="gallery-group">
+      <h3>768 px <span>tablet</span></h3>
+      <div class="gallery four">
+        <figure>
+          <div class="shot"><img src="appendix-768-timeline.png" alt="768 pixel tablet timeline." /></div>
+          <figcaption><strong>Timeline</strong><br />Tablet layout keeps the ledger readable.</figcaption>
+        </figure>
+        <figure>
+          <div class="shot"><img src="appendix-768-dealer.png" alt="768 pixel tablet Dealer with two columns." /></div>
+          <figcaption><strong>Dealer</strong><br />Two columns; reader scrolls internally; card fully visible.</figcaption>
+        </figure>
+        <figure>
+          <div class="shot"><img src="appendix-768-atlas.png" alt="768 pixel tablet Atlas." /></div>
+          <figcaption><strong>Atlas</strong><br />Detail panel and graph remain usable.</figcaption>
+        </figure>
+        <figure>
+          <div class="shot"><img src="appendix-768-closing.png" alt="768 pixel tablet closing." /></div>
+          <figcaption><strong>Closing</strong><br />Hand-off cards fit without clipping.</figcaption>
+        </figure>
+      </div>
+    </div>
+
+    <div class="gallery-group">
+      <h3>Themes and motion <span>1280 px</span></h3>
+      <div class="gallery three">
+        <figure>
+          <div class="shot"><img src="appendix-dark-atlas-1280.png" alt="Dark theme Atlas at 1280 pixels." /></div>
+          <figcaption><strong>Dark · Atlas</strong><br />Theme persists; candidate amber and selection blue keep contrast.</figcaption>
+        </figure>
+        <figure>
+          <div class="shot"><img src="appendix-dark-dealer-1280.png" alt="Dark theme Dealer at 1280 pixels." /></div>
+          <figcaption><strong>Dark · Dealer</strong><br />Reader surfaces and edition rail remain distinct.</figcaption>
+        </figure>
+        <figure>
+          <div class="shot"><img src="appendix-reduced-motion-1280.png" alt="Reduced motion stacked layout at 1280 pixels." /></div>
+          <figcaption><strong>Reduced motion</strong><br />Static stacked layout; same content, no deal animation.</figcaption>
+        </figure>
+      </div>
+    </div>
+
+    <div class="gallery-group">
+      <h3>Public projection <span>fail-closed</span></h3>
+      <div class="gallery one">
+        <figure>
+          <div class="shot"><img src="appendix-public-atlas-1280.png" alt="Public projection Atlas at 1280 pixels: empty graph plate, zero published concepts and relations, withheld candidate counts and gate states." /></div>
+          <figcaption><strong>Public mode · Atlas</strong><br />Zero published concepts, mappings and assertions. Candidate counts and gate states stay visible; candidate concepts, edges and evidence do not render.</figcaption>
+        </figure>
+      </div>
+    </div>
+
+    <div class="legend">
+      <p><strong>Blue</strong>Selection, navigation and the honest primary action. Never used to imply publication.</p>
+      <p><strong>Amber</strong>Candidate review state, caveats and “human pending” notices.</p>
+      <p><strong>Neutral</strong>Published or withheld surfaces. In public mode the graph is an empty plate.</p>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="shell">
+    <p>
+      <strong>Scope.</strong> Standalone visual-review prototype. Editorial-review
+      mode is shown; the public projection is an explicit toggle and is
+      intentionally empty. No live-app integration, deployment, paid service or
+      new dependency.
+    </p>
+    <p>
+      <strong>Limits.</strong> Static frames are one viewport each; interaction
+      claims are backed by the automated suites. Media was analysed through
+      captions/alt text only. No human publication, scientific, rights or
+      assessment review has been completed.
+    </p>
+    <nav aria-label="Related documents">
+      <a href="../prototype/index.html">Open the prototype</a>
+      <a href="storyboard.md">Storyboard notes</a>
+      <a href="../evidence/browser-qa.md">Browser QA</a>
+      <a href="../contracts/knowledge-dealer.md">Dealer contract</a>
+      <a href="../DELIVERY_REPORT.md">Delivery report</a>
+    </nav>
+  </div>
+</footer>
+</body>
+</html>

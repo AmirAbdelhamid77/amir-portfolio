@@ -1,0 +1,994 @@
+{
+  "schemaVersion": "corpus-manifest/1.1-analyzed",
+  "generatedAt": "2026-10-31T00:09:24.203Z",
+  "generatedBy": "intelligent-atlas/tools/build-corpus.mjs",
+  "scope": "visual-review assignment; extraction and inventory only",
+  "unitCount": 6201,
+  "familyCounts": {
+    "daily-insights": 3,
+    "fabric-questions": 1264,
+    "fabric-additions": 532,
+    "fabric-r11": 222,
+    "fabric-notes": 720,
+    "fabric-cases": 78,
+    "academy": 593,
+    "sql": 535,
+    "statistics": 145,
+    "visualization": 138,
+    "exams": 70,
+    "curated-references": 1859,
+    "hands-on-labs": 29,
+    "fabric-rti": 8,
+    "professional-pages": 5
+  },
+  "sourceCount": 22,
+  "mediaCount": 628,
+  "routeCount": 73,
+  "concreteRouteCount": 58,
+  "dynamicRouteCount": 15,
+  "routeRows": [
+    {
+      "route": "/",
+      "file": "app/page.tsx",
+      "dynamic": false,
+      "title": "",
+      "kind": "home",
+      "analysisDisposition": "static-route-accounted"
+    },
+    {
+      "route": "/about/",
+      "file": "app/about/page.tsx",
+      "dynamic": false,
+      "title": "About",
+      "kind": "professional",
+      "analysisDisposition": "static-route-accounted"
+    },
+    {
+      "route": "/contact/",
+      "file": "app/contact/page.tsx",
+      "dynamic": false,
+      "title": "Contact",
+      "kind": "professional",
+      "analysisDisposition": "static-route-accounted"
+    },
+    {
+      "route": "/experience/",
+      "file": "app/experience/page.tsx",
+      "dynamic": false,
+      "title": "Experience",
+      "kind": "professional",
+      "analysisDisposition": "static-route-accounted"
+    },
+    {
+      "route": "/explore/",
+      "file": "app/explore/page.tsx",
+      "dynamic": false,
+      "title": "Explore the labs",
+      "kind": "learning",
+      "analysisDisposition": "static-route-accounted"
+    },
+    {
+      "route": "/explore/charts/",
+      "file": "app/explore/charts/page.tsx",
+      "dynamic": false,
+      "title": "Six chart labs",
+      "kind": "learning",
+      "analysisDisposition": "static-route-accounted"
+    },
+    {
+      "route": "/explore/charts/bar/",
+      "file": "app/explore/charts/bar/page.tsx",
+      "dynamic": false,
+      "title": "${LAB.title} lab",
+      "kind": "learning",
+      "analysisDisposition": "static-route-accounted"
+    },
+    {
+      "route": "/explore/charts/box/",
+      "file": "app/explore/charts/box/page.tsx",
+      "dynamic": false,
+      "title": "${LAB.title} lab",
+      "kind": "learning",
+      "analysisDisposition": "static-route-accounted"
+    },
+    {
+      "route": "/explore/charts/dot/",
+      "file": "app/explore/charts/dot/page.tsx",
+      "dynamic": false,
+      "title": "${LAB.title} lab",
+      "kind": "learning",
+      "analysisDisposition": "static-route-accounted"
+    },
+    {
+      "route": "/explore/charts/histogram/",
+      "file": "app/explore/charts/histogram/page.tsx",
+      "dynamic": false,
+      "title": "${LAB.title} lab",
+      "kind": "learning",
+      "analysisDisposition": "static-route-accounted"
+    },
+    {
+      "route": "/explore/charts/line/",
+      "file": "app/explore/charts/line/page.tsx",
+      "dynamic": false,
+      "title": "${LAB.title} lab",
+      "kind": "learning",
+      "analysisDisposition": "static-route-accounted"
+    },
+    {
+      "route": "/explore/charts/scatter/",
+      "file": "app/explore/charts/scatter/page.tsx",
+      "dynamic": false,
+      "title": "${LAB.title} lab",
+      "kind": "learning",
+      "analysisDisposition": "static-route-accounted"
+    },
+    {
+      "route": "/explore/choose/",
+      "file": "app/explore/choose/page.tsx",
+      "dynamic": false,
+      "title": "Chart decision assistant",
+      "kind": "learning",
+      "analysisDisposition": "static-route-accounted"
+    },
+    {
+      "route": "/explore/dashboards/",
+      "file": "app/explore/dashboards/page.tsx",
+      "dynamic": false,
+      "title": "Dashboard anatomy — executive and analyst views",
+      "kind": "learning",
+      "analysisDisposition": "static-route-accounted"
+    },
+    {
+      "route": "/explore/integrity/",
+      "file": "app/explore/integrity/page.tsx",
+      "dynamic": false,
+      "title": "Integrity lab — same data, honest and misleading",
+      "kind": "learning",
+      "analysisDisposition": "static-route-accounted"
+    },
+    {
+      "route": "/explore/specialty/",
+      "file": "app/explore/specialty/page.tsx",
+      "dynamic": false,
+      "title": "Specialty chart audit — BeUI funnel, treemap, flow and donut",
+      "kind": "learning",
+      "analysisDisposition": "static-route-accounted"
+    },
+    {
+      "route": "/lab/",
+      "file": "app/lab/page.tsx",
+      "dynamic": false,
+      "title": "Data Lab",
+      "kind": "practice",
+      "analysisDisposition": "static-route-accounted"
+    },
+    {
+      "route": "/lab/:slug/",
+      "file": "app/lab/[slug]/page.tsx",
+      "dynamic": true,
+      "title": "Exam not found",
+      "kind": "practice",
+      "analysisDisposition": "dynamic-pattern; concrete instances enumerated from content"
+    },
+    {
+      "route": "/lab/dp-600/",
+      "file": "app/lab/dp-600/page.tsx",
+      "dynamic": false,
+      "title": "Microsoft Fabric & DP-600 practice",
+      "kind": "practice",
+      "analysisDisposition": "static-route-accounted"
+    },
+    {
+      "route": "/lab/dp-600/cases/",
+      "file": "app/lab/dp-600/cases/page.tsx",
+      "dynamic": false,
+      "title": "Case studies — Microsoft Fabric DP-600",
+      "kind": "practice",
+      "analysisDisposition": "static-route-accounted"
+    },
+    {
+      "route": "/lab/dp-600/explore/",
+      "file": "app/lab/dp-600/explore/page.tsx",
+      "dynamic": false,
+      "title": "Explore the Fabric question bank",
+      "kind": "practice",
+      "analysisDisposition": "static-route-accounted"
+    },
+    {
+      "route": "/lab/dp-600/mock/",
+      "file": "app/lab/dp-600/mock/page.tsx",
+      "dynamic": false,
+      "title": "Mock exam — Microsoft Fabric DP-600",
+      "kind": "practice",
+      "analysisDisposition": "static-route-accounted"
+    },
+    {
+      "route": "/lab/dp-600/practice/",
+      "file": "app/lab/dp-600/practice/page.tsx",
+      "dynamic": false,
+      "title": "Topic practice — Microsoft Fabric DP-600",
+      "kind": "practice",
+      "analysisDisposition": "static-route-accounted"
+    },
+    {
+      "route": "/lab/dp-600/progress/",
+      "file": "app/lab/dp-600/progress/page.tsx",
+      "dynamic": false,
+      "title": "Progress & performance — Microsoft Fabric DP-600",
+      "kind": "practice",
+      "analysisDisposition": "static-route-accounted"
+    },
+    {
+      "route": "/lab/dp-600/resources/",
+      "file": "app/lab/dp-600/resources/page.tsx",
+      "dynamic": false,
+      "title": "Learning resources & sources — Microsoft Fabric DP-600",
+      "kind": "practice",
+      "analysisDisposition": "static-route-accounted"
+    },
+    {
+      "route": "/lab/dp-600/review/",
+      "file": "app/lab/dp-600/review/page.tsx",
+      "dynamic": false,
+      "title": "Mistakes & bookmarks — Microsoft Fabric DP-600",
+      "kind": "practice",
+      "analysisDisposition": "static-route-accounted"
+    },
+    {
+      "route": "/lab/dp-600/study/",
+      "file": "app/lab/dp-600/study/page.tsx",
+      "dynamic": false,
+      "title": "Guided study — Microsoft Fabric DP-600",
+      "kind": "practice",
+      "analysisDisposition": "static-route-accounted"
+    },
+    {
+      "route": "/lab/hands-on/",
+      "file": "app/lab/hands-on/page.tsx",
+      "dynamic": false,
+      "title": "Hands-on labs — Data Lab",
+      "kind": "practice",
+      "analysisDisposition": "static-route-accounted"
+    },
+    {
+      "route": "/lab/hands-on/:slug/",
+      "file": "app/lab/hands-on/[slug]/page.tsx",
+      "dynamic": true,
+      "title": "Hands-on lab not found",
+      "kind": "practice",
+      "analysisDisposition": "dynamic-pattern; concrete instances enumerated from content"
+    },
+    {
+      "route": "/learn/",
+      "file": "app/learn/page.tsx",
+      "dynamic": false,
+      "title": "Data Visualization — from question to decision",
+      "kind": "learning",
+      "analysisDisposition": "static-route-accounted"
+    },
+    {
+      "route": "/learn/:slug/",
+      "file": "app/learn/[slug]/page.tsx",
+      "dynamic": true,
+      "title": "Lesson not found",
+      "kind": "learning",
+      "analysisDisposition": "dynamic-pattern; concrete instances enumerated from content"
+    },
+    {
+      "route": "/learn/academy/",
+      "file": "app/learn/academy/page.tsx",
+      "dynamic": false,
+      "title": "Corpus Academy — mirrored Microsoft Learning courseware",
+      "kind": "learning",
+      "analysisDisposition": "static-route-accounted"
+    },
+    {
+      "route": "/learn/academy/:track/:lesson/",
+      "file": "app/learn/academy/[track]/[lesson]/page.tsx",
+      "dynamic": true,
+      "title": "Lesson not found",
+      "kind": "learning",
+      "analysisDisposition": "dynamic-pattern; concrete instances enumerated from content"
+    },
+    {
+      "route": "/learn/ar/",
+      "file": "app/learn/ar/page.tsx",
+      "dynamic": false,
+      "title": "المسار العربي — تصور البيانات",
+      "kind": "learning",
+      "analysisDisposition": "static-route-accounted"
+    },
+    {
+      "route": "/learn/ar/:slug/",
+      "file": "app/learn/ar/[slug]/page.tsx",
+      "dynamic": true,
+      "title": "الدرس غير موجود",
+      "kind": "learning",
+      "analysisDisposition": "dynamic-pattern; concrete instances enumerated from content"
+    },
+    {
+      "route": "/learn/catalogue/",
+      "file": "app/learn/catalogue/page.tsx",
+      "dynamic": false,
+      "title": "Learn — subjects, topics and activities",
+      "kind": "learning",
+      "analysisDisposition": "static-route-accounted"
+    },
+    {
+      "route": "/learn/chapter/:number/",
+      "file": "app/learn/chapter/[number]/page.tsx",
+      "dynamic": true,
+      "title": "Chapter not found",
+      "kind": "learning",
+      "analysisDisposition": "dynamic-pattern; concrete instances enumerated from content"
+    },
+    {
+      "route": "/learn/dp-600/",
+      "file": "app/learn/dp-600/page.tsx",
+      "dynamic": false,
+      "title": "DP-600 Learning Academy",
+      "kind": "learning",
+      "analysisDisposition": "static-route-accounted"
+    },
+    {
+      "route": "/learn/dp-600/atlas/",
+      "file": "app/learn/dp-600/atlas/page.tsx",
+      "dynamic": false,
+      "title": "Knowledge Atlas — Fabric decisions",
+      "kind": "learning",
+      "analysisDisposition": "static-route-accounted"
+    },
+    {
+      "route": "/learn/dp-600/atlas/journey/",
+      "file": "app/learn/dp-600/atlas/journey/page.tsx",
+      "dynamic": false,
+      "title": "Guided journey — From reference to replica",
+      "kind": "learning",
+      "analysisDisposition": "static-route-accounted"
+    },
+    {
+      "route": "/learn/dp-600/ingestion/",
+      "file": "app/learn/dp-600/ingestion/page.tsx",
+      "dynamic": false,
+      "title": "Ingestion Decision Lab — DP-600 Academy",
+      "kind": "learning",
+      "analysisDisposition": "static-route-accounted"
+    },
+    {
+      "route": "/learn/drafts/",
+      "file": "app/learn/drafts/page.tsx",
+      "dynamic": false,
+      "title": "Intake review — creative patterns lessons and RTI lab blueprints (not approved)",
+      "kind": "learning",
+      "analysisDisposition": "static-route-accounted"
+    },
+    {
+      "route": "/learn/fabric-rti/",
+      "file": "app/learn/fabric-rti/page.tsx",
+      "dynamic": false,
+      "title": "Fabric Real-Time Intelligence — authentic-source lessons",
+      "kind": "learning",
+      "analysisDisposition": "static-route-accounted"
+    },
+    {
+      "route": "/learn/fabric-rti/:slug/",
+      "file": "app/learn/fabric-rti/[slug]/page.tsx",
+      "dynamic": true,
+      "title": "Lesson not found",
+      "kind": "learning",
+      "analysisDisposition": "dynamic-pattern; concrete instances enumerated from content"
+    },
+    {
+      "route": "/learn/method/",
+      "file": "app/learn/method/page.tsx",
+      "dynamic": false,
+      "title": "How this library was built",
+      "kind": "learning",
+      "analysisDisposition": "static-route-accounted"
+    },
+    {
+      "route": "/learn/sql/",
+      "file": "app/learn/sql/page.tsx",
+      "dynamic": false,
+      "title": "SQL — canonical learning path",
+      "kind": "learning",
+      "analysisDisposition": "static-route-accounted"
+    },
+    {
+      "route": "/learn/sql/:module/",
+      "file": "app/learn/sql/[module]/page.tsx",
+      "dynamic": true,
+      "title": "",
+      "kind": "learning",
+      "analysisDisposition": "dynamic-pattern; concrete instances enumerated from content"
+    },
+    {
+      "route": "/learn/sql/reference/:id/",
+      "file": "app/learn/sql/reference/[id]/page.tsx",
+      "dynamic": true,
+      "title": "",
+      "kind": "learning",
+      "analysisDisposition": "dynamic-pattern; concrete instances enumerated from content"
+    },
+    {
+      "route": "/learn/statistics/",
+      "file": "app/learn/statistics/page.tsx",
+      "dynamic": false,
+      "title": "Comprehensive Statistics Reference — visual-first",
+      "kind": "learning",
+      "analysisDisposition": "static-route-accounted"
+    },
+    {
+      "route": "/learn/statistics/atlas/",
+      "file": "app/learn/statistics/atlas/page.tsx",
+      "dynamic": false,
+      "title": "Interactive concept atlas",
+      "kind": "learning",
+      "analysisDisposition": "static-route-accounted"
+    },
+    {
+      "route": "/learn/statistics/cheatsheet/",
+      "file": "app/learn/statistics/cheatsheet/page.tsx",
+      "dynamic": false,
+      "title": "One-page statistics field guide",
+      "kind": "learning",
+      "analysisDisposition": "static-route-accounted"
+    },
+    {
+      "route": "/learn/statistics/decision/",
+      "file": "app/learn/statistics/decision/page.tsx",
+      "dynamic": false,
+      "title": "Which statistical tool?",
+      "kind": "learning",
+      "analysisDisposition": "static-route-accounted"
+    },
+    {
+      "route": "/learn/statistics/formulas/",
+      "file": "app/learn/statistics/formulas/page.tsx",
+      "dynamic": false,
+      "title": "Formula workbench",
+      "kind": "learning",
+      "analysisDisposition": "static-route-accounted"
+    },
+    {
+      "route": "/learn/statistics/glossary/",
+      "file": "app/learn/statistics/glossary/page.tsx",
+      "dynamic": false,
+      "title": "Bilingual statistics glossary",
+      "kind": "learning",
+      "analysisDisposition": "static-route-accounted"
+    },
+    {
+      "route": "/learn/statistics/journey/:slug/",
+      "file": "app/learn/statistics/journey/[slug]/page.tsx",
+      "dynamic": true,
+      "title": "Journey not found",
+      "kind": "learning",
+      "analysisDisposition": "dynamic-pattern; concrete instances enumerated from content"
+    },
+    {
+      "route": "/learn/statistics/labs/",
+      "file": "app/learn/statistics/labs/page.tsx",
+      "dynamic": false,
+      "title": "Interactive statistics labs",
+      "kind": "learning",
+      "analysisDisposition": "static-route-accounted"
+    },
+    {
+      "route": "/learn/statistics/labs/:slug/",
+      "file": "app/learn/statistics/labs/[slug]/page.tsx",
+      "dynamic": true,
+      "title": "Lab not found",
+      "kind": "learning",
+      "analysisDisposition": "dynamic-pattern; concrete instances enumerated from content"
+    },
+    {
+      "route": "/learn/statistics/source/",
+      "file": "app/learn/statistics/source/page.tsx",
+      "dynamic": false,
+      "title": "Source audit, coverage and errata",
+      "kind": "learning",
+      "analysisDisposition": "static-route-accounted"
+    },
+    {
+      "route": "/practice/",
+      "file": "app/practice/page.tsx",
+      "dynamic": false,
+      "title": "Practice — select the chart, defend the trade-off",
+      "kind": "practice",
+      "analysisDisposition": "static-route-accounted"
+    },
+    {
+      "route": "/practice/catalogue/",
+      "file": "app/practice/catalogue/page.tsx",
+      "dynamic": false,
+      "title": "Practise — subjects, topics and activities",
+      "kind": "practice",
+      "analysisDisposition": "static-route-accounted"
+    },
+    {
+      "route": "/practice/drafts/",
+      "file": "app/practice/drafts/page.tsx",
+      "dynamic": false,
+      "title": "Draft review — corpus and intake candidates (not approved)",
+      "kind": "practice",
+      "analysisDisposition": "static-route-accounted"
+    },
+    {
+      "route": "/practice/sql/",
+      "file": "app/practice/sql/page.tsx",
+      "dynamic": false,
+      "title": "SQL source self-checks and exam",
+      "kind": "practice",
+      "analysisDisposition": "static-route-accounted"
+    },
+    {
+      "route": "/prototype-c/",
+      "file": "app/prototype-c/page.tsx",
+      "dynamic": false,
+      "title": "Hansa — interactive data learning and knowledge",
+      "kind": "utility",
+      "analysisDisposition": "static-route-accounted"
+    },
+    {
+      "route": "/search/",
+      "file": "app/search/page.tsx",
+      "dynamic": false,
+      "title": "Search — courses, lessons, labs, questions and case studies",
+      "kind": "utility",
+      "analysisDisposition": "static-route-accounted"
+    },
+    {
+      "route": "/services/",
+      "file": "app/services/page.tsx",
+      "dynamic": false,
+      "title": "Services",
+      "kind": "professional",
+      "analysisDisposition": "static-route-accounted"
+    },
+    {
+      "route": "/study/",
+      "file": "app/study/page.tsx",
+      "dynamic": false,
+      "title": "Learning library — subjects, topics and practice",
+      "kind": "learning",
+      "analysisDisposition": "static-route-accounted"
+    },
+    {
+      "route": "/study/:subject/",
+      "file": "app/study/[subject]/page.tsx",
+      "dynamic": true,
+      "title": "",
+      "kind": "learning",
+      "analysisDisposition": "dynamic-pattern; concrete instances enumerated from content"
+    },
+    {
+      "route": "/study/:subject/:topic/",
+      "file": "app/study/[subject]/[topic]/page.tsx",
+      "dynamic": true,
+      "title": "${s?.topics.find(t= t[0]===p.topic)?.[1]} — ${s?.title}",
+      "kind": "learning",
+      "analysisDisposition": "dynamic-pattern; concrete instances enumerated from content"
+    },
+    {
+      "route": "/study/:subject/path/",
+      "file": "app/study/[subject]/path/page.tsx",
+      "dynamic": true,
+      "title": "",
+      "kind": "learning",
+      "analysisDisposition": "dynamic-pattern; concrete instances enumerated from content"
+    },
+    {
+      "route": "/study/review/",
+      "file": "app/study/review/page.tsx",
+      "dynamic": false,
+      "title": "Editorial review inventory — not approved learning material",
+      "kind": "learning",
+      "analysisDisposition": "static-route-accounted"
+    },
+    {
+      "route": "/study/review/path/",
+      "file": "app/study/review/path/page.tsx",
+      "dynamic": false,
+      "title": "Review-only lesson associations — not approved",
+      "kind": "learning",
+      "analysisDisposition": "static-route-accounted"
+    },
+    {
+      "route": "/work/",
+      "file": "app/work/page.tsx",
+      "dynamic": false,
+      "title": "Work",
+      "kind": "professional",
+      "analysisDisposition": "static-route-accounted"
+    },
+    {
+      "route": "/work/:slug/",
+      "file": "app/work/[slug]/page.tsx",
+      "dynamic": true,
+      "title": "Case study not found",
+      "kind": "professional",
+      "analysisDisposition": "dynamic-pattern; concrete instances enumerated from content"
+    }
+  ],
+  "sources": [
+    {
+      "id": "content/knowledge/insights.json",
+      "family": "daily-insights",
+      "path": "content/knowledge/insights.json",
+      "fingerprint": "2056954eb405f9ce6db652c7c17d063d7bb02c0a5919f580411a2b12c44d09cb",
+      "publicationPolicy": "eligibleInsights; preview requires explicit caller decision"
+    },
+    {
+      "id": "content/fabric/index.json",
+      "family": "fabric-questions",
+      "path": "content/fabric/index.json",
+      "fingerprint": "07c349fc49fe0cd85144cbc1cb50feb59d04f76011cd1f0e4a846e5ef2cbd61b",
+      "publicationPolicy": "existing bank; original answer/review status retained"
+    },
+    {
+      "id": "content/fabric/additions/questions.json",
+      "family": "fabric-additions",
+      "path": "content/fabric/additions/questions.json",
+      "fingerprint": "e07f55ff68ada7b62139c8e34c1e55b2e757967d575e190a89a207ef2f6a5f15",
+      "publicationPolicy": "existing source; blockers and review labels retained; answers withheld from this ledger"
+    },
+    {
+      "id": "content/fabric/r11/questions.json",
+      "family": "fabric-r11",
+      "path": "content/fabric/r11/questions.json",
+      "fingerprint": "5327e16f038869b49bf7fd7967abd832959db531102d1b096375bef12b508843",
+      "publicationPolicy": "revision overlay on existing question identity; not a second question",
+      "assessmentPolicy": "gradingEnabled and scientificStatus retained; HOLD remains held"
+    },
+    {
+      "id": "content/fabric/notes.json",
+      "family": "fabric-notes",
+      "path": "content/fabric/notes.json",
+      "fingerprint": "cfc46b5fb2c18a0146c0e068fed3ef8ae8f8c37d04569c4954d8fcfe44b3d7e2",
+      "publicationPolicy": "existing study notes; source pack context retained"
+    },
+    {
+      "id": "content/fabric/cases.json",
+      "family": "fabric-cases",
+      "path": "content/fabric/cases.json",
+      "fingerprint": "67501976fa0bd2858a277188de4a3246fef363080369c4bd10382d743e47f239",
+      "publicationPolicy": "existing case scenarios"
+    },
+    {
+      "id": "content/academy/lessons.json",
+      "family": "academy",
+      "path": "content/academy/lessons.json",
+      "fingerprint": "d230c6d76a87d0867a88c31b317f6607a14086196abe1e07c77968292de9c2ea",
+      "publicationPolicy": "MIT courseware; Mirrored from the open MicrosoftLearning courseware repositories (MIT). Microsoft authors the content; this site republishes it under the license with attribution and source links, unmodified except for formatting."
+    },
+    {
+      "id": "content/sql/index.json",
+      "family": "sql",
+      "path": "content/sql/index.json",
+      "fingerprint": "de58a18563372db1380fabcf392f8eb95cbaebd661e639afb3e17b7611b4e9a5",
+      "publicationPolicy": "preserved Notion source; domain qualifications remain"
+    },
+    {
+      "id": "content/sql/vault.json",
+      "family": "sql",
+      "path": "content/sql/vault.json",
+      "fingerprint": "4aedce6995a44775c6a98857ab13f07a3ae6bbf4068c7792bf8fda142f10c631",
+      "publicationPolicy": "preserved Notion source; full bodies local"
+    },
+    {
+      "id": "content/statistics/source.json",
+      "family": "statistics",
+      "path": "content/statistics/source.json",
+      "fingerprint": "96c37f75bcca17ddca3f1961f752a0c6fc6157415f21e75413f9038f95e061b0",
+      "publicationPolicy": "exported Notion source preserved; Arabic and English wording retained"
+    },
+    {
+      "id": "content/data-viz/pages.json",
+      "family": "visualization",
+      "path": "content/data-viz/pages.json",
+      "fingerprint": "100b72b3ae99b292708d30550bb2f96e39ac98b16f6e40b8a3fe653487af7b23",
+      "publicationPolicy": "exported Notion pages preserved; Arabic/English variants retained"
+    },
+    {
+      "id": "content/data-viz/curriculum.json",
+      "family": "visualization",
+      "path": "content/data-viz/curriculum.json",
+      "fingerprint": "86c8f87b52dd57c9ee2f3cc7927e8f12fe06b2f2a2ce71885751f955d03eed2f",
+      "publicationPolicy": "editorial curriculum over source pages"
+    },
+    {
+      "id": "content/exams/excel.json",
+      "family": "exams",
+      "path": "content/exams/excel.json",
+      "fingerprint": "bf07a7e3480859e925e6dc6ec5147512d334112e5c6c5127f81ecc8f6ebd1d74",
+      "publicationPolicy": "existing practice exam; answers retained in source, excluded here",
+      "assessmentPolicy": "scored practice exam; original grading"
+    },
+    {
+      "id": "content/exams/fabric-rti.json",
+      "family": "exams",
+      "path": "content/exams/fabric-rti.json",
+      "fingerprint": "e3941d661dd7dfac2a91745aff5f8ecb08fbf7d42096748963cbc55bcb5b0673",
+      "publicationPolicy": "existing practice exam; answers retained in source, excluded here",
+      "assessmentPolicy": "scored practice exam; original grading"
+    },
+    {
+      "id": "content/exams/fundamentals.json",
+      "family": "exams",
+      "path": "content/exams/fundamentals.json",
+      "fingerprint": "81f4dc0630d11660c2b9eb2e767c69dac1a2b1d0e0413a3793014e33011f5d4d",
+      "publicationPolicy": "existing practice exam; answers retained in source, excluded here",
+      "assessmentPolicy": "scored practice exam; original grading"
+    },
+    {
+      "id": "content/exams/power-bi.json",
+      "family": "exams",
+      "path": "content/exams/power-bi.json",
+      "fingerprint": "f81d388c53b09160bde7f0178b602058aa3ec3ce63ce06a9bf9f35e21075b029",
+      "publicationPolicy": "existing practice exam; answers retained in source, excluded here",
+      "assessmentPolicy": "scored practice exam; original grading"
+    },
+    {
+      "id": "content/exams/python.json",
+      "family": "exams",
+      "path": "content/exams/python.json",
+      "fingerprint": "ba3c9b6438198d1ca3e21dda84a5dd007912f2f911369f4ead94d310e8d4a5ec",
+      "publicationPolicy": "existing practice exam; answers retained in source, excluded here",
+      "assessmentPolicy": "scored practice exam; original grading"
+    },
+    {
+      "id": "content/exams/sql.json",
+      "family": "exams",
+      "path": "content/exams/sql.json",
+      "fingerprint": "6d9a45cf529dca6d43e3f6797d3d5bbcc27eb5d389f569516303068640b93a60",
+      "publicationPolicy": "existing practice exam; answers retained in source, excluded here",
+      "assessmentPolicy": "scored practice exam; original grading"
+    },
+    {
+      "id": "content/exams/statistics.json",
+      "family": "exams",
+      "path": "content/exams/statistics.json",
+      "fingerprint": "57a8d592e1e4a2fe0877576565607a8f1c8e63a31dfd4fbe77c12c600158c5ac",
+      "publicationPolicy": "existing practice exam; answers retained in source, excluded here",
+      "assessmentPolicy": "scored practice exam; original grading"
+    },
+    {
+      "id": "content/study/references.json",
+      "family": "curated-references",
+      "path": "content/study/references.json",
+      "fingerprint": "b89249596f73ad3849f89442cc59002490ffda0b9ce2d2819a1bf330a33362be",
+      "publicationPolicy": "LINK_ONLY metadata; full text not republished"
+    },
+    {
+      "id": "content/study/experiments.json",
+      "family": "hands-on-labs",
+      "path": "content/study/experiments.json",
+      "fingerprint": "4df5b1ed6d16de2212f1b8c0deb3a1e0a68cc08a0919ce8df08ac806f529f217",
+      "publicationPolicy": "lab scaffolds; license and source URL retained"
+    },
+    {
+      "id": "lib/rti/lessons.ts",
+      "family": "fabric-rti",
+      "path": "lib/rti/lessons.ts",
+      "fingerprint": "8efee0e346366d67c3668f071c1311e2831e0d3b8da2469f9fbffd3a435ef290",
+      "publicationPolicy": "pinned workshop source; runtime NOT_RUN where declared"
+    }
+  ],
+  "denominators": {
+    "unitsExtracted": 6201,
+    "unitsPendingSemanticAnalysis": 0,
+    "unitsMetadataOnly": 1859,
+    "mediaReferences": 628,
+    "mediaNotIndependentlyReviewed": 628,
+    "unitsAnalyzedMapped": 3609,
+    "unitsAnalyzedUnmapped": 728,
+    "unitsExcludedMetadataOnly": 1859,
+    "unitsExcludedNonlearning": 5,
+    "unitsUnresolved": 0
+  },
+  "limits": [
+    "This manifest proves discovery and extraction, not scientific validation of every claim.",
+    "Held answers, options and explanations are intentionally absent from the ledger.",
+    "External LINK_ONLY works are represented by metadata only.",
+    "Rendered screenshots and figures were not independently visually reviewed in this pass."
+  ],
+  "derivedFrom": {
+    "unitsFingerprint": "bed4e12d09866bcf1cb7d997b31a6d21a22c79065f7f9166a905e57fabd1aced",
+    "registryVersion": "2026-10-31.1",
+    "graphBuildId": "ia-graph-bed4e12d0986"
+  },
+  "semanticAnalysis": {
+    "state": "whole-eligible-corpus-analyzed",
+    "analyzedAt": "2026-10-31",
+    "registryVersion": "2026-10-31.1",
+    "states": {
+      "analyzed-mapped": 3609,
+      "analyzed-unmapped": 728,
+      "excluded-metadata-only": 1859,
+      "excluded-nonlearning": 5
+    },
+    "familyCoverage": {
+      "daily-insights": {
+        "total": 3,
+        "mapped": 3,
+        "unmapped": 0,
+        "excluded": 0
+      },
+      "fabric-questions": {
+        "total": 1264,
+        "mapped": 1170,
+        "unmapped": 94,
+        "excluded": 0
+      },
+      "fabric-additions": {
+        "total": 532,
+        "mapped": 480,
+        "unmapped": 52,
+        "excluded": 0
+      },
+      "fabric-r11": {
+        "total": 222,
+        "mapped": 210,
+        "unmapped": 12,
+        "excluded": 0
+      },
+      "fabric-notes": {
+        "total": 720,
+        "mapped": 529,
+        "unmapped": 191,
+        "excluded": 0
+      },
+      "fabric-cases": {
+        "total": 78,
+        "mapped": 71,
+        "unmapped": 7,
+        "excluded": 0
+      },
+      "academy": {
+        "total": 593,
+        "mapped": 457,
+        "unmapped": 136,
+        "excluded": 0
+      },
+      "sql": {
+        "total": 535,
+        "mapped": 440,
+        "unmapped": 95,
+        "excluded": 0
+      },
+      "statistics": {
+        "total": 145,
+        "mapped": 65,
+        "unmapped": 80,
+        "excluded": 0
+      },
+      "visualization": {
+        "total": 138,
+        "mapped": 117,
+        "unmapped": 21,
+        "excluded": 0
+      },
+      "exams": {
+        "total": 70,
+        "mapped": 47,
+        "unmapped": 23,
+        "excluded": 0
+      },
+      "curated-references": {
+        "total": 1859,
+        "mapped": 0,
+        "unmapped": 0,
+        "excluded": 1859
+      },
+      "hands-on-labs": {
+        "total": 29,
+        "mapped": 13,
+        "unmapped": 16,
+        "excluded": 0
+      },
+      "fabric-rti": {
+        "total": 8,
+        "mapped": 7,
+        "unmapped": 1,
+        "excluded": 0
+      },
+      "professional-pages": {
+        "total": 5,
+        "mapped": 0,
+        "unmapped": 0,
+        "excluded": 5
+      }
+    },
+    "unmappedReasons": {
+      "question-paraphrase": {
+        "code": "question-paraphrase",
+        "count": 186,
+        "byFamily": {
+          "fabric-questions": 94,
+          "fabric-additions": 52,
+          "fabric-r11": 12,
+          "sql": 5,
+          "exams": 23
+        },
+        "detail": "Paraphrased question stem with no registry term above threshold; held answers and options are excluded, so no inference from an answer is allowed."
+      },
+      "no-lexical-signal": {
+        "code": "no-lexical-signal",
+        "count": 170,
+        "byFamily": {
+          "fabric-notes": 86,
+          "fabric-cases": 3,
+          "sql": 76,
+          "visualization": 4,
+          "fabric-rti": 1
+        },
+        "detail": "Substantive text, but no registry term reached the confidence threshold; retained for review rather than forced."
+      },
+      "thin-fragment": {
+        "code": "thin-fragment",
+        "count": 46,
+        "byFamily": {
+          "fabric-notes": 24,
+          "fabric-cases": 2,
+          "sql": 9,
+          "statistics": 2,
+          "visualization": 9
+        },
+        "detail": "Heading or fragment without a complete proposition; too little context to identify a concept without guessing."
+      },
+      "template-boilerplate": {
+        "code": "template-boilerplate",
+        "count": 74,
+        "byFamily": {
+          "fabric-notes": 74
+        },
+        "detail": "Repeated study-prompt or repository scaffolding, not a source-specific teachable proposition."
+      },
+      "domain-not-modelled": {
+        "code": "domain-not-modelled",
+        "count": 9,
+        "byFamily": {
+          "fabric-notes": 7,
+          "fabric-cases": 2
+        },
+        "detail": "Python/Spark/Excel/NoSQL or another execution domain that the five-domain registry does not model as a canonical concept."
+      },
+      "procedural-step": {
+        "code": "procedural-step",
+        "count": 148,
+        "byFamily": {
+          "academy": 132,
+          "hands-on-labs": 16
+        },
+        "detail": "Setup, cleanup or exercise instruction; procedural rather than conceptual."
+      },
+      "navigation-index": {
+        "code": "navigation-index",
+        "count": 16,
+        "byFamily": {
+          "academy": 3,
+          "sql": 5,
+          "visualization": 8
+        },
+        "detail": "Opening, index, reading-path or ownership text; navigation rather than a teachable proposition."
+      },
+      "formula-fragment": {
+        "code": "formula-fragment",
+        "count": 79,
+        "byFamily": {
+          "academy": 1,
+          "statistics": 78
+        },
+        "detail": "Notation or formula fragment without a proposition that can carry a concept mapping."
+      }
+    },
+    "conceptCount": 132,
+    "mappedConceptCount": 130,
+    "mappingCount": 7309,
+    "assertionCount": 86,
+    "ambiguityCount": 11,
+    "contradictionCount": 4
+  }
+}

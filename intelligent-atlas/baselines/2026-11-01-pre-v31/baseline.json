@@ -1,0 +1,149 @@
+{
+  "kind": "hansa-knowledge-stage-dated-baseline",
+  "baselineId": "2026-11-01-pre-v31",
+  "capturedAt": "2026-11-01",
+  "scope": "NEXT_PHASE_REVIEW M0-M5; no app/ integration",
+  "repository": {
+    "head": "45704b586237ae26a4c55be944d27147e84f491b",
+    "dirtyPaths": 40,
+    "dirtyEntries": [
+      " M app/globals.css",
+      " D components/cinematic/cinematic.css",
+      " D components/cinematic/spacetime-atlas.tsx",
+      " D components/cinematic/spacetime.css",
+      " M components/knowledge/insight-stage.tsx",
+      " D components/knowledge/knowledge-atmosphere.tsx",
+      " M docs/canonical-home/BUILD_TEST_LOG.md",
+      " M docs/canonical-home/FILE_OWNERSHIP.md",
+      " M docs/canonical-home/INTEGRATION_MANIFEST.json",
+      " M docs/canonical-home/evidence/alias-1280-dark.png",
+      " M docs/canonical-home/evidence/qa-canonical-home.json",
+      " M docs/canonical-home/evidence/root-dealer-1280-dark.png",
+      " M docs/canonical-home/evidence/root-desktop-1280-dark.png",
+      " M docs/canonical-home/evidence/root-desktop-1280-light.png",
+      " M docs/canonical-home/evidence/root-mobile-390.png",
+      " M docs/canonical-home/evidence/root-nojs-1280.png",
+      " M docs/canonical-home/evidence/verify-canonical-home.json",
+      " M lib/atlas/field.ts",
+      " M scripts/qa-canonical-home.mjs",
+      " M scripts/verify-canonical-home.mjs",
+      "?? components/knowledge/stage-about.tsx",
+      "?? components/knowledge/stage-cert-gate.tsx",
+      "?? components/knowledge/stage-editorial.css",
+      "?? components/knowledge/stage-learn-gate.tsx",
+      "?? components/knowledge/stage-today.tsx",
+      "?? docs/Hansa_Knowledge_Stage_Next_Phase_EN_V3_1_2026-11-01.zip",
+      "?? docs/Hansa_Knowledge_Stage_Next_Phase_EN_V3_2026-11-01.zip",
+      "?? docs/agent-reference/briefs/",
+      "?? docs/canonical-home/evidence/stage-archive-1280-dark.png",
+      "?? docs/canonical-home/evidence/stage-cert-1280-dark.png",
+      "?? docs/canonical-home/evidence/stage-learn-1280-dark.png",
+      "?? docs/canonical-home/evidence/stage-mobile-390-dark.png",
+      "?? docs/canonical-home/evidence/stage-takeover-1280-dark.png",
+      "?? docs/canonical-home/evidence/stage-works-1280-dark.png",
+      "?? docs/homepage-agent-handoff-20261031/",
+      "?? docs/homepage-agent-handoff-v2-en-20261031/",
+      "?? docs/homepage-timeline-atlas-plan-20261030/",
+      "?? docs/knowledge-stage-next-phase-v3-20261101/",
+      "?? docs/project-context-20261030/",
+      "?? intelligent-atlas/"
+    ]
+  },
+  "preservedFiles": [
+    {
+      "path": "intelligent-atlas/prototype/index.html",
+      "bytes": 21771,
+      "sha256": "e4089a6a6d90f648f3de4ea263e01eda8ccb1b83a45740bd61bb4ed77ad5a3e1"
+    },
+    {
+      "path": "intelligent-atlas/prototype/app.js",
+      "bytes": 150900,
+      "sha256": "51651a643f258bf0d3efff37868a89c09bb159a163fa8f026d94d297215a68f1"
+    },
+    {
+      "path": "intelligent-atlas/prototype/styles.css",
+      "bytes": 77089,
+      "sha256": "2bef4654dcb8918f2fb6c545f40d4245aa42048fbe1042e04c35203e5413e092"
+    },
+    {
+      "path": "intelligent-atlas/prototype/data.js",
+      "bytes": 249030,
+      "sha256": "1cbc864d436ee100915713165345cc9029bf19c7d8755be6d336013d08b32403"
+    },
+    {
+      "path": "intelligent-atlas/prototype/public-data.js",
+      "bytes": 2306,
+      "sha256": "17f3195a32438825c3f749baa6ea31ec1df367553db4bddba1a2e7536f787599"
+    },
+    {
+      "path": "intelligent-atlas/prototype/data-provenance.json",
+      "bytes": 1983,
+      "sha256": "082c846ee06644f58568a90fb2eb7dba330ce60f0846aa94801f29172e11e3f9"
+    },
+    {
+      "path": "intelligent-atlas/tools/analyze-corpus.mjs",
+      "bytes": 40156,
+      "sha256": "89ea536802e54bcb54153b4207115b6287d55735ed5d573ca1a3c79cad84d3a3"
+    },
+    {
+      "path": "intelligent-atlas/tools/semantic-model.mjs",
+      "bytes": 172706,
+      "sha256": "89072cf750764bb851309f259ffeaea12c708e2d0835df6ec93d892c38f58661"
+    },
+    {
+      "path": "intelligent-atlas/tools/build-prototype-data.mjs",
+      "bytes": 14351,
+      "sha256": "59f54d561fa399d3658e0e1f72cd1ed693fdd2d8714965a0e5f5bf8a652d4d63"
+    },
+    {
+      "path": "intelligent-atlas/contracts/contracts.schema.json",
+      "bytes": 10798,
+      "sha256": "9dff177db87a5067bd0b61632c52750c0dfebefa03dae585102e73ea3868ab9b"
+    },
+    {
+      "path": "intelligent-atlas/contracts/knowledge-dealer.md",
+      "bytes": 14294,
+      "sha256": "9f8210bde4c16f02d87890537eebe496f7c0527408a674937295fcd28d9e38ce"
+    },
+    {
+      "path": "intelligent-atlas/contracts/adapter-proof.mjs",
+      "bytes": 26689,
+      "sha256": "d70c1be0bc472d78a8d96bee9d42d01ec5434b8b44822b9ba92a33c856463077"
+    },
+    {
+      "path": "intelligent-atlas/contracts/adapter-proof.test.mjs",
+      "bytes": 5319,
+      "sha256": "b38e5c59cdf443c0a4a83ffaaac311ede45d9a6294ebe859fbddf4c74cd98590"
+    },
+    {
+      "path": "intelligent-atlas/analysis/routes.json",
+      "bytes": 18879,
+      "sha256": "cc7d750b4f139cbb8c14cbc5600581cd14ac77a08a170c3ae9d9d2b21e52eb03"
+    },
+    {
+      "path": "intelligent-atlas/analysis/graph-build.json",
+      "bytes": 375409,
+      "sha256": "bbc6a0a95c5183c2ddf606c2202f0dcf584c85ac37f7c2719ad1be97b62a87c3"
+    },
+    {
+      "path": "intelligent-atlas/analysis/public-projection.json",
+      "bytes": 1041,
+      "sha256": "4ad14fd128418bf8d03095b2d4977cc3f172b8cb097d326d4bd05e793c7d1cf6"
+    },
+    {
+      "path": "intelligent-atlas/analysis/coverage-report.md",
+      "bytes": 6163,
+      "sha256": "c3c581385917c4e2f195a2f99b266b18e3035b4d72114d00de55b8c827bd7f7d"
+    },
+    {
+      "path": "intelligent-atlas/DELIVERY_REPORT.md",
+      "bytes": 17247,
+      "sha256": "3770a98405fab0a1aa73224680f8decb11304b9a2ecad2dc66995965bf74faaa"
+    }
+  ],
+  "notes": [
+    "Copies are byte-identical snapshots for rollback and comparison; they are not deployable.",
+    "Candidate review payload data.js is preserved here but must not enter the public artifact.",
+    "Inherited reference-verifier drift in lib/atlas/field.ts is outside this deliverable and was not altered."
+  ]
+}

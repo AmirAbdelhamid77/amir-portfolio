@@ -137,11 +137,15 @@ try {
     // Stage headings are uppercased by CSS, and innerText reports the rendered
     // (transformed) text, so compare case-insensitively.
     const rendered = body.toLowerCase();
+    // v3 gate flow (2026-10-30): the markers are the gates' rendered identity —
+    // masthead, Learn Gate, certificate gate (kicker + coverage caption),
+    // archive — apostrophe-free and contiguous so JSX typographic quotes and
+    // <em> splits never break the match.
     const markers = [
-      "the daily insight",
-      "one idea.",
-      "deal an idea",
-      "knowledge atlas",
+      "knowledge stage",
+      "the learn gate",
+      "certificate preparation",
+      "questions per exam objective",
       "the insight archive",
     ].filter((marker) => rendered.includes(marker));
     record("ROOT01", markers.length === 5, `landing sections present: ${markers.length}/5`);
@@ -222,10 +226,20 @@ try {
     );
     record("SCENARIO02c", reasoningVisible, "scene stays visible through reveal toggles");
 
-    // Card dealer (DEALER01-03). Cards are the tray buttons that own
-    // `aria-expanded`; the reader is the region they control.
+    // Card dealer (DEALER01-03). Since the v3 gate flow the dealer lives in
+    // the date gate's full-viewport takeover, so the takeover CTA opens first
+    // (the label carries a typographic apostrophe — matched with a wildcard).
+    // Cards are the tray buttons that own `aria-expanded`; the reader is the
+    // region they control.
     const cards = page.locator('[aria-label="Knowledge card tray"] button[aria-expanded]');
     const reader = page.locator('[role="region"][aria-label="Selected card"]');
+    // The CTA lives in the pinned date gate: from the reading gate's scroll
+    // position it is geometrically in view but covered by the next gate, so
+    // the run returns to the top first — what a reader pressing Home does.
+    await page.evaluate(() => window.scrollTo({ top: 0, behavior: "instant" }));
+    await page.waitForTimeout(300);
+    await page.getByRole("button", { name: /Deal today.s insight/ }).click();
+    await page.waitForTimeout(600);
     await dealButton(page).click();
     await page.waitForTimeout(500);
     const dealtCards = await cards.count();
@@ -352,7 +366,7 @@ try {
     record("ROUTE01c", text.includes(EDITIONS.delete.title), "the alias selects the deep-linked edition");
     record(
       "R3b",
-      ["the daily insight", "knowledge atlas", "the insight archive"].every((marker) =>
+      ["the learn gate", "certificate preparation", "the insight archive"].every((marker) =>
         renderedAlias.includes(marker),
       ),
       "the alias renders the same landing",
@@ -414,6 +428,10 @@ try {
     await page.keyboard.press("Home");
     await page.waitForTimeout(400);
     record("KEYBOARD01c", true, "Home key is handled by the rail without trapping focus");
+    // Axe must judge the page at rest: the scroll just armed the gate blocks'
+    // entrance reveals, and sampling mid-transition reports the transient
+    // opacity as a contrast failure. Wait out the longest staggered entrance.
+    await page.waitForTimeout(1800);
     await page.addScriptTag({ content: axeSource });
     const axe = await page.evaluate(async () => {
       const result = await window.axe.run(document, {
@@ -423,6 +441,12 @@ try {
         id: violation.id,
         impact: violation.impact,
         nodes: violation.nodes.length,
+        // Contrast failures are scroll-state dependent; keep the first few
+        // targets and the computed-colour message so a failing run can be
+        // reproduced without re-deriving them.
+        targets: violation.nodes
+          .slice(0, 3)
+          .map((node) => `${node.target.join(" ")} — ${(node.any?.[0]?.message ?? "").slice(0, 130)}`),
       }));
     });
     const severe = axe.filter((violation) => ["serious", "critical"].includes(violation.impact));
@@ -431,7 +455,7 @@ try {
       "ACCESS01",
       severe.length === 0,
       severe.length
-        ? `axe serious/critical: ${severe.map((v) => `${v.id}(${v.nodes})`).join(", ")}`
+        ? `axe serious/critical: ${severe.map((v) => `${v.id}(${v.nodes})`).join(", ")} ${severe.flatMap((v) => v.targets).join(" | ")}`
         : `axe: ${axe.length} non-serious finding(s)`,
     );
     await context.close();
