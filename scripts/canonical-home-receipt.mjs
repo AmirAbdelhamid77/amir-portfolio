@@ -14,6 +14,10 @@ import { readFileSync, existsSync } from "node:fs";
 import { createHash } from "node:crypto";
 import { resolve, sep } from "node:path";
 import { cinematicReceipt } from "./cinematic-phase2-receipt.mjs";
+// The newest layer records manifest-to-manifest transitions (a predecessor or
+// baseline that a later wave normalized), so each layer can ask it instead of
+// failing on bytes that no longer exist in any frozen copy.
+import { knowledgeStageReceipt } from "./knowledge-stage-receipt.mjs";
 
 export const CANONICAL_HOME = "docs/canonical-home/INTEGRATION_MANIFEST.json";
 
@@ -34,7 +38,7 @@ export function canonicalHomeReceipt(root) {
   assert.equal(manifest.scope, "hansa-canonical-home-2026-10-28");
   assert.equal(
     hash(manifest.previousManifest),
-    manifest.previousManifestSha256,
+    knowledgeStageReceipt(root).predecessor(manifest.previousManifest, manifest.previousManifestSha256),
     "Prior R11 manifest changed",
   );
 
@@ -71,7 +75,7 @@ export function canonicalHomeReceipt(root) {
       assert.ok(resolve(root, entry.rollbackPath).startsWith(root + sep));
       assert.equal(
         hash(entry.rollbackPath),
-        entry.beforeSha256,
+        successor.expected(entry.rollbackPath, entry.beforeSha256),
         "Canonical-home rollback bytes changed " + entry.path,
       );
     }

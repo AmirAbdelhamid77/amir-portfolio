@@ -16,7 +16,7 @@ export function cinematicReceipt(root){
  const m=JSON.parse(read(CINEMATIC_PHASE2));
  assert.equal(m.scope,'hansa-cinematic-phase2-2026-10-28');
  assert.equal(hash(m.previousManifest),stage.predecessor(m.previousManifest,m.previousManifestSha256),'Phase 1 manifest changed');
- assert.equal(hash(m.baselinePath),m.baselineSha256,'Phase 2 dirty baseline changed');
+ assert.equal(hash(m.baselinePath),stage.predecessor(m.baselinePath,m.baselineSha256),'Phase 2 dirty baseline changed');
  const baseline=JSON.parse(read(m.baselinePath));
  assert.equal(new Set(m.files.map(e=>e.path)).size,m.files.length,'Duplicate Phase 2 path');
  for(const e of m.files){
@@ -25,7 +25,7 @@ export function cinematicReceipt(root){
   if(e.beforeSha256!==null&&!e.generated){
    assert.ok(e.rollbackPath,'Missing rollback bytes '+e.path);
    assert.ok(resolve(root,e.rollbackPath).startsWith(root+sep));
-   assert.equal(hash(e.rollbackPath),e.beforeSha256,'Phase 2 rollback drift '+e.path);
+   assert.equal(hash(e.rollbackPath),successor.expected(e.rollbackPath,e.beforeSha256),'Phase 2 rollback drift '+e.path);
   }
   if(!existsSync(resolve(root,e.path))){assert.ok(stage.retired(e.path),'Phase 2 file vanished without a successor record '+e.path);continue;}
   assert.equal(hash(e.path),successor.expected(e.path,e.sha256),'Phase 2 source drift '+e.path);

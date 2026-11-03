@@ -22,7 +22,7 @@ export function hansaIntegrationReceipt(root){
  for(const e of m.files){
   if(successor.skip?.(e.path))continue;
   if(e.observeOnly){assert.equal(hash(e.path),successor.expected(e.path,e.sha256),'Hansa integration observed drift changed mid-flight '+e.path);continue;}
-  if(e.beforeSha256!==null)assert.equal(hash(e.rollbackPath),e.beforeSha256,'Hansa integration rollback drift '+e.path);
+  if(e.beforeSha256!==null)assert.equal(hash(e.rollbackPath),successor.expected(e.rollbackPath,e.beforeSha256),'Hansa integration rollback drift '+e.path);
   assert.equal(hash(e.path),successor.expected(e.path,e.sha256),'Hansa integration drift '+e.path);
  }
  return {expected:(p,h)=>successor.expected(p,m.files.find(e=>e.path===p&&(e.beforeSha256===h||e.acceptedDrift?.includes(h)||(e.observeOnly&&(e.sealedBeforeSha256===h||e.sha256===h))))?.sha256??h),paths:()=>m.files.map(e=>e.path),bytes:(p,n)=>successor.bytes(p,m.files.find(e=>e.path===p)?.bytes??n),retired:p=>successor.retired?.(p)===true};

@@ -27,6 +27,7 @@ than re-argue.
 | R9 | A build artifact is pinned as source | `tsconfig.tsbuildinfo` was pinned by four layers with four different hashes | Medium | High (already fired) | recorded as `excluded` with a reason; the chain resolves it to current bytes instead of asserting a frozen value | `tsconfig.tsbuildinfo` appears again in `files` of a new manifest |
 | R10 | Receipt scripts are edited after the manifest is generated | every script edit changes a pinned hash | Medium | High | regenerate with the generator after the last script edit; the build step is documented in §12.11 | `Knowledge-stage drift scripts/*.mjs` in the verifier output |
 | R11 | Negative tests silently stop covering new layers | `final-review-negative.mjs` copies a scratch checkout; deleted files broke it | Medium | Medium | scratch closure now walks the whole predecessor chain; 17 corruption cases must stay rejected | negative run reports fewer than 17 cases |
+| R21 | A receipt pin is only valid for the checkout configuration that wrote it | the LF/CRLF incident on 3 Nov: all 3,777 text blobs are LF, but `core.autocrlf=true` checked them out as CRLF and only 47 paths were noticed before the push | High | Medium (already fired once) | `.gitattributes` (`* text=auto eol=lf`) makes index and checkout identical on every platform; pins written after the change assume LF | `git ls-files --eol` reports any `w/crlf`, or a pin fails immediately after a fresh checkout |
 
 ## 3. Build, deploy and delivery risks
 

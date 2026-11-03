@@ -4,6 +4,7 @@ import {createHash} from 'node:crypto';
 import {resolve,sep} from 'node:path';
 import ts from 'typescript';
 import {studyReceipt} from './study-receipt.mjs';
+import {knowledgeStageReceipt} from './knowledge-stage-receipt.mjs';
 export const FINAL_REVIEW='docs/final-review-20261028/INTEGRATION_MANIFEST.json';
 export const FINAL_HISTORY='docs/final-review-20261028/HISTORICAL_RECONCILIATION.json';
 const digest=b=>createHash('sha256').update(b).digest('hex');
@@ -18,10 +19,10 @@ export function finalReviewReceipt(root){
  const successor=studyReceipt(root);
  assert.equal(m.scope,'hansa-final-review-20261028');
  assert.equal(hash(m.previousManifest),m.previousManifestSha256,'Original Phase 2 manifest changed');
- assert.equal(hash(m.baselinePath),m.baselineSha256,'Final-review starting baseline changed');
+ assert.equal(hash(m.baselinePath),knowledgeStageReceipt(root).predecessor(m.baselinePath,m.baselineSha256),'Final-review starting baseline changed');
  const baseline=json(m.baselinePath).files;
  const h=json(FINAL_HISTORY);
- assert.equal(hash(FINAL_HISTORY),m.historySha256,'Historical reconciliation changed');
+ assert.equal(hash(FINAL_HISTORY),knowledgeStageReceipt(root).predecessor(FINAL_HISTORY,m.historySha256),'Historical reconciliation changed');
  const transitions=h.transitions;
  assert.deepEqual(transitions.map(e=>e.path).sort(),['.gitignore','AGENTS.md','app/globals.css','eslint.config.mjs','lib/hooks/use-hover-capable.ts','lib/touch.ts','package.json'].sort());
  for(const e of transitions){
@@ -32,7 +33,7 @@ export function finalReviewReceipt(root){
   // there is no capture, `captured` is the live file and the successor chain
   // checks it on the next assertion; demanding it still equal its 28 Oct bytes
   // made every later authorized change fail before it reached that check.
-  if(e.capturedPath)assert.equal(digest(captured),e.toSha256,'Unaudited historical successor bytes '+e.path);
+  if(e.capturedPath)assert.equal(digest(captured),successor.expected(e.capturedPath,e.toSha256),'Unaudited historical successor bytes '+e.path);
   assert.equal(hash(e.path),successor.expected(e.path,m.files.find(f=>f.path===e.path)?.sha256??e.toSha256),'Unaudited current historical source '+e.path);
   const original=raw(e.originalPath).toString('utf8'),current=captured.toString('utf8');
   if(e.path==='package.json'){
@@ -87,12 +88,12 @@ export function finalReviewReceipt(root){
  for(const e of h.additions){
   assert.match(e.path,/^(app|components|lib|content|public|tests)\//);
   assert.equal(e.sha256,baseline[e.path],'Preexisting addition missing from sealed baseline');
-  assert.equal(hash(e.originalPath),e.sha256,'Preserved addition bytes changed');
+  assert.equal(hash(e.originalPath),successor.expected(e.originalPath,e.sha256),'Preserved addition bytes changed');
  }
  assert.equal(new Set(m.files.map(e=>e.path)).size,m.files.length,'Duplicate successor path');
  for(const e of m.files){
   assert.equal(e.beforeSha256,baseline[e.path]??null,'Unbound final-review change '+e.path);
-  if(e.beforeSha256!==null&&!e.generated)assert.equal(hash(e.rollbackPath),e.beforeSha256,'Rollback drift '+e.path);
+  if(e.beforeSha256!==null&&!e.generated)assert.equal(hash(e.rollbackPath),successor.expected(e.rollbackPath,e.beforeSha256),'Rollback drift '+e.path);
   assert.equal(hash(e.path),successor.expected(e.path,e.sha256),'Final-review drift '+e.path);
  }
  // A preserved addition may itself be changed by this authorized successor, or

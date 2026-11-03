@@ -661,17 +661,20 @@ result. A new append-only layer records the transitions:
 
 | Record | Count |
 |---|---:|
-| Content pins (path + predecessor hash + current hash) | 214 |
+| Content pins (path + predecessor hash + current hash) | 428 |
 | Additions since the Atlas inventory (path + hash, no predecessor) | 233 |
 | Removed artifacts (path + last recorded hash) | 7 |
 | Excluded artifacts (path + reason) | 1 |
-| Predecessor-manifest transitions | 1 |
+| Predecessor-manifest transitions | 11 |
 
-Every pin states `layer`, `attribution` and `note`. The 214 pins split into 108
-from this session's migration, 2 inherited-inert, 16 receipt repairs and 88 from
-earlier authorized waves. The excluded artifact is `tsconfig.tsbuildinfo`: four
-layers pinned four different builds of an untracked build cache, which can never
-be a stable reference. The one predecessor record resolves the 2 Nov rewrite of
+Every pin states `layer`, `attribution` and `note`. The 428 pins split into 264
+line-ending transitions (§13.9), 66 from this session's migration, 80 inherited
+from earlier authorized waves, 17 receipt repairs and 1 proved inert. The
+excluded artifact is `tsconfig.tsbuildinfo`: four layers pinned four different
+builds of an untracked build cache, which can never be a stable reference. Ten
+of the eleven predecessor records exist for the same reason as the pins — the
+older layer recorded the bytes of a manifest, baseline or rollback copy that the
+checkout rewrote — and one resolves the 2 Nov content rewrite of
 `docs/canonical-home/INTEGRATION_MANIFEST.json` for the cinematic layer.
 
 Supporting fixes, each of which makes an existing assertion honest rather than
@@ -695,6 +698,12 @@ weaker:
 - `docs/agent-reference/PACKAGE_MANIFEST.json` pins `README.md`, which the
   curriculum wave legitimately updated; the new layer records it instead of the
   reference manifest being rewritten.
+- The rollback and manifest-to-manifest bindings are now routed through the
+  successor instead of comparing against a literal: `rollbackPath` in the
+  SQL, study, path-review, R11, canonical-home, cinematic and final-review
+  layers, the fixed `preservation/originals/` and `circular-nodes/before/`
+  copies in the prototype and circle layers, and every `previous*`, `baseline*`
+  and `historySha256` promise. §13.9 explains why they were all stale.
 
 ### 13.5 Gates
 
@@ -721,7 +730,7 @@ weaker:
 - `baselines/2026-11-03-pre-m0/COMPONENT_REUSE.md` maps all seven prototype files
   to retain / port / replace decisions and audits 14 existing app components.
   No chart, motion or graph library is added; KaTeX and `motion` already exist.
-- `baselines/2026-11-03-pre-m0/RISK_LIST.md` records 20 risks with evidence,
+- `baselines/2026-11-03-pre-m0/RISK_LIST.md` records 21 risks with evidence,
   severity, mitigation and a firing trigger, plus rollback paths.
 
 ### 13.7 Caveats
@@ -742,3 +751,69 @@ reading and publication, then review the statistics units in resumable batches,
 including the 728 unmatched units and the 628 media references. Publication stays
 blocked until the eligible corpus has explicit decisions. Do not start UI work
 (M3/M4) before that pass closes.
+
+### 13.9 Line-ending normalization (post-push repair, 2026-11-03)
+
+M0 was pushed first (`7938c28`), and the next checkout turned
+`node scripts/verify-agent-reference.mjs` red with
+`Knowledge-stage predecessor receipt drift`. The diagnosis, and the repair, are
+part of M0 because they decide whether the pins mean anything on a machine that
+is not this one.
+
+**Cause.** `core.autocrlf=true` is the Windows default. Every tracked blob in
+this repository is LF — `git ls-files --eol` reported 3,777 `i/lf`, 2,669
+`i/-text` and 553 `i/none`, and **zero** `i/crlf`. The working tree that produced
+the pins was mixed: files written by scripts were LF, files last written by
+`git checkout` were CRLF. `git status` still called that tree clean because the
+clean filter converts CRLF back to LF on comparison. So the receipt chain, which
+hashes raw bytes, was pinned to a checkout state that no Linux CI run and no
+fresh Windows clone reproduces. Concretely: the hansa manifest's blob hashes to
+`b8f00b7e…`, the checked-out bytes hashed to `a7975417…` with 1,528 CRLF pairs.
+
+**Repair.**
+
+- `.gitattributes` (`* text=auto eol=lf`, binaries declared `binary`) makes the
+  index and the checkout byte-identical on every platform. This is the contract
+  the receipts already assumed.
+- `core.autocrlf` was set to `false` for this clone and the whole index was
+  re-checked out, so the tree is now LF with no CRLF file left
+  (`git ls-files --eol` reports zero `w/crlf`).
+- No older manifest was edited and no expected hash was rewritten. The M0 layer
+  was regenerated from the normalized tree; its previous version remains in
+  commit `7938c28`, so the change is auditable.
+
+**What that added to the layer.** 264 pins and 10 predecessor records now
+describe lines endings only, tagged `eol-normalization-2026-11-03`. They are
+distinguishable from content drift, and they are checkable:
+
+| Check | Result |
+|---|---|
+| EOL-tagged files that still contain CRLF | 0 |
+| EOL-tagged pins whose recorded byte count shrinks by more lines than the file has | 0 |
+| EOL-tagged pins with a recorded prior size (range-checkable) | 49 |
+| EOL-tagged rollback/evidence copies with no recorded prior size | 215 |
+| Files whose endings were *mixed*, not uniformly CRLF | 30 |
+
+The 30 mixed files are why a naive "convert LF to CRLF and compare" test failed:
+for example `lib/study/server.ts` had 48 CRLF pairs and 2 bare LF lines, so its
+pinned size was 7,853 bytes against 7,805 now — a 48-byte delta on a 50-line
+file. The proof that only endings changed does not rest on that reconstruction:
+git declared the pre-normalization tree clean, and the clean filter's whole job
+is to strip CR from line ends, so the committed blob and the pinned bytes are the
+same text.
+
+The 17 pins tagged `m0-receipt-repair` are the receipt scripts edited in this
+pass; they are real content changes and are labelled as such rather than folded
+into the EOL set.
+
+**Why this belongs in M0.** The exit condition for M0 is that affected paths and
+preserved state are *known*, not that one machine is green. A gate that passes
+only on the checkout that wrote it is not evidence. The chain now passes from a
+freshly checked-out, byte-exact LF tree, which is what CI and the deploy already
+used.
+
+**Deploy note.** The push that triggered the deploy shipped LF blobs, i.e. the
+form the receipts now pin, so the normalization does not change any deployed
+byte. It changes what this Windows clone checks out, so that local verification
+can reproduce the deployed state.
+

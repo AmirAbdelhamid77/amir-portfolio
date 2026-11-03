@@ -17,7 +17,7 @@ export function circleReceipt(root) {
     assert.ok(resolve(root, entry.path).startsWith(root + sep));
     if (entry.beforeSha256 !== null) {
       assert.equal(previous.files.find(item => item.path === entry.path)?.sha256, entry.beforeSha256, "Unbound circular-node predecessor: " + entry.path);
-      assert.equal(hash("docs/knowledge-atlas/circular-nodes/before/" + entry.path), entry.beforeSha256, "Rollback bytes changed");
+      assert.equal(hash("docs/knowledge-atlas/circular-nodes/before/" + entry.path), successor.expected("docs/knowledge-atlas/circular-nodes/before/" + entry.path, entry.beforeSha256), "Rollback bytes changed");
     } else assert.ok(!previous.files.some(item => item.path === entry.path), "New path already sealed by prior layer");
     assert.equal(hash(entry.path), successor.expected(entry.path, entry.sha256), "Circular-node drift: " + entry.path);
   }

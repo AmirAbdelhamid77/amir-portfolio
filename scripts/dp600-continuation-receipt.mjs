@@ -7,6 +7,7 @@ import { readFileSync, existsSync } from "node:fs";
 import { createHash } from "node:crypto";
 import { resolve, sep } from "node:path";
 import { circleReceipt } from "./atlas-circle-receipt.mjs";
+import { knowledgeStageReceipt } from "./knowledge-stage-receipt.mjs";
 export const CONTINUATION = "docs/knowledge-atlas/dp600-continuation/INTEGRATION_MANIFEST.json";
 export const EXPANSION_MANIFEST = "docs/knowledge-atlas/dp600-expansion/INTEGRATION_MANIFEST.json";
 export const CONTINUATION_SCOPE = "dp600-atlas-sql-kql-and-model-objectives-2026-10-26";
@@ -18,7 +19,7 @@ export function continuationReceipt(root) {
   assert.equal(manifest.scope, CONTINUATION_SCOPE);
   assert.equal(manifest.continuationOf, "dp600-question-intake-and-atlas-expansion-2026-10-26");
   const previousRaw = readFileSync(resolve(root, EXPANSION_MANIFEST));
-  assert.equal(createHash("sha256").update(previousRaw).digest("hex"), manifest.previousManifestSha256, "The continuation must not rewrite the expansion manifest");
+  assert.equal(createHash("sha256").update(previousRaw).digest("hex"), knowledgeStageReceipt(root).predecessor(EXPANSION_MANIFEST, manifest.previousManifestSha256), "The continuation must not rewrite the expansion manifest");
   const previous = JSON.parse(previousRaw.toString("utf8"));
   const previousHashes = new Map(previous.files.map(entry => [entry.path, entry.sha256]));
   assert.equal(new Set(manifest.files.map(entry => entry.path)).size, manifest.files.length, "Duplicate continuation path");

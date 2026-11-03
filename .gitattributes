@@ -1,0 +1,22 @@
+# Integrity contract: every receipt manifest in docs/ pins SHA-256 of the raw
+# working-tree bytes. Text therefore must look the same in the index and in the
+# checkout on every platform. Without this file, `core.autocrlf=true` (the
+# Windows default) rewrote LF to CRLF on checkout and every pin drifted by
+# 1,528 newline bytes.
+#
+# `text=auto eol=lf` normalizes text to LF on commit and always checks it out
+# as LF, so the bytes a verifier hashes are the bytes in the object database.
+# A file that genuinely needs different bytes must be marked explicitly below.
+* text=auto eol=lf
+
+# Binary assets: never convert, always compare as bytes.
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.webp binary
+*.gif binary
+*.ico binary
+*.woff binary
+*.woff2 binary
+*.zip binary
+*.pdf binary

@@ -20,7 +20,7 @@ export function prototypeReceipt(root) {
     if(successor.removed(e.path))continue;
     assert.ok(resolve(root,e.path).startsWith(root+sep),'Prototype path outside checkout');
     assert.equal(e.beforeSha256,baseline.files[e.path]??null,'Unbound prototype before-hash '+e.path);
-    if(e.beforeSha256!==null)assert.equal(hash('docs/prototype-c/preservation/originals/'+e.path),e.beforeSha256,'Prototype rollback drift '+e.path);
+    if(e.beforeSha256!==null)assert.equal(hash('docs/prototype-c/preservation/originals/'+e.path),successor.expected('docs/prototype-c/preservation/originals/'+e.path,e.beforeSha256),'Prototype rollback drift '+e.path);
     assert.equal(hash(e.path),successor.expected(e.path,e.sha256),'Prototype drift '+e.path);
   }
   for(const e of m.generatedArtifacts??[]){
