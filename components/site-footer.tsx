@@ -80,8 +80,16 @@ export function SiteFooter() {
 
       <div className="border-t border-border">
         <div className="mx-auto flex max-w-6xl flex-col gap-2 px-4 py-5 text-xs text-muted-foreground sm:flex-row sm:items-center sm:justify-between md:px-6">
-          <p>
-            © {new Date().getFullYear()} {SITE.name}. All rights reserved.
+          <p className="flex flex-wrap items-center gap-x-3 gap-y-1">
+            <span>
+              © {new Date().getFullYear()} {SITE.name}. All rights reserved.
+            </span>
+            <Link
+              href="/about/sources"
+              className="underline underline-offset-4 hover:text-foreground"
+            >
+              Sources &amp; limits
+            </Link>
           </p>
           <p className="flex items-center gap-2">
             <span className="relative flex h-1.5 w-1.5">

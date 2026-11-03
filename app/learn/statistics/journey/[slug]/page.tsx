@@ -91,9 +91,6 @@ export default async function JourneyPage({ params }: Params) {
             <ButtonLink href="/learn/statistics/labs" variant="secondary">
               Open the labs
             </ButtonLink>
-            <ButtonLink href="/learn/statistics/source" variant="ghost">
-              Source audit
-            </ButtonLink>
           </>
         }
         aside={
@@ -153,16 +150,10 @@ export default async function JourneyPage({ params }: Params) {
             </div>
 
             <div className="rounded-2xl border border-border p-4">
-              <p className="font-mono text-[10px] uppercase tracking-[0.14em] text-muted-foreground">Provenance</p>
+              <p className="font-mono text-[10px] uppercase tracking-[0.14em] text-muted-foreground">Source</p>
               <p className="mt-2 text-[10px] leading-5 text-muted-foreground">
-                Source file <span className="break-all font-mono">{SOURCE_STATS.sourceFile}</span>. Exported{" "}
-                {new Date(SOURCE_STATS.observedModified).toISOString().slice(0, 10)}. SHA-256{" "}
-                <span className="break-all font-mono">{SOURCE_STATS.sha256.slice(0, 20)}…</span>. Wording preserved;
-                headings, formulas and tables are rendered as typed blocks.
+                The original section wording, headings, formulas and tables are kept as written.
               </p>
-              <Link href="/learn/statistics/source" className="mt-2 inline-flex text-[10px] text-foreground underline decoration-border-strong underline-offset-4">
-                Read the full source audit
-              </Link>
             </div>
           </div>
         </aside>

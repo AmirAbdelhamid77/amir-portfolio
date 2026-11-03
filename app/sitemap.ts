@@ -34,14 +34,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { path: "work", priority: 0.9 },
     { path: "experience", priority: 0.8 },
     { path: "services", priority: 0.8 },
-    { path: "learn/catalogue", priority: 0.9 },
     { path: "practice/catalogue", priority: 0.9 },
     { path: "search", priority: 0.6 },
     { path: "lab", priority: 0.9 },
-    { path: "learn", priority: 0.9 },
     { path: "explore", priority: 0.8 },
     { path: "practice", priority: 0.8 },
     { path: "about", priority: 0.7 },
+    { path: "about/sources", priority: 0.5 },
     { path: "contact", priority: 0.7 },
   ];
 
@@ -78,7 +77,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { path: "/learn/statistics/glossary", priority: 0.6 },
     { path: "/learn/statistics/decision", priority: 0.7 },
     { path: "/learn/statistics/cheatsheet", priority: 0.6 },
-    { path: "/learn/statistics/source", priority: 0.6 },
     { path: "/lab/dp-600", priority: 0.9 },
     { path: "/lab/dp-600/explore", priority: 0.8 },
     { path: "/lab/dp-600/study", priority: 0.8 },

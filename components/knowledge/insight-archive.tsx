@@ -153,11 +153,6 @@ export function InsightArchive({
         ))}
       </ul>
 
-      <p className="mt-6 max-w-[80ch] text-[11px] leading-5 text-muted-foreground">
-        Source references are independent of the historical question-bank answer
-        keys. No question IDs, answers, saved progress or Atlas review states are
-        changed by reading this page.
-      </p>
     </section>
   );
 }

@@ -12,6 +12,7 @@ export const metadata: Metadata = {
   description:
     "The exact export snapshot, 43-section coverage matrix, repaired formula ledger, mathematical errata (including the Poisson λ=20 tail correction) and the extension register for the statistics reference.",
   alternates: { canonical: "/learn/statistics/source" },
+  robots: { index: false, follow: false },
 };
 
 const ERRATA = [

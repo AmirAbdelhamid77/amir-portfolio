@@ -90,27 +90,18 @@ export default function FabricRtiCoursePage() {
         <Container className="space-y-6">
           <Panel
             tone="muted"
-            title="How this course relates to the source package"
-            description="Lessons teach; the package stays the provenance record."
+            title="Where these lessons come from"
+            description="Each lesson keeps the lab and the source it was built from."
           >
             <p className="text-sm leading-7 text-muted-foreground">
               Every lesson wraps one or more of the package&apos;s lab blueprints and keeps that
-              blueprint&apos;s id, status and verification result. Nothing here upgrades a status:
-              the package arrived as{" "}
+              blueprint&apos;s id and status. The package arrived as{" "}
               <strong className="font-medium text-foreground">{RTI_COURSE.status}</strong> with
               runtime <strong className="font-medium text-foreground">{RTI_COURSE.runtimeStatus}</strong>,
-              and both travel with the content. The blueprints and the provenance registry remain
-              available as an isolated review surface — they are evidence, not lessons.
+              and both travel with the content.
             </p>
             <p className="mt-3 text-sm leading-7 text-muted-foreground">{RTI_COURSE.lens}</p>
             <div className="mt-4 flex flex-wrap gap-4">
-              <Link
-                href="/learn/drafts/"
-                className="inline-flex min-h-11 items-center gap-1.5 text-sm underline underline-offset-4"
-              >
-                Open the intake review surface
-                <ArrowRight className="h-3.5 w-3.5" aria-hidden="true" />
-              </Link>
               <Link
                 href={RTI_COURSE.examHref}
                 className="inline-flex min-h-11 items-center gap-1.5 text-sm underline underline-offset-4"

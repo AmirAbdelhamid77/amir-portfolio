@@ -108,9 +108,6 @@ export default function StatisticsHubPage() {
             <ButtonLink href="/learn/statistics/labs/dot-to-decision" variant="secondary">
               From dot to decision
             </ButtonLink>
-            <ButtonLink href="/learn/statistics/source" variant="ghost">
-              Source &amp; verification
-            </ButtonLink>
           </>
         }
         aside={
@@ -407,18 +404,14 @@ export default function StatisticsHubPage() {
           <div className="grid gap-4 md:grid-cols-[1.2fr_0.8fr] md:items-center">
             <div>
               <Eyebrow>Provenance, not decoration</Eyebrow>
-              <h2 className="mt-2 text-2xl font-medium tracking-tight">Every section is accounted for.</h2>
+              <h2 className="mt-2 text-2xl font-medium tracking-tight">One correction, stated openly.</h2>
               <p className="mt-2 max-w-xl text-sm leading-7 text-muted-foreground">
-                The export had 43 numbered sections, 102 formula occurrences and no figures. All 43 sections render with
-                their original wording and source anchor; the visual layer is new and labelled as this site&apos;s
-                teaching work. The Poisson tail error in the source is corrected and documented rather than quietly
-                repeated.
+                Chapter 17 of the source uses a Poisson tail that overstates the result at λ=20. The
+                corrected value is shown in the lesson and the original wording is kept for
+                comparison. Everything else follows the source.
               </p>
               <div className="mt-4 flex flex-wrap gap-2">
-                <ButtonLink href="/learn/statistics/source" variant="secondary">
-                  Read the source audit
-                </ButtonLink>
-                <ButtonLink href="/learn" variant="ghost">
+                <ButtonLink href="/learn/visualization" variant="ghost">
                   Data Visualization hub
                 </ButtonLink>
               </div>
