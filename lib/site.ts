@@ -37,7 +37,7 @@ export const SITE = {
  */
 export const NAV = [
   { href: "/", label: "Today", description: "Daily insight and editions" },
-  { href: "/learn/catalogue", label: "Learn", description: "Subjects, topics and explanations" },
+  { href: "/learn", label: "Learn", description: "Subjects, topics and explanations" },
   { href: "/practice/catalogue", label: "Practice", description: "Questions in their learning context" },
   { href: "/learn/dp-600/atlas/", label: "Atlas", description: "Evidence and publication state" },
   { href: "/about", label: "About", description: "Background and professional work" },
@@ -86,7 +86,7 @@ export const NAV_SECTIONS: Record<string, readonly string[]> = {
   "/learn/dp-600/atlas/": ["/learn/dp-600/atlas"],
   "/work": ["/work"],
   // `/explore/` is the visualization lab gallery: part of the learning material.
-  "/learn/catalogue": ["/learn", "/explore", "/study"],
+  "/learn": ["/learn", "/explore", "/study"],
   // `/lab/` holds the question banks: part of practice, not of learning.
   "/practice/catalogue": ["/practice", "/lab"],
   "/services": ["/services"],
@@ -117,7 +117,7 @@ export const FOOTER_LINKS = [
     links: [
       { href: "/learn/catalogue", label: "Learning catalogue" },
       { href: "/search", label: "Search the site" },
-      { href: "/learn", label: "Data Visualization course" },
+      { href: "/learn/visualization", label: "Data Visualization course" },
       { href: "/learn/statistics", label: "Statistics reference" },
       { href: "/explore/charts", label: "Six chart labs" },
       { href: "/explore/choose", label: "Chart decision assistant" },

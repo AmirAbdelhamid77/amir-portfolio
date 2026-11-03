@@ -15,7 +15,7 @@ export function ChartLabShell({ lab, children }: { lab: ChartLabMeta; children: 
       <section className="border-b border-border">
         <Container className="pb-8 pt-20 md:pb-10 md:pt-24">
           <nav aria-label="Breadcrumb" className="flex flex-wrap items-center gap-1.5 text-xs text-muted-foreground">
-            <Link href="/learn" className="hover:text-foreground">
+            <Link href="/learn/visualization" className="hover:text-foreground">
               Data Visualization
             </Link>
             <span aria-hidden="true">/</span>

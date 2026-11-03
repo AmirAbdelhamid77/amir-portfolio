@@ -86,7 +86,7 @@ export default function ExplorePage() {
               <ArrowRight className="h-4 w-4" aria-hidden="true" />
             </Link>
             <Link
-              href="/learn"
+              href="/learn/visualization"
               className="press inline-flex h-10 items-center gap-2 rounded-full border border-border-strong bg-background px-5 text-sm hover:bg-card"
             >
               Back to the learning path

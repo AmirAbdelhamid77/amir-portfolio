@@ -55,7 +55,7 @@ export default function FabricRtiCoursePage() {
             aria-label="Breadcrumb"
             className="flex flex-wrap items-center gap-1.5 text-xs text-muted-foreground"
           >
-            <Link href="/learn/catalogue" className="hover:text-foreground">
+            <Link href="/learn" className="hover:text-foreground">
               Learn
             </Link>
             <span aria-hidden="true">/</span>

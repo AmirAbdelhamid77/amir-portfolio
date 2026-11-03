@@ -246,7 +246,7 @@ export function InsightStage({
           remain open while editorial review continues.
         </p>
         <Link
-          href="/learn/catalogue"
+          href="/learn"
           className="mt-6 inline-flex min-h-11 items-center rounded-full border border-border-strong px-5 text-sm"
         >
           Browse learning
@@ -548,7 +548,7 @@ export function InsightStage({
             </p>
             <nav aria-label="Continue learning" className="mt-4 flex flex-wrap gap-x-6 gap-y-3 text-sm">
               <Link
-                href="/learn/catalogue"
+                href="/learn"
                 className="inline-flex min-h-11 items-center underline decoration-border-strong underline-offset-4 hover:decoration-primary"
               >
                 Learn the craft

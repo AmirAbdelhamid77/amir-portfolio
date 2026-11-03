@@ -47,6 +47,9 @@ master intact rather than silently rewriting it.
   current Cloudflare account/deployment/pricing verification.
 - lib/site.ts: eight main nav entries. /learn/ and /practice/ are currently
   visualization-specific. Proposed global catalogues are not implemented here.
+  (2026-11-02: `/learn` is now the curriculum home for eight subjects, the
+  visualization course lives at `/learn/visualization/`, and `/study` plus
+  `/study/<subject>` are aliases that canonicalise to `/learn`.)
 - components/statistics/chart-kit.tsx provides SVG; lib/statistics/math.ts supplies
   math. components/statistics/visual-registry.tsx already maps labs/exhibits.
   Inspect loading behavior before creating another registry.

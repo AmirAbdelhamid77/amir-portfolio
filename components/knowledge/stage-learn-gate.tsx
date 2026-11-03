@@ -68,7 +68,7 @@ export function StageLearnGate() {
           </span>
         </p>
         <Link
-          href="/learn/catalogue"
+          href="/learn"
           className="press inline-flex h-11 items-center gap-2 rounded-full border border-transparent bg-primary px-6 text-sm font-medium text-primary-foreground shadow-sm hover:bg-primary/90"
         >
           Open the learning catalogue

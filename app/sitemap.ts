@@ -22,7 +22,14 @@ export const dynamic = "force-static";
 export default function sitemap(): MetadataRoute.Sitemap {
   const updated = new Date();
   const pages = [
-    ...[{path:'study',priority:0.9},...SUBJECTS.flatMap(s=>[{path:`study/${s.id}`,priority:0.8},{path:`study/${s.id}/path`,priority:0.8},...s.topics.map(([t])=>({path:topicHref(s.id,t).slice(1,-1),priority:0.7}))])],
+    ...[
+      { path: "learn", priority: 1 },
+      ...SUBJECTS.flatMap((s) => [
+        { path: `learn/${s.id}`, priority: 0.9 },
+        { path: `study/${s.id}/path`, priority: 0.7 },
+        ...s.topics.map(([t]) => ({ path: topicHref(s.id, t).slice(1, -1), priority: 0.6 })),
+      ]),
+    ],
     { path: "", priority: 1 },
     { path: "work", priority: 0.9 },
     { path: "experience", priority: 0.8 },

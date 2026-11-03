@@ -22,6 +22,7 @@
     "verify:metrics": "node scripts/verify-site-metrics.mjs",
     "qa:browser": "node scripts/qa-browser.mjs",
     "qa:browser:dark": "node scripts/qa-browser.mjs --dark",
+ "verify:curriculum": "node --experimental-strip-types scripts/verify-curriculum-routes.mjs",
     "qa:search": "node scripts/qa-search.mjs",
     "qa:hse": "node scripts/qa-hse-explainer.mjs",
     "verify:statistics": "node --experimental-strip-types scripts/verify-statistics.mjs",

@@ -63,8 +63,8 @@ fallback, correct MIME types.)
 ### Comprehensive Statistics Reference
 
 `/learn/statistics` is the visual-first statistics hub built from the owner's local Notion export.
-It is a separate learning surface from the ten-chapter Data Visualization path at `/learn`, but the
-two cross-link rather than duplicating each other.
+It is a separate learning surface from the ten-chapter Data Visualization path at
+`/learn/visualization`, but the two cross-link rather than duplicating each other.
 
 - **Source:** one Notion HTML export, 43 numbered sections, 102 formula occurrences, 0 figures.
   The importer is `scripts/import-notion-statistics.mjs`; the typed output is
@@ -101,6 +101,15 @@ storyboards, visualization spec and the implementation report.
 ---
 
 ## Editing content
+
+### Curriculum and subject homes
+`lib/curriculum/model.ts` derives the learning graph from `lib/study/taxonomy` and
+`learningUnits()`: eight subjects, four stages (Foundation → Applied → Advanced →
+Reference), topic desks and guided programmes. `/learn` renders the umbrella, and
+each subject has a home under `/learn/<subject>/` (`visualization` keeps its full
+ten-chapter course page there). `/study`, `/study/<subject>` and `/learn/catalogue`
+are aliases that canonicalise to `/learn`. Topic desks stay at
+`/study/<subject>/<topic>/` until their own migration.
 
 ### Site identity, nav, links
 `lib/site.ts` — name, role, email, socials, availability, nav items, footer links,
