@@ -14,5 +14,5 @@ export function sqlIntegrationReceipt(root){
  assert.equal(hash(m.previous),m.previousSha256,'SQL predecessor receipt drift');
  assert.equal(new Set(m.files.map(e=>e.path)).size,m.files.length);
  for(const e of m.files){if(e.beforeSha256!==null)assert.equal(hash(e.rollbackPath),e.beforeSha256,'SQL rollback drift '+e.path);assert.equal(hash(e.path),successor.expected(e.path,e.sha256),'SQL integration drift '+e.path);}
- return {expected:(p,h)=>successor.expected(p,m.files.find(e=>e.path===p&&e.beforeSha256===h)?.sha256??h),paths:()=>m.files.map(e=>e.path),bytes:(p,n)=>successor.bytes(p,m.files.find(e=>e.path===p)?.bytes??n)};
+ return {expected:(p,h)=>successor.expected(p,m.files.find(e=>e.path===p&&e.beforeSha256===h)?.sha256??h),paths:()=>m.files.map(e=>e.path),bytes:(p,n)=>successor.bytes(p,m.files.find(e=>e.path===p)?.bytes??n),retired:p=>successor.retired?.(p)===true};
 }

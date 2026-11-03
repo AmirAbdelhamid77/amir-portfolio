@@ -8,6 +8,9 @@ import { join, relative } from "node:path";
 
 const ROOT = process.cwd();
 const ATLAS = join(ROOT, "intelligent-atlas");
+// Output version. v2 stays the 2026-11-01 record; later re-runs write a new
+// version so a dated reconciliation is never silently overwritten.
+const version = process.argv[2] ?? "v2";
 const manifest = JSON.parse(readFileSync(join(ATLAS, "analysis", "corpus-manifest.json"), "utf8"));
 const units = readFileSync(join(ATLAS, "analysis", "units-analyzed.jsonl"), "utf8")
   .trim()
@@ -164,7 +167,7 @@ const classifiedUntracked = untracked.map((file) => ({ ...file, ...classifyUntra
 
 const report = {
   schemaVersion: "intelligent-atlas-source-reconciliation/2.0",
-  generatedAt: "2026-11-01",
+  generatedAt: new Date().toISOString().slice(0, 10),
   checkedAgainst: "intelligent-atlas/analysis/corpus-manifest.json",
   denominators: {
     manifestSourceFiles: manifest.sources.length,
@@ -223,17 +226,17 @@ const report = {
   },
   limits: [
     "A matching fingerprint proves the source file is unchanged; it does not prove semantic correctness.",
-    "The manifest is dated 2026-10-31 and this reconciliation is dated 2026-11-01.",
+    "The manifest is dated 2026-10-31; this reconciliation re-runs against the current checkout date.",
     "Rendered media pixels remain not independently reviewed unless separately recorded.",
   ],
 };
 
 writeFileSync(
-  join(ATLAS, "analysis", "source-reconciliation-v2.json"),
+  join(ATLAS, "analysis", `source-reconciliation-${version}.json`),
   JSON.stringify(report, null, 2) + "\n",
 );
 
-const md = `# Source reconciliation v2 — 2026-11-01
+const md = `# Source reconciliation ${version} — ${report.generatedAt}
 
 Checked against \`intelligent-atlas/analysis/corpus-manifest.json\` (generated ${manifest.generatedAt}).
 
@@ -259,7 +262,7 @@ These denominators are not interchangeable. A unit is not a unique resource, and
 - Tracked and byte-identical: **${report.sourceFiles.trackedUnchanged}**
 - Tracked but changed: **${report.sourceFiles.trackedChanged}**
 - Missing from disk: **${report.sourceFiles.missingFromDisk}**
-- Untracked content files: **${report.sourceFiles.untracked}** (${report.lateAdditions.intakeExports} intake exports, ${report.lateAdditions.untrackedLiveContent.length} untracked live-content files)
+- Untracked content files: **${report.sourceFiles.untracked.length}** (${report.lateAdditions.intakeExports} intake exports, ${report.lateAdditions.untrackedLiveContent.length} untracked live-content files)
 
 ${changed.length ? changed.map((file) => `- CHANGED: \`${file.path}\`\n  - expected \`${file.expected}\`\n  - actual \`${file.actual}\``).join("\n") : "No tracked source file changed since the manifest."}
 
@@ -294,12 +297,12 @@ Untracked files are classified by identifier overlap with extracted units. Files
 
 ${report.limits.map((limit) => `- ${limit}`).join("\n")}
 `;
-writeFileSync(join(ATLAS, "analysis", "source-reconciliation-v2.md"), md);
+writeFileSync(join(ATLAS, "analysis", `source-reconciliation-${version}.md`), md);
 
 console.log(
   JSON.stringify(
     {
-      out: "intelligent-atlas/analysis/source-reconciliation-v2.json",
+      out: `intelligent-atlas/analysis/source-reconciliation-${version}.json`,
       trackedUnchanged: unchanged.length,
       trackedChanged: changed.length,
       untracked: untracked.length,

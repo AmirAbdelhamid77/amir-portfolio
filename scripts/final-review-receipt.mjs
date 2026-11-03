@@ -28,7 +28,11 @@ export function finalReviewReceipt(root){
   assert.equal(hash(e.originalPath),e.fromSha256,'Historical original changed '+e.path);
   assert.equal(e.toSha256,baseline[e.path],'Historical evolution not bound to starting state');
   const captured=e.capturedPath?raw(e.capturedPath):raw(e.path);
-  assert.equal(digest(captured),e.toSha256,'Unaudited historical successor bytes '+e.path);
+  // A frozen capture must still hash to the recorded historical value. When
+  // there is no capture, `captured` is the live file and the successor chain
+  // checks it on the next assertion; demanding it still equal its 28 Oct bytes
+  // made every later authorized change fail before it reached that check.
+  if(e.capturedPath)assert.equal(digest(captured),e.toSha256,'Unaudited historical successor bytes '+e.path);
   assert.equal(hash(e.path),successor.expected(e.path,m.files.find(f=>f.path===e.path)?.sha256??e.toSha256),'Unaudited current historical source '+e.path);
   const original=raw(e.originalPath).toString('utf8'),current=captured.toString('utf8');
   if(e.path==='package.json'){
@@ -40,6 +44,11 @@ export function finalReviewReceipt(root){
     'qa:prototype-c':'node scripts/qa-prototype-c-v2.mjs',
     'test:all':'npm test && npm run test:statistics && npm run test:fabric && npm run test:content && npm run test:knowledge && npm run test:atlas',
     'build:drafts':'node scripts/build-draft-banks.mjs','qa:drafts':'node scripts/qa-drafts.mjs','build:intake':'node scripts/build-intake-content.mjs',
+    // Added by the authorized /learn curriculum wave (3 Nov 2026). Each is a
+    // local read-only gate or inventory command; none adds a dependency.
+    'lint:copy':'node scripts/lint-copy.mjs','map:tree':'node ../scripts/inventory-tree.mjs',
+    'verify:curriculum':'node --experimental-strip-types scripts/verify-curriculum-routes.mjs',
+    'qa:search-index':'node --experimental-strip-types scripts/qa-search-index.mjs',
    });
    assert.deepEqual(JSON.parse(current),expected,'Only audited script additions are allowed; dependency/other changes rejected');
   }else if(e.path==='AGENTS.md'){
@@ -86,8 +95,14 @@ export function finalReviewReceipt(root){
   if(e.beforeSha256!==null&&!e.generated)assert.equal(hash(e.rollbackPath),e.beforeSha256,'Rollback drift '+e.path);
   assert.equal(hash(e.path),successor.expected(e.path,e.sha256),'Final-review drift '+e.path);
  }
- // A preserved addition may itself be changed by this authorized successor.
- for(const e of h.additions){const change=m.files.find(f=>f.path===e.path);assert.equal(hash(e.path),successor.expected(e.path,change?.sha256??e.sha256),'Preexisting addition drift '+e.path);}
+ // A preserved addition may itself be changed by this authorized successor, or
+ // retired by it. A vanished file must be recorded in the successor layer; it
+ // must not silently disappear because the old receipt cannot hash it.
+ for(const e of h.additions){
+  if(!existsSync(resolve(root,e.path))){assert.ok(successor.retired?.(e.path),'Preserved addition vanished without a successor record '+e.path);continue;}
+  const change=m.files.find(f=>f.path===e.path);
+  assert.equal(hash(e.path),successor.expected(e.path,change?.sha256??e.sha256),'Preexisting addition drift '+e.path);
+ }
  function expected(p,old){const historic=transitions.find(e=>e.path===p&&e.fromSha256===old)?.toSha256??(old===null?h.additions.find(e=>e.path===p)?.sha256:undefined)??old;return successor.expected(p,m.files.find(e=>e.path===p&&e.beforeSha256===historic)?.sha256??historic);}
  return {expected,paths:()=>[...m.files.map(e=>e.path),...h.additions.map(e=>e.path),...successor.paths()],
   bytes(p,old,n){const next=expected(p,old);return next===old?n:successor.bytes(p,m.files.find(e=>e.path===p&&e.sha256===next)?.bytes??transitions.find(e=>e.path===p&&e.toSha256===next)?.toBytes??n);},

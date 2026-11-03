@@ -1,0 +1,40 @@
+{
+  "schemaVersion": "intelligent-atlas-prototype-provenance/2.0",
+  "payloadFingerprint": "7e4aba62eee04d7908d6145c4ddbba54e6901c8a6b2cd8086d5dfacc4d18ee36",
+  "publicPayloadFingerprint": "fede19d73b9c6c0398b8a62e12dfde11fc657560cf0a621755dc6be3cf07c341",
+  "graphBuildId": "ia-graph-bed4e12d0986",
+  "sourceIndexBuildId": "ia-source-e0f38b64d252",
+  "generatedAt": "2026-11-01",
+  "sourceFiles": [
+    "intelligent-atlas/analysis/graph-build.json",
+    "intelligent-atlas/analysis/semantic-ledger-summary.json",
+    "intelligent-atlas/analysis/semantic-ledger-v2.jsonl",
+    "intelligent-atlas/analysis/source-reconciliation-v2.json",
+    "intelligent-atlas/analysis/quality-sample-selection.json",
+    "intelligent-atlas/contracts/deck-resolver.mjs",
+    "intelligent-atlas/tools/project-public.mjs",
+    "content/knowledge/insights.json"
+  ],
+  "counts": {
+    "concepts": 132,
+    "edges": 86,
+    "comparisons": 15,
+    "resources": 6018,
+    "editions": 3,
+    "days": 15,
+    "goals": 3,
+    "decks": 150,
+    "deckStatuses": {
+      "empty": 14,
+      "ready": 136
+    }
+  },
+  "limits": [
+    "The prototype renders the full candidate graph, not the corpus analysis denominator.",
+    "No candidate concept, mapping or assertion is approved or published.",
+    "Media is not embedded; the prototype links to local routes only.",
+    "The public artifact contains zero candidate records and zero published records.",
+    "Semantic reading covers a documented subset of eligible units.",
+    "The review register is corpus-level and pattern-based; it is not a set of approved assertions."
+  ]
+}

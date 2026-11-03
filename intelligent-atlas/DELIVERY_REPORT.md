@@ -586,3 +586,159 @@ for offline testing. Nothing is deployed.
   `prototype/index.html` removes the earlier `/favicon.ico` 404; no styles,
   behaviour or payload changed.
 
+
+## 13. M0 re-baseline and reconciliation — 2026-11-03
+
+Milestone M0 of `docs/knowledge-stage-next-phase-v3-20261101/NEXT_PHASE_PLAN_EN.md`
+§5. Documentation, tooling and evidence only: no `app/` file, no prototype byte,
+no dependency and no route changed.
+
+### 13.1 Baseline
+
+`tools/capture-baseline.mjs` gained an optional `<stamp> <note>` pair and ran as
+`node intelligent-atlas/tools/capture-baseline.mjs "2026-11-03-pre-m0" "<note>"`.
+It preserved **32 files, 3.8 MB** at HEAD
+`88158d689f39fe17cc8fea4acfbd675dcc732349` into
+`baselines/2026-11-03-pre-m0/`, with SHA-256 per file and the dirty-path list.
+The 2026-11-01 and 2026-11-02 baselines are untouched.
+
+### 13.2 Corpus reconciliation v3
+
+`tools/reconcile-sources.mjs` now takes a version argument, so the dated v2
+record is not overwritten, and one reporting defect was fixed: the untracked
+count printed `[object Object]` because it interpolated the array instead of its
+length. `node intelligent-atlas/tools/reconcile-sources.mjs v3` produced
+`analysis/source-reconciliation-v3.{md,json}`.
+
+| Denominator | Count |
+|---|---:|
+| Manifest source files | 22 |
+| Current content files discovered | 130 |
+| Extracted units | 6,201 |
+| Eligible units | 4,337 |
+| Metadata-only units | 1,859 |
+| Non-learning units | 5 |
+| Unique canonical resources | 4,925 |
+| Revision overlay units | 222 |
+| Discoverable routes | 73 |
+| Media references | 628 |
+
+Diff v2 → v3 is the title, the date, the count fix and one limits sentence.
+**Every denominator is identical**, so the earlier corpus claims still hold and
+nothing was re-scoped to make a number look better. Tracked source files: 22
+unchanged, 0 changed, 0 missing. Untracked content: 108 files (59 intake exports,
+49 live), 15 families.
+
+### 13.3 Verifier failures: inherited versus new
+
+At M0 start all three reference verifiers failed. None of the failures was
+caused by M0. The chain is five receipt layers deep and every layer asserts the
+literal hash recorded when it was written, so any later authorized change turns
+it red. The audit found **47 distinct drifted paths**, and each one was
+attributed to a commit:
+
+- this session's authorized `/learn` migration (`65b5583`…`88158d6`),
+- the 2 Nov review snapshot (`0902e15`),
+- earlier authorized waves (`0e5c7cd`, `2f903ff`, `df5aecb`, `6c1a3e2`,
+  `f937869`).
+
+Two inherited entries were proved inert before being recorded: the `lib/atlas/field.ts`
+edit is comment-only (the TypeScript token stream is identical at `45704b5` and
+HEAD), and `components/cinematic/use-scroll-progress.ts` has not changed since
+`0e5c7cd`. The 2 Nov snapshot also deleted three cinematic files and
+`components/knowledge/knowledge-atmosphere.tsx`; those deletions were never
+recorded, so several layers could only express them as "must still exist".
+
+### 13.4 The successor receipt layer
+
+No older manifest was edited and no expected hash was rewritten to obtain a green
+result. A new append-only layer records the transitions:
+
+`docs/knowledge-stage-m0-20261103/INTEGRATION_MANIFEST.json`
+(`scope: hansa-knowledge-stage-m0-20261103`), read by
+`scripts/knowledge-stage-receipt.mjs`, which is wired under
+`hansa-integration-receipt.mjs`.
+
+| Record | Count |
+|---|---:|
+| Content pins (path + predecessor hash + current hash) | 214 |
+| Additions since the Atlas inventory (path + hash, no predecessor) | 233 |
+| Removed artifacts (path + last recorded hash) | 7 |
+| Excluded artifacts (path + reason) | 1 |
+| Predecessor-manifest transitions | 1 |
+
+Every pin states `layer`, `attribution` and `note`. The 214 pins split into 108
+from this session's migration, 2 inherited-inert, 16 receipt repairs and 88 from
+earlier authorized waves. The excluded artifact is `tsconfig.tsbuildinfo`: four
+layers pinned four different builds of an untracked build cache, which can never
+be a stable reference. The one predecessor record resolves the 2 Nov rewrite of
+`docs/canonical-home/INTEGRATION_MANIFEST.json` for the cinematic layer.
+
+Supporting fixes, each of which makes an existing assertion honest rather than
+weaker:
+
+- `final-review-receipt.mjs` no longer demands that a historical transition still
+  equal its 28 Oct bytes when no frozen capture exists; the successor chain
+  checks the current bytes on the next assertion. It also accepts the four
+  script entries the curriculum wave added and the deleted preserved additions.
+- `hansa-integration-receipt.mjs` consults the successor for observed pins and
+  can skip a retired path.
+- `cinematic-phase2-receipt.mjs` resolves a predecessor through the successor
+  record and skips retired artifacts.
+- `verify-knowledge-atlas.mjs` and `verify-easyui-integration.mjs` skip paths the
+  newest layer records as retired, and the Atlas baseline loop no longer hashes
+  a file that no longer exists.
+- `final-review-negative.mjs` builds its scratch checkout from the whole
+  predecessor closure and tolerates deleted artifacts; the dependency-waiver case
+  now accepts either rejection message, because the newest layer rejects it
+  first. All 17 cases still fail closed.
+- `docs/agent-reference/PACKAGE_MANIFEST.json` pins `README.md`, which the
+  curriculum wave legitimately updated; the new layer records it instead of the
+  reference manifest being rewritten.
+
+### 13.5 Gates
+
+| Gate | Result |
+|---|---|
+| `node scripts/verify-agent-reference.mjs` | PASS — 13 active hashes, entry paths, router v1.1, rubric weights, 6 intake hashes |
+| `node scripts/verify-knowledge-atlas.mjs` | PASS — 16 payload, 33 integration, 23 documentation links, 90 relocations |
+| `node scripts/verify-easyui-integration.mjs` | PASS — 41 owned, 1,169 prior-file contracts, 22 decisions |
+| `node scripts/final-review-negative.mjs` | PASS — 17/17 corruption and waiver cases rejected |
+| `npm run lint` | PASS — 0 errors, 41 pre-existing warnings |
+| `npx tsc --noEmit` | PASS |
+| `npm run build` | PASS — Next 16.4.3 production build; postbuild wrote 434 segment aliases |
+| `npm run test:content` | PASS — 68/68 |
+| `npm run verify:metrics` | PASS — every published count matches content |
+| `npm run verify:curriculum` | PASS — 883 internal links, 67 alias routes |
+| `npm run lint:copy` | PASS — no review vocabulary in learner-facing files |
+| `npm run qa:search-index` | PASS — 52/52 checks, 448 destinations |
+| `npm run test:atlas` | PASS — 25/25 |
+| Cold CI build | NOT RUN |
+| Visual, responsive, a11y and domain QA | NOT RUN — no UI changed |
+
+### 13.6 Component reuse and risks
+
+- `baselines/2026-11-03-pre-m0/COMPONENT_REUSE.md` maps all seven prototype files
+  to retain / port / replace decisions and audits 14 existing app components.
+  No chart, motion or graph library is added; KaTeX and `motion` already exist.
+- `baselines/2026-11-03-pre-m0/RISK_LIST.md` records 20 risks with evidence,
+  severity, mitigation and a firing trigger, plus rollback paths.
+
+### 13.7 Caveats
+
+- A green receipt gate proves bytes and provenance, not meaning. It says nothing
+  about whether an assertion is true.
+- 1,859 metadata-only units and 108 untracked content files remain unassessed.
+- The pins attributed to earlier waves are provenance records, not a semantic
+  review of those waves.
+- `tsconfig.tsbuildinfo` is deliberately unverifiable; a rebuild changes it.
+- The deploy path is a push to `main`; M0 itself does not change site behaviour.
+
+### 13.8 Next atomic task
+
+**One domain-complete semantic pass: statistics.** Follow
+`DATA_AND_CONTRACTS_EN.md` and the M1 order in the plan: separate extraction from
+reading and publication, then review the statistics units in resumable batches,
+including the 728 unmatched units and the 628 media references. Publication stays
+blocked until the eligible corpus has explicit decisions. Do not start UI work
+(M3/M4) before that pass closes.

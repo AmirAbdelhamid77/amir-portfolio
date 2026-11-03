@@ -1,0 +1,1560 @@
+{
+  "schemaVersion": "intelligent-atlas-source-reconciliation/2.0",
+  "generatedAt": "2026-11-01",
+  "checkedAgainst": "intelligent-atlas/analysis/corpus-manifest.json",
+  "denominators": {
+    "manifestSourceFiles": 22,
+    "currentContentFiles": 130,
+    "extractedUnits": 6201,
+    "eligibleUnits": 4337,
+    "metadataOnlyUnits": 1859,
+    "nonLearningUnits": 5,
+    "uniqueCanonicalResources": 4925,
+    "revisionOverlayUnits": 222,
+    "discoverableRoutes": 73,
+    "mediaReferences": 628
+  },
+  "sourceFiles": {
+    "trackedUnchanged": 22,
+    "trackedChanged": 0,
+    "untracked": [
+      {
+        "path": "content/atlas/dp600-continuation.json",
+        "family": "untracked-live-content",
+        "bytes": 41211,
+        "disposition": "separate-existing-atlas-artifact",
+        "overlap": 0,
+        "reason": "Prior Atlas editorial artifact; its concepts and edges are outside this corpus build and require a separate reconciliation."
+      },
+      {
+        "path": "content/atlas/dp600-extension.json",
+        "family": "untracked-live-content",
+        "bytes": 48597,
+        "disposition": "separate-existing-atlas-artifact",
+        "overlap": 0,
+        "reason": "Prior Atlas editorial artifact; its concepts and edges are outside this corpus build and require a separate reconciliation."
+      },
+      {
+        "path": "content/atlas/editorial.json",
+        "family": "untracked-live-content",
+        "bytes": 15152,
+        "disposition": "separate-existing-atlas-artifact",
+        "overlap": 0,
+        "reason": "Prior Atlas editorial artifact; its concepts and edges are outside this corpus build and require a separate reconciliation."
+      },
+      {
+        "path": "content/data-viz/datasets.json",
+        "family": "untracked-live-content",
+        "bytes": 27715,
+        "disposition": "supporting-metadata",
+        "overlap": 0,
+        "reason": "Supporting metadata or generated index for a tracked family, not an independent teachable unit."
+      },
+      {
+        "path": "content/data-viz/editorial.json",
+        "family": "untracked-live-content",
+        "bytes": 15137,
+        "disposition": "supporting-metadata",
+        "overlap": 0,
+        "reason": "Supporting metadata or generated index for a tracked family, not an independent teachable unit."
+      },
+      {
+        "path": "content/data-viz/manifest.json",
+        "family": "untracked-live-content",
+        "bytes": 52581,
+        "disposition": "supporting-metadata",
+        "overlap": 0,
+        "reason": "Supporting metadata or generated index for a tracked family, not an independent teachable unit."
+      },
+      {
+        "path": "content/drafts/chaturcr48-dp600.json",
+        "family": "untracked-live-content",
+        "bytes": 46477,
+        "disposition": "excluded-disabled-draft",
+        "overlap": 0,
+        "reason": "Draft bank policy is NO_GO/disabled; not approved Hansa content and not part of the semantic corpus."
+      },
+      {
+        "path": "content/drafts/corpus-candidates.json",
+        "family": "untracked-live-content",
+        "bytes": 22152,
+        "disposition": "excluded-disabled-draft",
+        "overlap": 0,
+        "reason": "Draft bank policy is NO_GO/disabled; not approved Hansa content and not part of the semantic corpus."
+      },
+      {
+        "path": "content/drafts/dp600-r18.json",
+        "family": "untracked-live-content",
+        "bytes": 436541,
+        "disposition": "consumed-upstream-fragment",
+        "overlap": 222,
+        "reason": "Its identifiers already appear in extracted units through a tracked aggregate."
+      },
+      {
+        "path": "content/drafts/kengio-dp700.json",
+        "family": "untracked-live-content",
+        "bytes": 156718,
+        "disposition": "excluded-disabled-draft",
+        "overlap": 0,
+        "reason": "Draft bank policy is NO_GO/disabled; not approved Hansa content and not part of the semantic corpus."
+      },
+      {
+        "path": "content/drafts/manifest.json",
+        "family": "untracked-live-content",
+        "bytes": 4982,
+        "disposition": "excluded-disabled-draft",
+        "overlap": 0,
+        "reason": "Draft bank policy is NO_GO/disabled; not approved Hansa content and not part of the semantic corpus."
+      },
+      {
+        "path": "content/drafts/pl300-v88.json",
+        "family": "untracked-live-content",
+        "bytes": 1805679,
+        "disposition": "excluded-disabled-draft",
+        "overlap": 0,
+        "reason": "Draft bank policy is NO_GO/disabled; not approved Hansa content and not part of the semantic corpus."
+      },
+      {
+        "path": "content/drafts/stark-v2-dp600.json",
+        "family": "untracked-live-content",
+        "bytes": 885630,
+        "disposition": "excluded-disabled-draft",
+        "overlap": 0,
+        "reason": "Draft bank policy is NO_GO/disabled; not approved Hansa content and not part of the semantic corpus."
+      },
+      {
+        "path": "content/drafts/warren-dp600.json",
+        "family": "untracked-live-content",
+        "bytes": 92053,
+        "disposition": "consumed-upstream-fragment",
+        "overlap": 122,
+        "reason": "Its identifiers already appear in extracted units through a tracked aggregate."
+      },
+      {
+        "path": "content/fabric/additions/manifest.json",
+        "family": "untracked-live-content",
+        "bytes": 9026,
+        "disposition": "supporting-metadata",
+        "overlap": 0,
+        "reason": "Supporting metadata or generated index for a tracked family, not an independent teachable unit."
+      },
+      {
+        "path": "content/fabric/id-map.json",
+        "family": "untracked-live-content",
+        "bytes": 131070,
+        "disposition": "consumed-upstream-fragment",
+        "overlap": 430,
+        "reason": "Its identifiers already appear in extracted units through a tracked aggregate."
+      },
+      {
+        "path": "content/fabric/meta.json",
+        "family": "untracked-live-content",
+        "bytes": 105452,
+        "disposition": "supporting-metadata",
+        "overlap": 0,
+        "reason": "Supporting metadata or generated index for a tracked family, not an independent teachable unit."
+      },
+      {
+        "path": "content/fabric/packs.json",
+        "family": "untracked-live-content",
+        "bytes": 14596,
+        "disposition": "supporting-metadata",
+        "overlap": 0,
+        "reason": "Supporting metadata or generated index for a tracked family, not an independent teachable unit."
+      },
+      {
+        "path": "content/fabric/questions/activator.json",
+        "family": "untracked-live-content",
+        "bytes": 69850,
+        "disposition": "consumed-upstream-fragment",
+        "overlap": 40,
+        "reason": "Its identifiers already appear in extracted units through a tracked aggregate."
+      },
+      {
+        "path": "content/fabric/questions/dataflow-gen2.json",
+        "family": "untracked-live-content",
+        "bytes": 73537,
+        "disposition": "consumed-upstream-fragment",
+        "overlap": 40,
+        "reason": "Its identifiers already appear in extracted units through a tracked aggregate."
+      },
+      {
+        "path": "content/fabric/questions/delta.json",
+        "family": "untracked-live-content",
+        "bytes": 60668,
+        "disposition": "consumed-upstream-fragment",
+        "overlap": 40,
+        "reason": "Its identifiers already appear in extracted units through a tracked aggregate."
+      },
+      {
+        "path": "content/fabric/questions/eventhouse.json",
+        "family": "untracked-live-content",
+        "bytes": 64709,
+        "disposition": "consumed-upstream-fragment",
+        "overlap": 40,
+        "reason": "Its identifiers already appear in extracted units through a tracked aggregate."
+      },
+      {
+        "path": "content/fabric/questions/eventstream-windowing.json",
+        "family": "untracked-live-content",
+        "bytes": 83237,
+        "disposition": "consumed-upstream-fragment",
+        "overlap": 40,
+        "reason": "Its identifiers already appear in extracted units through a tracked aggregate."
+      },
+      {
+        "path": "content/fabric/questions/howard-dp600.json",
+        "family": "untracked-live-content",
+        "bytes": 253029,
+        "disposition": "consumed-upstream-fragment",
+        "overlap": 120,
+        "reason": "Its identifiers already appear in extracted units through a tracked aggregate."
+      },
+      {
+        "path": "content/fabric/questions/incremental-copy.json",
+        "family": "untracked-live-content",
+        "bytes": 72986,
+        "disposition": "consumed-upstream-fragment",
+        "overlap": 40,
+        "reason": "Its identifiers already appear in extracted units through a tracked aggregate."
+      },
+      {
+        "path": "content/fabric/questions/mirroring.json",
+        "family": "untracked-live-content",
+        "bytes": 70495,
+        "disposition": "consumed-upstream-fragment",
+        "overlap": 40,
+        "reason": "Its identifiers already appear in extracted units through a tracked aggregate."
+      },
+      {
+        "path": "content/fabric/questions/notebooks-pyspark.json",
+        "family": "untracked-live-content",
+        "bytes": 68787,
+        "disposition": "consumed-upstream-fragment",
+        "overlap": 40,
+        "reason": "Its identifiers already appear in extracted units through a tracked aggregate."
+      },
+      {
+        "path": "content/fabric/questions/patrick-dp600.json",
+        "family": "untracked-live-content",
+        "bytes": 67713,
+        "disposition": "consumed-upstream-fragment",
+        "overlap": 30,
+        "reason": "Its identifiers already appear in extracted units through a tracked aggregate."
+      },
+      {
+        "path": "content/fabric/questions/pipelines.json",
+        "family": "untracked-live-content",
+        "bytes": 61146,
+        "disposition": "consumed-upstream-fragment",
+        "overlap": 40,
+        "reason": "Its identifiers already appear in extracted units through a tracked aggregate."
+      },
+      {
+        "path": "content/fabric/questions/scd.json",
+        "family": "untracked-live-content",
+        "bytes": 56588,
+        "disposition": "consumed-upstream-fragment",
+        "overlap": 40,
+        "reason": "Its identifiers already appear in extracted units through a tracked aggregate."
+      },
+      {
+        "path": "content/fabric/questions/semantic-models-dax.json",
+        "family": "untracked-live-content",
+        "bytes": 89948,
+        "disposition": "consumed-upstream-fragment",
+        "overlap": 40,
+        "reason": "Its identifiers already appear in extracted units through a tracked aggregate."
+      },
+      {
+        "path": "content/fabric/questions/video06.json",
+        "family": "untracked-live-content",
+        "bytes": 81039,
+        "disposition": "consumed-upstream-fragment",
+        "overlap": 50,
+        "reason": "Its identifiers already appear in extracted units through a tracked aggregate."
+      },
+      {
+        "path": "content/fabric/questions/video07.json",
+        "family": "untracked-live-content",
+        "bytes": 60307,
+        "disposition": "consumed-upstream-fragment",
+        "overlap": 36,
+        "reason": "Its identifiers already appear in extracted units through a tracked aggregate."
+      },
+      {
+        "path": "content/fabric/questions/video08.json",
+        "family": "untracked-live-content",
+        "bytes": 81577,
+        "disposition": "consumed-upstream-fragment",
+        "overlap": 48,
+        "reason": "Its identifiers already appear in extracted units through a tracked aggregate."
+      },
+      {
+        "path": "content/fabric/questions/video09.json",
+        "family": "untracked-live-content",
+        "bytes": 81559,
+        "disposition": "consumed-upstream-fragment",
+        "overlap": 48,
+        "reason": "Its identifiers already appear in extracted units through a tracked aggregate."
+      },
+      {
+        "path": "content/fabric/questions/video10.json",
+        "family": "untracked-live-content",
+        "bytes": 87754,
+        "disposition": "consumed-upstream-fragment",
+        "overlap": 48,
+        "reason": "Its identifiers already appear in extracted units through a tracked aggregate."
+      },
+      {
+        "path": "content/fabric/questions/video11.json",
+        "family": "untracked-live-content",
+        "bytes": 93348,
+        "disposition": "consumed-upstream-fragment",
+        "overlap": 50,
+        "reason": "Its identifiers already appear in extracted units through a tracked aggregate."
+      },
+      {
+        "path": "content/fabric/questions/video12.json",
+        "family": "untracked-live-content",
+        "bytes": 90051,
+        "disposition": "consumed-upstream-fragment",
+        "overlap": 50,
+        "reason": "Its identifiers already appear in extracted units through a tracked aggregate."
+      },
+      {
+        "path": "content/fabric/questions/video14.json",
+        "family": "untracked-live-content",
+        "bytes": 186658,
+        "disposition": "consumed-upstream-fragment",
+        "overlap": 96,
+        "reason": "Its identifiers already appear in extracted units through a tracked aggregate."
+      },
+      {
+        "path": "content/fabric/questions/video15.json",
+        "family": "untracked-live-content",
+        "bytes": 104364,
+        "disposition": "consumed-upstream-fragment",
+        "overlap": 56,
+        "reason": "Its identifiers already appear in extracted units through a tracked aggregate."
+      },
+      {
+        "path": "content/fabric/questions/video16.json",
+        "family": "untracked-live-content",
+        "bytes": 85279,
+        "disposition": "consumed-upstream-fragment",
+        "overlap": 48,
+        "reason": "Its identifiers already appear in extracted units through a tracked aggregate."
+      },
+      {
+        "path": "content/fabric/questions/video19.json",
+        "family": "untracked-live-content",
+        "bytes": 70324,
+        "disposition": "consumed-upstream-fragment",
+        "overlap": 40,
+        "reason": "Its identifiers already appear in extracted units through a tracked aggregate."
+      },
+      {
+        "path": "content/fabric/questions/video20.json",
+        "family": "untracked-live-content",
+        "bytes": 61344,
+        "disposition": "consumed-upstream-fragment",
+        "overlap": 40,
+        "reason": "Its identifiers already appear in extracted units through a tracked aggregate."
+      },
+      {
+        "path": "content/fabric/questions/video21.json",
+        "family": "untracked-live-content",
+        "bytes": 50359,
+        "disposition": "consumed-upstream-fragment",
+        "overlap": 32,
+        "reason": "Its identifiers already appear in extracted units through a tracked aggregate."
+      },
+      {
+        "path": "content/fabric/questions/warehouse.json",
+        "family": "untracked-live-content",
+        "bytes": 49508,
+        "disposition": "consumed-upstream-fragment",
+        "overlap": 32,
+        "reason": "Its identifiers already appear in extracted units through a tracked aggregate."
+      },
+      {
+        "path": "content/fabric/r11/case-studies.json",
+        "family": "untracked-live-content",
+        "bytes": 15374,
+        "disposition": "needs-explicit-disposition",
+        "overlap": 0,
+        "reason": "No tracked aggregate currently accounts for this file; it remains a coverage gap."
+      },
+      {
+        "path": "content/fabric/r11/manifest.json",
+        "family": "untracked-live-content",
+        "bytes": 769,
+        "disposition": "supporting-metadata",
+        "overlap": 0,
+        "reason": "Supporting metadata or generated index for a tracked family, not an independent teachable unit."
+      },
+      {
+        "path": "content/fabric/r11/search.json",
+        "family": "untracked-live-content",
+        "bytes": 222866,
+        "disposition": "consumed-upstream-fragment",
+        "overlap": 222,
+        "reason": "Its identifiers already appear in extracted units through a tracked aggregate."
+      },
+      {
+        "path": "content/fabric/sources.json",
+        "family": "untracked-live-content",
+        "bytes": 96098,
+        "disposition": "supporting-metadata",
+        "overlap": 0,
+        "reason": "Supporting metadata or generated index for a tracked family, not an independent teachable unit."
+      },
+      {
+        "path": "content/intake/community/chaturcr48/questions.json",
+        "family": "intake-export",
+        "bytes": 44501,
+        "disposition": "preserved-intake-export",
+        "overlap": 0,
+        "reason": "Preserved source export used for provenance; live extraction flows through the tracked content files. It is not counted as a second unit family."
+      },
+      {
+        "path": "content/intake/community/warren/index.html",
+        "family": "intake-export",
+        "bytes": 17606355,
+        "disposition": "preserved-intake-export",
+        "overlap": 0,
+        "reason": "Preserved source export used for provenance; live extraction flows through the tracked content files. It is not counted as a second unit family."
+      },
+      {
+        "path": "content/intake/hansa-integration/experiment_records.jsonl",
+        "family": "intake-export",
+        "bytes": 60413,
+        "disposition": "preserved-intake-export",
+        "overlap": 0,
+        "reason": "Preserved source export used for provenance; live extraction flows through the tracked content files. It is not counted as a second unit family."
+      },
+      {
+        "path": "content/intake/hansa-integration/lab_title_recovery.json",
+        "family": "intake-export",
+        "bytes": 7395,
+        "disposition": "preserved-intake-export",
+        "overlap": 0,
+        "reason": "Preserved source export used for provenance; live extraction flows through the tracked content files. It is not counted as a second unit family."
+      },
+      {
+        "path": "content/intake/hansa-integration/package_manifest.upstream.json",
+        "family": "intake-export",
+        "bytes": 3078,
+        "disposition": "preserved-intake-export",
+        "overlap": 0,
+        "reason": "Preserved source export used for provenance; live extraction flows through the tracked content files. It is not counted as a second unit family."
+      },
+      {
+        "path": "content/intake/hansa-integration/packs/activator/ID_MAPPING.json",
+        "family": "intake-export",
+        "bytes": 4923,
+        "disposition": "preserved-intake-export",
+        "overlap": 0,
+        "reason": "Preserved source export used for provenance; live extraction flows through the tracked content files. It is not counted as a second unit family."
+      },
+      {
+        "path": "content/intake/hansa-integration/packs/activator/LAB_PACKS.merged.json",
+        "family": "intake-export",
+        "bytes": 79526,
+        "disposition": "preserved-intake-export",
+        "overlap": 0,
+        "reason": "Preserved source export used for provenance; live extraction flows through the tracked content files. It is not counted as a second unit family."
+      },
+      {
+        "path": "content/intake/hansa-integration/packs/activator/QA_REPORT.json",
+        "family": "intake-export",
+        "bytes": 265,
+        "disposition": "preserved-intake-export",
+        "overlap": 0,
+        "reason": "Preserved source export used for provenance; live extraction flows through the tracked content files. It is not counted as a second unit family."
+      },
+      {
+        "path": "content/intake/hansa-integration/packs/activator/QUESTION_BANK.merged.json",
+        "family": "intake-export",
+        "bytes": 40742,
+        "disposition": "preserved-intake-export",
+        "overlap": 0,
+        "reason": "Preserved source export used for provenance; live extraction flows through the tracked content files. It is not counted as a second unit family."
+      },
+      {
+        "path": "content/intake/hansa-integration/packs/activator/SOURCES.merged.json",
+        "family": "intake-export",
+        "bytes": 2108,
+        "disposition": "preserved-intake-export",
+        "overlap": 0,
+        "reason": "Preserved source export used for provenance; live extraction flows through the tracked content files. It is not counted as a second unit family."
+      },
+      {
+        "path": "content/intake/hansa-integration/packs/dataflow-gen2/ID_MAPPING.json",
+        "family": "intake-export",
+        "bytes": 5323,
+        "disposition": "preserved-intake-export",
+        "overlap": 0,
+        "reason": "Preserved source export used for provenance; live extraction flows through the tracked content files. It is not counted as a second unit family."
+      },
+      {
+        "path": "content/intake/hansa-integration/packs/dataflow-gen2/LAB_PACKS.merged.json",
+        "family": "intake-export",
+        "bytes": 82981,
+        "disposition": "preserved-intake-export",
+        "overlap": 0,
+        "reason": "Preserved source export used for provenance; live extraction flows through the tracked content files. It is not counted as a second unit family."
+      },
+      {
+        "path": "content/intake/hansa-integration/packs/dataflow-gen2/QA_REPORT.json",
+        "family": "intake-export",
+        "bytes": 265,
+        "disposition": "preserved-intake-export",
+        "overlap": 0,
+        "reason": "Preserved source export used for provenance; live extraction flows through the tracked content files. It is not counted as a second unit family."
+      },
+      {
+        "path": "content/intake/hansa-integration/packs/dataflow-gen2/QUESTION_BANK.merged.json",
+        "family": "intake-export",
+        "bytes": 45048,
+        "disposition": "preserved-intake-export",
+        "overlap": 0,
+        "reason": "Preserved source export used for provenance; live extraction flows through the tracked content files. It is not counted as a second unit family."
+      },
+      {
+        "path": "content/intake/hansa-integration/packs/dataflow-gen2/SOURCES.merged.json",
+        "family": "intake-export",
+        "bytes": 2913,
+        "disposition": "preserved-intake-export",
+        "overlap": 0,
+        "reason": "Preserved source export used for provenance; live extraction flows through the tracked content files. It is not counted as a second unit family."
+      },
+      {
+        "path": "content/intake/hansa-integration/packs/eventstream-windowing/ID_MAPPING.json",
+        "family": "intake-export",
+        "bytes": 5883,
+        "disposition": "preserved-intake-export",
+        "overlap": 0,
+        "reason": "Preserved source export used for provenance; live extraction flows through the tracked content files. It is not counted as a second unit family."
+      },
+      {
+        "path": "content/intake/hansa-integration/packs/eventstream-windowing/LAB_PACKS.merged.json",
+        "family": "intake-export",
+        "bytes": 89989,
+        "disposition": "preserved-intake-export",
+        "overlap": 0,
+        "reason": "Preserved source export used for provenance; live extraction flows through the tracked content files. It is not counted as a second unit family."
+      },
+      {
+        "path": "content/intake/hansa-integration/packs/eventstream-windowing/QA_REPORT.json",
+        "family": "intake-export",
+        "bytes": 265,
+        "disposition": "preserved-intake-export",
+        "overlap": 0,
+        "reason": "Preserved source export used for provenance; live extraction flows through the tracked content files. It is not counted as a second unit family."
+      },
+      {
+        "path": "content/intake/hansa-integration/packs/eventstream-windowing/QUESTION_BANK.merged.json",
+        "family": "intake-export",
+        "bytes": 53345,
+        "disposition": "preserved-intake-export",
+        "overlap": 0,
+        "reason": "Preserved source export used for provenance; live extraction flows through the tracked content files. It is not counted as a second unit family."
+      },
+      {
+        "path": "content/intake/hansa-integration/packs/eventstream-windowing/SOURCES.merged.json",
+        "family": "intake-export",
+        "bytes": 7060,
+        "disposition": "preserved-intake-export",
+        "overlap": 0,
+        "reason": "Preserved source export used for provenance; live extraction flows through the tracked content files. It is not counted as a second unit family."
+      },
+      {
+        "path": "content/intake/hansa-integration/packs/howard-dp600/ID_MAPPING.json",
+        "family": "intake-export",
+        "bytes": 16923,
+        "disposition": "preserved-intake-export",
+        "overlap": 0,
+        "reason": "Preserved source export used for provenance; live extraction flows through the tracked content files. It is not counted as a second unit family."
+      },
+      {
+        "path": "content/intake/hansa-integration/packs/howard-dp600/LAB_PACKS.merged.json",
+        "family": "intake-export",
+        "bytes": 284524,
+        "disposition": "preserved-intake-export",
+        "overlap": 0,
+        "reason": "Preserved source export used for provenance; live extraction flows through the tracked content files. It is not counted as a second unit family."
+      },
+      {
+        "path": "content/intake/hansa-integration/packs/howard-dp600/QA_REPORT.json",
+        "family": "intake-export",
+        "bytes": 278,
+        "disposition": "preserved-intake-export",
+        "overlap": 0,
+        "reason": "Preserved source export used for provenance; live extraction flows through the tracked content files. It is not counted as a second unit family."
+      },
+      {
+        "path": "content/intake/hansa-integration/packs/howard-dp600/QUESTION_BANK.merged.json",
+        "family": "intake-export",
+        "bytes": 173077,
+        "disposition": "preserved-intake-export",
+        "overlap": 0,
+        "reason": "Preserved source export used for provenance; live extraction flows through the tracked content files. It is not counted as a second unit family."
+      },
+      {
+        "path": "content/intake/hansa-integration/packs/howard-dp600/source.json",
+        "family": "intake-export",
+        "bytes": 149775,
+        "disposition": "preserved-intake-export",
+        "overlap": 0,
+        "reason": "Preserved source export used for provenance; live extraction flows through the tracked content files. It is not counted as a second unit family."
+      },
+      {
+        "path": "content/intake/hansa-integration/packs/howard-dp600/SOURCES.merged.json",
+        "family": "intake-export",
+        "bytes": 33146,
+        "disposition": "preserved-intake-export",
+        "overlap": 0,
+        "reason": "Preserved source export used for provenance; live extraction flows through the tracked content files. It is not counted as a second unit family."
+      },
+      {
+        "path": "content/intake/hansa-integration/packs/incremental-copy/ID_MAPPING.json",
+        "family": "intake-export",
+        "bytes": 5483,
+        "disposition": "preserved-intake-export",
+        "overlap": 0,
+        "reason": "Preserved source export used for provenance; live extraction flows through the tracked content files. It is not counted as a second unit family."
+      },
+      {
+        "path": "content/intake/hansa-integration/packs/incremental-copy/LAB_PACKS.merged.json",
+        "family": "intake-export",
+        "bytes": 82451,
+        "disposition": "preserved-intake-export",
+        "overlap": 0,
+        "reason": "Preserved source export used for provenance; live extraction flows through the tracked content files. It is not counted as a second unit family."
+      },
+      {
+        "path": "content/intake/hansa-integration/packs/incremental-copy/QA_REPORT.json",
+        "family": "intake-export",
+        "bytes": 265,
+        "disposition": "preserved-intake-export",
+        "overlap": 0,
+        "reason": "Preserved source export used for provenance; live extraction flows through the tracked content files. It is not counted as a second unit family."
+      },
+      {
+        "path": "content/intake/hansa-integration/packs/incremental-copy/QUESTION_BANK.merged.json",
+        "family": "intake-export",
+        "bytes": 44406,
+        "disposition": "preserved-intake-export",
+        "overlap": 0,
+        "reason": "Preserved source export used for provenance; live extraction flows through the tracked content files. It is not counted as a second unit family."
+      },
+      {
+        "path": "content/intake/hansa-integration/packs/incremental-copy/SOURCES.merged.json",
+        "family": "intake-export",
+        "bytes": 1184,
+        "disposition": "preserved-intake-export",
+        "overlap": 0,
+        "reason": "Preserved source export used for provenance; live extraction flows through the tracked content files. It is not counted as a second unit family."
+      },
+      {
+        "path": "content/intake/hansa-integration/packs/mirroring/ID_MAPPING.json",
+        "family": "intake-export",
+        "bytes": 4923,
+        "disposition": "preserved-intake-export",
+        "overlap": 0,
+        "reason": "Preserved source export used for provenance; live extraction flows through the tracked content files. It is not counted as a second unit family."
+      },
+      {
+        "path": "content/intake/hansa-integration/packs/mirroring/LAB_PACKS.merged.json",
+        "family": "intake-export",
+        "bytes": 80162,
+        "disposition": "preserved-intake-export",
+        "overlap": 0,
+        "reason": "Preserved source export used for provenance; live extraction flows through the tracked content files. It is not counted as a second unit family."
+      },
+      {
+        "path": "content/intake/hansa-integration/packs/mirroring/QA_REPORT.json",
+        "family": "intake-export",
+        "bytes": 265,
+        "disposition": "preserved-intake-export",
+        "overlap": 0,
+        "reason": "Preserved source export used for provenance; live extraction flows through the tracked content files. It is not counted as a second unit family."
+      },
+      {
+        "path": "content/intake/hansa-integration/packs/mirroring/QUESTION_BANK.merged.json",
+        "family": "intake-export",
+        "bytes": 42757,
+        "disposition": "preserved-intake-export",
+        "overlap": 0,
+        "reason": "Preserved source export used for provenance; live extraction flows through the tracked content files. It is not counted as a second unit family."
+      },
+      {
+        "path": "content/intake/hansa-integration/packs/mirroring/SOURCES.merged.json",
+        "family": "intake-export",
+        "bytes": 2462,
+        "disposition": "preserved-intake-export",
+        "overlap": 0,
+        "reason": "Preserved source export used for provenance; live extraction flows through the tracked content files. It is not counted as a second unit family."
+      },
+      {
+        "path": "content/intake/hansa-integration/packs/notebooks-pyspark/ID_MAPPING.json",
+        "family": "intake-export",
+        "bytes": 5483,
+        "disposition": "preserved-intake-export",
+        "overlap": 0,
+        "reason": "Preserved source export used for provenance; live extraction flows through the tracked content files. It is not counted as a second unit family."
+      },
+      {
+        "path": "content/intake/hansa-integration/packs/notebooks-pyspark/LAB_PACKS.merged.json",
+        "family": "intake-export",
+        "bytes": 72272,
+        "disposition": "preserved-intake-export",
+        "overlap": 0,
+        "reason": "Preserved source export used for provenance; live extraction flows through the tracked content files. It is not counted as a second unit family."
+      },
+      {
+        "path": "content/intake/hansa-integration/packs/notebooks-pyspark/QA_REPORT.json",
+        "family": "intake-export",
+        "bytes": 265,
+        "disposition": "preserved-intake-export",
+        "overlap": 0,
+        "reason": "Preserved source export used for provenance; live extraction flows through the tracked content files. It is not counted as a second unit family."
+      },
+      {
+        "path": "content/intake/hansa-integration/packs/notebooks-pyspark/QUESTION_BANK.merged.json",
+        "family": "intake-export",
+        "bytes": 40576,
+        "disposition": "preserved-intake-export",
+        "overlap": 0,
+        "reason": "Preserved source export used for provenance; live extraction flows through the tracked content files. It is not counted as a second unit family."
+      },
+      {
+        "path": "content/intake/hansa-integration/packs/notebooks-pyspark/SOURCES.merged.json",
+        "family": "intake-export",
+        "bytes": 2708,
+        "disposition": "preserved-intake-export",
+        "overlap": 0,
+        "reason": "Preserved source export used for provenance; live extraction flows through the tracked content files. It is not counted as a second unit family."
+      },
+      {
+        "path": "content/intake/hansa-integration/packs/patrick-dp600/ID_MAPPING.json",
+        "family": "intake-export",
+        "bytes": 4173,
+        "disposition": "preserved-intake-export",
+        "overlap": 0,
+        "reason": "Preserved source export used for provenance; live extraction flows through the tracked content files. It is not counted as a second unit family."
+      },
+      {
+        "path": "content/intake/hansa-integration/packs/patrick-dp600/LAB_PACKS.merged.json",
+        "family": "intake-export",
+        "bytes": 81105,
+        "disposition": "preserved-intake-export",
+        "overlap": 0,
+        "reason": "Preserved source export used for provenance; live extraction flows through the tracked content files. It is not counted as a second unit family."
+      },
+      {
+        "path": "content/intake/hansa-integration/packs/patrick-dp600/QA_REPORT.json",
+        "family": "intake-export",
+        "bytes": 275,
+        "disposition": "preserved-intake-export",
+        "overlap": 0,
+        "reason": "Preserved source export used for provenance; live extraction flows through the tracked content files. It is not counted as a second unit family."
+      },
+      {
+        "path": "content/intake/hansa-integration/packs/patrick-dp600/QUESTION_BANK.merged.json",
+        "family": "intake-export",
+        "bytes": 48857,
+        "disposition": "preserved-intake-export",
+        "overlap": 0,
+        "reason": "Preserved source export used for provenance; live extraction flows through the tracked content files. It is not counted as a second unit family."
+      },
+      {
+        "path": "content/intake/hansa-integration/packs/patrick-dp600/source.md",
+        "family": "intake-export",
+        "bytes": 28215,
+        "disposition": "preserved-intake-export",
+        "overlap": 0,
+        "reason": "Preserved source export used for provenance; live extraction flows through the tracked content files. It is not counted as a second unit family."
+      },
+      {
+        "path": "content/intake/hansa-integration/packs/patrick-dp600/SOURCES.merged.json",
+        "family": "intake-export",
+        "bytes": 454,
+        "disposition": "preserved-intake-export",
+        "overlap": 0,
+        "reason": "Preserved source export used for provenance; live extraction flows through the tracked content files. It is not counted as a second unit family."
+      },
+      {
+        "path": "content/intake/hansa-integration/packs/semantic-models-dax/ID_MAPPING.json",
+        "family": "intake-export",
+        "bytes": 5723,
+        "disposition": "preserved-intake-export",
+        "overlap": 0,
+        "reason": "Preserved source export used for provenance; live extraction flows through the tracked content files. It is not counted as a second unit family."
+      },
+      {
+        "path": "content/intake/hansa-integration/packs/semantic-models-dax/LAB_PACKS.merged.json",
+        "family": "intake-export",
+        "bytes": 100770,
+        "disposition": "preserved-intake-export",
+        "overlap": 0,
+        "reason": "Preserved source export used for provenance; live extraction flows through the tracked content files. It is not counted as a second unit family."
+      },
+      {
+        "path": "content/intake/hansa-integration/packs/semantic-models-dax/QA_REPORT.json",
+        "family": "intake-export",
+        "bytes": 265,
+        "disposition": "preserved-intake-export",
+        "overlap": 0,
+        "reason": "Preserved source export used for provenance; live extraction flows through the tracked content files. It is not counted as a second unit family."
+      },
+      {
+        "path": "content/intake/hansa-integration/packs/semantic-models-dax/QUESTION_BANK.merged.json",
+        "family": "intake-export",
+        "bytes": 55912,
+        "disposition": "preserved-intake-export",
+        "overlap": 0,
+        "reason": "Preserved source export used for provenance; live extraction flows through the tracked content files. It is not counted as a second unit family."
+      },
+      {
+        "path": "content/intake/hansa-integration/packs/semantic-models-dax/SOURCES.merged.json",
+        "family": "intake-export",
+        "bytes": 5963,
+        "disposition": "preserved-intake-export",
+        "overlap": 0,
+        "reason": "Preserved source export used for provenance; live extraction flows through the tracked content files. It is not counted as a second unit family."
+      },
+      {
+        "path": "content/intake/hansa-integration/README.md",
+        "family": "intake-export",
+        "bytes": 1599,
+        "disposition": "preserved-intake-export",
+        "overlap": 0,
+        "reason": "Preserved source export used for provenance; live extraction flows through the tracked content files. It is not counted as a second unit family."
+      },
+      {
+        "path": "content/intake/hansa-integration/reference_records.jsonl",
+        "family": "intake-export",
+        "bytes": 1219070,
+        "disposition": "preserved-intake-export",
+        "overlap": 0,
+        "reason": "Preserved source export used for provenance; live extraction flows through the tracked content files. It is not counted as a second unit family."
+      },
+      {
+        "path": "content/intake/manifest.json",
+        "family": "intake-export",
+        "bytes": 3331,
+        "disposition": "preserved-intake-export",
+        "overlap": 0,
+        "reason": "Preserved source export used for provenance; live extraction flows through the tracked content files. It is not counted as a second unit family."
+      },
+      {
+        "path": "content/intake/notion-assessments.json",
+        "family": "intake-export",
+        "bytes": 141713,
+        "disposition": "preserved-intake-export",
+        "overlap": 0,
+        "reason": "Preserved source export used for provenance; live extraction flows through the tracked content files. It is not counted as a second unit family."
+      },
+      {
+        "path": "content/intake/notion-lessons.json",
+        "family": "intake-export",
+        "bytes": 147944,
+        "disposition": "preserved-intake-export",
+        "overlap": 0,
+        "reason": "Preserved source export used for provenance; live extraction flows through the tracked content files. It is not counted as a second unit family."
+      },
+      {
+        "path": "content/intake/rti-labs.json",
+        "family": "intake-export",
+        "bytes": 19035,
+        "disposition": "preserved-intake-export",
+        "overlap": 0,
+        "reason": "Preserved source export used for provenance; live extraction flows through the tracked content files. It is not counted as a second unit family."
+      },
+      {
+        "path": "content/intake/rti-sources.json",
+        "family": "intake-export",
+        "bytes": 25776,
+        "disposition": "preserved-intake-export",
+        "overlap": 0,
+        "reason": "Preserved source export used for provenance; live extraction flows through the tracked content files. It is not counted as a second unit family."
+      }
+    ],
+    "missingFromDisk": 0,
+    "changed": [],
+    "missing": []
+  },
+  "families": {
+    "daily-insights": {
+      "units": 3,
+      "mapped": 3,
+      "unmapped": 0,
+      "metadataOnly": 0,
+      "nonLearning": 0,
+      "uniqueResources": 3,
+      "revisionOverlays": 0
+    },
+    "fabric-questions": {
+      "units": 1264,
+      "mapped": 1170,
+      "unmapped": 94,
+      "metadataOnly": 0,
+      "nonLearning": 0,
+      "uniqueResources": 1264,
+      "revisionOverlays": 0
+    },
+    "fabric-additions": {
+      "units": 532,
+      "mapped": 480,
+      "unmapped": 52,
+      "metadataOnly": 0,
+      "nonLearning": 0,
+      "uniqueResources": 532,
+      "revisionOverlays": 0
+    },
+    "fabric-r11": {
+      "units": 222,
+      "mapped": 210,
+      "unmapped": 12,
+      "metadataOnly": 0,
+      "nonLearning": 0,
+      "uniqueResources": 222,
+      "revisionOverlays": 222
+    },
+    "fabric-notes": {
+      "units": 720,
+      "mapped": 529,
+      "unmapped": 191,
+      "metadataOnly": 0,
+      "nonLearning": 0,
+      "uniqueResources": 18,
+      "revisionOverlays": 0
+    },
+    "fabric-cases": {
+      "units": 78,
+      "mapped": 71,
+      "unmapped": 7,
+      "metadataOnly": 0,
+      "nonLearning": 0,
+      "uniqueResources": 1,
+      "revisionOverlays": 0
+    },
+    "academy": {
+      "units": 593,
+      "mapped": 457,
+      "unmapped": 136,
+      "metadataOnly": 0,
+      "nonLearning": 0,
+      "uniqueResources": 593,
+      "revisionOverlays": 0
+    },
+    "sql": {
+      "units": 535,
+      "mapped": 440,
+      "unmapped": 95,
+      "metadataOnly": 0,
+      "nonLearning": 0,
+      "uniqueResources": 535,
+      "revisionOverlays": 0
+    },
+    "statistics": {
+      "units": 145,
+      "mapped": 65,
+      "unmapped": 80,
+      "metadataOnly": 0,
+      "nonLearning": 0,
+      "uniqueResources": 44,
+      "revisionOverlays": 0
+    },
+    "visualization": {
+      "units": 138,
+      "mapped": 117,
+      "unmapped": 21,
+      "metadataOnly": 0,
+      "nonLearning": 0,
+      "uniqueResources": 27,
+      "revisionOverlays": 0
+    },
+    "exams": {
+      "units": 70,
+      "mapped": 47,
+      "unmapped": 23,
+      "metadataOnly": 0,
+      "nonLearning": 0,
+      "uniqueResources": 7,
+      "revisionOverlays": 0
+    },
+    "curated-references": {
+      "units": 1859,
+      "mapped": 0,
+      "unmapped": 0,
+      "metadataOnly": 1859,
+      "nonLearning": 0,
+      "uniqueResources": 1859,
+      "revisionOverlays": 0
+    },
+    "hands-on-labs": {
+      "units": 29,
+      "mapped": 13,
+      "unmapped": 16,
+      "metadataOnly": 0,
+      "nonLearning": 0,
+      "uniqueResources": 29,
+      "revisionOverlays": 0
+    },
+    "fabric-rti": {
+      "units": 8,
+      "mapped": 7,
+      "unmapped": 1,
+      "metadataOnly": 0,
+      "nonLearning": 0,
+      "uniqueResources": 8,
+      "revisionOverlays": 0
+    },
+    "professional-pages": {
+      "units": 5,
+      "mapped": 0,
+      "unmapped": 0,
+      "metadataOnly": 0,
+      "nonLearning": 5,
+      "uniqueResources": 5,
+      "revisionOverlays": 0
+    }
+  },
+  "revisionOverlays": {
+    "r11UnitIds": 222,
+    "overlappingExistingQuestionIds": 0,
+    "newQuestionIdsIntroduced": 222,
+    "note": "A revision overlay changes an existing question identity; it is not a second question. Counts are not added to the question denominator."
+  },
+  "routes": {
+    "total": 73,
+    "concrete": 58,
+    "dynamic": 15,
+    "note": "Route discovery is structural navigation evidence, not semantic coverage."
+  },
+  "lateAdditions": {
+    "untrackedLiveContent": [
+      {
+        "path": "content/atlas/dp600-continuation.json",
+        "bytes": 41211,
+        "sha256": "f23d3d82d3ecf19dd57340f31c8fb8b6a63b2cec5d2d3627bb6568e877bbfd1c",
+        "tracked": false,
+        "family": "untracked-live-content",
+        "disposition": "separate-existing-atlas-artifact",
+        "overlap": 0,
+        "reason": "Prior Atlas editorial artifact; its concepts and edges are outside this corpus build and require a separate reconciliation."
+      },
+      {
+        "path": "content/atlas/dp600-extension.json",
+        "bytes": 48597,
+        "sha256": "7fd884f56434e622b84dc64ef244f6150e954416abeeccd8d614d5ffa0efa95f",
+        "tracked": false,
+        "family": "untracked-live-content",
+        "disposition": "separate-existing-atlas-artifact",
+        "overlap": 0,
+        "reason": "Prior Atlas editorial artifact; its concepts and edges are outside this corpus build and require a separate reconciliation."
+      },
+      {
+        "path": "content/atlas/editorial.json",
+        "bytes": 15152,
+        "sha256": "d72901ebaf0ec2235b0ef1723d26fc4baa32ac2fcd5a7c0c5f3a1768c658cff6",
+        "tracked": false,
+        "family": "untracked-live-content",
+        "disposition": "separate-existing-atlas-artifact",
+        "overlap": 0,
+        "reason": "Prior Atlas editorial artifact; its concepts and edges are outside this corpus build and require a separate reconciliation."
+      },
+      {
+        "path": "content/data-viz/datasets.json",
+        "bytes": 27715,
+        "sha256": "d2ed779c0a75e75f6b2422edaae8c0ae113f4d9e1f3d03ab00b04544f6abbae7",
+        "tracked": false,
+        "family": "untracked-live-content",
+        "disposition": "supporting-metadata",
+        "overlap": 0,
+        "reason": "Supporting metadata or generated index for a tracked family, not an independent teachable unit."
+      },
+      {
+        "path": "content/data-viz/editorial.json",
+        "bytes": 15137,
+        "sha256": "60c3639694f853ff7c62002706afd14dd0da145ef621521bdd40a47de734e8cc",
+        "tracked": false,
+        "family": "untracked-live-content",
+        "disposition": "supporting-metadata",
+        "overlap": 0,
+        "reason": "Supporting metadata or generated index for a tracked family, not an independent teachable unit."
+      },
+      {
+        "path": "content/data-viz/manifest.json",
+        "bytes": 52581,
+        "sha256": "94fbf3ea4738bbc438a3bde3037d7a54204578b6f2b7cf45b54502c83abf36a1",
+        "tracked": false,
+        "family": "untracked-live-content",
+        "disposition": "supporting-metadata",
+        "overlap": 0,
+        "reason": "Supporting metadata or generated index for a tracked family, not an independent teachable unit."
+      },
+      {
+        "path": "content/drafts/chaturcr48-dp600.json",
+        "bytes": 46477,
+        "sha256": "a384f1b448e22a0ea1803385f65f834184055a336008bf9a1f74423f87f52d90",
+        "tracked": false,
+        "family": "untracked-live-content",
+        "disposition": "excluded-disabled-draft",
+        "overlap": 0,
+        "reason": "Draft bank policy is NO_GO/disabled; not approved Hansa content and not part of the semantic corpus."
+      },
+      {
+        "path": "content/drafts/corpus-candidates.json",
+        "bytes": 22152,
+        "sha256": "5192fa146a978be09a1bf824db5d403731ce589649a76548f764d1183be26699",
+        "tracked": false,
+        "family": "untracked-live-content",
+        "disposition": "excluded-disabled-draft",
+        "overlap": 0,
+        "reason": "Draft bank policy is NO_GO/disabled; not approved Hansa content and not part of the semantic corpus."
+      },
+      {
+        "path": "content/drafts/dp600-r18.json",
+        "bytes": 436541,
+        "sha256": "136e2ec80c3838c17ba595e7f847906d991792f88780aca623747d9f319ab05e",
+        "tracked": false,
+        "family": "untracked-live-content",
+        "disposition": "consumed-upstream-fragment",
+        "overlap": 222,
+        "reason": "Its identifiers already appear in extracted units through a tracked aggregate."
+      },
+      {
+        "path": "content/drafts/kengio-dp700.json",
+        "bytes": 156718,
+        "sha256": "df588fa5e84f21d1bb5de0a4ad7b9bdb6b14f00aa76725d452840fb470911e40",
+        "tracked": false,
+        "family": "untracked-live-content",
+        "disposition": "excluded-disabled-draft",
+        "overlap": 0,
+        "reason": "Draft bank policy is NO_GO/disabled; not approved Hansa content and not part of the semantic corpus."
+      },
+      {
+        "path": "content/drafts/manifest.json",
+        "bytes": 4982,
+        "sha256": "8f28588badd02a25c583dc5224429a0b35b6cb19a9e59ac33dad0620cd26e827",
+        "tracked": false,
+        "family": "untracked-live-content",
+        "disposition": "excluded-disabled-draft",
+        "overlap": 0,
+        "reason": "Draft bank policy is NO_GO/disabled; not approved Hansa content and not part of the semantic corpus."
+      },
+      {
+        "path": "content/drafts/pl300-v88.json",
+        "bytes": 1805679,
+        "sha256": "1fd7df5feb0d284d0005930ca4444cdd496767d765a71371780d6bf1b856b800",
+        "tracked": false,
+        "family": "untracked-live-content",
+        "disposition": "excluded-disabled-draft",
+        "overlap": 0,
+        "reason": "Draft bank policy is NO_GO/disabled; not approved Hansa content and not part of the semantic corpus."
+      },
+      {
+        "path": "content/drafts/stark-v2-dp600.json",
+        "bytes": 885630,
+        "sha256": "92e2c541e2f7aeb0553671e4176096f501bda51a032c303807573b4fb28e3ed0",
+        "tracked": false,
+        "family": "untracked-live-content",
+        "disposition": "excluded-disabled-draft",
+        "overlap": 0,
+        "reason": "Draft bank policy is NO_GO/disabled; not approved Hansa content and not part of the semantic corpus."
+      },
+      {
+        "path": "content/drafts/warren-dp600.json",
+        "bytes": 92053,
+        "sha256": "ea0f2fe02b2f0f55a9c190714ee05fa970b103a9d6e89b02185beeaf4f3a38fe",
+        "tracked": false,
+        "family": "untracked-live-content",
+        "disposition": "consumed-upstream-fragment",
+        "overlap": 122,
+        "reason": "Its identifiers already appear in extracted units through a tracked aggregate."
+      },
+      {
+        "path": "content/fabric/additions/manifest.json",
+        "bytes": 9026,
+        "sha256": "81f36dcd2be2ddb1c055d624092ba77e57dc128320ca520c2e96b5c3fe4c8dc1",
+        "tracked": false,
+        "family": "untracked-live-content",
+        "disposition": "supporting-metadata",
+        "overlap": 0,
+        "reason": "Supporting metadata or generated index for a tracked family, not an independent teachable unit."
+      },
+      {
+        "path": "content/fabric/id-map.json",
+        "bytes": 131070,
+        "sha256": "040ec69916d6c4b6b78343fd72ddab830b9ddc6f9372972466bdb3f3ce801d80",
+        "tracked": false,
+        "family": "untracked-live-content",
+        "disposition": "consumed-upstream-fragment",
+        "overlap": 430,
+        "reason": "Its identifiers already appear in extracted units through a tracked aggregate."
+      },
+      {
+        "path": "content/fabric/meta.json",
+        "bytes": 105452,
+        "sha256": "50b8e3a144814ecbc7142fe538537fa972bf2c4dba46dbe86b77c8742fb44434",
+        "tracked": false,
+        "family": "untracked-live-content",
+        "disposition": "supporting-metadata",
+        "overlap": 0,
+        "reason": "Supporting metadata or generated index for a tracked family, not an independent teachable unit."
+      },
+      {
+        "path": "content/fabric/packs.json",
+        "bytes": 14596,
+        "sha256": "d97bfaafb20ce7c5871b82d67b3777e4a371f5c770271759e053fee466931704",
+        "tracked": false,
+        "family": "untracked-live-content",
+        "disposition": "supporting-metadata",
+        "overlap": 0,
+        "reason": "Supporting metadata or generated index for a tracked family, not an independent teachable unit."
+      },
+      {
+        "path": "content/fabric/questions/activator.json",
+        "bytes": 69850,
+        "sha256": "c53dda7453e4a3c0c54d31734a14953c90953d54378677085e80cbd50a520e87",
+        "tracked": false,
+        "family": "untracked-live-content",
+        "disposition": "consumed-upstream-fragment",
+        "overlap": 40,
+        "reason": "Its identifiers already appear in extracted units through a tracked aggregate."
+      },
+      {
+        "path": "content/fabric/questions/dataflow-gen2.json",
+        "bytes": 73537,
+        "sha256": "a6accc69103cfdb1c3f7cfa18ffaf4e8a82a424d200a181c622e86aa7a8f6204",
+        "tracked": false,
+        "family": "untracked-live-content",
+        "disposition": "consumed-upstream-fragment",
+        "overlap": 40,
+        "reason": "Its identifiers already appear in extracted units through a tracked aggregate."
+      },
+      {
+        "path": "content/fabric/questions/delta.json",
+        "bytes": 60668,
+        "sha256": "68a6927cacc6f0e68a77d8d9cca6f4909a315314a8bf1dcf783d1056a41c7571",
+        "tracked": false,
+        "family": "untracked-live-content",
+        "disposition": "consumed-upstream-fragment",
+        "overlap": 40,
+        "reason": "Its identifiers already appear in extracted units through a tracked aggregate."
+      },
+      {
+        "path": "content/fabric/questions/eventhouse.json",
+        "bytes": 64709,
+        "sha256": "4cd581aa9b57f68c8fc3f6c7e84f910841420e8c26cd46cda38618f7336d8abe",
+        "tracked": false,
+        "family": "untracked-live-content",
+        "disposition": "consumed-upstream-fragment",
+        "overlap": 40,
+        "reason": "Its identifiers already appear in extracted units through a tracked aggregate."
+      },
+      {
+        "path": "content/fabric/questions/eventstream-windowing.json",
+        "bytes": 83237,
+        "sha256": "71732c937b65c2b48ac60c53676b699797350295cc5ba67269664f0cc917af7d",
+        "tracked": false,
+        "family": "untracked-live-content",
+        "disposition": "consumed-upstream-fragment",
+        "overlap": 40,
+        "reason": "Its identifiers already appear in extracted units through a tracked aggregate."
+      },
+      {
+        "path": "content/fabric/questions/howard-dp600.json",
+        "bytes": 253029,
+        "sha256": "4db6684b445e2344d55be8c244285c8cbc3883f37571a7d21ca2cb7bb6c4c635",
+        "tracked": false,
+        "family": "untracked-live-content",
+        "disposition": "consumed-upstream-fragment",
+        "overlap": 120,
+        "reason": "Its identifiers already appear in extracted units through a tracked aggregate."
+      },
+      {
+        "path": "content/fabric/questions/incremental-copy.json",
+        "bytes": 72986,
+        "sha256": "f2a3a9cea3694c615baaf55b845532b004d98736d7cfe6884607ff740feaeca9",
+        "tracked": false,
+        "family": "untracked-live-content",
+        "disposition": "consumed-upstream-fragment",
+        "overlap": 40,
+        "reason": "Its identifiers already appear in extracted units through a tracked aggregate."
+      },
+      {
+        "path": "content/fabric/questions/mirroring.json",
+        "bytes": 70495,
+        "sha256": "72fde4e021a8c5ca3ea89b8e36eb0055deecadc79e5e1f2a56fc66e7f1463cc8",
+        "tracked": false,
+        "family": "untracked-live-content",
+        "disposition": "consumed-upstream-fragment",
+        "overlap": 40,
+        "reason": "Its identifiers already appear in extracted units through a tracked aggregate."
+      },
+      {
+        "path": "content/fabric/questions/notebooks-pyspark.json",
+        "bytes": 68787,
+        "sha256": "cc0e8bf8053b913465670d618856cb86cf9cba2aaaa83494dd2fe5d55602fc22",
+        "tracked": false,
+        "family": "untracked-live-content",
+        "disposition": "consumed-upstream-fragment",
+        "overlap": 40,
+        "reason": "Its identifiers already appear in extracted units through a tracked aggregate."
+      },
+      {
+        "path": "content/fabric/questions/patrick-dp600.json",
+        "bytes": 67713,
+        "sha256": "3c8054614a6395030af38235494a475db59fb998861296214e4e659c5768b59a",
+        "tracked": false,
+        "family": "untracked-live-content",
+        "disposition": "consumed-upstream-fragment",
+        "overlap": 30,
+        "reason": "Its identifiers already appear in extracted units through a tracked aggregate."
+      },
+      {
+        "path": "content/fabric/questions/pipelines.json",
+        "bytes": 61146,
+        "sha256": "1383ee3d18bd0e44e1296f50ac17432c61e092794dc3f694cf03d66c63508d71",
+        "tracked": false,
+        "family": "untracked-live-content",
+        "disposition": "consumed-upstream-fragment",
+        "overlap": 40,
+        "reason": "Its identifiers already appear in extracted units through a tracked aggregate."
+      },
+      {
+        "path": "content/fabric/questions/scd.json",
+        "bytes": 56588,
+        "sha256": "fbe68644f199d6cec0e861c6cba963a152224f588d4d6e4d155cea2b56590538",
+        "tracked": false,
+        "family": "untracked-live-content",
+        "disposition": "consumed-upstream-fragment",
+        "overlap": 40,
+        "reason": "Its identifiers already appear in extracted units through a tracked aggregate."
+      },
+      {
+        "path": "content/fabric/questions/semantic-models-dax.json",
+        "bytes": 89948,
+        "sha256": "4665f5b8e4533cea805c77635921a1897bcc427e047bb05dad6583b0b8a0d2da",
+        "tracked": false,
+        "family": "untracked-live-content",
+        "disposition": "consumed-upstream-fragment",
+        "overlap": 40,
+        "reason": "Its identifiers already appear in extracted units through a tracked aggregate."
+      },
+      {
+        "path": "content/fabric/questions/video06.json",
+        "bytes": 81039,
+        "sha256": "8a9f3d68c5de24801f4e3ff197dd904e41889d16cc744e0d149f34810e9caa6f",
+        "tracked": false,
+        "family": "untracked-live-content",
+        "disposition": "consumed-upstream-fragment",
+        "overlap": 50,
+        "reason": "Its identifiers already appear in extracted units through a tracked aggregate."
+      },
+      {
+        "path": "content/fabric/questions/video07.json",
+        "bytes": 60307,
+        "sha256": "ab20f90c7e369fae7f4855331264d11a74c91b6207fa3953d49780dbcdcffa0a",
+        "tracked": false,
+        "family": "untracked-live-content",
+        "disposition": "consumed-upstream-fragment",
+        "overlap": 36,
+        "reason": "Its identifiers already appear in extracted units through a tracked aggregate."
+      },
+      {
+        "path": "content/fabric/questions/video08.json",
+        "bytes": 81577,
+        "sha256": "e48839a614f05f1b5cf03a783156e589ae0d153ce01f18644b22cd6bd46f0306",
+        "tracked": false,
+        "family": "untracked-live-content",
+        "disposition": "consumed-upstream-fragment",
+        "overlap": 48,
+        "reason": "Its identifiers already appear in extracted units through a tracked aggregate."
+      },
+      {
+        "path": "content/fabric/questions/video09.json",
+        "bytes": 81559,
+        "sha256": "606f2ea4ceff8ad2d8afbbab075ead7e20b360201a33f9a651b5747bb0b9d8fd",
+        "tracked": false,
+        "family": "untracked-live-content",
+        "disposition": "consumed-upstream-fragment",
+        "overlap": 48,
+        "reason": "Its identifiers already appear in extracted units through a tracked aggregate."
+      },
+      {
+        "path": "content/fabric/questions/video10.json",
+        "bytes": 87754,
+        "sha256": "4b22acffff11d3c8e882cb70ccdf531ebd4cf886c940847a4a30d4d7fb07bbff",
+        "tracked": false,
+        "family": "untracked-live-content",
+        "disposition": "consumed-upstream-fragment",
+        "overlap": 48,
+        "reason": "Its identifiers already appear in extracted units through a tracked aggregate."
+      },
+      {
+        "path": "content/fabric/questions/video11.json",
+        "bytes": 93348,
+        "sha256": "ac1aefbc1297e64358af885f90b546614bd65fcf822587828fb3298c420b2308",
+        "tracked": false,
+        "family": "untracked-live-content",
+        "disposition": "consumed-upstream-fragment",
+        "overlap": 50,
+        "reason": "Its identifiers already appear in extracted units through a tracked aggregate."
+      },
+      {
+        "path": "content/fabric/questions/video12.json",
+        "bytes": 90051,
+        "sha256": "2338377d33504de642cd71b86fc4e140e781f38982a8f378f2059355a5946acb",
+        "tracked": false,
+        "family": "untracked-live-content",
+        "disposition": "consumed-upstream-fragment",
+        "overlap": 50,
+        "reason": "Its identifiers already appear in extracted units through a tracked aggregate."
+      },
+      {
+        "path": "content/fabric/questions/video14.json",
+        "bytes": 186658,
+        "sha256": "341c1813231aac8d664c0665693980ea31f635bf3b454bc9d25c79feb0000e1f",
+        "tracked": false,
+        "family": "untracked-live-content",
+        "disposition": "consumed-upstream-fragment",
+        "overlap": 96,
+        "reason": "Its identifiers already appear in extracted units through a tracked aggregate."
+      },
+      {
+        "path": "content/fabric/questions/video15.json",
+        "bytes": 104364,
+        "sha256": "f7846d0d7477ba1810b6ea77e26008db099140942dbe3184e0824ee7d31ad9b2",
+        "tracked": false,
+        "family": "untracked-live-content",
+        "disposition": "consumed-upstream-fragment",
+        "overlap": 56,
+        "reason": "Its identifiers already appear in extracted units through a tracked aggregate."
+      },
+      {
+        "path": "content/fabric/questions/video16.json",
+        "bytes": 85279,
+        "sha256": "7d46d5f2aa8cbdef205cd7310bc3da047e8f76cad39fad899d7253aa00306137",
+        "tracked": false,
+        "family": "untracked-live-content",
+        "disposition": "consumed-upstream-fragment",
+        "overlap": 48,
+        "reason": "Its identifiers already appear in extracted units through a tracked aggregate."
+      },
+      {
+        "path": "content/fabric/questions/video19.json",
+        "bytes": 70324,
+        "sha256": "03225e4dcf3023aa21147d650189b9a00879bcd83f3ca1b557febc0ac3c0260b",
+        "tracked": false,
+        "family": "untracked-live-content",
+        "disposition": "consumed-upstream-fragment",
+        "overlap": 40,
+        "reason": "Its identifiers already appear in extracted units through a tracked aggregate."
+      },
+      {
+        "path": "content/fabric/questions/video20.json",
+        "bytes": 61344,
+        "sha256": "ac354c17d13af7d88edbe2c78787f053361e2d9eff857fd5e4db18dfe9c71e5a",
+        "tracked": false,
+        "family": "untracked-live-content",
+        "disposition": "consumed-upstream-fragment",
+        "overlap": 40,
+        "reason": "Its identifiers already appear in extracted units through a tracked aggregate."
+      },
+      {
+        "path": "content/fabric/questions/video21.json",
+        "bytes": 50359,
+        "sha256": "59efbb16d3295202f475b6fe68359a23b07d0f1cfeb60d89bbea979ba4ada198",
+        "tracked": false,
+        "family": "untracked-live-content",
+        "disposition": "consumed-upstream-fragment",
+        "overlap": 32,
+        "reason": "Its identifiers already appear in extracted units through a tracked aggregate."
+      },
+      {
+        "path": "content/fabric/questions/warehouse.json",
+        "bytes": 49508,
+        "sha256": "d1c85fad8e353e453853d8b186a39f58f085229772ed5b23c797ac0b7b050eed",
+        "tracked": false,
+        "family": "untracked-live-content",
+        "disposition": "consumed-upstream-fragment",
+        "overlap": 32,
+        "reason": "Its identifiers already appear in extracted units through a tracked aggregate."
+      },
+      {
+        "path": "content/fabric/r11/case-studies.json",
+        "bytes": 15374,
+        "sha256": "d61ebb3f25cc3a05df8c8c9363f425f604a1ad648f00ba563d09a0f0f6b8120a",
+        "tracked": false,
+        "family": "untracked-live-content",
+        "disposition": "needs-explicit-disposition",
+        "overlap": 0,
+        "reason": "No tracked aggregate currently accounts for this file; it remains a coverage gap."
+      },
+      {
+        "path": "content/fabric/r11/manifest.json",
+        "bytes": 769,
+        "sha256": "f0229578052e28dbb603265e78bb125cd7229311bdb77fc43ecb28051ce703df",
+        "tracked": false,
+        "family": "untracked-live-content",
+        "disposition": "supporting-metadata",
+        "overlap": 0,
+        "reason": "Supporting metadata or generated index for a tracked family, not an independent teachable unit."
+      },
+      {
+        "path": "content/fabric/r11/search.json",
+        "bytes": 222866,
+        "sha256": "9b09308c2831ec12b16914a59b86a8e08d1cc5e6fd00064e98a0ea2c6b32b40f",
+        "tracked": false,
+        "family": "untracked-live-content",
+        "disposition": "consumed-upstream-fragment",
+        "overlap": 222,
+        "reason": "Its identifiers already appear in extracted units through a tracked aggregate."
+      },
+      {
+        "path": "content/fabric/sources.json",
+        "bytes": 96098,
+        "sha256": "368b6ebf8f0dcd4a4d0a11cd94bc450097145f587573b3bf85de65c7d62bc98f",
+        "tracked": false,
+        "family": "untracked-live-content",
+        "disposition": "supporting-metadata",
+        "overlap": 0,
+        "reason": "Supporting metadata or generated index for a tracked family, not an independent teachable unit."
+      }
+    ],
+    "intakeExports": 59,
+    "dispositions": {
+      "separate-existing-atlas-artifact": 3,
+      "supporting-metadata": 8,
+      "excluded-disabled-draft": 6,
+      "consumed-upstream-fragment": 31,
+      "needs-explicit-disposition": 1,
+      "preserved-intake-export": 59
+    },
+    "needsDisposition": [
+      {
+        "path": "content/fabric/r11/case-studies.json",
+        "bytes": 15374,
+        "sha256": "d61ebb3f25cc3a05df8c8c9363f425f604a1ad648f00ba563d09a0f0f6b8120a",
+        "tracked": false,
+        "family": "untracked-live-content",
+        "disposition": "needs-explicit-disposition",
+        "overlap": 0,
+        "reason": "No tracked aggregate currently accounts for this file; it remains a coverage gap."
+      }
+    ],
+    "note": "Intake exports are preserved source evidence, not automatically live website families. Untracked live content is classified by identifier overlap; zero-overlap files remain explicit coverage gaps."
+  },
+  "limits": [
+    "A matching fingerprint proves the source file is unchanged; it does not prove semantic correctness.",
+    "The manifest is dated 2026-10-31 and this reconciliation is dated 2026-11-01.",
+    "Rendered media pixels remain not independently reviewed unless separately recorded."
+  ]
+}

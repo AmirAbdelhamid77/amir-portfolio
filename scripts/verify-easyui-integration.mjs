@@ -6,8 +6,11 @@ import { fileURLToPath } from "node:url";
 import { createHash } from "node:crypto";
 import { loadPreservationHistory, loadRepairReceipt } from "./preservation-history.mjs";
 import { implementationReceipt } from "./atlas-implementation-receipt.mjs";
+import { knowledgeStageReceipt } from "./knowledge-stage-receipt.mjs";
 const root = resolve(dirname(fileURLToPath(import.meta.url)), "..");
 const implementation = implementationReceipt(root);
+// Retired artifacts have no current bytes; the newest layer records why.
+const stage = knowledgeStageReceipt(root);
 const local = "docs/design-system/easyui-v2/";
 const read = path => readFileSync(resolve(root, path));
 const json = path => JSON.parse(read(path).toString("utf8"));
@@ -19,6 +22,7 @@ assert.equal(manifest.scope, "easyui-v2-native-ingestion-comparison");
 assert.equal(new Set(manifest.files.map(file => file.path)).size, manifest.files.length);
 for (const file of manifest.files) {
   assert.ok(resolve(root, file.path).startsWith(root + sep));
+  if (stage.retired(file.path)) continue;
   assert.equal(hash(file.path), implementation.expected(file.path, file.sha256), "Owned drift: " + file.path);
 }
 const before = json(local + "PRESERVATION_BASELINE.json");
@@ -29,6 +33,7 @@ for (const alias of manifest.legacyAtlasPathAliases) {
   assert.equal(hash(alias.currentPath), alias.sha256, "Relocated original drift: " + alias.path);
 }
 for (const [path, sha256] of Object.entries(before.files)) {
+  if (stage.retired(path)) continue;
   if (manifest.modifiedExisting.includes(path) || repair.covers(path, sha256)) continue;
   assert.equal(hash(path), implementation.expected(path, sha256), "Unrelated pre-existing drift: " + path);
 }

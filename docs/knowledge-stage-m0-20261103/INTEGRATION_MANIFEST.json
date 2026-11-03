@@ -1,0 +1,3860 @@
+{
+ "scope": "hansa-knowledge-stage-m0-20261103",
+ "note": "M0 re-baseline. Records every artifact that an earlier receipt layer still pins to pre-drift bytes, with its attribution: this session's authorized /learn migration, the 2 Nov review snapshot, or an earlier authorized wave. Nothing was edited to satisfy the gate, and no hash that still matches disk was touched. Entries attributed to earlier waves are provenance pins, not a semantic review of those waves.",
+ "previous": "docs/hansa-integration-20261029/MANIFEST.json",
+ "previousSha256": "b8f00b7e6c1b34febc755b7a4dac4a5f3e3fbe121165b7c5ffb7396e0468f32d",
+ "files": [
+  {
+   "path": ".gitignore",
+   "previousSha256": "e6f49595e098e06bbce8d48ae707fd31eda8da46b394b540e697091e83246aef",
+   "sha256": "e893eab391f58c6c1c1b10b1f9c7b8f3c6821b384b857e96c63125a214344dc8",
+   "bytes": 776,
+   "layer": "knowledge-atlas/implementation",
+   "attribution": "inherited-0e5c7cd",
+   "note": "Inherited drift from earlier authorized wave 0e5c7cd. Pinned for provenance only; this entry is not a semantic review of that wave."
+  },
+  {
+   "path": "AGENTS.md",
+   "previousSha256": "806c749ff9cea0eeda69ef65bef5c5eee8809e3f59f8904779907ebff1039c4c",
+   "sha256": "c88fb70317e087fca71b79ea759fd28cca585d71c3160858abed9886c78acda3",
+   "bytes": 6582,
+   "layer": "design-system/easyui-v2",
+   "attribution": "inherited-0e5c7cd",
+   "note": "Inherited drift from earlier authorized wave 0e5c7cd. Pinned for provenance only; this entry is not a semantic review of that wave."
+  },
+  {
+   "path": "app/explore/page.tsx",
+   "previousSha256": "20184bb18117096e780dca519574ea3a2f98e5ca8ce80233f4dd2e4126003361",
+   "sha256": "587084bc195729ca1f2c82fdce02b816d26d5e65a2babc4b54d65d918d95716e",
+   "bytes": 5207,
+   "layer": "knowledge-atlas/implementation",
+   "attribution": "curriculum-migration-65b5583",
+   "note": "Recorded by the authorized /learn migration commit 65b5583."
+  },
+  {
+   "path": "app/globals.css",
+   "previousSha256": "5889a21a9ae69e7b356186e21a89fd912912835f323efb868fe7561db06d861b",
+   "sha256": "9547dcceaeef59f43ff8b1180531bf2892025ecda0f8cdbdf80965f411805847",
+   "bytes": 18505,
+   "layer": "final-review-20261028/history",
+   "attribution": "inherited-0902e15",
+   "note": "Inherited drift from earlier authorized wave 0902e15. Pinned for provenance only; this entry is not a semantic review of that wave."
+  },
+  {
+   "path": "app/globals.css",
+   "previousSha256": "8f9a9b4015bfb2f1daad762f62055e183f6d94014f43f6137f6d51402a376fa2",
+   "sha256": "9547dcceaeef59f43ff8b1180531bf2892025ecda0f8cdbdf80965f411805847",
+   "bytes": 18505,
+   "layer": "knowledge-atlas/implementation",
+   "attribution": "inherited-0902e15",
+   "note": "Inherited drift from earlier authorized wave 0902e15. Pinned for provenance only; this entry is not a semantic review of that wave."
+  },
+  {
+   "path": "app/globals.css",
+   "previousSha256": "e0c781076cafee4709d00fcbe4e7a569b0a86e7c3be398ccb6c50aabebdf7182",
+   "sha256": "9547dcceaeef59f43ff8b1180531bf2892025ecda0f8cdbdf80965f411805847",
+   "bytes": 18505,
+   "layer": "final-review-20261028",
+   "attribution": "inherited-0902e15",
+   "note": "Inherited drift from earlier authorized wave 0902e15. Pinned for provenance only; this entry is not a semantic review of that wave."
+  },
+  {
+   "path": "app/lab/dp-600/explore/page.tsx",
+   "previousSha256": "74ae2d7492c0b4ff3ff9406702f87f64b266c72dfcc743b78ac43d12772c5014",
+   "sha256": "4741cdd20934d6361704a9a2196296afd172e63e6e7eaff06014449d29493f32",
+   "bytes": 1927,
+   "layer": "knowledge-atlas/implementation",
+   "attribution": "curriculum-migration-1763890",
+   "note": "Recorded by the authorized /learn migration commit 1763890."
+  },
+  {
+   "path": "app/lab/dp-600/explore/page.tsx",
+   "previousSha256": "7cf5cfb3894007d868af46ac99f285fc5aa5fb730d2c4e404633edbd9491f638",
+   "sha256": "4741cdd20934d6361704a9a2196296afd172e63e6e7eaff06014449d29493f32",
+   "bytes": 1927,
+   "layer": "dp600-r11-integration",
+   "attribution": "curriculum-migration-1763890",
+   "note": "Recorded by the authorized /learn migration commit 1763890."
+  },
+  {
+   "path": "app/lab/dp-600/explore/page.tsx",
+   "previousSha256": "cf5171ee584501b2c6fd3057724abd5d6ed8e38c95ce385e4e4a395fb1438575",
+   "sha256": "4741cdd20934d6361704a9a2196296afd172e63e6e7eaff06014449d29493f32",
+   "bytes": 1927,
+   "layer": "knowledge-atlas/dp600-expansion",
+   "attribution": "curriculum-migration-1763890",
+   "note": "Recorded by the authorized /learn migration commit 1763890."
+  },
+  {
+   "path": "app/lab/dp-600/page.tsx",
+   "previousSha256": "5744d829918d56232469ef2eca3a4df968b2c4dc9b89a71897c2c145e883a533",
+   "sha256": "d502f7b871e2b04cc9efc3abb62b86931971dc35197797f01023dd55e75d7905",
+   "bytes": 25011,
+   "layer": "learning-architecture-20261028",
+   "attribution": "curriculum-migration-1763890",
+   "note": "Recorded by the authorized /learn migration commit 1763890."
+  },
+  {
+   "path": "app/lab/dp-600/page.tsx",
+   "previousSha256": "eda4427d3850db7cd7801f923b549fe4b0fba65260eddd4d9cea4f2f0ebe9457",
+   "sha256": "d502f7b871e2b04cc9efc3abb62b86931971dc35197797f01023dd55e75d7905",
+   "bytes": 25011,
+   "layer": "knowledge-atlas/implementation",
+   "attribution": "curriculum-migration-1763890",
+   "note": "Recorded by the authorized /learn migration commit 1763890."
+  },
+  {
+   "path": "app/lab/dp-600/resources/page.tsx",
+   "previousSha256": "3d068a73889c5f45ced3bbff5754c2c61141d9e1bc4e53c88ad25e39c16e29c5",
+   "sha256": "946ad6504c339df78b0ad1c3cf92c0bfbfa3d93f14d7058d839e10dc5f59a1ce",
+   "bytes": 10056,
+   "layer": "knowledge-atlas/implementation",
+   "attribution": "curriculum-migration-c78a76f",
+   "note": "Recorded by the authorized /learn migration commit c78a76f."
+  },
+  {
+   "path": "app/lab/hands-on/[slug]/page.tsx",
+   "previousSha256": "30546e6980c3a1df37e3df4c06e23664dae4e71462f241f3f753defc749cc602",
+   "sha256": "5f708d71533b7b612338d868766ca307271f9fc444bd590924358243b0d476d4",
+   "bytes": 12090,
+   "layer": "hansa-integration-20261029",
+   "attribution": "curriculum-migration-807c6fc",
+   "note": "Recorded by the authorized /learn migration commit 807c6fc."
+  },
+  {
+   "path": "app/lab/page.tsx",
+   "previousSha256": "a2fc0ffb9ab905b19b3270f7ab3c1e3337d4b774f3b0d0cc05a621ac1cdaacfa",
+   "sha256": "e3961abd91d15d98610c47a6ba605ca5df2215d49bb848236b2c7c80b1fb3203",
+   "bytes": 7750,
+   "layer": "knowledge-atlas/implementation",
+   "attribution": "curriculum-migration-c78a76f",
+   "note": "Recorded by the authorized /learn migration commit c78a76f."
+  },
+  {
+   "path": "app/lab/page.tsx",
+   "previousSha256": "c01e78a80d6fde804928cc862322ff29ce9860a478abea68aea0ae4b0c37efcd",
+   "sha256": "e3961abd91d15d98610c47a6ba605ca5df2215d49bb848236b2c7c80b1fb3203",
+   "bytes": 7750,
+   "layer": "hansa-integration-20261029",
+   "attribution": "curriculum-migration-c78a76f",
+   "note": "Recorded by the authorized /learn migration commit c78a76f."
+  },
+  {
+   "path": "app/layout.tsx",
+   "previousSha256": "8151e861039c5e031f61a81fd9d43fc86d93d10bab6e16117608cceb8f3050e0",
+   "sha256": "bd004c4e972fe6ffbdebf08d8be295cc0afc9f284e9358f1c46e1ccc71b68406",
+   "bytes": 3424,
+   "layer": "final-review-20261028",
+   "attribution": "inherited-0e5c7cd",
+   "note": "Inherited drift from earlier authorized wave 0e5c7cd. Pinned for provenance only; this entry is not a semantic review of that wave."
+  },
+  {
+   "path": "app/layout.tsx",
+   "previousSha256": "96a4bfd73e1180e6923ec4acd3aaee49663a26f6c6bbd17147fdaa8b8618049e",
+   "sha256": "bd004c4e972fe6ffbdebf08d8be295cc0afc9f284e9358f1c46e1ccc71b68406",
+   "bytes": 3424,
+   "layer": "knowledge-atlas/implementation",
+   "attribution": "inherited-0e5c7cd",
+   "note": "Inherited drift from earlier authorized wave 0e5c7cd. Pinned for provenance only; this entry is not a semantic review of that wave."
+  },
+  {
+   "path": "app/learn/ar/page.tsx",
+   "previousSha256": "96a39f16e40e603a1a6a02b4a4c9b6843dc6faa90a1b4d8de346a60c6be63648",
+   "sha256": "92959c55f4b884998a9bdd21761ed94978d49ae34fd1a73ed23d4c14821b7a3f",
+   "bytes": 8925,
+   "layer": "knowledge-atlas/implementation",
+   "attribution": "curriculum-migration-65b5583",
+   "note": "Recorded by the authorized /learn migration commit 65b5583."
+  },
+  {
+   "path": "app/learn/catalogue/page.tsx",
+   "previousSha256": "49b291d3ae4866fd1ce47906db3c3db1a9189b81a08a9a8c2d9fa105114a1691",
+   "sha256": "32140d169dcb1ed8e06898b3a5fd1f93f7bb7374b2914984f88fb895bf8ad5f8",
+   "bytes": 458,
+   "layer": "learning-architecture-20261028",
+   "attribution": "curriculum-migration-65b5583",
+   "note": "Recorded by the authorized /learn migration commit 65b5583."
+  },
+  {
+   "path": "app/learn/catalogue/page.tsx",
+   "previousSha256": "9dbe489c649ade2bf3e90077052f061b7b5a91296be20595a6cce622360ae07b",
+   "sha256": "32140d169dcb1ed8e06898b3a5fd1f93f7bb7374b2914984f88fb895bf8ad5f8",
+   "bytes": 458,
+   "layer": "knowledge-atlas/implementation",
+   "attribution": "curriculum-migration-65b5583",
+   "note": "Recorded by the authorized /learn migration commit 65b5583."
+  },
+  {
+   "path": "app/learn/chapter/[number]/page.tsx",
+   "previousSha256": "00a82c13afd52c255a69841c088ae923b097b82743e971a3840df141751ca3a8",
+   "sha256": "e969d0226fad4bf10f67771fdc7319f4f7e3738d76ee92b83b141323c1a7583b",
+   "bytes": 10322,
+   "layer": "knowledge-atlas/implementation",
+   "attribution": "curriculum-migration-65b5583",
+   "note": "Recorded by the authorized /learn migration commit 65b5583."
+  },
+  {
+   "path": "app/learn/dp-600/atlas/page.tsx",
+   "previousSha256": "5b772eca88cf2f360bc38766ee4a158677d21d19902b23f497f806a5033df40a",
+   "sha256": "bd367d9d491cfdb809d8e1ebf79bdff4c39014fa1d97f42c6d0d7fec20dad767",
+   "bytes": 1093,
+   "layer": "knowledge-atlas/implementation",
+   "attribution": "inherited-0e5c7cd",
+   "note": "Inherited drift from earlier authorized wave 0e5c7cd. Pinned for provenance only; this entry is not a semantic review of that wave."
+  },
+  {
+   "path": "app/learn/dp-600/ingestion/page.tsx",
+   "previousSha256": "397558a667e3e13ec449a85ab8f8ca218e12f9d81fbf90b214e33b61ab129029",
+   "sha256": "76c695cb9dcf94b59f03098efa38aa69d684dfe0cef71c6bced9f347c1c97520",
+   "bytes": 6126,
+   "layer": "design-system/easyui-v2",
+   "attribution": "inherited-496fddf",
+   "note": "Inherited drift from earlier authorized wave 496fddf. Pinned for provenance only; this entry is not a semantic review of that wave."
+  },
+  {
+   "path": "app/learn/dp-600/page.tsx",
+   "previousSha256": "984c942d1a9df57adf7840735ebb6d11da0b30fd021bd8eb89fafcce702112f2",
+   "sha256": "3105699eef0a01a97b80b6a1de04341a54830fd266fefc4a9bdba8932775db43",
+   "bytes": 2703,
+   "layer": "knowledge-atlas/implementation",
+   "attribution": "curriculum-migration-65b5583",
+   "note": "Recorded by the authorized /learn migration commit 65b5583."
+  },
+  {
+   "path": "app/learn/dp-600/page.tsx",
+   "previousSha256": "b0327e05ef15304ce2bea3a7147d3fd1f2812262832bac3e51677bffb5e10406",
+   "sha256": "3105699eef0a01a97b80b6a1de04341a54830fd266fefc4a9bdba8932775db43",
+   "bytes": 2703,
+   "layer": "knowledge-atlas/implementation",
+   "attribution": "curriculum-migration-65b5583",
+   "note": "Recorded by the authorized /learn migration commit 65b5583."
+  },
+  {
+   "path": "app/learn/fabric-rti/[slug]/page.tsx",
+   "previousSha256": "8ae178fd71a692eaf866cccb26265b491e9a48e12eb67b1fe664667adead309b",
+   "sha256": "a3c5b754348e0a3620929d6f05a68b7a03e21d436857487d99bf139da9a76271",
+   "bytes": 16275,
+   "layer": "hansa-integration-20261029",
+   "attribution": "curriculum-migration-65b5583",
+   "note": "Recorded by the authorized /learn migration commit 65b5583."
+  },
+  {
+   "path": "app/learn/fabric-rti/page.tsx",
+   "previousSha256": "63177df4ea083feec3f5e16d05ef99bfb0c06e4cafa6256eec1ab982116db539",
+   "sha256": "13d7c8fa21e32a87c78ed2048c184b83a71ffab6ff0d4a1680aab618b73d7ed1",
+   "bytes": 11589,
+   "layer": "hansa-integration-20261029",
+   "attribution": "curriculum-migration-41a9d52",
+   "note": "Recorded by the authorized /learn migration commit 41a9d52."
+  },
+  {
+   "path": "app/learn/page.tsx",
+   "previousSha256": "e4b54ffa13bfe994b2795ac397e2bf451fb2c56aafc948d01513bba9ec8bdbb4",
+   "sha256": "dc4a819e9ef5cce470701ce825241665bb9f2391cda81769f664ca886e14ee09",
+   "bytes": 824,
+   "layer": "knowledge-atlas/implementation",
+   "attribution": "curriculum-migration-65b5583",
+   "note": "Recorded by the authorized /learn migration commit 65b5583."
+  },
+  {
+   "path": "app/learn/sql/page.tsx",
+   "previousSha256": "c112ec045214bc94fc82ec69b584096fc18df0057b4a06d7f08bc0ea28514d01",
+   "sha256": "952faa9793dbe1c67d80ac53e8fedcd493a33a16f5fd4c57f736cc8227e5b8e9",
+   "bytes": 2396,
+   "layer": "sql-integration-20261028",
+   "attribution": "curriculum-migration-807c6fc",
+   "note": "Recorded by the authorized /learn migration commit 807c6fc."
+  },
+  {
+   "path": "app/learn/statistics/journey/[slug]/page.tsx",
+   "previousSha256": "fde84d0bfc684a7600efdea8f66520cdea9044d34e7bb5afe6c1e79e42a636be",
+   "sha256": "4cb04f20fd1f5fed21b63132f99b95694b242b89b211054642623b336002452b",
+   "bytes": 10021,
+   "layer": "knowledge-atlas/implementation",
+   "attribution": "curriculum-migration-41a9d52",
+   "note": "Recorded by the authorized /learn migration commit 41a9d52."
+  },
+  {
+   "path": "app/learn/statistics/page.tsx",
+   "previousSha256": "c694233c8b0151581ac99b52ca7c10dc349cc2445461a3c6ede3e7bc49b5e8d6",
+   "sha256": "51d484c9da0533fdae1da7bdcbb6e11dec1b5a826b58b5fb5d0a88f9a2faec52",
+   "bytes": 21811,
+   "layer": "knowledge-atlas/implementation",
+   "attribution": "curriculum-migration-41a9d52",
+   "note": "Recorded by the authorized /learn migration commit 41a9d52."
+  },
+  {
+   "path": "app/learn/statistics/source/page.tsx",
+   "previousSha256": "eee36208b8cd477e81ea22ac1f42a1f87c6b52cd61897e4eb674036e34562fb4",
+   "sha256": "3b8d99420ad2580cc4bbb438b509b1634dbafa742f96422ceed6c2bdc138620c",
+   "bytes": 21115,
+   "layer": "knowledge-atlas/implementation",
+   "attribution": "curriculum-migration-41a9d52",
+   "note": "Recorded by the authorized /learn migration commit 41a9d52."
+  },
+  {
+   "path": "app/page.tsx",
+   "previousSha256": "0f5f659fb9c430cface229b11ee1c842536fd618eef384b8b8bb8087745424fd",
+   "sha256": "b2962fde7da5768f3d98f3ff63da8142e759329644e0309999e867d484c453e1",
+   "bytes": 2490,
+   "layer": "knowledge-atlas/implementation",
+   "attribution": "inherited-0e5c7cd",
+   "note": "Inherited drift from earlier authorized wave 0e5c7cd. Pinned for provenance only; this entry is not a semantic review of that wave."
+  },
+  {
+   "path": "app/page.tsx",
+   "previousSha256": "5c1a0d8a50e07cace79f2dde855d63db0015c927909686c359edee9eda1c60b3",
+   "sha256": "b2962fde7da5768f3d98f3ff63da8142e759329644e0309999e867d484c453e1",
+   "bytes": 2490,
+   "layer": "knowledge-atlas/implementation",
+   "attribution": "inherited-0e5c7cd",
+   "note": "Inherited drift from earlier authorized wave 0e5c7cd. Pinned for provenance only; this entry is not a semantic review of that wave."
+  },
+  {
+   "path": "app/page.tsx",
+   "previousSha256": "c59fce3489b49123f78f78e68f3b97eb9c94afe42c54ddb6bda1573771095e8d",
+   "sha256": "b2962fde7da5768f3d98f3ff63da8142e759329644e0309999e867d484c453e1",
+   "bytes": 2490,
+   "layer": "prototype-c",
+   "attribution": "inherited-0e5c7cd",
+   "note": "Inherited drift from earlier authorized wave 0e5c7cd. Pinned for provenance only; this entry is not a semantic review of that wave."
+  },
+  {
+   "path": "app/practice/catalogue/page.tsx",
+   "previousSha256": "99634b54d5b29abff10e4579d921f138a99b63b16abe7b88c2b0e7e59e44d99e",
+   "sha256": "b8c20d540d3c45151be4890edace027e7ad7e9f79a9075435a52a89b8f961171",
+   "bytes": 255,
+   "layer": "knowledge-atlas/implementation",
+   "attribution": "inherited-0e5c7cd",
+   "note": "Inherited drift from earlier authorized wave 0e5c7cd. Pinned for provenance only; this entry is not a semantic review of that wave."
+  },
+  {
+   "path": "app/practice/drafts/page.tsx",
+   "previousSha256": "df05abee5402678ab78cebe584b94fe6e94726b056ca7dbf00b9446ed15d8b0e",
+   "sha256": "b1a49f61b296800710b63a4f8a7dacc3f60b7fd186e001394049db3bf319f0ff",
+   "bytes": 5429,
+   "layer": "final-review-20261028/additions",
+   "attribution": "inherited-2f903ff",
+   "note": "Inherited drift from earlier authorized wave 2f903ff. Pinned for provenance only; this entry is not a semantic review of that wave."
+  },
+  {
+   "path": "app/practice/sql/page.tsx",
+   "previousSha256": "0232557a0ae92f5fcb8e60b4c882708cb4a310ae333996b0869e8f3c5b9c8c47",
+   "sha256": "38a331cb47661c596d2cca2373b9b06392a180fd0aff1c58c10358c96726747f",
+   "bytes": 2142,
+   "layer": "sql-integration-20261028",
+   "attribution": "curriculum-migration-807c6fc",
+   "note": "Recorded by the authorized /learn migration commit 807c6fc."
+  },
+  {
+   "path": "app/prototype-c/page.tsx",
+   "previousSha256": "f3f297dd6fa8c77638e57ec009522172fed0247df9dc4bb878be7b8fa53e27a8",
+   "sha256": "31b414c61a2a35237cb0ea014e091ae7f9a966d6e2e568866125766d56ec5645",
+   "bytes": 1408,
+   "layer": "prototype-c",
+   "attribution": "inherited-0e5c7cd",
+   "note": "Inherited drift from earlier authorized wave 0e5c7cd. Pinned for provenance only; this entry is not a semantic review of that wave."
+  },
+  {
+   "path": "app/search/page.tsx",
+   "previousSha256": "dc2b5730d23e65731b13e3af311f67b00c2ccabe4d9c212fd7c8ebcdcb4fe800",
+   "sha256": "eb775b52b6994ad9a261a0720397e448bf9f2023ead9f888affc8e34045a69c3",
+   "bytes": 3772,
+   "layer": "knowledge-atlas/implementation",
+   "attribution": "curriculum-migration-1763890",
+   "note": "Recorded by the authorized /learn migration commit 1763890."
+  },
+  {
+   "path": "app/sitemap.ts",
+   "previousSha256": "3b28d9c5c9b7b9391bf33ed5dd0687af2eba665b54170cf5b0e99891b7c059b7",
+   "sha256": "f52a3f79344eef9a5ccca8701e1e7ab06efb4c7d365acabd5d21aa5b90441658",
+   "bytes": 5080,
+   "layer": "knowledge-atlas/implementation",
+   "attribution": "curriculum-migration-41a9d52",
+   "note": "Recorded by the authorized /learn migration commit 41a9d52."
+  },
+  {
+   "path": "app/sitemap.ts",
+   "previousSha256": "6ded2d643fc6d83605769920242d377ca979aa8b98a5673e373b3507d345d4b8",
+   "sha256": "f52a3f79344eef9a5ccca8701e1e7ab06efb4c7d365acabd5d21aa5b90441658",
+   "bytes": 5080,
+   "layer": "sql-integration-20261028",
+   "attribution": "curriculum-migration-41a9d52",
+   "note": "Recorded by the authorized /learn migration commit 41a9d52."
+  },
+  {
+   "path": "app/sitemap.ts",
+   "previousSha256": "92289aaca63821e8424d75f45b5c48f01abea8ea27dc0c323941b98b43bbd8bf",
+   "sha256": "f52a3f79344eef9a5ccca8701e1e7ab06efb4c7d365acabd5d21aa5b90441658",
+   "bytes": 5080,
+   "layer": "learning-path-review-20261028",
+   "attribution": "curriculum-migration-41a9d52",
+   "note": "Recorded by the authorized /learn migration commit 41a9d52."
+  },
+  {
+   "path": "app/sitemap.ts",
+   "previousSha256": "b11b5b4d3b5d0a23933f06c2c3977ed221acc25741d846f9f762d851677a847d",
+   "sha256": "f52a3f79344eef9a5ccca8701e1e7ab06efb4c7d365acabd5d21aa5b90441658",
+   "bytes": 5080,
+   "layer": "hansa-integration-20261029",
+   "attribution": "curriculum-migration-41a9d52",
+   "note": "Recorded by the authorized /learn migration commit 41a9d52."
+  },
+  {
+   "path": "app/sitemap.ts",
+   "previousSha256": "b416bd9db4f25a6b383e6d3229dd7f7475f9bee556da96da3d58a465870eb1ab",
+   "sha256": "f52a3f79344eef9a5ccca8701e1e7ab06efb4c7d365acabd5d21aa5b90441658",
+   "bytes": 5080,
+   "layer": "knowledge-atlas/implementation",
+   "attribution": "curriculum-migration-41a9d52",
+   "note": "Recorded by the authorized /learn migration commit 41a9d52."
+  },
+  {
+   "path": "app/sitemap.ts",
+   "previousSha256": "e5659f05966bcbc71fb6dcad7dabbb98898ff01dfdd5e44dfe2377df8d11511a",
+   "sha256": "f52a3f79344eef9a5ccca8701e1e7ab06efb4c7d365acabd5d21aa5b90441658",
+   "bytes": 5080,
+   "layer": "learning-architecture-20261028",
+   "attribution": "curriculum-migration-41a9d52",
+   "note": "Recorded by the authorized /learn migration commit 41a9d52."
+  },
+  {
+   "path": "app/study/[subject]/[topic]/page.tsx",
+   "previousSha256": "2738db36f9d4c8eca1056dc6cdfaaf0d270f48b94b247132e75a2c60d1c804bf",
+   "sha256": "a35d07f9dd3608cb29d682593e19a4ca4864b6d10f1ec32a04bba82ed3ae6704",
+   "bytes": 1122,
+   "layer": "learning-path-review-20261028",
+   "attribution": "curriculum-migration-807c6fc",
+   "note": "Recorded by the authorized /learn migration commit 807c6fc."
+  },
+  {
+   "path": "app/study/[subject]/[topic]/page.tsx",
+   "previousSha256": "2d2946ac5acdfc8e5d3abecfdab6e3da008e841f5d59ff7898d259a7d6de7ac0",
+   "sha256": "a35d07f9dd3608cb29d682593e19a4ca4864b6d10f1ec32a04bba82ed3ae6704",
+   "bytes": 1122,
+   "layer": "learning-architecture-20261028",
+   "attribution": "curriculum-migration-807c6fc",
+   "note": "Recorded by the authorized /learn migration commit 807c6fc."
+  },
+  {
+   "path": "app/study/[subject]/page.tsx",
+   "previousSha256": "c115c5dcc5df6743ce607e69b9824910120925d12d73c69b3005b5556f0b497d",
+   "sha256": "726aa968da068190f51dd6d0b9ce903438b8081f1352b2ee7a56f283727151ca",
+   "bytes": 1452,
+   "layer": "learning-architecture-20261028",
+   "attribution": "curriculum-migration-65b5583",
+   "note": "Recorded by the authorized /learn migration commit 65b5583."
+  },
+  {
+   "path": "app/study/[subject]/path/page.tsx",
+   "previousSha256": "098a296add86470d9086c757d9522b2b89250a4c0ec4b275f1db638c8a7749e2",
+   "sha256": "cde2c9abdf496f969adfa06cc78c9b9e15dffc1c2d8f6f3b8f1b73fe0f85b395",
+   "bytes": 988,
+   "layer": "learning-path-review-20261028",
+   "attribution": "curriculum-migration-807c6fc",
+   "note": "Recorded by the authorized /learn migration commit 807c6fc."
+  },
+  {
+   "path": "app/study/page.tsx",
+   "previousSha256": "d01c6e084c833ca60712c854fcf91ce99f242f1a3830a9810c88c922cf8d4ad8",
+   "sha256": "65697c71354f5e3742f227d4e464da8fa5a2651b71f56fd446b1d8af17f81682",
+   "bytes": 555,
+   "layer": "learning-architecture-20261028",
+   "attribution": "curriculum-migration-65b5583",
+   "note": "Recorded by the authorized /learn migration commit 65b5583."
+  },
+  {
+   "path": "app/study/review/page.tsx",
+   "previousSha256": "2c78bd25f5144407786212f56bcaf7aec7d5915b9d5eb13f05daf9e8de0defc9",
+   "sha256": "079b27b2aef189ab9a3e0baa153bee633b43ac3b80586650d5ab46f4f0634e4f",
+   "bytes": 975,
+   "layer": "learning-architecture-20261028",
+   "attribution": "curriculum-migration-41a9d52",
+   "note": "Recorded by the authorized /learn migration commit 41a9d52."
+  },
+  {
+   "path": "app/study/review/page.tsx",
+   "previousSha256": "e9dec4b55602e5654f47d48047d20175c4da4541fac079dab8b68b1cdb6d8029",
+   "sha256": "079b27b2aef189ab9a3e0baa153bee633b43ac3b80586650d5ab46f4f0634e4f",
+   "bytes": 975,
+   "layer": "learning-path-review-20261028",
+   "attribution": "curriculum-migration-41a9d52",
+   "note": "Recorded by the authorized /learn migration commit 41a9d52."
+  },
+  {
+   "path": "app/study/review/path/page.tsx",
+   "previousSha256": "969670dfe6e098a0c1975233b57ebd2fa198673b63c123f7470a2909afa52e23",
+   "sha256": "e5f32234a45643229458e2662e1554c1c8a7b9c7cb9f501fcc9d0bf8cfdabd32",
+   "bytes": 940,
+   "layer": "learning-path-review-20261028",
+   "attribution": "curriculum-migration-41a9d52",
+   "note": "Recorded by the authorized /learn migration commit 41a9d52."
+  },
+  {
+   "path": "components/atlas/circle-map.css",
+   "previousSha256": "4d5b18e81eddbf6d468c71991b72373370eba62d2462ec95718a02d1498058cf",
+   "sha256": "86a7bc67e15f355406d43bca6b660d44aa6a5b09ffa534144d98ff2566aad565",
+   "bytes": 2660,
+   "layer": "knowledge-atlas/circular-nodes",
+   "attribution": "inherited-0e5c7cd",
+   "note": "Inherited drift from earlier authorized wave 0e5c7cd. Pinned for provenance only; this entry is not a semantic review of that wave."
+  },
+  {
+   "path": "components/atlas/explorer.tsx",
+   "previousSha256": "25717f9845f802429de63d9081e168f3814170307ed1e3af7f5320d2d044fad0",
+   "sha256": "b168ae284fbb65d94c122fe2be4f8e6d2f4f1fc705ef97ce36e2a394bc641fb4",
+   "bytes": 19365,
+   "layer": "knowledge-atlas/dp600-expansion",
+   "attribution": "inherited-0e5c7cd",
+   "note": "Inherited drift from earlier authorized wave 0e5c7cd. Pinned for provenance only; this entry is not a semantic review of that wave."
+  },
+  {
+   "path": "components/atlas/explorer.tsx",
+   "previousSha256": "541489d656a94de32c9f665eb155a4f91881d6c652c7f2208071648e0cdeae84",
+   "sha256": "b168ae284fbb65d94c122fe2be4f8e6d2f4f1fc705ef97ce36e2a394bc641fb4",
+   "bytes": 19365,
+   "layer": "knowledge-atlas/dp600-continuation",
+   "attribution": "inherited-0e5c7cd",
+   "note": "Inherited drift from earlier authorized wave 0e5c7cd. Pinned for provenance only; this entry is not a semantic review of that wave."
+  },
+  {
+   "path": "components/atlas/explorer.tsx",
+   "previousSha256": "6a2f4b3e1ac3ecf06c1ab5990dd9676a4dcfcc2f0fdc0254f231752282ad5c4d",
+   "sha256": "b168ae284fbb65d94c122fe2be4f8e6d2f4f1fc705ef97ce36e2a394bc641fb4",
+   "bytes": 19365,
+   "layer": "knowledge-atlas/circular-nodes",
+   "attribution": "inherited-0e5c7cd",
+   "note": "Inherited drift from earlier authorized wave 0e5c7cd. Pinned for provenance only; this entry is not a semantic review of that wave."
+  },
+  {
+   "path": "components/atlas/explorer.tsx",
+   "previousSha256": "e2cfc4826c57c5466a90f93782ae0309e5f104313cc7ba34a7318431bc9e7b3e",
+   "sha256": "b168ae284fbb65d94c122fe2be4f8e6d2f4f1fc705ef97ce36e2a394bc641fb4",
+   "bytes": 19365,
+   "layer": "knowledge-atlas/implementation",
+   "attribution": "inherited-0e5c7cd",
+   "note": "Inherited drift from earlier authorized wave 0e5c7cd. Pinned for provenance only; this entry is not a semantic review of that wave."
+  },
+  {
+   "path": "components/cinematic/use-scroll-progress.ts",
+   "previousSha256": "15e0a3ae4d4af7c4fef45feec594c3fa1ccb03a8cc6a2507cd980fbac5dbbaec",
+   "sha256": "4655c6e813782e42a5873a423004dfea4f7e3ddb4e8d20613037840ce877a366",
+   "bytes": 4319,
+   "layer": "hansa-integration-20261029",
+   "attribution": "inherited-inert",
+   "note": "The 29 Oct receipt pinned pre-commit working-tree bytes; the file has not changed since commit 0e5c7cd."
+  },
+  {
+   "path": "components/data-viz/chart-lab-shell.tsx",
+   "previousSha256": "9f7a32cbcefea3f475ea71ab1056b6b306aebece25d5fca8b8d1af7c8a8c0ea2",
+   "sha256": "ed55a700f59771535700c620019f0b3660b50e496799f1ad72d8a83a18234585",
+   "bytes": 5166,
+   "layer": "knowledge-atlas/implementation",
+   "attribution": "curriculum-migration-65b5583",
+   "note": "Recorded by the authorized /learn migration commit 65b5583."
+  },
+  {
+   "path": "components/data-viz/lesson-view.tsx",
+   "previousSha256": "b7cdbbc89ff0c0af4f4914eda24d1ca601eaade88bdf23305019e290f3f78a51",
+   "sha256": "0dd2311ffb4bdff1e336e936f2f5b5432d6ce2c65fbc16f2a269488ce6c2e5d1",
+   "bytes": 15510,
+   "layer": "knowledge-atlas/implementation",
+   "attribution": "curriculum-migration-65b5583",
+   "note": "Recorded by the authorized /learn migration commit 65b5583."
+  },
+  {
+   "path": "components/fabric/explorer.tsx",
+   "previousSha256": "7505f4cff3fcf53042e90512bd31ebed729e1f196fc7309b772fbeef280c19c9",
+   "sha256": "a0cc9c2335af3528fad067ed4b98faea0b22e3da630c8a86f65c01dfcf18ce4b",
+   "bytes": 26571,
+   "layer": "knowledge-atlas/implementation",
+   "attribution": "curriculum-migration-c78a76f",
+   "note": "Recorded by the authorized /learn migration commit c78a76f."
+  },
+  {
+   "path": "components/fabric/hub-panels.tsx",
+   "previousSha256": "011fbc98d5ebd0e27635d6dcfba0428c2d8ed12a9032fd1b525ed362702c4f01",
+   "sha256": "2a8622db542807ce55b503467dffd1135a71361d34c5a77139ac5271ccd2d5f0",
+   "bytes": 11896,
+   "layer": "knowledge-atlas/implementation",
+   "attribution": "curriculum-migration-c78a76f",
+   "note": "Recorded by the authorized /learn migration commit c78a76f."
+  },
+  {
+   "path": "components/fabric/pack-notes.tsx",
+   "previousSha256": "333d9f433c6e09ed7a2fa3e0b25525db547a8008640336e826ad8cb8e048c8ea",
+   "sha256": "bb54236c6314e7dffbf8c2f6818809cf98f178a9695b182cbbd73597e4d6adf3",
+   "bytes": 7166,
+   "layer": "learning-path-review-20261028",
+   "attribution": "curriculum-migration-c78a76f",
+   "note": "Recorded by the authorized /learn migration commit c78a76f."
+  },
+  {
+   "path": "components/fabric/pack-notes.tsx",
+   "previousSha256": "8c6456be4f71d9959de08a2c1765187c980f5f222fcf79205d9c091936bf1504",
+   "sha256": "bb54236c6314e7dffbf8c2f6818809cf98f178a9695b182cbbd73597e4d6adf3",
+   "bytes": 7166,
+   "layer": "knowledge-atlas/implementation",
+   "attribution": "curriculum-migration-c78a76f",
+   "note": "Recorded by the authorized /learn migration commit c78a76f."
+  },
+  {
+   "path": "components/fabric/pack-notes.tsx",
+   "previousSha256": "ac6ecae333eca8151ff9e805898c2f35abbe5103e597ffb5eae616c4aaaa5f5c",
+   "sha256": "bb54236c6314e7dffbf8c2f6818809cf98f178a9695b182cbbd73597e4d6adf3",
+   "bytes": 7166,
+   "layer": "knowledge-atlas/dp600-expansion",
+   "attribution": "curriculum-migration-c78a76f",
+   "note": "Recorded by the authorized /learn migration commit c78a76f."
+  },
+  {
+   "path": "components/fabric/progress-panel.tsx",
+   "previousSha256": "c3b9de26b1f5cad8cc6386c6f5434e5b9ee9d306a7da4ac80b98dbe9dd2deada",
+   "sha256": "074a82cd290595f52d3dd9724e1394580efe763966bf7a26c9c53845dd645013",
+   "bytes": 13930,
+   "layer": "knowledge-atlas/implementation",
+   "attribution": "curriculum-migration-c78a76f",
+   "note": "Recorded by the authorized /learn migration commit c78a76f."
+  },
+  {
+   "path": "components/fabric/session-setup.tsx",
+   "previousSha256": "d6221dee57f46bb3829b21a71538c8450108d79e8e8ce809e7e6e0d561993dd6",
+   "sha256": "c27bb415216bc245fdc6a1e2700bf80654e8faa129d78923f36a337cd27c2189",
+   "bytes": 17544,
+   "layer": "knowledge-atlas/implementation",
+   "attribution": "curriculum-migration-c78a76f",
+   "note": "Recorded by the authorized /learn migration commit c78a76f."
+  },
+  {
+   "path": "components/fabric/unified-bank.tsx",
+   "previousSha256": "730a2c1e34ef7334a0efeeab3ba8d53afe75f41fc55099f3288a29f836fd5639",
+   "sha256": "cd7c8b7e46b0b40ab995ca2280d553f9e01e4318857c7c73c10649096ac98893",
+   "bytes": 14272,
+   "layer": "knowledge-atlas/dp600-expansion",
+   "attribution": "curriculum-migration-c78a76f",
+   "note": "Recorded by the authorized /learn migration commit c78a76f."
+  },
+  {
+   "path": "components/fabric/unified-bank.tsx",
+   "previousSha256": "d6186bfe6bd09bfc9917df03252534f2687af0a3a0e6de298bf71ad215a81cf0",
+   "sha256": "cd7c8b7e46b0b40ab995ca2280d553f9e01e4318857c7c73c10649096ac98893",
+   "bytes": 14272,
+   "layer": "dp600-r11-integration",
+   "attribution": "curriculum-migration-c78a76f",
+   "note": "Recorded by the authorized /learn migration commit c78a76f."
+  },
+  {
+   "path": "components/knowledge/atlas-peek-stage.tsx",
+   "previousSha256": "2f0b3f31ef6cd1947decc07be7dd6d35e9283fd31156e0baea474e1e38e1df1b",
+   "sha256": "f4e76f4acb240794ad26993d624af5fd7d2956b0d6ab3ce19336657161401928",
+   "bytes": 12989,
+   "layer": "final-review-20261028/additions",
+   "attribution": "inherited-0e5c7cd",
+   "note": "Inherited drift from earlier authorized wave 0e5c7cd. Pinned for provenance only; this entry is not a semantic review of that wave."
+  },
+  {
+   "path": "components/knowledge/insight-archive.tsx",
+   "previousSha256": "713bd5d1ef6490d8b850c5b9c4d2bb158f4cee06c0119e00b4c7b9a5436c87c6",
+   "sha256": "59c3891ea52f02a62c47346553a6c128fe9edd2bfd0f4ec52e5086c9494e8de8",
+   "bytes": 6996,
+   "layer": "final-review-20261028/additions",
+   "attribution": "curriculum-migration-41a9d52",
+   "note": "Recorded by the authorized /learn migration commit 41a9d52."
+  },
+  {
+   "path": "components/knowledge/insight-rail.tsx",
+   "previousSha256": "c43bf0a559c7152d866fa6b65c6502c201fb93ba70dc72dc44426cae287e3978",
+   "sha256": "0bc0e60fd53bf8a6aab2aa8ce44be84bc23f601342894c4374de48b6818423c2",
+   "bytes": 17544,
+   "layer": "cinematic-phase2",
+   "attribution": "inherited-0e5c7cd",
+   "note": "Inherited drift from earlier authorized wave 0e5c7cd. Pinned for provenance only; this entry is not a semantic review of that wave."
+  },
+  {
+   "path": "components/knowledge/insight-stage.tsx",
+   "previousSha256": "6b73c431a77787fd946b44a8d080f35bdd3b1b8b38a2484c43b7b59fd4de5452",
+   "sha256": "01e44f8623d9b7d81bce76e1526fdd1feb5b7ebc1cafea3460d35c46c6dd7f69",
+   "bytes": 25458,
+   "layer": "final-review-20261028",
+   "attribution": "curriculum-migration-65b5583",
+   "note": "Recorded by the authorized /learn migration commit 65b5583."
+  },
+  {
+   "path": "components/knowledge/insight-stage.tsx",
+   "previousSha256": "dbf3ec4fa48373568a4aa5aab49d2646b72174a9e05ba4a5a2779114d2a4fa9d",
+   "sha256": "01e44f8623d9b7d81bce76e1526fdd1feb5b7ebc1cafea3460d35c46c6dd7f69",
+   "bytes": 25458,
+   "layer": "cinematic-phase2",
+   "attribution": "curriculum-migration-65b5583",
+   "note": "Recorded by the authorized /learn migration commit 65b5583."
+  },
+  {
+   "path": "components/knowledge/knowledge-dealer.tsx",
+   "previousSha256": "22f16d637393ed57c818e365a4bc1d2cf9c72557657856de1822128e0722fa2f",
+   "sha256": "911a993aa05a2de6dda282ddbcc84dc28d8a00cd7b939ce871a9b2ec8773571f",
+   "bytes": 23795,
+   "layer": "final-review-20261028/additions",
+   "attribution": "inherited-0e5c7cd",
+   "note": "Inherited drift from earlier authorized wave 0e5c7cd. Pinned for provenance only; this entry is not a semantic review of that wave."
+  },
+  {
+   "path": "components/knowledge/knowledge-instrument.tsx",
+   "previousSha256": "b6a185e9464c86e4f06f6948ff2901e3e0ec88c50a47833f77db8a3e2adb02b7",
+   "sha256": "9a10d9d919cfd04555e54dcc703b798680f428788883488e4453ad1c9b42d101",
+   "bytes": 6947,
+   "layer": "cinematic-phase2",
+   "attribution": "inherited-0e5c7cd",
+   "note": "Inherited drift from earlier authorized wave 0e5c7cd. Pinned for provenance only; this entry is not a semantic review of that wave."
+  },
+  {
+   "path": "components/lab/exam-catalog.tsx",
+   "previousSha256": "90726354310e9280649d80987bbc5bc43da138a8c7615fb5a7763b60de009f0b",
+   "sha256": "feffbfd609d4df8907f6409f942bc57fff89e4927191dd24f50cca3c0367b3ea",
+   "bytes": 6611,
+   "layer": "knowledge-atlas/implementation",
+   "attribution": "inherited-0e5c7cd",
+   "note": "Inherited drift from earlier authorized wave 0e5c7cd. Pinned for provenance only; this entry is not a semantic review of that wave."
+  },
+  {
+   "path": "components/lab/exam-player.tsx",
+   "previousSha256": "80c485d5b807dfc2a30010963ecf794724e9e147c3c64e7f8261b4aa580dfc70",
+   "sha256": "9859ef5bcbb13c91fd8f16a3b6e6c56a59c1cc691e50f39e23f795ee6be46b8d",
+   "bytes": 40377,
+   "layer": "knowledge-atlas/implementation",
+   "attribution": "inherited-0e5c7cd",
+   "note": "Inherited drift from earlier authorized wave 0e5c7cd. Pinned for provenance only; this entry is not a semantic review of that wave."
+  },
+  {
+   "path": "components/learn/intake-review.tsx",
+   "previousSha256": "61c30ddc9a3d1e81ff6957d6a70111c545f256ce979596ed97ea1e28a7526773",
+   "sha256": "d3baaeca5f75c7dfd6b0e8f2c882c28316db60f4e0202faa659b95ca95e8a9df",
+   "bytes": 20514,
+   "layer": "final-review-20261028/additions",
+   "attribution": "inherited-0e5c7cd",
+   "note": "Inherited drift from earlier authorized wave 0e5c7cd. Pinned for provenance only; this entry is not a semantic review of that wave."
+  },
+  {
+   "path": "components/practice/draft-review.tsx",
+   "previousSha256": "9b102a2e608181b9d4903f497ad8a3aa331b07a06b2d3334373d9c8aea7fbc01",
+   "sha256": "dcaeede680c8df70400e00b6d8124434ddc06b778f154a7133bf05ca81cae8eb",
+   "bytes": 11266,
+   "layer": "learning-architecture-20261028",
+   "attribution": "inherited-2f903ff",
+   "note": "Inherited drift from earlier authorized wave 2f903ff. Pinned for provenance only; this entry is not a semantic review of that wave."
+  },
+  {
+   "path": "components/practice/draft-review.tsx",
+   "previousSha256": "f3aec2215adbb2c83e22466be93194ea96b9bbca74bac4872a36157854a34fae",
+   "sha256": "dcaeede680c8df70400e00b6d8124434ddc06b778f154a7133bf05ca81cae8eb",
+   "bytes": 11266,
+   "layer": "final-review-20261028/additions",
+   "attribution": "inherited-2f903ff",
+   "note": "Inherited drift from earlier authorized wave 2f903ff. Pinned for provenance only; this entry is not a semantic review of that wave."
+  },
+  {
+   "path": "components/search/search-client.tsx",
+   "previousSha256": "da08fefd9d195e23c905bd5b869bf9dc87a4f854a95035bbdae0aaff77a87e5d",
+   "sha256": "001a1649c62b282a2689a6e848fd4ed1720abac9c0b60ca6fc28ddac18fac99d",
+   "bytes": 14969,
+   "layer": "knowledge-atlas/implementation",
+   "attribution": "curriculum-migration-88158d6",
+   "note": "Recorded by the authorized /learn migration commit 88158d6."
+  },
+  {
+   "path": "components/site-footer.tsx",
+   "previousSha256": "78239be02e8ea061d1e9af229b0e48e1e86f6d367384522b4dad28df05d0de12",
+   "sha256": "66ab35fbacb611e8c1560b81ba7d33af487758d00495c82f17eac2a9d2476fa3",
+   "bytes": 4980,
+   "layer": "prototype-c",
+   "attribution": "curriculum-migration-41a9d52",
+   "note": "Recorded by the authorized /learn migration commit 41a9d52."
+  },
+  {
+   "path": "components/site-footer.tsx",
+   "previousSha256": "79866ccfd5be4b96907c825c88e5a7d2b6aec722e0a2a4b29dd74f35ec903684",
+   "sha256": "66ab35fbacb611e8c1560b81ba7d33af487758d00495c82f17eac2a9d2476fa3",
+   "bytes": 4980,
+   "layer": "canonical-home",
+   "attribution": "curriculum-migration-41a9d52",
+   "note": "Recorded by the authorized /learn migration commit 41a9d52."
+  },
+  {
+   "path": "components/site-footer.tsx",
+   "previousSha256": "b91da3996ddec14d699fbf2d35143ad224280339bcf6bd6a3650123254077b01",
+   "sha256": "66ab35fbacb611e8c1560b81ba7d33af487758d00495c82f17eac2a9d2476fa3",
+   "bytes": 4980,
+   "layer": "knowledge-atlas/implementation",
+   "attribution": "curriculum-migration-41a9d52",
+   "note": "Recorded by the authorized /learn migration commit 41a9d52."
+  },
+  {
+   "path": "components/site-footer.tsx",
+   "previousSha256": "bd8996b642034dc2cfb04323f55f4fe7237e2876e6f706e8d1d8854388a56590",
+   "sha256": "66ab35fbacb611e8c1560b81ba7d33af487758d00495c82f17eac2a9d2476fa3",
+   "bytes": 4980,
+   "layer": "knowledge-atlas/implementation",
+   "attribution": "curriculum-migration-41a9d52",
+   "note": "Recorded by the authorized /learn migration commit 41a9d52."
+  },
+  {
+   "path": "components/site-header.tsx",
+   "previousSha256": "118ed934956168ae612e6e84d20eb112f7eaf3cd64a5a457ea0974af7dea8f5d",
+   "sha256": "f9c18a0d58fa4b3faedb5be02c3cf5c39bbfe0eb6f7f9bcf30a55d714ea467bc",
+   "bytes": 9714,
+   "layer": "canonical-home",
+   "attribution": "inherited-0e5c7cd",
+   "note": "Inherited drift from earlier authorized wave 0e5c7cd. Pinned for provenance only; this entry is not a semantic review of that wave."
+  },
+  {
+   "path": "components/site-header.tsx",
+   "previousSha256": "50bbdb966021f33fe56b1061fd0626fc4c8bf932cc38ba682d59b0f7b32676a3",
+   "sha256": "f9c18a0d58fa4b3faedb5be02c3cf5c39bbfe0eb6f7f9bcf30a55d714ea467bc",
+   "bytes": 9714,
+   "layer": "knowledge-atlas/implementation",
+   "attribution": "inherited-0e5c7cd",
+   "note": "Inherited drift from earlier authorized wave 0e5c7cd. Pinned for provenance only; this entry is not a semantic review of that wave."
+  },
+  {
+   "path": "components/site-header.tsx",
+   "previousSha256": "96eaf9ca1e8b726fbc3981f6f924dcccd992ed27249aff2f604bd9bfe392905d",
+   "sha256": "f9c18a0d58fa4b3faedb5be02c3cf5c39bbfe0eb6f7f9bcf30a55d714ea467bc",
+   "bytes": 9714,
+   "layer": "cinematic-phase2",
+   "attribution": "inherited-0e5c7cd",
+   "note": "Inherited drift from earlier authorized wave 0e5c7cd. Pinned for provenance only; this entry is not a semantic review of that wave."
+  },
+  {
+   "path": "components/site-header.tsx",
+   "previousSha256": "b454eedbfdfdc174da711d45e91c99d80eac9dde0425c990fd50dda548cfa4c1",
+   "sha256": "f9c18a0d58fa4b3faedb5be02c3cf5c39bbfe0eb6f7f9bcf30a55d714ea467bc",
+   "bytes": 9714,
+   "layer": "knowledge-atlas/implementation",
+   "attribution": "inherited-0e5c7cd",
+   "note": "Inherited drift from earlier authorized wave 0e5c7cd. Pinned for provenance only; this entry is not a semantic review of that wave."
+  },
+  {
+   "path": "components/site-header.tsx",
+   "previousSha256": "e92314bab7f60b218eb9a119bfe44bd5408a4202f5e6657cf4e7a5f14e4a21d3",
+   "sha256": "f9c18a0d58fa4b3faedb5be02c3cf5c39bbfe0eb6f7f9bcf30a55d714ea467bc",
+   "bytes": 9714,
+   "layer": "prototype-c",
+   "attribution": "inherited-0e5c7cd",
+   "note": "Inherited drift from earlier authorized wave 0e5c7cd. Pinned for provenance only; this entry is not a semantic review of that wave."
+  },
+  {
+   "path": "components/sql/lesson.tsx",
+   "previousSha256": "8e2e351f672918a1148d5bf1d7bc40cf8f75dfff4094b6335cff4dc14e81d243",
+   "sha256": "ea260bdb3d9f10bb05d13d06d6aadee1523983905f7a9e07945fa544c2252dc7",
+   "bytes": 3261,
+   "layer": "sql-integration-20261028",
+   "attribution": "curriculum-migration-807c6fc",
+   "note": "Recorded by the authorized /learn migration commit 807c6fc."
+  },
+  {
+   "path": "components/statistics/math.tsx",
+   "previousSha256": "6e675789a1418dc8daf04d92c73b3c87fbd71c60932a2b4b1a7cfb350a33a843",
+   "sha256": "fa2602a3bd5b1b57430cab0b387881d7a8061023ff8be58b1f9700884e64fd5f",
+   "bytes": 4168,
+   "layer": "knowledge-atlas/implementation",
+   "attribution": "inherited-0e5c7cd",
+   "note": "Inherited drift from earlier authorized wave 0e5c7cd. Pinned for provenance only; this entry is not a semantic review of that wave."
+  },
+  {
+   "path": "components/study/directory.tsx",
+   "previousSha256": "902fcec347a58e8a0be5bafb4b577551970079550fff3088f33e70c297daa4d6",
+   "sha256": "dfe1f62e1499e277633760cdd59beb5d58a0518abe202552d40a297196013e01",
+   "bytes": 5371,
+   "layer": "learning-architecture-20261028",
+   "attribution": "curriculum-migration-807c6fc",
+   "note": "Recorded by the authorized /learn migration commit 807c6fc."
+  },
+  {
+   "path": "components/study/directory.tsx",
+   "previousSha256": "e7d08a414a22943728666609f48c86b5ccce61450685dc64da4ed05254f60367",
+   "sha256": "dfe1f62e1499e277633760cdd59beb5d58a0518abe202552d40a297196013e01",
+   "bytes": 5371,
+   "layer": "learning-path-review-20261028",
+   "attribution": "curriculum-migration-807c6fc",
+   "note": "Recorded by the authorized /learn migration commit 807c6fc."
+  },
+  {
+   "path": "components/study/orientation.tsx",
+   "previousSha256": "123dcc56a941159a98b97acafdbc17291cf8b91789ef3f4bc8a98679d988707d",
+   "sha256": "27cec0ad95ee3946ada9ad139890f98e408fdab8d90011ecefe597c94980b6b5",
+   "bytes": 3843,
+   "layer": "learning-architecture-20261028",
+   "attribution": "curriculum-migration-807c6fc",
+   "note": "Recorded by the authorized /learn migration commit 807c6fc."
+  },
+  {
+   "path": "components/study/orientation.tsx",
+   "previousSha256": "6bb67878752298ae42ff0591b11c16b73ccc5b0993f41b8810167ccd79ba073d",
+   "sha256": "27cec0ad95ee3946ada9ad139890f98e408fdab8d90011ecefe597c94980b6b5",
+   "bytes": 3843,
+   "layer": "learning-path-review-20261028",
+   "attribution": "curriculum-migration-807c6fc",
+   "note": "Recorded by the authorized /learn migration commit 807c6fc."
+  },
+  {
+   "path": "components/study/orientation.tsx",
+   "previousSha256": "dabdf612a0a3d2b53263a9b2b39dadcbe8d3fa52c6d03a62b0577ee03f01028b",
+   "sha256": "27cec0ad95ee3946ada9ad139890f98e408fdab8d90011ecefe597c94980b6b5",
+   "bytes": 3843,
+   "layer": "sql-integration-20261028",
+   "attribution": "curriculum-migration-807c6fc",
+   "note": "Recorded by the authorized /learn migration commit 807c6fc."
+  },
+  {
+   "path": "components/study/path-units.tsx",
+   "previousSha256": "2ebb41f80a5bf921a448ba91e57ac6fed47563f71b95b20eb3d912dcd94fad26",
+   "sha256": "697963d8b86502ce4238721f6914d950744ac1ef823a9a848ff7c6d9c44d5955",
+   "bytes": 8749,
+   "layer": "learning-path-review-20261028",
+   "attribution": "curriculum-migration-807c6fc",
+   "note": "Recorded by the authorized /learn migration commit 807c6fc."
+  },
+  {
+   "path": "components/study/topic-browser.tsx",
+   "previousSha256": "53f786cfc16de67eadb4eaa78336aec2e76efea2927fa69add62c9e2f2d63fe5",
+   "sha256": "44ff3fd2eddbe1d7eef385f82fa72e7b9aaa3f9c5d75bfddb313f44c19b553d9",
+   "bytes": 7717,
+   "layer": "hansa-integration-20261029",
+   "attribution": "curriculum-migration-807c6fc",
+   "note": "Recorded by the authorized /learn migration commit 807c6fc."
+  },
+  {
+   "path": "components/study/topic-browser.tsx",
+   "previousSha256": "a13031e051e92d3d3de62e431bc69bd61d42f97fc3f5920cfb54db5fd3546dc5",
+   "sha256": "44ff3fd2eddbe1d7eef385f82fa72e7b9aaa3f9c5d75bfddb313f44c19b553d9",
+   "bytes": 7717,
+   "layer": "learning-architecture-20261028",
+   "attribution": "curriculum-migration-807c6fc",
+   "note": "Recorded by the authorized /learn migration commit 807c6fc."
+  },
+  {
+   "path": "components/study/topic-preparation.tsx",
+   "previousSha256": "48edb69417b74646c8b2c22862e8e395c0cb6ac872dd1a5e31194122da91f54d",
+   "sha256": "e34da8af15d01ac023f80d8effea060c28951ad33cf1ef17ecbd322acc3a6969",
+   "bytes": 1927,
+   "layer": "learning-path-review-20261028",
+   "attribution": "curriculum-migration-807c6fc",
+   "note": "Recorded by the authorized /learn migration commit 807c6fc."
+  },
+  {
+   "path": "content/drafts/manifest.json",
+   "previousSha256": "2d62279d0c4af1d0b71d480131d802a088e96853d3442326c3aa51318d54d055",
+   "sha256": "3fc488a9c8f5e3ab6ecdd0a96889604fd35603607b4a839b9f5a998ef9505221",
+   "bytes": 4982,
+   "layer": "final-review-20261028/additions",
+   "attribution": "inherited-2f903ff",
+   "note": "Inherited drift from earlier authorized wave 2f903ff. Pinned for provenance only; this entry is not a semantic review of that wave."
+  },
+  {
+   "path": "content/fabric/cases.json",
+   "previousSha256": "c4c28f9fe16031875a3d0be6407f542674a3e5399564fbeec74bda5c203f1d19",
+   "sha256": "84d12272c0c6637b60106599779523874954f04d1fd95c8e7f7b051521bf11a9",
+   "bytes": 34326,
+   "layer": "knowledge-atlas/implementation",
+   "attribution": "inherited-d22a0b0",
+   "note": "Inherited drift from earlier authorized wave d22a0b0. Pinned for provenance only; this entry is not a semantic review of that wave."
+  },
+  {
+   "path": "content/fabric/id-map.json",
+   "previousSha256": "524aaadc37c6e12ccdbaa62b7d501dfeb9037b612950cdcbaf31af80b163f517",
+   "sha256": "da844ebddbc401c9416f92c73f3f6e6ae048e8dd180e6f2be6f873dc40fa388e",
+   "bytes": 131070,
+   "layer": "knowledge-atlas/implementation",
+   "attribution": "inherited-f937869",
+   "note": "Inherited drift from earlier authorized wave f937869. Pinned for provenance only; this entry is not a semantic review of that wave."
+  },
+  {
+   "path": "content/fabric/index.json",
+   "previousSha256": "188d61334d48a60c4e10fce6f62ced8541a16893add984ea9210a3d2924a84a4",
+   "sha256": "76878f36a880350032bf07395461c5fe553108289e0e671f217ed462a66a0e2d",
+   "bytes": 836254,
+   "layer": "knowledge-atlas/implementation",
+   "attribution": "inherited-f937869",
+   "note": "Inherited drift from earlier authorized wave f937869. Pinned for provenance only; this entry is not a semantic review of that wave."
+  },
+  {
+   "path": "content/fabric/meta.json",
+   "previousSha256": "7800d00799dc8609b728fc2e02a7baecdcc971da115221a5e9e36fd755080b87",
+   "sha256": "8ff9aaea4f6964a8a25758b27d133195efe0ed99691b6784ef52810fa5aac597",
+   "bytes": 105452,
+   "layer": "knowledge-atlas/implementation",
+   "attribution": "inherited-f937869",
+   "note": "Inherited drift from earlier authorized wave f937869. Pinned for provenance only; this entry is not a semantic review of that wave."
+  },
+  {
+   "path": "content/fabric/notes.json",
+   "previousSha256": "708e75dd414011f6cf4bfefcaed5bbf6f32af7b36bc92d38e728a6d3953753bb",
+   "sha256": "624f280f377267221c34cfce1a1b0c5ed504f180daea1fdf348fd74bfc7e5301",
+   "bytes": 311796,
+   "layer": "knowledge-atlas/implementation",
+   "attribution": "inherited-f937869",
+   "note": "Inherited drift from earlier authorized wave f937869. Pinned for provenance only; this entry is not a semantic review of that wave."
+  },
+  {
+   "path": "content/fabric/packs.json",
+   "previousSha256": "9c5124642f0f32bcfcfda408465d7ad141d76909990da1adc80e6023948f436a",
+   "sha256": "cb3e1b50f7ec44f43abd34d1a3b0c1c9f1fc4f1125ec2dc0f4e26967dbdea4ba",
+   "bytes": 14596,
+   "layer": "knowledge-atlas/implementation",
+   "attribution": "inherited-f937869",
+   "note": "Inherited drift from earlier authorized wave f937869. Pinned for provenance only; this entry is not a semantic review of that wave."
+  },
+  {
+   "path": "content/fabric/sources.json",
+   "previousSha256": "3f2a744f128d275c55bc085d6a79f42b653a22cdcaf8dbf711b2c9bbba57a0c5",
+   "sha256": "aadbe9fe1decc0e1d7f8dfeec337dcfb194eff3648e991e2d7afd2088f2fa386",
+   "bytes": 96098,
+   "layer": "knowledge-atlas/implementation",
+   "attribution": "inherited-f937869",
+   "note": "Inherited drift from earlier authorized wave f937869. Pinned for provenance only; this entry is not a semantic review of that wave."
+  },
+  {
+   "path": "content/knowledge/insights.json",
+   "previousSha256": "eebca8eb3a6639fe1e49a52228fa1c4038fe4dcadb97b90300b85b06954f0523",
+   "sha256": "f6c3cf4bc61687eef84e2f85ce3327d4e61ae9dd565b3a6fb3ce6d5a1ddd487f",
+   "bytes": 3960,
+   "layer": "prototype-c",
+   "attribution": "inherited-0e5c7cd",
+   "note": "Inherited drift from earlier authorized wave 0e5c7cd. Pinned for provenance only; this entry is not a semantic review of that wave."
+  },
+  {
+   "path": "docs/agent-reference/START_HERE.md",
+   "previousSha256": "043c6317214cdd125b268d2fcfadaa5763a6f13d3b787d7729a33fc7d365a67c",
+   "sha256": "b72f61f7c23ea75f23b0a348265bb12de554ff63d14c3a1ff1d325cc282599a8",
+   "bytes": 7056,
+   "layer": "knowledge-atlas",
+   "attribution": "curriculum-migration-807c6fc",
+   "note": "Recorded by the authorized /learn migration commit 807c6fc."
+  },
+  {
+   "path": "docs/fabric/screenshots/desktop-hub-dark.png",
+   "previousSha256": "6cf6fb461bc0f25371ed4ead8e87f1bd21a2acdbd918e12f04dbc48ca765fe11",
+   "sha256": "91de9f39f16387f22d81651ffb125b9c2a73b494ecb67df4ca513e4b50b839b1",
+   "bytes": 113693,
+   "layer": "knowledge-atlas/implementation",
+   "attribution": "inherited-39466ee",
+   "note": "Inherited drift from earlier authorized wave 39466ee. Pinned for provenance only; this entry is not a semantic review of that wave."
+  },
+  {
+   "path": "docs/fabric/screenshots/desktop-results.png",
+   "previousSha256": "555aa342ff10f598fd3932e77044e07a35888a945ac6f603412d798791dd1c98",
+   "sha256": "51009a254f3b4f72e0a8d299c94512303cb95e5df12b195f9b14eccd2002d499",
+   "bytes": 122780,
+   "layer": "knowledge-atlas/implementation",
+   "attribution": "inherited-39466ee",
+   "note": "Inherited drift from earlier authorized wave 39466ee. Pinned for provenance only; this entry is not a semantic review of that wave."
+  },
+  {
+   "path": "docs/fabric/screenshots/exported-progress.json",
+   "previousSha256": "4ff032371505ff98e3542da47142bbda695fe68750c30eb20412ab894a0904e2",
+   "sha256": "194d4eaf38a5cc56b413a45c8c9f4ba82c3ecfb2cd2b0eca138fd2878f4bac92",
+   "bytes": 27190,
+   "layer": "knowledge-atlas/implementation",
+   "attribution": "inherited-39466ee",
+   "note": "Inherited drift from earlier authorized wave 39466ee. Pinned for provenance only; this entry is not a semantic review of that wave."
+  },
+  {
+   "path": "docs/fabric/screenshots/mobile-hub.png",
+   "previousSha256": "5c1b9f93047ae4b316e2fe32db982e064e9b7be3bcb4091e786fa608fa08f17c",
+   "sha256": "3e30cfea4cd151c88a290307ad13f900d3659a67612d824a5d86a51b5ab16165",
+   "bytes": 69833,
+   "layer": "knowledge-atlas/implementation",
+   "attribution": "inherited-39466ee",
+   "note": "Inherited drift from earlier authorized wave 39466ee. Pinned for provenance only; this entry is not a semantic review of that wave."
+  },
+  {
+   "path": "docs/fabric/screenshots/mobile-question.png",
+   "previousSha256": "0a8848eecd666b4aa1c7741d0e04025bfefc37b6587e589c84364a53ecb2b1dd",
+   "sha256": "38c1570df813a632fc6744fd26934f0a10fc924d2a5453d73e6b44ce8ffa0704",
+   "bytes": 60074,
+   "layer": "knowledge-atlas/implementation",
+   "attribution": "inherited-39466ee",
+   "note": "Inherited drift from earlier authorized wave 39466ee. Pinned for provenance only; this entry is not a semantic review of that wave."
+  },
+  {
+   "path": "docs/knowledge-atlas/START_HERE.md",
+   "previousSha256": "00c1f471ec10bf941225dded0e01a7269851592f390a5eba416fe8fcdb5069a0",
+   "sha256": "7497f23944077ddbbb5aa203441b5eefd157e87d89757d23e7de69b177695c68",
+   "bytes": 2784,
+   "layer": "knowledge-atlas",
+   "attribution": "inherited-496fddf",
+   "note": "Inherited drift from earlier authorized wave 496fddf. Pinned for provenance only; this entry is not a semantic review of that wave."
+  },
+  {
+   "path": "docs/sql-integration-20261028/BASELINE.json",
+   "previousSha256": "d7c7e3016d9b1976570cb265b39db7b6d1c67265d15b114e04c3f828088da5d1",
+   "sha256": "833465ee40dfac855d3b18c56f5c39b68e12452b8397aeaa00bfd519e028acc6",
+   "bytes": 8535,
+   "layer": "sql-integration-20261028",
+   "attribution": "inherited-2f903ff",
+   "note": "Inherited drift from earlier authorized wave 2f903ff. Pinned for provenance only; this entry is not a semantic review of that wave."
+  },
+  {
+   "path": "eslint.config.mjs",
+   "previousSha256": "a04fe04d3457bdafc2509c14ad13cec3acce51e7158e92d68c280d5e40c7cd5f",
+   "sha256": "63d9fe80ed273da80838125418fbb332776bbd7b210d553d29433683c6641cbf",
+   "bytes": 1802,
+   "layer": "knowledge-atlas/implementation",
+   "attribution": "inherited-2e09ee9",
+   "note": "Inherited drift from earlier authorized wave 2e09ee9. Pinned for provenance only; this entry is not a semantic review of that wave."
+  },
+  {
+   "path": "lib/atlas/field.ts",
+   "previousSha256": "79f985b31e5010a8ad2c910c45bd934bc34841217881fdca9273e991790001ff",
+   "sha256": "da571a671ce66a538f6050e6fe8d8ae3caf6b5e4a4befe6ea184e598a9d8af95",
+   "bytes": 21510,
+   "layer": "hansa-integration-20261029",
+   "attribution": "inherited-inert",
+   "note": "Changed by 0902e15. TypeScript tokens are identical to 45704b5: only the comment about the retired spacetime renderer changed."
+  },
+  {
+   "path": "lib/atlas/model.ts",
+   "previousSha256": "24996c60ae12956b71f502629d70a1db83aafb37650af0c9b7525eb6c6e2be3f",
+   "sha256": "675e6015fe9192710b07d542101cf9744dc8f72eb6750221237018f2406f2dea",
+   "bytes": 11782,
+   "layer": "knowledge-atlas/implementation",
+   "attribution": "inherited-496fddf",
+   "note": "Inherited drift from earlier authorized wave 496fddf. Pinned for provenance only; this entry is not a semantic review of that wave."
+  },
+  {
+   "path": "lib/atlas/server.ts",
+   "previousSha256": "905a0d3a0f9bceb0a2fbafd377eea665a84533c966d52b8edf87216bf21bcc51",
+   "sha256": "851daa2943c74a78ff10add3224388d7f74b5e8516a5d39449dd0961d823ecac",
+   "bytes": 1254,
+   "layer": "knowledge-atlas/dp600-expansion",
+   "attribution": "inherited-0e5c7cd",
+   "note": "Inherited drift from earlier authorized wave 0e5c7cd. Pinned for provenance only; this entry is not a semantic review of that wave."
+  },
+  {
+   "path": "lib/atlas/server.ts",
+   "previousSha256": "c43702d26f53171fd24b100ac1cc9be529d509efe246364a3b49970a7ef43349",
+   "sha256": "851daa2943c74a78ff10add3224388d7f74b5e8516a5d39449dd0961d823ecac",
+   "bytes": 1254,
+   "layer": "knowledge-atlas/implementation",
+   "attribution": "inherited-0e5c7cd",
+   "note": "Inherited drift from earlier authorized wave 0e5c7cd. Pinned for provenance only; this entry is not a semantic review of that wave."
+  },
+  {
+   "path": "lib/atlas/server.ts",
+   "previousSha256": "d3e9becbe2db24ed0d0926f1c03c44c08b628de8131b51b9552038ed57e49a47",
+   "sha256": "851daa2943c74a78ff10add3224388d7f74b5e8516a5d39449dd0961d823ecac",
+   "bytes": 1254,
+   "layer": "knowledge-atlas/dp600-continuation",
+   "attribution": "inherited-0e5c7cd",
+   "note": "Inherited drift from earlier authorized wave 0e5c7cd. Pinned for provenance only; this entry is not a semantic review of that wave."
+  },
+  {
+   "path": "lib/catalogue.ts",
+   "previousSha256": "2e72068953ac004b35f705285fa7eed91d7e1f00a38aeeba91b9923bc95afbba",
+   "sha256": "2f01a732e12c7345b4db57a641288d0e51e9e7c868f646c26a7b9827601e7e52",
+   "bytes": 14101,
+   "layer": "knowledge-atlas/implementation",
+   "attribution": "curriculum-migration-1763890",
+   "note": "Recorded by the authorized /learn migration commit 1763890."
+  },
+  {
+   "path": "lib/catalogue.ts",
+   "previousSha256": "99fafbc47744defd2abfcfcc0f145a7f27dcdaa8ddcda76ae2ce18c725268eac",
+   "sha256": "2f01a732e12c7345b4db57a641288d0e51e9e7c868f646c26a7b9827601e7e52",
+   "bytes": 14101,
+   "layer": "hansa-integration-20261029",
+   "attribution": "curriculum-migration-1763890",
+   "note": "Recorded by the authorized /learn migration commit 1763890."
+  },
+  {
+   "path": "lib/exams.ts",
+   "previousSha256": "5837769bc5a42e16ceea806ff4940ba854965c35c247e27e850d1bf67106d3e0",
+   "sha256": "349d794587b753a72f8533bbb978838436c08422c379161f14adf8df9a264f90",
+   "bytes": 4583,
+   "layer": "knowledge-atlas/implementation",
+   "attribution": "inherited-0e5c7cd",
+   "note": "Inherited drift from earlier authorized wave 0e5c7cd. Pinned for provenance only; this entry is not a semantic review of that wave."
+  },
+  {
+   "path": "lib/fabric/data.ts",
+   "previousSha256": "ec1a18646f1d40e64864cfef475e18735c1973306e3d22b7b250446a9a1df609",
+   "sha256": "eda13c0bcce78f6adf0124b3068e44cb4ce43ceef39e734cea7e79c492da3e38",
+   "bytes": 5423,
+   "layer": "knowledge-atlas/implementation",
+   "attribution": "curriculum-migration-c78a76f",
+   "note": "Recorded by the authorized /learn migration commit c78a76f."
+  },
+  {
+   "path": "lib/fabric/pack-loaders.generated.ts",
+   "previousSha256": "3dfb0bbf50a59422519d0de04f51d8d06b9b7de1d39b532cf20e436872040559",
+   "sha256": "70b8a25c49d07395ad4e8bb0f81da34a96ffe383aa585754d2a82ea0e4050654",
+   "bytes": 5136,
+   "layer": "knowledge-atlas/implementation",
+   "attribution": "inherited-f937869",
+   "note": "Inherited drift from earlier authorized wave f937869. Pinned for provenance only; this entry is not a semantic review of that wave."
+  },
+  {
+   "path": "lib/fabric/taxonomy.ts",
+   "previousSha256": "58ac40cdf3d011b8bb42e0290db384657f65ad8d4da9ede2769d1825561b0ce5",
+   "sha256": "07bbd3e8689349ecfda6f8f220daa7fdfaf80391db068cc5777fbb8f3eb4aa93",
+   "bytes": 13793,
+   "layer": "knowledge-atlas/implementation",
+   "attribution": "inherited-ff54796",
+   "note": "Inherited drift from earlier authorized wave ff54796. Pinned for provenance only; this entry is not a semantic review of that wave."
+  },
+  {
+   "path": "lib/hooks/use-hover-capable.ts",
+   "previousSha256": "b5b9397bfa03859e04673c8f1817cf13ff55d2a9688955d6e0459ae70db90d06",
+   "sha256": "3df90d8f14d4a5e3e6c7d0c6550d9cef19da37dd0483cc2708e43a7e44176ebb",
+   "bytes": 868,
+   "layer": "knowledge-atlas/implementation",
+   "attribution": "inherited-496fddf",
+   "note": "Inherited drift from earlier authorized wave 496fddf. Pinned for provenance only; this entry is not a semantic review of that wave."
+  },
+  {
+   "path": "lib/search/documents.ts",
+   "previousSha256": "1231c1334b0f0f11037ef79abc8233822b2901b3712cedc2667222f76c5c6ad0",
+   "sha256": "4104243d4b1729a3af907c3af34121a6672b44e84b1e7ece13267724ea7859ee",
+   "bytes": 3251,
+   "layer": "knowledge-atlas/implementation",
+   "attribution": "curriculum-migration-8da7afb",
+   "note": "Recorded by the authorized /learn migration commit 8da7afb."
+  },
+  {
+   "path": "lib/search/documents.ts",
+   "previousSha256": "40da9c687cffd02636c99206858eda9b64e12513c22f7b2032234345bd980010",
+   "sha256": "4104243d4b1729a3af907c3af34121a6672b44e84b1e7ece13267724ea7859ee",
+   "bytes": 3251,
+   "layer": "learning-architecture-20261028",
+   "attribution": "curriculum-migration-8da7afb",
+   "note": "Recorded by the authorized /learn migration commit 8da7afb."
+  },
+  {
+   "path": "lib/search/documents.ts",
+   "previousSha256": "6f1287de929a39a6a2479fb96ecdbc345e28143f5e05db4d240bc768eba0cf84",
+   "sha256": "4104243d4b1729a3af907c3af34121a6672b44e84b1e7ece13267724ea7859ee",
+   "bytes": 3251,
+   "layer": "knowledge-atlas/implementation",
+   "attribution": "curriculum-migration-8da7afb",
+   "note": "Recorded by the authorized /learn migration commit 8da7afb."
+  },
+  {
+   "path": "lib/search/documents.ts",
+   "previousSha256": "892958c9a58e58b18df806f9d335d6eada653553ae21e8281f7817b12f259ae1",
+   "sha256": "4104243d4b1729a3af907c3af34121a6672b44e84b1e7ece13267724ea7859ee",
+   "bytes": 3251,
+   "layer": "canonical-home",
+   "attribution": "curriculum-migration-8da7afb",
+   "note": "Recorded by the authorized /learn migration commit 8da7afb."
+  },
+  {
+   "path": "lib/search/documents.ts",
+   "previousSha256": "f8cd1995901da68795c95cc5da5a98f5ca68c4f7ba7bd9f3bdf0a2fc510cecb3",
+   "sha256": "4104243d4b1729a3af907c3af34121a6672b44e84b1e7ece13267724ea7859ee",
+   "bytes": 3251,
+   "layer": "dp600-r11-integration",
+   "attribution": "curriculum-migration-8da7afb",
+   "note": "Recorded by the authorized /learn migration commit 8da7afb."
+  },
+  {
+   "path": "lib/search/query.ts",
+   "previousSha256": "4f37aca8e10309163939d8e7c4d33d2dfbdb89c5e593582cfcb8eb5455cfc752",
+   "sha256": "9647c91f4d6e039262151ea6194121168f0fede223250ea1dc73398b4de401b5",
+   "bytes": 14422,
+   "layer": "knowledge-atlas/implementation",
+   "attribution": "curriculum-migration-8da7afb",
+   "note": "Recorded by the authorized /learn migration commit 8da7afb."
+  },
+  {
+   "path": "lib/site-metrics.ts",
+   "previousSha256": "5cbd39bd86f79c48bc32ad0429eb0012a7104b2a8358effaaefff0cedbda6fa2",
+   "sha256": "6b933e10d02be6d83bc98f398ee63ce4cd788c35581746b0840f7d1e60fc6b4a",
+   "bytes": 2730,
+   "layer": "knowledge-atlas/implementation",
+   "attribution": "inherited-2f903ff",
+   "note": "Inherited drift from earlier authorized wave 2f903ff. Pinned for provenance only; this entry is not a semantic review of that wave."
+  },
+  {
+   "path": "lib/site.ts",
+   "previousSha256": "2a4428ef2748230e0bb57da4350d69df9c526591eeed7f1ad220459a512da1f9",
+   "sha256": "5617b32d23fe27459db5d8c567ba4c7c6069f2d8b86493cf11df5d4438b490f7",
+   "bytes": 6103,
+   "layer": "canonical-home",
+   "attribution": "curriculum-migration-c78a76f",
+   "note": "Recorded by the authorized /learn migration commit c78a76f."
+  },
+  {
+   "path": "lib/site.ts",
+   "previousSha256": "95fa82af08300f0ed5d6b51e1e6f2fa5bb48e141618a519315ae00b1b7766718",
+   "sha256": "5617b32d23fe27459db5d8c567ba4c7c6069f2d8b86493cf11df5d4438b490f7",
+   "bytes": 6103,
+   "layer": "learning-architecture-20261028",
+   "attribution": "curriculum-migration-c78a76f",
+   "note": "Recorded by the authorized /learn migration commit c78a76f."
+  },
+  {
+   "path": "lib/site.ts",
+   "previousSha256": "e4c8a8f7cb3eb5c0094310e173c64c14be8019199b077bd218a1f10c36ae7c42",
+   "sha256": "5617b32d23fe27459db5d8c567ba4c7c6069f2d8b86493cf11df5d4438b490f7",
+   "bytes": 6103,
+   "layer": "knowledge-atlas/implementation",
+   "attribution": "curriculum-migration-c78a76f",
+   "note": "Recorded by the authorized /learn migration commit c78a76f."
+  },
+  {
+   "path": "lib/study/learning-path.ts",
+   "previousSha256": "1be8c8d9e74d677324dadfb2a1e378646fc8083626539fec05a62ef1569fb10f",
+   "sha256": "b035680ec211f69fc9a67247ed69ef7a7d17a857a18adfb17b3352377f71a238",
+   "bytes": 13477,
+   "layer": "learning-path-review-20261028",
+   "attribution": "inherited-0e5c7cd",
+   "note": "Inherited drift from earlier authorized wave 0e5c7cd. Pinned for provenance only; this entry is not a semantic review of that wave."
+  },
+  {
+   "path": "lib/study/review.ts",
+   "previousSha256": "4fa3f57f831d1b16c72032e31294f037c1b69efeddf653d419a28a96964acff5",
+   "sha256": "538eec3538d946950f81bef0f84d841cde052b93482e188bf0d9aba12e5b6b7d",
+   "bytes": 3016,
+   "layer": "learning-architecture-20261028",
+   "attribution": "inherited-2f903ff",
+   "note": "Inherited drift from earlier authorized wave 2f903ff. Pinned for provenance only; this entry is not a semantic review of that wave."
+  },
+  {
+   "path": "lib/study/server.ts",
+   "previousSha256": "45b279333342effd8cbfcbd70d39afe772575b0b17257f033e42ce932e8c7ed8",
+   "sha256": "8f00eb190cbee8b57a62fbf8175d615d69004b954ec6cfc93abc0ff535af43c0",
+   "bytes": 7853,
+   "layer": "learning-architecture-20261028",
+   "attribution": "inherited-6c1a3e2",
+   "note": "Inherited drift from earlier authorized wave 6c1a3e2. Pinned for provenance only; this entry is not a semantic review of that wave."
+  },
+  {
+   "path": "lib/study/server.ts",
+   "previousSha256": "8ed2878c07c286cf06dd0b0db541e710d260ba59c7bf94c40041eee802561c1b",
+   "sha256": "8f00eb190cbee8b57a62fbf8175d615d69004b954ec6cfc93abc0ff535af43c0",
+   "bytes": 7853,
+   "layer": "learning-path-review-20261028",
+   "attribution": "inherited-6c1a3e2",
+   "note": "Inherited drift from earlier authorized wave 6c1a3e2. Pinned for provenance only; this entry is not a semantic review of that wave."
+  },
+  {
+   "path": "lib/study/server.ts",
+   "previousSha256": "c5a2139c76c9505cfaff3e315c9e8b9dd439431218a05ae70094a004a4751b98",
+   "sha256": "8f00eb190cbee8b57a62fbf8175d615d69004b954ec6cfc93abc0ff535af43c0",
+   "bytes": 7853,
+   "layer": "sql-integration-20261028",
+   "attribution": "inherited-6c1a3e2",
+   "note": "Inherited drift from earlier authorized wave 6c1a3e2. Pinned for provenance only; this entry is not a semantic review of that wave."
+  },
+  {
+   "path": "lib/study/source-documents.ts",
+   "previousSha256": "241caf870375b0e2d8f29f4439d7eeaeef100246eae6cc7e2d86e64d144a93c8",
+   "sha256": "d9bac928ad5b420271b01a738decfb991db36dd005205ebeb9a02e6131e64d62",
+   "bytes": 14070,
+   "layer": "learning-architecture-20261028",
+   "attribution": "curriculum-migration-1763890",
+   "note": "Recorded by the authorized /learn migration commit 1763890."
+  },
+  {
+   "path": "lib/study/source-documents.ts",
+   "previousSha256": "9af8e7c1f439168d8593c7dcd094edadd771171e06249bb440443ce06e3c9554",
+   "sha256": "d9bac928ad5b420271b01a738decfb991db36dd005205ebeb9a02e6131e64d62",
+   "bytes": 14070,
+   "layer": "sql-integration-20261028",
+   "attribution": "curriculum-migration-1763890",
+   "note": "Recorded by the authorized /learn migration commit 1763890."
+  },
+  {
+   "path": "lib/study/source-documents.ts",
+   "previousSha256": "9fd8877eeae3987b0c4954dd99fa7e0d8fcd932d88302a1ed0c1266046a5d0fe",
+   "sha256": "d9bac928ad5b420271b01a738decfb991db36dd005205ebeb9a02e6131e64d62",
+   "bytes": 14070,
+   "layer": "hansa-integration-20261029",
+   "attribution": "curriculum-migration-1763890",
+   "note": "Recorded by the authorized /learn migration commit 1763890."
+  },
+  {
+   "path": "lib/study/taxonomy.ts",
+   "previousSha256": "2cb5208d9e45d21ef40db7c0f11208c388672f7e6f6b7ab05c81b96a1b4d587c",
+   "sha256": "934a99fea8816461f5a0b7382777797b8f4fa50c475e87c1da9c2d7f1d76a9e5",
+   "bytes": 7112,
+   "layer": "sql-integration-20261028",
+   "attribution": "curriculum-migration-807c6fc",
+   "note": "Recorded by the authorized /learn migration commit 807c6fc."
+  },
+  {
+   "path": "lib/study/taxonomy.ts",
+   "previousSha256": "74fb715f0dce81b692461ca86aa6e338b36aa110f82f2e46de9a9fe11bb2f129",
+   "sha256": "934a99fea8816461f5a0b7382777797b8f4fa50c475e87c1da9c2d7f1d76a9e5",
+   "bytes": 7112,
+   "layer": "learning-architecture-20261028",
+   "attribution": "curriculum-migration-807c6fc",
+   "note": "Recorded by the authorized /learn migration commit 807c6fc."
+  },
+  {
+   "path": "lib/study/topic-review.ts",
+   "previousSha256": "71db68462e6e114c76f826e34d66963e43a21ef6943dda0e3e131c60fdb385e0",
+   "sha256": "c33bac1083ed9a7e1280e3368ad330a63c738d371ecd3ceb39ddcefd826e3195",
+   "bytes": 10677,
+   "layer": "learning-path-review-20261028",
+   "attribution": "inherited-0e5c7cd",
+   "note": "Inherited drift from earlier authorized wave 0e5c7cd. Pinned for provenance only; this entry is not a semantic review of that wave."
+  },
+  {
+   "path": "lib/touch.ts",
+   "previousSha256": "7eeceae0a77560d02670f5d6e9a4fd1d78876c9ab6ca5da617522a26803f18bc",
+   "sha256": "83d69d6322c8a6dabfd22d2a6ba921cc373c4e514d9ff8ad9abf090ccaeaaaac",
+   "bytes": 2600,
+   "layer": "final-review-20261028/history",
+   "attribution": "inherited-0e5c7cd",
+   "note": "Inherited drift from earlier authorized wave 0e5c7cd. Pinned for provenance only; this entry is not a semantic review of that wave."
+  },
+  {
+   "path": "lib/touch.ts",
+   "previousSha256": "f2a15c243c86c8bd1abb6e2e65a423b3a4c45cc1d797ebd83997f21cd1beadb9",
+   "sha256": "83d69d6322c8a6dabfd22d2a6ba921cc373c4e514d9ff8ad9abf090ccaeaaaac",
+   "bytes": 2600,
+   "layer": "knowledge-atlas/implementation",
+   "attribution": "inherited-0e5c7cd",
+   "note": "Inherited drift from earlier authorized wave 0e5c7cd. Pinned for provenance only; this entry is not a semantic review of that wave."
+  },
+  {
+   "path": "package.json",
+   "previousSha256": "18cf9597ff8d574df1c64a020efa525ab6a599e2ee65139dca2104932b5b9832",
+   "sha256": "866089835560000b5d890a21c1b858a599597572193c3dd0633a27be6d548449",
+   "bytes": 3613,
+   "layer": "hansa-integration-20261029",
+   "attribution": "curriculum-migration-41a9d52",
+   "note": "Recorded by the authorized /learn migration commit 41a9d52."
+  },
+  {
+   "path": "package.json",
+   "previousSha256": "6561cd5806c9e436d8accdb74fb3a669d3620c848a710e22cb29c2dc9cc62d92",
+   "sha256": "866089835560000b5d890a21c1b858a599597572193c3dd0633a27be6d548449",
+   "bytes": 3613,
+   "layer": "knowledge-atlas/implementation",
+   "attribution": "curriculum-migration-41a9d52",
+   "note": "Recorded by the authorized /learn migration commit 41a9d52."
+  },
+  {
+   "path": "README.md",
+   "previousSha256": "4de46bccc4b5108600427bc031db21c8a1e961e3a2be437dc3495842ae4fede5",
+   "sha256": "7f0aca40c7aee978528e59d9dde0fca299e33af49aba4fd56348c6c2aa9bb538",
+   "bytes": 17362,
+   "layer": "knowledge-atlas",
+   "attribution": "curriculum-migration-c78a76f",
+   "note": "Recorded by the authorized /learn migration commit c78a76f."
+  },
+  {
+   "path": "scripts/atlas-circle-receipt.mjs",
+   "previousSha256": "e644d6d49b7b25121d2dcc031020991a3bd43627faac77195752d96382f16e85",
+   "sha256": "13d467b04a0c022be8f56293206ef53ffe87cc177283349a096b9ff1b00a94bb",
+   "bytes": 1921,
+   "layer": "knowledge-atlas/circular-nodes",
+   "attribution": "inherited-496fddf",
+   "note": "Inherited drift from earlier authorized wave 496fddf. Pinned for provenance only; this entry is not a semantic review of that wave."
+  },
+  {
+   "path": "scripts/atlas-implementation-receipt.mjs",
+   "previousSha256": "0fa98bab4b3ce95069998ffa2fffb2fae4356f9d6827b28b250de476b2654edc",
+   "sha256": "d2bfea98e299108298ebcb13914d91b36caa000b3c1cf13ce67efd1412c9e7f3",
+   "bytes": 1751,
+   "layer": "knowledge-atlas/implementation",
+   "attribution": "inherited-496fddf",
+   "note": "Inherited drift from earlier authorized wave 496fddf. Pinned for provenance only; this entry is not a semantic review of that wave."
+  },
+  {
+   "path": "scripts/build-atlas-preview.mjs",
+   "previousSha256": "588ea6820d5d662831d7f3ef2bca9d95803f6e259650a8c74537d1369999cf94",
+   "sha256": "56577aec6884e744a3b28ddc0577599571f84f7661f946f2a6225308a849a80d",
+   "bytes": 1777,
+   "layer": "knowledge-atlas/dp600-expansion",
+   "attribution": "inherited-496fddf",
+   "note": "Inherited drift from earlier authorized wave 496fddf. Pinned for provenance only; this entry is not a semantic review of that wave."
+  },
+  {
+   "path": "scripts/build-atlas-preview.mjs",
+   "previousSha256": "e2c4eca0276c7b2de6d2783eaeac173422192a83c152bee43d089d6ff0740ffd",
+   "sha256": "56577aec6884e744a3b28ddc0577599571f84f7661f946f2a6225308a849a80d",
+   "bytes": 1777,
+   "layer": "knowledge-atlas/implementation",
+   "attribution": "inherited-496fddf",
+   "note": "Inherited drift from earlier authorized wave 496fddf. Pinned for provenance only; this entry is not a semantic review of that wave."
+  },
+  {
+   "path": "scripts/cinematic-phase2-receipt.mjs",
+   "previousSha256": "97f6d188c4356f904a1a4dee778b50f9b7b0a4877e63d3424d9dda7b01e959e8",
+   "sha256": "7279cdc3b8c21f8acb70a68a69046b40bc7c27777f1f712386cc26b0d5be107d",
+   "bytes": 2261,
+   "layer": "final-review-20261028",
+   "attribution": "m0-receipt-repair",
+   "note": "M0 receipt repair: edited while re-baselining the chain; the change is the receipt fix, not content."
+  },
+  {
+   "path": "scripts/cinematic-phase2-receipt.mjs",
+   "previousSha256": "f4803866a905bb3c0737a961d4708a5ad270ba61cfb1b4f132d22114c67c7ab8",
+   "sha256": "7279cdc3b8c21f8acb70a68a69046b40bc7c27777f1f712386cc26b0d5be107d",
+   "bytes": 2261,
+   "layer": "cinematic-phase2",
+   "attribution": "m0-receipt-repair",
+   "note": "M0 receipt repair: edited while re-baselining the chain; the change is the receipt fix, not content."
+  },
+  {
+   "path": "scripts/dp600-continuation-receipt.mjs",
+   "previousSha256": "0045ba778b334bc38a3676068e8ec0fd1c7eb98980f4c258f5187212de260f38",
+   "sha256": "2a904ee114fdfdec904e6f28ff1e6c2b9590ee793c1b2c0567e63450eae0d775",
+   "bytes": 3120,
+   "layer": "knowledge-atlas/dp600-continuation",
+   "attribution": "inherited-496fddf",
+   "note": "Inherited drift from earlier authorized wave 496fddf. Pinned for provenance only; this entry is not a semantic review of that wave."
+  },
+  {
+   "path": "scripts/dp600-expansion-receipt.mjs",
+   "previousSha256": "741c7655deab5f309e2069a6f9d4bbceeea21783e1d36b3a0b085f0413ea4be3",
+   "sha256": "669e52b78c52dbfb60f12fd1998803aea8d563a7e4d8d3ff5330247dae10a3e3",
+   "bytes": 1448,
+   "layer": "knowledge-atlas/dp600-expansion",
+   "attribution": "inherited-496fddf",
+   "note": "Inherited drift from earlier authorized wave 496fddf. Pinned for provenance only; this entry is not a semantic review of that wave."
+  },
+  {
+   "path": "scripts/final-review-negative.mjs",
+   "previousSha256": "c291b1af6e34df7fb09b9b2fcdcb3f6f5e0d36698ac78b47f5ecd77e4e23db96",
+   "sha256": "5de082c12583bdfe3e9f5850b5743551d668277c07add4fd51a683f3b98d8040",
+   "bytes": 5619,
+   "layer": "final-review-20261028",
+   "attribution": "m0-receipt-repair",
+   "note": "M0 receipt repair: edited while re-baselining the chain; the change is the receipt fix, not content."
+  },
+  {
+   "path": "scripts/final-review-receipt.mjs",
+   "previousSha256": "0968e83448d98e9c4f1694249d96787c5e7436f9c1f2af7a4af5d0e88bf11b9c",
+   "sha256": "0d9bc3666195782a24cdb4bde2d2ef67290e85a97fd67ed7609d84fd75337467",
+   "bytes": 9261,
+   "layer": "learning-architecture-20261028",
+   "attribution": "m0-receipt-repair",
+   "note": "M0 receipt repair: edited while re-baselining the chain; the change is the receipt fix, not content."
+  },
+  {
+   "path": "scripts/final-review-receipt.mjs",
+   "previousSha256": "6bcb680bef2638dd22ed6690c7cffd33c74ea8ce8d792c97b5e71867c8702ed5",
+   "sha256": "0d9bc3666195782a24cdb4bde2d2ef67290e85a97fd67ed7609d84fd75337467",
+   "bytes": 9261,
+   "layer": "final-review-20261028",
+   "attribution": "m0-receipt-repair",
+   "note": "M0 receipt repair: edited while re-baselining the chain; the change is the receipt fix, not content."
+  },
+  {
+   "path": "scripts/path-review-receipt.mjs",
+   "previousSha256": "8f520141a0c47cbb83d488882d39686faed93cf33549e7fdd3575564d450d8a7",
+   "sha256": "29dd66aaa15bf7fb5eb1cf80291a411d2cbd2b1e32fe058d63bcea9e560d0365",
+   "bytes": 1398,
+   "layer": "learning-path-review-20261028",
+   "attribution": "m0-receipt-repair",
+   "note": "M0 receipt repair: edited while re-baselining the chain; the change is the receipt fix, not content."
+  },
+  {
+   "path": "scripts/path-review-receipt.mjs",
+   "previousSha256": "b46d4d6a39a930476db9e2e236118969cbc878a272b2662d4d413481483fa8cd",
+   "sha256": "29dd66aaa15bf7fb5eb1cf80291a411d2cbd2b1e32fe058d63bcea9e560d0365",
+   "bytes": 1398,
+   "layer": "sql-integration-20261028",
+   "attribution": "m0-receipt-repair",
+   "note": "M0 receipt repair: edited while re-baselining the chain; the change is the receipt fix, not content."
+  },
+  {
+   "path": "scripts/preservation-history.mjs",
+   "previousSha256": "5a29992fdea2bee47563726595985178ab9c0cb56bc9b7e4b82f4f2377396990",
+   "sha256": "ff96a965882def05fc997772c11fcf8456d7a2500d44415acf0073a2f1296801",
+   "bytes": 8046,
+   "layer": "knowledge-atlas/implementation",
+   "attribution": "inherited-0e5c7cd",
+   "note": "Inherited drift from earlier authorized wave 0e5c7cd. Pinned for provenance only; this entry is not a semantic review of that wave."
+  },
+  {
+   "path": "scripts/preservation-history.mjs",
+   "previousSha256": "f31fff8ee83997f6fc3291f3a62d9fd6a8c4678f18c22294748c74646029509a",
+   "sha256": "ff96a965882def05fc997772c11fcf8456d7a2500d44415acf0073a2f1296801",
+   "bytes": 8046,
+   "layer": "knowledge-atlas/implementation",
+   "attribution": "inherited-0e5c7cd",
+   "note": "Inherited drift from earlier authorized wave 0e5c7cd. Pinned for provenance only; this entry is not a semantic review of that wave."
+  },
+  {
+   "path": "scripts/prototype-c-preservation.mjs",
+   "previousSha256": "342f02e881d2d71dc9e27b3168d0d933468312322db6fcc8bacc924a9741230b",
+   "sha256": "848b52fab1c523d42e5f671f1bd654d5a2f4caed15783662dd81c43eac138cbf",
+   "bytes": 3193,
+   "layer": "prototype-c",
+   "attribution": "inherited-0e5c7cd",
+   "note": "Inherited drift from earlier authorized wave 0e5c7cd. Pinned for provenance only; this entry is not a semantic review of that wave."
+  },
+  {
+   "path": "scripts/prototype-c-receipt.mjs",
+   "previousSha256": "674226eda0d54c4c5f2e81b6497443633dbf0da43f9ac3d0a316196afa6553ac",
+   "sha256": "20d94b8c398928651917afe94f7ea5c61c3c854f276296a094db2c75a46c93ee",
+   "bytes": 2355,
+   "layer": "dp600-r11-integration",
+   "attribution": "inherited-0e5c7cd",
+   "note": "Inherited drift from earlier authorized wave 0e5c7cd. Pinned for provenance only; this entry is not a semantic review of that wave."
+  },
+  {
+   "path": "scripts/prototype-c-receipt.mjs",
+   "previousSha256": "8d17095933713ff1cba2a36989ca657a5a123de4b48e1a1f31633bef87fd8232",
+   "sha256": "20d94b8c398928651917afe94f7ea5c61c3c854f276296a094db2c75a46c93ee",
+   "bytes": 2355,
+   "layer": "prototype-c",
+   "attribution": "inherited-0e5c7cd",
+   "note": "Inherited drift from earlier authorized wave 0e5c7cd. Pinned for provenance only; this entry is not a semantic review of that wave."
+  },
+  {
+   "path": "scripts/r11-question-receipt.mjs",
+   "previousSha256": "717ed4f179b04f4aa34e1a23daf74cde1159ec88861417493c62912534b0824d",
+   "sha256": "faa861e4ed38ab85e77a097da1aa0147be6a0e50d1fc519442522d95cea09a1e",
+   "bytes": 1977,
+   "layer": "dp600-r11-integration",
+   "attribution": "inherited-0e5c7cd",
+   "note": "Inherited drift from earlier authorized wave 0e5c7cd. Pinned for provenance only; this entry is not a semantic review of that wave."
+  },
+  {
+   "path": "scripts/sql-integration-receipt.mjs",
+   "previousSha256": "9334967eb60e6cf2a3cee7619e398318fa763e2e044fd67e75ac2d86235ecf04",
+   "sha256": "ff9b4854a78aae02bc6a6464f77367ba228676f6acf853aca8aac578128d2a62",
+   "bytes": 1461,
+   "layer": "sql-integration-20261028",
+   "attribution": "m0-receipt-repair",
+   "note": "M0 receipt repair: edited while re-baselining the chain; the change is the receipt fix, not content."
+  },
+  {
+   "path": "scripts/sql-integration-receipt.mjs",
+   "previousSha256": "be07f738f9dabfe901b848845f131cd081ae7c3403b5194a893a819a4395dc37",
+   "sha256": "ff9b4854a78aae02bc6a6464f77367ba228676f6acf853aca8aac578128d2a62",
+   "bytes": 1461,
+   "layer": "hansa-integration-20261029",
+   "attribution": "m0-receipt-repair",
+   "note": "M0 receipt repair: edited while re-baselining the chain; the change is the receipt fix, not content."
+  },
+  {
+   "path": "scripts/study-negative.mjs",
+   "previousSha256": "27256ee23b2ac70db3c3bd81641d12a82e2acb072f5405738015b27f5eadf667",
+   "sha256": "eadd622ef6a2810e9cc860d64d1261cd93bfe81deb9044278b5602131cbdcf23",
+   "bytes": 2082,
+   "layer": "learning-architecture-20261028",
+   "attribution": "inherited-0e5c7cd",
+   "note": "Inherited drift from earlier authorized wave 0e5c7cd. Pinned for provenance only; this entry is not a semantic review of that wave."
+  },
+  {
+   "path": "scripts/study-receipt.mjs",
+   "previousSha256": "705a4d0421d46cacdae61fdb87be5ca8852d21dc936d236b4db6b51fe346b2d4",
+   "sha256": "2d29062666eefcaddee3b0bb5608f42609f1afe80ddf0adcf51daf4b876ebfb1",
+   "bytes": 1412,
+   "layer": "learning-architecture-20261028",
+   "attribution": "m0-receipt-repair",
+   "note": "M0 receipt repair: edited while re-baselining the chain; the change is the receipt fix, not content."
+  },
+  {
+   "path": "scripts/study-receipt.mjs",
+   "previousSha256": "8f0bf9d60cd6f86da7ed41c6995e488812aaff340f1ff3d04e1d4e78977b5cca",
+   "sha256": "2d29062666eefcaddee3b0bb5608f42609f1afe80ddf0adcf51daf4b876ebfb1",
+   "bytes": 1412,
+   "layer": "learning-path-review-20261028",
+   "attribution": "m0-receipt-repair",
+   "note": "M0 receipt repair: edited while re-baselining the chain; the change is the receipt fix, not content."
+  },
+  {
+   "path": "scripts/verify-agent-reference.mjs",
+   "previousSha256": "8dcde9e7b58c237c66a45e0086c26f053e22a61b09e58e1616df88621fd630a7",
+   "sha256": "2b463ce556dc0defd45fd97aa95c39bc7349163daea0984e07a30ce92f1334cb",
+   "bytes": 3240,
+   "layer": "knowledge-atlas/implementation",
+   "attribution": "inherited-0e5c7cd",
+   "note": "Inherited drift from earlier authorized wave 0e5c7cd. Pinned for provenance only; this entry is not a semantic review of that wave."
+  },
+  {
+   "path": "scripts/verify-easyui-integration.mjs",
+   "previousSha256": "0ecc94a4c50058edd99ed4cad57284ff8ea25d9cd595a0fb32634cb82c30f509",
+   "sha256": "0737e67ff2fa0f36ab7bf38aaa80971d4f40f3a5e1837587275b8b0d7da7afa5",
+   "bytes": 4431,
+   "layer": "knowledge-atlas/implementation",
+   "attribution": "m0-receipt-repair",
+   "note": "M0 receipt repair: edited while re-baselining the chain; the change is the receipt fix, not content."
+  },
+  {
+   "path": "scripts/verify-easyui-integration.mjs",
+   "previousSha256": "7f6d2742c8dfc0e5590178ee9bf2219c8e8155226c74e9c184463863a74c73f2",
+   "sha256": "0737e67ff2fa0f36ab7bf38aaa80971d4f40f3a5e1837587275b8b0d7da7afa5",
+   "bytes": 4431,
+   "layer": "design-system/easyui-v2",
+   "attribution": "m0-receipt-repair",
+   "note": "M0 receipt repair: edited while re-baselining the chain; the change is the receipt fix, not content."
+  },
+  {
+   "path": "scripts/verify-easyui-integration.mjs",
+   "previousSha256": "96aab07729d34f47eb3e11de11ee35a47a48cc3b74326ea1e72f4faa81d20f29",
+   "sha256": "0737e67ff2fa0f36ab7bf38aaa80971d4f40f3a5e1837587275b8b0d7da7afa5",
+   "bytes": 4431,
+   "layer": "final-review-20261028",
+   "attribution": "m0-receipt-repair",
+   "note": "M0 receipt repair: edited while re-baselining the chain; the change is the receipt fix, not content."
+  },
+  {
+   "path": "scripts/verify-knowledge-atlas.mjs",
+   "previousSha256": "134ab43c9ab301868c41b781394f8f1132d55e87cf3a2d882d6364d557913e73",
+   "sha256": "1d30eda20fb0ec54fbf255e94c5c8e6125f772dfef590cc53da821e96138ff4c",
+   "bytes": 10624,
+   "layer": "design-system/easyui-v2",
+   "attribution": "m0-receipt-repair",
+   "note": "M0 receipt repair: edited while re-baselining the chain; the change is the receipt fix, not content."
+  },
+  {
+   "path": "scripts/verify-knowledge-atlas.mjs",
+   "previousSha256": "e7a2056414d9665bec4e5dfbba9d5ce1fa6b35c4ae6d9826f5143ef6ec05cb6a",
+   "sha256": "1d30eda20fb0ec54fbf255e94c5c8e6125f772dfef590cc53da821e96138ff4c",
+   "bytes": 10624,
+   "layer": "knowledge-atlas/implementation",
+   "attribution": "m0-receipt-repair",
+   "note": "M0 receipt repair: edited while re-baselining the chain; the change is the receipt fix, not content."
+  },
+  {
+   "path": "scripts/verify-preservation-history.mjs",
+   "previousSha256": "0762f35aa79a4d0b12aa5058d9aa3d7c9ee1df2ac5693a5790cbee47b4d9959e",
+   "sha256": "9193925de562fa717111fc85777ca32c3db030a6fb8221f373f7797d6770fcda",
+   "bytes": 10944,
+   "layer": "knowledge-atlas/dp600-continuation",
+   "attribution": "inherited-df5aecb",
+   "note": "Inherited drift from earlier authorized wave df5aecb. Pinned for provenance only; this entry is not a semantic review of that wave."
+  },
+  {
+   "path": "scripts/verify-preservation-history.mjs",
+   "previousSha256": "0a512a8e4779d0da59b9a7850abf86b3c5c465d668db6b9c61a2ed0880a5b924",
+   "sha256": "9193925de562fa717111fc85777ca32c3db030a6fb8221f373f7797d6770fcda",
+   "bytes": 10944,
+   "layer": "learning-path-review-20261028",
+   "attribution": "inherited-df5aecb",
+   "note": "Inherited drift from earlier authorized wave df5aecb. Pinned for provenance only; this entry is not a semantic review of that wave."
+  },
+  {
+   "path": "scripts/verify-preservation-history.mjs",
+   "previousSha256": "0cc787ca5ecc0e38fae798c5c6c158caa3d49f05ad26ca4de6c0df534722dd35",
+   "sha256": "9193925de562fa717111fc85777ca32c3db030a6fb8221f373f7797d6770fcda",
+   "bytes": 10944,
+   "layer": "learning-architecture-20261028",
+   "attribution": "inherited-df5aecb",
+   "note": "Inherited drift from earlier authorized wave df5aecb. Pinned for provenance only; this entry is not a semantic review of that wave."
+  },
+  {
+   "path": "scripts/verify-preservation-history.mjs",
+   "previousSha256": "548f7afc3133262874b4b70af0f74bf9aa4f57a443058b626352ee24f3b5555b",
+   "sha256": "9193925de562fa717111fc85777ca32c3db030a6fb8221f373f7797d6770fcda",
+   "bytes": 10944,
+   "layer": "knowledge-atlas/implementation",
+   "attribution": "inherited-df5aecb",
+   "note": "Inherited drift from earlier authorized wave df5aecb. Pinned for provenance only; this entry is not a semantic review of that wave."
+  },
+  {
+   "path": "scripts/verify-preservation-history.mjs",
+   "previousSha256": "63e962c565a5a70b5f9599837929eea854859ecbb93b2ecb480d8f6280baa57b",
+   "sha256": "9193925de562fa717111fc85777ca32c3db030a6fb8221f373f7797d6770fcda",
+   "bytes": 10944,
+   "layer": "knowledge-atlas/dp600-expansion",
+   "attribution": "inherited-df5aecb",
+   "note": "Inherited drift from earlier authorized wave df5aecb. Pinned for provenance only; this entry is not a semantic review of that wave."
+  },
+  {
+   "path": "scripts/verify-preservation-history.mjs",
+   "previousSha256": "683628a17a39e9a7b96aae1ee81571dcb808926bb78d30aefc47760a8d110742",
+   "sha256": "9193925de562fa717111fc85777ca32c3db030a6fb8221f373f7797d6770fcda",
+   "bytes": 10944,
+   "layer": "final-review-20261028",
+   "attribution": "inherited-df5aecb",
+   "note": "Inherited drift from earlier authorized wave df5aecb. Pinned for provenance only; this entry is not a semantic review of that wave."
+  },
+  {
+   "path": "scripts/verify-preservation-history.mjs",
+   "previousSha256": "7dc3e40ed19e03788d9f8d6314bf34776278cfdc91e2de11d3ce1ee6730dcbb7",
+   "sha256": "9193925de562fa717111fc85777ca32c3db030a6fb8221f373f7797d6770fcda",
+   "bytes": 10944,
+   "layer": "prototype-c",
+   "attribution": "inherited-df5aecb",
+   "note": "Inherited drift from earlier authorized wave df5aecb. Pinned for provenance only; this entry is not a semantic review of that wave."
+  },
+  {
+   "path": "scripts/verify-preservation-history.mjs",
+   "previousSha256": "a1599d12fddbbcfa1bc0d52d9b09c82687a5fb56680d766ae8070e7873ac3578",
+   "sha256": "9193925de562fa717111fc85777ca32c3db030a6fb8221f373f7797d6770fcda",
+   "bytes": 10944,
+   "layer": "dp600-r11-integration",
+   "attribution": "inherited-df5aecb",
+   "note": "Inherited drift from earlier authorized wave df5aecb. Pinned for provenance only; this entry is not a semantic review of that wave."
+  },
+  {
+   "path": "scripts/verify-preservation-history.mjs",
+   "previousSha256": "b1a1055f6e1939f5370ea70a94a6d624997741aebdc80079ecc0f809967dce11",
+   "sha256": "9193925de562fa717111fc85777ca32c3db030a6fb8221f373f7797d6770fcda",
+   "bytes": 10944,
+   "layer": "knowledge-atlas/implementation",
+   "attribution": "inherited-df5aecb",
+   "note": "Inherited drift from earlier authorized wave df5aecb. Pinned for provenance only; this entry is not a semantic review of that wave."
+  },
+  {
+   "path": "scripts/verify-preservation-history.mjs",
+   "previousSha256": "b60bdf99b88b4e8390614f2a4f17be9e56f2174d9a0e1076d76f68fdbc02dc2d",
+   "sha256": "9193925de562fa717111fc85777ca32c3db030a6fb8221f373f7797d6770fcda",
+   "bytes": 10944,
+   "layer": "cinematic-phase2",
+   "attribution": "inherited-df5aecb",
+   "note": "Inherited drift from earlier authorized wave df5aecb. Pinned for provenance only; this entry is not a semantic review of that wave."
+  },
+  {
+   "path": "scripts/verify-preservation-history.mjs",
+   "previousSha256": "be691e0b0ca6e2f303970d0bdba01f8ed12c30914c39374a63e40ac8c50cfd50",
+   "sha256": "9193925de562fa717111fc85777ca32c3db030a6fb8221f373f7797d6770fcda",
+   "bytes": 10944,
+   "layer": "canonical-home",
+   "attribution": "inherited-df5aecb",
+   "note": "Inherited drift from earlier authorized wave df5aecb. Pinned for provenance only; this entry is not a semantic review of that wave."
+  },
+  {
+   "path": "scripts/verify-preservation-history.mjs",
+   "previousSha256": "cc58b8f84a7bf3b073b790038bfa137d8e4ec4ebaa603c24615e7607f88371a6",
+   "sha256": "9193925de562fa717111fc85777ca32c3db030a6fb8221f373f7797d6770fcda",
+   "bytes": 10944,
+   "layer": "knowledge-atlas/circular-nodes",
+   "attribution": "inherited-df5aecb",
+   "note": "Inherited drift from earlier authorized wave df5aecb. Pinned for provenance only; this entry is not a semantic review of that wave."
+  },
+  {
+   "path": "scripts/verify-prototype-c.mjs",
+   "previousSha256": "0ed21ebb3a4c569adf11e9b9e18ebffdf48a4d2ffe7975ade2e61e5fd0991f3c",
+   "sha256": "d9776caef0472ebe70aca9f1dadb03a60329e1a2a29e10d7231912096989db83",
+   "bytes": 5131,
+   "layer": "prototype-c",
+   "attribution": "inherited-df5aecb",
+   "note": "Inherited drift from earlier authorized wave df5aecb. Pinned for provenance only; this entry is not a semantic review of that wave."
+  },
+  {
+   "path": "scripts/verify-prototype-c.mjs",
+   "previousSha256": "90a15ed2382cf4fc6786a88737ce2f23613ff0eaa157a323d5f6953050b2def4",
+   "sha256": "d9776caef0472ebe70aca9f1dadb03a60329e1a2a29e10d7231912096989db83",
+   "bytes": 5131,
+   "layer": "canonical-home",
+   "attribution": "inherited-df5aecb",
+   "note": "Inherited drift from earlier authorized wave df5aecb. Pinned for provenance only; this entry is not a semantic review of that wave."
+  },
+  {
+   "path": "scripts/verify-site-metrics.mjs",
+   "previousSha256": "7401e9002a763d22ea96d57d45a5d6339192db36185e7f9a360ffebd81e7944f",
+   "sha256": "7863ebba962ddab006158678ff2259f4f94d606c755cbddfb700ba4ed0abb515",
+   "bytes": 5248,
+   "layer": "knowledge-atlas/implementation",
+   "attribution": "inherited-2f903ff",
+   "note": "Inherited drift from earlier authorized wave 2f903ff. Pinned for provenance only; this entry is not a semantic review of that wave."
+  },
+  {
+   "path": "tests/academy/ingestion.test.mjs",
+   "previousSha256": "a7994641177e3060497eebcb52212d6e64523cb6a173c448c2bfe4ef755726e6",
+   "sha256": "8d6c1ad0d9d19bba588a1c2e9ebcc6288880be8adaf9e01559959d6a8d5c3585",
+   "bytes": 4934,
+   "layer": "knowledge-atlas/implementation",
+   "attribution": "inherited-496fddf",
+   "note": "Inherited drift from earlier authorized wave 496fddf. Pinned for provenance only; this entry is not a semantic review of that wave."
+  },
+  {
+   "path": "tests/atlas/expansion-e2e.mjs",
+   "previousSha256": "c58a9bb96a6ab6585250b1e3683d76012b5785b8e794bb4f75cafbfc44c8c2ca",
+   "sha256": "848499d06d838add924cb364a20487ac98b063ac024fdfdd56ce23b206e28389",
+   "bytes": 4085,
+   "layer": "knowledge-atlas/dp600-expansion",
+   "attribution": "inherited-496fddf",
+   "note": "Inherited drift from earlier authorized wave 496fddf. Pinned for provenance only; this entry is not a semantic review of that wave."
+  },
+  {
+   "path": "tests/content/drafts-integration.test.mjs",
+   "previousSha256": "49787a58d6f0c3c04e788d6657589778a4643e4ea552459c6b8dfa4945967606",
+   "sha256": "ffc36cdcc9935092cd8d2488e916ff3a0440f647c62c7ddc490d0f4995b893e4",
+   "bytes": 10965,
+   "layer": "final-review-20261028/additions",
+   "attribution": "inherited-f937869",
+   "note": "Inherited drift from earlier authorized wave f937869. Pinned for provenance only; this entry is not a semantic review of that wave."
+  },
+  {
+   "path": "tests/content/search.test.mjs",
+   "previousSha256": "3c0a56d05d53a9fcc8b041c553c08a85ea6c78e92fba77c38e26f25da87a6741",
+   "sha256": "d6bc8b62b7093515426173032d442b1c72bcb3c970d0081d1300aaeb7c247fa6",
+   "bytes": 8880,
+   "layer": "knowledge-atlas/implementation",
+   "attribution": "curriculum-migration-8da7afb",
+   "note": "Recorded by the authorized /learn migration commit 8da7afb."
+  },
+  {
+   "path": "tests/content/sql-vault.test.mjs",
+   "previousSha256": "a2452a2fc2f0f77056ecc68b908f4db34795715b54c02a2df15dff57cfa1f4d5",
+   "sha256": "4fb8c4706d2da1bae5a2adf68677f4a899844e96fca131c9fb6d52ecb1493f3b",
+   "bytes": 6018,
+   "layer": "sql-integration-20261028",
+   "attribution": "inherited-f937869",
+   "note": "Inherited drift from earlier authorized wave f937869. Pinned for provenance only; this entry is not a semantic review of that wave."
+  },
+  {
+   "path": "tests/fabric/bank.test.mjs",
+   "previousSha256": "bdef3d40b7631fe0514c4fab001f8f5a8f0b1ed483a0b3cb2992930c624e39fd",
+   "sha256": "52083efd72923b45945effc6c0ec02bd3dfed165581768613018f7ca60bbae7d",
+   "bytes": 16771,
+   "layer": "knowledge-atlas/implementation",
+   "attribution": "inherited-f937869",
+   "note": "Inherited drift from earlier authorized wave f937869. Pinned for provenance only; this entry is not a semantic review of that wave."
+  },
+  {
+   "path": "tests/fabric/e2e.mjs",
+   "previousSha256": "f0a7e5432882780da37371cee28e98b1c68200e4568a1ab42fa9542f5a341b1b",
+   "sha256": "0606f8ae7d1b24a6910120b8e3b94f69c3aeaa1d718efe147abfc025226f8b9e",
+   "bytes": 23206,
+   "layer": "knowledge-atlas/implementation",
+   "attribution": "inherited-f937869",
+   "note": "Inherited drift from earlier authorized wave f937869. Pinned for provenance only; this entry is not a semantic review of that wave."
+  },
+  {
+   "path": "tests/fabric/scoring.test.mjs",
+   "previousSha256": "f394098035324eb0ed14ae3c68d042fe597e38308e4398cdd01800cf8c756a07",
+   "sha256": "087fa1e59e8175118cc21c684aa9212df21b3ec6615255c9cebb716752b9e258",
+   "bytes": 11935,
+   "layer": "knowledge-atlas/implementation",
+   "attribution": "inherited-f937869",
+   "note": "Inherited drift from earlier authorized wave f937869. Pinned for provenance only; this entry is not a semantic review of that wave."
+  },
+  {
+   "path": "tsconfig.json",
+   "previousSha256": "fb3bc95e08fa35e38f04af07cc11bd82098cf1835764c3f9461fc3905e42b4f1",
+   "sha256": "4eb3f01bf1370e07d17ff9d7c79d0ba8e5560570c06d9fb5044f60236d2458d6",
+   "bytes": 1068,
+   "layer": "knowledge-atlas/implementation",
+   "attribution": "inherited-0e5c7cd",
+   "note": "Inherited drift from earlier authorized wave 0e5c7cd. Pinned for provenance only; this entry is not a semantic review of that wave."
+  }
+ ],
+ "additions": [
+  {
+   "path": "app/about/sources/page.tsx",
+   "sha256": "25b372d2da85462ba041a1745ae0441fe4c7a4c2f35f9213c05f979dedad6798",
+   "bytes": 6107,
+   "layer": "knowledge-atlas/implementation",
+   "attribution": "curriculum-migration-41a9d52",
+   "note": "Added after the Atlas implementation inventory by 41a9d52. Recorded so the gate can distinguish a receipted addition from an unexpected one."
+  },
+  {
+   "path": "app/lab/hands-on/[slug]/page.tsx",
+   "sha256": "5f708d71533b7b612338d868766ca307271f9fc444bd590924358243b0d476d4",
+   "bytes": 12090,
+   "layer": "knowledge-atlas/implementation",
+   "attribution": "curriculum-migration-807c6fc",
+   "note": "Added after the Atlas implementation inventory by 807c6fc. Recorded so the gate can distinguish a receipted addition from an unexpected one."
+  },
+  {
+   "path": "app/lab/hands-on/page.tsx",
+   "sha256": "3eba6bfe5fe5fad6f3bc929c89e08785f9bd5ff48d723339c8cb42f601841626",
+   "bytes": 4268,
+   "layer": "knowledge-atlas/implementation",
+   "attribution": "inherited-df5aecb",
+   "note": "Added after the Atlas implementation inventory by df5aecb. Recorded so the gate can distinguish a receipted addition from an unexpected one."
+  },
+  {
+   "path": "app/learn/[subject]/[topic]/page.tsx",
+   "sha256": "0dbb307ced0107f533d281d179e2f377c5eb8f7ebd910f19c12c89a5f87e7ec0",
+   "bytes": 1096,
+   "layer": "knowledge-atlas/implementation",
+   "attribution": "curriculum-migration-807c6fc",
+   "note": "Added after the Atlas implementation inventory by 807c6fc. Recorded so the gate can distinguish a receipted addition from an unexpected one."
+  },
+  {
+   "path": "app/learn/[subject]/page.tsx",
+   "sha256": "48078951f9851c38a959c6ce51ef66c80c4a2ac58285292649df531e645f9cdc",
+   "bytes": 2663,
+   "layer": "knowledge-atlas/implementation",
+   "attribution": "curriculum-migration-807c6fc",
+   "note": "Added after the Atlas implementation inventory by 807c6fc. Recorded so the gate can distinguish a receipted addition from an unexpected one."
+  },
+  {
+   "path": "app/learn/[subject]/path/page.tsx",
+   "sha256": "b3c59e06311b792d7d4b85590796c652ae8fdcb21ea994a2f640b7c2fea51ee0",
+   "bytes": 839,
+   "layer": "knowledge-atlas/implementation",
+   "attribution": "curriculum-migration-807c6fc",
+   "note": "Added after the Atlas implementation inventory by 807c6fc. Recorded so the gate can distinguish a receipted addition from an unexpected one."
+  },
+  {
+   "path": "app/learn/academy/[track]/[lesson]/page.tsx",
+   "sha256": "0e1cce2d984a8990d47239613b3b6aa16345fdde7e03930e282b3d4f7b5c226f",
+   "bytes": 5202,
+   "layer": "knowledge-atlas/implementation",
+   "attribution": "inherited-6c1a3e2",
+   "note": "Added after the Atlas implementation inventory by 6c1a3e2. Recorded so the gate can distinguish a receipted addition from an unexpected one."
+  },
+  {
+   "path": "app/learn/academy/page.tsx",
+   "sha256": "2a8a9701f0c9185bf95f865e071ec4829a2653d3cad0a10c403643bb06a39709",
+   "bytes": 4278,
+   "layer": "knowledge-atlas/implementation",
+   "attribution": "inherited-6c1a3e2",
+   "note": "Added after the Atlas implementation inventory by 6c1a3e2. Recorded so the gate can distinguish a receipted addition from an unexpected one."
+  },
+  {
+   "path": "app/learn/analysis/page.tsx",
+   "sha256": "f8a72a2530cbf00bf6585c21b6f632c698555911547b2db1d5ade45164e20348",
+   "bytes": 533,
+   "layer": "knowledge-atlas/implementation",
+   "attribution": "curriculum-migration-65b5583",
+   "note": "Added after the Atlas implementation inventory by 65b5583. Recorded so the gate can distinguish a receipted addition from an unexpected one."
+  },
+  {
+   "path": "app/learn/dp-600/atlas/journey/page.tsx",
+   "sha256": "ccac182eb87a5bcdcf3d57df667a16597c107830b2a6725be6d1f0270ae525a0",
+   "bytes": 830,
+   "layer": "knowledge-atlas/implementation",
+   "attribution": "inherited-496fddf",
+   "note": "Added after the Atlas implementation inventory by 496fddf. Recorded so the gate can distinguish a receipted addition from an unexpected one."
+  },
+  {
+   "path": "app/learn/dp-600/atlas/page.tsx",
+   "sha256": "bd367d9d491cfdb809d8e1ebf79bdff4c39014fa1d97f42c6d0d7fec20dad767",
+   "bytes": 1093,
+   "layer": "knowledge-atlas/implementation",
+   "attribution": "inherited-0e5c7cd",
+   "note": "Added after the Atlas implementation inventory by 0e5c7cd. Recorded so the gate can distinguish a receipted addition from an unexpected one."
+  },
+  {
+   "path": "app/learn/drafts/page.tsx",
+   "sha256": "98b71dc1fe8185989da39dad9f160b39f275475a443f9a6ad12493f1c6be392f",
+   "bytes": 5022,
+   "layer": "knowledge-atlas/implementation",
+   "attribution": "inherited-0e5c7cd",
+   "note": "Added after the Atlas implementation inventory by 0e5c7cd. Recorded so the gate can distinguish a receipted addition from an unexpected one."
+  },
+  {
+   "path": "app/learn/excel/page.tsx",
+   "sha256": "05eac6c95ecb9e48441e01b0a9382bf2b593a3dde36af9fa9b4bce5095403c00",
+   "bytes": 522,
+   "layer": "knowledge-atlas/implementation",
+   "attribution": "curriculum-migration-65b5583",
+   "note": "Added after the Atlas implementation inventory by 65b5583. Recorded so the gate can distinguish a receipted addition from an unexpected one."
+  },
+  {
+   "path": "app/learn/fabric-rti/[slug]/page.tsx",
+   "sha256": "a3c5b754348e0a3620929d6f05a68b7a03e21d436857487d99bf139da9a76271",
+   "bytes": 16275,
+   "layer": "knowledge-atlas/implementation",
+   "attribution": "curriculum-migration-65b5583",
+   "note": "Added after the Atlas implementation inventory by 65b5583. Recorded so the gate can distinguish a receipted addition from an unexpected one."
+  },
+  {
+   "path": "app/learn/fabric-rti/page.tsx",
+   "sha256": "13d7c8fa21e32a87c78ed2048c184b83a71ffab6ff0d4a1680aab618b73d7ed1",
+   "bytes": 11589,
+   "layer": "knowledge-atlas/implementation",
+   "attribution": "curriculum-migration-41a9d52",
+   "note": "Added after the Atlas implementation inventory by 41a9d52. Recorded so the gate can distinguish a receipted addition from an unexpected one."
+  },
+  {
+   "path": "app/learn/fabric/page.tsx",
+   "sha256": "2f7941ed41d7b0ea1e5526e21ce871e0840563816cda8a0a00fb5d1e8418a4c2",
+   "bytes": 560,
+   "layer": "knowledge-atlas/implementation",
+   "attribution": "curriculum-migration-65b5583",
+   "note": "Added after the Atlas implementation inventory by 65b5583. Recorded so the gate can distinguish a receipted addition from an unexpected one."
+  },
+  {
+   "path": "app/learn/power-bi/page.tsx",
+   "sha256": "01a444a278908e534a4ccf3aab5f5fba223010ecc234ea04ef8c509965d4d948",
+   "bytes": 553,
+   "layer": "knowledge-atlas/implementation",
+   "attribution": "curriculum-migration-65b5583",
+   "note": "Added after the Atlas implementation inventory by 65b5583. Recorded so the gate can distinguish a receipted addition from an unexpected one."
+  },
+  {
+   "path": "app/learn/python/page.tsx",
+   "sha256": "6ee07044d6c3717f58cf30ff727161a419342124a144347788b235d24ae583e2",
+   "bytes": 524,
+   "layer": "knowledge-atlas/implementation",
+   "attribution": "curriculum-migration-65b5583",
+   "note": "Added after the Atlas implementation inventory by 65b5583. Recorded so the gate can distinguish a receipted addition from an unexpected one."
+  },
+  {
+   "path": "app/learn/sql/[module]/page.tsx",
+   "sha256": "91314abe51c9c8ca13e02e56e9f4a69d60d847842e6781e03aa1b85af27d49fa",
+   "bytes": 774,
+   "layer": "knowledge-atlas/implementation",
+   "attribution": "inherited-0e5c7cd",
+   "note": "Added after the Atlas implementation inventory by 0e5c7cd. Recorded so the gate can distinguish a receipted addition from an unexpected one."
+  },
+  {
+   "path": "app/learn/sql/page.tsx",
+   "sha256": "952faa9793dbe1c67d80ac53e8fedcd493a33a16f5fd4c57f736cc8227e5b8e9",
+   "bytes": 2396,
+   "layer": "knowledge-atlas/implementation",
+   "attribution": "curriculum-migration-807c6fc",
+   "note": "Added after the Atlas implementation inventory by 807c6fc. Recorded so the gate can distinguish a receipted addition from an unexpected one."
+  },
+  {
+   "path": "app/learn/sql/reference/[id]/page.tsx",
+   "sha256": "743cdbf0648029f898e5a357dea6d4227fd4fc647c0842eb161ed567a755c03c",
+   "bytes": 700,
+   "layer": "knowledge-atlas/implementation",
+   "attribution": "inherited-0e5c7cd",
+   "note": "Added after the Atlas implementation inventory by 0e5c7cd. Recorded so the gate can distinguish a receipted addition from an unexpected one."
+  },
+  {
+   "path": "app/learn/visualization/page.tsx",
+   "sha256": "ccf026b315f6476d8de7f18bd53304107e2b3b2cd12d6fa114f948cf12642bc2",
+   "bytes": 1059,
+   "layer": "knowledge-atlas/implementation",
+   "attribution": "curriculum-migration-65b5583",
+   "note": "Added after the Atlas implementation inventory by 65b5583. Recorded so the gate can distinguish a receipted addition from an unexpected one."
+  },
+  {
+   "path": "app/practice/drafts/page.tsx",
+   "sha256": "b1a49f61b296800710b63a4f8a7dacc3f60b7fd186e001394049db3bf319f0ff",
+   "bytes": 5429,
+   "layer": "knowledge-atlas/implementation",
+   "attribution": "inherited-2f903ff",
+   "note": "Added after the Atlas implementation inventory by 2f903ff. Recorded so the gate can distinguish a receipted addition from an unexpected one."
+  },
+  {
+   "path": "app/practice/sql/page.tsx",
+   "sha256": "38a331cb47661c596d2cca2373b9b06392a180fd0aff1c58c10358c96726747f",
+   "bytes": 2142,
+   "layer": "knowledge-atlas/implementation",
+   "attribution": "curriculum-migration-807c6fc",
+   "note": "Added after the Atlas implementation inventory by 807c6fc. Recorded so the gate can distinguish a receipted addition from an unexpected one."
+  },
+  {
+   "path": "app/prototype-c/page.tsx",
+   "sha256": "31b414c61a2a35237cb0ea014e091ae7f9a966d6e2e568866125766d56ec5645",
+   "bytes": 1408,
+   "layer": "knowledge-atlas/implementation",
+   "attribution": "inherited-0e5c7cd",
+   "note": "Added after the Atlas implementation inventory by 0e5c7cd. Recorded so the gate can distinguish a receipted addition from an unexpected one."
+  },
+  {
+   "path": "app/search/index.json/route.ts",
+   "sha256": "993ba861eeac0890c97f5e14b04d219cbbea366f2b452d35cd38c911150e7f85",
+   "bytes": 595,
+   "layer": "knowledge-atlas/implementation",
+   "attribution": "curriculum-migration-8da7afb",
+   "note": "Added after the Atlas implementation inventory by 8da7afb. Recorded so the gate can distinguish a receipted addition from an unexpected one."
+  },
+  {
+   "path": "app/study/[subject]/[topic]/page.tsx",
+   "sha256": "a35d07f9dd3608cb29d682593e19a4ca4864b6d10f1ec32a04bba82ed3ae6704",
+   "bytes": 1122,
+   "layer": "knowledge-atlas/implementation",
+   "attribution": "curriculum-migration-807c6fc",
+   "note": "Added after the Atlas implementation inventory by 807c6fc. Recorded so the gate can distinguish a receipted addition from an unexpected one."
+  },
+  {
+   "path": "app/study/[subject]/page.tsx",
+   "sha256": "726aa968da068190f51dd6d0b9ce903438b8081f1352b2ee7a56f283727151ca",
+   "bytes": 1452,
+   "layer": "knowledge-atlas/implementation",
+   "attribution": "curriculum-migration-65b5583",
+   "note": "Added after the Atlas implementation inventory by 65b5583. Recorded so the gate can distinguish a receipted addition from an unexpected one."
+  },
+  {
+   "path": "app/study/[subject]/path/page.tsx",
+   "sha256": "cde2c9abdf496f969adfa06cc78c9b9e15dffc1c2d8f6f3b8f1b73fe0f85b395",
+   "bytes": 988,
+   "layer": "knowledge-atlas/implementation",
+   "attribution": "curriculum-migration-807c6fc",
+   "note": "Added after the Atlas implementation inventory by 807c6fc. Recorded so the gate can distinguish a receipted addition from an unexpected one."
+  },
+  {
+   "path": "app/study/page.tsx",
+   "sha256": "65697c71354f5e3742f227d4e464da8fa5a2651b71f56fd446b1d8af17f81682",
+   "bytes": 555,
+   "layer": "knowledge-atlas/implementation",
+   "attribution": "curriculum-migration-65b5583",
+   "note": "Added after the Atlas implementation inventory by 65b5583. Recorded so the gate can distinguish a receipted addition from an unexpected one."
+  },
+  {
+   "path": "app/study/review/page.tsx",
+   "sha256": "079b27b2aef189ab9a3e0baa153bee633b43ac3b80586650d5ab46f4f0634e4f",
+   "bytes": 975,
+   "layer": "knowledge-atlas/implementation",
+   "attribution": "curriculum-migration-41a9d52",
+   "note": "Added after the Atlas implementation inventory by 41a9d52. Recorded so the gate can distinguish a receipted addition from an unexpected one."
+  },
+  {
+   "path": "app/study/review/path/page.tsx",
+   "sha256": "e5f32234a45643229458e2662e1554c1c8a7b9c7cb9f501fcc9d0bf8cfdabd32",
+   "bytes": 940,
+   "layer": "knowledge-atlas/implementation",
+   "attribution": "curriculum-migration-41a9d52",
+   "note": "Added after the Atlas implementation inventory by 41a9d52. Recorded so the gate can distinguish a receipted addition from an unexpected one."
+  },
+  {
+   "path": "components/academy/lesson-blocks.tsx",
+   "sha256": "29736c468a48fbe81def1d45a56d29421bc00404175786bde2253c9f2be7f995",
+   "bytes": 4323,
+   "layer": "knowledge-atlas/implementation",
+   "attribution": "inherited-6c1a3e2",
+   "note": "Added after the Atlas implementation inventory by 6c1a3e2. Recorded so the gate can distinguish a receipted addition from an unexpected one."
+  },
+  {
+   "path": "components/atlas/circle-map.css",
+   "sha256": "86a7bc67e15f355406d43bca6b660d44aa6a5b09ffa534144d98ff2566aad565",
+   "bytes": 2660,
+   "layer": "knowledge-atlas/implementation",
+   "attribution": "inherited-0e5c7cd",
+   "note": "Added after the Atlas implementation inventory by 0e5c7cd. Recorded so the gate can distinguish a receipted addition from an unexpected one."
+  },
+  {
+   "path": "components/atlas/explorer.tsx",
+   "sha256": "b168ae284fbb65d94c122fe2be4f8e6d2f4f1fc705ef97ce36e2a394bc641fb4",
+   "bytes": 19365,
+   "layer": "knowledge-atlas/implementation",
+   "attribution": "inherited-0e5c7cd",
+   "note": "Added after the Atlas implementation inventory by 0e5c7cd. Recorded so the gate can distinguish a receipted addition from an unexpected one."
+  },
+  {
+   "path": "components/atlas/journey.tsx",
+   "sha256": "424fb5f4061a2c1e1f4cc3cb550c42896f77a5333f57be4e5174278b212918a9",
+   "bytes": 6366,
+   "layer": "knowledge-atlas/implementation",
+   "attribution": "inherited-496fddf",
+   "note": "Added after the Atlas implementation inventory by 496fddf. Recorded so the gate can distinguish a receipted addition from an unexpected one."
+  },
+  {
+   "path": "components/atlas/peek.tsx",
+   "sha256": "ce8026bab850f71512a298689299c1be1c4f030014317fd90a13721d0c03792d",
+   "bytes": 2340,
+   "layer": "knowledge-atlas/implementation",
+   "attribution": "inherited-496fddf",
+   "note": "Added after the Atlas implementation inventory by 496fddf. Recorded so the gate can distinguish a receipted addition from an unexpected one."
+  },
+  {
+   "path": "components/atlas/pending-desk.tsx",
+   "sha256": "7e3bc1bba14bf46fa8f287429fb7a4193cc793efa7029e56363dafa398b4e980",
+   "bytes": 5045,
+   "layer": "knowledge-atlas/implementation",
+   "attribution": "inherited-0e5c7cd",
+   "note": "Added after the Atlas implementation inventory by 0e5c7cd. Recorded so the gate can distinguish a receipted addition from an unexpected one."
+  },
+  {
+   "path": "components/atlas/reading-desk.css",
+   "sha256": "daf8a9a099176fe34ce9835bd6bdbed2003153e0e541810391858d4094d103c0",
+   "bytes": 5343,
+   "layer": "knowledge-atlas/implementation",
+   "attribution": "inherited-0e5c7cd",
+   "note": "Added after the Atlas implementation inventory by 0e5c7cd. Recorded so the gate can distinguish a receipted addition from an unexpected one."
+  },
+  {
+   "path": "components/atlas/return-link.tsx",
+   "sha256": "2d195da37dbab15ae0560cd43cb8facd8bc9c72a2d1b3d72e0f5d010d54ad66f",
+   "bytes": 505,
+   "layer": "knowledge-atlas/implementation",
+   "attribution": "inherited-496fddf",
+   "note": "Added after the Atlas implementation inventory by 496fddf. Recorded so the gate can distinguish a receipted addition from an unexpected one."
+  },
+  {
+   "path": "components/cinematic/reveal.tsx",
+   "sha256": "fb8598e414d74b17d5f7949b0daa83bec8b151adf9a755e01e0bfa0df6f523e7",
+   "bytes": 5130,
+   "layer": "knowledge-atlas/implementation",
+   "attribution": "inherited-0e5c7cd",
+   "note": "Added after the Atlas implementation inventory by 0e5c7cd. Recorded so the gate can distinguish a receipted addition from an unexpected one."
+  },
+  {
+   "path": "components/cinematic/use-calm-motion.ts",
+   "sha256": "10753df2675dfd8995a223e983ea6f70e29e4c752674fe7381dfd1f862ae31a4",
+   "bytes": 1349,
+   "layer": "knowledge-atlas/implementation",
+   "attribution": "inherited-0e5c7cd",
+   "note": "Added after the Atlas implementation inventory by 0e5c7cd. Recorded so the gate can distinguish a receipted addition from an unexpected one."
+  },
+  {
+   "path": "components/cinematic/use-scroll-progress.ts",
+   "sha256": "4655c6e813782e42a5873a423004dfea4f7e3ddb4e8d20613037840ce877a366",
+   "bytes": 4319,
+   "layer": "knowledge-atlas/implementation",
+   "attribution": "inherited-0e5c7cd",
+   "note": "Added after the Atlas implementation inventory by 0e5c7cd. Recorded so the gate can distinguish a receipted addition from an unexpected one."
+  },
+  {
+   "path": "components/fabric/r11-question.tsx",
+   "sha256": "44fca27ece04cb422169754fad422f32a83017f7cef1f0b20b6868d3b8b6ce79",
+   "bytes": 11336,
+   "layer": "knowledge-atlas/implementation",
+   "attribution": "inherited-496fddf",
+   "note": "Added after the Atlas implementation inventory by 496fddf. Recorded so the gate can distinguish a receipted addition from an unexpected one."
+  },
+  {
+   "path": "components/fabric/unified-bank.tsx",
+   "sha256": "cd7c8b7e46b0b40ab995ca2280d553f9e01e4318857c7c73c10649096ac98893",
+   "bytes": 14272,
+   "layer": "knowledge-atlas/implementation",
+   "attribution": "curriculum-migration-c78a76f",
+   "note": "Added after the Atlas implementation inventory by c78a76f. Recorded so the gate can distinguish a receipted addition from an unexpected one."
+  },
+  {
+   "path": "components/knowledge/atlas-peek-stage.tsx",
+   "sha256": "f4e76f4acb240794ad26993d624af5fd7d2956b0d6ab3ce19336657161401928",
+   "bytes": 12989,
+   "layer": "knowledge-atlas/implementation",
+   "attribution": "inherited-0e5c7cd",
+   "note": "Added after the Atlas implementation inventory by 0e5c7cd. Recorded so the gate can distinguish a receipted addition from an unexpected one."
+  },
+  {
+   "path": "components/knowledge/hansa-landing.tsx",
+   "sha256": "3c8f89832353bdc90bebe937371c5fb4b05f739faa898dad64fc81f581de6f61",
+   "bytes": 1346,
+   "layer": "knowledge-atlas/implementation",
+   "attribution": "inherited-0e5c7cd",
+   "note": "Added after the Atlas implementation inventory by 0e5c7cd. Recorded so the gate can distinguish a receipted addition from an unexpected one."
+  },
+  {
+   "path": "components/knowledge/insight-archive.tsx",
+   "sha256": "59c3891ea52f02a62c47346553a6c128fe9edd2bfd0f4ec52e5086c9494e8de8",
+   "bytes": 6996,
+   "layer": "knowledge-atlas/implementation",
+   "attribution": "curriculum-migration-41a9d52",
+   "note": "Added after the Atlas implementation inventory by 41a9d52. Recorded so the gate can distinguish a receipted addition from an unexpected one."
+  },
+  {
+   "path": "components/knowledge/insight-experiment.tsx",
+   "sha256": "ca50747c708eabf4c4275dfdbcb89eaae4cd389f8fde89e74b8acc9fa38af684",
+   "bytes": 14291,
+   "layer": "knowledge-atlas/implementation",
+   "attribution": "inherited-0e5c7cd",
+   "note": "Added after the Atlas implementation inventory by 0e5c7cd. Recorded so the gate can distinguish a receipted addition from an unexpected one."
+  },
+  {
+   "path": "components/knowledge/insight-rail.tsx",
+   "sha256": "0bc0e60fd53bf8a6aab2aa8ce44be84bc23f601342894c4374de48b6818423c2",
+   "bytes": 17544,
+   "layer": "knowledge-atlas/implementation",
+   "attribution": "inherited-0e5c7cd",
+   "note": "Added after the Atlas implementation inventory by 0e5c7cd. Recorded so the gate can distinguish a receipted addition from an unexpected one."
+  },
+  {
+   "path": "components/knowledge/insight-scene.tsx",
+   "sha256": "181d721dc1643d625da6fa07568e3d6bd3205550fd6c6d2e5b1a799684c99eaa",
+   "bytes": 11268,
+   "layer": "knowledge-atlas/implementation",
+   "attribution": "inherited-0e5c7cd",
+   "note": "Added after the Atlas implementation inventory by 0e5c7cd. Recorded so the gate can distinguish a receipted addition from an unexpected one."
+  },
+  {
+   "path": "components/knowledge/insight-stage.tsx",
+   "sha256": "01e44f8623d9b7d81bce76e1526fdd1feb5b7ebc1cafea3460d35c46c6dd7f69",
+   "bytes": 25458,
+   "layer": "knowledge-atlas/implementation",
+   "attribution": "curriculum-migration-65b5583",
+   "note": "Added after the Atlas implementation inventory by 65b5583. Recorded so the gate can distinguish a receipted addition from an unexpected one."
+  },
+  {
+   "path": "components/knowledge/knowledge-dealer.tsx",
+   "sha256": "911a993aa05a2de6dda282ddbcc84dc28d8a00cd7b939ce871a9b2ec8773571f",
+   "bytes": 23795,
+   "layer": "knowledge-atlas/implementation",
+   "attribution": "inherited-0e5c7cd",
+   "note": "Added after the Atlas implementation inventory by 0e5c7cd. Recorded so the gate can distinguish a receipted addition from an unexpected one."
+  },
+  {
+   "path": "components/knowledge/knowledge-instrument.tsx",
+   "sha256": "9a10d9d919cfd04555e54dcc703b798680f428788883488e4453ad1c9b42d101",
+   "bytes": 6947,
+   "layer": "knowledge-atlas/implementation",
+   "attribution": "inherited-0e5c7cd",
+   "note": "Added after the Atlas implementation inventory by 0e5c7cd. Recorded so the gate can distinguish a receipted addition from an unexpected one."
+  },
+  {
+   "path": "components/knowledge/observatory.css",
+   "sha256": "57e1f28b3da478708f20aaa96e55133467d3f3ed4226f420af6a9cf322f9d5dd",
+   "bytes": 11502,
+   "layer": "knowledge-atlas/implementation",
+   "attribution": "inherited-0e5c7cd",
+   "note": "Added after the Atlas implementation inventory by 0e5c7cd. Recorded so the gate can distinguish a receipted addition from an unexpected one."
+  },
+  {
+   "path": "components/knowledge/stage-about.tsx",
+   "sha256": "2863459467206b686765bdaa48c29ff83483b10c32c5bc87663c7dc83c1d0a4a",
+   "bytes": 2740,
+   "layer": "knowledge-atlas/implementation",
+   "attribution": "inherited-0902e15",
+   "note": "Added after the Atlas implementation inventory by 0902e15. Recorded so the gate can distinguish a receipted addition from an unexpected one."
+  },
+  {
+   "path": "components/knowledge/stage-cert-gate.tsx",
+   "sha256": "18c4a822b90959d591934dc6897fe790fd220fcde68ab21cc0b1fe710007bebb",
+   "bytes": 5342,
+   "layer": "knowledge-atlas/implementation",
+   "attribution": "inherited-0902e15",
+   "note": "Added after the Atlas implementation inventory by 0902e15. Recorded so the gate can distinguish a receipted addition from an unexpected one."
+  },
+  {
+   "path": "components/knowledge/stage-editorial.css",
+   "sha256": "ab492ed599733a76a441aee2cc553431b17eb9b126aea1c5ae676039be0c323c",
+   "bytes": 8673,
+   "layer": "knowledge-atlas/implementation",
+   "attribution": "inherited-0902e15",
+   "note": "Added after the Atlas implementation inventory by 0902e15. Recorded so the gate can distinguish a receipted addition from an unexpected one."
+  },
+  {
+   "path": "components/knowledge/stage-learn-gate.tsx",
+   "sha256": "118100d93e57823ab3ff69413867b1257922dafe03256001c4e97fd5e4a1dfe3",
+   "bytes": 3605,
+   "layer": "knowledge-atlas/implementation",
+   "attribution": "curriculum-migration-65b5583",
+   "note": "Added after the Atlas implementation inventory by 65b5583. Recorded so the gate can distinguish a receipted addition from an unexpected one."
+  },
+  {
+   "path": "components/knowledge/stage-today.tsx",
+   "sha256": "55d300649132b2c73ec86955a33dfebde70dc73501964fb6695237057010a156",
+   "bytes": 5710,
+   "layer": "knowledge-atlas/implementation",
+   "attribution": "inherited-0902e15",
+   "note": "Added after the Atlas implementation inventory by 0902e15. Recorded so the gate can distinguish a receipted addition from an unexpected one."
+  },
+  {
+   "path": "components/learn/curriculum-home.tsx",
+   "sha256": "84c11b7a640774d9d5d48a642efcbdbe23f1493e9ba9399e13f1c25830bb585c",
+   "bytes": 9953,
+   "layer": "knowledge-atlas/implementation",
+   "attribution": "curriculum-migration-65b5583",
+   "note": "Added after the Atlas implementation inventory by 65b5583. Recorded so the gate can distinguish a receipted addition from an unexpected one."
+  },
+  {
+   "path": "components/learn/intake-review.tsx",
+   "sha256": "d3baaeca5f75c7dfd6b0e8f2c882c28316db60f4e0202faa659b95ca95e8a9df",
+   "bytes": 20514,
+   "layer": "knowledge-atlas/implementation",
+   "attribution": "inherited-0e5c7cd",
+   "note": "Added after the Atlas implementation inventory by 0e5c7cd. Recorded so the gate can distinguish a receipted addition from an unexpected one."
+  },
+  {
+   "path": "components/learn/stage-bar.tsx",
+   "sha256": "46200da0be4bbb3ba5d195ccc341dd545a7edaf0e74670715abdbcbb34ff780f",
+   "bytes": 1752,
+   "layer": "knowledge-atlas/implementation",
+   "attribution": "curriculum-migration-65b5583",
+   "note": "Added after the Atlas implementation inventory by 65b5583. Recorded so the gate can distinguish a receipted addition from an unexpected one."
+  },
+  {
+   "path": "components/learn/subject-home.tsx",
+   "sha256": "90ff31e133b2d4000fb439572cd0e53a3bb02d7fb38f3776ab42163c652a87a2",
+   "bytes": 11705,
+   "layer": "knowledge-atlas/implementation",
+   "attribution": "curriculum-migration-65b5583",
+   "note": "Added after the Atlas implementation inventory by 65b5583. Recorded so the gate can distinguish a receipted addition from an unexpected one."
+  },
+  {
+   "path": "components/learn/visualization-home.tsx",
+   "sha256": "970d1ed696a5393ae6d453a59a9365cbc63e9951cef22aa6bd375f2afe4f47c4",
+   "bytes": 15029,
+   "layer": "knowledge-atlas/implementation",
+   "attribution": "curriculum-migration-65b5583",
+   "note": "Added after the Atlas implementation inventory by 65b5583. Recorded so the gate can distinguish a receipted addition from an unexpected one."
+  },
+  {
+   "path": "components/practice/draft-review.tsx",
+   "sha256": "dcaeede680c8df70400e00b6d8124434ddc06b778f154a7133bf05ca81cae8eb",
+   "bytes": 11266,
+   "layer": "knowledge-atlas/implementation",
+   "attribution": "inherited-2f903ff",
+   "note": "Added after the Atlas implementation inventory by 2f903ff. Recorded so the gate can distinguish a receipted addition from an unexpected one."
+  },
+  {
+   "path": "components/sql/grain-lens.tsx",
+   "sha256": "4200d08372d9176e3dd45608dc8f175528ac87de12cf8bf3455ef6a78487fbe2",
+   "bytes": 2220,
+   "layer": "knowledge-atlas/implementation",
+   "attribution": "inherited-0e5c7cd",
+   "note": "Added after the Atlas implementation inventory by 0e5c7cd. Recorded so the gate can distinguish a receipted addition from an unexpected one."
+  },
+  {
+   "path": "components/sql/lesson.tsx",
+   "sha256": "ea260bdb3d9f10bb05d13d06d6aadee1523983905f7a9e07945fa544c2252dc7",
+   "bytes": 3261,
+   "layer": "knowledge-atlas/implementation",
+   "attribution": "curriculum-migration-807c6fc",
+   "note": "Added after the Atlas implementation inventory by 807c6fc. Recorded so the gate can distinguish a receipted addition from an unexpected one."
+  },
+  {
+   "path": "components/sql/source.tsx",
+   "sha256": "e6dc5f62d3ec5a74bd6ee07d5ea8c19e114fa6a47a16e48b558248513df0899f",
+   "bytes": 4769,
+   "layer": "knowledge-atlas/implementation",
+   "attribution": "inherited-0e5c7cd",
+   "note": "Added after the Atlas implementation inventory by 0e5c7cd. Recorded so the gate can distinguish a receipted addition from an unexpected one."
+  },
+  {
+   "path": "components/sql/sql.css",
+   "sha256": "6119cede2c749381f9baae55a070c4dee1a7d7bb3d366b722d58dea7cc1c2a3a",
+   "bytes": 5601,
+   "layer": "knowledge-atlas/implementation",
+   "attribution": "inherited-0e5c7cd",
+   "note": "Added after the Atlas implementation inventory by 0e5c7cd. Recorded so the gate can distinguish a receipted addition from an unexpected one."
+  },
+  {
+   "path": "components/study/directory.tsx",
+   "sha256": "dfe1f62e1499e277633760cdd59beb5d58a0518abe202552d40a297196013e01",
+   "bytes": 5371,
+   "layer": "knowledge-atlas/implementation",
+   "attribution": "curriculum-migration-807c6fc",
+   "note": "Added after the Atlas implementation inventory by 807c6fc. Recorded so the gate can distinguish a receipted addition from an unexpected one."
+  },
+  {
+   "path": "components/study/intent-link.tsx",
+   "sha256": "3d512a946c0f92e10308a3a2aa6400635c287cfd23c77e52f40d1ea574a13aee",
+   "bytes": 633,
+   "layer": "knowledge-atlas/implementation",
+   "attribution": "inherited-0e5c7cd",
+   "note": "Added after the Atlas implementation inventory by 0e5c7cd. Recorded so the gate can distinguish a receipted addition from an unexpected one."
+  },
+  {
+   "path": "components/study/learning-path-page.tsx",
+   "sha256": "90ed40a2852cc75ddfc066e1f0e16b07c6c0e5383fd8e14e84b0437bcb99c34f",
+   "bytes": 1201,
+   "layer": "knowledge-atlas/implementation",
+   "attribution": "curriculum-migration-807c6fc",
+   "note": "Added after the Atlas implementation inventory by 807c6fc. Recorded so the gate can distinguish a receipted addition from an unexpected one."
+  },
+  {
+   "path": "components/study/orientation.tsx",
+   "sha256": "27cec0ad95ee3946ada9ad139890f98e408fdab8d90011ecefe597c94980b6b5",
+   "bytes": 3843,
+   "layer": "knowledge-atlas/implementation",
+   "attribution": "curriculum-migration-807c6fc",
+   "note": "Added after the Atlas implementation inventory by 807c6fc. Recorded so the gate can distinguish a receipted addition from an unexpected one."
+  },
+  {
+   "path": "components/study/path-units.tsx",
+   "sha256": "697963d8b86502ce4238721f6914d950744ac1ef823a9a848ff7c6d9c44d5955",
+   "bytes": 8749,
+   "layer": "knowledge-atlas/implementation",
+   "attribution": "curriculum-migration-807c6fc",
+   "note": "Added after the Atlas implementation inventory by 807c6fc. Recorded so the gate can distinguish a receipted addition from an unexpected one."
+  },
+  {
+   "path": "components/study/path.css",
+   "sha256": "c191dd3b7b76331d362eede5a08f36abb0d5e7a9f241035db39b68f112b66831",
+   "bytes": 3611,
+   "layer": "knowledge-atlas/implementation",
+   "attribution": "inherited-0e5c7cd",
+   "note": "Added after the Atlas implementation inventory by 0e5c7cd. Recorded so the gate can distinguish a receipted addition from an unexpected one."
+  },
+  {
+   "path": "components/study/study.css",
+   "sha256": "a74fc38e2152a56fb8a4a78b781b454632affce7eda3d75bccdccd2caf3541a3",
+   "bytes": 4260,
+   "layer": "knowledge-atlas/implementation",
+   "attribution": "inherited-0e5c7cd",
+   "note": "Added after the Atlas implementation inventory by 0e5c7cd. Recorded so the gate can distinguish a receipted addition from an unexpected one."
+  },
+  {
+   "path": "components/study/topic-browser.tsx",
+   "sha256": "44ff3fd2eddbe1d7eef385f82fa72e7b9aaa3f9c5d75bfddb313f44c19b553d9",
+   "bytes": 7717,
+   "layer": "knowledge-atlas/implementation",
+   "attribution": "curriculum-migration-807c6fc",
+   "note": "Added after the Atlas implementation inventory by 807c6fc. Recorded so the gate can distinguish a receipted addition from an unexpected one."
+  },
+  {
+   "path": "components/study/topic-desk.tsx",
+   "sha256": "46fd02a9d62b010b28326818fd7bb24ed1b6d16bdbf04a10f48b8abd3189d9d8",
+   "bytes": 1680,
+   "layer": "knowledge-atlas/implementation",
+   "attribution": "curriculum-migration-807c6fc",
+   "note": "Added after the Atlas implementation inventory by 807c6fc. Recorded so the gate can distinguish a receipted addition from an unexpected one."
+  },
+  {
+   "path": "components/study/topic-preparation.tsx",
+   "sha256": "e34da8af15d01ac023f80d8effea060c28951ad33cf1ef17ecbd322acc3a6969",
+   "bytes": 1927,
+   "layer": "knowledge-atlas/implementation",
+   "attribution": "curriculum-migration-807c6fc",
+   "note": "Added after the Atlas implementation inventory by 807c6fc. Recorded so the gate can distinguish a receipted addition from an unexpected one."
+  },
+  {
+   "path": "content/academy/lessons.json",
+   "sha256": "a7cc3d55d291678dff5bdef3ab3893691413cc9b3c7bccf30c66c6b9dc032034",
+   "bytes": 1003345,
+   "layer": "knowledge-atlas/implementation",
+   "attribution": "inherited-45704b5",
+   "note": "Added after the Atlas implementation inventory by 45704b5. Recorded so the gate can distinguish a receipted addition from an unexpected one."
+  },
+  {
+   "path": "content/atlas/dp600-continuation.json",
+   "sha256": "a70a4bda6fa0a4e267e44adb64f06050f09bfb1cbd209a963284e5bb4e376411",
+   "bytes": 41211,
+   "layer": "knowledge-atlas/implementation",
+   "attribution": "inherited-496fddf",
+   "note": "Added after the Atlas implementation inventory by 496fddf. Recorded so the gate can distinguish a receipted addition from an unexpected one."
+  },
+  {
+   "path": "content/atlas/dp600-extension.json",
+   "sha256": "18578142a8afd203fdedd8e2d0c1f363379e3fad6a7da9be665e647e782c912d",
+   "bytes": 48597,
+   "layer": "knowledge-atlas/implementation",
+   "attribution": "inherited-496fddf",
+   "note": "Added after the Atlas implementation inventory by 496fddf. Recorded so the gate can distinguish a receipted addition from an unexpected one."
+  },
+  {
+   "path": "content/atlas/editorial.json",
+   "sha256": "816416c261a2ceb394ab73403e2ed690c714f83e8773b06da0689384eecee3d4",
+   "bytes": 15152,
+   "layer": "knowledge-atlas/implementation",
+   "attribution": "inherited-496fddf",
+   "note": "Added after the Atlas implementation inventory by 496fddf. Recorded so the gate can distinguish a receipted addition from an unexpected one."
+  },
+  {
+   "path": "content/drafts/chaturcr48-dp600.json",
+   "sha256": "672ac674033a9a9719013a5e6a771be727d45327e42d95d5d0f13eea15b25b1f",
+   "bytes": 46477,
+   "layer": "knowledge-atlas/implementation",
+   "attribution": "inherited-2f903ff",
+   "note": "Added after the Atlas implementation inventory by 2f903ff. Recorded so the gate can distinguish a receipted addition from an unexpected one."
+  },
+  {
+   "path": "content/drafts/corpus-candidates.json",
+   "sha256": "4017d8af37d7685095e1443492755120a891dc57808ef2dba5b7f5d024b37914",
+   "bytes": 22152,
+   "layer": "knowledge-atlas/implementation",
+   "attribution": "inherited-6c1a3e2",
+   "note": "Added after the Atlas implementation inventory by 6c1a3e2. Recorded so the gate can distinguish a receipted addition from an unexpected one."
+  },
+  {
+   "path": "content/drafts/dp600-r18.json",
+   "sha256": "7dfc610198c5ef60a0539d09c1a5dc933cc9a317b3a4f5d35a3f5978c3f253a0",
+   "bytes": 436541,
+   "layer": "knowledge-atlas/implementation",
+   "attribution": "inherited-0e5c7cd",
+   "note": "Added after the Atlas implementation inventory by 0e5c7cd. Recorded so the gate can distinguish a receipted addition from an unexpected one."
+  },
+  {
+   "path": "content/drafts/kengio-dp700.json",
+   "sha256": "f9b4465e60816e328ccb97abd04fd775f17d127ff7ea8211a495281429ad92f0",
+   "bytes": 156718,
+   "layer": "knowledge-atlas/implementation",
+   "attribution": "inherited-6c1a3e2",
+   "note": "Added after the Atlas implementation inventory by 6c1a3e2. Recorded so the gate can distinguish a receipted addition from an unexpected one."
+  },
+  {
+   "path": "content/drafts/manifest.json",
+   "sha256": "3fc488a9c8f5e3ab6ecdd0a96889604fd35603607b4a839b9f5a998ef9505221",
+   "bytes": 4982,
+   "layer": "knowledge-atlas/implementation",
+   "attribution": "inherited-2f903ff",
+   "note": "Added after the Atlas implementation inventory by 2f903ff. Recorded so the gate can distinguish a receipted addition from an unexpected one."
+  },
+  {
+   "path": "content/drafts/pl300-v88.json",
+   "sha256": "9631037cfa278c216c4940ce81466fc5d07f88dff780e7a76454ce7d58a17cbe",
+   "bytes": 1805679,
+   "layer": "knowledge-atlas/implementation",
+   "attribution": "inherited-0e5c7cd",
+   "note": "Added after the Atlas implementation inventory by 0e5c7cd. Recorded so the gate can distinguish a receipted addition from an unexpected one."
+  },
+  {
+   "path": "content/drafts/stark-v2-dp600.json",
+   "sha256": "a872443a9997021b1c5293539d091db643985111ee247cb4225d48c507fa3fb6",
+   "bytes": 885630,
+   "layer": "knowledge-atlas/implementation",
+   "attribution": "inherited-2f903ff",
+   "note": "Added after the Atlas implementation inventory by 2f903ff. Recorded so the gate can distinguish a receipted addition from an unexpected one."
+  },
+  {
+   "path": "content/drafts/warren-dp600.json",
+   "sha256": "3e6e777b988a20d355b2b5ffc98894e1300ac4873158ed851d73165fd943d05d",
+   "bytes": 92053,
+   "layer": "knowledge-atlas/implementation",
+   "attribution": "inherited-2f903ff",
+   "note": "Added after the Atlas implementation inventory by 2f903ff. Recorded so the gate can distinguish a receipted addition from an unexpected one."
+  },
+  {
+   "path": "content/exams/fabric-rti.json",
+   "sha256": "570653a49cd1b151659ddd0f4b07c53dd0551fd73a47772d16cccc791139bf8b",
+   "bytes": 9547,
+   "layer": "knowledge-atlas/implementation",
+   "attribution": "inherited-0e5c7cd",
+   "note": "Added after the Atlas implementation inventory by 0e5c7cd. Recorded so the gate can distinguish a receipted addition from an unexpected one."
+  },
+  {
+   "path": "content/fabric/additions/manifest.json",
+   "sha256": "8d16a6be151f9b0828d9142a2c2addaaf232c2cf1459037855d1cb0b2d0f71dc",
+   "bytes": 9026,
+   "layer": "knowledge-atlas/implementation",
+   "attribution": "inherited-496fddf",
+   "note": "Added after the Atlas implementation inventory by 496fddf. Recorded so the gate can distinguish a receipted addition from an unexpected one."
+  },
+  {
+   "path": "content/fabric/additions/questions.json",
+   "sha256": "80a29e41eb8a198f1779029930fa9c4868ca63ce013efb1dd5d7fe45e4b6895d",
+   "bytes": 1595586,
+   "layer": "knowledge-atlas/implementation",
+   "attribution": "inherited-496fddf",
+   "note": "Added after the Atlas implementation inventory by 496fddf. Recorded so the gate can distinguish a receipted addition from an unexpected one."
+  },
+  {
+   "path": "content/fabric/questions/activator.json",
+   "sha256": "f82a242a91350dc1e6a3a9cf91c7cdde1f0641d6bb3d78d56997105975035ad2",
+   "bytes": 69850,
+   "layer": "knowledge-atlas/implementation",
+   "attribution": "inherited-ff54796",
+   "note": "Added after the Atlas implementation inventory by ff54796. Recorded so the gate can distinguish a receipted addition from an unexpected one."
+  },
+  {
+   "path": "content/fabric/questions/dataflow-gen2.json",
+   "sha256": "a1ae2b3fb483d1a79ff40983b5682a720f3d9015ff244e443601d2d3a13838ea",
+   "bytes": 73537,
+   "layer": "knowledge-atlas/implementation",
+   "attribution": "inherited-ff54796",
+   "note": "Added after the Atlas implementation inventory by ff54796. Recorded so the gate can distinguish a receipted addition from an unexpected one."
+  },
+  {
+   "path": "content/fabric/questions/eventstream-windowing.json",
+   "sha256": "137a30383f21eb72db208b54dbb54aac9296243bfbe65877e5fbf521a283f7d2",
+   "bytes": 83237,
+   "layer": "knowledge-atlas/implementation",
+   "attribution": "inherited-d22a0b0",
+   "note": "Added after the Atlas implementation inventory by d22a0b0. Recorded so the gate can distinguish a receipted addition from an unexpected one."
+  },
+  {
+   "path": "content/fabric/questions/howard-dp600.json",
+   "sha256": "f5803ffbb8a0d73f5b709ee17a8e9631d446fe20676a00bb073af68f5ecdfeda",
+   "bytes": 253029,
+   "layer": "knowledge-atlas/implementation",
+   "attribution": "inherited-f937869",
+   "note": "Added after the Atlas implementation inventory by f937869. Recorded so the gate can distinguish a receipted addition from an unexpected one."
+  },
+  {
+   "path": "content/fabric/questions/incremental-copy.json",
+   "sha256": "85e2e9948bbdfabf8e0864e0b461b02ff6f8a8263b49af60b441321129ea2c26",
+   "bytes": 72986,
+   "layer": "knowledge-atlas/implementation",
+   "attribution": "inherited-ff54796",
+   "note": "Added after the Atlas implementation inventory by ff54796. Recorded so the gate can distinguish a receipted addition from an unexpected one."
+  },
+  {
+   "path": "content/fabric/questions/mirroring.json",
+   "sha256": "01673e203c4205bfca353c144025445133a2d0fb23221c61bf77687b7a44de12",
+   "bytes": 70495,
+   "layer": "knowledge-atlas/implementation",
+   "attribution": "inherited-ff54796",
+   "note": "Added after the Atlas implementation inventory by ff54796. Recorded so the gate can distinguish a receipted addition from an unexpected one."
+  },
+  {
+   "path": "content/fabric/questions/notebooks-pyspark.json",
+   "sha256": "81aa69a88a7b3cd550cc83799549e5a1ba04d64de0d955ef1d8af7c5fe4bc6d3",
+   "bytes": 68787,
+   "layer": "knowledge-atlas/implementation",
+   "attribution": "inherited-ff54796",
+   "note": "Added after the Atlas implementation inventory by ff54796. Recorded so the gate can distinguish a receipted addition from an unexpected one."
+  },
+  {
+   "path": "content/fabric/questions/patrick-dp600.json",
+   "sha256": "fca2d9f8226b5fe292ce97a81b2a57ba90462aa881172f9cc1f4239826d8dd7b",
+   "bytes": 67713,
+   "layer": "knowledge-atlas/implementation",
+   "attribution": "inherited-f937869",
+   "note": "Added after the Atlas implementation inventory by f937869. Recorded so the gate can distinguish a receipted addition from an unexpected one."
+  },
+  {
+   "path": "content/fabric/questions/semantic-models-dax.json",
+   "sha256": "0ce1b62a3de1507ce686fe2f7b38d203a86a9fa9f37570d63c37b96fc15119a8",
+   "bytes": 89948,
+   "layer": "knowledge-atlas/implementation",
+   "attribution": "inherited-39466ee",
+   "note": "Added after the Atlas implementation inventory by 39466ee. Recorded so the gate can distinguish a receipted addition from an unexpected one."
+  },
+  {
+   "path": "content/fabric/r11/case-studies.json",
+   "sha256": "54968ff225707febd98e0aaefe1bb80e5442b840bef4759f428b1c61e33a481a",
+   "bytes": 15374,
+   "layer": "knowledge-atlas/implementation",
+   "attribution": "inherited-496fddf",
+   "note": "Added after the Atlas implementation inventory by 496fddf. Recorded so the gate can distinguish a receipted addition from an unexpected one."
+  },
+  {
+   "path": "content/fabric/r11/manifest.json",
+   "sha256": "c275c349bd9adbfb7794980b1653110f643dc25e4625a34233061495d42bac0f",
+   "bytes": 769,
+   "layer": "knowledge-atlas/implementation",
+   "attribution": "inherited-496fddf",
+   "note": "Added after the Atlas implementation inventory by 496fddf. Recorded so the gate can distinguish a receipted addition from an unexpected one."
+  },
+  {
+   "path": "content/fabric/r11/questions.json",
+   "sha256": "431dabb290079db95a8a86a17a3afd6028b7b488db034f07538f3dc3ca608223",
+   "bytes": 1383781,
+   "layer": "knowledge-atlas/implementation",
+   "attribution": "inherited-496fddf",
+   "note": "Added after the Atlas implementation inventory by 496fddf. Recorded so the gate can distinguish a receipted addition from an unexpected one."
+  },
+  {
+   "path": "content/fabric/r11/search.json",
+   "sha256": "25abaaa037239ee504d5cae4b405c1f51203288e64d308c92099ef9dd886cd2b",
+   "bytes": 222866,
+   "layer": "knowledge-atlas/implementation",
+   "attribution": "inherited-496fddf",
+   "note": "Added after the Atlas implementation inventory by 496fddf. Recorded so the gate can distinguish a receipted addition from an unexpected one."
+  },
+  {
+   "path": "content/intake/community/chaturcr48/questions.json",
+   "sha256": "90298ab63d504360900b39da7c94453bd5342f86041dc9ba197fac19574c2a85",
+   "bytes": 44501,
+   "layer": "knowledge-atlas/implementation",
+   "attribution": "inherited-2f903ff",
+   "note": "Added after the Atlas implementation inventory by 2f903ff. Recorded so the gate can distinguish a receipted addition from an unexpected one."
+  },
+  {
+   "path": "content/intake/community/warren/index.html",
+   "sha256": "f793e7d5be8521fadbec6b8751cfae514d9d4b28140fc43b17501740289e73f0",
+   "bytes": 17606355,
+   "layer": "knowledge-atlas/implementation",
+   "attribution": "inherited-2f903ff",
+   "note": "Added after the Atlas implementation inventory by 2f903ff. Recorded so the gate can distinguish a receipted addition from an unexpected one."
+  },
+  {
+   "path": "content/intake/hansa-integration/experiment_records.jsonl",
+   "sha256": "dd30792faab536d0e65178371688cb5637a85ae78edcb72a536f62e617fe18b0",
+   "bytes": 60413,
+   "layer": "knowledge-atlas/implementation",
+   "attribution": "inherited-df5aecb",
+   "note": "Added after the Atlas implementation inventory by df5aecb. Recorded so the gate can distinguish a receipted addition from an unexpected one."
+  },
+  {
+   "path": "content/intake/hansa-integration/lab_title_recovery.json",
+   "sha256": "05cc2b8f4fa5542d94c897962667646bdc149af3abdef1ba4075c4f3fb19afa3",
+   "bytes": 7395,
+   "layer": "knowledge-atlas/implementation",
+   "attribution": "inherited-df5aecb",
+   "note": "Added after the Atlas implementation inventory by df5aecb. Recorded so the gate can distinguish a receipted addition from an unexpected one."
+  },
+  {
+   "path": "content/intake/hansa-integration/package_manifest.upstream.json",
+   "sha256": "f15474a51cd493855998de6c380b1c159d810dff5f3d08397ea9839cde30fb18",
+   "bytes": 3078,
+   "layer": "knowledge-atlas/implementation",
+   "attribution": "inherited-df5aecb",
+   "note": "Added after the Atlas implementation inventory by df5aecb. Recorded so the gate can distinguish a receipted addition from an unexpected one."
+  },
+  {
+   "path": "content/intake/hansa-integration/packs/activator/ID_MAPPING.json",
+   "sha256": "21838413e928a13c6af8ea14ff1a5b910d80db94c88012e2353c16c071a380db",
+   "bytes": 4923,
+   "layer": "knowledge-atlas/implementation",
+   "attribution": "inherited-ff54796",
+   "note": "Added after the Atlas implementation inventory by ff54796. Recorded so the gate can distinguish a receipted addition from an unexpected one."
+  },
+  {
+   "path": "content/intake/hansa-integration/packs/activator/LAB_PACKS.merged.json",
+   "sha256": "989004712441b254664ff08646faa99d1a0e1ae207aaab93f06986b4c0280f3a",
+   "bytes": 79526,
+   "layer": "knowledge-atlas/implementation",
+   "attribution": "inherited-ff54796",
+   "note": "Added after the Atlas implementation inventory by ff54796. Recorded so the gate can distinguish a receipted addition from an unexpected one."
+  },
+  {
+   "path": "content/intake/hansa-integration/packs/activator/QA_REPORT.json",
+   "sha256": "d5cbf97849ad59200395c6898172c38be710a2655e9efc38a34328520dd191a4",
+   "bytes": 265,
+   "layer": "knowledge-atlas/implementation",
+   "attribution": "inherited-ff54796",
+   "note": "Added after the Atlas implementation inventory by ff54796. Recorded so the gate can distinguish a receipted addition from an unexpected one."
+  },
+  {
+   "path": "content/intake/hansa-integration/packs/activator/QUESTION_BANK.merged.json",
+   "sha256": "9ef9ed23de4d511f826813ac13626c4c71c21aec1ed7c59fea676298e47c500e",
+   "bytes": 40742,
+   "layer": "knowledge-atlas/implementation",
+   "attribution": "inherited-ff54796",
+   "note": "Added after the Atlas implementation inventory by ff54796. Recorded so the gate can distinguish a receipted addition from an unexpected one."
+  },
+  {
+   "path": "content/intake/hansa-integration/packs/activator/SOURCES.merged.json",
+   "sha256": "84139c55d5b7c43d78ae5d5f8886ac54fbc3eb919160ae55665f1643c9821b52",
+   "bytes": 2108,
+   "layer": "knowledge-atlas/implementation",
+   "attribution": "inherited-ff54796",
+   "note": "Added after the Atlas implementation inventory by ff54796. Recorded so the gate can distinguish a receipted addition from an unexpected one."
+  },
+  {
+   "path": "content/intake/hansa-integration/packs/dataflow-gen2/ID_MAPPING.json",
+   "sha256": "8d048521339aa1b587e90a4047161831c8fd2632207f9bb790e243c73d3a57d8",
+   "bytes": 5323,
+   "layer": "knowledge-atlas/implementation",
+   "attribution": "inherited-ff54796",
+   "note": "Added after the Atlas implementation inventory by ff54796. Recorded so the gate can distinguish a receipted addition from an unexpected one."
+  },
+  {
+   "path": "content/intake/hansa-integration/packs/dataflow-gen2/LAB_PACKS.merged.json",
+   "sha256": "581e8c18e66578dfb38a46e3814791ffec792f4fad23ab7d80dbc69c992d6a55",
+   "bytes": 82981,
+   "layer": "knowledge-atlas/implementation",
+   "attribution": "inherited-ff54796",
+   "note": "Added after the Atlas implementation inventory by ff54796. Recorded so the gate can distinguish a receipted addition from an unexpected one."
+  },
+  {
+   "path": "content/intake/hansa-integration/packs/dataflow-gen2/QA_REPORT.json",
+   "sha256": "d5cbf97849ad59200395c6898172c38be710a2655e9efc38a34328520dd191a4",
+   "bytes": 265,
+   "layer": "knowledge-atlas/implementation",
+   "attribution": "inherited-ff54796",
+   "note": "Added after the Atlas implementation inventory by ff54796. Recorded so the gate can distinguish a receipted addition from an unexpected one."
+  },
+  {
+   "path": "content/intake/hansa-integration/packs/dataflow-gen2/QUESTION_BANK.merged.json",
+   "sha256": "585a965eb3340f6d44e70f331634e20112eb6508e0ee1e7e14679bdbe25354c6",
+   "bytes": 45048,
+   "layer": "knowledge-atlas/implementation",
+   "attribution": "inherited-ff54796",
+   "note": "Added after the Atlas implementation inventory by ff54796. Recorded so the gate can distinguish a receipted addition from an unexpected one."
+  },
+  {
+   "path": "content/intake/hansa-integration/packs/dataflow-gen2/SOURCES.merged.json",
+   "sha256": "592a2eaf3e7d6b1922e159c54a083e10d2561f20ffbdacd36fdd5f8ddbfb4f46",
+   "bytes": 2913,
+   "layer": "knowledge-atlas/implementation",
+   "attribution": "inherited-ff54796",
+   "note": "Added after the Atlas implementation inventory by ff54796. Recorded so the gate can distinguish a receipted addition from an unexpected one."
+  },
+  {
+   "path": "content/intake/hansa-integration/packs/eventstream-windowing/ID_MAPPING.json",
+   "sha256": "d50406139120d01199af0e7d8ec85aa254d992ff3035a5bd82dc270e067d1e58",
+   "bytes": 5883,
+   "layer": "knowledge-atlas/implementation",
+   "attribution": "inherited-d22a0b0",
+   "note": "Added after the Atlas implementation inventory by d22a0b0. Recorded so the gate can distinguish a receipted addition from an unexpected one."
+  },
+  {
+   "path": "content/intake/hansa-integration/packs/eventstream-windowing/LAB_PACKS.merged.json",
+   "sha256": "30030737b07dc8a100a02b0412136508d56d3781648c5f78eeb9aa315864deba",
+   "bytes": 89989,
+   "layer": "knowledge-atlas/implementation",
+   "attribution": "inherited-d22a0b0",
+   "note": "Added after the Atlas implementation inventory by d22a0b0. Recorded so the gate can distinguish a receipted addition from an unexpected one."
+  },
+  {
+   "path": "content/intake/hansa-integration/packs/eventstream-windowing/QA_REPORT.json",
+   "sha256": "d5cbf97849ad59200395c6898172c38be710a2655e9efc38a34328520dd191a4",
+   "bytes": 265,
+   "layer": "knowledge-atlas/implementation",
+   "attribution": "inherited-d22a0b0",
+   "note": "Added after the Atlas implementation inventory by d22a0b0. Recorded so the gate can distinguish a receipted addition from an unexpected one."
+  },
+  {
+   "path": "content/intake/hansa-integration/packs/eventstream-windowing/QUESTION_BANK.merged.json",
+   "sha256": "c11f0e3fb6f40f70a23347a1dbcd8f712dae97446b38ba4ee777931de92f923f",
+   "bytes": 53345,
+   "layer": "knowledge-atlas/implementation",
+   "attribution": "inherited-d22a0b0",
+   "note": "Added after the Atlas implementation inventory by d22a0b0. Recorded so the gate can distinguish a receipted addition from an unexpected one."
+  },
+  {
+   "path": "content/intake/hansa-integration/packs/eventstream-windowing/SOURCES.merged.json",
+   "sha256": "8f1f104ff4c1457e3986fd491dcaadf066cddd635ff095e28e2dea645e15e6aa",
+   "bytes": 7060,
+   "layer": "knowledge-atlas/implementation",
+   "attribution": "inherited-d22a0b0",
+   "note": "Added after the Atlas implementation inventory by d22a0b0. Recorded so the gate can distinguish a receipted addition from an unexpected one."
+  },
+  {
+   "path": "content/intake/hansa-integration/packs/howard-dp600/ID_MAPPING.json",
+   "sha256": "ba5826909a6dd5476a94130104630f43497af5b118eece04190a54d3fa9e9080",
+   "bytes": 16923,
+   "layer": "knowledge-atlas/implementation",
+   "attribution": "inherited-f937869",
+   "note": "Added after the Atlas implementation inventory by f937869. Recorded so the gate can distinguish a receipted addition from an unexpected one."
+  },
+  {
+   "path": "content/intake/hansa-integration/packs/howard-dp600/LAB_PACKS.merged.json",
+   "sha256": "948a0cf6f5dededdd370e762f74b8d0eec2c12852012354788f2d2a89e507de4",
+   "bytes": 284524,
+   "layer": "knowledge-atlas/implementation",
+   "attribution": "inherited-f937869",
+   "note": "Added after the Atlas implementation inventory by f937869. Recorded so the gate can distinguish a receipted addition from an unexpected one."
+  },
+  {
+   "path": "content/intake/hansa-integration/packs/howard-dp600/LICENSE",
+   "sha256": "3f190c9413fa52c7f44b05a420ffeb45b1618da990bb6bc1a481940f13dac393",
+   "bytes": 1511,
+   "layer": "knowledge-atlas/implementation",
+   "attribution": "inherited-f937869",
+   "note": "Added after the Atlas implementation inventory by f937869. Recorded so the gate can distinguish a receipted addition from an unexpected one."
+  },
+  {
+   "path": "content/intake/hansa-integration/packs/howard-dp600/QA_REPORT.json",
+   "sha256": "54e3e3771e166757a9b94ac39bf295bdc90e459e0ae2d0d0a130166de9b242f9",
+   "bytes": 278,
+   "layer": "knowledge-atlas/implementation",
+   "attribution": "inherited-f937869",
+   "note": "Added after the Atlas implementation inventory by f937869. Recorded so the gate can distinguish a receipted addition from an unexpected one."
+  },
+  {
+   "path": "content/intake/hansa-integration/packs/howard-dp600/QUESTION_BANK.merged.json",
+   "sha256": "3a49974e8e7cc14437a7c1937c4afcd3d4bd4123b5ba4a92e5f362853796b943",
+   "bytes": 173077,
+   "layer": "knowledge-atlas/implementation",
+   "attribution": "inherited-f937869",
+   "note": "Added after the Atlas implementation inventory by f937869. Recorded so the gate can distinguish a receipted addition from an unexpected one."
+  },
+  {
+   "path": "content/intake/hansa-integration/packs/howard-dp600/source.json",
+   "sha256": "bcd22128adab95b38fe15458a712ce7485f0f6e5c4f947ea95f2c6a90a9c7fc4",
+   "bytes": 149775,
+   "layer": "knowledge-atlas/implementation",
+   "attribution": "inherited-f937869",
+   "note": "Added after the Atlas implementation inventory by f937869. Recorded so the gate can distinguish a receipted addition from an unexpected one."
+  },
+  {
+   "path": "content/intake/hansa-integration/packs/howard-dp600/SOURCES.merged.json",
+   "sha256": "ad04b05aedbaebbb05e963512fcf734c374f4decfbe979fc3237a1639e3ff7a7",
+   "bytes": 33146,
+   "layer": "knowledge-atlas/implementation",
+   "attribution": "inherited-f937869",
+   "note": "Added after the Atlas implementation inventory by f937869. Recorded so the gate can distinguish a receipted addition from an unexpected one."
+  },
+  {
+   "path": "content/intake/hansa-integration/packs/incremental-copy/ID_MAPPING.json",
+   "sha256": "57ed79d6b9d74ad376975e2fd6d31f3f3be7852497022036de9e9da60726e3bf",
+   "bytes": 5483,
+   "layer": "knowledge-atlas/implementation",
+   "attribution": "inherited-ff54796",
+   "note": "Added after the Atlas implementation inventory by ff54796. Recorded so the gate can distinguish a receipted addition from an unexpected one."
+  },
+  {
+   "path": "content/intake/hansa-integration/packs/incremental-copy/LAB_PACKS.merged.json",
+   "sha256": "109831de3f628e149ac6bb4f909e1536917995407517c2ab4ad470463c662aa3",
+   "bytes": 82451,
+   "layer": "knowledge-atlas/implementation",
+   "attribution": "inherited-ff54796",
+   "note": "Added after the Atlas implementation inventory by ff54796. Recorded so the gate can distinguish a receipted addition from an unexpected one."
+  },
+  {
+   "path": "content/intake/hansa-integration/packs/incremental-copy/QA_REPORT.json",
+   "sha256": "d5cbf97849ad59200395c6898172c38be710a2655e9efc38a34328520dd191a4",
+   "bytes": 265,
+   "layer": "knowledge-atlas/implementation",
+   "attribution": "inherited-ff54796",
+   "note": "Added after the Atlas implementation inventory by ff54796. Recorded so the gate can distinguish a receipted addition from an unexpected one."
+  },
+  {
+   "path": "content/intake/hansa-integration/packs/incremental-copy/QUESTION_BANK.merged.json",
+   "sha256": "8dbcbaeb4d3ff0bc6d5222517ba61c8a342da021e9f16d0e8b60102126c85f9e",
+   "bytes": 44406,
+   "layer": "knowledge-atlas/implementation",
+   "attribution": "inherited-ff54796",
+   "note": "Added after the Atlas implementation inventory by ff54796. Recorded so the gate can distinguish a receipted addition from an unexpected one."
+  },
+  {
+   "path": "content/intake/hansa-integration/packs/incremental-copy/SOURCES.merged.json",
+   "sha256": "ff1ead9f31d613f34db7b3ff5497cf850cca2f050a26d51792cc4cbe79b58c9e",
+   "bytes": 1184,
+   "layer": "knowledge-atlas/implementation",
+   "attribution": "inherited-ff54796",
+   "note": "Added after the Atlas implementation inventory by ff54796. Recorded so the gate can distinguish a receipted addition from an unexpected one."
+  },
+  {
+   "path": "content/intake/hansa-integration/packs/mirroring/ID_MAPPING.json",
+   "sha256": "01a2eece406c44d619985f70d396200b1d9ab89f34117ae37254f3fb77bd046d",
+   "bytes": 4923,
+   "layer": "knowledge-atlas/implementation",
+   "attribution": "inherited-ff54796",
+   "note": "Added after the Atlas implementation inventory by ff54796. Recorded so the gate can distinguish a receipted addition from an unexpected one."
+  },
+  {
+   "path": "content/intake/hansa-integration/packs/mirroring/LAB_PACKS.merged.json",
+   "sha256": "5230d5a6c9ce84921d5f621146504d8dfaac7dd0e559fc252643d6ba31237060",
+   "bytes": 80162,
+   "layer": "knowledge-atlas/implementation",
+   "attribution": "inherited-ff54796",
+   "note": "Added after the Atlas implementation inventory by ff54796. Recorded so the gate can distinguish a receipted addition from an unexpected one."
+  },
+  {
+   "path": "content/intake/hansa-integration/packs/mirroring/QA_REPORT.json",
+   "sha256": "d5cbf97849ad59200395c6898172c38be710a2655e9efc38a34328520dd191a4",
+   "bytes": 265,
+   "layer": "knowledge-atlas/implementation",
+   "attribution": "inherited-ff54796",
+   "note": "Added after the Atlas implementation inventory by ff54796. Recorded so the gate can distinguish a receipted addition from an unexpected one."
+  },
+  {
+   "path": "content/intake/hansa-integration/packs/mirroring/QUESTION_BANK.merged.json",
+   "sha256": "3fc67b01c07346fcb9f3b01ff8d97eb0b363574f239dd2da25a45f5003b2e29b",
+   "bytes": 42757,
+   "layer": "knowledge-atlas/implementation",
+   "attribution": "inherited-ff54796",
+   "note": "Added after the Atlas implementation inventory by ff54796. Recorded so the gate can distinguish a receipted addition from an unexpected one."
+  },
+  {
+   "path": "content/intake/hansa-integration/packs/mirroring/SOURCES.merged.json",
+   "sha256": "6a70c1f899afc607d87a9bf00986f7710e7d52de4b58f43d5366d307dd1d2fde",
+   "bytes": 2462,
+   "layer": "knowledge-atlas/implementation",
+   "attribution": "inherited-ff54796",
+   "note": "Added after the Atlas implementation inventory by ff54796. Recorded so the gate can distinguish a receipted addition from an unexpected one."
+  },
+  {
+   "path": "content/intake/hansa-integration/packs/notebooks-pyspark/ID_MAPPING.json",
+   "sha256": "33bfb0a56645d9fb4aac49e17ac549f54455457c7f80d79d818b79f069a671c7",
+   "bytes": 5483,
+   "layer": "knowledge-atlas/implementation",
+   "attribution": "inherited-ff54796",
+   "note": "Added after the Atlas implementation inventory by ff54796. Recorded so the gate can distinguish a receipted addition from an unexpected one."
+  },
+  {
+   "path": "content/intake/hansa-integration/packs/notebooks-pyspark/LAB_PACKS.merged.json",
+   "sha256": "5550bcdfdef760a6e04c7298fdd3418b5855cb8deb0bc5386e68a55b6ee54c22",
+   "bytes": 72272,
+   "layer": "knowledge-atlas/implementation",
+   "attribution": "inherited-ff54796",
+   "note": "Added after the Atlas implementation inventory by ff54796. Recorded so the gate can distinguish a receipted addition from an unexpected one."
+  },
+  {
+   "path": "content/intake/hansa-integration/packs/notebooks-pyspark/QA_REPORT.json",
+   "sha256": "d5cbf97849ad59200395c6898172c38be710a2655e9efc38a34328520dd191a4",
+   "bytes": 265,
+   "layer": "knowledge-atlas/implementation",
+   "attribution": "inherited-ff54796",
+   "note": "Added after the Atlas implementation inventory by ff54796. Recorded so the gate can distinguish a receipted addition from an unexpected one."
+  },
+  {
+   "path": "content/intake/hansa-integration/packs/notebooks-pyspark/QUESTION_BANK.merged.json",
+   "sha256": "d411d6412236936c46df46bc8767e8456718bd6e2bfeae6aa875c530573c755d",
+   "bytes": 40576,
+   "layer": "knowledge-atlas/implementation",
+   "attribution": "inherited-ff54796",
+   "note": "Added after the Atlas implementation inventory by ff54796. Recorded so the gate can distinguish a receipted addition from an unexpected one."
+  },
+  {
+   "path": "content/intake/hansa-integration/packs/notebooks-pyspark/SOURCES.merged.json",
+   "sha256": "9a7d96a34e6d10c78b1f96fbb707daf2f611ca74994bb9105f80e21cfa7e880c",
+   "bytes": 2708,
+   "layer": "knowledge-atlas/implementation",
+   "attribution": "inherited-ff54796",
+   "note": "Added after the Atlas implementation inventory by ff54796. Recorded so the gate can distinguish a receipted addition from an unexpected one."
+  },
+  {
+   "path": "content/intake/hansa-integration/packs/patrick-dp600/ID_MAPPING.json",
+   "sha256": "7d88d795384d40a7a35bb85bb52ac8bc54b1e4f417b17afb9c1666bd9265a7df",
+   "bytes": 4173,
+   "layer": "knowledge-atlas/implementation",
+   "attribution": "inherited-f937869",
+   "note": "Added after the Atlas implementation inventory by f937869. Recorded so the gate can distinguish a receipted addition from an unexpected one."
+  },
+  {
+   "path": "content/intake/hansa-integration/packs/patrick-dp600/LAB_PACKS.merged.json",
+   "sha256": "6dc626efe7094878122ce6db43de44c66b9511ffd2f4e609a6ea33e39d278173",
+   "bytes": 81105,
+   "layer": "knowledge-atlas/implementation",
+   "attribution": "inherited-f937869",
+   "note": "Added after the Atlas implementation inventory by f937869. Recorded so the gate can distinguish a receipted addition from an unexpected one."
+  },
+  {
+   "path": "content/intake/hansa-integration/packs/patrick-dp600/LICENSE",
+   "sha256": "f5b745ef98087f531e719ee8ca6a96809444573ecc7173c6fa68eaad39b3cc3f",
+   "bytes": 18658,
+   "layer": "knowledge-atlas/implementation",
+   "attribution": "inherited-f937869",
+   "note": "Added after the Atlas implementation inventory by f937869. Recorded so the gate can distinguish a receipted addition from an unexpected one."
+  },
+  {
+   "path": "content/intake/hansa-integration/packs/patrick-dp600/QA_REPORT.json",
+   "sha256": "6e5e2422ca441615c633542331f4012e381cafbc7e37e85289904789c0116c28",
+   "bytes": 275,
+   "layer": "knowledge-atlas/implementation",
+   "attribution": "inherited-f937869",
+   "note": "Added after the Atlas implementation inventory by f937869. Recorded so the gate can distinguish a receipted addition from an unexpected one."
+  },
+  {
+   "path": "content/intake/hansa-integration/packs/patrick-dp600/QUESTION_BANK.merged.json",
+   "sha256": "3306da760da0b5e00a2bb1d6b9a077f3e3814766861c89fc0ef67a81d27e16c7",
+   "bytes": 48857,
+   "layer": "knowledge-atlas/implementation",
+   "attribution": "inherited-f937869",
+   "note": "Added after the Atlas implementation inventory by f937869. Recorded so the gate can distinguish a receipted addition from an unexpected one."
+  },
+  {
+   "path": "content/intake/hansa-integration/packs/patrick-dp600/source.md",
+   "sha256": "0920984cc623ff59a6a60ae6f0f0c1b25b2b7082a47a2ba05e10d1ab693039e6",
+   "bytes": 28215,
+   "layer": "knowledge-atlas/implementation",
+   "attribution": "inherited-f937869",
+   "note": "Added after the Atlas implementation inventory by f937869. Recorded so the gate can distinguish a receipted addition from an unexpected one."
+  },
+  {
+   "path": "content/intake/hansa-integration/packs/patrick-dp600/SOURCES.merged.json",
+   "sha256": "5037d4923d699e0918acb4f91a294ce3c7b5df3dc719e52654ecb868bbf43abe",
+   "bytes": 454,
+   "layer": "knowledge-atlas/implementation",
+   "attribution": "inherited-f937869",
+   "note": "Added after the Atlas implementation inventory by f937869. Recorded so the gate can distinguish a receipted addition from an unexpected one."
+  },
+  {
+   "path": "content/intake/hansa-integration/packs/semantic-models-dax/ID_MAPPING.json",
+   "sha256": "3228cc3c7b1e870c4685f675303e938be4cd9c06ce45252a006e51dbee4df1cd",
+   "bytes": 5723,
+   "layer": "knowledge-atlas/implementation",
+   "attribution": "inherited-39466ee",
+   "note": "Added after the Atlas implementation inventory by 39466ee. Recorded so the gate can distinguish a receipted addition from an unexpected one."
+  },
+  {
+   "path": "content/intake/hansa-integration/packs/semantic-models-dax/LAB_PACKS.merged.json",
+   "sha256": "b50a642cc2624aa95dc13d2bbb9fbebd1854c73eb6ab93462d4ab60bf00b84ca",
+   "bytes": 100770,
+   "layer": "knowledge-atlas/implementation",
+   "attribution": "inherited-39466ee",
+   "note": "Added after the Atlas implementation inventory by 39466ee. Recorded so the gate can distinguish a receipted addition from an unexpected one."
+  },
+  {
+   "path": "content/intake/hansa-integration/packs/semantic-models-dax/QA_REPORT.json",
+   "sha256": "54ec40827aa63ccaf0617fb7a625c242d5765e440566e7ad02bbcc685709ce63",
+   "bytes": 265,
+   "layer": "knowledge-atlas/implementation",
+   "attribution": "inherited-39466ee",
+   "note": "Added after the Atlas implementation inventory by 39466ee. Recorded so the gate can distinguish a receipted addition from an unexpected one."
+  },
+  {
+   "path": "content/intake/hansa-integration/packs/semantic-models-dax/QUESTION_BANK.merged.json",
+   "sha256": "0ff7ac0f308d89efda4294d81b249557dd695400c44f132ae6b74d06d0b3f410",
+   "bytes": 55912,
+   "layer": "knowledge-atlas/implementation",
+   "attribution": "inherited-39466ee",
+   "note": "Added after the Atlas implementation inventory by 39466ee. Recorded so the gate can distinguish a receipted addition from an unexpected one."
+  },
+  {
+   "path": "content/intake/hansa-integration/packs/semantic-models-dax/SOURCES.merged.json",
+   "sha256": "508173c6e706e8e7bd860cde88470620eeea2d47ac21373fcf7f23dfedd7797b",
+   "bytes": 5963,
+   "layer": "knowledge-atlas/implementation",
+   "attribution": "inherited-39466ee",
+   "note": "Added after the Atlas implementation inventory by 39466ee. Recorded so the gate can distinguish a receipted addition from an unexpected one."
+  },
+  {
+   "path": "content/intake/hansa-integration/README.md",
+   "sha256": "51414567f4b9d949473364a09cf7e42d981834616f55305c12f0b7e32fbb4526",
+   "bytes": 1599,
+   "layer": "knowledge-atlas/implementation",
+   "attribution": "inherited-df5aecb",
+   "note": "Added after the Atlas implementation inventory by df5aecb. Recorded so the gate can distinguish a receipted addition from an unexpected one."
+  },
+  {
+   "path": "content/intake/hansa-integration/reference_records.jsonl",
+   "sha256": "012153077cca2b36d573fadbe52f4ebe1bd6921d3b618501b75c6207e88ea7e3",
+   "bytes": 1219070,
+   "layer": "knowledge-atlas/implementation",
+   "attribution": "inherited-df5aecb",
+   "note": "Added after the Atlas implementation inventory by df5aecb. Recorded so the gate can distinguish a receipted addition from an unexpected one."
+  },
+  {
+   "path": "content/intake/manifest.json",
+   "sha256": "44891e366bab969416ea06dac633b00fb86d210e77d4d0aecfe0d671a01f06b4",
+   "bytes": 3331,
+   "layer": "knowledge-atlas/implementation",
+   "attribution": "inherited-0e5c7cd",
+   "note": "Added after the Atlas implementation inventory by 0e5c7cd. Recorded so the gate can distinguish a receipted addition from an unexpected one."
+  },
+  {
+   "path": "content/intake/notion-assessments.json",
+   "sha256": "9c1163ea35900ccfacd76b8c7d25e33869d09b87ce028a905b6cb4bda299e498",
+   "bytes": 141713,
+   "layer": "knowledge-atlas/implementation",
+   "attribution": "inherited-0e5c7cd",
+   "note": "Added after the Atlas implementation inventory by 0e5c7cd. Recorded so the gate can distinguish a receipted addition from an unexpected one."
+  },
+  {
+   "path": "content/intake/notion-lessons.json",
+   "sha256": "3b35f55b1c277448a9f4c5f5c7eacad8d4f14a4d0a28c422c0926849b94c4f28",
+   "bytes": 147944,
+   "layer": "knowledge-atlas/implementation",
+   "attribution": "inherited-0e5c7cd",
+   "note": "Added after the Atlas implementation inventory by 0e5c7cd. Recorded so the gate can distinguish a receipted addition from an unexpected one."
+  },
+  {
+   "path": "content/intake/rti-labs.json",
+   "sha256": "0f99a232cd7d6eba72a3b3558cac3c589fdbe311ab726fa96f0f27c4a2dd9832",
+   "bytes": 19035,
+   "layer": "knowledge-atlas/implementation",
+   "attribution": "inherited-0e5c7cd",
+   "note": "Added after the Atlas implementation inventory by 0e5c7cd. Recorded so the gate can distinguish a receipted addition from an unexpected one."
+  },
+  {
+   "path": "content/intake/rti-sources.json",
+   "sha256": "81fd8bfe8b8bae70de6d30e3f0dbd3ae17d7b3ebca70f66730ea4d8eefb31974",
+   "bytes": 25776,
+   "layer": "knowledge-atlas/implementation",
+   "attribution": "inherited-0e5c7cd",
+   "note": "Added after the Atlas implementation inventory by 0e5c7cd. Recorded so the gate can distinguish a receipted addition from an unexpected one."
+  },
+  {
+   "path": "content/knowledge/insights.json",
+   "sha256": "f6c3cf4bc61687eef84e2f85ce3327d4e61ae9dd565b3a6fb3ce6d5a1ddd487f",
+   "bytes": 3960,
+   "layer": "knowledge-atlas/implementation",
+   "attribution": "inherited-0e5c7cd",
+   "note": "Added after the Atlas implementation inventory by 0e5c7cd. Recorded so the gate can distinguish a receipted addition from an unexpected one."
+  },
+  {
+   "path": "content/sql/index.json",
+   "sha256": "78d9f8ace7c90c5a2fc088d764c35e0a695f5eb2b7fa022d3caf243c9dc54f05",
+   "bytes": 36924,
+   "layer": "knowledge-atlas/implementation",
+   "attribution": "inherited-0e5c7cd",
+   "note": "Added after the Atlas implementation inventory by 0e5c7cd. Recorded so the gate can distinguish a receipted addition from an unexpected one."
+  },
+  {
+   "path": "content/sql/vault.json",
+   "sha256": "02ff064898ee18236e5d144800d176d52a051d78170d58cec8086aa3aa6994b3",
+   "bytes": 998393,
+   "layer": "knowledge-atlas/implementation",
+   "attribution": "inherited-0e5c7cd",
+   "note": "Added after the Atlas implementation inventory by 0e5c7cd. Recorded so the gate can distinguish a receipted addition from an unexpected one."
+  },
+  {
+   "path": "content/study/experiments.json",
+   "sha256": "88028cb40d7cb797b30a1a0d2354c448b6c88f26c1475883c59a4566043d1ac3",
+   "bytes": 42734,
+   "layer": "knowledge-atlas/implementation",
+   "attribution": "inherited-df5aecb",
+   "note": "Added after the Atlas implementation inventory by df5aecb. Recorded so the gate can distinguish a receipted addition from an unexpected one."
+  },
+  {
+   "path": "content/study/references.json",
+   "sha256": "ba23774f8cc9f0841d31ff26fd55ee7b50a2f19a21efdfd004129b701bda7b62",
+   "bytes": 1791801,
+   "layer": "knowledge-atlas/implementation",
+   "attribution": "inherited-df5aecb",
+   "note": "Added after the Atlas implementation inventory by df5aecb. Recorded so the gate can distinguish a receipted addition from an unexpected one."
+  },
+  {
+   "path": "lib/academy/corpus.ts",
+   "sha256": "cf8912fb3b1bc2540890ba4339e131d625d3d65cb3f9e1aff0b35f2ad91c7789",
+   "bytes": 2304,
+   "layer": "knowledge-atlas/implementation",
+   "attribution": "inherited-6c1a3e2",
+   "note": "Added after the Atlas implementation inventory by 6c1a3e2. Recorded so the gate can distinguish a receipted addition from an unexpected one."
+  },
+  {
+   "path": "lib/atlas/circle-layout.ts",
+   "sha256": "5e2c2db78b9278e2be2108406129c1a1755528600d2e2e2e0fe1dfba5f63b7a4",
+   "bytes": 2359,
+   "layer": "knowledge-atlas/implementation",
+   "attribution": "inherited-496fddf",
+   "note": "Added after the Atlas implementation inventory by 496fddf. Recorded so the gate can distinguish a receipted addition from an unexpected one."
+  },
+  {
+   "path": "lib/atlas/field.ts",
+   "sha256": "da571a671ce66a538f6050e6fe8d8ae3caf6b5e4a4befe6ea184e598a9d8af95",
+   "bytes": 21510,
+   "layer": "knowledge-atlas/implementation",
+   "attribution": "inherited-0902e15",
+   "note": "Added after the Atlas implementation inventory by 0902e15. Recorded so the gate can distinguish a receipted addition from an unexpected one."
+  },
+  {
+   "path": "lib/atlas/model.ts",
+   "sha256": "675e6015fe9192710b07d542101cf9744dc8f72eb6750221237018f2406f2dea",
+   "bytes": 11782,
+   "layer": "knowledge-atlas/implementation",
+   "attribution": "inherited-496fddf",
+   "note": "Added after the Atlas implementation inventory by 496fddf. Recorded so the gate can distinguish a receipted addition from an unexpected one."
+  },
+  {
+   "path": "lib/atlas/peek-layout.ts",
+   "sha256": "067897275355c93390bb42cd3c367ad0b76a7b960fdf1ddd6823cd6dad60fa56",
+   "bytes": 1232,
+   "layer": "knowledge-atlas/implementation",
+   "attribution": "inherited-496fddf",
+   "note": "Added after the Atlas implementation inventory by 496fddf. Recorded so the gate can distinguish a receipted addition from an unexpected one."
+  },
+  {
+   "path": "lib/atlas/server.ts",
+   "sha256": "851daa2943c74a78ff10add3224388d7f74b5e8516a5d39449dd0961d823ecac",
+   "bytes": 1254,
+   "layer": "knowledge-atlas/implementation",
+   "attribution": "inherited-0e5c7cd",
+   "note": "Added after the Atlas implementation inventory by 0e5c7cd. Recorded so the gate can distinguish a receipted addition from an unexpected one."
+  },
+  {
+   "path": "lib/curriculum/model.ts",
+   "sha256": "9b1d6a181db972742aabdd6d3f94ad2e8763aa1334130f4d6c9343f0f218e238",
+   "bytes": 7852,
+   "layer": "knowledge-atlas/implementation",
+   "attribution": "curriculum-migration-807c6fc",
+   "note": "Added after the Atlas implementation inventory by 807c6fc. Recorded so the gate can distinguish a receipted addition from an unexpected one."
+  },
+  {
+   "path": "lib/drafts/data.ts",
+   "sha256": "b5ff2c460df83c1868e20bd6c7b1a8f72574adf2edc2cd9ff4c08d04880703fa",
+   "bytes": 2780,
+   "layer": "knowledge-atlas/implementation",
+   "attribution": "inherited-0e5c7cd",
+   "note": "Added after the Atlas implementation inventory by 0e5c7cd. Recorded so the gate can distinguish a receipted addition from an unexpected one."
+  },
+  {
+   "path": "lib/fabric/additions.ts",
+   "sha256": "56d50dd8bacf4bf062774183007392e670d6d805a33f46cf6c5548a3e7f0577d",
+   "bytes": 2441,
+   "layer": "knowledge-atlas/implementation",
+   "attribution": "inherited-496fddf",
+   "note": "Added after the Atlas implementation inventory by 496fddf. Recorded so the gate can distinguish a receipted addition from an unexpected one."
+  },
+  {
+   "path": "lib/fabric/r11.ts",
+   "sha256": "1fd09c60a2fb11bd4268ecbb0ecad0fc5765eb6bc2ac876749a952e644343401",
+   "bytes": 4693,
+   "layer": "knowledge-atlas/implementation",
+   "attribution": "inherited-496fddf",
+   "note": "Added after the Atlas implementation inventory by 496fddf. Recorded so the gate can distinguish a receipted addition from an unexpected one."
+  },
+  {
+   "path": "lib/intake/data.ts",
+   "sha256": "a443e09a37311f78c193a9038e55a4dab92b4025dad115461d664225daa439dd",
+   "bytes": 3526,
+   "layer": "knowledge-atlas/implementation",
+   "attribution": "inherited-0e5c7cd",
+   "note": "Added after the Atlas implementation inventory by 0e5c7cd. Recorded so the gate can distinguish a receipted addition from an unexpected one."
+  },
+  {
+   "path": "lib/knowledge/insights.ts",
+   "sha256": "117e6d3d57c3ad713708e2268e17231a95b170c0ca2adcb5d92ee2617e913ed4",
+   "bytes": 1553,
+   "layer": "knowledge-atlas/implementation",
+   "attribution": "inherited-496fddf",
+   "note": "Added after the Atlas implementation inventory by 496fddf. Recorded so the gate can distinguish a receipted addition from an unexpected one."
+  },
+  {
+   "path": "lib/knowledge/models.ts",
+   "sha256": "76ff5fc709eb16c3bb74ea3f77eb9522ccaeb2318641cc7ac5569518cc50004b",
+   "bytes": 7840,
+   "layer": "knowledge-atlas/implementation",
+   "attribution": "inherited-496fddf",
+   "note": "Added after the Atlas implementation inventory by 496fddf. Recorded so the gate can distinguish a receipted addition from an unexpected one."
+  },
+  {
+   "path": "lib/knowledge/motion.ts",
+   "sha256": "4b73556523632ee703e1e052abe9127811bb01968e97ed5c05aa8536a0190eee",
+   "bytes": 1683,
+   "layer": "knowledge-atlas/implementation",
+   "attribution": "inherited-496fddf",
+   "note": "Added after the Atlas implementation inventory by 496fddf. Recorded so the gate can distinguish a receipted addition from an unexpected one."
+  },
+  {
+   "path": "lib/motion/cinematic.ts",
+   "sha256": "8bf26eb5c10ef75bd268101701e026b4da04659609f06b7a3beac7c25d29a2b1",
+   "bytes": 1950,
+   "layer": "knowledge-atlas/implementation",
+   "attribution": "inherited-0e5c7cd",
+   "note": "Added after the Atlas implementation inventory by 0e5c7cd. Recorded so the gate can distinguish a receipted addition from an unexpected one."
+  },
+  {
+   "path": "lib/rti/lessons.ts",
+   "sha256": "8efee0e346366d67c3668f071c1311e2831e0d3b8da2469f9fbffd3a435ef290",
+   "bytes": 32059,
+   "layer": "knowledge-atlas/implementation",
+   "attribution": "inherited-0e5c7cd",
+   "note": "Added after the Atlas implementation inventory by 0e5c7cd. Recorded so the gate can distinguish a receipted addition from an unexpected one."
+  },
+  {
+   "path": "lib/search/aliases.ts",
+   "sha256": "bed32ce2d9bdb8cfcc0c17f18c5ea55d1c94d8d7f3fbad00d87cdc93476417d3",
+   "bytes": 3368,
+   "layer": "knowledge-atlas/implementation",
+   "attribution": "curriculum-migration-8da7afb",
+   "note": "Added after the Atlas implementation inventory by 8da7afb. Recorded so the gate can distinguish a receipted addition from an unexpected one."
+  },
+  {
+   "path": "lib/search/build-index.ts",
+   "sha256": "e4148707f6b9d269b34daa40126b26e7d519132eac2ce3e21b9c2a45e929cd6a",
+   "bytes": 1834,
+   "layer": "knowledge-atlas/implementation",
+   "attribution": "curriculum-migration-8da7afb",
+   "note": "Added after the Atlas implementation inventory by 8da7afb. Recorded so the gate can distinguish a receipted addition from an unexpected one."
+  },
+  {
+   "path": "lib/sql/grain.ts",
+   "sha256": "8f6f2804fb1b6e4993826aafe7342fdabd05fa900e950006113bcda458d61bbf",
+   "bytes": 792,
+   "layer": "knowledge-atlas/implementation",
+   "attribution": "inherited-0e5c7cd",
+   "note": "Added after the Atlas implementation inventory by 0e5c7cd. Recorded so the gate can distinguish a receipted addition from an unexpected one."
+  },
+  {
+   "path": "lib/sql/registry.ts",
+   "sha256": "4efa0f7c975b5647889e9dae2aebc82fa1432298ef78552a5854ed2869588a3f",
+   "bytes": 3474,
+   "layer": "knowledge-atlas/implementation",
+   "attribution": "inherited-0e5c7cd",
+   "note": "Added after the Atlas implementation inventory by 0e5c7cd. Recorded so the gate can distinguish a receipted addition from an unexpected one."
+  },
+  {
+   "path": "lib/sql/source.ts",
+   "sha256": "4cbe3004f66fbdf5cecb1eb3b0095dad0544d153fda9258984d5b5eea68ed4b2",
+   "bytes": 2331,
+   "layer": "knowledge-atlas/implementation",
+   "attribution": "inherited-0e5c7cd",
+   "note": "Added after the Atlas implementation inventory by 0e5c7cd. Recorded so the gate can distinguish a receipted addition from an unexpected one."
+  },
+  {
+   "path": "lib/study/briefs.ts",
+   "sha256": "5ae0a04f778a1156212dd4dab8a99d718ae6771886efe1c9edfcad8442244f0d",
+   "bytes": 3057,
+   "layer": "knowledge-atlas/implementation",
+   "attribution": "inherited-0e5c7cd",
+   "note": "Added after the Atlas implementation inventory by 0e5c7cd. Recorded so the gate can distinguish a receipted addition from an unexpected one."
+  },
+  {
+   "path": "lib/study/classification-review.ts",
+   "sha256": "3a2f0de697b141297fa6c24c0596b75c9f56bb82d7f788531da9ce5ae58968fe",
+   "bytes": 3151,
+   "layer": "knowledge-atlas/implementation",
+   "attribution": "inherited-0e5c7cd",
+   "note": "Added after the Atlas implementation inventory by 0e5c7cd. Recorded so the gate can distinguish a receipted addition from an unexpected one."
+  },
+  {
+   "path": "lib/study/curated.ts",
+   "sha256": "1d462ed21ab931ea894dde0ae958a0b8fd48722d971756652235dc3a1a962b7f",
+   "bytes": 3759,
+   "layer": "knowledge-atlas/implementation",
+   "attribution": "inherited-df5aecb",
+   "note": "Added after the Atlas implementation inventory by df5aecb. Recorded so the gate can distinguish a receipted addition from an unexpected one."
+  },
+  {
+   "path": "lib/study/evidence.ts",
+   "sha256": "4c5c325da7a6aca2d3ad874c9953390629e575eb17532aac42894bcbf139cb05",
+   "bytes": 3546,
+   "layer": "knowledge-atlas/implementation",
+   "attribution": "inherited-0e5c7cd",
+   "note": "Added after the Atlas implementation inventory by 0e5c7cd. Recorded so the gate can distinguish a receipted addition from an unexpected one."
+  },
+  {
+   "path": "lib/study/learning-path.ts",
+   "sha256": "b035680ec211f69fc9a67247ed69ef7a7d17a857a18adfb17b3352377f71a238",
+   "bytes": 13477,
+   "layer": "knowledge-atlas/implementation",
+   "attribution": "inherited-0e5c7cd",
+   "note": "Added after the Atlas implementation inventory by 0e5c7cd. Recorded so the gate can distinguish a receipted addition from an unexpected one."
+  },
+  {
+   "path": "lib/study/review-learning-path.ts",
+   "sha256": "aff1a2882a30c8453c5d4b52b07d0ba283fdac304023556d6a9a68cb6c4386e9",
+   "bytes": 1768,
+   "layer": "knowledge-atlas/implementation",
+   "attribution": "inherited-0e5c7cd",
+   "note": "Added after the Atlas implementation inventory by 0e5c7cd. Recorded so the gate can distinguish a receipted addition from an unexpected one."
+  },
+  {
+   "path": "lib/study/review.ts",
+   "sha256": "538eec3538d946950f81bef0f84d841cde052b93482e188bf0d9aba12e5b6b7d",
+   "bytes": 3016,
+   "layer": "knowledge-atlas/implementation",
+   "attribution": "inherited-2f903ff",
+   "note": "Added after the Atlas implementation inventory by 2f903ff. Recorded so the gate can distinguish a receipted addition from an unexpected one."
+  },
+  {
+   "path": "lib/study/server.ts",
+   "sha256": "8f00eb190cbee8b57a62fbf8175d615d69004b954ec6cfc93abc0ff535af43c0",
+   "bytes": 7853,
+   "layer": "knowledge-atlas/implementation",
+   "attribution": "inherited-6c1a3e2",
+   "note": "Added after the Atlas implementation inventory by 6c1a3e2. Recorded so the gate can distinguish a receipted addition from an unexpected one."
+  },
+  {
+   "path": "lib/study/source-documents.ts",
+   "sha256": "d9bac928ad5b420271b01a738decfb991db36dd005205ebeb9a02e6131e64d62",
+   "bytes": 14070,
+   "layer": "knowledge-atlas/implementation",
+   "attribution": "curriculum-migration-1763890",
+   "note": "Added after the Atlas implementation inventory by 1763890. Recorded so the gate can distinguish a receipted addition from an unexpected one."
+  },
+  {
+   "path": "lib/study/taxonomy.ts",
+   "sha256": "934a99fea8816461f5a0b7382777797b8f4fa50c475e87c1da9c2d7f1d76a9e5",
+   "bytes": 7112,
+   "layer": "knowledge-atlas/implementation",
+   "attribution": "curriculum-migration-807c6fc",
+   "note": "Added after the Atlas implementation inventory by 807c6fc. Recorded so the gate can distinguish a receipted addition from an unexpected one."
+  },
+  {
+   "path": "lib/study/topic-review.ts",
+   "sha256": "c33bac1083ed9a7e1280e3368ad330a63c738d371ecd3ceb39ddcefd826e3195",
+   "bytes": 10677,
+   "layer": "knowledge-atlas/implementation",
+   "attribution": "inherited-0e5c7cd",
+   "note": "Added after the Atlas implementation inventory by 0e5c7cd. Recorded so the gate can distinguish a receipted addition from an unexpected one."
+  },
+  {
+   "path": "public/content/fabric/notes.json",
+   "sha256": "624f280f377267221c34cfce1a1b0c5ed504f180daea1fdf348fd74bfc7e5301",
+   "bytes": 311796,
+   "layer": "knowledge-atlas/implementation",
+   "attribution": "inherited-f937869",
+   "note": "Added after the Atlas implementation inventory by f937869. Recorded so the gate can distinguish a receipted addition from an unexpected one."
+  },
+  {
+   "path": "public/fabric-additions/litware/images/data_to_analyze.jpg",
+   "sha256": "53497834d15566adcc02f1f10535103b1aeff0026256ada03ab2d8ec2738f3b4",
+   "bytes": 11449,
+   "layer": "knowledge-atlas/implementation",
+   "attribution": "inherited-496fddf",
+   "note": "Added after the Atlas implementation inventory by 496fddf. Recorded so the gate can distinguish a receipted addition from an unexpected one."
+  },
+  {
+   "path": "public/fabric-additions/litware/images/product_columns.jpg",
+   "sha256": "276165bc18e780337a47744dbb622cd376567663d6ad23d6678700a265fd099f",
+   "bytes": 5252,
+   "layer": "knowledge-atlas/implementation",
+   "attribution": "inherited-496fddf",
+   "note": "Added after the Atlas implementation inventory by 496fddf. Recorded so the gate can distinguish a receipted addition from an unexpected one."
+  },
+  {
+   "path": "public/media/sql/sql-logical-query-order.jpg",
+   "sha256": "3e3677ed1786a58d6aecf0f1a33ac675e5b4d12f62c83b0c49e5cd995520110b",
+   "bytes": 254590,
+   "layer": "knowledge-atlas/implementation",
+   "attribution": "inherited-0e5c7cd",
+   "note": "Added after the Atlas implementation inventory by 0e5c7cd. Recorded so the gate can distinguish a receipted addition from an unexpected one."
+  },
+  {
+   "path": "public/media/sql/sql-set-operations.jpg",
+   "sha256": "f25894ec74b0297615c3acbb4129120ce29655f4d26146fe22e01dcdef0520c8",
+   "bytes": 307830,
+   "layer": "knowledge-atlas/implementation",
+   "attribution": "inherited-0e5c7cd",
+   "note": "Added after the Atlas implementation inventory by 0e5c7cd. Recorded so the gate can distinguish a receipted addition from an unexpected one."
+  },
+  {
+   "path": "public/media/sql/sql-which-tool.jpg",
+   "sha256": "bb1f4eae52a21eee24ee2d141b3d9bc1456a3186e93008ed09db8132e34452ad",
+   "bytes": 298904,
+   "layer": "knowledge-atlas/implementation",
+   "attribution": "inherited-0e5c7cd",
+   "note": "Added after the Atlas implementation inventory by 0e5c7cd. Recorded so the gate can distinguish a receipted addition from an unexpected one."
+  },
+  {
+   "path": "public/media/sql/sql-window-frame.jpg",
+   "sha256": "6a43b844c845295d6005aadc37619716e0868aa68ab48407c541330c0ea8999c",
+   "bytes": 330010,
+   "layer": "knowledge-atlas/implementation",
+   "attribution": "inherited-0e5c7cd",
+   "note": "Added after the Atlas implementation inventory by 0e5c7cd. Recorded so the gate can distinguish a receipted addition from an unexpected one."
+  },
+  {
+   "path": "tests/atlas/circle-layout.test.mjs",
+   "sha256": "1e33ce053b36b366d28cbc07fe5cffd6c066485f25a9eb5adcca3010376de24f",
+   "bytes": 2362,
+   "layer": "knowledge-atlas/implementation",
+   "attribution": "inherited-496fddf",
+   "note": "Added after the Atlas implementation inventory by 496fddf. Recorded so the gate can distinguish a receipted addition from an unexpected one."
+  },
+  {
+   "path": "tests/atlas/circles-e2e.mjs",
+   "sha256": "48152fc3b6f47ae75207103c8edb4449d79d7b5ea96966ec32dc0cb2a535bbdd",
+   "bytes": 6723,
+   "layer": "knowledge-atlas/implementation",
+   "attribution": "inherited-496fddf",
+   "note": "Added after the Atlas implementation inventory by 496fddf. Recorded so the gate can distinguish a receipted addition from an unexpected one."
+  },
+  {
+   "path": "tests/atlas/continuation-e2e.mjs",
+   "sha256": "4dd517464cb60e03c47acd13d640cb86ec02c12c6558bc397cc0a4980fb71e6f",
+   "bytes": 4170,
+   "layer": "knowledge-atlas/implementation",
+   "attribution": "inherited-496fddf",
+   "note": "Added after the Atlas implementation inventory by 496fddf. Recorded so the gate can distinguish a receipted addition from an unexpected one."
+  },
+  {
+   "path": "tests/atlas/continuation.test.mjs",
+   "sha256": "c532dfb9d198e08424b4d5bae2c72b46e0f64d504613ca2d6d5e7f1438518fbd",
+   "bytes": 5294,
+   "layer": "knowledge-atlas/implementation",
+   "attribution": "inherited-496fddf",
+   "note": "Added after the Atlas implementation inventory by 496fddf. Recorded so the gate can distinguish a receipted addition from an unexpected one."
+  },
+  {
+   "path": "tests/atlas/e2e.mjs",
+   "sha256": "8d22d48363181d79161eaeda7dfb2422d62b166aaabe9210bd82790d4b74a63b",
+   "bytes": 8923,
+   "layer": "knowledge-atlas/implementation",
+   "attribution": "inherited-496fddf",
+   "note": "Added after the Atlas implementation inventory by 496fddf. Recorded so the gate can distinguish a receipted addition from an unexpected one."
+  },
+  {
+   "path": "tests/atlas/expansion-e2e.mjs",
+   "sha256": "848499d06d838add924cb364a20487ac98b063ac024fdfdd56ce23b206e28389",
+   "bytes": 4085,
+   "layer": "knowledge-atlas/implementation",
+   "attribution": "inherited-496fddf",
+   "note": "Added after the Atlas implementation inventory by 496fddf. Recorded so the gate can distinguish a receipted addition from an unexpected one."
+  },
+  {
+   "path": "tests/atlas/expansion.test.mjs",
+   "sha256": "777494d59c189afcea31616c01efb0094566b5ad415348e7e12926419afa1b32",
+   "bytes": 4407,
+   "layer": "knowledge-atlas/implementation",
+   "attribution": "inherited-496fddf",
+   "note": "Added after the Atlas implementation inventory by 496fddf. Recorded so the gate can distinguish a receipted addition from an unexpected one."
+  },
+  {
+   "path": "tests/atlas/model.test.mjs",
+   "sha256": "ae0b3042e32226ea7c23b0042a749ddfeaee357b0732db2583db2c03c4bb39f5",
+   "bytes": 5243,
+   "layer": "knowledge-atlas/implementation",
+   "attribution": "inherited-496fddf",
+   "note": "Added after the Atlas implementation inventory by 496fddf. Recorded so the gate can distinguish a receipted addition from an unexpected one."
+  },
+  {
+   "path": "tests/atlas/peek-layout.test.mjs",
+   "sha256": "34a19121db4086ae81fe0b222c833f9f18f511791a788d023169eeeaf6579120",
+   "bytes": 1481,
+   "layer": "knowledge-atlas/implementation",
+   "attribution": "inherited-496fddf",
+   "note": "Added after the Atlas implementation inventory by 496fddf. Recorded so the gate can distinguish a receipted addition from an unexpected one."
+  },
+  {
+   "path": "tests/content/corpus-extraction.test.mjs",
+   "sha256": "e0bb2684618b821ffb898d2bce2e129d6f0cd53cbbb7a47367f6c0d462b3147e",
+   "bytes": 4961,
+   "layer": "knowledge-atlas/implementation",
+   "attribution": "inherited-2f903ff",
+   "note": "Added after the Atlas implementation inventory by 2f903ff. Recorded so the gate can distinguish a receipted addition from an unexpected one."
+  },
+  {
+   "path": "tests/content/curriculum.test.mjs",
+   "sha256": "2d17d217ee31d3f9465c298abc840833f713c832df46655c0c9f4d17cca19583",
+   "bytes": 6512,
+   "layer": "knowledge-atlas/implementation",
+   "attribution": "curriculum-migration-807c6fc",
+   "note": "Added after the Atlas implementation inventory by 807c6fc. Recorded so the gate can distinguish a receipted addition from an unexpected one."
+  },
+  {
+   "path": "tests/content/drafts-integration.test.mjs",
+   "sha256": "ffc36cdcc9935092cd8d2488e916ff3a0440f647c62c7ddc490d0f4995b893e4",
+   "bytes": 10965,
+   "layer": "knowledge-atlas/implementation",
+   "attribution": "inherited-f937869",
+   "note": "Added after the Atlas implementation inventory by f937869. Recorded so the gate can distinguish a receipted addition from an unexpected one."
+  },
+  {
+   "path": "tests/content/sql-vault.test.mjs",
+   "sha256": "4fb8c4706d2da1bae5a2adf68677f4a899844e96fca131c9fb6d52ecb1493f3b",
+   "bytes": 6018,
+   "layer": "knowledge-atlas/implementation",
+   "attribution": "inherited-f937869",
+   "note": "Added after the Atlas implementation inventory by f937869. Recorded so the gate can distinguish a receipted addition from an unexpected one."
+  },
+  {
+   "path": "tests/content/study-catalogue.test.mjs",
+   "sha256": "e30a0d5361b8b8cfcc57838b49a0e4071936f5430f786f598748f1d2f00bf525",
+   "bytes": 5524,
+   "layer": "knowledge-atlas/implementation",
+   "attribution": "inherited-df5aecb",
+   "note": "Added after the Atlas implementation inventory by df5aecb. Recorded so the gate can distinguish a receipted addition from an unexpected one."
+  },
+  {
+   "path": "tests/fabric/r11-e2e.mjs",
+   "sha256": "034cb0bb91b24f2df3c8d9341e39169e7a4aee7a527d8cbac1eedfb2c22b0c60",
+   "bytes": 9208,
+   "layer": "knowledge-atlas/implementation",
+   "attribution": "inherited-496fddf",
+   "note": "Added after the Atlas implementation inventory by 496fddf. Recorded so the gate can distinguish a receipted addition from an unexpected one."
+  },
+  {
+   "path": "tests/fabric/r11.test.mjs",
+   "sha256": "aad0ef7b0a03a7f521f41399d1dc6835ea714eabf69d5db08a29f8dc93a69cd6",
+   "bytes": 4785,
+   "layer": "knowledge-atlas/implementation",
+   "attribution": "inherited-496fddf",
+   "note": "Added after the Atlas implementation inventory by 496fddf. Recorded so the gate can distinguish a receipted addition from an unexpected one."
+  },
+  {
+   "path": "tests/knowledge/canonical-home.test.mjs",
+   "sha256": "4ed75a0a2ab2146599591216b1732490c5de89d95bcae5dd6d82f74fa59a1180",
+   "bytes": 10805,
+   "layer": "knowledge-atlas/implementation",
+   "attribution": "inherited-0e5c7cd",
+   "note": "Added after the Atlas implementation inventory by 0e5c7cd. Recorded so the gate can distinguish a receipted addition from an unexpected one."
+  },
+  {
+   "path": "tests/knowledge/cinematic-field.test.mjs",
+   "sha256": "1150eeed5c4af5eecc96109615d78b8a30de1b66ea5d20887f7b484b89232461",
+   "bytes": 9572,
+   "layer": "knowledge-atlas/implementation",
+   "attribution": "inherited-0e5c7cd",
+   "note": "Added after the Atlas implementation inventory by 0e5c7cd. Recorded so the gate can distinguish a receipted addition from an unexpected one."
+  },
+  {
+   "path": "tests/knowledge/insights.test.mjs",
+   "sha256": "0827258d78550631ea91157a4599f090ff650c9a4520911d15703339b99a8930",
+   "bytes": 2122,
+   "layer": "knowledge-atlas/implementation",
+   "attribution": "inherited-496fddf",
+   "note": "Added after the Atlas implementation inventory by 496fddf. Recorded so the gate can distinguish a receipted addition from an unexpected one."
+  },
+  {
+   "path": "tests/knowledge/models.test.mjs",
+   "sha256": "943852d35b18eeb4b1c2e14c1a4a1bcaf118ef5988197b9f3ccd4ac623e1ade8",
+   "bytes": 4407,
+   "layer": "knowledge-atlas/implementation",
+   "attribution": "inherited-496fddf",
+   "note": "Added after the Atlas implementation inventory by 496fddf. Recorded so the gate can distinguish a receipted addition from an unexpected one."
+  }
+ ],
+ "removed": [
+  {
+   "path": "app/learn/[slug]/page.tsx",
+   "previousSha256": "ed884199a7507c670930366b77a29d558ce78b9e0f0475cfffd992d5f63a82a3",
+   "layer": "knowledge-atlas/implementation",
+   "note": "Preserved addition deleted by 0902e15 with the retired knowledge-atmosphere layer; no remaining source file imports it."
+  },
+  {
+   "path": "components/cinematic/cinematic.css",
+   "previousSha256": "bb538a90a2e8ce6f2ae8b7cfdf3671cf31cc0214306d206e4bdf35707e6fc9f3",
+   "layer": "hansa-integration-20261029",
+   "note": "Deleted by 0902e15 with the retired spacetime camera renderer. No source file references it except the explanatory comment in lib/atlas/field.ts."
+  },
+  {
+   "path": "components/cinematic/spacetime-atlas.tsx",
+   "previousSha256": "92c9051377b59571a10b1fd31aa84d27ad28725b4e4f17194288950cd84e8f66",
+   "layer": "hansa-integration-20261029",
+   "note": "Deleted by 0902e15 with the retired spacetime camera renderer. No source file references it except the explanatory comment in lib/atlas/field.ts."
+  },
+  {
+   "path": "components/cinematic/spacetime.css",
+   "previousSha256": "bbf3237ffb9e148db2ad30f6a18e44718ddb8a3eea9e86a94b37ff80304a5d78",
+   "layer": "hansa-integration-20261029",
+   "note": "Deleted by 0902e15 with the retired spacetime camera renderer. No source file references it except the explanatory comment in lib/atlas/field.ts."
+  },
+  {
+   "path": "components/knowledge/knowledge-atmosphere.tsx",
+   "previousSha256": "a4fbe9f71e364a777398afd19f064a0cedb0dc093a816a54e7618bc456a2ca14",
+   "layer": "cinematic-phase2",
+   "note": "Preserved addition deleted by 0902e15 with the retired knowledge-atmosphere layer; no remaining source file imports it."
+  },
+  {
+   "path": "components/knowledge/knowledge-stage.tsx",
+   "previousSha256": "ae9ec5694278d300d7ecf2ba5d5119c12615ded4367b9d580e64d614dd5cb235",
+   "layer": "prototype-c",
+   "note": "Preserved addition deleted by 0902e15 with the retired knowledge-atmosphere layer; no remaining source file imports it."
+  },
+  {
+   "path": "components/knowledge/prototype-c.tsx",
+   "previousSha256": "df5cb79da2351ac3df71c939942c19990705b8686caa17d4232ab0bbf2a63d5a",
+   "layer": "prototype-c",
+   "note": "Preserved addition deleted by 0902e15 with the retired knowledge-atmosphere layer; no remaining source file imports it."
+  }
+ ],
+ "excluded": [
+  {
+   "path": "tsconfig.tsbuildinfo",
+   "reason": "Untracked build artifact pinned observeOnly by the 29 Oct receipt; its bytes change on every build, so it cannot be a stable reference pin."
+  }
+ ],
+ "predecessors": [
+  {
+   "manifest": "docs/cinematic-phase2/INTEGRATION_MANIFEST.json",
+   "path": "docs/canonical-home/INTEGRATION_MANIFEST.json",
+   "recordedSha256": "fab6b909539898c91d0cf3a5511b7932cf83a61a024aa8933f5bbaf5e863d955",
+   "sha256": "3c24623e2a2a439decfd059c4bca7e450a013cfd32f8d78181da30cf9772138f",
+   "attribution": "inherited-0902e15",
+   "note": "Recorded by docs/cinematic-phase2/INTEGRATION_MANIFEST.json as the hash of the layer below; that layer was later rewritten by 0902e15. The older receipt is not edited."
+  }
+ ]
+}

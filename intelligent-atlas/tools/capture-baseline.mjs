@@ -8,7 +8,11 @@ import { execFileSync } from "node:child_process";
 
 const root = join(import.meta.dirname, "..", "..");
 const atlas = join(root, "intelligent-atlas");
-const stamp = "2026-11-01-pre-v31";
+// Defaults reproduce the 2026-11-01 pre-V3.1 snapshot. Later waves pass a
+// stamp and a note so the same tool records every dated baseline.
+const [stampArg, noteArg] = process.argv.slice(2);
+const stamp = stampArg ?? "2026-11-01-pre-v31";
+const note = noteArg ?? "Pre-V3.1 snapshot of the isolated deliverable.";
 const out = join(atlas, "baselines", stamp);
 const owned = [
   "prototype/index.html",
@@ -28,6 +32,21 @@ const owned = [
   "analysis/graph-build.json",
   "analysis/public-projection.json",
   "analysis/coverage-report.md",
+  "analysis/source-reconciliation-v2.md",
+  "analysis/source-reconciliation-v2.json",
+  "analysis/semantic-ledger-v2.md",
+  "analysis/semantic-ledger-summary.json",
+  "analysis/corpus-manifest.json",
+  "tools/qa-recovery.mjs",
+  "tools/qa-responsive.mjs",
+  "tools/verify-public-isolation.mjs",
+  "contracts/deck-v2.schema.json",
+  "contracts/deck-resolver.mjs",
+  "contracts/deck-resolver.test.mjs",
+  "storyboard/v31/STORYBOARD.md",
+  "prototype/timeline-model.js",
+  "prototype/neighborhood-model.js",
+  "prototype/data.js",
   "DELIVERY_REPORT.md",
 ];
 
@@ -57,8 +76,9 @@ try {
 const record = {
   kind: "hansa-knowledge-stage-dated-baseline",
   baselineId: stamp,
-  capturedAt: "2026-11-01",
+  capturedAt: new Date().toISOString(),
   scope: "NEXT_PHASE_REVIEW M0-M5; no app/ integration",
+  note,
   repository: { head, dirtyPaths: status.length, dirtyEntries: status },
   preservedFiles: records,
   notes: [

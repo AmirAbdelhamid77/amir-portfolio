@@ -7,8 +7,12 @@ import {createRequire} from "node:module";
 import assert from "node:assert/strict";
 import {loadPreservationHistory,loadRepairReceipt} from "./preservation-history.mjs";
 import {implementationReceipt} from "./atlas-implementation-receipt.mjs";
+import {knowledgeStageReceipt} from "./knowledge-stage-receipt.mjs";
 const root=resolve(dirname(fileURLToPath(import.meta.url)),"..");
 const implementation=implementationReceipt(root);
+// The newest receipt layer records artifacts a later authorized wave deleted;
+// a retired file has no current bytes to compare, so the baseline loop skips it.
+const stage=knowledgeStageReceipt(root);
 const local="docs/knowledge-atlas", handoff="docs/agent-handoffs/hansa-knowledge-atlas-2026-10-25";
 const read=p=>readFileSync(resolve(root,p),"utf8").replace(/^\uFEFF/,"");
 const json=p=>JSON.parse(read(p));
@@ -87,6 +91,7 @@ const successorCovers=(p,before)=>{
  return !!entry&&entry.beforeSha256===before&&implementation.expected(p,entry.sha256)===hash(p);
 };
 for(const [p,h] of Object.entries(baseline.files)){
+ if(stage.retired(p))continue;
  if(manifest.modifiedExisting.includes(p)||successorCovers(p,h))continue;
  const relocation=!existsSync(resolve(root,p))&&history.relocatedPath(p,h);
  if(relocation)assert.equal(hash(relocation),h,"Relocated original drift "+p);
