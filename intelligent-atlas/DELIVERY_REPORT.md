@@ -892,7 +892,7 @@ The evidence, gathered from the GitHub API and the live host:
 | Cloudflare run `41720449966` | Lint PASS, Build PASS, "Deploy to Cloudflare Workers" FAIL |
 | Pages run `41720450034` | Lint PASS, Build PASS, `actions/configure-pages@v5` FAIL |
 | `GET /repos/…/amir-portfolio/pages` | `404` — Pages is not enabled |
-| Automated deploy runs that have ever succeeded | 0 of 8, across `496fddf`, `7938c28`, `dce41d5`, `adb4f01` |
+| Automated deploy runs that have ever succeeded | 0 — no run of either workflow has reached a successful deploy (`496fddf`, `7938c28`, `dce41d5`, `adb4f01`) |
 | Live site | serving a build older than `main` |
 
 The live site answers `200` on `/`, `/learn/`, `/learn/sql/`, `/study/`, `/lab/`,
