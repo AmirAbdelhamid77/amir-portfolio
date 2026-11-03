@@ -729,7 +729,10 @@ weaker:
 | `npm run lint:copy` | PASS — no review vocabulary in learner-facing files |
 | `npm run qa:search-index` | PASS — 52/52 checks, 448 destinations |
 | `npm run test:atlas` | PASS — 25/25 |
-| Cold CI build | NOT RUN |
+| Fresh clone of the pushed commit, `npm ci`, no build | PASS — all four reference gates; see §13.10 |
+| CI build (GitHub Actions on `496fddf`, `7938c28`, `dce41d5`, `adb4f01`) | PASS — lint and "Build static export" succeed in every run |
+| CI deploy to Cloudflare Workers | FAIL — the "Deploy to Cloudflare Workers" step fails about 2 s in, before any upload; §13.11 |
+| CI deploy to GitHub Pages | FAIL — `actions/configure-pages@v5` fails; the Pages API returns 404, i.e. Pages is not enabled; §13.11 |
 | Visual, responsive, a11y and domain QA | NOT RUN — no UI changed |
 
 ### 13.6 Component reuse and risks
@@ -877,4 +880,48 @@ result is identical in both places.
 chain passes on the machine that built the pins", which is exactly the condition
 that produced the line-ending incident. The chain is now a statement about the
 repository's committed bytes, which is what CI and any future checkout see.
+
+### 13.11 Deployment status (3 Nov 2026)
+
+The deploy at the end of M0 was attempted, as authorized, and did not publish.
+The evidence, gathered from the GitHub API and the live host:
+
+| Item | State |
+|---|---|
+| `main` | `adb4f01`, clean tree, pushed |
+| Cloudflare run `41720449966` | Lint PASS, Build PASS, "Deploy to Cloudflare Workers" FAIL |
+| Pages run `41720450034` | Lint PASS, Build PASS, `actions/configure-pages@v5` FAIL |
+| `GET /repos/…/amir-portfolio/pages` | `404` — Pages is not enabled |
+| Automated deploy runs that have ever succeeded | 0 of 8, across `496fddf`, `7938c28`, `dce41d5`, `adb4f01` |
+| Live site | serving a build older than `main` |
+
+The live site answers `200` on `/`, `/learn/`, `/learn/sql/`, `/study/`, `/lab/`,
+`/practice/`, `/learn/statistics/`, `/learn/statistics/decision/`,
+`/learn/catalogue/`, `/practice/catalogue/`, `/explore/integrity/` and
+`/search/`; `/atlas/` is `404` because no such route exists. It still prints the
+hardcoded `834` where `c78a76f` replaced it with the content count — a local build
+of `adb4f01` prints `1,264` and never `834` — so at least six commits are
+unpublished, including the whole `/learn` curriculum wave of 3 Nov.
+
+**Why each job fails.**
+
+- **Cloudflare.** The step needs `secrets.CLOUDFLARE_API_TOKEN` (scope "Workers
+  Scripts: Edit") and `secrets.CLOUDFLARE_ACCOUNT_ID`; the workflow header
+  documents both. It fails two seconds after a successful build, which is too
+  fast for wrangler to start and reach the API, so the shape is an unresolved
+  input rather than a rejected upload. Job logs are admin-only
+  (`403 Must have admin rights to Repository.`), so the exact message cannot be
+  quoted here.
+- **Pages.** `actions/configure-pages@v5` requires Pages to be enabled for the
+  repository, and the Pages API returns `404`. That is a repository setting, not
+  a workflow defect.
+
+Both are owner-only repository settings; no change inside this repository can
+fix them. Once either is set, the next push to `main` deploys, and the honest
+next step for that run is to re-check these same routes against the new build.
+
+**What this audit did not do.** It did not create a deployment by hand, did not
+add a hosting dependency, and did not touch the live site. The published build
+therefore still belongs to an earlier commit, and the deploy remains the one M0
+item that is blocked on configuration rather than on code.
 
