@@ -2,53 +2,134 @@
 
 import Link from "next/link";
 import { useDeferredValue, useEffect, useId, useMemo, useRef, useState } from "react";
-import { Search, X } from "lucide-react";
+import { ArrowRight, Search, X } from "lucide-react";
 import {
+  DESTINATION_KINDS,
   KIND_LABEL,
-  KIND_ORDER,
-  searchDocuments,
+  searchSite,
   type SearchDocument,
   type SearchKind,
   type SearchLanguage,
+  type SearchOutcome,
 } from "@/lib/search/query";
-import type { SubjectId } from "@/lib/fabric/types";
+import { SITE_METRICS } from "@/lib/site-metrics";
 import { cn } from "@/lib/utils";
-
-/** Curated queries the index is known to answer; used as an empty-state path out. */
-const SUGGESTIONS = [
-  { label: "p-value", query: "p-value" },
-  { label: "Direct Lake", query: "Direct Lake" },
-  { label: "DAX", query: "DAX" },
-  { label: "box plot", query: "box plot" },
-  { label: "المدرج التكراري", query: "المدرج التكراري" },
-];
 
 const LANGUAGES: { value: SearchLanguage | "all"; label: string }[] = [
   { value: "all", label: "Any language" },
   { value: "en", label: "English" },
   { value: "ar", label: "العربية" },
-  { value: "mixed", label: "Mixed" },
 ];
 
-const PAGE_SIZE = 30;
+type Status = "loading" | "ready" | "error";
 
-type FabricState = "idle" | "loading" | "ready" | "error";
+/** Odd indexes in a one-capture-group split are the matched text. */
+function highlight(text: string, tokens: string[]) {
+  const usable = tokens
+    .filter((token) => token.length >= 2)
+    .map((token) => token.replace(/[.*+?^${}()|[\]\\]/g, "\\$&"));
+  if (usable.length === 0) return text;
+  const parts = text.split(new RegExp(`(${usable.join("|")})`, "gi"));
+  return parts.map((part, index) =>
+    index % 2 === 1 ? (
+      <mark key={`${part}-${index}`} className="rounded bg-primary/15 px-0.5 text-foreground">
+        {part}
+      </mark>
+    ) : (
+      part
+    ),
+  );
+}
 
-export function SearchClient({ documents }: { documents: SearchDocument[] }) {
+function ResultRow({
+  document,
+  tokens,
+  emphasis = false,
+}: {
+  document: SearchDocument;
+  tokens: string[];
+  emphasis?: boolean;
+}) {
+  return (
+    <li>
+      <Link
+        href={document.url}
+        className={cn(
+          "group block rounded-2xl border border-border bg-card/40 px-4 py-3 transition-colors hover:border-border-strong hover:bg-card/70",
+          emphasis && "border-border-strong bg-card/70 px-5 py-4",
+        )}
+      >
+        <span className="flex flex-wrap items-center gap-2">
+          <span className="rounded-full border border-border px-2 py-0.5 font-mono text-[10px] uppercase tracking-[0.12em] text-muted-foreground">
+            {KIND_LABEL[document.kind]}
+          </span>
+          {document.course ? (
+            <span className="text-[11px] text-muted-foreground">{document.course}</span>
+          ) : null}
+          {document.language === "ar" ? (
+            <span lang="ar" className="text-[11px] text-muted-foreground">
+              العربية
+            </span>
+          ) : null}
+        </span>
+        <span
+          className={cn(
+            "mt-1.5 block font-medium text-foreground",
+            emphasis ? "text-base" : "text-sm",
+          )}
+          lang={document.language === "ar" ? "ar" : undefined}
+          dir={document.language === "ar" ? "rtl" : undefined}
+        >
+          {highlight(document.title, tokens)}
+        </span>
+        {document.summary ? (
+          <span className="mt-0.5 block text-xs leading-5 text-muted-foreground">
+            {document.summary}
+          </span>
+        ) : null}
+      </Link>
+    </li>
+  );
+}
+
+export function SearchClient({
+  total,
+  featured,
+}: {
+  total: number;
+  featured: SearchDocument[];
+}) {
   const uid = useId();
   const [query, setQuery] = useState("");
   const [kinds, setKinds] = useState<SearchKind[]>([]);
   const [language, setLanguage] = useState<SearchLanguage | "all">("all");
-  const [includeFabric, setIncludeFabric] = useState(false);
-  const [fabricDocs, setFabricDocs] = useState<SearchDocument[]>([]);
-  const [fabricError, setFabricError] = useState(false);
-  const fabricRequested = useRef(false);
-  const [visible, setVisible] = useState(PAGE_SIZE);
+  const [documents, setDocuments] = useState<SearchDocument[]>([]);
+  const [status, setStatus] = useState<Status>("loading");
+  const [urlReady, setUrlReady] = useState(false);
   const deferredQuery = useDeferredValue(query);
   const inputRef = useRef<HTMLInputElement>(null);
 
-  // Cmd/Ctrl+K is an enhancement on top of the visible field, never the only way
-  // in: the field is always in the page and in the tab order.
+  useEffect(() => {
+    const controller = new AbortController();
+    const url = new URL("index.json", window.location.href);
+    fetch(url.toString(), { signal: controller.signal })
+      .then((response) => {
+        if (!response.ok) throw new Error(`index ${response.status}`);
+        return response.json() as Promise<{ documents?: SearchDocument[] }>;
+      })
+      .then((payload) => {
+        setDocuments(Array.isArray(payload.documents) ? payload.documents : []);
+        setStatus("ready");
+      })
+      .catch((error: unknown) => {
+        if (error instanceof DOMException && error.name === "AbortError") return;
+        setStatus("error");
+      });
+    return () => controller.abort();
+  }, []);
+
+  // Cmd/Ctrl+K is an enhancement on top of the visible field, never the only
+  // way in: the field is always in the page and in the tab order.
   useEffect(() => {
     const onKey = (event: KeyboardEvent) => {
       if ((event.metaKey || event.ctrlKey) && event.key.toLowerCase() === "k") {
@@ -61,26 +142,32 @@ export function SearchClient({ documents }: { documents: SearchDocument[] }) {
     return () => document.removeEventListener("keydown", onKey);
   }, []);
 
-  // Read shareable filters once, after hydration, then mirror them back. The URL is
-  // the external system this effect synchronises with; seeding state from it once
-  // is the point, not a render loop.
+  // The URL is the external system this page synchronises with: read it on
+  // load and on Back/Forward, then mirror changes without a navigation.
   useEffect(() => {
-    const params = new URLSearchParams(window.location.search);
-    const q = params.get("q") ?? "";
-    const kindParam = params.get("kind");
-    const langParam = params.get("lang") as SearchLanguage | null;
-    // eslint-disable-next-line react-hooks/set-state-in-effect -- one-time read of window.location
-    if (q) setQuery(q);
-    if (kindParam) {
-      const requested = kindParam.split(",").filter((value): value is SearchKind => value in KIND_LABEL);
-      if (requested.length) setKinds(requested);
-    }
-    if (langParam === "en" || langParam === "ar" || langParam === "mixed") {
-      setLanguage(langParam);
-    }
+    const apply = () => {
+      const params = new URLSearchParams(window.location.search);
+      setQuery(params.get("q") ?? "");
+      const kindParam = params.get("kind");
+      const requested = kindParam
+        ? kindParam
+            .split(",")
+            .filter((value): value is SearchKind => value in KIND_LABEL)
+            .filter((value) => value !== "question")
+        : [];
+      setKinds(requested);
+      const langParam = params.get("lang");
+      setLanguage(langParam === "en" || langParam === "ar" ? langParam : "all");
+    };
+    apply();
+    setUrlReady(true);
+    const onPop = () => apply();
+    window.addEventListener("popstate", onPop);
+    return () => window.removeEventListener("popstate", onPop);
   }, []);
 
   useEffect(() => {
+    if (!urlReady) return;
     const url = new URL(window.location.href);
     if (deferredQuery) url.searchParams.set("q", deferredQuery);
     else url.searchParams.delete("q");
@@ -89,79 +176,13 @@ export function SearchClient({ documents }: { documents: SearchDocument[] }) {
     if (language !== "all") url.searchParams.set("lang", language);
     else url.searchParams.delete("lang");
     window.history.replaceState(null, "", url);
-  }, [deferredQuery, kinds, language]);
+  }, [deferredQuery, kinds, language, urlReady]);
 
-  // The 834-question shard loads only when asked for, once. Loading state is
-  // derived rather than mirrored, so the effect never sets state synchronously.
-  useEffect(() => {
-    if (!includeFabric || fabricRequested.current) return;
-    fabricRequested.current = true;
-    let alive = true;
-    Promise.all([
-      import("@/content/fabric/index.json"),
-      import("@/content/fabric/packs.json"),
-      import("@/lib/fabric/taxonomy"),
-    ])
-      .then(([indexModule, packsModule, taxonomy]) => {
-        if (!alive) return;
-        const entries = indexModule.default as unknown as {
-          id: string;
-          sourceId: string;
-          pack: string;
-          topic: string;
-          title: string;
-          prompt: string;
-          subject: string;
-          objectiveId: string | null;
-        }[];
-        const packs = packsModule.default as unknown as { key: string; title: string }[];
-        const packTitle = new Map(packs.map((pack) => [pack.key, pack.title]));
-        setFabricDocs(
-          entries.map((entry) => ({
-            id: `fabric-${entry.id}`,
-            title: entry.title,
-            url: `/lab/dp-600/explore/?question=${encodeURIComponent(entry.id)}`,
-            kind: "question" as const,
-            summary: entry.prompt,
-            topic: [
-              taxonomy.SUBJECT_BY_ID.get(entry.subject as SubjectId)?.label ?? entry.topic,
-              packTitle.get(entry.pack) ?? entry.pack,
-              entry.objectiveId ? `DP-600 ${entry.objectiveId}` : "objective not stated",
-            ],
-            language: "en" as const,
-            level: "intermediate",
-            course: "Microsoft Fabric / DP-600",
-            sourceId: entry.sourceId,
-          })),
-        );
-      })
-      .catch(() => {
-        if (alive) setFabricError(true);
-      });
-    return () => {
-      alive = false;
-    };
-  }, [includeFabric]);
+  const outcome = useMemo<SearchOutcome | null>(() => {
+    if (!deferredQuery.trim() || documents.length === 0) return null;
+    return searchSite(documents, deferredQuery, { kinds, language });
+  }, [documents, deferredQuery, kinds, language]);
 
-  const fabricState: FabricState = !includeFabric
-    ? "idle"
-    : fabricDocs.length > 0
-      ? "ready"
-      : fabricError
-        ? "error"
-        : "loading";
-
-  const allDocuments = useMemo(
-    () => (includeFabric && fabricDocs.length ? [...documents, ...fabricDocs] : documents),
-    [documents, fabricDocs, includeFabric],
-  );
-
-  const results = useMemo(
-    () => searchDocuments(allDocuments, deferredQuery, { kinds, language }),
-    [allDocuments, deferredQuery, kinds, language],
-  );
-
-  const shown = results.slice(0, visible);
   const toggleKind = (kind: SearchKind) =>
     setKinds((current) =>
       current.includes(kind) ? current.filter((value) => value !== kind) : [...current, kind],
@@ -170,15 +191,15 @@ export function SearchClient({ documents }: { documents: SearchDocument[] }) {
     setQuery("");
     setKinds([]);
     setLanguage("all");
-    setVisible(PAGE_SIZE);
   };
   const activeFilters = kinds.length + (language === "all" ? 0 : 1);
+  const hasQuery = deferredQuery.trim().length > 0;
 
   return (
     <div>
       <div className="rounded-3xl border border-border bg-card/40 p-4 sm:p-5">
         <label htmlFor={`${uid}-input`} className="block text-xs font-medium text-foreground">
-          Search courses, lessons, sections, labs, questions and case studies
+          Search the curriculum
         </label>
         <div className="relative mt-2">
           <Search
@@ -190,22 +211,17 @@ export function SearchClient({ documents }: { documents: SearchDocument[] }) {
             id={`${uid}-input`}
             type="search"
             value={query}
-            onChange={(event) => {
-              setQuery(event.target.value);
-              setVisible(PAGE_SIZE);
-            }}
-            placeholder="p-value, Direct Lake, DAX, box plot, المدرج التكراري…"
+            onChange={(event) => setQuery(event.target.value)}
+            placeholder="Direct Lake, star schema, p-value, box plot…"
             autoComplete="off"
             className="h-11 w-full rounded-full border border-border bg-background pl-9 pr-3 text-sm outline-none focus:border-primary"
           />
         </div>
         <p className="mt-2 text-[11px] leading-5 text-muted-foreground">
-          Matches English and Arabic, ignores diacritics and punctuation, and every token must
-          match. <kbd className="rounded border border-border px-1 font-mono text-[10px]">Ctrl</kbd>
-          <span aria-hidden="true">/</span>
+          One field for lessons, topics, labs and reference. Press{" "}
+          <kbd className="rounded border border-border px-1 font-mono text-[10px]">Ctrl</kbd> or{" "}
           <kbd className="rounded border border-border px-1 font-mono text-[10px]">⌘</kbd> +{" "}
-          <kbd className="rounded border border-border px-1 font-mono text-[10px]">K</kbd> focuses
-          the field; the field itself is always tabbable.
+          <kbd className="rounded border border-border px-1 font-mono text-[10px]">K</kbd> to focus.
         </p>
 
         <fieldset className="mt-4">
@@ -213,7 +229,7 @@ export function SearchClient({ documents }: { documents: SearchDocument[] }) {
             Type
           </legend>
           <div className="mt-2 flex flex-wrap gap-1.5">
-            {KIND_ORDER.map((kind) => {
+            {DESTINATION_KINDS.map((kind) => {
               const pressed = kinds.includes(kind);
               return (
                 <button
@@ -257,16 +273,6 @@ export function SearchClient({ documents }: { documents: SearchDocument[] }) {
             </select>
           </div>
 
-          <label className="flex items-center gap-2 text-xs text-muted-foreground">
-            <input
-              type="checkbox"
-              checked={includeFabric}
-              onChange={(event) => setIncludeFabric(event.target.checked)}
-              className="h-4 w-4 rounded border-border"
-            />
-            Include 834 Fabric questions (loads a separate index)
-          </label>
-
           {activeFilters > 0 || query ? (
             <button
               type="button"
@@ -279,99 +285,109 @@ export function SearchClient({ documents }: { documents: SearchDocument[] }) {
           ) : null}
         </div>
 
-        {includeFabric && fabricState !== "ready" ? (
+        {status === "loading" ? (
           <p className="mt-3 text-[11px] text-muted-foreground" role="status">
-            {fabricState === "error"
-              ? "The Fabric question index could not load. The rest of the results still work."
-              : "Loading the Fabric question index…"}
+            Loading the index…
+          </p>
+        ) : null}
+        {status === "error" ? (
+          <p className="mt-3 text-[11px] text-muted-foreground" role="status">
+            The index could not load. The start-here links below still work.
           </p>
         ) : null}
       </div>
 
-      <p className="mt-6 text-xs text-muted-foreground" aria-live="polite">
-        {results.length} result{results.length === 1 ? "" : "s"}
-        {deferredQuery ? ` for “${deferredQuery}”` : ""}
-        {kinds.length ? ` · ${kinds.length} type filter${kinds.length === 1 ? "" : "s"}` : ""}
-      </p>
-
-      {shown.length === 0 ? (
-        <div className="mt-4 rounded-3xl border border-border bg-card/40 p-6">
-          <p className="text-sm font-medium">Nothing matched that query.</p>
-          <p className="mt-1 text-xs leading-6 text-muted-foreground">
-            Try a broader term, or start from one of these:
+      {!hasQuery ? (
+        <section className="mt-8" aria-label="Start here">
+          <h2 className="text-sm font-medium">Start here</h2>
+          <p className="mt-1 text-xs text-muted-foreground">
+            Six ways into the {total} indexed destinations.
           </p>
-          <ul className="mt-3 flex flex-wrap gap-1.5">
-            {SUGGESTIONS.map((suggestion) => (
-              <li key={suggestion.label}>
-                <Link
-                  href={`/search/?q=${encodeURIComponent(suggestion.query)}`}
-                  className="inline-flex min-h-8 items-center rounded-full border border-border bg-background px-3 text-xs text-muted-foreground hover:border-border-strong hover:text-foreground"
-                >
-                  {suggestion.label}
-                </Link>
-              </li>
+          <ul className="mt-3 grid gap-2 sm:grid-cols-2">
+            {featured.map((document) => (
+              <ResultRow key={document.id} document={document} tokens={[]} />
             ))}
           </ul>
-          <p className="mt-3 text-xs text-muted-foreground">
+          <p className="mt-4 text-xs text-muted-foreground">
             Or browse the{" "}
-            <Link href="/learn/catalogue" className="text-foreground underline underline-offset-4">
-              learning catalogue
-            </Link>{" "}
-            and the{" "}
-            <Link href="/practice/catalogue" className="text-foreground underline underline-offset-4">
-              practice catalogue
+            <Link href="/learn" className="text-foreground underline underline-offset-4">
+              learning library
             </Link>
             .
           </p>
-        </div>
+        </section>
       ) : (
-        <ul className="mt-4 space-y-2">
-          {shown.map(({ document }) => (
-            <li key={document.id}>
-              <Link
-                href={document.url}
-                className="group block rounded-2xl border border-border bg-card/40 px-4 py-3 transition-colors hover:border-border-strong hover:bg-card/70"
-              >
-                <span className="flex flex-wrap items-center gap-2">
-                  <span className="rounded-full border border-border px-2 py-0.5 font-mono text-[10px] uppercase tracking-[0.12em] text-muted-foreground">
-                    {KIND_LABEL[document.kind]}
-                  </span>
-                  {document.course ? (
-                    <span className="text-[11px] text-muted-foreground">{document.course}</span>
-                  ) : null}
-                  {document.language === "ar" ? (
-                    <span lang="ar" className="text-[11px] text-muted-foreground">
-                      العربية
-                    </span>
-                  ) : null}
-                </span>
-                <span
-                  className="mt-1.5 block text-sm font-medium text-foreground"
-                  lang={document.language === "ar" ? "ar" : undefined}
-                  dir={document.language === "ar" ? "rtl" : undefined}
-                >
-                  {document.title}
-                </span>
-                {document.summary ? (
-                  <span className="mt-0.5 block text-xs leading-5 text-muted-foreground">
-                    {document.summary}
-                  </span>
-                ) : null}
-              </Link>
-            </li>
-          ))}
-        </ul>
-      )}
+        <>
+          <p className="mt-6 text-xs text-muted-foreground" role="status" aria-live="polite">
+            {outcome ? `${outcome.shown} result${outcome.shown === 1 ? "" : "s"}` : "Searching…"}
+            {outcome?.refine ? " · narrow the query or choose a type to see the rest" : ""}
+          </p>
 
-      {results.length > shown.length ? (
-        <button
-          type="button"
-          onClick={() => setVisible((current) => current + PAGE_SIZE)}
-          className="mt-4 inline-flex min-h-10 items-center rounded-full border border-border px-4 text-xs text-muted-foreground hover:border-border-strong hover:text-foreground"
-        >
-          Show {Math.min(PAGE_SIZE, results.length - shown.length)} more of {results.length}
-        </button>
-      ) : null}
+          {outcome && outcome.best ? (
+            <section className="mt-4" aria-label="Best match">
+              <ul>
+                <ResultRow document={outcome.best.document} tokens={outcome.tokens} emphasis />
+              </ul>
+            </section>
+          ) : null}
+
+          {outcome?.groups.map((group) => (
+            <section key={group.kind} className="mt-6" aria-label={group.label}>
+              <h2 className="flex items-baseline justify-between gap-3 text-xs font-medium">
+                <span>{group.label}</span>
+                <button
+                  type="button"
+                  onClick={() => setKinds([group.kind])}
+                  className="text-[11px] font-normal text-muted-foreground hover:text-foreground"
+                >
+                  Filter to {group.label.toLowerCase()}
+                </button>
+              </h2>
+              <ul className="mt-2 space-y-2">
+                {group.items.map((row) => (
+                  <ResultRow key={row.document.id} document={row.document} tokens={outcome.tokens} />
+                ))}
+              </ul>
+            </section>
+          ))}
+
+          {outcome && outcome.total === 0 ? (
+            <div className="mt-4 rounded-3xl border border-border bg-card/40 p-6">
+              <p className="text-sm font-medium">Nothing matched that query.</p>
+              <p className="mt-1 text-xs leading-6 text-muted-foreground">
+                Try a broader term, or start with a subject from the learning library.
+              </p>
+              <p className="mt-3 text-xs text-muted-foreground">
+                <Link href="/learn" className="text-foreground underline underline-offset-4">
+                  Browse the learning library
+                </Link>
+              </p>
+            </div>
+          ) : null}
+
+          {hasQuery ? (
+            <div className="mt-8 rounded-2xl border border-border bg-card/40 p-4">
+              <p className="text-xs font-medium">Looking for a practice question?</p>
+              <div className="mt-2 flex flex-wrap gap-3 text-xs">
+                <Link
+                  href={`/lab/dp-600/explore/?q=${encodeURIComponent(deferredQuery)}`}
+                  className="inline-flex items-center gap-1 text-foreground underline underline-offset-4"
+                >
+                  Search {SITE_METRICS.practice.fabricQuestions} Fabric questions
+                  <ArrowRight className="h-3 w-3" aria-hidden="true" />
+                </Link>
+                <Link
+                  href="/lab/"
+                  className="inline-flex items-center gap-1 text-foreground underline underline-offset-4"
+                >
+                  Analyst question banks
+                  <ArrowRight className="h-3 w-3" aria-hidden="true" />
+                </Link>
+              </div>
+            </div>
+          ) : null}
+        </>
+      )}
     </div>
   );
 }
