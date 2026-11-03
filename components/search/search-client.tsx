@@ -158,9 +158,9 @@ export function SearchClient({
       setKinds(requested);
       const langParam = params.get("lang");
       setLanguage(langParam === "en" || langParam === "ar" ? langParam : "all");
+      setUrlReady(true);
     };
     apply();
-    setUrlReady(true);
     const onPop = () => apply();
     window.addEventListener("popstate", onPop);
     return () => window.removeEventListener("popstate", onPop);
