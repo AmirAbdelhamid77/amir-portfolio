@@ -1823,33 +1823,6 @@
    "note": "Byte-only transition: the pin was written from a Windows checkout that stored CRLF or mixed endings, which git normalized on commit. `.gitattributes` now forces LF everywhere, so the text is identical and only the line endings changed."
   },
   {
-   "path": "docs/knowledge-atlas/circular-nodes/before/tsconfig.tsbuildinfo",
-   "previousSha256": "5434adf68a2ccbc36f5d5e2b44962c129d7fa822f37c9e038be48a1a2ccc5169",
-   "sha256": "71aeb4454bddc57ecf423cd833c6e805a638ff643a356e34ac215bbf4e6fa93a",
-   "bytes": 196718,
-   "layer": "canonical-home",
-   "attribution": "eol-normalization-2026-11-03",
-   "note": "Byte-only transition: the pin was written from a Windows checkout that stored CRLF or mixed endings, which git normalized on commit. `.gitattributes` now forces LF everywhere, so the text is identical and only the line endings changed."
-  },
-  {
-   "path": "docs/knowledge-atlas/circular-nodes/before/tsconfig.tsbuildinfo",
-   "previousSha256": "cbdf9fc15359fec2ff4b6f477dbd63594d3ffc23fac2b64be4b4c885a36789e4",
-   "sha256": "71aeb4454bddc57ecf423cd833c6e805a638ff643a356e34ac215bbf4e6fa93a",
-   "bytes": 196718,
-   "layer": "hansa-integration-20261029",
-   "attribution": "eol-normalization-2026-11-03",
-   "note": "Byte-only transition: the pin was written from a Windows checkout that stored CRLF or mixed endings, which git normalized on commit. `.gitattributes` now forces LF everywhere, so the text is identical and only the line endings changed."
-  },
-  {
-   "path": "docs/knowledge-atlas/circular-nodes/before/tsconfig.tsbuildinfo",
-   "previousSha256": "de1ae4a50a62a41739fcc8e922b01a511952ecf50b527efe8e06405f09534e5f",
-   "sha256": "71aeb4454bddc57ecf423cd833c6e805a638ff643a356e34ac215bbf4e6fa93a",
-   "bytes": 196718,
-   "layer": "knowledge-atlas/dp600-continuation",
-   "attribution": "eol-normalization-2026-11-03",
-   "note": "Byte-only transition: the pin was written from a Windows checkout that stored CRLF or mixed endings, which git normalized on commit. `.gitattributes` now forces LF everywhere, so the text is identical and only the line endings changed."
-  },
-  {
    "path": "docs/knowledge-atlas/DP600_EXPANSION_HANDOVER.md",
    "previousSha256": "165c029b17e30cb2b452a2ed00121b4b74ca7b100f98888be3ea92bd4f78c2a6",
    "sha256": "ee7e24d2c833b59c13526f6ca2c9db6f29d358f6ab67f5089dc1d10d4e8738d5",
@@ -3067,20 +3040,20 @@
   {
    "path": "scripts/atlas-circle-receipt.mjs",
    "previousSha256": "13d467b04a0c022be8f56293206ef53ffe87cc177283349a096b9ff1b00a94bb",
-   "sha256": "f122f581895b4c5587881daae3aa511b4cb1c60ba8f263f207df9265884d3b9c",
-   "bytes": 2001,
+   "sha256": "7020260ad856520511d967e288db93e79c3d2789dbc375f42e3aff402d0fa63c",
+   "bytes": 2640,
    "layer": "prototype-c",
-   "attribution": "eol-normalization-2026-11-03",
-   "note": "Byte-only transition: the pin was written from a Windows checkout that stored CRLF or mixed endings, which git normalized on commit. `.gitattributes` now forces LF everywhere, so the text is identical and only the line endings changed."
+   "attribution": "m0-receipt-repair",
+   "note": "Edited in M0: the untracked TypeScript build cache is verified only where a build produced it, and the newest layer excludes it, so a fresh clone does not fail on bytes the repository never committed."
   },
   {
    "path": "scripts/atlas-circle-receipt.mjs",
    "previousSha256": "e644d6d49b7b25121d2dcc031020991a3bd43627faac77195752d96382f16e85",
-   "sha256": "f122f581895b4c5587881daae3aa511b4cb1c60ba8f263f207df9265884d3b9c",
-   "bytes": 2001,
+   "sha256": "7020260ad856520511d967e288db93e79c3d2789dbc375f42e3aff402d0fa63c",
+   "bytes": 2640,
    "layer": "knowledge-atlas/circular-nodes",
    "attribution": "m0-receipt-repair",
-   "note": "M0 receipt repair: edited while re-baselining the chain; the change is the receipt fix, not content."
+   "note": "Edited in M0: the untracked TypeScript build cache is verified only where a build produced it, and the newest layer excludes it, so a fresh clone does not fail on bytes the repository never committed."
   },
   {
    "path": "scripts/atlas-implementation-receipt.mjs",
@@ -3139,11 +3112,11 @@
   {
    "path": "scripts/canonical-home-receipt.mjs",
    "previousSha256": "ecccbf83d22805537cd95c4ddd475d7acf50e167f8c47278940a521caf7f8ce4",
-   "sha256": "3057ef3854e34bcc640e62ed45842da4f56ae11fdeac63663fd6985dc04b1880",
-   "bytes": 4410,
+   "sha256": "7f87af3ff6f21ad46c917d6122f79af22536376d8826f33dfd7b493615ef90ad",
+   "bytes": 4800,
    "layer": "cinematic-phase2",
-   "attribution": "eol-normalization-2026-11-03",
-   "note": "Byte-only transition: the pin was written from a Windows checkout that stored CRLF or mixed endings, which git normalized on commit. `.gitattributes` now forces LF everywhere, so the text is identical and only the line endings changed."
+   "attribution": "m0-receipt-repair",
+   "note": "Edited in M0: a generated artifact (tsconfig.tsbuildinfo) is verified only when a build produced it, because the repository never commits it and a fresh clone has none."
   },
   {
    "path": "scripts/cinematic-phase2-receipt.mjs",
@@ -3166,20 +3139,20 @@
   {
    "path": "scripts/dp600-continuation-receipt.mjs",
    "previousSha256": "0045ba778b334bc38a3676068e8ec0fd1c7eb98980f4c258f5187212de260f38",
-   "sha256": "fbcc24c0e767b21a372f3332e3376d890dc9dd990789a1104167ba2f96d4dc8c",
-   "bytes": 3252,
+   "sha256": "9877db757e00c06e30a929fa3081d171ac61387fd2b74cfc8a15e26e960d824a",
+   "bytes": 3561,
    "layer": "knowledge-atlas/dp600-continuation",
    "attribution": "m0-receipt-repair",
-   "note": "M0 receipt repair: edited while re-baselining the chain; the change is the receipt fix, not content."
+   "note": "Edited in M0: the untracked TypeScript build cache is verified only where a build produced it, and the newest layer excludes it, so a fresh clone does not fail on bytes the repository never committed."
   },
   {
    "path": "scripts/dp600-continuation-receipt.mjs",
    "previousSha256": "2a904ee114fdfdec904e6f28ff1e6c2b9590ee793c1b2c0567e63450eae0d775",
-   "sha256": "fbcc24c0e767b21a372f3332e3376d890dc9dd990789a1104167ba2f96d4dc8c",
-   "bytes": 3252,
+   "sha256": "9877db757e00c06e30a929fa3081d171ac61387fd2b74cfc8a15e26e960d824a",
+   "bytes": 3561,
    "layer": "knowledge-atlas/circular-nodes",
-   "attribution": "eol-normalization-2026-11-03",
-   "note": "Byte-only transition: the pin was written from a Windows checkout that stored CRLF or mixed endings, which git normalized on commit. `.gitattributes` now forces LF everywhere, so the text is identical and only the line endings changed."
+   "attribution": "m0-receipt-repair",
+   "note": "Edited in M0: the untracked TypeScript build cache is verified only where a build produced it, and the newest layer excludes it, so a fresh clone does not fail on bytes the repository never committed."
   },
   {
    "path": "scripts/dp600-expansion-receipt.mjs",
@@ -3373,29 +3346,29 @@
   {
    "path": "scripts/prototype-c-receipt.mjs",
    "previousSha256": "20d94b8c398928651917afe94f7ea5c61c3c854f276296a094db2c75a46c93ee",
-   "sha256": "e6d44a55804bd13ac8a6dd14d193fa4b2e34bea032785bd11eb59e14d44eff19",
-   "bytes": 2425,
+   "sha256": "ca4a1201abbfe5685f7f7a264ec071b8fe49c30a6f83e59f9fa29c024a936f19",
+   "bytes": 2711,
    "layer": "canonical-home",
-   "attribution": "eol-normalization-2026-11-03",
-   "note": "Byte-only transition: the pin was written from a Windows checkout that stored CRLF or mixed endings, which git normalized on commit. `.gitattributes` now forces LF everywhere, so the text is identical and only the line endings changed."
+   "attribution": "m0-receipt-repair",
+   "note": "Edited in M0: the declared build cache is verified only when a build produced it, because the repository never commits tsconfig.tsbuildinfo and a fresh clone has none."
   },
   {
    "path": "scripts/prototype-c-receipt.mjs",
    "previousSha256": "674226eda0d54c4c5f2e81b6497443633dbf0da43f9ac3d0a316196afa6553ac",
-   "sha256": "e6d44a55804bd13ac8a6dd14d193fa4b2e34bea032785bd11eb59e14d44eff19",
-   "bytes": 2425,
+   "sha256": "ca4a1201abbfe5685f7f7a264ec071b8fe49c30a6f83e59f9fa29c024a936f19",
+   "bytes": 2711,
    "layer": "dp600-r11-integration",
    "attribution": "m0-receipt-repair",
-   "note": "M0 receipt repair: edited while re-baselining the chain; the change is the receipt fix, not content."
+   "note": "Edited in M0: the declared build cache is verified only when a build produced it, because the repository never commits tsconfig.tsbuildinfo and a fresh clone has none."
   },
   {
    "path": "scripts/prototype-c-receipt.mjs",
    "previousSha256": "8d17095933713ff1cba2a36989ca657a5a123de4b48e1a1f31633bef87fd8232",
-   "sha256": "e6d44a55804bd13ac8a6dd14d193fa4b2e34bea032785bd11eb59e14d44eff19",
-   "bytes": 2425,
+   "sha256": "ca4a1201abbfe5685f7f7a264ec071b8fe49c30a6f83e59f9fa29c024a936f19",
+   "bytes": 2711,
    "layer": "prototype-c",
    "attribution": "m0-receipt-repair",
-   "note": "M0 receipt repair: edited while re-baselining the chain; the change is the receipt fix, not content."
+   "note": "Edited in M0: the declared build cache is verified only when a build produced it, because the repository never commits tsconfig.tsbuildinfo and a fresh clone has none."
   },
   {
    "path": "scripts/qa-browser.mjs",
@@ -3535,47 +3508,47 @@
   {
    "path": "scripts/verify-easyui-integration.mjs",
    "previousSha256": "0ecc94a4c50058edd99ed4cad57284ff8ea25d9cd595a0fb32634cb82c30f509",
-   "sha256": "0737e67ff2fa0f36ab7bf38aaa80971d4f40f3a5e1837587275b8b0d7da7afa5",
-   "bytes": 4431,
+   "sha256": "f7417b07812191d39e1a6fdbbe6cb5cbdbdec0a8e0772f38b05cec975919ebeb",
+   "bytes": 4625,
    "layer": "knowledge-atlas/implementation",
-   "attribution": "inherited-7938c28",
-   "note": "Inherited drift from earlier authorized wave 7938c28. Pinned for provenance only; this entry is not a semantic review of that wave."
+   "attribution": "m0-receipt-repair",
+   "note": "Edited in M0: generated, gitignored files that the newest layer excludes (next-env.d.ts, the TypeScript build cache) are skipped when scanning the EasyUI baseline."
   },
   {
    "path": "scripts/verify-easyui-integration.mjs",
    "previousSha256": "7f6d2742c8dfc0e5590178ee9bf2219c8e8155226c74e9c184463863a74c73f2",
-   "sha256": "0737e67ff2fa0f36ab7bf38aaa80971d4f40f3a5e1837587275b8b0d7da7afa5",
-   "bytes": 4431,
+   "sha256": "f7417b07812191d39e1a6fdbbe6cb5cbdbdec0a8e0772f38b05cec975919ebeb",
+   "bytes": 4625,
    "layer": "design-system/easyui-v2",
-   "attribution": "inherited-7938c28",
-   "note": "Inherited drift from earlier authorized wave 7938c28. Pinned for provenance only; this entry is not a semantic review of that wave."
+   "attribution": "m0-receipt-repair",
+   "note": "Edited in M0: generated, gitignored files that the newest layer excludes (next-env.d.ts, the TypeScript build cache) are skipped when scanning the EasyUI baseline."
   },
   {
    "path": "scripts/verify-easyui-integration.mjs",
    "previousSha256": "96aab07729d34f47eb3e11de11ee35a47a48cc3b74326ea1e72f4faa81d20f29",
-   "sha256": "0737e67ff2fa0f36ab7bf38aaa80971d4f40f3a5e1837587275b8b0d7da7afa5",
-   "bytes": 4431,
+   "sha256": "f7417b07812191d39e1a6fdbbe6cb5cbdbdec0a8e0772f38b05cec975919ebeb",
+   "bytes": 4625,
    "layer": "final-review-20261028",
-   "attribution": "inherited-7938c28",
-   "note": "Inherited drift from earlier authorized wave 7938c28. Pinned for provenance only; this entry is not a semantic review of that wave."
+   "attribution": "m0-receipt-repair",
+   "note": "Edited in M0: generated, gitignored files that the newest layer excludes (next-env.d.ts, the TypeScript build cache) are skipped when scanning the EasyUI baseline."
   },
   {
    "path": "scripts/verify-knowledge-atlas.mjs",
    "previousSha256": "134ab43c9ab301868c41b781394f8f1132d55e87cf3a2d882d6364d557913e73",
-   "sha256": "1d30eda20fb0ec54fbf255e94c5c8e6125f772dfef590cc53da821e96138ff4c",
-   "bytes": 10624,
+   "sha256": "52b452cf2a8e8b6feae2267f1d53afae23148e421b7550b0372cf7a3a4243160",
+   "bytes": 10888,
    "layer": "design-system/easyui-v2",
-   "attribution": "inherited-7938c28",
-   "note": "Inherited drift from earlier authorized wave 7938c28. Pinned for provenance only; this entry is not a semantic review of that wave."
+   "attribution": "m0-receipt-repair",
+   "note": "Edited in M0: generated files the newest layer excludes (next-env.d.ts, the TypeScript build cache) are skipped when scanning the Atlas baseline, because they are gitignored and differ between toolchains."
   },
   {
    "path": "scripts/verify-knowledge-atlas.mjs",
    "previousSha256": "e7a2056414d9665bec4e5dfbba9d5ce1fa6b35c4ae6d9826f5143ef6ec05cb6a",
-   "sha256": "1d30eda20fb0ec54fbf255e94c5c8e6125f772dfef590cc53da821e96138ff4c",
-   "bytes": 10624,
+   "sha256": "52b452cf2a8e8b6feae2267f1d53afae23148e421b7550b0372cf7a3a4243160",
+   "bytes": 10888,
    "layer": "knowledge-atlas/implementation",
-   "attribution": "inherited-7938c28",
-   "note": "Inherited drift from earlier authorized wave 7938c28. Pinned for provenance only; this entry is not a semantic review of that wave."
+   "attribution": "m0-receipt-repair",
+   "note": "Edited in M0: generated files the newest layer excludes (next-env.d.ts, the TypeScript build cache) are skipped when scanning the Atlas baseline, because they are gitignored and differ between toolchains."
   },
   {
    "path": "scripts/verify-preservation-history.mjs",
@@ -5771,6 +5744,14 @@
   {
    "path": "tsconfig.tsbuildinfo",
    "reason": "Untracked build artifact pinned observeOnly by the 29 Oct receipt; its bytes change on every build, so it cannot be a stable reference pin."
+  },
+  {
+   "path": "docs/knowledge-atlas/circular-nodes/before/tsconfig.tsbuildinfo",
+   "reason": "Untracked build cache saved as rollback evidence by three earlier layers but never committed. A fresh clone does not contain it, so it cannot be pinned; it is verified only when present."
+  },
+  {
+   "path": "next-env.d.ts",
+   "reason": "Generated by every Next build and gitignored, so it is not part of the repository. Two builds of the same commit produced 288 and 295 bytes here, differing only in line endings, which means a pinned hash records one machine's toolchain rather than the project."
   }
  ],
  "predecessors": [
@@ -5862,5 +5843,6 @@
    "attribution": "eol-normalization-2026-11-03",
    "note": "Recorded by docs/learning-path-review-20261028/MANIFEST.json as the hash of docs/learning-path-review-20261028/BASELINE.json. The bytes now differ only by line endings: the pin was written from a Windows checkout and .gitattributes now forces LF, so the recorded text is unchanged."
   }
- ]
+ ],
+ "excludedNote": "All three excluded paths are generated artifacts the repository never commits: the TypeScript build cache (root and the circular-nodes/before/ rollback copy) and next-env.d.ts. They are verified only where a build produced them, never against a recorded hash."
 }

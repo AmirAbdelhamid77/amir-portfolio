@@ -47,6 +47,7 @@ than re-argue.
 | R18 | Private review payload reaches the public site | `data.js` is 2.75 MB of candidate content inside `intelligent-atlas/` | High | Low | projection builder is a separate M2 deliverable; `intake-private/` is gitignored | any `app/` import of `intelligent-atlas/` |
 | R19 | M0 is treated as delivery | M0 only re-baselines and reconciles | Medium | Medium | §12.11 states the next atomic task is the statistics semantic pass, not publication | a message claiming the knowledge stage is complete |
 | R20 | Two agents edit the same receipt scripts | the chain is shared by five verifiers | Medium | Medium | edit receipts only inside the layer that owns the change; regenerate once | concurrent diff on `scripts/*-receipt.mjs` |
+| R22 | A pin points at a file the repository never commits | five layers hash `tsconfig.tsbuildinfo`, three capture a rollback copy of it, and both baselines record `next-env.d.ts`; `.gitignore` keeps all three out of the repository, so the gate passed only on a machine that had built | High | High (already fired) | the newest layer excludes all three and the layers that hash them verify only where a build produced them; a bare clone is the acceptance test (§13.10) | a pin or rollback path resolves to an untracked generated file, or a verifier fails with `ENOENT` on a path that `git ls-files` does not list |
 
 ## 5. Status at M0 exit
 
@@ -56,8 +57,11 @@ than re-argue.
 | `node scripts/verify-knowledge-atlas.mjs` | PASS — 16 payload, 33 integration, 23 doc links, 90 relocations |
 | `node scripts/verify-easyui-integration.mjs` | PASS — 41 owned, 1,169 prior-file contracts, 22 decisions |
 | `node scripts/final-review-negative.mjs` | PASS — 17/17 corruption cases rejected |
-| Cold CI build | NOT RUN in M0 |
-| Post-deploy browser QA | NOT RUN in M0 |
+| All four gates in a bare clone of the pushed commit | PASS — `npm ci` and no build artifacts; see DELIVERY_REPORT §13.10 |
+| Cold CI build | PASS — the build step succeeded on `496fddf`, `7938c28` and `dce41d5` |
+| Deploy to Cloudflare Workers | BLOCKED — the deploy step fails; needs repository secrets, not code |
+| Deploy to GitHub Pages | BLOCKED — `actions/configure-pages@v5` fails; Pages is not enabled |
+| Post-deploy browser QA | NOT RUN — nothing has been published from this work |
 | Semantic review of the corpus | BLOCKED — M1, not started |
 
 ## 6. Rollback

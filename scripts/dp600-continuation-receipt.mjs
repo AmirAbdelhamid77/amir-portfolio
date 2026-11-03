@@ -34,6 +34,10 @@ export function continuationReceipt(root) {
       assert.equal(recorded, entry.beforeSha256, "Unbound generated-artifact before-hash: " + entry.path);
     } else if (entry.beforeSha256 !== null) assert.equal(previousHashes.get(entry.path), entry.beforeSha256, "Unbound continuation before-hash: " + entry.path);
     else assert.ok(!previousHashes.has(entry.path), "New continuation file already existed in the previous layer: " + entry.path);
+    // The newest layer excludes the untracked TypeScript build cache. Its bytes
+    // are not source, they are absent from a fresh clone, and they can only be
+    // verified on a checkout where a build produced them.
+    if (knowledgeStageReceipt(root).skip(entry.path) && !existsSync(absolute)) continue;
     assert.equal(createHash("sha256").update(readFileSync(absolute)).digest("hex"), successor.expected(entry.path, entry.sha256), "DP600 continuation drift: " + entry.path);
   }
   return {

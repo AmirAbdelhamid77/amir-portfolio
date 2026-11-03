@@ -28,6 +28,10 @@ export function prototypeReceipt(root) {
     assert.equal(hash(e.basisPath),e.basisSha256,'Generated-cache predecessor receipt changed');
     const basis=JSON.parse(read(e.basisPath));
     assert.equal(basis.files.find(f=>f.path===e.path)?.sha256,e.beforeSha256,'Unbound generated-cache before-hash');
+    // A build cache is reproduced by building, not stored, so a checkout that
+    // has not built yet has none. The newest layer excludes it from pinning for
+    // the same reason; verify the bytes only where a build produced them.
+    if(!existsSync(resolve(root,e.path)))continue;
     assert.equal(hash(e.path),successor.expected(e.path,e.sha256),'Generated-cache drift; rebuild then explicitly reseal');
   }
   return {

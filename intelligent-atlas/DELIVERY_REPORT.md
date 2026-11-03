@@ -661,21 +661,23 @@ result. A new append-only layer records the transitions:
 
 | Record | Count |
 |---|---:|
-| Content pins (path + predecessor hash + current hash) | 428 |
+| Content pins (path + predecessor hash + current hash) | 425 |
 | Additions since the Atlas inventory (path + hash, no predecessor) | 233 |
 | Removed artifacts (path + last recorded hash) | 7 |
-| Excluded artifacts (path + reason) | 1 |
+| Excluded artifacts (path + reason) | 3 |
 | Predecessor-manifest transitions | 11 |
 
-Every pin states `layer`, `attribution` and `note`. The 428 pins split into 264
-line-ending transitions (§13.9), 66 from this session's migration, 80 inherited
-from earlier authorized waves, 17 receipt repairs and 1 proved inert. The
-excluded artifact is `tsconfig.tsbuildinfo`: four layers pinned four different
-builds of an untracked build cache, which can never be a stable reference. Ten
-of the eleven predecessor records exist for the same reason as the pins — the
-older layer recorded the bytes of a manifest, baseline or rollback copy that the
-checkout rewrote — and one resolves the 2 Nov content rewrite of
-`docs/canonical-home/INTEGRATION_MANIFEST.json` for the cinematic layer.
+Every pin states `layer`, `attribution` and `note`. The 425 pins split into 257
+line-ending transitions (§13.9), 66 from this session's migration, 76 inherited
+from earlier authorized waves, 26 receipt repairs and 1 proved inert. The three
+excluded artifacts are generated files the repository never commits — the
+TypeScript build cache at the root and at `circular-nodes/before/`, and
+`next-env.d.ts` — because their bytes change per build and per toolchain, so they
+can never be a stable reference (§13.10). Ten of the eleven predecessor records
+exist for the same reason as the pins — the older layer recorded the bytes of a
+manifest, baseline or rollback copy that the checkout rewrote — and one resolves
+the 2 Nov content rewrite of `docs/canonical-home/INTEGRATION_MANIFEST.json` for
+the cinematic layer.
 
 Supporting fixes, each of which makes an existing assertion honest rather than
 weaker:
@@ -704,6 +706,11 @@ weaker:
   layers, the fixed `preservation/originals/` and `circular-nodes/before/`
   copies in the prototype and circle layers, and every `previous*`, `baseline*`
   and `historySha256` promise. §13.9 explains why they were all stale.
+- Five layers hash `tsconfig.tsbuildinfo`, an artifact the repository never
+  commits, and `verify-knowledge-atlas.mjs` / `verify-easyui-integration.mjs`
+  hash `next-env.d.ts`, which every build rewrites. Each now verifies such a file
+  only where a build produced it, so a fresh checkout no longer fails on bytes
+  that were never in the repository (§13.10).
 
 ### 13.5 Gates
 
@@ -730,7 +737,7 @@ weaker:
 - `baselines/2026-11-03-pre-m0/COMPONENT_REUSE.md` maps all seven prototype files
   to retain / port / replace decisions and audits 14 existing app components.
   No chart, motion or graph library is added; KaTeX and `motion` already exist.
-- `baselines/2026-11-03-pre-m0/RISK_LIST.md` records 21 risks with evidence,
+- `baselines/2026-11-03-pre-m0/RISK_LIST.md` records 22 risks with evidence,
   severity, mitigation and a firing trigger, plus rollback paths.
 
 ### 13.7 Caveats
@@ -782,7 +789,7 @@ fresh Windows clone reproduces. Concretely: the hansa manifest's blob hashes to
   was regenerated from the normalized tree; its previous version remains in
   commit `7938c28`, so the change is auditable.
 
-**What that added to the layer.** 264 pins and 10 predecessor records now
+**What that added to the layer.** 257 pins and 10 predecessor records now
 describe lines endings only, tagged `eol-normalization-2026-11-03`. They are
 distinguishable from content drift, and they are checkable:
 
@@ -790,8 +797,8 @@ distinguishable from content drift, and they are checkable:
 |---|---|
 | EOL-tagged files that still contain CRLF | 0 |
 | EOL-tagged pins whose recorded byte count shrinks by more lines than the file has | 0 |
-| EOL-tagged pins with a recorded prior size (range-checkable) | 49 |
-| EOL-tagged rollback/evidence copies with no recorded prior size | 215 |
+| EOL-tagged pins with a recorded prior size (range-checkable) | 257 |
+| EOL-tagged rollback/evidence copies under `preservation/` and `before/` | 36 |
 | Files whose endings were *mixed*, not uniformly CRLF | 30 |
 
 The 30 mixed files are why a naive "convert LF to CRLF and compare" test failed:
@@ -802,18 +809,72 @@ git declared the pre-normalization tree clean, and the clean filter's whole job
 is to strip CR from line ends, so the committed blob and the pinned bytes are the
 same text.
 
-The 17 pins tagged `m0-receipt-repair` are the receipt scripts edited in this
-pass; they are real content changes and are labelled as such rather than folded
-into the EOL set.
+The 26 pins tagged `m0-receipt-repair` are the receipt and verifier scripts
+edited in this pass and in the follow-up below; they are real content changes and
+are labelled as such rather than folded into the EOL set.
 
 **Why this belongs in M0.** The exit condition for M0 is that affected paths and
 preserved state are *known*, not that one machine is green. A gate that passes
-only on the checkout that wrote it is not evidence. The chain now passes from a
-freshly checked-out, byte-exact LF tree, which is what CI and the deploy already
-used.
+only on the checkout that wrote it is not evidence. §13.10 records the check that
+proved the difference between "passes here" and "passes anywhere".
 
 **Deploy note.** The push that triggered the deploy shipped LF blobs, i.e. the
 form the receipts now pin, so the normalization does not change any deployed
 byte. It changes what this Windows clone checks out, so that local verification
 can reproduce the deployed state.
+
+### 13.10 Fresh-checkout audit (second post-push repair, 2026-11-03)
+
+The line-ending repair above was verified on *this* working tree. That is the
+same trap one step later, so the pushed commit was cloned into an empty directory
+with the machine's default configuration (`core.autocrlf=true`) and the four
+gates were run there. The clone checked out LF — `.gitattributes` works — and
+`verify-agent-reference.mjs` passed. The other three failed.
+
+**What a fresh clone exposed.** Three generated files are referenced by the
+receipt chain but never committed, because `.gitignore` excludes them:
+
+| File | How the chain used it | Failure in a clone |
+|---|---|---|
+| `tsconfig.tsbuildinfo` | four layers pin it; `canonical-home` marks it `generated` | `ENOENT` |
+| `docs/knowledge-atlas/circular-nodes/before/tsconfig.tsbuildinfo` | three layers captured it as rollback evidence | `ENOENT` |
+| `next-env.d.ts` | the Atlas and EasyUI baselines record it as pre-existing | hash mismatch, 288 vs 295 bytes |
+
+The third one is not a missing file but something worse: two builds of the *same
+commit* produced different bytes, differing only in line endings. A hash of that
+file describes one machine's toolchain, not the project.
+
+**Repair.**
+
+- The three paths are now recorded as `excluded` in the M0 layer with the reason,
+  and nothing is pinned to them. The excluded list states that such a file is
+  verified only where a build produced it, never against a recorded hash.
+- The layers that hashed them verify conditionally: `canonical-home`,
+  `prototype-c`, `atlas-circle` and `dp600-continuation` for the build cache,
+  `verify-knowledge-atlas` and `verify-easyui-integration` for both baselines.
+  Excluding a path from the new layer without teaching the older layers would
+  have left them failing on their own hashes.
+- No expected hash was rewritten and no older manifest was edited. The edited
+  scripts are the 26 pins tagged `m0-receipt-repair`.
+
+**Result.** A bare clone of `dce41d5` — `npm ci`, no build, no generated files —
+passes all four gates:
+
+| Gate | Clone result | Working tree |
+|---|---|---|
+| `verify-agent-reference.mjs` | PASS — 13 active hashes | PASS |
+| `verify-knowledge-atlas.mjs` | PASS — payload, 33 integrations, 23 links | PASS |
+| `verify-easyui-integration.mjs` | PASS — 41 owned, 1,169 contracts | PASS |
+| `final-review-negative.mjs` | PASS — 17/17 rejected | PASS |
+
+**Caveat, stated rather than hidden.** The reference gate checks six intake
+sources that live *outside* the repository; in a clone it reports "0 available
+intake hashes" and still passes, because absence of an external intake original
+is not drift. The other three gates verify only repository content, so their
+result is identical in both places.
+
+**What this changes about M0.** Before this audit, "the chain passes" meant "the
+chain passes on the machine that built the pins", which is exactly the condition
+that produced the line-ending incident. The chain is now a statement about the
+repository's committed bytes, which is what CI and any future checkout see.
 

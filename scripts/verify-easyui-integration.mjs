@@ -34,6 +34,9 @@ for (const alias of manifest.legacyAtlasPathAliases) {
 }
 for (const [path, sha256] of Object.entries(before.files)) {
   if (stage.retired(path)) continue;
+  // Generated, gitignored files (the TypeScript build cache) are excluded by the
+  // newest layer: they exist only on a checkout where a build produced them.
+  if (stage.skip(path)) continue;
   if (manifest.modifiedExisting.includes(path) || repair.covers(path, sha256)) continue;
   assert.equal(hash(path), implementation.expected(path, sha256), "Unrelated pre-existing drift: " + path);
 }

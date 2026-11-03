@@ -92,6 +92,10 @@ const successorCovers=(p,before)=>{
 };
 for(const [p,h] of Object.entries(baseline.files)){
  if(stage.retired(p))continue;
+ // Generated files the repository never commits cannot be pinned: `next-env.d.ts`
+ // is written by every build and its byte form differs between toolchains, so the
+ // newest layer excludes it instead of recording one machine's copy.
+ if(stage.skip(p))continue;
  if(manifest.modifiedExisting.includes(p)||successorCovers(p,h))continue;
  const relocation=!existsSync(resolve(root,p))&&history.relocatedPath(p,h);
  if(relocation)assert.equal(hash(relocation),h,"Relocated original drift "+p);

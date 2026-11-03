@@ -79,6 +79,11 @@ export function canonicalHomeReceipt(root) {
         "Canonical-home rollback bytes changed " + entry.path,
       );
     }
+    // A generated artifact is reproduced by rebuilding, not by storing bytes, so
+    // a checkout that has not built yet has none. The newest layer excludes the
+    // build cache from pinning for the same reason; this guard keeps the older
+    // layer from failing on evidence the repository never committed.
+    if (entry.generated && !existsSync(resolve(root, entry.path))) continue;
     assert.equal(hash(entry.path), successor.expected(entry.path, entry.sha256), "Canonical-home drift " + entry.path);
   }
 
