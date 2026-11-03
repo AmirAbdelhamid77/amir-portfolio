@@ -373,7 +373,8 @@ export function SearchClient({
                   href={`/lab/dp-600/explore/?q=${encodeURIComponent(deferredQuery)}`}
                   className="inline-flex items-center gap-1 text-foreground underline underline-offset-4"
                 >
-                  Search {SITE_METRICS.practice.fabricQuestions} Fabric questions
+                  Search {SITE_METRICS.practice.fabricQuestions.toLocaleString("en-US")} Fabric
+                  questions
                   <ArrowRight className="h-3 w-3" aria-hidden="true" />
                 </Link>
                 <Link

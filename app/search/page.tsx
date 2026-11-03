@@ -49,8 +49,9 @@ export default function SearchPage() {
             the idea is taught, not a copy.
           </p>
           <p className="mt-3 font-mono text-[10px] uppercase tracking-[0.14em] text-muted-foreground">
-            {payload.counts.total} destinations · {SITE_METRICS.practice.fabricQuestions} Fabric
-            questions in the bank
+            {payload.counts.total} destinations ·{" "}
+            {SITE_METRICS.practice.fabricQuestions.toLocaleString("en-US")} Fabric questions in the
+            bank
           </p>
         </Container>
       </section>

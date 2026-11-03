@@ -23,7 +23,7 @@ export default function ExplorePage() {
         description="Search all sources together, including the enriched 222-question image-free bank. Read tables, code and case context, with reviewed corrections kept separate from source answers."
       >
         <p className="mt-4 font-mono text-[11px] text-muted-foreground">
-          Original {COUNTS.questions}-question bank: {COUNTS.singleSelect} single · {COUNTS.multiSelect} multi-select · {COUNTS.sequence} ordered
+          Original {COUNTS.questions.toLocaleString("en-US")}-question bank: {COUNTS.singleSelect} single · {COUNTS.multiSelect} multi-select · {COUNTS.sequence} ordered
           sequence · {COUNTS.fiveOption} with five options · {COUNTS.withCaseStudy} with case context
         </p>
       </HubHeader>

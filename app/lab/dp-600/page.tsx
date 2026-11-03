@@ -162,7 +162,7 @@ export default function FabricHubPage() {
         description="Every question keeps its original wording, option-level rationale and source. Browse by official DP-600 objective or by Fabric technology — Direct Lake, deployment pipelines, Delta tables — without needing to know which video covered it."
       >
         <div className="mt-8 grid grid-cols-2 gap-px overflow-hidden rounded-2xl border border-border bg-border sm:grid-cols-4">
-          <StatTile value={String(total)} label="practice questions" note={`${COUNTS.packs} source packs`} />
+          <StatTile value={total.toLocaleString("en-US")} label="practice questions" note={`${COUNTS.packs} source packs`} />
           <StatTile value={String(focused)} label="DP-600 focused" note="source declares a DP-600 objective" />
           <StatTile
             value={String(COUNTS.withCaseStudy)}

@@ -213,7 +213,7 @@ export const LEARNING_ENTRIES: CatalogueEntry[] = [
     inside: `${practiceMetrics.fabricPacks} packs · ${practiceMetrics.fabricSources} source references · coverage reconciliation`,
     level: "Intermediate",
     prerequisites: "None; the questions themselves live in Practice.",
-    practice: `${practiceMetrics.fabricQuestions} questions in the Fabric practice hub`,
+    practice: `${practiceMetrics.fabricQuestions.toLocaleString("en-US")} questions in the Fabric practice hub`,
     languages: ["English"],
     linkLabel: "Open the Fabric source credits",
     caveat: "Original practice material — not official, leaked or recalled exam questions.",
@@ -244,7 +244,7 @@ export const PRACTICE_ENTRIES: CatalogueEntry[] = [
     href: "/lab/dp-600",
     purpose:
       "Fabric questions with option-level rationales, source timestamps, case studies and a coverage report that admits what the bank cannot cover.",
-    inside: `${practiceMetrics.fabricQuestions} questions · ${practiceMetrics.fabricPacks} source packs · guided, topic, mock, cases, review`,
+    inside: `${practiceMetrics.fabricQuestions.toLocaleString("en-US")} questions · ${practiceMetrics.fabricPacks} source packs · guided, topic, mock, cases, review`,
     level: "Intermediate to advanced",
     prerequisites: "Fabric basics help; guided study assumes none.",
     practice: "Focused sets, mistake review and a persisted timed simulation",

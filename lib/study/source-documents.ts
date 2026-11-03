@@ -65,7 +65,7 @@ const MANUAL: SearchDocument[] = [
     url: "/practice/catalogue/",
     kind: "tool",
     summary:
-      `The three question banks: ${SITE_METRICS.practice.generalQuestions} analyst questions, ${SITE_METRICS.practice.fabricQuestions} Fabric questions and ${SITE_METRICS.dataViz.scenarios} visualization scenarios.`,
+      `The three question banks: ${SITE_METRICS.practice.generalQuestions} analyst questions, ${SITE_METRICS.practice.fabricQuestions.toLocaleString("en-US")} Fabric questions and ${SITE_METRICS.dataViz.scenarios} visualization scenarios.`,
     topic: ["catalogue", "practice"],
     language: "en",
     keywords: ["exams", "questions", "quiz"],
