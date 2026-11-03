@@ -1,6 +1,8 @@
 // Canonical origin for metadata, the sitemap and robots.txt. Set
 // NEXT_PUBLIC_SITE_URL at build time when the site moves to a custom domain;
 // otherwise it falls back to the Cloudflare Workers URL.
+import { SITE_METRICS } from "./site-metrics";
+
 const siteUrl = (
   process.env.NEXT_PUBLIC_SITE_URL?.trim() || "https://hansa.amir-portfolio.workers.dev"
 ).replace(/\/+$/, "");
@@ -128,8 +130,8 @@ export const FOOTER_LINKS = [
     heading: "Practice",
     links: [
       { href: "/practice/catalogue", label: "Practice catalogue" },
-      { href: "/lab", label: "Analyst bank (60)" },
-      { href: "/lab/dp-600", label: "Fabric DP-600 (834)" },
+      { href: "/lab", label: `Analyst bank (${SITE_METRICS.practice.generalQuestions})` },
+      { href: "/lab/dp-600", label: `Fabric DP-600 (${SITE_METRICS.practice.fabricQuestions.toLocaleString("en-US")})` },
       { href: "/lab/dp-600/progress", label: "Progress & saved sessions" },
       { href: "/practice", label: "Visualization scenarios" },
     ],

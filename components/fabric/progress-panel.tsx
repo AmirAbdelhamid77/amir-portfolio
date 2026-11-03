@@ -6,6 +6,7 @@ import { Download, Loader2, RotateCcw, Upload } from "lucide-react";
 import { AttemptedPanel } from "@/components/fabric/hub-panels";
 import { Callout, DataTable, EmptyState, Meter, Panel } from "@/components/fabric/ui";
 import { loadIndex } from "@/lib/fabric/data";
+import { SITE_METRICS } from "@/lib/site-metrics";
 import {
   clearFabricStore,
   exportStore,
@@ -96,7 +97,7 @@ export function ProgressPanel() {
 
       <div className="grid grid-cols-2 gap-px overflow-hidden rounded-2xl border border-border bg-border sm:grid-cols-4">
         {[
-          { value: `${attempted}`, label: "questions attempted", note: "of 834" },
+          { value: `${attempted}`, label: "questions attempted", note: `of ${SITE_METRICS.practice.fabricQuestions.toLocaleString("en-US")}` },
           { value: `${mastered}`, label: "answered right twice", note: "last two correct" },
           { value: `${store.bookmarks.length}`, label: "bookmarked", note: "saved for later" },
           { value: `${history.length}`, label: "sessions completed", note: "scored and stored" },

@@ -1,6 +1,6 @@
 "use client";
 
-// Study notes are load-on-demand: the chapter text for all 18 packs is ~300 KB,
+// Study notes are load-on-demand: the chapter text for every pack is ~300 KB,
 // which no reader needs while browsing the source list.
 
 import { useEffect, useState } from "react";

@@ -93,7 +93,7 @@ export function SessionSetup({
     shuffleOptions: true,
   });
 
-  // 834 entries is small enough to filter on every render, and doing so keeps
+  // The bank is small enough to filter on every render, and doing so keeps
   // the count honest while the controls move — no stale memo, no effect.
   const available = entries
     ? filterEntries(entries, filterFrom(state, mode, has("scope") ? null : defaultScopes), learner)
@@ -145,7 +145,7 @@ export function SessionSetup({
               onChange={(event) => state.setPack(event.target.value)}
               className="h-10 w-full rounded-xl border border-border bg-background px-3 text-sm outline-none focus:border-primary"
             >
-              <option value="all">All 18 packs</option>
+              <option value="all">All {PACKS.length} packs</option>
               {PACKS.map((pack) => (
                 <option key={pack.key} value={pack.key}>
                   {pack.title} ({packCounts.get(pack.key) ?? 0})
@@ -239,7 +239,7 @@ export function SessionSetup({
             <p className="mt-2 text-[11px] leading-5 text-muted-foreground">
               {state.scope === "focused"
                 ? "Only questions whose source declares a DP-600 objective. The narrower, more exam-aligned set."
-                : "All 834 questions, including DP-700-adjacent engineering depth."}
+                : "The full bank, including DP-700-adjacent engineering depth."}
             </p>
           </Field>
         ) : null}

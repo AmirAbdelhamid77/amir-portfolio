@@ -15,6 +15,7 @@ import {
 } from "lucide-react";
 import { useFabricStore } from "@/lib/fabric/storage";
 import { loadIndex, subjectLabel } from "@/lib/fabric/data";
+import { SITE_METRICS } from "@/lib/site-metrics";
 import { MODE_LABEL, sessionHref } from "@/lib/fabric/nav";
 import { formatClock } from "@/lib/fabric/engine";
 import type { FabricIndexEntry } from "@/lib/fabric/types";
@@ -101,7 +102,7 @@ export function HubStatusPanel() {
           <div className="mt-4 grid gap-4">
             <div className="grid grid-cols-3 gap-px overflow-hidden rounded-2xl border border-border bg-border">
               {[
-                { value: `${attempted}`, label: "questions seen", note: "of 834" },
+                { value: `${attempted}`, label: "questions seen", note: `of ${SITE_METRICS.practice.fabricQuestions.toLocaleString("en-US")}` },
                 { value: attempts.length ? `${average}%` : "—", label: "average score", note: `${attempts.length} session${attempts.length === 1 ? "" : "s"}` },
                 { value: `${Object.keys(store.questions).length ? missedIds.length : 0}`, label: "to revisit", note: "last answer wrong" },
               ].map((item) => (

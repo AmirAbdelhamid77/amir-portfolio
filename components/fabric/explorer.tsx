@@ -414,7 +414,7 @@ export function Explorer() {
               <p className="text-sm font-medium">Pick a question from the list</p>
               <p className="mx-auto mt-1.5 max-w-sm text-xs leading-6 text-muted-foreground">
                 The full stem, every option rationale and the source references appear here. Use the
-                search box or the filters to narrow 834 questions down.
+                search box or the filters to narrow the bank down.
               </p>
             </div>
           )}

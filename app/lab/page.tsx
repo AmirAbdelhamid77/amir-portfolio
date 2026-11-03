@@ -10,6 +10,7 @@ import {
   Target,
 } from "lucide-react";
 import { EXAM_SUMMARIES } from "@/lib/exams";
+import { SITE_METRICS } from "@/lib/site-metrics";
 import { ExamCatalog } from "@/components/lab/exam-catalog";
 import { ButtonLink, Container, Eyebrow } from "@/components/ui";
 
@@ -18,11 +19,11 @@ const questionCount = EXAM_SUMMARIES.reduce(
   0,
 );
 const topicCount = new Set(EXAM_SUMMARIES.map((exam) => exam.topic)).size;
+const fabricQuestionCount = SITE_METRICS.practice.fabricQuestions.toLocaleString("en-US");
 
 export const metadata: Metadata = {
   title: "Data Lab",
-  description:
-    "Free data-analyst practice exams for SQL, Power BI/DAX, Excel, Python/Pandas, statistics, analytics fundamentals, and Fabric real-time provenance — plus a separate 834-question Microsoft Fabric DP-600 lab. Practice or timed mock mode, with explanations.",
+  description: `Free data-analyst practice exams for SQL, Power BI/DAX, Excel, Python/Pandas, statistics, analytics fundamentals, and Fabric real-time provenance — plus a separate ${fabricQuestionCount}-question Microsoft Fabric DP-600 lab. Practice or timed mock mode, with explanations.`,
   alternates: { canonical: "/lab" },
   openGraph: {
     title: "Data Lab — free data-analyst practice exams",
@@ -120,7 +121,8 @@ export default function LabPage() {
                   Microsoft Fabric · DP-600
                 </p>
                 <h2 className="mt-1 text-base font-medium tracking-tight">
-                  834 Fabric questions, 18 source packs, one hub
+                  {fabricQuestionCount} Fabric questions, {SITE_METRICS.practice.fabricPacks} source
+                  packs, one hub
                 </h2>
                 <p className="mt-1.5 max-w-xl text-xs leading-6 text-muted-foreground">
                   Guided study, topic practice, case studies and a custom timed simulation — with

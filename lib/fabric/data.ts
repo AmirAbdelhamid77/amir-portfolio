@@ -1,7 +1,7 @@
 // Typed access to the generated Fabric content layer.
 //
 // Small, frequently used metadata (packs, sources, coverage) is statically
-// imported. The 834-question index and the per-pack question records are
+// imported. The question index and the per-pack question records are
 // dynamically imported so the homepage and the hub never pay for them.
 
 import packsJson from "@/content/fabric/packs.json";

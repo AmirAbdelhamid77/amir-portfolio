@@ -152,13 +152,13 @@ sitemap, and stats update themselves.
 
 ### Microsoft Fabric / DP-600 hub
 `/lab/dp-600/` is a separate question bank from the six `content/exams/*.json` sets:
-834 practice questions in 18 source packs, with per-option rationales, case studies,
+1,264 practice questions in 27 source packs, with per-option rationales, case studies,
 source-video timestamps and DP-600 objective coverage.
 
 - **Content** lives in `content/fabric/` and is generated — do not hand-edit it.
   `scripts/import-fabric-bank.mjs` reads the supplied package
   (`LAB_PACKS.merged.json` + `SOURCES.merged.json`), verifies every record, and writes
-  the catalog, the 527 KB searchable index, 18 lazy question chunks, the case-study
+  the catalog, the 817 KB searchable index, 27 lazy question chunks, the case-study
   groups and the reference registry. `content/fabric/meta.json` carries the audit and
   coverage figures the site displays.
 - **Classification** (`lib/fabric/classify.ts`) maps each question to an official

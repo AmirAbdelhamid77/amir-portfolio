@@ -23,13 +23,11 @@ import { SITE } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Microsoft Fabric & DP-600 practice",
-  description:
-    "834 Microsoft Fabric practice questions across 18 source packs: guided study, topic practice, case studies and a custom timed simulation, with explanations, option-level rationales and DP-600 objective coverage.",
+  description: `${COUNTS.questions.toLocaleString("en-US")} Microsoft Fabric practice questions across ${COUNTS.packs} source packs: guided study, topic practice, case studies and a custom timed simulation, with explanations, option-level rationales and DP-600 objective coverage.`,
   alternates: { canonical: "/lab/dp-600" },
   openGraph: {
     title: "Microsoft Fabric & DP-600 practice hub",
-    description:
-      "834 questions, 18 packs, option-level rationales, case studies and an honest coverage report. Free, no account, saved in your browser.",
+    description: `${COUNTS.questions.toLocaleString("en-US")} questions, ${COUNTS.packs} packs, option-level rationales, case studies and an honest coverage report. Free, no account, saved in your browser.`,
     url: "/lab/dp-600",
     images: [{ url: "/og.png", width: 1200, height: 630, alt: "Microsoft Fabric & DP-600 practice — Hansa" }],
   },
@@ -76,7 +74,7 @@ const MODE_CARDS = [
     group: "study",
     title: "Explore the question bank",
     description: "Filter by objective, topic, pack, type or status and read any question with its rationales.",
-    meta: "834 questions · search & filters",
+    meta: `${COUNTS.questions.toLocaleString("en-US")} questions · search & filters`,
     icon: Compass,
   },
   {
@@ -145,8 +143,7 @@ export default function FabricHubPage() {
     "@context": "https://schema.org",
     "@type": "LearningResource",
     name: "Microsoft Fabric & DP-600 practice hub",
-    description:
-      "834 independently authored Microsoft Fabric practice questions with explanations, option rationales and case studies.",
+    description: `${COUNTS.questions.toLocaleString("en-US")} independently authored Microsoft Fabric practice questions with explanations, option rationales and case studies.`,
     learningResourceType: "Practice questions",
     teaches: "Microsoft Fabric",
     numberOfQuestions: total,
@@ -161,11 +158,11 @@ export default function FabricHubPage() {
 
       <HubHeader
         eyebrow="Data Lab · Microsoft Fabric"
-        title="834 Fabric questions, organised the way you actually revise."
+        title={`${COUNTS.questions.toLocaleString("en-US")} Fabric questions, organised the way you actually revise.`}
         description="Every question keeps its original wording, option-level rationale and source. Browse by official DP-600 objective or by Fabric technology — Direct Lake, deployment pipelines, Delta tables — without needing to know which video covered it."
       >
         <div className="mt-8 grid grid-cols-2 gap-px overflow-hidden rounded-2xl border border-border bg-border sm:grid-cols-4">
-          <StatTile value={String(total)} label="practice questions" note="18 source packs" />
+          <StatTile value={String(total)} label="practice questions" note={`${COUNTS.packs} source packs`} />
           <StatTile value={String(focused)} label="DP-600 focused" note="source declares a DP-600 objective" />
           <StatTile
             value={String(COUNTS.withCaseStudy)}
@@ -475,7 +472,7 @@ export default function FabricHubPage() {
 
           <Panel
             title="Source packs"
-            description="18 packs: five original topic packs plus 13 video-derived packs. Each keeps its source video, timestamps and study-note chapters."
+            description={`${COUNTS.packs} packs: five topic packs, 13 video-derived packs and nine specialised banks. Each keeps its source video, timestamps and study-note chapters where they exist.`}
             action={{ href: "/lab/dp-600/resources/", label: "Sources & study notes" }}
           >
             <div className="grid gap-2 sm:grid-cols-2">

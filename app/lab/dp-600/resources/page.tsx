@@ -7,8 +7,7 @@ import { STUDY_GUIDE_URL } from "@/lib/fabric/taxonomy";
 
 export const metadata: Metadata = {
   title: "Learning resources & sources — Microsoft Fabric DP-600",
-  description:
-    "Every reference behind the 834 Fabric practice questions: source videos with timestamps, Microsoft Learn documentation, study-note chapters and the validation note each question carries.",
+  description: `Every reference behind the ${COUNTS.questions.toLocaleString("en-US")} Fabric practice questions: source videos with timestamps, Microsoft Learn documentation, study-note chapters and the validation note each question carries.`,
   alternates: { canonical: "/lab/dp-600/resources" },
 };
 
@@ -88,7 +87,7 @@ export default function ResourcesPage() {
 
           <Panel
             title="Source videos"
-            description={`${videos.length} videos behind 13 of the 18 packs. Timestamps open the exact point a question refers to, where one exists.`}
+            description={`${videos.length} videos behind 18 of the ${COUNTS.packs} packs. Timestamps open the exact point a question refers to, where one exists.`}
           >
             <ul className="grid gap-2">
               {videos.map((video) => (
