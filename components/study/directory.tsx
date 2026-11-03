@@ -1,12 +1,131 @@
-import {StudyIntentLink} from './intent-link';
-import Link from 'next/link';
-import {SUBJECTS,topicHref} from '@/lib/study/taxonomy';
-import {studyRecords} from '@/lib/study/server';
-import './study.css';
-export function StudyDirectory({practice=false,subject}:{practice?:boolean;subject?:string}){
- const records=studyRecords();const subjects=SUBJECTS.filter(s=>!subject||s.id===subject);
- return <div className="study-shell"><header className="study-heading"><p className="study-eyebrow">HANSA / THE LEARNING LIBRARY</p><h1>{subject?subjects[0]?.title:practice?'Practise a topic.':'Find the idea. Follow it through.'}</h1><p>{practice?'Choose the subject you want to practise. The explanation and experiments stay beside the questions.':'Start with a subject, then a topic. Read the explanation, try the mechanism and practise in the same context.'}</p><nav aria-label="Learning library"><Link href="/study/">All subjects</Link>{subject&&<Link href={`/study/${subject}/path/`}>Learning path: foundations to advanced</Link>}<Link href="/search/">Search everything</Link><Link href="/lab/dp-600/progress/">Saved Fabric progress</Link></nav></header>
- {!subject&&<div className="study-principle"><span>01 / Understand</span><span>02 / Experiment</span><span>03 / Practise</span><span>04 / Revisit the evidence</span><p>This is a suggested study workflow, not a claim that every topic has a complete course or a scientifically approved prerequisite chain.</p></div>}
- <div className="study-subjects">{subjects.map((s,i)=>{const subset=records.filter(r=>r.subject===s.id);return <section key={s.id} className="study-subject" aria-labelledby={`subject-${s.id}`}><div className="study-subject-intro">{!subject&&<span className="study-number" aria-hidden="true">{String(i+1).padStart(2,'0')}</span>}{!subject&&<h2 id={`subject-${s.id}`}><StudyIntentLink practice={practice} href={`/study/${s.id}/`}>{s.title}</StudyIntentLink></h2>}{!subject&&<p>{s.goal}</p>}<small>{subset.filter(r=>r.kind==='question').length} question records · {subset.filter(r=>r.kind!=='question').length} learning resources</small></div>{subject?<ol className="study-topic-list">{s.topics.map(([id,title])=>{const items=subset.filter(r=>r.topic===id),q=items.filter(r=>r.kind==='question').length;return <li key={id}><StudyIntentLink practice={practice} href={topicHref(s.id,id)}><span>{title}</span><small>{items.length?`${items.length-q} learning resources · ${q} questions`:'Coverage gap — no mapped resource yet'}</small><span aria-hidden="true">↗</span></StudyIntentLink></li>;})}</ol>:<StudyIntentLink practice={practice} className="study-open" href={`/study/${s.id}/`}>Explore {s.topics.length} topics ↗</StudyIntentLink>}</section>;})}</div>
- <details className="study-source-shelf"><summary>Original collections, exam modes and review workspace</summary><p>These retain original source order and review states. Their order does not define dependencies.</p><div><Link href="/learn/">Original visualization course</Link><Link href="/learn/statistics/">Statistics reference</Link><Link href="/learn/dp-600/ingestion/">Fabric ingestion lesson</Link><Link href="/lab/dp-600/">Fabric study & exam modes</Link><Link href="/lab/">Analyst question sets</Link><Link href="/learn/dp-600/atlas/">Atlas & publication state</Link><Link href="/study/review/">Editorial review inventory — not approved</Link><Link href="/learn/drafts/">Unapproved lesson intake</Link><Link href="/practice/drafts/">Unapproved question intake — grading disabled</Link></div></details></div>;
+import Link from "next/link";
+import { StudyIntentLink } from "./intent-link";
+import { SUBJECTS, topicHref } from "@/lib/study/taxonomy";
+import { studyRecords } from "@/lib/study/server";
+import "./study.css";
+
+const STEPS = [
+  { number: "01", label: "Understand" },
+  { number: "02", label: "Experiment" },
+  { number: "03", label: "Practise" },
+];
+
+/**
+ * The learning library: subjects, then topics, then the material inside a
+ * topic. Counts describe what a reader will find, not what an audit recorded.
+ */
+export function StudyDirectory({ practice = false, subject }: { practice?: boolean; subject?: string }) {
+  const records = studyRecords();
+  const subjects = SUBJECTS.filter((entry) => !subject || entry.id === subject);
+
+  return (
+    <div className="study-shell">
+      <header className="study-heading">
+        <p className="study-eyebrow">Learning library</p>
+        <h1>
+          {subject
+            ? subjects[0]?.title
+            : practice
+              ? "Practise a topic."
+              : "Find the idea. Follow it through."}
+        </h1>
+        <p>
+          {practice
+            ? "Choose a subject, then a topic. The explanation and the experiments stay beside the questions."
+            : "Start with a subject, then a topic. Read the explanation, try the idea and practise it in the same place."}
+        </p>
+        <nav aria-label="Learning library">
+          <Link href="/learn/">All subjects</Link>
+          {subject ? <Link href={`/learn/${subject}/path/`}>Learning path</Link> : null}
+          <Link href="/search/">Search everything</Link>
+        </nav>
+      </header>
+
+      {!subject ? (
+        <div className="study-principle">
+          {STEPS.map((step) => (
+            <span key={step.number}>
+              {step.number} / {step.label}
+            </span>
+          ))}
+          <p>Read the idea, try it, then answer questions on it.</p>
+        </div>
+      ) : null}
+
+      <div className="study-subjects">
+        {subjects.map((entry, index) => {
+          const subset = records.filter((record) => record.subject === entry.id);
+          const questions = subset.filter((record) => record.kind === "question").length;
+          const pages = subset.length - questions;
+          return (
+            <section key={entry.id} className="study-subject" aria-labelledby={`subject-${entry.id}`}>
+              <div className="study-subject-intro">
+                {!subject ? (
+                  <span className="study-number" aria-hidden="true">
+                    {String(index + 1).padStart(2, "0")}
+                  </span>
+                ) : null}
+                {!subject ? (
+                  <h2 id={`subject-${entry.id}`}>
+                    <StudyIntentLink practice={practice} href={`/learn/${entry.id}/`}>
+                      {entry.title}
+                    </StudyIntentLink>
+                  </h2>
+                ) : null}
+                {!subject ? <p>{entry.goal}</p> : null}
+                <small>
+                  {pages} {pages === 1 ? "page" : "pages"} · {questions}{" "}
+                  {questions === 1 ? "question" : "questions"}
+                </small>
+              </div>
+              {subject ? (
+                <ol className="study-topic-list">
+                  {entry.topics.map(([id, title]) => {
+                    const items = subset.filter((record) => record.topic === id);
+                    const practiceCount = items.filter((record) => record.kind === "question").length;
+                    const reading = items.length - practiceCount;
+                    return (
+                      <li key={id}>
+                        <StudyIntentLink practice={practice} href={topicHref(entry.id, id)}>
+                          <span>{title}</span>
+                          <small>
+                            {items.length
+                              ? `${reading} ${reading === 1 ? "page" : "pages"} · ${practiceCount} ${practiceCount === 1 ? "question" : "questions"}`
+                              : "Notes and practice are still being added"}
+                          </small>
+                          <span aria-hidden="true">↗</span>
+                        </StudyIntentLink>
+                      </li>
+                    );
+                  })}
+                </ol>
+              ) : (
+                <StudyIntentLink
+                  practice={practice}
+                  className="study-open"
+                  href={`/learn/${entry.id}/`}
+                >
+                  Explore {entry.topics.length} topics ↗
+                </StudyIntentLink>
+              )}
+            </section>
+          );
+        })}
+      </div>
+
+      <details className="study-source-shelf">
+        <summary>Original collections and practice sets</summary>
+        <p>The same material in its original course order.</p>
+        <div>
+          <Link href="/learn/">Data visualization course</Link>
+          <Link href="/learn/statistics/">Statistics reference</Link>
+          <Link href="/learn/sql/">SQL reference</Link>
+          <Link href="/learn/dp-600/">Microsoft Fabric lessons</Link>
+          <Link href="/lab/dp-600/">Fabric question bank</Link>
+          <Link href="/lab/">Analyst question sets</Link>
+          <Link href="/learn/dp-600/atlas/">Fabric knowledge map</Link>
+        </div>
+      </details>
+    </div>
+  );
 }

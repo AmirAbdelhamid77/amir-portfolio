@@ -4,16 +4,20 @@ import { EnglishLessons, getLesson, getSourcePage } from "@/lib/data-viz/content
 import { LessonView } from "@/components/data-viz/lesson-view";
 import { SITE } from "@/lib/site";
 
-type Params = { params: Promise<{ slug: string }> };
+// This segment holds a data-visualization lesson slug, not a subject. It uses
+// the name `subject` because Next.js requires one dynamic name per level and
+// `[subject]/[topic]` sits underneath it. Static subject routes such as
+// `/learn/fabric` still take precedence.
+type Params = { params: Promise<{ subject: string }> };
 
 export const dynamicParams = false;
 
 export function generateStaticParams() {
-  return EnglishLessons.map((lesson) => ({ slug: lesson.slug }));
+  return EnglishLessons.map((lesson) => ({ subject: lesson.slug }));
 }
 
 export async function generateMetadata({ params }: Params): Promise<Metadata> {
-  const { slug } = await params;
+  const { subject: slug } = await params;
   const lesson = getLesson(slug, "en");
   if (!lesson) return { title: "Lesson not found" };
   const page = getSourcePage(lesson);
@@ -36,7 +40,7 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
 }
 
 export default async function LessonPage({ params }: Params) {
-  const { slug } = await params;
+  const { subject: slug } = await params;
   const lesson = getLesson(slug, "en");
   if (!lesson) notFound();
 

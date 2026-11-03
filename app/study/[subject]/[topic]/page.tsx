@@ -1,7 +1,36 @@
-import {TopicPreparation} from '@/components/study/topic-preparation';
-import '@/components/study/path.css';
-import {TOPIC_GOALS} from '@/lib/study/briefs';
-import Link from 'next/link';import {SUBJECTS,subjectById,topicHref} from '@/lib/study/taxonomy';import {studyRecords} from '@/lib/study/server';import {TopicBrowser} from '@/components/study/topic-browser';import '@/components/study/study.css';
-export const dynamicParams=false;export function generateStaticParams(){return SUBJECTS.flatMap(s=>s.topics.map(([topic])=>({subject:s.id,topic})));}
-export async function generateMetadata({params}:{params:Promise<{subject:string;topic:string}>}){const p=await params,s=subjectById(p.subject);return {title:`${s?.topics.find(t=>t[0]===p.topic)?.[1]} — ${s?.title}`,alternates:{canonical:topicHref(p.subject,p.topic)}};}
-export default async function Page({params}:{params:Promise<{subject:string;topic:string}>}){const {subject,topic}=await params,s=subjectById(subject)!,title=s.topics.find(t=>t[0]===topic)![1],items=studyRecords().filter(r=>r.subject===subject&&r.topic===topic);return <div className="study-shell"><header className="study-heading"><nav aria-label="Breadcrumb"><Link href="/study/">Subjects</Link><Link href={`/study/${subject}/`}>{s.title}</Link><span aria-current="page">{title}</span></nav><p className="study-eyebrow">{s.title} / TOPIC DESK</p><h1>{title}</h1><p>{TOPIC_GOALS[`${subject}.${topic}`]??s.goal}</p></header><TopicPreparation subject={subject} topic={topic}/><TopicBrowser items={items}/><nav className="study-source-shelf" aria-label="Continue through subject"><Link href={`/study/${subject}/`}>All topics in {s.title}</Link><Link href={`/study/${subject}/path/`}>Follow the reviewed lesson sequence ↗</Link></nav></div>;}
+import type { Metadata } from "next";
+import { TopicDesk } from "@/components/study/topic-desk";
+import { SUBJECTS, subjectById } from "@/lib/study/taxonomy";
+
+// Alias of `/learn/<subject>/<topic>`. Old links, saved progress and query
+// parameters keep working; the canonical page is the one under `/learn`.
+export const dynamicParams = false;
+
+export function generateStaticParams() {
+  return SUBJECTS.flatMap((subject) =>
+    subject.topics.map(([topic]) => ({ subject: subject.id, topic })),
+  );
+}
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ subject: string; topic: string }>;
+}): Promise<Metadata> {
+  const { subject, topic } = await params;
+  const entry = subjectById(subject)!;
+  const title = entry.topics.find(([id]) => id === topic)![1];
+  return {
+    title: `${title} — ${entry.title}`,
+    alternates: { canonical: `/learn/${subject}/${topic}/` },
+  };
+}
+
+export default async function Page({
+  params,
+}: {
+  params: Promise<{ subject: string; topic: string }>;
+}) {
+  const { subject, topic } = await params;
+  return <TopicDesk subject={subject} topic={topic} />;
+}

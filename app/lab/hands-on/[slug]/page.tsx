@@ -247,7 +247,7 @@ export default async function HandsOnLabPage({ params }: Params) {
             </Link>
             <Link
               className="inline-flex min-h-[44px] items-center gap-2 rounded-full border border-border-strong px-5 text-sm"
-              href={`/study/${lab.subject}/`}
+              href={`/learn/${lab.subject}/`}
             >
               All {subject.title} topics
             </Link>

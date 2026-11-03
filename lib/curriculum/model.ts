@@ -9,8 +9,8 @@
 //
 // Nothing here publishes a new relation. `learningUnits()` already carries the
 // reviewed conceptual dependencies; this file verifies that they resolve, that
-// ids are unique, and that a stage-aware teaching order exists. Topic desks stay
-// under `/study/` until their own alias move; `topics[].href` points there.
+// ids are unique, and that a stage-aware teaching order exists. Topic desks and
+// subject paths live under `/learn/<subject>/`; `topics[].href` points there.
 
 import { learningUnits, type LearningUnit } from "@/lib/study/learning-path";
 import { SUBJECTS, type SubjectId } from "@/lib/study/taxonomy";
@@ -200,7 +200,7 @@ export function curriculum(): Curriculum {
       topics: subject.topics.map(([id, title]) => ({
         id,
         title,
-        href: `/study/${subject.id}/${id}/`,
+        href: `/learn/${subject.id}/${id}/`,
       })),
       units: subjectUnits,
       stageCounts,

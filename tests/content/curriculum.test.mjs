@@ -149,7 +149,7 @@ test("topic links name a real taxonomy topic", () => {
     assert.equal(new Set(ids).size, ids.length, `${subject.id} topic ids are unique`);
     for (const topic of subject.topics) {
       assert.ok(taxonomy.has(topic.id), `${subject.id}/${topic.id} exists in the taxonomy`);
-      assert.equal(topic.href, `/study/${subject.id}/${topic.id}/`);
+      assert.equal(topic.href, `/learn/${subject.id}/${topic.id}/`);
     }
   }
 });

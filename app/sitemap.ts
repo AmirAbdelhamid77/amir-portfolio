@@ -26,7 +26,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       { path: "learn", priority: 1 },
       ...SUBJECTS.flatMap((s) => [
         { path: `learn/${s.id}`, priority: 0.9 },
-        { path: `study/${s.id}/path`, priority: 0.7 },
+        { path: `learn/${s.id}/path`, priority: 0.7 },
         ...s.topics.map(([t]) => ({ path: topicHref(s.id, t).slice(1, -1), priority: 0.6 })),
       ]),
     ],

@@ -108,8 +108,9 @@ storyboards, visualization spec and the implementation report.
 Reference), topic desks and guided programmes. `/learn` renders the umbrella, and
 each subject has a home under `/learn/<subject>/` (`visualization` keeps its full
 ten-chapter course page there). `/study`, `/study/<subject>` and `/learn/catalogue`
-are aliases that canonicalise to `/learn`. Topic desks stay at
-`/study/<subject>/<topic>/` until their own migration.
+are aliases that canonicalise to `/learn`. Topic desks live at
+`/learn/<subject>/<topic>/` and subject paths at `/learn/<subject>/path/`; their
+`/study/...` addresses render the same pages and canonicalise to `/learn`.
 
 ### Site identity, nav, links
 `lib/site.ts` — name, role, email, socials, availability, nav items, footer links,

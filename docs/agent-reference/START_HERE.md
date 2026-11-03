@@ -49,7 +49,9 @@ master intact rather than silently rewriting it.
   visualization-specific. Proposed global catalogues are not implemented here.
   (2026-11-02: `/learn` is now the curriculum home for eight subjects, the
   visualization course lives at `/learn/visualization/`, and `/study` plus
-  `/study/<subject>` are aliases that canonicalise to `/learn`.)
+  `/study/<subject>` are aliases that canonicalise to `/learn`. 2026-11-03:
+  topic desks and subject paths are canonical at `/learn/<subject>/<topic>/`
+  and `/learn/<subject>/path/`; the matching `/study/...` routes are aliases.)
 - components/statistics/chart-kit.tsx provides SVG; lib/statistics/math.ts supplies
   math. components/statistics/visual-registry.tsx already maps labs/exhibits.
   Inspect loading behavior before creating another registry.

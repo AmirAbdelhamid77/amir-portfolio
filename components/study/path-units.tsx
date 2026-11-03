@@ -1,11 +1,247 @@
 'use client';
-import Link from 'next/link';import {SUBJECTS,topicHref} from '@/lib/study/taxonomy';import {useEffect,useMemo,useState} from 'react';import type {LearningUnit,LearningLink} from '@/lib/study/learning-path';
-export function PathUnits({units,review=false}:{units:LearningUnit[];review?:boolean}){
- const [query,setQuery]=useState(''),[stage,setStage]=useState('all'),[limit,setLimit]=useState(12),[target,setTarget]=useState('');
- useEffect(()=>{const restore=()=>{const hash=location.hash.slice(1);if(units.some(u=>u.id===hash)){setTarget(hash);setStage('all');setQuery('');setLimit(Math.max(12,units.findIndex(u=>u.id===hash)+1));}};queueMicrotask(restore);addEventListener('hashchange',restore);return()=>removeEventListener('hashchange',restore);},[units]);
- useEffect(()=>{if(target){requestAnimationFrame(()=>document.getElementById(target)?.scrollIntoView({block:'start',behavior:'instant'}));}},[target,limit]);
- const list=useMemo(()=>units.filter(u=>(!target||u.id===target)&&(stage==='all'||u.stage===stage)&&query.toLowerCase().split(/\s+/).every(w=>[u.title,u.objective,...u.topics].join(' ').toLowerCase().includes(w))),[units,query,stage,target]);
- const context=(u:LearningUnit,href:string)=>{if(!href.startsWith('/'))return href;const url=new URL(href,'https://local.invalid');url.searchParams.set('learningContext',u.subject+'.'+u.topics[0]);url.searchParams.set('learningUnit',u.id);if(review)url.searchParams.set('learningReview','1');return url.pathname+url.search+url.hash;};
- const links=(u:LearningUnit,items:LearningLink[])=><ul className="path-links">{items.map(l=><li key={l.id}><Link href={context(u,l.href)}>{l.title} ↗</Link><small>{l.basis==='source-explicit'?'Linked in the original source':l.basis==='topic-context'?'Related topic practice; article coverage not asserted':l.basis==='external-reading'?'External primary source':'Concept match reviewed for this lesson'}</small></li>)}</ul>;
- return <section aria-label="Lesson sequence"><div className="study-controls"><label>Find a lesson<input type="search" value={query} onChange={e=>{setTarget('');setQuery(e.target.value.slice(0,160));setLimit(12);}}/></label><label>Learning stage<select aria-label="Learning stage" value={stage} onChange={e=>{setTarget('');setStage(e.target.value);setLimit(12);}}><option value="all">All stages</option>{['Foundation','Applied','Advanced','Reference'].map(s=><option key={s}>{s}</option>)}</select></label><button onClick={()=>{setQuery('');setStage('all');setLimit(12);setTarget('');history.replaceState(null,'',location.pathname+location.search);}}>Reset path filters</button></div><p className="study-result-count" role="status">{list.length} lesson and note steps. Showing {Math.min(limit,list.length)}. No automatic mastery or prerequisite lock.</p><ol className="path-units">{list.slice(0,limit).map(u=><li className="path-unit" id={u.id} key={u.id}><nav className="path-step-nav" aria-label={'Move from '+u.title}>{units.findIndex(x=>x.id===u.id)>0&&<a href={'#'+units[units.findIndex(x=>x.id===u.id)-1].id}>← Previous step</a>}{units.findIndex(x=>x.id===u.id)<units.length-1&&<a href={'#'+units[units.findIndex(x=>x.id===u.id)+1].id}>Next step →</a>}</nav><div className="path-step-meta"><span>{String(units.findIndex(x=>x.id===u.id)+1).padStart(2,'0')}</span><span>{u.stage} · {u.kind==='study-note'?'Source study note':u.kind==='external-foundation'?'External primary reading':'Lesson'}</span></div><h2>{u.title}</h2><p>{u.objective}</p>{!!u.lessonPrerequisites?.length&&<p className="path-before">Read before this step: {u.lessonPrerequisites.map((id,i)=><span key={id}>{i>0?' · ':''}<a href={'#'+id}>{units.find(x=>x.id===id)?.title??id}</a></span>)}. {review?'These prerequisites are declared in the unapproved source; they do not confer scientific approval.':'These are content-reviewed conceptual dependencies, not completion gates.'}</p>}{!!u.prepare.length&&<p>Prepare these concepts: {u.prepare.map((key,i)=>{const [subject,topic]=key.split('.'),s=SUBJECTS.find(x=>x.id===subject)!;return <span key={key}>{i?' · ':''}<Link href={topicHref(subject,topic)}>{s.topics.find(t=>t[0]===topic)?.[1]}</Link></span>})}</p>}<Link className="path-read" href={context(u,u.href)}>1 · Read the lesson ↗</Link><div className="path-activities"><section aria-label={'Practice for '+u.title}><h3>2 · Practise the decision</h3>{u.questions.length?links(u,u.questions):<p>No existing bank question has a defensible lesson-specific match. Use the source-based check below.</p>}</section><section aria-label={'Apply '+u.title}><h3>3 · Apply and explain</h3>{u.applications.length?links(u,u.applications):<p>Apply the idea with the explanation task below. No local execution lab is claimed for this step.</p>}<details><summary>Source-based self-check · unscored</summary><p>{u.reflection}</p><p>Review your explanation against these source points:</p><ul>{u.reviewPoints.map((p,i)=><li key={i}>{p}</li>)}</ul><p>{u.caveat}</p></details></section></div><details className="path-review"><summary>Mapping evidence and source coverage</summary><p>Source coverage: {u.coverage}. No answer key, review state or source wording was changed.</p>{[...u.questions,...u.applications].map(l=><p key={l.id}>{l.reason}</p>)}</details></li>)}</ol>{limit<list.length&&<button className="study-more" onClick={()=>setLimit(n=>n+12)}>Show 12 more steps</button>}</section>;
+
+import Link from 'next/link';
+import { useEffect, useMemo, useState } from 'react';
+import { SUBJECTS, topicHref } from '@/lib/study/taxonomy';
+import type { LearningLink, LearningUnit } from '@/lib/study/learning-path';
+
+/**
+ * One subject's learning path, in order. `review` keeps the mapping evidence
+ * for the maintainer workspace; learner pages show the sequence itself.
+ */
+export function PathUnits({ units, review = false }: { units: LearningUnit[]; review?: boolean }) {
+  const [query, setQuery] = useState('');
+  const [stage, setStage] = useState('all');
+  const [limit, setLimit] = useState(12);
+  const [target, setTarget] = useState('');
+
+  useEffect(() => {
+    const restore = () => {
+      const hash = location.hash.slice(1);
+      if (units.some((unit) => unit.id === hash)) {
+        setTarget(hash);
+        setStage('all');
+        setQuery('');
+        setLimit(Math.max(12, units.findIndex((unit) => unit.id === hash) + 1));
+      }
+    };
+    queueMicrotask(restore);
+    addEventListener('hashchange', restore);
+    return () => removeEventListener('hashchange', restore);
+  }, [units]);
+
+  useEffect(() => {
+    if (target) {
+      requestAnimationFrame(() =>
+        document.getElementById(target)?.scrollIntoView({ block: 'start', behavior: 'instant' }),
+      );
+    }
+  }, [target, limit]);
+
+  const list = useMemo(
+    () =>
+      units.filter(
+        (unit) =>
+          (!target || unit.id === target) &&
+          (stage === 'all' || unit.stage === stage) &&
+          query
+            .toLowerCase()
+            .split(/\s+/)
+            .every((word) => [unit.title, unit.objective, ...unit.topics].join(' ').toLowerCase().includes(word)),
+      ),
+    [units, query, stage, target],
+  );
+
+  const context = (unit: LearningUnit, link: string) => {
+    if (!link.startsWith('/')) return link;
+    const url = new URL(link, 'https://local.invalid');
+    url.searchParams.set('learningContext', unit.subject + '.' + unit.topics[0]);
+    url.searchParams.set('learningUnit', unit.id);
+    if (review) url.searchParams.set('learningReview', '1');
+    return url.pathname + url.search + url.hash;
+  };
+
+  const linkLabel = (link: LearningLink) => {
+    if (link.basis === 'source-explicit') return 'Source link';
+    if (link.basis === 'topic-context') return 'Related practice';
+    if (link.basis === 'external-reading') return 'External reading';
+    return 'Related concept';
+  };
+
+  const links = (unit: LearningUnit, items: LearningLink[]) => (
+    <ul className="path-links">
+      {items.map((link) => (
+        <li key={link.id}>
+          <Link href={context(unit, link.href)}>{link.title} ↗</Link>
+          <small>{linkLabel(link)}</small>
+        </li>
+      ))}
+    </ul>
+  );
+
+  return (
+    <section aria-label="Lesson sequence">
+      <div className="study-controls">
+        <label>
+          Find a lesson
+          <input
+            type="search"
+            value={query}
+            onChange={(event) => {
+              setTarget('');
+              setQuery(event.target.value.slice(0, 160));
+              setLimit(12);
+            }}
+          />
+        </label>
+        <label>
+          Learning stage
+          <select
+            aria-label="Learning stage"
+            value={stage}
+            onChange={(event) => {
+              setTarget('');
+              setStage(event.target.value);
+              setLimit(12);
+            }}
+          >
+            <option value="all">All stages</option>
+            {['Foundation', 'Applied', 'Advanced', 'Reference'].map((name) => (
+              <option key={name}>{name}</option>
+            ))}
+          </select>
+        </label>
+        <button
+          onClick={() => {
+            setQuery('');
+            setStage('all');
+            setLimit(12);
+            setTarget('');
+            history.replaceState(null, '', location.pathname + location.search);
+          }}
+        >
+          Reset path filters
+        </button>
+      </div>
+
+      <p className="study-result-count" role="status">
+        {list.length} {list.length === 1 ? 'step' : 'steps'}
+        {Math.min(limit, list.length) < list.length ? ` · showing ${Math.min(limit, list.length)}` : ''}
+      </p>
+
+      <ol className="path-units">
+        {list.slice(0, limit).map((unit) => {
+          const position = units.findIndex((item) => item.id === unit.id);
+          return (
+            <li className="path-unit" id={unit.id} key={unit.id}>
+              <nav className="path-step-nav" aria-label={'Move from ' + unit.title}>
+                {position > 0 ? <a href={'#' + units[position - 1].id}>← Previous step</a> : null}
+                {position < units.length - 1 ? <a href={'#' + units[position + 1].id}>Next step →</a> : null}
+              </nav>
+
+              <div className="path-step-meta">
+                <span>{String(position + 1).padStart(2, '0')}</span>
+                <span>
+                  {unit.stage} ·{' '}
+                  {unit.kind === 'study-note'
+                    ? 'Study note'
+                    : unit.kind === 'external-foundation'
+                      ? 'Primary reading'
+                      : 'Lesson'}
+                </span>
+              </div>
+
+              <h2>{unit.title}</h2>
+              <p>{unit.objective}</p>
+
+              {unit.lessonPrerequisites?.length ? (
+                <p className="path-before">
+                  Read first:{' '}
+                  {unit.lessonPrerequisites.map((id, index) => (
+                    <span key={id}>
+                      {index > 0 ? ' · ' : ''}
+                      <a href={'#' + id}>{units.find((item) => item.id === id)?.title ?? id}</a>
+                    </span>
+                  ))}
+                  .
+                  {review
+                    ? ' These prerequisites are declared in the source; they do not confer approval.'
+                    : null}
+                </p>
+              ) : null}
+
+              {unit.prepare.length ? (
+                <p>
+                  Prepare these concepts:{' '}
+                  {unit.prepare.map((key, index) => {
+                    const [subject, topic] = key.split('.');
+                    const entry = SUBJECTS.find((item) => item.id === subject);
+                    return (
+                      <span key={key}>
+                        {index ? ' · ' : ''}
+                        <Link href={topicHref(subject, topic)}>
+                          {entry?.topics.find((item) => item[0] === topic)?.[1]}
+                        </Link>
+                      </span>
+                    );
+                  })}
+                </p>
+              ) : null}
+
+              <Link className="path-read" href={context(unit, unit.href)}>
+                1 · Read the lesson ↗
+              </Link>
+
+              <div className="path-activities">
+                <section aria-label={'Practice for ' + unit.title}>
+                  <h3>2 · Practise the decision</h3>
+                  {unit.questions.length ? (
+                    links(unit, unit.questions)
+                  ) : (
+                    <p>No question in the bank matches this step yet. Use the self-check below.</p>
+                  )}
+                </section>
+
+                <section aria-label={'Apply ' + unit.title}>
+                  <h3>3 · Apply and explain</h3>
+                  {unit.applications.length ? (
+                    links(unit, unit.applications)
+                  ) : (
+                    <p>Apply the idea with the explanation task below.</p>
+                  )}
+                  <details>
+                    <summary>Self-check · not scored</summary>
+                    <p>{unit.reflection}</p>
+                    <p>Compare your explanation with these source points:</p>
+                    <ul>
+                      {unit.reviewPoints.map((point, index) => (
+                        <li key={index}>{point}</li>
+                      ))}
+                    </ul>
+                    <p>{unit.caveat}</p>
+                  </details>
+                </section>
+              </div>
+
+              {review ? (
+                <details className="path-review">
+                  <summary>Mapping evidence and source coverage</summary>
+                  <p>Source coverage: {unit.coverage}.</p>
+                  {[...unit.questions, ...unit.applications].map((link) => (
+                    <p key={link.id}>{link.reason}</p>
+                  ))}
+                </details>
+              ) : null}
+            </li>
+          );
+        })}
+      </ol>
+
+      {limit < list.length ? (
+        <button className="study-more" onClick={() => setLimit((value) => value + 12)}>
+          Show more
+        </button>
+      ) : null}
+    </section>
+  );
 }

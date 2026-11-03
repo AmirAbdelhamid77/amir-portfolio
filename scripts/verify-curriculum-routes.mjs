@@ -26,6 +26,7 @@ function exportedFile(url) {
 const targets = [];
 for (const subject of curriculum().subjects) {
   targets.push({ owner: `subject:${subject.id}`, href: subject.href });
+  targets.push({ owner: `path:${subject.id}`, href: `/learn/${subject.id}/path/` });
   for (const topic of subject.topics) {
     targets.push({ owner: `topic:${subject.id}/${topic.id}`, href: topic.href });
   }
@@ -61,6 +62,20 @@ const ALIASES = [
   { file: "study/sql/index.html", canonical: "/learn/sql/" },
   { file: "learn/catalogue/index.html", canonical: "/learn/" },
 ];
+
+// Every topic desk and subject path keeps its old `/study/...` address.
+for (const subject of curriculum().subjects) {
+  ALIASES.push({
+    file: `study/${subject.id}/path/index.html`,
+    canonical: `/learn/${subject.id}/path/`,
+  });
+  for (const topic of subject.topics) {
+    ALIASES.push({
+      file: `study/${subject.id}/${topic.id}/index.html`,
+      canonical: `/learn/${subject.id}/${topic.id}/`,
+    });
+  }
+}
 
 const badAliases = [];
 for (const alias of ALIASES) {

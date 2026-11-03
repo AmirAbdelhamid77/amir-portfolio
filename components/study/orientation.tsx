@@ -93,7 +93,7 @@ export function StudyOrientation() {
       {selected && validUnit && (
         <Link
           className={className}
-          href={`${review && path.includes("drafts") ? "/study/review/path/" : `/study/${selected.id}/path/`}#${unit}`}
+          href={`${review && path.includes("drafts") ? "/study/review/path/" : `/learn/${selected.id}/path/`}#${unit}`}
         >
           Back to this lesson step
         </Link>

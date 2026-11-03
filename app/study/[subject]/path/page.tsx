@@ -1,4 +1,33 @@
-import Link from 'next/link';import {SUBJECTS} from '@/lib/study/taxonomy';import {learningUnits} from '@/lib/study/learning-path';import {PathUnits} from '@/components/study/path-units';import '@/components/study/study.css';import '@/components/study/path.css';
-export const dynamicParams=false;export function generateStaticParams(){return SUBJECTS.map(s=>({subject:s.id}));}
-export async function generateMetadata({params}:{params:Promise<{subject:string}>}){const {subject}=await params;return {title:SUBJECTS.find(s=>s.id===subject)!.title+' — learning sequence',alternates:{canonical:`/study/${subject}/path/`}};}
-export default async function Page({params}:{params:Promise<{subject:string}>}){const {subject}=await params,s=SUBJECTS.find(s=>s.id===subject)!,units=learningUnits().filter(u=>u.subject===subject);return <div className="study-shell path-page"><header className="study-heading"><nav aria-label="Breadcrumb"><Link href="/study/">Subjects</Link><Link href={`/study/${subject}/`}>{s.title} topics</Link></nav><p className="study-eyebrow">UNDERSTAND → PRACTISE → APPLY → EXPLAIN</p><h1>{s.title}: learning path</h1><p>Start with foundations, then apply and explain. Each step keeps its source and matching practice.</p><details className="path-coverage"><summary>Coverage and review limits</summary><p>A study note is not a full taught lesson. External foundation steps identify gaps in the local teaching coverage. No source or question gains a new approval state from this sequence.</p></details></header><PathUnits units={units}/></div>;}
+import type { Metadata } from "next";
+import { LearningPathPage } from "@/components/study/learning-path-page";
+import { SUBJECTS } from "@/lib/study/taxonomy";
+
+// Alias of `/learn/<subject>/path`. The hash and query string used by saved
+// progress are read by the shared component, so they survive the move.
+export const dynamicParams = false;
+
+export function generateStaticParams() {
+  return SUBJECTS.map((subject) => ({ subject: subject.id }));
+}
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ subject: string }>;
+}): Promise<Metadata> {
+  const { subject } = await params;
+  const title = SUBJECTS.find((entry) => entry.id === subject)!.title;
+  return {
+    title: `${title} — learning sequence`,
+    alternates: { canonical: `/learn/${subject}/path/` },
+  };
+}
+
+export default async function Page({
+  params,
+}: {
+  params: Promise<{ subject: string }>;
+}) {
+  const { subject } = await params;
+  return <LearningPathPage subject={subject} />;
+}
