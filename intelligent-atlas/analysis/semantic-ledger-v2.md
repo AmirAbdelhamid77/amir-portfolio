@@ -14,21 +14,21 @@ Each unit was opened with its parent context, read for its actual claim, and onl
 | Non-learning | 5 |
 | Candidate matched | 3609 |
 | Candidate unmatched | 728 |
-| **Semantically read** | **83** |
-| Not read | 4254 |
+| **Semantically read** | **103** |
+| Not read | 4234 |
 | Published | 0 |
 
-Semantic reading covers **1.91%** of eligible units. That is a documented subset, not full corpus reading. Candidate matching never advances the reading or decision state.
+Semantic reading covers **2.37%** of eligible units. That is a documented subset, not full corpus reading. Candidate matching never advances the reading or decision state.
 
 ## Decisions
 
 | Decision | Count |
 |---|---:|
 | Accepted | 10 |
-| Revised | 47 |
-| Held | 20 |
-| Unresolved gap | 6 |
-| Unreviewed | 4254 |
+| Revised | 60 |
+| Held | 22 |
+| Unresolved gap | 11 |
+| Unreviewed | 4234 |
 | Out of scope | 1864 |
 
 ## Family ledger
@@ -37,14 +37,14 @@ Semantic reading covers **1.91%** of eligible units. That is a documented subset
 |---|---:|---:|---:|---:|---:|---:|---:|---:|---:|
 | curated-references | 1859 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
 | fabric-questions | 1264 | 1264 | 1170 | 94 | 4 | 0 | 3 | 1 | 0 |
-| fabric-notes | 720 | 720 | 529 | 191 | 28 | 1 | 23 | 4 | 0 |
+| fabric-notes | 720 | 720 | 529 | 191 | 35 | 1 | 30 | 4 | 0 |
 | academy | 593 | 593 | 457 | 136 | 5 | 0 | 1 | 3 | 1 |
-| sql | 535 | 535 | 440 | 95 | 8 | 1 | 5 | 2 | 0 |
+| sql | 535 | 535 | 440 | 95 | 14 | 1 | 6 | 2 | 5 |
 | fabric-additions | 532 | 532 | 480 | 52 | 1 | 0 | 1 | 0 | 0 |
 | fabric-r11 | 222 | 222 | 210 | 12 | 1 | 0 | 0 | 1 | 0 |
 | statistics | 145 | 145 | 65 | 80 | 7 | 2 | 2 | 0 | 3 |
-| visualization | 138 | 138 | 117 | 21 | 21 | 3 | 11 | 6 | 1 |
-| fabric-cases | 78 | 78 | 71 | 7 | 2 | 0 | 1 | 1 | 0 |
+| visualization | 138 | 138 | 117 | 21 | 26 | 3 | 14 | 8 | 1 |
+| fabric-cases | 78 | 78 | 71 | 7 | 4 | 0 | 3 | 1 | 0 |
 | exams | 70 | 70 | 47 | 23 | 2 | 0 | 0 | 2 | 0 |
 | hands-on-labs | 29 | 29 | 13 | 16 | 1 | 0 | 0 | 0 | 1 |
 | fabric-rti | 8 | 8 | 7 | 1 | 0 | 0 | 0 | 0 | 0 |
@@ -138,6 +138,26 @@ Semantic reading covers **1.91%** of eligible units. That is a documented subset
 | `fabric-note:video14/V14-PIPE-090` | fabric-notes | revised | missed | Pipeline reliability (primary) | timeout-is-not-diagnosis |
 | `fabric-note:video21/V21-CAT-006` | fabric-notes | revised | missed | Layered security model (primary); Evidence strength (secondary) | positive-and-negative-access-tests |
 | `fabric-note:video15/V15-OLS-051` | fabric-notes | revised | missed | OneLake security role (primary); Lakehouse (secondary) | overwrite-needs-opt-in-and-reconciliation |
+| `fabric-note:video16/V16-SQL-039` | fabric-notes | revised | missed | Delta history and time travel (primary); T-SQL query surface (secondary) | time-travel-window-starts-at-creation |
+| `sql:15#section-15` | sql | unresolved-gap | missed | — | section-list-not-extracted |
+| `fabric-note:video20/V20-DELTA-034` | fabric-notes | revised | missed | Confounding (primary); Evidence strength (secondary) | benchmark-controls-confounding |
+| `fabric-note:video15/V15-OLS-004` | fabric-notes | revised | missed | OneLake security role (primary); Identity and permissions (secondary) | audit-broad-grants-first |
+| `dv-lesson:ar:references` | visualization | revised | missed | Evidence strength (primary); Visual integrity (secondary) | references-explain-limitations |
+| `sql:15#section-14` | sql | unresolved-gap | missed | — | section-list-not-extracted |
+| `fabric-note:video15/V15-OLS-013` | fabric-notes | revised | missed | Layered security model (primary); Column-level security (secondary) | no-universal-deny-overrides |
+| `dv-lesson:ar:reading-paths` | visualization | held | missed | — | curriculum-path-advice |
+| `fabric-case:f-central-platform-api-automation` | fabric-cases | revised | missed | OneLake security role (primary); Identity and permissions (secondary) | api-role-lifecycle-at-scale |
+| `fabric-note:video15/V15-OLS-050` | fabric-notes | revised | missed | OneLake security role (primary); Deployment pipeline (secondary) | version-diff-and-dar-tracking |
+| `sql:04#section-12` | sql | unresolved-gap | missed | — | section-list-not-extracted |
+| `fabric-note:video15/V15-OLS-054` | fabric-notes | revised | missed | OneLake security role (primary); Identity and permissions (secondary) | propagation-latency-differs |
+| `fabric-note:video21/V21-CAT-016` | fabric-notes | revised | missed | Evidence strength (primary); Layered security model (secondary) | claims-need-runtime-and-tests |
+| `sql:02#section-22` | sql | unresolved-gap | missed | — | section-list-not-extracted |
+| `fabric-case:unified-sales-report` | fabric-cases | revised | missed | Delta history and time travel (primary); T-SQL query surface (secondary) | as-of-join-both-sources |
+| `sql:12#section-2` | sql | unresolved-gap | missed | — | section-list-not-extracted |
+| `dv:interview-bank#5-senior-answer-structure` | visualization | revised | missed | Chart selection (primary); Visual integrity (secondary) | senior-answer-structure |
+| `dv:ar-references#section-3` | visualization | revised | missed | Color palette semantics (primary); Accessibility and contrast (secondary) | colour-perception-references |
+| `dv:ar-references#section-6` | visualization | held | missed | — | reference-list-meta-note |
+| `sql:15#section-1` | sql | revised | missed | Keys and relationships (primary); Query output grain (secondary) | database-design-page-scope |
 
 ## Recorded gaps
 
@@ -209,6 +229,14 @@ Semantic reading covers **1.91%** of eligible units. That is a documented subset
 | `stats:s42` | The following formula unit is a bare fragment (mu \mu s1), so formula extraction is suspect in this source too. |
 | `dv:ar-reading-paths#beginner-advanced` | Reading paths are curriculum structure. The registry has no navigation target, so the page stays discoverable through its route without a semantic mapping. |
 | `fabric-note:video21/V21-CAT-023` | Session-scoped capability defaults have no concept in the current registry. |
+| `sql:15#section-15` | The six-item Interview Traps list under section 11 is present in content/sql/vault.json (page 15, block 39) but not in units-analyzed.jsonl. |
+| `sql:15#section-14` | The six-item Common Design Failures list under section 10 is present in content/sql/vault.json (page 15, block 37) but not in units-analyzed.jsonl. |
+| `dv-lesson:ar:reading-paths` | Reading-path guidance is navigation, not a knowledge claim; the registry has no navigation target. |
+| `sql:04#section-12` | The six-item Interview Traps list under section 11 is present in content/sql/vault.json (page 04, block 35) but not in units-analyzed.jsonl. |
+| `sql:02#section-22` | The mistakes list under section 6 is present in content/sql/vault.json (page 02, block 55) but not in units-analyzed.jsonl. |
+| `sql:12#section-2` | The MovieNow schema list under section 2 is present in content/sql/vault.json (page 12, block 7) but not in units-analyzed.jsonl. |
+| `sql:12#section-2` | Every later example on this page depends on that schema, so the gap affects more than one unit. |
+| `dv:ar-references#section-6` | A page-level organizational note has no concept target in the registry. |
 
 ## Limits
 

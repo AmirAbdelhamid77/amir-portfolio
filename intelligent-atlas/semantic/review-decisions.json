@@ -2048,6 +2048,458 @@
       "decision": "revised",
       "decisionCode": "overwrite-needs-opt-in-and-reconciliation",
       "rationale": "An operational rule for a named lifecycle state. The error identifier is product vocabulary, so the matcher had no lexical path to it, but the chapter around it is about OneLake security roles surviving deployment."
+    },
+    {
+      "scope": "batch-review",
+      "batchId": "batch-f604c1322b30",
+      "candidateVerdict": "missed",
+      "relationHints": [],
+      "unresolved": [],
+      "unitId": "fabric-note:video16/V16-SQL-039",
+      "parentContext": "Video 16 historical-querying chapter, between the statement-level syntax (V16-SQL-037/038) and the note that deleted physical files make old versions unavailable (V16-SQL-040).",
+      "reading": "The valid window for reading a historical version starts at table creation and can be reset by later changes, so a version identifier alone does not guarantee the old state is still readable.",
+      "essentialMeaning": "prose",
+      "evidenceQuote": "limits historical view querying to from creation onward, and changes may reset the valid period",
+      "concepts": [
+        {
+          "conceptId": "concept:fabric:delta-history",
+          "role": "primary"
+        },
+        {
+          "conceptId": "concept:fabric:t-sql",
+          "role": "secondary"
+        }
+      ],
+      "decision": "revised",
+      "decisionCode": "time-travel-window-starts-at-creation",
+      "rationale": "A concrete limit on time-travel reads, stated without the words Delta or time travel. The neighbouring unit supplies the retention reason, which is why this is the window rule and not a syntax rule."
+    },
+    {
+      "scope": "batch-review",
+      "batchId": "batch-f604c1322b30",
+      "candidateVerdict": "missed",
+      "relationHints": [],
+      "unresolved": [
+        "The six-item Interview Traps list under section 11 is present in content/sql/vault.json (page 15, block 39) but not in units-analyzed.jsonl."
+      ],
+      "unitId": "sql:15#section-15",
+      "parentContext": "Section 11 of the Database Design reference, between section 10 (Common Design Failures) and section 12 (Ownership). The source block under this heading is a six-item list.",
+      "reading": "The unit is the heading '11. Interview Traps' and nothing else. The six traps it introduces (PK vs UNIQUE, natural vs surrogate key, normalization vs denormalization, OLTP vs OLAP, fact vs dimension, transaction grain vs reporting grain) are in content/sql/vault.json at page block 39 and are absent from the corpus.",
+      "essentialMeaning": "index",
+      "evidenceQuote": "11. Interview Traps",
+      "concepts": [],
+      "decision": "unresolved-gap",
+      "decisionCode": "section-list-not-extracted",
+      "rationale": "There is nothing to read beyond the heading. Mapping it to keys or grain would guess which of the six traps the section is about; the source list exists, so this is an extraction defect, not an editorial decision."
+    },
+    {
+      "scope": "batch-review",
+      "batchId": "batch-f604c1322b30",
+      "candidateVerdict": "missed",
+      "relationHints": [],
+      "unresolved": [],
+      "unitId": "fabric-note:video20/V20-DELTA-034",
+      "parentContext": "Video 20 Delta maintenance chapter, between single-table atomicity (V20-DELTA-033) and retention scope (V20-DELTA-035). The chapter is about measuring maintenance cost, not only running it.",
+      "reading": "A benchmark can only attribute a cost to a change if other factors are held constant, and one measurement is not enough because repeated runs show the variance in both time and cost.",
+      "essentialMeaning": "prose",
+      "evidenceQuote": "Control confounding factors before attributing causality.",
+      "concepts": [
+        {
+          "conceptId": "concept:stats:confounding",
+          "role": "primary"
+        },
+        {
+          "conceptId": "concept:analysis:evidence-strength",
+          "role": "secondary"
+        }
+      ],
+      "decision": "revised",
+      "decisionCode": "benchmark-controls-confounding",
+      "rationale": "This is the confounding rule applied to table-maintenance benchmarks. The unit names no product feature, which is why a lexical matcher had nothing to hold; the cross-domain mapping is explicit."
+    },
+    {
+      "scope": "batch-review",
+      "batchId": "batch-f604c1322b30",
+      "candidateVerdict": "missed",
+      "relationHints": [],
+      "unresolved": [],
+      "unitId": "fabric-note:video15/V15-OLS-004",
+      "parentContext": "Video 15 OneLake security chapter on the access foundation, after item and role grants as separate layers (V15-OLS-002/003).",
+      "reading": "Auditing access means checking both the default role and broad item-level grants, and removing unintended broad access before trusting a narrower role to be the effective boundary.",
+      "essentialMeaning": "prose",
+      "evidenceQuote": "Remove unintended broad access before relying on narrower roles.",
+      "concepts": [
+        {
+          "conceptId": "concept:fabric:onelake-security-role",
+          "role": "primary"
+        },
+        {
+          "conceptId": "concept:fabric:permissions",
+          "role": "secondary"
+        }
+      ],
+      "decision": "revised",
+      "decisionCode": "audit-broad-grants-first",
+      "rationale": "The ordering rule for access review: broad grants are the thing that silently widens the effective boundary. The matcher missed it because the sentence names no permission mechanism."
+    },
+    {
+      "scope": "batch-review",
+      "batchId": "batch-f604c1322b30",
+      "candidateVerdict": "missed",
+      "relationHints": [],
+      "unresolved": [],
+      "unitId": "dv-lesson:ar:references",
+      "parentContext": "Arabic visualization course, references page. The page collects source material; the opening sentence is a rule about how to use it.",
+      "reading": "Keep the original source for every idea, keep perception references separate from statistical references, and treat an explanation of limitations as the mark of a good reference rather than a collection of examples.",
+      "essentialMeaning": "prose",
+      "evidenceQuote": "المرجع الجيد يشرح القيود، وليس فقط الأمثلة.",
+      "concepts": [
+        {
+          "conceptId": "concept:analysis:evidence-strength",
+          "role": "primary"
+        },
+        {
+          "conceptId": "concept:viz:visual-integrity",
+          "role": "secondary"
+        }
+      ],
+      "decision": "revised",
+      "decisionCode": "references-explain-limitations",
+      "rationale": "The claim is about evidence quality in a visualization bibliography, not about which chart to draw. It is the same rule the English references page states, recorded separately because the page and audience differ."
+    },
+    {
+      "scope": "batch-review",
+      "batchId": "batch-f604c1322b30",
+      "candidateVerdict": "missed",
+      "relationHints": [],
+      "unresolved": [
+        "The six-item Common Design Failures list under section 10 is present in content/sql/vault.json (page 15, block 37) but not in units-analyzed.jsonl."
+      ],
+      "unitId": "sql:15#section-14",
+      "parentContext": "Section 10 of the Database Design reference, between the university BI example (section 9) and the interview traps (section 11). The source block under this heading is a list of six design failures.",
+      "reading": "The unit is the heading '10. Common Design Failures' only. Its list (unclear grain, overloaded tables, missing keys, uncontrolled many-to-many, stored derived metrics, transactional/reporting confusion) is in content/sql/vault.json at page block 37 and is missing from the corpus.",
+      "essentialMeaning": "index",
+      "evidenceQuote": "10. Common Design Failures",
+      "concepts": [],
+      "decision": "unresolved-gap",
+      "decisionCode": "section-list-not-extracted",
+      "rationale": "Same extraction defect as section 11 on this page: a heading followed by a list block reaches the corpus as a heading alone. Recording a concept would invent which failure the section teaches."
+    },
+    {
+      "scope": "batch-review",
+      "batchId": "batch-f604c1322b30",
+      "candidateVerdict": "missed",
+      "relationHints": [],
+      "unresolved": [],
+      "unitId": "fabric-note:video15/V15-OLS-013",
+      "parentContext": "Video 15 chapter on column and object security, after separating enforcement from UI preview limits (V15-OLS-011) and positive/negative access tests (V15-OLS-012).",
+      "reading": "Do not assume a single enterprise deny-overrides model: read the actual grants and the semantics of the engine that evaluates them, because the effective rule differs by engine.",
+      "essentialMeaning": "prose",
+      "evidenceQuote": "Audit the actual grants and applicable engine semantics rather than assuming an enterprise deny-overrides model.",
+      "concepts": [
+        {
+          "conceptId": "concept:fabric:security-model",
+          "role": "primary"
+        },
+        {
+          "conceptId": "concept:fabric:cls",
+          "role": "secondary"
+        }
+      ],
+      "decision": "revised",
+      "decisionCode": "no-universal-deny-overrides",
+      "rationale": "A rule about how security models actually compose, with column-level security as the engine-specific case that makes the assumption fail."
+    },
+    {
+      "scope": "batch-review",
+      "batchId": "batch-f604c1322b30",
+      "candidateVerdict": "missed",
+      "relationHints": [],
+      "unresolved": [
+        "Reading-path guidance is navigation, not a knowledge claim; the registry has no navigation target."
+      ],
+      "unitId": "dv-lesson:ar:reading-paths",
+      "parentContext": "Arabic visualization course, reading-paths page, between the palette lesson and the references page.",
+      "reading": "The unit is advice about how to choose a reading path: pick one goal (BI, EDA or interviews), do not repeat the same chapters in every path, and start with fundamentals before application. It asserts nothing about visualization.",
+      "essentialMeaning": "index",
+      "evidenceQuote": "اختر مسارًا واحدًا حسب الهدف",
+      "concepts": [],
+      "decision": "held",
+      "decisionCode": "curriculum-path-advice",
+      "rationale": "Held, not mapped: this is curriculum navigation. The five-domain registry models ideas, not study routes, so a mapping would make the graph claim a relation the text does not assert. The page stays discoverable at /learn/ar/reading-paths/."
+    },
+    {
+      "scope": "batch-review",
+      "batchId": "batch-f604c1322b30",
+      "candidateVerdict": "missed",
+      "relationHints": [],
+      "unresolved": [],
+      "unitId": "fabric-case:f-central-platform-api-automation",
+      "parentContext": "DP-600 case library, case F. The cases are prompts: each states a situation and asks for a recommendation, with the worked answer in later units.",
+      "reading": "The prompt is about managing a large estate of security roles through the Fabric REST API and Entra groups, i.e. role lifecycle automation at scale rather than one-off grants.",
+      "essentialMeaning": "question",
+      "evidenceQuote": "manages hundreds of security roles using the Fabric REST API and Microsoft Entra groups",
+      "concepts": [
+        {
+          "conceptId": "concept:fabric:onelake-security-role",
+          "role": "primary"
+        },
+        {
+          "conceptId": "concept:fabric:permissions",
+          "role": "secondary"
+        }
+      ],
+      "decision": "revised",
+      "decisionCode": "api-role-lifecycle-at-scale",
+      "rationale": "The scenario names the exact mechanism (REST API plus group membership) that the role concept covers. It is a prompt, so it is mapped as a question rather than read as an answer."
+    },
+    {
+      "scope": "batch-review",
+      "batchId": "batch-f604c1322b30",
+      "candidateVerdict": "missed",
+      "relationHints": [],
+      "unresolved": [],
+      "unitId": "fabric-note:video15/V15-OLS-050",
+      "parentContext": "Video 15 lifecycle and security QA chapter, after API payload validation (V15-OLS-048) and group lifecycle (V15-OLS-049), before the overwrite opt-in rule (V15-OLS-051).",
+      "reading": "A security change should be recorded in a version-diff matrix and its data-access-role tracking settings exercised in an isolated environment before it is promoted.",
+      "essentialMeaning": "prose",
+      "evidenceQuote": "Record the change in a version-diff matrix",
+      "concepts": [
+        {
+          "conceptId": "concept:fabric:onelake-security-role",
+          "role": "primary"
+        },
+        {
+          "conceptId": "concept:fabric:deployment",
+          "role": "secondary"
+        }
+      ],
+      "decision": "revised",
+      "decisionCode": "version-diff-and-dar-tracking",
+      "rationale": "A deployment-verification rule for access roles: record the diff, then exercise the tracking setting. The matcher had no lexical path because the sentence is procedural and names no feature."
+    },
+    {
+      "scope": "batch-review",
+      "batchId": "batch-f604c1322b30",
+      "candidateVerdict": "missed",
+      "relationHints": [],
+      "unresolved": [
+        "The six-item Interview Traps list under section 11 is present in content/sql/vault.json (page 04, block 35) but not in units-analyzed.jsonl."
+      ],
+      "unitId": "sql:04#section-12",
+      "parentContext": "Section 11 of the Filtering & Conditional Logic reference, between the customer-segmentation example (section 10) and the ownership note (section 12). The source block under this heading is a six-item list.",
+      "reading": "The unit is the heading '11. Interview Traps' only. The traps (WHERE vs HAVING, CASE without ELSE, overlapping CASE, AND/OR precedence, filtering the right side of a LEFT JOIN in WHERE, CASE vs COALESCE) are in content/sql/vault.json at page block 35 and are missing from the corpus.",
+      "essentialMeaning": "index",
+      "evidenceQuote": "11. Interview Traps",
+      "concepts": [],
+      "decision": "unresolved-gap",
+      "decisionCode": "section-list-not-extracted",
+      "rationale": "The third page in this batch with the same heading-plus-list extraction defect. The list would be evidence for filtering and CASE, but the unit carries no list, so the gap is recorded instead of a guessed mapping."
+    },
+    {
+      "scope": "batch-review",
+      "batchId": "batch-f604c1322b30",
+      "candidateVerdict": "missed",
+      "relationHints": [],
+      "unresolved": [],
+      "unitId": "fabric-note:video15/V15-OLS-054",
+      "parentContext": "Video 15 lifecycle and security QA chapter, between the combined validation approach (V15-OLS-053) and cross-scope identity tests (V15-OLS-055).",
+      "reading": "A role-definition change and a group-membership change propagate on different clocks: minutes for the definition, roughly an hour for membership, with engine caching able to extend it. That is why a test can pass for one principal and fail for another.",
+      "essentialMeaning": "prose",
+      "evidenceQuote": "Distinguish role-definition changes",
+      "concepts": [
+        {
+          "conceptId": "concept:fabric:onelake-security-role",
+          "role": "primary"
+        },
+        {
+          "conceptId": "concept:fabric:permissions",
+          "role": "secondary"
+        }
+      ],
+      "decision": "revised",
+      "decisionCode": "propagation-latency-differs",
+      "rationale": "A test-timing rule that explains false negatives in access checks. The numbers are the source's documented approximations, quoted as the unit states them, not re-measured here."
+    },
+    {
+      "scope": "batch-review",
+      "batchId": "batch-f604c1322b30",
+      "candidateVerdict": "missed",
+      "relationHints": [],
+      "unresolved": [],
+      "unitId": "fabric-note:video21/V21-CAT-016",
+      "parentContext": "Video 21 catalog chapter, after semantic-model handoff (V21-CAT-015) and before the support-lifecycle note (V21-CAT-017).",
+      "reading": "A feature claim is only meaningful with the runtime and access model it applies to, and tests are what show whether allowed and restricted behaviour match the requirement.",
+      "essentialMeaning": "prose",
+      "evidenceQuote": "Feature claims need the applicable runtime and access model.",
+      "concepts": [
+        {
+          "conceptId": "concept:analysis:evidence-strength",
+          "role": "primary"
+        },
+        {
+          "conceptId": "concept:fabric:security-model",
+          "role": "secondary"
+        }
+      ],
+      "decision": "revised",
+      "decisionCode": "claims-need-runtime-and-tests",
+      "rationale": "The evidence rule for capability claims, with access behaviour as the worked case. It states no product name, which is why it was unmatched."
+    },
+    {
+      "scope": "batch-review",
+      "batchId": "batch-f604c1322b30",
+      "candidateVerdict": "missed",
+      "relationHints": [],
+      "unresolved": [
+        "The mistakes list under section 6 is present in content/sql/vault.json (page 02, block 55) but not in units-analyzed.jsonl."
+      ],
+      "unitId": "sql:02#section-22",
+      "parentContext": "Section 6 of the Database & Data Modeling reference, between the column-constraints section and the cheat sheet. The source block under this heading is a list of exam/interview mistakes.",
+      "reading": "The unit is the Arabic heading '6. أخطاء المقابلات والامتحانات' only. Its list (COUNT(*) vs COUNT(column), COUNT(DISTINCT), and further mistakes) is in content/sql/vault.json at page block 55 and is missing from the corpus.",
+      "essentialMeaning": "index",
+      "evidenceQuote": "6. أخطاء المقابلات والامتحانات",
+      "concepts": [],
+      "decision": "unresolved-gap",
+      "decisionCode": "section-list-not-extracted",
+      "rationale": "Same defect on a third page. The heading alone does not say which mistakes; recording a concept would guess between COUNT semantics, constraints and NULL handling."
+    },
+    {
+      "scope": "batch-review",
+      "batchId": "batch-f604c1322b30",
+      "candidateVerdict": "missed",
+      "relationHints": [],
+      "unresolved": [],
+      "unitId": "fabric-case:unified-sales-report",
+      "parentContext": "DP-600 case library, unified sales report. The prompt asks for an auditable historical read across two joined tables.",
+      "reading": "The audit needs one as-of timestamp applied to both joined sources inside a single supported T-SQL statement, not two reads taken at different moments.",
+      "essentialMeaning": "question",
+      "evidenceQuote": "a consistent historical as-of timestamp applied to both sources within a single supported T-SQL statement",
+      "concepts": [
+        {
+          "conceptId": "concept:fabric:delta-history",
+          "role": "primary"
+        },
+        {
+          "conceptId": "concept:fabric:t-sql",
+          "role": "secondary"
+        }
+      ],
+      "decision": "revised",
+      "decisionCode": "as-of-join-both-sources",
+      "rationale": "The prompt names historical reads and a statement-level T-SQL constraint, which is exactly the pair the two concepts cover. It is a case prompt, so it is mapped as a question."
+    },
+    {
+      "scope": "batch-review",
+      "batchId": "batch-f604c1322b30",
+      "candidateVerdict": "missed",
+      "relationHints": [],
+      "unresolved": [
+        "The MovieNow schema list under section 2 is present in content/sql/vault.json (page 12, block 7) but not in units-analyzed.jsonl.",
+        "Every later example on this page depends on that schema, so the gap affects more than one unit."
+      ],
+      "unitId": "sql:12#section-2",
+      "parentContext": "Section 2 of the Analytical SQL Patterns reference, between the decision framing (section 1) and the pointer to canonical theory (section 3). The source block under this heading is the MovieNow table/column list.",
+      "reading": "The unit is the heading '2. MovieNow — the database used in every example' only. The schema list (customers, movies, renting and their columns) is in content/sql/vault.json at page block 7 and is missing from the corpus, so the examples cannot be verified against their schema from the ledger.",
+      "essentialMeaning": "index",
+      "evidenceQuote": "2. MovieNow — قاعدة البيانات المستخدمة في كل الأمثلة",
+      "concepts": [],
+      "decision": "unresolved-gap",
+      "decisionCode": "section-list-not-extracted",
+      "rationale": "This one matters beyond the heading: without the schema list, every later MovieNow example references tables and columns the ledger cannot confirm. Recorded as a gap rather than mapped to keys or grain."
+    },
+    {
+      "scope": "batch-review",
+      "batchId": "batch-f604c1322b30",
+      "candidateVerdict": "missed",
+      "relationHints": [],
+      "unresolved": [],
+      "unitId": "dv:interview-bank#5-senior-answer-structure",
+      "parentContext": "Interview bank, after rapid-fire traps (section 4). The section is the canonical shape of a senior answer for this domain.",
+      "reading": "A senior answer moves from context to goal, then to the data structure, candidate visuals and their trade-offs, the integrity risk, and finally a recommendation. It is a procedure for defending a visual choice, not a list of charts.",
+      "essentialMeaning": "procedure",
+      "evidenceQuote": "Context → Goal → Data Structure → Candidate Visuals → Trade-off → Integrity Risk → Recommendation.",
+      "concepts": [
+        {
+          "conceptId": "concept:viz:chart-selection",
+          "role": "primary"
+        },
+        {
+          "conceptId": "concept:viz:visual-integrity",
+          "role": "secondary"
+        }
+      ],
+      "decision": "revised",
+      "decisionCode": "senior-answer-structure",
+      "rationale": "The structure is the selection argument with an integrity check before the recommendation, so both concepts are named by the unit itself. A heading-only matcher could not see the arrow sequence."
+    },
+    {
+      "scope": "batch-review",
+      "batchId": "batch-f604c1322b30",
+      "candidateVerdict": "missed",
+      "relationHints": [],
+      "unresolved": [],
+      "unitId": "dv:ar-references#section-3",
+      "parentContext": "Arabic references page, colour and visual-perception group, after the foundational books and before the applied practice group.",
+      "reading": "ColorBrewer is the practical palette source, and Viridis is a perceptually uniform option that is usually safe for colour-vision deficiency. Both are recommended for the colour decision, not for chart choice.",
+      "essentialMeaning": "index",
+      "evidenceQuote": "Viridis (Perceptually uniform palettes) — خيار آمن ومتوافق مع عمى الألوان غالبًا.",
+      "concepts": [
+        {
+          "conceptId": "concept:viz:color-palette",
+          "role": "primary"
+        },
+        {
+          "conceptId": "concept:viz:accessibility-contrast",
+          "role": "secondary"
+        }
+      ],
+      "decision": "revised",
+      "decisionCode": "colour-perception-references",
+      "rationale": "A bibliography row that names two concepts explicitly: palette construction and colour-vision accessibility. It is evidence for the concepts it names, and it asserts no relation between them."
+    },
+    {
+      "scope": "batch-review",
+      "batchId": "batch-f604c1322b30",
+      "candidateVerdict": "missed",
+      "relationHints": [],
+      "unresolved": [
+        "A page-level organizational note has no concept target in the registry."
+      ],
+      "unitId": "dv:ar-references#section-6",
+      "parentContext": "Arabic references page, closing organizational note after the statistical references.",
+      "reading": "The unit is a meta note about the page itself: it is a reference list, and the author offers to add direct links or a 'when to read what' summary. It states no fact about visualization.",
+      "essentialMeaning": "index",
+      "evidenceQuote": "ملاحظة تنظيمية",
+      "concepts": [],
+      "decision": "held",
+      "decisionCode": "reference-list-meta-note",
+      "rationale": "Held: editorial housekeeping about the page, not a knowledge claim. Mapping it to evidence strength would treat an offer to add links as a statement about sources."
+    },
+    {
+      "scope": "batch-review",
+      "batchId": "batch-f604c1322b30",
+      "candidateVerdict": "missed",
+      "relationHints": [],
+      "unresolved": [],
+      "unitId": "sql:15#section-1",
+      "parentContext": "Opening of the Database Design reference, before section 1 (grain) and section 2 (keys). The page title already names keys, relationships, grain and historical dimensional meaning.",
+      "reading": "The page's purpose is to connect relational database design to reliable querying, analytics and BI, with keys and grain as the design backbone named in the same heading block.",
+      "essentialMeaning": "prose",
+      "evidenceQuote": "Canonical reference connecting relational database design to reliable querying, analytics, and BI.",
+      "concepts": [
+        {
+          "conceptId": "concept:sql:keys",
+          "role": "primary"
+        },
+        {
+          "conceptId": "concept:sql:grain",
+          "role": "secondary"
+        }
+      ],
+      "decision": "revised",
+      "decisionCode": "database-design-page-scope",
+      "rationale": "A scope statement that names its own subject. The heading text carries keys, relationships and grain, so the mapping is read from the unit rather than inferred from the page route."
     }
   ]
 }
