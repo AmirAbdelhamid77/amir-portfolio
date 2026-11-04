@@ -160,7 +160,8 @@ steps:
 
 `scripts/knowledge-stage-receipt.mjs` reads M6 above M0 and composes
 `expected()` as `m6After(m0Expected(p, h))`. With two steps in one layer,
-`m6After` now follows pins hop by hop (7 changed paths, two of them second hops),
+`m6After` now follows pins hop by hop (7 changed paths, three of them advancing
+a record made in step 1),
 verifies that every recorded predecessor was itself recorded, and only demands
 disk equality from the terminal hop. `scripts/final-review-negative.mjs` already
 copied the M6 manifest and its paths; no further change was needed there.

@@ -1484,7 +1484,7 @@ it would rewrite a historical layer, which the chain forbids.
 | Screen-reader / manual accessibility pass | **NOT RUN** — axe covers automated rules only |
 | Deployment | **BLOCKED** — owner-only credentials, and not requested |
 
-The QA run rewrote seven artefacts in `docs/canonical-home/evidence/`: desktop
+The QA run rewrote eight artefacts in `docs/canonical-home/evidence/`: desktop
 dark and light, mobile 390, the open dealer, no-JS, the `/prototype-c/` alias, and
 the two JSON reports. The screenshots were inspected by hand for the timeline
 baseline, the disclosure, the closing scene and the narrow strip.
