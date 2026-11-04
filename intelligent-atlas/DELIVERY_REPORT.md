@@ -936,7 +936,7 @@ no deployment was attempted, so the live site is unchanged from §13.11.
 
 | Milestone | State | Why that word |
 |---|---|---|
-| M1 — semantic foundation | **PARTIAL** | State separation and review machinery exist, and 63 units carry a written decision. 4,274 eligible units are still unread and 695 unmatched units are still open. |
+| M1 — semantic foundation | **PARTIAL** | State separation and review machinery exist, and 83 units carry a written decision. 4,254 eligible units are still unread and 675 unmatched units are still open. |
 | M2 — query and contract behaviour | **DELIVERED** for the review slice | One pure query layer with 27 tests and no new dependency. The app integration it feeds is M6. |
 | M3 — visual specification | **DELIVERED as a specification** | Executable spec, scored representation comparison, seven keyframes, measured contrast. Visual acceptance is NOT RUN because it is an owner judgement. |
 | M4 — one complete journey | **DELIVERED in the prototype** | 21 executable checks pass on the isolated prototype; opening a real site route remains NOT RUN (§14.5). |
@@ -968,24 +968,35 @@ Decisions are hand-written against real context. Each one records the
 `concept`/`relation` mapping and an explicit `decision` — `accepted`, `revised`,
 `held` or `unresolved-gap`.
 
-This pass added **25** decisions across the two smallest unmatched-reason groups;
-38 were read before it. All 25 are cases the matcher *missed*: 14 gained a mapping
-after reading, 11 were held because the registry cannot represent what the unit
-asserts.
+This pass added **45** decisions in three groups; 38 units were read before it.
+Every one of the 45 is a unit the matcher left unmatched, so none is *accepted*:
+30 gained a mapping after reading (`revised`), 13 were held because the registry
+cannot represent what the unit asserts, and 2 are extraction gaps.
 
-| Group | Units | Read | Verdicts |
+| Group | Units | Read | State |
 |---|---:|---:|---|
 | `domain-not-modelled` | 9 | 9 | closed — every unit read |
 | `navigation-index` | 16 | 16 | closed — every unit read |
+| `thin-fragment` | 46 | 20 | 26 open, 2 batches |
+
+**A corpus-wide extraction defect surfaced while reading them.** Two of the
+twenty are heading-only because the section body is a table, and table cell text
+does not reach the corpus at all: `content/` holds **60** `type: "table"` blocks
+in 5 files, 50 units carry the `table` content form, and none of the cell text
+from `content/data-viz/pages.json` appears anywhere in `units-analyzed.jsonl`.
+The quick-reference comparison table is six real question/plot/why rows that a
+learner sees and the ledger cannot quote. That is recorded as an
+`unresolved-gap` with the count, not mapped from its heading: it is an extraction
+repair (M1 task 1), not a review decision.
 
 | Reading state | Count |
 |---|---:|
 | Eligible units | 4,337 |
-| Read | **63** (1.45% of eligible, 1.02% of the corpus) |
-| Not read | 4,274 |
+| Read | **83** (1.91% of eligible, 1.34% of the corpus) |
+| Not read | 4,254 |
 | Published | **0** |
 
-Of the 63 readings: 10 accepted, 31 revised, 18 held, 4 unresolved gaps. The
+Of the 83 readings: 10 accepted, 47 revised, 20 held, 6 unresolved gaps. The
 ledger was rebuilt (`build-semantic-ledger.mjs`), so the summary, the JSONL
 ledger and the markdown ledger agree with the decisions; `check` reports `ok`
 with 0 errors and 0 warnings.
@@ -996,24 +1007,24 @@ The open queue, by reason, with 20 units per batch:
 |---|---:|---:|---:|---:|
 | `domain-not-modelled` | 9 | 9 | 0 | 0 |
 | `navigation-index` | 16 | 16 | 0 | 0 |
-| `thin-fragment` | 46 | 0 | 46 | 3 |
+| `thin-fragment` | 46 | 20 | 26 | 2 |
 | `formula-fragment` | 79 | 1 | 78 | 4 |
 | `template-boilerplate` | 74 | 0 | 74 | 4 |
 | `procedural-step` | 148 | 2 | 146 | 8 |
 | `no-lexical-signal` | 170 | 2 | 168 | 9 |
 | `question-paraphrase` | 186 | 3 | 183 | 10 |
-| **Total open** | | | **695** | **35** |
+| **Total open** | | | **675** | **34** |
 
 **M1 exit condition is not met.** The plan asks for explicit semantic decisions
-across the full accessible eligible corpus, and 98.5% of it is still unread. What
+across the full accessible eligible corpus, and 98.1% of it is still unread. What
 exists instead is a resumable queue with a written order and a validated decision
 format, which is what makes the remaining work re-enterable rather than a restart.
 
-One defect in the new tool was found while writing this section and fixed:
+Two defects in the new tool were found while writing this section and fixed:
 `coverage --json` wrote the report object itself to stdout and died with
-`ERR_INVALID_ARG_TYPE` instead of printing JSON. Both behaviours are now
-exercised by hand; the tool has no unit test of its own, which is stated rather
-than implied.
+`ERR_INVALID_ARG_TYPE` instead of printing JSON, and an unused `roleIds` set
+tripped the lint baseline. The tool still has no unit test of its own, which is
+stated rather than implied.
 
 ### 14.3 M2 — one pure query layer
 
@@ -1187,7 +1198,7 @@ does **not** claim that clicking a resource reaches a deployed `/lab/…` page.
 |---|---|
 | `node --test "intelligent-atlas/tests/*.test.mjs" "intelligent-atlas/contracts/*.test.mjs"` | PASS — 118/118 |
 | `node intelligent-atlas/tools/verify-prototype-journey.mjs` | 21 PASS, 0 FAIL, 1 NOT RUN, 0 console errors |
-| `node intelligent-atlas/tools/review-workbench.mjs check` | ok — 63 decisions, 0 errors, 0 warnings |
+| `node intelligent-atlas/tools/review-workbench.mjs check` | ok — 83 decisions, 0 errors, 0 warnings |
 | `node scripts/verify-agent-reference.mjs` | PASS — 13 active hashes, 6 intake hashes |
 | `node scripts/verify-knowledge-atlas.mjs` | PASS — 16 payload, 33 integration, 23 links, 90 relocations |
 | `node scripts/verify-easyui-integration.mjs` | PASS — 41 owned, 1,169 prior-file contracts, 22 decisions |
@@ -1213,8 +1224,8 @@ were green before it and are green after it, with the same counts.
 
 ### 14.9 What this section does not claim
 
-It does not claim publication (0 published), scientific approval (63 units read,
-4,274 not), whole-corpus completion, M6/M7 integration, deployment, or visual
+It does not claim publication (0 published), scientific approval (83 units read,
+4,254 not), whole-corpus completion, M6/M7 integration, deployment, or visual
 acceptance (NOT RUN). The review prototype is a review artifact; nothing in this
 section changes what a learner sees on the live site.
 
@@ -1223,9 +1234,10 @@ section changes what a learner sees on the live site.
 **Consume the next batch.** Run
 `node intelligent-atlas/tools/review-workbench.mjs queue --reason=thin-fragment --limit=20 --write`,
 read the written sheet with real parent context, and record decisions with
-verbatim evidence. Three batches close `thin-fragment` (46 units), which leaves
+verbatim evidence. Two batches close `thin-fragment` (26 units left), which leaves
 `formula-fragment`, `template-boilerplate`, `procedural-step`,
-`no-lexical-signal` and `question-paraphrase`.
+`no-lexical-signal` and `question-paraphrase`. The table-extraction repair in
+§14.2 is the other half of M1 and is independent of the queue.
 
 **M6–M7 are a separate scope and need an explicit assignment.** They replace the
 canonical Home (`components/knowledge/hansa-landing.tsx`, `insight-stage.tsx`)

@@ -1610,6 +1610,444 @@
       "unresolved": [
         "Ontology-driven exploration is outside the current five-domain registry."
       ]
+    },
+    {
+      "scope": "batch-review",
+      "batchId": "batch-8e57e72daa7a",
+      "candidateVerdict": "missed",
+      "relationHints": [],
+      "unresolved": [
+        "Table cell text is not extracted: the source block holds six question/plot/why rows, the unit holds only the heading. 60 table blocks in 5 content files are affected."
+      ],
+      "unitId": "dv:quick-reference#21-high-value-comparison-table",
+      "parentContext": "Section 21 of the Data Visualization quick reference, between the pre-publish interpretation checklist (20) and the exam/interview traps (22). The source block at this anchor is a table, not prose.",
+      "reading": "The section is a six-row decision table: a question about the data, the recommended plot, and why that plot fits. It carries the page's chart-choice rule set rather than a new claim.",
+      "essentialMeaning": "table",
+      "evidenceQuote": "21. High-Value Comparison Table",
+      "concepts": [
+        {
+          "conceptId": "concept:viz:chart-selection",
+          "role": "primary"
+        }
+      ],
+      "decision": "unresolved-gap",
+      "decisionCode": "table-body-not-extracted",
+      "rationale": "The heading resolves cleanly to chart selection, but the unit text is only the heading. The source table (Question / Recommended plot / Why) exists in content/data-viz/pages.json and none of its cell text appears anywhere in the corpus, so the meaning cannot be read from the ledger. Recorded as a gap rather than inferred from the heading."
+    },
+    {
+      "scope": "batch-review",
+      "batchId": "batch-8e57e72daa7a",
+      "candidateVerdict": "missed",
+      "relationHints": [],
+      "unresolved": [],
+      "unitId": "fabric-note:video20/V20-DELTA-024",
+      "parentContext": "Delta maintenance chapter of video 20, after deletion vectors and before maintenance acceptance. The sequence is about what cleanup may remove.",
+      "reading": "Cleanup may only delete files that the current table state still needs; every file referenced by the current snapshot has to survive the operation.",
+      "essentialMeaning": "prose",
+      "evidenceQuote": "Current-state data must remain available.",
+      "concepts": [
+        {
+          "conceptId": "concept:fabric:optimize",
+          "role": "primary"
+        },
+        {
+          "conceptId": "concept:fabric:deletion-vectors",
+          "role": "secondary"
+        }
+      ],
+      "decision": "revised",
+      "decisionCode": "retention-preserves-active-files",
+      "rationale": "A real rule about OPTIMIZE/VACUUM retention that the matcher missed. The deletion-vector neighbour explains why the retained set is not simply every old file."
+    },
+    {
+      "scope": "batch-review",
+      "batchId": "batch-8e57e72daa7a",
+      "candidateVerdict": "missed",
+      "relationHints": [],
+      "unresolved": [],
+      "unitId": "fabric-note:video21/V21-CAT-022",
+      "parentContext": "Video 21 catalog chapter, between API allowlisting and default-session evidence. The notes track what a migration depends on.",
+      "reading": "A storage path and the things that consume it are separate dependencies: changing or moving the path does not automatically update every consumer.",
+      "essentialMeaning": "prose",
+      "evidenceQuote": "Storage-path consumers are independent dependencies.",
+      "concepts": [
+        {
+          "conceptId": "concept:fabric:shortcut",
+          "role": "primary"
+        },
+        {
+          "conceptId": "concept:fabric:onelake",
+          "role": "secondary"
+        }
+      ],
+      "decision": "revised",
+      "decisionCode": "path-consumers-are-separate-dependencies",
+      "rationale": "The claim is about path-based references, which is what a OneLake shortcut is. The matcher proposed nothing because the sentence names no product."
+    },
+    {
+      "scope": "batch-review",
+      "batchId": "batch-8e57e72daa7a",
+      "candidateVerdict": "missed",
+      "relationHints": [],
+      "unresolved": [
+        "The one-page cheat sheet body is absent from the corpus; only its heading survives.",
+        "The following formula unit is a bare fragment (mu \\mu s1), so formula extraction is suspect in this source too."
+      ],
+      "unitId": "stats:s42",
+      "parentContext": "Section 42 of the statistics source, after the final mental model (41) and before the course summary (43). The heading is duplicated because the extractor emitted the section title only.",
+      "reading": "The unit is a section heading for a one-page cheat sheet. No sheet content, formula or summary text follows it in the corpus.",
+      "essentialMeaning": "index",
+      "evidenceQuote": "One-page Cheat Sheet 42. One-page Cheat Sheet 42. One-page Cheat Sheet",
+      "concepts": [],
+      "decision": "unresolved-gap",
+      "decisionCode": "cheat-sheet-body-not-extracted",
+      "rationale": "There is nothing to read: the text is the heading three times. Mapping it to any one statistics concept would be invention. The section is recorded as an extraction gap, and the next formula unit in the ledger is a bare fragment (mu \\mu s1), which points at the same failure."
+    },
+    {
+      "scope": "batch-review",
+      "batchId": "batch-8e57e72daa7a",
+      "candidateVerdict": "missed",
+      "relationHints": [],
+      "unresolved": [],
+      "unitId": "fabric-note:video20/V20-DELTA-021",
+      "parentContext": "Delta maintenance chapter of video 20, between command scope and logs versus data retention.",
+      "reading": "A dry run evaluates which files are eligible for cleanup and reports them without deleting anything, so it is the safe way to check a cleanup command before running it.",
+      "essentialMeaning": "prose",
+      "evidenceQuote": "DRY RUN previews eligible files without executing cleanup.",
+      "concepts": [
+        {
+          "conceptId": "concept:fabric:optimize",
+          "role": "primary"
+        }
+      ],
+      "decision": "revised",
+      "decisionCode": "dry-run-previews-without-cleanup",
+      "rationale": "A concrete operational rule for table maintenance. The word DRY RUN is the whole signal, which is why a lexical matcher missed it."
+    },
+    {
+      "scope": "batch-review",
+      "batchId": "batch-8e57e72daa7a",
+      "candidateVerdict": "missed",
+      "relationHints": [],
+      "unresolved": [],
+      "unitId": "fabric-note:video21/V21-CAT-019",
+      "parentContext": "Video 21 catalog chapter, between support lifecycle and the qualified reference fixture.",
+      "reading": "Catalog metadata and the underlying storage can disagree, and only supported operations keep them consistent; an unsupported operation can leave the catalog describing something the storage no longer has.",
+      "essentialMeaning": "prose",
+      "evidenceQuote": "Catalog and storage consistency needs supported operations.",
+      "concepts": [
+        {
+          "conceptId": "concept:fabric:metadata-sync",
+          "role": "primary"
+        }
+      ],
+      "decision": "revised",
+      "decisionCode": "catalog-storage-consistency",
+      "rationale": "This is the metadata-sync problem stated as a rule instead of as a product feature."
+    },
+    {
+      "scope": "batch-review",
+      "batchId": "batch-8e57e72daa7a",
+      "candidateVerdict": "missed",
+      "relationHints": [],
+      "unresolved": [
+        "Reading paths are curriculum structure. The registry has no navigation target, so the page stays discoverable through its route without a semantic mapping."
+      ],
+      "unitId": "dv:ar-reading-paths#beginner-advanced",
+      "parentContext": "Arabic visualization course, reading-paths page. The heading opens a list of three suggested paths (BI, data science/EDA, exam prep) built from numbered parts.",
+      "reading": "The unit is a navigation index: it groups existing course parts into three learning paths. It states no fact about visualization.",
+      "essentialMeaning": "index",
+      "evidenceQuote": "مسارات قراءة مقترحة (Beginner → Advanced)",
+      "concepts": [],
+      "decision": "held",
+      "decisionCode": "curriculum-path-index",
+      "rationale": "Held, not mapped: a reading path is navigation over content, and the five-domain concept registry models ideas, not curricula. Mapping it to a visualization concept would make the graph claim a relation that the text does not assert."
+    },
+    {
+      "scope": "batch-review",
+      "batchId": "batch-8e57e72daa7a",
+      "candidateVerdict": "missed",
+      "relationHints": [],
+      "unresolved": [],
+      "unitId": "dv:ar-references#curated-references",
+      "parentContext": "Arabic visualization course, references page. The heading opens three groups: foundational books (Tufte, Cleveland and McGill, Wilkinson), colour and perception (Brewer, Viridis) and further reading.",
+      "reading": "The unit is a curated bibliography. Its reading is bibliographic: Tufte for information density and chartjunk, Cleveland and McGill for encoding accuracy, Brewer and Viridis for palettes that survive colour-vision deficiency.",
+      "essentialMeaning": "index",
+      "evidenceQuote": "Curated References",
+      "concepts": [
+        {
+          "conceptId": "concept:viz:visual-integrity",
+          "role": "primary"
+        },
+        {
+          "conceptId": "concept:viz:color-palette",
+          "role": "secondary"
+        }
+      ],
+      "decision": "revised",
+      "decisionCode": "curated-reference-list",
+      "rationale": "A reference list is legitimate evidence for the concepts it names, and this one names two distinct ones. It is not evidence for a relation between them, so no relation hint is recorded."
+    },
+    {
+      "scope": "batch-review",
+      "batchId": "batch-8e57e72daa7a",
+      "candidateVerdict": "missed",
+      "relationHints": [],
+      "unresolved": [],
+      "unitId": "fabric-note:video20/V20-DELTA-014",
+      "parentContext": "Delta maintenance chapter of video 20, between partition cardinality and pruning verification.",
+      "reading": "Over-partitioning a small table adds directory overhead and file count without improving pruning, so partition granularity should follow table size and predicate patterns rather than a fixed rule.",
+      "essentialMeaning": "prose",
+      "evidenceQuote": "Small tables often gain little from excessive directory fragmentation.",
+      "concepts": [
+        {
+          "conceptId": "concept:fabric:partitioning",
+          "role": "primary"
+        }
+      ],
+      "decision": "revised",
+      "decisionCode": "small-table-fragmentation-tradeoff",
+      "rationale": "A trade-off statement about partitioning that the matcher missed because the unit never says partition."
+    },
+    {
+      "scope": "batch-review",
+      "batchId": "batch-8e57e72daa7a",
+      "candidateVerdict": "missed",
+      "relationHints": [],
+      "unresolved": [],
+      "unitId": "fabric-note:video14/V14-PIPE-065",
+      "parentContext": "Video 14 pipeline chapter on Lookup and configuration row shapes, between ForEach iteration and the multirow case.",
+      "reading": "In first-row mode the Lookup activity returns a single object nested under the key firstRow, so downstream expressions read through that key rather than the row's columns directly.",
+      "essentialMeaning": "prose",
+      "evidenceQuote": "First-row mode wraps the selected object under firstRow.",
+      "concepts": [
+        {
+          "conceptId": "concept:fabric:control-flow",
+          "role": "primary"
+        }
+      ],
+      "decision": "revised",
+      "decisionCode": "lookup-first-row-shape",
+      "rationale": "A concrete output-shape rule for a control-flow activity. The API-shaped sentence is why the matcher skipped it."
+    },
+    {
+      "scope": "batch-review",
+      "batchId": "batch-8e57e72daa7a",
+      "candidateVerdict": "missed",
+      "relationHints": [],
+      "unresolved": [],
+      "unitId": "fabric-note:video21/V21-CAT-021",
+      "parentContext": "Video 21 catalog chapter, between the metadata source of truth and path consumers.",
+      "reading": "Enabling a controlled capability requires knowing exactly where it applies and having written operating instructions; allowlisting is not a switch to flip quietly.",
+      "essentialMeaning": "prose",
+      "evidenceQuote": "A controlled feature needs traceable applicability and operational instructions.",
+      "concepts": [
+        {
+          "conceptId": "concept:fabric:permissions",
+          "role": "primary"
+        }
+      ],
+      "decision": "revised",
+      "decisionCode": "allowlist-needs-applicability-and-instructions",
+      "rationale": "The concept is the permission boundary of a controlled feature. The unit talks about governance rather than naming an access mechanism, which is why it was unmatched."
+    },
+    {
+      "scope": "batch-review",
+      "batchId": "batch-8e57e72daa7a",
+      "candidateVerdict": "missed",
+      "relationHints": [],
+      "unresolved": [],
+      "unitId": "fabric-note:video20/V20-DELTA-012",
+      "parentContext": "Delta chapter of video 20, between time-travel comparison and partition cardinality.",
+      "reading": "A table version names a snapshot, but reading it still depends on the data and log files that were retained; retention therefore limits how far back a version can be reconstructed.",
+      "essentialMeaning": "prose",
+      "evidenceQuote": "A version identifies a snapshot, subject to retained supporting data/logs.",
+      "concepts": [
+        {
+          "conceptId": "concept:fabric:delta-history",
+          "role": "primary"
+        }
+      ],
+      "decision": "revised",
+      "decisionCode": "version-identifies-snapshot",
+      "rationale": "Time travel is named only indirectly ('a version', 'retained supporting data'), so the lexical matcher had nothing to match."
+    },
+    {
+      "scope": "batch-review",
+      "batchId": "batch-8e57e72daa7a",
+      "candidateVerdict": "missed",
+      "relationHints": [],
+      "unresolved": [],
+      "unitId": "fabric-note:video14/V14-PIPE-066",
+      "parentContext": "Video 14 pipeline chapter on Lookup row shapes, between the first-row case and the single-result-set requirement.",
+      "reading": "Multirow mode returns a collection in value instead of a single object, which is what makes the activity usable as the input of a ForEach.",
+      "essentialMeaning": "prose",
+      "evidenceQuote": "Multirow Lookup returns an array in value, suitable for iteration.",
+      "concepts": [
+        {
+          "conceptId": "concept:fabric:control-flow",
+          "role": "primary"
+        }
+      ],
+      "decision": "revised",
+      "decisionCode": "multirow-lookup-array",
+      "rationale": "The rule that connects Lookup output to ForEach input, i.e. how control flow is built."
+    },
+    {
+      "scope": "batch-review",
+      "batchId": "batch-8e57e72daa7a",
+      "candidateVerdict": "missed",
+      "relationHints": [],
+      "unresolved": [],
+      "unitId": "fabric-note:video16/V16-SQL-037",
+      "parentContext": "Video 16 SQL chapter on historical querying, followed by the statement-level scope rule and the documentation's creation-time limit.",
+      "reading": "T-SQL time travel is selected in the FROM clause with a statement-level clause, and that clause governs the whole query rather than one column.",
+      "essentialMeaning": "prose",
+      "evidenceQuote": "statement-level time travel syntax selects historical table versions",
+      "concepts": [
+        {
+          "conceptId": "concept:fabric:delta-history",
+          "role": "primary"
+        },
+        {
+          "conceptId": "concept:fabric:t-sql",
+          "role": "secondary"
+        }
+      ],
+      "decision": "revised",
+      "decisionCode": "statement-level-time-travel",
+      "rationale": "The unit describes the query surface for historical reads, so it belongs to both the time-travel concept and the T-SQL surface. The next unit supplies the statement-scope detail that makes the pair complete."
+    },
+    {
+      "scope": "batch-review",
+      "batchId": "batch-8e57e72daa7a",
+      "candidateVerdict": "missed",
+      "relationHints": [],
+      "unresolved": [],
+      "unitId": "fabric-note:video14/V14-PIPE-070",
+      "parentContext": "Video 14 pipeline chapter on Lookup, after the row and byte limits and before the two output modes are restated.",
+      "reading": "Lookup exists to fetch a small control dataset (a configuration value, a parameter row) that later activities consume, not to move bulk data.",
+      "essentialMeaning": "prose",
+      "evidenceQuote": "Lookup provides small control datasets to drive downstream activities.",
+      "concepts": [
+        {
+          "conceptId": "concept:fabric:control-flow",
+          "role": "primary"
+        }
+      ],
+      "decision": "revised",
+      "decisionCode": "lookup-drives-downstream",
+      "rationale": "A statement of the activity's role in a pipeline. It is the purpose clause the rest of the chapter's limits qualify."
+    },
+    {
+      "scope": "batch-review",
+      "batchId": "batch-8e57e72daa7a",
+      "candidateVerdict": "missed",
+      "relationHints": [],
+      "unresolved": [],
+      "unitId": "fabric-note:video21/V21-CAT-020",
+      "parentContext": "Video 21 catalog chapter, between the metadata source of truth and API allowlisting. The neighbouring notes are about verifying a migration against a reference.",
+      "reading": "Comparing row counts alone cannot detect a copy that read the wrong table. Identity plus a sample of representative content is what catches an equal-count mismatch.",
+      "essentialMeaning": "prose",
+      "evidenceQuote": "Object identity and representative content catch equal-count wrong-table reads.",
+      "concepts": [
+        {
+          "conceptId": "concept:analysis:data-quality",
+          "role": "primary"
+        }
+      ],
+      "decision": "revised",
+      "decisionCode": "identity-and-content-catch-wrong-table",
+      "rationale": "This is a data-quality verification rule (checks that fail to detect the actual defect), stated for a migration fixture. The cross-domain mapping is explicit rather than implied by a product name."
+    },
+    {
+      "scope": "batch-review",
+      "batchId": "batch-8e57e72daa7a",
+      "candidateVerdict": "missed",
+      "relationHints": [],
+      "unresolved": [
+        "Session-scoped capability defaults have no concept in the current registry."
+      ],
+      "unitId": "fabric-note:video21/V21-CAT-023",
+      "parentContext": "Video 21 catalog chapter, between path consumers and the no-default session note.",
+      "reading": "A capability may depend on the session it runs in, so the interview compares actual configuration instead of assuming the default. The unit advises a comparison; it states no mechanism of its own.",
+      "essentialMeaning": "prose",
+      "evidenceQuote": "The interview ties capabilities to session context; compare the actual configuration.",
+      "concepts": [],
+      "decision": "held",
+      "decisionCode": "session-context-not-modelled",
+      "rationale": "Held: the claim is about session-scoped defaults, which the registry has no concept for. The neighbouring note (removing defaults changes resolution context) is the substantive statement; this one is advice about how to check it."
+    },
+    {
+      "scope": "batch-review",
+      "batchId": "batch-8e57e72daa7a",
+      "candidateVerdict": "missed",
+      "relationHints": [],
+      "unresolved": [],
+      "unitId": "fabric-note:video14/V14-PIPE-090",
+      "parentContext": "Video 14 production practices chapter, between selective retry policy and the note that activity retry is not atomic for external writes.",
+      "reading": "Raising a timeout without identifying why the run is slow only makes a broken run take longer; diagnosis has to come before the limit is changed.",
+      "essentialMeaning": "prose",
+      "evidenceQuote": "Increasing timeout without diagnosis may only prolong a defective run.",
+      "concepts": [
+        {
+          "conceptId": "concept:fabric:pipeline-reliability",
+          "role": "primary"
+        }
+      ],
+      "decision": "revised",
+      "decisionCode": "timeout-is-not-diagnosis",
+      "rationale": "A failure-handling rule for pipelines. The evidence is the claim itself; the surrounding retry notes give it the reliability context."
+    },
+    {
+      "scope": "batch-review",
+      "batchId": "batch-8e57e72daa7a",
+      "candidateVerdict": "missed",
+      "relationHints": [],
+      "unresolved": [],
+      "unitId": "fabric-note:video21/V21-CAT-006",
+      "parentContext": "Video 21 chapter on validation, between rollback design and catalog performance claims.",
+      "reading": "Positive tests show that an intended use works; negative and filtered tests show where access stops. Both are needed before a security configuration is accepted.",
+      "essentialMeaning": "prose",
+      "evidenceQuote": "Positive tests establish intended usability. Negative and filtered tests establish intended boundaries.",
+      "concepts": [
+        {
+          "conceptId": "concept:fabric:security-model",
+          "role": "primary"
+        },
+        {
+          "conceptId": "concept:analysis:evidence-strength",
+          "role": "secondary"
+        }
+      ],
+      "decision": "revised",
+      "decisionCode": "positive-and-negative-access-tests",
+      "rationale": "The evidence requirement for an access model. It names no product feature, which is why it was unmatched; the secondary concept records why the two test directions matter."
+    },
+    {
+      "scope": "batch-review",
+      "batchId": "batch-8e57e72daa7a",
+      "candidateVerdict": "missed",
+      "relationHints": [],
+      "unresolved": [],
+      "unitId": "fabric-note:video15/V15-OLS-051",
+      "parentContext": "Video 15 OneLake security chapter on lifecycle and QA, between the version-diff matrix note and stable role identifiers.",
+      "reading": "When an import reports that an object overwrite needs user action, the recovery is an explicit opt-in plus reconciling the policy, not a silent overwrite of the lakehouse object.",
+      "essentialMeaning": "prose",
+      "evidenceQuote": "Handle LakehouseImportUserActionNeededForObjectOverwrite with explicit opt-in and policy reconciliation.",
+      "concepts": [
+        {
+          "conceptId": "concept:fabric:onelake-security-role",
+          "role": "primary"
+        },
+        {
+          "conceptId": "concept:fabric:lakehouse",
+          "role": "secondary"
+        }
+      ],
+      "decision": "revised",
+      "decisionCode": "overwrite-needs-opt-in-and-reconciliation",
+      "rationale": "An operational rule for a named lifecycle state. The error identifier is product vocabulary, so the matcher had no lexical path to it, but the chapter around it is about OneLake security roles surviving deployment."
     }
   ]
 }

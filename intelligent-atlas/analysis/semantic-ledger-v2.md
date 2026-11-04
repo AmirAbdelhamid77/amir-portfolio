@@ -14,21 +14,21 @@ Each unit was opened with its parent context, read for its actual claim, and onl
 | Non-learning | 5 |
 | Candidate matched | 3609 |
 | Candidate unmatched | 728 |
-| **Semantically read** | **63** |
-| Not read | 4274 |
+| **Semantically read** | **83** |
+| Not read | 4254 |
 | Published | 0 |
 
-Semantic reading covers **1.45%** of eligible units. That is a documented subset, not full corpus reading. Candidate matching never advances the reading or decision state.
+Semantic reading covers **1.91%** of eligible units. That is a documented subset, not full corpus reading. Candidate matching never advances the reading or decision state.
 
 ## Decisions
 
 | Decision | Count |
 |---|---:|
 | Accepted | 10 |
-| Revised | 31 |
-| Held | 18 |
-| Unresolved gap | 4 |
-| Unreviewed | 4274 |
+| Revised | 47 |
+| Held | 20 |
+| Unresolved gap | 6 |
+| Unreviewed | 4254 |
 | Out of scope | 1864 |
 
 ## Family ledger
@@ -37,13 +37,13 @@ Semantic reading covers **1.45%** of eligible units. That is a documented subset
 |---|---:|---:|---:|---:|---:|---:|---:|---:|---:|
 | curated-references | 1859 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
 | fabric-questions | 1264 | 1264 | 1170 | 94 | 4 | 0 | 3 | 1 | 0 |
-| fabric-notes | 720 | 720 | 529 | 191 | 12 | 1 | 8 | 3 | 0 |
+| fabric-notes | 720 | 720 | 529 | 191 | 28 | 1 | 23 | 4 | 0 |
 | academy | 593 | 593 | 457 | 136 | 5 | 0 | 1 | 3 | 1 |
 | sql | 535 | 535 | 440 | 95 | 8 | 1 | 5 | 2 | 0 |
 | fabric-additions | 532 | 532 | 480 | 52 | 1 | 0 | 1 | 0 | 0 |
 | fabric-r11 | 222 | 222 | 210 | 12 | 1 | 0 | 0 | 1 | 0 |
-| statistics | 145 | 145 | 65 | 80 | 6 | 2 | 2 | 0 | 2 |
-| visualization | 138 | 138 | 117 | 21 | 18 | 3 | 10 | 5 | 0 |
+| statistics | 145 | 145 | 65 | 80 | 7 | 2 | 2 | 0 | 3 |
+| visualization | 138 | 138 | 117 | 21 | 21 | 3 | 11 | 6 | 1 |
 | fabric-cases | 78 | 78 | 71 | 7 | 2 | 0 | 1 | 1 | 0 |
 | exams | 70 | 70 | 47 | 23 | 2 | 0 | 0 | 2 | 0 |
 | hands-on-labs | 29 | 29 | 13 | 16 | 1 | 0 | 0 | 0 | 1 |
@@ -118,6 +118,26 @@ Semantic reading covers **1.45%** of eligible units. That is a documented subset
 | `sql:02#opening` | sql | revised | missed | Keys and relationships (primary); NULL semantics (secondary) | recovered-schema-before-query-claim |
 | `academy:fabric-analytics:22d-copilot-fabric-data-agents#section-11` | academy | held | missed | — | lesson-closing-marketing-claim |
 | `academy:fabric-analytics:27-visualize-ontology#section-8` | academy | held | missed | — | lesson-recap-unmodelled-domain |
+| `dv:quick-reference#21-high-value-comparison-table` | visualization | unresolved-gap | missed | Chart selection (primary) | table-body-not-extracted |
+| `fabric-note:video20/V20-DELTA-024` | fabric-notes | revised | missed | OPTIMIZE compaction (primary); Deletion vectors (secondary) | retention-preserves-active-files |
+| `fabric-note:video21/V21-CAT-022` | fabric-notes | revised | missed | OneLake shortcut (primary); OneLake (secondary) | path-consumers-are-separate-dependencies |
+| `stats:s42` | statistics | unresolved-gap | missed | — | cheat-sheet-body-not-extracted |
+| `fabric-note:video20/V20-DELTA-021` | fabric-notes | revised | missed | OPTIMIZE compaction (primary) | dry-run-previews-without-cleanup |
+| `fabric-note:video21/V21-CAT-019` | fabric-notes | revised | missed | SQL endpoint metadata sync (primary) | catalog-storage-consistency |
+| `dv:ar-reading-paths#beginner-advanced` | visualization | held | missed | — | curriculum-path-index |
+| `dv:ar-references#curated-references` | visualization | revised | missed | Visual integrity (primary); Color palette semantics (secondary) | curated-reference-list |
+| `fabric-note:video20/V20-DELTA-014` | fabric-notes | revised | missed | Partitioning and pruning (primary) | small-table-fragmentation-tradeoff |
+| `fabric-note:video14/V14-PIPE-065` | fabric-notes | revised | missed | Pipeline control flow (primary) | lookup-first-row-shape |
+| `fabric-note:video21/V21-CAT-021` | fabric-notes | revised | missed | Identity and permissions (primary) | allowlist-needs-applicability-and-instructions |
+| `fabric-note:video20/V20-DELTA-012` | fabric-notes | revised | missed | Delta history and time travel (primary) | version-identifies-snapshot |
+| `fabric-note:video14/V14-PIPE-066` | fabric-notes | revised | missed | Pipeline control flow (primary) | multirow-lookup-array |
+| `fabric-note:video16/V16-SQL-037` | fabric-notes | revised | missed | Delta history and time travel (primary); T-SQL query surface (secondary) | statement-level-time-travel |
+| `fabric-note:video14/V14-PIPE-070` | fabric-notes | revised | missed | Pipeline control flow (primary) | lookup-drives-downstream |
+| `fabric-note:video21/V21-CAT-020` | fabric-notes | revised | missed | Data quality (primary) | identity-and-content-catch-wrong-table |
+| `fabric-note:video21/V21-CAT-023` | fabric-notes | held | missed | — | session-context-not-modelled |
+| `fabric-note:video14/V14-PIPE-090` | fabric-notes | revised | missed | Pipeline reliability (primary) | timeout-is-not-diagnosis |
+| `fabric-note:video21/V21-CAT-006` | fabric-notes | revised | missed | Layered security model (primary); Evidence strength (secondary) | positive-and-negative-access-tests |
+| `fabric-note:video15/V15-OLS-051` | fabric-notes | revised | missed | OneLake security role (primary); Lakehouse (secondary) | overwrite-needs-opt-in-and-reconciliation |
 
 ## Recorded gaps
 
@@ -184,6 +204,11 @@ Semantic reading covers **1.45%** of eligible units. That is a documented subset
 | `academy:fabric-analytics:28-build-data-agent-ontology#section-11` | Ontology and data-agent concepts are outside the current five-domain registry. |
 | `academy:fabric-analytics:22d-copilot-fabric-data-agents#section-11` | The summary's takeaway and next-step lists were not retained as separate units. |
 | `academy:fabric-analytics:27-visualize-ontology#section-8` | Ontology-driven exploration is outside the current five-domain registry. |
+| `dv:quick-reference#21-high-value-comparison-table` | Table cell text is not extracted: the source block holds six question/plot/why rows, the unit holds only the heading. 60 table blocks in 5 content files are affected. |
+| `stats:s42` | The one-page cheat sheet body is absent from the corpus; only its heading survives. |
+| `stats:s42` | The following formula unit is a bare fragment (mu \mu s1), so formula extraction is suspect in this source too. |
+| `dv:ar-reading-paths#beginner-advanced` | Reading paths are curriculum structure. The registry has no navigation target, so the page stays discoverable through its route without a semantic mapping. |
+| `fabric-note:video21/V21-CAT-023` | Session-scoped capability defaults have no concept in the current registry. |
 
 ## Limits
 

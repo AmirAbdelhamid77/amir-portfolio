@@ -18,25 +18,25 @@
     "note": "Candidate matching is a lexical proposal state. It is not semantic reading and it is not a publication state."
   },
   "semanticReading": {
-    "read": 63,
-    "notRead": 4274,
-    "readShareOfEligible": 0.0145,
-    "readShareOfCorpus": 0.0102
+    "read": 83,
+    "notRead": 4254,
+    "readShareOfEligible": 0.0191,
+    "readShareOfCorpus": 0.0134
   },
   "decisions": {
     "accepted": 10,
-    "revised": 31,
-    "held": 18,
-    "unresolvedGap": 4,
-    "unreviewed": 4274,
+    "revised": 47,
+    "held": 20,
+    "unresolvedGap": 6,
+    "unreviewed": 4254,
     "outOfScope": 1864
   },
   "candidateVerdicts": {
     "confirmed": 12,
     "unverified": 3579,
-    "unverified-unmatched": 695,
+    "unverified-unmatched": 675,
     "revised": 12,
-    "missed": 33,
+    "missed": 53,
     "false-positive": 6,
     "not-applicable": 1864
   },
@@ -110,10 +110,10 @@
       "nonLearning": 0,
       "matched": 529,
       "unmatched": 191,
-      "read": 12,
+      "read": 28,
       "accepted": 1,
-      "revised": 8,
-      "held": 3,
+      "revised": 23,
+      "held": 4,
       "unresolvedGap": 0
     },
     "fabric-cases": {
@@ -162,11 +162,11 @@
       "nonLearning": 0,
       "matched": 65,
       "unmatched": 80,
-      "read": 6,
+      "read": 7,
       "accepted": 2,
       "revised": 2,
       "held": 0,
-      "unresolvedGap": 2
+      "unresolvedGap": 3
     },
     "visualization": {
       "units": 138,
@@ -175,11 +175,11 @@
       "nonLearning": 0,
       "matched": 117,
       "unmatched": 21,
-      "read": 18,
+      "read": 21,
       "accepted": 3,
-      "revised": 10,
-      "held": 5,
-      "unresolvedGap": 0
+      "revised": 11,
+      "held": 6,
+      "unresolvedGap": 1
     },
     "exams": {
       "units": 70,
@@ -248,7 +248,7 @@
     }
   },
   "coverageClaims": [
-    "Semantic reading was performed for 63 of 4337 eligible units (1.45%).",
+    "Semantic reading was performed for 83 of 4337 eligible units (1.91%).",
     "This is a documented subset, not full semantic reading of the corpus.",
     "The 728 unmatched units were not excluded from review: the sample deliberately includes unmatched units and four prioritised unmatched decisions.",
     "No sampled slice is reported as full semantic reading."
