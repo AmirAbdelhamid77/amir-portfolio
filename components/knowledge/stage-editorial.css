@@ -1,11 +1,14 @@
-/* Full-screen gate system for the canonical landing (v3, 2026-10-30).
+/* Canonical landing styles.
  *
- * The landing is a stack of full-viewport gates: each compact gate is a sticky
- * 100svh section, and the next gate rises over it — fading in as it comes, and
- * dimming the gate it covers. Every colour comes from the site's own tokens,
- * so the page follows the light/dark toggle like every other page.
+ * M6 (2026-11-04): the Home is three scenes in plain document flow — timeline,
+ * knowledge, closing — and the `.stage-scene*` block at the end of this file is
+ * what the Home renders. The older `.stage-gate*` block is kept because the
+ * retired gate components still exist for reuse; the Home no longer mounts them.
  *
- * Choreography rules:
+ * Every colour comes from the site's own tokens, so the page follows the
+ * light/dark toggle like every other page.
+ *
+ * Gate choreography rules (retained for the retired components):
  *   - Native scrolling is never hijacked: gates are sticky siblings, the next
  *     one simply scrolls over the pinned previous one.
  *   - The incoming gate's rise (--gate-rise) is a custom property written per
@@ -357,5 +360,487 @@
   .stage-bars .stage-bars-fill {
     forced-color-adjust: none;
     background: Highlight;
+  }
+}
+
+/* ========================================================================
+   M6 — the three scenes (timeline, knowledge, closing)
+   ========================================================================
+
+   Plain document flow, no sticky gates and no full-viewport takeovers. The
+   timeline is the first viewport: a fifteen-day calendar strip with ticks where
+   editions exist, then the selected edition's peek and — only when asked — the
+   card table underneath. Selecting a date is not opening it.
+
+   Scenes are opaque (`--background`) for the same reason the old gates were:
+   text must sit on a known surface at every scroll position, not on a gradient
+   that shifts with the observatory ambience.
+   ------------------------------------------------------------------------ */
+
+.stage-scene {
+  position: relative;
+  border-top: 1px solid var(--border-strong);
+  background: var(--background);
+}
+
+.stage-scene-first {
+  border-top: 0;
+}
+
+.stage-scene-inner {
+  margin: 0 auto;
+  width: 100%;
+  max-width: 1320px;
+  padding: clamp(44px, 5.5vw, 80px) 20px;
+}
+
+.stage-scene-title {
+  margin-top: 14px;
+  max-width: 24ch;
+  font-size: clamp(32px, 5vw, 68px);
+  font-weight: 600;
+  line-height: 1.03;
+  letter-spacing: -0.03em;
+  text-wrap: balance;
+}
+
+.stage-scene-title-rest {
+  display: block;
+  color: var(--muted-foreground);
+}
+
+.stage-scene-title-sm {
+  max-width: 30ch;
+  font-size: clamp(26px, 3.2vw, 42px);
+}
+
+.stage-notice {
+  margin-top: 16px;
+  max-width: 72ch;
+  font-size: 13px;
+  line-height: 1.7;
+  color: var(--muted-foreground);
+}
+
+/* ------------------------------------------------------------ the timeline */
+
+.stage-timeline {
+  margin-top: 30px;
+}
+
+.stage-timeline-track {
+  display: flex;
+  gap: 6px;
+  margin: 0;
+  padding: 0 0 10px;
+  list-style: none;
+  overflow-x: auto;
+  scroll-snap-type: x proximity;
+  scrollbar-width: thin;
+}
+
+.stage-day {
+  flex: 1 0 76px;
+  min-width: 76px;
+  scroll-snap-align: start;
+}
+
+.stage-day-button,
+.stage-day-static {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 10px;
+  width: 100%;
+  min-height: 104px;
+  padding: 12px 8px;
+  border: 1px solid transparent;
+  border-radius: 10px;
+  background: color-mix(in oklch, var(--card) 76%, transparent);
+  color: inherit;
+  text-align: start;
+}
+
+.stage-day-button {
+  cursor: pointer;
+  transition:
+    background-color 160ms ease,
+    border-color 160ms ease;
+}
+
+.stage-day-button:hover {
+  border-color: var(--border-strong);
+  background: var(--card);
+}
+
+.stage-day[data-has-edition="false"] .stage-day-static {
+  border-color: transparent;
+  background: transparent;
+}
+
+.stage-day-date {
+  font-family: var(--font-geist-mono), monospace;
+  font-size: 9.5px;
+  letter-spacing: 0.1em;
+  line-height: 1.4;
+  text-transform: uppercase;
+  color: var(--muted-foreground);
+}
+
+.stage-day[data-today="true"] .stage-day-date {
+  font-weight: 600;
+  color: var(--foreground);
+}
+
+/* A tick, not a colour code: quiet days keep a hairline, edition days a bar.
+   Shape and interaction (button vs static) carry the difference too. */
+.stage-day-mark {
+  display: block;
+  height: 3px;
+  margin-top: auto;
+  border-radius: 999px;
+  background: color-mix(in oklch, var(--foreground) 14%, transparent);
+}
+
+.stage-day[data-has-edition="true"] .stage-day-mark {
+  height: 6px;
+  background: var(--primary);
+}
+
+.stage-day-status {
+  font-family: var(--font-geist-mono), monospace;
+  font-size: 9px;
+  letter-spacing: 0.08em;
+  line-height: 1.3;
+  text-transform: uppercase;
+  color: var(--muted-foreground);
+}
+
+.stage-day[data-selected="true"] .stage-day-button {
+  border-color: var(--foreground);
+  background: var(--card);
+}
+
+.stage-day[data-selected="true"] .stage-day-status {
+  color: var(--foreground);
+}
+
+/* --------------------------------------------------------------- the peek */
+
+.stage-peek {
+  margin-top: 26px;
+  max-width: 880px;
+  padding: clamp(18px, 2.4vw, 26px);
+  border: 1px solid var(--border-strong);
+  border-radius: 16px;
+  background: var(--card);
+}
+
+.stage-peek-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 8px 24px;
+}
+
+.stage-peek-meta {
+  font-family: var(--font-geist-mono), monospace;
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  line-height: 1.5;
+  text-transform: uppercase;
+  color: var(--muted-foreground);
+}
+
+.stage-peek-title {
+  margin-top: 12px;
+  font-size: clamp(22px, 2.4vw, 32px);
+  font-weight: 600;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  text-wrap: balance;
+}
+
+.stage-peek-body {
+  margin-top: 10px;
+  max-width: 64ch;
+  font-size: 14px;
+  line-height: 1.8;
+  color: var(--muted-foreground);
+}
+
+.stage-peek-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px 18px;
+  margin-top: 18px;
+}
+
+/* ------------------------------------------------------------ the actions */
+
+.stage-primary-action {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 44px;
+  padding: 0 18px;
+  border-radius: 999px;
+  background: var(--foreground);
+  color: var(--background);
+  font-size: 13px;
+  font-weight: 500;
+  transition: background-color 160ms ease;
+}
+
+.stage-primary-action:hover {
+  background: color-mix(in oklch, var(--foreground) 86%, var(--background));
+}
+
+.stage-secondary-action {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  min-height: 44px;
+  padding: 0 16px;
+  border: 1px solid var(--border-strong);
+  border-radius: 999px;
+  font-size: 13px;
+  transition: border-color 160ms ease, background-color 160ms ease;
+}
+
+.stage-secondary-action:hover {
+  border-color: var(--foreground);
+  background: color-mix(in oklch, var(--card) 70%, transparent);
+}
+
+.stage-quiet-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  min-height: 32px;
+  font-size: 12px;
+  text-decoration: underline;
+  text-decoration-color: var(--border-strong);
+  text-underline-offset: 4px;
+}
+
+.stage-quiet-link:hover {
+  text-decoration-color: var(--primary);
+}
+
+/* ------------------------------------------------------------ the dealer */
+
+.stage-deal {
+  margin-top: 24px;
+  padding-top: 18px;
+  border-top: 1px dashed var(--border-strong);
+}
+
+.stage-deal-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px 18px;
+  margin-bottom: 6px;
+  font-family: var(--font-geist-mono), monospace;
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  line-height: 1.5;
+  text-transform: uppercase;
+  color: var(--muted-foreground);
+}
+
+/* ------------------------------------------------------------- the graph */
+
+.stage-graph {
+  padding: clamp(18px, 2.4vw, 26px);
+  border: 1px solid var(--border-strong);
+  border-radius: 16px;
+  background: color-mix(in oklch, var(--card) 70%, transparent);
+}
+
+.stage-discovery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 10px;
+  margin: 18px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.stage-discovery-link {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  height: 100%;
+  padding: 14px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: var(--background);
+  transition: border-color 160ms ease;
+}
+
+.stage-discovery-link:hover {
+  border-color: var(--border-strong);
+}
+
+.stage-discovery-label {
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.stage-discovery-description {
+  flex: 1;
+  font-size: 12px;
+  line-height: 1.65;
+  color: var(--muted-foreground);
+}
+
+/* ----------------------------------------------------------- the closing */
+
+.stage-continue {
+  margin-top: 22px;
+  padding-top: 18px;
+  border-top: 1px solid var(--border);
+}
+
+.stage-continue-links {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px 18px;
+  margin-top: 14px;
+}
+
+.stage-destinations {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 12px;
+  margin: 26px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.stage-destination {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  height: 100%;
+  padding: 18px;
+  border: 1px solid var(--border-strong);
+  border-radius: 14px;
+  background: var(--card);
+  transition: border-color 160ms ease;
+}
+
+.stage-destination:hover {
+  border-color: var(--foreground);
+}
+
+.stage-destination-label {
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.stage-destination-description {
+  flex: 1;
+  font-size: 12.5px;
+  line-height: 1.65;
+  color: var(--muted-foreground);
+}
+
+.stage-closing-foot {
+  display: grid;
+  gap: 10px;
+  margin-top: 34px;
+  padding-top: 18px;
+  border-top: 1px solid var(--border-strong);
+}
+
+.stage-closing-notice {
+  max-width: 72ch;
+  font-size: 11.5px;
+  line-height: 1.7;
+  color: var(--muted-foreground);
+}
+
+/* ------------------------------------------------------------- focus rings */
+
+.stage-scene :is(a, button, [tabindex]):focus-visible {
+  outline: 2px solid var(--ring);
+  outline-offset: 3px;
+}
+
+/* ------------------------------------------------------ mobile / motion off */
+
+@media (min-width: 768px) {
+  .stage-scene-inner {
+    padding-inline: 32px;
+  }
+}
+
+/* All fifteen days fit one row from 1024px up; below that the strip scrolls.
+   The cut-off fifteenth column is the affordance, and the peek is always in
+   view underneath, so nothing important hides behind the scroll. */
+@media (min-width: 1024px) {
+  .stage-day {
+    flex: 1 1 0;
+    min-width: 0;
+  }
+
+  .stage-timeline-track {
+    overflow-x: visible;
+  }
+}
+
+@media (max-width: 767px) {
+  .stage-scene-title {
+    max-width: 20ch;
+  }
+
+  .stage-peek,
+  .stage-graph {
+    border-radius: 12px;
+  }
+
+  .stage-peek-actions .stage-primary-action,
+  .stage-peek-actions .stage-secondary-action {
+    flex: 1 1 100%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .stage-day-button,
+  .stage-primary-action,
+  .stage-secondary-action,
+  .stage-discovery-link,
+  .stage-destination {
+    transition: none;
+  }
+}
+
+@media (forced-colors: active) {
+  .stage-day-mark {
+    forced-color-adjust: none;
+    background: CanvasText;
+  }
+
+  .stage-day[data-has-edition="true"] .stage-day-mark {
+    background: Highlight;
+  }
+
+  .stage-primary-action {
+    forced-color-adjust: none;
+    background: Highlight;
+    color: HighlightText;
+  }
+
+  .stage-day[data-selected="true"] .stage-day-button {
+    border-color: Highlight;
   }
 }

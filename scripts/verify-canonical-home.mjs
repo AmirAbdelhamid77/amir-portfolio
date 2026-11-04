@@ -36,18 +36,27 @@ const aliasHtml = existsSync(path.join(OUT, "prototype-c/index.html"))
   ? readOut("prototype-c/index.html")
   : null;
 
-// Updated with the v3 gate flow (2026-10-30): the full-screen date hero, the
-// Learn Gate and the certificate gate are the landing's section identity. The
-// markers are the gate kickers — contiguous text nodes, unlike the titles
-// whose emphasis splits them across <em> elements.
+// Updated with the three-scene Home (M6, 2026-11-04): the timeline is the first
+// viewport, the knowledge scene unfolds the selected edition, and the closing
+// scene hands the reader on. The markers are contiguous text nodes — the scene
+// kickers and the first line of the h1 — unlike the titles whose emphasis
+// splits them across elements.
 const LANDING_MARKERS = [
   "Knowledge stage",
-  "The Learn Gate",
-  "Certificate preparation",
+  "Choose a moment.",
+  "The knowledge scene",
+  "The way onward",
   "The insight archive",
   "Editions under editorial review",
 ];
-const RETIRED_MARKERS = ["Three ways to use this site", "Data that makes", "02 — Learn & practise"];
+const RETIRED_MARKERS = [
+  "Three ways to use this site",
+  "Data that makes",
+  "02 — Learn & practise",
+  // Retired v3 gates: the Home must not export them again.
+  "The Learn Gate",
+  "Certificate preparation",
+];
 
 check("ROOT02/H052", rootHtml !== null, "out/index.html exists");
 if (rootHtml) {

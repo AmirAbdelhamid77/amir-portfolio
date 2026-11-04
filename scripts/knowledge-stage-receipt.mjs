@@ -44,24 +44,67 @@ export function knowledgeStageReceipt(root){
   assert.equal(hash(m6.previous),m6.previousSha256,'M6 predecessor receipt drift');
   assert.equal(new Set(m6.files.map(e=>e.path+'::'+e.previousSha256)).size,m6.files.length,'Duplicate M6 pin');
   assert.equal(new Set(m6.additions.map(e=>e.path)).size,m6.additions.length,'Duplicate M6 addition');
+  // A pin is only compared with disk when no later pin supersedes it. Step 1's
+  // record of a path must stay in the layer as history; the terminal hop is the
+  // one that must match the file.
+  const superseded=(p,sha)=>m6.files.some(e=>e.path===p&&e.previousSha256===sha);
   for(const e of m6.files){
-   assert.equal(hash(e.path),e.sha256,'M6 drift '+e.path);
+   if(!superseded(e.path,e.sha256))assert.equal(hash(e.path),e.sha256,'M6 drift '+e.path);
    assert.ok(e.attribution&&e.layer,'M6 pin must state attribution and layer '+e.path);
-   assert.ok(!m6.additions.some(a=>a.path===e.path),'M6 path both changed and added '+e.path);
+   assert.ok(
+    !(e.previousSha256===null&&m6.additions.some(a=>a.path===e.path)),
+    'M6 path is both added and pinned from null '+e.path
+   );
   }
   for(const e of m6.additions){
-   assert.equal(hash(e.path),e.sha256,'M6 addition drift '+e.path);
+   if(!superseded(e.path,e.sha256))assert.equal(hash(e.path),e.sha256,'M6 addition drift '+e.path);
    assert.ok(e.attribution&&e.layer,'M6 addition must state attribution and layer '+e.path);
   }
  }
  // A successor hash advances exactly the recorded predecessor hash it names.
+ // The layer may pin the same path more than once (step 1, then step 2), so the
+ // transition is followed hop by hop until no recorded pin accepts the current
+ // hash. The hop limit turns a mistaken cycle into a failure, not a hang.
  const m6After=(p,h)=>{
   if(!m6)return h;
-  const pin=m6.files.find(e=>e.path===p&&e.previousSha256===h);
-  if(pin)return pin.sha256;
-  if(h===null){const addition=m6.additions.find(e=>e.path===p);if(addition)return addition.sha256;}
-  return h;
+  let current=h;
+  for(let hop=0;hop<32;hop+=1){
+   const pin=m6.files.find(e=>e.path===p&&e.previousSha256===current);
+   if(pin){current=pin.sha256;continue;}
+   if(current===null){
+    const addition=m6.additions.find(e=>e.path===p);
+    if(addition){current=addition.sha256;continue;}
+   }
+   return current;
+  }
+  assert.fail('M6 pin chain does not terminate for '+p);
  };
+ // Every transition must start from a hash the layer chain already recorded:
+ // M0's pin or addition for the path, or an M6 addition/hop. A pin with an
+ // invented predecessor would verify in isolation and never apply in practice.
+ if(m6){
+  const recorded=new Map();
+  const remember=(path,sha)=>{
+   if(!recorded.has(path))recorded.set(path,new Set());
+   recorded.get(path).add(sha);
+  };
+  for(const e of m.files)remember(e.path,e.sha256);
+  for(const e of m.additions)remember(e.path,e.sha256);
+  // Additions are seeded first so a later pin can advance the addition it
+  // supersedes (step 1 added a file, step 2 changed it).
+  for(const e of m6.additions)remember(e.path,e.sha256);
+  for(const e of m6.files){
+   if(e.previousSha256===null){
+    assert.ok(m6.additions.some(a=>a.path===e.path),'M6 pin starts from null without an addition '+e.path);
+   }else{
+    assert.ok(recorded.get(e.path)?.has(e.previousSha256),'M6 pin predecessor was never recorded '+e.path);
+   }
+   remember(e.path,e.sha256);
+  }
+  for(const e of m6.additions){
+   assert.ok(!m.files.some(f=>f.path===e.path),'M6 addition overwrites a pinned path '+e.path);
+  }
+ }
  // M0's own pins are read through M6, so a recorded successor transition is not
  // mistaken for drift; a hash M6 did not name still fails here.
  for(const e of m.files)assert.equal(hash(e.path),m6After(e.path,e.sha256),'Knowledge-stage drift '+e.path);

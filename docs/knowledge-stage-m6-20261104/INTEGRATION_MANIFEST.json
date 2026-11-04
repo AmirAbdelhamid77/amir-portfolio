@@ -1,6 +1,6 @@
 {
   "scope": "hansa-knowledge-stage-m6-20261104",
-  "note": "M6 successor layer. It records only what M0 could not: the public stage boundary and its test, the pre-integration baseline, and one stale guard repaired without changing site behavior. It never republishes a unit, never widens the Atlas projection and never edits M0.",
+  "note": "M6 successor layer. It records what M0 could not: step 1 added the public stage boundary, its test and the pre-integration baseline and repaired two stale guards; step 2 records the visible three-scene swap, the three scene components, the re-baselined guards and the two light relation tokens. It never republishes a unit, never widens the Atlas projection and never edits M0.",
   "previous": "docs/knowledge-stage-m0-20261103/INTEGRATION_MANIFEST.json",
   "previousSha256": "350d61cedfe26f9976ad4f414038b7c68ad38f1b02693f7ae02e65ae4d92e609",
   "files": [
@@ -30,6 +30,69 @@
       "layer": "knowledge-stage-m6/2026-11-04",
       "attribution": "M6-stage-foundation",
       "note": "The byte-identity guard compared content against the raw 28 Oct SQL baseline, so the later audited Atlas extension wave read as damage. The guard now asks the receipt chain whether a successor recorded the exact bytes, which is the invariant the repository already enforces; no content byte changed."
+    },
+    {
+      "path": "components/knowledge/insight-stage.tsx",
+      "previousSha256": "bf2c19c6449e701afab07b443fa016edbcba96ff102ca85bc516953691663809",
+      "sha256": "9ea9d6b6a470a98f5abdfc90bb6547fe9c9c31d32ac5ba5c88da5d4bfb176942",
+      "bytes": 15363,
+      "layer": "knowledge-stage-m6/2026-11-04",
+      "attribution": "M6-stage-swap",
+      "note": "Reshaped into the three-scene client boundary. Selection, the ?insight= restore/pushState contract, scene disclosures, card zones and the dealer pointer tilt are retained; the v3 gate stack, editions rail and scroll-progress choreography are removed. The dealer is mounted inside the timeline scene behind 'Open the edition'."
+    },
+    {
+      "path": "components/knowledge/hansa-landing.tsx",
+      "previousSha256": "3c8f89832353bdc90bebe937371c5fb4b05f739faa898dad64fc81f581de6f61",
+      "sha256": "3044ef8db6f5f1264f9b969a85382ffd9b5dd63ae5a84c28f06b0a61e9b96539",
+      "bytes": 2142,
+      "layer": "knowledge-stage-m6/2026-11-04",
+      "attribution": "M6-stage-swap",
+      "note": "Builds the stage model once (audience 'review', today = build date) and passes model, items, Atlas and the feed notice to the stage. The Atlas still uses its default fail-closed projection, so the review audience cannot widen it."
+    },
+    {
+      "path": "components/knowledge/stage-editorial.css",
+      "previousSha256": "ab492ed599733a76a441aee2cc553431b17eb9b126aea1c5ae676039be0c323c",
+      "sha256": "e32523f95381c5f54cf04626a8828667ef699bc404cac8f2da18ac9a1b966095",
+      "bytes": 19122,
+      "layer": "knowledge-stage-m6/2026-11-04",
+      "attribution": "M6-stage-swap",
+      "note": "Adds the .stage-scene* vocabulary: timeline strip and ticks, peek, actions, dealer disclosure, graph/discovery panel, closing destinations, plus responsive, reduced-motion and forced-colors rules. The retired .stage-gate* rules remain for the gate components the Home no longer mounts."
+    },
+    {
+      "path": "lib/knowledge/stage-model.ts",
+      "previousSha256": "a5a0467317024bf84f5a09a442ab07ae856ff2bce4b91f532532597e965045a9",
+      "sha256": "1423ec5f120be9a64acb7931e438ac7c456011507688bc5733f2e8156944e133",
+      "bytes": 9435,
+      "layer": "knowledge-stage-m6/2026-11-04",
+      "attribution": "M6-stage-swap",
+      "note": "A review audience with zero withheld edges now falls back to the projection's own notice instead of reporting '0 candidate connections'. The public branch is unchanged, so the /not published yet/ contract still holds."
+    },
+    {
+      "path": "app/globals.css",
+      "previousSha256": "9547dcceaeef59f43ff8b1180531bf2892025ecda0f8cdbdf80965f411805847",
+      "sha256": "0ce9b77e04656e57c4c4492b5d88a1419e39efe12da3572f13c0aaddce018d7f",
+      "bytes": 18740,
+      "layer": "knowledge-stage-m6/2026-11-04",
+      "attribution": "M6-stage-swap",
+      "note": "Light-mode relation marks: --chart-3 #e69f00 -> #c07d00 (2.19:1 -> 3.30:1) and --chart-4 #cc79a7 -> #b85c8f (2.97:1 -> 4.11:1) against #FCFCFC. Same hue families, both above the 3:1 non-text target. Dark tokens unchanged; no other token moved."
+    },
+    {
+      "path": "tests/knowledge/canonical-home.test.mjs",
+      "previousSha256": "51710e0ad1fac0d9200516e2846a18791cce844cd79132846c5c04fb625de2aa",
+      "sha256": "ddfe003ef153a37f8df07bb8987fb296cb415f7c8595ead3ff204bef0a1bb87f",
+      "bytes": 14596,
+      "layer": "knowledge-stage-m6/2026-11-04",
+      "attribution": "M6-stage-swap",
+      "note": "Re-baselined for the swap: asserts the three scenes in reading order, the retired gates absent from the Home while their files remain, one dealer behind a disclosure, one buildStageModel call, the timeline's selection-is-not-activation contract, and the archive hand-off in the closing scene. Every pre-existing invariant is kept."
+    },
+    {
+      "path": "tests/knowledge/stage-model.test.mjs",
+      "previousSha256": "04af4da97c8eccd3a6c6e451dfe99a3ffeb16c5ca782f4f68ec03b9e40f62ecb",
+      "sha256": "8c0ac2a8134a3d40512b0dce514fedfeb3d3196e4af1e64e87f9109de1d3a5b6",
+      "bytes": 8670,
+      "layer": "knowledge-stage-m6/2026-11-04",
+      "attribution": "M6-stage-swap",
+      "note": "Adds the zero-withheld review fallback guard: with the empty public projection the review model must reuse the projection's notice and contain no 'candidate' vocabulary."
     }
   ],
   "additions": [
@@ -56,6 +119,30 @@
       "layer": "knowledge-stage-m6/2026-11-04",
       "attribution": "M6-stage-foundation",
       "note": "Pre-integration baseline captured before the three-scene Home swap, so the visible change can be compared and reverted byte-for-byte."
+    },
+    {
+      "path": "components/knowledge/stage-timeline.tsx",
+      "sha256": "a0e38c4a06325b59ecd634eb3bd1886e6931f81268ae60f4377c2f5709458a36",
+      "bytes": 11268,
+      "layer": "knowledge-stage-m6/2026-11-04",
+      "attribution": "M6-stage-swap",
+      "note": "Scene 1. Fifteen-day calendar strip from the stage model; a quiet day is a static cell with no control, an edition day is a button. Arrow/Home/End walk editions, Enter opens the disclosed dealer. Roving tabindex, honest empty-day copy, and a narrow-screen scroll that centres the selected edition without moving the page."
+    },
+    {
+      "path": "components/knowledge/stage-knowledge.tsx",
+      "sha256": "d6ff81d39c5c24be25f55905b4927abee42f21caef01a49c6b4b08355371f7a8",
+      "bytes": 6665,
+      "layer": "knowledge-stage-m6/2026-11-04",
+      "attribution": "M6-stage-swap",
+      "note": "Scene 2. The selected edition unfolded with InsightScene and KnowledgeInstrument, then the only graph the audience may see: Atlas peek when state is ready, otherwise the model's notice, counts and site-relative discovery destinations. Draws no candidate edge."
+    },
+    {
+      "path": "components/knowledge/stage-closing.tsx",
+      "sha256": "0cbd3b92e200bc99d5b3392740e04b2c7fa3813a008a883d7bd93a4bc0133cab",
+      "bytes": 3662,
+      "layer": "knowledge-stage-m6/2026-11-04",
+      "attribution": "M6-stage-swap",
+      "note": "Scene 3. Four real destinations, the review status, the selected edition's lesson/practice/archive hand-offs, the identity strip and the polite live region. No gate, no takeover, no unpublished promise."
     }
   ],
   "removed": [],

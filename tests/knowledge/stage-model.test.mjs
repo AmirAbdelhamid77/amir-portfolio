@@ -131,6 +131,22 @@ test("graph: review counts candidate edges without publishing them", () => {
   assert.match(reviewModel.graph.notice, /86 candidate connections are under technical review/);
 });
 
+test("graph: review with no withheld edge falls back to the projection's notice", () => {
+  // The public projection today holds zero concepts and zero edges. Counting
+  // "0 candidate connections" would be a claim about a review inventory the
+  // boundary cannot see; the projection's own notice is the honest sentence.
+  const emptyReview = buildStageModel({
+    items,
+    graph: publicGraph,
+    audience: "review",
+    today: REVIEW_TODAY,
+  });
+  assert.equal(emptyReview.graph.state, "empty");
+  assert.equal(emptyReview.graph.withheldEdges, 0);
+  assert.equal(emptyReview.graph.notice, publicGraph.notice);
+  assert.equal(/\bcandidate\b/i.test(JSON.stringify(emptyReview)), false);
+});
+
 test("boundary: the public model carries no claims, rationales or edge objects", () => {
   const serialized = JSON.stringify(publicModel);
   // Key-level assertions, not a substring sweep: the honest empty-state copy

@@ -225,9 +225,13 @@ function buildGraph(graph: GraphSnapshot, audience: Audience): GraphScene {
     notice:
       state === "ready"
         ? graph.notice
-        : audience === "review"
+        : audience === "review" && edges.withheld > 0
           ? `${edges.withheld} candidate connections are under technical review and are not published.`
-          : "Reviewed connections are not published yet. The lessons, practice and search below are available now.",
+          : audience === "review"
+            // No published and no withheld edge: counting nothing would invent a
+            // claim, so the projection's own honest notice stands in.
+            ? graph.notice
+            : "Reviewed connections are not published yet. The lessons, practice and search below are available now.",
     discovery: stageDestinations(),
   };
 }

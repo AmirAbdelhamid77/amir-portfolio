@@ -1369,3 +1369,142 @@ in this commit is that two stale tests now test the invariant they describe.
 Owner sign-off on the three-scene visual direction and the two light-mode tokens,
 then step 2: build the scenes against `buildStageModel`, reuse the dealer and rail
 renderers, and add the M6 pins for every changed file in the same layer.
+
+## 16. M6 step 2 — the three-scene Home lands (2026-11-04)
+
+The visible swap is in. `/` and `/prototype-c/` now render a fifteen-day timeline,
+the selected edition unfolded, and a closing signpost, followed by the archive.
+The full-viewport Learn and Certify gates are no longer mounted. Both gate
+components, and the old date hero, remain on disk and importable; the change is
+in what the Home composes, not in what the repository keeps.
+
+Engineering evidence is green below. Owner visual acceptance is not, and this
+section does not pretend otherwise.
+
+### 16.1 What the page renders now
+
+| Scene | Anchor | Content | Boundary it reads |
+|---|---|---|---|
+| Timeline | `#today` | heading "Choose a moment."; fifteen consecutive days, newest first; an edition day is a button, a quiet day is a static cell; peek; "Open the edition" discloses the dealer | `timeline.days`, `timeline.editions`, `timeline.emptyNotice`, `timeline.withheldEditions` |
+| Knowledge | `#edition` | "The knowledge scene": `InsightScene`, `KnowledgeInstrument`, then the graph panel | `graph.state`, `graph.notice`, counts, `graph.discovery` |
+| Closing | `#closing` | "The way onward": four destinations, review status, the selected edition's lesson/practice/archive hand-offs, compact About strip, feed notice, polite live region | `closing.destinations`, `review.status`, `review.notice` |
+
+The timeline separates reading from dealing: a day click updates the peek and
+`?insight=`, while Enter on the selected day or the disclosure button opens the
+dealer. A quiet day is not a control at all, so an empty date cannot borrow a
+neighbour's card. The strip is one tab stop with arrow/Home/End movement, and on
+a narrow screen it scrolls to centre the selected edition without moving the page.
+
+`StageAtlasPeek` mounts only when `model.graph.state === "ready"`. The public
+projection still has zero published edges, so the Home shows the projection's
+notice, the withheld counts available to the review audience, and the four
+site-relative discovery links — no decorative canvas, no candidate edge.
+
+### 16.2 One audience decision, above the renderers
+
+`hansa-landing.tsx` calls `buildStageModel({ items, graph: getAtlas(), audience:
+"review", today: new Date() })` once and passes the result down. The three scene
+files contain no `buildStageModel`, no `eligibleInsights`, no feed read and no
+`audience:` property; a guard asserts that. The Atlas call keeps its default
+fail-closed projection, so the review audience can see the three
+`technical_review` editions without widening the graph by one edge.
+
+Because this is a static export, `today` is the build date. The fifteen-day
+window is build-anchored, the archive remains the complete list, and the copy
+says "newest first" instead of claiming to know the visitor's clock.
+
+In `stage-model.ts`, a review audience with zero withheld edges now falls back to
+the projection's own notice rather than printing `0 candidate connections`. The
+public branch is byte-for-byte the same behaviour as step 1.
+
+### 16.3 Deviations from the visual spec, stated
+
+| Spec suggested | Implemented | Why |
+|---|---|---|
+| Reuse `insight-rail.tsx` as the timeline row | a new calendar strip | the rail models editions; the scene models days, and quiet days have no edition identity. The rail is untouched. |
+| Edition titles inside the track | ticks with the title in the accessible name and the peek | fifteen titles at 80 px columns is noise; the peek already carries the selected title |
+| Dealer as a full-screen takeover | dealer behind "Open the edition" | the brief forbids competing full-screen gates on the Home |
+| A live "today" after hydration | build-anchored `today` | there is no request-time clock in a static export; faking the visitor's date would make the model disagree with the HTML |
+
+### 16.4 The two light relation tokens
+
+`--chart-3` moved from `#e69f00` to `#c07d00` (2.19:1 → 3.30:1 against `#FCFCFC`)
+and `--chart-4` from `#cc79a7` to `#b85c8f` (2.97:1 → 4.11:1). Both stay in their
+hue families and clear the 3:1 non-text target. Dark tokens are unchanged and no
+other token moved. The ratios are computed from token values, not sampled from a
+rendered element.
+
+### 16.5 Receipt layer, extended in place
+
+The M0 manifest was not edited. The same M6 layer now records two steps:
+
+| Step | Changed pins | Additions |
+|---|---|---|
+| step 1 | 3 | 3 |
+| step 2 | +7 | +3 |
+| total | 10 | 6 |
+
+The step-1 entries are preserved as history. `scripts/knowledge-stage-receipt.mjs`
+now follows a path's pins hop by hop until no recorded pin accepts the current
+hash, so a file pinned in step 1 and again in step 2 verifies against its terminal
+hash while its earlier record stays auditable. It also proves every predecessor
+was itself recorded (M0 pin, M0 addition, or an M6 addition/hop) before accepting
+a transition, and seeds additions first so a step-2 pin can advance a file step 1
+added. Disk equality is demanded only of the terminal hop.
+
+`scripts/seal-canonical-home.mjs` was deliberately **not** run: it writes the
+28 October layer, and `canonicalHomeReceipt` already reads through M6. Re-running
+it would rewrite a historical layer, which the chain forbids.
+
+### 16.6 What broke during the build, and how each was repaired
+
+| Failure | Repair | Not done |
+|---|---|---|
+| ESLint's React Compiler rule rejected two `useCallback` hooks in `stage-timeline.tsx`: the dependency list held a per-render `editionDays` array it could not preserve | replaced with plain closures and one `focusEdition` helper; the compiler now memoises them. 2 errors → 0 | the callbacks were not suppressed with a disable comment |
+| `canonical-home.test.mjs` rejected the word `audience` anywhere in a scene file, including the comment "an audience that may not see an edition" | narrowed to the actual invariant: no `buildStageModel(`, `eligibleInsights(`, `insights.json` or `audience:` property | the guard was not deleted or made unconditional |
+| QA expected the retired rail's `aria-controls` on a `#today` button and the rail's short card titles | reduced-motion check now toggles the edition disclosure; the unused `cardTitle` fixture is gone. 49 checks still run | the check count was not reduced |
+| Quiet-day ticks drifted off the edition ticks' baseline and the mobile strip opened off-centre | every tick reserves its status line; the strip centres the selected edition on load and on selection | no layout-only screenshot was accepted as proof |
+
+### 16.7 Gates
+
+| Gate | Result |
+|---|---|
+| `npm run test:all` | PASS — 257/257 across six suites (62/18/35/68/49/25) |
+| `npm run lint` | PASS — 0 errors, 49 warnings (none in the new files) |
+| `npx tsc --noEmit` | PASS |
+| `npm run build` | PASS — static export and 434 segment aliases written |
+| `node scripts/verify-agent-reference.mjs` | PASS — 13 active hashes |
+| `node scripts/verify-knowledge-atlas.mjs` | PASS — 16 payload, 33 integration, 23 links |
+| `node scripts/verify-easyui-integration.mjs` | PASS — 41 owned, 1,169 prior-file contracts |
+| `node scripts/final-review-negative.mjs` | PASS — 17/17 corruption cases rejected |
+| `node scripts/verify-canonical-home.mjs` | PASS — 34/34 export markers |
+| `node scripts/qa-canonical-home.mjs` | PASS — 49/49 in a real browser, axe 0 findings |
+| Owner visual acceptance (M3) | **NOT RUN** — no human visual review is recorded |
+| Performance against `2026-11-04-pre-m6` | **NOT RUN** |
+| Screen-reader / manual accessibility pass | **NOT RUN** — axe covers automated rules only |
+| Deployment | **BLOCKED** — owner-only credentials, and not requested |
+
+The QA run rewrote seven artefacts in `docs/canonical-home/evidence/`: desktop
+dark and light, mobile 390, the open dealer, no-JS, the `/prototype-c/` alias, and
+the two JSON reports. The screenshots were inspected by hand for the timeline
+baseline, the disclosure, the closing scene and the narrow strip.
+
+### 16.8 What this does not claim
+
+It does not claim the Home is visually accepted, that the light theme is
+audited by a human, that the Home is fast, that the semantic corpus is reviewed,
+that M7 has started, or that anything was deployed. It does not claim the two
+retired gate components are dead code to delete: they are unmounted, pinned, and
+available for other routes.
+
+The Atlas remains preparation-only: zero published editions in the public
+projection, zero published edges, no renderer QA beyond the Home's honest empty
+state.
+
+### 16.9 Next atomic task
+
+Consume the last `thin-fragment` batch (6 units) in the M1 semantic queue, then
+start `formula-fragment`. Owner visual acceptance (M3) and the performance
+measurement remain open and are not blocked by that work; neither is a
+precondition for the semantic batches, and neither may be reported as done until
+a human or a measurement actually does it. Deployment stays owner-only.

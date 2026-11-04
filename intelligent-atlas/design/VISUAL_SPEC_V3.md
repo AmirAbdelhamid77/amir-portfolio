@@ -258,8 +258,8 @@ Computed with the WCAG relative-luminance formula against the real token values
 | Light primary button label | 6.13:1 | 4.5 | PASS |
 | Light `--chart-1` mark | 5.05:1 | 3 | PASS |
 | Light `--chart-2` mark | 3.33:1 | 3 | PASS |
-| Light `--chart-3` mark | **2.20:1** | 3 | **FAIL** |
-| Light `--chart-4` mark | **2.98:1** | 3 | **FAIL** |
+| Light `--chart-3` mark | 3.30:1 | 3 | PASS (was 2.20:1) |
+| Light `--chart-4` mark | 4.11:1 | 3 | PASS (was 2.98:1) |
 | Light `--chart-5` mark | 3.77:1 | 3 | PASS |
 | Dark body on background | 16.31:1 | 4.5 | PASS |
 | Dark muted on background | 6.82:1 | 4.5 | PASS |
@@ -267,11 +267,15 @@ Computed with the WCAG relative-luminance formula against the real token values
 | Dark primary button label | 8.59:1 | 4.5 | PASS |
 | Dark `--chart-1..5` marks | 7.91 / 9.50 / 10.94 / 9.58 / 8.07 | 3 | PASS |
 
-Consequence, not a footnote: on the light background `--chart-3` (amber) and
-`--chart-4` (pink) cannot be the only carrier of meaning for a thin line. Where
-those two relation classes appear in light mode, the edge keeps a 1.5px stroke
-plus a text label and a distinct dash pattern, or the relation is carried by the
-label alone. Dark mode has no such restriction.
+Correction (2026-11-04, M6 step 2): the two failures were token defects, not a
+composition constraint. `--chart-3` moved within the same amber family from
+`#e69f00` to `#c07d00` (3.30:1) and `--chart-4` within the same pink family from
+`#cc79a7` to `#b85c8f` (4.11:1), measured against `oklch(99% 0 0)` = `#FCFCFC`.
+Both now clear the 3:1 non-text floor without changing hue, so the light theme
+no longer needs a special-case stroke or dash workaround. The general rule still
+stands for every mode: a relation class is never carried by colour alone — the
+edge keeps its stroke and its text label, and the label names the relation.
+Dark mode is unchanged and had no failure.
 
 ---
 
@@ -353,19 +357,21 @@ instrumented" is recorded as such, not as a pass.
 
 ## 12. Open owner questions
 
-1. **Light-mode relation colour.** `--chart-3` (2.20:1) and `--chart-4`
-   (2.98:1) fail the 3:1 mark target on the light background.
-   (a) Keep the tokens and always pair them with a label and dash pattern.
-   (b) Darken those two tokens for marks only, adding a mark-specific variant.
+1. **Light-mode relation colour.** Resolved 2026-11-04 (M6 step 2): option (b)
+   was implemented at token level. `--chart-3` is now `#c07d00` (3.30:1) and
+   `--chart-4` `#b85c8f` (4.11:1) against `#FCFCFC`, same hue families, both
+   above the 3:1 mark target. No mark-specific variant was needed. Option (a)
+   remains the rule for all modes anyway: a relation always carries a label.
 2. **Edition cadence.** Three editions exist (24–26 Oct 2026) and the review
    clock spans 15 days. (a) Show the empty days explicitly. (b) Show only days
    with an edition, and state the gap in text.
 3. **Review badge prominence.** (a) Persistent small badge on every candidate
    edge. (b) One banner per scene stating that all content is under technical
    review. The first is safer; the second is quieter.
-4. **Timeline as first viewport in the integrated Home.** (a) Timeline first,
-   as specified here. (b) Today's edition card first with the timeline directly
-   beneath. This changes the Home's first screen and is an owner call.
+4. **Timeline as first viewport in the integrated Home.** Resolved 2026-11-04
+   (M6 step 2): option (a). The timeline is the first scene and the first
+   viewport; the selected edition is a peek beneath it, and the Dealer opens
+   only on request. Empty days stay visible as quiet ticks.
 5. **Mobile field.** (a) No edge lines below 768px, labels carry the relation.
    (b) A single-column list is the only mobile representation, with the field
    desktop-only.

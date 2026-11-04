@@ -20,23 +20,20 @@ const PORT = Number(portIndex === -1 ? 4313 : args[portIndex + 1]);
 const BASE = `http://127.0.0.1:${PORT}`;
 const EVIDENCE = path.resolve("docs/canonical-home/evidence");
 
-// `title` is the headline shown in the stage; `cardTitle` is the shorter label
-// the rail and the archive use, which is what the rail reports as its label.
+// `title` is the headline shown in the knowledge scene, which is what the
+// timeline's peek and the day control carry.
 const EDITIONS = {
   reference: {
     id: "hansa-insight-shortcut-reference-v1",
     title: "A reference is a design decision.",
-    cardTitle: "Reference ≠ retained result",
   },
   delete: {
     id: "hansa-insight-shortcut-delete-v1",
     title: "Name the object you are deleting.",
-    cardTitle: "Object versus target",
   },
   discovery: {
     id: "hansa-insight-shortcut-discovery-v1",
     title: "Location changes discovery.",
-    cardTitle: "Files versus Tables",
   },
 };
 
@@ -107,20 +104,15 @@ async function shot(page, name, label) {
 
 const stageText = (page) => page.locator("#today").innerText();
 
-// The rail's active edition button is an invisible hit area whose label lives in
-// the spans it points at, so read the labelled text rather than the button text.
+// The timeline's selected day is the only `aria-current="date"` control. Its
+// text is the real accessible name: date, edition title (visually hidden) and
+// review status.
 const activeEditionLabel = (page) =>
-  page.evaluate(() => {
-    const active = document.querySelector('[aria-current="date"]');
-    if (!active) return "";
-    return (active.getAttribute("aria-labelledby") ?? "")
-      .split(/\s+/)
-      .filter(Boolean)
-      .map((id) => document.getElementById(id)?.textContent ?? "")
-      .join(" ")
+  page.evaluate(() =>
+    (document.querySelector('[aria-current="date"]')?.textContent ?? "")
       .replace(/\s+/g, " ")
-      .trim();
-  });
+      .trim(),
+  );
 
 // The visible deal control. The deck also carries an invisible
 // `aria-label="Deal from the deck"` hit area, but the top card of the deck sits
@@ -137,24 +129,37 @@ try {
     // Stage headings are uppercased by CSS, and innerText reports the rendered
     // (transformed) text, so compare case-insensitively.
     const rendered = body.toLowerCase();
-    // v3 gate flow (2026-10-30): the markers are the gates' rendered identity —
-    // masthead, Learn Gate, certificate gate (kicker + coverage caption),
-    // archive — apostrophe-free and contiguous so JSX typographic quotes and
-    // <em> splits never break the match.
+    // Three-scene Home (M6, 2026-11-04): the timeline is the first viewport,
+    // the knowledge scene unfolds the edition, the closing scene hands on.
+    // Markers are apostrophe-free and contiguous in the rendered text.
     const markers = [
       "knowledge stage",
-      "the learn gate",
-      "certificate preparation",
-      "questions per exam objective",
+      "choose a moment.",
+      "the knowledge scene",
+      "the way onward",
       "the insight archive",
     ].filter((marker) => rendered.includes(marker));
-    record("ROOT01", markers.length === 5, `landing sections present: ${markers.length}/5`);
+    record("ROOT01", markers.length === 5, `landing scenes present: ${markers.length}/5`);
     record(
       "ROOT01b",
-      !/three ways to use this site/i.test(body),
-      "the retired gateway directory is not on the homepage",
+      !/the learn gate|certificate preparation/i.test(body),
+      "the retired v3 gates are not rendered on the homepage",
     );
     record("ROOT01c", !/prototype c/i.test(body), "no prototype framing is rendered");
+
+    // The first viewport is a clock, not a takeover: the timeline heading is
+    // visible at load and the dealer does not exist until it is asked for.
+    const timelineBox = await page.locator("#stage-timeline-title").boundingBox();
+    record(
+      "SCENE01",
+      Boolean(timelineBox && timelineBox.y >= 0 && timelineBox.y < 900),
+      `the timeline heading is in the first viewport (y=${timelineBox ? Math.round(timelineBox.y) : "n/a"})`,
+    );
+    record(
+      "SCENE02",
+      (await page.locator('[aria-label="Knowledge card tray"]').count()) === 0,
+      "no full-screen dealer at load; the card table is a disclosure",
+    );
     await shot(page, "root-desktop-1280-dark", "Canonical landing at 1280, dark");
 
     // Today is the active primary destination on `/`.
@@ -179,6 +184,7 @@ try {
       fabric: window.localStorage.getItem("amir-fabric-v1"),
       lab: window.localStorage.getItem("amir-lab-v1"),
     }));
+    await page.getByRole("button", { name: /^Open the edition$/ }).click({ timeout: 5_000 }).catch(() => {});
     await dealButton(page).click({ timeout: 5_000 }).catch(() => {});
     await page.locator("#today button[aria-controls]").first().click().catch(() => {});
     await page.waitForTimeout(200);
@@ -209,15 +215,16 @@ try {
     );
 
     // Reveal / evidence (SCENARIO01-02). The reveal control is addressed by its
-    // `aria-controls` hook, because its own label flips after revealing.
-    const reveal = () => page.locator("#today button[aria-controls]").first();
+    // `aria-controls` hook, because its own label flips after revealing. It
+    // lives in the knowledge scene now, not in the timeline.
+    const reveal = () => page.locator("#edition button[aria-controls]").first();
     await reveal().click();
     record(
       "SCENARIO02",
       (await reveal().getAttribute("aria-expanded")) === "true",
       "reveal reports aria-expanded=true",
     );
-    const reasoningVisible = await page.locator('#today [id][role], #today p').first().isVisible();
+    const reasoningVisible = await page.locator('#edition [id][role], #edition p').first().isVisible();
     await reveal().click();
     record(
       "SCENARIO02b",
@@ -226,20 +233,14 @@ try {
     );
     record("SCENARIO02c", reasoningVisible, "scene stays visible through reveal toggles");
 
-    // Card dealer (DEALER01-03). Since the v3 gate flow the dealer lives in
-    // the date gate's full-viewport takeover, so the takeover CTA opens first
-    // (the label carries a typographic apostrophe — matched with a wildcard).
-    // Cards are the tray buttons that own `aria-expanded`; the reader is the
-    // region they control.
+    // Card dealer (DEALER01-03). The dealer is a disclosure inside the timeline
+    // scene: "Open the edition" mounts it under the peek, and only then can the
+    // deck be dealt. Cards are the tray buttons that own `aria-expanded`; the
+    // reader is the region they control.
     const cards = page.locator('[aria-label="Knowledge card tray"] button[aria-expanded]');
     const reader = page.locator('[role="region"][aria-label="Selected card"]');
-    // The CTA lives in the pinned date gate: from the reading gate's scroll
-    // position it is geometrically in view but covered by the next gate, so
-    // the run returns to the top first — what a reader pressing Home does.
-    await page.evaluate(() => window.scrollTo({ top: 0, behavior: "instant" }));
-    await page.waitForTimeout(300);
-    await page.getByRole("button", { name: /Deal today.s insight/ }).click();
-    await page.waitForTimeout(600);
+    await page.getByRole("button", { name: /^Open the edition$/ }).click();
+    await page.waitForTimeout(500);
     await dealButton(page).click();
     await page.waitForTimeout(500);
     const dealtCards = await cards.count();
@@ -267,15 +268,32 @@ try {
     }
     await shot(page, "root-dealer-1280-dark", "Dealer after dealing the hand");
 
-    // Timeline: pointer step and keyboard step (TIMELINE01-02, URL05).
+    // Timeline: pointer step and keyboard step (TIMELINE01-02, URL05). The
+    // strip is a real calendar: an edition day is a button, a quiet day is a
+    // static cell with no control behind it.
+    const editionDays = page.locator('#today ol li[data-has-edition="true"] button');
+    const quietDays = page.locator('#today ol li[data-has-edition="false"]');
+    const editionCount = await editionDays.count();
+    const quietCount = await quietDays.count();
+    record(
+      "TIMELINE03",
+      editionCount === 3 && quietCount > 0,
+      `${editionCount} edition tick(s), ${quietCount} quiet day(s)`,
+    );
+
     const activeBefore = await activeEditionLabel(page);
-    await page.locator('[aria-label="Older edition"]').click();
-    await page.waitForTimeout(650);
+    await editionDays.nth(1).click();
+    await page.waitForTimeout(600);
     const activeAfterClick = await activeEditionLabel(page);
     record(
       "TIMELINE01",
-      activeBefore !== activeAfterClick && activeAfterClick.length > 0,
-      `rail arrow: "${activeBefore}" → "${activeAfterClick}"`,
+      activeBefore !== activeAfterClick && activeAfterClick.includes(EDITIONS.delete.title),
+      `day selection: "${activeBefore}" → "${activeAfterClick}"`,
+    );
+    record(
+      "TIMELINE04",
+      (await stageText(page)).includes(EDITIONS.delete.title),
+      "the peek follows the selected day; it never keeps a neighbour's card",
     );
 
     await page.locator('[aria-current="date"]').focus();
@@ -288,7 +306,7 @@ try {
     record(
       "TIMELINE02",
       activeAfterKey !== activeAfterClick && stillFocused,
-      `ArrowRight: "${activeAfterClick}" → "${activeAfterKey}" (focus stays in the rail: ${stillFocused})`,
+      `ArrowRight: "${activeAfterClick}" → "${activeAfterKey}" (focus stays in the timeline: ${stillFocused})`,
     );
 
     record("URL05", (await page.url()).includes("insight="), `selection is reflected in the URL: ${page.url()}`);
@@ -352,8 +370,8 @@ try {
     const selected = await activeEditionLabel(page);
     record(
       "URL03b",
-      selected.includes(EDITIONS.discovery.cardTitle),
-      `edition + anchor together select "${EDITIONS.discovery.cardTitle}" (rail: ${selected})`,
+      selected.includes(EDITIONS.discovery.title),
+      `edition + anchor together select "${EDITIONS.discovery.title}" (timeline: ${selected})`,
     );
     await context.close();
   }
@@ -366,10 +384,10 @@ try {
     record("ROUTE01c", text.includes(EDITIONS.delete.title), "the alias selects the deep-linked edition");
     record(
       "R3b",
-      ["the learn gate", "certificate preparation", "the insight archive"].every((marker) =>
-        renderedAlias.includes(marker),
+      ["choose a moment.", "the knowledge scene", "the way onward", "the insight archive"].every(
+        (marker) => renderedAlias.includes(marker),
       ),
-      "the alias renders the same landing",
+      "the alias renders the same three-scene landing",
     );
     const today = page.locator('nav[aria-label="Primary"] a[href="/"]');
     record("NAV01c", (await today.count()) === 1, "the alias header points Today at the canonical root");
@@ -395,10 +413,10 @@ try {
     record("DESKTOP01", consoleErrors.length === 0, "light theme renders without console errors");
     await shot(page, "root-desktop-1280-light", "Canonical landing at 1280, light");
     const reduced = await open({ url: "/", reduced: true });
-    await reduced.page.locator("#today button[aria-controls]").first().click();
+    await reduced.page.locator("#edition button[aria-controls]").first().click();
     record(
       "REDUCED01",
-      (await reduced.page.locator("#today button[aria-controls]").first().getAttribute("aria-expanded")) ===
+      (await reduced.page.locator("#edition button[aria-controls]").first().getAttribute("aria-expanded")) ===
         "true" && reduced.consoleErrors.length === 0,
       "reduced motion keeps every control working",
     );
@@ -427,8 +445,8 @@ try {
     await page.locator('[aria-current="date"]').focus();
     await page.keyboard.press("Home");
     await page.waitForTimeout(400);
-    record("KEYBOARD01c", true, "Home key is handled by the rail without trapping focus");
-    // Axe must judge the page at rest: the scroll just armed the gate blocks'
+    record("KEYBOARD01c", true, "Home key is handled by the timeline without trapping focus");
+    // Axe must judge the page at rest: the keyboard step above armed the scene's
     // entrance reveals, and sampling mid-transition reports the transient
     // opacity as a contrast failure. Wait out the longest staggered entrance.
     await page.waitForTimeout(1800);

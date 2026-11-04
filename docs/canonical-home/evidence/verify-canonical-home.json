@@ -1,8 +1,8 @@
 {
-  "generatedAt": "2026-10-30T17:33:33.618Z",
+  "generatedAt": "2026-11-04T20:45:37.885Z",
   "command": "node scripts/verify-canonical-home.mjs --port 4311",
-  "head": "ref: refs/heads/feat/dp600-academy-ingestion-20261025",
-  "exportedRoutes": 365,
+  "head": "ref: refs/heads/main",
+  "exportedRoutes": 435,
   "checks": [
     {
       "id": "ROOT02/H052",
@@ -37,7 +37,7 @@
     {
       "id": "R3",
       "status": "PASS",
-      "detail": "alias renders the same experience (5/5 markers shared)"
+      "detail": "alias renders the same experience (6/6 markers shared)"
     },
     {
       "id": "R4b",
@@ -97,7 +97,7 @@
     {
       "id": "H046c",
       "status": "PASS",
-      "detail": "359 routes in the sitemap"
+      "detail": "357 routes in the sitemap"
     },
     {
       "id": "H045d",
@@ -172,7 +172,7 @@
     {
       "id": "H063",
       "status": "PASS",
-      "detail": "365 exported routes answered 200"
+      "detail": "435 exported routes answered 200"
     }
   ],
   "failed": [],

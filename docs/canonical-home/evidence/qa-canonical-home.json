@@ -1,21 +1,31 @@
 {
-  "generatedAt": "2026-10-30T18:08:39.740Z",
+  "generatedAt": "2026-11-04T20:55:02.185Z",
   "base": "http://127.0.0.1:4313",
   "checks": [
     {
       "id": "ROOT01",
       "pass": true,
-      "detail": "landing sections present: 5/5"
+      "detail": "landing scenes present: 5/5"
     },
     {
       "id": "ROOT01b",
       "pass": true,
-      "detail": "the retired gateway directory is not on the homepage"
+      "detail": "the retired v3 gates are not rendered on the homepage"
     },
     {
       "id": "ROOT01c",
       "pass": true,
       "detail": "no prototype framing is rendered"
+    },
+    {
+      "id": "SCENE01",
+      "pass": true,
+      "detail": "the timeline heading is in the first viewport (y=253)"
+    },
+    {
+      "id": "SCENE02",
+      "pass": true,
+      "detail": "no full-screen dealer at load; the card table is a disclosure"
     },
     {
       "id": "NAV01",
@@ -73,14 +83,24 @@
       "detail": "closing returns the card to the hand with no leftover overlay"
     },
     {
+      "id": "TIMELINE03",
+      "pass": true,
+      "detail": "3 edition tick(s), 12 quiet day(s)"
+    },
+    {
       "id": "TIMELINE01",
       "pass": true,
-      "detail": "rail arrow: \"26 OCT 2026 Reference ≠ retained result\" → \"25 OCT 2026 Object versus target\""
+      "detail": "day selection: \"MON 26 OCTA reference is a design decision.In review\" → \"SUN 25 OCTName the object you are deleting.In review\""
+    },
+    {
+      "id": "TIMELINE04",
+      "pass": true,
+      "detail": "the peek follows the selected day; it never keeps a neighbour's card"
     },
     {
       "id": "TIMELINE02",
       "pass": true,
-      "detail": "ArrowRight: \"25 OCT 2026 Object versus target\" → \"24 OCT 2026 Files versus Tables\" (focus stays in the rail: true)"
+      "detail": "ArrowRight: \"SUN 25 OCTName the object you are deleting.In review\" → \"SAT 24 OCTLocation changes discovery.In review\" (focus stays in the timeline: true)"
     },
     {
       "id": "URL05",
@@ -155,7 +175,7 @@
     {
       "id": "URL03b",
       "pass": true,
-      "detail": "edition + anchor together select \"Files versus Tables\" (rail: 24 OCT 2026 Files versus Tables)"
+      "detail": "edition + anchor together select \"Location changes discovery.\" (timeline: SAT 24 OCTLocation changes discovery.In review)"
     },
     {
       "id": "ROUTE01c",
@@ -165,7 +185,7 @@
     {
       "id": "R3b",
       "pass": true,
-      "detail": "the alias renders the same landing"
+      "detail": "the alias renders the same three-scene landing"
     },
     {
       "id": "NAV01c",
@@ -220,7 +240,7 @@
     {
       "id": "KEYBOARD01c",
       "pass": true,
-      "detail": "Home key is handled by the rail without trapping focus"
+      "detail": "Home key is handled by the timeline without trapping focus"
     },
     {
       "id": "ACCESS01",

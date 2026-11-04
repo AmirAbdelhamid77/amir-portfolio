@@ -28,11 +28,14 @@
     --success: oklch(70% 0.18 155);
     --warning: oklch(78% 0.18 75);
     /* Qualitative data palette (Okabe–Ito subset). Deliberately independent of
-       the brand ramp so a theme change never alters the meaning of a series. */
+       the brand ramp so a theme change never alters the meaning of a series.
+       On the light surface (oklch(99% 0 0) = #FCFCFC) the two original values
+       measured 2.19:1 and 2.97:1 as non-text marks. These keep the hue families
+       and clear the 3:1 floor: 3.30:1 and 4.11:1. See VISUAL_SPEC_V3 §8. */
     --chart-1: #0072b2;
     --chart-2: #009e73;
-    --chart-3: #e69f00;
-    --chart-4: #cc79a7;
+    --chart-3: #c07d00;
+    --chart-4: #b85c8f;
     --chart-5: #d55e00;
     --glass-bg: oklch(99% 0 0 / 0.55);
     --glass-border: oklch(15% 0 0 / 0.08);

@@ -94,6 +94,79 @@ test("exactly one landing implementation exists and both routes render it", () =
   assert.match(alias, /canonical:\s*"\/"/);
 });
 
+test("the Home is three scenes, in order, and the v3 gates are retired from it", () => {
+  const stage = read(STAGE);
+  const order = ['id="today"', 'id="edition"', 'id="closing"'].map((marker) => {
+    const index = stage.indexOf(marker);
+    assert.notEqual(index, -1, `the Home must render the scene ${marker}`);
+    return index;
+  });
+  assert.deepEqual([...order].sort((a, b) => a - b), order, "the scenes are out of reading order");
+
+  // The retired gate stack: no gate components, no rail, no scroll choreography.
+  for (const retired of [
+    "StageToday",
+    "StageLearnGate",
+    "StageCertGate",
+    "InsightRail",
+    "useScrollProgress",
+    "stage-gate-canvas",
+    "stage-takeover",
+  ]) {
+    assert.equal(
+      stage.includes(retired),
+      false,
+      `the Home must not mount the retired gate surface (${retired})`,
+    );
+  }
+
+  // The files stay on disk for reuse; only the Home stops mounting them.
+  for (const kept of ["stage-today.tsx", "stage-learn-gate.tsx", "stage-cert-gate.tsx"]) {
+    assert.ok(exists(`components/knowledge/${kept}`), `${kept} must not be deleted by the swap`);
+  }
+
+  // One dealer, inside the timeline scene, opened on request.
+  assert.equal((stage.match(/<KnowledgeDealer/g) ?? []).length, 1, "exactly one dealer");
+  assert.match(stage, /dealer=\{dealer\}/, "the dealer must be mounted by the timeline scene");
+  assert.match(stage, /dealerOpen/, "the dealer is a disclosure, not the first viewport");
+
+  for (const scene of ["stage-timeline", "stage-knowledge", "stage-closing"]) {
+    assert.ok(exists(`components/knowledge/${scene}.tsx`), `${scene}.tsx is missing`);
+  }
+});
+
+test("the audience decision is made once, in the landing, above the renderers", () => {
+  const landing = read(LANDING_SOURCE);
+  assert.equal(
+    (landing.match(/buildStageModel\(/g) ?? []).length,
+    1,
+    "the landing must build the model exactly once",
+  );
+  assert.match(landing, /audience: "review"/);
+  assert.match(landing, /today: new Date\(\)/);
+
+  // The scenes render the model; they never rebuild it, read the feed or decide
+  // what an audience may see.
+  for (const scene of ["stage-timeline", "stage-knowledge", "stage-closing"]) {
+    const source = read(`components/knowledge/${scene}.tsx`);
+    assert.doesNotMatch(
+      source,
+      /buildStageModel\(|eligibleInsights\(|insights\.json|audience\s*:/,
+      `${scene}.tsx must not re-derive the publication boundary`,
+    );
+  }
+  assert.match(read("components/knowledge/stage-knowledge.tsx"), /model\.graph\.discovery/);
+});
+
+test("the timeline keeps the clock honest: selection is not activation", () => {
+  const timeline = read("components/knowledge/stage-timeline.tsx");
+  assert.match(timeline, /onOpenDealer/, "opening the edition is a separate action");
+  assert.match(timeline, /aria-current=\{active \? "date" : undefined\}/);
+  assert.match(timeline, /data-has-edition="false"/, "quiet days render as static, not as empty buttons");
+  assert.match(timeline, /ArrowRight/);
+  assert.match(timeline, /\/\?insight=/, "each edition keeps a root-scoped permalink");
+});
+
 test("the retired landing implementations are gone, not merely unused", () => {
   for (const retired of [
     "components/knowledge/prototype-c.tsx",
@@ -211,7 +284,10 @@ test("landing permalinks are root-scoped and the archive anchor is intact", () =
   const archive = read("components/knowledge/insight-archive.tsx");
   assert.match(archive, /href=\{`\/\?insight=\$\{encodeURIComponent\(item\.id\)\}`\}/);
   assert.match(archive, /id="archive"/, "the #archive anchor must keep working");
-  assert.match(read(STAGE), /href="#archive"/);
+  // The archive hand-off lives in the closing scene now; the timeline links on
+  // to the knowledge scene with #edition.
+  assert.match(read("components/knowledge/stage-closing.tsx"), /href="#archive"/);
+  assert.match(read("components/knowledge/stage-timeline.tsx"), /href="#edition"/);
 });
 
 test("the route registry names one landing source and one canonical URL", () => {
