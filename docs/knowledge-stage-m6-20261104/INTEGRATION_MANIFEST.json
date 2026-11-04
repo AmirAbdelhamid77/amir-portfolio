@@ -1,0 +1,64 @@
+{
+  "scope": "hansa-knowledge-stage-m6-20261104",
+  "note": "M6 successor layer. It records only what M0 could not: the public stage boundary and its test, the pre-integration baseline, and one stale guard repaired without changing site behavior. It never republishes a unit, never widens the Atlas projection and never edits M0.",
+  "previous": "docs/knowledge-stage-m0-20261103/INTEGRATION_MANIFEST.json",
+  "previousSha256": "350d61cedfe26f9976ad4f414038b7c68ad38f1b02693f7ae02e65ae4d92e609",
+  "files": [
+    {
+      "path": "tests/knowledge/canonical-home.test.mjs",
+      "previousSha256": "4ed75a0a2ab2146599591216b1732490c5de89d95bcae5dd6d82f74fa59a1180",
+      "sha256": "51710e0ad1fac0d9200516e2846a18791cce844cd79132846c5c04fb625de2aa",
+      "bytes": 11263,
+      "layer": "knowledge-stage-m6/2026-11-04",
+      "attribution": "M6-stage-foundation",
+      "note": "Repairs one stale source assertion after the M2 search rewrite moved the landing row onto the shared source adapter. The invariant (the landing is findable at /) is unchanged; the guard no longer demands the old object-literal shape. No app behavior changed. If this pin does not match the recorded M0 addition hash, verification fails."
+    },
+    {
+      "path": "scripts/final-review-negative.mjs",
+      "previousSha256": "f9202c1378179912ac97b357e553700938f014a99abce84d7d3210c64df716f5",
+      "sha256": "d2b61968c40a6e1405a70356d467c4e2b44260a6c64d35c220a5b2f96bfc8bdc",
+      "bytes": 6028,
+      "layer": "knowledge-stage-m6/2026-11-04",
+      "attribution": "M6-stage-foundation",
+      "note": "The negative gate builds its scratch checkout from the receipt manifests. M6 is a successor of M0 and not reachable from it, so the scratch needed one explicit line to copy the M6 manifest and its paths; this edit is that line plus its import."
+    },
+    {
+      "path": "tests/content/sql-vault.test.mjs",
+      "previousSha256": "4fb8c4706d2da1bae5a2adf68677f4a899844e96fca131c9fb6d52ecb1493f3b",
+      "sha256": "d1fe37aaf367fce2c2ce7ddc0ee3fdf726f6d6e5f4589629bde10fac3346d8c2",
+      "bytes": 6416,
+      "layer": "knowledge-stage-m6/2026-11-04",
+      "attribution": "M6-stage-foundation",
+      "note": "The byte-identity guard compared content against the raw 28 Oct SQL baseline, so the later audited Atlas extension wave read as damage. The guard now asks the receipt chain whether a successor recorded the exact bytes, which is the invariant the repository already enforces; no content byte changed."
+    }
+  ],
+  "additions": [
+    {
+      "path": "lib/knowledge/stage-model.ts",
+      "sha256": "a5a0467317024bf84f5a09a442ab07ae856ff2bce4b91f532532597e965045a9",
+      "bytes": 9197,
+      "layer": "knowledge-stage-m6/2026-11-04",
+      "attribution": "M6-stage-foundation",
+      "note": "Public boundary for the three-scene Home: audience, fifteen-day timeline, graph counts and destinations. Pure module; it never reads storage or the review-preview flag."
+    },
+    {
+      "path": "tests/knowledge/stage-model.test.mjs",
+      "sha256": "04af4da97c8eccd3a6c6e451dfe99a3ffeb16c5ca782f4f68ec03b9e40f62ecb",
+      "bytes": 7973,
+      "layer": "knowledge-stage-m6/2026-11-04",
+      "attribution": "M6-stage-foundation",
+      "note": "Guards for the boundary: audience separation, one edition per day, no borrowed card, no candidate claim or edge object in the public model."
+    },
+    {
+      "path": "intelligent-atlas/baselines/2026-11-04-pre-m6/baseline.json",
+      "sha256": "53f88d206c00c5827d08fa87181f40fe9caab679a0da96360dc04ecf177cad52",
+      "bytes": 6662,
+      "layer": "knowledge-stage-m6/2026-11-04",
+      "attribution": "M6-stage-foundation",
+      "note": "Pre-integration baseline captured before the three-scene Home swap, so the visible change can be compared and reverted byte-for-byte."
+    }
+  ],
+  "removed": [],
+  "excluded": [],
+  "predecessors": []
+}

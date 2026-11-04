@@ -1,0 +1,181 @@
+{
+  "kind": "hansa-knowledge-stage-dated-baseline",
+  "baselineId": "2026-11-04-pre-m6",
+  "capturedAt": "2026-11-04T19:46:04.405Z",
+  "scope": "NEXT_PHASE_REVIEW M0-M5; no app/ integration",
+  "note": "M6 pre-integration baseline: canonical Home, stage components, atlas/study libs, content, tests and scripts as they stand after M1-M5.",
+  "repository": {
+    "head": "0b14507a3a53f33eae8d61ae17942bff240703cf",
+    "dirtyPaths": 1,
+    "dirtyEntries": [
+      "?? intelligent-atlas/baselines/2026-11-04-pre-m6/"
+    ]
+  },
+  "preservedFiles": [
+    {
+      "path": "intelligent-atlas/prototype/index.html",
+      "bytes": 18187,
+      "sha256": "e773f9a44e5a517f1f0c9df549582bee4142cdae2e68c3132ae1c81533af48b9"
+    },
+    {
+      "path": "intelligent-atlas/prototype/app.js",
+      "bytes": 122106,
+      "sha256": "4c62d9bf8c00c40674f6e53088e28bff98ed9340811e1204168caad3bbedd04b"
+    },
+    {
+      "path": "intelligent-atlas/prototype/styles.css",
+      "bytes": 101820,
+      "sha256": "3f7c7a919bab218b7f3d81a1ebaad639c3b2fface98f1412a7ec8657f13428bf"
+    },
+    {
+      "path": "intelligent-atlas/prototype/data.js",
+      "bytes": 2753179,
+      "sha256": "b5d92307dde3232fa3c00055b76bac8a688d734ae806e96f718c2225750ebfb0"
+    },
+    {
+      "path": "intelligent-atlas/prototype/data-provenance.json",
+      "bytes": 1602,
+      "sha256": "9d1bf3f533ccf3e10eb92877475e8c66ac1c0c3ad9a9ddfc0a97d073746fa6ed"
+    },
+    {
+      "path": "intelligent-atlas/tools/analyze-corpus.mjs",
+      "bytes": 37877,
+      "sha256": "c768f10f3d1ea9e61644d1ae49cbdd8944996708b4a2893bfa50dae955b557f4"
+    },
+    {
+      "path": "intelligent-atlas/tools/semantic-model.mjs",
+      "bytes": 172706,
+      "sha256": "89072cf750764bb851309f259ffeaea12c708e2d0835df6ec93d892c38f58661"
+    },
+    {
+      "path": "intelligent-atlas/tools/build-prototype-data.mjs",
+      "bytes": 21460,
+      "sha256": "32f6df69faa3bc094d62e0cf8fd83a58fadf4d93afb8813ff905b6f1c1a1483f"
+    },
+    {
+      "path": "intelligent-atlas/contracts/contracts.schema.json",
+      "bytes": 10798,
+      "sha256": "9dff177db87a5067bd0b61632c52750c0dfebefa03dae585102e73ea3868ab9b"
+    },
+    {
+      "path": "intelligent-atlas/contracts/knowledge-dealer.md",
+      "bytes": 14903,
+      "sha256": "1e02c7ccd472940188b044f286fa299bb1dd9903c650e90392f9adb5379ae852"
+    },
+    {
+      "path": "intelligent-atlas/contracts/adapter-proof.mjs",
+      "bytes": 27268,
+      "sha256": "9e66cbce048aee0b9e8e877d6f923d90778f95d9d7b3be1ac2fa3ea63b4bfe38"
+    },
+    {
+      "path": "intelligent-atlas/contracts/adapter-proof.test.mjs",
+      "bytes": 5319,
+      "sha256": "b38e5c59cdf443c0a4a83ffaaac311ede45d9a6294ebe859fbddf4c74cd98590"
+    },
+    {
+      "path": "intelligent-atlas/analysis/routes.json",
+      "bytes": 18879,
+      "sha256": "cc7d750b4f139cbb8c14cbc5600581cd14ac77a08a170c3ae9d9d2b21e52eb03"
+    },
+    {
+      "path": "intelligent-atlas/analysis/graph-build.json",
+      "bytes": 383036,
+      "sha256": "1237c20715fa196b6f15f1661cf0e937a63117dd50ba1f97f562af6be56bf34e"
+    },
+    {
+      "path": "intelligent-atlas/analysis/public-projection.json",
+      "bytes": 1041,
+      "sha256": "4ad14fd128418bf8d03095b2d4977cc3f172b8cb097d326d4bd05e793c7d1cf6"
+    },
+    {
+      "path": "intelligent-atlas/analysis/coverage-report.md",
+      "bytes": 6421,
+      "sha256": "b8a483093cdce7062cb0dd3d9565efc04028e8443b365957fb76cefeb19111d2"
+    },
+    {
+      "path": "intelligent-atlas/analysis/source-reconciliation-v2.md",
+      "bytes": 4521,
+      "sha256": "4318ab09e34343372d051ece31fb35ac6e5a7bbcb0b03f947cc57c000e2bed7f"
+    },
+    {
+      "path": "intelligent-atlas/analysis/source-reconciliation-v2.json",
+      "bytes": 66079,
+      "sha256": "2457b17b32edfb99bbf5cee035a234a14917c89da8fb81ab5a93bab14cefb991"
+    },
+    {
+      "path": "intelligent-atlas/analysis/semantic-ledger-v2.md",
+      "bytes": 24064,
+      "sha256": "f883c23ad030e1cdfed2800e4279d4c039b031bdf2d8a0f3f74a1577033ba670"
+    },
+    {
+      "path": "intelligent-atlas/analysis/semantic-ledger-summary.json",
+      "bytes": 6631,
+      "sha256": "fbcb84e3991a0594086e5865ecf64fd330a2b06e700390e4ddf1e14024d9306e"
+    },
+    {
+      "path": "intelligent-atlas/analysis/corpus-manifest.json",
+      "bytes": 27669,
+      "sha256": "9c5917adcbba1a9c0f8933990d16ef481f1645e640769afe6290920a17fdbd92"
+    },
+    {
+      "path": "intelligent-atlas/tools/qa-recovery.mjs",
+      "bytes": 17737,
+      "sha256": "a90cfe12a8357b13147ab40b068231679a92ce790467c5aeb531ffcb94271129"
+    },
+    {
+      "path": "intelligent-atlas/tools/qa-responsive.mjs",
+      "bytes": 9033,
+      "sha256": "2db8b1ab1a41dbcb5fb6b30150516154ec7aa6356bdf3acd30a5031f893c5180"
+    },
+    {
+      "path": "intelligent-atlas/tools/verify-public-isolation.mjs",
+      "bytes": 14344,
+      "sha256": "c61c1221877d09fe1805c8973c2c0537d72349612a91b25a9f431956c0c2933a"
+    },
+    {
+      "path": "intelligent-atlas/contracts/deck-v2.schema.json",
+      "bytes": 9715,
+      "sha256": "3a18d0ec857381c4148680e1bb43cf417e1105b3a2cde5628dfc292e80843b26"
+    },
+    {
+      "path": "intelligent-atlas/contracts/deck-resolver.mjs",
+      "bytes": 26255,
+      "sha256": "6cd38fc4cb6ac2e10aaf93b035f4e9d95a52b64942ee2b2a6b9af4deaeb43968"
+    },
+    {
+      "path": "intelligent-atlas/contracts/deck-resolver.test.mjs",
+      "bytes": 14991,
+      "sha256": "73f5d0c5b0f5d72cf21e2c791f97d30396bc6740946e34bf1afdb8b5df34c5a0"
+    },
+    {
+      "path": "intelligent-atlas/storyboard/v31/STORYBOARD.md",
+      "bytes": 8516,
+      "sha256": "f6eb502abe128f3e6c4eb4d1d2326f6417641a8b8b67638d7a37d36509803a12"
+    },
+    {
+      "path": "intelligent-atlas/prototype/timeline-model.js",
+      "bytes": 4500,
+      "sha256": "4fa4bd6abfb3c079b65bb3fcc58cae465a19b99b2bf76c7a8ca2f4ba9230b823"
+    },
+    {
+      "path": "intelligent-atlas/prototype/neighborhood-model.js",
+      "bytes": 8582,
+      "sha256": "526697d98b48583f88a19470fd2911e4c981f76e817f5d1a6097ba69a99e9fe4"
+    },
+    {
+      "path": "intelligent-atlas/prototype/data.js",
+      "bytes": 2753179,
+      "sha256": "b5d92307dde3232fa3c00055b76bac8a688d734ae806e96f718c2225750ebfb0"
+    },
+    {
+      "path": "intelligent-atlas/DELIVERY_REPORT.md",
+      "bytes": 74067,
+      "sha256": "6cb26b927afb4647f96979ea502fda228d905c1dfc929fb28295c042ab50ace4"
+    }
+  ],
+  "notes": [
+    "Copies are byte-identical snapshots for rollback and comparison; they are not deployable.",
+    "Candidate review payload data.js is preserved here but must not enter the public artifact.",
+    "Inherited reference-verifier drift in lib/atlas/field.ts is outside this deliverable and was not altered."
+  ]
+}

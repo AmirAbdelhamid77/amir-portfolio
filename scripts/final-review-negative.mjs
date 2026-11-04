@@ -2,7 +2,7 @@ import assert from 'node:assert/strict';
 import {mkdtempSync,readFileSync,writeFileSync,mkdirSync,copyFileSync,existsSync} from 'node:fs';
 import {tmpdir} from 'node:os';import {resolve,dirname} from 'node:path';import {createHash} from 'node:crypto';
 import {finalReviewReceipt,FINAL_REVIEW,FINAL_HISTORY} from './final-review-receipt.mjs';
-import {KNOWLEDGE_STAGE} from './knowledge-stage-receipt.mjs';
+import {KNOWLEDGE_STAGE,KNOWLEDGE_STAGE_M6,knowledgeStageReceipt} from './knowledge-stage-receipt.mjs';
 const root=process.cwd(),read=p=>JSON.parse(readFileSync(resolve(root,p),'utf8')),m=read(FINAL_REVIEW),h=read(FINAL_HISTORY);
 const scratch=mkdtempSync(resolve(tmpdir(),'hansa-final-negative-'));
 const paths=new Set([FINAL_REVIEW,FINAL_HISTORY,m.previousManifest,m.baselinePath,...m.files.flatMap(e=>[e.path,...(e.rollbackPath?[e.rollbackPath]:[])]),...h.transitions.flatMap(e=>[e.path,e.originalPath,...(e.capturedPath?[e.capturedPath]:[])]),...h.additions.flatMap(e=>[e.path,e.originalPath])]);
@@ -19,6 +19,10 @@ const paths=new Set([FINAL_REVIEW,FINAL_HISTORY,m.previousManifest,m.baselinePat
     for(const e of x.transitions??[])for(const p of [e.path,e.originalPath,e.capturedPath])if(p)paths.add(p);
     return x;};
   addManifest(KNOWLEDGE_STAGE);
+  // The M6 successor is newer than M0 and is not reachable from it, so the
+  // scratch must carry both the manifest and every path it pins.
+  addManifest(KNOWLEDGE_STAGE_M6);
+  for(const p of knowledgeStageReceipt(root).paths())paths.add(p);
   // Every manifest reached so far names its own predecessor and baseline; walk
   // the closure so the whole chain can evaluate inside the scratch checkout.
   for(let changed=true;changed;){

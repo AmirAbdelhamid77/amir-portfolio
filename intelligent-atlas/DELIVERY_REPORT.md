@@ -1287,4 +1287,76 @@ the harness rewrites the seven PNGs and `qa-journey-report.json`, so a clone of
 this commit shows them as modified after a run. A capture that never changes
 would be a stale screenshot, not evidence.
 
+## 15. M6 step 1 — the Home boundary, not the Home swap (2026-11-04)
 
+M6 is authorized. Step 1 is deliberately foundation only: the visible Home is
+still the v3 gate stack, and no learner sees a change from this commit. The
+reason is sequencing, not caution theatre. Swapping the Home first would break
+three guards and the 425-pin M0 chain at once, with no recorded boundary in
+between.
+
+### 15.1 What was added
+
+| Artifact | Purpose |
+|---|---|
+| `lib/knowledge/stage-model.ts` | the public stage boundary: audience, fifteen-day timeline, graph counts, destinations |
+| `tests/knowledge/stage-model.test.mjs` | 12 guards over audience separation, one edition per day, no borrowed card, no claim or edge object in the public model |
+| `docs/knowledge-stage-m6-20261104/COMPOSITION_AUDIT.md` | current gate flow, file-by-file migration map, guards to re-baseline, preserved contracts |
+| `intelligent-atlas/baselines/2026-11-04-pre-m6/baseline.json` | 32-file pre-integration baseline at HEAD `0b14507` |
+| `docs/knowledge-stage-m6-20261104/INTEGRATION_MANIFEST.json` | first successor to the M0 receipt layer |
+
+The model is pure and dependency-free. A public audience sees only `published`
+editions and only published edges; today that is zero of each, so the model
+states the honest empty case with real `/learn`, `/practice/catalogue`,
+`/search` and Atlas destinations. A review audience also sees
+`technical_review` editions and a withheld-edge count, never a claim. The model
+does not read storage, the URL or `HANSA_ATLAS_REVIEW_PREVIEW`.
+
+### 15.2 Two stale guards repaired, with the invariant restated
+
+Both failures were inherited from earlier authorized work, not caused by M6.
+Neither expected hash was edited to hide a failure.
+
+| Guard | Why it failed | Repair |
+|---|---|---|
+| `tests/knowledge/canonical-home.test.mjs` | demanded the literal `url: "/",` that the M2 search rewrite replaced with a `page-home` remap | asserts the remap and the shared source adapter, not the old object-literal shape |
+| `tests/content/sql-vault.test.mjs` | compared content against the raw 28 Oct SQL baseline, so the later audited Atlas extension wave read as damage | asks the receipt chain whether a successor recorded the exact bytes; no content byte changed |
+
+### 15.3 Receipt cost, measured
+
+The M0 manifest was not edited. `scripts/knowledge-stage-receipt.mjs` now reads
+the M6 layer above M0 and composes `expected()` as `m6After(m0Expected(p,h))`;
+every existing verifier that depends on the chain sees the successor without
+being changed. `scripts/final-review-negative.mjs` needed one import and one
+scratch copy because M6 is a successor of M0 and is not reachable from it.
+
+The M6 layer records 3 changed pins and 3 additions. The composition audit lists
+the files step 2 will add to the same layer.
+
+### 15.4 Gates
+
+| Gate | Result |
+|---|---|
+| `npm run test:all` | PASS — 253/253 across six suites (62/18/35/68/45/25) |
+| `npm run lint` | PASS — 0 errors, 49 warnings (none in the new files) |
+| `npx tsc --noEmit` | PASS |
+| `npm run build` | PASS — static export and 434 segment aliases written |
+| `node scripts/verify-agent-reference.mjs` | PASS — 13 active hashes |
+| `node scripts/verify-knowledge-atlas.mjs` | PASS — 16 payload, 33 integration, 23 links |
+| `node scripts/verify-easyui-integration.mjs` | PASS — 41 owned, 1,169 prior-file contracts |
+| `node scripts/final-review-negative.mjs` | PASS — 17/17 corruption cases rejected |
+| Browser QA of the three-scene Home | NOT RUN — the swap is step 2 |
+| Owner visual acceptance | NOT RUN — M3 owner questions still open |
+
+### 15.5 What this does not claim
+
+It does not claim the three-scene Home exists, that M6 is complete, that M7 has
+started, that the light-mode relation tokens pass, or that anything was deployed.
+The rendering on `/` and `/prototype-c/` is unchanged; the only behaviour change
+in this commit is that two stale tests now test the invariant they describe.
+
+### 15.6 Next atomic task
+
+Owner sign-off on the three-scene visual direction and the two light-mode tokens,
+then step 2: build the scenes against `buildStageModel`, reuse the dealer and rail
+renderers, and add the M6 pins for every changed file in the same layer.

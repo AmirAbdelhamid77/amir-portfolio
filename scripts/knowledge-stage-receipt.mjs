@@ -3,6 +3,10 @@ import {resolve,sep} from 'node:path';
 import {createHash} from 'node:crypto';
 import assert from 'node:assert/strict';
 export const KNOWLEDGE_STAGE='docs/knowledge-stage-m0-20261103/INTEGRATION_MANIFEST.json';
+// The M6 layer sits above M0 and is read by the same function, so every receipt
+// that already depends on `knowledgeStageReceipt` sees the successor without
+// being edited. M0 keeps its own pins; M6 only adds transitions it can prove.
+export const KNOWLEDGE_STAGE_M6='docs/knowledge-stage-m6-20261104/INTEGRATION_MANIFEST.json';
 // Newest receipt layer: M0 re-baseline, 3 Nov 2026.
 //
 // It records what happened to artifacts after the older receipts: the files the
@@ -11,6 +15,12 @@ export const KNOWLEDGE_STAGE='docs/knowledge-stage-m0-20261103/INTEGRATION_MANIF
 // snapshot deleted, and the one build artifact that can never be a stable pin.
 // It never edits an older receipt and never rewrites a hash that still matches
 // disk; every entry states why it exists.
+//
+// The M6 layer (4 Nov 2026) is the first successor after M0. It records the
+// three-scene Home foundation: the public stage boundary, its test, the
+// pre-integration baseline, and one stale guard repaired after the M2 search
+// rewrite replaced the object literal it asserted. It is an addition, not a
+// rewrite of M0, and it cannot widen publication: it pins files only.
 export function knowledgeStageReceipt(root){
  const path=KNOWLEDGE_STAGE;
  if(!existsSync(resolve(root,path)))return {expected:(_p,h)=>h,paths:()=>[],bytes:(_p,n)=>n,skip:()=>false,retired:()=>false,predecessor:(_p,h)=>h};
@@ -24,8 +34,38 @@ export function knowledgeStageReceipt(root){
  assert.equal(new Set(m.additions.map(e=>e.path)).size,m.additions.length,'Duplicate addition record');
  assert.equal(new Set(m.predecessors.map(e=>e.manifest+'::'+e.path+'::'+e.recordedSha256)).size,m.predecessors.length,'Duplicate predecessor record');
  for(const e of m.predecessors)assert.equal(hash(e.path),e.sha256,'Predecessor record drift '+e.path);
- for(const e of m.files)assert.equal(hash(e.path),e.sha256,'Knowledge-stage drift '+e.path);
- for(const e of m.additions)assert.equal(hash(e.path),e.sha256,'Knowledge-stage addition drift '+e.path);
+ // The successor layer is optional so a checkout from before M6 still verifies
+ // against M0 alone, but when it exists its numbers are checked, not trusted.
+ const m6Path=KNOWLEDGE_STAGE_M6;
+ const m6=existsSync(resolve(root,m6Path))?JSON.parse(readFileSync(safe(m6Path),'utf8')):null;
+ if(m6){
+  assert.equal(m6.scope,'hansa-knowledge-stage-m6-20261104');
+  assert.equal(m6.previous,path,'M6 layer must name M0 as its predecessor');
+  assert.equal(hash(m6.previous),m6.previousSha256,'M6 predecessor receipt drift');
+  assert.equal(new Set(m6.files.map(e=>e.path+'::'+e.previousSha256)).size,m6.files.length,'Duplicate M6 pin');
+  assert.equal(new Set(m6.additions.map(e=>e.path)).size,m6.additions.length,'Duplicate M6 addition');
+  for(const e of m6.files){
+   assert.equal(hash(e.path),e.sha256,'M6 drift '+e.path);
+   assert.ok(e.attribution&&e.layer,'M6 pin must state attribution and layer '+e.path);
+   assert.ok(!m6.additions.some(a=>a.path===e.path),'M6 path both changed and added '+e.path);
+  }
+  for(const e of m6.additions){
+   assert.equal(hash(e.path),e.sha256,'M6 addition drift '+e.path);
+   assert.ok(e.attribution&&e.layer,'M6 addition must state attribution and layer '+e.path);
+  }
+ }
+ // A successor hash advances exactly the recorded predecessor hash it names.
+ const m6After=(p,h)=>{
+  if(!m6)return h;
+  const pin=m6.files.find(e=>e.path===p&&e.previousSha256===h);
+  if(pin)return pin.sha256;
+  if(h===null){const addition=m6.additions.find(e=>e.path===p);if(addition)return addition.sha256;}
+  return h;
+ };
+ // M0's own pins are read through M6, so a recorded successor transition is not
+ // mistaken for drift; a hash M6 did not name still fails here.
+ for(const e of m.files)assert.equal(hash(e.path),m6After(e.path,e.sha256),'Knowledge-stage drift '+e.path);
+ for(const e of m.additions)assert.equal(hash(e.path),m6After(e.path,e.sha256),'Knowledge-stage addition drift '+e.path);
  for(const e of m.removed)assert.ok(!existsSync(resolve(root,e.path)),'Retired artifact reappeared '+e.path);
  for(const e of m.excluded)assert.ok(!m.files.some(f=>f.path===e.path),'Excluded artifact cannot also be pinned '+e.path);
  for(const e of m.files){
@@ -38,14 +78,21 @@ export function knowledgeStageReceipt(root){
   // chain. Matching on the successor too would make a second drift look like
   // identity, which is how a stale pin silently passes.
   expected:(p,h)=>{
-   const pin=m.files.find(e=>e.path===p&&e.previousSha256===h);
-   if(pin)return pin.sha256;
-   if(h===null){const addition=m.additions.find(e=>e.path===p);if(addition)return addition.sha256;}
-   if(excluded.has(p)&&existsSync(resolve(root,p)))return hash(p);
-   return h;
+   const m0Expected=(()=>{
+    const pin=m.files.find(e=>e.path===p&&e.previousSha256===h);
+    if(pin)return pin.sha256;
+    if(h===null){const addition=m.additions.find(e=>e.path===p);if(addition)return addition.sha256;}
+    if(excluded.has(p)&&existsSync(resolve(root,p)))return hash(p);
+    return h;
+   })();
+   return m6After(p,m0Expected);
   },
-  paths:()=>[...m.files.map(e=>e.path),...m.removed.map(e=>e.path)],
-  bytes:(p,n)=>m.files.find(e=>e.path===p)?.bytes??n,
+  paths:()=>[
+   ...m.files.map(e=>e.path),
+   ...m.removed.map(e=>e.path),
+   ...(m6?[m6Path,...m6.files.map(e=>e.path),...m6.additions.map(e=>e.path)]:[]),
+  ],
+  bytes:(p,n)=>m6?.files.find(e=>e.path===p)?.bytes??m.files.find(e=>e.path===p)?.bytes??n,
   skip:p=>m.removed.some(e=>e.path===p)||excluded.has(p),
   retired:p=>m.removed.some(e=>e.path===p),
   // A layer that recorded "the manifest below me had hash X" can accept the

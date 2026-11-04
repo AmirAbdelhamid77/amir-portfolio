@@ -251,7 +251,16 @@ test("the legacy URL stays out of sitemap, robots and the search index", () => {
   assert.ok(paths.includes(""), "the canonical homepage must be in the sitemap");
   const documents = read("lib/search/documents.ts");
   assert.doesNotMatch(documents, /prototype-c/);
-  assert.match(documents, /url: "\/",/, "the landing must be findable in site search");
+  // The landing row is the `page-home` source document remapped to the site
+  // root. The old guard looked for the literal `url: "/",` that the shared
+  // source adapter replaced in the M2 search rewrite; the invariant is the
+  // remap, not the shape of the object literal that expresses it.
+  assert.match(
+    documents,
+    /document\.id === "page-home" \? "\/" : document\.url/,
+    "the landing must be findable in site search",
+  );
+  assert.match(documents, /sourceDocuments\(\)/, "the landing row must come from the shared adapter");
 });
 
 test("the professional routes stay discoverable from the landing", () => {

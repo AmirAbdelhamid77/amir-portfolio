@@ -5,6 +5,7 @@ import {createHash} from 'node:crypto';
 import {DatabaseSync} from 'node:sqlite';
 import {register} from 'node:module';
 register('../../scripts/study-loader.mjs',import.meta.url);
+import {sqlIntegrationReceipt} from '../../scripts/sql-integration-receipt.mjs';
 const json=p=>JSON.parse(fs.readFileSync(p,'utf8'));
 const vault=json('content/sql/vault.json'),index=json('content/sql/index.json'),coverage=json('docs/sql-integration-20261028/SOURCE_COVERAGE.json');
 const sha=b=>createHash('sha256').update(b).digest('hex');
@@ -25,7 +26,11 @@ test('source diagrams, code, media and bilingual bodies survive import',()=>{
  assert.ok(vault.pages.find(p=>p.module===12).blocks.some(b=>b.type==='table'&&b.rows.some(r=>r.includes('1000'))));
 });
 test('pre-existing content, exam answers and identities remain byte-identical',()=>{
- for(const file of json('docs/sql-integration-20261028/BASELINE.json'))assert.equal(sha(fs.readFileSync(file.path)),file.sha256,file.path);
+ // The invariant is "unchanged unless an audited successor recorded the exact
+ // bytes", so a file that a receipt layer advanced is not drift. Comparing the
+ // raw SQL baseline made the Atlas extension wave look like content damage.
+ const receipt=sqlIntegrationReceipt(process.cwd());
+ for(const file of json('docs/sql-integration-20261028/BASELINE.json'))assert.equal(sha(fs.readFileSync(file.path)),receipt.expected(file.path,file.sha256),file.path);
  const exam=json('content/exams/sql.json');assert.deepEqual(exam.questions.map(q=>q.id),Array.from({length:10},(_,i)=>'sql-'+String(i+1).padStart(2,'0')));
  assert.deepEqual(Object.keys(index.legacyMap).sort(),exam.questions.map(q=>q.id).sort());
 });
