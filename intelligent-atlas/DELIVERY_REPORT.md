@@ -1193,6 +1193,7 @@ does **not** claim that clicking a resource reaches a deployed `/lab/…` page.
 | `node scripts/verify-easyui-integration.mjs` | PASS — 41 owned, 1,169 prior-file contracts, 22 decisions |
 | `node scripts/final-review-negative.mjs` | PASS — 17/17 cases rejected |
 | `npm run lint` | PASS — 0 errors, 41 pre-existing warnings (unchanged from M0) |
+| Fresh clone of `5355bf6` with `npm ci`, no build | PASS — four gates, 118/118, workbench check, 21/1 harness (§14.11) |
 | Visual, responsive, performance and domain QA by an owner | NOT RUN |
 
 No expected hash was changed and no manifest was edited in this pass. The gates
@@ -1237,4 +1238,41 @@ fresh baseline, not an extension of this one.
 Owner decisions blocking visual sign-off are listed in `design/VISUAL_SPEC_V3.md`
 §12: the two light-mode relation tokens, edition cadence, badge prominence, the
 timeline-first Home viewport, and the mobile field representation.
+
+### 14.11 Post-push evidence (2026-11-04)
+
+Pushed as `5355bf6`. Two checks were run on the pushed commit rather than on the
+authoring checkout, because §13.9 and §13.10 are exactly the failures that only a
+second machine reveals.
+
+**Fresh clone.** `git clone`, `npm ci`, no build and no generated files:
+
+| Check | Clone result |
+|---|---|
+| `verify-agent-reference.mjs` | PASS — 13 active hashes, 0 available intake hashes (the intake originals live outside the repository; their absence is not drift) |
+| `verify-knowledge-atlas.mjs` | PASS — 16 payload, 33 integration, 23 links, 90 relocations |
+| `verify-easyui-integration.mjs` | PASS — 41 owned, 1,169 prior-file contracts |
+| `final-review-negative.mjs` | PASS — 17/17 rejected |
+| Atlas suites | PASS — 118/118 |
+| `review-workbench.mjs check` | ok — 63 decisions, 0 errors, 0 warnings |
+| `verify-prototype-journey.mjs` | 21 PASS, 0 FAIL, 1 NOT RUN — the harness starts its own server, so the clone needs no external process |
+
+**CI on `5355bf6`.** Both workflows ran; both built.
+
+| Step | Cloudflare run `41889767044` | Pages run `41889767135` |
+|---|---|---|
+| Install dependencies | PASS | PASS |
+| Lint | PASS | PASS |
+| Build static export | PASS | PASS |
+| Deploy | **FAIL** — `CLOUDFLARE_API_TOKEN` / `ACCOUNT_ID` absent | **FAIL** — `actions/configure-pages@v5`; Pages not enabled |
+
+So the M1–M5 change introduces no CI failure: the two failing steps are the same
+owner-only configuration blockers recorded in §13.11, reached after a clean build.
+No deployment occurred and the live site still serves the earlier build.
+
+One honest note about the keyframes: they are captures, not fixtures. Re-running
+the harness rewrites the seven PNGs and `qa-journey-report.json`, so a clone of
+this commit shows them as modified after a run. A capture that never changes
+would be a stale screenshot, not evidence.
+
 
