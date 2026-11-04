@@ -925,3 +925,316 @@ add a hosting dependency, and did not touch the live site. The published build
 therefore still belongs to an earlier commit, and the deploy remains the one M0
 item that is blocked on configuration rather than on code.
 
+
+## 14. Next-phase M1–M5 — 2026-11-04
+
+Milestones M1–M5 of `docs/knowledge-stage-next-phase-v3-20261101/NEXT_PHASE_PLAN_EN.md`
+§6–§10, in the isolated review scope of §3. M6–M7 are not started (§14.10), and
+no deployment was attempted, so the live site is unchanged from §13.11.
+
+### 14.1 State of each milestone
+
+| Milestone | State | Why that word |
+|---|---|---|
+| M1 — semantic foundation | **PARTIAL** | State separation and review machinery exist, and 63 units carry a written decision. 4,274 eligible units are still unread and 695 unmatched units are still open. |
+| M2 — query and contract behaviour | **DELIVERED** for the review slice | One pure query layer with 27 tests and no new dependency. The app integration it feeds is M6. |
+| M3 — visual specification | **DELIVERED as a specification** | Executable spec, scored representation comparison, seven keyframes, measured contrast. Visual acceptance is NOT RUN because it is an owner judgement. |
+| M4 — one complete journey | **DELIVERED in the prototype** | 21 executable checks pass on the isolated prototype; opening a real site route remains NOT RUN (§14.5). |
+| M5 — scale and verify | **PARTIAL** | Harnesses live in the repository and run. Video and intermediate scroll frames were not captured, and all-site discovery is not integrated. |
+
+"Partial" is used in the plan's sense: a resumable queue is published with it and
+no label was upgraded to complete.
+
+### 14.2 M1 — semantic foundation, honestly partial
+
+The overloaded single state is gone. `analysis/semantic-ledger-summary.json`
+(schema `2.0`) now carries separate blocks for extraction denominators,
+`candidateMatch`, `semanticReading`, `decisions`, `candidateVerdicts` and
+`publication`. A unit can be *matched* and still *unread*, which is the whole
+point: matching is a lexical proposal, not reading.
+
+The review machinery is `tools/review-workbench.mjs`, a read-and-validate tool
+that never publishes:
+
+| Command | What it answers |
+|---|---|
+| `coverage` | eligible / read / open counts by unmatched reason and by source family, plus the statement that these are queue counts, not publication |
+| `queue --reason=… --family=… --limit=… --units=… [--write] [--json]` | the next batch, ordered reason priority → shortest unit text → unit ID, written to `semantic/batches/` and `semantic/sheets/` |
+| `sheet --batch=<id>` | the human review sheet for a written batch |
+| `check` | decision integrity: every quote is a verbatim substring, every concept and relation resolves, publication is still zero |
+
+Decisions are hand-written against real context. Each one records the
+`parentContext`, the `reading`, an `evidenceQuote`, the `candidateVerdict`, the
+`concept`/`relation` mapping and an explicit `decision` — `accepted`, `revised`,
+`held` or `unresolved-gap`.
+
+This pass added **25** decisions across the two smallest unmatched-reason groups;
+38 were read before it. All 25 are cases the matcher *missed*: 14 gained a mapping
+after reading, 11 were held because the registry cannot represent what the unit
+asserts.
+
+| Group | Units | Read | Verdicts |
+|---|---:|---:|---|
+| `domain-not-modelled` | 9 | 9 | closed — every unit read |
+| `navigation-index` | 16 | 16 | closed — every unit read |
+
+| Reading state | Count |
+|---|---:|
+| Eligible units | 4,337 |
+| Read | **63** (1.45% of eligible, 1.02% of the corpus) |
+| Not read | 4,274 |
+| Published | **0** |
+
+Of the 63 readings: 10 accepted, 31 revised, 18 held, 4 unresolved gaps. The
+ledger was rebuilt (`build-semantic-ledger.mjs`), so the summary, the JSONL
+ledger and the markdown ledger agree with the decisions; `check` reports `ok`
+with 0 errors and 0 warnings.
+
+The open queue, by reason, with 20 units per batch:
+
+| Unmatched reason | Total | Read | Open | Batches |
+|---|---:|---:|---:|---:|
+| `domain-not-modelled` | 9 | 9 | 0 | 0 |
+| `navigation-index` | 16 | 16 | 0 | 0 |
+| `thin-fragment` | 46 | 0 | 46 | 3 |
+| `formula-fragment` | 79 | 1 | 78 | 4 |
+| `template-boilerplate` | 74 | 0 | 74 | 4 |
+| `procedural-step` | 148 | 2 | 146 | 8 |
+| `no-lexical-signal` | 170 | 2 | 168 | 9 |
+| `question-paraphrase` | 186 | 3 | 183 | 10 |
+| **Total open** | | | **695** | **35** |
+
+**M1 exit condition is not met.** The plan asks for explicit semantic decisions
+across the full accessible eligible corpus, and 98.5% of it is still unread. What
+exists instead is a resumable queue with a written order and a validated decision
+format, which is what makes the remaining work re-enterable rather than a restart.
+
+One defect in the new tool was found while writing this section and fixed:
+`coverage --json` wrote the report object itself to stdout and died with
+`ERR_INVALID_ARG_TYPE` instead of printing JSON. Both behaviours are now
+exercised by hand; the tool has no unit test of its own, which is stated rather
+than implied.
+
+### 14.3 M2 — one pure query layer
+
+`lib/query.mjs` (435 lines, no I/O, no DOM, no dependency) is the single
+implementation every caller uses. It fails closed: a candidate edge is never
+treated as published.
+
+| Export | Behaviour |
+|---|---|
+| `createIndex(graph, mappings, projection)` | integrity-checked index; throws on duplicate concept IDs, duplicate edge IDs, dangling endpoints, unknown `reviewState`, a mapping to an unknown concept or a non-local href, or a projection built for a different graph |
+| `neighborhood(index, conceptId, options)` | one hop in both directions, relation filter, `includeIncoming`, hidden count for expansion |
+| `searchConcepts(index, query, options)` | alias and diacritic aware, deterministic ordering, limit honoured |
+| `resourcesForConcept(index, conceptId, options)` | deduplicated by href, best role first (`explains` → `references`), role and language filters |
+| `recommendNext(index, conceptId, options)` | intent-specific relation directions; each item carries the relation phrase, the stored claim as its reason, evidence count, `reviewState` and `eligible` |
+| `routeFor(index, goalId, options)` | delegates to `planGoal` so ordering cannot drift from the app; reports cycles instead of throwing, trims from a start concept without reordering |
+| `publicPayload(index)` | releases only what the projection names; today it publishes nothing and says so |
+
+`INTENT_RELATIONS` fixes which relations each intent may surface: `understand`
+uses prerequisites and mechanism edges, `compare` uses contrast, trade-off and
+complement edges in both directions, `apply` uses `enables`, `reach` uses
+incoming prerequisites. A mode with no matching stored edge returns an empty list
+rather than a suggestion — the honest-unavailable state the plan asks for.
+
+`tests/query.test.mjs` covers this with **27 tests**: six construction refusals,
+five neighbourhood cases, four search cases, two resource cases, four
+recommendation cases, four route cases (including the three real goals matching
+`planGoal` exactly and a cycle being reported), and two public-payload cases.
+The whole Atlas suite is **118/118**.
+
+What M2 did *not* do: it added no app adapter, no search index and no chunk
+validation beyond the existing Deck contracts. Those are integration work.
+
+### 14.4 M3 — the specification before the pixels
+
+`design/VISUAL_SPEC_V3.md` (12 sections, 372 lines) is the executable spec. The
+representation comparison uses the repository rubric weights and is scored
+against actual content and topology:
+
+| Criterion (weight) | A. List + stepper | B. Stable 2D task field | C. Immersive spatial scene | D. Table only |
+|---|---:|---:|---:|---:|
+| Correctness (30%) | 5 | 5 | 3 | 5 |
+| Teaching clarity (25%) | 4 | 5 | 3 | 4 |
+| Essential interaction (15%) | 2 | 4 | 5 | 1 |
+| Performance / mobile (15%) | 5 | 4 | 2 | 5 |
+| Accessibility / reduced motion (10%) | 5 | 4 | 2 | 5 |
+| Maintenance / reuse (5%) | 5 | 3 | 2 | 5 |
+| **Weighted** | **4.30** | **4.50** | **3.00** | **4.15** |
+
+B is the direction; A is not the loser but the mandatory equivalence view at
+every width and under reduced motion; D is the in-place fallback when a concept
+has no eligible neighbour or local resource. C was rejected on three hard
+blockers, not on taste: camera motion that explains nothing, evidence two
+interactions deep, and no defensible focus order for a screen reader.
+
+The spec also fixes the four intent modes, the three-column / two-column /
+single-column compositions, an eleven-row motion table (nothing over 320ms, two
+animated properties maximum per element), the reduced-motion variant of each
+transition, an accessibility contract and a performance budget.
+
+Contrast was measured from the real tokens, not asserted:
+
+| Pair | Ratio | Target | Result |
+|---|---:|---:|---|
+| Light body on background | 19.18:1 | 4.5 | PASS |
+| Light muted on background | 5.86:1 | 4.5 | PASS |
+| Light `--chart-1` / `--chart-2` mark | 5.05 / 3.33 | 3 | PASS |
+| Light `--chart-3` mark | **2.20** | 3 | **FAIL** |
+| Light `--chart-4` mark | **2.98** | 3 | **FAIL** |
+| Light `--chart-5` mark | 3.77 | 3 | PASS |
+| Dark body / muted / primary / button | 16.31 / 6.82 / 7.97 / 8.59 | 4.5 | PASS |
+| Dark `--chart-1..5` marks | 7.91–10.94 | 3 | PASS |
+
+The two light-mode failures are not papered over: without a fix, an amber or pink
+edge may never be the only carrier of meaning, so those relations keep a 1.5px
+stroke plus a text label and a distinct dash pattern. The token change itself is
+an owner decision (§14.10).
+
+Five owner questions are recorded with the evidence behind them: the two failing
+tokens, edition cadence across fifteen days, review-badge prominence, whether the
+timeline takes the integrated Home's first viewport, and whether the mobile field
+drops edge lines below 768px.
+
+Seven keyframes are captured from the running prototype at 1440×900 (light and
+dark Timeline, light and dark Dealer, light and dark Knowledge Stage) and at
+390×844: `design/keyframes/k1…k7*.png`. They are review evidence, not approval.
+
+### 14.5 M4 and M5 — the journey harness
+
+`tools/verify-prototype-journey.mjs` drives the real prototype in Microsoft Edge
+through `playwright-core` and writes `design/qa-journey-report.json`.
+
+| Result | Count |
+|---|---:|
+| PASS | **21** |
+| FAIL | **0** |
+| NOT RUN | **1** — owner visual acceptance |
+| Console errors | 0 |
+
+What the 21 prove: the review clock renders fifteen days; only 24, 25 and 26
+October have editions and the quiet days say so; today is honestly empty and
+never borrows an older card; the empty hand offers the latest real edition;
+`ArrowRight` moves selection and `Enter` opens the edition; the Dealer shows the
+real card fields with a review badge and no publication claim; `Escape` closes it
+and returns focus and scroll to the opening date; locating in knowledge keeps the
+card's concept as the anchor; rendered neighbours equal the stored edges and stay
+labelled candidate; all four intent modes render distinct real content; compare
+names a real documented pair (OneLake shortcut ↔ Copy job); a saved concept
+survives reload and records no mastery; `P` opens the pocket and `Escape` returns
+focus to the toggle; the URL restores scene, concept and intent; the review
+payload is not reachable from the app; dark mode applies the dark token set;
+reduced motion neutralises transitions; 390px has no horizontal overflow and 44px
+targets; and the seven keyframes are written.
+
+Harness decisions worth recording, because each one exists to stop a false
+verdict:
+
+- every check starts from a fresh `goto`, so no result depends on the focus or
+  scroll left by the previous one;
+- pointer activation is dispatched as an element `.click()` through
+  `page.evaluate`, because the transformed timeline card never satisfies
+  Playwright's actionability check — the element's own handler and accessible
+  name still run;
+- keyboard paths use real `keyboard.press` events (`ArrowRight`, `Enter`,
+  `Escape`, `P`, `u/c/a/g`);
+- `settle()` waits for finite CSS animations and `settleScroll()` waits for the
+  smooth scene scroll to stop, so a capture cannot catch a 240ms fade and report
+  a translucent dialog as a visual defect. One earlier "translucent Dealer" was
+  exactly that artefact.
+
+Two real prototype defects were found this way and fixed:
+
+1. `.card-select { padding: 0 }` cancelled `.card`'s 14px inset, so Dealer card
+   text sat flush against the border and the kind dot was clipped. The reset was
+   removed.
+2. The neighbourhood meta line rendered "60 MORES IN FABRIC" because
+   `plural(count, "more")` appended an `s`. It now uses
+   `plural(count, "more concept", "more concepts")`.
+
+Three visual notes are recorded for the owner rather than silently restyled: the
+timeline draws two long blue "cables" that cross the deck in an X, the selected
+card overlaps the large ghost numeral, and a small dotted arc sits at the
+top-left card corner.
+
+Lighthouse on the knowledge view: accessibility 1.0, best-practices 1.0, SEO 1.0,
+with one notable `label-content-name-mismatch` left unrepaired and recorded. No
+performance benchmark was run, so this report makes no performance claim.
+
+**M4's navigation rule is respected, not bent.** The plan allows an isolated
+prototype to resolve real routes against a configured local preview origin and
+requires that destination to be labelled a preview rather than PASS. The harness
+therefore proves in-app transitions, focus return and URL restoration, and it
+does **not** claim that clicking a resource reaches a deployed `/lab/…` page.
+
+### 14.6 What is not done
+
+| Item | State | Why |
+|---|---|---|
+| 4,274 eligible units unread | OPEN | resumable in 35 batches; see §14.2 |
+| 695 unmatched units open | OPEN | queue ordered, not consumed |
+| 628 media references | NOT REVIEWED | caption reading is not figure review; inaccessible media is tracked separately |
+| Language and content-form coverage | NOT PRODUCED | `coverage` breaks down by unmatched reason and source family only |
+| Route execution to a real destination | NOT RUN | labelled preview, per M4 |
+| Video and intermediate scroll frames | NOT CAPTURED | seven state keyframes exist; no scroll sequence |
+| Performance against baseline | NOT MEASURED | no timing claim is made anywhere in this section |
+| All-site adapters, search index, resource discovery | NOT IMPLEMENTED | M5 integration work that depends on M6 |
+| npm wiring for the new tests | DELIBERATELY OMITTED | see §14.8 |
+
+### 14.7 Gates
+
+| Gate | Result |
+|---|---|
+| `node --test "intelligent-atlas/tests/*.test.mjs" "intelligent-atlas/contracts/*.test.mjs"` | PASS — 118/118 |
+| `node intelligent-atlas/tools/verify-prototype-journey.mjs` | 21 PASS, 0 FAIL, 1 NOT RUN, 0 console errors |
+| `node intelligent-atlas/tools/review-workbench.mjs check` | ok — 63 decisions, 0 errors, 0 warnings |
+| `node scripts/verify-agent-reference.mjs` | PASS — 13 active hashes, 6 intake hashes |
+| `node scripts/verify-knowledge-atlas.mjs` | PASS — 16 payload, 33 integration, 23 links, 90 relocations |
+| `node scripts/verify-easyui-integration.mjs` | PASS — 41 owned, 1,169 prior-file contracts, 22 decisions |
+| `node scripts/final-review-negative.mjs` | PASS — 17/17 cases rejected |
+| `npm run lint` | PASS — 0 errors, 41 pre-existing warnings (unchanged from M0) |
+| Visual, responsive, performance and domain QA by an owner | NOT RUN |
+
+No expected hash was changed and no manifest was edited in this pass. The gates
+were green before it and are green after it, with the same counts.
+
+### 14.8 Costs and dependencies
+
+- No dependency added or upgraded. `playwright-core` and Edge were already
+  present; the harness uses no network except `127.0.0.1`.
+- No paid service, no runtime LLM, no backend, no secrets, no new storage.
+- No learner content, question ID, answer, route or saved-progress record was
+  edited. The only prototype edits are the two layout/grammar fixes in §14.5.
+- `package.json` is deliberately untouched. Adding `test:intelligent-atlas` and
+  `qa:journey` would be cosmetic, but that file is pinned in nine receipt layers,
+  so it is an owner decision rather than something to repin quietly for
+  convenience. The commands are runnable as written in §14.7.
+
+### 14.9 What this section does not claim
+
+It does not claim publication (0 published), scientific approval (63 units read,
+4,274 not), whole-corpus completion, M6/M7 integration, deployment, or visual
+acceptance (NOT RUN). The review prototype is a review artifact; nothing in this
+section changes what a learner sees on the live site.
+
+### 14.10 Next atomic task
+
+**Consume the next batch.** Run
+`node intelligent-atlas/tools/review-workbench.mjs queue --reason=thin-fragment --limit=20 --write`,
+read the written sheet with real parent context, and record decisions with
+verbatim evidence. Three batches close `thin-fragment` (46 units), which leaves
+`formula-fragment`, `template-boilerplate`, `procedural-step`,
+`no-lexical-signal` and `question-paraphrase`.
+
+**M6–M7 are a separate scope and need an explicit assignment.** They replace the
+canonical Home (`components/knowledge/hansa-landing.tsx`, `insight-stage.tsx`)
+and its `/prototype-c/` alias with the three-scene composition, migrate the
+tested query layer into `lib/`, keep public payloads free of review artifacts,
+and then run the integration QA and measure performance against the recorded
+baseline. That work changes pinned app files, so it needs new receipt pins and a
+fresh baseline, not an extension of this one.
+
+Owner decisions blocking visual sign-off are listed in `design/VISUAL_SPEC_V3.md`
+§12: the two light-mode relation tokens, edition cadence, badge prominence, the
+timeline-first Home viewport, and the mobile field representation.
+

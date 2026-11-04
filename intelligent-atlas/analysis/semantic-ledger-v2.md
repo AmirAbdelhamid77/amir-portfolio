@@ -14,21 +14,21 @@ Each unit was opened with its parent context, read for its actual claim, and onl
 | Non-learning | 5 |
 | Candidate matched | 3609 |
 | Candidate unmatched | 728 |
-| **Semantically read** | **38** |
-| Not read | 4299 |
+| **Semantically read** | **63** |
+| Not read | 4274 |
 | Published | 0 |
 
-Semantic reading covers **0.88%** of eligible units. That is a documented subset, not full corpus reading. Candidate matching never advances the reading or decision state.
+Semantic reading covers **1.45%** of eligible units. That is a documented subset, not full corpus reading. Candidate matching never advances the reading or decision state.
 
 ## Decisions
 
 | Decision | Count |
 |---|---:|
 | Accepted | 10 |
-| Revised | 17 |
-| Held | 7 |
+| Revised | 31 |
+| Held | 18 |
 | Unresolved gap | 4 |
-| Unreviewed | 4299 |
+| Unreviewed | 4274 |
 | Out of scope | 1864 |
 
 ## Family ledger
@@ -37,14 +37,14 @@ Semantic reading covers **0.88%** of eligible units. That is a documented subset
 |---|---:|---:|---:|---:|---:|---:|---:|---:|---:|
 | curated-references | 1859 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
 | fabric-questions | 1264 | 1264 | 1170 | 94 | 4 | 0 | 3 | 1 | 0 |
-| fabric-notes | 720 | 720 | 529 | 191 | 5 | 1 | 2 | 2 | 0 |
-| academy | 593 | 593 | 457 | 136 | 2 | 0 | 1 | 0 | 1 |
-| sql | 535 | 535 | 440 | 95 | 3 | 1 | 2 | 0 | 0 |
+| fabric-notes | 720 | 720 | 529 | 191 | 12 | 1 | 8 | 3 | 0 |
+| academy | 593 | 593 | 457 | 136 | 5 | 0 | 1 | 3 | 1 |
+| sql | 535 | 535 | 440 | 95 | 8 | 1 | 5 | 2 | 0 |
 | fabric-additions | 532 | 532 | 480 | 52 | 1 | 0 | 1 | 0 | 0 |
 | fabric-r11 | 222 | 222 | 210 | 12 | 1 | 0 | 0 | 1 | 0 |
 | statistics | 145 | 145 | 65 | 80 | 6 | 2 | 2 | 0 | 2 |
-| visualization | 138 | 138 | 117 | 21 | 10 | 3 | 6 | 1 | 0 |
-| fabric-cases | 78 | 78 | 71 | 7 | 0 | 0 | 0 | 0 | 0 |
+| visualization | 138 | 138 | 117 | 21 | 18 | 3 | 10 | 5 | 0 |
+| fabric-cases | 78 | 78 | 71 | 7 | 2 | 0 | 1 | 1 | 0 |
 | exams | 70 | 70 | 47 | 23 | 2 | 0 | 0 | 2 | 0 |
 | hands-on-labs | 29 | 29 | 13 | 16 | 1 | 0 | 0 | 0 | 1 |
 | fabric-rti | 8 | 8 | 7 | 1 | 0 | 0 | 0 | 0 | 0 |
@@ -93,6 +93,31 @@ Semantic reading covers **0.88%** of eligible units. That is a documented subset
 | `sql:reference/3cb3906c5d6c817fb197f233646cda62#section-14` | sql | revised | missed | Text and pattern matching (primary) | recovered-unmatched-context |
 | `fabric-add:new-hub-dumps-21-r21` | fabric-additions | revised | missed | Pipeline control flow (primary); Data pipeline (secondary) | recovered-unmatched-context |
 | `fabric-q:fb-v6-sec-047` | fabric-questions | revised | revised | Identity and permissions (primary); Delta table (secondary); Lakehouse (secondary) | promoted-security-subject |
+| `fabric-note:video15/V15-OLS-010` | fabric-notes | revised | missed | Layered security model (primary); Object-level security (secondary); Column-level security (secondary) | recovered-security-claim-in-spark-context |
+| `fabric-note:video15/V15-OLS-029` | fabric-notes | revised | missed | Identity and permissions (primary); OneLake (secondary) | recovered-unmatched-checklist-claim |
+| `fabric-note:video15/V15-OLS-030` | fabric-notes | held | missed | — | checklist-step-without-claim |
+| `fabric-note:video15/V15-OLS-031` | fabric-notes | revised | missed | Identity and permissions (primary); OneLake (secondary) | recovered-least-privilege-claim |
+| `fabric-note:video15/V15-OLS-033` | fabric-notes | revised | missed | Identity and permissions (primary); Layered security model (secondary) | recovered-read-write-authorisation-claim |
+| `fabric-note:video15/V15-OLS-035` | fabric-notes | revised | missed | Identity and permissions (primary); Layered security model (secondary) | recovered-methodological-claim |
+| `fabric-note:video15/V15-OLS-056` | fabric-notes | revised | missed | Identity and permissions (primary); Row-level security (secondary) | recovered-nested-membership-claim |
+| `fabric-case:disappearing-tables` | fabric-cases | revised | missed | SQL endpoint metadata sync (primary); Delta table (secondary); SQL analytics endpoint (secondary) | recovered-metadata-sync-case |
+| `fabric-case:e-manufacturing-spark-etl` | fabric-cases | held | missed | — | case-scenario-without-resolution |
+| `dv:ar-comprehensive#how-to-use` | visualization | held | missed | — | hub-selection-instruction |
+| `dv:power-bi-playbook#opening` | visualization | held | missed | — | page-purpose-statement |
+| `dv:interview-bank#opening` | visualization | held | missed | — | practice-intent-statement |
+| `dv:statistical-traps#opening` | visualization | revised | missed | Visual integrity (primary); Evidence strength (secondary) | recovered-inference-versus-drawing-claim |
+| `sql:reference/3d13906c5d6c81a4829ed7f4e6db9f8b#opening` | sql | held | missed | — | supporting-source-disclaimer |
+| `dv:visual-atlas#how-to-use-this-atlas` | visualization | revised | missed | Visual integrity (primary); Chart selection (secondary) | recovered-gallery-usage-claim |
+| `dv:foundations#opening` | visualization | revised | missed | Variable type (primary); Chart selection (secondary) | recovered-framework-order-claim |
+| `sql:reference/3cd3906c5d6c8196a02ad41449f06ba8#opening` | sql | held | missed | — | ownership-boundary-statement |
+| `sql:reference/3cb3906c5d6c81f981e3cff58e8ce989#opening` | sql | revised | missed | Text and pattern matching (primary) | recovered-function-surface-claim |
+| `dv:ar-comprehensive#opening` | visualization | held | missed | — | role-split-not-modelled |
+| `sql:01#section-25` | sql | revised | missed | Logical query processing order (primary); Relational query mental model (secondary) | recovered-logical-versus-physical-claim |
+| `dv:visual-atlas#opening` | visualization | revised | missed | Visual integrity (primary); Evidence strength (secondary) | recovered-synthetic-figure-claim |
+| `academy:fabric-analytics:28-build-data-agent-ontology#section-11` | academy | held | missed | — | lesson-recap-unmodelled-domain |
+| `sql:02#opening` | sql | revised | missed | Keys and relationships (primary); NULL semantics (secondary) | recovered-schema-before-query-claim |
+| `academy:fabric-analytics:22d-copilot-fabric-data-agents#section-11` | academy | held | missed | — | lesson-closing-marketing-claim |
+| `academy:fabric-analytics:27-visualize-ontology#section-8` | academy | held | missed | — | lesson-recap-unmodelled-domain |
 
 ## Recorded gaps
 
@@ -142,6 +167,23 @@ Semantic reading covers **0.88%** of eligible units. That is a documented subset
 | `sql:reference/3cb3906c5d6c817fb197f233646cda62#section-14` | The section mixes two unrelated topics, so a single unit-level concept assignment is a lossy summary. |
 | `fabric-add:new-hub-dumps-21-r21` | Answers withheld; the specific technical requirements are in the case body, not in this unit. |
 | `fabric-q:fb-v6-sec-047` | Answers withheld. |
+| `fabric-note:video15/V15-OLS-010` | The note does not say which of OLS or CLS produced the filtering, so the concept split is inferred from the chapter heading. |
+| `fabric-note:video15/V15-OLS-029` | The four checks are listed without their failure symptoms, so no relation between them can be asserted. |
+| `fabric-note:video15/V15-OLS-030` | The claim this step supports is recorded on V15-OLS-029, so this unit must not become an independent assertion. |
+| `fabric-note:video15/V15-OLS-035` | The note does not enumerate the engines in the matrix; SQL, semantic model and Spark are named only in the following chapter. |
+| `fabric-note:video15/V15-OLS-056` | The note does not state which engines expand nested groups and which flatten them; that difference is the actual claim and it is missing. |
+| `fabric-case:disappearing-tables` | The case text stops before the resolution, so the recommended fix is not part of the unit. |
+| `fabric-case:e-manufacturing-spark-etl` | The question, expected answer and any discussion were not extracted with the scenario. |
+| `dv:interview-bank#opening` | No registry concept covers explaining trade-offs in interview answers; candidate gap, not a mapping. |
+| `sql:reference/3d13906c5d6c81a4829ed7f4e6db9f8b#opening` | The recipes themselves were not read in this batch; they remain eligible for a later pass. |
+| `dv:foundations#opening` | The master framework itself is described but not defined in this opening; its steps are not extractable from this unit. |
+| `sql:reference/3cb3906c5d6c81f981e3cff58e8ce989#opening` | The page lists use cases but not the dialect or collation behaviour that makes them differ; the text-matching concept is mapped on the function family, not on a verified behaviour. |
+| `dv:ar-comprehensive#opening` | No registry concept owns the visualization-as-evidence versus storytelling-as-communication distinction; candidate concept for a later registry revision. |
+| `sql:01#section-25` | The section mixes an ownership rule with a content claim; only the content claim is mapped. |
+| `dv:visual-atlas#opening` | The extraction kept the typo "aspattern"; the quote is verbatim and must not be corrected in the ledger. |
+| `academy:fabric-analytics:28-build-data-agent-ontology#section-11` | Ontology and data-agent concepts are outside the current five-domain registry. |
+| `academy:fabric-analytics:22d-copilot-fabric-data-agents#section-11` | The summary's takeaway and next-step lists were not retained as separate units. |
+| `academy:fabric-analytics:27-visualize-ontology#section-8` | Ontology-driven exploration is outside the current five-domain registry. |
 
 ## Limits
 

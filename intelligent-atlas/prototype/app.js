@@ -967,7 +967,7 @@
         <p class="nb-center-kicker">${esc(center.domainLabel)} · ${center.reading ? "read in context" : "candidate, not read"}</p>
         <h3 class="nb-center-title">${esc(center.label)}</h3>
         <p class="nb-center-def">${esc(truncate(center.definition, 170))}</p>
-        <p class="nb-center-meta mono">${plural(model.total, "recorded relation")} · ${plural(model.sameSubject.count, "more")} in ${esc(domainById.get(center.domain)?.short ?? center.domain)}</p>
+        <p class="nb-center-meta mono">${plural(model.total, "recorded relation")} · ${plural(model.sameSubject.count, "more concept", "more concepts")} in ${esc(domainById.get(center.domain)?.short ?? center.domain)}</p>
       </div>
       ${nodes}`;
     if (!model.total) {
@@ -2592,6 +2592,30 @@
         event.preventDefault();
         if (journey.scene !== "knowledge" && !isStatic()) goToScene("knowledge");
         focusWhenActive("knowledge", () => ui.fieldSearch);
+        return;
+      }
+      // Intent modes and the pocket have single-key access, but only when no
+      // text field owns the keystroke and no dialog is open.
+      if (
+        !isTyping(event.target) &&
+        !event.metaKey &&
+        !event.ctrlKey &&
+        !event.altKey &&
+        ui.dealerBackdrop.hidden &&
+        ui.aboutBackdrop.hidden
+      ) {
+        const intentKey = { u: "understand", c: "compare", a: "apply", g: "goal" }[event.key.toLowerCase()];
+        if (intentKey) {
+          event.preventDefault();
+          setIntent(intentKey, { scroll: true });
+          return;
+        }
+        if (event.key.toLowerCase() === "p") {
+          event.preventDefault();
+          if (ui.pocketPanel.hidden) openPocket();
+          else closePocket();
+          return;
+        }
       }
     });
   };

@@ -2932,7 +2932,6 @@ body.is-dialog-open {
   flex-direction: column;
   gap: 8px;
   width: 100%;
-  padding: 0;
   text-align: left;
 }
 
@@ -5479,5 +5478,35 @@ html.is-stage-locked body {
   .tl-card,
   .nb-node {
     border-width: 2px;
+  }
+}
+
+/* ---------------------------------------------------------------------------
+   Touch targets (M4/M5): the mobile contract is 44px. The compact icon buttons
+   above are 38px and the field tools are 30px, which is fine with a mouse and
+   too small with a thumb. This is the only layout rule that changes on mobile.
+   --------------------------------------------------------------------------- */
+@media (max-width: 767px) {
+  .icon-button,
+  .field-tools .icon-button {
+    width: 44px;
+    height: 44px;
+  }
+
+  .chip-button,
+  .ghost-button,
+  .primary-button,
+  .secondary-button,
+  .text-button {
+    min-height: 44px;
+  }
+
+  #field-search,
+  .field-search {
+    min-height: 44px;
+  }
+
+  .tl-card {
+    min-height: 44px;
   }
 }

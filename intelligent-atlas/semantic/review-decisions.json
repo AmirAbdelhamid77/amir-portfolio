@@ -1,11 +1,12 @@
 {
   "schemaVersion": "intelligent-atlas-review-decisions/1.0",
-  "generatedAt": "2026-11-01",
+  "generatedAt": "2026-11-04",
   "reviewer": "agent technical review (DeepSeek V4.1 Flash Free); human review pending",
   "method": "Each unit was opened with its parent context, read for its actual claim, and only then compared with the matcher's candidates. Evidence quotes are verbatim substrings of the extracted unit text and are verified by the ledger builder. A decision never promotes a unit to published state.",
   "scopes": {
     "vertical-slice": "Every resource and edition used by the three review constellations and their goal routes.",
-    "quality-sample": "Deterministic SHA-256 stratified sample across domain, language, content form, matched/unmatched state and cross-domain placement."
+    "quality-sample": "Deterministic SHA-256 stratified sample across domain, language, content form, matched/unmatched state and cross-domain placement.",
+    "batch-review": "Resumable review batches selected by intelligent-atlas/tools/review-workbench.mjs; batch membership and unit text hashes are recorded per batch."
   },
   "decisions": [
     {
@@ -17,9 +18,18 @@
       "evidenceQuote": "OneLake is the tenant-wide storage foundation, built on ADLS technology.",
       "candidateVerdict": "revised",
       "concepts": [
-        { "conceptId": "concept:fabric:lakehouse", "role": "primary" },
-        { "conceptId": "concept:fabric:onelake", "role": "primary" },
-        { "conceptId": "concept:fabric:delta", "role": "secondary" }
+        {
+          "conceptId": "concept:fabric:lakehouse",
+          "role": "primary"
+        },
+        {
+          "conceptId": "concept:fabric:onelake",
+          "role": "primary"
+        },
+        {
+          "conceptId": "concept:fabric:delta",
+          "role": "secondary"
+        }
       ],
       "relationHints": [
         {
@@ -45,8 +55,14 @@
       "evidenceQuote": "A plain shortcut references existing files or tables across workspaces or supported external systems",
       "candidateVerdict": "confirmed",
       "concepts": [
-        { "conceptId": "concept:fabric:shortcut", "role": "primary" },
-        { "conceptId": "concept:fabric:delta", "role": "secondary" }
+        {
+          "conceptId": "concept:fabric:shortcut",
+          "role": "primary"
+        },
+        {
+          "conceptId": "concept:fabric:delta",
+          "role": "secondary"
+        }
       ],
       "relationHints": [],
       "decision": "accepted",
@@ -65,9 +81,18 @@
       "evidenceQuote": "Choose a SQL technique from the required population and output grain.",
       "candidateVerdict": "revised",
       "concepts": [
-        { "conceptId": "concept:sql:grain", "role": "primary" },
-        { "conceptId": "concept:sql:population", "role": "primary" },
-        { "conceptId": "concept:sql:set-operations", "role": "secondary" }
+        {
+          "conceptId": "concept:sql:grain",
+          "role": "primary"
+        },
+        {
+          "conceptId": "concept:sql:population",
+          "role": "primary"
+        },
+        {
+          "conceptId": "concept:sql:set-operations",
+          "role": "secondary"
+        }
       ],
       "relationHints": [
         {
@@ -95,9 +120,18 @@
       "evidenceQuote": "إذا أخذنا عددًا كبيرًا من العينات ذات الحجم المناسب من Population",
       "candidateVerdict": "confirmed",
       "concepts": [
-        { "conceptId": "concept:stats:clt", "role": "primary" },
-        { "conceptId": "concept:stats:sampling-distribution", "role": "primary" },
-        { "conceptId": "concept:stats:population-sample", "role": "secondary" }
+        {
+          "conceptId": "concept:stats:clt",
+          "role": "primary"
+        },
+        {
+          "conceptId": "concept:stats:sampling-distribution",
+          "role": "primary"
+        },
+        {
+          "conceptId": "concept:stats:population-sample",
+          "role": "secondary"
+        }
       ],
       "relationHints": [
         {
@@ -125,9 +159,18 @@
       "evidenceQuote": "Standard Error هو Standard Deviation الخاص بـ Sampling Distribution للـ Statistic.",
       "candidateVerdict": "confirmed",
       "concepts": [
-        { "conceptId": "concept:stats:standard-error", "role": "primary" },
-        { "conceptId": "concept:stats:sampling-distribution", "role": "primary" },
-        { "conceptId": "concept:stats:spread", "role": "secondary" }
+        {
+          "conceptId": "concept:stats:standard-error",
+          "role": "primary"
+        },
+        {
+          "conceptId": "concept:stats:sampling-distribution",
+          "role": "primary"
+        },
+        {
+          "conceptId": "concept:stats:spread",
+          "role": "secondary"
+        }
       ],
       "relationHints": [
         {
@@ -155,9 +198,18 @@
       "evidenceQuote": "فنحن لا نقول بدقة إن هناك",
       "candidateVerdict": "revised",
       "concepts": [
-        { "conceptId": "concept:stats:confidence-interval", "role": "primary" },
-        { "conceptId": "concept:stats:standard-error", "role": "primary" },
-        { "conceptId": "concept:stats:probability", "role": "secondary" }
+        {
+          "conceptId": "concept:stats:confidence-interval",
+          "role": "primary"
+        },
+        {
+          "conceptId": "concept:stats:standard-error",
+          "role": "primary"
+        },
+        {
+          "conceptId": "concept:stats:probability",
+          "role": "secondary"
+        }
       ],
       "relationHints": [
         {
@@ -185,9 +237,18 @@
       "evidenceQuote": "نبدأ عادةً بافتراض عدم وجود فرق أو تأثير، لتقليل التحيز.",
       "candidateVerdict": "revised",
       "concepts": [
-        { "conceptId": "concept:stats:hypothesis-test", "role": "primary" },
-        { "conceptId": "concept:stats:p-value", "role": "primary" },
-        { "conceptId": "concept:stats:error-types", "role": "secondary" }
+        {
+          "conceptId": "concept:stats:hypothesis-test",
+          "role": "primary"
+        },
+        {
+          "conceptId": "concept:stats:p-value",
+          "role": "primary"
+        },
+        {
+          "conceptId": "concept:stats:error-types",
+          "role": "secondary"
+        }
       ],
       "relationHints": [
         {
@@ -215,9 +276,18 @@
       "evidenceQuote": "Positive correlation: larger X tends to accompany larger Y.",
       "candidateVerdict": "revised",
       "concepts": [
-        { "conceptId": "concept:viz:relationship-plot", "role": "primary" },
-        { "conceptId": "concept:stats:correlation", "role": "primary" },
-        { "conceptId": "concept:viz:scale", "role": "secondary" }
+        {
+          "conceptId": "concept:viz:relationship-plot",
+          "role": "primary"
+        },
+        {
+          "conceptId": "concept:stats:correlation",
+          "role": "primary"
+        },
+        {
+          "conceptId": "concept:viz:scale",
+          "role": "secondary"
+        }
       ],
       "relationHints": [
         {
@@ -246,8 +316,14 @@
       "evidenceQuote": "Never use red/green alone to carry status.",
       "candidateVerdict": "confirmed",
       "concepts": [
-        { "conceptId": "concept:viz:accessibility-contrast", "role": "primary" },
-        { "conceptId": "concept:viz:color-palette", "role": "secondary" }
+        {
+          "conceptId": "concept:viz:accessibility-contrast",
+          "role": "primary"
+        },
+        {
+          "conceptId": "concept:viz:color-palette",
+          "role": "secondary"
+        }
       ],
       "relationHints": [],
       "decision": "accepted",
@@ -264,9 +340,18 @@
       "evidenceQuote": "begin with the analytical task, then the data structure, then the simplest trustworthy encoding",
       "candidateVerdict": "confirmed",
       "concepts": [
-        { "conceptId": "concept:viz:chart-selection", "role": "primary" },
-        { "conceptId": "concept:viz:analytical-task", "role": "primary" },
-        { "conceptId": "concept:viz:visual-encoding", "role": "secondary" }
+        {
+          "conceptId": "concept:viz:chart-selection",
+          "role": "primary"
+        },
+        {
+          "conceptId": "concept:viz:analytical-task",
+          "role": "primary"
+        },
+        {
+          "conceptId": "concept:viz:visual-encoding",
+          "role": "secondary"
+        }
       ],
       "relationHints": [
         {
@@ -292,8 +377,14 @@
       "evidenceQuote": "Know the trap pairs: bar vs line, histogram vs bar, mean vs distribution, dual axis vs panels.",
       "candidateVerdict": "revised",
       "concepts": [
-        { "conceptId": "concept:viz:visual-integrity", "role": "primary" },
-        { "conceptId": "concept:viz:distribution-plot", "role": "secondary" }
+        {
+          "conceptId": "concept:viz:visual-integrity",
+          "role": "primary"
+        },
+        {
+          "conceptId": "concept:viz:distribution-plot",
+          "role": "secondary"
+        }
       ],
       "relationHints": [],
       "decision": "revised",
@@ -312,8 +403,14 @@
       "evidenceQuote": "ابدأ من نوع المتغير وعدد المتغيرات.",
       "candidateVerdict": "revised",
       "concepts": [
-        { "conceptId": "concept:viz:variable-type", "role": "primary" },
-        { "conceptId": "concept:viz:chart-selection", "role": "secondary" }
+        {
+          "conceptId": "concept:viz:variable-type",
+          "role": "primary"
+        },
+        {
+          "conceptId": "concept:viz:chart-selection",
+          "role": "secondary"
+        }
       ],
       "relationHints": [],
       "decision": "revised",
@@ -332,8 +429,14 @@
       "evidenceQuote": "اختيار الرسم داخل Power BI يبدأ من السؤال.",
       "candidateVerdict": "confirmed",
       "concepts": [
-        { "conceptId": "concept:viz:chart-selection", "role": "primary" },
-        { "conceptId": "concept:viz:analytical-task", "role": "secondary" }
+        {
+          "conceptId": "concept:viz:chart-selection",
+          "role": "primary"
+        },
+        {
+          "conceptId": "concept:viz:analytical-task",
+          "role": "secondary"
+        }
       ],
       "relationHints": [],
       "decision": "accepted",
@@ -350,9 +453,18 @@
       "evidenceQuote": "Start from the decision, not from a chart type.",
       "candidateVerdict": "revised",
       "concepts": [
-        { "conceptId": "concept:analysis:decision-frame", "role": "primary" },
-        { "conceptId": "concept:viz:analytical-task", "role": "primary" },
-        { "conceptId": "concept:viz:chart-selection", "role": "secondary" }
+        {
+          "conceptId": "concept:analysis:decision-frame",
+          "role": "primary"
+        },
+        {
+          "conceptId": "concept:viz:analytical-task",
+          "role": "primary"
+        },
+        {
+          "conceptId": "concept:viz:chart-selection",
+          "role": "secondary"
+        }
       ],
       "relationHints": [],
       "decision": "revised",
@@ -371,8 +483,14 @@
       "evidenceQuote": "Investigate an internal OneLake shortcut: it points to an existing location rather than requiring a separate copy pipeline.",
       "candidateVerdict": "confirmed",
       "concepts": [
-        { "conceptId": "concept:fabric:shortcut", "role": "primary" },
-        { "conceptId": "concept:fabric:delta", "role": "secondary" }
+        {
+          "conceptId": "concept:fabric:shortcut",
+          "role": "primary"
+        },
+        {
+          "conceptId": "concept:fabric:delta",
+          "role": "secondary"
+        }
       ],
       "relationHints": [],
       "decision": "accepted",
@@ -391,8 +509,14 @@
       "evidenceQuote": "Deleting the shortcut object leaves its target intact.",
       "candidateVerdict": "confirmed",
       "concepts": [
-        { "conceptId": "concept:fabric:shortcut", "role": "primary" },
-        { "conceptId": "concept:fabric:permissions", "role": "secondary" }
+        {
+          "conceptId": "concept:fabric:shortcut",
+          "role": "primary"
+        },
+        {
+          "conceptId": "concept:fabric:permissions",
+          "role": "secondary"
+        }
       ],
       "relationHints": [],
       "decision": "accepted",
@@ -411,9 +535,18 @@
       "evidenceQuote": "Table discovery does not happen in Files.",
       "candidateVerdict": "confirmed",
       "concepts": [
-        { "conceptId": "concept:fabric:shortcut", "role": "primary" },
-        { "conceptId": "concept:fabric:lakehouse", "role": "secondary" },
-        { "conceptId": "concept:fabric:delta", "role": "secondary" }
+        {
+          "conceptId": "concept:fabric:shortcut",
+          "role": "primary"
+        },
+        {
+          "conceptId": "concept:fabric:lakehouse",
+          "role": "secondary"
+        },
+        {
+          "conceptId": "concept:fabric:delta",
+          "role": "secondary"
+        }
       ],
       "relationHints": [],
       "decision": "accepted",
@@ -432,7 +565,10 @@
       "evidenceQuote": "Which statement about Spark Job Definitions in CI/CD is accurate?",
       "candidateVerdict": "false-positive",
       "concepts": [
-        { "conceptId": "concept:fabric:git", "role": "secondary" }
+        {
+          "conceptId": "concept:fabric:git",
+          "role": "secondary"
+        }
       ],
       "relationHints": [],
       "decision": "held",
@@ -488,8 +624,14 @@
       "evidenceQuote": "A chart is an evidence layer; storytelling is a separate communication layer.",
       "candidateVerdict": "false-positive",
       "concepts": [
-        { "conceptId": "concept:analysis:decision-frame", "role": "primary" },
-        { "conceptId": "concept:viz:chart-selection", "role": "secondary" }
+        {
+          "conceptId": "concept:analysis:decision-frame",
+          "role": "primary"
+        },
+        {
+          "conceptId": "concept:viz:chart-selection",
+          "role": "secondary"
+        }
       ],
       "relationHints": [],
       "decision": "revised",
@@ -523,8 +665,14 @@
       "evidenceQuote": "The first 5,000 can appear valid while the rest are omitted.",
       "candidateVerdict": "missed",
       "concepts": [
-        { "conceptId": "concept:fabric:pipeline-reliability", "role": "primary" },
-        { "conceptId": "concept:fabric:control-flow", "role": "secondary" }
+        {
+          "conceptId": "concept:fabric:pipeline-reliability",
+          "role": "primary"
+        },
+        {
+          "conceptId": "concept:fabric:control-flow",
+          "role": "secondary"
+        }
       ],
       "relationHints": [],
       "decision": "revised",
@@ -543,8 +691,14 @@
       "evidenceQuote": "كلما فحصت قطاعات ومقاييس أكثر، زادت فرصة ظهور patterns شاذة بالصدفة.",
       "candidateVerdict": "revised",
       "concepts": [
-        { "conceptId": "concept:viz:visual-integrity", "role": "primary" },
-        { "conceptId": "concept:stats:error-types", "role": "secondary" }
+        {
+          "conceptId": "concept:viz:visual-integrity",
+          "role": "primary"
+        },
+        {
+          "conceptId": "concept:stats:error-types",
+          "role": "secondary"
+        }
       ],
       "relationHints": [
         {
@@ -572,9 +726,18 @@
       "evidenceQuote": "SELECT season, COUNT( ) AS matches",
       "candidateVerdict": "confirmed",
       "concepts": [
-        { "conceptId": "concept:sql:subquery-cte", "role": "primary" },
-        { "conceptId": "concept:sql:aggregation", "role": "secondary" },
-        { "conceptId": "concept:sql:group-by", "role": "secondary" }
+        {
+          "conceptId": "concept:sql:subquery-cte",
+          "role": "primary"
+        },
+        {
+          "conceptId": "concept:sql:aggregation",
+          "role": "secondary"
+        },
+        {
+          "conceptId": "concept:sql:group-by",
+          "role": "secondary"
+        }
       ],
       "relationHints": [],
       "decision": "accepted",
@@ -593,9 +756,18 @@
       "evidenceQuote": "Configure a rule that will modify the value of Date1 when changes are deployed to the Test stage.",
       "candidateVerdict": "revised",
       "concepts": [
-        { "conceptId": "concept:fabric:deployment", "role": "primary" },
-        { "conceptId": "concept:fabric:pipeline-parameter", "role": "primary" },
-        { "conceptId": "concept:fabric:semantic-model", "role": "secondary" }
+        {
+          "conceptId": "concept:fabric:deployment",
+          "role": "primary"
+        },
+        {
+          "conceptId": "concept:fabric:pipeline-parameter",
+          "role": "primary"
+        },
+        {
+          "conceptId": "concept:fabric:semantic-model",
+          "role": "secondary"
+        }
       ],
       "relationHints": [],
       "decision": "held",
@@ -615,9 +787,18 @@
       "evidenceQuote": "SELECT p.Name AS ProductName, pc.Name AS CategoryName, p.ListPrice",
       "candidateVerdict": "revised",
       "concepts": [
-        { "conceptId": "concept:sql:join", "role": "primary" },
-        { "conceptId": "concept:sql:ordering", "role": "secondary" },
-        { "conceptId": "concept:fabric:t-sql", "role": "secondary" }
+        {
+          "conceptId": "concept:sql:join",
+          "role": "primary"
+        },
+        {
+          "conceptId": "concept:sql:ordering",
+          "role": "secondary"
+        },
+        {
+          "conceptId": "concept:fabric:t-sql",
+          "role": "secondary"
+        }
       ],
       "relationHints": [],
       "decision": "revised",
@@ -689,7 +870,10 @@
       "evidenceQuote": "I. Dual axis vs small multiples",
       "candidateVerdict": "confirmed",
       "concepts": [
-        { "conceptId": "concept:viz:visual-integrity", "role": "secondary" }
+        {
+          "conceptId": "concept:viz:visual-integrity",
+          "role": "secondary"
+        }
       ],
       "relationHints": [],
       "decision": "held",
@@ -726,7 +910,10 @@
       "evidenceQuote": "Which store is the appropriate raw landing zone?",
       "candidateVerdict": "missed",
       "concepts": [
-        { "conceptId": "concept:fabric:lakehouse", "role": "primary" }
+        {
+          "conceptId": "concept:fabric:lakehouse",
+          "role": "primary"
+        }
       ],
       "relationHints": [],
       "decision": "revised",
@@ -763,8 +950,14 @@
       "evidenceQuote": "Metadata versus access controls Select TWO statements that hold in the governed catalog design.",
       "candidateVerdict": "missed",
       "concepts": [
-        { "conceptId": "concept:fabric:permissions", "role": "primary" },
-        { "conceptId": "concept:fabric:security-model", "role": "secondary" }
+        {
+          "conceptId": "concept:fabric:permissions",
+          "role": "primary"
+        },
+        {
+          "conceptId": "concept:fabric:security-model",
+          "role": "secondary"
+        }
       ],
       "relationHints": [],
       "decision": "revised",
@@ -784,7 +977,10 @@
       "evidenceQuote": "levenshtein(a,b) → edit distance (lower = closer)",
       "candidateVerdict": "missed",
       "concepts": [
-        { "conceptId": "concept:sql:text-matching", "role": "primary" }
+        {
+          "conceptId": "concept:sql:text-matching",
+          "role": "primary"
+        }
       ],
       "relationHints": [],
       "decision": "revised",
@@ -804,8 +1000,14 @@
       "evidenceQuote": "You need to ensure the data loading activities in the AnalyticsPOC workspace are executed in the appropriate sequence.",
       "candidateVerdict": "missed",
       "concepts": [
-        { "conceptId": "concept:fabric:control-flow", "role": "primary" },
-        { "conceptId": "concept:fabric:pipeline", "role": "secondary" }
+        {
+          "conceptId": "concept:fabric:control-flow",
+          "role": "primary"
+        },
+        {
+          "conceptId": "concept:fabric:pipeline",
+          "role": "secondary"
+        }
       ],
       "relationHints": [],
       "decision": "revised",
@@ -824,9 +1026,18 @@
       "evidenceQuote": "Select THREE tests that best validate a new access-control deployment for restricted Lakehouse Delta tables.",
       "candidateVerdict": "revised",
       "concepts": [
-        { "conceptId": "concept:fabric:permissions", "role": "primary" },
-        { "conceptId": "concept:fabric:delta", "role": "secondary" },
-        { "conceptId": "concept:fabric:lakehouse", "role": "secondary" }
+        {
+          "conceptId": "concept:fabric:permissions",
+          "role": "primary"
+        },
+        {
+          "conceptId": "concept:fabric:delta",
+          "role": "secondary"
+        },
+        {
+          "conceptId": "concept:fabric:lakehouse",
+          "role": "secondary"
+        }
       ],
       "relationHints": [],
       "decision": "revised",
@@ -834,6 +1045,570 @@
       "rationale": "The matcher returned only Delta and Lakehouse. Those are the objects being protected, not the subject being tested, so permissions was promoted to primary.",
       "unresolved": [
         "Answers withheld."
+      ]
+    },
+    {
+      "unitId": "fabric-note:video15/V15-OLS-010",
+      "scope": "batch-review",
+      "batchId": "batch-ea6f505ce054",
+      "parentContext": "Fabric notes, video 15, checklist chapter \"Column and object security\". The surrounding items are short execution checks, not definitions.",
+      "reading": "Security filters do not disappear when the engine changes. A reader who reaches a protected table through Spark sees filtered rows rather than a way around the restriction, so the check is whether the catalog, runtime and table-name access are the supported ones.",
+      "essentialMeaning": "prose",
+      "evidenceQuote": "expect filtered data, not a blanket bypass",
+      "candidateVerdict": "missed",
+      "concepts": [
+        {
+          "conceptId": "concept:fabric:security-model",
+          "role": "primary"
+        },
+        {
+          "conceptId": "concept:fabric:ols",
+          "role": "secondary"
+        },
+        {
+          "conceptId": "concept:fabric:cls",
+          "role": "secondary"
+        }
+      ],
+      "relationHints": [],
+      "decision": "revised",
+      "decisionCode": "recovered-security-claim-in-spark-context",
+      "rationale": "The chapter heading names column and object security and the sentence makes the enforcement claim, but the matcher left the unit unmatched because the text is a Spark execution check with no registry pattern. The concepts exist, so the gap was lexical, not conceptual.",
+      "unresolved": [
+        "The note does not say which of OLS or CLS produced the filtering, so the concept split is inferred from the chapter heading."
+      ]
+    },
+    {
+      "unitId": "fabric-note:video15/V15-OLS-029",
+      "scope": "batch-review",
+      "batchId": "batch-ea6f505ce054",
+      "parentContext": "Same video 15 checklist, \"Spark secured execution\" chapter. Four consecutive items describe one verification procedure.",
+      "reading": "Before reporting that Spark cannot read a protected table, verify four preconditions: the runtime version, the OneLake Spark catalog, the table format, and the effective identity. A reported limitation is usually one of those four being wrong.",
+      "essentialMeaning": "procedure",
+      "evidenceQuote": "Check runtime, OneLake Spark catalog, table format, and effective identity before asserting a universal Spark limitation",
+      "candidateVerdict": "missed",
+      "concepts": [
+        {
+          "conceptId": "concept:fabric:permissions",
+          "role": "primary"
+        },
+        {
+          "conceptId": "concept:fabric:onelake",
+          "role": "secondary"
+        }
+      ],
+      "relationHints": [],
+      "decision": "revised",
+      "decisionCode": "recovered-unmatched-checklist-claim",
+      "rationale": "The item is procedural but carries a real claim: identity and catalog prerequisites, not engine capability, produce most Spark access failures. Permissions is the concept that covers the effective identity, OneLake the catalog.",
+      "unresolved": [
+        "The four checks are listed without their failure symptoms, so no relation between them can be asserted."
+      ]
+    },
+    {
+      "unitId": "fabric-note:video15/V15-OLS-030",
+      "scope": "batch-review",
+      "batchId": "batch-ea6f505ce054",
+      "parentContext": "Same \"Spark secured execution\" checklist, item following the four-precondition check.",
+      "reading": "A test instruction: read through the supported table-name path with the correct runtime, catalog and user. On its own the item asserts nothing that another concept could own.",
+      "essentialMeaning": "procedure",
+      "evidenceQuote": "test with the correct Spark runtime/catalog and user",
+      "candidateVerdict": "missed",
+      "concepts": [],
+      "relationHints": [],
+      "decision": "held",
+      "decisionCode": "checklist-step-without-claim",
+      "rationale": "Held rather than mapped: the step is the execution half of the previous item's claim. Mapping it separately would create a duplicate assertion from the same checklist.",
+      "unresolved": [
+        "The claim this step supports is recorded on V15-OLS-029, so this unit must not become an independent assertion."
+      ]
+    },
+    {
+      "unitId": "fabric-note:video15/V15-OLS-031",
+      "scope": "batch-review",
+      "batchId": "batch-ea6f505ce054",
+      "parentContext": "Same \"Spark secured execution\" checklist, third item.",
+      "reading": "Privilege escalation is the wrong repair for a missing catalog or runtime prerequisite. The prerequisites have to be met; granting a broader reader role hides the configuration fault.",
+      "essentialMeaning": "prose",
+      "evidenceQuote": "Meet OneLake Spark Catalog/runtime prerequisites rather than escalating reader privilege",
+      "candidateVerdict": "missed",
+      "concepts": [
+        {
+          "conceptId": "concept:fabric:permissions",
+          "role": "primary"
+        },
+        {
+          "conceptId": "concept:fabric:onelake",
+          "role": "secondary"
+        }
+      ],
+      "relationHints": [],
+      "decision": "revised",
+      "decisionCode": "recovered-least-privilege-claim",
+      "rationale": "The sentence states a cause and a rejected remedy, which is a claim about identity and permissions rather than about Spark. The matcher saw only the product names.",
+      "unresolved": []
+    },
+    {
+      "unitId": "fabric-note:video15/V15-OLS-033",
+      "scope": "batch-review",
+      "batchId": "batch-ea6f505ce054",
+      "parentContext": "Same \"Spark secured execution\" checklist, fourth item.",
+      "reading": "Reading a protected target and writing to it are separately authorised. A successful secure read does not establish that a write workflow will be allowed.",
+      "essentialMeaning": "prose",
+      "evidenceQuote": "Distinguish supported secure reads from write workflows on protected targets",
+      "candidateVerdict": "missed",
+      "concepts": [
+        {
+          "conceptId": "concept:fabric:permissions",
+          "role": "primary"
+        },
+        {
+          "conceptId": "concept:fabric:security-model",
+          "role": "secondary"
+        }
+      ],
+      "relationHints": [],
+      "decision": "revised",
+      "decisionCode": "recovered-read-write-authorisation-claim",
+      "rationale": "The distinction is a permissions claim about two different operations on one target, which the layered security model already covers.",
+      "unresolved": []
+    },
+    {
+      "unitId": "fabric-note:video15/V15-OLS-035",
+      "scope": "batch-review",
+      "batchId": "batch-ea6f505ce054",
+      "parentContext": "Same \"Spark secured execution\" checklist, fifth item, closing the cross-engine comparison.",
+      "reading": "Comparing two engines only tests the engines if the identity is the same in both. A comparison that uses a different identity per engine, or more privilege than the task needs, produces a false equivalent.",
+      "essentialMeaning": "prose",
+      "evidenceQuote": "Use a least-privilege, matching identity matrix across engines to avoid testing false equivalents",
+      "candidateVerdict": "missed",
+      "concepts": [
+        {
+          "conceptId": "concept:fabric:permissions",
+          "role": "primary"
+        },
+        {
+          "conceptId": "concept:fabric:security-model",
+          "role": "secondary"
+        }
+      ],
+      "relationHints": [],
+      "decision": "revised",
+      "decisionCode": "recovered-methodological-claim",
+      "rationale": "This is the one item in the checklist that states a method constraint rather than a product behaviour, and the permissions concept owns identity scope.",
+      "unresolved": [
+        "The note does not enumerate the engines in the matrix; SQL, semantic model and Spark are named only in the following chapter."
+      ]
+    },
+    {
+      "unitId": "fabric-note:video15/V15-OLS-056",
+      "scope": "batch-review",
+      "batchId": "batch-ea6f505ce054",
+      "parentContext": "Same video 15 checklist, chapter \"Lifecycle and security QA\".",
+      "reading": "Group type and nested membership behave differently per engine, so security QA has to test them explicitly against SQL, the semantic model and Spark, and has to use identity groups the platform supports.",
+      "essentialMeaning": "procedure",
+      "evidenceQuote": "Test group types and nested memberships explicitly across SQL, model and Spark",
+      "candidateVerdict": "missed",
+      "concepts": [
+        {
+          "conceptId": "concept:fabric:permissions",
+          "role": "primary"
+        },
+        {
+          "conceptId": "concept:fabric:rls",
+          "role": "secondary"
+        }
+      ],
+      "relationHints": [],
+      "decision": "revised",
+      "decisionCode": "recovered-nested-membership-claim",
+      "rationale": "Nested group expansion is the mechanism row-level and object-level filters depend on, so the unit belongs to permissions with RLS as the downstream consumer.",
+      "unresolved": [
+        "The note does not state which engines expand nested groups and which flatten them; that difference is the actual claim and it is missing."
+      ]
+    },
+    {
+      "unitId": "fabric-case:disappearing-tables",
+      "scope": "batch-review",
+      "batchId": "batch-ea6f505ce054",
+      "parentContext": "Fabric troubleshooting cases, case \"Disappearing tables\". Setup text only, written as a support ticket.",
+      "reading": "A table created from Spark with an explicit location under a custom lake folder is not a managed table in the lakehouse Tables area, so the SQL analytics endpoint does not surface it. Repeating the endpoint refresh cannot fix a table that lives outside the managed location.",
+      "essentialMeaning": "prose",
+      "evidenceQuote": "The table was created in Spark using a location under a custom lake folder rather than managed Tables",
+      "candidateVerdict": "missed",
+      "concepts": [
+        {
+          "conceptId": "concept:fabric:metadata-sync",
+          "role": "primary"
+        },
+        {
+          "conceptId": "concept:fabric:delta",
+          "role": "secondary"
+        },
+        {
+          "conceptId": "concept:fabric:sql-endpoint",
+          "role": "secondary"
+        }
+      ],
+      "relationHints": [],
+      "decision": "revised",
+      "decisionCode": "recovered-metadata-sync-case",
+      "rationale": "The case is a metadata-sync failure caused by table location, not a Spark limitation. The matcher classified it as an unmodelled execution domain because the sentence starts with Spark.",
+      "unresolved": [
+        "The case text stops before the resolution, so the recommended fix is not part of the unit."
+      ]
+    },
+    {
+      "unitId": "fabric-case:e-manufacturing-spark-etl",
+      "scope": "batch-review",
+      "batchId": "batch-ea6f505ce054",
+      "parentContext": "Fabric cases, case \"E — Manufacturing Spark ETL\". One-sentence scenario setup.",
+      "reading": "A scenario: an engineering team reads secured production telemetry with Spark 3.5 and writes governed gold tables for analytics. The sentence sets up a task but states no claim, and its question is not part of the extracted text.",
+      "essentialMeaning": "prose",
+      "evidenceQuote": "reads secured production telemetry using Spark 3.5 and writes governed gold tables for analytics",
+      "candidateVerdict": "missed",
+      "concepts": [],
+      "relationHints": [],
+      "decision": "held",
+      "decisionCode": "case-scenario-without-resolution",
+      "rationale": "Held: the unit is the setup of a worked case. Mapping it to permissions or medallion architecture would create an assertion the case never makes.",
+      "unresolved": [
+        "The question, expected answer and any discussion were not extracted with the scenario."
+      ]
+    },
+    {
+      "unitId": "dv:ar-comprehensive#how-to-use",
+      "scope": "batch-review",
+      "batchId": "batch-2eef9ce11894",
+      "parentContext": "Visualization hub page, \"How to Use\" section directly under the page title.",
+      "reading": "A single instruction: the page is a map of jobs and the reader should pick one. It is navigation text with no claim about visualization.",
+      "essentialMeaning": "index",
+      "evidenceQuote": "Pick one job.",
+      "candidateVerdict": "missed",
+      "concepts": [],
+      "relationHints": [],
+      "decision": "held",
+      "decisionCode": "hub-selection-instruction",
+      "rationale": "Held because the sentence routes the reader; it asserts nothing that a concept could own. Mapping it would make a navigation label look like a claim.",
+      "unresolved": []
+    },
+    {
+      "unitId": "dv:power-bi-playbook#opening",
+      "scope": "batch-review",
+      "batchId": "batch-2eef9ce11894",
+      "parentContext": "Opening block of the Power BI Visualization Playbook, immediately after the page title.",
+      "reading": "A one-line description of the page in Arabic: a practical bridge between visualization principles and their actual implementation in Power BI. It describes the page's purpose, not a method.",
+      "essentialMeaning": "prose",
+      "evidenceQuote": "جسر عملي بين مبادئ Data Visualization والتنفيذ الفعلي في Power BI",
+      "candidateVerdict": "missed",
+      "concepts": [],
+      "relationHints": [],
+      "decision": "held",
+      "decisionCode": "page-purpose-statement",
+      "rationale": "Held: the unit states the page's purpose. The playbook body, not this opening, carries the implementation claims.",
+      "unresolved": []
+    },
+    {
+      "unitId": "dv:interview-bank#opening",
+      "scope": "batch-review",
+      "batchId": "batch-2eef9ce11894",
+      "parentContext": "Opening block of the Data Visualization Interview Master Bank.",
+      "reading": "The bank is for practising answers that explain trade-offs and reasons rather than reciting definitions. That is a statement about interview preparation, not about visualization.",
+      "essentialMeaning": "prose",
+      "evidenceQuote": "بنك أسئلة للتدرب على الإجابات التي تشرح trade-offs والسبب، وليس مجرد تعريفات",
+      "candidateVerdict": "missed",
+      "concepts": [],
+      "relationHints": [],
+      "decision": "held",
+      "decisionCode": "practice-intent-statement",
+      "rationale": "Held: the claim is about how to answer, and the registry has no concept for interview reasoning. Recording it as a viz concept would misattribute it.",
+      "unresolved": [
+        "No registry concept covers explaining trade-offs in interview answers; candidate gap, not a mapping."
+      ]
+    },
+    {
+      "unitId": "dv:statistical-traps#opening",
+      "scope": "batch-review",
+      "batchId": "batch-2eef9ce11894",
+      "parentContext": "Opening block of the Statistical Interpretation Traps page, which follows with trap-by-trap chapters.",
+      "reading": "Many visualization failures are failures of inference rather than of drawing. The page's premise is that a correct chart can still support a wrong conclusion, so the review question is about the claim, not the rendering.",
+      "essentialMeaning": "prose",
+      "evidenceQuote": "الكثير من أخطاء الـvisualization أخطاء في الاستدلال وليس في الرسم نفسه",
+      "candidateVerdict": "missed",
+      "concepts": [
+        {
+          "conceptId": "concept:viz:visual-integrity",
+          "role": "primary"
+        },
+        {
+          "conceptId": "concept:analysis:evidence-strength",
+          "role": "secondary"
+        }
+      ],
+      "relationHints": [],
+      "decision": "revised",
+      "decisionCode": "recovered-inference-versus-drawing-claim",
+      "rationale": "The sentence is a premise the page then demonstrates, and it names the exact boundary the visual-integrity concept draws: honest representation is distinct from the validity of the underlying claim.",
+      "unresolved": []
+    },
+    {
+      "unitId": "sql:reference/3d13906c5d6c81a4829ed7f4e6db9f8b#opening",
+      "scope": "batch-review",
+      "batchId": "batch-2eef9ce11894",
+      "parentContext": "Opening block of the Temporary Tables supporting reference. The same boilerplate line appears at the top of each supporting SQL reference.",
+      "reading": "The page declares itself a recipe collection that supports a canonical module and does not carry the explanation. It is a scope disclaimer, not a claim about temporary tables.",
+      "essentialMeaning": "index",
+      "evidenceQuote": "Use this supporting source in the context of its canonical SQL module.",
+      "candidateVerdict": "missed",
+      "concepts": [],
+      "relationHints": [],
+      "decision": "held",
+      "decisionCode": "supporting-source-disclaimer",
+      "rationale": "Held: the boilerplate states ownership, not content. The recipe body has to be read separately before any concept can be attributed.",
+      "unresolved": [
+        "The recipes themselves were not read in this batch; they remain eligible for a later pass."
+      ]
+    },
+    {
+      "unitId": "dv:visual-atlas#how-to-use-this-atlas",
+      "scope": "batch-review",
+      "batchId": "batch-2eef9ce11894",
+      "parentContext": "Visual Atlas gallery, \"How to use this atlas\" section, immediately before the chapter index.",
+      "reading": "The gallery is a memory aid for rules learned elsewhere: look at the figure of the rule, then ask what a dishonest version of the same figure would look like. The figure is not the lesson and it is not evidence.",
+      "essentialMeaning": "procedure",
+      "evidenceQuote": "Ask: what would a lie look like if I broke this rule?",
+      "candidateVerdict": "missed",
+      "concepts": [
+        {
+          "conceptId": "concept:viz:visual-integrity",
+          "role": "primary"
+        },
+        {
+          "conceptId": "concept:viz:chart-selection",
+          "role": "secondary"
+        }
+      ],
+      "relationHints": [],
+      "decision": "revised",
+      "decisionCode": "recovered-gallery-usage-claim",
+      "rationale": "The instruction defines a review technique: take a valid figure and construct its distorted counterpart. That is a visual-integrity exercise applied to chart selection, and the matcher read the section as an index.",
+      "unresolved": []
+    },
+    {
+      "unitId": "dv:foundations#opening",
+      "scope": "batch-review",
+      "batchId": "batch-2eef9ce11894",
+      "parentContext": "Opening block of Foundations & Decision Framework, the entry chapter of the visualization reference.",
+      "reading": "The chapter sets out to explain why plots matter, how to classify variables, and a framework used throughout the reference. The ordering is itself the claim: variable classification comes before choosing a representation.",
+      "essentialMeaning": "prose",
+      "evidenceQuote": "why plots matter, how to classify your variables, and the master framework used throughout this reference",
+      "candidateVerdict": "missed",
+      "concepts": [
+        {
+          "conceptId": "concept:viz:variable-type",
+          "role": "primary"
+        },
+        {
+          "conceptId": "concept:viz:chart-selection",
+          "role": "secondary"
+        }
+      ],
+      "relationHints": [],
+      "decision": "revised",
+      "decisionCode": "recovered-framework-order-claim",
+      "rationale": "The purpose statement names classification before representation, which is the decision rule the chart-selection concept states. The matcher saw a chapter opening and produced nothing.",
+      "unresolved": [
+        "The master framework itself is described but not defined in this opening; its steps are not extractable from this unit."
+      ]
+    },
+    {
+      "unitId": "sql:reference/3cd3906c5d6c8196a02ad41449f06ba8#opening",
+      "scope": "batch-review",
+      "batchId": "batch-2eef9ce11894",
+      "parentContext": "Opening block of the Advanced SQL Patterns supporting reference.",
+      "reading": "The page states its ownership boundary in Arabic: it is a list of traps and review patterns, not a third canonical reference. That is a scope statement about the page.",
+      "essentialMeaning": "index",
+      "evidenceQuote": "هذه الصفحة قائمة traps وأنماط مراجعة، مش مرجع كانوني ثالث",
+      "candidateVerdict": "missed",
+      "concepts": [],
+      "relationHints": [],
+      "decision": "held",
+      "decisionCode": "ownership-boundary-statement",
+      "rationale": "Held: ownership statements prevent duplicate assertions, so they must not become assertions themselves.",
+      "unresolved": []
+    },
+    {
+      "unitId": "sql:reference/3cb3906c5d6c81f981e3cff58e8ce989#opening",
+      "scope": "batch-review",
+      "batchId": "batch-2eef9ce11894",
+      "parentContext": "Opening block of the String & Character Functions supporting reference.",
+      "reading": "String functions are presented as a working surface for cleaning, parsing, standardisation, feature engineering, reporting and search. The list of uses is the page's claim about why the function family matters.",
+      "essentialMeaning": "prose",
+      "evidenceQuote": "String functions أساسية لـ data cleaning, parsing, standardization, feature engineering, reporting, and search",
+      "candidateVerdict": "missed",
+      "concepts": [
+        {
+          "conceptId": "concept:sql:text-matching",
+          "role": "primary"
+        }
+      ],
+      "relationHints": [],
+      "decision": "revised",
+      "decisionCode": "recovered-function-surface-claim",
+      "rationale": "The sentence attributes a role to one function family across several downstream tasks, which is a text-matching claim. The matcher had no pattern for the bilingual opening.",
+      "unresolved": [
+        "The page lists use cases but not the dialect or collation behaviour that makes them differ; the text-matching concept is mapped on the function family, not on a verified behaviour."
+      ]
+    },
+    {
+      "unitId": "dv:ar-comprehensive#opening",
+      "scope": "batch-review",
+      "batchId": "batch-2eef9ce11894",
+      "parentContext": "Opening block of the Arabic comprehensive visualization reference, which declares itself a library hub.",
+      "reading": "The page is a navigation hub whose chapters were not rewritten. It also draws a role distinction: visualization is the evidence layer and storytelling is the communication layer. That distinction is a real claim, but it is not one the registry models.",
+      "essentialMeaning": "index",
+      "evidenceQuote": "Visualization = evidence layer. Storytelling = communication layer.",
+      "candidateVerdict": "missed",
+      "concepts": [],
+      "relationHints": [],
+      "decision": "held",
+      "decisionCode": "role-split-not-modelled",
+      "rationale": "Held deliberately. The only claim here is the evidence-versus-communication split, and forcing it onto visual-integrity or analytical-task would misstate both concepts. It is recorded as a registry gap instead.",
+      "unresolved": [
+        "No registry concept owns the visualization-as-evidence versus storytelling-as-communication distinction; candidate concept for a later registry revision."
+      ]
+    },
+    {
+      "unitId": "sql:01#section-25",
+      "scope": "batch-review",
+      "batchId": "batch-2eef9ce11894",
+      "parentContext": "SQL 01 foundations, \"Ownership Rule\" section closing the chapter.",
+      "reading": "The page owns foundational SQL reasoning and other notes may reference it but must not duplicate the full explanation. The section also restates the chapter's core distinction between logical meaning, physical execution, filtering and grouping.",
+      "essentialMeaning": "prose",
+      "evidenceQuote": "Distinguish logical query meaning, physical execution, filtering and grouping.",
+      "candidateVerdict": "missed",
+      "concepts": [
+        {
+          "conceptId": "concept:sql:logical-processing-order",
+          "role": "primary"
+        },
+        {
+          "conceptId": "concept:sql:mental-model",
+          "role": "secondary"
+        }
+      ],
+      "relationHints": [],
+      "decision": "revised",
+      "decisionCode": "recovered-logical-versus-physical-claim",
+      "rationale": "The ownership rule is navigation, but the sentence it protects states the logical-versus-physical separation that the processing-order concept exists to explain. Keeping the concept mapping and dropping the ownership claim is the honest split.",
+      "unresolved": [
+        "The section mixes an ownership rule with a content claim; only the content claim is mapped."
+      ]
+    },
+    {
+      "unitId": "dv:visual-atlas#opening",
+      "scope": "batch-review",
+      "batchId": "batch-2eef9ce11894",
+      "parentContext": "Visual Atlas opening, before the figure gallery.",
+      "reading": "The gallery is a companion to the chapters. Its figures illustrate rules the library already states, use synthetic teaching data, and must not be read as evidence about a real business.",
+      "essentialMeaning": "prose",
+      "evidenceQuote": "Use these aspattern memory, not as evidence about a real business",
+      "candidateVerdict": "missed",
+      "concepts": [
+        {
+          "conceptId": "concept:viz:visual-integrity",
+          "role": "primary"
+        },
+        {
+          "conceptId": "concept:analysis:evidence-strength",
+          "role": "secondary"
+        }
+      ],
+      "relationHints": [],
+      "decision": "revised",
+      "decisionCode": "recovered-synthetic-figure-claim",
+      "rationale": "The unit states a limit on what a figure can support, which is the boundary between visual integrity and evidence strength. The source also contains a typo (aspattern) that the quote preserves verbatim.",
+      "unresolved": [
+        "The extraction kept the typo \"aspattern\"; the quote is verbatim and must not be corrected in the ledger."
+      ]
+    },
+    {
+      "unitId": "academy:fabric-analytics:28-build-data-agent-ontology#section-11",
+      "scope": "batch-review",
+      "batchId": "batch-2eef9ce11894",
+      "parentContext": "Academy lesson 28, closing summary section after the exercise steps.",
+      "reading": "A recap of an exercise: the learner built a data agent grounded in the Lamna Healthcare ontology, and the ontology's vocabulary of entity types, properties and relationships is what lets the agent answer natural-language questions.",
+      "essentialMeaning": "derived-summary",
+      "evidenceQuote": "The ontology's business vocabulary — entity types, properties, and relationships — allows the data agent to provide answers to natural language questions.",
+      "candidateVerdict": "missed",
+      "concepts": [],
+      "relationHints": [],
+      "decision": "held",
+      "decisionCode": "lesson-recap-unmodelled-domain",
+      "rationale": "Held: it is a recap of an exercise in an ontology and data-agent domain that the five-domain registry does not model. The claim is real but out of scope, and mapping it to a Fabric concept would misattribute it.",
+      "unresolved": [
+        "Ontology and data-agent concepts are outside the current five-domain registry."
+      ]
+    },
+    {
+      "unitId": "sql:02#opening",
+      "scope": "batch-review",
+      "batchId": "batch-2eef9ce11894",
+      "parentContext": "SQL 02 database and modelling reference, opening block.",
+      "reading": "The reference covers database structure before analysis: exploring tables, primary and foreign keys and their relationships, constraints, and the basics of handling NULL.",
+      "essentialMeaning": "prose",
+      "evidenceQuote": "استكشاف الجداول، الـPK/FK والعلاقات، الـconstraints، وأساسيات التعامل مع NULL",
+      "candidateVerdict": "missed",
+      "concepts": [
+        {
+          "conceptId": "concept:sql:keys",
+          "role": "primary"
+        },
+        {
+          "conceptId": "concept:sql:null",
+          "role": "secondary"
+        }
+      ],
+      "relationHints": [],
+      "decision": "revised",
+      "decisionCode": "recovered-schema-before-query-claim",
+      "rationale": "The sentence enumerates exactly two registry concepts, keys and NULL, as the structural facts to establish before querying. The matcher produced nothing because the enumeration is in Arabic.",
+      "unresolved": []
+    },
+    {
+      "unitId": "academy:fabric-analytics:22d-copilot-fabric-data-agents#section-11",
+      "scope": "batch-review",
+      "batchId": "batch-2eef9ce11894",
+      "parentContext": "Academy lesson 22d, closing summary section.",
+      "reading": "A closing paragraph that congratulates the learner and describes the data agent as a significant step toward accessible insights. Apart from the congratulation it makes a promotional claim that cannot be verified from the lesson.",
+      "essentialMeaning": "derived-summary",
+      "evidenceQuote": "bridging the gap between data and decision-making",
+      "candidateVerdict": "missed",
+      "concepts": [],
+      "relationHints": [],
+      "decision": "held",
+      "decisionCode": "lesson-closing-marketing-claim",
+      "rationale": "Held: an evaluative closing sentence is not a teachable assertion, and it belongs to an unmodelled domain. Mapping it would import marketing language into the graph.",
+      "unresolved": [
+        "The summary's takeaway and next-step lists were not retained as separate units."
+      ]
+    },
+    {
+      "unitId": "academy:fabric-analytics:27-visualize-ontology#section-8",
+      "scope": "batch-review",
+      "batchId": "batch-2eef9ce11894",
+      "parentContext": "Academy lesson 27, closing summary section.",
+      "reading": "The lesson used the Lamna Healthcare ontology to show how bound data populates entity types, and states that visualization over the ontology lets a reader follow relationships across sources without writing joins.",
+      "essentialMeaning": "derived-summary",
+      "evidenceQuote": "following relationships across multiple data sources without writing complex queries",
+      "candidateVerdict": "missed",
+      "concepts": [],
+      "relationHints": [],
+      "decision": "held",
+      "decisionCode": "lesson-recap-unmodelled-domain",
+      "rationale": "Held: same unmodelled ontology domain as lesson 28. The sentence is a recap of an exercise, and the relationship-following claim needs a concept the registry does not have.",
+      "unresolved": [
+        "Ontology-driven exploration is outside the current five-domain registry."
       ]
     }
   ]

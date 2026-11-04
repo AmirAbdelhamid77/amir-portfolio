@@ -1,0 +1,134 @@
+{
+  "schemaVersion": "intelligent-atlas-prototype-journey/1.0",
+  "generatedAt": "2026-11-04T18:28:37.536Z",
+  "command": "node intelligent-atlas/tools/verify-prototype-journey.mjs",
+  "browser": "Microsoft Edge via playwright-core",
+  "pass": 21,
+  "fail": 0,
+  "notRun": 1,
+  "results": [
+    {
+      "name": "timeline: fifteen days in the review clock",
+      "status": "PASS",
+      "detail": "15 day cards"
+    },
+    {
+      "name": "timeline: three real editions, quiet days labelled",
+      "status": "PASS",
+      "detail": "24, 25, 26 Oct"
+    },
+    {
+      "name": "timeline: today is honestly empty and never borrows an older card",
+      "status": "PASS",
+      "detail": "peek and hand both state there is no edition, 0 cards dealt"
+    },
+    {
+      "name": "timeline: the empty hand offers the latest real edition",
+      "status": "PASS",
+      "detail": "MONDAY 26 OCT, 1 real card(s)"
+    },
+    {
+      "name": "timeline: keyboard moves selection and Enter opens the edition",
+      "status": "PASS",
+      "detail": "25 Oct -> 26 Oct by ArrowRight, Enter opened 1 card(s)"
+    },
+    {
+      "name": "dealer: real card fields, review badge, no publication claim",
+      "status": "PASS",
+      "detail": "scenario, prediction, takeaway, caveat"
+    },
+    {
+      "name": "dealer: Escape closes and returns focus to the opening date",
+      "status": "PASS",
+      "detail": "focus and scroll returned to 25 Oct (0px)"
+    },
+    {
+      "name": "journey: locate in knowledge keeps the card concept as the anchor",
+      "status": "PASS",
+      "detail": "anchor concept:fabric:shortcut"
+    },
+    {
+      "name": "knowledge: neighbours match the stored edges and stay labelled candidate",
+      "status": "PASS",
+      "detail": "3 stored edges, 3 rendered, all labelled candidate"
+    },
+    {
+      "name": "knowledge: all four intent modes render distinct real content",
+      "status": "PASS",
+      "detail": "compare, apply, reach a goal, neighbourhood"
+    },
+    {
+      "name": "knowledge: compare names a real documented pair",
+      "status": "PASS",
+      "detail": "OneLake shortcut ↔ Copy job"
+    },
+    {
+      "name": "pocket: a saved concept survives reload and records no mastery",
+      "status": "PASS",
+      "detail": "1 saved concept, no mastery field"
+    },
+    {
+      "name": "pocket: P opens it and Escape returns focus to the toggle",
+      "status": "PASS",
+      "detail": "1 saved item, focus on the toggle"
+    },
+    {
+      "name": "state: URL restores scene, concept and intent after reload",
+      "status": "PASS",
+      "detail": "concept + intent + mode restored"
+    },
+    {
+      "name": "review/public separation: the review artifact is not reachable from the app",
+      "status": "PASS",
+      "detail": "0 published items, no reference to the prototype payload"
+    },
+    {
+      "name": "console: no runtime errors during the journey",
+      "status": "PASS",
+      "detail": "0 console errors"
+    },
+    {
+      "name": "theme: dark mode applies the dark token set",
+      "status": "PASS",
+      "detail": "rgb(9, 12, 17) dark vs rgb(244, 241, 233) light"
+    },
+    {
+      "name": "reduced motion: transitions and animations are neutralised",
+      "status": "PASS",
+      "detail": "20 sampled elements at or below 0.01s"
+    },
+    {
+      "name": "mobile 390px: no horizontal overflow",
+      "status": "PASS",
+      "detail": "390px content in 390px viewport"
+    },
+    {
+      "name": "mobile 390px: primary controls keep a 44px target",
+      "status": "PASS",
+      "detail": "all sampled controls >=44px high"
+    },
+    {
+      "name": "keyframes: seven review-state captures written",
+      "status": "PASS",
+      "detail": "k1-timeline-light:176KB, k2-timeline-dark:181KB, k3-dealer-light:185KB, k4-dealer-dark:176KB, k5-knowledge-light:248KB, k6-knowledge-dark:181KB, k7-knowledge-390:244KB"
+    },
+    {
+      "name": "owner visual acceptance against the keyframes",
+      "status": "NOT RUN",
+      "detail": "an owner judgement, not a test outcome; the harness cannot certify it"
+    }
+  ],
+  "externalChecks": [
+    {
+      "name": "lighthouse (in-app browser)",
+      "status": "RUN SEPARATELY",
+      "detail": "accessibility 1.0, best-practices 1.0, SEO 1.0 on the knowledge view; one notable audit result, label-content-name-mismatch, not repaired."
+    },
+    {
+      "name": "deployment",
+      "status": "BLOCKED",
+      "detail": "Cloudflare credentials and Pages enablement are owner-only; no deployment was attempted."
+    }
+  ],
+  "note": "This harness proves behaviour of the isolated review prototype. It does not prove publication, scientific review, deployment or owner visual acceptance."
+}
