@@ -14,21 +14,21 @@ Each unit was opened with its parent context, read for its actual claim, and onl
 | Non-learning | 5 |
 | Candidate matched | 3609 |
 | Candidate unmatched | 728 |
-| **Semantically read** | **103** |
-| Not read | 4234 |
+| **Semantically read** | **109** |
+| Not read | 4228 |
 | Published | 0 |
 
-Semantic reading covers **2.37%** of eligible units. That is a documented subset, not full corpus reading. Candidate matching never advances the reading or decision state.
+Semantic reading covers **2.51%** of eligible units. That is a documented subset, not full corpus reading. Candidate matching never advances the reading or decision state.
 
 ## Decisions
 
 | Decision | Count |
 |---|---:|
 | Accepted | 10 |
-| Revised | 60 |
-| Held | 22 |
+| Revised | 64 |
+| Held | 24 |
 | Unresolved gap | 11 |
-| Unreviewed | 4234 |
+| Unreviewed | 4228 |
 | Out of scope | 1864 |
 
 ## Family ledger
@@ -37,13 +37,13 @@ Semantic reading covers **2.37%** of eligible units. That is a documented subset
 |---|---:|---:|---:|---:|---:|---:|---:|---:|---:|
 | curated-references | 1859 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
 | fabric-questions | 1264 | 1264 | 1170 | 94 | 4 | 0 | 3 | 1 | 0 |
-| fabric-notes | 720 | 720 | 529 | 191 | 35 | 1 | 30 | 4 | 0 |
+| fabric-notes | 720 | 720 | 529 | 191 | 36 | 1 | 31 | 4 | 0 |
 | academy | 593 | 593 | 457 | 136 | 5 | 0 | 1 | 3 | 1 |
-| sql | 535 | 535 | 440 | 95 | 14 | 1 | 6 | 2 | 5 |
+| sql | 535 | 535 | 440 | 95 | 17 | 1 | 7 | 4 | 5 |
 | fabric-additions | 532 | 532 | 480 | 52 | 1 | 0 | 1 | 0 | 0 |
 | fabric-r11 | 222 | 222 | 210 | 12 | 1 | 0 | 0 | 1 | 0 |
-| statistics | 145 | 145 | 65 | 80 | 7 | 2 | 2 | 0 | 3 |
-| visualization | 138 | 138 | 117 | 21 | 26 | 3 | 14 | 8 | 1 |
+| statistics | 145 | 145 | 65 | 80 | 8 | 2 | 3 | 0 | 3 |
+| visualization | 138 | 138 | 117 | 21 | 27 | 3 | 15 | 8 | 1 |
 | fabric-cases | 78 | 78 | 71 | 7 | 4 | 0 | 3 | 1 | 0 |
 | exams | 70 | 70 | 47 | 23 | 2 | 0 | 0 | 2 | 0 |
 | hands-on-labs | 29 | 29 | 13 | 16 | 1 | 0 | 0 | 0 | 1 |
@@ -158,6 +158,12 @@ Semantic reading covers **2.37%** of eligible units. That is a documented subset
 | `dv:ar-references#section-3` | visualization | revised | missed | Color palette semantics (primary); Accessibility and contrast (secondary) | colour-perception-references |
 | `dv:ar-references#section-6` | visualization | held | missed | — | reference-list-meta-note |
 | `sql:15#section-1` | sql | revised | missed | Keys and relationships (primary); Query output grain (secondary) | database-design-page-scope |
+| `sql:15#section-16` | sql | held | missed | — | module-ownership-boundary |
+| `sql:12#section-3` | sql | held | missed | — | canonical-module-cross-reference |
+| `fabric-note:eventhouse/syntax` | fabric-notes | revised | missed | Materialized lake view (primary); Monitoring (secondary) | async-view-readiness |
+| `sql:12#section-6` | sql | revised | missed | Evidence strength (primary); HAVING filter (secondary) | sample-size-guard-in-kpi |
+| `dv:ar-references#foundational` | visualization | revised | missed | Visual encoding (primary); Visual integrity (secondary) | foundational-references-encoding |
+| `stats:s29` | statistics | revised | missed | Experiment design (primary); Variable type (secondary) | independent-dependent-variable-definitions |
 
 ## Recorded gaps
 
@@ -237,6 +243,11 @@ Semantic reading covers **2.37%** of eligible units. That is a documented subset
 | `sql:12#section-2` | The MovieNow schema list under section 2 is present in content/sql/vault.json (page 12, block 7) but not in units-analyzed.jsonl. |
 | `sql:12#section-2` | Every later example on this page depends on that schema, so the gap affects more than one unit. |
 | `dv:ar-references#section-6` | A page-level organizational note has no concept target in the registry. |
+| `sql:15#section-16` | Module ownership is editorial structure; the concept registry models ideas, not page boundaries. |
+| `sql:12#section-3` | A cross-reference is navigation; no registered concept owns module boundaries or reading order. |
+| `sql:12#section-6` | The 30-rating threshold is presented as an example and is not justified in the text. |
+| `dv:ar-references#foundational` | The grammar of graphics has no registry concept, so that reference is recorded here but not mapped. |
+| `stats:s29` | The registry has no concept dedicated to independent and dependent variable roles. |
 
 ## Limits
 

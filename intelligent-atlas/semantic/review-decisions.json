@@ -2500,6 +2500,148 @@
       "decision": "revised",
       "decisionCode": "database-design-page-scope",
       "rationale": "A scope statement that names its own subject. The heading text carries keys, relationships and grain, so the mapping is read from the unit rather than inferred from the page route."
+    },
+    {
+      "unitId": "sql:15#section-16",
+      "scope": "batch-review",
+      "batchId": "batch-772d6a952ac6",
+      "parentContext": "Closing section of the Database Design reference, after the interview traps and immediately before the SQL Performance Engineering module.",
+      "reading": "A page-ownership note: this page owns general database design and modeling, while detailed DWH/BI implementation patterns belong to Module 17. It draws an editorial boundary between two modules rather than teaching a design rule.",
+      "essentialMeaning": "prose",
+      "evidenceQuote": "This page owns general database design and modeling concepts. Detailed DWH/BI implementation patterns belong to Module 17.",
+      "candidateVerdict": "missed",
+      "concepts": [],
+      "relationHints": [],
+      "decision": "held",
+      "decisionCode": "module-ownership-boundary",
+      "rationale": "Held, not mapped: the sentence divides responsibility between modules. Mapping it to keys or grain would turn a boundary note into a design claim the text does not make, and would duplicate the page's opening scope statement.",
+      "unresolved": [
+        "Module ownership is editorial structure; the concept registry models ideas, not page boundaries."
+      ]
+    },
+    {
+      "unitId": "sql:12#section-3",
+      "scope": "batch-review",
+      "batchId": "batch-772d6a952ac6",
+      "parentContext": "Analytical SQL Patterns reference, after the MovieNow database description and before the first worked business question.",
+      "reading": "A cross-reference in Arabic: a reader who wants to review the database itself is sent to the canonical module, because this page only shows its use inside a real business case. It says where to read, not what is true.",
+      "essentialMeaning": "index",
+      "evidenceQuote": "لو حابب مراجعة القاعدة نفسها، روح للموديول الكانوني — هنا هتلاقي بس استخدامها جوه حالة بيزنس حقيقية.",
+      "candidateVerdict": "missed",
+      "concepts": [],
+      "relationHints": [],
+      "decision": "held",
+      "decisionCode": "canonical-module-cross-reference",
+      "rationale": "Held: the unit routes the reader between modules and explicitly refuses to repeat the reference material. Mapping it to analytical-pattern concepts would assert content the pointer does not carry.",
+      "unresolved": [
+        "A cross-reference is navigation; no registered concept owns module boundaries or reading order."
+      ]
+    },
+    {
+      "unitId": "fabric-note:eventhouse/syntax",
+      "scope": "batch-review",
+      "batchId": "batch-772d6a952ac6",
+      "parentContext": "Eventhouse study notes, syntax chapter. The preceding note explains materialized aggregation and the unprocessed delta; the following notes cover OneLake availability and retention.",
+      "reading": "Creating a materialized view names the view, its source table, properties, an optional docString and the aggregate query; the work runs asynchronously. The rigorous path monitors the operation ID until backfill completes before dependent dashboard queries are released.",
+      "essentialMeaning": "procedure",
+      "evidenceQuote": "The rigorous version uses the operation ID to monitor backfill completion before releasing dependent dashboard queries.",
+      "candidateVerdict": "missed",
+      "concepts": [
+        {
+          "conceptId": "concept:fabric:materialized-lake-view",
+          "role": "primary"
+        },
+        {
+          "conceptId": "concept:fabric:monitoring",
+          "role": "secondary"
+        }
+      ],
+      "relationHints": [],
+      "decision": "revised",
+      "decisionCode": "async-view-readiness",
+      "rationale": "The matcher left this unmatched because the section reads like a heading plus syntax recap, but the body states a concrete operational rule: creation is asynchronous and readiness is gated by an operation ID. Primary is the materialized view; monitoring is the readiness mechanism, not a second subject.",
+      "unresolved": []
+    },
+    {
+      "unitId": "sql:12#section-6",
+      "scope": "batch-review",
+      "batchId": "batch-772d6a952ac6",
+      "parentContext": "Analytical SQL Patterns reference, after the grain trap in the favourite-actor question and before the metric-definition section.",
+      "reading": "A mean built on three ratings is not as strong as one built on a thousand, so a naive ranking can prefer A while the business should prefer B as the more reliable signal. The practical guard is a data-quality filter on the KPI, written as HAVING COUNT(r.rating) = 30.",
+      "essentialMeaning": "prose",
+      "evidenceQuote": "حارس جودة بيانات في الـ KPI: HAVING COUNT(r.rating) = 30",
+      "candidateVerdict": "missed",
+      "concepts": [
+        {
+          "conceptId": "concept:analysis:evidence-strength",
+          "role": "primary"
+        },
+        {
+          "conceptId": "concept:sql:having-filter",
+          "role": "secondary"
+        }
+      ],
+      "relationHints": [],
+      "decision": "revised",
+      "decisionCode": "sample-size-guard-in-kpi",
+      "rationale": "The section is a claim about the evidentiary sufficiency of an aggregate, not about ranking syntax: a small sample produces an unreliable signal. Primary is evidence strength; the HAVING filter is the mechanism that enforces the minimum count, so it is secondary rather than the subject.",
+      "unresolved": [
+        "The 30-rating threshold is presented as an example and is not justified in the text."
+      ]
+    },
+    {
+      "unitId": "dv:ar-references#foundational",
+      "scope": "batch-review",
+      "batchId": "batch-772d6a952ac6",
+      "parentContext": "Arabic references page, foundational books group, between the curated-references heading and the colour/perception group.",
+      "reading": "A curated list of foundational books: Tufte for information density and chartjunk, Cleveland & McGill for encoding accuracy with position ahead of area and colour, Wilkinson for the grammar of graphics, and Wickham for ggplot2 as its practical example. The list asserts one substantive principle: position is the most accurate visual encoding.",
+      "essentialMeaning": "index",
+      "evidenceQuote": "الفكرة الأساسية: الموضع أدق ترميز بصري.",
+      "candidateVerdict": "missed",
+      "concepts": [
+        {
+          "conceptId": "concept:viz:visual-encoding",
+          "role": "primary"
+        },
+        {
+          "conceptId": "concept:viz:visual-integrity",
+          "role": "secondary"
+        }
+      ],
+      "relationHints": [],
+      "decision": "revised",
+      "decisionCode": "foundational-references-encoding",
+      "rationale": "A bibliography row, but one that states an encoding-accuracy principle explicitly, so the matcher's blank is a miss rather than a true negative. Visual encoding is primary; visual integrity covers the Tufte reference. The row asserts no relation between the books.",
+      "unresolved": [
+        "The grammar of graphics has no registry concept, so that reference is recorded here but not mapped."
+      ]
+    },
+    {
+      "unitId": "stats:s29",
+      "scope": "batch-review",
+      "batchId": "batch-772d6a952ac6",
+      "parentContext": "Statistics source, between the RCT versus A/B testing section and the correlation section, in the experiment-design block.",
+      "reading": "Definitions of the two variable roles: the independent variable is the one the hypothesis expects not to be affected by the response and usually represents the treatment or predictor; the dependent variable is the outcome expected to be affected by it. In a scatter plot the independent variable sits on X and the dependent on Y; the example pairs vitamin C supplementation with the measured birth ratio.",
+      "essentialMeaning": "prose",
+      "evidenceQuote": "Independent Variable : المتغير الذي نتوقع أنه ليس متأثرًا بالـ Response في صياغة الفرضية، وغالبًا يمثل Treatment أو Predictor.",
+      "candidateVerdict": "missed",
+      "concepts": [
+        {
+          "conceptId": "concept:stats:experiment-design",
+          "role": "primary"
+        },
+        {
+          "conceptId": "concept:viz:variable-type",
+          "role": "secondary"
+        }
+      ],
+      "relationHints": [],
+      "decision": "revised",
+      "decisionCode": "independent-dependent-variable-definitions",
+      "rationale": "The unit defines the two variable roles used when framing a hypothesis, with the conventional axis mapping. Experiment design is the nearest registered owner; the axis placement is a variable-type convention, not a separate claim.",
+      "unresolved": [
+        "The registry has no concept dedicated to independent and dependent variable roles."
+      ]
     }
   ]
 }
