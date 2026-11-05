@@ -56,3 +56,7 @@ intake-private/
 # HTML/indexes/media"). Regenerate with tools/fabric-corpus/route-registry/.
 /public/fabric-docs-assets/
 /public/fabric-aliases/
+
+# fabric-corpus Wave 2 search shards (FC07) — generated full-text indexes;
+# rebuild with tools/fabric-corpus/search/build-shards.mjs + copy-shards.mjs.
+/public/fabric-search/

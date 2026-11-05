@@ -22,7 +22,7 @@ write the same generated manifest, renderer, model or test fixture.
 | FC05 | `app/learn/fabric/**`, `lib/fabric/articles/**`, `components/fabric/article/**`, `tools/fabric-corpus/route-registry/**` |
 | FC06 | `content/fabric/bindings/**`, `content/fabric/collections/**`, `lib/fabric/bindings.ts`, `components/fabric/reading/**`, binding-related `tests/content/**` |
 | FC07 | `lib/search/**` (additive only), `app/search/**` updates, `tools/fabric-corpus/search/**`, `public/fabric-search/**` build outputs, `tests/` search fixtures |
-| FC08 | `content/atlas/fabric-extension.json`, `lib/atlas/fabric-targets.ts`, fabric-Atlas tests |
+| FC08 | `content/atlas/fabric-extension.json`, `lib/atlas/fabric-targets.ts`, `tools/fabric-corpus/atlas/**` (Wave 2 grant), fabric-Atlas tests |
 
 `lib/fabric/` is shared at directory level with file-level ownership:
 `paths.ts` = FC11, `bindings.ts` = FC06, `articles/**` = FC05. No package
