@@ -290,9 +290,15 @@ function assertProfileShape(profile: unknown, fn: string): ProfileShape {
       `${fn}: profile.basePath must be "" or start with "/" — pass a validateProfile()-checked DeliveryProfile.`,
     );
   }
+  // FC05 build fix (lead review pending): `candidate.trailingSlash !== false`
+  // was a TS2367 error against the literal-`true` DeliveryProfile type. The
+  // runtime semantics are preserved exactly: an explicit false wins, anything
+  // else (undefined) defaults to the frozen v1 trailing-slash policy.
+  const trailingSlashFlag =
+    typeof candidate.trailingSlash === "boolean" ? candidate.trailingSlash : true;
   return {
     basePath: candidate.basePath,
-    trailingSlash: candidate.trailingSlash !== false,
+    trailingSlash: trailingSlashFlag,
     assetOrigin: typeof candidate.assetOrigin === "string" ? candidate.assetOrigin : "",
     canonicalOrigin: typeof candidate.canonicalOrigin === "string" ? candidate.canonicalOrigin : "",
   };
