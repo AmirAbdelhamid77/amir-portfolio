@@ -16,13 +16,22 @@ write the same generated manifest, renderer, model or test fixture.
 | Package | Write-owned areas |
 |---|---|
 | FC01 / lead | `docs/fabric-corpus/contracts/**`, `tools/fabric-corpus/README.md`, `tools/fabric-corpus/profiles/` (until FC11 takes over), `tools/fabric-corpus/bench/**`, release manifests |
-| FC02 | `tools/fabric-corpus/registry/**`, `docs/fabric-corpus/ledgers/**` |
-| FC03 | `tools/fabric-corpus/compiler/**`, `tools/fabric-corpus/schemas/**`, `tools/fabric-corpus/fixtures/**` |
+| FC02 | `tools/fabric-corpus/registry/**`, `docs/fabric-corpus/ledgers/**`; Wave 2 addition: registry JSON schemas under `tools/fabric-corpus/schemas/registry-*.schema.json` |
+| FC03 | `tools/fabric-corpus/compiler/**`, `tools/fabric-corpus/schemas/**` (compiler artifacts), `tools/fabric-corpus/fixtures/**` |
 | FC04 | `lib/atlas/model.ts`, `lib/atlas/server.ts`, `lib/atlas/field.ts`, `components/atlas/**`, `tests/atlas/**` |
-| FC05 | `app/learn/fabric/**`, `lib/fabric/articles/**`, `components/fabric/article/**` |
-| FC06 | `content/fabric/bindings/**`, `content/fabric/collections/**`, binding-related `tests/content/**` |
-| FC07 | `lib/search/**` (additive only), `app/search/**` updates, `tools/fabric-corpus/search/**`, `tests/` search fixtures |
+| FC05 | `app/learn/fabric/**`, `lib/fabric/articles/**`, `components/fabric/article/**`, `tools/fabric-corpus/route-registry/**` |
+| FC06 | `content/fabric/bindings/**`, `content/fabric/collections/**`, `lib/fabric/bindings.ts`, `components/fabric/reading/**`, binding-related `tests/content/**` |
+| FC07 | `lib/search/**` (additive only), `app/search/**` updates, `tools/fabric-corpus/search/**`, `public/fabric-search/**` build outputs, `tests/` search fixtures |
 | FC08 | `content/atlas/fabric-extension.json`, `lib/atlas/fabric-targets.ts`, fabric-Atlas tests |
+
+`lib/fabric/` is shared at directory level with file-level ownership:
+`paths.ts` = FC11, `bindings.ts` = FC06, `articles/**` = FC05. No package
+creates any other file there without a lead-approved ownership amendment.
+Wiring a package's component or data into an EXISTING shared page
+(`app/learn/[subject]/[topic]/page.tsx`, `app/learn/fabric/page.tsx`,
+`app/layout.tsx`) is a lead merge step, performed after the owning package's
+tests pass — sub-agents deliver self-contained components/data and the
+integration points, not edits to shared pages.
 | FC09 | `tools/fabric-corpus/sync/**` |
 | FC11 | `tools/fabric-corpus/profiles/**`, `lib/fabric/paths.ts`, base-path integration in `lib/site.ts` (reviewed change) |
 | FC12 | `.github/workflows/**`, `tools/fabric-corpus/packaging/**` |
