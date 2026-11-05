@@ -1,0 +1,2317 @@
+{
+  "schema": "hansa.fabric-bindings-secondary/1",
+  "corpusRevision": "774592ea3f2d4558f763d6e5b74abf4785948fb5",
+  "registryRevision": "27c39e133e9e6d0174141733a62209ff097940f5919f4395b720761a814b27a0",
+  "cap": 2,
+  "priorityOrder": [
+    "S-SQL-DIALECT",
+    "S-POWERBI-FRONTMATTER",
+    "S-DATA-SCIENCE-ANALYSIS",
+    "S-SEMLINK-ANALYSIS"
+  ],
+  "rules": [
+    {
+      "id": "S-SQL-DIALECT",
+      "subject": "sql",
+      "description": "database-family articles: title+description tested against an ordered SQL pattern list (first match wins) → sql.<topic>."
+    },
+    {
+      "id": "S-POWERBI-FRONTMATTER",
+      "subject": "power-bi",
+      "description": "ms.subservice starting powerbi-/pbi- → power-bi.govern (pbi-transform-model → power-bi.model)."
+    },
+    {
+      "id": "S-DATA-SCIENCE-ANALYSIS",
+      "subject": "analysis",
+      "description": "data-science-family articles → analysis.overview (cross-subject analytical practice)."
+    },
+    {
+      "id": "S-SEMLINK-ANALYSIS",
+      "subject": "analysis",
+      "description": "title+description matching /semantic link|sempy/i outside the data-science family → analysis.overview."
+    }
+  ],
+  "counts": {
+    "secondary": 284,
+    "articlesWithSecondaries": 284,
+    "byRule": {
+      "S-DATA-SCIENCE-ANALYSIS": 162,
+      "S-POWERBI-FRONTMATTER": 42,
+      "S-SQL-DIALECT": 80
+    }
+  },
+  "rows": [
+    {
+      "bindingId": "lb:art:data-science/ai-functions/billing@analysis.overview",
+      "role": "secondary",
+      "articleId": "art:data-science/ai-functions/billing",
+      "subject": "analysis",
+      "topic": "overview",
+      "ruleId": "S-DATA-SCIENCE-ANALYSIS"
+    },
+    {
+      "bindingId": "lb:art:data-science/ai-functions/multimodal-overview@analysis.overview",
+      "role": "secondary",
+      "articleId": "art:data-science/ai-functions/multimodal-overview",
+      "subject": "analysis",
+      "topic": "overview",
+      "ruleId": "S-DATA-SCIENCE-ANALYSIS"
+    },
+    {
+      "bindingId": "lb:art:data-science/ai-functions/overview@analysis.overview",
+      "role": "secondary",
+      "articleId": "art:data-science/ai-functions/overview",
+      "subject": "analysis",
+      "topic": "overview",
+      "ruleId": "S-DATA-SCIENCE-ANALYSIS"
+    },
+    {
+      "bindingId": "lb:art:data-science/ai-functions/pandas/analyze-sentiment@analysis.overview",
+      "role": "secondary",
+      "articleId": "art:data-science/ai-functions/pandas/analyze-sentiment",
+      "subject": "analysis",
+      "topic": "overview",
+      "ruleId": "S-DATA-SCIENCE-ANALYSIS"
+    },
+    {
+      "bindingId": "lb:art:data-science/ai-functions/pandas/classify@analysis.overview",
+      "role": "secondary",
+      "articleId": "art:data-science/ai-functions/pandas/classify",
+      "subject": "analysis",
+      "topic": "overview",
+      "ruleId": "S-DATA-SCIENCE-ANALYSIS"
+    },
+    {
+      "bindingId": "lb:art:data-science/ai-functions/pandas/configuration@analysis.overview",
+      "role": "secondary",
+      "articleId": "art:data-science/ai-functions/pandas/configuration",
+      "subject": "analysis",
+      "topic": "overview",
+      "ruleId": "S-DATA-SCIENCE-ANALYSIS"
+    },
+    {
+      "bindingId": "lb:art:data-science/ai-functions/pandas/embed@analysis.overview",
+      "role": "secondary",
+      "articleId": "art:data-science/ai-functions/pandas/embed",
+      "subject": "analysis",
+      "topic": "overview",
+      "ruleId": "S-DATA-SCIENCE-ANALYSIS"
+    },
+    {
+      "bindingId": "lb:art:data-science/ai-functions/pandas/extract@analysis.overview",
+      "role": "secondary",
+      "articleId": "art:data-science/ai-functions/pandas/extract",
+      "subject": "analysis",
+      "topic": "overview",
+      "ruleId": "S-DATA-SCIENCE-ANALYSIS"
+    },
+    {
+      "bindingId": "lb:art:data-science/ai-functions/pandas/fix-grammar@analysis.overview",
+      "role": "secondary",
+      "articleId": "art:data-science/ai-functions/pandas/fix-grammar",
+      "subject": "analysis",
+      "topic": "overview",
+      "ruleId": "S-DATA-SCIENCE-ANALYSIS"
+    },
+    {
+      "bindingId": "lb:art:data-science/ai-functions/pandas/generate-response@analysis.overview",
+      "role": "secondary",
+      "articleId": "art:data-science/ai-functions/pandas/generate-response",
+      "subject": "analysis",
+      "topic": "overview",
+      "ruleId": "S-DATA-SCIENCE-ANALYSIS"
+    },
+    {
+      "bindingId": "lb:art:data-science/ai-functions/pandas/similarity@analysis.overview",
+      "role": "secondary",
+      "articleId": "art:data-science/ai-functions/pandas/similarity",
+      "subject": "analysis",
+      "topic": "overview",
+      "ruleId": "S-DATA-SCIENCE-ANALYSIS"
+    },
+    {
+      "bindingId": "lb:art:data-science/ai-functions/pandas/summarize@analysis.overview",
+      "role": "secondary",
+      "articleId": "art:data-science/ai-functions/pandas/summarize",
+      "subject": "analysis",
+      "topic": "overview",
+      "ruleId": "S-DATA-SCIENCE-ANALYSIS"
+    },
+    {
+      "bindingId": "lb:art:data-science/ai-functions/pandas/translate@analysis.overview",
+      "role": "secondary",
+      "articleId": "art:data-science/ai-functions/pandas/translate",
+      "subject": "analysis",
+      "topic": "overview",
+      "ruleId": "S-DATA-SCIENCE-ANALYSIS"
+    },
+    {
+      "bindingId": "lb:art:data-science/ai-functions/pyspark/analyze-sentiment@analysis.overview",
+      "role": "secondary",
+      "articleId": "art:data-science/ai-functions/pyspark/analyze-sentiment",
+      "subject": "analysis",
+      "topic": "overview",
+      "ruleId": "S-DATA-SCIENCE-ANALYSIS"
+    },
+    {
+      "bindingId": "lb:art:data-science/ai-functions/pyspark/classify@analysis.overview",
+      "role": "secondary",
+      "articleId": "art:data-science/ai-functions/pyspark/classify",
+      "subject": "analysis",
+      "topic": "overview",
+      "ruleId": "S-DATA-SCIENCE-ANALYSIS"
+    },
+    {
+      "bindingId": "lb:art:data-science/ai-functions/pyspark/configuration@analysis.overview",
+      "role": "secondary",
+      "articleId": "art:data-science/ai-functions/pyspark/configuration",
+      "subject": "analysis",
+      "topic": "overview",
+      "ruleId": "S-DATA-SCIENCE-ANALYSIS"
+    },
+    {
+      "bindingId": "lb:art:data-science/ai-functions/pyspark/embed@analysis.overview",
+      "role": "secondary",
+      "articleId": "art:data-science/ai-functions/pyspark/embed",
+      "subject": "analysis",
+      "topic": "overview",
+      "ruleId": "S-DATA-SCIENCE-ANALYSIS"
+    },
+    {
+      "bindingId": "lb:art:data-science/ai-functions/pyspark/extract@analysis.overview",
+      "role": "secondary",
+      "articleId": "art:data-science/ai-functions/pyspark/extract",
+      "subject": "analysis",
+      "topic": "overview",
+      "ruleId": "S-DATA-SCIENCE-ANALYSIS"
+    },
+    {
+      "bindingId": "lb:art:data-science/ai-functions/pyspark/fix-grammar@analysis.overview",
+      "role": "secondary",
+      "articleId": "art:data-science/ai-functions/pyspark/fix-grammar",
+      "subject": "analysis",
+      "topic": "overview",
+      "ruleId": "S-DATA-SCIENCE-ANALYSIS"
+    },
+    {
+      "bindingId": "lb:art:data-science/ai-functions/pyspark/generate-response@analysis.overview",
+      "role": "secondary",
+      "articleId": "art:data-science/ai-functions/pyspark/generate-response",
+      "subject": "analysis",
+      "topic": "overview",
+      "ruleId": "S-DATA-SCIENCE-ANALYSIS"
+    },
+    {
+      "bindingId": "lb:art:data-science/ai-functions/pyspark/similarity@analysis.overview",
+      "role": "secondary",
+      "articleId": "art:data-science/ai-functions/pyspark/similarity",
+      "subject": "analysis",
+      "topic": "overview",
+      "ruleId": "S-DATA-SCIENCE-ANALYSIS"
+    },
+    {
+      "bindingId": "lb:art:data-science/ai-functions/pyspark/summarize@analysis.overview",
+      "role": "secondary",
+      "articleId": "art:data-science/ai-functions/pyspark/summarize",
+      "subject": "analysis",
+      "topic": "overview",
+      "ruleId": "S-DATA-SCIENCE-ANALYSIS"
+    },
+    {
+      "bindingId": "lb:art:data-science/ai-functions/pyspark/translate@analysis.overview",
+      "role": "secondary",
+      "articleId": "art:data-science/ai-functions/pyspark/translate",
+      "subject": "analysis",
+      "topic": "overview",
+      "ruleId": "S-DATA-SCIENCE-ANALYSIS"
+    },
+    {
+      "bindingId": "lb:art:data-science/ai-functions/runtime-2-0-workarounds@analysis.overview",
+      "role": "secondary",
+      "articleId": "art:data-science/ai-functions/runtime-2-0-workarounds",
+      "subject": "analysis",
+      "topic": "overview",
+      "ruleId": "S-DATA-SCIENCE-ANALYSIS"
+    },
+    {
+      "bindingId": "lb:art:data-science/ai-services/ai-services-in-synapseml-bring-your-own-key@analysis.overview",
+      "role": "secondary",
+      "articleId": "art:data-science/ai-services/ai-services-in-synapseml-bring-your-own-key",
+      "subject": "analysis",
+      "topic": "overview",
+      "ruleId": "S-DATA-SCIENCE-ANALYSIS"
+    },
+    {
+      "bindingId": "lb:art:data-science/ai-services/ai-services-overview@analysis.overview",
+      "role": "secondary",
+      "articleId": "art:data-science/ai-services/ai-services-overview",
+      "subject": "analysis",
+      "topic": "overview",
+      "ruleId": "S-DATA-SCIENCE-ANALYSIS"
+    },
+    {
+      "bindingId": "lb:art:data-science/ai-services/how-to-use-openai-ai-functions@analysis.overview",
+      "role": "secondary",
+      "articleId": "art:data-science/ai-services/how-to-use-openai-ai-functions",
+      "subject": "analysis",
+      "topic": "overview",
+      "ruleId": "S-DATA-SCIENCE-ANALYSIS"
+    },
+    {
+      "bindingId": "lb:art:data-science/ai-services/how-to-use-openai-python-sdk@analysis.overview",
+      "role": "secondary",
+      "articleId": "art:data-science/ai-services/how-to-use-openai-python-sdk",
+      "subject": "analysis",
+      "topic": "overview",
+      "ruleId": "S-DATA-SCIENCE-ANALYSIS"
+    },
+    {
+      "bindingId": "lb:art:data-science/ai-services/how-to-use-openai-synapse-ml@analysis.overview",
+      "role": "secondary",
+      "articleId": "art:data-science/ai-services/how-to-use-openai-synapse-ml",
+      "subject": "analysis",
+      "topic": "overview",
+      "ruleId": "S-DATA-SCIENCE-ANALYSIS"
+    },
+    {
+      "bindingId": "lb:art:data-science/ai-services/how-to-use-openai-via-rest-api@analysis.overview",
+      "role": "secondary",
+      "articleId": "art:data-science/ai-services/how-to-use-openai-via-rest-api",
+      "subject": "analysis",
+      "topic": "overview",
+      "ruleId": "S-DATA-SCIENCE-ANALYSIS"
+    },
+    {
+      "bindingId": "lb:art:data-science/ai-services/how-to-use-text-analytics@analysis.overview",
+      "role": "secondary",
+      "articleId": "art:data-science/ai-services/how-to-use-text-analytics",
+      "subject": "analysis",
+      "topic": "overview",
+      "ruleId": "S-DATA-SCIENCE-ANALYSIS"
+    },
+    {
+      "bindingId": "lb:art:data-science/ai-services/how-to-use-text-translator@analysis.overview",
+      "role": "secondary",
+      "articleId": "art:data-science/ai-services/how-to-use-text-translator",
+      "subject": "analysis",
+      "topic": "overview",
+      "ruleId": "S-DATA-SCIENCE-ANALYSIS"
+    },
+    {
+      "bindingId": "lb:art:data-science/automated-machine-learning-fabric@analysis.overview",
+      "role": "secondary",
+      "articleId": "art:data-science/automated-machine-learning-fabric",
+      "subject": "analysis",
+      "topic": "overview",
+      "ruleId": "S-DATA-SCIENCE-ANALYSIS"
+    },
+    {
+      "bindingId": "lb:art:data-science/automated-ml-fabric@analysis.overview",
+      "role": "secondary",
+      "articleId": "art:data-science/automated-ml-fabric",
+      "subject": "analysis",
+      "topic": "overview",
+      "ruleId": "S-DATA-SCIENCE-ANALYSIS"
+    },
+    {
+      "bindingId": "lb:art:data-science/classification-before-and-after-synapseml@analysis.overview",
+      "role": "secondary",
+      "articleId": "art:data-science/classification-before-and-after-synapseml",
+      "subject": "analysis",
+      "topic": "overview",
+      "ruleId": "S-DATA-SCIENCE-ANALYSIS"
+    },
+    {
+      "bindingId": "lb:art:data-science/concept-data-agent@analysis.overview",
+      "role": "secondary",
+      "articleId": "art:data-science/concept-data-agent",
+      "subject": "analysis",
+      "topic": "overview",
+      "ruleId": "S-DATA-SCIENCE-ANALYSIS"
+    },
+    {
+      "bindingId": "lb:art:data-science/conditional-k-nearest-neighbors-exploring-art@analysis.overview",
+      "role": "secondary",
+      "articleId": "art:data-science/conditional-k-nearest-neighbors-exploring-art",
+      "subject": "analysis",
+      "topic": "overview",
+      "ruleId": "S-DATA-SCIENCE-ANALYSIS"
+    },
+    {
+      "bindingId": "lb:art:data-science/create-a-multilingual-search-engine-from-forms@analysis.overview",
+      "role": "secondary",
+      "articleId": "art:data-science/create-a-multilingual-search-engine-from-forms",
+      "subject": "analysis",
+      "topic": "overview",
+      "ruleId": "S-DATA-SCIENCE-ANALYSIS"
+    },
+    {
+      "bindingId": "lb:art:data-science/customer-churn@analysis.overview",
+      "role": "secondary",
+      "articleId": "art:data-science/customer-churn",
+      "subject": "analysis",
+      "topic": "overview",
+      "ruleId": "S-DATA-SCIENCE-ANALYSIS"
+    },
+    {
+      "bindingId": "lb:art:data-science/data-agent-add-datasources@analysis.overview",
+      "role": "secondary",
+      "articleId": "art:data-science/data-agent-add-datasources",
+      "subject": "analysis",
+      "topic": "overview",
+      "ruleId": "S-DATA-SCIENCE-ANALYSIS"
+    },
+    {
+      "bindingId": "lb:art:data-science/data-agent-ai-search-index@analysis.overview",
+      "role": "secondary",
+      "articleId": "art:data-science/data-agent-ai-search-index",
+      "subject": "analysis",
+      "topic": "overview",
+      "ruleId": "S-DATA-SCIENCE-ANALYSIS"
+    },
+    {
+      "bindingId": "lb:art:data-science/data-agent-code-interpreter@analysis.overview",
+      "role": "secondary",
+      "articleId": "art:data-science/data-agent-code-interpreter",
+      "subject": "analysis",
+      "topic": "overview",
+      "ruleId": "S-DATA-SCIENCE-ANALYSIS"
+    },
+    {
+      "bindingId": "lb:art:data-science/data-agent-configuration-best-practices@analysis.overview",
+      "role": "secondary",
+      "articleId": "art:data-science/data-agent-configuration-best-practices",
+      "subject": "analysis",
+      "topic": "overview",
+      "ruleId": "S-DATA-SCIENCE-ANALYSIS"
+    },
+    {
+      "bindingId": "lb:art:data-science/data-agent-configurations@analysis.overview",
+      "role": "secondary",
+      "articleId": "art:data-science/data-agent-configurations",
+      "subject": "analysis",
+      "topic": "overview",
+      "ruleId": "S-DATA-SCIENCE-ANALYSIS"
+    },
+    {
+      "bindingId": "lb:art:data-science/data-agent-creator-agent-overview@analysis.overview",
+      "role": "secondary",
+      "articleId": "art:data-science/data-agent-creator-agent-overview",
+      "subject": "analysis",
+      "topic": "overview",
+      "ruleId": "S-DATA-SCIENCE-ANALYSIS"
+    },
+    {
+      "bindingId": "lb:art:data-science/data-agent-enable-co-publishers@analysis.overview",
+      "role": "secondary",
+      "articleId": "art:data-science/data-agent-enable-co-publishers",
+      "subject": "analysis",
+      "topic": "overview",
+      "ruleId": "S-DATA-SCIENCE-ANALYSIS"
+    },
+    {
+      "bindingId": "lb:art:data-science/data-agent-end-to-end-tutorial@analysis.overview",
+      "role": "secondary",
+      "articleId": "art:data-science/data-agent-end-to-end-tutorial",
+      "subject": "analysis",
+      "topic": "overview",
+      "ruleId": "S-DATA-SCIENCE-ANALYSIS"
+    },
+    {
+      "bindingId": "lb:art:data-science/data-agent-example-queries@analysis.overview",
+      "role": "secondary",
+      "articleId": "art:data-science/data-agent-example-queries",
+      "subject": "analysis",
+      "topic": "overview",
+      "ruleId": "S-DATA-SCIENCE-ANALYSIS"
+    },
+    {
+      "bindingId": "lb:art:data-science/data-agent-foundry@analysis.overview",
+      "role": "secondary",
+      "articleId": "art:data-science/data-agent-foundry",
+      "subject": "analysis",
+      "topic": "overview",
+      "ruleId": "S-DATA-SCIENCE-ANALYSIS"
+    },
+    {
+      "bindingId": "lb:art:data-science/data-agent-foundry-fabric-iq@analysis.overview",
+      "role": "secondary",
+      "articleId": "art:data-science/data-agent-foundry-fabric-iq",
+      "subject": "analysis",
+      "topic": "overview",
+      "ruleId": "S-DATA-SCIENCE-ANALYSIS"
+    },
+    {
+      "bindingId": "lb:art:data-science/data-agent-mcp-server@analysis.overview",
+      "role": "secondary",
+      "articleId": "art:data-science/data-agent-mcp-server",
+      "subject": "analysis",
+      "topic": "overview",
+      "ruleId": "S-DATA-SCIENCE-ANALYSIS"
+    },
+    {
+      "bindingId": "lb:art:data-science/data-agent-microsoft-365-copilot@analysis.overview",
+      "role": "secondary",
+      "articleId": "art:data-science/data-agent-microsoft-365-copilot",
+      "subject": "analysis",
+      "topic": "overview",
+      "ruleId": "S-DATA-SCIENCE-ANALYSIS"
+    },
+    {
+      "bindingId": "lb:art:data-science/data-agent-microsoft-copilot-feedback@analysis.overview",
+      "role": "secondary",
+      "articleId": "art:data-science/data-agent-microsoft-copilot-feedback",
+      "subject": "analysis",
+      "topic": "overview",
+      "ruleId": "S-DATA-SCIENCE-ANALYSIS"
+    },
+    {
+      "bindingId": "lb:art:data-science/data-agent-microsoft-copilot-studio@analysis.overview",
+      "role": "secondary",
+      "articleId": "art:data-science/data-agent-microsoft-copilot-studio",
+      "subject": "analysis",
+      "topic": "overview",
+      "ruleId": "S-DATA-SCIENCE-ANALYSIS"
+    },
+    {
+      "bindingId": "lb:art:data-science/data-agent-microsoft-copilot-studio-tool@analysis.overview",
+      "role": "secondary",
+      "articleId": "art:data-science/data-agent-microsoft-copilot-studio-tool",
+      "subject": "analysis",
+      "topic": "overview",
+      "ruleId": "S-DATA-SCIENCE-ANALYSIS"
+    },
+    {
+      "bindingId": "lb:art:data-science/data-agent-ontology-sources@analysis.overview",
+      "role": "secondary",
+      "articleId": "art:data-science/data-agent-ontology-sources",
+      "subject": "analysis",
+      "topic": "overview",
+      "ruleId": "S-DATA-SCIENCE-ANALYSIS"
+    },
+    {
+      "bindingId": "lb:art:data-science/data-agent-purview-governance@analysis.overview",
+      "role": "secondary",
+      "articleId": "art:data-science/data-agent-purview-governance",
+      "subject": "analysis",
+      "topic": "overview",
+      "ruleId": "S-DATA-SCIENCE-ANALYSIS"
+    },
+    {
+      "bindingId": "lb:art:data-science/data-agent-routing@analysis.overview",
+      "role": "secondary",
+      "articleId": "art:data-science/data-agent-routing",
+      "subject": "analysis",
+      "topic": "overview",
+      "ruleId": "S-DATA-SCIENCE-ANALYSIS"
+    },
+    {
+      "bindingId": "lb:art:data-science/data-agent-runtime@analysis.overview",
+      "role": "secondary",
+      "articleId": "art:data-science/data-agent-runtime",
+      "subject": "analysis",
+      "topic": "overview",
+      "ruleId": "S-DATA-SCIENCE-ANALYSIS"
+    },
+    {
+      "bindingId": "lb:art:data-science/data-agent-schema-object-descriptions@analysis.overview",
+      "role": "secondary",
+      "articleId": "art:data-science/data-agent-schema-object-descriptions",
+      "subject": "analysis",
+      "topic": "overview",
+      "ruleId": "S-DATA-SCIENCE-ANALYSIS"
+    },
+    {
+      "bindingId": "lb:art:data-science/data-agent-service-principal@analysis.overview",
+      "role": "secondary",
+      "articleId": "art:data-science/data-agent-service-principal",
+      "subject": "analysis",
+      "topic": "overview",
+      "ruleId": "S-DATA-SCIENCE-ANALYSIS"
+    },
+    {
+      "bindingId": "lb:art:data-science/data-agent-sharing@analysis.overview",
+      "role": "secondary",
+      "articleId": "art:data-science/data-agent-sharing",
+      "subject": "analysis",
+      "topic": "overview",
+      "ruleId": "S-DATA-SCIENCE-ANALYSIS"
+    },
+    {
+      "bindingId": "lb:art:data-science/data-agent-source-control@analysis.overview",
+      "role": "secondary",
+      "articleId": "art:data-science/data-agent-source-control",
+      "subject": "analysis",
+      "topic": "overview",
+      "ruleId": "S-DATA-SCIENCE-ANALYSIS"
+    },
+    {
+      "bindingId": "lb:art:data-science/data-agent-sql-sources@analysis.overview",
+      "role": "secondary",
+      "articleId": "art:data-science/data-agent-sql-sources",
+      "subject": "analysis",
+      "topic": "overview",
+      "ruleId": "S-DATA-SCIENCE-ANALYSIS"
+    },
+    {
+      "bindingId": "lb:art:data-science/data-agent-tenant-settings@analysis.overview",
+      "role": "secondary",
+      "articleId": "art:data-science/data-agent-tenant-settings",
+      "subject": "analysis",
+      "topic": "overview",
+      "ruleId": "S-DATA-SCIENCE-ANALYSIS"
+    },
+    {
+      "bindingId": "lb:art:data-science/data-agent-topics@analysis.overview",
+      "role": "secondary",
+      "articleId": "art:data-science/data-agent-topics",
+      "subject": "analysis",
+      "topic": "overview",
+      "ruleId": "S-DATA-SCIENCE-ANALYSIS"
+    },
+    {
+      "bindingId": "lb:art:data-science/data-agent-visuals@analysis.overview",
+      "role": "secondary",
+      "articleId": "art:data-science/data-agent-visuals",
+      "subject": "analysis",
+      "topic": "overview",
+      "ruleId": "S-DATA-SCIENCE-ANALYSIS"
+    },
+    {
+      "bindingId": "lb:art:data-science/data-science-disaster-recovery@analysis.overview",
+      "role": "secondary",
+      "articleId": "art:data-science/data-science-disaster-recovery",
+      "subject": "analysis",
+      "topic": "overview",
+      "ruleId": "S-DATA-SCIENCE-ANALYSIS"
+    },
+    {
+      "bindingId": "lb:art:data-science/data-science-lineage@analysis.overview",
+      "role": "secondary",
+      "articleId": "art:data-science/data-science-lineage",
+      "subject": "analysis",
+      "topic": "overview",
+      "ruleId": "S-DATA-SCIENCE-ANALYSIS"
+    },
+    {
+      "bindingId": "lb:art:data-science/data-science-overview@analysis.overview",
+      "role": "secondary",
+      "articleId": "art:data-science/data-science-overview",
+      "subject": "analysis",
+      "topic": "overview",
+      "ruleId": "S-DATA-SCIENCE-ANALYSIS"
+    },
+    {
+      "bindingId": "lb:art:data-science/data-wrangler@analysis.overview",
+      "role": "secondary",
+      "articleId": "art:data-science/data-wrangler",
+      "subject": "analysis",
+      "topic": "overview",
+      "ruleId": "S-DATA-SCIENCE-ANALYSIS"
+    },
+    {
+      "bindingId": "lb:art:data-science/data-wrangler-ai@analysis.overview",
+      "role": "secondary",
+      "articleId": "art:data-science/data-wrangler-ai",
+      "subject": "analysis",
+      "topic": "overview",
+      "ruleId": "S-DATA-SCIENCE-ANALYSIS"
+    },
+    {
+      "bindingId": "lb:art:data-science/data-wrangler-spark@analysis.overview",
+      "role": "secondary",
+      "articleId": "art:data-science/data-wrangler-spark",
+      "subject": "analysis",
+      "topic": "overview",
+      "ruleId": "S-DATA-SCIENCE-ANALYSIS"
+    },
+    {
+      "bindingId": "lb:art:data-science/develop-iterative-process-data-agent@analysis.overview",
+      "role": "secondary",
+      "articleId": "art:data-science/develop-iterative-process-data-agent",
+      "subject": "analysis",
+      "topic": "overview",
+      "ruleId": "S-DATA-SCIENCE-ANALYSIS"
+    },
+    {
+      "bindingId": "lb:art:data-science/evaluate-data-agent@analysis.overview",
+      "role": "secondary",
+      "articleId": "art:data-science/evaluate-data-agent",
+      "subject": "analysis",
+      "topic": "overview",
+      "ruleId": "S-DATA-SCIENCE-ANALYSIS"
+    },
+    {
+      "bindingId": "lb:art:data-science/explainable-boosting-machines-classification@analysis.overview",
+      "role": "secondary",
+      "articleId": "art:data-science/explainable-boosting-machines-classification",
+      "subject": "analysis",
+      "topic": "overview",
+      "ruleId": "S-DATA-SCIENCE-ANALYSIS"
+    },
+    {
+      "bindingId": "lb:art:data-science/explainable-boosting-machines-regression@analysis.overview",
+      "role": "secondary",
+      "articleId": "art:data-science/explainable-boosting-machines-regression",
+      "subject": "analysis",
+      "topic": "overview",
+      "ruleId": "S-DATA-SCIENCE-ANALYSIS"
+    },
+    {
+      "bindingId": "lb:art:data-science/fabric-data-agent-foundry-observability@analysis.overview",
+      "role": "secondary",
+      "articleId": "art:data-science/fabric-data-agent-foundry-observability",
+      "subject": "analysis",
+      "topic": "overview",
+      "ruleId": "S-DATA-SCIENCE-ANALYSIS"
+    },
+    {
+      "bindingId": "lb:art:data-science/fabric-data-agent-sdk@analysis.overview",
+      "role": "secondary",
+      "articleId": "art:data-science/fabric-data-agent-sdk",
+      "subject": "analysis",
+      "topic": "overview",
+      "ruleId": "S-DATA-SCIENCE-ANALYSIS"
+    },
+    {
+      "bindingId": "lb:art:data-science/fabric-notebooks-troubleshooting-guide@analysis.overview",
+      "role": "secondary",
+      "articleId": "art:data-science/fabric-notebooks-troubleshooting-guide",
+      "subject": "analysis",
+      "topic": "overview",
+      "ruleId": "S-DATA-SCIENCE-ANALYSIS"
+    },
+    {
+      "bindingId": "lb:art:data-science/fabric-sparkml-tutorial@analysis.overview",
+      "role": "secondary",
+      "articleId": "art:data-science/fabric-sparkml-tutorial",
+      "subject": "analysis",
+      "topic": "overview",
+      "ruleId": "S-DATA-SCIENCE-ANALYSIS"
+    },
+    {
+      "bindingId": "lb:art:data-science/fraud-detection@analysis.overview",
+      "role": "secondary",
+      "articleId": "art:data-science/fraud-detection",
+      "subject": "analysis",
+      "topic": "overview",
+      "ruleId": "S-DATA-SCIENCE-ANALYSIS"
+    },
+    {
+      "bindingId": "lb:art:data-science/how-to-create-data-agent@analysis.overview",
+      "role": "secondary",
+      "articleId": "art:data-science/how-to-create-data-agent",
+      "subject": "analysis",
+      "topic": "overview",
+      "ruleId": "S-DATA-SCIENCE-ANALYSIS"
+    },
+    {
+      "bindingId": "lb:art:data-science/how-to-tune-lightgbm-flaml@analysis.overview",
+      "role": "secondary",
+      "articleId": "art:data-science/how-to-tune-lightgbm-flaml",
+      "subject": "analysis",
+      "topic": "overview",
+      "ruleId": "S-DATA-SCIENCE-ANALYSIS"
+    },
+    {
+      "bindingId": "lb:art:data-science/how-to-use-ai-services-with-synapseml@analysis.overview",
+      "role": "secondary",
+      "articleId": "art:data-science/how-to-use-ai-services-with-synapseml",
+      "subject": "analysis",
+      "topic": "overview",
+      "ruleId": "S-DATA-SCIENCE-ANALYSIS"
+    },
+    {
+      "bindingId": "lb:art:data-science/how-to-use-automated-machine-learning-fabric@analysis.overview",
+      "role": "secondary",
+      "articleId": "art:data-science/how-to-use-automated-machine-learning-fabric",
+      "subject": "analysis",
+      "topic": "overview",
+      "ruleId": "S-DATA-SCIENCE-ANALYSIS"
+    },
+    {
+      "bindingId": "lb:art:data-science/how-to-use-lightgbm-with-synapseml@analysis.overview",
+      "role": "secondary",
+      "articleId": "art:data-science/how-to-use-lightgbm-with-synapseml",
+      "subject": "analysis",
+      "topic": "overview",
+      "ruleId": "S-DATA-SCIENCE-ANALYSIS"
+    },
+    {
+      "bindingId": "lb:art:data-science/hyperparameter-tuning-fabric@analysis.overview",
+      "role": "secondary",
+      "articleId": "art:data-science/hyperparameter-tuning-fabric",
+      "subject": "analysis",
+      "topic": "overview",
+      "ruleId": "S-DATA-SCIENCE-ANALYSIS"
+    },
+    {
+      "bindingId": "lb:art:data-science/hyperparameter-tuning-fighting-breast-cancer@analysis.overview",
+      "role": "secondary",
+      "articleId": "art:data-science/hyperparameter-tuning-fighting-breast-cancer",
+      "subject": "analysis",
+      "topic": "overview",
+      "ruleId": "S-DATA-SCIENCE-ANALYSIS"
+    },
+    {
+      "bindingId": "lb:art:data-science/install-synapseml@analysis.overview",
+      "role": "secondary",
+      "articleId": "art:data-science/install-synapseml",
+      "subject": "analysis",
+      "topic": "overview",
+      "ruleId": "S-DATA-SCIENCE-ANALYSIS"
+    },
+    {
+      "bindingId": "lb:art:data-science/isolation-forest-multivariate-anomaly-detection@analysis.overview",
+      "role": "secondary",
+      "articleId": "art:data-science/isolation-forest-multivariate-anomaly-detection",
+      "subject": "analysis",
+      "topic": "overview",
+      "ruleId": "S-DATA-SCIENCE-ANALYSIS"
+    },
+    {
+      "bindingId": "lb:art:data-science/lightgbm-overview@analysis.overview",
+      "role": "secondary",
+      "articleId": "art:data-science/lightgbm-overview",
+      "subject": "analysis",
+      "topic": "overview",
+      "ruleId": "S-DATA-SCIENCE-ANALYSIS"
+    },
+    {
+      "bindingId": "lb:art:data-science/low-code-automl@analysis.overview",
+      "role": "secondary",
+      "articleId": "art:data-science/low-code-automl",
+      "subject": "analysis",
+      "topic": "overview",
+      "ruleId": "S-DATA-SCIENCE-ANALYSIS"
+    },
+    {
+      "bindingId": "lb:art:data-science/machine-learning-artifacts-git-deployment-pipelines@analysis.overview",
+      "role": "secondary",
+      "articleId": "art:data-science/machine-learning-artifacts-git-deployment-pipelines",
+      "subject": "analysis",
+      "topic": "overview",
+      "ruleId": "S-DATA-SCIENCE-ANALYSIS"
+    },
+    {
+      "bindingId": "lb:art:data-science/machine-learning-cross-workspace-logging@analysis.overview",
+      "role": "secondary",
+      "articleId": "art:data-science/machine-learning-cross-workspace-logging",
+      "subject": "analysis",
+      "topic": "overview",
+      "ruleId": "S-DATA-SCIENCE-ANALYSIS"
+    },
+    {
+      "bindingId": "lb:art:data-science/machine-learning-experiment@analysis.overview",
+      "role": "secondary",
+      "articleId": "art:data-science/machine-learning-experiment",
+      "subject": "analysis",
+      "topic": "overview",
+      "ruleId": "S-DATA-SCIENCE-ANALYSIS"
+    },
+    {
+      "bindingId": "lb:art:data-science/machine-learning-model@analysis.overview",
+      "role": "secondary",
+      "articleId": "art:data-science/machine-learning-model",
+      "subject": "analysis",
+      "topic": "overview",
+      "ruleId": "S-DATA-SCIENCE-ANALYSIS"
+    },
+    {
+      "bindingId": "lb:art:data-science/mlflow-3-overview@analysis.overview",
+      "role": "secondary",
+      "articleId": "art:data-science/mlflow-3-overview",
+      "subject": "analysis",
+      "topic": "overview",
+      "ruleId": "S-DATA-SCIENCE-ANALYSIS"
+    },
+    {
+      "bindingId": "lb:art:data-science/mlflow-autologging@analysis.overview",
+      "role": "secondary",
+      "articleId": "art:data-science/mlflow-autologging",
+      "subject": "analysis",
+      "topic": "overview",
+      "ruleId": "S-DATA-SCIENCE-ANALYSIS"
+    },
+    {
+      "bindingId": "lb:art:data-science/mlflow-upgrade@analysis.overview",
+      "role": "secondary",
+      "articleId": "art:data-science/mlflow-upgrade",
+      "subject": "analysis",
+      "topic": "overview",
+      "ruleId": "S-DATA-SCIENCE-ANALYSIS"
+    },
+    {
+      "bindingId": "lb:art:data-science/model-endpoints@analysis.overview",
+      "role": "secondary",
+      "articleId": "art:data-science/model-endpoints",
+      "subject": "analysis",
+      "topic": "overview",
+      "ruleId": "S-DATA-SCIENCE-ANALYSIS"
+    },
+    {
+      "bindingId": "lb:art:data-science/model-scoring-predict@analysis.overview",
+      "role": "secondary",
+      "articleId": "art:data-science/model-scoring-predict",
+      "subject": "analysis",
+      "topic": "overview",
+      "ruleId": "S-DATA-SCIENCE-ANALYSIS"
+    },
+    {
+      "bindingId": "lb:art:data-science/model-training-overview@analysis.overview",
+      "role": "secondary",
+      "articleId": "art:data-science/model-training-overview",
+      "subject": "analysis",
+      "topic": "overview",
+      "ruleId": "S-DATA-SCIENCE-ANALYSIS"
+    },
+    {
+      "bindingId": "lb:art:data-science/models-experiments-rbac@analysis.overview",
+      "role": "secondary",
+      "articleId": "art:data-science/models-experiments-rbac",
+      "subject": "analysis",
+      "topic": "overview",
+      "ruleId": "S-DATA-SCIENCE-ANALYSIS"
+    },
+    {
+      "bindingId": "lb:art:data-science/monitor-machine-learning-experiments-models@analysis.overview",
+      "role": "secondary",
+      "articleId": "art:data-science/monitor-machine-learning-experiments-models",
+      "subject": "analysis",
+      "topic": "overview",
+      "ruleId": "S-DATA-SCIENCE-ANALYSIS"
+    },
+    {
+      "bindingId": "lb:art:data-science/multivariate-anomaly-detection@analysis.overview",
+      "role": "secondary",
+      "articleId": "art:data-science/multivariate-anomaly-detection",
+      "subject": "analysis",
+      "topic": "overview",
+      "ruleId": "S-DATA-SCIENCE-ANALYSIS"
+    },
+    {
+      "bindingId": "lb:art:data-science/onnx-overview@analysis.overview",
+      "role": "secondary",
+      "articleId": "art:data-science/onnx-overview",
+      "subject": "analysis",
+      "topic": "overview",
+      "ruleId": "S-DATA-SCIENCE-ANALYSIS"
+    },
+    {
+      "bindingId": "lb:art:data-science/open-ai@analysis.overview",
+      "role": "secondary",
+      "articleId": "art:data-science/open-ai",
+      "subject": "analysis",
+      "topic": "overview",
+      "ruleId": "S-DATA-SCIENCE-ANALYSIS"
+    },
+    {
+      "bindingId": "lb:art:data-science/predictive-maintenance@analysis.overview",
+      "role": "secondary",
+      "articleId": "art:data-science/predictive-maintenance",
+      "subject": "analysis",
+      "topic": "overview",
+      "ruleId": "S-DATA-SCIENCE-ANALYSIS"
+    },
+    {
+      "bindingId": "lb:art:data-science/python-automated-machine-learning-fabric@analysis.overview",
+      "role": "secondary",
+      "articleId": "art:data-science/python-automated-machine-learning-fabric",
+      "subject": "analysis",
+      "topic": "overview",
+      "ruleId": "S-DATA-SCIENCE-ANALYSIS"
+    },
+    {
+      "bindingId": "lb:art:data-science/python-guide/python-overview@analysis.overview",
+      "role": "secondary",
+      "articleId": "art:data-science/python-guide/python-overview",
+      "subject": "analysis",
+      "topic": "overview",
+      "ruleId": "S-DATA-SCIENCE-ANALYSIS"
+    },
+    {
+      "bindingId": "lb:art:data-science/python-guide/python-visualizations@analysis.overview",
+      "role": "secondary",
+      "articleId": "art:data-science/python-guide/python-visualizations",
+      "subject": "analysis",
+      "topic": "overview",
+      "ruleId": "S-DATA-SCIENCE-ANALYSIS"
+    },
+    {
+      "bindingId": "lb:art:data-science/quickstart-building-retrieval-augmented-generation@analysis.overview",
+      "role": "secondary",
+      "articleId": "art:data-science/quickstart-building-retrieval-augmented-generation",
+      "subject": "analysis",
+      "topic": "overview",
+      "ruleId": "S-DATA-SCIENCE-ANALYSIS"
+    },
+    {
+      "bindingId": "lb:art:data-science/r-avocado@analysis.overview",
+      "role": "secondary",
+      "articleId": "art:data-science/r-avocado",
+      "subject": "analysis",
+      "topic": "overview",
+      "ruleId": "S-DATA-SCIENCE-ANALYSIS"
+    },
+    {
+      "bindingId": "lb:art:data-science/r-customer-churn@analysis.overview",
+      "role": "secondary",
+      "articleId": "art:data-science/r-customer-churn",
+      "subject": "analysis",
+      "topic": "overview",
+      "ruleId": "S-DATA-SCIENCE-ANALYSIS"
+    },
+    {
+      "bindingId": "lb:art:data-science/r-flight-delay@analysis.overview",
+      "role": "secondary",
+      "articleId": "art:data-science/r-flight-delay",
+      "subject": "analysis",
+      "topic": "overview",
+      "ruleId": "S-DATA-SCIENCE-ANALYSIS"
+    },
+    {
+      "bindingId": "lb:art:data-science/r-fraud-detection@analysis.overview",
+      "role": "secondary",
+      "articleId": "art:data-science/r-fraud-detection",
+      "subject": "analysis",
+      "topic": "overview",
+      "ruleId": "S-DATA-SCIENCE-ANALYSIS"
+    },
+    {
+      "bindingId": "lb:art:data-science/r-library-management@analysis.overview",
+      "role": "secondary",
+      "articleId": "art:data-science/r-library-management",
+      "subject": "analysis",
+      "topic": "overview",
+      "ruleId": "S-DATA-SCIENCE-ANALYSIS"
+    },
+    {
+      "bindingId": "lb:art:data-science/r-overview@analysis.overview",
+      "role": "secondary",
+      "articleId": "art:data-science/r-overview",
+      "subject": "analysis",
+      "topic": "overview",
+      "ruleId": "S-DATA-SCIENCE-ANALYSIS"
+    },
+    {
+      "bindingId": "lb:art:data-science/r-use-sparklyr@analysis.overview",
+      "role": "secondary",
+      "articleId": "art:data-science/r-use-sparklyr",
+      "subject": "analysis",
+      "topic": "overview",
+      "ruleId": "S-DATA-SCIENCE-ANALYSIS"
+    },
+    {
+      "bindingId": "lb:art:data-science/r-use-sparkr@analysis.overview",
+      "role": "secondary",
+      "articleId": "art:data-science/r-use-sparkr",
+      "subject": "analysis",
+      "topic": "overview",
+      "ruleId": "S-DATA-SCIENCE-ANALYSIS"
+    },
+    {
+      "bindingId": "lb:art:data-science/r-use-tidyverse@analysis.overview",
+      "role": "secondary",
+      "articleId": "art:data-science/r-use-tidyverse",
+      "subject": "analysis",
+      "topic": "overview",
+      "ruleId": "S-DATA-SCIENCE-ANALYSIS"
+    },
+    {
+      "bindingId": "lb:art:data-science/r-visualization@analysis.overview",
+      "role": "secondary",
+      "articleId": "art:data-science/r-visualization",
+      "subject": "analysis",
+      "topic": "overview",
+      "ruleId": "S-DATA-SCIENCE-ANALYSIS"
+    },
+    {
+      "bindingId": "lb:art:data-science/read-write-pandas@analysis.overview",
+      "role": "secondary",
+      "articleId": "art:data-science/read-write-pandas",
+      "subject": "analysis",
+      "topic": "overview",
+      "ruleId": "S-DATA-SCIENCE-ANALYSIS"
+    },
+    {
+      "bindingId": "lb:art:data-science/read-write-power-bi-python@analysis.overview",
+      "role": "secondary",
+      "articleId": "art:data-science/read-write-power-bi-python",
+      "subject": "analysis",
+      "topic": "overview",
+      "ruleId": "S-DATA-SCIENCE-ANALYSIS"
+    },
+    {
+      "bindingId": "lb:art:data-science/read-write-power-bi-spark@analysis.overview",
+      "role": "secondary",
+      "articleId": "art:data-science/read-write-power-bi-spark",
+      "subject": "analysis",
+      "topic": "overview",
+      "ruleId": "S-DATA-SCIENCE-ANALYSIS"
+    },
+    {
+      "bindingId": "lb:art:data-science/retail-recommend-model@analysis.overview",
+      "role": "secondary",
+      "articleId": "art:data-science/retail-recommend-model",
+      "subject": "analysis",
+      "topic": "overview",
+      "ruleId": "S-DATA-SCIENCE-ANALYSIS"
+    },
+    {
+      "bindingId": "lb:art:data-science/sales-forecasting@analysis.overview",
+      "role": "secondary",
+      "articleId": "art:data-science/sales-forecasting",
+      "subject": "analysis",
+      "topic": "overview",
+      "ruleId": "S-DATA-SCIENCE-ANALYSIS"
+    },
+    {
+      "bindingId": "lb:art:data-science/semantic-link-overview@analysis.overview",
+      "role": "secondary",
+      "articleId": "art:data-science/semantic-link-overview",
+      "subject": "analysis",
+      "topic": "overview",
+      "ruleId": "S-DATA-SCIENCE-ANALYSIS"
+    },
+    {
+      "bindingId": "lb:art:data-science/semantic-link-power-bi@analysis.overview",
+      "role": "secondary",
+      "articleId": "art:data-science/semantic-link-power-bi",
+      "subject": "analysis",
+      "topic": "overview",
+      "ruleId": "S-DATA-SCIENCE-ANALYSIS"
+    },
+    {
+      "bindingId": "lb:art:data-science/semantic-link-semantic-functions@analysis.overview",
+      "role": "secondary",
+      "articleId": "art:data-science/semantic-link-semantic-functions",
+      "subject": "analysis",
+      "topic": "overview",
+      "ruleId": "S-DATA-SCIENCE-ANALYSIS"
+    },
+    {
+      "bindingId": "lb:art:data-science/semantic-link-semantic-propagation@analysis.overview",
+      "role": "secondary",
+      "articleId": "art:data-science/semantic-link-semantic-propagation",
+      "subject": "analysis",
+      "topic": "overview",
+      "ruleId": "S-DATA-SCIENCE-ANALYSIS"
+    },
+    {
+      "bindingId": "lb:art:data-science/semantic-link-service-principal-support@analysis.overview",
+      "role": "secondary",
+      "articleId": "art:data-science/semantic-link-service-principal-support",
+      "subject": "analysis",
+      "topic": "overview",
+      "ruleId": "S-DATA-SCIENCE-ANALYSIS"
+    },
+    {
+      "bindingId": "lb:art:data-science/semantic-link-validate-data@analysis.overview",
+      "role": "secondary",
+      "articleId": "art:data-science/semantic-link-validate-data",
+      "subject": "analysis",
+      "topic": "overview",
+      "ruleId": "S-DATA-SCIENCE-ANALYSIS"
+    },
+    {
+      "bindingId": "lb:art:data-science/semantic-link-validate-relationship@analysis.overview",
+      "role": "secondary",
+      "articleId": "art:data-science/semantic-link-validate-relationship",
+      "subject": "analysis",
+      "topic": "overview",
+      "ruleId": "S-DATA-SCIENCE-ANALYSIS"
+    },
+    {
+      "bindingId": "lb:art:data-science/semantic-model-best-practices@analysis.overview",
+      "role": "secondary",
+      "articleId": "art:data-science/semantic-model-best-practices",
+      "subject": "analysis",
+      "topic": "overview",
+      "ruleId": "S-DATA-SCIENCE-ANALYSIS"
+    },
+    {
+      "bindingId": "lb:art:data-science/synapse-overview@analysis.overview",
+      "role": "secondary",
+      "articleId": "art:data-science/synapse-overview",
+      "subject": "analysis",
+      "topic": "overview",
+      "ruleId": "S-DATA-SCIENCE-ANALYSIS"
+    },
+    {
+      "bindingId": "lb:art:data-science/synapseml-first-model@analysis.overview",
+      "role": "secondary",
+      "articleId": "art:data-science/synapseml-first-model",
+      "subject": "analysis",
+      "topic": "overview",
+      "ruleId": "S-DATA-SCIENCE-ANALYSIS"
+    },
+    {
+      "bindingId": "lb:art:data-science/tabular-shap-explainer@analysis.overview",
+      "role": "secondary",
+      "articleId": "art:data-science/tabular-shap-explainer",
+      "subject": "analysis",
+      "topic": "overview",
+      "ruleId": "S-DATA-SCIENCE-ANALYSIS"
+    },
+    {
+      "bindingId": "lb:art:data-science/time-series-forecasting@analysis.overview",
+      "role": "secondary",
+      "articleId": "art:data-science/time-series-forecasting",
+      "subject": "analysis",
+      "topic": "overview",
+      "ruleId": "S-DATA-SCIENCE-ANALYSIS"
+    },
+    {
+      "bindingId": "lb:art:data-science/title-genre-classification@analysis.overview",
+      "role": "secondary",
+      "articleId": "art:data-science/title-genre-classification",
+      "subject": "analysis",
+      "topic": "overview",
+      "ruleId": "S-DATA-SCIENCE-ANALYSIS"
+    },
+    {
+      "bindingId": "lb:art:data-science/train-models-pytorch@analysis.overview",
+      "role": "secondary",
+      "articleId": "art:data-science/train-models-pytorch",
+      "subject": "analysis",
+      "topic": "overview",
+      "ruleId": "S-DATA-SCIENCE-ANALYSIS"
+    },
+    {
+      "bindingId": "lb:art:data-science/train-models-scikit-learn@analysis.overview",
+      "role": "secondary",
+      "articleId": "art:data-science/train-models-scikit-learn",
+      "subject": "analysis",
+      "topic": "overview",
+      "ruleId": "S-DATA-SCIENCE-ANALYSIS"
+    },
+    {
+      "bindingId": "lb:art:data-science/train-models-synapseml@analysis.overview",
+      "role": "secondary",
+      "articleId": "art:data-science/train-models-synapseml",
+      "subject": "analysis",
+      "topic": "overview",
+      "ruleId": "S-DATA-SCIENCE-ANALYSIS"
+    },
+    {
+      "bindingId": "lb:art:data-science/tuning-automated-machine-learning-visualizations@analysis.overview",
+      "role": "secondary",
+      "articleId": "art:data-science/tuning-automated-machine-learning-visualizations",
+      "subject": "analysis",
+      "topic": "overview",
+      "ruleId": "S-DATA-SCIENCE-ANALYSIS"
+    },
+    {
+      "bindingId": "lb:art:data-science/tutorial-data-cleaning-functional-dependencies@analysis.overview",
+      "role": "secondary",
+      "articleId": "art:data-science/tutorial-data-cleaning-functional-dependencies",
+      "subject": "analysis",
+      "topic": "overview",
+      "ruleId": "S-DATA-SCIENCE-ANALYSIS"
+    },
+    {
+      "bindingId": "lb:art:data-science/tutorial-data-science-batch-scoring@analysis.overview",
+      "role": "secondary",
+      "articleId": "art:data-science/tutorial-data-science-batch-scoring",
+      "subject": "analysis",
+      "topic": "overview",
+      "ruleId": "S-DATA-SCIENCE-ANALYSIS"
+    },
+    {
+      "bindingId": "lb:art:data-science/tutorial-data-science-create-report@analysis.overview",
+      "role": "secondary",
+      "articleId": "art:data-science/tutorial-data-science-create-report",
+      "subject": "analysis",
+      "topic": "overview",
+      "ruleId": "S-DATA-SCIENCE-ANALYSIS"
+    },
+    {
+      "bindingId": "lb:art:data-science/tutorial-data-science-explore-notebook@analysis.overview",
+      "role": "secondary",
+      "articleId": "art:data-science/tutorial-data-science-explore-notebook",
+      "subject": "analysis",
+      "topic": "overview",
+      "ruleId": "S-DATA-SCIENCE-ANALYSIS"
+    },
+    {
+      "bindingId": "lb:art:data-science/tutorial-data-science-ingest-data@analysis.overview",
+      "role": "secondary",
+      "articleId": "art:data-science/tutorial-data-science-ingest-data",
+      "subject": "analysis",
+      "topic": "overview",
+      "ruleId": "S-DATA-SCIENCE-ANALYSIS"
+    },
+    {
+      "bindingId": "lb:art:data-science/tutorial-data-science-introduction@analysis.overview",
+      "role": "secondary",
+      "articleId": "art:data-science/tutorial-data-science-introduction",
+      "subject": "analysis",
+      "topic": "overview",
+      "ruleId": "S-DATA-SCIENCE-ANALYSIS"
+    },
+    {
+      "bindingId": "lb:art:data-science/tutorial-data-science-prepare-system@analysis.overview",
+      "role": "secondary",
+      "articleId": "art:data-science/tutorial-data-science-prepare-system",
+      "subject": "analysis",
+      "topic": "overview",
+      "ruleId": "S-DATA-SCIENCE-ANALYSIS"
+    },
+    {
+      "bindingId": "lb:art:data-science/tutorial-data-science-train-models@analysis.overview",
+      "role": "secondary",
+      "articleId": "art:data-science/tutorial-data-science-train-models",
+      "subject": "analysis",
+      "topic": "overview",
+      "ruleId": "S-DATA-SCIENCE-ANALYSIS"
+    },
+    {
+      "bindingId": "lb:art:data-science/tutorial-evaluate-rag-performance@analysis.overview",
+      "role": "secondary",
+      "articleId": "art:data-science/tutorial-evaluate-rag-performance",
+      "subject": "analysis",
+      "topic": "overview",
+      "ruleId": "S-DATA-SCIENCE-ANALYSIS"
+    },
+    {
+      "bindingId": "lb:art:data-science/tutorial-great-expectations@analysis.overview",
+      "role": "secondary",
+      "articleId": "art:data-science/tutorial-great-expectations",
+      "subject": "analysis",
+      "topic": "overview",
+      "ruleId": "S-DATA-SCIENCE-ANALYSIS"
+    },
+    {
+      "bindingId": "lb:art:data-science/tutorial-power-bi-dependencies@analysis.overview",
+      "role": "secondary",
+      "articleId": "art:data-science/tutorial-power-bi-dependencies",
+      "subject": "analysis",
+      "topic": "overview",
+      "ruleId": "S-DATA-SCIENCE-ANALYSIS"
+    },
+    {
+      "bindingId": "lb:art:data-science/tutorial-power-bi-measures@analysis.overview",
+      "role": "secondary",
+      "articleId": "art:data-science/tutorial-power-bi-measures",
+      "subject": "analysis",
+      "topic": "overview",
+      "ruleId": "S-DATA-SCIENCE-ANALYSIS"
+    },
+    {
+      "bindingId": "lb:art:data-science/tutorial-power-bi-relationships@analysis.overview",
+      "role": "secondary",
+      "articleId": "art:data-science/tutorial-power-bi-relationships",
+      "subject": "analysis",
+      "topic": "overview",
+      "ruleId": "S-DATA-SCIENCE-ANALYSIS"
+    },
+    {
+      "bindingId": "lb:art:data-science/tutorial-relationships-detection@analysis.overview",
+      "role": "secondary",
+      "articleId": "art:data-science/tutorial-relationships-detection",
+      "subject": "analysis",
+      "topic": "overview",
+      "ruleId": "S-DATA-SCIENCE-ANALYSIS"
+    },
+    {
+      "bindingId": "lb:art:data-science/tutorial-text-classification@analysis.overview",
+      "role": "secondary",
+      "articleId": "art:data-science/tutorial-text-classification",
+      "subject": "analysis",
+      "topic": "overview",
+      "ruleId": "S-DATA-SCIENCE-ANALYSIS"
+    },
+    {
+      "bindingId": "lb:art:data-science/uplift-modeling@analysis.overview",
+      "role": "secondary",
+      "articleId": "art:data-science/uplift-modeling",
+      "subject": "analysis",
+      "topic": "overview",
+      "ruleId": "S-DATA-SCIENCE-ANALYSIS"
+    },
+    {
+      "bindingId": "lb:art:data-science/use-ai-samples@analysis.overview",
+      "role": "secondary",
+      "articleId": "art:data-science/use-ai-samples",
+      "subject": "analysis",
+      "topic": "overview",
+      "ruleId": "S-DATA-SCIENCE-ANALYSIS"
+    },
+    {
+      "bindingId": "lb:art:database/cosmos-db/full-text-indexing@sql.text",
+      "role": "secondary",
+      "articleId": "art:database/cosmos-db/full-text-indexing",
+      "subject": "sql",
+      "topic": "text",
+      "ruleId": "S-SQL-DIALECT"
+    },
+    {
+      "bindingId": "lb:art:database/cosmos-db/how-to-access-data-lakehouse@sql.foundations",
+      "role": "secondary",
+      "articleId": "art:database/cosmos-db/how-to-access-data-lakehouse",
+      "subject": "sql",
+      "topic": "foundations",
+      "ruleId": "S-SQL-DIALECT"
+    },
+    {
+      "bindingId": "lb:art:database/cosmos-db/how-to-query-cross-database@sql.foundations",
+      "role": "secondary",
+      "articleId": "art:database/cosmos-db/how-to-query-cross-database",
+      "subject": "sql",
+      "topic": "foundations",
+      "ruleId": "S-SQL-DIALECT"
+    },
+    {
+      "bindingId": "lb:art:database/cosmos-db/hybrid-search@sql.text",
+      "role": "secondary",
+      "articleId": "art:database/cosmos-db/hybrid-search",
+      "subject": "sql",
+      "topic": "text",
+      "ruleId": "S-SQL-DIALECT"
+    },
+    {
+      "bindingId": "lb:art:database/cosmos-db/indexing-policies@sql.performance",
+      "role": "secondary",
+      "articleId": "art:database/cosmos-db/indexing-policies",
+      "subject": "sql",
+      "topic": "performance",
+      "ruleId": "S-SQL-DIALECT"
+    },
+    {
+      "bindingId": "lb:art:database/cosmos-db/sample-indexing-policies@sql.performance",
+      "role": "secondary",
+      "articleId": "art:database/cosmos-db/sample-indexing-policies",
+      "subject": "sql",
+      "topic": "performance",
+      "ruleId": "S-SQL-DIALECT"
+    },
+    {
+      "bindingId": "lb:art:database/cosmos-db/tutorial-mirroring@sql.foundations",
+      "role": "secondary",
+      "articleId": "art:database/cosmos-db/tutorial-mirroring",
+      "subject": "sql",
+      "topic": "foundations",
+      "ruleId": "S-SQL-DIALECT"
+    },
+    {
+      "bindingId": "lb:art:database/hub/add-sql@sql.performance",
+      "role": "secondary",
+      "articleId": "art:database/hub/add-sql",
+      "subject": "sql",
+      "topic": "performance",
+      "ruleId": "S-SQL-DIALECT"
+    },
+    {
+      "bindingId": "lb:art:database/hub/microsoft-sql-query-performance-monitoring-telemetry@sql.performance",
+      "role": "secondary",
+      "articleId": "art:database/hub/microsoft-sql-query-performance-monitoring-telemetry",
+      "subject": "sql",
+      "topic": "performance",
+      "ruleId": "S-SQL-DIALECT"
+    },
+    {
+      "bindingId": "lb:art:database/hub/monitor-sql@sql.foundations",
+      "role": "secondary",
+      "articleId": "art:database/hub/monitor-sql",
+      "subject": "sql",
+      "topic": "foundations",
+      "ruleId": "S-SQL-DIALECT"
+    },
+    {
+      "bindingId": "lb:art:database/hub/sql-activator-alerts@sql.performance",
+      "role": "secondary",
+      "articleId": "art:database/hub/sql-activator-alerts",
+      "subject": "sql",
+      "topic": "performance",
+      "ruleId": "S-SQL-DIALECT"
+    },
+    {
+      "bindingId": "lb:art:database/sql/auditing@sql.foundations",
+      "role": "secondary",
+      "articleId": "art:database/sql/auditing",
+      "subject": "sql",
+      "topic": "foundations",
+      "ruleId": "S-SQL-DIALECT"
+    },
+    {
+      "bindingId": "lb:art:database/sql/auditing-manage-rest-api@sql.foundations",
+      "role": "secondary",
+      "articleId": "art:database/sql/auditing-manage-rest-api",
+      "subject": "sql",
+      "topic": "foundations",
+      "ruleId": "S-SQL-DIALECT"
+    },
+    {
+      "bindingId": "lb:art:database/sql/authentication@sql.foundations",
+      "role": "secondary",
+      "articleId": "art:database/sql/authentication",
+      "subject": "sql",
+      "topic": "foundations",
+      "ruleId": "S-SQL-DIALECT"
+    },
+    {
+      "bindingId": "lb:art:database/sql/authorization@sql.foundations",
+      "role": "secondary",
+      "articleId": "art:database/sql/authorization",
+      "subject": "sql",
+      "topic": "foundations",
+      "ruleId": "S-SQL-DIALECT"
+    },
+    {
+      "bindingId": "lb:art:database/sql/backup@sql.foundations",
+      "role": "secondary",
+      "articleId": "art:database/sql/backup",
+      "subject": "sql",
+      "topic": "foundations",
+      "ruleId": "S-SQL-DIALECT"
+    },
+    {
+      "bindingId": "lb:art:database/sql/configure-sql-access-controls@sql.foundations",
+      "role": "secondary",
+      "articleId": "art:database/sql/configure-sql-access-controls",
+      "subject": "sql",
+      "topic": "foundations",
+      "ruleId": "S-SQL-DIALECT"
+    },
+    {
+      "bindingId": "lb:art:database/sql/connect@sql.foundations",
+      "role": "secondary",
+      "articleId": "art:database/sql/connect",
+      "subject": "sql",
+      "topic": "foundations",
+      "ruleId": "S-SQL-DIALECT"
+    },
+    {
+      "bindingId": "lb:art:database/sql/connect-jupyter-notebook@sql.foundations",
+      "role": "secondary",
+      "articleId": "art:database/sql/connect-jupyter-notebook",
+      "subject": "sql",
+      "topic": "foundations",
+      "ruleId": "S-SQL-DIALECT"
+    },
+    {
+      "bindingId": "lb:art:database/sql/connect-python@sql.foundations",
+      "role": "secondary",
+      "articleId": "art:database/sql/connect-python",
+      "subject": "sql",
+      "topic": "foundations",
+      "ruleId": "S-SQL-DIALECT"
+    },
+    {
+      "bindingId": "lb:art:database/sql/connect-python-bulk-copy@sql.foundations",
+      "role": "secondary",
+      "articleId": "art:database/sql/connect-python-bulk-copy",
+      "subject": "sql",
+      "topic": "foundations",
+      "ruleId": "S-SQL-DIALECT"
+    },
+    {
+      "bindingId": "lb:art:database/sql/connect-your-dotnet-aspire-application-to-fabric-sql-database@sql.foundations",
+      "role": "secondary",
+      "articleId": "art:database/sql/connect-your-dotnet-aspire-application-to-fabric-sql-database",
+      "subject": "sql",
+      "topic": "foundations",
+      "ruleId": "S-SQL-DIALECT"
+    },
+    {
+      "bindingId": "lb:art:database/sql/control-compute-usage@sql.foundations",
+      "role": "secondary",
+      "articleId": "art:database/sql/control-compute-usage",
+      "subject": "sql",
+      "topic": "foundations",
+      "ruleId": "S-SQL-DIALECT"
+    },
+    {
+      "bindingId": "lb:art:database/sql/copilot-chat-pane@sql.foundations",
+      "role": "secondary",
+      "articleId": "art:database/sql/copilot-chat-pane",
+      "subject": "sql",
+      "topic": "foundations",
+      "ruleId": "S-SQL-DIALECT"
+    },
+    {
+      "bindingId": "lb:art:database/sql/copilot-code-completion@sql.foundations",
+      "role": "secondary",
+      "articleId": "art:database/sql/copilot-code-completion",
+      "subject": "sql",
+      "topic": "foundations",
+      "ruleId": "S-SQL-DIALECT"
+    },
+    {
+      "bindingId": "lb:art:database/sql/copilot-quick-actions@sql.foundations",
+      "role": "secondary",
+      "articleId": "art:database/sql/copilot-quick-actions",
+      "subject": "sql",
+      "topic": "foundations",
+      "ruleId": "S-SQL-DIALECT"
+    },
+    {
+      "bindingId": "lb:art:database/sql/copilot-sql-database@sql.foundations",
+      "role": "secondary",
+      "articleId": "art:database/sql/copilot-sql-database",
+      "subject": "sql",
+      "topic": "foundations",
+      "ruleId": "S-SQL-DIALECT"
+    },
+    {
+      "bindingId": "lb:art:database/sql/create@sql.foundations",
+      "role": "secondary",
+      "articleId": "art:database/sql/create",
+      "subject": "sql",
+      "topic": "foundations",
+      "ruleId": "S-SQL-DIALECT"
+    },
+    {
+      "bindingId": "lb:art:database/sql/create-options@sql.foundations",
+      "role": "secondary",
+      "articleId": "art:database/sql/create-options",
+      "subject": "sql",
+      "topic": "foundations",
+      "ruleId": "S-SQL-DIALECT"
+    },
+    {
+      "bindingId": "lb:art:database/sql/create-reports@sql.foundations",
+      "role": "secondary",
+      "articleId": "art:database/sql/create-reports",
+      "subject": "sql",
+      "topic": "foundations",
+      "ruleId": "S-SQL-DIALECT"
+    },
+    {
+      "bindingId": "lb:art:database/sql/create-table@sql.foundations",
+      "role": "secondary",
+      "articleId": "art:database/sql/create-table",
+      "subject": "sql",
+      "topic": "foundations",
+      "ruleId": "S-SQL-DIALECT"
+    },
+    {
+      "bindingId": "lb:art:database/sql/data-virtualization@sql.foundations",
+      "role": "secondary",
+      "articleId": "art:database/sql/data-virtualization",
+      "subject": "sql",
+      "topic": "foundations",
+      "ruleId": "S-SQL-DIALECT"
+    },
+    {
+      "bindingId": "lb:art:database/sql/dataflows@sql.foundations",
+      "role": "secondary",
+      "articleId": "art:database/sql/dataflows",
+      "subject": "sql",
+      "topic": "foundations",
+      "ruleId": "S-SQL-DIALECT"
+    },
+    {
+      "bindingId": "lb:art:database/sql/deploy-cli@sql.foundations",
+      "role": "secondary",
+      "articleId": "art:database/sql/deploy-cli",
+      "subject": "sql",
+      "topic": "foundations",
+      "ruleId": "S-SQL-DIALECT"
+    },
+    {
+      "bindingId": "lb:art:database/sql/deploy-rest-api@sql.foundations",
+      "role": "secondary",
+      "articleId": "art:database/sql/deploy-rest-api",
+      "subject": "sql",
+      "topic": "foundations",
+      "ruleId": "S-SQL-DIALECT"
+    },
+    {
+      "bindingId": "lb:art:database/sql/deployment-pipelines@sql.foundations",
+      "role": "secondary",
+      "articleId": "art:database/sql/deployment-pipelines",
+      "subject": "sql",
+      "topic": "foundations",
+      "ruleId": "S-SQL-DIALECT"
+    },
+    {
+      "bindingId": "lb:art:database/sql/encryption@sql.foundations",
+      "role": "secondary",
+      "articleId": "art:database/sql/encryption",
+      "subject": "sql",
+      "topic": "foundations",
+      "ruleId": "S-SQL-DIALECT"
+    },
+    {
+      "bindingId": "lb:art:database/sql/graphql-api@sql.foundations",
+      "role": "secondary",
+      "articleId": "art:database/sql/graphql-api",
+      "subject": "sql",
+      "topic": "foundations",
+      "ruleId": "S-SQL-DIALECT"
+    },
+    {
+      "bindingId": "lb:art:database/sql/limitations@sql.foundations",
+      "role": "secondary",
+      "articleId": "art:database/sql/limitations",
+      "subject": "sql",
+      "topic": "foundations",
+      "ruleId": "S-SQL-DIALECT"
+    },
+    {
+      "bindingId": "lb:art:database/sql/load-adventureworks-sample-data@sql.foundations",
+      "role": "secondary",
+      "articleId": "art:database/sql/load-adventureworks-sample-data",
+      "subject": "sql",
+      "topic": "foundations",
+      "ruleId": "S-SQL-DIALECT"
+    },
+    {
+      "bindingId": "lb:art:database/sql/load-data-pipelines@sql.foundations",
+      "role": "secondary",
+      "articleId": "art:database/sql/load-data-pipelines",
+      "subject": "sql",
+      "topic": "foundations",
+      "ruleId": "S-SQL-DIALECT"
+    },
+    {
+      "bindingId": "lb:art:database/sql/migrate-with-migration-assistant-using-dacpac@sql.foundations",
+      "role": "secondary",
+      "articleId": "art:database/sql/migrate-with-migration-assistant-using-dacpac",
+      "subject": "sql",
+      "topic": "foundations",
+      "ruleId": "S-SQL-DIALECT"
+    },
+    {
+      "bindingId": "lb:art:database/sql/migration-assistant@sql.foundations",
+      "role": "secondary",
+      "articleId": "art:database/sql/migration-assistant",
+      "subject": "sql",
+      "topic": "foundations",
+      "ruleId": "S-SQL-DIALECT"
+    },
+    {
+      "bindingId": "lb:art:database/sql/mirroring-limitations@sql.foundations",
+      "role": "secondary",
+      "articleId": "art:database/sql/mirroring-limitations",
+      "subject": "sql",
+      "topic": "foundations",
+      "ruleId": "S-SQL-DIALECT"
+    },
+    {
+      "bindingId": "lb:art:database/sql/mirroring-monitor@sql.foundations",
+      "role": "secondary",
+      "articleId": "art:database/sql/mirroring-monitor",
+      "subject": "sql",
+      "topic": "foundations",
+      "ruleId": "S-SQL-DIALECT"
+    },
+    {
+      "bindingId": "lb:art:database/sql/mirroring-overview@sql.foundations",
+      "role": "secondary",
+      "articleId": "art:database/sql/mirroring-overview",
+      "subject": "sql",
+      "topic": "foundations",
+      "ruleId": "S-SQL-DIALECT"
+    },
+    {
+      "bindingId": "lb:art:database/sql/mirroring-secure@sql.foundations",
+      "role": "secondary",
+      "articleId": "art:database/sql/mirroring-secure",
+      "subject": "sql",
+      "topic": "foundations",
+      "ruleId": "S-SQL-DIALECT"
+    },
+    {
+      "bindingId": "lb:art:database/sql/mirroring-troubleshooting@sql.foundations",
+      "role": "secondary",
+      "articleId": "art:database/sql/mirroring-troubleshooting",
+      "subject": "sql",
+      "topic": "foundations",
+      "ruleId": "S-SQL-DIALECT"
+    },
+    {
+      "bindingId": "lb:art:database/sql/monitor@sql.performance",
+      "role": "secondary",
+      "articleId": "art:database/sql/monitor",
+      "subject": "sql",
+      "topic": "performance",
+      "ruleId": "S-SQL-DIALECT"
+    },
+    {
+      "bindingId": "lb:art:database/sql/overview@sql.foundations",
+      "role": "secondary",
+      "articleId": "art:database/sql/overview",
+      "subject": "sql",
+      "topic": "foundations",
+      "ruleId": "S-SQL-DIALECT"
+    },
+    {
+      "bindingId": "lb:art:database/sql/performance-dashboard@sql.performance",
+      "role": "secondary",
+      "articleId": "art:database/sql/performance-dashboard",
+      "subject": "sql",
+      "topic": "performance",
+      "ruleId": "S-SQL-DIALECT"
+    },
+    {
+      "bindingId": "lb:art:database/sql/protect-databases-with-protection-policies@sql.foundations",
+      "role": "secondary",
+      "articleId": "art:database/sql/protect-databases-with-protection-policies",
+      "subject": "sql",
+      "topic": "foundations",
+      "ruleId": "S-SQL-DIALECT"
+    },
+    {
+      "bindingId": "lb:art:database/sql/query@sql.foundations",
+      "role": "secondary",
+      "articleId": "art:database/sql/query",
+      "subject": "sql",
+      "topic": "foundations",
+      "ruleId": "S-SQL-DIALECT"
+    },
+    {
+      "bindingId": "lb:art:database/sql/query-editor@sql.foundations",
+      "role": "secondary",
+      "articleId": "art:database/sql/query-editor",
+      "subject": "sql",
+      "topic": "foundations",
+      "ruleId": "S-SQL-DIALECT"
+    },
+    {
+      "bindingId": "lb:art:database/sql/query-sql-analytics-endpoint@sql.foundations",
+      "role": "secondary",
+      "articleId": "art:database/sql/query-sql-analytics-endpoint",
+      "subject": "sql",
+      "topic": "foundations",
+      "ruleId": "S-SQL-DIALECT"
+    },
+    {
+      "bindingId": "lb:art:database/sql/restore@sql.foundations",
+      "role": "secondary",
+      "articleId": "art:database/sql/restore",
+      "subject": "sql",
+      "topic": "foundations",
+      "ruleId": "S-SQL-DIALECT"
+    },
+    {
+      "bindingId": "lb:art:database/sql/security-overview@sql.foundations",
+      "role": "secondary",
+      "articleId": "art:database/sql/security-overview",
+      "subject": "sql",
+      "topic": "foundations",
+      "ruleId": "S-SQL-DIALECT"
+    },
+    {
+      "bindingId": "lb:art:database/sql/share-data@sql.foundations",
+      "role": "secondary",
+      "articleId": "art:database/sql/share-data",
+      "subject": "sql",
+      "topic": "foundations",
+      "ruleId": "S-SQL-DIALECT"
+    },
+    {
+      "bindingId": "lb:art:database/sql/share-sql-manage-permission@sql.foundations",
+      "role": "secondary",
+      "articleId": "art:database/sql/share-sql-manage-permission",
+      "subject": "sql",
+      "topic": "foundations",
+      "ruleId": "S-SQL-DIALECT"
+    },
+    {
+      "bindingId": "lb:art:database/sql/skills@sql.foundations",
+      "role": "secondary",
+      "articleId": "art:database/sql/skills",
+      "subject": "sql",
+      "topic": "foundations",
+      "ruleId": "S-SQL-DIALECT"
+    },
+    {
+      "bindingId": "lb:art:database/sql/source-control@sql.foundations",
+      "role": "secondary",
+      "articleId": "art:database/sql/source-control",
+      "subject": "sql",
+      "topic": "foundations",
+      "ruleId": "S-SQL-DIALECT"
+    },
+    {
+      "bindingId": "lb:art:database/sql/sql-analytics-endpoint@sql.foundations",
+      "role": "secondary",
+      "articleId": "art:database/sql/sql-analytics-endpoint",
+      "subject": "sql",
+      "topic": "foundations",
+      "ruleId": "S-SQL-DIALECT"
+    },
+    {
+      "bindingId": "lb:art:database/sql/sqlpackage@sql.foundations",
+      "role": "secondary",
+      "articleId": "art:database/sql/sqlpackage",
+      "subject": "sql",
+      "topic": "foundations",
+      "ruleId": "S-SQL-DIALECT"
+    },
+    {
+      "bindingId": "lb:art:database/sql/start-stop-mirroring-api@sql.foundations",
+      "role": "secondary",
+      "articleId": "art:database/sql/start-stop-mirroring-api",
+      "subject": "sql",
+      "topic": "foundations",
+      "ruleId": "S-SQL-DIALECT"
+    },
+    {
+      "bindingId": "lb:art:database/sql/tutorial-clean-up@sql.foundations",
+      "role": "secondary",
+      "articleId": "art:database/sql/tutorial-clean-up",
+      "subject": "sql",
+      "topic": "foundations",
+      "ruleId": "S-SQL-DIALECT"
+    },
+    {
+      "bindingId": "lb:art:database/sql/tutorial-create-application@sql.foundations",
+      "role": "secondary",
+      "articleId": "art:database/sql/tutorial-create-application",
+      "subject": "sql",
+      "topic": "foundations",
+      "ruleId": "S-SQL-DIALECT"
+    },
+    {
+      "bindingId": "lb:art:database/sql/tutorial-create-database@sql.foundations",
+      "role": "secondary",
+      "articleId": "art:database/sql/tutorial-create-database",
+      "subject": "sql",
+      "topic": "foundations",
+      "ruleId": "S-SQL-DIALECT"
+    },
+    {
+      "bindingId": "lb:art:database/sql/tutorial-create-visualizations@sql.foundations",
+      "role": "secondary",
+      "articleId": "art:database/sql/tutorial-create-visualizations",
+      "subject": "sql",
+      "topic": "foundations",
+      "ruleId": "S-SQL-DIALECT"
+    },
+    {
+      "bindingId": "lb:art:database/sql/tutorial-create-workspace@sql.foundations",
+      "role": "secondary",
+      "articleId": "art:database/sql/tutorial-create-workspace",
+      "subject": "sql",
+      "topic": "foundations",
+      "ruleId": "S-SQL-DIALECT"
+    },
+    {
+      "bindingId": "lb:art:database/sql/tutorial-ingest-data@sql.foundations",
+      "role": "secondary",
+      "articleId": "art:database/sql/tutorial-ingest-data",
+      "subject": "sql",
+      "topic": "foundations",
+      "ruleId": "S-SQL-DIALECT"
+    },
+    {
+      "bindingId": "lb:art:database/sql/tutorial-introduction@sql.foundations",
+      "role": "secondary",
+      "articleId": "art:database/sql/tutorial-introduction",
+      "subject": "sql",
+      "topic": "foundations",
+      "ruleId": "S-SQL-DIALECT"
+    },
+    {
+      "bindingId": "lb:art:database/sql/tutorial-perform-data-analysis@sql.foundations",
+      "role": "secondary",
+      "articleId": "art:database/sql/tutorial-perform-data-analysis",
+      "subject": "sql",
+      "topic": "foundations",
+      "ruleId": "S-SQL-DIALECT"
+    },
+    {
+      "bindingId": "lb:art:database/sql/tutorial-query-database@sql.foundations",
+      "role": "secondary",
+      "articleId": "art:database/sql/tutorial-query-database",
+      "subject": "sql",
+      "topic": "foundations",
+      "ruleId": "S-SQL-DIALECT"
+    },
+    {
+      "bindingId": "lb:art:database/sql/tutorial-service-connector@sql.foundations",
+      "role": "secondary",
+      "articleId": "art:database/sql/tutorial-service-connector",
+      "subject": "sql",
+      "topic": "foundations",
+      "ruleId": "S-SQL-DIALECT"
+    },
+    {
+      "bindingId": "lb:art:database/sql/tutorial-use-analytics-endpoint@sql.foundations",
+      "role": "secondary",
+      "articleId": "art:database/sql/tutorial-use-analytics-endpoint",
+      "subject": "sql",
+      "topic": "foundations",
+      "ruleId": "S-SQL-DIALECT"
+    },
+    {
+      "bindingId": "lb:art:database/sql/usage-reporting@sql.foundations",
+      "role": "secondary",
+      "articleId": "art:database/sql/usage-reporting",
+      "subject": "sql",
+      "topic": "foundations",
+      "ruleId": "S-SQL-DIALECT"
+    },
+    {
+      "bindingId": "lb:art:database/sql/use-case-ai-application@sql.foundations",
+      "role": "secondary",
+      "articleId": "art:database/sql/use-case-ai-application",
+      "subject": "sql",
+      "topic": "foundations",
+      "ruleId": "S-SQL-DIALECT"
+    },
+    {
+      "bindingId": "lb:art:database/sql/use-case-operational-data-store@sql.foundations",
+      "role": "secondary",
+      "articleId": "art:database/sql/use-case-operational-data-store",
+      "subject": "sql",
+      "topic": "foundations",
+      "ruleId": "S-SQL-DIALECT"
+    },
+    {
+      "bindingId": "lb:art:database/sql/use-case-reverse-etl@sql.foundations",
+      "role": "secondary",
+      "articleId": "art:database/sql/use-case-reverse-etl",
+      "subject": "sql",
+      "topic": "foundations",
+      "ruleId": "S-SQL-DIALECT"
+    },
+    {
+      "bindingId": "lb:art:database/sql/use-case-translytical-applications@sql.aggregation",
+      "role": "secondary",
+      "articleId": "art:database/sql/use-case-translytical-applications",
+      "subject": "sql",
+      "topic": "aggregation",
+      "ruleId": "S-SQL-DIALECT"
+    },
+    {
+      "bindingId": "lb:art:enterprise/powerbi/aas-pbi-migration-overview@power-bi.govern",
+      "role": "secondary",
+      "articleId": "art:enterprise/powerbi/aas-pbi-migration-overview",
+      "subject": "power-bi",
+      "topic": "govern",
+      "ruleId": "S-POWERBI-FRONTMATTER"
+    },
+    {
+      "bindingId": "lb:art:enterprise/powerbi/aggregations-auto@power-bi.model",
+      "role": "secondary",
+      "articleId": "art:enterprise/powerbi/aggregations-auto",
+      "subject": "power-bi",
+      "topic": "model",
+      "ruleId": "S-POWERBI-FRONTMATTER"
+    },
+    {
+      "bindingId": "lb:art:enterprise/powerbi/aggregations-auto-configure@power-bi.model",
+      "role": "secondary",
+      "articleId": "art:enterprise/powerbi/aggregations-auto-configure",
+      "subject": "power-bi",
+      "topic": "model",
+      "ruleId": "S-POWERBI-FRONTMATTER"
+    },
+    {
+      "bindingId": "lb:art:enterprise/powerbi/desktop-admin-sign-in-form@power-bi.govern",
+      "role": "secondary",
+      "articleId": "art:enterprise/powerbi/desktop-admin-sign-in-form",
+      "subject": "power-bi",
+      "topic": "govern",
+      "ruleId": "S-POWERBI-FRONTMATTER"
+    },
+    {
+      "bindingId": "lb:art:enterprise/powerbi/onelake-integration-overview@power-bi.govern",
+      "role": "secondary",
+      "articleId": "art:enterprise/powerbi/onelake-integration-overview",
+      "subject": "power-bi",
+      "topic": "govern",
+      "ruleId": "S-POWERBI-FRONTMATTER"
+    },
+    {
+      "bindingId": "lb:art:enterprise/powerbi/regions-power-bi-china-cloud@power-bi.govern",
+      "role": "secondary",
+      "articleId": "art:enterprise/powerbi/regions-power-bi-china-cloud",
+      "subject": "power-bi",
+      "topic": "govern",
+      "ruleId": "S-POWERBI-FRONTMATTER"
+    },
+    {
+      "bindingId": "lb:art:enterprise/powerbi/service-admin-auditing@power-bi.govern",
+      "role": "secondary",
+      "articleId": "art:enterprise/powerbi/service-admin-auditing",
+      "subject": "power-bi",
+      "topic": "govern",
+      "ruleId": "S-POWERBI-FRONTMATTER"
+    },
+    {
+      "bindingId": "lb:art:enterprise/powerbi/service-admin-entra-b2b@power-bi.govern",
+      "role": "secondary",
+      "articleId": "art:enterprise/powerbi/service-admin-entra-b2b",
+      "subject": "power-bi",
+      "topic": "govern",
+      "ruleId": "S-POWERBI-FRONTMATTER"
+    },
+    {
+      "bindingId": "lb:art:enterprise/powerbi/service-admin-mobile-intune@power-bi.govern",
+      "role": "secondary",
+      "articleId": "art:enterprise/powerbi/service-admin-mobile-intune",
+      "subject": "power-bi",
+      "topic": "govern",
+      "ruleId": "S-POWERBI-FRONTMATTER"
+    },
+    {
+      "bindingId": "lb:art:enterprise/powerbi/service-admin-power-bi-licensing@power-bi.govern",
+      "role": "secondary",
+      "articleId": "art:enterprise/powerbi/service-admin-power-bi-licensing",
+      "subject": "power-bi",
+      "topic": "govern",
+      "ruleId": "S-POWERBI-FRONTMATTER"
+    },
+    {
+      "bindingId": "lb:art:enterprise/powerbi/service-admin-power-bi-security@power-bi.govern",
+      "role": "secondary",
+      "articleId": "art:enterprise/powerbi/service-admin-power-bi-security",
+      "subject": "power-bi",
+      "topic": "govern",
+      "ruleId": "S-POWERBI-FRONTMATTER"
+    },
+    {
+      "bindingId": "lb:art:enterprise/powerbi/service-admin-premium-workloads@power-bi.govern",
+      "role": "secondary",
+      "articleId": "art:enterprise/powerbi/service-admin-premium-workloads",
+      "subject": "power-bi",
+      "topic": "govern",
+      "ruleId": "S-POWERBI-FRONTMATTER"
+    },
+    {
+      "bindingId": "lb:art:enterprise/powerbi/service-admin-reference@power-bi.govern",
+      "role": "secondary",
+      "articleId": "art:enterprise/powerbi/service-admin-reference",
+      "subject": "power-bi",
+      "topic": "govern",
+      "ruleId": "S-POWERBI-FRONTMATTER"
+    },
+    {
+      "bindingId": "lb:art:enterprise/powerbi/service-encryption-byok@power-bi.govern",
+      "role": "secondary",
+      "articleId": "art:enterprise/powerbi/service-encryption-byok",
+      "subject": "power-bi",
+      "topic": "govern",
+      "ruleId": "S-POWERBI-FRONTMATTER"
+    },
+    {
+      "bindingId": "lb:art:enterprise/powerbi/service-government-us-overview@power-bi.govern",
+      "role": "secondary",
+      "articleId": "art:enterprise/powerbi/service-government-us-overview",
+      "subject": "power-bi",
+      "topic": "govern",
+      "ruleId": "S-POWERBI-FRONTMATTER"
+    },
+    {
+      "bindingId": "lb:art:enterprise/powerbi/service-government-us-signup@power-bi.govern",
+      "role": "secondary",
+      "articleId": "art:enterprise/powerbi/service-government-us-signup",
+      "subject": "power-bi",
+      "topic": "govern",
+      "ruleId": "S-POWERBI-FRONTMATTER"
+    },
+    {
+      "bindingId": "lb:art:enterprise/powerbi/service-premium-auto-scale@power-bi.govern",
+      "role": "secondary",
+      "articleId": "art:enterprise/powerbi/service-premium-auto-scale",
+      "subject": "power-bi",
+      "topic": "govern",
+      "ruleId": "S-POWERBI-FRONTMATTER"
+    },
+    {
+      "bindingId": "lb:art:enterprise/powerbi/service-premium-backup-restore-dataset@power-bi.govern",
+      "role": "secondary",
+      "articleId": "art:enterprise/powerbi/service-premium-backup-restore-dataset",
+      "subject": "power-bi",
+      "topic": "govern",
+      "ruleId": "S-POWERBI-FRONTMATTER"
+    },
+    {
+      "bindingId": "lb:art:enterprise/powerbi/service-premium-connect-tools@power-bi.govern",
+      "role": "secondary",
+      "articleId": "art:enterprise/powerbi/service-premium-connect-tools",
+      "subject": "power-bi",
+      "topic": "govern",
+      "ruleId": "S-POWERBI-FRONTMATTER"
+    },
+    {
+      "bindingId": "lb:art:enterprise/powerbi/service-premium-features@power-bi.govern",
+      "role": "secondary",
+      "articleId": "art:enterprise/powerbi/service-premium-features",
+      "subject": "power-bi",
+      "topic": "govern",
+      "ruleId": "S-POWERBI-FRONTMATTER"
+    },
+    {
+      "bindingId": "lb:art:enterprise/powerbi/service-premium-large-models@power-bi.govern",
+      "role": "secondary",
+      "articleId": "art:enterprise/powerbi/service-premium-large-models",
+      "subject": "power-bi",
+      "topic": "govern",
+      "ruleId": "S-POWERBI-FRONTMATTER"
+    },
+    {
+      "bindingId": "lb:art:enterprise/powerbi/service-premium-scale-out@power-bi.govern",
+      "role": "secondary",
+      "articleId": "art:enterprise/powerbi/service-premium-scale-out",
+      "subject": "power-bi",
+      "topic": "govern",
+      "ruleId": "S-POWERBI-FRONTMATTER"
+    },
+    {
+      "bindingId": "lb:art:enterprise/powerbi/service-premium-scale-out-app@power-bi.govern",
+      "role": "secondary",
+      "articleId": "art:enterprise/powerbi/service-premium-scale-out-app",
+      "subject": "power-bi",
+      "topic": "govern",
+      "ruleId": "S-POWERBI-FRONTMATTER"
+    },
+    {
+      "bindingId": "lb:art:enterprise/powerbi/service-premium-scale-out-configure@power-bi.govern",
+      "role": "secondary",
+      "articleId": "art:enterprise/powerbi/service-premium-scale-out-configure",
+      "subject": "power-bi",
+      "topic": "govern",
+      "ruleId": "S-POWERBI-FRONTMATTER"
+    },
+    {
+      "bindingId": "lb:art:enterprise/powerbi/service-premium-scale-out-sync-replica@power-bi.govern",
+      "role": "secondary",
+      "articleId": "art:enterprise/powerbi/service-premium-scale-out-sync-replica",
+      "subject": "power-bi",
+      "topic": "govern",
+      "ruleId": "S-POWERBI-FRONTMATTER"
+    },
+    {
+      "bindingId": "lb:art:enterprise/powerbi/service-premium-scale-out-test@power-bi.govern",
+      "role": "secondary",
+      "articleId": "art:enterprise/powerbi/service-premium-scale-out-test",
+      "subject": "power-bi",
+      "topic": "govern",
+      "ruleId": "S-POWERBI-FRONTMATTER"
+    },
+    {
+      "bindingId": "lb:art:enterprise/powerbi/service-premium-service-principal@power-bi.govern",
+      "role": "secondary",
+      "articleId": "art:enterprise/powerbi/service-premium-service-principal",
+      "subject": "power-bi",
+      "topic": "govern",
+      "ruleId": "S-POWERBI-FRONTMATTER"
+    },
+    {
+      "bindingId": "lb:art:enterprise/powerbi/service-premium-service-tags@power-bi.govern",
+      "role": "secondary",
+      "articleId": "art:enterprise/powerbi/service-premium-service-tags",
+      "subject": "power-bi",
+      "topic": "govern",
+      "ruleId": "S-POWERBI-FRONTMATTER"
+    },
+    {
+      "bindingId": "lb:art:enterprise/powerbi/service-security-apply-data-sensitivity-labels@power-bi.govern",
+      "role": "secondary",
+      "articleId": "art:enterprise/powerbi/service-security-apply-data-sensitivity-labels",
+      "subject": "power-bi",
+      "topic": "govern",
+      "ruleId": "S-POWERBI-FRONTMATTER"
+    },
+    {
+      "bindingId": "lb:art:enterprise/powerbi/service-security-data-protection-overview@power-bi.govern",
+      "role": "secondary",
+      "articleId": "art:enterprise/powerbi/service-security-data-protection-overview",
+      "subject": "power-bi",
+      "topic": "govern",
+      "ruleId": "S-POWERBI-FRONTMATTER"
+    },
+    {
+      "bindingId": "lb:art:enterprise/powerbi/service-security-enable-data-sensitivity-labels@power-bi.govern",
+      "role": "secondary",
+      "articleId": "art:enterprise/powerbi/service-security-enable-data-sensitivity-labels",
+      "subject": "power-bi",
+      "topic": "govern",
+      "ruleId": "S-POWERBI-FRONTMATTER"
+    },
+    {
+      "bindingId": "lb:art:enterprise/powerbi/service-security-private-links-on-premises@power-bi.govern",
+      "role": "secondary",
+      "articleId": "art:enterprise/powerbi/service-security-private-links-on-premises",
+      "subject": "power-bi",
+      "topic": "govern",
+      "ruleId": "S-POWERBI-FRONTMATTER"
+    },
+    {
+      "bindingId": "lb:art:enterprise/powerbi/service-security-sensitivity-label-audit-schema@power-bi.govern",
+      "role": "secondary",
+      "articleId": "art:enterprise/powerbi/service-security-sensitivity-label-audit-schema",
+      "subject": "power-bi",
+      "topic": "govern",
+      "ruleId": "S-POWERBI-FRONTMATTER"
+    },
+    {
+      "bindingId": "lb:art:enterprise/powerbi/service-security-sensitivity-label-change-enforcement@power-bi.govern",
+      "role": "secondary",
+      "articleId": "art:enterprise/powerbi/service-security-sensitivity-label-change-enforcement",
+      "subject": "power-bi",
+      "topic": "govern",
+      "ruleId": "S-POWERBI-FRONTMATTER"
+    },
+    {
+      "bindingId": "lb:art:enterprise/powerbi/service-security-sensitivity-label-custom-help-link@power-bi.govern",
+      "role": "secondary",
+      "articleId": "art:enterprise/powerbi/service-security-sensitivity-label-custom-help-link",
+      "subject": "power-bi",
+      "topic": "govern",
+      "ruleId": "S-POWERBI-FRONTMATTER"
+    },
+    {
+      "bindingId": "lb:art:enterprise/powerbi/service-security-sensitivity-label-overview@power-bi.govern",
+      "role": "secondary",
+      "articleId": "art:enterprise/powerbi/service-security-sensitivity-label-overview",
+      "subject": "power-bi",
+      "topic": "govern",
+      "ruleId": "S-POWERBI-FRONTMATTER"
+    },
+    {
+      "bindingId": "lb:art:enterprise/powerbi/troubleshoot-xml-analysis-endpoint@power-bi.govern",
+      "role": "secondary",
+      "articleId": "art:enterprise/powerbi/troubleshoot-xml-analysis-endpoint",
+      "subject": "power-bi",
+      "topic": "govern",
+      "ruleId": "S-POWERBI-FRONTMATTER"
+    },
+    {
+      "bindingId": "lb:art:fundamentals/direct-lake-analyze-query-processing@power-bi.govern",
+      "role": "secondary",
+      "articleId": "art:fundamentals/direct-lake-analyze-query-processing",
+      "subject": "power-bi",
+      "topic": "govern",
+      "ruleId": "S-POWERBI-FRONTMATTER"
+    },
+    {
+      "bindingId": "lb:art:fundamentals/direct-lake-power-bi-desktop@power-bi.govern",
+      "role": "secondary",
+      "articleId": "art:fundamentals/direct-lake-power-bi-desktop",
+      "subject": "power-bi",
+      "topic": "govern",
+      "ruleId": "S-POWERBI-FRONTMATTER"
+    },
+    {
+      "bindingId": "lb:art:fundamentals/direct-lake-power-bi-project@power-bi.govern",
+      "role": "secondary",
+      "articleId": "art:fundamentals/direct-lake-power-bi-project",
+      "subject": "power-bi",
+      "topic": "govern",
+      "ruleId": "S-POWERBI-FRONTMATTER"
+    },
+    {
+      "bindingId": "lb:art:fundamentals/direct-lake-web-modeling@power-bi.govern",
+      "role": "secondary",
+      "articleId": "art:fundamentals/direct-lake-web-modeling",
+      "subject": "power-bi",
+      "topic": "govern",
+      "ruleId": "S-POWERBI-FRONTMATTER"
+    },
+    {
+      "bindingId": "lb:art:governance/sensitivity-label-default-label-policy@power-bi.govern",
+      "role": "secondary",
+      "articleId": "art:governance/sensitivity-label-default-label-policy",
+      "subject": "power-bi",
+      "topic": "govern",
+      "ruleId": "S-POWERBI-FRONTMATTER"
+    }
+  ]
+}
