@@ -1,0 +1,39 @@
+{
+  "scope": "hansa-fabric-corpus-integration-20261105",
+  "note": "First receipt layer of the Microsoft Fabric full-corpus integration branch (feat/fabric-corpus-20261105). It records only audited, reviewed transitions made on that branch; it never edits an older receipt and never rewrites a hash that still matches disk. The pinned baseline remains 3d94030; every entry states why it exists and names its work-package review evidence in docs/fabric-corpus/reports/.",
+  "previous": "docs/knowledge-stage-m6-20261104/INTEGRATION_MANIFEST.json",
+  "previousSha256": "6507ab5b788fad0a876bd2c77072f099210edfadae088bc1510ee02257ccf8fc",
+  "files": [
+    {
+      "path": "package.json",
+      "previousSha256": "866089835560000b5d890a21c1b858a599597572193c3dd0633a27be6d548449",
+      "sha256": "c6443902e0e8fa2e2f114c4a2b6fd9a49c177dfb0fd4b30d70e1e14c36d01ccd",
+      "bytes": 3635,
+      "layer": "fabric-corpus/2026-11-05",
+      "attribution": "FC01-compiler-dependency",
+      "note": "Adds the single devDependency yaml@2.9.1 for the offline corpus compiler's front-matter and TOC parsing (FC03). No runtime dependency, no script change, no engine change. Carried by the integration lead before Wave 1 dispatch so no sub-agent would need to touch this shared file. Evidence: FC01 freeze commit e777f30 and tools/fabric-corpus/README.md."
+    },
+    {
+      "path": "lib/atlas/server.ts",
+      "previousSha256": "851daa2943c74a78ff10add3224388d7f74b5e8516a5d39449dd0961d823ecac",
+      "sha256": "9c79c7e2d453c9e7611c76ae998e3b05e7ec2332424a7fbfe8aef590cf234565",
+      "bytes": 1829,
+      "layer": "fabric-corpus/2026-11-05",
+      "attribution": "FC04-projection-split-transfer",
+      "note": "Adds the explicit getAtlasPublic()/getAtlasReview() projections and keeps getAtlas() as the legacy environment-driven projection with unchanged behavior, completing the reviewed transfer of the owner's in-flight review-stream edit (integration commit 6d34e88). The Home and all four legacy getAtlas() call sites keep their observable behavior; no candidate record can enter a public projection. Evidence: docs/fabric-corpus/reports/fc04-report.md and tests/atlas/isolation.test.mjs."
+    },
+    {
+      "path": "lib/atlas/model.ts",
+      "previousSha256": "675e6015fe9192710b07d542101cf9744dc8f72eb6750221237018f2406f2dea",
+      "sha256": "39209ecd70232ac5bbc51db834dc0524b8ccbff6dcc3006cf57ab8567efa3500",
+      "bytes": 12000,
+      "layer": "fabric-corpus/2026-11-05",
+      "attribution": "FC04-isolation-hardening",
+      "note": "safeReturn boundary fix: the server-side atlasReturn admission rule now rejects >= 2048 chars, matching the documented host-safety rule and the client guard in components/atlas/return-link.tsx, which already rejected that length. Legitimate viewHref outputs are ~200 chars, so no existing return flow changes. Evidence: tests/atlas/isolation.test.mjs (FC04 report, docs/fabric-corpus/reports/fc04-report.md). Reviewed and carried by the integration lead during Wave 1 verification."
+    }
+  ],
+  "additions": [],
+  "removed": [],
+  "excluded": [],
+  "predecessors": []
+}

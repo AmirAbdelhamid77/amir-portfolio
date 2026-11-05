@@ -7,6 +7,13 @@ export const KNOWLEDGE_STAGE='docs/knowledge-stage-m0-20261103/INTEGRATION_MANIF
 // that already depends on `knowledgeStageReceipt` sees the successor without
 // being edited. M0 keeps its own pins; M6 only adds transitions it can prove.
 export const KNOWLEDGE_STAGE_M6='docs/knowledge-stage-m6-20261104/INTEGRATION_MANIFEST.json';
+// The FC layer (5 Nov 2026) is the successor after M6. It records the audited
+// transitions of the Fabric full-corpus integration branch
+// (feat/fabric-corpus-20261105), starting with the FC04 isolation hardening.
+// Same rules as M6: an addition, not a rewrite; it never edits an older
+// receipt, never rewrites a hash that still matches disk, and every entry
+// states why it exists. Review evidence lives in docs/fabric-corpus/reports/.
+export const KNOWLEDGE_STAGE_FC='docs/fabric-corpus-integration-20261105/INTEGRATION_MANIFEST.json';
 // Newest receipt layer: M0 re-baseline, 3 Nov 2026.
 //
 // It records what happened to artifacts after the older receipts: the files the
@@ -38,6 +45,35 @@ export function knowledgeStageReceipt(root){
  // against M0 alone, but when it exists its numbers are checked, not trusted.
  const m6Path=KNOWLEDGE_STAGE_M6;
  const m6=existsSync(resolve(root,m6Path))?JSON.parse(readFileSync(safe(m6Path),'utf8')):null;
+ // The FC layer is optional the same way M6 is: a checkout without it still
+ // verifies against M0+M6, but when present its numbers are checked, not
+ // trusted. It must name M6 as its predecessor.
+ const fcPath=KNOWLEDGE_STAGE_FC;
+ const fc=existsSync(resolve(root,fcPath))?JSON.parse(readFileSync(safe(fcPath),'utf8')):null;
+ if(fc){
+  assert.equal(fc.scope,'hansa-fabric-corpus-integration-20261105');
+  assert.equal(fc.previous,m6Path,'FC layer must name M6 as its predecessor');
+  assert.equal(hash(fc.previous),fc.previousSha256,'FC predecessor receipt drift');
+  assert.equal(new Set(fc.files.map(e=>e.path+'::'+e.previousSha256)).size,fc.files.length,'Duplicate FC pin');
+  assert.equal(new Set(fc.additions.map(e=>e.path)).size,fc.additions.length,'Duplicate FC addition');
+ }
+ // Hop-following over the FC layer, exactly like M6: a pin advances only the
+ // predecessor hash it names, until no recorded pin accepts the current hash.
+ // The hop limit turns a mistaken cycle into a failure, not a hang.
+ const fcAfter=(p,h)=>{
+  if(!fc)return h;
+  let current=h;
+  for(let hop=0;hop<32;hop+=1){
+   const pin=fc.files.find(e=>e.path===p&&e.previousSha256===current);
+   if(pin){current=pin.sha256;continue;}
+   if(current===null){
+    const addition=fc.additions.find(e=>e.path===p);
+    if(addition){current=addition.sha256;continue;}
+   }
+   return current;
+  }
+  assert.fail('FC pin chain does not terminate for '+p);
+ };
  if(m6){
   assert.equal(m6.scope,'hansa-knowledge-stage-m6-20261104');
   assert.equal(m6.previous,path,'M6 layer must name M0 as its predecessor');
@@ -49,7 +85,7 @@ export function knowledgeStageReceipt(root){
   // one that must match the file.
   const superseded=(p,sha)=>m6.files.some(e=>e.path===p&&e.previousSha256===sha);
   for(const e of m6.files){
-   if(!superseded(e.path,e.sha256))assert.equal(hash(e.path),e.sha256,'M6 drift '+e.path);
+   if(!superseded(e.path,e.sha256))assert.equal(hash(e.path),fcAfter(e.path,e.sha256),'M6 drift '+e.path);
    assert.ok(e.attribution&&e.layer,'M6 pin must state attribution and layer '+e.path);
    assert.ok(
     !(e.previousSha256===null&&m6.additions.some(a=>a.path===e.path)),
@@ -57,7 +93,7 @@ export function knowledgeStageReceipt(root){
    );
   }
   for(const e of m6.additions){
-   if(!superseded(e.path,e.sha256))assert.equal(hash(e.path),e.sha256,'M6 addition drift '+e.path);
+   if(!superseded(e.path,e.sha256))assert.equal(hash(e.path),fcAfter(e.path,e.sha256),'M6 addition drift '+e.path);
    assert.ok(e.attribution&&e.layer,'M6 addition must state attribution and layer '+e.path);
   }
  }
@@ -105,10 +141,36 @@ export function knowledgeStageReceipt(root){
    assert.ok(!m.files.some(f=>f.path===e.path),'M6 addition overwrites a pinned path '+e.path);
   }
  }
- // M0's own pins are read through M6, so a recorded successor transition is not
- // mistaken for drift; a hash M6 did not name still fails here.
- for(const e of m.files)assert.equal(hash(e.path),m6After(e.path,e.sha256),'Knowledge-stage drift '+e.path);
- for(const e of m.additions)assert.equal(hash(e.path),m6After(e.path,e.sha256),'Knowledge-stage addition drift '+e.path);
+ // An FC pin must likewise start from a hash the chain already recorded: an
+ // M0 or M6 pin/addition for the path, or an earlier FC hop. A pin with an
+ // invented predecessor would verify in isolation and never apply.
+ if(fc){
+  const recorded=new Map();
+  const remember=(path,sha)=>{
+   if(!recorded.has(path))recorded.set(path,new Set());
+   recorded.get(path).add(sha);
+  };
+  for(const e of m.files)remember(e.path,e.sha256);
+  for(const e of m.additions)remember(e.path,e.sha256);
+  for(const e of m6?.files??[])remember(e.path,e.sha256);
+  for(const e of m6?.additions??[])remember(e.path,e.sha256);
+  for(const e of fc.additions)remember(e.path,e.sha256);
+  for(const e of fc.files){
+   if(e.previousSha256===null){
+    assert.ok(fc.additions.some(a=>a.path===e.path),'FC pin starts from null without an addition '+e.path);
+   }else{
+    assert.ok(recorded.get(e.path)?.has(e.previousSha256),'FC pin predecessor was never recorded '+e.path);
+   }
+   remember(e.path,e.sha256);
+  }
+  for(const e of fc.additions){
+   assert.ok(!m.files.some(f=>f.path===e.path),'FC addition overwrites a pinned path '+e.path);
+  }
+ }
+ // M0's own pins are read through M6 and then FC, so a recorded successor
+ // transition is not mistaken for drift; a hash neither layer named fails here.
+ for(const e of m.files)assert.equal(hash(e.path),fcAfter(e.path,m6After(e.path,e.sha256)),'Knowledge-stage drift '+e.path);
+ for(const e of m.additions)assert.equal(hash(e.path),fcAfter(e.path,m6After(e.path,e.sha256)),'Knowledge-stage addition drift '+e.path);
  for(const e of m.removed)assert.ok(!existsSync(resolve(root,e.path)),'Retired artifact reappeared '+e.path);
  for(const e of m.excluded)assert.ok(!m.files.some(f=>f.path===e.path),'Excluded artifact cannot also be pinned '+e.path);
  for(const e of m.files){
@@ -128,14 +190,15 @@ export function knowledgeStageReceipt(root){
     if(excluded.has(p)&&existsSync(resolve(root,p)))return hash(p);
     return h;
    })();
-   return m6After(p,m0Expected);
+   return fcAfter(p,m6After(p,m0Expected));
   },
   paths:()=>[
    ...m.files.map(e=>e.path),
    ...m.removed.map(e=>e.path),
    ...(m6?[m6Path,...m6.files.map(e=>e.path),...m6.additions.map(e=>e.path)]:[]),
+   ...(fc?[fcPath,...fc.files.map(e=>e.path),...fc.additions.map(e=>e.path)]:[]),
   ],
-  bytes:(p,n)=>m6?.files.find(e=>e.path===p)?.bytes??m.files.find(e=>e.path===p)?.bytes??n,
+  bytes:(p,n)=>fc?.files.find(e=>e.path===p)?.bytes??m6?.files.find(e=>e.path===p)?.bytes??m.files.find(e=>e.path===p)?.bytes??n,
   skip:p=>m.removed.some(e=>e.path===p)||excluded.has(p),
   retired:p=>m.removed.some(e=>e.path===p),
   // A layer that recorded "the manifest below me had hash X" can accept the
