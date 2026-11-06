@@ -55,6 +55,35 @@ function copyOne(buildDir, version, report) {
   if (manifest.version !== version) {
     throw new Error(`copy-shards: manifest version ${manifest.version} does not match directory ${version}`);
   }
+  // DEFECT-2 aggregate reconciliation (fail-closed, Wave-4): per-file
+  // articleCount counts article records INSIDE that file, so the SHARD-role
+  // files must sum to the manifest's article aggregate, and — when the fixed
+  // manifest carries `distinctArticles` — the routing file must contribute 0.
+  // Legacy manifests (pre-fix, without distinctArticles) keep the same
+  // shard-sum invariant, so both generations verify under this gate.
+  const shardSum = manifest.files
+    .filter((file) => file.role === "shard")
+    .reduce((sum, file) => sum + file.articleCount, 0);
+  if (shardSum !== manifest.articleCount) {
+    throw new Error(
+      `copy-shards: shard-role articleCount sum ${shardSum} does not equal manifest.articleCount ${manifest.articleCount} — refusing to publish an unreconcilable index`,
+    );
+  }
+  if (manifest.distinctArticles !== undefined && manifest.distinctArticles !== null) {
+    if (manifest.distinctArticles !== manifest.articleCount) {
+      throw new Error(
+        `copy-shards: manifest.distinctArticles ${manifest.distinctArticles} does not equal manifest.articleCount ${manifest.articleCount} — refusing to publish`,
+      );
+    }
+    const routingSum = manifest.files
+      .filter((file) => file.role === "routing")
+      .reduce((sum, file) => sum + (file.articleCount ?? 0), 0);
+    if (routingSum !== 0) {
+      throw new Error(
+        `copy-shards: routing-role files carry articleCount ${routingSum} — routing holds postings, not articles; rebuild the shards (build-shards.mjs) so per-file sums reconcile`,
+      );
+    }
+  }
 
   const versionDir = path.join(PUBLIC_SEARCH_DIR, version);
   rmSync(versionDir, { recursive: true, force: true });
@@ -80,6 +109,7 @@ function copyOne(buildDir, version, report) {
     files: manifest.files.length + 1,
     bytes: bytes + statSize(manifestPath),
     articleCount: manifest.articleCount,
+    distinctArticles: manifest.distinctArticles ?? manifest.articleCount,
     shardCount: manifest.shardCount,
   });
 }

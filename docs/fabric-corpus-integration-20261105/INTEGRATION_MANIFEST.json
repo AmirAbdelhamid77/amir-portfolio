@@ -5,6 +5,15 @@
   "previousSha256": "6507ab5b788fad0a876bd2c77072f099210edfadae088bc1510ee02257ccf8fc",
   "files": [
     {
+      "path": "app/sitemap.ts",
+      "previousSha256": "f28ef8bd0a2bc200066d5eda4043f1df68b175bbff3cc5420f8ff6c57d3326d5",
+      "sha256": "26fafab15fe67bb412c0a9d1ab416ac3a34ddcb30cf6eb4d2aabbba5344ef01a",
+      "bytes": 5590,
+      "layer": "fabric-corpus/2026-11-06",
+      "attribution": "W4-reproducible-builds",
+      "note": "Deterministic sitemap timestamps: two clean builds of the same tree produced different lastmod stamps (new Date() at build time), which the label-differentiated release manifests and --compare-manifest gate correctly flagged as the first real reproducibility defect. The sitemap now honors the reproducible-builds SOURCE_DATE_EPOCH convention (CI pins it to the release commit time) with the corpus integration freeze date (2026-11-05) as the deterministic fallback. No URL, priority or entry set changed. Evidence: docs/fabric-corpus/reports/w4a-report.md."
+    },
+    {
       "path": "app/learn/fabric/page.tsx",
       "previousSha256": "2f7941ed41d7b0ea1e5526e21ce871e0840563816cda8a0a00fb5d1e8418a4c2",
       "sha256": "c9fb440b4d24f04a6180c4c0a64d8072f13af735cb05881b5eca3ea2472d6d20",

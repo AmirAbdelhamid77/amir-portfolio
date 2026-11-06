@@ -122,6 +122,14 @@ jobs:
       - name: Build + validate SUBPATH profile (coverage fail-closed + prefix checks)
         run: node tools/fabric-corpus/packaging/build-release.mjs --profile subpath --label ci-subpath-${{ github.run_id }}
 
+      # REC-03 / Wave-4 (DEFECT-3): Atlas verify-only gate. Rebuilds the expected
+      # fabric-extension dataset in memory from the ledger + approvals sidecar
+      # and compares it byte-for-byte with the committed dataset; ANY drift
+      # fails the job (fail-closed). No output is written, no approval state
+      # changes. Still dispatch-only and deploy-free.
+      - name: Atlas verify-only gate (fail-closed drift detection)
+        run: node --experimental-strip-types tools/fabric-corpus/atlas/build-fabric-extension.mjs --verify-only
+
       - name: Retain release manifests and run logs (evidence, not deployables)
         uses: actions/upload-artifact@v4
         with:

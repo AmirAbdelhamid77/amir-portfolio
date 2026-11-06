@@ -4,6 +4,7 @@
 // release contract").
 //
 //   node tools/fabric-corpus/packaging/build-release.mjs --profile root|subpath [--label NAME]
+//   node tools/fabric-corpus/packaging/build-release.mjs --compare-manifest <fileA> <fileB>
 //
 // One profile per invocation. Steps: clean (out/ + .next) → `npm run build`
 // with NEXT_PUBLIC_BASE_PATH set per the profile seed (root: variable unset;
@@ -17,6 +18,16 @@
 // checks on article pages, assets, shard URLs and alias pages; root: zero
 // '/<repository>/' leakage) → deterministic release manifest at
 // <FABRIC_CORPUS_BUILD_DIR>/packaging/<profile>/release-manifest.json.
+//
+// DEFECT-1 fix (Wave-4 reproducibility closure): with --label NAME the same
+// manifest is ALSO written to release-manifest-<NAME>.json (the default path
+// is still written every run for back-compat), and packaging/<profile>/
+// run-log.json is an APPEND-ONLY JSONL file — one line per run (label, manifest
+// files, gate results, timing) — so consecutive runs never overwrite each
+// other's evidence. `--compare-manifest <fileA> <fileB>` deep-compares two
+// manifests while ignoring EXACTLY the top-level `timing` object (the only
+// sanctioned difference between two clean builds of the same profile) and
+// exits 0 when identical / 1 when different.
 //
 // DRY-RUN ONLY: this driver builds, verifies and measures. It never deploys,
 // publishes, activates a provider, touches credentials or runs git (the app
@@ -32,6 +43,7 @@
 import { spawnSync } from "node:child_process";
 import { createHash } from "node:crypto";
 import {
+  appendFileSync,
   existsSync,
   mkdirSync,
   readdirSync,
@@ -66,17 +78,103 @@ function fail(message, code = 1) {
 }
 
 function parseArgs(argv) {
-  const args = { profile: null, label: null };
+  const args = { profile: null, label: null, labelExplicit: false, compare: null };
   for (let i = 0; i < argv.length; i += 1) {
     const raw = argv[i];
     if (raw === "--profile") args.profile = argv[++i] ?? null;
-    else if (raw === "--label") args.label = argv[++i] ?? null;
-    else fail(`unsupported argument: ${raw} (usage: --profile root|subpath [--label NAME])`, 2);
+    else if (raw === "--label") {
+      args.label = argv[++i] ?? null;
+      args.labelExplicit = args.label !== null;
+    } else if (raw === "--compare-manifest") {
+      const fileA = argv[++i];
+      const fileB = argv[++i];
+      if (!fileA || !fileB) fail("--compare-manifest requires two manifest file paths.", 2);
+      args.compare = [fileA, fileB];
+    } else fail(`unsupported argument: ${raw} (usage: --profile root|subpath [--label NAME] | --compare-manifest <fileA> <fileB>)`, 2);
   }
-  if (args.profile !== "root" && args.profile !== "subpath") {
-    fail("--profile must be exactly \"root\" or \"subpath\" (the two mandatory profiles).");
+  // Compare mode needs no profile; build mode requires exactly one of the two
+  // mandatory profiles.
+  if (!args.compare) {
+    if (args.profile !== "root" && args.profile !== "subpath") {
+      fail(`--profile must be exactly "root" or "subpath" (the two mandatory profiles).`);
+    }
   }
   return args;
+}
+
+// ---------------------------------------------------------------------------
+// --compare-manifest: deep-compare two release manifests, ignoring ONLY the
+// top-level `timing` object (the sole sanctioned difference between two clean
+// builds of the same profile — reproducibility contract, FC12). Prints one
+// line per differing field path; exits 0 identical / 1 different.
+// ---------------------------------------------------------------------------
+
+const COMPARE_MAX_DIFFS = 100;
+
+function compareValues(a, b, pathName, diffs) {
+  if (diffs.length >= COMPARE_MAX_DIFFS) return;
+  if (a === b) return;
+  const aType = a === null ? "null" : Array.isArray(a) ? "array" : typeof a;
+  const bType = b === null ? "null" : Array.isArray(b) ? "array" : typeof b;
+  const container = aType === "array" || aType === "object";
+  const containerB = bType === "array" || bType === "object";
+  if (aType !== bType || !container || !containerB) {
+    diffs.push(`${pathName}: ${truncate(JSON.stringify(a))} != ${truncate(JSON.stringify(b))}`);
+    return;
+  }
+  if (Array.isArray(a)) {
+    if (a.length !== b.length) {
+      diffs.push(`${pathName}.length: ${a.length} != ${b.length}`);
+      if (diffs.length >= COMPARE_MAX_DIFFS) return;
+    }
+    const shared = Math.min(a.length, b.length);
+    for (let i = 0; i < shared; i += 1) compareValues(a[i], b[i], `${pathName}[${i}]`, diffs);
+    return;
+  }
+  const keys = [...new Set([...Object.keys(a), ...Object.keys(b)])].sort();
+  for (const key of keys) {
+    if (!(key in a)) diffs.push(`${pathName}.${key}: (absent in A) != ${truncate(JSON.stringify(b[key]))}`);
+    else if (!(key in b)) diffs.push(`${pathName}.${key}: ${truncate(JSON.stringify(a[key]))} != (absent in B)`);
+    else compareValues(a[key], b[key], `${pathName}.${key}`, diffs);
+    if (diffs.length >= COMPARE_MAX_DIFFS) return;
+  }
+}
+
+function truncate(value) {
+  if (typeof value !== "string") return String(value);
+  return value.length > 120 ? `${value.slice(0, 117)}...` : value;
+}
+
+function runCompareMode(fileA, fileB) {
+  const load = (file) => {
+    if (!existsSync(file)) fail(`--compare-manifest: file not found: ${file}`, 1);
+    try {
+      return JSON.parse(readFileSync(file, "utf8"));
+    } catch (error) {
+      fail(`--compare-manifest: cannot parse ${file}: ${error.message}`, 1);
+    }
+  };
+  const a = load(fileA);
+  const b = load(fileB);
+  if (a.schema !== b.schema) fail(`--compare-manifest: schema mismatch ${a.schema} vs ${b.schema}`, 1);
+  const diffs = [];
+  const keys = [...new Set([...Object.keys(a), ...Object.keys(b)])].sort();
+  for (const key of keys) {
+    if (key === "timing") continue; // the ONLY sanctioned difference (reproducibility contract)
+    if (!(key in a)) diffs.push(`${key}: (absent in A) != ${truncate(JSON.stringify(b[key]))}`);
+    else if (!(key in b)) diffs.push(`${key}: ${truncate(JSON.stringify(a[key]))} != (absent in B)`);
+    else compareValues(a[key], b[key], key, diffs);
+  }
+  console.log(`[fc12] compare-manifest: ${fileA} vs ${fileB}`);
+  console.log(`[fc12]   A: profile=${a.profile} appSha=${String(a.appSha).slice(0, 12)} outInventoryHash=${a.outputStats?.outInventoryHash ?? "?"}`);
+  console.log(`[fc12]   B: profile=${b.profile} appSha=${String(b.appSha).slice(0, 12)} outInventoryHash=${b.outputStats?.outInventoryHash ?? "?"}`);
+  if (diffs.length === 0) {
+    console.log("[fc12] VERDICT: IDENTICAL outside `timing` (reproducibility contract satisfied).");
+    return 0;
+  }
+  console.log(`[fc12] VERDICT: DIFFERENT — ${diffs.length}${diffs.length >= COMPARE_MAX_DIFFS ? "+" : ""} non-timing field(s):`);
+  for (const diff of diffs) console.log(`[fc12]   diff ${diff}`);
+  return 1;
 }
 
 function sha256File(file) {
@@ -87,6 +185,65 @@ function timed(fn) {
   const start = process.hrtime.bigint();
   const result = fn();
   return { result, ms: Number(process.hrtime.bigint() - start) / 1e6 };
+}
+
+/**
+ * DEFECT-1 fix (FC12 reproducibility): the default manifest path is ALWAYS
+ * written (back-compat), and when a --label was provided the SAME manifest is
+ * additionally written to release-manifest-<label>.json so consecutive runs
+ * no longer overwrite each other's evidence.
+ */
+function writeManifests(profileDir, manifest, label, labelExplicit) {
+  mkdirSync(profileDir, { recursive: true });
+  const defaultFile = path.join(profileDir, "release-manifest.json");
+  writeFileSync(defaultFile, JSON.stringify(manifest, null, 2) + "\n");
+  let labeledFile = null;
+  if (labelExplicit) {
+    labeledFile = path.join(profileDir, `release-manifest-${label}.json`);
+    writeFileSync(labeledFile, JSON.stringify(manifest, null, 2) + "\n");
+  }
+  return { defaultFile, labeledFile };
+}
+
+/**
+ * DEFECT-1 fix: run-log.json is an append-only JSONL file — ONE line per run
+ * (label, manifest files, gate results, timing) — never overwritten, so every
+ * run of a profile leaves its own evidence line. Legacy run-log.json files
+ * (a single pretty-printed JSON object from the pre-JSONL driver) are migrated
+ * once by re-serializing that object as line 1; no history is dropped.
+ */
+function appendRunLog(profileDir, entry) {
+  mkdirSync(profileDir, { recursive: true });
+  const logFile = path.join(profileDir, "run-log.json");
+  if (existsSync(logFile)) {
+    const raw = readFileSync(logFile, "utf8");
+    if (raw.trim().length > 0 && !isJsonLines(raw)) {
+      // Legacy single-object format: migrate it to one JSONL line, verbatim.
+      try {
+        const legacy = JSON.parse(raw);
+        writeFileSync(logFile, JSON.stringify({ legacy: true, ...legacy }) + "\n");
+      } catch {
+        // Unparseable residue: keep the bytes for forensics, start a new log.
+        writeFileSync(logFile, JSON.stringify({ legacyUnparseable: true, priorBytes: raw.length }) + "\n");
+      }
+    }
+  }
+  appendFileSync(logFile, JSON.stringify(entry) + "\n");
+  return logFile;
+}
+
+/** True when EVERY non-empty line parses as JSON (i.e. the file is JSONL). */
+function isJsonLines(raw) {
+  const lines = raw.split("\n").map((line) => line.trim()).filter((line) => line.length > 0);
+  if (lines.length === 0) return false;
+  return lines.every((line) => {
+    try {
+      JSON.parse(line);
+      return true;
+    } catch {
+      return false;
+    }
+  });
 }
 
 /**
@@ -354,6 +511,10 @@ function leakageNeedleFor(patterns) {
 // ---------------------------------------------------------------------------
 
 const args = parseArgs(process.argv.slice(2));
+if (args.compare) {
+  process.exit(runCompareMode(args.compare[0], args.compare[1]));
+}
+
 const label = args.label ?? `${args.profile}-${new Date().toISOString().replace(/[:.]/g, "-")}`;
 console.log(`[fc12] packaging profile "${args.profile}" (label ${label})`);
 
@@ -423,23 +584,24 @@ const buildMs = Math.round(build.ms);
 console.log(`[fc12] npm run build (incl. postbuild aliases): ${buildMs} ms, exit ${build.result.status}`);
 
 if (build.result.status !== 0 || !existsSync(OUT)) {
-  mkdirSync(path.join(PACKAGING_DIR, args.profile), { recursive: true });
-  writeFileSync(
-    path.join(PACKAGING_DIR, args.profile, "release-manifest.json"),
-    JSON.stringify(
-      {
-        schema: "hansa.fabric-release-manifest/1",
-        profile: args.profile,
-        appSha,
-        corpusRevision: registry.corpusRevision,
-        registryRevision: registry.registryRevision,
-        failed: { stage: "build", exitCode: build.result.status, outExists: existsSync(OUT) },
-        timing: { generatedAt: new Date().toISOString(), cleanMs: Math.round(clean.ms), buildMs },
-      },
-      null,
-      2,
-    ) + "\n",
-  );
+  const failedManifest = {
+    schema: "hansa.fabric-release-manifest/1",
+    profile: args.profile,
+    appSha,
+    corpusRevision: registry.corpusRevision,
+    registryRevision: registry.registryRevision,
+    failed: { stage: "build", exitCode: build.result.status, outExists: existsSync(OUT) },
+    timing: { generatedAt: new Date().toISOString(), cleanMs: Math.round(clean.ms), buildMs },
+  };
+  const { defaultFile, labeledFile } = writeManifests(path.join(PACKAGING_DIR, args.profile), failedManifest, label, args.labelExplicit);
+  appendRunLog(path.join(PACKAGING_DIR, args.profile), {
+    label,
+    profile: args.profile,
+    manifestFile: defaultFile,
+    labelManifestFile: labeledFile,
+    failed: failedManifest.failed,
+    timing: failedManifest.timing,
+  });
   fail(`build failed (exit ${build.result.status}) — manifest records the failure.`);
 }
 
@@ -661,14 +823,17 @@ const manifest = {
 };
 
 const outDir = path.join(PACKAGING_DIR, args.profile);
-mkdirSync(outDir, { recursive: true });
-const manifestFile = path.join(outDir, "release-manifest.json");
-writeFileSync(manifestFile, JSON.stringify(manifest, null, 2) + "\n");
-writeFileSync(
-  path.join(outDir, "run-log.json"),
-  JSON.stringify({ label, manifestFile, exitGate: { coverage: coverageMismatches.length, prefixGate }, timing: manifest.timing }, null, 2) + "\n",
-);
-console.log(`[fc12] manifest: ${manifestFile}`);
+const { defaultFile: manifestFile, labeledFile } = writeManifests(outDir, manifest, label, args.labelExplicit);
+appendRunLog(outDir, {
+  label,
+  profile: args.profile,
+  manifestFile,
+  labelManifestFile: labeledFile,
+  exitGate: { coverage: coverageMismatches.length, prefixGate },
+  timing: manifest.timing,
+});
+console.log(`[fc12] manifest: ${manifestFile}${labeledFile ? ` (+ label manifest: ${labeledFile})` : ""}`);
+console.log(`[fc12] run-log line appended to: ${path.join(outDir, "run-log.json")}`);
 
 if (coverageMismatches.length > 0) {
   fail(`coverage verification FAILED (${coverageMismatches.length} mismatches) — fail-closed per RELEASE_AND_STORAGE.md.`, 1);

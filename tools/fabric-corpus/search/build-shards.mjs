@@ -477,7 +477,12 @@ function buildShards(options) {
   });
   writeOut(path.join(outDir, routingName), routingFinal);
   written.push(routingName);
-  fileRecords.push({ name: routingName, role: "routing", articleCount: records.length });
+  // DEFECT-2 fix (Wave-4 aggregate count): per-file `articleCount` counts the
+  // article records INSIDE that file. The routing file carries term→shard
+  // postings, not articles — the previous value (`records.length`) made any
+  // per-file sum double-count the corpus (5,432 vs 2,716 distinct on the full
+  // run). The authoritative aggregate is `manifest.distinctArticles`.
+  fileRecords.push({ name: routingName, role: "routing", articleCount: 0 });
 
   // Manifest lists sha256 + bytes of the FINAL bytes of every file.
   const manifestFiles = fileRecords.map((record) => {
@@ -492,6 +497,13 @@ function buildShards(options) {
     };
   });
 
+  // DEFECT-2 (Wave-4): `distinctArticles` is the authoritative aggregate —
+  // the number of DISTINCT published articles the index carries. Every
+  // articleId occurs exactly once across the shard files (the builder throws
+  // on duplicates above), so summing the SHARD-role files' articleCount
+  // reproduces it; the routing file contributes 0. `articleCount` keeps its
+  // historical top-level meaning (same number) so older consumers stay valid.
+  const distinctArticles = new Set(records.map((record) => record.articleId)).size;
   const manifest = {
     schema: MANIFEST_SCHEMA,
     version,
@@ -500,6 +512,7 @@ function buildShards(options) {
     registryRevision: registry.registryRevision,
     shardCount: shardIds.length,
     articleCount: records.length,
+    distinctArticles,
     families: selected.sort(),
     files: manifestFiles,
     // Counts the lead can reconcile against the registry (counts.publishedArticles
