@@ -235,7 +235,7 @@ export class FabricSearch {
     if (!routingFile) throw new FabricUnavailableError(500, "fabric manifest: routing file missing");
     const routingResponse = await this.fetchImpl(fabricAssetUrl(`${manifest.version}/${routingFile.name}`), { signal });
     if (!routingResponse.ok) {
-      throw new FabricUnavailableError(routingResponse.status, `fabric routing ${routingResponse.status}`);
+      throw new Error(`fabric routing ${routingResponse.status}`);
     }
     const routing = (await routingResponse.json()) as FabricRouting;
     if (routing.version !== manifest.version) {
@@ -254,27 +254,26 @@ export class FabricSearch {
    * shard, so no article can satisfy the all-tokens gate).
    */
   routeQuery(tokens: string[]): Set<number> {
-    const candidates = new Set<number>();
-    if (!this.manifest || !this.routing) return candidates;
-    const shardCount = this.manifest.shardCount;
+    if (!this.manifest || !this.routing || tokens.length === 0) return new Set();
+    let candidates: Set<number> | undefined;
     for (const token of tokens) {
+      if (this.routing.wildcardTokens.includes(token)) continue;
+      if (!Object.hasOwn(this.routing.tokens, token)) return new Set();
       const posting = this.routing.tokens[token];
-      if (posting) {
-        for (const index of posting) candidates.add(index);
-      } else if (this.routing.wildcardTokens.includes(token)) {
-        for (let index = 0; index < shardCount; index += 1) candidates.add(index);
-      } else {
-        candidates.clear();
+      candidates = new Set(candidates ? posting.filter((index) => candidates!.has(index)) : posting);
+      if (candidates.size === 0) {
         return candidates;
       }
     }
-    return candidates;
+    return candidates ?? new Set(Array.from({ length: this.manifest.shardCount }, (_, index) => index));
   }
 
   private async loadShardFile(name: string, signal: AbortSignal): Promise<FabricShard> {
-    const cached = this.cache.get(name);
+    const version = this.manifest!.version;
+    const cacheKey = `${version}/${name}`;
+    const cached = this.cache.get(cacheKey);
     if (cached) return cached;
-    const response = await this.fetchImpl(fabricAssetUrl(`${this.manifest!.version}/${name}`), { signal });
+    const response = await this.fetchImpl(fabricAssetUrl(cacheKey), { signal });
     if (!response.ok) throw new Error(`fabric shard ${name}: ${response.status}`);
     const shard = (await response.json()) as FabricShard;
     if (shard.schema !== "hansa.fabric-search-shard/1") {
@@ -282,12 +281,12 @@ export class FabricSearch {
     }
     // Version guard: shards and manifest ship together; a shard that answers
     // with a different version means a stale manifest or a torn deployment.
-    if (shard.version !== this.manifest!.version) {
+    if (shard.version !== version) {
       throw new FabricVersionDriftError(
-        `fabric shard ${name} reports version ${shard.version}, manifest is ${this.manifest!.version}`,
+        `fabric shard ${name} reports version ${shard.version}, manifest is ${version}`,
       );
     }
-    this.cache.set(name, shard, estimateShardBytes(shard));
+    this.cache.set(cacheKey, shard, estimateShardBytes(shard));
     return shard;
   }
 
@@ -349,6 +348,10 @@ export class FabricSearch {
         await this.ensureLoaded(signal);
       } catch (error) {
         if (isAbort(error)) throw error;
+        if (error instanceof FabricVersionDriftError && attempt === 0 && !this.refetchedAfterDrift) {
+          this.refetchedAfterDrift = true;
+          continue;
+        }
         const missing = error instanceof FabricUnavailableError && error.status === 404;
         return {
           tokens,
@@ -357,7 +360,7 @@ export class FabricSearch {
           partial: false,
           loadedShards: 0,
           candidateShards: 0,
-          status: missing ? "missing" : attempt === 0 ? "unavailable" : "version-drift",
+          status: missing ? "missing" : error instanceof FabricVersionDriftError || attempt > 0 ? "version-drift" : "unavailable",
         };
       }
       const { shards, failed, drift, candidates } = await this.loadCandidates(tokens, signal);
