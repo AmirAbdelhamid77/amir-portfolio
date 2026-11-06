@@ -60,14 +60,15 @@
     "counts": {
       "type": "object",
       "additionalProperties": false,
-      "required": ["blocks", "byType", "dependencyEdges", "sanitizationActions", "unsupported", "commentedDirectives"],
+      "required": ["blocks", "byType", "dependencyEdges", "sanitizationActions", "unsupported", "commentedDirectives", "orphanConstructEnds"],
       "properties": {
         "blocks": { "type": "integer", "minimum": 0 },
         "byType": { "type": "object", "additionalProperties": { "type": "integer", "minimum": 0 } },
         "dependencyEdges": { "type": "integer", "minimum": 0 },
         "sanitizationActions": { "type": "integer", "minimum": 0 },
         "unsupported": { "type": "integer", "minimum": 0 },
-        "commentedDirectives": { "type": "integer", "minimum": 0 }
+        "commentedDirectives": { "type": "integer", "minimum": 0 },
+        "orphanConstructEnds": { "type": "integer", "minimum": 0 }
       }
     }
   },
@@ -278,7 +279,11 @@
           "properties": {
             "type": { "const": "paragraph" },
             "inline": { "type": "array", "items": { "$ref": "#/$defs/inlineNode" } },
-            "span": { "$ref": "#/$defs/span" }
+            "span": { "$ref": "#/$defs/span" },
+            "orphanConstructEnd": {
+              "type": "string",
+              "description": "Present ONLY on paragraphs that ARE an orphan construct-end marker (`:::kind-end` with no matching open). The paragraph carries the exact marker text; docfx renders such markers as literal text. Accounted in the receipt (orphanConstructEnds), never quarantined."
+            }
           }
         },
         {

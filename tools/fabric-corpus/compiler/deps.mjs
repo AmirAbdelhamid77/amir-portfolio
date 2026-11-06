@@ -10,7 +10,8 @@
 // file and must stay inside the allowed roots. Any of the following blocks
 // the affected node with a reason (quarantine) while accounting continues:
 //   - path traversal out of the allowed roots
-//   - `~/` paths that cannot be resolved inside the allowed roots
+//   - `~/../<repo>/...` paths into sibling repositories that are not pinned
+//     (structured dependency holds; `~/<path>` INSIDE the docset resolves)
 //   - cycles in include chains
 //   - missing include targets
 //   - deep (chain) occurrences of the above, propagated to the parent node
@@ -111,13 +112,43 @@ function normalizeRelPath(rel) {
 }
 
 /**
+ * Describe a cross-repository `~/../<repo>/...` include target as a
+ * structured dependency row (for the receipt dependency holds and the
+ * consolidated dependency manifest). Tilde targets that stay inside the
+ * docset root never reach this function (they resolve).
+ */
+function describeCrossRepoDependency(rawTarget) {
+  // Handles both `~/../<repo>/...` and the stray double-slash form
+  // `~/..//<repo>/...` found in the corpus (enterprise service-premium-what-is).
+  const m = rawTarget.match(/^~\/\.\.\/+([^/]+)\/(.*)$/);
+  if (m) {
+    return { kind: 'cross-repo-include', targetRepo: m[1], inRepoPath: m[2] };
+  }
+  return { kind: 'cross-repo-include', targetRepo: null, inRepoPath: rawTarget };
+}
+
+/**
  * Resolve `href` (as written in a file at `sourceRelPath`, corpus-relative
  * posix) against `allowedRoots` (corpus-relative posix directory paths).
  * Returns { ok: true, path } or { ok: false, reason, detail }.
+ *
+ * Tilde semantics (docfx): `~/<path>` resolves against the docset root — here
+ * the corpus root — so `~/includes/x.md` resolves to `includes/x.md` when the
+ * fragment is pinned. A path that climbs above the docset root
+ * (`~/../<repo>/...`) names a SIBLING REPOSITORY that is not pinned: it stays
+ * blocked with reason `include-tilde-path` as a dependency hold (fail-closed;
+ * the receiving article must not publish without the fragment).
  */
 export function resolveWithinRoots(sourceRelPath, href, allowedRoots) {
   const raw = toPosix(href).trim();
   if (raw.startsWith('~')) {
+    const hashIdx = raw.indexOf('#');
+    const h = hashIdx === -1 ? raw.slice(1) : raw.slice(1, hashIdx);
+    const { path: normalized, escaped } = normalizeRelPath(h);
+    const inside = !escaped && allowedRoots.some((root) => normalized === root || normalized.startsWith(root === '' ? '' : root + '/'));
+    if (inside) {
+      return { ok: true, path: normalized };
+    }
     return { ok: false, reason: 'include-tilde-path', detail: raw };
   }
   if (URL_SCHEME.test(raw)) {
@@ -194,29 +225,30 @@ function collectSlugs(nodes, out) {
 }
 
 function collectIncludeNodes(nodes, includes, commented) {
-  const walkBlocks = (list) => {
-    for (const node of list) {
-      if (node.type === 'include') includes.push(node);
-      if (node.type === 'commentedDirective') commented.push(node);
-      if (Array.isArray(node.children)) walkBlocks(node.children);
-      if (node.type === 'list') for (const item of node.items) if (Array.isArray(item.children)) walkBlocks(item.children);
-    }
-  };
-  walkBlocks(nodes);
-  // Inline include occurrences inside paragraphs/headings.
   const walkInline = (list) => {
     for (const node of list) {
       if (node.type === 'include') includes.push(node);
       if (Array.isArray(node.children)) walkInline(node.children);
     }
   };
-  for (const node of nodes) {
-    if (node.type === 'paragraph' || node.type === 'heading') walkInline(node.inline ?? []);
-    if (node.type === 'table') {
-      for (const cell of [...node.header, ...node.rows.flat()]) walkInline(cell.inline ?? []);
+  const walkBlocks = (list) => {
+    for (const node of list) {
+      if (node.type === 'include') includes.push(node);
+      if (node.type === 'commentedDirective') commented.push(node);
+      walkInline(node.inline ?? []);
+      if (node.type === 'table') {
+        for (const cell of [...node.header, ...node.rows.flat()]) walkInline(cell.inline ?? []);
+      }
+      if (node.type === 'list') {
+        for (const item of node.items) {
+          walkInline(item.inline ?? []);
+          if (Array.isArray(item.children)) walkBlocks(item.children);
+        }
+      }
+      if (Array.isArray(node.children)) walkBlocks(node.children);
     }
-    if (node.type === 'list') for (const item of node.items) walkInline(item.inline ?? []);
-  }
+  };
+  walkBlocks(nodes);
 }
 
 // ---------------------------------------------------------------------------
@@ -246,6 +278,13 @@ function resolveIncludeNode(node, fromRel, chain, ctx) {
     node.exists = null;
     node.blocked = true;
     node.blockedReason = res.reason;
+    if (res.reason === 'include-tilde-path') {
+      // Structured dependency hold: the fragment lives in a sibling repo that
+      // is not pinned. Rows flow to the receipt (per-file `dependencyHolds`)
+      // and to the consolidated dependency manifest; the article stays
+      // quarantined (fail-closed — no silent partial publication).
+      ctx.dependencyHolds.push({ target: res.detail, ...describeCrossRepoDependency(res.detail), span: node.span });
+    }
     ctx.quarantines.push({ nodeType: 'include', reason: res.reason, detail: res.detail, span: node.span });
     return 'blocked';
   }
@@ -274,7 +313,8 @@ function resolveIncludeNode(node, fromRel, chain, ctx) {
   node.blocked = false;
   node.blockedReason = null;
   // Recurse into the fragment's own includes, propagating deep problems.
-  let deepBlocked = null;
+  const fragmentWarning = entry.parsed.warnings[0];
+  let deepBlocked = fragmentWarning ? `${targetRel}: ${fragmentWarning.reason}` : null;
   for (const childNode of entry.includeNodes) {
     const outcome = resolveIncludeNode(childNode, targetRel, [...chain, targetRel], ctx);
     if (outcome !== 'clean' && deepBlocked === null) {
@@ -320,6 +360,7 @@ export function buildDependencyGraph({ sourceRelPath, nodes, parserWarnings = []
     edges: [],
     quarantines: [],
     commentedDirectives: [],
+    dependencyHolds: [],
   };
   const fileSlugs = new Set();
   {
@@ -333,7 +374,11 @@ export function buildDependencyGraph({ sourceRelPath, nodes, parserWarnings = []
     if (cls.classification === 'relative-md' || cls.classification === 'relative-asset' || cls.classification === 'relative-other') {
       const res = resolveWithinRoots(fromRel, href, ctx.allowedRoots);
       if (!res.ok) return { classification: cls.classification, resolved: null, exists: null, anchor: cls.anchor, error: res.reason };
-      const entry = ctx.memoParse(res.path);
+      // Only anchored Markdown links need a parse of the destination.
+      // Images, downloads, and plain links need an existence check.
+      const entry = cls.classification === 'relative-md' && cls.anchor
+        ? ctx.memoParse(res.path)
+        : { exists: io.exists(res.path) };
       return { classification: cls.classification, resolved: res.path, exists: entry.exists, anchor: cls.anchor, slugs: entry.headingSlugs ?? null };
     }
     return { classification: cls.classification, resolved: null, exists: null, anchor: cls.anchor };
@@ -386,16 +431,6 @@ export function buildDependencyGraph({ sourceRelPath, nodes, parserWarnings = []
       // Inline nodes first (document order), then the block node itself.
       if (node.type === 'paragraph' || node.type === 'heading') {
         for (const inlineNode of node.inline ?? []) walkInline(inlineNode);
-      }
-      if (node.type === 'table') {
-        for (const cell of [...node.header, ...node.rows.flat()]) {
-          for (const inlineNode of cell.inline ?? []) walkInline(inlineNode);
-        }
-      }
-      if (node.type === 'list') {
-        for (const item of node.items) {
-          for (const inlineNode of item.inline ?? []) walkInline(inlineNode);
-        }
       }
       switch (node.type) {
         case 'include': {
@@ -490,6 +525,7 @@ export function buildDependencyGraph({ sourceRelPath, nodes, parserWarnings = []
       });
       void outcome;
     }
+    for (const child of node.children ?? []) walkInline(child);
   };
 
   // Single depth-first pass in document order (inlines are handled when
@@ -502,7 +538,12 @@ export function buildDependencyGraph({ sourceRelPath, nodes, parserWarnings = []
     ctx.quarantines.push({ nodeType: 'parse', reason: w.reason, detail: w.detail ?? null, span: w.span });
   }
 
-  return { edges: ctx.edges, quarantines: ctx.quarantines, commentedDirectives: ctx.commentedDirectives };
+  return {
+    edges: ctx.edges,
+    quarantines: ctx.quarantines,
+    commentedDirectives: ctx.commentedDirectives,
+    dependencyHolds: ctx.dependencyHolds,
+  };
 }
 
 // Re-export for callers that want slug normalization without importing parse.

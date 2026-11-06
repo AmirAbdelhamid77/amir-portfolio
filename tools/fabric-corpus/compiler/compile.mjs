@@ -101,7 +101,7 @@ export function compileFamily({ corpusRootAbs, family, corpusRevision = null }) 
 
     const { log: sanitizationLog } = sanitizeDocument(parsed.nodes);
 
-    const { artifact: compiled, unsupported } = buildCompiledNode({
+    const { artifact: compiled, unsupported, orphanConstructEnds } = buildCompiledNode({
       sourcePath: file.rel,
       sourceSha256,
       sourceSizeBytes: bytes.length,
@@ -129,6 +129,8 @@ export function compileFamily({ corpusRootAbs, family, corpusRevision = null }) 
       // directives plus ones discovered inside resolved include fragments
       // (viaInclude) — regex-only scanning cannot certify closure.
       commentedDirectives: graph.commentedDirectives,
+      dependencyHolds: graph.dependencyHolds,
+      orphanConstructEnds,
       counts: compiled.counts,
     });
 

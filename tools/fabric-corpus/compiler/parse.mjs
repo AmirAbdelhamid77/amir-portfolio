@@ -25,7 +25,13 @@
 import { parse as yamlParse, YAMLParseError } from 'yaml';
 
 export const COMPILER_NAME = 'hansa-fabric-compiler';
-export const COMPILER_VERSION = '0.1.0';
+// 0.2.0 (W3-A): CommonMark-conformant backtick-fence info strings (0.30 §4.5),
+// self-closing constructs excluded from construct-end depth scans, orphan
+// construct-end markers as literal-text paragraphs (receipt accounting, no
+// quarantine), and docfx tilde resolution for `~/` includes (cross-repo
+// `~/../<repo>/...` stays a structured dependency hold). See
+// docs/fabric-corpus/reports/w3a-report.md for the per-rule evidence.
+export const COMPILER_VERSION = '0.2.0';
 
 // ---------------------------------------------------------------------------
 // Small utilities
@@ -449,6 +455,36 @@ function findEmphasisClose(text, fromIdx, ch, len, isStar, openIdx) {
 // ---------------------------------------------------------------------------
 
 const FENCE_OPEN = /^ {0,3}(`{3,}|~{3,})\s*(.*)$/;
+
+/**
+ * Match a code-fence OPENING line, or return null when the line is not one.
+ * CommonMark 0.30 §4.5: info strings for backtick code fences cannot contain
+ * backticks. A backtick fence whose info string contains a backtick is NOT a
+ * code fence opening — the line is paragraph content and the backtick runs
+ * become inline code spans, exactly as docfx/Markdig render it. The pinned
+ * corpus uses this form on its own line (e.g.
+ * "``` %history [-n] [range [range ...]] ```"), which is why these articles
+ * previously mis-parsed as unterminated fences; upstream renders them fine.
+ */
+function codeFenceOpening(text) {
+  const m = text.match(FENCE_OPEN);
+  if (!m) return null;
+  if (m[1][0] === '`' && m[2].includes('`')) return null;
+  return m;
+}
+
+/** True when a construct-open match is the single-line self-closing form
+ *  (`:::kind ...:::`): the trailing `:::` closes the construct on the same
+ *  line, so it must not open depth when scanning for a container's end
+ *  marker. Note the complex `:::image` form is syntactically identical (it
+ *  also ends with `:::`); its explicit `:::image-end:::` is benign under the
+ *  clamped depth decrement in the end-marker scan. Without this check, every
+ *  self-closing image inside a zone permanently raised the scan depth and the
+ *  zone's own `::: zone-end` was never matched (real corpus case:
+ *  real-time-intelligence/event-streams/add-source-custom-app.md). */
+function constructOpenIsSelfClosing(openMatch) {
+  return (openMatch[2] ?? '').trimEnd().endsWith(':::');
+}
 const ATX_HEADING = /^ {0,3}(#{1,6})(\s+)(.*)$/;
 const THEMATIC_BREAK = /^ {0,3}((?:\*[ \t]*){3,}|(?:-[ \t]*){3,}|(?:_[ \t]*){3,})$/;
 const LIST_ITEM = /^( *)([-*+]|\d{1,9}[.)])( +)(.*)$/;
@@ -545,7 +581,7 @@ function parseBlocks(lines, from, to) {
     if (isBlank(rawText)) { i++; continue; }
 
     // Fenced code
-    const fence = rawText.match(FENCE_OPEN);
+    const fence = codeFenceOpening(rawText);
     if (fence) {
       const fenceChar = fence[1][0];
       const fenceLen = fence[1].length;
@@ -601,15 +637,23 @@ function parseBlocks(lines, from, to) {
     // Learn construct open / end markers
     const endMarker = rawText.match(CONSTRUCT_END);
     if (endMarker) {
-      // Orphan end marker (no matching opener at this level).
+      // Orphan end marker (no matching opener at this level). docfx does not
+      // match an unmatched end marker to any construct: the marker line
+      // renders as literal text on the page (verified upstream 2026-11-05:
+      // the live learn.microsoft.com page for
+      // real-time-intelligence/event-streams/add-source-azure-sql-database-
+      // change-data-capture shows `::: zone-end` as visible text where the
+      // source has no matching `::: zone` open). Represent it as a paragraph
+      // carrying the exact marker text — nothing is lost — and account it
+      // through the node flag (receipt `orphanConstructEnds`), NOT as a
+      // quarantine: there is no dependency or structural uncertainty here.
+      const inline = parseInlineSegments(lines[i], 0);
       nodes.push({
-        type: 'unsupported',
-        reason: 'orphan-construct-end',
-        detail: `:::${endMarker[1]}-end`,
-        snippet: rawText.trim(),
+        type: 'paragraph',
+        inline,
+        orphanConstructEnd: endMarker[1],
         span: lineSpan(lines[i], lines[i].colBase, lines[i].colBase + lines[i].text.length),
       });
-      warnings.push({ reason: 'orphan-construct-end', span: nodes[nodes.length - 1].span });
       i++;
       continue;
     }
@@ -639,7 +683,12 @@ function parseBlocks(lines, from, to) {
       } else {
         // Depth-aware scan: nesting constructs of the same kind must close
         // in order; a different-kind end at depth 0 is left for the outer
-        // loop to report as an orphan.
+        // loop to report as an orphan. Single-line self-closing constructs
+        // (`:::kind ...:::`) do NOT open depth: they are complete on their
+        // line (real corpus case: self-closing :::image lines inside ::: zone
+        // containers). The end-marker decrement is clamped at 0, so an
+        // explicit `:::image-end:::` for a complex image whose open line was
+        // counted as self-closing stays harmless.
         let depth = 0;
         for (let k = i + 1; k < to; k++) {
           const t = lines[k].text;
@@ -649,7 +698,8 @@ function parseBlocks(lines, from, to) {
             depth = Math.max(0, depth - 1);
             continue;
           }
-          if (CONSTRUCT_OPEN.test(t)) depth++;
+          const om = t.match(CONSTRUCT_OPEN);
+          if (om && !constructOpenIsSelfClosing(om)) depth++;
         }
       }
       const selfClosing = endIdx === -1 && OPTIONAL_END_KINDS.has(kind);
@@ -949,7 +999,10 @@ function stripQuote(line) {
  */
 function interruptsBlock(text, lines, idx, to) {
   if (isBlank(text)) return true;
-  if (FENCE_OPEN.test(text)) return true;
+  // Only a real code-fence OPENING interrupts; a line whose backticks form an
+  // inline code span (info string contains a backtick) is paragraph content
+  // and must continue the paragraph (CommonMark 0.30 §4.5).
+  if (codeFenceOpening(text)) return true;
   if (ATX_HEADING.test(text)) return true;
   if (CONSTRUCT_OPEN.test(text) || CONSTRUCT_END.test(text)) return true;
   if (INCLUDE_DIRECTIVE.test(text)) return true;

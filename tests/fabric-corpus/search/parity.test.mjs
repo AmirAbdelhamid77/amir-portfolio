@@ -28,9 +28,37 @@ import { test } from "node:test";
 import { loadPublicManifest, loadPublicShards, stubFetchFromPublic, deriveQueries, allArticles } from "./helpers.mjs";
 import { rankFabricArticles, scoreShards } from "../../../lib/search/fabric-scorer.ts";
 import { FabricSearch } from "../../../lib/search/fabric-shards.ts";
-import { tokenize } from "../../../lib/search/query.ts";
+import { normalizeSearchText, tokenize } from "../../../lib/search/query.ts";
 
 const manifest = loadPublicManifest();
+
+test("every searchable token routes to every shard where it can score", {
+  skip: manifest?.versionBasis !== "ordered-shards-routing" && "requires the Wave 3 routing generation",
+}, async () => {
+  const shards = loadPublicShards(manifest);
+  const stub = stubFetchFromPublic();
+  const client = new FabricSearch({ fetchImpl: stub.fetch });
+  await client.ensureLoaded(new AbortController().signal);
+  const postings = new Map();
+  for (const [index, shard] of shards.entries()) {
+    for (const article of shard.articles) {
+      const fields = [article.title, article.terms ?? ""];
+      for (const section of article.sections) fields.push(section.heading, section.text);
+      for (const field of fields) {
+        for (const token of normalizeSearchText(field).split(" ")) {
+          if (!token) continue;
+          if (!postings.has(token)) postings.set(token, new Set());
+          postings.get(token).add(index);
+        }
+      }
+    }
+  }
+  for (const [token, expected] of postings) {
+    const actual = client.routeQuery([token]);
+    for (const index of expected) assert.ok(actual.has(index), `${token}: routing missed shard ${index}`);
+  }
+  assert.deepEqual(client.routeQuery(["__not-a-corpus-token__"]), new Set());
+});
 
 /** Rank id+score fingerprints, robust to float formatting. */
 function fingerprint(hits) {

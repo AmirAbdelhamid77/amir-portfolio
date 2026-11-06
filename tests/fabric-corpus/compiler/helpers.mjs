@@ -17,8 +17,8 @@ export const FIXTURE_FAMILY = 'docs';
 
 /** Compile the fixture corpus family into a temp dir; returns the parsed
  *  receipt, manifest and a readNode(corpusRelPath) accessor. */
-export function compileFixtures(outDir) {
-  const result = compileFamily({ corpusRootAbs: FIXTURE_CORPUS, family: FIXTURE_FAMILY, corpusRevision: null });
+export function compileFixtures(outDir, corpusRevision = null) {
+  const result = compileFamily({ corpusRootAbs: FIXTURE_CORPUS, family: FIXTURE_FAMILY, corpusRevision });
   writeOutputs({ result, outDirAbs: outDir, family: FIXTURE_FAMILY });
   const familyDir = join(outDir, FIXTURE_FAMILY);
   return {

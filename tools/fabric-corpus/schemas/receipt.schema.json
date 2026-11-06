@@ -5,7 +5,7 @@
   "description": "Per-family compile receipt: source hashes, transforms applied, blocks removed, quarantine reasons, dependency edges, unsupported constructs and commented directives. Deterministic: no clocks, no absolute paths.",
   "type": "object",
   "additionalProperties": false,
-  "required": ["schema", "version", "compiler", "family", "corpusRevision", "files", "totals", "unsupportedSummary", "quarantineSummary"],
+  "required": ["schema", "version", "compiler", "family", "corpusRevision", "files", "totals", "unsupportedSummary", "quarantineSummary", "orphanConstructEndsSummary", "dependencySummary"],
   "properties": {
     "schema": { "const": "hansa.fabric-compiler/receipt" },
     "version": { "const": 1 },
@@ -25,7 +25,7 @@
       "items": {
         "type": "object",
         "additionalProperties": false,
-        "required": ["path", "sha256", "sizeBytes", "parseWarnings", "quarantined", "quarantineEntries", "sanitizationLog", "edges", "unsupported", "commentedDirectives", "counts"],
+        "required": ["path", "sha256", "sizeBytes", "parseWarnings", "quarantined", "quarantineEntries", "sanitizationLog", "edges", "unsupported", "commentedDirectives", "orphanConstructEnds", "dependencyHolds", "counts"],
         "properties": {
           "path": { "type": "string", "description": "Corpus-relative posix path" },
           "sha256": { "type": "string", "pattern": "^[0-9a-f]{64}$" },
@@ -90,17 +90,47 @@
               }
             }
           },
+          "orphanConstructEnds": {
+            "type": "array",
+            "description": "Orphan construct-end markers (`:::kind-end` with no matching open) rendered as literal-text paragraphs in the AST. Accounted here, never quarantined.",
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": ["kind", "span"],
+              "properties": {
+                "kind": { "type": "string", "description": "The construct kind from the end marker, e.g. zone or image" },
+                "span": { "$ref": "#/$defs/span" }
+              }
+            }
+          },
+          "dependencyHolds": {
+            "type": "array",
+            "description": "Structured per-include rows for includes into sibling repositories that are not pinned (reason include-tilde-path). The article stays quarantined until the dependency is acquired; nothing publishes partially.",
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": ["target", "kind", "targetRepo", "inRepoPath", "span"],
+              "properties": {
+                "target": { "type": "string", "description": "The include target exactly as written in the source" },
+                "kind": { "const": "cross-repo-include" },
+                "targetRepo": { "type": ["string", "null"], "description": "Sibling repository named by the ~/../<repo>/ prefix, or null when the shape is unclassifiable" },
+                "inRepoPath": { "type": ["string", "null"], "description": "Path inside the target repository (after the repo prefix)" },
+                "span": { "$ref": "#/$defs/span" }
+              }
+            }
+          },
           "counts": {
             "type": "object",
             "additionalProperties": false,
-            "required": ["blocks", "byType", "dependencyEdges", "sanitizationActions", "unsupported", "commentedDirectives"],
+            "required": ["blocks", "byType", "dependencyEdges", "sanitizationActions", "unsupported", "commentedDirectives", "orphanConstructEnds"],
             "properties": {
               "blocks": { "type": "integer", "minimum": 0 },
               "byType": { "type": "object", "additionalProperties": { "type": "integer", "minimum": 0 } },
               "dependencyEdges": { "type": "integer", "minimum": 0 },
               "sanitizationActions": { "type": "integer", "minimum": 0 },
               "unsupported": { "type": "integer", "minimum": 0 },
-              "commentedDirectives": { "type": "integer", "minimum": 0 }
+              "commentedDirectives": { "type": "integer", "minimum": 0 },
+              "orphanConstructEnds": { "type": "integer", "minimum": 0 }
             }
           }
         }
@@ -109,14 +139,18 @@
     "totals": {
       "type": "object",
       "additionalProperties": false,
-      "required": ["files", "quarantinedFiles", "dependencyEdges", "sanitizationActions", "unsupported", "commentedDirectives"],
+      "required": ["files", "quarantinedFiles", "dependencyEdges", "sanitizationActions", "unsupported", "commentedDirectives", "orphanConstructEnds", "dependencyHoldFiles", "dependencyHoldIncludes", "dependencyHoldTargets"],
       "properties": {
         "files": { "type": "integer", "minimum": 0 },
         "quarantinedFiles": { "type": "integer", "minimum": 0 },
         "dependencyEdges": { "type": "integer", "minimum": 0 },
         "sanitizationActions": { "type": "integer", "minimum": 0 },
         "unsupported": { "type": "integer", "minimum": 0 },
-        "commentedDirectives": { "type": "integer", "minimum": 0 }
+        "commentedDirectives": { "type": "integer", "minimum": 0 },
+        "orphanConstructEnds": { "type": "integer", "minimum": 0 },
+        "dependencyHoldFiles": { "type": "integer", "minimum": 0, "description": "Files with at least one cross-repo dependency hold" },
+        "dependencyHoldIncludes": { "type": "integer", "minimum": 0, "description": "Total cross-repo include occurrences under hold" },
+        "dependencyHoldTargets": { "type": "integer", "minimum": 0, "description": "Distinct include targets under hold" }
       }
     },
     "unsupportedSummary": {
@@ -140,6 +174,32 @@
         "properties": {
           "reason": { "type": "string" },
           "count": { "type": "integer", "minimum": 1 }
+        }
+      }
+    },
+    "orphanConstructEndsSummary": {
+      "type": "array",
+      "description": "Orphan construct-end markers by construct kind (benign literal-text paragraphs; not quarantines).",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["kind", "count"],
+        "properties": {
+          "kind": { "type": "string" },
+          "count": { "type": "integer", "minimum": 1 }
+        }
+      }
+    },
+    "dependencySummary": {
+      "type": "array",
+      "description": "Cross-repo dependency hold includes grouped by target repository (sorted by count, then repo).",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["targetRepo", "includes"],
+        "properties": {
+          "targetRepo": { "type": "string" },
+          "includes": { "type": "integer", "minimum": 1 }
         }
       }
     }

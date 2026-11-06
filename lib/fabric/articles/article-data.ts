@@ -156,9 +156,11 @@ function resolveIncludes(
   if (depth > MAX_INCLUDE_DEPTH) return map;
   for (const block of blocks) {
     if (block.type !== "include") {
-      const nested = (block.children ?? block.items) as CompiledBlock[] | undefined;
-      if (Array.isArray(nested)) {
-        for (const [key, fragment] of resolveIncludes(nested, seenSha, depth + 1)) {
+      const nested = [block.children, block.items, block.inline, block.header];
+      if (Array.isArray(block.rows)) nested.push(...block.rows);
+      for (const children of nested) {
+        if (!Array.isArray(children)) continue;
+        for (const [key, fragment] of resolveIncludes(children, seenSha, depth)) {
           if (!map.has(key)) map.set(key, fragment);
         }
       }

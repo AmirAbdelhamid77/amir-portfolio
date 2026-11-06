@@ -43,6 +43,7 @@ interface RenderState {
   linkContext: LinkContext;
   imageContext: ImageDecisionContext;
   upstreamUrl: string;
+  includeTrail: ReadonlySet<string>;
 }
 
 export function ArticleBody({ data, linkContext, upstreamUrl }: ArticleBodyProps) {
@@ -56,6 +57,7 @@ export function ArticleBody({ data, linkContext, upstreamUrl }: ArticleBodyProps
       manifestFamily,
     },
     upstreamUrl,
+    includeTrail: new Set(),
   };
   return (
     <div className="space-y-5">
@@ -260,14 +262,20 @@ function Include({ block, state }: { block: CompiledBlock; state: RenderState })
   if (fragment.blocked) return <BlockedInclude block={block} reason={fragment.blockedReason} />;
   return (
     <div className="space-y-3">
-      <Blocks blocks={fragment.blocks} state={state} />
+      <Blocks blocks={fragment.blocks} state={withinFragment(state, fragment)} />
     </div>
   );
 }
 
 function findFragment(block: CompiledBlock, state: RenderState): IncludeFragment | undefined {
   const resolved = typeof block.resolved === "string" ? block.resolved : null;
-  return resolved ? state.data.includes.get(`docs/${resolved}`) : undefined;
+  if (!resolved || block.blocked === true) return undefined;
+  const key = `docs/${resolved}`;
+  return state.includeTrail.has(key) ? undefined : state.data.includes.get(key);
+}
+
+function withinFragment(state: RenderState, fragment: IncludeFragment): RenderState {
+  return { ...state, includeTrail: new Set([...state.includeTrail, fragment.sourcePath]) };
 }
 
 function BlockedInclude({ block, reason }: { block: CompiledBlock; reason?: string | null }) {
@@ -573,9 +581,11 @@ function ArticleLink({ node, state }: { node: CompiledBlock; state: RenderState 
 
 function InlineInclude({ node, state }: { node: CompiledBlock; state: RenderState }) {
   const fragment = findFragment(node, state);
-  if (!fragment || fragment.blocked) return null;
+  if (!fragment || fragment.blocked) {
+    return <span role="note">[Included text unavailable in this copy]</span>;
+  }
   // Inline includes (product names, short notes) render as their text.
-  return <Inline blocks={flattenInline(fragment.blocks)} state={state} />;
+  return <Inline blocks={flattenInline(fragment.blocks)} state={withinFragment(state, fragment)} />;
 }
 
 function flattenInline(blocks: CompiledBlock[]): CompiledBlock[] {

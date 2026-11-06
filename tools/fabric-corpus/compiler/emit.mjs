@@ -106,6 +106,29 @@ function collectCommentedDirectives(nodes) {
 }
 
 /**
+ * Collect paragraphs that ARE orphan construct-end markers (a `:::kind-end`
+ * line with no matching open — docfx renders these as literal text). Kept as
+ * receipt accounting without quarantine: the text is preserved in the AST,
+ * so nothing is dropped silently.
+ */
+function collectOrphanConstructEnds(nodes) {
+  const out = [];
+  const walk = (list) => {
+    for (const node of list) {
+      if (node.type === 'paragraph' && typeof node.orphanConstructEnd === 'string') out.push(node);
+      if (Array.isArray(node.children)) walk(node.children);
+      if (node.type === 'list') {
+        for (const item of node.items) {
+          if (Array.isArray(item.children)) walk(item.children);
+        }
+      }
+    }
+  };
+  walk(nodes);
+  return out;
+}
+
+/**
  * Build the compiled-node artifact for one source file.
  * All paths are corpus-relative posix; no absolute paths, no timestamps.
  */
@@ -129,6 +152,7 @@ export function buildCompiledNode({ sourcePath, sourceSha256, sourceSizeBytes, p
 
   const unsupported = collectUnsupported(parsed.nodes);
   const commented = collectCommentedDirectives(parsed.nodes);
+  const orphanEnds = collectOrphanConstructEnds(parsed.nodes);
 
   const frontMatter = parsed.frontMatter
     ? {
@@ -164,10 +188,11 @@ export function buildCompiledNode({ sourcePath, sourceSha256, sourceSizeBytes, p
       sanitizationActions: sanitizeLog.length,
       unsupported: unsupported.length,
       commentedDirectives: commented.length,
+      orphanConstructEnds: orphanEnds.length,
     },
   };
   // Auxiliary lists for the receipt (not part of the compiled-node schema).
-  return { artifact, unsupported, commentedDirectives: commented };
+  return { artifact, unsupported, commentedDirectives: commented, orphanConstructEnds: orphanEnds };
 }
 
 /**
@@ -213,9 +238,14 @@ export function buildFamilyManifest({ family, corpusRevision, files, nodeChecksu
 export function buildReceipt({ family, corpusRevision, fileEntries }) {
   const unsupportedCounts = new Map();
   const quarantineCounts = new Map();
+  const dependencyRepoCounts = new Map();
   let sanitizationTotal = 0;
   let edgeTotal = 0;
   let commentedTotal = 0;
+  let orphanEndTotal = 0;
+  let dependencyHoldFileCount = 0;
+  let dependencyHoldIncludeCount = 0;
+  const dependencyTargets = new Map();
   for (const fe of fileEntries) {
     for (const u of fe.unsupported) {
       const key = `${u.type}:${u.reason ?? u.detail ?? 'n/a'}`;
@@ -227,6 +257,13 @@ export function buildReceipt({ family, corpusRevision, fileEntries }) {
     sanitizationTotal += fe.sanitizationLog.length;
     edgeTotal += fe.edges.length;
     commentedTotal += fe.commentedDirectives.length;
+    orphanEndTotal += fe.orphanConstructEnds.length;
+    if (fe.dependencyHolds.length > 0) dependencyHoldFileCount += 1;
+    dependencyHoldIncludeCount += fe.dependencyHolds.length;
+    for (const h of fe.dependencyHolds) {
+      dependencyRepoCounts.set(h.targetRepo ?? '(unclassified)', (dependencyRepoCounts.get(h.targetRepo ?? '(unclassified)') ?? 0) + 1);
+      dependencyTargets.set(h.target, h.targetRepo ?? null);
+    }
   }
   const unsupportedSummary = [...unsupportedCounts.entries()]
     .map(([key, count]) => ({ key, count }))
@@ -234,6 +271,18 @@ export function buildReceipt({ family, corpusRevision, fileEntries }) {
   const quarantineSummary = [...quarantineCounts.entries()]
     .map(([reason, count]) => ({ reason, count }))
     .sort((a, b) => (b.count - a.count) || (a.reason < b.reason ? -1 : a.reason > b.reason ? 1 : 0));
+  const orphanKindCounts = new Map();
+  for (const fe of fileEntries) {
+    for (const o of fe.orphanConstructEnds) {
+      orphanKindCounts.set(o.orphanConstructEnd, (orphanKindCounts.get(o.orphanConstructEnd) ?? 0) + 1);
+    }
+  }
+  const orphanConstructEndsSummary = [...orphanKindCounts.entries()]
+    .map(([kind, count]) => ({ kind, count }))
+    .sort((a, b) => (b.count - a.count) || (a.kind < b.kind ? -1 : a.kind > b.kind ? 1 : 0));
+  const dependencySummary = [...dependencyRepoCounts.entries()]
+    .map(([targetRepo, includes]) => ({ targetRepo, includes }))
+    .sort((a, b) => (b.includes - a.includes) || (a.targetRepo < b.targetRepo ? -1 : a.targetRepo > b.targetRepo ? 1 : 0));
 
   return {
     schema: SCHEMA_RECEIPT,
@@ -256,6 +305,14 @@ export function buildReceipt({ family, corpusRevision, fileEntries }) {
         directiveText: cd.directiveText,
         ...(cd.viaInclude !== undefined ? { viaInclude: cd.viaInclude } : {}),
       })),
+      orphanConstructEnds: fe.orphanConstructEnds.map((o) => ({ kind: o.orphanConstructEnd, span: o.span })),
+      dependencyHolds: fe.dependencyHolds.map((h) => ({
+        target: h.target,
+        kind: h.kind,
+        targetRepo: h.targetRepo ?? null,
+        inRepoPath: h.inRepoPath ?? null,
+        span: h.span,
+      })),
       counts: fe.counts,
     })),
     totals: {
@@ -265,8 +322,14 @@ export function buildReceipt({ family, corpusRevision, fileEntries }) {
       sanitizationActions: sanitizationTotal,
       unsupported: fileEntries.reduce((a, f) => a + f.unsupported.length, 0),
       commentedDirectives: commentedTotal,
+      orphanConstructEnds: orphanEndTotal,
+      dependencyHoldFiles: dependencyHoldFileCount,
+      dependencyHoldIncludes: dependencyHoldIncludeCount,
+      dependencyHoldTargets: dependencyTargets.size,
     },
     unsupportedSummary,
     quarantineSummary,
+    orphanConstructEndsSummary,
+    dependencySummary,
   };
 }

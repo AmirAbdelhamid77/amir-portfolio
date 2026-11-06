@@ -198,3 +198,84 @@ test('span accuracy spot check: deep columns in a paragraph line', () => {
   assert.strictEqual(link.span.start.column, 7);
   assert.strictEqual(link.span.end.column, 33);
 });
+
+// ---------------------------------------------------------------------------
+// W3-A parser rules (compiler 0.2.0) — see docs/fabric-corpus/reports/w3a-report.md
+// ---------------------------------------------------------------------------
+
+test('Rule A: a backtick fence whose info string contains a backtick is paragraph content', () => {
+  // CommonMark 0.30 §4.5: info strings for backtick fences cannot contain
+  // backticks. Real corpus form: "``` %history [-n] [range] ```" on its own
+  // line renders as an inline code span, not an (unterminated) fence.
+  const src = 'Before.\n\n``` %history [-n] [range [range ...]] ```\n\nAfter.\n';
+  const parsed = parseSource(src);
+  assert.deepStrictEqual(parsed.warnings, []);
+  assert.strictEqual(parsed.nodes.length, 3);
+  assert.strictEqual(parsed.nodes[1].type, 'paragraph');
+  const code = parsed.nodes[1].inline.find((n) => n.type === 'inlineCode');
+  assert.ok(code, 'inline code span present');
+  // CommonMark: one space stripped from both ends of the code-span content.
+  assert.strictEqual(code.value, '%history [-n] [range [range ...]]');
+  // A real fence still opens and closes normally after such a line.
+  const mixed = parseSource('```ts\nconst a = 1;\n```\n');
+  assert.strictEqual(mixed.nodes.filter((n) => n.type === 'code').length, 1);
+  // Tilde fences are unaffected (only backtick fences forbid backticks in info).
+  const tilde = parseSource('~~~ `code` ~~~\nbody\n~~~\n');
+  assert.strictEqual(tilde.nodes.filter((n) => n.type === 'code').length, 1);
+});
+
+test('Rule B: self-closing constructs do not open depth in construct-end scans', () => {
+  // Real corpus case (add-source-custom-app.md): self-closing :::image lines
+  // inside a ::: zone used to raise the scan depth permanently, so the zone's
+  // own ::: zone-end was never matched (unterminated-construct + a cascade of
+  // orphan-construct-end warnings).
+  const src = [
+    '::: zone pivot="basic"',
+    '',
+    '1. Step one.',
+    '',
+    '   :::image type="content" source="media/a.png" alt-text="A":::',
+    '',
+    '1. Step two.',
+    '',
+    '::: zone-end',
+    '',
+    '::: zone pivot="extended"',
+    ':::image type="content" source="media/b.png" alt-text="B":::',
+    '::: zone-end',
+  ].join('\n');
+  const parsed = parseSource(src);
+  assert.deepStrictEqual(parsed.warnings, []);
+  const zones = parsed.nodes.filter((n) => n.type === 'learnConstruct' && n.kind === 'zone');
+  assert.strictEqual(zones.length, 2);
+  for (const z of zones) {
+    assert.strictEqual(z.selfClosing, false, 'zone closed by its own end marker');
+    assert.strictEqual(z.endKind, 'zone-end');
+  }
+  // The complex :::image form still consumes its description + :::image-end:::.
+  const complex = parseSource(':::image type="complex" source="media/c.png" alt-text="C":::\nDescription paragraph.\n:::image-end:::\n');
+  assert.deepStrictEqual(complex.warnings, []);
+  const img = complex.nodes.find((n) => n.type === 'learnConstruct' && n.kind === 'image');
+  assert.strictEqual(img.selfClosing, false);
+  assert.strictEqual(img.children[0].type, 'paragraph');
+});
+
+test('Rule C: an orphan construct-end renders as literal text, accounted but never quarantined', () => {
+  // docfx renders an unmatched end marker as literal text (verified upstream:
+  // ::: zone-end is visible text on the live CDC article page). The paragraph
+  // carries the exact marker text; the receipt accounts it via
+  // orphanConstructEnds; there is no quarantine.
+  const src = 'Before.\n\n::: zone-end\n\nAfter.\n';
+  const parsed = parseSource(src);
+  assert.deepStrictEqual(parsed.warnings, []);
+  assert.strictEqual(parsed.nodes.length, 3);
+  const orphan = parsed.nodes[1];
+  assert.strictEqual(orphan.type, 'paragraph');
+  assert.strictEqual(orphan.orphanConstructEnd, 'zone');
+  assert.strictEqual(orphan.inline[0].value, '::: zone-end');
+  assert.deepStrictEqual(orphan.span, { start: { line: 3, column: 1 }, end: { line: 3, column: 13 } });
+  // The image-end form behaves identically.
+  const imgOrphan = parseSource(':::image-end:::\n');
+  assert.strictEqual(imgOrphan.nodes[0].orphanConstructEnd, 'image');
+  assert.strictEqual(imgOrphan.nodes[0].inline[0].value, ':::image-end:::');
+});

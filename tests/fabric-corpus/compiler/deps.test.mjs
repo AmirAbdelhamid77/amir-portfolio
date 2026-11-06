@@ -36,8 +36,16 @@ test('resolveWithinRoots: traversal, tilde and escaping dots are quarantined', (
   assert.strictEqual(resolveWithinRoots('docs/x.md', '../includes/y.md', ['']).ok, true);
   assert.strictEqual(resolveWithinRoots('docs/x.md', '../../escape.md', ['']).ok, false);
   assert.strictEqual(resolveWithinRoots('docs/x.md', '../../escape.md', ['']).reason, 'include-path-traversal');
-  assert.strictEqual(resolveWithinRoots('docs/x.md', '~/includes/y.md', ['']).ok, false);
-  assert.strictEqual(resolveWithinRoots('docs/x.md', '~/includes/y.md', ['']).reason, 'include-tilde-path');
+  // W3-A rule (compiler 0.2.0): docfx tilde semantics — `~/<path>` resolves
+  // against the docset root (the corpus root here). Previously ANY tilde path
+  // was a hold; now only paths that climb above the docset root stay blocked.
+  assert.strictEqual(resolveWithinRoots('docs/x.md', '~/includes/y.md', ['']).ok, true);
+  assert.strictEqual(resolveWithinRoots('docs/x.md', '~/includes/y.md', ['']).path, 'includes/y.md');
+  assert.strictEqual(resolveWithinRoots('docs/x.md', '~/../other-repo/docs/y.md', ['']).ok, false);
+  assert.strictEqual(resolveWithinRoots('docs/x.md', '~/../other-repo/docs/y.md', ['']).reason, 'include-tilde-path');
+  // Stray double-slash form found in the corpus (~/..//powerbi-repo/...) also
+  // escapes the docset root.
+  assert.strictEqual(resolveWithinRoots('docs/x.md', '~/..//other-repo/y.md', ['']).ok, false);
   assert.strictEqual(resolveWithinRoots('docs/x.md', 'https://x.example/y.md', ['']).ok, false);
   // ../.. clamping back inside the root is still traversal (spec: .. escapes).
   assert.strictEqual(resolveWithinRoots('docs/sub/x.md', 'docs/sub/../y.md', ['']).ok, true);
@@ -54,6 +62,49 @@ function graphFor(corpusRoot, sourceRel, src) {
   });
   return { parsed, graph };
 }
+
+test('nested inline includes resolve once and propagate fragment holds', () => {
+  const source = [
+    ':::row:::',
+    ':::column:::',
+    '**[!INCLUDE [nested](nested.md)]**',
+    ':::column-end:::',
+    ':::row-end:::',
+  ].join('\n');
+  const files = new Map([
+    ['docs/nested.md', source.replace('nested.md', 'missing.md')],
+  ]);
+  const parsed = parseSource(source);
+  const graph = buildDependencyGraph({
+    sourceRelPath: 'docs/start.md',
+    nodes: parsed.nodes,
+    parserWarnings: parsed.warnings,
+    io: { exists: (path) => files.has(path), readText: (path) => files.get(path) },
+  });
+  const [include] = graph.edges.filter((edge) => edge.kind === 'include');
+  assert.equal(graph.edges.filter((edge) => edge.kind === 'include').length, 1);
+  assert.equal(include.resolved, 'docs/nested.md');
+  assert.equal(include.inline, true);
+  assert.equal(include.blocked, true);
+  assert.match(include.reason, /include-chain:docs\/nested\.md: include-missing-target/);
+});
+
+test('a parser warning in an included fragment quarantines its article', () => {
+  const source = '[!INCLUDE [fragment](fragment.md)]';
+  const parsed = parseSource(source);
+  const graph = buildDependencyGraph({
+    sourceRelPath: 'docs/start.md',
+    nodes: parsed.nodes,
+    parserWarnings: parsed.warnings,
+    io: {
+      exists: (path) => path === 'docs/fragment.md',
+      readText: () => '::: zone pivot="sample"\nNo closing marker.',
+    },
+  });
+  assert.equal(graph.edges[0].blocked, true);
+  assert.equal(graph.edges[0].reason, 'include-chain:docs/fragment.md: unterminated-construct');
+  assert.equal(graph.quarantines[0].reason, 'include-chain');
+});
 
 test('resolved include records fragment sha256 and node count', () => {
   const { graph } = graphFor(FIXTURE_CORPUS, 'docs/include-resolved.md', readFileSync(join(FIXTURE_CORPUS, 'docs/include-resolved.md'), 'utf8'));
@@ -82,6 +133,31 @@ test('include cycle is detected across the chain', () => {
 test('path traversal out of the corpus root quarantines', () => {
   const { graph } = graphFor(FIXTURE_CORPUS, 'docs/include-traversal.md', readFileSync(join(FIXTURE_CORPUS, 'docs/include-traversal.md'), 'utf8'));
   assert.strictEqual(graph.quarantines[0].reason, 'include-path-traversal');
+});
+
+test('tilde root include resolves; cross-repo tilde include quarantines with a structured dependency row', () => {
+  // `~/includes/...` resolves inside the docset root (W3-A rule).
+  const root = graphFor(FIXTURE_CORPUS, 'docs/include-tilde-root.md', readFileSync(join(FIXTURE_CORPUS, 'docs/include-tilde-root.md'), 'utf8'));
+  assert.deepStrictEqual(root.graph.quarantines, []);
+  assert.deepStrictEqual(root.graph.dependencyHolds, []);
+  const rootEdge = root.graph.edges.find((e) => e.kind === 'include');
+  assert.strictEqual(rootEdge.resolved, 'includes/root-fragment.md');
+  assert.strictEqual(rootEdge.exists, true);
+  assert.strictEqual(rootEdge.blocked, false);
+
+  // `~/../<repo>/...` escapes the docset root: fail-closed hold + structured row.
+  const repo = graphFor(FIXTURE_CORPUS, 'docs/include-tilde-repo.md', readFileSync(join(FIXTURE_CORPUS, 'docs/include-tilde-repo.md'), 'utf8'));
+  assert.deepStrictEqual(repo.graph.quarantines.map((q) => q.reason), ['include-tilde-path']);
+  assert.strictEqual(repo.graph.dependencyHolds.length, 1);
+  const hold = repo.graph.dependencyHolds[0];
+  assert.strictEqual(hold.target, '~/../sibling-repo/docs/includes/external-fragment.md');
+  assert.strictEqual(hold.kind, 'cross-repo-include');
+  assert.strictEqual(hold.targetRepo, 'sibling-repo');
+  assert.strictEqual(hold.inRepoPath, 'docs/includes/external-fragment.md');
+  assert.ok(hold.span && hold.span.start.line >= 1);
+  const node = repo.parsed.nodes.find((n) => n.type === 'include');
+  assert.strictEqual(node.blocked, true);
+  assert.strictEqual(node.blockedReason, 'include-tilde-path');
 });
 
 test('deep missing include propagates include-chain to the parent', () => {

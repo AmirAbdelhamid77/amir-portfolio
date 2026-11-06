@@ -21,7 +21,7 @@ import { test } from "node:test";
 import {
   loadPublicManifest,
   publicVersionDir,
-  REPO_ROOT,
+  PUBLIC_SEARCH_DIR,
   REGISTRY_PATH,
 } from "./helpers.mjs";
 
@@ -31,7 +31,7 @@ test("excluded articles are absent from shards, manifest and routing", { skip: (
   const registry = JSON.parse(readFileSync(REGISTRY_PATH, "utf8"));
   const excluded = registry.excluded ?? [];
   assert.ok(excluded.length > 0, "registry carries an excluded list");
-  assert.equal(registry.counts.publishedArticles, 2705);
+  assert.equal(manifest.registryRevision, registry.registryRevision);
   assert.equal(excluded.length, registry.counts.excludedArticles);
 
   const versionDir = publicVersionDir(manifest);
@@ -39,7 +39,7 @@ test("excluded articles are absent from shards, manifest and routing", { skip: (
   for (const file of manifest.files) {
     blobs.set(file.name, readFileSync(path.join(versionDir, file.name), "utf8"));
   }
-  blobs.set("manifest.json", readFileSync(path.join(REPO_ROOT, "public", "fabric-search", "manifest.json"), "utf8"));
+  blobs.set("manifest.json", readFileSync(path.join(PUBLIC_SEARCH_DIR, "manifest.json"), "utf8"));
 
   // Exact JSON-quoted matches: identifiers always appear as JSON string values,
   // and quoted matching avoids prefix false positives (a published article's
@@ -55,23 +55,25 @@ test("excluded articles are absent from shards, manifest and routing", { skip: (
   }
 
   // Inverse: every shard articleId is a published registry article.
-  const published = new Set(registry.families.flatMap((family) => family.articles.map((a) => a.articleId)));
+  const families = registry.families.filter((family) => manifest.families.includes(family.family));
+  const published = new Set(families.flatMap((family) => family.articles.map((a) => a.articleId)));
   const shardArticleIds = new Set();
   for (const file of manifest.files) {
     if (file.role !== "shard") continue;
     const shard = JSON.parse(blobs.get(file.name));
-    for (const shardArticle of shard.articles) shardArticleIds.add(shardArticle.articleId);
+    assert.equal(shard.articles.length, file.articleCount);
+    for (const shardArticle of shard.articles) {
+      assert.ok(!shardArticleIds.has(shardArticle.articleId), `duplicate article ${shardArticle.articleId}`);
+      shardArticleIds.add(shardArticle.articleId);
+    }
   }
-  assert.ok(shardArticleIds.size >= manifest.articleCount - 4);
-  for (const articleId of shardArticleIds) {
-    assert.ok(published.has(articleId), `${articleId} is in shards but not in the published registry`);
+  assert.equal(shardArticleIds.size, manifest.articleCount);
+  assert.deepEqual(shardArticleIds, published);
+  assert.deepEqual([...manifest.families].sort(), families.map((family) => family.family).sort());
+  if (process.env.FABRIC_SEARCH_PUBLIC_DIR) {
+    assert.equal(published.size, registry.counts.publishedArticles);
+    assert.equal(families.length, registry.families.length);
   }
-
-  // Families in the manifest are exactly the Wave-2 selection.
-  assert.deepEqual(
-    [...manifest.families].sort(),
-    ["admin", "data-factory", "fundamentals", "onelake", "real-time-intelligence"],
-  );
   assert.equal(manifest.shardCount, manifest.files.filter((file) => file.role === "shard").length);
 });
 

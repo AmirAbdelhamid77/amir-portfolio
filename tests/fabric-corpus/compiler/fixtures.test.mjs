@@ -21,19 +21,82 @@ test('fixture corpus compiles; quarantine classes are exactly as specified', () 
   const reasonsOf = (p) => [...new Set(byPath.get(p).quarantineEntries.map((q) => q.reason))];
   assert.deepStrictEqual(reasonsOf('docs/include-missing.md'), ['include-missing-target']);
   assert.deepStrictEqual(reasonsOf('docs/include-traversal.md'), ['include-path-traversal']);
+  assert.deepStrictEqual(reasonsOf('docs/include-tilde-repo.md'), ['include-tilde-path']);
   const cycleReasons = [
     ...reasonsOf('docs/include-cycle-a.md'),
     ...reasonsOf('docs/include-cycle-b.md'),
   ];
   assert.ok(cycleReasons.includes('include-cycle'), JSON.stringify(cycleReasons));
   assert.ok(cycleReasons.includes('include-chain'), JSON.stringify(cycleReasons));
-  // Clean files have no quarantine.
-  for (const clean of ['docs/headings-anchors.md', 'docs/tables-code.md', 'docs/links.md', 'docs/image-alt.md', 'docs/zone-tab.md', 'docs/front-matter-unknown-keys.md', 'docs/sanitizer.md', 'docs/raw-html-script.md', 'docs/include-resolved.md']) {
+  // Clean files have no quarantine (the tilde ROOT include resolves since
+  // compiler 0.2.0 — Rule D; the inline backtick-fence span is paragraph
+  // content since Rule A; the orphan construct end is a literal-text
+  // paragraph since Rule C).
+  for (const clean of ['docs/headings-anchors.md', 'docs/tables-code.md', 'docs/links.md', 'docs/image-alt.md', 'docs/zone-tab.md', 'docs/front-matter-unknown-keys.md', 'docs/sanitizer.md', 'docs/raw-html-script.md', 'docs/include-resolved.md', 'docs/include-tilde-root.md', 'docs/inline-code-span-fence.md', 'docs/orphan-construct-end.md', 'docs/zone-self-closing-images.md']) {
     assert.strictEqual(byPath.get(clean).quarantined, false, `${clean} must not be quarantined`);
   }
   // Manifest agrees with the receipt on quarantine accounting.
   assert.strictEqual(manifest.totals.quarantinedFiles, receipt.totals.quarantinedFiles);
   assert.strictEqual(manifest.totals.files, receipt.totals.files);
+});
+
+test('W3-A fixtures: structured dependency hold rows, orphan-end accounting, self-closing images in zones', () => {
+  const { receipt, readNode } = compileFixtures(OUT);
+
+  // Rule D, cross-repo hold: structured per-include row in the receipt.
+  const holdEntry = receipt.files.find((f) => f.path === 'docs/include-tilde-repo.md');
+  assert.strictEqual(holdEntry.dependencyHolds.length, 1);
+  assert.deepStrictEqual(holdEntry.dependencyHolds[0], {
+    target: '~/../sibling-repo/docs/includes/external-fragment.md',
+    kind: 'cross-repo-include',
+    targetRepo: 'sibling-repo',
+    inRepoPath: 'docs/includes/external-fragment.md',
+    span: holdEntry.dependencyHolds[0].span,
+  });
+  assert.deepStrictEqual(receipt.dependencySummary, [{ targetRepo: 'sibling-repo', includes: 1 }]);
+  assert.strictEqual(receipt.totals.dependencyHoldFiles, 1);
+  assert.strictEqual(receipt.totals.dependencyHoldIncludes, 1);
+  assert.strictEqual(receipt.totals.dependencyHoldTargets, 1);
+
+  // Rule D, docset-root resolution: the include resolves to the pinned
+  // docset-root fragment (fixture-corpus/includes/, mirroring docs/includes/).
+  const rootNode = readNode('docs/include-tilde-root.md');
+  const rootInclude = rootNode.nodes.find((n) => n.type === 'include');
+  assert.strictEqual(rootInclude.resolved, 'includes/root-fragment.md');
+  assert.strictEqual(rootInclude.blocked, false);
+  assert.ok(typeof rootInclude.fragmentSha256 === 'string' && rootInclude.fragmentSha256.length === 64);
+
+  // Rule C: the orphan end marker is a literal-text paragraph, accounted in
+  // the receipt without quarantine.
+  const orphanEntry = receipt.files.find((f) => f.path === 'docs/orphan-construct-end.md');
+  assert.strictEqual(orphanEntry.quarantined, false);
+  assert.deepStrictEqual(orphanEntry.orphanConstructEnds, [{ kind: 'zone', span: orphanEntry.orphanConstructEnds[0].span }]);
+  assert.strictEqual(orphanEntry.counts.orphanConstructEnds, 1);
+  assert.deepStrictEqual(receipt.orphanConstructEndsSummary, [{ kind: 'zone', count: 1 }]);
+  assert.strictEqual(receipt.totals.orphanConstructEnds, 1);
+  const orphanNode = readNode('docs/orphan-construct-end.md');
+  const orphanPara = orphanNode.nodes.find((n) => n.type === 'paragraph' && n.orphanConstructEnd);
+  assert.strictEqual(orphanPara.inline[0].value, '::: zone-end');
+
+  // Rule B: zones close correctly around self-closing :::image lines.
+  const zoneEntry = receipt.files.find((f) => f.path === 'docs/zone-self-closing-images.md');
+  assert.strictEqual(zoneEntry.quarantined, false);
+  assert.deepStrictEqual(zoneEntry.parseWarnings, []);
+  const zoneNode = readNode('docs/zone-self-closing-images.md');
+  const zones = zoneNode.nodes.filter((n) => n.type === 'learnConstruct' && n.kind === 'zone');
+  assert.strictEqual(zones.length, 2);
+  for (const z of zones) assert.strictEqual(z.selfClosing, false);
+  const pivots = zoneEntry.edges.filter((e) => e.kind === 'applicability').map((e) => e.value);
+  assert.deepStrictEqual(pivots, ['basic', 'extended']);
+
+  // Rule A: the inline backtick-fence span line is a paragraph with a code span.
+  const spanEntry = receipt.files.find((f) => f.path === 'docs/inline-code-span-fence.md');
+  assert.strictEqual(spanEntry.quarantined, false);
+  assert.deepStrictEqual(spanEntry.parseWarnings, []);
+  const spanNode = readNode('docs/inline-code-span-fence.md');
+  const codeSpans = spanNode.nodes.filter((n) => n.type === 'paragraph').flatMap((n) => n.inline).filter((n) => n.type === 'inlineCode');
+  assert.deepStrictEqual(codeSpans.map((c) => c.value), ['%history [-n] [range [range ...]]']);
+  assert.strictEqual(spanNode.nodes.filter((n) => n.type === 'code').length, 1);
 });
 
 test('golden: headings-anchors compiled node matches hand-reviewed output', () => {
@@ -47,6 +110,20 @@ test('golden: include-missing compiled node matches hand-reviewed output', () =>
   const { readNode } = compileFixtures(OUT);
   const actual = readNode('docs/include-missing.md');
   const expected = JSON.parse(readFileSync(join(EXPECTED_DIR, 'include-missing.nodes.json'), 'utf8'));
+  assert.deepStrictEqual(actual, expected);
+});
+
+test('golden: orphan-construct-end compiled node matches hand-reviewed output (Rule C)', () => {
+  const { readNode } = compileFixtures(OUT);
+  const actual = readNode('docs/orphan-construct-end.md');
+  const expected = JSON.parse(readFileSync(join(EXPECTED_DIR, 'orphan-construct-end.nodes.json'), 'utf8'));
+  assert.deepStrictEqual(actual, expected);
+});
+
+test('golden: inline-code-span-fence compiled node matches hand-reviewed output (Rule A)', () => {
+  const { readNode } = compileFixtures(OUT);
+  const actual = readNode('docs/inline-code-span-fence.md');
+  const expected = JSON.parse(readFileSync(join(EXPECTED_DIR, 'inline-code-span-fence.nodes.json'), 'utf8'));
   assert.deepStrictEqual(actual, expected);
 });
 

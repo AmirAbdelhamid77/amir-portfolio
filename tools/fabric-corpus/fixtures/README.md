@@ -27,6 +27,11 @@ for this directory; nothing here is copied from `fabric-docs-light`.
 | `docs/sanitizer.md` | URL scheme allowlist: `javascript:` / `vbscript:` / `data:text/html` neutralized, entity-obfuscated scheme neutralized, `data:image/png` allowed |
 | `docs/zone-tab.md` | `::: zone pivot` with nested `::: tab` constructs represented structurally |
 | `docs/front-matter-unknown-keys.md` | unknown YAML keys preserved; `#customer intent` line preserved verbatim in `frontMatter.comments` |
+| `docs/inline-code-span-fence.md` | W3-A Rule A: a backtick fence whose info string contains a backtick is paragraph content (inline code span), per CommonMark 0.30 §4.5; real fences still open/close |
+| `docs/orphan-construct-end.md` | W3-A Rule C: an orphan `::: zone-end` becomes a literal-text paragraph carrying the marker (`orphanConstructEnd` on the node), accounted in the receipt, never quarantined |
+| `docs/zone-self-closing-images.md` | W3-A Rule B: self-closing `:::image …:::` lines do not open depth in construct-end scans — the surrounding `::: zone` closes at its own `::: zone-end` |
+| `docs/include-tilde-root.md` | W3-A Rule D: `~/includes/root-fragment.md` resolves against the docset root (`fixture-corpus/includes/`, mirroring `docs/includes/`) |
+| `docs/include-tilde-repo.md` | W3-A Rule D: `~/../<repo>/…` (sibling repo, not pinned) stays quarantined `include-tilde-path` with a structured `dependencyHolds` row |
 
 ## Documented policy choices (recorded by the sanitizer)
 

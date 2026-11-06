@@ -28,6 +28,7 @@ import { createHash } from "node:crypto";
 import { existsSync, mkdirSync, readFileSync, rmSync, writeFileSync } from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
+import { normalizeSearchText } from "../../../lib/search/query.ts";
 
 const here = path.dirname(fileURLToPath(import.meta.url));
 const REPO_ROOT = path.resolve(here, "..", "..", "..");
@@ -98,22 +99,6 @@ function decodeEntities(value) {
 
 function normalizeWhitespace(value) {
   return value.replace(/[\t\n\r\f\v ]+/g, " ").trim();
-}
-
-/**
- * Normalisation mirroring lib/search/query.ts `normalizeSearchText` (the
- * client tokenises shard text with that function; this is used only for
- * routing keys, where an exact token match with the client is required).
- * Lowercase, NFKD, marks stripped, non letter/number → single space.
- */
-function normalizeTokenKey(value) {
-  return value
-    .replace(/([a-z])([A-Z])/g, "$1 $2")
-    .normalize("NFKD")
-    .replace(/\p{M}/gu, "")
-    .toLowerCase()
-    .replace(/[^\p{L}\p{N}]+/gu, " ")
-    .trim();
 }
 
 /** Flatten inline nodes (text/inlineCode/emphasis/link/softbreak/image/include). */
@@ -303,7 +288,7 @@ function buildShards(options) {
   const allFamilies = registry.families.map((family) => family.family).sort();
   const selected = args.families === "all"
     ? allFamilies
-    : args.families.filter((family) => {
+    : [...new Set(args.families)].filter((family) => {
         if (!allFamilies.includes(family)) {
           throw new Error(`build-shards: unknown family "${family}" (registry has: ${allFamilies.join(", ")})`);
         }
@@ -320,10 +305,15 @@ function buildShards(options) {
 
   // Articles in deterministic order: family (alphabetical), then slug.
   const articles = [];
+  const articleIds = new Set();
   for (const familyEntry of registry.families) {
     if (!selected.includes(familyEntry.family)) continue;
     const sorted = [...familyEntry.articles].sort((a, b) => (a.slug < b.slug ? -1 : a.slug > b.slug ? 1 : 0));
     for (const article of sorted) {
+      if (article.published !== true || articleIds.has(article.articleId)) {
+        throw new Error(`build-shards: invalid or duplicate published article ${article.articleId}`);
+      }
+      articleIds.add(article.articleId);
       articles.push(article);
     }
   }
@@ -339,6 +329,9 @@ function buildShards(options) {
       throw new Error(`build-shards: compiled node missing for published article ${article.articleId} (${article.nodeFile})`);
     }
     const node = JSON.parse(readFileSync(nodeFile, "utf8"));
+    if (node.source?.sha256 !== article.sha256 || node.quarantine?.blocked !== false) {
+      throw new Error(`build-shards: compiled node is stale or quarantined for published article ${article.articleId}`);
+    }
     const sections = articleSections(node, article, ctx);
     // Doc-level terms: the alias signal (title, description, slug words and
     // every heading). Markup-free; the client tokenises with the shared
@@ -404,9 +397,10 @@ function buildShards(options) {
     for (const article of group) {
       const text = [
         article.title,
+        article.terms,
         ...article.sections.map((section) => `${section.heading} ${section.text}`),
       ].join(" ");
-      const key = normalizeTokenKey(text);
+      const key = normalizeSearchText(text);
       for (const token of key.split(" ")) {
         if (token) tokens.add(token);
       }
@@ -422,7 +416,7 @@ function buildShards(options) {
   }
   const wildcardLimit = Math.floor(shardTokenSets.length * WILDCARD_THRESHOLD);
   const wildcardTokens = [];
-  const routingTokens = {};
+  const routingTokens = Object.create(null);
   for (const [token, list] of sortedEntries(postings)) {
     if (list.length >= Math.max(2, wildcardLimit)) {
       wildcardTokens.push(token);
@@ -441,13 +435,14 @@ function buildShards(options) {
     }),
   ).slice(0, 8);
 
-  // Content-derived version: corpus + registry revisions and the exact shard
-  // set. No clock, no environment, no ordering ambiguity (shard ids sorted).
+  // Include routing and shard order in the immutable version identity:
+  // routing postings are ordinal indexes into the ordered shard list.
   const versionSource = JSON.stringify({
     corpusRevision: registry.corpusRevision,
     registryRevision: registry.registryRevision,
     families: selected.sort(),
-    shardIds: [...shardIds].sort(),
+    shardIds,
+    routingHash,
   });
   const version = `v${sha256Hex(versionSource).slice(0, 16)}`;
 
@@ -500,6 +495,7 @@ function buildShards(options) {
   const manifest = {
     schema: MANIFEST_SCHEMA,
     version,
+    versionBasis: "ordered-shards-routing",
     corpusRevision: registry.corpusRevision,
     registryRevision: registry.registryRevision,
     shardCount: shardIds.length,

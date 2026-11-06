@@ -51,8 +51,27 @@ const ROUTING = {
   version: V1,
   wildcardThreshold: 0.7,
   wildcardTokens: ["the"],
-  tokens: { mirror: [0, 1], lakehouse: [0] },
+  tokens: { mirror: [0, 1], lakehouse: [0], warehouse: [1] },
 };
+
+test("AND routing intersects postings and ignores inherited dictionary properties", async () => {
+  const client = new FabricSearch({
+    fetchImpl: async (url) => Response.json(String(url).endsWith("manifest.json") ? manifestFor(FILES) : ROUTING),
+  });
+  await client.ensureLoaded(new AbortController().signal);
+  assert.deepEqual([...client.routeQuery(["mirror", "lakehouse", "the"])], [0]);
+  assert.deepEqual([...client.routeQuery(["lakehouse", "warehouse"])], []);
+  assert.deepEqual([...client.routeQuery(["constructor"])], []);
+});
+
+test("a missing routing file makes an existing corpus visibly unavailable", async () => {
+  const client = new FabricSearch({
+    fetchImpl: async (url) => String(url).endsWith("manifest.json")
+      ? Response.json(manifestFor(FILES))
+      : new Response(null, { status: 404 }),
+  });
+  assert.equal((await client.search("mirror", new AbortController().signal)).status, "unavailable");
+});
 
 function stubFetch(mapping, state) {
   return async (url, init) => {

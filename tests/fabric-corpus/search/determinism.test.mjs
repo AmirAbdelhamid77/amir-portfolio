@@ -16,7 +16,7 @@ import { test } from "node:test";
 import {
   loadPublicManifest,
   publicVersionDir,
-  REPO_ROOT,
+  PUBLIC_SEARCH_DIR,
   REGISTRY_PATH,
   tempBuildOut,
 } from "./helpers.mjs";
@@ -97,7 +97,7 @@ test("deployed public tree matches the manifest checksums", { skip: !manifest &&
   // The public pointer manifest equals the versioned manifest (manifest.json
   // ships once at public/fabric-search/, the version dir carries only the
   // content-hashed files listed in it).
-  const pointer = readFileSync(path.join(REPO_ROOT, "public", "fabric-search", "manifest.json"), "utf8");
+  const pointer = readFileSync(path.join(PUBLIC_SEARCH_DIR, "manifest.json"), "utf8");
   const parsed = JSON.parse(pointer);
   assert.equal(parsed.version, manifest.version);
   assert.equal(parsed.shardCount, manifest.files.filter((file) => file.role === "shard").length);
@@ -112,10 +112,17 @@ test("manifest version is content-derived (revisions + shard set), no clock", { 
   const shardIds = manifest.files
     .filter((file) => file.role === "shard")
     .map((file) => /shard-[0-9a-f]{8}\.json/.exec(file.name)[0].replace(/\.json$/, ""));
-  const versionSource = JSON.stringify({
+  const versionInput = {
     corpusRevision: registry.corpusRevision,
     registryRevision: registry.registryRevision,
     families: manifest.families.slice().sort(),
+    shardIds,
+    routingHash: manifest.files.find((file) => file.role === "routing").name.slice(8, 16),
+  };
+  const versionSource = JSON.stringify(manifest.versionBasis === "ordered-shards-routing" ? versionInput : {
+    corpusRevision: versionInput.corpusRevision,
+    registryRevision: versionInput.registryRevision,
+    families: versionInput.families,
     shardIds: shardIds.slice().sort(),
   });
   const expected = `v${createHash("sha256").update(versionSource).digest("hex").slice(0, 16)}`;
