@@ -32,13 +32,21 @@
  *      `declaredConceptIds`; Wave 2 ships zero concepts, so Wave 2 records
  *      carry empty concept sets.
  *
- * The module imports only `node:fs` (for the build-time loaders). Every
- * exported function is pure and injectable: registries, compiled node
- * indexes and file paths are parameters, so tests never touch the real
- * 2,705-row registry unless explicitly loading it.
+ * The module imports only `node:fs` (for the build-time loaders) plus the
+ * W3-B approval gate from lib/atlas/fabric-approvals.ts (which itself has no
+ * runtime dependency on this module). Every exported function is pure and
+ * injectable: registries, compiled node indexes and file paths are
+ * parameters, so tests never touch the real 2,705-row registry unless
+ * explicitly loading it.
  */
 
 import { readFileSync } from "node:fs";
+
+// W3-B approval gate (single reviewed integration edit): the persistent
+// approvals sidecar is the only sanctioned source of "approved" rows. See
+// lib/atlas/fabric-approvals.ts — type-only back-reference there keeps this
+// a one-directional runtime dependency (no import cycle).
+import { enforceFabricApprovalGate } from "./fabric-approvals.ts";
 
 // ---------------------------------------------------------------------------
 // Registry shapes (read-only projections of the compiler route registry)
@@ -713,6 +721,15 @@ export type GetFabricExtensionOptions = {
   extensionPath?: string;
   registryPath?: string;
   compiledNodeIndex?: FabricCompiledNodeIndex;
+  /**
+   * W3-B approvals sidecar location (default
+   * <cwd>/content/atlas/fabric-approvals.json). The approval gate only
+   * REQUIRES the sidecar when the dataset carries approved rows; a missing
+   * sidecar file with zero approved rows loads exactly as before W3-B.
+   */
+  approvalsPath?: string;
+  /** Injected, already-parsed approvals sidecar (takes precedence over the path). */
+  approvalsSidecar?: unknown;
 };
 
 export type LoadedFabricExtension = {
@@ -766,6 +783,18 @@ export function getFabricExtension(opts: GetFabricExtensionOptions = {}): Loaded
 
   const typedRegistry = registry as FabricRouteRegistry;
   const registryIndex = indexFabricRegistry(typedRegistry);
+
+  // W3-B approval gate (fail closed): the committed approvals sidecar is the
+  // only sanctioned source of "approved" rows. Approved rows without an
+  // identical backing sidecar record, approved rows backed by a STALE
+  // sidecar record, and current-revision sidecar approvals not reflected in
+  // the dataset (the silent-unpublish rebuild regression) all throw here.
+  // See lib/atlas/fabric-approvals.ts for the rule set.
+  enforceFabricApprovalGate(extension, typedRegistry, {
+    approvalsPath: opts.approvalsPath ?? joinPaths(process.cwd(), "content", "atlas", "fabric-approvals.json"),
+    approvalsSidecar: opts.approvalsSidecar,
+  });
+
   return {
     extension: extension as FabricExtensionDataset,
     registry: typedRegistry,
