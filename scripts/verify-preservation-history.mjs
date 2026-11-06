@@ -16,6 +16,7 @@ import { R11_INTEGRATION } from "./r11-question-receipt.mjs";
 import { CANONICAL_HOME, canonicalHomeReceipt } from "./canonical-home-receipt.mjs";
 import { CINEMATIC_PHASE2 } from "./cinematic-phase2-receipt.mjs";
 import { FINAL_REVIEW, FINAL_HISTORY } from "./final-review-receipt.mjs";
+import { KNOWLEDGE_STAGE, knowledgeStageReceipt } from "./knowledge-stage-receipt.mjs";
 const root = resolve(dirname(fileURLToPath(import.meta.url)), "..");
 const history = loadPreservationHistory(root);
 loadRepairReceipt(root);
@@ -78,6 +79,10 @@ try {
 // The newest layer retires two superseded landing modules; a retired path has no
 // bytes to copy into the disposable view.
 const retired = new Set(canonicalHomeReceipt(root).removedPaths());
+// Receipts also record artifacts that can never be stable pins (build caches and
+// generated files); an absent path is acceptable only when a receipt states why,
+// either by retiring it or by excluding it with a recorded reason.
+const stageReceipt = knowledgeStageReceipt(root);
 // Include the additive prototype successor in disposable rejection-test views.
 try {
   const prototype = JSON.parse(readFileSync(resolve(root,PROTOTYPE_C),"utf8"));
@@ -103,7 +108,26 @@ try {
   required.add(R11_INTEGRATION);r11.baselines.forEach(b=>required.add(b.path));
   r11.files.forEach(entry=>{required.add(entry.path);if(entry.beforeSha256!==null)required.add(entry.rollbackPath);});
 } catch(error){if(error.code!=="ENOENT")throw error;}
-for (const path of required) { const to = resolve(scratch, path); mkdirSync(dirname(to), { recursive: true }); copyFileSync(resolve(root, path), to); }
+if (existsSync(resolve(root, KNOWLEDGE_STAGE))) {
+  const stage = JSON.parse(readFileSync(resolve(root, KNOWLEDGE_STAGE), "utf8"));
+  const stagePaths = [
+    KNOWLEDGE_STAGE, stage.previous,
+    ...stage.predecessors.map(entry => entry.path),
+    ...stage.additions.map(entry => entry.path),
+    ...knowledgeStageReceipt(root).paths(),
+  ].filter(path => typeof path === "string" && path.length > 0 && existsSync(resolve(root, path)));
+  for (const path of stagePaths) required.add(path);
+}
+// Copy every path that still has bytes in this checkout. A path an older layer
+// pinned but a newer layer retired has nothing to copy; it must be recorded as
+// retired, otherwise the missing evidence fails here instead of vanishing.
+for (const path of required) {
+  if (existsSync(resolve(root, path))) {
+    const to = resolve(scratch, path); mkdirSync(dirname(to), { recursive: true }); copyFileSync(resolve(root, path), to);
+    continue;
+  }
+  assert.ok(retired.has(path) || stageReceipt.skip(path), `Pinned artifact is absent and no receipt records it as retired or excluded: ${path}`);
+}
 const readJSON = path => JSON.parse(readFileSync(resolve(scratch, path), "utf8"));
 const writeJSON = (path, value) => writeFileSync(resolve(scratch, path), JSON.stringify(value, null, 2));
 const digest = path => createHash("sha256").update(readFileSync(resolve(scratch, path))).digest("hex");
