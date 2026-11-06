@@ -1,7 +1,7 @@
 {
   "schema": "hansa.fabric-bindings-primary/1",
   "corpusRevision": "774592ea3f2d4558f763d6e5b74abf4785948fb5",
-  "registryRevision": "27c39e133e9e6d0174141733a62209ff097940f5919f4395b720761a814b27a0",
+  "registryRevision": "0c9dd4f84395947525c368b8c6c907417324fe5a8dd2c0aad39334b7a139f894",
   "routeNamespace": "/learn/fabric/docs/",
   "identityContract": "docs/fabric-corpus/contracts/IDENTITY_REGISTRY.md#LearningBinding",
   "familyTopicMap": [
@@ -171,53 +171,46 @@
     }
   ],
   "counts": {
-    "primary": 2705,
-    "publishedArticles": 2705,
+    "primary": 2716,
+    "publishedArticles": 2716,
     "byTopic": {
-      "delivery": 167,
+      "delivery": 171,
       "foundations": 247,
-      "ingestion": 523,
+      "ingestion": 527,
       "model": 321,
       "overview": 1,
       "query": 302,
       "security": 201,
-      "streaming": 492,
-      "transform": 451
+      "streaming": 494,
+      "transform": 452
     },
     "byConfidence": {
       "front-matter-refined": 17,
-      "seeded": 2688
+      "seeded": 2699
     },
     "byRefinementRule": {
       "FM-PBI-TRANSFORM-MODEL": 2,
       "FM-SEMANTIC-MODEL": 15
     },
-    "heldTotal": 92,
+    "heldTotal": 81,
     "heldByTopic": {
-      "delivery": 6,
+      "delivery": 2,
       "foundations": 2,
-      "ingestion": 68,
+      "ingestion": 64,
       "query": 1,
-      "streaming": 14,
-      "transform": 1
+      "streaming": 12
     }
   },
   "held": {
-    "total": 92,
+    "total": 81,
     "byTopic": {
-      "delivery": 6,
+      "delivery": 2,
       "foundations": 2,
-      "ingestion": 68,
+      "ingestion": 64,
       "query": 1,
-      "streaming": 14,
-      "transform": 1
+      "streaming": 12
     },
     "articleIds": [
-      "art:cicd/deployment-plan/deployment-plan-actions",
-      "art:cicd/deployment-plan/deployment-plan-attach",
-      "art:cicd/deployment-plan/deployment-plan-automation",
-      "art:cicd/deployment-plan/deployment-plan-overview",
-      "art:data-engineering/author-execute-notebook",
       "art:data-factory/connector-access-database",
       "art:data-factory/connector-adobe-analytics",
       "art:data-factory/connector-amazon-athena",
@@ -278,11 +271,8 @@
       "art:data-factory/connector-teradata-database",
       "art:data-factory/connector-web",
       "art:data-factory/create-copy-job",
-      "art:data-factory/create-first-dataflow-gen2",
-      "art:data-factory/expression-language",
       "art:data-factory/get-data-dataflow-gen2",
       "art:data-factory/modern-get-data-experience-pipeline",
-      "art:data-factory/pipeline-runs",
       "art:data-factory/secure-data-factory-in-microsoft-fabric",
       "art:database/cosmos-db/security",
       "art:enterprise/licenses",
@@ -290,10 +280,7 @@
       "art:extensibility-toolkit/publishing-requirements-item",
       "art:extensibility-toolkit/publishing-requirements-workload",
       "art:mirroring/get-started-with-mirroring",
-      "art:mirroring/mirrored-database-rest-api",
       "art:real-time-intelligence/dashboard-visuals",
-      "art:real-time-intelligence/event-streams/add-source-azure-sql-database-change-data-capture",
-      "art:real-time-intelligence/event-streams/add-source-custom-app",
       "art:real-time-intelligence/get-data-cribl-stream",
       "art:real-time-intelligence/get-data-flink",
       "art:real-time-intelligence/get-data-fluent",
@@ -2325,6 +2312,70 @@
       "logicalPath": "/learn/fabric/docs/cicd/deployment-pipelines/understand-the-deployment-process/"
     },
     {
+      "bindingId": "lb:art:cicd/deployment-plan/deployment-plan-actions@fabric.delivery",
+      "role": "primary",
+      "articleId": "art:cicd/deployment-plan/deployment-plan-actions",
+      "subject": "fabric",
+      "topic": "delivery",
+      "confidence": "seeded",
+      "ruleId": "F-CICD",
+      "kind": "concept",
+      "family": "cicd",
+      "slug": "deployment-plan-actions",
+      "title": "Deployment plan actions in Microsoft Fabric",
+      "description": "Learn which item types a deployment plan can run as an action, how actions are ordered around an item's deployment, and how to pass parameters to them.",
+      "sourcePath": "docs/cicd/deployment-plan/deployment-plan-actions.md",
+      "logicalPath": "/learn/fabric/docs/cicd/deployment-plan/deployment-plan-actions/"
+    },
+    {
+      "bindingId": "lb:art:cicd/deployment-plan/deployment-plan-attach@fabric.delivery",
+      "role": "primary",
+      "articleId": "art:cicd/deployment-plan/deployment-plan-attach",
+      "subject": "fabric",
+      "topic": "delivery",
+      "confidence": "seeded",
+      "ruleId": "F-CICD",
+      "kind": "concept",
+      "family": "cicd",
+      "slug": "deployment-plan-attach",
+      "title": "Attach a deployment plan in Microsoft Fabric",
+      "description": "Learn where you can attach a deployment plan, which plan applies to an operation, and how to attach one with the REST APIs.",
+      "sourcePath": "docs/cicd/deployment-plan/deployment-plan-attach.md",
+      "logicalPath": "/learn/fabric/docs/cicd/deployment-plan/deployment-plan-attach/"
+    },
+    {
+      "bindingId": "lb:art:cicd/deployment-plan/deployment-plan-automation@fabric.delivery",
+      "role": "primary",
+      "articleId": "art:cicd/deployment-plan/deployment-plan-automation",
+      "subject": "fabric",
+      "topic": "delivery",
+      "confidence": "seeded",
+      "ruleId": "F-CICD",
+      "kind": "how-to",
+      "family": "cicd",
+      "slug": "deployment-plan-automation",
+      "title": "Automate deployments with a deployment plan",
+      "description": "Learn how to add a Microsoft Fabric deployment plan to an automated Git update, deployment pipeline deployment, or bulk import operation.",
+      "sourcePath": "docs/cicd/deployment-plan/deployment-plan-automation.md",
+      "logicalPath": "/learn/fabric/docs/cicd/deployment-plan/deployment-plan-automation/"
+    },
+    {
+      "bindingId": "lb:art:cicd/deployment-plan/deployment-plan-overview@fabric.delivery",
+      "role": "primary",
+      "articleId": "art:cicd/deployment-plan/deployment-plan-overview",
+      "subject": "fabric",
+      "topic": "delivery",
+      "confidence": "seeded",
+      "ruleId": "F-CICD",
+      "kind": "concept",
+      "family": "cicd",
+      "slug": "deployment-plan-overview",
+      "title": "What is a deployment plan in Microsoft Fabric?",
+      "description": "Learn what a Microsoft Fabric deployment plan is, what it controls during a deployment operation, and where you can attach one.",
+      "sourcePath": "docs/cicd/deployment-plan/deployment-plan-overview.md",
+      "logicalPath": "/learn/fabric/docs/cicd/deployment-plan/deployment-plan-overview/"
+    },
+    {
       "bindingId": "lb:art:cicd/deployment-plan/deployment-plan-permissions@fabric.delivery",
       "role": "primary",
       "articleId": "art:cicd/deployment-plan/deployment-plan-permissions",
@@ -3235,6 +3286,22 @@
       "description": "Learn about the Microsoft Fabric Livy API for submitting jobs to Spark",
       "sourcePath": "docs/data-engineering/api-livy-overview.md",
       "logicalPath": "/learn/fabric/docs/data-engineering/api-livy-overview/"
+    },
+    {
+      "bindingId": "lb:art:data-engineering/author-execute-notebook@fabric.transform",
+      "role": "primary",
+      "articleId": "art:data-engineering/author-execute-notebook",
+      "subject": "fabric",
+      "topic": "transform",
+      "confidence": "seeded",
+      "ruleId": "F-DATA-ENGINEERING",
+      "kind": "how-to",
+      "family": "data-engineering",
+      "slug": "author-execute-notebook",
+      "title": "Develop, execute, and manage notebooks",
+      "description": "Learn how to author, execute, and manage Microsoft Fabric notebook jobs with rich built-in features.",
+      "sourcePath": "docs/data-engineering/author-execute-notebook.md",
+      "logicalPath": "/learn/fabric/docs/data-engineering/author-execute-notebook/"
     },
     {
       "bindingId": "lb:art:data-engineering/author-notebook-resource-with-vs-code@fabric.transform",
@@ -11621,6 +11688,22 @@
       "logicalPath": "/learn/fabric/docs/data-factory/create-apache-airflow-jobs/"
     },
     {
+      "bindingId": "lb:art:data-factory/create-first-dataflow-gen2@fabric.ingestion",
+      "role": "primary",
+      "articleId": "art:data-factory/create-first-dataflow-gen2",
+      "subject": "fabric",
+      "topic": "ingestion",
+      "confidence": "seeded",
+      "ruleId": "F-DATA-FACTORY",
+      "kind": "tutorial",
+      "family": "data-factory",
+      "slug": "create-first-dataflow-gen2",
+      "title": "Create your first Microsoft Fabric dataflow",
+      "description": "Steps for creating dataflows and transforming data.",
+      "sourcePath": "docs/data-factory/create-first-dataflow-gen2.md",
+      "logicalPath": "/learn/fabric/docs/data-factory/create-first-dataflow-gen2/"
+    },
+    {
       "bindingId": "lb:art:data-factory/create-first-pipeline-with-sample-data@fabric.ingestion",
       "role": "primary",
       "articleId": "art:data-factory/create-first-pipeline-with-sample-data",
@@ -12613,6 +12696,22 @@
       "logicalPath": "/learn/fabric/docs/data-factory/delete-data-activity/"
     },
     {
+      "bindingId": "lb:art:data-factory/expression-language@fabric.ingestion",
+      "role": "primary",
+      "articleId": "art:data-factory/expression-language",
+      "subject": "fabric",
+      "topic": "ingestion",
+      "confidence": "seeded",
+      "ruleId": "F-DATA-FACTORY",
+      "kind": "reference",
+      "family": "data-factory",
+      "slug": "expression-language",
+      "title": "Expressions and functions",
+      "description": "This article provides information about expressions and functions that you can use in creating pipeline entities for Data Factory in Microsoft Fabric.",
+      "sourcePath": "docs/data-factory/expression-language.md",
+      "logicalPath": "/learn/fabric/docs/data-factory/expression-language/"
+    },
+    {
       "bindingId": "lb:art:data-factory/fabric-actions-activity@fabric.ingestion",
       "role": "primary",
       "articleId": "art:data-factory/fabric-actions-activity",
@@ -13427,6 +13526,22 @@
       "description": "Learn how to use run conditions to start Fabric pipelines based on upstream pipeline runs, data availability, or window coverage.",
       "sourcePath": "docs/data-factory/pipeline-run-conditions.md",
       "logicalPath": "/learn/fabric/docs/data-factory/pipeline-run-conditions/"
+    },
+    {
+      "bindingId": "lb:art:data-factory/pipeline-runs@fabric.ingestion",
+      "role": "primary",
+      "articleId": "art:data-factory/pipeline-runs",
+      "subject": "fabric",
+      "topic": "ingestion",
+      "confidence": "seeded",
+      "ruleId": "F-DATA-FACTORY",
+      "kind": "how-to",
+      "family": "data-factory",
+      "slug": "pipeline-runs",
+      "title": "Run, schedule, or use events to trigger a pipeline",
+      "description": "Explanation of what a pipeline run is, including on-demand and scheduled runs.",
+      "sourcePath": "docs/data-factory/pipeline-runs.md",
+      "logicalPath": "/learn/fabric/docs/data-factory/pipeline-runs/"
     },
     {
       "bindingId": "lb:art:data-factory/pipeline-troubleshoot-guide@fabric.ingestion",
@@ -32373,6 +32488,22 @@
       "logicalPath": "/learn/fabric/docs/mirroring/mirrored-database-cicd/"
     },
     {
+      "bindingId": "lb:art:mirroring/mirrored-database-rest-api@fabric.ingestion",
+      "role": "primary",
+      "articleId": "art:mirroring/mirrored-database-rest-api",
+      "subject": "fabric",
+      "topic": "ingestion",
+      "confidence": "seeded",
+      "ruleId": "F-MIRRORING",
+      "kind": "reference",
+      "family": "mirroring",
+      "slug": "mirrored-database-rest-api",
+      "title": "Fabric Mirroring Public REST API",
+      "description": "This article describes the available REST APIs for Fabric mirroring.",
+      "sourcePath": "docs/mirroring/mirrored-database-rest-api.md",
+      "logicalPath": "/learn/fabric/docs/mirroring/mirrored-database-rest-api/"
+    },
+    {
       "bindingId": "lb:art:mirroring/monitor@fabric.ingestion",
       "role": "primary",
       "articleId": "art:mirroring/monitor",
@@ -38261,6 +38392,22 @@
       "logicalPath": "/learn/fabric/docs/real-time-intelligence/event-streams/add-source-azure-service-bus/"
     },
     {
+      "bindingId": "lb:art:real-time-intelligence/event-streams/add-source-azure-sql-database-change-data-capture@fabric.streaming",
+      "role": "primary",
+      "articleId": "art:real-time-intelligence/event-streams/add-source-azure-sql-database-change-data-capture",
+      "subject": "fabric",
+      "topic": "streaming",
+      "confidence": "seeded",
+      "ruleId": "F-REAL-TIME-INTELLIGENCE",
+      "kind": "how-to",
+      "family": "real-time-intelligence",
+      "slug": "add-source-azure-sql-database-change-data-capture",
+      "title": "Azure SQL Database CDC Source in Fabric Eventstream",
+      "description": "Add an Azure SQL Database CDC source to your eventstream with this step-by-step guide. Configure your connection, publish, and visualize live data. Try it today.",
+      "sourcePath": "docs/real-time-intelligence/event-streams/add-source-azure-sql-database-change-data-capture.md",
+      "logicalPath": "/learn/fabric/docs/real-time-intelligence/event-streams/add-source-azure-sql-database-change-data-capture/"
+    },
+    {
       "bindingId": "lb:art:real-time-intelligence/event-streams/add-source-azure-sql-managed-instance-change-data-capture@fabric.streaming",
       "role": "primary",
       "articleId": "art:real-time-intelligence/event-streams/add-source-azure-sql-managed-instance-change-data-capture",
@@ -38307,6 +38454,22 @@
       "description": "Learn how to add a Cribl source to an eventstream.",
       "sourcePath": "docs/real-time-intelligence/event-streams/add-source-cribl.md",
       "logicalPath": "/learn/fabric/docs/real-time-intelligence/event-streams/add-source-cribl/"
+    },
+    {
+      "bindingId": "lb:art:real-time-intelligence/event-streams/add-source-custom-app@fabric.streaming",
+      "role": "primary",
+      "articleId": "art:real-time-intelligence/event-streams/add-source-custom-app",
+      "subject": "fabric",
+      "topic": "streaming",
+      "confidence": "seeded",
+      "ruleId": "F-REAL-TIME-INTELLIGENCE",
+      "kind": "how-to",
+      "family": "real-time-intelligence",
+      "slug": "add-source-custom-app",
+      "title": "Add a custom endpoint or custom app source to an eventstream",
+      "description": "Learn how to add a custom endpoint or custom app source to an eventstream for sending real-time events with multiple protocols, like the Apache Kafka protocol.",
+      "sourcePath": "docs/real-time-intelligence/event-streams/add-source-custom-app.md",
+      "logicalPath": "/learn/fabric/docs/real-time-intelligence/event-streams/add-source-custom-app/"
     },
     {
       "bindingId": "lb:art:real-time-intelligence/event-streams/add-source-fabric-capacity-operation-events@fabric.streaming",

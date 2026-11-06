@@ -1,7 +1,7 @@
 {
   "schema": "hansa.fabric-reading-collections/1",
   "corpusRevision": "774592ea3f2d4558f763d6e5b74abf4785948fb5",
-  "registryRevision": "27c39e133e9e6d0174141733a62209ff097940f5919f4395b720761a814b27a0",
+  "registryRevision": "0c9dd4f84395947525c368b8c6c907417324fe5a8dd2c0aad39334b7a139f894",
   "groupingRule": "Collections partition each topic's bound articles by docs subdirectory × document class (procedures/reference split from concepts per ms.topic); deterministic, no curation.",
   "counts": {
     "collections": 160,
@@ -21,7 +21,7 @@
       "procedures": 72,
       "reference": 28
     },
-    "heldTotal": 92
+    "heldTotal": 81
   },
   "collections": [
     {
@@ -179,20 +179,23 @@
       "id": "col:delivery:cicd-deployment-plan:concepts",
       "topic": "delivery",
       "title": "Cicd / Deployment Plan — Concepts & guides",
-      "description": "Deterministic reading collection: 2 published articles from docs/cicd/deployment-plan (cicd family), grouped as concepts & guides. Kinds: 1 concepts, 1 tutorials.",
+      "description": "Deterministic reading collection: 5 published articles from docs/cicd/deployment-plan (cicd family), grouped as concepts & guides. Kinds: 4 concepts, 1 tutorials.",
       "directory": "cicd/deployment-plan",
       "class": "concepts",
       "families": [
         "cicd"
       ],
       "articleIds": [
+        "art:cicd/deployment-plan/deployment-plan-actions",
+        "art:cicd/deployment-plan/deployment-plan-attach",
+        "art:cicd/deployment-plan/deployment-plan-overview",
         "art:cicd/deployment-plan/deployment-plan-permissions",
         "art:cicd/deployment-plan/deployment-plan-sample-plans"
       ],
       "counts": {
-        "articles": 2,
+        "articles": 5,
         "byKind": {
-          "concept": 1,
+          "concept": 4,
           "how-to": 0,
           "reference": 0,
           "tutorial": 1
@@ -203,21 +206,22 @@
       "id": "col:delivery:cicd-deployment-plan:procedures",
       "topic": "delivery",
       "title": "Cicd / Deployment Plan — Procedures",
-      "description": "Deterministic reading collection: 2 published articles from docs/cicd/deployment-plan (cicd family), grouped as procedures. Kinds: 2 how-to.",
+      "description": "Deterministic reading collection: 3 published articles from docs/cicd/deployment-plan (cicd family), grouped as procedures. Kinds: 3 how-to.",
       "directory": "cicd/deployment-plan",
       "class": "procedures",
       "families": [
         "cicd"
       ],
       "articleIds": [
+        "art:cicd/deployment-plan/deployment-plan-automation",
         "art:cicd/deployment-plan/deployment-plan-troubleshoot",
         "art:cicd/deployment-plan/how-to-create-deployment-plan"
       ],
       "counts": {
-        "articles": 2,
+        "articles": 3,
         "byKind": {
           "concept": 0,
-          "how-to": 2,
+          "how-to": 3,
           "reference": 0,
           "tutorial": 0
         }
@@ -1278,7 +1282,7 @@
       "id": "col:ingestion:data-factory:concepts",
       "topic": "ingestion",
       "title": "Data Factory — Concepts & guides",
-      "description": "Deterministic reading collection: 115 published articles from docs/data-factory (data-factory family), grouped as concepts & guides. Kinds: 71 concepts, 44 tutorials.",
+      "description": "Deterministic reading collection: 116 published articles from docs/data-factory (data-factory family), grouped as concepts & guides. Kinds: 71 concepts, 45 tutorials.",
       "directory": "data-factory",
       "class": "concepts",
       "families": [
@@ -1313,6 +1317,7 @@
         "art:data-factory/copy-performance-sql-databases",
         "art:data-factory/create-alerts-for-pipeline-runs",
         "art:data-factory/create-apache-airflow-jobs",
+        "art:data-factory/create-first-dataflow-gen2",
         "art:data-factory/create-first-pipeline-with-sample-data",
         "art:data-factory/data-factory-overview",
         "art:data-factory/data-in-staging-items",
@@ -1402,12 +1407,12 @@
         "art:data-factory/workspace-identity"
       ],
       "counts": {
-        "articles": 115,
+        "articles": 116,
         "byKind": {
           "concept": 71,
           "how-to": 0,
           "reference": 0,
-          "tutorial": 44
+          "tutorial": 45
         }
       }
     },
@@ -1415,7 +1420,7 @@
       "id": "col:ingestion:data-factory:procedures",
       "topic": "ingestion",
       "title": "Data Factory — Procedures",
-      "description": "Deterministic reading collection: 316 published articles from docs/data-factory (data-factory family), grouped as procedures. Kinds: 316 how-to.",
+      "description": "Deterministic reading collection: 317 published articles from docs/data-factory (data-factory family), grouped as procedures. Kinds: 317 how-to.",
       "directory": "data-factory",
       "class": "procedures",
       "families": [
@@ -1713,6 +1718,7 @@
         "art:data-factory/outlook-activity",
         "art:data-factory/pipeline-canvas-experience",
         "art:data-factory/pipeline-run-conditions",
+        "art:data-factory/pipeline-runs",
         "art:data-factory/pipeline-troubleshoot-guide",
         "art:data-factory/refresh-materialized-lake-view-activity",
         "art:data-factory/refresh-sql-endpoint-activity",
@@ -1740,10 +1746,10 @@
         "art:data-factory/workspace-monitoring"
       ],
       "counts": {
-        "articles": 316,
+        "articles": 317,
         "byKind": {
           "concept": 0,
-          "how-to": 316,
+          "how-to": 317,
           "reference": 0,
           "tutorial": 0
         }
@@ -1753,7 +1759,7 @@
       "id": "col:ingestion:data-factory:reference",
       "topic": "ingestion",
       "title": "Data Factory — Reference",
-      "description": "Deterministic reading collection: 3 published articles from docs/data-factory (data-factory family), grouped as reference. Kinds: 3 reference.",
+      "description": "Deterministic reading collection: 4 published articles from docs/data-factory (data-factory family), grouped as reference. Kinds: 4 reference.",
       "directory": "data-factory",
       "class": "reference",
       "families": [
@@ -1762,14 +1768,15 @@
       "articleIds": [
         "art:data-factory/apache-airflow-jobs-supported-apache-airflow-configurations",
         "art:data-factory/decision-guide-data-integration",
+        "art:data-factory/expression-language",
         "art:data-factory/pipeline-rest-api-capabilities"
       ],
       "counts": {
-        "articles": 3,
+        "articles": 4,
         "byKind": {
           "concept": 0,
           "how-to": 0,
-          "reference": 3,
+          "reference": 4,
           "tutorial": 0
         }
       }
@@ -1953,22 +1960,23 @@
       "id": "col:ingestion:mirroring:reference",
       "topic": "ingestion",
       "title": "Mirroring — Reference",
-      "description": "Deterministic reading collection: 2 published articles from docs/mirroring (mirroring family), grouped as reference. Kinds: 2 reference.",
+      "description": "Deterministic reading collection: 3 published articles from docs/mirroring (mirroring family), grouped as reference. Kinds: 3 reference.",
       "directory": "mirroring",
       "class": "reference",
       "families": [
         "mirroring"
       ],
       "articleIds": [
+        "art:mirroring/mirrored-database-rest-api",
         "art:mirroring/monitor-logs",
         "art:mirroring/open-mirroring-landing-zone-format"
       ],
       "counts": {
-        "articles": 2,
+        "articles": 3,
         "byKind": {
           "concept": 0,
           "how-to": 0,
-          "reference": 2,
+          "reference": 3,
           "tutorial": 0
         }
       }
@@ -4846,7 +4854,7 @@
       "id": "col:streaming:real-time-intelligence-event-streams:procedures",
       "topic": "streaming",
       "title": "Real Time Intelligence / Event Streams — Procedures",
-      "description": "Deterministic reading collection: 77 published articles from docs/real-time-intelligence/event-streams (real-time-intelligence family), grouped as procedures. Kinds: 77 how-to.",
+      "description": "Deterministic reading collection: 79 published articles from docs/real-time-intelligence/event-streams (real-time-intelligence family), grouped as procedures. Kinds: 79 how-to.",
       "directory": "real-time-intelligence/event-streams",
       "class": "procedures",
       "families": [
@@ -4874,9 +4882,11 @@
         "art:real-time-intelligence/event-streams/add-source-azure-event-hubs",
         "art:real-time-intelligence/event-streams/add-source-azure-iot-hub",
         "art:real-time-intelligence/event-streams/add-source-azure-service-bus",
+        "art:real-time-intelligence/event-streams/add-source-azure-sql-database-change-data-capture",
         "art:real-time-intelligence/event-streams/add-source-azure-sql-managed-instance-change-data-capture",
         "art:real-time-intelligence/event-streams/add-source-confluent-kafka",
         "art:real-time-intelligence/event-streams/add-source-cribl",
+        "art:real-time-intelligence/event-streams/add-source-custom-app",
         "art:real-time-intelligence/event-streams/add-source-fabric-capacity-operation-events",
         "art:real-time-intelligence/event-streams/add-source-fabric-capacity-overview-events",
         "art:real-time-intelligence/event-streams/add-source-fabric-job",
@@ -4932,10 +4942,10 @@
         "art:real-time-intelligence/event-streams/variable-library-support"
       ],
       "counts": {
-        "articles": 77,
+        "articles": 79,
         "byKind": {
           "concept": 0,
-          "how-to": 77,
+          "how-to": 79,
           "reference": 0,
           "tutorial": 0
         }
@@ -5699,7 +5709,7 @@
       "id": "col:transform:data-engineering:procedures",
       "topic": "transform",
       "title": "Data Engineering — Procedures",
-      "description": "Deterministic reading collection: 126 published articles from docs/data-engineering (data-engineering family), grouped as procedures. Kinds: 126 how-to.",
+      "description": "Deterministic reading collection: 127 published articles from docs/data-engineering (data-engineering family), grouped as procedures. Kinds: 127 how-to.",
       "directory": "data-engineering",
       "class": "procedures",
       "families": [
@@ -5713,6 +5723,7 @@
         "art:data-engineering/api-graphql-local-model-context-protocol",
         "art:data-engineering/api-graphql-service-principal",
         "art:data-engineering/api-graphql-stored-procedures",
+        "art:data-engineering/author-execute-notebook",
         "art:data-engineering/author-notebook-with-vs-code",
         "art:data-engineering/author-notebook-with-vs-code-vfs-mode",
         "art:data-engineering/author-tsql-notebook",
@@ -5834,10 +5845,10 @@
         "art:data-engineering/workspace-admin-settings"
       ],
       "counts": {
-        "articles": 126,
+        "articles": 127,
         "byKind": {
           "concept": 0,
-          "how-to": 126,
+          "how-to": 127,
           "reference": 0,
           "tutorial": 0
         }
