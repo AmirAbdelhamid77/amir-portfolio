@@ -14,11 +14,14 @@ import { Reveal } from "@/components/cinematic/reveal";
 import { InsightScene, type SceneState } from "./insight-scene";
 import { KnowledgeInstrument } from "./knowledge-instrument";
 import { StageAtlasPeek } from "./atlas-peek-stage";
+import { EditionNeighbourhoodLazy } from "./neighbourhood/edition-lazy";
 
 type StageKnowledgeProps = {
   model: StageModel;
   insight: Insight | null;
   atlas: Atlas;
+  /** Review-only candidate projection; null in the public build. */
+  neighbourhood?: Atlas | null;
   scene: SceneState;
   experimentId: ExperimentId | null;
   experiment: ExperimentState;
@@ -32,6 +35,7 @@ export function StageKnowledge({
   model,
   insight,
   atlas,
+  neighbourhood,
   scene,
   experimentId,
   experiment,
@@ -104,6 +108,9 @@ export function StageKnowledge({
       )}
 
       <Reveal pattern="depth" order={0} duration={0.7} className="mt-16">
+        {neighbourhood && insight ? (
+          <EditionNeighbourhoodLazy key={insight.id} atlas={neighbourhood} insight={insight} />
+        ) : (
         <div className="stage-graph">
           <div className="flex flex-wrap items-end justify-between gap-3">
             <div>
@@ -163,6 +170,7 @@ export function StageKnowledge({
             </>
           )}
         </div>
+        )}
       </Reveal>
     </div>
   );

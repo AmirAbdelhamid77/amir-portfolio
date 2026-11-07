@@ -23,24 +23,55 @@
 
 import feed from "@/content/knowledge/insights.json";
 import { eligibleInsights } from "@/lib/knowledge/insights";
-import { getAtlas } from "@/lib/atlas/server";
+import { getAtlasPublic, getAtlasReview } from "@/lib/atlas/server";
 import { buildStageModel } from "@/lib/knowledge/stage-model";
 import { InsightStage } from "./insight-stage";
 
 export function HansaKnowledgeLanding() {
   // Preview editions are an explicit caller decision here; the public feed stays
-  // fail-closed. The Atlas uses its default public projection — never the
-  // review-preview flag, which the landing must not switch on.
+  // fail-closed. The stage model always receives the explicit public Atlas
+  // projection, so an accidentally enabled Atlas preview variable cannot widen
+  // what the Home ships.
   const items = eligibleInsights(feed.items, true);
-  const atlas = getAtlas();
+  const atlas = getAtlasPublic();
   const model = buildStageModel({
     items,
     graph: atlas,
     audience: "review",
     today: new Date(),
   });
+  // R2: a separate, build-time local review switch. Only this branch asks for
+  // candidate records, and only it mounts the neighbourhood block.
+  const neighbourhood =
+    process.env.HANSA_NEIGHBOURHOOD_REVIEW === "1" ? getAtlasReview() : null;
+  // R3-R6 are the accepted design, promoted to the default build on 2026-11-06
+  // (D1, owner-approved pending final verification). The switch survives as a
+  // one-variable rollback: `HANSA_*_REVIEW=0` restores that slice's M6 branch
+  // without touching source. Only an explicit "0" disables a slice, so a build
+  // with no variables at all is the promoted default.
+  const timelineFan = process.env.HANSA_TIMELINE_REVIEW !== "0";
+  // R4: the cinematic modal dealer. With the switch off the accepted inline table
+  // is the only dealer and nothing else is mounted.
+  const dealerReview = process.env.HANSA_DEALER_REVIEW !== "0";
+  // R5: the close (one idea, one action, the coverage ledger). With the switch
+  // off the accepted M6 closing is the only closing scene.
+  const closingReview = process.env.HANSA_CLOSING_REVIEW !== "0";
+  // R6: the polish layer (measured type scale, label discipline, 44 px targets,
+  // scene rhythm). Purely presentational: with the switch off the style attribute
+  // is absent and the accepted M6 typography renders from the same stylesheet.
+  const polishReview = process.env.HANSA_POLISH_REVIEW !== "0";
 
   return (
-    <InsightStage items={items} atlas={atlas} model={model} notice={feed.notice} />
+    <InsightStage
+      items={items}
+      atlas={atlas}
+      model={model}
+      notice={feed.notice}
+      neighbourhood={neighbourhood}
+      timelineFan={timelineFan}
+      dealerReview={dealerReview}
+      closingReview={closingReview}
+      polishReview={polishReview}
+    />
   );
 }

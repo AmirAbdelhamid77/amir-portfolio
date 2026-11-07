@@ -1,0 +1,953 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Design direction recovery · prototype vs shipped</title>
+    <style>
+      :root {
+        color-scheme: dark;
+        --bg: #090c11;
+        --surface: #121822;
+        --surface-2: #19212d;
+        --ink: #f1f4f9;
+        --ink-2: #c6cedb;
+        --muted: #98a2b3;
+        --faint: #6d7789;
+        --line: rgb(255 255 255 / 0.12);
+        --line-strong: rgb(255 255 255 / 0.22);
+        --primary: #6d9bff;
+        --amber: #f0b35a;
+        --teal: #3fd0bd;
+        --serif: Georgia, "Times New Roman", serif;
+        --sans: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+        --mono: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+      }
+      * { box-sizing: border-box; }
+      body {
+        margin: 0;
+        background: var(--bg);
+        color: var(--ink);
+        font-family: var(--sans);
+        line-height: 1.55;
+      }
+      main { max-width: 1440px; margin: 0 auto; padding: 56px clamp(20px, 4vw, 56px) 96px; }
+      .kicker {
+        font-family: var(--mono);
+        font-size: 11px;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+        color: var(--muted);
+        margin: 0 0 14px;
+      }
+      h1 {
+        font-size: clamp(34px, 4.6vw, 58px);
+        line-height: 1.02;
+        letter-spacing: -0.035em;
+        margin: 0 0 18px;
+        font-weight: 600;
+      }
+      h1 em { font-family: var(--serif); font-style: italic; font-weight: 400; color: var(--ink-2); }
+      .lede { max-width: 860px; color: var(--ink-2); font-size: 17px; margin: 0 0 28px; }
+      .badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        border: 1px solid rgb(240 179 90 / 0.45);
+        background: rgb(240 179 90 / 0.08);
+        color: var(--amber);
+        border-radius: 999px;
+        padding: 5px 12px;
+        font-family: var(--mono);
+        font-size: 10px;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+      }
+      .badge::before {
+        content: "";
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+        background: currentColor;
+      }
+      nav.toc {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin: 30px 0 8px;
+        padding: 16px 0;
+        border-top: 1px solid var(--line);
+        border-bottom: 1px solid var(--line);
+      }
+      nav.toc a {
+        color: var(--ink-2);
+        text-decoration: none;
+        font-size: 13px;
+        border: 1px solid var(--line);
+        border-radius: 999px;
+        padding: 6px 12px;
+      }
+      nav.toc a:hover { border-color: var(--line-strong); color: var(--ink); }
+      section { margin-top: 72px; scroll-margin-top: 24px; }
+      .section-head { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 12px; }
+      h2 { font-size: clamp(24px, 2.4vw, 32px); letter-spacing: -0.02em; margin: 0; font-weight: 600; }
+      h2 span { font-family: var(--mono); font-size: 11px; letter-spacing: 0.14em; color: var(--faint); margin-right: 10px; vertical-align: middle; text-transform: uppercase; }
+      .verdict { font-size: 14px; color: var(--muted); max-width: 720px; }
+      .verdict strong { color: var(--ink); font-weight: 600; }
+      .pair {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 18px;
+        margin-top: 26px;
+        align-items: start;
+      }
+      .pair.stack { grid-template-columns: 1fr; }
+      figure { margin: 0; }
+      .shot {
+        display: block;
+        width: 100%;
+        border: 1px solid var(--line);
+        border-radius: 14px;
+        background: var(--surface);
+        overflow: hidden;
+      }
+      .shot img { display: block; width: 100%; height: auto; }
+      figcaption { margin-top: 10px; font-size: 13px; color: var(--muted); }
+      figcaption b {
+        display: inline-block;
+        font-family: var(--mono);
+        font-size: 10px;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: var(--primary);
+        margin-right: 8px;
+      }
+      figcaption span { color: var(--ink-2); }
+      .notes {
+        margin-top: 26px;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+        gap: 14px;
+      }
+      .note {
+        border: 1px solid var(--line);
+        border-radius: 14px;
+        background: var(--surface);
+        padding: 16px 18px;
+      }
+      .note h3 {
+        margin: 0 0 8px;
+        font-family: var(--mono);
+        font-size: 10px;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: var(--faint);
+      }
+      .note p { margin: 0; font-size: 14px; color: var(--ink-2); }
+      .note.keep { border-color: rgb(63 208 189 / 0.35); }
+      .note.keep h3 { color: var(--teal); }
+      .note.lost { border-color: rgb(240 179 90 / 0.35); }
+      .note.lost h3 { color: var(--amber); }
+      code {
+        font-family: var(--mono);
+        font-size: 12px;
+        background: var(--surface-2);
+        border: 1px solid var(--line);
+        border-radius: 5px;
+        padding: 1px 5px;
+      }
+      footer {
+        margin-top: 80px;
+        border-top: 1px solid var(--line);
+        padding-top: 22px;
+        color: var(--faint);
+        font-size: 12px;
+      }
+      footer p { margin: 0 0 6px; }
+      @media (max-width: 900px) {
+        .pair { grid-template-columns: 1fr; }
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <p class="kicker">Hansa · design direction recovery · 2026-11-04</p>
+      <h1>What we had,<br /><em>what shipped.</em></h1>
+      <p class="lede">
+        Side-by-side evidence for the correction: the original Knowledge Stage
+        prototype (left) is the design baseline; the shipped M6 Home (right) is
+        what replaced it. Sections 01-06 compare those two, captured from the same
+        machine, at the same viewports and themes, with no application change.
+        Section 07 adds the R1 review route, which restores the neighbourhood
+        behind <code>HANSA_ATLAS_REVIEW_PREVIEW=1</code> and leaves the Home alone.
+        Section 08 adds R2, which wires that neighbourhood into the Home under a
+        second flag and keeps the public stage untouched until the owner accepts it.
+        Section 09 adds R3, which restores the prototype's desktop fan behind a
+        third flag and keeps the accepted strip for the public build and for phones.
+        Section 10 adds R4, which restores the prototype's dealer as a reading room
+        behind a fourth, independent flag and leaves the accepted inline card table
+        as the public default.
+        Section 11 adds R5, which restores the closing scene - one idea, one action,
+        the kept cards and the coverage ledger - behind a fifth flag and leaves the
+        accepted M6 close untouched.
+        Section 12 adds R6, which measures the public stage's type, labels, targets
+        and rhythm, then applies one scale behind a sixth flag; two heading
+        corrections ship in the public build instead of hiding behind it.
+      </p>
+      <p class="badge">Design review artifact · not deployed · no publication change</p>
+
+      <nav class="toc" aria-label="Sections">
+        <a href="#timeline">Timeline</a>
+        <a href="#knowledge">Knowledge scene</a>
+        <a href="#dealer">Dealer</a>
+        <a href="#closing">Closing</a>
+        <a href="#mobile">Mobile</a>
+        <a href="#atlas">Atlas</a>
+        <a href="#r1">R1 built</a>
+        <a href="#r2">R2 in the Home</a>
+        <a href="#r3">R3 timeline fan</a>
+        <a href="#r4">R4 dealer</a>
+        <a href="#r5">R5 closing</a>
+        <a href="#r6">R6 polish</a>
+      </nav>
+
+      <section id="timeline">
+        <div class="section-head">
+          <h2><span>01</span>Timeline</h2>
+        </div>
+        <p class="verdict">
+          <strong>Composition and reading rhythm lost.</strong> The prototype is a
+          date you can move through: fanned edition cards, ghost numerals, cables
+          to a ruler, a selected card, a peek and steppers. The shipped strip is a
+          row of equal ticks with three coloured bars — clearer about review
+          status, but no longer a place.
+        </p>
+        <div class="pair">
+          <figure>
+            <a class="shot" href="evidence/proto-timeline-dark-1280.png"><img src="evidence/proto-timeline-dark-1280.png" alt="Prototype timeline: fanned cards on a ruler under a serif headline" loading="lazy" /></a>
+            <figcaption><b>Prototype</b><span>Card fan, per-day content, ruler, cables, selected edition, peek and steppers.</span></figcaption>
+          </figure>
+          <figure>
+            <a class="shot" href="evidence/shipped-home-dark-1280.png"><img src="evidence/shipped-home-dark-1280.png" alt="Shipped home: fifteen equal ticks with three blue bars" loading="lazy" /></a>
+            <figcaption><b>Shipped M6</b><span>Fifteen equal ticks, status bars, one selected peek card. No fan, no ruler, no per-day content.</span></figcaption>
+          </figure>
+        </div>
+        <div class="notes">
+          <div class="note lost">
+            <h3>Removed</h3>
+            <p>Fan geometry and scale falloff, ghost date numerals, four-line cables, five-tick ruler, drag with inertia, horizontal wheel, per-day titles, latest pin, prev/next steppers, status footer.</p>
+          </div>
+          <div class="note keep">
+            <h3>Keep</h3>
+            <p>One tab stop for the strip, arrow/Home/End/Enter grammar, honest quiet days, review labels, permalink and archive. These are genuine M6 improvements.</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="knowledge">
+        <div class="section-head">
+          <h2><span>02</span>Knowledge scene</h2>
+        </div>
+        <p class="verdict">
+          <strong>The neighbourhood is gone.</strong> The prototype opens one idea
+          into a labelled local graph with search, branches, preview and a text
+          fallback. The shipped scene opens the edition’s reasoning — which is
+          good — then hands the “semantic layer” to a 0-published empty state and
+          four links.
+        </p>
+        <div class="pair">
+          <figure>
+            <a class="shot" href="evidence/proto-knowledge-dark-1280.png"><img src="evidence/proto-knowledge-dark-1280.png" alt="Prototype knowledge neighbourhood with a centre concept and three requires-first branches" loading="lazy" /></a>
+            <figcaption><b>Prototype</b><span>Centre concept, labelled branches, relation direction, search, membership chips, panel, fallback.</span></figcaption>
+          </figure>
+          <figure>
+            <a class="shot" href="evidence/shipped-graph-dark-1280.png"><img src="evidence/shipped-graph-dark-1280.png" alt="Shipped semantic layer showing zero published concepts and four destination links" loading="lazy" /></a>
+            <figcaption><b>Shipped M6</b><span>“0 published concepts · 0 published connections”, a withholding count and four destination cards.</span></figcaption>
+          </figure>
+        </div>
+        <div class="pair" style="margin-top: 18px">
+          <figure>
+            <a class="shot" href="evidence/proto-knowledge-expanded-dark-1280.png"><img src="evidence/proto-knowledge-expanded-dark-1280.png" alt="Prototype neighbourhood after expanding to eight relations" loading="lazy" /></a>
+            <figcaption><b>Prototype · expanded</b><span>“Show N more connections” reflows the ring; labels stay readable; direction stays explicit.</span></figcaption>
+          </figure>
+          <figure>
+            <a class="shot" href="evidence/shipped-knowledge-dark-1280.png"><img src="evidence/shipped-knowledge-dark-1280.png" alt="Shipped knowledge scene showing the edition hero and the start of the insight" loading="lazy" /></a>
+            <figcaption><b>Shipped M6</b><span>Edition reasoning and instrument remain — the strongest part of M6 — but no concept exploration follows.</span></figcaption>
+          </figure>
+        </div>
+        <div class="notes">
+          <div class="note lost">
+            <h3>Removed</h3>
+            <p>Concept search over labels, aliases and definitions; subject entrances; Requires/Unlocks/Contrasts/Related grouping; hover/focus branch preview; Explore connections vs Open content; expand; same-subject membership; complete table fallback; coverage meta.</p>
+          </div>
+          <div class="note keep">
+            <h3>Keep and build on</h3>
+            <p>The edition’s situation → reasoning → caveat → source, the decision experiment, the instrument, reveal/evidence toggles, and the fail-closed audience boundary under the UI.</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="dealer">
+        <div class="section-head">
+          <h2><span>03</span>Dealer</h2>
+        </div>
+        <p class="verdict">
+          <strong>The deal became a scroll.</strong> The prototype deals into a
+          full-screen table with an edition rail, the whole hand, and a readable
+          panel for the selected card. The shipped dealer is an inline section
+          that reveals one card at a time and asks you to “Deal 2 more” before you
+          can compare or read them side by side.
+        </p>
+        <div class="pair">
+          <figure>
+            <a class="shot" href="evidence/proto-dealer-dark-1280.png"><img src="evidence/proto-dealer-dark-1280.png" alt="Prototype dealer modal with day rail, hand of cards and a reader panel" loading="lazy" /></a>
+            <figcaption><b>Prototype</b><span>Modal table: edition rail, the hand, reader with scenario/prediction/takeaway/caveat/evidence, locate in knowledge.</span></figcaption>
+          </figure>
+          <figure>
+            <a class="shot" href="evidence/shipped-dealer-dark-1280.png"><img src="evidence/shipped-dealer-dark-1280.png" alt="Shipped dealer as an inline section with one dealt card and a deal-two-more button" loading="lazy" /></a>
+            <figcaption><b>Shipped M6</b><span>Inline “hand behind the claim”: one card on the table, “Deal 2 more”, “Collect all”.</span></figcaption>
+          </figure>
+        </div>
+        <div class="notes">
+          <div class="note lost">
+            <h3>Removed</h3>
+            <p>Modal focus containment, the full hand as a scannable set, simultaneous reader, edition day rail, card capability row, per-card save, locate-in-knowledge from the card.</p>
+          </div>
+          <div class="note keep">
+            <h3>Keep</h3>
+            <p>The cinematic deal moment (it is good), honest empty hands, real card content, caveat and source, and the dealer’s refusal to invent a card.</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="closing">
+        <div class="section-head">
+          <h2><span>04</span>Closing</h2>
+        </div>
+        <p class="verdict">
+          <strong>The ledger and the idea left the room.</strong> The prototype
+          closes with one sentence from the reading, a single action, the pocket,
+          and a coverage ledger that keeps the denominators honest. The shipped
+          closing is a destination grid plus the archive.
+        </p>
+        <div class="pair">
+          <figure>
+            <a class="shot" href="evidence/proto-closing-dark-1280.png"><img src="evidence/proto-closing-dark-1280.png" alt="Prototype closing scene with serif headline, one action and a coverage ledger" loading="lazy" /></a>
+            <figcaption><b>Prototype</b><span>“Leave with one idea and one honest action.” Quote, action, pocket, coverage ledger, limits.</span></figcaption>
+          </figure>
+          <figure>
+            <a class="shot" href="evidence/shipped-closing-dark-1280.png"><img src="evidence/shipped-closing-dark-1280.png" alt="Shipped closing scene with destination cards" loading="lazy" /></a>
+            <figcaption><b>Shipped M6</b><span>“Nothing here is a dead end.” Destination cards and archive. Honest, but generic.</span></figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <section id="mobile">
+        <div class="section-head">
+          <h2><span>05</span>Mobile</h2>
+        </div>
+        <p class="verdict">
+          <strong>The graph survives on mobile in the prototype.</strong> Below
+          720&nbsp;px the field becomes a labelled list with the same direction and
+          actions, so the neighbourhood never disappears. The shipped mobile
+          knowledge scene has no concept layer to collapse.
+        </p>
+        <div class="pair">
+          <figure>
+            <a class="shot" href="evidence/proto-knowledge-light-390.png"><img src="evidence/proto-knowledge-light-390.png" alt="Prototype mobile knowledge scene as a labelled list of branches" loading="lazy" /></a>
+            <figcaption><b>Prototype · 390</b><span>Centre card, then labelled branches as a list; search and fallback stay.</span></figcaption>
+          </figure>
+          <figure>
+            <a class="shot" href="evidence/shipped-home-light-390.png"><img src="evidence/shipped-home-light-390.png" alt="Shipped mobile home with the tick strip" loading="lazy" /></a>
+            <figcaption><b>Shipped · 390</b><span>Readable strip, selected peek, edition scene. Structurally sound; no concept layer.</span></figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <section id="atlas">
+        <div class="section-head">
+          <h2><span>06</span>Atlas</h2>
+        </div>
+        <p class="verdict">
+          <strong>The real atlas already exists — outside the product.</strong>
+          With the review preview on, the shipped explorer draws 42 concepts and
+          49 candidate connections with filters, a circle map, a connection list
+          and an inspector. The public build replaces all of it with a
+          bibliography. The prototype’s neighbourhood is the missing bridge
+          between the edition and that desk.
+        </p>
+        <div class="pair">
+          <figure>
+            <a class="shot" href="evidence/preview-atlas-map-dark-1280.png"><img src="evidence/preview-atlas-map-dark-1280.png" alt="Review preview atlas circle map with four connected concepts" loading="lazy" /></a>
+            <figcaption><b>Review preview · explorer</b><span>Labelled notice, filters, circle map, list, inspector. Gated out of the default build.</span></figcaption>
+          </figure>
+          <figure>
+            <a class="shot" href="evidence/shipped-atlas-desk-dark-1280.png"><img src="evidence/shipped-atlas-desk-dark-1280.png" alt="Shipped atlas page showing a 32-source pending bibliography" loading="lazy" /></a>
+            <figcaption><b>Shipped public · atlas desk</b><span>Pending review, 32 of 32 sources, no concepts or relations.</span></figcaption>
+          </figure>
+        </div>
+        <div class="notes">
+          <div class="note lost">
+            <h3>Gap</h3>
+            <p>Nothing connects an edition to its concept, and the concept to its neighbourhood and the desk. The Home says “0” while the review build says 42/49.</p>
+          </div>
+          <div class="note keep">
+            <h3>Keep</h3>
+            <p>The explorer’s evidence lens, direction handling, inspector, keyboard map controls, and the no-JS linear atlas. These are worth carrying into the restored experience.</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="r1">
+        <div class="section-head">
+          <h2><span>07</span>R1 - the neighbourhood, restored</h2>
+        </div>
+        <p class="verdict">
+          <strong>The missing core is back, behind the review flag.</strong> R1
+          restores the concept, its four labelled groups, the preview strip and the
+          reading panel over the real 42-concept / 49-relation candidate Atlas. It
+          is a dedicated gated route, so the Home is still exactly M6 until R2.
+        </p>
+        <div class="pair">
+          <figure>
+            <a class="shot" href="evidence/proto-knowledge-dark-1280.png"><img src="evidence/proto-knowledge-dark-1280.png" alt="Prototype knowledge neighbourhood with a centre concept and labelled branches" loading="lazy" /></a>
+            <figcaption><b>Prototype</b><span>Centre concept, labelled branches, direction, search, membership, panel, fallback.</span></figcaption>
+          </figure>
+          <figure>
+            <a class="shot" href="evidence/r1-field-dark-1280.png"><img src="evidence/r1-field-dark-1280.png" alt="R1 neighbourhood: Direct Lake centre card with six branches around it and a search field" loading="lazy" /></a>
+            <figcaption><b>R1 - 1280 dark</b><span>Direct Lake, 8 recorded relations, 6 placed: 1 requires first, 3 contrasts, 2 related. 0 overlaps, 0 overflow, 0 published.</span></figcaption>
+          </figure>
+        </div>
+        <div class="pair" style="margin-top: 18px">
+          <figure>
+            <a class="shot" href="evidence/proto-knowledge-expanded-dark-1280.png"><img src="evidence/proto-knowledge-expanded-dark-1280.png" alt="Prototype neighbourhood after expanding to eight relations" loading="lazy" /></a>
+            <figcaption><b>Prototype - expanded</b><span>Eight relations on the ring after "Show N more connections".</span></figcaption>
+          </figure>
+          <figure>
+            <a class="shot" href="evidence/r1-preview-dark-1280.png"><img src="evidence/r1-preview-dark-1280.png" alt="R1 field with a hovered branch and a preview strip showing the claim, conditions and two actions" loading="lazy" /></a>
+            <figcaption><b>R1 - branch preview</b><span>Hover or keyboard focus lifts one branch, solidifies its connector and states the claim, the conditions and the two next actions.</span></figcaption>
+          </figure>
+        </div>
+        <div class="pair" style="margin-top: 18px">
+          <figure>
+            <a class="shot" href="evidence/proto-entrances-dark-1280.png"><img src="evidence/proto-entrances-dark-1280.png" alt="Prototype subject entrances with five domain columns" loading="lazy" /></a>
+            <figcaption><b>Prototype - entrances</b><span>Five equal subject columns; only some of those subjects have relations.</span></figcaption>
+          </figure>
+          <figure>
+            <a class="shot" href="evidence/r1-entrances-dark-1280.png"><img src="evidence/r1-entrances-dark-1280.png" alt="R1 subject entrances with the real Fabric corpus and four quiet reading-room links" loading="lazy" /></a>
+            <figcaption><b>R1 - entrances</b><span>One real subject and its densest starters, plus an explicit "no candidate relations recorded yet" ledger with four real reading rooms instead of invented columns.</span></figcaption>
+          </figure>
+        </div>
+        <div class="pair" style="margin-top: 18px">
+          <figure>
+            <a class="shot" href="evidence/proto-knowledge-light-390.png"><img src="evidence/proto-knowledge-light-390.png" alt="Prototype mobile knowledge scene as a labelled list of branches" loading="lazy" /></a>
+            <figcaption><b>Prototype - 390</b><span>Labelled list below 720 px; search and fallback stay.</span></figcaption>
+          </figure>
+          <figure>
+            <a class="shot" href="evidence/r1-field-light-390.png"><img src="evidence/r1-field-light-390.png" alt="R1 mobile field as a labelled list with the centre card first" loading="lazy" /></a>
+            <figcaption><b>R1 - 390 light</b><span>Same list below 1024 px: centre card first, then each branch with its group tag and candidate state. No horizontal scroll at 390 or 320.</span></figcaption>
+          </figure>
+        </div>
+        <div class="notes">
+          <div class="note lost">
+            <h3>Changed from the prototype</h3>
+            <p>Fair branch budget (one per occupied group before a second), spoken direction sentences, same-kind membership because the corpus has one subject, a placement that uses the whole field, and 10.5-13 px labels instead of 9 px.</p>
+          </div>
+          <div class="note keep">
+            <h3>Kept</h3>
+            <p>Serif display, paper and ink, four domain accents, the four labelled groups with curved connectors, the preview that carries the claim, explore vs open, expand, membership and the full table fallback.</p>
+          </div>
+        </div>
+        <p class="verdict" style="margin-top: 22px">
+          <strong>Measured.</strong> 271 tests pass (14 new model guards, including
+          real card boxes for every concept). Axe: 0 violations on the field and on
+          the expanded field. Route JS 27.5 KB raw / 8.4 KB gzip, CSS 4.6 KB gzip,
+          CLS 0. With the flag off, the exported route is a 404 page and the export
+          contains no candidate concept id, title, claim or edge.
+        </p>
+      </section>
+
+      <section id="r2">
+        <div class="section-head">
+          <h2><span>08</span>R2 - the edition's neighbourhood</h2>
+        </div>
+        <p class="verdict">
+          <strong>The missing bridge now belongs to the edition.</strong> R2 puts
+          the R1 field inside the Home's knowledge scene, under the edition it
+          explains: a breadcrumb, the concept, its labelled branches, search, the
+          panel, and two honest exits (the edition's lesson and practice) plus the
+          Atlas desk. It sits behind a second build flag, so the public Home is
+          still M6 until the owner accepts this and the default changes on purpose.
+        </p>
+        <div class="pair">
+          <figure>
+            <a class="shot" href="evidence/r2-public-home-dark-1280.png"><img src="evidence/r2-public-home-dark-1280.png" alt="Flag-off Home knowledge scene with the shipped graph block: zero published concepts and connections" loading="lazy" /></a>
+            <figcaption><b>Public Home - flag off</b><span>Unchanged: the graph block still says “Where this idea leads · 0 published concepts · 0 published connections”. No embed, no loading shell, no candidate id.</span></figcaption>
+          </figure>
+          <figure>
+            <a class="shot" href="evidence/r2-edition-dark-1280.png"><img src="evidence/r2-edition-dark-1280.png" alt="R2 Home knowledge scene with the edition neighbourhood: breadcrumb, OneLake shortcuts centre, four branches and reading panel" loading="lazy" /></a>
+            <figcaption><b>R2 - edition + neighbourhood</b><span>Edition 2026-10-26 → Concept OneLake shortcuts → Neighbourhood → Atlas desk. 4 recorded relations placed in 2 groups, 0 overlaps, 0 published.</span></figcaption>
+          </figure>
+        </div>
+        <div class="pair" style="margin-top: 18px">
+          <figure>
+            <a class="shot" href="evidence/r2-expanded-dark-1280.png"><img src="evidence/r2-expanded-dark-1280.png" alt="R2 field for Direct Lake with all eight recorded relations placed" loading="lazy" /></a>
+            <figcaption><b>R2 - expanded, Direct Lake</b><span>“Place all 8 in the field” appears only when relations are hidden; eight branches, still no overlaps, then “Show fewer in the field”.</span></figcaption>
+          </figure>
+          <figure>
+            <a class="shot" href="evidence/r2-search-result-dark-1280.png"><img src="evidence/r2-search-result-dark-1280.png" alt="R2 field after searching for mirroring, centred on Database Mirroring" loading="lazy" /></a>
+            <figcaption><b>R2 - search</b><span>Searching “mirroring” re-centres the field on Database Mirroring; the panel and coverage follow the new centre.</span></figcaption>
+          </figure>
+        </div>
+        <div class="pair" style="margin-top: 18px">
+          <figure>
+            <a class="shot" href="evidence/r2-atlas-desk-dark-1280.png"><img src="evidence/r2-atlas-desk-dark-1280.png" alt="Review Atlas explorer opened from the edition with the return parameter and a Back to the edition button" loading="lazy" /></a>
+            <figcaption><b>R2 - Atlas desk</b><span>The desk link carries <code>?return=</code>; the explorer shows “← Back to the edition” before the lesson link.</span></figcaption>
+          </figure>
+          <figure>
+            <a class="shot" href="evidence/r2-return-dark-1280.png"><img src="evidence/r2-return-dark-1280.png" alt="Home restored to the same edition after using Back to the edition" loading="lazy" /></a>
+            <figcaption><b>R2 - returned</b><span>Back lands on <code>/?insight=hansa-insight-shortcut-reference-v1#edition</code>, the same edition and anchor. No open redirect.</span></figcaption>
+          </figure>
+        </div>
+        <div class="pair" style="margin-top: 18px">
+          <figure>
+            <a class="shot" href="evidence/r2-embed-light-1024.png"><img src="evidence/r2-embed-light-1024.png" alt="R2 edition neighbourhood at tablet width, light theme, field above the reading panel" loading="lazy" /></a>
+            <figcaption><b>R2 - 1024 light</b><span>Field above the panel, labels intact, no horizontal overflow.</span></figcaption>
+          </figure>
+          <figure>
+            <a class="shot" href="evidence/r2-embed-light-390.png"><img src="evidence/r2-embed-light-390.png" alt="R2 edition neighbourhood at 390 px as a labelled list with the centre card first" loading="lazy" /></a>
+            <figcaption><b>R2 - 390 light</b><span>Same list as R1 below 1024 px: centre card first, then each branch with group tag and candidate state. No overflow at 390 or 320.</span></figcaption>
+          </figure>
+        </div>
+        <div class="notes">
+          <div class="note lost">
+            <h3>Two control fixes found while embedding</h3>
+            <p>The branch tag no longer repeats itself (“Related · Related in a decision”), and “Place all N” / “Show fewer” now appear only when something is actually hidden, so an edition with four relations does not offer to expand.</p>
+          </div>
+          <div class="note keep">
+            <h3>Continuity</h3>
+            <p>Same serif display, paper, ink, four domain accents, labelled groups, curved connectors, preview, fallback and full table. The embed adds only chrome: breadcrumb, edition exits, desk hand-off and a lazier loading state.</p>
+          </div>
+        </div>
+        <p class="verdict" style="margin-top: 22px">
+          <strong>Measured.</strong> 282 tests pass. With the flag off the exported
+          Home is the same 779 DOM nodes and 42 resources, with no embed, no
+          loading shell and 0 neighbourhood requests; the only delta is +5,680 B of
+          lazy-import stub. With the flag on the slice adds one 21.5 KB JS chunk and
+          26.1 KB CSS, both fetched only after hydration; LCP 604-960 ms, CLS 0,
+          axe 0 violations on the field and the expanded field, console clean. The
+          R1 route keeps its structure; only the two shared control fixes apply
+          there too.
+        </p>
+      </section>
+
+      <section id="r3">
+        <div class="section-head">
+          <h2><span>09</span>R3 - the desktop timeline fan</h2>
+        </div>
+        <p class="verdict">
+          <strong>The timeline is a date you can enter again.</strong> R3 restores
+          the prototype's fan on desktop: fifteen cards, the selected edition in the
+          centre, ghost year, playhead, cables, ruler, latest pin and a per-day peek.
+          Moving the fan inspects a date; opening the edition is still a separate
+          action. Below 1024 px, and in the public build, the accepted M6 strip stays
+          exactly as it shipped.
+        </p>
+        <div class="pair">
+          <figure>
+            <a class="shot" href="evidence/r3-public-home-dark-1280.png"><img src="evidence/r3-public-home-dark-1280.png" alt="Flag-off Home timeline: the shipped strip of fifteen ticks with three edition bars" loading="lazy" /></a>
+            <figcaption><b>Public Home - flag off</b><span>Unchanged M6 strip: 15 days, 3 editions, 12 quiet, one <code>aria-current</code>. No fan markup, no fan link, no fan request.</span></figcaption>
+          </figure>
+          <figure>
+            <a class="shot" href="evidence/r3-fan-dark-1280.png"><img src="evidence/r3-fan-dark-1280.png" alt="R3 Home timeline scene with the fanned edition cards, ghost year, cables and ruler" loading="lazy" /></a>
+            <figcaption><b>R3 - fan, 1280 dark</b><span>Selected card centred with its day tag, neighbours stepped and scaled, 3 cable groups, 30 ruler ticks, status row with steppers.</span></figcaption>
+          </figure>
+        </div>
+        <div class="pair" style="margin-top: 18px">
+          <figure>
+            <a class="shot" href="evidence/r3-fan-selected-dark-1280.png"><img src="evidence/r3-fan-selected-dark-1280.png" alt="R3 fan with edition 02 selected in the centre and the peek updated" loading="lazy" /></a>
+            <figcaption><b>R3 - selecting an edition</b><span>Clicking edition 02 centres it, moves the focus label to “Edition 02”, updates the peek and the URL. Selection inspects; it does not open.</span></figcaption>
+          </figure>
+          <figure>
+            <a class="shot" href="evidence/r3-fan-steppers-dark-1280.png"><img src="evidence/r3-fan-steppers-dark-1280.png" alt="R3 fan after using the prev/next steppers, with the older edition centred" loading="lazy" /></a>
+            <figcaption><b>R3 - steppers</b><span>Previous/Next move one edition at a time and disable at the ends; the drag and wheel handlers settle on the same editions.</span></figcaption>
+          </figure>
+        </div>
+        <div class="pair" style="margin-top: 18px">
+          <figure>
+            <a class="shot" href="evidence/r3-fan-light-1024.png"><img src="evidence/r3-fan-light-1024.png" alt="R3 fan at tablet width in light theme, still fanned" loading="lazy" /></a>
+            <figcaption><b>R3 - 1024 light</b><span>The fan holds at the 1024 px breakpoint: 15 cards, 0 overlaps, no horizontal overflow, light theme.</span></figcaption>
+          </figure>
+          <figure>
+            <a class="shot" href="evidence/r3-strip-light-390.png"><img src="evidence/r3-strip-light-390.png" alt="R3 at 390 px: the shipped strip with its own scroll and copy" loading="lazy" /></a>
+            <figcaption><b>R3 - 390 light</b><span>Below 1024 px the strip returns with its own copy (“An edition sits on the date it was published…”), so a phone is never told to drag a fan it cannot see. 320 px behaves the same.</span></figcaption>
+          </figure>
+        </div>
+        <div class="notes">
+          <div class="note lost">
+            <h3>Controls that had to be added or fixed</h3>
+            <p>The prototype's prev/next steppers are back, with disabled ends. The status line now has real <code>·</code> separators, drag and wheel move focus to the settled card, and the fan's CSS lives in its own chunk so the public stylesheet keeps its M6 bytes.</p>
+          </div>
+          <div class="note keep">
+            <h3>What is deliberately not restored</h3>
+            <p>The strip stays for phones, keyboard-first compact use and the public build. The fan never invents an edition on a quiet day: quiet days are dashed, non-interactive cards, and every gesture settles on the nearest edition.</p>
+          </div>
+        </div>
+        <p class="verdict" style="margin-top: 22px">
+          <strong>Measured.</strong> 290 tests pass. With the flag off the exported
+          Home is still 779 DOM nodes, 42 resources and 242,150 B of CSS, with no fan
+          markup, no fan link and 0 fan requests; the only delta is +6,783 B of
+          dynamic-import stub. With the flag on the fan is 10,756 B JS + 7,698 B CSS,
+          SSR-rendered in the static HTML, LCP 756 ms, CLS 0, axe 0 violations,
+          console clean. Click, keyboard, drag, wheel and both steppers each change
+          the selection, and 0 overlaps or overflow were found at 1280, 1024, 390
+          and 320. Accepted by the owner on 2026-11-05; all three flags stay off for
+          the exported site.
+        </p>
+      </section>
+
+      <section id="r4">
+        <div class="section-head">
+          <h2><span>10</span>R4 - the dealer as a reading room</h2>
+        </div>
+        <p class="verdict">
+          <strong>The dealer is a hand you read, not a sequence of reveals.</strong>
+          R4 restores the prototype's dealer behind its own build-time flag: a modal
+          with the fifteen-day rail, every card of the edition visible at once with
+          its capability tags, and a reader beside it. Selecting a card inspects it;
+          opening the edition is still the timeline's action, and the flag-off public
+          build keeps the accepted inline card table byte for byte.
+        </p>
+        <div class="pair">
+          <figure>
+            <a class="shot" href="evidence/proto-dealer-dark-1280.png"><img src="evidence/proto-dealer-dark-1280.png" alt="Original prototype dealer dialog with day rail, card hand and reader" loading="lazy" /></a>
+            <figcaption><b>Prototype - dealer, 1280 dark</b><span>The baseline: a backdrop, a day rail, a full hand and a reader that follows the selected card.</span></figcaption>
+          </figure>
+          <figure>
+            <a class="shot" href="evidence/r4-modal-dark-1280.png"><img src="evidence/r4-modal-dark-1280.png" alt="R4 cinematic dealer open over the Home stage in dark theme at 1280" loading="lazy" /></a>
+            <figcaption><b>R4 - dealer, 1280 dark</b><span>Same reading room with the stage language from R1–R3: 1180×719 dialog, 15-day rail with 3 editions and one <code>aria-current</code>, 3 cards, 4 capability tags.</span></figcaption>
+          </figure>
+        </div>
+        <div class="pair" style="margin-top: 18px">
+          <figure>
+            <a class="shot" href="evidence/r4-dialog-dark-1280.png"><img src="evidence/r4-dialog-dark-1280.png" alt="R4 dialog alone: head, rail, hand and reader in dark theme" loading="lazy" /></a>
+            <figcaption><b>R4 - the dialog</b><span>Head, rail, hand and reader in one frame. The edition stays <code>technical_review</code> and the dealer repeats “0 published” wherever counts appear.</span></figcaption>
+          </figure>
+          <figure>
+            <a class="shot" href="evidence/r4-hand-dark-1280.png"><img src="evidence/r4-hand-dark-1280.png" alt="R4 full hand with the four capability tags on each card" loading="lazy" /></a>
+            <figcaption><b>R4 - the full hand</b><span>Principle, caveat and evidence dealt at once, each with kind, review state and the four capability tags (<code>discover</code>, <code>read</code>, <code>assess</code>, <code>relate</code>).</span></figcaption>
+          </figure>
+        </div>
+        <div class="pair" style="margin-top: 18px">
+          <figure>
+            <a class="shot" href="evidence/r4-reader-evidence-dark-1280.png"><img src="evidence/r4-reader-evidence-dark-1280.png" alt="R4 reader showing the evidence card with a verbatim quote, source, locator and checked date" loading="lazy" /></a>
+            <figcaption><b>R4 - the evidence reader</b><span>Verbatim locator quote, source id, reviewer and checked date, then the destination. The evidence card links straight to Microsoft Learn; there is no resource-preview button.</span></figcaption>
+          </figure>
+          <figure>
+            <a class="shot" href="evidence/r4-rail-switch-dark-1280.png"><img src="evidence/r4-rail-switch-dark-1280.png" alt="R4 after switching the rail to the previous edition, hand re-dealt and reader on card one" loading="lazy" /></a>
+            <figcaption><b>R4 - the rail</b><span>Switching an edition keeps the dialog open, re-deals that hand to card 1 and writes <code>insight</code> and <code>dealer</code> together. Quiet days are non-interactive placeholders.</span></figcaption>
+          </figure>
+        </div>
+        <div class="pair" style="margin-top: 18px">
+          <figure>
+            <a class="shot" href="evidence/r4-saved-dark-1280.png"><img src="evidence/r4-saved-dark-1280.png" alt="R4 saved card state with the in-dealer saved list opened in the footer" loading="lazy" /></a>
+            <figcaption><b>R4 - saved, in the dealer</b><span><code>Save for later</code> becomes <code>Saved · remove</code>, the footer reads <code>Saved 1</code> and the popover lists the card with its kind and day. Browser-local only (<code>hansa.dealer.saved.v1</code>); no pocket, no sync.</span></figcaption>
+          </figure>
+          <figure>
+            <a class="shot" href="evidence/r4-deeplink-dark-1280.png"><img src="evidence/r4-deeplink-dark-1280.png" alt="R4 opened directly by the ?dealer daily date deep link, showing the 25 October edition" loading="lazy" /></a>
+            <figcaption><b>R4 - deep link</b><span><code>?dealer=daily:2026-10-25</code> and <code>?dealer=&lt;edition id&gt;</code> both resolve only against editions the stage may show; unknown, withheld or malformed values open nothing.</span></figcaption>
+          </figure>
+        </div>
+        <div class="pair" style="margin-top: 18px">
+          <figure>
+            <a class="shot" href="evidence/r4-modal-light-1280.png"><img src="evidence/r4-modal-light-1280.png" alt="R4 dealer in light theme at 1280" loading="lazy" /></a>
+            <figcaption><b>R4 - 1280 light</b><span>Same composition in the light theme: paper, ink, one accent, four domain tags. No new type family and no new card system.</span></figcaption>
+          </figure>
+          <figure>
+            <a class="shot" href="evidence/r4-modal-light-1024.png"><img src="evidence/r4-modal-light-1024.png" alt="R4 dealer at 1024 px in light theme, hand and reader still side by side" loading="lazy" /></a>
+            <figcaption><b>R4 - 1024 light</b><span>963×745 dialog, 0 horizontal overflow. The hand and reader stay side by side down to the 900 px breakpoint.</span></figcaption>
+          </figure>
+        </div>
+        <div class="pair" style="margin-top: 18px">
+          <figure>
+            <a class="shot" href="evidence/r4-reader-light-390.png"><img src="evidence/r4-reader-light-390.png" alt="R4 at 390 px after tapping a card: the reader has been scrolled into view" loading="lazy" /></a>
+            <figcaption><b>R4 - 390 light, after a tap</b><span>Full-screen sheet; hand and reader stack in one scroller. Tapping card 2 scrolls 536 px so the reader starts inside the 521 px scrollport instead of changing an off-screen border.</span></figcaption>
+          </figure>
+          <figure>
+            <a class="shot" href="evidence/r4-modal-light-320.png"><img src="evidence/r4-modal-light-320.png" alt="R4 dealer at 320 px in light theme, full-screen sheet" loading="lazy" /></a>
+            <figcaption><b>R4 - 320 light</b><span>The sheet holds at 320×720 with 0 horizontal overflow and the rail scrolling under an edge fade, so a half-visible day reads as “more days this way”.</span></figcaption>
+          </figure>
+        </div>
+        <div class="pair" style="margin-top: 18px">
+          <figure>
+            <a class="shot" href="evidence/r4-deal-motion-dark-1280.png"><img src="evidence/r4-deal-motion-dark-1280.png" alt="R4 hand mid-deal with the three cards partially transparent and slightly offset" loading="lazy" /></a>
+            <figcaption><b>R4 - mid-deal, full motion</b><span>CSS only: <code>dc-deal</code> at 0/70/140 ms, once per edition. It shows the hand arriving; it does not hide what the cards say.</span></figcaption>
+          </figure>
+          <figure>
+            <a class="shot" href="evidence/r4-deal-settled-dark-1280.png"><img src="evidence/r4-deal-settled-dark-1280.png" alt="R4 hand settled and fully opaque after the deal animation" loading="lazy" /></a>
+            <figcaption><b>R4 - settled</b><span>All three cards opaque. Under <code>prefers-reduced-motion</code> every card reports <code>animation: none</code> and is fully opaque from the first frame.</span></figcaption>
+          </figure>
+        </div>
+        <div class="notes">
+          <div class="note lost">
+            <h3>Controls that had to be added or fixed</h3>
+            <p>The dialog is a portal into <code>document.body</code> — rendered inside the stage tree, the <code>inert</code> background would have contained the dialog itself. Focus returns to the trigger <em>after</em> the background stops being inert, because focusing an inert element is a silent no-op. Announcements are scoped to the dialog, the rail centres with <code>justify-content: safe center</code>, and opening a saved card announces the saved card rather than the deal before it.</p>
+          </div>
+          <div class="note keep">
+            <h3>What is deliberately not restored</h3>
+            <p>The accepted inline card table stays the public default; the site-wide pocket and the learning thread are deferred to a later slice, so R4's save is an in-dealer bookmark list. The prototype's resource-preview button is not reproduced: the evidence card links directly to the Microsoft Learn source. With the flag off there is no <code>dc-</code> markup, no <code>?dealer=</code> parsing and no dealer request.</p>
+          </div>
+        </div>
+        <p class="verdict" style="margin-top: 22px">
+          <strong>Measured.</strong> 302 tests pass, including 12 new dealer guards.
+          With the flag off the exported Home is still 779 DOM nodes, 42 resources
+          and 242,150 B of CSS, with 0 <code>dc-</code> markup and 0 dealer requests;
+          the accepted inline table still deals 1/3 → 3/3 and closes. The only delta
+          is +12,321 B of dynamic-import stub over the M6 baseline (+5,538 B over R3).
+          With the flag on, opening the dealer fetches 11,219 B JS + 12,400 B CSS
+          (a lazy chunk the initial page never requests); LCP stays 844 ms, CLS 0,
+          axe 0 violations, console clean. Focus trap wraps both ways, Escape restores
+          the trigger, 11/12 body children are <code>inert</code> while open, and
+          0 horizontal overflow was found at 1280, 1024, 390 and 320. Owner acceptance
+          <strong>pending</strong>; R5 does not start until this slice is accepted.
+        </p>
+      </section>
+
+      <section id="r5">
+        <div class="section-head">
+          <h2><span>11</span>R5 - the closing scene</h2>
+        </div>
+        <p class="verdict">
+          <strong>The stage has to end with an argument, not a signpost.</strong>
+          R5 restores the prototype's close behind its own build-time flag: one idea
+          taken from the edition the reader selected, one action that reopens it, the
+          cards kept in this browser, and a coverage ledger that says what was read and
+          what was not. The destinations stay, but they move below the argument. With
+          the flag off the accepted M6 close is still the only closing scene.
+        </p>
+        <div class="pair">
+          <figure>
+            <a class="shot" href="evidence/proto-closing-dark-1280.png"><img src="evidence/proto-closing-dark-1280.png" alt="Original prototype closing scene with the idea quote, reopen action, coverage ledger and destinations" loading="lazy" /></a>
+            <figcaption><b>Prototype - close, 1280 dark</b><span>The baseline: one idea, one honest action, the pocket, the ledger and the destinations in one closing scene.</span></figcaption>
+          </figure>
+          <figure>
+            <a class="shot" href="evidence/r5-closing-section-dark-1280.png"><img src="evidence/r5-closing-section-dark-1280.png" alt="R5 review close in dark theme at 1280: the quote, condition, actions, kept cards and the coverage ledger" loading="lazy" /></a>
+            <figcaption><b>R5 - close, 1280 dark</b><span>Idea and condition on the left, ledger and claims on the right, destinations last. Seven ledger rows, four claims, four destinations, 0 horizontal overflow.</span></figcaption>
+          </figure>
+        </div>
+        <div class="pair" style="margin-top: 18px">
+          <figure>
+            <a class="shot" href="evidence/shipped-closing-dark-1280.png"><img src="evidence/shipped-closing-dark-1280.png" alt="The accepted M6 closing scene: four destination cards, a review notice and the identity strip" loading="lazy" /></a>
+            <figcaption><b>Accepted M6 - the public close</b><span>What shipped: a signpost with four destinations, a review notice and the identity strip. No quote, no action, no ledger.</span></figcaption>
+          </figure>
+          <figure>
+            <a class="shot" href="evidence/r5-closing-light-1280.png"><img src="evidence/r5-closing-light-1280.png" alt="R5 review close in light theme at 1280" loading="lazy" /></a>
+            <figcaption><b>R5 - 1280 light</b><span>Same composition in the paper theme. The quote is the edition's reviewed takeaway, verbatim; the condition is the edition's own caveat.</span></figcaption>
+          </figure>
+        </div>
+        <div class="pair" style="margin-top: 18px">
+          <figure>
+            <a class="shot" href="evidence/r5-coverage-dark-1280.png"><img src="evidence/r5-coverage-dark-1280.png" alt="R5 full coverage note expanded: denominators, review decisions, limits and source line" loading="lazy" /></a>
+            <figcaption><b>R5 - the coverage note, expanded</b><span>A native <code>&lt;details&gt;</code>, not a modal: five denominators, six review decisions, the ledger's four limits and the source file with its date.</span></figcaption>
+          </figure>
+          <figure>
+            <a class="shot" href="evidence/r5-coverage-light-1280.png"><img src="evidence/r5-coverage-light-1280.png" alt="R5 coverage note expanded in light theme" loading="lazy" /></a>
+            <figcaption><b>R5 - coverage note, light</b><span>The numbers are pinned to <code>intelligent-atlas/analysis/semantic-ledger-summary.json</code>; a test re-reads that file and fails if any count drifts.</span></figcaption>
+          </figure>
+        </div>
+        <div class="pair" style="margin-top: 18px">
+          <figure>
+            <a class="shot" href="evidence/r5-reopen-dealer-dark-1280.png"><img src="evidence/r5-reopen-dealer-dark-1280.png" alt="R5 reopen action opened the 26 October cinematic dealer over the closing scene" loading="lazy" /></a>
+            <figcaption><b>R5 - the one action</b><span><code>Reopen the 26 Oct edition</code> opens that edition's dealer and writes <code>insight</code> and <code>dealer</code>. <code>Escape</code> returns focus to the same action.</span></figcaption>
+          </figure>
+          <figure>
+            <a class="shot" href="evidence/r5-kept-dark-1280.png"><img src="evidence/r5-kept-dark-1280.png" alt="R5 closing scene listing one card kept in this browser, with its kind and day" loading="lazy" /></a>
+            <figcaption><b>R5 - kept in this browser</b><span>A card saved in the dealer appears here without a reload: <code>1 card</code>, title, kind and day. Bookmarks, not mastery records; browser-local only.</span></figcaption>
+          </figure>
+        </div>
+        <div class="pair" style="margin-top: 18px">
+          <figure>
+            <a class="shot" href="evidence/r5-saved-open-dark-1280.png"><img src="evidence/r5-saved-open-dark-1280.png" alt="R5 kept card opened the dealer at that card and edition" loading="lazy" /></a>
+            <figcaption><b>R5 - a kept card opens where it was kept</b><span>Choosing a kept card reopens the dealer on that card of that edition, so the bookmark is a way back into the reading, not a trophy.</span></figcaption>
+          </figure>
+          <figure>
+            <a class="shot" href="evidence/r5-closing-light-1024.png"><img src="evidence/r5-closing-light-1024.png" alt="R5 review close at 1024 px: the two columns are still side by side" loading="lazy" /></a>
+            <figcaption><b>R5 - 1024 light</b><span>The two-column close holds from 1024 px. The ledger keeps 26ch headings and the claims keep their dash markers, with 0 horizontal overflow.</span></figcaption>
+          </figure>
+        </div>
+        <div class="pair" style="margin-top: 18px">
+          <figure>
+            <a class="shot" href="evidence/r5-closing-section-light-390.png"><img src="evidence/r5-closing-section-light-390.png" alt="R5 review close at 390 px stacked to one column" loading="lazy" /></a>
+            <figcaption><b>R5 - 390 light</b><span>One column: idea, condition, action, kept cards, ledger, claims, destinations. The credit line drops its <code>·</code> separators rather than wrapping one to the start of a line.</span></figcaption>
+          </figure>
+          <figure>
+            <a class="shot" href="evidence/r5-closing-light-320.png"><img src="evidence/r5-closing-light-320.png" alt="R5 review close at 320 px" loading="lazy" /></a>
+            <figcaption><b>R5 - 320 light</b><span>Holds at 320×720 with 0 horizontal overflow; every link and button in the scene is at least 44 px tall.</span></figcaption>
+          </figure>
+        </div>
+        <div class="pair" style="margin-top: 18px">
+          <figure>
+            <a class="shot" href="evidence/r5-public-closing-dark-1280.png"><img src="evidence/r5-public-closing-dark-1280.png" alt="The flag-off public closing scene, unchanged from the accepted M6 close" loading="lazy" /></a>
+            <figcaption><b>Flag off - the public close</b><span>The accepted M6 close in the shipped build: same kicker, title, note, notice, continue links, four destinations, identity strip and live region. No <code>.stage-close-*</code> node exists.</span></figcaption>
+          </figure>
+          <figure>
+            <a class="shot" href="evidence/r5-closing-dark-1280.png"><img src="evidence/r5-closing-dark-1280.png" alt="R5 review close in the browser viewport at 1280" loading="lazy" /></a>
+            <figcaption><b>R5 - the scene in place</b><span>The close sits at the end of the same three-scene page. It is server-rendered content: no entrance animation, no dynamic chunk, nothing to watch before reading.</span></figcaption>
+          </figure>
+        </div>
+        <div class="notes">
+          <div class="note lost">
+            <h3>Corrections found while restoring</h3>
+            <p>The prototype's two-line title concatenated into <code>one ideaand one honest action</code> for assistive technology; the review close carries an explicit space between the lines (the accepted timeline heading has the same defect and is recorded as an R6 candidate rather than changed silently here). The ledger uses <code>&lt;dl&gt;</code> rows so a number is associated with its label, not merely adjacent. The site preflight strips list markers, so the claims set their own quiet dash. The kept list is a sibling of the dealer dialog, so the dealer now dispatches a same-tab <code>hansa:dealer-saved</code> event after every persist.</p>
+          </div>
+          <div class="note keep">
+            <h3>What is deliberately not restored</h3>
+            <p>The prototype's site-wide pocket and About modal stay deferred: R5 lists the dealer's own saved cards and sends the coverage question to the Atlas desk. The quote is the edition's reviewed <code>takeaway</code> rather than the prototype's evidence quote, because that is the field the review actually approved. With the flag off the closing scene renders the accepted M6 markup and the review close's rules are dead bytes in the one stage stylesheet - measured, not hidden.</p>
+          </div>
+        </div>
+        <p class="verdict" style="margin-top: 22px">
+          <strong>Measured.</strong> 312 tests pass, including 10 new closing guards.
+          With the flag off the Home renders 0 <code>.stage-close-*</code> nodes and
+          the accepted close is intact; the public build costs 780 DOM nodes (+1 script
+          tag), 43 resources (+1), 827,336 B of script (+10,956 B) and 248,019 B of CSS
+          (+5,869 B, of which 5,599 B is the review close's 50 rules), LCP 756 ms,
+          CLS 0. With the flag on the scene renders as content: 1,339 DOM nodes,
+          47 resources, LCP 1,264-1,332 ms, axe 0 violations, console clean, and
+          0 horizontal overflow at 1280, 1024, 390 and 320. Reopen, the coverage
+          disclosure, the kept-list sync and the saved-card open were all exercised;
+          <code>Escape</code> returns focus to the action. Owner acceptance
+          <strong>pending</strong>; R6 does not start until this slice is accepted.
+        </p>
+      </section>
+
+      <section id="r6">
+        <div class="section-head">
+          <h2><span>12</span>R6 - the polish layer</h2>
+        </div>
+        <p class="verdict">
+          <strong>The stage had sixteen type sizes, and a third of its text was shouting.</strong>
+          R6 began as a measurement, not a design. The flag-off export set text at 64, 41,
+          38.4, 30.7, 18, 16, 15, 14, 13, 12.5, 12, 11.5, 11, 10, 9.5 and 9 px; 46 of its
+          139 text elements (33.1%) were mono and either uppercase or widely tracked,
+          including content values such as <code>TWO TEAMS</code>; three targets sat under
+          44 px; and the first and last scenes read as frames around 29-32% empty space.
+          The topbar question was answered by the same probe: the fixed header is 57 px and
+          the first scene starts at 152 px, so there was no overlap to fix. Everything
+          below is one review layer behind a sixth flag, <code>HANSA_POLISH_REVIEW=1</code>.
+        </p>
+        <div class="pair">
+          <figure>
+            <a class="shot" href="evidence/r6-audit-1280-dark.png"><img src="evidence/r6-audit-1280-dark.png" alt="The shipped flag-off Home at 1280 dark before R6: sixteen type sizes" loading="lazy" /></a>
+            <figcaption><b>Before - shipped export, 1280 dark</b><span>Captured today from the unchanged flag-off build. Sixteen computed sizes, 33.1% mono labels, three targets under 44 px.</span></figcaption>
+          </figure>
+          <figure>
+            <a class="shot" href="evidence/r6-1280-dark-full.png"><img src="evidence/r6-1280-dark-full.png" alt="The same Home with the R6 polish build at 1280 dark: nine type sizes and sentence-case meta rows" loading="lazy" /></a>
+            <figcaption><b>After - polish build, 1280 dark</b><span>Same composition, same content, same order. Nine sizes, 18.6% mono labels, every target at least 44 px tall.</span></figcaption>
+          </figure>
+        </div>
+        <div class="pair" style="margin-top: 18px">
+          <figure>
+            <a class="shot" href="evidence/r6-audit-1280-dark-today.png"><img src="evidence/r6-audit-1280-dark-today.png" alt="Scene 1 before R6: the clock ticks wrap to two lines and the peek meta row is uppercase" loading="lazy" /></a>
+            <figcaption><b>Before - scene 1</b><span>The date ticks wrap inside their 76 px cells, the peek's meta row is all capitals, and the card's title leading is looser than the scene title's.</span></figcaption>
+          </figure>
+          <figure>
+            <a class="shot" href="evidence/r6-today-1280-dark.png"><img src="evidence/r6-today-1280-dark.png" alt="Scene 1 after R6: date ticks on one line, sentence-case meta row, tighter scene rhythm" loading="lazy" /></a>
+            <figcaption><b>After - scene 1</b><span>Every tick fits on one line at 10 px, the meta row reads <em>OneLake · technical review</em> in sentence case, and the scene's block rhythm is one value instead of four.</span></figcaption>
+          </figure>
+        </div>
+        <div class="pair" style="margin-top: 18px">
+          <figure>
+            <a class="shot" href="evidence/r6-audit-1280-dark-reading.png"><img src="evidence/r6-audit-1280-dark-reading.png" alt="The reading card before R6: the decision-model values are set in uppercase at 10 px" loading="lazy" /></a>
+            <figcaption><b>Before - the reading</b><span>The worst case: reviewed content values (<code>TWO TEAMS</code>, <code>SOURCE OF TRUTH</code>) set in all caps at 10 px, the caveat at 11 px, and a 38.4 px title doing the same job as the 64 px h1.</span></figcaption>
+          </figure>
+          <figure>
+            <a class="shot" href="evidence/r6-reading-1280-dark.png"><img src="evidence/r6-reading-1280-dark.png" alt="The reading card after R6: sentence-case values with colons at 13 px and a 32 px title" loading="lazy" /></a>
+            <figcaption><b>After - the reading</b><span>Values are sentence case at 13 px joined by a colon, the caveat and caption reach 13 px, and the title takes the heading role at 32 px. The lede moves 15 → 16 px.</span></figcaption>
+          </figure>
+        </div>
+        <div class="pair" style="margin-top: 18px">
+          <figure>
+            <a class="shot" href="evidence/r6-audit-1280-dark-close.png"><img src="evidence/r6-audit-1280-dark-close.png" alt="The public closing scene before R6: uppercase meta rows and 32 px archive link" loading="lazy" /></a>
+            <figcaption><b>Before - the public close</b><span>Section fill 68%. The meta strip is uppercase, the archive link is a 32 px row, and the identity line is set as tracked capitals.</span></figcaption>
+          </figure>
+          <figure>
+            <a class="shot" href="evidence/r6-close-1280-dark.png"><img src="evidence/r6-close-1280-dark.png" alt="The public closing scene after R6: sentence-case meta, 44 px archive row, 72% fill" loading="lazy" /></a>
+            <figcaption><b>After - the public close</b><span>Fill 72% with no new content. The meta strip is readable sentence case, the archive link has a 44 px row, and the identity line is prose at 13 px.</span></figcaption>
+          </figure>
+        </div>
+        <div class="pair" style="margin-top: 18px">
+          <figure>
+            <a class="shot" href="evidence/r6-today-1280-light.png"><img src="evidence/r6-today-1280-light.png" alt="Scene 1 after R6 in the light paper theme" loading="lazy" /></a>
+            <figcaption><b>After - scene 1, 1280 light</b><span>The paper theme keeps its ink contrast: axe 0 violations at 1280 dark and light, and the mono face keeps its label step rather than dropping below 10 px.</span></figcaption>
+          </figure>
+          <figure>
+            <a class="shot" href="evidence/r6-reading-1280-light.png"><img src="evidence/r6-reading-1280-light.png" alt="The reading card after R6 in the light paper theme" loading="lazy" /></a>
+            <figcaption><b>After - the reading, 1280 light</b><span>The colon seam appears in both themes because it is CSS content on the <code>dt</code>, not new copy in the DOM.</span></figcaption>
+          </figure>
+        </div>
+        <div class="pair" style="margin-top: 18px">
+          <figure>
+            <a class="shot" href="evidence/r6-audit-390-light.png"><img src="evidence/r6-audit-390-light.png" alt="The Home at 390 before R6: sixteen sizes and 3 targets under 44 px" loading="lazy" /></a>
+            <figcaption><b>Before - 390 light</b><span>Same sixteen sizes on the phone, where the 10 px meta is hardest to read and the 32 px rows are smallest under a thumb.</span></figcaption>
+          </figure>
+          <figure>
+            <a class="shot" href="evidence/r6-390-light-full.png"><img src="evidence/r6-390-light-full.png" alt="The Home at 390 after R6: nine sizes, 44 px targets, 0 overflow" loading="lazy" /></a>
+            <figcaption><b>After - 390 light</b><span>Nine sizes, 44 px minimum row, 0 horizontal overflow. Section fill 80 / 91 / 87 and the body measure stays at 44 characters per line.</span></figcaption>
+          </figure>
+        </div>
+        <div class="pair" style="margin-top: 18px">
+          <figure>
+            <a class="shot" href="evidence/r6-instrument-1280-dark.png"><img src="evidence/r6-instrument-1280-dark.png" alt="The decision instrument after R6: sentence-case coordinate labels and 44 px reset row" loading="lazy" /></a>
+            <figcaption><b>After - the instrument</b><span>The coordinate labels join the label step, the reset control takes a 44 px row, and the caption reaches the 13 px floor. The diagram's own 11 px node labels are not prose and stay.</span></figcaption>
+          </figure>
+          <figure>
+            <a class="shot" href="evidence/r6-1024-light-full.png"><img src="evidence/r6-1024-light-full.png" alt="The Home after R6 at 1024 light" loading="lazy" /></a>
+            <figcaption><b>After - 1024 light</b><span>The display size resolves to 51.2 px and the title to 32.8 px, which is the same clamp behaving as before; the role tokens only rename the steps, they do not flatten the responsive curve.</span></figcaption>
+          </figure>
+        </div>
+        <div class="pair" style="margin-top: 18px">
+          <figure>
+            <a class="shot" href="evidence/r6-320-light-full.png"><img src="evidence/r6-320-light-full.png" alt="The Home after R6 at 320 light" loading="lazy" /></a>
+            <figcaption><b>After - 320 light</b><span>Holds at 320×720 with 0 overflow and 0 axe violations. The nine sizes recompute to 32 / 26 / 24 / 19 / 16 / 14 / 13 / 11 / 10.</span></figcaption>
+          </figure>
+          <figure>
+            <a class="shot" href="evidence/r6-close-390-light.png"><img src="evidence/r6-close-390-light.png" alt="The public closing scene after R6 at 390 light" loading="lazy" /></a>
+            <figcaption><b>After - the close at 390</b><span>One column, four destinations, identity strip and live region intact. The 44 px rows are the reason the destinations no longer feel like text with a border.</span></figcaption>
+          </figure>
+        </div>
+        <div class="notes">
+          <div class="note lost">
+            <h3>Corrections found while measuring</h3>
+            <p>The first capture set the clock tick to the 11 px label step, and <code>THU 05 NOV</code> wrapped inside its 76 px cell - the tick keeps a 10 px step of its own, and the build still has no 9 px or 9.5 px text. The stage carries the flag attribute itself, so a descendant selector would have matched nothing and silently done nothing; a guard now fails on that shape. One attempted instrument rule was written as a descendant of <code>.hansa-stage</code>, matched nothing, and left a 12 px switch label in the capture - the screenshot caught it, not the tests. Two heading defects recorded during R5 ship in the public build rather than behind the visual flag: the h1's missing space (<code>Choose a moment.Follow the thread.</code>) and the reading h2 that repeated the peek title word for word.</p>
+          </div>
+          <div class="note keep">
+            <h3>What R6 deliberately does not do</h3>
+            <p>No new family, colour, radius, card, icon or illustration, and no motion: the reduced-motion inventory is 0 animations and 0 transitions before and after. No content, data, publication state or link changes. The review close inherits the 13 px floor when both flags are on but is not redesigned here. With the flag off every R6 rule is dead bytes in the existing stage stylesheet - the same trade R5 made, measured rather than assumed away.</p>
+          </div>
+        </div>
+        <p class="verdict" style="margin-top: 22px">
+          <strong>Measured.</strong> 320 tests pass, including 8 new polish guards.
+          With the flag off the exported Home renders no <code>data-stage-polish</code>
+          attribute and the accepted M6 type: 16 distinct sizes, 46 of 139 mono labels
+          (33.1%), 3 targets under 44 px, LCP 776 / 792 / 1,152 ms across three runs,
+          CLS 0. With the flag on: 9 sizes (64 / 41 / 32 / 19 / 16 / 14 / 13 / 11 / 10),
+          26 of 140 mono labels (18.6%), no text under 13 px except labels and meta,
+          0 targets under 44 px, section fill 73 / 89 / 72 (was 71 / 89 / 68), axe 0
+          violations and 0 console errors at 1280 dark/light, 1024, 390 and 320.
+          The layer costs +5,041 B of CSS (30 rules, all scoped) and +1 DOM node
+          (the <code>sr-only</code> reading prefix); the polish build itself adds no
+          request, no chunk and no runtime work. A manual NVDA/VoiceOver pass is
+          <strong>NOT RUN</strong> - the Chromium accessibility tree is recorded, but it
+          is not an AT test. Owner acceptance <strong>pending</strong>; the flag stays off
+          in the shipped export.
+        </p>
+      </section>
+
+      <footer>
+        <p><strong>Method.</strong> Prototype opened from <code>intelligent-atlas/prototype/index.html</code>; shipped build served by <code>scripts/serve-out.mjs</code> on port 4380; R1 and the review explorer on the local dev server, port 4391, with <code>HANSA_ATLAS_REVIEW_PREVIEW=1</code>. R2-R5 are measured on the production static export on port 4395 with <code>HANSA_ATLAS_REVIEW_PREVIEW=1 HANSA_NEIGHBOURHOOD_REVIEW=1</code> (R3 adds <code>HANSA_TIMELINE_REVIEW=1</code>, R4 adds <code>HANSA_DEALER_REVIEW=1</code>, R5 adds <code>HANSA_CLOSING_REVIEW=1</code>), and the flag-off export without any of them. R6 is different in kind: the before column is the flag-off export itself and the after column is the same export built with <code>HANSA_POLISH_REVIEW=1</code> alone, so the pair isolates the layer. Desktop 1280×900, tablet 1024×900, mobile 390×844 and 320×720, Microsoft Edge, reduced motion except the one full-motion R3 and R4 capture, 1× scale.</p>
+        <p><strong>Reproduce.</strong> <code>NODE_PATH=node_modules node docs/design-direction-recovery-20261104/capture.mjs</code>, <code>r1-capture.mjs</code>, <code>r2-capture.mjs</code>, <code>r3-capture.mjs</code>, <code>r4-capture.mjs</code>, <code>r5-capture.mjs</code>; R6 is <code>r6-audit.mjs</code> (before) and <code>r6-capture.mjs</code> (after), with <code>r6-a11y-tree.mjs</code> for the accessibility tree; performance: <code>r1-perf.mjs</code>, <code>r2-perf.mjs</code>, <code>r2-review-perf.mjs</code>, <code>r3-perf.mjs</code>, <code>r3-review-perf.mjs</code>, <code>r4-perf.mjs</code>, <code>r4-review-perf.mjs</code>, <code>r5-perf.mjs</code>, <code>r5-review-perf.mjs</code> and <code>r6-perf.mjs public|polish</code>. Full analysis: <code>REGRESSION_ANALYSIS.md</code>; records: <code>ACCEPTANCE/R1-2026-11-05.md</code>, <code>ACCEPTANCE/R2-2026-11-05.md</code>, <code>ACCEPTANCE/R3-2026-11-05.md</code>, <code>ACCEPTANCE/R4-2026-11-05.md</code>, <code>ACCEPTANCE/R5-2026-11-05.md</code> and <code>ACCEPTANCE/R6-2026-11-05.md</code>.</p>
+        <p>R1 added the gated route. R2 changes six review-pinned application files. R3 changes three and adds four fan files. R4 changes four and adds four dealer files. R5 changes seven and adds two closing files. R6 changes five and adds one polish test; two of those five are accessibility corrections that ship with the public build. No relation is published, and nothing here is deployed.</p>
+      </footer>
+    </main>
+  </body>
+</html>

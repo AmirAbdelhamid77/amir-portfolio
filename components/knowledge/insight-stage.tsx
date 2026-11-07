@@ -29,6 +29,7 @@
 // timeline, in the archive or in the URL moves every scene.
 
 import { useCallback, useEffect, useMemo, useState } from "react";
+import dynamic from "next/dynamic";
 import { motion, useMotionValue, useSpring } from "motion/react";
 import { ArrowUpRight } from "lucide-react";
 import { selectedInsight, type Insight } from "@/lib/knowledge/insights";
@@ -41,6 +42,11 @@ import {
   insightCards,
   type ExperimentState,
 } from "@/lib/knowledge/models";
+import {
+  closedDealerQuery,
+  dealerQuery,
+  parseDealerEdition,
+} from "@/lib/knowledge/dealer-hand";
 import { CINEMATIC } from "@/lib/motion/cinematic";
 import type { SceneState } from "@/components/knowledge/insight-scene";
 import { KnowledgeDealer, type DealerZone } from "@/components/knowledge/knowledge-dealer";
@@ -49,6 +55,14 @@ import { useCalmMotion } from "@/components/cinematic/use-calm-motion";
 import { StageTimeline } from "./stage-timeline";
 import { StageKnowledge } from "./stage-knowledge";
 import { StageClosing } from "./stage-closing";
+
+// R4's modal dealer is a review-only chunk. The public Home never renders it,
+// so the dynamic stub is the only cost there and the chunk is never requested.
+const DealerCinematic = dynamic(
+  () => import("./dealer-cinematic").then((module) => module.DealerCinematic),
+  { ssr: false },
+);
+
 import "./observatory.css";
 import "./stage-editorial.css";
 
@@ -62,17 +76,34 @@ export function InsightStage({
   atlas,
   model,
   notice,
+  neighbourhood,
+  timelineFan = false,
+  dealerReview = false,
+  closingReview = false,
+  polishReview = false,
 }: {
   items: Insight[];
   atlas: Atlas;
   model: StageModel;
   notice: string;
+  /** Review-only candidate projection; omitted in the public build. */
+  neighbourhood?: Atlas | null;
+  /** Review-only desktop timeline fan; the strip stays the default. */
+  timelineFan?: boolean;
+  /** Review-only cinematic modal dealer; the inline table stays the default. */
+  dealerReview?: boolean;
+  /** Review-only closing scene; the accepted M6 close stays the default. */
+  closingReview?: boolean;
+  /** Review-only polish layer; the accepted M6 typography stays the default. */
+  polishReview?: boolean;
 }) {
   const reduce = useCalmMotion();
   const [selectedId, setSelectedId] = useState<string | null>(
     model.timeline.latestEditionId,
   );
   const [dealerOpen, setDealerOpen] = useState(false);
+  const [dealerModal, setDealerModal] = useState(false);
+  const [dealerStartCard, setDealerStartCard] = useState<string | null>(null);
   const [direction, setDirection] = useState<"forward" | "back">("forward");
   const [scenes, setScenes] = useState<Record<string, SceneState>>({});
   const [experiments, setExperiments] = useState<Record<string, ExperimentState>>({});
@@ -95,14 +126,26 @@ export function InsightStage({
   const magnetYSpring = useSpring(magnetY, CINEMATIC.spring.light);
 
   // The URL is canonical: it is read once on mount and on Back/Forward, and
-  // written only when the reader chooses an edition.
+  // written only when the reader chooses an edition or opens a deck.
   useEffect(() => {
+    const editions = model.timeline.editions;
     function restore() {
       const params = new URLSearchParams(window.location.search);
-      const requested = params.get("insight");
+      // `?dealer=` is a shared deck. It is resolved against the editions this
+      // audience may see, so a withheld id opens nothing.
+      const deckEdition = dealerReview
+        ? parseDealerEdition(params.get("dealer"), editions)
+        : null;
+      // A shared deck is the more specific address: it wins over a stale
+      // `insight` parameter so the modal and the selected edition cannot drift.
+      const requested = deckEdition ?? params.get("insight");
       const resolved = selectedInsight(items, requested);
       if (!resolved) return;
       setSelectedId(resolved.id);
+      if (dealerReview) {
+        setDealerModal(Boolean(deckEdition));
+        if (deckEdition) setDealerStartCard(null);
+      }
       setMessage(
         requested && !items.some((item) => item.id === requested)
           ? "That edition is unavailable. Showing the latest visible edition."
@@ -112,7 +155,7 @@ export function InsightStage({
     restore();
     window.addEventListener("popstate", restore);
     return () => window.removeEventListener("popstate", restore);
-  }, [items]);
+  }, [dealerReview, items, model.timeline.editions]);
 
   const insight = selectedInsight(items, selectedId) ?? null;
   const experiment = insight ? experiments[insight.id] ?? INITIAL_EXPERIMENT : INITIAL_EXPERIMENT;
@@ -163,6 +206,117 @@ export function InsightStage({
     },
     [items, reduce, selectedId],
   );
+
+  // R4 — the modal dealer. With the flag off these handlers are never used: the
+  // inline table keeps its own two booleans and the accepted DOM.
+  const openDealer = useCallback(() => {
+    if (!insight) return;
+    if (!dealerReview) {
+      setDealerOpen(true);
+      return;
+    }
+    setDealerStartCard(null);
+    setDealerModal(true);
+    const url = new URL(window.location.href);
+    url.search = dealerQuery(url.search, insight.id);
+    window.history.pushState({}, "", url);
+  }, [dealerReview, insight]);
+
+  const closeDealer = useCallback(() => {
+    setDealerOpen(false);
+    setDealerModal(false);
+    setDealerStartCard(null);
+    const url = new URL(window.location.href);
+    url.search = closedDealerQuery(url.search);
+    window.history.replaceState({}, "", url);
+  }, []);
+
+  const switchDealerEdition = useCallback(
+    (id: string) => {
+      setDealerStartCard(null);
+      choose(id);
+      // `choose` pushes the insight parameter; the deck parameter follows in
+      // the same entry, so Back does not reopen the previous edition's deck.
+      const url = new URL(window.location.href);
+      url.searchParams.set("dealer", id);
+      window.history.replaceState({}, "", url);
+    },
+    [choose],
+  );
+
+  const openSavedCard = useCallback(
+    (editionId: string, cardId: string) => {
+      setDealerStartCard(cardId);
+      setDealerModal(true);
+      choose(editionId);
+      const url = new URL(window.location.href);
+      url.searchParams.set("dealer", editionId);
+      window.history.replaceState({}, "", url);
+    },
+    [choose],
+  );
+
+  // R5 — the review close. Reopening uses the modal dealer when this build has
+  // it, and the timeline otherwise; the control never promises a surface that
+  // the build did not mount.
+  const reopenEdition = useCallback(
+    (editionId: string | null) => {
+      if (!editionId) {
+        document.getElementById("today")?.scrollIntoView({
+          behavior: reduce ? "auto" : "smooth",
+          block: "start",
+        });
+        return;
+      }
+      if (dealerReview) {
+        setDealerStartCard(null);
+        setDealerModal(true);
+        choose(editionId);
+        const url = new URL(window.location.href);
+        url.search = dealerQuery(url.search, editionId);
+        window.history.pushState({}, "", url);
+        return;
+      }
+      choose(editionId, { scroll: true });
+      // The scroll alone would leave focus on a button that is now off-screen.
+      // Move it to the timeline heading the reader was sent back to.
+      requestAnimationFrame(() => {
+        const heading = document.getElementById("stage-timeline-title");
+        if (!heading) return;
+        heading.setAttribute("tabindex", "-1");
+        heading.focus({ preventScroll: true });
+      });
+    },
+    [choose, dealerReview, reduce],
+  );
+
+  const openSavedFromClose = useCallback(
+    (editionId: string, cardId: string) => {
+      if (dealerReview) {
+        openSavedCard(editionId, cardId);
+        return;
+      }
+      choose(editionId, { scroll: true });
+    },
+    [choose, dealerReview, openSavedCard],
+  );
+
+  const locateInEdition = useCallback(() => {
+    closeDealer();
+    requestAnimationFrame(() => {
+      const heading = document.getElementById("stage-edition-title");
+      heading?.scrollIntoView({
+        behavior: reduce ? "auto" : "smooth",
+        block: "start",
+      });
+      // A visual scroll alone would leave focus on the trigger behind the
+      // closed dialog. Move it to the scene heading the reader was sent to.
+      if (heading) {
+        heading.setAttribute("tabindex", "-1");
+        heading.focus({ preventScroll: true });
+      }
+    });
+  }, [closeDealer, reduce]);
 
   const scene = insight ? scenes[insight.id] ?? CLOSED : CLOSED;
   const cards = useMemo(
@@ -316,8 +470,12 @@ export function InsightStage({
 
   return (
     <div>
-      {/* pt clears the fixed site header. */}
-      <div className="hansa-stage observatory relative isolate overflow-clip pt-[104px]">
+      {/* pt clears the fixed site header. `data-stage-polish` is written only
+          under HANSA_POLISH_REVIEW=1; the R6 rules are scoped to it. */}
+      <div
+        className="hansa-stage observatory relative isolate overflow-clip pt-[104px]"
+        data-stage-polish={polishReview ? "true" : undefined}
+      >
         {/* ------------------------------------------------------- masthead */}
         <div className="mx-auto w-full max-w-[1320px] px-5 pt-5 md:px-8">
           <div className="flex flex-wrap items-center justify-between gap-2 border-b border-border-strong pb-3 font-mono text-[10px] uppercase tracking-[0.16em] text-muted-foreground">
@@ -336,12 +494,14 @@ export function InsightStage({
             model={model}
             insight={insight}
             selectedId={insight?.id ?? null}
-            dealerOpen={dealerOpen}
-            dealer={dealer}
+            dealerOpen={dealerReview ? dealerModal : dealerOpen}
+            dealer={dealerReview ? null : dealer}
+            dealerMode={dealerReview ? "modal" : undefined}
             message={message}
             onSelect={choose}
-            onOpenDealer={() => setDealerOpen(true)}
-            onCloseDealer={() => setDealerOpen(false)}
+            onOpenDealer={dealerReview ? openDealer : () => setDealerOpen(true)}
+            onCloseDealer={dealerReview ? closeDealer : () => setDealerOpen(false)}
+            fan={timelineFan}
           />
         </section>
 
@@ -355,6 +515,7 @@ export function InsightStage({
             model={model}
             insight={insight}
             atlas={atlas}
+            neighbourhood={neighbourhood}
             scene={scene}
             experimentId={experimentId}
             experiment={experiment}
@@ -377,9 +538,26 @@ export function InsightStage({
             notice={notice}
             message={message}
             announcement={announcement}
+            closingReview={closingReview}
+            items={items}
+            onReopen={reopenEdition}
+            onOpenSaved={openSavedFromClose}
           />
         </section>
       </div>
+
+      {dealerReview && dealerModal && insight ? (
+        <DealerCinematic
+          insight={insight}
+          model={model}
+          items={items}
+          startCardId={dealerStartCard}
+          onClose={closeDealer}
+          onSelectEdition={switchDealerEdition}
+          onLocate={locateInEdition}
+          onOpenSaved={openSavedCard}
+        />
+      ) : null}
 
       <InsightArchive items={items} onOpen={(id) => choose(id, { scroll: true })} />
 

@@ -1,6 +1,6 @@
 {
   "scope": "hansa-knowledge-stage-m6-20261104",
-  "note": "M6 successor layer. It records what M0 could not: step 1 added the public stage boundary, its test and the pre-integration baseline and repaired two stale guards; step 2 records the visible three-scene swap, the three scene components, the re-baselined guards and the two light relation tokens. It never republishes a unit, never widens the Atlas projection and never edits M0.",
+  "note": "M6 successor layer. It records what M0 could not: step 1 added the public stage boundary, its test and the pre-integration baseline and repaired two stale guards; step 2 records the visible three-scene swap, the three scene components, the re-baselined guards and the two light relation tokens Step 3 (5 Nov 2026) records the R2 review slice: the edition neighbourhood wired into the knowledge scene through a separate build-time flag, with every superseded Home, Atlas and stage pin listed above. It never republishes a unit, never widens the Atlas projection and never edits M0. Step 4 (5 Nov 2026) records R3: the desktop timeline fan as a third review slice, with the accepted M6 strip untouched below 1024 px and in the public build. The fan is a dynamic client chunk with its own stylesheet, its geometry is a pure pinned module, and the public Home keeps the M6 DOM, CSS bytes and resource count; the fan JS/CSS exist in the export but are never requested when the flag is off. Step 5 (5 Nov 2026) records R4: the cinematic dealer as a fourth, independent review slice. The dealer is a lazily imported portal dialog with its own stylesheet and a pure hand model; the inline card table stays the flag-off default, `?dealer=` is parsed only under the flag, and no publication state changes. Step 6 (5 Nov 2026) records R5: the closing scene as a fifth, independent review slice. One idea quoted from the selected edition, one action that reopens it, the dealer's kept cards read from browser storage, the coverage ledger pinned to the 1 Nov 2026 semantic ledger (109 of 4,337 eligible units, fingerprint 20809d68), and four statements of what the scene does not claim. The accepted M6 close stays the flag-off default and the public build renders none of the review markup; the closing rules live in the one stage stylesheet, so that dead weight is measured rather than hidden. Step 7 (5 Nov 2026) records R6: the polish layer as a sixth, independent review slice behind HANSA_POLISH_REVIEW=1. Nine named type roles replace sixteen computed sizes (64 / 41 / 32 / 19 / 16 / 14 / 13 / 11 / 10), mono labels drop from 46 of 139 elements (33.1%) to 26 of 140 (18.6%), prose keeps a 13px floor, the three targets under 44px gain a 44px row, and one scene rhythm replaces the per-scene padding. Two heading corrections ship in the public build rather than behind the visual flag: the h1's missing space and the reading heading's sr-only name. The accepted M6 type remains the flag-off default and no publication state changes.",
   "previous": "docs/knowledge-stage-m0-20261103/INTEGRATION_MANIFEST.json",
   "previousSha256": "350d61cedfe26f9976ad4f414038b7c68ad38f1b02693f7ae02e65ae4d92e609",
   "files": [
@@ -93,6 +93,285 @@
       "layer": "knowledge-stage-m6/2026-11-04",
       "attribution": "M6-stage-swap",
       "note": "Adds the zero-withheld review fallback guard: with the empty public projection the review model must reuse the projection's notice and contain no 'candidate' vocabulary."
+    },
+    {
+      "path": "components/knowledge/insight-stage.tsx",
+      "previousSha256": "9ea9d6b6a470a98f5abdfc90bb6547fe9c9c31d32ac5ba5c88da5d4bfb176942",
+      "sha256": "3e99514d703fcca48b4727bb9286c2e63d97c576d0c1dad6afe3834eb830f926",
+      "bytes": 15526,
+      "layer": "design-recovery-r2/2026-11-05",
+      "attribution": "R2-home-embed",
+      "note": "Carries the optional `neighbourhood` prop from the landing to the knowledge scene. No default, no model change: the public build receives undefined and renders the same DOM."
+    },
+    {
+      "path": "components/knowledge/hansa-landing.tsx",
+      "previousSha256": "3044ef8db6f5f1264f9b969a85382ffd9b5dd63ae5a84c28f06b0a61e9b96539",
+      "sha256": "b3e7627fb9a791d2ca25a012a4d83432310bc44aafd16386322f933013c4cba8",
+      "bytes": 2524,
+      "layer": "design-recovery-r2/2026-11-05",
+      "attribution": "R2-home-embed",
+      "note": "Asks for the explicit public Atlas projection and adds one build-time branch (HANSA_NEIGHBOURHOOD_REVIEW=1) that alone calls getAtlasReview(). With the flag off the branch is null and the props are identical."
+    },
+    {
+      "path": "components/knowledge/stage-knowledge.tsx",
+      "previousSha256": "d6ff81d39c5c24be25f55905b4927abee42f21caef01a49c6b4b08355371f7a8",
+      "sha256": "c0a2ac1023eca092c90a41e2f9d7320af5a7052b09ae52476b31d54dad0a0f61",
+      "bytes": 7015,
+      "layer": "design-recovery-r2/2026-11-05",
+      "attribution": "R2-home-embed",
+      "note": "Renders the lazy edition neighbourhood when the review prop exists; otherwise the existing graph block, including model.graph.discovery, is byte-for-byte the previous output."
+    },
+    {
+      "path": "lib/atlas/model.ts",
+      "previousSha256": "675e6015fe9192710b07d542101cf9744dc8f72eb6750221237018f2406f2dea",
+      "sha256": "2e3888236aac696f97b8fb78f289a78e4cf0dfd8dc72d77b7155f9b8afa36155",
+      "bytes": 11792,
+      "layer": "design-recovery-r2/2026-11-05",
+      "attribution": "R2-home-embed",
+      "note": "Adds `return` to the recognised view keys so the Atlas desk does not warn when the edition hand-off carries its return id. No parsing, projection or publication behaviour changes."
+    },
+    {
+      "path": "components/atlas/explorer.tsx",
+      "previousSha256": "b168ae284fbb65d94c122fe2be4f8e6d2f4f1fc705ef97ce36e2a394bc641fb4",
+      "sha256": "68a91e5d8bbece56e9f73818d08ac773eece994485bafccf4f9e730db1072d95",
+      "bytes": 19678,
+      "layer": "design-recovery-r2/2026-11-05",
+      "attribution": "R2-home-embed",
+      "note": "Reads the validated edition return id and renders \"Back to the edition\" before the lesson link. With no return id the button is absent and the toolbar is unchanged."
+    },
+    {
+      "path": "lib/atlas/server.ts",
+      "previousSha256": "851daa2943c74a78ff10add3224388d7f74b5e8516a5d39449dd0961d823ecac",
+      "sha256": "9c79c7e2d453c9e7611c76ae998e3b05e7ec2332424a7fbfe8aef590cf234565",
+      "bytes": 1829,
+      "layer": "design-recovery-r2/2026-11-05",
+      "attribution": "R2-home-embed",
+      "note": "Splits the projection into getAtlasPublic() and getAtlasReview() and keeps the env-driven getAtlas() for routes that are themselves review surfaces. The Home now calls the explicit public projection, so HANSA_ATLAS_REVIEW_PREVIEW alone cannot widen Home props."
+    },
+    {
+      "path": "components/knowledge/stage-timeline.tsx",
+      "previousSha256": "a0e38c4a06325b59ecd634eb3bd1886e6931f81268ae60f4377c2f5709458a36",
+      "sha256": "12c5133064233039e672232d975cd1cbb2043c07821c8f1523266ac1ad8f3a15",
+      "bytes": 14025,
+      "layer": "design-recovery-r3/2026-11-05",
+      "attribution": "R3-timeline-fan",
+      "note": "Extracts the M6 strip into `TimelineStrip` unchanged and adds an optional, dynamically imported desktop fan. With HANSA_TIMELINE_REVIEW unset the rendered DOM is the M6 strip (same attributes, same copy); the fan chunk is never requested."
+    },
+    {
+      "path": "components/knowledge/insight-stage.tsx",
+      "previousSha256": "3e99514d703fcca48b4727bb9286c2e63d97c576d0c1dad6afe3834eb830f926",
+      "sha256": "e1107a3d284cc192be2c0294cb61819731e7bef6c0038920145912eb51f709ef",
+      "bytes": 15676,
+      "layer": "design-recovery-r3/2026-11-05",
+      "attribution": "R3-timeline-fan",
+      "note": "Forwards the optional `timelineFan` prop to the timeline scene. No default and no model change: the public build passes false and renders the accepted strip."
+    },
+    {
+      "path": "components/knowledge/hansa-landing.tsx",
+      "previousSha256": "b3e7627fb9a791d2ca25a012a4d83432310bc44aafd16386322f933013c4cba8",
+      "sha256": "ce1201ff24773279c30f2e456c4a1c61dfbaf2e4ad5dd127163cf5fcd849f736",
+      "bytes": 2775,
+      "layer": "design-recovery-r3/2026-11-05",
+      "attribution": "R3-timeline-fan",
+      "note": "Adds a third build-time branch, HANSA_TIMELINE_REVIEW=1, and passes its boolean to the stage. It reads no data and changes no projection; the review build is the only caller of the fan."
+    },
+    {
+      "path": "components/knowledge/stage-timeline.tsx",
+      "previousSha256": "12c5133064233039e672232d975cd1cbb2043c07821c8f1523266ac1ad8f3a15",
+      "sha256": "0126688a34f05fd9f45e2a4a4fcc64f18560c8207f6a104cf05fed8b15442a15",
+      "bytes": 14644,
+      "layer": "design-recovery-r4/2026-11-05",
+      "attribution": "R4-cinematic-dealer",
+      "note": "Adds one optional `dealerMode=\"modal\"` branch to the disclosure trigger: aria-haspopup=dialog, aria-controls=dealer-cinematic and a different label, while the inline card table stays the default when `dealer` is provided. With the flag off the prop is undefined and the trigger, its attributes and the inline table are byte-identical to R3."
+    },
+    {
+      "path": "components/knowledge/insight-stage.tsx",
+      "previousSha256": "e1107a3d284cc192be2c0294cb61819731e7bef6c0038920145912eb51f709ef",
+      "sha256": "fa261224b055f03edb69cfe06240c605695d4b871f51905aec6c9be81618e507",
+      "bytes": 19749,
+      "layer": "design-recovery-r4/2026-11-05",
+      "attribution": "R4-cinematic-dealer",
+      "note": "Adds the review-only modal path: `dealerReview`, a lazily imported DealerCinematic, `?dealer=` open/close/switch/saved handlers, and locate-in-edition. With the flag off no handler is reachable, the inline dealer keeps its two booleans, and `?dealer=` is not parsed."
+    },
+    {
+      "path": "components/knowledge/hansa-landing.tsx",
+      "previousSha256": "ce1201ff24773279c30f2e456c4a1c61dfbaf2e4ad5dd127163cf5fcd849f736",
+      "sha256": "5f4bd36d8512e3aa9a63f99b26fdb7dbf0d163ed4f718d497643b847e0bf3691",
+      "bytes": 3007,
+      "layer": "design-recovery-r4/2026-11-05",
+      "attribution": "R4-cinematic-dealer",
+      "note": "Adds a fourth build-time branch, HANSA_DEALER_REVIEW=1, and passes its boolean to the stage. It reads no data, changes no projection and is independent of the timeline flag."
+    },
+    {
+      "path": "tests/knowledge/canonical-home.test.mjs",
+      "previousSha256": "ddfe003ef153a37f8df07bb8987fb296cb415f7c8595ead3ff204bef0a1bb87f",
+      "sha256": "85c9f410acb9de33f9fa5edd695411e6a3d6cbe510a0e50ca6f6810367096f40",
+      "bytes": 15014,
+      "layer": "design-recovery-r4/2026-11-05",
+      "attribution": "R4-cinematic-dealer",
+      "note": "Updates the one-dealer guard for the dual renderer: exactly one inline dealer remains the flag-off default, the modal dealer is a flag-gated mode rather than a replacement, and exactly one DealerCinematic is mounted. Every other invariant is unchanged."
+    },
+    {
+      "path": "components/knowledge/stage-closing.tsx",
+      "previousSha256": "0cbd3b92e200bc99d5b3392740e04b2c7fa3813a008a883d7bd93a4bc0133cab",
+      "sha256": "e1bdda7a60236908776d9180433367ea29766dfe496b8b9529f122042a4302d8",
+      "bytes": 13705,
+      "layer": "design-recovery-r5/2026-11-05",
+      "attribution": "R5-closing-scene",
+      "note": "Scene 3 gains a flag-gated review branch: one idea from the selected edition, the reopen action, the kept cards, the coverage ledger and the four 'what this does not claim' lines. With HANSA_CLOSING_REVIEW unset the accepted M6 close renders exactly as pinned."
+    },
+    {
+      "path": "components/knowledge/insight-stage.tsx",
+      "previousSha256": "fa261224b055f03edb69cfe06240c605695d4b871f51905aec6c9be81618e507",
+      "sha256": "8e56cdd2399d325b066877ad77588a005e7d5f6a1f7e468dd9bfcceb01736d63",
+      "bytes": 21546,
+      "layer": "design-recovery-r5/2026-11-05",
+      "attribution": "R5-closing-scene",
+      "note": "Adds the closingReview prop and the two handlers the review close needs (reopen the selected edition, open a kept card). With the flag off no handler is mounted and the public close keeps its own DOM."
+    },
+    {
+      "path": "components/knowledge/hansa-landing.tsx",
+      "previousSha256": "5f4bd36d8512e3aa9a63f99b26fdb7dbf0d163ed4f718d497643b847e0bf3691",
+      "sha256": "db2eaf7f223b626657e6382727531cdebc9fd826b58ce9f97a37a17217b15d82",
+      "bytes": 3259,
+      "layer": "design-recovery-r5/2026-11-05",
+      "attribution": "R5-closing-scene",
+      "note": "Fifth build-time branch, HANSA_CLOSING_REVIEW=1, independent of the Atlas, neighbourhood, timeline and dealer flags. With the flag unset the prop is false and no closing review markup is produced."
+    },
+    {
+      "path": "components/knowledge/stage-editorial.css",
+      "previousSha256": "e32523f95381c5f54cf04626a8828667ef699bc404cac8f2da18ac9a1b966095",
+      "sha256": "2a9cffd8a50eafcf920a01765344176b1d3b46657470353a36150492397fb68a",
+      "bytes": 26870,
+      "layer": "design-recovery-r5/2026-11-05",
+      "attribution": "R5-closing-scene",
+      "note": "Adds the scoped .stage-close-* rules for the review close. The public close uses none of them, so the only flag-off cost is dead selectors inside the one stage stylesheet; r5-perf.mjs measures that weight."
+    },
+    {
+      "path": "components/knowledge/dealer-cinematic.tsx",
+      "previousSha256": "26fbbdc505bbaaedc52aabf7fcd378273e3624c45f9a87e650a47155c413f77e",
+      "sha256": "878051edc812b547dab1647fc8e95ea48df2fc1ef6ff695e4093735beca612b4",
+      "bytes": 22267,
+      "layer": "design-recovery-r5/2026-11-05",
+      "attribution": "R5-closing-scene",
+      "note": "The dealer dispatches a same-tab hansa:dealer-saved event after every persist so the sibling closing scene can list a card saved in the dialog. The dialog's own behaviour, DOM and saved-list semantics are unchanged."
+    },
+    {
+      "path": "lib/knowledge/dealer-hand.ts",
+      "previousSha256": "f59191ef3fe677072f6d5477f86e7ff514744ec5535094621b7540860f57ca8e",
+      "sha256": "8d3e9166de2e00e60c5da63ab78b112faa49e32c7e99e80c7777b0c213d2087c",
+      "bytes": 11247,
+      "layer": "design-recovery-r5/2026-11-05",
+      "attribution": "R5-closing-scene",
+      "note": "Adds SAVED_CARDS_EVENT and the saved-card key the closing scene reads. The hand, rail, URL resolution and bookmark helpers are unchanged; the constant is the only new export."
+    },
+    {
+      "path": "tests/knowledge/canonical-home.test.mjs",
+      "previousSha256": "85c9f410acb9de33f9fa5edd695411e6a3d6cbe510a0e50ca6f6810367096f40",
+      "sha256": "6f11a15317a26d2dc3d255be705564ade7016df9c2fbed427706af7f667b941f",
+      "bytes": 15901,
+      "layer": "design-recovery-r5/2026-11-05",
+      "attribution": "R5-closing-scene",
+      "note": "Adds the R5 guards: exactly one closing scene, the review close gated by its own flag, the public close still the default, and HANSA_CLOSING_REVIEW present as a build-time branch in the landing."
+    },
+    {
+      "path": "components/knowledge/hansa-landing.tsx",
+      "previousSha256": "db2eaf7f223b626657e6382727531cdebc9fd826b58ce9f97a37a17217b15d82",
+      "sha256": "82e50bfff1f8f06a4b93e4f3784629b7cfa2c3a024833526dbc8f6742c85fb48",
+      "bytes": 3599,
+      "attribution": "R6-polish-layer",
+      "note": "Adds the sixth, independent build-time flag, HANSA_POLISH_REVIEW, and passes it to the stage. No other flag changes and no publication state is read here.",
+      "layer": "design-recovery-r6/2026-11-05"
+    },
+    {
+      "path": "components/knowledge/insight-stage.tsx",
+      "previousSha256": "8e56cdd2399d325b066877ad77588a005e7d5f6a1f7e468dd9bfcceb01736d63",
+      "sha256": "adf2ef8cf70ede830cd8d020953837623294385fc2e22a6093ddba491eb885d0",
+      "bytes": 21860,
+      "attribution": "R6-polish-layer",
+      "note": "Writes data-stage-polish only when the flag is on and accepts the polish prop. With the flag off the attribute is absent and the accepted M6 markup and typography are unchanged.",
+      "layer": "design-recovery-r6/2026-11-05"
+    },
+    {
+      "path": "components/knowledge/stage-timeline.tsx",
+      "previousSha256": "0126688a34f05fd9f45e2a4a4fcc64f18560c8207f6a104cf05fed8b15442a15",
+      "sha256": "5a83a4764ca7ff97d2f9a448da137587cb4ca4cb800d30fed083e9dfa65d0ca2",
+      "bytes": 14819,
+      "attribution": "R6-polish-layer",
+      "note": "Adds the explicit space between the h1's two lines. JSX dropped the newline, so the accessible name read 'Choose a moment.Follow the thread.'. One space; no layout, data or interaction change.",
+      "layer": "design-recovery-r6/2026-11-05"
+    },
+    {
+      "path": "components/knowledge/stage-editorial.css",
+      "previousSha256": "2a9cffd8a50eafcf920a01765344176b1d3b46657470353a36150492397fb68a",
+      "sha256": "e130a4d7f5df4bfb2b65c94f8c75aa98d83b28d7ed902ee0f34d4f5bc751881b",
+      "bytes": 35934,
+      "attribution": "R6-polish-layer",
+      "note": "Appends the R6 layer: nine named type roles, the label discipline, the 13px prose floor, 44px target rows and one scene rhythm. Every selector is scoped to [data-stage-polish=\"true\"], so with the flag off the rules are dead bytes (5,041 B, 30 rules) and the accepted type renders.",
+      "layer": "design-recovery-r6/2026-11-05"
+    },
+    {
+      "path": "components/knowledge/insight-scene.tsx",
+      "previousSha256": "181d721dc1643d625da6fa07568e3d6bd3205550fd6c6d2e5b1a799684c99eaa",
+      "sha256": "a4a787ab6de5f98c9e17583db02ec2701c288234a7b3fab96321826f6ef5d51c",
+      "bytes": 11552,
+      "attribution": "R6-polish-layer",
+      "note": "Adds the sr-only 'The reading: ' prefix to the full edition's h2, so the outline no longer repeats the scene-1 peek title verbatim. Sighted output is unchanged.",
+      "layer": "design-recovery-r6/2026-11-05"
+    },
+    {
+      "path": "scripts/verify-knowledge-atlas.mjs",
+      "previousSha256": "52b452cf2a8e8b6feae2267f1d53afae23148e421b7550b0372cf7a3a4243160",
+      "sha256": "6a07d081a6fee39dffa40a36f0587cf5bb4bf76182b6a8591baeaa92d6c47e10",
+      "bytes": 11337,
+      "layer": "release-readiness/2026-11-06",
+      "attribution": "release-readiness-integration",
+      "note": "The Atlas verifier now excludes Markdown from its runtime inventory. Markdown is documentation: it cannot ship in the export and the agent-reference verifier hashes it separately, so an explanatory EGM.md beside the code it explains is no longer reported as an unpinned runtime addition. No gate was weakened for code or assets."
+    },
+    {
+      "path": "scripts/verify-easyui-integration.mjs",
+      "previousSha256": "f7417b07812191d39e1a6fdbbe6cb5cbdbdec0a8e0772f38b05cec975919ebeb",
+      "sha256": "87ca6eef5ae6acf7b131af92a43867e7968088ede31401b6209c9a0c5844738c",
+      "bytes": 4967,
+      "layer": "release-readiness/2026-11-06",
+      "attribution": "release-readiness-integration",
+      "note": "Release-readiness integration: the file changed as part of the accepted R1-R6 integration and the release-candidate tooling. The hop records the new bytes for the slice named in the phase report; no publication state moved."
+    },
+    {
+      "path": "components/knowledge/stage-fan.css",
+      "previousSha256": "eebdbc20df6f1b77bfd72ed8c006e4cba764958fac154bc789c47125494f7685",
+      "sha256": "991233e7c7d847eb2b5b1bbb3357731eb9b6703d41d19cabaec54c1551d1b611",
+      "bytes": 9974,
+      "layer": "release-readiness/2026-11-06",
+      "attribution": "release-readiness-integration",
+      "note": "Release-readiness integration: the file changed as part of the accepted R1-R6 integration and the release-candidate tooling. The hop records the new bytes for the slice named in the phase report; no publication state moved."
+    },
+    {
+      "path": "components/knowledge/hansa-landing.tsx",
+      "previousSha256": "82e50bfff1f8f06a4b93e4f3784629b7cfa2c3a024833526dbc8f6742c85fb48",
+      "sha256": "fe94df6e898b3b711d43a4de9d409d7735697cf30380efa1ab63d29b4be6a674",
+      "bytes": 3812,
+      "layer": "release-readiness/2026-11-06",
+      "attribution": "release-readiness-integration",
+      "note": "Release-readiness integration: the file changed as part of the accepted R1-R6 integration and the release-candidate tooling. The hop records the new bytes for the slice named in the phase report; no publication state moved."
+    },
+    {
+      "path": "tests/knowledge/canonical-home.test.mjs",
+      "previousSha256": "6f11a15317a26d2dc3d255be705564ade7016df9c2fbed427706af7f667b941f",
+      "sha256": "bd20f1175c0d6fbc88aa74fb1684cc510dc489d2676024b55e54ff8eb2a97531",
+      "bytes": 15955,
+      "layer": "release-readiness/2026-11-06",
+      "attribution": "release-readiness-integration",
+      "note": "Release-readiness integration: the file changed as part of the accepted R1-R6 integration and the release-candidate tooling. The hop records the new bytes for the slice named in the phase report; no publication state moved."
+    },
+    {
+      "path": "tests/knowledge/polish.test.mjs",
+      "previousSha256": "84e57e459904e74d3a5b367187aa83acbe11950b0cc2e5cbf8ed7887a8e630d6",
+      "sha256": "1fff5e7f761f2aed1b69293cf52e62be46edd0392283c979e04526bf3244e6d2",
+      "bytes": 6233,
+      "layer": "release-readiness/2026-11-06",
+      "attribution": "release-readiness-integration",
+      "note": "Release-readiness integration: the file changed as part of the accepted R1-R6 integration and the release-candidate tooling. The hop records the new bytes for the slice named in the phase report; no publication state moved."
     }
   ],
   "additions": [
@@ -143,6 +422,222 @@
       "layer": "knowledge-stage-m6/2026-11-04",
       "attribution": "M6-stage-swap",
       "note": "Scene 3. Four real destinations, the review status, the selected edition's lesson/practice/archive hand-offs, the identity strip and the polite live region. No gate, no takeover, no unpublished promise."
+    },
+    {
+      "path": "components/knowledge/timeline-fan.tsx",
+      "sha256": "58b996eaaa512b5a215e88a73619b39af2d0afa7012fb0566b70534ca80a047c",
+      "bytes": 18989,
+      "layer": "design-recovery-r3/2026-11-05",
+      "attribution": "R3-timeline-fan",
+      "note": "Desktop fan (R3): fifteen cards, ghost year, playhead, focus label, cables, ruler, prev/next steppers, drag with settle, horizontal wheel, keyboard arrows/Home/End/Enter. Loaded through next/dynamic with ssr:true, so the review build renders it in the static HTML while the flag-off Home never requests its chunk."
+    },
+    {
+      "path": "components/knowledge/stage-fan.css",
+      "sha256": "eebdbc20df6f1b77bfd72ed8c006e4cba764958fac154bc789c47125494f7685",
+      "bytes": 9729,
+      "layer": "design-recovery-r3/2026-11-05",
+      "attribution": "R3-timeline-fan",
+      "note": "Fan-only rules, imported by the dynamic fan component. Because the fan is a separate chunk, the flag-off Home keeps the M6 stylesheet bytes (242,150 B) and never downloads this file."
+    },
+    {
+      "path": "lib/knowledge/timeline-fan.ts",
+      "sha256": "0dd74695dbc911a6fe2b12a81d4cfde4e5d16324562dac93395fc3f9eea8018e",
+      "bytes": 4142,
+      "layer": "design-recovery-r3/2026-11-05",
+      "attribution": "R3-timeline-fan",
+      "note": "Pure fan geometry and edition helpers: card size/spacing, signed offsets, settle-on-nearest-edition (quiet days are never targets), day parts and ordinals. No DOM, no network."
+    },
+    {
+      "path": "tests/knowledge/timeline-fan.test.mjs",
+      "sha256": "f5e00dffdb04e272a7c892efff2032e4159f154548703d17ae71eeaed0cc471c",
+      "bytes": 4191,
+      "layer": "design-recovery-r3/2026-11-05",
+      "attribution": "R3-timeline-fan",
+      "note": "Eight guards for the fan geometry: prototype dimensions at 1280, finite fallbacks for bad widths, symmetric neighbours, the 0.72-1 scale range, nearest-edition settle with no quiet-day target, day-part parsing and oldest-first ordinals."
+    },
+    {
+      "path": "components/knowledge/dealer-cinematic.tsx",
+      "sha256": "26fbbdc505bbaaedc52aabf7fcd378273e3624c45f9a87e650a47155c413f77e",
+      "bytes": 22035,
+      "layer": "design-recovery-r4/2026-11-05",
+      "attribution": "R4-cinematic-dealer",
+      "note": "The cinematic dealer (R4): a portal dialog with the edition rail, the whole hand, a reader beside it, capability tags, save with an in-dealer saved list, next card, locate-in-edition, focus trap, Escape, scroll lock and an inert background. Loaded through next/dynamic with ssr:false, so the flag-off Home never renders or requests it."
+    },
+    {
+      "path": "components/knowledge/dealer-cinematic.css",
+      "sha256": "d46c9e02f138e3aae4471aa01793195b63e2e8f8fea773e2048de5a755b05ea1",
+      "bytes": 16477,
+      "layer": "design-recovery-r4/2026-11-05",
+      "attribution": "R4-cinematic-dealer",
+      "note": "Dealer-only rules: scrim, dialog, rail, hand, cards, reader, saved popover, one responsive breakpoint pair (900/640), reduced-motion opt-out. Imported by the dynamic chunk, so the public stylesheet bytes do not move."
+    },
+    {
+      "path": "lib/knowledge/dealer-hand.ts",
+      "sha256": "f59191ef3fe677072f6d5477f86e7ff514744ec5535094621b7540860f57ca8e",
+      "bytes": 11111,
+      "layer": "design-recovery-r4/2026-11-05",
+      "attribution": "R4-cinematic-dealer",
+      "note": "Pure hand model: the three cards with their capability tags and reader fields, the fifteen-day rail, `?dealer=` resolution against visible editions only, local bookmark parsing, saved grouping and a capped deal stagger. No DOM, no network, no new claim."
+    },
+    {
+      "path": "tests/knowledge/dealer-hand.test.mjs",
+      "sha256": "fb4b2e086a574b015127311447286659b309138b1ed2bc0276b0b8d0fddc7ded",
+      "bytes": 9298,
+      "layer": "design-recovery-r4/2026-11-05",
+      "attribution": "R4-cinematic-dealer",
+      "note": "Twelve guards for the dealer hand: card order, per-kind capabilities, reader fields that repeat the edition, never labelling technical review as published, the rail as a clock with quiet placeholders, deep links that resolve only visible editions, URL hygiene, fail-closed bookmarks, the deal stagger and card cycling."
+    },
+    {
+      "path": "lib/knowledge/closing.ts",
+      "sha256": "8f1332a9e53f6e81d35503477c7530a00e909dc88cb56d207dc693466ac12363",
+      "bytes": 8224,
+      "layer": "design-recovery-r5/2026-11-05",
+      "attribution": "R5-closing-scene",
+      "note": "Pure closing model: the selected edition's takeaway as the one idea, the reopen action named by day, the stage rows plus the pinned semantic-ledger rows of the coverage ledger, the denominators, the six decisions, the ledger's four limits and the four closing claims. CORPUS_COVERAGE is pinned to intelligent-atlas/analysis/semantic-ledger-summary.json and tests/knowledge/closing.test.mjs re-reads that file, so a drifted count fails instead of ageing quietly."
+    },
+    {
+      "path": "tests/knowledge/closing.test.mjs",
+      "sha256": "8beddf6af2131e02c294a909fded26b1b0775b89d506dfe7e608094eb0f00e0a",
+      "bytes": 7151,
+      "layer": "design-recovery-r5/2026-11-05",
+      "attribution": "R5-closing-scene",
+      "note": "Ten guards for R5: ledger drift, the verbatim quote, the action and its fallbacks, stage-owned ledger rows, the corpus row formatting, the coverage note, denominators and decisions, the limits, the four claims and the publication posture."
+    },
+    {
+      "path": "tests/knowledge/polish.test.mjs",
+      "sha256": "84e57e459904e74d3a5b367187aa83acbe11950b0cc2e5cbf8ed7887a8e630d6",
+      "bytes": 6153,
+      "attribution": "R6-polish-layer",
+      "note": "Eight guards: the sixth flag is independent, every polish selector is scoped to the attribute, the nine roles exist and no rule hard-codes a size, the 13px prose floor, the four 44px target selectors, the h1 space, the unique reading heading, and the token block is scoped.",
+      "layer": "design-recovery-r6/2026-11-05"
+    },
+    {
+      "path": "app/review/neighbourhood/page.tsx",
+      "sha256": "a0ebe75adc1cf43f201c4c112524332c027d632bb4ba8b1976a36ed94aa9bfc7",
+      "bytes": 1542,
+      "layer": "release-readiness/2026-11-06",
+      "attribution": "release-readiness-integration",
+      "note": "Release-readiness integration: runtime file added by the accepted R1-R6 work or its verification tooling. Pinned so the runtime inventory stays exact."
+    },
+    {
+      "path": "lib/knowledge/edition-links.ts",
+      "sha256": "c25eabb0d55c1119f885fd023f07c1513326025b49275b1cb56a66fbc7f2b19d",
+      "bytes": 2135,
+      "layer": "release-readiness/2026-11-06",
+      "attribution": "release-readiness-integration",
+      "note": "Release-readiness integration: runtime file added by the accepted R1-R6 work or its verification tooling. Pinned so the runtime inventory stays exact."
+    },
+    {
+      "path": "lib/knowledge/neighbourhood.ts",
+      "sha256": "d1bc3600a0f2e57d22116f2c0b6166fb32a9737996a9c0c3f18afbed631e7913",
+      "bytes": 14324,
+      "layer": "release-readiness/2026-11-06",
+      "attribution": "release-readiness-integration",
+      "note": "Release-readiness integration: runtime file added by the accepted R1-R6 work or its verification tooling. Pinned so the runtime inventory stays exact."
+    },
+    {
+      "path": "components/knowledge/neighbourhood/edition-lazy.tsx",
+      "sha256": "b7cc09bedd486821fd449aca019d5a0546b64a21de86ec75623acd683b39f454",
+      "bytes": 606,
+      "layer": "release-readiness/2026-11-06",
+      "attribution": "release-readiness-integration",
+      "note": "Release-readiness integration: runtime file added by the accepted R1-R6 work or its verification tooling. Pinned so the runtime inventory stays exact."
+    },
+    {
+      "path": "components/knowledge/neighbourhood/edition.tsx",
+      "sha256": "1c46455403df2122476402c8f884821074d55c8172854a3408420bc093b24173",
+      "bytes": 5104,
+      "layer": "release-readiness/2026-11-06",
+      "attribution": "release-readiness-integration",
+      "note": "Release-readiness integration: runtime file added by the accepted R1-R6 work or its verification tooling. Pinned so the runtime inventory stays exact."
+    },
+    {
+      "path": "components/knowledge/neighbourhood/entrances.tsx",
+      "sha256": "47aa00c130cf0372ac06a499ebeea13910a54bc684f206846826df06ea0ce2ef",
+      "bytes": 4479,
+      "layer": "release-readiness/2026-11-06",
+      "attribution": "release-readiness-integration",
+      "note": "Release-readiness integration: runtime file added by the accepted R1-R6 work. Pinned so the runtime inventory stays exact; the layer records bytes only and cannot publish anything."
+    },
+    {
+      "path": "components/knowledge/neighbourhood/field.tsx",
+      "sha256": "0feb03dcdadf44adb40942f3d6d56e26475368fbf4cd8bbed323af75b6f94760",
+      "bytes": 10027,
+      "layer": "release-readiness/2026-11-06",
+      "attribution": "release-readiness-integration",
+      "note": "Release-readiness integration: runtime file added by the accepted R1-R6 work. Pinned so the runtime inventory stays exact; the layer records bytes only and cannot publish anything."
+    },
+    {
+      "path": "components/knowledge/neighbourhood/neighbourhood.css",
+      "sha256": "5dfd6909742232b8d53ab06e5b01edee13e01b84612d6da532b0d910b5fd20c3",
+      "bytes": 33218,
+      "layer": "release-readiness/2026-11-06",
+      "attribution": "release-readiness-integration",
+      "note": "Release-readiness integration: runtime file added by the accepted R1-R6 work. Pinned so the runtime inventory stays exact; the layer records bytes only and cannot publish anything."
+    },
+    {
+      "path": "components/knowledge/neighbourhood/panel.tsx",
+      "sha256": "307887451b4ba3b5420a6a9775c1cae2b249afd19ff83fb78c80507a652cc6e9",
+      "bytes": 8520,
+      "layer": "release-readiness/2026-11-06",
+      "attribution": "release-readiness-integration",
+      "note": "Release-readiness integration: runtime file added by the accepted R1-R6 work. Pinned so the runtime inventory stays exact; the layer records bytes only and cannot publish anything."
+    },
+    {
+      "path": "components/knowledge/neighbourhood/review.tsx",
+      "sha256": "6830c53bcdc6a4e4ddf3286d5427b3a4a5f63bd731357eb5f22edcd5849556d4",
+      "bytes": 6246,
+      "layer": "release-readiness/2026-11-06",
+      "attribution": "release-readiness-integration",
+      "note": "Release-readiness integration: runtime file added by the accepted R1-R6 work. Pinned so the runtime inventory stays exact; the layer records bytes only and cannot publish anything."
+    },
+    {
+      "path": "components/knowledge/neighbourhood/search.tsx",
+      "sha256": "a678a0e72031d6d71eab82e363db9fe912b58583a5555d2fb9748cf4db6e3eab",
+      "bytes": 4161,
+      "layer": "release-readiness/2026-11-06",
+      "attribution": "release-readiness-integration",
+      "note": "Release-readiness integration: runtime file added by the accepted R1-R6 work. Pinned so the runtime inventory stays exact; the layer records bytes only and cannot publish anything."
+    },
+    {
+      "path": "tests/knowledge/edition-links.test.mjs",
+      "sha256": "100bdd9f3d8cd7d572fa196563d948c2cc33a51648562b275ef56f4a4634fb39",
+      "bytes": 2747,
+      "layer": "release-readiness/2026-11-06",
+      "attribution": "release-readiness-integration",
+      "note": "Release-readiness integration: runtime file added by the accepted R1-R6 work. Pinned so the runtime inventory stays exact; the layer records bytes only and cannot publish anything."
+    },
+    {
+      "path": "tests/knowledge/home-neighbourhood.test.mjs",
+      "sha256": "b533b22e4eafef70a123be2dc5cd379b33abe49bd9d0e7fb9a0b79919502754c",
+      "bytes": 1935,
+      "layer": "release-readiness/2026-11-06",
+      "attribution": "release-readiness-integration",
+      "note": "Release-readiness integration: runtime file added by the accepted R1-R6 work. Pinned so the runtime inventory stays exact; the layer records bytes only and cannot publish anything."
+    },
+    {
+      "path": "tests/knowledge/neighbourhood.test.mjs",
+      "sha256": "dec48c3a2a2b0552ddb0096a0a7e341b4ccbecaba7c5fec831b563b98e01fd0b",
+      "bytes": 12384,
+      "layer": "release-readiness/2026-11-06",
+      "attribution": "release-readiness-integration",
+      "note": "Release-readiness integration: runtime file added by the accepted R1-R6 work. Pinned so the runtime inventory stays exact; the layer records bytes only and cannot publish anything."
+    },
+    {
+      "path": "lib/knowledge/daily-bank.ts",
+      "sha256": "0e2fc1f122d6841da5bcf8a8b7edd2056e50d993e943a1f5c2140d2d6190da6d",
+      "bytes": 2489,
+      "layer": "daily-insight-bank/2026-11-06",
+      "attribution": "daily-insight-bank",
+      "note": "Added by the daily-insight-bank phase. Pinned so the runtime inventory stays exact; the layer records bytes only and cannot publish anything."
+    },
+    {
+      "path": "tests/knowledge/daily-bank.test.mjs",
+      "sha256": "a343f09f1868c71c8f87f53b6d1e0fb53ae62b0ad86129ff63199ca2c0d92b0a",
+      "bytes": 5937,
+      "layer": "daily-insight-bank/2026-11-06",
+      "attribution": "daily-insight-bank",
+      "note": "Added by the daily-insight-bank phase. Pinned so the runtime inventory stays exact; the layer records bytes only and cannot publish anything."
     }
   ],
   "removed": [],

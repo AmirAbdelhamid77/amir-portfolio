@@ -1,0 +1,75 @@
+{
+  "generatedAt": "2026-11-05T12:16:19.638Z",
+  "base": "http://127.0.0.1:4395",
+  "viewport": "1280x900",
+  "theme": "dark",
+  "reducedMotion": true,
+  "home": {
+    "domNodes": 779,
+    "domContentLoaded": 322,
+    "loadEvent": 660,
+    "lcp": 776,
+    "cls": 0,
+    "longTasks": {
+      "count": 2,
+      "totalMs": 269,
+      "maxMs": 218
+    },
+    "resourceCount": 42,
+    "encodedBytes": 1200237,
+    "scriptBytes": 810842,
+    "styleBytes": 242150,
+    "scriptCount": 15,
+    "hasFan": 0,
+    "hasFanStatus": false,
+    "hasStrip": true,
+    "stripDays": 15,
+    "editionTicks": 3,
+    "quietDays": 12,
+    "ariaCurrent": 1,
+    "sectionNote": "Fifteen days, newest first. An edition sits on the date it was published and nowhere else; a quiet day stays quiet. Select a date to read it, then open the edition to deal its cards.",
+    "hasFanLink": false
+  },
+  "emittedFanChunks": {
+    "js": [
+      "3j35ww3jcy2e7.js"
+    ],
+    "css": [
+      "2-59f2xkp_gkn.css"
+    ]
+  },
+  "requests": {
+    "total": 43,
+    "fan": []
+  },
+  "baseline": {
+    "domNodes": 779,
+    "domContentLoaded": 86,
+    "loadEvent": 526,
+    "lcp": 660,
+    "cls": 0,
+    "longTasks": {
+      "count": 2,
+      "totalMs": 325,
+      "maxMs": 254
+    },
+    "resourceCount": 42,
+    "encodedBytes": 1193413,
+    "transferBytes": 1206013,
+    "scriptBytes": 804059,
+    "styleBytes": 242150,
+    "images": 0,
+    "views": {
+      "timelineDays": 15,
+      "editionDays": 3,
+      "graphText": "SEMANTIC LAYER · REVIEW STATUS\n\nWhere this idea leads\n\n0 PUBLISHED CONCEPTS · 0 PUBLISHED CONNECTIONS\n\nThe reviewed public graph is not yet published. Normal le"
+    }
+  },
+  "delta": {
+    "scriptBytes": 6783,
+    "styleBytes": 0,
+    "resourceCount": 0,
+    "domNodes": 0
+  },
+  "note": "Single local production-export run of the flag-off build. The fan chunk and its CSS exist on disk (like the R2 slice) but the Home never requests them; the DOM and stylesheet bytes stay at the pre-R3 values."
+}

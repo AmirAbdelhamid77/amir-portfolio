@@ -1,0 +1,25 @@
+{
+  "date": "2026-11-06",
+  "batch": "batch-4",
+  "total": 400,
+  "added": 174,
+  "previousPreservedFieldForField": 226,
+  "distribution": {"sql": 74, "fabric": 50, "visualization": 29, "power-bi": 21},
+  "checks": {
+    "focusedTests": {"status": "PASS", "passed": 11, "failed": 0},
+    "sourceFingerprints": {"status": "PASS", "count": 400},
+    "matchedEvidencePointers": {"status": "PASS", "count": 355, "newBatch": 174},
+    "priorExportDestinationFiles": {"status": "PASS", "count": 400},
+    "uniqueIdsAndExactTakeaways": "PASS",
+    "allDraftsExcludedFromPublication": "PASS",
+    "sqlInequalityEvidenceRegression": "PASS",
+    "lexicalScreen": {"status": "PASS", "threshold": 0.24, "distinctPairsAboveThreshold": 1, "retainedPair": ["hansa-bank-230", "hansa-bank-231"], "reason": "Distinct HCL dimensions: hue/chroma and luminance. Not proof of conceptual uniqueness."},
+    "fullBuild": "NOT RUN",
+    "browserNavigationAndVisualQA": "NOT RUN",
+    "sqlDaxFabricEngineExecution": "NOT RUN",
+    "independentScientificReview": "NOT RUN",
+    "deployment": "NOT RUN"
+  },
+  "scope": "Actual local lesson/reference/note passages; hypothetical teaching prompts. No external retrieval, UI integration, source question changes, new dependency or paid service. Passage inspection is not full-corpus review or scientific approval.",
+  "nextAtomicTask": "User review of new batch, then independent per-item approval and evidence completion for the initial 45 entries before any publication."
+}

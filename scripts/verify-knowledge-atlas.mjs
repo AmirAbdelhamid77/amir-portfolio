@@ -102,7 +102,13 @@ for(const [p,h] of Object.entries(baseline.files)){
  else assert.equal(hash(p),implementation.expected(p,history.expectedCurrentHash(p,h)),"Unrelated pre-existing change "+p);
 }
 const walk=d=>readdirSync(resolve(root,d),{withFileTypes:true}).flatMap(e=>e.isDirectory()?walk(d+"/"+e.name):[d+"/"+e.name]);
-for(const dir of ["app","lib","components","content","public","tests"]){for(const p of walk(dir))assert.ok(Object.hasOwn(baseline.files,p)||successorCovers(p,null)||implementation.covers(p,null),"Unexpected runtime addition "+p);}
+// The runtime inventory exists to catch code and assets that no receipt pins.
+// Markdown is documentation, not runtime: it cannot ship in the export and it is
+// hashed by the agent-reference verifier instead. Excluding it here keeps this
+// gate honest about code without treating an explanatory `EGM.md` beside the code
+// it explains as an unpinned runtime addition.
+const isDocumentation=p=>p.endsWith(".md");
+for(const dir of ["app","lib","components","content","public","tests"]){for(const p of walk(dir)){if(isDocumentation(p))continue;assert.ok(Object.hasOwn(baseline.files,p)||successorCovers(p,null)||implementation.covers(p,null),"Unexpected runtime addition "+p);}}
 let links=0;
 for(const name of readdirSync(resolve(root,local)).filter(n=>n.endsWith(".md"))){
  const file=local+"/"+name,body=read(file).replace(/[\x60][^\x60]*[\x60]/g,"");

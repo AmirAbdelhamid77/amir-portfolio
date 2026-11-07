@@ -1,0 +1,148 @@
+{
+  "generatedAt": "2026-11-05T13:24:21.822Z",
+  "base": "http://127.0.0.1:4395",
+  "entry": "/",
+  "viewport": "1280x900",
+  "theme": "dark",
+  "reducedMotion": true,
+  "home": {
+    "domNodes": 780,
+    "domContentLoaded": 101,
+    "loadEvent": 620,
+    "lcp": 756,
+    "cls": 0,
+    "longTasks": {
+      "count": 4,
+      "totalMs": 483,
+      "maxMs": 291
+    },
+    "resourceCount": 43,
+    "encodedBytes": 1222789,
+    "scriptBytes": 827336,
+    "styleBytes": 248019,
+    "scriptCount": 16,
+    "reviewCloseNodes": 0,
+    "publicClose": {
+      "present": true,
+      "kicker": "The way onward",
+      "title": "Nothing here is a dead end.",
+      "note": "The editions on this page are a review surface, so the rest of Hansa stays one step away: the subjects, the question banks, the search index and the Atlas desk all work today.",
+      "notice": "Editions under editorial review. Technical review is not publication.",
+      "destinations": 4,
+      "destinationLabels": [
+        "Learn a subject",
+        "Practise a question",
+        "Search everything",
+        "Check the Atlas state"
+      ],
+      "continueLinks": [
+        "Read the lesson behind it",
+        "Practise this area",
+        "Every edition in the archive"
+      ],
+      "identity": "Amir Abdelhamid is a data analyst and BI developer building decision-ready dashboards — and teaching the craft with every claim sourced.Available for full-time roles and freelance workEgypt · working remotelyOriginal learning scenarios under editorial review — not scored exam questions. Sources are cited from Microsoft Learn; human publication review is pending.",
+      "liveRegions": 1,
+      "headings": [
+        "Nothing here is a dead end."
+      ]
+    }
+  },
+  "interactive": {
+    "buttons": 0,
+    "links": [
+      {
+        "text": "Read the lesson behind it",
+        "href": "/learn/dp-600/ingestion/"
+      },
+      {
+        "text": "Practise this area",
+        "href": "/lab/dp-600/explore/"
+      },
+      {
+        "text": "Every edition in the archive",
+        "href": "#archive"
+      },
+      {
+        "text": "Learn a subjectThe visualization course, statist",
+        "href": "/learn/"
+      },
+      {
+        "text": "Practise a questionQuestion banks in their learn",
+        "href": "/practice/catalogue/"
+      },
+      {
+        "text": "Search everythingOne index over lessons, practic",
+        "href": "/search/"
+      },
+      {
+        "text": "Check the Atlas stateSources, review status and ",
+        "href": "/learn/dp-600/atlas/"
+      }
+    ]
+  },
+  "axe": [],
+  "reviewStringsInSharedFiles": {
+    "js": [
+      "0g86ii68rctpt.js"
+    ],
+    "css": [
+      "1tm37um-7ln-4.css"
+    ]
+  },
+  "requests": {
+    "total": 55,
+    "sharedFilesCarryingReviewStrings": [
+      "1tm37um-7ln-4.css",
+      "0g86ii68rctpt.js"
+    ],
+    "extraRequestsCausedByR5": 0
+  },
+  "deadReviewCss": {
+    "bytes": 5599,
+    "rules": 50,
+    "selectors": 29,
+    "files": [
+      "1tm37um-7ln-4.css"
+    ]
+  },
+  "baseline": {
+    "domNodes": 779,
+    "domContentLoaded": 86,
+    "loadEvent": 526,
+    "lcp": 660,
+    "cls": 0,
+    "longTasks": {
+      "count": 2,
+      "totalMs": 325,
+      "maxMs": 254
+    },
+    "resourceCount": 42,
+    "encodedBytes": 1193413,
+    "transferBytes": 1206013,
+    "scriptBytes": 804059,
+    "styleBytes": 242150,
+    "images": 0,
+    "views": {
+      "timelineDays": 15,
+      "editionDays": 3,
+      "graphText": "SEMANTIC LAYER · REVIEW STATUS\n\nWhere this idea leads\n\n0 PUBLISHED CONCEPTS · 0 PUBLISHED CONNECTIONS\n\nThe reviewed public graph is not yet published. Normal le"
+    }
+  },
+  "r4": {
+    "styleBytes": 242150,
+    "scriptBytes": 816380,
+    "domNodes": 779,
+    "resourceCount": 42
+  },
+  "delta": {
+    "scriptBytes": 23277,
+    "styleBytes": 5869,
+    "resourceCount": 1,
+    "domNodes": 1,
+    "styleBytesSinceR4": 5869,
+    "scriptBytesSinceR4": 10956,
+    "domNodesSinceR4": 1,
+    "resourceCountSinceR4": 1
+  },
+  "note": "Single local production-export run of the flag-off build, entered at `/` like the R0/R4 probes. No .stage-close-* node renders and nothing extra is requested: the review close's strings and rules ride in the stage chunk and stylesheet the Home already loads, so its cost is stylesheet bytes, measured above. The accepted M6 close (kicker, title, note, destinations, identity strip, live region) is unchanged."
+}

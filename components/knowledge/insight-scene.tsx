@@ -87,6 +87,10 @@ export function InsightScene({
               id={`${insight.id}-title`}
               className="mt-4 text-balance text-[clamp(1.6rem,2.6vw,2.15rem)] font-medium leading-[1.1] tracking-[-0.02em]"
             >
+              {/* The same title is the peek in scene 1. Naming the full reading
+                  keeps the two headings distinct in a screen-reader outline
+                  without changing what sighted readers see. */}
+              <span className="sr-only">The reading: </span>
               {insight.title}
             </h2>
             <p className="mt-3 max-w-[52ch] text-pretty text-[15px] leading-7 text-foreground/85">

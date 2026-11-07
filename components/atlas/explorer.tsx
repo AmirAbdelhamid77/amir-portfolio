@@ -5,14 +5,15 @@ import "./circle-map.css";
 import Link from "next/link";
 import { useEffect, useId, useRef, useState, useMemo } from "react";
 import { defaultView, resourceReturnHref, neighborhood, parseView, viewHref, searchConcepts, RELATIONS, type Atlas, type View, type Edge } from "@/lib/atlas/model";
+import { homeEditionHref, readEditionReturn } from "@/lib/knowledge/edition-links";
 const button = "min-h-11 rounded-xl border border-border-strong bg-background px-3 py-2 text-sm hover:bg-card focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary";
 
 export function AtlasExplorer({ atlas }: { atlas: Atlas }) {
-  const [view, setView] = useState<View>(defaultView), [query, setQuery] = useState(""), [map, setMap] = useState(false), [notice, setNotice] = useState("");
+  const [view, setView] = useState<View>(defaultView), [query, setQuery] = useState(""), [map, setMap] = useState(false), [notice, setNotice] = useState(""), [returnEdition, setReturnEdition] = useState("");
   const inspector = useRef<HTMLElement>(null), uid = useId().replaceAll(":", "");
   const returnFocus = useRef<HTMLElement | SVGElement | null>(null);
   useEffect(() => {
-    const sync = () => { const result = parseView(window.location.search, atlas); setView(result.view); setNotice(result.warning); };
+    const sync = () => { const result = parseView(window.location.search, atlas); setView(result.view); setNotice(result.warning); setReturnEdition(readEditionReturn(window.location.search)); };
     Promise.resolve().then(sync); window.addEventListener("popstate", sync); return () => window.removeEventListener("popstate", sync);
   }, [atlas]);
   function update(patch: Partial<View>, focusInspector = false) {
@@ -42,7 +43,7 @@ export function AtlasExplorer({ atlas }: { atlas: Atlas }) {
   if (!atlas.concepts.length) return <section className="rounded-3xl border border-border-strong p-6"><h2 className="text-xl font-medium">Publication review is pending</h2><p className="mt-3 text-sm leading-7">{atlas.notice}</p><Link href="/learn/dp-600/ingestion/" className="mt-4 inline-block min-h-11 py-3 text-primary underline">Continue with the ingestion lesson</Link></section>;
   return <div data-testid="atlas-explorer" className="space-y-5" onKeyDown={event=>{if(event.key==="Escape" && inspector.current?.contains(event.target as Node)){event.stopPropagation();if(view.edge)update({edge:""});requestAnimationFrame(()=>returnFocus.current?.focus({preventScroll:true}));}}}>
     {atlas.preview && <p className="rounded-2xl border border-primary/30 bg-primary/5 p-4 text-sm leading-7" data-testid="review-notice">{atlas.notice}</p>}
-    <div className="flex flex-wrap items-center gap-3"><Link className={button} href="/learn/dp-600/ingestion/">← Back to the lesson</Link><Link className={button} href="/learn/dp-600/atlas/journey/">Guided journey →</Link><button className={button} onClick={() => { const next = defaultView(); setQuery(""); update(next); setNotice("View reset. Your learning progress was not changed."); }}>Reset view</button><button className={button} onClick={async () => { try { await navigator.clipboard.writeText(window.location.href); setNotice("Atlas link copied. It contains view settings only, no answers or progress."); } catch { setNotice("Copy is unavailable. Select the address in your browser to share this view."); } }}>Copy view link</button></div>
+    <div className="flex flex-wrap items-center gap-3">{returnEdition ? <Link className={button} href={homeEditionHref(returnEdition)}>← Back to the edition</Link> : null}<Link className={button} href="/learn/dp-600/ingestion/">← Back to the lesson</Link><Link className={button} href="/learn/dp-600/atlas/journey/">Guided journey →</Link><button className={button} onClick={() => { const next = defaultView(); setQuery(""); update(next); setNotice("View reset. Your learning progress was not changed."); }}>Reset view</button><button className={button} onClick={async () => { try { await navigator.clipboard.writeText(window.location.href); setNotice("Atlas link copied. It contains view settings only, no answers or progress."); } catch { setNotice("Copy is unavailable. Select the address in your browser to share this view."); } }}>Copy view link</button></div>
     <p role="status" aria-live="polite" className="min-h-6 text-sm text-muted-foreground">{notice || (view.edge&&!selectedEdge?"The requested connection is outside this focus. Choose a visible connection or reset the view.":"")}</p>
     <div className="grid items-start gap-5 xl:grid-cols-[240px_minmax(0,1fr)_320px]">
       <aside className="atlas-navigator min-w-0 rounded-3xl border border-border-strong bg-card/40 p-4" aria-label="Atlas navigator">

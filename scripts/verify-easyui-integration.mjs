@@ -52,8 +52,13 @@ for (const item of registry.items) {
   assert.equal(item.registryTarget, null, "Unverified EasyUI install endpoint");
 }
 const walk = dir => readdirSync(resolve(root, dir), { withFileTypes: true }).flatMap(entry => entry.isDirectory() ? walk(dir + "/" + entry.name) : [dir + "/" + entry.name]);
+// The runtime inventory guards code and assets that could ship. Markdown is
+// documentation: it never reaches the export and the agent-reference verifier
+// hashes the references themselves, so an explanatory EGM.md beside the code it
+// explains must not be reported as an unowned runtime addition.
 for (const dir of ["app", "lib", "components", "content", "public", "tests"]) {
   for (const path of walk(dir)) {
+    if (path.endsWith(".md")) continue;
     if (Object.hasOwn(before.files, path)) continue;
     const change = manifest.runtimeChanges.find(change => change.path === path);
     assert.ok((change && change.beforeSha256 === null && implementation.expected(path,change.sha256) === hash(path)) || implementation.covers(path,null), "Unowned runtime addition: " + path);

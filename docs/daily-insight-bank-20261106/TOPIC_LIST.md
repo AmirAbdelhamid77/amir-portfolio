@@ -1,0 +1,3146 @@
+# Daily Insight — source/topic outline
+
+Inventory is not full source review. Subtopics are extracted source headings, not invented syllabus.
+
+## Microsoft Fabric
+
+### Storage & architecture
+
+Candidates: 5; local source units: 28.
+
+- Lakehouse, OneLake, and access layers — `note:delta:architecture` (candidate_source_read)
+- OneLake file explorer: safe abstraction boundaries — `note:delta:explorer` (candidate_source_read)
+- Demo: raw uploads and lakehouse schemas — `note:delta:files-schemas` (candidate_source_read)
+- Bypass through OneLake data path — `note:video07:V7-DDM-023` (inventory_only)
+- Lakehouse table misconception — `note:video09:V9-GIT-031` (inventory_only)
+- Storage / mixed formats — `note:video11:V11-CHOOSE-013` (inventory_only)
+- Storage / atomicity — `note:video11:V11-CHOOSE-015` (inventory_only)
+- Storage / composite architecture — `note:video11:V11-CHOOSE-016` (inventory_only)
+- Storage / transaction limits — `note:video11:V11-CHOOSE-024` (inventory_only)
+- Architecture / OLTP versus analytics — `note:video11:V11-CHOOSE-027` (inventory_only)
+- Architecture / high-concurrency analytical — `note:video11:V11-CHOOSE-036` (inventory_only)
+- Architecture / data store hybrid — `note:video11:V11-CHOOSE-037` (inventory_only)
+- Storage / multi-select selection — `note:video11:V11-CHOOSE-043` (inventory_only)
+- Storage / multi-select language affinity — `note:video11:V11-CHOOSE-045` (inventory_only)
+- Storage / multi-select engine access — `note:video11:V11-CHOOSE-047` (inventory_only)
+- Architecture / multi-select full stack — `note:video11:V11-CHOOSE-049` (inventory_only)
+- Architecture / multi-select modernization — `note:video11:V11-CHOOSE-050` (inventory_only)
+- Two-door architecture — `note:video16:V16-SQL-001` (inventory_only)
+- Two-door architecture — `note:video16:V16-SQL-002` (inventory_only)
+- Two-door architecture — `note:video16:V16-SQL-003` (inventory_only)
+- Two-door architecture — `note:video16:V16-SQL-004` (inventory_only)
+- Two-door architecture — `note:video16:V16-SQL-005` (inventory_only)
+- Two-door architecture — `note:video16:V16-SQL-006` (inventory_only)
+- Architecture — `note:video19:V19-LH-038` (inventory_only)
+- Compaction storage — `note:video20:V20-DELTA-005` (inventory_only)
+- Create a Microsoft Fabric Lakehouse — `academy:fabric-analytics:01-lakehouse` (inventory_only)
+  - Create a Microsoft Fabric Lakehouse
+  - Create a workspace
+  - Create a lakehouse
+  - Upload a file
+  - Explore shortcuts
+  - Load file data into a table
+  - Use SQL to query tables
+  - Create a visual query
+  - Clean up resources
+- Create a medallion architecture in a Microsoft Fabric lakehouse — `academy:fabric-analytics:03b-medallion-lakehouse` (inventory_only)
+  - Create a medallion architecture in a Microsoft Fabric lakehouse
+  - Create a workspace
+  - Create a lakehouse and upload data to bronze layer
+  - Transform data and load to silver Delta table
+  - Explore data in the silver layer using the SQL endpoint
+  - Transform data for gold layer
+  - (OPTIONAL) Create a semantic model
+  - Clean up resources
+- Discover and connect to data in OneLake — `academy:fabric-analytics:25-discover-onelake` (inventory_only)
+  - Discover and connect to data in OneLake
+  - Create a workspace
+  - Create a lakehouse and load sample data
+  - Load data into a table
+  - Browse the OneLake catalog to discover data
+  - Explore lakehouse tables and schema
+  - Create a shortcut to access data from another workspace
+  - Query data using the SQL analytics endpoint
+  - Create and explore a semantic model
+  - (Optional) Use Copilot to write a SQL query
+  - Clean up resources
+
+### Data ingestion & orchestration
+
+Candidates: 21; local source units: 60.
+
+- Internal/external shortcuts and caching — `note:delta:shortcuts` (candidate_source_read)
+- Demo: schema shortcut and Files shortcut — `note:delta:shortcut-demo` (inventory_only)
+- Pipelines, Dataflow Gen2, notebooks, and connectors — `note:warehouse:ingest` (candidate_source_read)
+- Movement, orchestration, and transformation — `note:pipelines:role` (candidate_source_read)
+- Querysets, tables, functions, and shortcuts — `note:eventhouse:objects` (candidate_source_read)
+- Reference data through shortcuts — `note:eventhouse:shortcuts` (inventory_only)
+- Table enablement, a Lakehouse shortcut, and Spark access — `note:eventhouse:onelakedemo` (inventory_only)
+- Compare backfilled history and later ingestions — `note:eventhouse:backfilldemo` (inventory_only)
+- shortcut target enforcement — `note:video06:V6-SEC-038` (inventory_only)
+- Branching with external shortcut — `note:video09:V9-GIT-022` (inventory_only)
+- Shortcuts in new branch — `note:video09:V9-GIT-032` (inventory_only)
+- OneLake internal shortcut remapping — `note:video09:V9-GIT-033` (inventory_only)
+- Unsupported pipeline rule type — `note:video10:V10-DEP-016` (inventory_only)
+- Pipeline admin only — `note:video10:V10-DEP-025` (inventory_only)
+- Shortcuts / no-copy sharing — `note:video11:V11-CHOOSE-029` (inventory_only)
+- Mirroring / transactional CDC — `note:video11:V11-CHOOSE-030` (inventory_only)
+- Pipeline activity diagnostics / reruns — `note:video12:V12-MON-009` (inventory_only)
+- Pipeline activity diagnostics / reruns — `note:video12:V12-MON-010` (inventory_only)
+- Pipeline activity diagnostics / reruns — `note:video12:V12-MON-011` (inventory_only)
+- Pipeline activity diagnostics / reruns — `note:video12:V12-MON-012` (inventory_only)
+- Pipeline activity diagnostics / reruns — `note:video12:V12-MON-013` (inventory_only)
+- Pipeline activity diagnostics / reruns — `note:video12:V12-MON-014` (inventory_only)
+- Pipeline activity diagnostics / reruns — `note:video12:V12-MON-015` (inventory_only)
+- Pipeline fundamentals and orchestration — `note:video14:V14-PIPE-001` (inventory_only)
+- Pipeline fundamentals and orchestration — `note:video14:V14-PIPE-002` (inventory_only)
+- Pipeline fundamentals and orchestration — `note:video14:V14-PIPE-003` (inventory_only)
+- Pipeline fundamentals and orchestration — `note:video14:V14-PIPE-004` (inventory_only)
+- Pipeline fundamentals and orchestration — `note:video14:V14-PIPE-005` (inventory_only)
+- Pipeline fundamentals and orchestration — `note:video14:V14-PIPE-006` (inventory_only)
+- Pipeline fundamentals and orchestration — `note:video14:V14-PIPE-007` (inventory_only)
+- Pipeline fundamentals and orchestration — `note:video14:V14-PIPE-008` (inventory_only)
+- Copy Data and ingestion — `note:video14:V14-PIPE-009` (inventory_only)
+- Copy Data and ingestion — `note:video14:V14-PIPE-010` (inventory_only)
+- Copy Data and ingestion — `note:video14:V14-PIPE-011` (inventory_only)
+- Copy Data and ingestion — `note:video14:V14-PIPE-012` (inventory_only)
+- Copy Data and ingestion — `note:video14:V14-PIPE-013` (inventory_only)
+- Copy Data and ingestion — `note:video14:V14-PIPE-014` (inventory_only)
+- Copy Data and ingestion — `note:video14:V14-PIPE-015` (inventory_only)
+- Copy Data and ingestion — `note:video14:V14-PIPE-016` (inventory_only)
+- Metadata-driven pipelines — `note:video14:V14-PIPE-081` (inventory_only)
+- Metadata-driven pipelines — `note:video14:V14-PIPE-082` (inventory_only)
+- Metadata-driven pipelines — `note:video14:V14-PIPE-083` (inventory_only)
+- Metadata-driven pipelines — `note:video14:V14-PIPE-084` (inventory_only)
+- Metadata-driven pipelines — `note:video14:V14-PIPE-085` (inventory_only)
+- Metadata-driven pipelines — `note:video14:V14-PIPE-086` (inventory_only)
+- Metadata-driven pipelines — `note:video14:V14-PIPE-087` (inventory_only)
+- Metadata-driven pipelines — `note:video14:V14-PIPE-088` (inventory_only)
+- Delta discovery and shortcuts — `note:video16:V16-SQL-013` (inventory_only)
+- Delta discovery and shortcuts — `note:video16:V16-SQL-014` (inventory_only)
+- Delta discovery and shortcuts — `note:video16:V16-SQL-015` (inventory_only)
+- Delta discovery and shortcuts — `note:video16:V16-SQL-016` (inventory_only)
+- Delta discovery and shortcuts — `note:video16:V16-SQL-017` (inventory_only)
+- Delta discovery and shortcuts — `note:video16:V16-SQL-018` (inventory_only)
+- Shortcuts — `note:video19:V19-LH-001` (inventory_only)
+- Shortcuts — `note:video19:V19-LH-028` (inventory_only)
+- Shortcuts — `note:video19:V19-LH-029` (inventory_only)
+- Ingest data with a pipeline in Microsoft Fabric — `academy:fabric-analytics:04-ingest-pipeline` (inventory_only)
+  - Ingest data with a pipeline in Microsoft Fabric
+  - Create a workspace
+  - Create a lakehouse
+  - Create a pipeline
+  - Configure the Source
+  - Configure the Destination
+  - Run the pipeline
+  - Create a notebook
+  - Modify the pipeline
+  - Clean up resources
+- A reference is a design decision. — `existing:hansa-insight-shortcut-reference-v1` (inherited_not_reverified)
+- Name the object you are deleting. — `existing:hansa-insight-shortcut-delete-v1` (inherited_not_reverified)
+- Location changes discovery. — `existing:hansa-insight-shortcut-discovery-v1` (inherited_not_reverified)
+
+### Transformation & Delta
+
+Candidates: 14; local source units: 36.
+
+- Delta files, transaction logs, and controlled changes — `note:delta:delta` (candidate_source_read)
+- VACUUM, OPTIMIZE, and V-Order have different goals — `note:delta:maintenance` (candidate_source_read)
+- Delta destination, replacement, mapping, and parallel copy — `note:pipelines:target` (candidate_source_read)
+- Materialized aggregation and the unprocessed delta — `note:eventhouse:mv` (candidate_source_read)
+- OneLake availability: Delta representation and replication — `note:eventhouse:availability` (inventory_only)
+- Uncommitted source notebook — `note:video09:V9-GIT-019` (inventory_only)
+- Notebook default lakehouse — `note:video10:V10-DEP-013` (inventory_only)
+- Automatic notebook binding — `note:video10:V10-DEP-023` (inventory_only)
+- Storage / warehouse and lakehouse delta — `note:video11:V11-CHOOSE-018` (inventory_only)
+- Storage / Spark writes into warehouse — `note:video11:V11-CHOOSE-025` (inventory_only)
+- Spark secured execution — `note:video15:V15-OLS-029` (inventory_only)
+- Spark secured execution — `note:video15:V15-OLS-030` (inventory_only)
+- Spark secured execution — `note:video15:V15-OLS-031` (inventory_only)
+- Spark secured execution — `note:video15:V15-OLS-032` (inventory_only)
+- Spark secured execution — `note:video15:V15-OLS-033` (inventory_only)
+- Spark secured execution — `note:video15:V15-OLS-034` (inventory_only)
+- Spark secured execution — `note:video15:V15-OLS-035` (inventory_only)
+- Transformations — `note:video19:V19-LH-002` (inventory_only)
+- Transformations — `note:video19:V19-LH-003` (inventory_only)
+- Transformations — `note:video19:V19-LH-004` (inventory_only)
+- Transformations — `note:video19:V19-LH-005` (inventory_only)
+- Transformations — `note:video19:V19-LH-006` (inventory_only)
+- Transformations — `note:video19:V19-LH-007` (inventory_only)
+- AI transformations — `note:video19:V19-LH-008` (inventory_only)
+- AI transformations — `note:video19:V19-LH-009` (inventory_only)
+- Transformations — `note:video19:V19-LH-010` (inventory_only)
+- Transformations — `note:video19:V19-LH-033` (inventory_only)
+- Dataflow claim — `note:video21:V21-CAT-014` (inventory_only)
+- Analyze data with Apache Spark — `academy:fabric-analytics:02-analyze-spark` (inventory_only)
+  - Analyze data with Apache Spark in Fabric
+  - Create a workspace
+  - Create a lakehouse and upload files
+  - Create a notebook
+  - Create a DataFrame
+  - Explore data in a DataFrame
+  - Filter a DataFrame
+  - Aggregate and group data in a DataFrame
+  - Use Spark to transform data files
+  - Use DataFrame methods and functions to transform data
+  - Save the transformed data
+  - Save data in partitioned files
+  - Work with tables and SQL
+  - Create a table
+  - Run SQL code in a cell
+  - Visualize data with Spark
+  - View results as a chart
+  - Get started with matplotlib
+  - Use the seaborn library
+  - Clean up resources
+- Use delta tables in Apache Spark — `academy:fabric-analytics:03-delta-lake` (inventory_only)
+  - Use Delta Tables in Apache Spark
+  - Create a workspace
+  - Create a lakehouse and upload files
+  - Explore data in a DataFrame
+  - Create a Delta table
+  - Explore table versioning
+  - Analyze Delta table data with SQL queries
+  - Use Delta tables for streaming data
+  - Clean up resources
+- Create and use Dataflows (Gen2) in Microsoft Fabric — `academy:fabric-analytics:05-dataflows-gen2` (inventory_only)
+  - Create and use Dataflows (Gen2) in Microsoft Fabric
+  - Create a workspace
+  - Create a lakehouse
+  - Create a Dataflow (Gen2) to ingest data
+  - Add data destination for Dataflow
+  - Add a dataflow to a pipeline
+  - Clean up resources
+- Explore data for data science with notebooks in Microsoft Fabric — `academy:fabric-analytics:08a-data-science-explore-data` (inventory_only)
+  - Explore data for data science with notebooks in Microsoft Fabric
+  - Create a workspace
+  - Create a notebook
+  - Load data into a dataframe
+  - Check the shape of the data
+  - Check for missing data
+  - Generate descriptive statistics for numerical variables
+  - Plot the data distribution
+  - Perform multivariate analysis
+  - Correlation analysis
+  - Save the notebook and end the Spark session
+  - Clean up resources
+- Work smarter with Copilot in Microsoft Fabric Dataflow Gen2 — `academy:fabric-analytics:22a-copilot-fabric-dataflow-gen2` (inventory_only)
+  - Work smarter with Copilot in Microsoft Fabric Dataflow Gen2
+  - What you’ll learn
+  - Before you start
+  - Exercise scenario
+  - Create a workspace
+  - Create a lakehouse
+  - Create a Dataflow (Gen2) to ingest data
+  - Code explanation
+  - Add data destination for Dataflow
+  - Validate your work
+  - Clean up resources
+- Analyze data with Apache Spark and Copilot in Microsoft Fabric notebooks — `academy:fabric-analytics:22b-copilot-fabric-notebooks` (inventory_only)
+  - Analyze data with Apache Spark and Copilot in Microsoft Fabric notebooks
+  - What you’ll learn
+  - Before you start
+  - Exercise scenario
+  - Create a workspace
+  - Create a lakehouse
+  - Create a notebook
+  - Attach the lakehouse to your notebook
+  - Load data
+  - Transform data: split fields
+  - Transform data: remove fields
+  - Transform data: reposition fields
+  - Transform data: replace values
+  - Transform data: filter data
+  - Transform data: trim spaces
+  - Transform data: data type conversion
+  - Save data
+  - Validation: ask questions
+  - Clean up resources
+- Transform data using dataflows in Microsoft Fabric — `academy:fabric-analytics:26b-transform-data-dataflows` (inventory_only)
+  - Transform data using dataflows in Microsoft Fabric
+  - Set up your environment
+  - Create a workspace
+  - Create a lakehouse
+  - Create a Dataflow Gen2
+  - Apply Power Query transformations
+  - Choose columns
+  - Filter rows
+  - Set data types
+  - Rename columns
+  - Add a calculated column
+  - Review applied steps and configuration
+  - Publish and verify results
+  - Try it with Copilot (Optional)
+  - Clean up resources
+- Transform data with notebooks in Microsoft Fabric — `academy:fabric-analytics:26c-transform-data-notebooks` (inventory_only)
+  - Transform data with notebooks in Microsoft Fabric
+  - Set up the environment
+  - Create a workspace
+  - Generate sample data
+  - Shape and clean the sales data
+  - Join and aggregate the data
+  - Apply window functions
+  - Write results to a Delta table
+  - Clean up resources
+
+### SQL & analytical queries
+
+Candidates: 14; local source units: 51.
+
+- Demo: SQL analytics, SSMS, read-only data, and views — `note:delta:sql-demo` (candidate_source_read)
+- Warehouse architecture and workload selection — `note:warehouse:intro` (candidate_source_read)
+- Reading data through SQL, Power BI, and clients — `note:warehouse:read` (candidate_source_read)
+- Visual query explanation and narrated canvas demo — `note:warehouse:visual` (inventory_only)
+- SQL templates, Copilot, and SSMS connection — `note:warehouse:sql-client-demo` (candidate_source_read)
+- Employee table and a query-time tenure view — `note:warehouse:ddl-view-demo` (candidate_source_read)
+- Cross-database demo and one-way SQL materialization — `note:warehouse:cross-demo` (candidate_source_read)
+- Promotion, Warehouse setup, and write engines — `note:scd:engine` (inventory_only)
+- SQL metadata inspection — `note:video06:V6-SEC-006` (inventory_only)
+- SQL endpoint item Read requirement — `note:video06:V6-SEC-033` (inventory_only)
+- OneLake and SQL mode case — `note:video06:V6-SEC-043` (inventory_only)
+- SQL read-only vs metadata DDL — `note:video07:V7-DDM-018` (inventory_only)
+- Storage / SQL DML — `note:video11:V11-CHOOSE-014` (inventory_only)
+- Storage / lakehouse SQL read — `note:video11:V11-CHOOSE-017` (inventory_only)
+- Architecture / NoSQL need — `note:video11:V11-CHOOSE-028` (inventory_only)
+- Query / lakehouse SQL DML constraint — `note:video11:V11-CHOOSE-039` (inventory_only)
+- Historical warehouse query analysis — `note:video12:V12-MON-042` (inventory_only)
+- Historical warehouse query analysis — `note:video12:V12-MON-043` (inventory_only)
+- Historical warehouse query analysis — `note:video12:V12-MON-044` (inventory_only)
+- Historical warehouse query analysis — `note:video12:V12-MON-045` (inventory_only)
+- Historical warehouse query analysis — `note:video12:V12-MON-046` (inventory_only)
+- Historical warehouse query analysis — `note:video12:V12-MON-047` (inventory_only)
+- Historical warehouse query analysis — `note:video12:V12-MON-048` (inventory_only)
+- Historical warehouse query analysis — `note:video12:V12-MON-049` (inventory_only)
+- Historical warehouse query analysis — `note:video12:V12-MON-050` (inventory_only)
+- SQL endpoint identity — `note:video15:V15-OLS-022` (inventory_only)
+- SQL endpoint identity — `note:video15:V15-OLS-023` (inventory_only)
+- SQL endpoint identity — `note:video15:V15-OLS-024` (inventory_only)
+- SQL endpoint identity — `note:video15:V15-OLS-025` (inventory_only)
+- SQL endpoint identity — `note:video15:V15-OLS-026` (inventory_only)
+- SQL endpoint identity — `note:video15:V15-OLS-027` (inventory_only)
+- SQL endpoint identity — `note:video15:V15-OLS-028` (inventory_only)
+- T-SQL virtual objects — `note:video16:V16-SQL-007` (inventory_only)
+- T-SQL virtual objects — `note:video16:V16-SQL-008` (inventory_only)
+- T-SQL virtual objects — `note:video16:V16-SQL-009` (inventory_only)
+- T-SQL virtual objects — `note:video16:V16-SQL-010` (inventory_only)
+- T-SQL virtual objects — `note:video16:V16-SQL-011` (inventory_only)
+- T-SQL virtual objects — `note:video16:V16-SQL-012` (inventory_only)
+- Historical querying — `note:video16:V16-SQL-037` (inventory_only)
+- Historical querying — `note:video16:V16-SQL-038` (inventory_only)
+- Historical querying — `note:video16:V16-SQL-039` (inventory_only)
+- Historical querying — `note:video16:V16-SQL-040` (inventory_only)
+- Historical query scope — `note:video20:V20-DELTA-039` (inventory_only)
+- Mixed query correctness — `note:video21:V21-CAT-010` (inventory_only)
+- Analyze data in a data warehouse — `academy:fabric-analytics:06-data-warehouse` (inventory_only)
+  - Analyze data in a data warehouse
+  - Create a workspace
+  - Create a data warehouse
+  - Create tables and insert data
+  - Query data warehouse tables
+  - Query fact and dimension tables
+  - Create a view
+  - Create a visual query
+  - (OPTIONAL) Define a data model
+  - Clean up resources
+- Load data into a warehouse using T-SQL — `academy:fabric-analytics:06a-data-warehouse-load` (inventory_only)
+  - Load data into a warehouse using T-SQL
+  - Create a workspace
+  - Create a lakehouse and upload files
+  - Create a table in the lakehouse
+  - Create a warehouse
+  - Create fact table, dimensions and view
+  - Load data to the warehouse
+  - Run analytical queries
+  - Clean up resources
+- Query a data warehouse in Microsoft Fabric — `academy:fabric-analytics:06b-data-warehouse-query` (inventory_only)
+  - Query a data warehouse in Microsoft Fabric
+  - Create a workspace
+  - Create a sample data warehouse
+  - Query the data warehouse
+  - Verify data consistency
+  - Save as view
+  - Clean up resources
+- Secure data in a data warehouse — `academy:fabric-analytics:06d-secure-data-warehouse` (inventory_only)
+  - Secure data in a data warehouse
+  - Create a workspace
+  - Create a data warehouse
+  - Apply dynamic data masking rules to columns in a table
+  - Apply row-level security
+  - Implement column-level security
+  - Configure SQL granular permissions using T-SQL
+  - Clean up resources
+- Work with SQL Database in Microsoft Fabric — `academy:fabric-analytics:20-work-with-database` (inventory_only)
+  - Work with SQL Database in Microsoft Fabric
+  - Create a workspace
+  - Create a SQL database with sample data
+  - Query a SQL database
+  - Integrate data with external data sources
+  - Secure data
+  - Clean up resources
+- Use Copilot in Microsoft Fabric data warehouse — `academy:fabric-analytics:22c-copilot-fabric-data-warehouse` (inventory_only)
+  - Use Copilot in Microsoft Fabric data warehouse
+  - What you’ll learn
+  - Before you start
+  - Exercise scenario
+  - Create a workspace
+  - Create a data warehouse
+  - Create tables and insert data
+  - Query data warehouse tables
+  - Summary
+  - Clean up resources
+- 'Transform data in a Fabric data warehouse using T-SQL' — `academy:fabric-analytics:26d-transform-data-tsql` (inventory_only)
+  - Transform data with T-SQL in a Fabric warehouse
+  - Set up the environment
+  - Create a workspace
+  - Create a warehouse
+  - Create staging tables and load sample data
+  - Transform data with T-SQL queries
+  - Try it with Copilot (Optional)
+  - Create a view for reusable logic
+  - Try it with Copilot (Optional)
+  - Build a stored procedure with parameters
+  - Try it with Copilot (Optional)
+  - Create and load dimensional tables
+  - Try it with Copilot (Optional)
+  - Verify the final state
+  - Clean up resources
+
+### Semantic models & DAX
+
+Candidates: 6; local source units: 38.
+
+- Customers, orders, and key semantics — `note:scd:keys` (candidate_source_read)
+- Facts, dimensions, and analytical meaning — `note:scd:facts` (inventory_only)
+- SCD0: deliberately retain the approved value — `note:scd:type0` (candidate_source_read)
+- SCD1: current state and corrections — `note:scd:type1` (candidate_source_read)
+- SCD2: version identities and effective intervals — `note:scd:type2` (inventory_only)
+- SCD3: current and one previous value — `note:scd:type3` (candidate_source_read)
+- Warehouse SCD1 demonstration: product price overwrite — `note:scd:demo1` (inventory_only)
+- Warehouse SCD2 demonstration: table structure — `note:scd:demo2structure` (candidate_source_read)
+- Warehouse SCD2 demonstration: expire and replace — `note:scd:demo2change` (inventory_only)
+- Warehouse SCD3 demonstration: roll current into previous — `note:scd:demo3` (inventory_only)
+- SQL REVOKE semantics — `note:video06:V6-SEC-003` (inventory_only)
+- Direct Lake on OneLake — `note:video06:V6-SEC-035` (inventory_only)
+- Direct Lake fallback — `note:video07:V7-DDM-019` (inventory_only)
+- DirectLakeOnly diagnosis — `note:video07:V7-DDM-020` (inventory_only)
+- Direct Lake implementation options — `note:video07:V7-DDM-021` (inventory_only)
+- Diagnose fallback with DAX — `note:video07:V7-DDM-022` (inventory_only)
+- Tag cross-domain semantics — `note:video08:V8-GOV-016` (inventory_only)
+- Lineage data semantics — `note:video08:V8-GOV-033` (inventory_only)
+- Empty folder semantics — `note:video09:V9-GIT-027` (inventory_only)
+- Semantic model safety review — `note:video09:V9-GIT-040` (inventory_only)
+- Direct Lake source isolation — `note:video10:V10-DEP-024` (inventory_only)
+- Direct Lake and BI — `note:video15:V15-OLS-036` (inventory_only)
+- Direct Lake and BI — `note:video15:V15-OLS-037` (inventory_only)
+- Direct Lake and BI — `note:video15:V15-OLS-038` (inventory_only)
+- Direct Lake and BI — `note:video15:V15-OLS-039` (inventory_only)
+- Direct Lake and BI — `note:video15:V15-OLS-040` (inventory_only)
+- Direct Lake and BI — `note:video15:V15-OLS-041` (inventory_only)
+- Direct Lake and BI — `note:video15:V15-OLS-042` (inventory_only)
+- Reporting and semantic models — `note:video16:V16-SQL-041` (inventory_only)
+- Reporting and semantic models — `note:video16:V16-SQL-042` (inventory_only)
+- Semantic model handoff — `note:video21:V21-CAT-015` (inventory_only)
+- Create DAX calculations in semantic models — `academy:fabric-analytics:14-create-dax-calculations` (inventory_only)
+  - Create DAX calculations in semantic models
+  - **Lab story**
+  - Get started
+  - Create the Salesperson calculated table
+  - Create the Date table
+  - Create calculated columns
+  - Complete the Date table
+  - Mark the Date table
+  - Create simple measures
+  - Create additional measures
+  - Lab complete
+- Design scalable semantic models — `academy:fabric-analytics:15-design-scalable-semantic-models` (inventory_only)
+  - Design scalable semantic models
+  - Before you start
+  - Work with relationships
+  - Visualize sales data by date
+  - Use inactive relationships
+  - Create calculation groups
+  - Apply a calculation group to measures
+  - Create field parameters
+  - Edit field parameters
+  - Lab complete
+- Design a semantic model for scale — `academy:fabric-analytics:15-design-semantic-model-scale` (inventory_only)
+  - Design a semantic model for scale
+  - Set up the environment
+  - Create a semantic model
+  - Design star schema relationships
+  - Create measures
+  - Create a calculation group
+  - Use USERELATIONSHIP for the inactive ship date relationship
+  - Configure settings for scale
+  - Validate the model with a report
+  - Try it with Copilot (optional)
+  - Clean up resources
+- 'Optimize semantic model performance' — `academy:fabric-analytics:16-optimize-semantic-model-performance` (inventory_only)
+  - Optimize semantic model performance
+  - Before you start
+  - Capture a performance baseline
+  - Analyze the slow DAX query
+  - Optimize the DAX measure
+  - Examine column cardinality
+  - Verify the improvements
+  - Try it with Copilot (Optional)
+  - Clean up resources
+- Build an ontology from a semantic model in Fabric IQ — `academy:fabric-analytics:24-build-ontology-semantic-model` (inventory_only)
+  - Build an ontology from a semantic model in Fabric IQ
+  - Create a workspace
+  - Create a lakehouse with sample data
+  - Download and load the hospital data files
+  - Create an eventhouse with streaming data
+  - Ingest vital signs data
+  - Create a semantic model
+  - Generate the ontology
+  - Review and add entity type keys
+  - Verify and configure relationship types
+  - Configure Departments–Hospitals relationship
+  - Verify remaining relationships
+  - Add time-series binding to VitalSignEquipment
+  - Preview the ontology
+  - Clean up resources (optional)
+- Design and implement a dimensional model — `academy:fabric-analytics:26-design-dimensional-models` (inventory_only)
+  - Design and implement a dimensional model
+  - Create a workspace
+  - Create a data warehouse
+  - Create the fact table
+  - Create the dimension tables
+  - Add table constraints
+  - Load sample data
+  - Query the star schema
+  - Implement SCD patterns
+  - Simulate an SCD Type 2 change
+  - Simulate an SCD Type 1 change
+  - Verify the design
+  - Try it with Copilot (Optional)
+  - Clean up resources
+- 'Prepare a semantic model for AI in Microsoft Fabric' — `academy:fabric-analytics:30-prepare-model-ai` (inventory_only)
+  - Prepare a semantic model for AI
+  - Set up the environment
+  - Simplify the data schema
+  - Add AI instructions
+  - Create verified answers
+  - Add synonyms with linguistic modeling
+  - Publish and validate changes
+  - Test with Copilot
+  - Mark the model as Approved for Copilot
+  - Clean up resources
+
+### Security & governance
+
+Candidates: 3; local source units: 120.
+
+- COPY INTO: private CSV, header, permissions, and retry — `note:warehouse:copy-demo` (candidate_source_read)
+- Database ingestion routes, query tools, and policies — `note:eventhouse:databaseui` (inventory_only)
+- SQL column grants — `note:video06:V6-SEC-001` (inventory_only)
+- schema grant vs object exception — `note:video06:V6-SEC-005` (inventory_only)
+- object security visibility — `note:video06:V6-SEC-008` (inventory_only)
+- RLS implementation — `note:video06:V6-SEC-009` (inventory_only)
+- RLS evaluation and counting — `note:video06:V6-SEC-010` (inventory_only)
+- RLS identity mismatch — `note:video06:V6-SEC-011` (inventory_only)
+- RLS late authorization — `note:video06:V6-SEC-012` (inventory_only)
+- RLS multiregion policy — `note:video06:V6-SEC-013` (inventory_only)
+- RLS across tables — `note:video06:V6-SEC-014` (inventory_only)
+- RLS vs masking vs CLS — `note:video06:V6-SEC-015` (inventory_only)
+- security changes and mode — `note:video06:V6-SEC-016` (candidate_source_read)
+- RLS unauthorized changes — `note:video06:V6-SEC-017` (inventory_only)
+- RLS with report users — `note:video06:V6-SEC-018` (inventory_only)
+- OneLake grant only — `note:video06:V6-SEC-020` (inventory_only)
+- SQL grants after mode change — `note:video06:V6-SEC-031` (inventory_only)
+- semantic model vs source RLS — `note:video06:V6-SEC-036` (inventory_only)
+- Direct Lake vs SQL RLS fallback — `note:video06:V6-SEC-037` (inventory_only)
+- SQL permission change sequence — `note:video06:V6-SEC-041` (inventory_only)
+- OneLake SQL RLS multiselect — `note:video06:V6-SEC-044` (inventory_only)
+- separate security layers — `note:video06:V6-SEC-046` (inventory_only)
+- security regression test matrix — `note:video06:V6-SEC-047` (inventory_only)
+- operational controls — `note:video06:V6-SEC-049` (inventory_only)
+- privacy and permissions — `note:video06:V6-SEC-050` (inventory_only)
+- Inference despite masking — `note:video07:V7-DDM-001` (inventory_only)
+- Multiple controls — `note:video07:V7-DDM-002` (inventory_only)
+- Masking versus aggregation — `note:video07:V7-DDM-005` (inventory_only)
+- Mask behavior and real business data — `note:video07:V7-DDM-006` (inventory_only)
+- Minimal unmask grant — `note:video07:V7-DDM-008` (inventory_only)
+- UNMASK is not SELECT — `note:video07:V7-DDM-009` (inventory_only)
+- Mask administration privilege — `note:video07:V7-DDM-010` (inventory_only)
+- Choose governance approach — `note:video07:V7-DDM-014` (inventory_only)
+- Mode permission matrix — `note:video07:V7-DDM-015` (inventory_only)
+- Mask strategy under data types — `note:video07:V7-DDM-027` (inventory_only)
+- Short string partial masking — `note:video07:V7-DDM-028` (inventory_only)
+- Expected masked projections — `note:video07:V7-DDM-030` (inventory_only)
+- Layered security controls — `note:video07:V7-DDM-032` (inventory_only)
+- Security diagnostic order — `note:video07:V7-DDM-034` (inventory_only)
+- Difference between mask and deny — `note:video07:V7-DDM-035` (inventory_only)
+- Cross-product controls and reporting — `note:video07:V7-DDM-036` (inventory_only)
+- Promotion vs formal certification — `note:video08:V8-GOV-001` (inventory_only)
+- Mutually exclusive endorsement — `note:video08:V8-GOV-002` (inventory_only)
+- Certification reviewer design — `note:video08:V8-GOV-004` (inventory_only)
+- Certification prerequisite audit — `note:video08:V8-GOV-005` (inventory_only)
+- Discovery setter permissions — `note:video08:V8-GOV-009` (inventory_only)
+- Metadata versus access controls — `note:video08:V8-GOV-012` (inventory_only)
+- Protection policies and retained permissions — `note:video08:V8-GOV-022` (inventory_only)
+- Impact analysis permissions — `note:video08:V8-GOV-037` (inventory_only)
+- Governance feature mapping — `note:video08:V8-GOV-043` (inventory_only)
+- Metadata named Certified vs trusted badge — `note:video08:V8-GOV-044` (inventory_only)
+- Semantic model governance boundary — `note:video08:V8-GOV-046` (inventory_only)
+- Permission checklist — `note:video09:V9-GIT-011` (inventory_only)
+- Schedules and permissions — `note:video09:V9-GIT-026` (inventory_only)
+- Git security portability — `note:video09:V9-GIT-035` (inventory_only)
+- Workspace assignment permission — `note:video10:V10-DEP-004` (inventory_only)
+- Semantic model owner security setting — `note:video10:V10-DEP-029` (inventory_only)
+- Tools / continuous ingestion — `note:video11:V11-CHOOSE-001` (inventory_only)
+- Tools / Python and streaming — `note:video11:V11-CHOOSE-002` (inventory_only)
+- Tools / copy versus transformation — `note:video11:V11-CHOOSE-003` (inventory_only)
+- Tools / Power Query skill — `note:video11:V11-CHOOSE-004` (inventory_only)
+- Tools / orchestration boundary — `note:video11:V11-CHOOSE-005` (inventory_only)
+- Tools / Spark execution — `note:video11:V11-CHOOSE-006` (inventory_only)
+- Tools / ingestion scheduling — `note:video11:V11-CHOOSE-007` (inventory_only)
+- Tools / low-code routing — `note:video11:V11-CHOOSE-008` (inventory_only)
+- Tools / historical and real-time — `note:video11:V11-CHOOSE-009` (inventory_only)
+- Tools / custom real-time computations — `note:video11:V11-CHOOSE-010` (inventory_only)
+- Tools / alerting versus storage — `note:video11:V11-CHOOSE-011` (inventory_only)
+- Tools / destination nuance — `note:video11:V11-CHOOSE-012` (inventory_only)
+- Eventhouse / role and row security — `note:video11:V11-CHOOSE-022` (inventory_only)
+- Tools / connector identity caveat — `note:video11:V11-CHOOSE-026` (inventory_only)
+- Tools / CDC deletes — `note:video11:V11-CHOOSE-031` (inventory_only)
+- Tools / incremental-watermark failure — `note:video11:V11-CHOOSE-032` (inventory_only)
+- Tools / reset state and duplicates — `note:video11:V11-CHOOSE-033` (inventory_only)
+- Tools / CDC history — `note:video11:V11-CHOOSE-034` (inventory_only)
+- Tools / key-based updates — `note:video11:V11-CHOOSE-035` (inventory_only)
+- Tools / low-code plus heavy transform — `note:video11:V11-CHOOSE-040` (inventory_only)
+- Tools / requirements matrix — `note:video11:V11-CHOOSE-041` (inventory_only)
+- Tools / multi-select engine classification — `note:video11:V11-CHOOSE-042` (inventory_only)
+- Tools / multi-select operation — `note:video11:V11-CHOOSE-044` (inventory_only)
+- Storage / multi-select security — `note:video11:V11-CHOOSE-046` (inventory_only)
+- Tools / multi-select boundary — `note:video11:V11-CHOOSE-048` (inventory_only)
+- Tenant-wide usage, adoption and governance — `note:video12:V12-MON-031` (inventory_only)
+- Tenant-wide usage, adoption and governance — `note:video12:V12-MON-032` (inventory_only)
+- Tenant-wide usage, adoption and governance — `note:video12:V12-MON-033` (inventory_only)
+- Tenant-wide usage, adoption and governance — `note:video12:V12-MON-034` (inventory_only)
+- Column and object security — `note:video15:V15-OLS-008` (inventory_only)
+- Column and object security — `note:video15:V15-OLS-009` (inventory_only)
+- Column and object security — `note:video15:V15-OLS-010` (inventory_only)
+- Column and object security — `note:video15:V15-OLS-011` (inventory_only)
+- Column and object security — `note:video15:V15-OLS-012` (inventory_only)
+- Column and object security — `note:video15:V15-OLS-013` (inventory_only)
+- Column and object security — `note:video15:V15-OLS-014` (inventory_only)
+- RLS and effective roles — `note:video15:V15-OLS-015` (inventory_only)
+- RLS and effective roles — `note:video15:V15-OLS-016` (inventory_only)
+- RLS and effective roles — `note:video15:V15-OLS-017` (inventory_only)
+- RLS and effective roles — `note:video15:V15-OLS-018` (inventory_only)
+- RLS and effective roles — `note:video15:V15-OLS-019` (inventory_only)
+- RLS and effective roles — `note:video15:V15-OLS-020` (inventory_only)
+- RLS and effective roles — `note:video15:V15-OLS-021` (inventory_only)
+- Lifecycle and security QA — `note:video15:V15-OLS-050` (inventory_only)
+- Lifecycle and security QA — `note:video15:V15-OLS-051` (inventory_only)
+- Lifecycle and security QA — `note:video15:V15-OLS-052` (inventory_only)
+- Lifecycle and security QA — `note:video15:V15-OLS-053` (inventory_only)
+- Lifecycle and security QA — `note:video15:V15-OLS-054` (inventory_only)
+- Lifecycle and security QA — `note:video15:V15-OLS-055` (inventory_only)
+- Lifecycle and security QA — `note:video15:V15-OLS-056` (inventory_only)
+- Access security paths — `note:video16:V16-SQL-031` (inventory_only)
+- Access security paths — `note:video16:V16-SQL-032` (inventory_only)
+- Access security paths — `note:video16:V16-SQL-033` (inventory_only)
+- Access security paths — `note:video16:V16-SQL-034` (inventory_only)
+- Access security paths — `note:video16:V16-SQL-035` (inventory_only)
+- Access security paths — `note:video16:V16-SQL-036` (inventory_only)
+- Security — `note:video19:V19-LH-032` (inventory_only)
+- Security — `note:video19:V19-LH-034` (inventory_only)
+- Security — `note:video19:V19-LH-035` (inventory_only)
+- Dry-run governance — `note:video20:V20-DELTA-021` (inventory_only)
+- Security-support statement — `note:video21:V21-CAT-016` (inventory_only)
+- Security propagation test — `note:video21:V21-CAT-028` (inventory_only)
+- Enforce semantic model security — `academy:fabric-analytics:17-enforce-model-security` (inventory_only)
+  - Enforce semantic model security
+  - Set up the environment
+  - Review the data model
+  - Create static roles
+  - Validate the static roles
+  - Clean up resources
+  - Add the Salesperson table
+  - Import the CSV
+  - Rename the column
+  - Create and configure the relationship
+  - Hide the Salesperson table
+  - Create the dynamic role
+  - Validate the dynamic role
+  - Test the role as another model user
+  - Test as an unmapped user
+  - Clean up resources
+
+### Lifecycle & operations
+
+Candidates: 14; local source units: 69.
+
+- Schedules, time zones, triggers, and monitoring — `note:pipelines:schedule` (candidate_source_read)
+- Migration rollout hazards — `note:video07:V7-DDM-017` (inventory_only)
+- DDL lifecycle and original data — `note:video07:V7-DDM-029` (inventory_only)
+- Migration validation — `note:video08:V8-GOV-045` (inventory_only)
+- GitHub versus cross-geo enforcement — `note:video09:V9-GIT-004` (inventory_only)
+- Delegated Git tenant policy — `note:video09:V9-GIT-005` (inventory_only)
+- Diagnosis of disabled Git — `note:video09:V9-GIT-006` (inventory_only)
+- Git role vs workspace role — `note:video09:V9-GIT-008` (inventory_only)
+- Branch creation and Git rights — `note:video09:V9-GIT-009` (inventory_only)
+- Git unsupported item safety — `note:video09:V9-GIT-021` (inventory_only)
+- Warehouse schema deployment — `note:video09:V9-GIT-034` (inventory_only)
+- Git vs deployment pipeline selection — `note:video09:V9-GIT-039` (inventory_only)
+- Workspace Git connection limitation — `note:video09:V9-GIT-043` (inventory_only)
+- Workspace capacity/item limit — `note:video09:V9-GIT-044` (inventory_only)
+- Sensitive Git material — `note:video09:V9-GIT-045` (inventory_only)
+- Network perimeter and Git — `note:video09:V9-GIT-048` (inventory_only)
+- Git-free pipeline — `note:video10:V10-DEP-001` (inventory_only)
+- Capacity prerequisite — `note:video10:V10-DEP-005` (inventory_only)
+- Deployment support evolves — `note:video10:V10-DEP-033` (inventory_only)
+- Deployment plan preview — `note:video10:V10-DEP-039` (inventory_only)
+- Release with Git and production rebind — `note:video10:V10-DEP-040` (inventory_only)
+- DR via Git alone — `note:video10:V10-DEP-046` (inventory_only)
+- Monitor hub / cross-workspace job observability — `note:video12:V12-MON-001` (inventory_only)
+- Monitor hub / cross-workspace job observability — `note:video12:V12-MON-002` (inventory_only)
+- Monitor hub / cross-workspace job observability — `note:video12:V12-MON-003` (inventory_only)
+- Monitor hub / cross-workspace job observability — `note:video12:V12-MON-004` (inventory_only)
+- Monitor hub / cross-workspace job observability — `note:video12:V12-MON-005` (inventory_only)
+- Monitor hub / cross-workspace job observability — `note:video12:V12-MON-006` (inventory_only)
+- Monitor hub / cross-workspace job observability — `note:video12:V12-MON-007` (inventory_only)
+- Monitor hub / cross-workspace job observability — `note:video12:V12-MON-008` (inventory_only)
+- Capacity CU, throttling and freshness — `note:video12:V12-MON-016` (inventory_only)
+- Capacity CU, throttling and freshness — `note:video12:V12-MON-017` (inventory_only)
+- Capacity CU, throttling and freshness — `note:video12:V12-MON-018` (inventory_only)
+- Capacity CU, throttling and freshness — `note:video12:V12-MON-019` (inventory_only)
+- Capacity CU, throttling and freshness — `note:video12:V12-MON-020` (inventory_only)
+- Capacity CU, throttling and freshness — `note:video12:V12-MON-021` (inventory_only)
+- Capacity CU, throttling and freshness — `note:video12:V12-MON-022` (inventory_only)
+- Monitoring items and cross-workload telemetry — `note:video12:V12-MON-023` (inventory_only)
+- Monitoring items and cross-workload telemetry — `note:video12:V12-MON-024` (inventory_only)
+- Monitoring items and cross-workload telemetry — `note:video12:V12-MON-025` (inventory_only)
+- Monitoring items and cross-workload telemetry — `note:video12:V12-MON-026` (inventory_only)
+- Monitoring items and cross-workload telemetry — `note:video12:V12-MON-027` (inventory_only)
+- Monitoring items and cross-workload telemetry — `note:video12:V12-MON-028` (inventory_only)
+- Monitoring items and cross-workload telemetry — `note:video12:V12-MON-029` (inventory_only)
+- Monitoring items and cross-workload telemetry — `note:video12:V12-MON-030` (inventory_only)
+- SQL DMV lifecycle and privileges — `note:video12:V12-MON-035` (inventory_only)
+- SQL DMV lifecycle and privileges — `note:video12:V12-MON-036` (inventory_only)
+- SQL DMV lifecycle and privileges — `note:video12:V12-MON-037` (inventory_only)
+- SQL DMV lifecycle and privileges — `note:video12:V12-MON-038` (inventory_only)
+- SQL DMV lifecycle and privileges — `note:video12:V12-MON-039` (inventory_only)
+- SQL DMV lifecycle and privileges — `note:video12:V12-MON-040` (inventory_only)
+- SQL DMV lifecycle and privileges — `note:video12:V12-MON-041` (inventory_only)
+- Scheduling and monitoring — `note:video14:V14-PIPE-049` (inventory_only)
+- Scheduling and monitoring — `note:video14:V14-PIPE-050` (inventory_only)
+- Scheduling and monitoring — `note:video14:V14-PIPE-051` (inventory_only)
+- Scheduling and monitoring — `note:video14:V14-PIPE-052` (inventory_only)
+- Scheduling and monitoring — `note:video14:V14-PIPE-053` (inventory_only)
+- Scheduling and monitoring — `note:video14:V14-PIPE-054` (inventory_only)
+- Scheduling and monitoring — `note:video14:V14-PIPE-055` (inventory_only)
+- Scheduling and monitoring — `note:video14:V14-PIPE-056` (inventory_only)
+- Capacity — `note:video19:V19-LH-030` (inventory_only)
+- Capacity — `note:video19:V19-LH-031` (inventory_only)
+- Migration availability — `note:video21:V21-CAT-001` (inventory_only)
+- Migration evidence — `note:video21:V21-CAT-003` (inventory_only)
+- Support lifecycle — `note:video21:V21-CAT-017` (inventory_only)
+- Monitor a data warehouse in Microsoft Fabric — `academy:fabric-analytics:06c-monitor-data-warehouse` (inventory_only)
+  - Monitor a data warehouse in Microsoft Fabric
+  - Create a workspace
+  - Create a sample data warehouse
+  - Explore dynamic management views
+  - Explore query insights
+  - Clean up resources
+- Monitor Fabric activity in the monitoring hub — `academy:fabric-analytics:18-monitor-hub` (inventory_only)
+  - Monitor Fabric activity in the monitoring hub
+  - Create a workspace
+  - Create a lakehouse
+  - Create and monitor a Dataflow
+  - Create and monitor a Spark notebook
+  - Monitor history for an item
+  - Customize monitoring hub views
+  - Clean up resources
+- Implement deployment pipelines in Microsoft Fabric — `academy:fabric-analytics:21-implement-cicd` (candidate_source_read)
+  - Implement deployment pipelines in Microsoft Fabric
+  - Create workspaces
+  - Create a deployment pipeline
+  - Assign workspaces to stages of a deployment pipeline
+  - Create content
+  - Deploy content between stages
+  - Clean up
+- 'Manage the semantic model lifecycle' — `academy:fabric-analytics:21b-manage-semantic-model-lifecycle` (inventory_only)
+  - Manage the semantic model lifecycle
+  - Set up the environment
+  - Create workspaces
+  - Import a notebook
+  - Create a lakehouse and load data
+  - Create a semantic model
+  - Validate the semantic model with SemPy
+  - Fix the semantic model with SemPy
+  - Create a deployment pipeline
+  - Deploy content across stages
+  - Try it with Copilot (optional)
+  - Clean up resources
+
+### Real-time intelligence
+
+Candidates: 5; local source units: 12.
+
+- Eventhouse, KQL databases, and cross-engine access — `note:eventhouse:store` (inventory_only)
+- Eventhouse overview, resources, and endpoints — `note:eventhouse:eventhouseui` (candidate_source_read)
+- Storage / Eventhouse performance — `note:video11:V11-CHOOSE-019` (inventory_only)
+- Eventhouse / eventstream roles — `note:video11:V11-CHOOSE-020` (inventory_only)
+- Query / KQL versus SQL — `note:video11:V11-CHOOSE-021` (inventory_only)
+- Eventhouse / OneLake integration — `note:video11:V11-CHOOSE-023` (inventory_only)
+- Query / KQL window interpretation — `note:video11:V11-CHOOSE-038` (inventory_only)
+- Streaming maintenance — `note:video20:V20-DELTA-028` (inventory_only)
+- Get started with Real-Time Intelligence in Microsoft Fabric — `academy:fabric-analytics:07-real-time-intelligence` (inventory_only)
+  - Get started with Real-Time Intelligence in Microsoft Fabric
+  - Create a workspace
+  - Create an eventstream
+  - Create an eventhouse
+  - Query the captured data
+  - Create a real-time dashboard
+  - Create an alert
+  - Clean up resources
+- Ingest real-time data with Eventstream in Microsoft Fabric — `academy:fabric-analytics:09-real-time-analytics-eventstream` (candidate_source_read)
+  - Ingest real-time data with Eventstream in Microsoft Fabric
+  - Create a workspace
+  - Create an eventhouse
+  - Create an Eventstream
+  - Add a source
+  - Add a destination
+  - Query captured data
+  - Transform event data
+  - Query the transformed data
+  - Add an Activator destination
+  - Clean up resources
+- Work with data in a Microsoft Fabric eventhouse — `academy:fabric-analytics:12-query-data-in-kql-database` (inventory_only)
+  - Work with data in a Microsoft Fabric eventhouse
+  - Create a workspace
+  - Create an Eventhouse
+  - Query data by using KQL
+  - Retrieve data from a table with KQL
+  - Summarize data by using KQL
+  - Sort data by using KQL
+  - Filter data by using KQL
+  - Query data by using Transact-SQL
+  - Retrieve data from a table by using Transact-SQL
+  - Summarize data by using Transact-SQL
+  - Sort data by using Transact-SQL
+  - Filter data by using Transact-SQL
+  - Clean up resources
+- Get started with Real-time Dashboards in Microsoft Fabric — `academy:fabric-analytics:13-real-time-dashboards` (inventory_only)
+  - Get started with Real-Time Dashboards in Microsoft Fabric
+  - Create a workspace
+  - Create an eventhouse
+  - Create an eventstream
+  - Create a real-time dashboard
+  - Create a base query
+  - Add a parameter
+  - Add a page
+  - Configure auto refresh
+  - Save and share the dashboard
+  - Clean up resources
+
+### Cross-topic decisions
+
+Candidates: 1; local source units: 367.
+
+- Partition hierarchy, pruning, and cardinality — `note:delta:partitioning` (candidate_source_read)
+- Demo: one logical dataset, three physical layouts — `note:delta:partition-demo` (candidate_source_read)
+- Demo: portal maintenance and scheduled automation — `note:delta:maintenance-demo` (candidate_source_read)
+- Demo: retrieve the correct connection information — `note:delta:connection` (inventory_only)
+- Schemas, tables, views, functions, and procedures — `note:warehouse:objects` (candidate_source_read)
+- Historical states and reporting cutoffs — `note:warehouse:historical-theory` (candidate_source_read)
+- Clones: shared initial files, independent table state — `note:warehouse:clone-theory` (candidate_source_read)
+- Parameterized employee procedure and optional department — `note:warehouse:proc-demo` (candidate_source_read)
+- Time-travel demo: six rows before the three-row load — `note:warehouse:time-demo` (candidate_source_read)
+- Clone demo: insert, truncate, recover, and clone a prior state — `note:warehouse:clone-demo` (candidate_source_read)
+- Source scope and exam alignment — `note:pipelines:scope` (inventory_only)
+- Activity families and nested workflows — `note:pipelines:activities` (inventory_only)
+- Connections, gateways, and directional support — `note:pipelines:connections` (candidate_source_read)
+- Parameters, variables, expressions, and child inputs — `note:pipelines:parameters` (candidate_source_read)
+- Demo setup: artifact, templates, sample data, assistant — `note:pipelines:setup` (inventory_only)
+- Canvas dependencies, Wait, schedule UI, and JSON — `note:pipelines:canvas` (candidate_source_read)
+- General policy and parsed Files source — `note:pipelines:source` (candidate_source_read)
+- Execution, metrics, and table verification — `note:pipelines:run` (candidate_source_read)
+- Parameterize source and destination — `note:pipelines:dynamic-demo` (candidate_source_read)
+- Success, failure, skipped, and completion traces — `note:pipelines:dependencies` (candidate_source_read)
+- Inactive activities and the old configuration workaround — `note:pipelines:inactive` (candidate_source_read)
+- Creator practice items, worked reasoning, and outro — `note:pipelines:practice` (inventory_only)
+- Three original cases: publication, replay, and promotion — `note:pipelines:extensions` (inventory_only)
+- Episode scope and the DP-600 connection — `note:scd:scope` (inventory_only)
+- Why modeling matters: structure and trustworthy totals — `note:scd:purpose` (inventory_only)
+- Separate event rows from descriptive entities — `note:scd:separation` (inventory_only)
+- Star versus snowflake: reporting tradeoffs — `note:scd:topology` (inventory_only)
+- Creator practice, original cases, and research limits — `note:scd:practice` (inventory_only)
+- Episode scope and exam alignment — `note:eventhouse:scope` (inventory_only)
+- Workload strengths and measurable requirements — `note:eventhouse:strengths` (inventory_only)
+- Relational requirements and retention tradeoffs — `note:eventhouse:tradeoffs` (inventory_only)
+- Retention versus hot cache — `note:eventhouse:policies` (candidate_source_read)
+- Backfill and the meaning of effectiveDateTime — `note:eventhouse:backfill` (candidate_source_read)
+- Creation syntax, asynchronous work, and readiness — `note:eventhouse:syntax` (inventory_only)
+- Retention propagation, restrictions, and the promotion break — `note:eventhouse:lifecycle` (inventory_only)
+- Create a visits table and a view without backfill — `note:eventhouse:tablemv` (inventory_only)
+- Parameterized daily visits per page — `note:eventhouse:functiondemo` (inventory_only)
+- Closing practice, current corrections, and independent scenarios — `note:eventhouse:practice` (inventory_only)
+- Three original cases and independent correctness review — `note:eventhouse:extensions` (inventory_only)
+- SELECT star and CLS — `note:video06:V6-SEC-002` (inventory_only)
+- schema/table inheritance — `note:video06:V6-SEC-004` (inventory_only)
+- least privilege multiselect — `note:video06:V6-SEC-007` (inventory_only)
+- role model — `note:video06:V6-SEC-019` (inventory_only)
+- role OR logic — `note:video06:V6-SEC-021` (inventory_only)
+- cross-engine CLS discrepancy — `note:video06:V6-SEC-022` (inventory_only)
+- unsupported role shape — `note:video06:V6-SEC-023` (inventory_only)
+- ReadWrite limitations — `note:video06:V6-SEC-024` (inventory_only)
+- roles supported items — `note:video06:V6-SEC-025` (inventory_only)
+- no row restrictions for files — `note:video06:V6-SEC-026` (inventory_only)
+- role restrictions multi — `note:video06:V6-SEC-027` (inventory_only)
+- dynamic predicate difference — `note:video06:V6-SEC-028` (inventory_only)
+- delegated vs user identity — `note:video06:V6-SEC-029` (inventory_only)
+- mode switch blast radius — `note:video06:V6-SEC-030` (inventory_only)
+- delegated mode setup — `note:video06:V6-SEC-032` (inventory_only)
+- endpoint mode debugging multiselect — `note:video06:V6-SEC-034` (inventory_only)
+- authorized external engines — `note:video06:V6-SEC-039` (inventory_only)
+- metadata visibility precision — `note:video06:V6-SEC-040` (inventory_only)
+- ReadAll DefaultReader audit — `note:video06:V6-SEC-042` (inventory_only)
+- role hierarchy vs data plane — `note:video06:V6-SEC-045` (inventory_only)
+- mixing source and model protections — `note:video06:V6-SEC-048` (inventory_only)
+- Nonprivileged NULL behavior — `note:video07:V7-DDM-003` (inventory_only)
+- Audit inference incidents — `note:video07:V7-DDM-004` (inventory_only)
+- Workspace role bypass — `note:video07:V7-DDM-007` (inventory_only)
+- Revoke exception — `note:video07:V7-DDM-011` (inventory_only)
+- Effective privileges inventory — `note:video07:V7-DDM-012` (inventory_only)
+- DDM user identity limitation — `note:video07:V7-DDM-013` (inventory_only)
+- Two independent gates — `note:video07:V7-DDM-016` (inventory_only)
+- Correct physical-state inference — `note:video07:V7-DDM-024` (inventory_only)
+- Email suffix edge case — `note:video07:V7-DDM-025` (inventory_only)
+- Nullable edge case — `note:video07:V7-DDM-026` (inventory_only)
+- Defense in depth — `note:video07:V7-DDM-031` (inventory_only)
+- Audit privilege and values — `note:video07:V7-DDM-033` (inventory_only)
+- Eligible items and badge constraints — `note:video08:V8-GOV-003` (inventory_only)
+- Master-data enforcement — `note:video08:V8-GOV-006` (inventory_only)
+- Discovery vs access — `note:video08:V8-GOV-007` (inventory_only)
+- Discovery prerequisites — `note:video08:V8-GOV-008` (inventory_only)
+- Promotion trust interpretation — `note:video08:V8-GOV-010` (inventory_only)
+- Cross-workspace model reuse — `note:video08:V8-GOV-011` (inventory_only)
+- Tag admin roles — `note:video08:V8-GOV-013` (inventory_only)
+- Workspace and item tag privileges — `note:video08:V8-GOV-014` (inventory_only)
+- Limit accounting — `note:video08:V8-GOV-015` (inventory_only)
+- Metadata APIs — `note:video08:V8-GOV-017` (inventory_only)
+- Tag reassignment edge cases — `note:video08:V8-GOV-018` (inventory_only)
+- Purview authoring — `note:video08:V8-GOV-019` (inventory_only)
+- Sensitivity labeling prerequisites — `note:video08:V8-GOV-020` (inventory_only)
+- Protection vs classification — `note:video08:V8-GOV-021` (inventory_only)
+- Exporter expectations — `note:video08:V8-GOV-023` (inventory_only)
+- Sensitive data at every layer — `note:video08:V8-GOV-024` (inventory_only)
+- Label upon new report creation — `note:video08:V8-GOV-025` (inventory_only)
+- Existing item relabeling — `note:video08:V8-GOV-026` (inventory_only)
+- Label priority across layers — `note:video08:V8-GOV-027` (inventory_only)
+- Large graph limitation — `note:video08:V8-GOV-028` (inventory_only)
+- Propagation direction — `note:video08:V8-GOV-029` (inventory_only)
+- Different inheritance mechanisms — `note:video08:V8-GOV-030` (inventory_only)
+- Workspace lineage boundary — `note:video08:V8-GOV-031` (inventory_only)
+- Viewer lineage visibility — `note:video08:V8-GOV-032` (inventory_only)
+- External source scope — `note:video08:V8-GOV-034` (inventory_only)
+- Catalog lineage availability — `note:video08:V8-GOV-035` (inventory_only)
+- Lineage blind spots — `note:video08:V8-GOV-036` (inventory_only)
+- Visibility of restricted descendants — `note:video08:V8-GOV-038` (inventory_only)
+- All downstream versus direct children — `note:video08:V8-GOV-039` (inventory_only)
+- Alerting dependent owners — `note:video08:V8-GOV-040` (inventory_only)
+- External data source impact — `note:video08:V8-GOV-041` (inventory_only)
+- Purpose classification — `note:video08:V8-GOV-042` (inventory_only)
+- Exact feature inventory — `note:video08:V8-GOV-047` (inventory_only)
+- Go-live risk triage — `note:video08:V8-GOV-048` (inventory_only)
+- Cross-region Azure Repos — `note:video09:V9-GIT-001` (inventory_only)
+- Scoped tenant settings — `note:video09:V9-GIT-002` (inventory_only)
+- Labeled item export — `note:video09:V9-GIT-003` (inventory_only)
+- Exceptional branch switching — `note:video09:V9-GIT-007` (inventory_only)
+- Viewer visibility — `note:video09:V9-GIT-010` (inventory_only)
+- New branch workspace creation — `note:video09:V9-GIT-012` (inventory_only)
+- Incoming update precedence — `note:video09:V9-GIT-013` (inventory_only)
+- Selective update trap — `note:video09:V9-GIT-014` (inventory_only)
+- Workspace vs branch initial sync — `note:video09:V9-GIT-015` (inventory_only)
+- Checkout vs switch — `note:video09:V9-GIT-016` (inventory_only)
+- Partial commit safety — `note:video09:V9-GIT-017` (inventory_only)
+- Two-way sequencing — `note:video09:V9-GIT-018` (inventory_only)
+- Selective branch dependency — `note:video09:V9-GIT-020` (inventory_only)
+- Branch into existing workspace safety — `note:video09:V9-GIT-023` (inventory_only)
+- Admin profile exception — `note:video09:V9-GIT-024` (inventory_only)
+- Data and metadata portability — `note:video09:V9-GIT-025` (inventory_only)
+- Reproducibility and secrets — `note:video09:V9-GIT-028` (inventory_only)
+- Workspace subfolders vs repository root — `note:video09:V9-GIT-029` (inventory_only)
+- Unsupported versus missing artifact — `note:video09:V9-GIT-030` (inventory_only)
+- Current support matrix drift — `note:video09:V9-GIT-036` (inventory_only)
+- Merge vs workspace publication — `note:video09:V9-GIT-037` (inventory_only)
+- Protected main policy — `note:video09:V9-GIT-038` (inventory_only)
+- Direct commit on feature branch — `note:video09:V9-GIT-041` (inventory_only)
+- Rollback expectations — `note:video09:V9-GIT-042` (inventory_only)
+- Change of branch and deleted items — `note:video09:V9-GIT-046` (inventory_only)
+- Workspace identity binding — `note:video09:V9-GIT-047` (inventory_only)
+- Uncommitted workspace changes — `note:video10:V10-DEP-002` (inventory_only)
+- Stage count — `note:video10:V10-DEP-003` (inventory_only)
+- Production gate — `note:video10:V10-DEP-006` (inventory_only)
+- Same name, unpaired object — `note:video10:V10-DEP-007` (inventory_only)
+- Renamed paired item — `note:video10:V10-DEP-008` (inventory_only)
+- Target-only experimental asset — `note:video10:V10-DEP-009` (inventory_only)
+- Four comparisons — `note:video10:V10-DEP-010` (inventory_only)
+- Selective release — `note:video10:V10-DEP-011` (inventory_only)
+- Cross-folder selection — `note:video10:V10-DEP-012` (inventory_only)
+- Rule first takes effect — `note:video10:V10-DEP-014` (inventory_only)
+- Mirrored database mapping — `note:video10:V10-DEP-015` (inventory_only)
+- Broken parameter rule — `note:video10:V10-DEP-017` (inventory_only)
+- Rule persistence under reassignment — `note:video10:V10-DEP-018` (inventory_only)
+- Data-source compatibility — `note:video10:V10-DEP-019` (inventory_only)
+- Source already parameterized — `note:video10:V10-DEP-020` (inventory_only)
+- Multiple environment settings — `note:video10:V10-DEP-021` (inventory_only)
+- Variable value set activation — `note:video10:V10-DEP-022` (inventory_only)
+- Rule author versus deployer — `note:video10:V10-DEP-026` (inventory_only)
+- First deploy model owner — `note:video10:V10-DEP-027` (inventory_only)
+- Paginated report owner — `note:video10:V10-DEP-028` (inventory_only)
+- Automated identity — `note:video10:V10-DEP-030` (inventory_only)
+- Role assignments are not replicated — `note:video10:V10-DEP-031` (inventory_only)
+- Metadata is not data — `note:video10:V10-DEP-032` (inventory_only)
+- App consumers still see old version — `note:video10:V10-DEP-034` (inventory_only)
+- Change provenance audit — `note:video10:V10-DEP-035` (inventory_only)
+- Selection exceeds 300 — `note:video10:V10-DEP-036` (inventory_only)
+- Circular dependency — `note:video10:V10-DEP-037` (inventory_only)
+- Sensitive labels versus access — `note:video10:V10-DEP-038` (inventory_only)
+- Target-only QA test and weak rights — `note:video10:V10-DEP-041` (inventory_only)
+- First-time target setup — `note:video10:V10-DEP-042` (inventory_only)
+- Selective dependency chain — `note:video10:V10-DEP-043` (inventory_only)
+- Rule and model refactor — `note:video10:V10-DEP-044` (inventory_only)
+- Audit quality of deployed owner — `note:video10:V10-DEP-045` (inventory_only)
+- Change impact and status — `note:video10:V10-DEP-047` (inventory_only)
+- Release design choices — `note:video10:V10-DEP-048` (inventory_only)
+- Connections, gateways and authentication — `note:video14:V14-PIPE-017` (inventory_only)
+- Connections, gateways and authentication — `note:video14:V14-PIPE-018` (inventory_only)
+- Connections, gateways and authentication — `note:video14:V14-PIPE-019` (inventory_only)
+- Connections, gateways and authentication — `note:video14:V14-PIPE-020` (inventory_only)
+- Connections, gateways and authentication — `note:video14:V14-PIPE-021` (inventory_only)
+- Connections, gateways and authentication — `note:video14:V14-PIPE-022` (inventory_only)
+- Connections, gateways and authentication — `note:video14:V14-PIPE-023` (inventory_only)
+- Connections, gateways and authentication — `note:video14:V14-PIPE-024` (inventory_only)
+- Parameters, variables and nested execution — `note:video14:V14-PIPE-025` (inventory_only)
+- Parameters, variables and nested execution — `note:video14:V14-PIPE-026` (inventory_only)
+- Parameters, variables and nested execution — `note:video14:V14-PIPE-027` (inventory_only)
+- Parameters, variables and nested execution — `note:video14:V14-PIPE-028` (inventory_only)
+- Parameters, variables and nested execution — `note:video14:V14-PIPE-029` (inventory_only)
+- Parameters, variables and nested execution — `note:video14:V14-PIPE-030` (inventory_only)
+- Parameters, variables and nested execution — `note:video14:V14-PIPE-031` (inventory_only)
+- Parameters, variables and nested execution — `note:video14:V14-PIPE-032` (inventory_only)
+- Expression language and dynamic content — `note:video14:V14-PIPE-033` (inventory_only)
+- Expression language and dynamic content — `note:video14:V14-PIPE-034` (inventory_only)
+- Expression language and dynamic content — `note:video14:V14-PIPE-035` (inventory_only)
+- Expression language and dynamic content — `note:video14:V14-PIPE-036` (inventory_only)
+- Expression language and dynamic content — `note:video14:V14-PIPE-037` (inventory_only)
+- Expression language and dynamic content — `note:video14:V14-PIPE-038` (inventory_only)
+- Expression language and dynamic content — `note:video14:V14-PIPE-039` (inventory_only)
+- Expression language and dynamic content — `note:video14:V14-PIPE-040` (inventory_only)
+- If Condition and dependency outcomes — `note:video14:V14-PIPE-041` (inventory_only)
+- If Condition and dependency outcomes — `note:video14:V14-PIPE-042` (inventory_only)
+- If Condition and dependency outcomes — `note:video14:V14-PIPE-043` (inventory_only)
+- If Condition and dependency outcomes — `note:video14:V14-PIPE-044` (inventory_only)
+- If Condition and dependency outcomes — `note:video14:V14-PIPE-045` (inventory_only)
+- If Condition and dependency outcomes — `note:video14:V14-PIPE-046` (inventory_only)
+- If Condition and dependency outcomes — `note:video14:V14-PIPE-047` (inventory_only)
+- If Condition and dependency outcomes — `note:video14:V14-PIPE-048` (inventory_only)
+- ForEach and parallel iteration — `note:video14:V14-PIPE-057` (inventory_only)
+- ForEach and parallel iteration — `note:video14:V14-PIPE-058` (inventory_only)
+- ForEach and parallel iteration — `note:video14:V14-PIPE-059` (inventory_only)
+- ForEach and parallel iteration — `note:video14:V14-PIPE-060` (inventory_only)
+- ForEach and parallel iteration — `note:video14:V14-PIPE-061` (inventory_only)
+- ForEach and parallel iteration — `note:video14:V14-PIPE-062` (inventory_only)
+- ForEach and parallel iteration — `note:video14:V14-PIPE-063` (inventory_only)
+- ForEach and parallel iteration — `note:video14:V14-PIPE-064` (inventory_only)
+- Lookup and configuration row shapes — `note:video14:V14-PIPE-065` (inventory_only)
+- Lookup and configuration row shapes — `note:video14:V14-PIPE-066` (inventory_only)
+- Lookup and configuration row shapes — `note:video14:V14-PIPE-067` (inventory_only)
+- Lookup and configuration row shapes — `note:video14:V14-PIPE-068` (inventory_only)
+- Lookup and configuration row shapes — `note:video14:V14-PIPE-069` (inventory_only)
+- Lookup and configuration row shapes — `note:video14:V14-PIPE-070` (inventory_only)
+- Lookup and configuration row shapes — `note:video14:V14-PIPE-071` (inventory_only)
+- Lookup and configuration row shapes — `note:video14:V14-PIPE-072` (inventory_only)
+- Get Metadata and file discovery — `note:video14:V14-PIPE-073` (inventory_only)
+- Get Metadata and file discovery — `note:video14:V14-PIPE-074` (inventory_only)
+- Get Metadata and file discovery — `note:video14:V14-PIPE-075` (inventory_only)
+- Get Metadata and file discovery — `note:video14:V14-PIPE-076` (inventory_only)
+- Get Metadata and file discovery — `note:video14:V14-PIPE-077` (inventory_only)
+- Get Metadata and file discovery — `note:video14:V14-PIPE-078` (inventory_only)
+- Get Metadata and file discovery — `note:video14:V14-PIPE-079` (inventory_only)
+- Get Metadata and file discovery — `note:video14:V14-PIPE-080` (inventory_only)
+- Production best practices and reliability — `note:video14:V14-PIPE-089` (inventory_only)
+- Production best practices and reliability — `note:video14:V14-PIPE-090` (inventory_only)
+- Production best practices and reliability — `note:video14:V14-PIPE-091` (inventory_only)
+- Production best practices and reliability — `note:video14:V14-PIPE-092` (inventory_only)
+- Production best practices and reliability — `note:video14:V14-PIPE-093` (inventory_only)
+- Production best practices and reliability — `note:video14:V14-PIPE-094` (inventory_only)
+- Production best practices and reliability — `note:video14:V14-PIPE-095` (inventory_only)
+- Production best practices and reliability — `note:video14:V14-PIPE-096` (inventory_only)
+- Access foundation — `note:video15:V15-OLS-001` (inventory_only)
+- Access foundation — `note:video15:V15-OLS-002` (inventory_only)
+- Access foundation — `note:video15:V15-OLS-003` (inventory_only)
+- Access foundation — `note:video15:V15-OLS-004` (inventory_only)
+- Access foundation — `note:video15:V15-OLS-005` (inventory_only)
+- Access foundation — `note:video15:V15-OLS-006` (inventory_only)
+- Access foundation — `note:video15:V15-OLS-007` (inventory_only)
+- API administration — `note:video15:V15-OLS-043` (inventory_only)
+- API administration — `note:video15:V15-OLS-044` (inventory_only)
+- API administration — `note:video15:V15-OLS-045` (inventory_only)
+- API administration — `note:video15:V15-OLS-046` (inventory_only)
+- API administration — `note:video15:V15-OLS-047` (inventory_only)
+- API administration — `note:video15:V15-OLS-048` (inventory_only)
+- API administration — `note:video15:V15-OLS-049` (inventory_only)
+- Metadata synchronization — `note:video16:V16-SQL-019` (inventory_only)
+- Metadata synchronization — `note:video16:V16-SQL-020` (inventory_only)
+- Metadata synchronization — `note:video16:V16-SQL-021` (inventory_only)
+- Metadata synchronization — `note:video16:V16-SQL-022` (inventory_only)
+- Metadata synchronization — `note:video16:V16-SQL-023` (inventory_only)
+- Metadata synchronization — `note:video16:V16-SQL-024` (inventory_only)
+- New metadata sync — `note:video16:V16-SQL-025` (inventory_only)
+- New metadata sync — `note:video16:V16-SQL-026` (inventory_only)
+- New metadata sync — `note:video16:V16-SQL-027` (inventory_only)
+- New metadata sync — `note:video16:V16-SQL-028` (inventory_only)
+- New metadata sync — `note:video16:V16-SQL-029` (inventory_only)
+- New metadata sync — `note:video16:V16-SQL-030` (inventory_only)
+- Production troubleshooting — `note:video16:V16-SQL-043` (inventory_only)
+- Production troubleshooting — `note:video16:V16-SQL-044` (inventory_only)
+- Production troubleshooting — `note:video16:V16-SQL-045` (inventory_only)
+- Production troubleshooting — `note:video16:V16-SQL-046` (inventory_only)
+- Production troubleshooting — `note:video16:V16-SQL-047` (inventory_only)
+- Production troubleshooting — `note:video16:V16-SQL-048` (inventory_only)
+- MLVs — `note:video19:V19-LH-011` (inventory_only)
+- MLVs — `note:video19:V19-LH-012` (inventory_only)
+- MLVs — `note:video19:V19-LH-013` (inventory_only)
+- MLVs — `note:video19:V19-LH-014` (inventory_only)
+- MLVs — `note:video19:V19-LH-015` (inventory_only)
+- MLVs — `note:video19:V19-LH-016` (inventory_only)
+- MLVs — `note:video19:V19-LH-017` (inventory_only)
+- MLVs — `note:video19:V19-LH-018` (inventory_only)
+- MLVs — `note:video19:V19-LH-019` (inventory_only)
+- MLVs — `note:video19:V19-LH-020` (inventory_only)
+- MLVs — `note:video19:V19-LH-021` (inventory_only)
+- MLVs — `note:video19:V19-LH-022` (inventory_only)
+- MLVs — `note:video19:V19-LH-023` (inventory_only)
+- MLVs — `note:video19:V19-LH-024` (inventory_only)
+- Schemas — `note:video19:V19-LH-025` (inventory_only)
+- Schemas — `note:video19:V19-LH-026` (inventory_only)
+- Schemas — `note:video19:V19-LH-027` (inventory_only)
+- MLVs — `note:video19:V19-LH-036` (inventory_only)
+- MLVs — `note:video19:V19-LH-037` (inventory_only)
+- MLVs — `note:video19:V19-LH-039` (inventory_only)
+- MLVs — `note:video19:V19-LH-040` (inventory_only)
+- Snapshot correctness — `note:video20:V20-DELTA-001` (inventory_only)
+- Logical deletion — `note:video20:V20-DELTA-002` (inventory_only)
+- Retention design — `note:video20:V20-DELTA-003` (inventory_only)
+- Compaction purpose — `note:video20:V20-DELTA-004` (inventory_only)
+- Safe cleanup — `note:video20:V20-DELTA-006` (inventory_only)
+- Concurrent readers — `note:video20:V20-DELTA-007` (inventory_only)
+- Historical recovery — `note:video20:V20-DELTA-008` (inventory_only)
+- Write conflict — `note:video20:V20-DELTA-009` (inventory_only)
+- Schema contract — `note:video20:V20-DELTA-010` (inventory_only)
+- Time-travel comparison — `note:video20:V20-DELTA-011` (inventory_only)
+- Version reproducibility — `note:video20:V20-DELTA-012` (inventory_only)
+- Partition cardinality — `note:video20:V20-DELTA-013` (inventory_only)
+- Small table tradeoff — `note:video20:V20-DELTA-014` (inventory_only)
+- Pruning verification — `note:video20:V20-DELTA-015` (inventory_only)
+- V-Order decision — `note:video20:V20-DELTA-016` (inventory_only)
+- Default assumptions — `note:video20:V20-DELTA-017` (inventory_only)
+- Performance claims — `note:video20:V20-DELTA-018` (inventory_only)
+- Open compatibility — `note:video20:V20-DELTA-019` (inventory_only)
+- Scope of commands — `note:video20:V20-DELTA-020` (inventory_only)
+- Logs versus data — `note:video20:V20-DELTA-022` (inventory_only)
+- Deletion vectors — `note:video20:V20-DELTA-023` (inventory_only)
+- Active-file protection — `note:video20:V20-DELTA-024` (inventory_only)
+- Maintenance acceptance — `note:video20:V20-DELTA-025` (inventory_only)
+- Deduplication boundary — `note:video20:V20-DELTA-026` (inventory_only)
+- Schema evolution versus schemas — `note:video20:V20-DELTA-027` (inventory_only)
+- History interpretation — `note:video20:V20-DELTA-029` (inventory_only)
+- Partition value visibility — `note:video20:V20-DELTA-030` (inventory_only)
+- Multi-column fragmentation — `note:video20:V20-DELTA-031` (inventory_only)
+- Source log authority — `note:video20:V20-DELTA-032` (inventory_only)
+- Single-table atomicity — `note:video20:V20-DELTA-033` (inventory_only)
+- Reproducible benchmarks — `note:video20:V20-DELTA-034` (inventory_only)
+- Retention scope — `note:video20:V20-DELTA-035` (inventory_only)
+- Write amplification — `note:video20:V20-DELTA-036` (inventory_only)
+- Engine interoperability — `note:video20:V20-DELTA-037` (inventory_only)
+- Maintenance scheduling — `note:video20:V20-DELTA-038` (inventory_only)
+- Recovery drill — `note:video20:V20-DELTA-040` (inventory_only)
+- Capability versus conversion — `note:video21:V21-CAT-002` (inventory_only)
+- Environment parity — `note:video21:V21-CAT-004` (inventory_only)
+- Rollback design — `note:video21:V21-CAT-005` (inventory_only)
+- Principal validation — `note:video21:V21-CAT-006` (inventory_only)
+- Catalog performance claim — `note:video21:V21-CAT-007` (inventory_only)
+- Missing configuration name — `note:video21:V21-CAT-008` (inventory_only)
+- Qualification audit — `note:video21:V21-CAT-009` (inventory_only)
+- Feature requirements — `note:video21:V21-CAT-011` (inventory_only)
+- Producer dependencies — `note:video21:V21-CAT-012` (inventory_only)
+- Data preservation proof — `note:video21:V21-CAT-013` (inventory_only)
+- New versus existing workload — `note:video21:V21-CAT-018` (inventory_only)
+- Metadata source of truth — `note:video21:V21-CAT-019` (inventory_only)
+- Qualified reference fixture — `note:video21:V21-CAT-020` (inventory_only)
+- API allowlisting — `note:video21:V21-CAT-021` (inventory_only)
+- Path consumers — `note:video21:V21-CAT-022` (inventory_only)
+- Default-session evidence — `note:video21:V21-CAT-023` (inventory_only)
+- No-default session — `note:video21:V21-CAT-024` (inventory_only)
+- Operational sequencing — `note:video21:V21-CAT-025` (inventory_only)
+- Roadmap interpretation — `note:video21:V21-CAT-026` (inventory_only)
+- Catalog versus endpoint sync — `note:video21:V21-CAT-027` (inventory_only)
+- Boundary of schema enablement — `note:video21:V21-CAT-029` (inventory_only)
+- Production acceptance — `note:video21:V21-CAT-030` (inventory_only)
+- Change inventory — `note:video21:V21-CAT-031` (inventory_only)
+- Evidence conflict resolution — `note:video21:V21-CAT-032` (inventory_only)
+- Get started with data science in Microsoft Fabric — `academy:fabric-analytics:08-data-science-get-started` (inventory_only)
+  - Get started with data science in Microsoft Fabric
+  - Create a workspace
+  - Create a notebook
+  - Get the data
+  - Prepare the data
+  - Train machine learning models
+  - Train a regression model
+  - Train a classification model
+  - Explore your experiments
+  - Save the model
+  - Save the notebook and end the Spark session
+  - Clean up resources
+- Preprocess data with Data Wrangler in Microsoft Fabric — `academy:fabric-analytics:08b-data-science-preprocess-data-wrangler` (inventory_only)
+  - Preprocess data with Data Wrangler in Microsoft Fabric
+  - Create a workspace
+  - Create a notebook
+  - Load data into a dataframe
+  - View summary statistics
+  - Format text data
+  - Apply one-hot encoding transformation
+  - Sort and filter operations
+  - Browse and remove steps
+  - Aggregate data
+  - Save the notebook and end the Spark session
+  - Clean up resources
+- Train and track machine learning models with MLflow in Microsoft Fabric — `academy:fabric-analytics:08c-data-science-train` (inventory_only)
+  - Train and track machine learning models with MLflow in Microsoft Fabric
+  - Create a workspace
+  - Create a notebook
+  - Load data into a dataframe
+  - Train a machine learning model
+  - Use MLflow to search and view your experiments
+  - Explore your experiments
+  - Save the model
+  - Save the notebook and end the Spark session
+  - Clean up resources
+- Generate batch predictions using a deployed model in Microsoft Fabric — `academy:fabric-analytics:08d-data-science-batch` (inventory_only)
+  - Generate batch predictions using a deployed model in Microsoft Fabric
+  - Create a workspace
+  - Create a notebook
+  - Train a machine learning model
+  - Create a test dataset in a lakehouse
+  - Apply the model to generate predictions
+  - Clean up resources
+- Use Activator in Microsoft Fabric — `academy:fabric-analytics:11-data-activator` (inventory_only)
+  - Use Activator in Fabric
+  - Scenario
+  - Create a workspace
+  - Create an Activator
+  - Get familiar with the Activator home screen
+  - Create an object
+  - Create a rule
+  - Clean up resources
+- Create reusable Power BI assets — `academy:fabric-analytics:16-create-reusable-power-bi-assets` (inventory_only)
+  - Create reusable Power BI assets
+  - Before you start
+  - Create a new Power BI project
+  - Review Power BI Project file details
+  - Add a new table to your report
+  - Create a relationship
+  - Add a measure and visual to your report
+  - Create a reusable Power BI Template (PBIT)
+  - Explore Region Sales Data
+  - Create the Power BI report and Load data
+  - Create a Power Query Parameter
+  - Modify Your Query to Use the Parameter
+  - Create a simple report
+  - Save as a Template (PBIT)
+  - Test the template
+  - Clean up
+- Secure data access in Microsoft Fabric — `academy:fabric-analytics:19-secure-data-access` (inventory_only)
+  - Secure data access in Microsoft Fabric
+  - Create a workspace
+  - Create a data warehouse
+  - Create a lakehouse
+  - Apply workspace access controls
+  - Apply item access control
+  - Apply OneLake security in a lakehouse
+  - Clean up resources
+- 'Govern analytics data in Microsoft Fabric' — `academy:fabric-analytics:19b-govern-analytics-data` (inventory_only)
+  - Govern analytics data in Microsoft Fabric
+  - Set up the environment
+  - Create a workspace
+  - Create a lakehouse and load data
+  - Create a semantic model
+  - Endorse and document data assets
+  - Endorse and document the lakehouse
+  - Endorse and document the semantic model
+  - Explore governance in the OneLake catalog
+  - View lineage and run impact analysis
+  - Clean up resources
+- Work with API for GraphQL in Microsoft Fabric — `academy:fabric-analytics:20a-work-with-graphql` (inventory_only)
+  - Work with API for GraphQL in Microsoft Fabric
+  - Create a workspace
+  - Create a SQL database with sample data
+  - Query a SQL database
+  - Create an API for GraphQL
+  - Disable mutations
+  - Query data using GraphQL
+  - Clean up resources
+- Chat with your data using Microsoft Fabric data agents — `academy:fabric-analytics:22d-copilot-fabric-data-agents` (inventory_only)
+  - Chat with your data using Microsoft Fabric data agents
+  - What you’ll learn
+  - Before you start
+  - Exercise scenario
+  - Create a workspace
+  - Create a data warehouse
+  - Create tables and insert data
+  - Create a Fabric data agent
+  - Ask questions
+  - Understanding your data structure
+  - Summary
+  - Key takeaways
+  - Next steps
+- Create an ontology with Fabric IQ — `academy:fabric-analytics:23-build-ontology-manually` (inventory_only)
+  - Create an ontology with Fabric IQ
+  - Create a workspace
+  - Create a lakehouse with sample data
+  - Download and load the hospital data files
+  - Create an eventhouse with streaming data
+  - Ingest vital signs data
+  - Create an ontology
+  - Create entity types
+  - Create Hospital entity type
+  - Create remaining entity types
+  - Create relationship types
+  - Create Hospital-Department relationship
+  - Create remaining relationships
+  - Bind entity types to data
+  - Bind Hospital entity
+  - Bind Department, Room, and Patient entities
+  - Bind VitalSignEquipment entity
+  - Bind static monitor reference data
+  - Bind time-series vital signs data
+  - Configure relationships
+  - Configure Hospital-Department relationship
+  - Configure remaining relationships
+  - Preview the ontology
+  - Clean up resources (optional)
+- Visualize ontology data with Microsoft Fabric IQ — `academy:fabric-analytics:27-visualize-ontology` (inventory_only)
+  - Visualize ontology data with Microsoft Fabric IQ
+  - Create a workspace
+  - Create the ontology from a notebook
+  - What to expect when the notebook runs
+  - Explore entity instances
+  - View the Departments entity instances
+  - Explore time-series data from the eventhouse
+  - Visualize the relationship graph
+  - Expand and explore the graph
+  - Filter data with the Query builder
+  - Find patients in the Intensive Care Unit department
+  - Find monitoring equipment for ICU patients
+  - Clean up resources
+  - Summary
+- Build a Fabric data agent with an ontology — `academy:fabric-analytics:28-build-data-agent-ontology` (inventory_only)
+  - Build a Fabric data agent with an ontology
+  - Before you start
+  - Create a workspace
+  - Create the ontology from a notebook
+  - What to expect when the notebook runs
+  - Create a Fabric data agent
+  - Add the ontology as a data source
+  - Configure agent instructions
+  - Test with natural language questions
+  - Publish and share the data agent
+  - Publish the data agent
+  - Share the data agent
+  - Clean up resources
+  - Summary
+- The OneLake events lab loads historical carrier CSV files through a supplied notebook, then compares raw against loaded record counts. What is the correct description of those files? — `question:rti-01` (inventory_only)
+- The hydraulic condition-monitoring archive has 2,205 cycles of 17 channels at different sampling rates. How many samples does one cycle hold for the 100 Hz channels? — `question:rti-02` (inventory_only)
+- The steel-industry energy archive publishes a CO2 column labelled `CO2(tCO2)` while its own documentation describes the values as ppm. What does the source package require? — `question:rti-03` (inventory_only)
+- You are aligning the semiconductor archive's measurement file with its label file. Which of these must be preserved? — `question:rti-04` (inventory_only)
+- A blueprint marked `PASS_DATA_PROFILE` means the archive's bytes were verified against its published schema and row counts — and that the dataset is representative of current factory conditions. — `question:rti-05` (inventory_only)
+- The steel-industry archive's timestamps advance in one uninterrupted step. What is that step, and what does it tell you? — `question:rti-06` (inventory_only)
+- The hydraulic rig is described as having 17 channels. Why does the package insist two of them stay labelled `virtual`? — `question:rti-07` (inventory_only)
+- Two World Bank indicators are cleared for reference: container port traffic (IS.SHP.GOOD.TU) and the Logistics Performance Index. Which statements are correct? — `question:rti-08` (inventory_only)
+- The Scania air-pressure archive (UCI-421) is withheld from this course. What is the exact reason? — `question:rti-09` (inventory_only)
+- After following the Activator temperature-rule lab, what is the honest status of the alerting path? — `question:rti-10` (inventory_only)
+
+## Statistics & reasoning
+
+### Questions, populations & samples
+
+Candidates: 5; local source units: 3.
+
+- 18. Test Statistic وSE — `stats:s18` (candidate_source_read)
+  - 18. Test Statistic وSE
+- 29. Independent and Dependent Variables — `stats:s29` (inventory_only)
+  - 29. Independent and Dependent Variables
+- 33. Confounding Variables — `stats:s33` (candidate_source_read)
+  - 33. Confounding Variables
+
+### Describe & compare
+
+Candidates: 5; local source units: 0.
+
+
+### Probability
+
+Candidates: 3; local source units: 1.
+
+- 6. Probability — الاحتمالات — `stats:s6` (candidate_source_read)
+  - 6. Probability — الاحتمالات
+  - 6.1 Complement
+  - 6.2 Independent Events
+  - 6.3 Conditional Probability
+  - 6.4 Independent vs Dependent
+
+### Distributions
+
+Candidates: 7; local source units: 5.
+
+- 7. Probability Distributions — `stats:s7` (candidate_source_read)
+  - 7. Probability Distributions
+- 8. Binomial Distribution — `stats:s8` (candidate_source_read)
+  - 8. Binomial Distribution
+  - متى أفكر في Binomial؟
+- 9. Normal Distribution — `stats:s9` (candidate_source_read)
+  - 9. Normal Distribution
+  - 9.1 Empirical Rule
+  - 9.2 Standardization / Z-score
+- 10. Poisson Distribution — `stats:s10` (candidate_source_read)
+  - 10. Poisson Distribution
+  - 10.1 Poisson Process
+  - 10.2 Poisson Distribution
+  - 10.3 Lambda
+  - 10.4 Shape of Poisson
+- What does the central limit theorem say about the sample mean? — `question:stat-08` (inventory_only)
+
+### Sampling & estimation
+
+Candidates: 7; local source units: 6.
+
+- 11. Central Limit Theorem — CLT — `stats:s11` (candidate_source_read)
+  - 11. Central Limit Theorem — CLT
+- 12. Sampling Distribution — `stats:s12` (candidate_source_read)
+  - 12. Sampling Distribution
+- 13. Standard Error — SE — `stats:s13` (candidate_source_read)
+  - 13. Standard Error — SE
+  - 13.1 الفرق بين SD وSE
+- 14. Confidence Intervals — `stats:s14` (candidate_source_read)
+  - 14. Confidence Intervals
+  - 14.1 مثال مفاهيمي
+  - 14.2 ما الذي يجعل CI أوسع أو أضيق؟
+- A 95% confidence interval means: — `question:stat-04` (inventory_only)
+- Which choices reduce sampling bias? Select all that apply. — `question:stat-06` (inventory_only)
+
+### Hypothesis tests
+
+Candidates: 13; local source units: 9.
+
+- 15. Hypothesis Testing — `stats:s15` (candidate_source_read)
+  - 15. Hypothesis Testing
+  - 15.1 Null Hypothesis — H₀
+  - 15.2 Alternative Hypothesis — Hₐ
+- 16. Hypothesis Testing Workflow — `stats:s16` (candidate_source_read)
+  - 16. Hypothesis Testing Workflow
+- 17. Sampling Variability داخل Hypothesis Testing — `stats:s17` (candidate_source_read)
+  - 17. Sampling Variability داخل Hypothesis Testing
+- 19. p-value — `stats:s19` (candidate_source_read)
+  - 19. p-value
+  - 19.1 مثال
+  - 19.2 p-value ليست overlap ببساطة
+- 20. Significance Level — α — `stats:s20` (candidate_source_read)
+  - 20. Significance Level — α
+- 22. Type I and Type II Errors — `stats:s22` (candidate_source_read)
+  - 22. Type I and Type II Errors
+  - 22.1 Type I Error
+  - 22.2 Type II Error
+- 23. Statistical Significance vs Practical Significance — `stats:s23` (candidate_source_read)
+  - 23. Statistical Significance vs Practical Significance
+- 38. Decision Rules — إذا تغير السؤال، ماذا أفعل؟ — `stats:s38` (candidate_source_read)
+  - 38. Decision Rules — إذا تغير السؤال، ماذا أفعل؟
+- A p-value of 0.03 means: — `question:stat-02` (inventory_only)
+
+### Experiment design
+
+Candidates: 8; local source units: 7.
+
+- 24. Experiments — `stats:s24` (candidate_source_read)
+  - 24. Experiments
+- 25. Controlled Experiments — `stats:s25` (candidate_source_read)
+  - 25. Controlled Experiments
+- 26. Randomization — `stats:s26` (candidate_source_read)
+  - 26. Randomization
+- 27. Blinding وPlacebo — `stats:s27` (candidate_source_read)
+  - 27. Blinding وPlacebo
+  - Blind Trial
+  - Placebo
+  - Double-Blind Randomized Controlled Trial
+- 28. RCT vs A/B Testing — `stats:s28` (candidate_source_read)
+  - 28. RCT vs A/B Testing
+- 34. Correlation vs Experiment — `stats:s34` (inventory_only)
+  - 34. Correlation vs Experiment
+- Repeatedly checking an A/B test and stopping when it becomes significant inflates the false-positive rate. — `question:stat-10` (inventory_only)
+
+### Relationships & prediction
+
+Candidates: 5; local source units: 5.
+
+- 30. Correlation — `stats:s30` (candidate_source_read)
+  - 30. Correlation
+  - 30.1 Pearson Correlation Coefficient
+  - Direction
+  - Strength
+- 31. Pearson Correlation وLinear Relationships — `stats:s31` (inventory_only)
+  - 31. Pearson Correlation وLinear Relationships
+- 32. Correlation ≠ Causation — `stats:s32` (inventory_only)
+  - 32. Correlation ≠ Causation
+- 35. Correlation vs Regression — `stats:s35` (candidate_source_read)
+  - 35. Correlation vs Regression
+- A strong correlation between two variables proves that one causes the other. — `question:stat-03` (inventory_only)
+
+### Synthesis & method selection
+
+Candidates: 1; local source units: 17.
+
+- 1. الصورة الكبيرة: ما هو Statistics؟ — `stats:s1` (candidate_source_read)
+  - 1. الصورة الكبيرة: ما هو Statistics؟
+  - 1.1 Population vs Sample
+- 2. Data Types — `stats:s2` (candidate_source_read)
+  - 2. Data Types
+  - 2.1 Numerical / Quantitative Data
+  - 2.2 Categorical / Qualitative Data
+- 3. Branches of Statistics — `stats:s3` (candidate_source_read)
+  - 3. Branches of Statistics
+  - 3.1 Descriptive Statistics
+  - 3.2 Inferential Statistics
+- 4. Measures of Center — مقاييس النزعة المركزية — `stats:s4` (candidate_source_read)
+  - 4. Measures of Center — مقاييس النزعة المركزية
+  - 4.1 Mean
+  - 4.2 Median
+  - 4.3 Mode
+  - 4.4 Mean vs Median
+- 5. Measures of Spread — مقاييس التشتت — `stats:s5` (candidate_source_read)
+  - 5. Measures of Spread — مقاييس التشتت
+  - 5.1 Range
+  - 5.2 Variance
+  - 5.3 Standard Deviation
+  - 5.4 IQR
+- 21. قاعدة القرار — `stats:s21` (inventory_only)
+  - 21. قاعدة القرار
+- 36. كيف تتصل كل الموضوعات معًا؟ — `stats:s36` (inventory_only)
+  - 36. كيف تتصل كل الموضوعات معًا؟
+- 37. أهم العلاقات الرياضية التي يجب تذكرها — `stats:s37` (inventory_only)
+  - 37. أهم العلاقات الرياضية التي يجب تذكرها
+  - Probability
+  - Variability
+  - Binomial
+  - Poisson
+  - Z-score
+  - Standard Error of Mean
+  - Confidence Interval
+  - Test Statistic
+  - Hypothesis Decision
+- 39. أهم الأخطاء التي يجب تجنبها — `stats:s39` (candidate_source_read)
+  - 39. أهم الأخطاء التي يجب تجنبها
+- 40. مثال متكامل يربط الكورس — `stats:s40` (inventory_only)
+  - 40. مثال متكامل يربط الكورس
+- 41. Final Mental Model — `stats:s41` (inventory_only)
+  - 41. Final Mental Model
+- 42. One-page Cheat Sheet — `stats:s42` (inventory_only)
+  - 42. One-page Cheat Sheet
+- 43. خلاصة الكورس — `stats:s43` (inventory_only)
+  - 43. خلاصة الكورس
+- Income data is strongly right-skewed. Which statement is true? — `question:stat-01` (inventory_only)
+- A value is 70 in a distribution with mean 50 and standard deviation 10. What is its z-score? — `question:stat-05` (inventory_only)
+- A Type I error is: — `question:stat-07` (inventory_only)
+- Which measure is most resistant to extreme outliers? — `question:stat-09` (inventory_only)
+
+## Data visualization
+
+### Questions, grain & encodings
+
+Candidates: 4; local source units: 4.
+
+- 📊 الجزء 3: الرسوم الأساسية (Univariate & Bivariate Charts) — `viz:ar-core-charts` (inventory_only)
+  - الرسوم الأساسية — Univariate & Bivariate Charts
+- Chart Selection Matrix & Anti-Patterns — `viz:chart-selection` (inventory_only)
+  - 1. اختيار الرسم حسب المهمة
+  - 2. Decision Sequence
+  - 3. Anti-Patterns
+  - Bar vs Line
+  - Histogram vs Bar
+  - Mean vs Distribution
+  - Dual Axis vs Small Multiples
+  - 4. Senior Mental Model
+- Core Chart Types & Scales — `viz:core-chart-types` (candidate_source_read)
+  - 4. Histogram
+  - What it is
+  - Anatomy
+  - Bin width is a critical design choice
+  - How to interpret a histogram
+  - 1. Modality
+  - 2. Skewness
+  - 3. Kurtosis
+  - Common histogram mistakes
+  - 5. Box Plot
+  - Why box plots exist
+  - When to use it
+  - Anatomy
+  - What a box plot lets you compare
+  - Important limitation
+  - 6. Scatter Plot
+  - When to use it
+  - What to inspect
+  - Correlation
+  - Trend lines
+  - Logarithmic axes
+  - 7. Line Plot
+  - Core definition
+  - Typical use cases
+  - Multiple lines
+  - Linear vs exponential growth
+  - Critical warning: time on X does not automatically imply a line plot
+  - 8. Bar Plot
+  - When to use it
+  - Why zero matters
+  - Horizontal vs vertical
+  - Sorting
+  - Stacked bar charts
+  - Bar plot vs box plot
+  - Bar plot vs histogram
+  - 9. Dot Plot
+  - What it is
+  - Advantage 1: logarithmic scales
+  - Advantage 2: multiple metrics
+  - Linear vs logarithmic interpretation
+  - Dot plot vs scatter plot
+  - 10. Logarithmic Scales — Deeper Reference
+  - 11. Trend Lines and Model Thinking
+  - Straight trend line
+  - Curved trend
+  - Log-linear interpretation
+- Foundations & Decision Framework — `viz:foundations` (candidate_source_read)
+  - 1. Why Visualization Matters
+  - The Datasaurus Dozen Lesson
+  - 2. Variable Types
+  - Continuous / Quantitative Variables
+  - Categorical Variables
+  - Variables Whose Treatment Depends on the Question
+  - 3. Master Decision Framework
+  - Fast Decision Tree
+
+### Comparison & ranking
+
+Candidates: 6; local source units: 2.
+
+- 📊 Bar Plot — مخطط الأعمدة — `viz:ar-bar-plot` (candidate_source_read)
+  - متى تستخدمه؟
+  - لماذا الصفر مهم؟
+  - أفقي أم رأسي؟
+  - الترتيب Sorting
+  - Stacked Bar Chart
+  - Bar Plot مقابل Box Plot
+  - Bar Plot مقابل Histogram
+- 📊 Dot Plot — مخطط النقاط — `viz:ar-dot-plot` (candidate_source_read)
+  - ما هو؟
+  - الميزة الأولى: Log Scale
+  - الميزة الثانية: عدة مقاييس
+  - Linear مقابل Logarithmic
+  - Dot Plot مقابل Scatter Plot
+
+### Distributions & outliers
+
+Candidates: 15; local source units: 2.
+
+- 📊 Box Plot — مخطط الصندوق — `viz:ar-box-plot` (candidate_source_read)
+  - لماذا نستخدمه؟
+  - متى تستخدمه؟
+  - مكونات Box Plot
+  - ماذا يقارن Box Plot؟
+  - أهم عيب
+- 📊 Histogram — المدرج التكراري — `viz:ar-histogram` (candidate_source_read)
+  - ما هو؟
+  - مكونات الرسم
+  - عرض الـ Bin قرار تصميمي مهم جدًا
+  - كيف تفسر Histogram؟
+  - 1. التعدد النمطي Modality
+  - 2. الالتواء Skewness
+  - 3. التفرطح Kurtosis
+  - أخطاء شائعة في Histogram
+
+### Relationships & multivariate data
+
+Candidates: 14; local source units: 2.
+
+- Advanced & Multivariate Techniques — `viz:advanced-multivariate` (candidate_source_read)
+  - 12. Advanced Multivariate Visualization — Higher Dimensions
+  - 12.1 Adding a Third Dimension
+  - Real use case: country development
+  - 12.2 Why Size and Transparency Are Weaker Encodings
+  - 12.3 Faceting: the Controlled Alternative
+  - 13. Plotting Many Variables at Once
+  - 13.1 Pair Plot
+  - Anatomy
+  - Real use case: LA housing
+  - 13.2 Correlation Heatmap
+  - Best use
+  - Critical limitation
+  - Real use case: customer satisfaction
+  - 13.3 Parallel Coordinates
+  - Real use case: country development profiles
+  - Strength
+  - Weakness
+  - 14. Polar Coordinates, Pie Charts, and Rose Plots
+  - 14.1 Pie Chart = Bar Chart in Polar Coordinates
+  - 14.2 When Polar Coordinates Make Sense
+  - 14.3 Rose Plot
+  - Real use case: animal activity
+- 📊 Scatter Plot — مخطط التشتت — `viz:ar-scatter-plot` (candidate_source_read)
+  - متى تستخدمه؟
+  - ماذا تفحص؟
+  - الارتباط Correlation
+  - Trend Lines
+  - المحاور اللوغاريتمية
+
+### Time & change
+
+Candidates: 3; local source units: 1.
+
+- 📊 Line Plot — الرسم الخطي — `viz:ar-line-plot` (candidate_source_read)
+  - التعريف الأساسي
+  - أمثلة استخدام
+  - عدة خطوط
+  - النمو الخطي مقابل النمو الأسي
+  - تحذير مهم: وجود الوقت على X لا يعني تلقائيًا Line Plot
+
+### Composition, dashboards & story
+
+Candidates: 2; local source units: 2.
+
+- Dashboard Design, Composition & Cognitive Load — `viz:dashboard-design` (candidate_source_read)
+  - 1. Visual Hierarchy
+  - 2. Cognitive Load
+  - 3. Small Multiples
+  - 4. KPI Cards
+  - 5. Executive vs Analytical Dashboard
+  - 6. أسئلة QA قبل النشر
+- Power BI Visualization Playbook — `viz:power-bi-playbook` (inventory_only)
+  - 1. Visual Selection
+  - 2. Measures vs Calculated Columns
+  - 3. Performance-aware Visualization
+  - 4. High Cardinality
+  - 5. Color & Accessibility
+  - 6. Log Scale Caution
+  - 7. Interview Frame
+
+### Accessibility & visual integrity
+
+Candidates: 17; local source units: 5.
+
+- Accessibility, Contrast & Color QA — `viz:accessibility-color-qa` (candidate_source_read)
+  - 1. Color is not the only encoding
+  - 2. Palette semantics
+  - 3. Contrast QA
+  - 4. Grayscale test
+  - 5. Interview question
+- 🎨 الجزء 6: الألوان في Data Visualization — `viz:ar-color` (candidate_source_read)
+  - استخدام الألوان في Data Visualization
+  - Color Spaces
+  - مكونات HCL
+  - أنواع Color Scales
+  - Qualitative
+  - Sequential
+  - Diverging
+  - Viridis كـSequential Palette عملية
+- Color Theory for Data Visualization — `viz:color-perception` (inventory_only)
+  - 15. Color for Data Visualization
+  - 15.1 Color Spaces
+  - HCL components
+  - 15.2 Three Color-Scale Families
+  - Qualitative
+  - Sequential
+  - Diverging
+  - 15.3 Viridis as a Practical Sequential Palette
+- Statistical Interpretation Traps for Visualization — `viz:statistical-traps` (candidate_source_read)
+  - 1. Mean vs Median
+  - 2. Simpson’s Paradox
+  - 3. Aggregation Hides Variation
+  - 4. Ecological Fallacy
+  - 5. Selection Bias & Missingness
+  - 6. Multiple Comparisons
+  - 7. Statistical vs Practical Significance
+  - 8. Uncertainty-Aware Visualization
+  - 9. Interview Trap
+- Visual Integrity, Pitfalls & Ethics — `viz:visual-integrity` (candidate_source_read)
+  - 16. Visualization Pitfalls
+  - Pitfall 1: choosing the chart before defining the question
+  - Pitfall 2: confusing categories and continuous values
+  - Pitfall 3: assuming correlation means relationship of any kind
+  - Pitfall 4: assuming time always means line plot
+  - Pitfall 5: misleading bar baselines
+  - Pitfall 6: excessive categories
+  - Pitfall 7: excessive visual decoration
+  - Pitfall 8: hiding distributional information in a single mean
+  - 17. Visualization Integrity — Axes and Scale
+  - 17.1 Bar-Length Principle
+  - Example
+  - 17.2 Stacked Bars
+  - 17.3 Dual Y-Axes
+  - Better alternative
+  - Real use case
+  - 18. Chartjunk, Cognitive Load, and Sensory Overload
+  - 18.1 Chartjunk
+  - 18.2 Skeuomorphism
+  - 18.3 Why 3D Bars Are Usually Harmful
+  - 18.4 Hatching and Excessive Visual Texture
+  - 18.5 Minimalism Is Not "Remove Everything"
+  - 19. Final Principles — The Visualization Constitution
+
+### Whole-course resources
+
+Candidates: 8; local source units: 7.
+
+- 📊 Data Visualization — Comprehensive & Deep Reference — `viz:ar-comprehensive` (inventory_only)
+  - Operating System
+  - How to Use
+  - Canonical Map
+  - 01 · Foundations
+  - 02 · Audience & Story
+  - 03 · Core Visual Grammar
+  - 04 · Advanced & Multivariate
+  - 05 · Color & Perception
+  - 06 · Accessibility & QA
+  - 07 · Integrity, Uncertainty & Traps
+  - 08 · Decision Tools & Composition
+  - 09 · Implementation
+  - Visual Atlas
+  - 10 · Practice, Assessment & Shelf
+  - Related Libraries
+- مسارات قراءة مقترحة (Beginner → Advanced) — `viz:ar-reading-paths` (candidate_source_read)
+  - 🗺️ مسارات قراءة مقترحة (Beginner → Advanced)
+  - المسار 1: BI / Dashboards (عملي وسريع)
+  - المسار 2: Data Science / EDA (استكشاف وتشخيص)
+  - المسار 3: Exam / Interview Prep (مصائد شائعة)
+- أفضل المراجع العالمية (Curated References) — `viz:ar-references` (inventory_only)
+  - 📚 أفضل المراجع العالمية (Curated References)
+  - كتب (Foundational)
+  - ألوان وإدراك بصري
+  - أفضل ممارسات عملية (Applied)
+  - مراجع إحصائية مرتبطة بالتفسير (لمن يحتاج العمق)
+  - ملاحظة تنظيمية
+- 🎯 نصائح وTricks عملية + بنك أسئلة المقابلات (BI / Power BI) — `viz:ar-tips-interview` (inventory_only)
+  - 🛠️ Tips & Tricks عملية (Power BI / BI Analyst)
+  - 1. اختيار الرسم داخل Power BI تحديدًا
+  - 2. أخطاء تصميم شائعة في Dashboards الشركات
+  - 3. DAX & Performance Tips مرتبطة بالتصور
+  - 4. Color & Accessibility Tricks
+  - 🎤 بنك أسئلة المقابلات
+  - أسئلة أساسية (Fresh / Junior BI)
+  - أسئلة متوسطة (BI Analyst / Data Analyst)
+  - أسئلة متقدمة (Senior / تصميم Dashboard)
+  - 📌 ملاحظة
+- Data Visualization Interview Master Bank — `viz:interview-bank` (inventory_only)
+  - 1. Conceptual
+  - 2. Scenario
+  - 3. Senior
+  - 4. Rapid-Fire Traps
+  - 5. Senior Answer Structure
+- Quick Reference & Exam Prep — `viz:quick-reference` (inventory_only)
+  - 20. Practical Interpretation Checklist
+  - 21. High-Value Comparison Table
+  - 22. Exam / Interview Traps
+  - 23. Mental Model to Remember Everything
+  - 24. Source Concepts Covered in This Reference
+  - 25. Advanced Decision Framework
+- Visual Atlas — Teaching Charts & Figure Pack — `viz:visual-atlas` (inventory_only)
+  - How to use this atlas
+  - A. Operating system
+  - B. Why you must plot the data
+  - C. Core grammar
+  - Histogram — read modality and skew first
+  - D. Integrity
+  - Truncated bars manufacture drama
+  - Dual axis vs small multiples
+  - E. Color semantics
+  - F. Chart-to-task pocket card
+  - G. Constitution — wall card
+  - Related chapters
+  - H. Dashboard scan path
+  - I. Dual axis vs small multiples
+  - J. Inference traps that look like chart problems
+  - Related — this pass
+
+## Power BI
+
+### Prepare & transform
+
+Candidates: 7; local source units: 2.
+
+- 'Clean, transform, and load data in Power BI' — `academy:power-bi:demos-03-clean-transform-data` (inventory_only)
+  - Clean, transform, and load data in Power BI
+  - Apply query transformations
+  - Integrate queries
+  - Disable and load queries to the data model
+- Clean, transform, and load data in Power BI — `academy:power-bi:labs-02-transform-data-power-bi` (candidate_source_read)
+  - Clean, transform, and load data in Power BI
+  - Lab story
+  - Get started
+  - Configure the Salesperson query
+  - Configure the SalespersonRegion query
+  - Configure the Product query
+  - Configure the Reseller query
+  - Configure the Region query
+  - Configure the Sales query
+  - Configure the Targets query
+  - Configure the ColorFormats query
+  - Update the Product query
+  - Update the ColorFormats query
+  - Review final product
+  - Lab complete
+
+### Model & calculate
+
+Candidates: 17; local source units: 13.
+
+- 'Design a data model in Power BI' — `academy:power-bi:demos-04-design-data-model` (inventory_only)
+  - Design a data model in Power BI
+  - Review the model
+  - Create a hierarchy
+  - Set model properties
+  - Validate the model design with a matrix visual
+- 'Create measures using DAX in Power BI' — `academy:power-bi:demos-05-create-measures-dax` (inventory_only)
+  - Create measures using DAX in Power BI
+  - Create a calculated table
+  - Create a Quick Measure
+  - Validate the calculations with the matrix visual
+- '(Optional) Optimize model performance in Power BI' — `academy:power-bi:demos-06-optional-model-optimization` (inventory_only)
+  - (Optional) Optimize model performance
+  - Review a DirectQuery model design
+  - Review query performance
+  - Configure Dual storage tables
+  - Create aggregations
+- 'Manage files and semantic models in Power BI' — `academy:power-bi:demos-10-manage-items-service` (inventory_only)
+  - Manage files and semantic models in Power BI
+  - Setup the gateway (personal mode)
+  - Refresh the semantic model
+- Configure a semantic model in Power BI — `academy:power-bi:labs-03-configure-semantic-model` (candidate_source_read)
+  - Configure a semantic model in Power BI
+  - Lab story
+  - Get started
+  - Create model relationships
+  - Create additional relationships
+  - Configure the Product table
+  - Configure the Region table
+  - Configure the Reseller table
+  - Configure the Sales table
+  - Bulk update properties
+  - Explore the model interface
+  - Create quick measures
+  - Create a many-to-many relationship
+  - Relate the Targets table
+  - Lab complete
+- Create DAX calculations in semantic models — `academy:power-bi:labs-04-create-dax-calculations` (inventory_only)
+  - Create DAX calculations in semantic models
+  - Lab story
+  - Get started
+  - Create the Salesperson calculated table
+  - Create the Date table
+  - Create calculated columns
+  - Complete the Date table
+  - Mark the Date table
+  - Create simple measures
+  - Create additional measures
+  - Lab complete
+- Modify DAX filter context in Power BI — `academy:power-bi:labs-05-modify-dax-filter-context` (inventory_only)
+  - Modify DAX filter context in Power BI
+  - Lab story
+  - Get started
+  - Create a matrix visual
+  - Manipulate filter context
+  - Lab complete
+- Use DAX time intelligence functions in Power BI — `academy:power-bi:labs-06-use-dax-time-intelligence` (inventory_only)
+  - Use DAX time intelligence functions in Power BI
+  - Lab story
+  - Get started
+  - Create a YTD measure
+  - Create a YoY growth measure
+  - Lab complete
+- What does CALCULATE primarily do? — `question:pbi-02` (candidate_source_read)
+- A calculated column is computed at query time for each visual, just like a measure. — `question:pbi-03` (inventory_only)
+- Which is the safest way to divide two measures in DAX? — `question:pbi-04` (candidate_source_read)
+- A star schema has one fact table and four dimension tables, each connected directly to the fact table. How many relationships are needed? — `question:pbi-09` (inventory_only)
+- Bidirectional relationships should be the default choice in a Power BI model. — `question:pbi-10` (candidate_source_read)
+
+### Reports & interactions
+
+Candidates: 6; local source units: 7.
+
+- 'Create reports in Power BI' — `academy:power-bi:demos-07-create-reports` (inventory_only)
+  - Create reports
+  - Create a single-page report
+  - Add a slicer
+  - Add various visuals
+- 'Create dashboards in the Power BI service' — `academy:power-bi:demos-11-create-dashboards` (inventory_only)
+  - Create dashboards in the Power BI service
+  - Create a dashboard
+  - Pin report visuals
+  - Add Q&A tile
+- Create visual calculations in Power BI Desktop — `academy:power-bi:labs-07-create-visual-calculations` (candidate_source_read)
+  - Create visual calculations in Power BI Desktop
+  - Lab story
+  - Get started
+  - Create a bar chart visual
+  - Add calculations
+  - Create a matrix visual
+  - Add calculations
+  - Create a line chart visual
+  - Add running sum
+  - Update running sum to restart every new fiscal year
+  - Lab complete
+- Design Power BI reports — `academy:power-bi:labs-08-design-power-bi-reports` (inventory_only)
+  - Design Power BI reports
+  - Lab story
+  - Get started
+  - Design page 1
+  - Design page 2
+  - Design page 3
+  - Sync slicers
+  - Publish and explore the report
+  - Lab complete
+- Enhance Power BI report designs — `academy:power-bi:labs-09-enhance-power-bi-reports` (candidate_source_read)
+  - Enhance Power BI report design
+  - Lab story
+  - Get started
+  - Configure a drillthrough page
+  - Add conditional formatting
+  - Add bookmarks and buttons
+  - Publish and explore the report
+  - Lab complete
+- (Optional) Create dashboards in Power BI — `academy:power-bi:labs-12-create-power-bi-dashboard` (inventory_only)
+  - Create dashboards in Power BI
+  - Lab story
+  - Get started
+  - Publish the report
+  - Create a dashboard
+  - Edit tile details
+  - Refresh the Semantic model
+  - Update the lab database
+  - Refresh the Power BI Desktop file
+  - Review the dashboard
+  - Lab complete
+- What does ALL(Sales[Region]) do inside a measure? — `question:pbi-08` (inventory_only)
+
+### Publish & govern
+
+Candidates: 1; local source units: 2.
+
+- 'Create and manage workspaces in Power BI' — `academy:power-bi:demos-09-create-manage-workspaces` (inventory_only)
+  - Create and manage workspaces
+  - Share a dashboard
+  - Open the shared dashboard
+  - Create an app
+  - Get and open the app
+- 'Enforce Row-level security in Power BI' — `academy:power-bi:demos-12-enforce-rls` (inventory_only)
+  - Enforce Row-level security in Power BI
+  - Add a security table to the model
+  - Add a role
+  - Validate the role
+  - Configure semantic model security
+  - Test row-level security in the app
+
+### Cross-topic questions
+
+Candidates: 1; local source units: 12.
+
+- 'Set up your own environment' — `academy:power-bi:demos-00-setup` (inventory_only)
+  - Demo Setup
+- 'Get started with Microsoft data analytics' — `academy:power-bi:demos-01-get-started-data-analytics` (inventory_only)
+  - Get started with Microsoft data analytics
+  - Explore the dashboard
+  - Explore the report
+  - Describe the solution that will be developed during the course
+- 'Get data in Power BI' — `academy:power-bi:demos-02-get-data` (inventory_only)
+  - Get data in Power BI
+  - Start the development of a Power BI report
+  - Connect to a SQL Server database
+  - Create queries based on database tables
+  - Preview data
+- 'Perform data analysis in Power BI' — `academy:power-bi:demos-08-perform-data-analysis` (inventory_only)
+  - Perform data analysis
+  - Add a group
+  - Apply conditional formatting
+- 'Set up your own environment' — `academy:power-bi:labs-00-setup` (inventory_only)
+  - Setup local lab environment
+  - Instructions using Windows 11
+  - Power BI Desktop
+  - Microsoft 365 Developer account
+  - SQL Server Database Engine
+  - Microsoft Edge
+- Get data in Power BI — `academy:power-bi:labs-01-get-data-in-power-bi` (inventory_only)
+  - Get data in Power BI
+  - Lab story
+  - Get started with Power BI Desktop
+  - Get data from SQL Server
+  - Preview Data in Power Query Editor
+  - Get data from a CSV file
+  - Lab complete
+- Perform analytics in Power BI — `academy:power-bi:labs-10-perform-analytics-power-bi` (inventory_only)
+  - Perform analytics in Power BI
+  - Lab story
+  - Get started
+  - Create an animated scatter chart
+  - Create a forecast
+  - Lab complete
+- Secure data access in Power BI — `academy:power-bi:labs-11-secure-data-access` (candidate_source_read)
+  - Secure data access in Power BI
+  - Lab story
+  - Get started
+  - Enforce row-level security
+  - Lab complete
+- When is a measure evaluated? — `question:pbi-01` (candidate_source_read)
+- Which of these are time intelligence functions? Select all that apply. — `question:pbi-05` (candidate_source_read)
+- In a star schema, what belongs in the fact table? — `question:pbi-06` (candidate_source_read)
+- How does SUMX differ from SUM? — `question:pbi-07` (candidate_source_read)
+
+## SQL
+
+### 00 · Learning map & query practice
+
+Candidates: 1; local source units: 13.
+
+- 🧭 00 — Learning Map & Decision Framework — `sql:0:canonical:3cd3906c5d6c810c9e01e8ca9ac89172` (candidate_source_read)
+  - خريطة بصرية
+  - 1. SQL Problem-Solving Workflow
+  - 2. Choose the Technique
+  - 3. The Grain Check
+  - 4. The Population Check
+  - 5. Result-Shape Checklist
+  - 6. Common Logic Traps
+  - 7. Final Review Questions
+- 🏁 🧭 SQL Master Decision Framework — `sql:null:navigation:3ce3906c5d6c81028e75e4f561ff8245` (inventory_only)
+  - خريطة بصرية
+  - 1. EDA مش وقت ضايع أبدًا
+  - 2. الإحصائيات الوصفية مش كافية
+  - 3. توقّع بيانات غير نظيفة
+  - 4. تحقق من الافتراضات
+  - 5. كن فضوليًا
+  - 6. استخدم توثيق PostgreSQL
+  - 7. دليل القرار النهائي / Cheat Sheet
+  - القواعد الذهبية للمحلل
+- 🎓 Associate Data Analyst in SQL — Master Map — `sql:null:navigation:3d63906c5d6c81669712ce8af7ac5426` (inventory_only)
+  - 📌 Current DataCamp Reference
+  - 🧭 Audit Legend
+  - 01 — Introduction to SQL
+  - 02 — Intermediate SQL
+  - ⭐ Bonus Project — Analyzing Students' Mental Health
+  - 03 — Joining Data in SQL
+  - 04 — Data Manipulation in SQL
+  - 05 — PostgreSQL Summary Stats and Window Functions
+  - 06 — Functions for Manipulating Data in PostgreSQL
+  - 07 — Introduction to Statistics
+  - 08 — Exploratory Data Analysis in SQL
+  - 09 — Data-Driven Decision Making in SQL
+  - 10 — Understanding Data Visualization
+  - 11 — Data Communication Concepts
+  - 🧪 Cross-Track Gaps & Structural Findings
+  - 1. No major knowledge gap found
+  - 2. Biggest structural mismatch: EDA
+  - 3. Biggest duplicate risk: Core SQL vs PostgreSQL
+  - 4. Biggest strength: Analytical correctness
+  - 5. What should NOT be moved into the DataCamp structure
+  - ✅ Final Audit Result
+  - 🎯 Recommended Final Architecture
+- Which clause filters individual rows before grouping happens? — `question:sql-01` (inventory_only)
+- In a LEFT JOIN from customers to orders, which rows are guaranteed to appear in the result? — `question:sql-02` (inventory_only)
+- Which of these are aggregate functions? Select all that apply. — `question:sql-03` (inventory_only)
+- You want only regions whose total sales exceed 1,000,000. Where does that condition belong? — `question:sql-04` (inventory_only)
+- How many rows does this return?
+
+SELECT * FROM (VALUES (1),(2),(3)) AS t(x)
+CROSS JOIN (VALUES ('a'),('b')) AS u(y); — `question:sql-05` (inventory_only)
+- In standard SQL, the expression NULL = NULL evaluates to TRUE. — `question:sql-06` (inventory_only)
+- Which expression numbers employees 1, 2, 3… within each department by descending salary? — `question:sql-07` (inventory_only)
+- Which statement returns exactly one row per group? — `question:sql-08` (inventory_only)
+- Which practices make a production query easier to review? Select all that apply. — `question:sql-09` (inventory_only)
+- A column has 100 rows, 12 of which are NULL. What does COUNT(column) return? — `question:sql-10` (inventory_only)
+
+### 01 · SQL foundations
+
+Candidates: 6; local source units: 1.
+
+- 🧱 01 — SQL Foundations — Complete Reference — `sql:1:canonical:3ce3906c5d6c81f698afea76e9396474` (candidate_source_read)
+  - خريطة بصرية
+  - Purpose
+  - 1. The SQL Mental Model
+  - 2. Tables, Rows, Columns, and Grain
+  - Why grain matters
+  - 3. Logical Query Processing Order
+  - 4. SELECT Is Not "Just Choosing Columns"
+  - 5. WHERE vs HAVING
+  - 6. NULL and Three-Valued Logic
+  - 7. DISTINCT
+  - 7.5 Keys (PK / FK / Candidate / Composite)
+  - 7.6 Filtering Principles
+  - 8. Expressions, Aliases, and Reuse
+  - 9. Data Type Thinking
+  - 10. Determinism and Ordering
+  - 11. Core Safety Checks Before Aggregation
+  - 12. Common Anti-Patterns
+  - <code>SELECT *</code>
+  - <code>DISTINCT</code> as a band-aid
+  - Filtering after aggregation when row filtering was intended
+  - Comparing to <code>NULL</code> with <code>=</code>
+  - Assuming row order
+  - 13. Mini Real-World Case
+  - 14. Interview Traps
+  - Ownership Rule
+
+### 02 · Schema, keys & relationships
+
+Candidates: 1; local source units: 1.
+
+- 🧩 02 — Database, Schema & Data Modeling — Complete Reference — `sql:2:canonical:3ce3906c5d6c817bb98bd04baec48a17` (candidate_source_read)
+  - 1. سير عمل الاستكشاف الواقعي (The Real-World EDA Workflow)
+  - مثال واقعي: Student Analytics Database
+  - 2. استكشاف محتوى الـDatabase
+  - 2.1 Database Client
+  - 2.2 Sampling Rows
+  - مهم
+  - 3. أساسيات NULL
+  - 3.1 Correct NULL syntax
+  - 3.2 COUNT(\*) vs COUNT(column)
+  - مثال واقعي: Data quality check
+  - 3.3 COUNT(DISTINCT column)
+  - 4. المفاتيح والعلاقات (Keys & Relationships)
+  - 4.1 Primary Key (PK)
+  - 4.2 Foreign Key (FK)
+  - 4.3 Self-reference
+  - 4.4 الـFK ليس شرطًا لعمل JOIN
+  - 5. قيود الأعمدة (Column Constraints)
+  - UNIQUE
+  - NOT NULL
+  - CHECK
+  - PK / FK
+  - 6. أخطاء المقابلات والامتحانات
+  - 7. Cheat Sheet
+  - 🔗 مراجع ذات صلة
+
+### 03 · Types, casting & NULL
+
+Candidates: 10; local source units: 2.
+
+- 03 — Data Types, Casting & NULL Logic — Complete Reference — `sql:3:canonical:3ce3906c5d6c81e78c92cb9d2ecf35ae` (candidate_source_read)
+  - Purpose
+  - 1. Data Type Mental Model
+  - 2. Exact vs Approximate Numbers
+  - 3. Casting
+  - 4. NULL Is Not a Value
+  - 5. Three-Valued Logic
+  - 6. NULL Functions
+  - COALESCE
+  - NULLIF
+  - 7. NULL in Aggregates
+  - 8. NULL in JOINs
+  - 9. NOT IN vs NOT EXISTS
+  - 10. Data Quality Pattern
+  - 11. Real-World BI Example
+  - 12. Common Traps
+  - 13. Ownership
+- 🔢 Numeric Data Types & Casting — Complete Reference — `sql:null:companion:3ce3906c5d6c81ad85a0fc24bb55d32c` (candidate_source_read)
+  - 🧭 Library Role
+  - 1. أنواع البيانات الرقمية في PostgreSQL
+  - 1.1 Integer family
+  - Serial
+  - Decimal / Numeric
+  - Real / Double Precision
+  - 2. فخ رقمي حرج: Integer Division
+  - حساب نسبة مئوية واقعي
+  - 3. Casting
+  - 3.1 CAST()
+  - 3.2 PostgreSQL <code>::</code> syntax
+  - فكرة أساسية
+  - 4. COALESCE — قيمة احتياطية/افتراضية
+  - مثال واقعي: fallback attributes
+  - 5. أخطاء المقابلات والامتحانات
+  - 6. Cheat Sheet
+  - 🔗 مراجع ذات صلة
+
+### 04 · Filtering & conditional logic
+
+Candidates: 6; local source units: 2.
+
+- 04 — Filtering & Conditional Logic — Complete Reference — `sql:4:canonical:3ce3906c5d6c8141a33ce769f1a47973` (candidate_source_read)
+  - Purpose
+  - 1. WHERE as Population Control
+  - 2. Core Predicate Families
+  - 3. AND / OR / NOT
+  - 4. CASE
+  - 5. Simple vs Searched CASE
+  - 6. CASE in Aggregation
+  - 7. CASE and NULL
+  - 8. WHERE vs HAVING
+  - 9. Filter Placement with JOINs
+  - 10. Real-World Example
+  - 11. Interview Traps
+  - 12. Ownership
+- 🅰️ CASE Statements — Complete Reference — `sql:null:companion:3cd3906c5d6c81d69788fc80c91814a5` (inventory_only)
+  - 1. Prerequisites
+  - الخريطة الذهنية
+  - 2. ما هو CASE؟
+  - 2.1 مثال: نتيجة مباراة
+  - 2.2 CASE مع أكثر من شرط
+  - لماذا الـ WHERE مهم هنا؟
+  - 3. NULL داخل CASE
+  - 3.1 لو عايز تستبعد NULL
+  - 4. CASE + Aggregate Functions
+  - 4.1 CASE داخل COUNT
+  - 4.2 CASE داخل SUM
+  - 4.3 CASE داخل AVG
+  - 5. ROUND مع AVG
+  - 6. Percentages باستخدام CASE + AVG
+  - لماذا هذه الطريقة تعمل؟
+  - تحذير شديد الأهمية
+  - 7. Tips & Tricks — CASE
+  - 8. Common Mistakes
+  - Mistake 1 — ELSE خاطئة منطقيًا
+  - Mistake 2 — إدخال غير المهتمين كـ 0 في percentage
+  - 9. Interview / Exam Traps
+  - 10. Cheat Sheet
+  - 11. Final Mental Model
+  - 12. Practice Checklist
+  - 13. One-page Summary
+  - 🔗 مراجع ذات صلة
+
+### 05 · JOINs & cardinality
+
+Candidates: 5; local source units: 1.
+
+- 🔗 05 — JOINs & Relationship Reasoning — Complete Reference — `sql:5:canonical:3ce3906c5d6c81419b2fecc50db92f04` (candidate_source_read)
+  - خريطة بصرية
+  - Purpose
+  - 1. The Core Mental Model
+  - 2. Cardinality
+  - 3. INNER JOIN
+  - 4. LEFT JOIN
+  - 5. RIGHT and FULL OUTER JOIN
+  - 6. CROSS JOIN
+  - 7. Join Conditions
+  - 8. One-to-Many Aggregation Trap
+  - 9. The Safe Aggregation Pattern
+  - 10. JOIN vs EXISTS
+  - 11. LEFT JOIN + WHERE Trap
+  - 11.5 JOIN vs IN
+  - 12. Joining on Nullable Columns
+  - 13. Self JOIN
+  - 14. Bridge Tables and Many-to-Many Relationships
+  - 15. Join Validation Checklist
+  - 16. Real BI / DWH Case
+  - 17. Interview Traps
+  - Ownership Rule
+
+### 06 · Aggregation & grouping
+
+Candidates: 12; local source units: 2.
+
+- 📊 06 — Aggregation & Grouping — Complete Reference — `sql:6:canonical:3ce3906c5d6c813a95abc3b25b698b3e` (candidate_source_read)
+  - خريطة بصرية
+  - Purpose
+  - 1. Aggregation Is a Grain Transformation
+  - 2. Core Aggregate Functions
+  - 3. COUNT(\*) vs COUNT(column)
+  - 4. SUM and NULL
+  - 5. AVG Is Not Always the Average You Think
+  - 6. GROUP BY and Selected Columns
+  - 7. WHERE vs HAVING
+  - 8. Conditional Aggregation
+  - 8.5 COUNT vs SUM(CASE)
+  - 9. DISTINCT Aggregation
+  - 10. GROUP BY Multiple Dimensions
+  - 11. Aggregation After JOIN
+  - 12. Semi-Additive Measures
+  - 13. Grouping Sets, ROLLUP, and CUBE
+  - 14. Aggregation vs Window Functions
+  - 15. KPI Design Pattern
+  - 16. Real BI Case — Enrollment
+  - 17. Validation Techniques
+  - 18. Interview Traps
+  - 17.5 Common Analytical Mistakes (Checklist)
+  - Ownership Rule
+- 🧮 7️⃣ GROUP BY Extensions: ROLLUP, CUBE, COALESCE, STRING_AGG — `sql:null:window-chapter:3cb3906c5d6c81a79c56d4bb581dfc02` (candidate_source_read)
+  - 1️⃣ ROLLUP
+  - معنى NULL في النتيجة
+  - ROLLUP Hierarchy
+  - 2️⃣ CUBE
+  - ROLLUP vs CUBE
+  - متى تستخدم كل واحد؟
+  - 3️⃣ COALESCE
+  - مع ROLLUP / CUBE
+  - مع LAG / LEAD
+  - 4️⃣ STRING\_AGG
+  - مع ORDER BY
+  - مثال مع Ranking
+  - مع GROUP BY
+
+### 07 · Subqueries & CTEs
+
+Candidates: 5; local source units: 6.
+
+- 07 — Subqueries & CTEs — Complete Reference — `sql:7:canonical:3ce3906c5d6c81d68b7ef8df11ee0d7d` (candidate_source_read)
+  - خريطة بصرية
+  - Purpose
+  - 1. Core Mental Model
+  - 2. Subquery in WHERE
+  - IN vs EXISTS
+  - 3. Scalar Subquery in SELECT
+  - 4. Derived Tables
+  - 5. Correlated Subqueries
+  - 6. Nested Subqueries
+  - 7. CTEs
+  - 8. Multiple CTEs
+  - 9. Subquery vs CTE vs JOIN vs Window Function
+  - 10. Grain Is the Deciding Factor
+  - 11. Real BI Use Case — Student Analytics
+  - 12. Correctness Checks
+  - 13. Performance Notes
+  - 14. Interview Traps
+  - 15. Canonical Ownership
+- 🔍 Simple Subqueries — Complete Reference — `sql:null:companion:3cd3906c5d6c81fca708ee9237596fb9` (inventory_only)
+  - 1. ما هي Subquery؟
+  - 1.1 الأنواع الثلاثة
+  - 2. Subquery في WHERE — Scalar Comparison
+  - 3. Subquery في WHERE — Filtering List باستخدام IN
+  - 3.1 Scalar vs List
+  - 4. Subquery في FROM — Derived Table
+  - 4.1 الفكرة
+  - 4.2 لماذا الـ alias ضروري؟
+  - 4.3 أكثر من Subquery في FROM
+  - 5. Subquery في SELECT — Scalar Subquery
+  - 5.1 الفكرة الأساسية
+  - 5.2 Subquery في SELECT للحسابات الرياضية
+  - 5.3 أهم قاعدة
+  - 6. Mental Model — SELECT / FROM / WHERE
+  - 7. Filter Scope — أهم مصدر للأخطاء
+  - 8. Simple vs Correlated — تمهيد
+  - 9. Multiple Subqueries في نفس الاستعلام
+  - 10. SQL Readability & Style Guide
+  - 11. Tips & Tricks — Subqueries
+  - 12. Common Mistakes
+  - Mistake 1 — SELECT subquery ترجع multiple rows
+  - Mistake 2 — نسيان alias في FROM subquery
+  - Mistake 3 — وضع Filter في المكان الخطأ
+  - Mistake 4 — استخدام Subquery لمجرد أنك تستطيع
+  - 13. Performance & Maintainability
+  - 14. Decision Tree
+  - 15. Interview / Exam Traps
+  - 16. Cheat Sheet
+  - 17. Final Mental Model
+  - 18. Practice Checklist
+  - 19. Summary
+  - 🔗 مراجع ذات صلة
+- 🔗 Correlated Subqueries — Complete Reference — `sql:null:companion:3cd3906c5d6c81a2ab1cee42cf21cdd0` (inventory_only)
+  - 1. ما هي Correlated Subquery؟
+  - 2. Simple vs. Correlated Subquery
+  - 3. كيف أعرف أنها Correlated؟
+  - 4. Correlated Subquery كبديل للـ JOIN
+  - 5. Correlated Subquery داخل WHERE
+  - 6. Correlated Subquery مع EXISTS
+  - 7. Correlated Subquery vs JOIN — متى أفكر في كل واحدة؟
+  - 8. Performance
+  - 9. Correlated Subquery vs Window Functions
+  - 10. أهم Patterns تحفظها
+  - 11. Common Mistakes & Traps
+  - 12. Decision Tree
+  - 13. Quick Reference
+  - 14. خلاصة الدرس
+  - 🧠 Final Mental Model
+  - 🔗 مراجع ذات صلة
+- 🪆 Nested Subqueries — Complete Reference — `sql:null:companion:3cd3906c5d6c8178986be87a7c6aefb2` (inventory_only)
+  - 1. ما هي Nested Subqueries؟
+  - 1.1 لماذا نحتاجها؟
+  - 2. مستويات Nested Subquery
+  - 3. مثال كامل — Monthly Goals vs Monthly Average
+  - 3.1 المستوى الأول — Inner Subquery
+  - 3.2 المستوى الثاني — Outer Subquery
+  - 3.3 المستوى الثالث — Main Query
+  - 4. Nested ≠ Correlated
+  - 5. Correlated Nested Subqueries
+  - 6. Scope في Nested Subqueries
+  - 7. أهم مهارة — حل Nested Query من الداخل للخارج
+  - 8. Nested Subquery vs CTE
+  - 9. Nested Subquery vs Window Function
+  - 10. Common Mistakes & Traps
+  - 11. Decision Framework
+  - 12. Quick Reference
+  - 13. Golden Rules
+  - 🧠 Final Mental Model
+  - 🔗 مراجع ذات صلة
+- 🧩 Common Table Expressions (CTEs) — Complete Reference — `sql:null:companion:3cd3906c5d6c8169bcc4ddfa5a081ce6` (inventory_only)
+  - 1. ما هو الـ CTE؟
+  - 2. لماذا نستخدم CTE؟
+  - 3. تحويل Subquery داخل FROM إلى CTE
+  - 4. Multiple CTEs
+  - 5. CTE vs Subquery
+  - 6. تصحيح مفهوم مهم عن Performance
+  - 7. CTEs كـ Pipeline للتحليل
+  - 8. Recursive CTE — فكرة تمهيدية
+  - 9. Common Mistakes & Traps
+  - 10. CTE vs Derived Table vs Temp Table vs View
+  - 11. Quick Reference
+  - 12. Golden Rules
+  - 🧠 Final Mental Model
+  - 🔗 مراجع ذات صلة
+- 🎯 Choosing the Right SQL Technique + Final Case Study — `sql:null:companion:3cd3906c5d6c814b8021d82606e4e295` (inventory_only)
+  - 1. Core Principle
+  - 2. مقارنة عامة
+  - 2.1 JOIN
+  - 2.2 متى يكون Correlated Subquery مفيدًا؟
+  - 2.3 متى أستخدم Multiple/Nested Subqueries؟
+  - 2.4 متى أستخدم CTE؟
+  - 3. Decision Framework
+  - 4. Scenario-Based Guide
+  - 5. Readability vs Performance
+  - 6. Reusability & Reproducibility
+  - 7. Common Mistakes & Traps
+  - 8. Golden Rules
+  - 9. Final Case Study — Who Defeated Manchester United?
+  - 9.1 لماذا هذا Case Study جيد؟
+  - 9.2 Step 1 — Filter the Relevant Season & Team
+  - 9.3 Step 2 — Categorize Match Outcome with CASE
+  - 9.4 Step 3 — Identify Home and Away Team Names
+  - 9.5 Step 4 — Build a CTE
+  - 9.6 Step 5 — Calculate Loss Margin
+  - 9.7 الـ Query النهائية (Production-Friendly)
+  - 9.8 What This Case Study Teaches
+  - 10. End-to-End SQL Mental Model
+  - 11. Final Technique Map
+  - 12. Final Exam / Interview Traps
+  - 13. Final Golden Rule
+  - 🧠 The Ultimate Intermediate SQL Mental Model
+  - 🔗 مراجع ذات صلة
+
+### 08 · Set operations
+
+Candidates: 6; local source units: 1.
+
+- 08 — Set Operations — Complete Reference — `sql:8:canonical:3ce3906c5d6c81b7baa9e32203cdbeb0` (candidate_source_read)
+  - خريطة بصرية
+  - Purpose
+  - 1. Set Operations vs JOINs
+  - 2. UNION vs UNION ALL
+  - 3. Column Compatibility
+  - 4. INTERSECT
+  - 5. EXCEPT
+  - 6. Real-World BI Use Cases
+  - 7. UNION vs JOIN Decision
+  - 8. Common Traps
+  - 9. Ownership
+
+### 09 · Window functions
+
+Candidates: 15; local source units: 8.
+
+- 📚 09 — Window Functions — Complete Reference — `sql:9:canonical:3cb3906c5d6c814a93eff2e668f8f3f8` (inventory_only)
+  - خريطة بصرية
+  - 🎯 الهدف من الدليل
+  - 📂 الفهرس
+  - ⭐ الخلاصة النهائية (Golden Rule)
+- 🧱 1️⃣ الأساسيات: Window Functions, OVER, PARTITION BY, ORDER BY — `sql:null:window-chapter:3cb3906c5d6c81aabba5cb36a17c548f` (candidate_source_read)
+  - 1️⃣ Window Functions — الفكرة الأساسية
+  - ما هي؟
+  - الفرق مع GROUP BY
+  - 2️⃣ الشكل العام
+  - <code>OVER()</code>
+  - 3️⃣ ORDER BY داخل OVER
+  - وظيفته
+  - DESC
+  - أكثر من عمود
+  - ⚠️ ORDER BY داخل OVER vs خارج OVER
+  - 4️⃣ PARTITION BY
+  - الفكرة
+  - PARTITION BY vs GROUP BY
+  - أكثر من عمود
+  - قاعدة عملية
+- 🏆 2️⃣ Ranking Functions: ROW_NUMBER, RANK, DENSE_RANK, NTILE — `sql:null:window-chapter:3cb3906c5d6c810298facf8975c21394` (candidate_source_read)
+  - 1️⃣ ROW\_NUMBER()
+  - الوظيفة
+  - داخل partitions
+  - ⚠️ Tie-breaking
+  - 2️⃣ RANK() و DENSE\_RANK()
+  - المقارنة الحاسمة
+  - ROW\_NUMBER
+  - RANK
+  - DENSE\_RANK
+  - جدول الحفظ
+  - مثال عملي
+  - Ranking داخل كل مجموعة
+  - 3️⃣ NTILE() — Paging & Bucketing
+  - الفكرة
+  - Paging
+  - Top / Middle / Bottom thirds
+  - Quartiles
+  - Deciles
+  - مهم جدًا
+- 🔄 3️⃣ Fetching Functions: LAG, LEAD, FIRST_VALUE, LAST_VALUE — `sql:null:window-chapter:3cb3906c5d6c8163b26ae203d48a5518` (candidate_source_read)
+  - 1️⃣ نظرة عامة
+  - 2️⃣ LAG()
+  - الصياغة
+  - مثال
+  - Partitioning
+  - استخدامات
+  - 3️⃣ LEAD()
+  - مثال
+  - Partitioning
+  - 4️⃣ FIRST\_VALUE()
+  - مع Partition
+  - 5️⃣ LAST\_VALUE() — أهم حالة خاصة
+  - للحصول على آخر قيمة في كامل الـ window
+  - مع Partition
+- 📈 4️⃣ Aggregate Functions & Window Frames: Running/Moving Totals — `sql:null:window-chapter:3cb3906c5d6c81d88f2bd727b2001a91` (candidate_source_read)
+  - 1️⃣ Aggregate Window Functions
+  - الفرق عن Aggregate العادي
+  - Running / Cumulative Maximum
+  - Running Total
+  - Partitioning
+  - 2️⃣ Window Frames — الأساس
+  - أهم frame boundaries
+  - أمثلة
+  - Frame يغيّر نتيجة الدالة
+  - Looking forward
+  - 3️⃣ ROWS vs RANGE
+  - ROWS
+  - RANGE
+  - قاعدة عملية
+  - 4️⃣ Moving Averages & Moving Totals
+  - Moving Average
+  - Moving Total
+  - استخدامات عملية
+- 🧩 5️⃣ أمثلة تطبيقية مركّبة (CTE + Patterns) — `sql:null:window-chapter:3cb3906c5d6c81b4890cd3f1a0e4721c` (inventory_only)
+  - 1️⃣ CTE مع Window Functions
+  - 2️⃣ أمثلة مركبة مهمة
+  - Previous champion per event
+  - Next champion per event
+  - Rank athletes within country
+  - Top 3 per country — pattern
+  - Running total
+  - Moving average
+- 📄 6️⃣ Paging & Pivoting — `sql:null:window-chapter:3cb3906c5d6c815a8811cf0645e13383` (candidate_source_read)
+  - 1️⃣ Paging with Window Functions
+  - Formula
+  - 2️⃣ Pivoting
+  - PostgreSQL: CROSSTAB
+  - كيف تفكر فيها؟
+  - Pivot + Window Function
+- ⚡ 8️⃣ Cheat Sheets, Exam Traps & Execution Order — `sql:null:window-chapter:3cb3906c5d6c812dade4ef265cc71776` (inventory_only)
+  - 1️⃣ حالات خاصة وأخطاء شائعة (الأساس)
+  - ❌ الخلط بين GROUP BY و PARTITION BY
+  - ❌ وضع ORDER BY الخارجي بدل الداخلي
+  - ❌ نسيان PARTITION BY
+  - ❌ توقع أن ROW\_NUMBER يتعامل مع التعادل مثل RANK
+  - ❌ توقع أن LAST\_VALUE تجيب آخر صف دائمًا
+  - ❌ الخلط بين RANK و DENSE\_RANK
+  - ❌ اعتبار NTILE تقسيمًا بالقيم
+  - 2️⃣ Cheat Sheet سريع جدًا
+  - 3️⃣ كيف تقرأ أي Window Function؟
+  - 4️⃣ Exam / Interview Traps السريعة
+  - السؤال: "rank within each country"
+  - السؤال: "previous row" → <code>LAG()</code>
+  - السؤال: "next row" → <code>LEAD()</code>
+  - السؤال: "unique sequential number" → <code>ROW_NUMBER()</code>
+  - السؤال: "same rank for ties, but continue 1,2,2,3" → <code>DENSE_RANK()</code>
+  - السؤال: "same rank for ties, then 1,2,2,4" → <code>RANK()</code>
+  - السؤال: "divide into 4 approximately equal groups" → <code>NTILE(4)</code>
+  - السؤال: "top/middle/bottom third" → <code>NTILE(3)</code>
+  - 5️⃣ Mental Model السريع (4 أسئلة)
+  - ⭐ الخلاصة المختصرة
+  - 6️⃣ Big Picture — كيف تربط كل المواضيع؟
+  - 7️⃣ Decision Guide — أستخدم إيه؟
+  - 8️⃣ Exam Traps & Common Mistakes (10 أخطاء مفصّلة)
+  - Trap 1 — الخلط بين GROUP BY و PARTITION BY
+  - Trap 2 — الخلط بين ORDER BY داخل OVER وخارجه
+  - Trap 3 — LAST\_VALUE
+  - Trap 4 — RANK vs DENSE\_RANK
+  - Trap 5 — ROW\_NUMBER مع ties
+  - Trap 6 — ROLLUP order matters
+  - Trap 7 — CUBE أكبر من ROLLUP
+  - Trap 8 — NULL من ROLLUP ليس بالضرورة missing data
+  - Trap 9 — STRING\_AGG والترتيب
+  - Trap 10 — RANGE vs ROWS
+  - 9️⃣ SQL Execution Order — ليه مهم لـ Window Functions
+  - الترتيب المنطقي الفعلي (Logical Query Processing)
+  - الخلاصة العملية
+  - Trap 11 — استخدام alias الـ Window Function في WHERE مباشرة
+  - 10️⃣ Final Mental Model (5 أسئلة قبل أي Window Function)
+
+### 10 · Date & time analytics
+
+Candidates: 12; local source units: 1.
+
+- 📅 10 — Date & Time Analytics — Complete Reference — `sql:10:canonical:3cb3906c5d6c817ca2ddfc82e771995a` (candidate_source_read)
+  - 1. الأنواع الرئيسية في PostgreSQL
+  - 1.2 ISO 8601
+  - 1.3 المناطق الزمنية (Time Zones) و UTC
+  - 1.4 مقارنة التواريخ والـTimestamps
+  - 1.5 طرح التواريخ (Date Subtraction)
+  - 1.6 إضافة تواريخ وIntervals
+  - 2. استخراج وتقريب مكونات التاريخ/الوقت
+  - 2.1 EXTRACT و DATE\_PART
+  - تذكير بخصوص DOW
+  - 2.2 التجميع حسب مكوّن تاريخ
+  - 2.3 DATE\_TRUNC
+  - EXTRACT مقابل DATE\_TRUNC
+  - 3. GENERATE\_SERIES مع التاريخ/الوقت
+  - 3.1 النمط الأساسي
+  - 3.2 ليه نولّد من بداية الفترة؟
+  - 3.3 اكتشاف الفترات الزمنية المفقودة
+  - 4. فترات زمنية مخصصة (Time Bins / Intervals)
+  - 5. LAG / LEAD لحساب الوقت بين الأحداث
+  - 5.1 المشكلة الأساسية
+  - 5.2 LAG
+  - 5.3 الوقت منذ الحدث السابق
+  - 5.4 LEAD
+  - مقارنة سريعة
+  - 5.5 الإزاحة (Offset)
+  - 5.6 متوسط الوقت بين الأحداث
+  - 5.7 LAG لتغيّر السلسلة الزمنية
+  - 5.8 PARTITION BY مع LAG/LEAD
+  - 6. حالات استخدام واقعية (Real-World Use Cases)
+  - حالة الاستخدام 1 — SLA لدعم العملاء
+  - حالة الاستخدام 2 — فجوات مبيعات التجارة الإلكترونية
+  - حالة الاستخدام 3 — اتجاه المبيعات الشهري
+  - حالة الاستخدام 4 — مراقبة اكتمال البيانات
+  - 7. الخاتمة ودليل القرار الشامل
+
+### 11 · Text & pattern matching
+
+Candidates: 12; local source units: 1.
+
+- 🔤 11 — Text, String & Pattern Matching — Complete Reference — `sql:11:canonical:3cb3906c5d6c810abf5fe011a409ebab` (candidate_source_read)
+  - 1.1 أنواع البيانات النصية في PostgreSQL
+  - 1.2 نص تصنيفي (Categorical) مقابل نص غير منظم (Unstructured)
+  - النص التصنيفي (Categorical)
+  - النص غير المنظم (Unstructured)
+  - 1.3 أول EDA للنص التصنيفي
+  - ليه الاتنين؟
+  - 1.4 مشاكل شائعة في البيانات النصية
+  - 1.5 تحويل حالة الأحرف (Case Conversion)
+  - نمط المقارنة بدون حساسية لحالة الأحرف
+  - 1.6 LIKE مقابل ILIKE
+  - ⚠️ فخ LIKE
+  - 1.7 إزالة المسافات (Trimming)
+  - 1.8 دمج الدوال مع بعض
+  - 1.9 تقسيم واستخراج النص
+  - إشارة سريعة
+  - 1.10 التقسيم عند فاصل معين (Delimiter)
+  - 1.11 الدمج (Concatenation)
+  - فرق مهم بخصوص NULL
+  - 1.12 تحويلات متعددة: CASE WHEN
+  - 1.13 نمط جدول إعادة الترميز (Recoding Table)
+  - الخطوة 1 — إنشاء جدول الـmapping
+  - الخطوة 2 — تحديث القيم الموحّدة
+  - الخطوة 3 — ربط الـmapping بالبيانات الأصلية
+
+### 12 · Analytical SQL patterns
+
+Candidates: 9; local source units: 1.
+
+- 📊 12 — Analytical SQL Patterns — Comprehensive Reference — `sql:12:canonical:3cb3906c5d6c81cc82c7d721c2f0c0ea` (candidate_source_read)
+  - 1. الفكرة الأساسية: SQL كأداة لاتخاذ القرار
+  - 2. MovieNow — قاعدة البيانات المستخدمة في كل الأمثلة
+  - 3. فين تلاقي الشرح النظري (بدل التكرار)
+  - 4. تطبيق 1 — فلوس كل عميل
+  - 5. تطبيق 2 — الممثل المفضل عند العملاء الرجالة (ومصيدة الـ grain)
+  - 6. حارس تحليلي: حجم العينة والموثوقية
+  - 7. تعريف الـ Metric قبل الـ SQL
+  - 8. الحالة المتكاملة الختامية — قرار استثمار MovieNow
+  - السياق
+  - الخطوات
+  - الاستعلام الكامل
+  - تفسير النتيجة
+  - استنتاج بيزنس مقابل استنتاج إحصائي
+  - 9. دليل القرار السريع — أستخدم إيه إمتى؟
+
+### 13 · Data quality & validation
+
+Candidates: 5; local source units: 2.
+
+- 13 — Data Quality & Validation — Complete Reference — `sql:13:canonical:3ce3906c5d6c81d18e44d1a21d8e24f6` (candidate_source_read)
+  - Purpose
+  - 1. Data Quality Mental Model
+  - 2. Grain Validation
+  - 3. NULL & Missingness Checks
+  - 4. Domain Validation
+  - 5. Range & Boundary Checks
+  - 6. Referential Integrity Checks
+  - 7. Reconciliation
+  - 8. Duplicate Detection
+  - 9. Business Rule Validation
+  - 10. Outlier & Anomaly Checks
+  - 11. Freshness / Timeliness
+  - 12. Validation Around JOINs
+  - 13. KPI Validation
+  - 14. University Analytics Use Case
+  - 15. Validation Workflow
+  - 16. Interview Traps
+  - 17. Canonical Ownership
+- 📊 Numeric EDA & Statistics — Complete Reference — `sql:null:companion:3ce3906c5d6c81d5b73dc71a90b87cfd` (candidate_source_read)
+  - 1. إحصائيات وصفية أساسية (Summary Statistics)
+  - 1.1 Range
+  - 1.2 Mean
+  - 1.3 Variance
+  - Population vs Sample
+  - 1.4 Standard Deviation
+  - 1.5 ROUND
+  - 2. إحصائيات مجمّعة (Grouped Summary Statistics)
+  - 3. استكشاف التوزيع (Distribution Exploration)
+  - 3.1 Count discrete values
+  - 4. تقسيم البيانات باستخدام TRUNC (Binning)
+  - 4.1 Binning by tens
+  - 5. Bins مخصصة باستخدام GENERATE\_SERIES
+  - 5.1 نمط binning حقيقي
+  - ليه LEFT JOIN؟
+  - 6. Correlation
+  - 7. Median & Percentiles
+  - 7.1 Median
+  - 7.2 Percentile functions
+  - 8. EDA قائم على الـPercentiles
+  - 9. مشاكل شائعة في البيانات الرقمية
+  - 9.1 أكواد خاصة للأخطاء/القيم المفقودة
+  - 9.2 الصفر ممكن ميبقاش صفر فعلي
+  - 9.3 Outliers
+  - 9.4 نوع البيانات ≠ المعنى الكمي
+  - 10. حالة واقعية — التحقيق في جودة البيانات (GPA)
+  - 11. حالة واقعية — توزيع الرواتب
+  - 12. حالة واقعية — حساب النسبة المئوية صح
+  - 13. Master Checklist — قبل ما تثق في أي numeric analysis
+  - 14. أخطاء المقابلات والامتحانات
+  - 15. Cheat Sheet
+  - 🔗 مراجع ذات صلة
+
+### 14 · DDL, DML & transactions
+
+Candidates: 4; local source units: 1.
+
+- 14 — DDL, DML & Transactions — Complete Reference — `sql:14:canonical:3ce3906c5d6c81539f45e3cf3dec35c5` (candidate_source_read)
+  - Purpose
+  - 1. DDL vs DML
+  - 2. INSERT
+  - 3. UPDATE
+  - 4. DELETE
+  - 5. Transactions
+  - 6. ACID
+  - 7. Isolation & Concurrency
+  - 8. Safe Change Pattern
+  - 9. Real-World DWH Example
+  - 10. Interview Traps
+  - 11. Ownership
+
+### 15 · Database design
+
+Candidates: 4; local source units: 1.
+
+- 15 — Database Design — Complete Reference — `sql:15:canonical:3ce3906c5d6c8100ae78f45c42a0b5f1` (candidate_source_read)
+  - Purpose
+  - 1. Data Modeling Starts With Grain
+  - 2. Keys
+  - Primary Key
+  - Foreign Key
+  - Natural vs Surrogate Keys
+  - 3. Normalization
+  - 4. Relationships & Cardinality
+  - 5. Constraints
+  - 6. Transactional vs Analytical Design
+  - 7. Dimensional Modeling
+  - 8. Slowly Changing Dimensions
+  - 9. Real-World University BI Example
+  - 10. Common Design Failures
+  - 11. Interview Traps
+  - 12. Ownership
+
+### 16 · SQL performance
+
+Candidates: 4; local source units: 1.
+
+- 16 — SQL Performance Engineering — Complete Reference — `sql:16:canonical:3ce3906c5d6c8183ae04ebe770487dbd` (candidate_source_read)
+  - Purpose
+  - 1. Performance Mental Model
+  - 2. Reduce Data Early
+  - 3. Sargability
+  - 4. JOIN Performance
+  - 5. Execution Plans
+  - 6. Index Fundamentals
+  - 7. Common Anti-Patterns
+  - 8. Measurement
+  - 9. BI/DWH Relevance
+  - 10. Interview Traps
+  - 11. Ownership
+
+### 17 · SQL for DWH / BI
+
+Candidates: 4; local source units: 1.
+
+- 17 — SQL for DWH / BI — Complete Reference — `sql:17:canonical:3ce3906c5d6c81f8b634ff53d6f01905` (candidate_source_read)
+  - Purpose
+  - 1. SQL Changes Role in BI
+  - 2. The DWH Pipeline Mental Model
+  - 3. Fact Table Grain
+  - 4. Dimension Usage
+  - 5. Snapshot vs Transaction Facts
+  - 6. ETL / ELT SQL Patterns
+  - 7. Incremental Loading
+  - 8. Deduplication
+  - 9. Data Quality SQL
+  - 10. KPI SQL
+  - 11. Window Functions in BI
+  - 12. Pre-Aggregation
+  - 13. Real-World University Analytics
+  - 14. BI SQL Checklist
+  - 15. Interview Traps
+  - 16. Ownership
+
+### PostgreSQL dialect reference
+
+Candidates: 19; local source units: 10.
+
+- 📁 1️⃣ Data Types, Casting & Schema Inspection — `sql:null:dialect:3cb3906c5d6c8129b6ded3e8106785fb` (candidate_source_read)
+  - Common Data Types
+  - Text
+  - Numeric
+  - INFORMATION\_SCHEMA — معرفة Data Type من جدول موجود
+  - Casting
+  - ⚠️ Traps
+- ⏰ 2️⃣ Date & Time — Types, Arithmetic & Functions — `sql:null:dialect:3cb3906c5d6c814d90fff590c71e72dc` (inventory_only)
+  - Date & Time Data Types
+  - AGE() → INTERVAL
+  - Current Date & Time ⭐⭐⭐
+  - NOW()
+  - CURRENT\_TIMESTAMP
+  - CURRENT\_DATE → DATE فقط
+  - CURRENT\_TIME → TIME مع timezone، دون date
+  - Real-World Recipes (فريدة للصفحة دي — AGE-based)
+  - Age/duration of customer account
+  - Current date for filtering
+  - ⚠️ Traps (خاصة بالقسم ده)
+  - Quick Reference
+- 🔢 3️⃣ Arrays — `sql:null:dialect:3cb3906c5d6c81c3b161dd36ed52c9a9` (candidate_source_read)
+  - ARRAYs ⭐⭐⭐
+  - إنشاء جدول
+  - INSERT
+  - الوصول (Accessing)
+  - Nested ARRAY
+  - Searching ARRAYs
+  - ANY()
+  - Contains operator <code>@></code>
+  - NULL داخل Arrays
+  - ⚠️ Traps
+  - Quick Reference
+- 🔤 4️⃣ String & Character Functions — `sql:null:dialect:3cb3906c5d6c81f981e3cff58e8ce989` (candidate_source_read)
+  - LENGTH() / CHAR\_LENGTH()
+  - POSITION() / STRPOS()
+  - LEFT() / RIGHT()
+  - SUBSTRING() / SUBSTR()
+  - SUBSTRING بـ FROM / FOR
+  - Nested string functions ⭐⭐⭐
+  - Trimming & Padding ⭐⭐⭐
+  - TRIM()
+  - LPAD() / RPAD()
+  - ⚠️ Traps
+  - Quick Reference
+- 🔍 5️⃣ Pattern Matching & Full-Text Search — `sql:null:dialect:3cb3906c5d6c810b8b67cbf8815ef577` (candidate_source_read)
+  - Pattern Search: LIKE ⭐⭐⭐
+  - Wildcards
+  - مهم: LIKE case-sensitive في PostgreSQL
+  - Full-Text Search ⭐⭐⭐
+  - LIKE vs Full-Text Search
+  - tsvector
+  - tsquery
+  - لماذا Full-Text Search؟
+  - ⚠️ Traps
+  - Quick Reference
+- 🧩 6️⃣ Extensions & Fuzzy Matching — `sql:null:dialect:3cb3906c5d6c817fb197f233646cda62` (candidate_source_read)
+  - PostgreSQL Extensions ⭐⭐⭐
+  - معرفة الـ extensions المتاحة
+  - معرفة الـ extensions المفعّلة
+  - تفعيل extension
+  - Fuzzy String Matching — fuzzystrmatch ⭐⭐⭐
+  - Levenshtein distance
+  - قاعدة حاسمة
+  - Trigram Similarity — pg\_trgm ⭐⭐⭐
+  - similarity()
+  - قاعدة حاسمة
+  - Levenshtein vs Trigram Similarity ⭐⭐⭐
+  - Fast memory trick
+  - ⚠️ Traps
+  - Quick Reference
+- ⚙️ 7️⃣ Custom Types & Functions — `sql:null:dialect:3cb3906c5d6c8162bcafeddf74477d61` (candidate_source_read)
+  - User-Defined Types & Functions ⭐⭐
+  - User-defined data types
+  - فحص user-defined types
+  - User-defined functions
+  - Quick Reference
+- 📌 8️⃣ Real-World Recipes, Traps & Cheat Sheets — `sql:null:dialect:3cb3906c5d6c812bad61dca56f01f625` (inventory_only)
+  - Real-World Data Preparation Patterns ⭐⭐⭐
+  - Pattern A — Clean imported text
+  - Pattern B — Build a reporting month
+  - Pattern C — Extract dimensions from timestamps
+  - Pattern D — Parse an email
+  - Pattern E — SLA / deadline calculation
+  - Pattern F — Fuzzy customer lookup
+  - Common Traps & Interview/Exercise Notes ⭐⭐⭐
+  - Trap 1 — EXTRACT vs DATE\_TRUNC
+  - Trap 2 — LIKE مش natural-language search
+  - Trap 3 — LIKE case sensitivity
+  - Trap 4 — Levenshtein direction
+  - Trap 5 — Similarity direction
+  - Trap 6 — ARRAY indexes
+  - Trap 7 — Padding can truncate
+  - Trap 8 — GROUP BY numeric references
+  - Decision Guide: أستخدم إيه؟
+  - 🧭 Final Mental Map
+  - The key problem → tool mapping
+  - One-Page Cheat Sheet
+  - Practice Checklist
+- 🐘 18 — PostgreSQL Specialization — Master Reference — `sql:null:dialect:3cb3906c5d6c81a298b5f6d273f327cd` (inventory_only)
+  - خريطة بصرية
+  - 📚 الفهرس (Sub-Notes)
+  - 🧭 Mental Map السريعة
+  - 🔗 العلاقة مع Core SQL
+  - 🎯 Course-Level Takeaway
+- 🐘 PostgreSQL Specialization — `sql:null:navigation:3d13906c5d6c81eb9f6eee2da83169d7` (inventory_only)
+
+### Interview questions & traps
+
+Candidates: 1; local source units: 5.
+
+- 🎯 23️⃣ SQL Interview Master Bank — CASE, Subqueries & CTEs — `sql:null:interview:3cd3906c5d6c8146b302e7948bf6db8e` (candidate_source_read)
+  - Quick Drill — Define in one sentence
+  - One-liners worth remembering
+  - Coding Challenge Titles (full walkthroughs in page 99)
+  - Interview Answer Framework (same as page 99)
+- 🎯 🎯 99 — SQL Interview Questions, Traps & Real-World Patterns — `sql:null:interview:3cd3906c5d6c81d5835be46fca54ec8a` (inventory_only)
+  - Purpose
+  - 1. Core Interview Questions
+  - Q0. ما الفرق بين Simple CASE وSearched CASE؟
+  - Q1. What is the difference between a simple, correlated, and nested subquery?
+  - Q2. Is every nested subquery correlated?
+  - Q3. When would you choose EXISTS instead of IN?
+  - Q4. CTE vs subquery — what is the difference?
+  - Q5. When is a window function better than a subquery?
+  - Q6. Why can <code>AVG(CASE ... ELSE 0 END)</code> be wrong?
+  - 2. Interview Traps
+  - 3. Real-World Pattern: Win Rate
+  - 4. Real-World Pattern: Customers Above Segment Average
+  - 5. Real-World Pattern: Existence Test
+  - 6. How to Explain a Complex Query in an Interview
+  - 8. سيناريوهات تطبيقية إضافية
+  - مؤشر أداء شرطي (Conditional KPI)
+  - فخ — متوسط الإجماليات الشهرية
+  - Quick Drill — عرّف كل واحدة من دول بجملة واحدة
+  - 9. Senior-Level Follow-Ups
+- ⚙️ 24️⃣ Advanced SQL Patterns — Correctness, Performance & Maintainability — `sql:null:interview:3cd3906c5d6c8196a02ad41449f06ba8` (inventory_only)
+  - 1. Correctness Before Optimization
+  - 2. Anti-Duplication Pattern
+  - 3. EXISTS for Existence
+  - 4. NOT EXISTS for Anti-Joins
+  - 5. CTE Layering Pattern
+  - 6. When to Replace Deep Nesting
+  - 7. When to Consider a Window Function
+  - 8. NULL-Safe Thinking
+  - 9. Performance Investigation
+  - 10. Maintainability Rules
+  - 11. Refactoring Test
+  - 12. Golden Rule
+- 19 — SQL Interview Master Hub — `sql:null:interview:3ce3906c5d6c8188bae4cc26576c250e` (inventory_only)
+  - خريطة الإجابة
+  - Purpose
+  - 1. Interview Strategy
+  - 2. Core Areas
+  - Foundations
+  - Relationships
+  - Aggregation
+  - Subqueries & CTEs
+  - Window Functions
+  - Data Quality
+  - Performance
+  - DWH / BI
+  - 3. High-Value Comparison Questions
+  - 4. Classic Business Problems
+  - 5. Interview Answer Framework
+  - 6. Red Flags Interviewers Notice
+  - 7. Practical Interview Drill
+  - 8. What lives here
+- 🎤 SQL Interview — `sql:null:navigation:3d13906c5d6c81428fb8ec5be1c5aef7` (inventory_only)
+
+### Practical recipes
+
+Candidates: 1; local source units: 2.
+
+- 🗄️ Temporary Tables — Complete Reference — `sql:null:recipe:3ce3906c5d6c81a3adaeddff44170644` (candidate_source_read)
+  - 1. ليه نستخدم Temporary Tables؟
+  - 2. الإنشاء (Create)
+  - 3. إضافة صفوف (Insert Additional Rows)
+  - 4. الحذف (Drop)
+  - 5. دورة الحياة (Lifecycle)
+  - 6. Temp Table مقابل CTE مقابل Subquery مقابل View
+  - 7. حالة واقعية — بناء Intermediate Dataset قابل لإعادة الاستخدام
+  - 8. دليل القرار — أي أداة أستخدم؟
+  - استخدم Subquery عندما:
+  - استخدم CTE عندما:
+  - استخدم Temp Table عندما:
+  - استخدم View عندما:
+  - 9. أخطاء المقابلات والامتحانات
+  - 10. Cheat Sheet
+  - 🔗 مراجع ذات صلة
+- 🧰 Practical SQL Toolkit — `sql:null:navigation:3d13906c5d6c81a4829ed7f4e6db9f8b` (inventory_only)
+
+## Python
+
+### Analysis practice
+
+Candidates: 7; local source units: 10.
+
+- What does df.groupby("region")["sales"].sum() return? — `question:py-01` (candidate_source_read)
+- In pd.merge(orders, customers, how="left"), which keys are kept? — `question:py-02` (candidate_source_read)
+- Which expressions help you inspect missing values? Select all that apply. — `question:py-03` (candidate_source_read)
+- What is the difference between .loc and .iloc? — `question:py-04` (candidate_source_read)
+- A dataframe has 10 rows. df.dropna(subset=["revenue"]) removes 3 rows. What does len(df_clean) return? — `question:py-05` (inventory_only)
+- Calling df.drop_duplicates() modifies df in place by default. — `question:py-06` (candidate_source_read)
+- What does df["channel"].value_counts() return? — `question:py-07` (inventory_only)
+- What does df["amount"].astype(float) do? — `question:py-08` (candidate_source_read)
+- Which are reasonable ways to handle missing numeric values? Select all that apply. — `question:py-09` (inventory_only)
+- What is the default aggregation for pd.pivot_table? — `question:py-10` (candidate_source_read)
+
+## Excel
+
+### Spreadsheet practice
+
+Candidates: 7; local source units: 10.
+
+- Which is an advantage of XLOOKUP over VLOOKUP? — `question:xl-01` (candidate_source_read)
+- What does $A$1 mean when a formula is copied? — `question:xl-02` (candidate_source_read)
+- Which tasks can a PivotTable perform? Select all that apply. — `question:xl-03` (candidate_source_read)
+- You import the same CSV every week, clean it identically, and load it to a sheet. Which tool is the best fit? — `question:xl-04` (candidate_source_read)
+- Which function sums values that meet two or more conditions? — `question:xl-05` (candidate_source_read)
+- INDEX/MATCH can return a value from a column to the left of the lookup column. — `question:xl-06` (inventory_only)
+- What does =LEN("Data Lab") return? — `question:xl-07` (inventory_only)
+- What does IFERROR(A1/B1, 0) return when B1 is zero? — `question:xl-08` (candidate_source_read)
+- Which practices make an Excel table safe to analyse? Select all that apply. — `question:xl-09` (candidate_source_read)
+- Which dynamic array function returns rows that meet a condition? — `question:xl-10` (inventory_only)
+
+## Analytical foundations
+
+### Analyst decisions & foundations
+
+Candidates: 6; local source units: 10.
+
+- What does the grain of a table describe? — `question:fun-01` (inventory_only)
+- Which are recognised dimensions of data quality? Select all that apply. — `question:fun-02` (candidate_source_read)
+- Which is a leading indicator? — `question:fun-03` (inventory_only)
+- A good KPI should be: — `question:fun-04` (candidate_source_read)
+- How does ELT differ from ETL? — `question:fun-05` (candidate_source_read)
+- Showing more decimal places makes a dashboard KPI more credible. — `question:fun-06` (candidate_source_read)
+- What is cardinality in a data model? — `question:fun-07` (inventory_only)
+- Which are sound dashboard practices? Select all that apply. — `question:fun-08` (candidate_source_read)
+- A report tracks 4 KPIs for 24 sites over 24 months. How many site-month-KPI values are there? — `question:fun-09` (candidate_source_read)
+- Which chart best shows the distribution of a single numeric variable? — `question:fun-10` (inventory_only)

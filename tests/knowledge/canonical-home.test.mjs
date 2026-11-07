@@ -125,10 +125,43 @@ test("the Home is three scenes, in order, and the v3 gates are retired from it",
     assert.ok(exists(`components/knowledge/${kept}`), `${kept} must not be deleted by the swap`);
   }
 
-  // One dealer, inside the timeline scene, opened on request.
-  assert.equal((stage.match(/<KnowledgeDealer/g) ?? []).length, 1, "exactly one dealer");
-  assert.match(stage, /dealer=\{dealer\}/, "the dealer must be mounted by the timeline scene");
+  // One inline dealer, inside the timeline scene, opened on request. R4 adds a
+  // second, flag-gated modal renderer; both are mounted exactly once.
+  assert.equal((stage.match(/<KnowledgeDealer/g) ?? []).length, 1, "exactly one inline dealer");
+  assert.match(
+    stage,
+    /dealer=\{dealerReview \? null : dealer\}/,
+    "the inline dealer must be the flag-off default mounted by the timeline scene",
+  );
+  assert.match(
+    stage,
+    /dealerMode=\{dealerReview \? "modal" : undefined\}/,
+    "the modal dealer must be a flag-gated mode, not a replacement",
+  );
+  assert.equal((stage.match(/<DealerCinematic/g) ?? []).length, 1, "exactly one modal dealer");
   assert.match(stage, /dealerOpen/, "the dealer is a disclosure, not the first viewport");
+
+  // One closing scene. R5 owns an independent switch: with it set to "0" the
+  // accepted M6 close is restored and none of the promoted markup renders.
+  assert.equal((stage.match(/<StageClosing/g) ?? []).length, 1, "exactly one closing scene");
+  assert.match(
+    stage,
+    /closingReview=\{closingReview\}/,
+    "the closing must be a switch-gated branch of the one closing scene",
+  );
+  const closing = read("components/knowledge/stage-closing.tsx");
+  assert.match(closing, /if \(closingReview\)/, "the closing branch must be guarded");
+  assert.match(
+    closing,
+    /Nothing here is a dead end\./,
+    "the M6 close must remain reachable as the rollback",
+  );
+  assert.match(closing, /Leave with one idea/, "the restored close belongs to the promoted branch");
+  assert.match(
+    read(LANDING_SOURCE),
+    /HANSA_CLOSING_REVIEW !== "0"/,
+    "the closing must keep its own build-time switch (explicit 0 rolls it back)",
+  );
 
   for (const scene of ["stage-timeline", "stage-knowledge", "stage-closing"]) {
     assert.ok(exists(`components/knowledge/${scene}.tsx`), `${scene}.tsx is missing`);

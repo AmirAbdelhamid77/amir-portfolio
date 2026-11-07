@@ -1,0 +1,193 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Release candidate — Hansa knowledge stage</title>
+<style>
+  :root {
+    --paper: #f7f4ec; --ink: #191712; --muted: #6b6558; --line: #d8d2c2;
+    --card: #fffdf6; --good: #1f6f43; --bad: #a3271e; --accent: #8a2f1f;
+    --mono: ui-monospace, "Cascadia Mono", Consolas, monospace;
+    --serif: "Iowan Old Style", "Palatino Linotype", Georgia, serif;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root { --paper: #17150f; --ink: #f2ede0; --muted: #a49c8b; --line: #3a352a;
+      --card: #201d16; --good: #7cc39a; --bad: #e88b7f; --accent: #e0a58c; }
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--paper); color: var(--ink); font: 16px/1.6 var(--serif); }
+  .wrap { max-width: 1120px; margin: 0 auto; padding: 48px 20px 96px; }
+  h1, h2, h3 { font-weight: 500; letter-spacing: -0.01em; line-height: 1.15; margin: 0 0 8px; }
+  h1 { font-size: clamp(30px, 5vw, 46px); }
+  h2 { font-size: clamp(22px, 3vw, 30px); margin-top: 56px; padding-top: 20px; border-top: 1px solid var(--line); }
+  h3 { font-size: 18px; margin-top: 28px; }
+  p, li { max-width: 74ch; }
+  .kicker { font: 700 11px/1.4 var(--mono); letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted); margin: 0 0 10px; }
+  .meta { font: 12px/1.6 var(--mono); color: var(--muted); }
+  .state { display: inline-flex; gap: 8px; align-items: center; padding: 8px 14px; border-radius: 999px;
+    border: 1px solid var(--line); background: var(--card); font: 700 11px/1.4 var(--mono); letter-spacing: .12em;
+    text-transform: uppercase; white-space: nowrap; max-width: 100%; }
+  @media (max-width: 720px) { .state { white-space: normal; } }
+  .state b { color: var(--accent); }
+  table { width: 100%; border-collapse: collapse; margin: 16px 0 8px; font-size: 14px; }
+  th, td { text-align: left; vertical-align: top; padding: 10px 12px; border-bottom: 1px solid var(--line); }
+  th { font: 700 10px/1.4 var(--mono); letter-spacing: .14em; text-transform: uppercase; color: var(--muted); }
+  td code, p code { font: 12px/1.5 var(--mono); }
+  tr.bad td { color: var(--bad); }
+  tr.ok td:first-child { color: var(--good); }
+  .figs { display: grid; gap: 16px; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); margin-top: 16px; }
+  figure { margin: 0; background: var(--card); border: 1px solid var(--line); border-radius: 14px; overflow: hidden; }
+  figure img { display: block; width: 100%; height: auto; }
+  figcaption { font: 12px/1.5 var(--mono); color: var(--muted); padding: 10px 12px; border-top: 1px solid var(--line); }
+  .split { display: grid; gap: 16px; grid-template-columns: 1fr 1fr; }
+  @media (max-width: 800px) { .split { grid-template-columns: 1fr; } }
+  .note { border-left: 2px solid var(--accent); padding: 4px 0 4px 14px; color: var(--muted); }
+  .missing { font: 12px var(--mono); color: var(--bad); }
+  ul { padding-left: 20px; }
+  li { margin: 4px 0; }
+  .num { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 12px; margin: 18px 0; }
+  .num div { border: 1px solid var(--line); border-radius: 12px; padding: 12px 14px; background: var(--card); }
+  .num strong { display: block; font: 600 24px/1.2 var(--mono); }
+  .num span { font: 11px/1.4 var(--mono); text-transform: uppercase; letter-spacing: .1em; color: var(--muted); }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <p class="kicker">Hansa / release readiness / 6 November 2026</p>
+  <h1>Release candidate</h1>
+  <p class="state">Status <b>promoted default verified</b> · not deployed · publication still gated</p>
+  <p class="meta">Build: no <code>HANSA_*</code> variables — R3–R6 are the default since D1 ·
+  HANSA_ATLAS_REVIEW_PREVIEW and HANSA_NEIGHBOURHOOD_REVIEW unset</p>
+
+  <div class="num">
+    <div><strong>86</strong><span>checks run</span></div>
+    <div><strong>0</strong><span>failed</span></div>
+    <div><strong>0</strong><span>console errors</span></div>
+    <div><strong>460 ms</strong><span>LCP, local, 1280 px</span></div>
+    <div><strong>0</strong><span>CLS</span></div>
+    <div><strong>0</strong><span>published concepts</span></div>
+  </div>
+
+  <h2>What this is</h2>
+  <p>One Home that carries every accepted design slice at once — the R3 fan, the R4
+  cinematic dealer, the R5 closing and the R6 polish layer — now the default
+  shipped build, verified end to end against the original prototype. The Atlas
+  publication state is untouched: the public projection still carries zero
+  concepts and zero connections, and the six-record seed is a proposal in
+  <a href="ATLAS_SEED_PROPOSAL.md">ATLAS_SEED_PROPOSAL.md</a>.</p>
+  <p class="note">Design readiness and publication readiness are separate here by
+  construction: the promoted default is a build, the publication state is data,
+  and no build switch can turn a candidate record into a published one.</p>
+
+  <h2>Side by side with the original prototype</h2>
+  <p>The prototype is the "before" the owner asked to recover: the identity is
+  right, but the reader scrolls a column of widgets instead of moving through
+  scenes. The table is the honest comparison, not a claim of wholesale
+  improvement — the prototype's timeline and knowledge lens were reused, not
+  reinvented.</p>
+  <table>
+    <thead><tr><th>Aspect</th><th>Original prototype</th><th>Promoted default</th></tr></thead>
+    <tbody><tr><td><strong>Identity</strong></td><td>Editorial dashboard: magnolia paper, serif headlines, one accent</td><td>Same identity, now three scenes instead of one scroll of widgets</td></tr><tr><td><strong>Timeline</strong></td><td>A 15-day card strip with a date rail</td><td>Desktop: fanned cards on a rail with a playhead; below 1024 px the strip stays</td></tr><tr><td><strong>Knowledge scene</strong></td><td>A concept panel beside a relationship web</td><td>The same lens, reveal and evidence states, with the Atlas pinned to published records only</td></tr><tr><td><strong>Dealer</strong></td><td>A card table below the fold, always mounted</td><td>A cinematic dialog dealt on demand; Escape, focus trap and focus return</td></tr><tr><td><strong>Closing</strong></td><td>A generic call to action</td><td>One idea, one action, kept cards and a coverage ledger with the denominators</td></tr><tr><td><strong>Type and targets</strong></td><td>Mixed 10-16 px UI text, small targets</td><td>Nine-role scale, 11 px floor for mono metadata, 44 px controls</td></tr><tr><td><strong>Dark mode</strong></td><td>Invert only</td><td>Full token set per scene, checked at five widths</td></tr><tr><td><strong>Publication</strong></td><td>Prototype drew candidate graph data directly</td><td>Public build draws nothing unpublished; the review route is pruned to 404</td></tr></tbody>
+  </table>
+  <div class="split">
+    <figure><img src="evidence/prototype-desktop-light.png" alt="Original prototype — desktop, light" loading="lazy"><figcaption>Original prototype — desktop, light</figcaption></figure>
+    <figure><img src="evidence/rc-home-desktop-light.png" alt="Promoted default — desktop, light" loading="lazy"><figcaption>Promoted default — desktop, light</figcaption></figure>
+    <figure><img src="evidence/prototype-desktop-dark.png" alt="Original prototype — desktop, dark" loading="lazy"><figcaption>Original prototype — desktop, dark</figcaption></figure>
+    <figure><img src="evidence/rc-home-desktop-dark.png" alt="Promoted default — desktop, dark" loading="lazy"><figcaption>Promoted default — desktop, dark</figcaption></figure>
+  </div>
+
+  <h2>The three scenes</h2>
+  <div class="figs">
+    <figure><img src="evidence/rc-fan.png" alt="R3 — the edition fan at 1280 px, before selection" loading="lazy"><figcaption>R3 — the edition fan at 1280 px, before selection</figcaption></figure>
+    <figure><img src="evidence/rc-fan-focus.png" alt="R3 — keyboard focus on a fan card" loading="lazy"><figcaption>R3 — keyboard focus on a fan card</figcaption></figure>
+    <figure><img src="evidence/rc-knowledge-scene.png" alt="Scene 2 — knowledge, reveal and the Atlas status line" loading="lazy"><figcaption>Scene 2 — knowledge, reveal and the Atlas status line</figcaption></figure>
+    <figure><img src="evidence/rc-dealer.png" alt="R4 — the cinematic dealer, opened on demand" loading="lazy"><figcaption>R4 — the cinematic dealer, opened on demand</figcaption></figure>
+    <figure><img src="evidence/rc-dealer-saved.png" alt="R4 — after saving a card, the control states the new state" loading="lazy"><figcaption>R4 — after saving a card, the control states the new state</figcaption></figure>
+    <figure><img src="evidence/rc-closing.png" alt="R5 — closing: one idea, one action, kept cards" loading="lazy"><figcaption>R5 — closing: one idea, one action, kept cards</figcaption></figure>
+    <figure><img src="evidence/rc-closing-coverage.png" alt="R5 — the coverage ledger disclosure" loading="lazy"><figcaption>R5 — the coverage ledger disclosure</figcaption></figure>
+    <figure><img src="evidence/rc-archive.png" alt="Archive — search and open, below the closing" loading="lazy"><figcaption>Archive — search and open, below the closing</figcaption></figure>
+  </div>
+
+  <h2>Responsive and theme evidence</h2>
+  <div class="figs">
+    <figure><img src="evidence/rc-home-390.png" alt="390 px — the strip replaces the fan, light" loading="lazy"><figcaption>390 px — the strip replaces the fan, light</figcaption></figure>
+    <figure><img src="evidence/rc-home-390-dark.png" alt="390 px — dark" loading="lazy"><figcaption>390 px — dark</figcaption></figure>
+    <figure><img src="evidence/rc-home-320.png" alt="320 px — darkest supported width" loading="lazy"><figcaption>320 px — darkest supported width</figcaption></figure>
+  </div>
+
+  <h2>Measured performance (one local machine)</h2>
+  <table>
+    <tbody>
+      <tr><th>LCP</th><td>460 ms</td></tr>
+      <tr><th>CLS</th><td>0 across 1 layout shifts</td></tr>
+      <tr><th>Requests</th><td>46</td></tr>
+      <tr><th>JavaScript</th><td>849,206 B transferred</td></tr>
+      <tr><th>CSS</th><td>204,578 B transferred</td></tr>
+      <tr><th>Total transferred</th><td>1,259,931 B</td></tr>
+      <tr><th>DOM nodes</th><td>1188</td></tr>
+    </tbody>
+  </table>
+  <p class="note">Local static server, warm cache, headless Edge. This is a
+  regression signal, not field data: no throttling, no CDN, one machine.</p>
+
+  <h2>Every check</h2>
+  <p>86 of 86 checks pass. The table is the raw
+  result file, <code>evidence/rc-e2e.json</code>, rendered without editing.</p>
+  <table>
+    <thead><tr><th>Result</th><th>Check</th><th>Detail</th></tr></thead>
+    <tbody><tr class="ok"><td>PASS</td><td><code>overflow 1280-light</code></td><td>1280 &lt;= 1280</td></tr><tr class="ok"><td>PASS</td><td><code>polish attr 1280-light</code></td><td></td></tr><tr class="ok"><td>PASS</td><td><code>fan shown 1280-light</code></td><td>fan=block strip=none</td></tr><tr class="ok"><td>PASS</td><td><code>strip hidden 1280-light</code></td><td>strip=none</td></tr><tr class="ok"><td>PASS</td><td><code>no prose below 11px 1280-light</code></td><td>[]</td></tr><tr class="ok"><td>PASS</td><td><code>no text below 9px 1280-light</code></td><td>[]</td></tr><tr class="ok"><td>PASS</td><td><code>44px stage targets 1280-light</code></td><td>[]</td></tr><tr class="ok"><td>PASS</td><td><code>axe 1280-light</code></td><td>0 violations</td></tr><tr class="ok"><td>PASS</td><td><code>overflow 1280-dark</code></td><td>1280 &lt;= 1280</td></tr><tr class="ok"><td>PASS</td><td><code>polish attr 1280-dark</code></td><td></td></tr><tr class="ok"><td>PASS</td><td><code>fan shown 1280-dark</code></td><td>fan=block strip=none</td></tr><tr class="ok"><td>PASS</td><td><code>strip hidden 1280-dark</code></td><td>strip=none</td></tr><tr class="ok"><td>PASS</td><td><code>no prose below 11px 1280-dark</code></td><td>[]</td></tr><tr class="ok"><td>PASS</td><td><code>no text below 9px 1280-dark</code></td><td>[]</td></tr><tr class="ok"><td>PASS</td><td><code>44px stage targets 1280-dark</code></td><td>[]</td></tr><tr class="ok"><td>PASS</td><td><code>overflow 1024-dark</code></td><td>1024 &lt;= 1024</td></tr><tr class="ok"><td>PASS</td><td><code>polish attr 1024-dark</code></td><td></td></tr><tr class="ok"><td>PASS</td><td><code>fan shown 1024-dark</code></td><td>fan=block strip=none</td></tr><tr class="ok"><td>PASS</td><td><code>strip hidden 1024-dark</code></td><td>strip=none</td></tr><tr class="ok"><td>PASS</td><td><code>no prose below 11px 1024-dark</code></td><td>[]</td></tr><tr class="ok"><td>PASS</td><td><code>no text below 9px 1024-dark</code></td><td>[]</td></tr><tr class="ok"><td>PASS</td><td><code>44px stage targets 1024-dark</code></td><td>[]</td></tr><tr class="ok"><td>PASS</td><td><code>axe 1024-dark</code></td><td>0 violations</td></tr><tr class="ok"><td>PASS</td><td><code>overflow 768-light</code></td><td>768 &lt;= 768</td></tr><tr class="ok"><td>PASS</td><td><code>polish attr 768-light</code></td><td></td></tr><tr class="ok"><td>PASS</td><td><code>fan hidden 768-light</code></td><td>fan=none strip=block</td></tr><tr class="ok"><td>PASS</td><td><code>strip shown 768-light</code></td><td>strip=block</td></tr><tr class="ok"><td>PASS</td><td><code>no prose below 11px 768-light</code></td><td>[]</td></tr><tr class="ok"><td>PASS</td><td><code>no text below 9px 768-light</code></td><td>[]</td></tr><tr class="ok"><td>PASS</td><td><code>44px stage targets 768-light</code></td><td>[]</td></tr><tr class="ok"><td>PASS</td><td><code>axe 768-light</code></td><td>0 violations</td></tr><tr class="ok"><td>PASS</td><td><code>overflow 390-dark</code></td><td>390 &lt;= 390</td></tr><tr class="ok"><td>PASS</td><td><code>polish attr 390-dark</code></td><td></td></tr><tr class="ok"><td>PASS</td><td><code>fan hidden 390-dark</code></td><td>fan=none strip=block</td></tr><tr class="ok"><td>PASS</td><td><code>strip shown 390-dark</code></td><td>strip=block</td></tr><tr class="ok"><td>PASS</td><td><code>no prose below 11px 390-dark</code></td><td>[]</td></tr><tr class="ok"><td>PASS</td><td><code>no text below 9px 390-dark</code></td><td>[]</td></tr><tr class="ok"><td>PASS</td><td><code>44px stage targets 390-dark</code></td><td>[]</td></tr><tr class="ok"><td>PASS</td><td><code>axe 390-dark</code></td><td>0 violations</td></tr><tr class="ok"><td>PASS</td><td><code>overflow 320-light</code></td><td>320 &lt;= 320</td></tr><tr class="ok"><td>PASS</td><td><code>polish attr 320-light</code></td><td></td></tr><tr class="ok"><td>PASS</td><td><code>fan hidden 320-light</code></td><td>fan=none strip=block</td></tr><tr class="ok"><td>PASS</td><td><code>strip shown 320-light</code></td><td>strip=block</td></tr><tr class="ok"><td>PASS</td><td><code>no prose below 11px 320-light</code></td><td>[]</td></tr><tr class="ok"><td>PASS</td><td><code>no text below 9px 320-light</code></td><td>[]</td></tr><tr class="ok"><td>PASS</td><td><code>44px stage targets 320-light</code></td><td>[]</td></tr><tr class="ok"><td>PASS</td><td><code>axe 320-light</code></td><td>0 violations</td></tr><tr class="ok"><td>PASS</td><td><code>route /</code></td><td>status=200 h1=1</td></tr><tr class="ok"><td>PASS</td><td><code>route /learn</code></td><td>status=200 h1=1</td></tr><tr class="ok"><td>PASS</td><td><code>route /practice/catalogue</code></td><td>status=200 h1=1</td></tr><tr class="ok"><td>PASS</td><td><code>route /learn/dp-600/atlas/</code></td><td>status=200 h1=1</td></tr><tr class="ok"><td>PASS</td><td><code>route /about</code></td><td>status=200 h1=1</td></tr><tr class="ok"><td>PASS</td><td><code>route /prototype-c/</code></td><td>status=200 h1=1</td></tr><tr class="ok"><td>PASS</td><td><code>prototype-c canonical</code></td><td>https://hansa.amir-portfolio.workers.dev/</td></tr><tr class="ok"><td>PASS</td><td><code>review route absent</code></td><td>status=404</td></tr><tr class="ok"><td>PASS</td><td><code>no console errors on routes</code></td><td></td></tr><tr class="ok"><td>PASS</td><td><code>fan editions present</code></td><td>3 cards</td></tr><tr class="ok"><td>PASS</td><td><code>fan select updates URL</code></td><td>http://127.0.0.1:4395/?insight=hansa-insight-shortcut-delete-v1</td></tr><tr class="ok"><td>PASS</td><td><code>fan aria-pressed</code></td><td></td></tr><tr class="ok"><td>PASS</td><td><code>fan arrow key moves selection</code></td><td>http://127.0.0.1:4395/?insight=hansa-insight-shortcut-discovery-v1</td></tr><tr class="ok"><td>PASS</td><td><code>dealer dialog opens</code></td><td></td></tr><tr class="ok"><td>PASS</td><td><code>dealer is modal</code></td><td></td></tr><tr class="ok"><td>PASS</td><td><code>dealer takes focus</code></td><td></td></tr><tr class="ok"><td>PASS</td><td><code>dealer card switch</code></td><td>PRINCIPLE TECHNICAL REVIEW Files versus Tables T -&gt; CAVEAT TECHNICAL REVIEW What this does not mean </td></tr><tr class="ok"><td>PASS</td><td><code>save confirms</code></td><td>Saved · remove</td></tr><tr class="ok"><td>PASS</td><td><code>save persists locally</code></td><td>[&quot;hansa-insight-shortcut-discovery-v1::caveat&quot;]</td></tr><tr class="ok"><td>PASS</td><td><code>escape closes dealer</code></td><td></td></tr><tr class="ok"><td>PASS</td><td><code>escape returns focus to the opener</code></td><td>{&quot;tag&quot;:&quot;BUTTON&quot;,&quot;text&quot;:&quot;Open the edition&quot;,&quot;inDialog&quot;:false,&quot;id&quot;:&quot;&quot;}</td></tr><tr class="ok"><td>PASS</td><td><code>closing lists the kept card</code></td><td>What this does not mean Caveat · SAT 24 OCT</td></tr><tr class="ok"><td>PASS</td><td><code>kept card reopens in the dealer</code></td><td>CAVEAT TECHNICAL REVIEW What this does not mean Tables shortcuts require support</td></tr><tr class="ok"><td>PASS</td><td><code>coverage disclosure opens</code></td><td></td></tr><tr class="ok"><td>PASS</td><td><code>coverage disclosure states limits</code></td><td>Denominators Units 6,201 Eligible for semantic reading 4,337</td></tr><tr class="ok"><td>PASS</td><td><code>archive search filters</code></td><td>1 edition available</td></tr><tr class="ok"><td>PASS</td><td><code>archive opens an edition</code></td><td>http://127.0.0.1:4395/?insight=hansa-insight-shortcut-delete-v1</td></tr><tr class="ok"><td>PASS</td><td><code>theme toggle flips</code></td><td>false -&gt; true</td></tr><tr class="ok"><td>PASS</td><td><code>accent menu opens</code></td><td>7 options</td></tr><tr class="ok"><td>PASS</td><td><code>accent menu is a labelled dialog</code></td><td></td></tr><tr class="ok"><td>PASS</td><td><code>accent menu closes on escape</code></td><td></td></tr><tr class="ok"><td>PASS</td><td><code>dealer deep link opens</code></td><td></td></tr><tr class="ok"><td>PASS</td><td><code>no candidate edge ids rendered</code></td><td></td></tr><tr class="ok"><td>PASS</td><td><code>no review neighbourhood block</code></td><td></td></tr><tr class="ok"><td>PASS</td><td><code>public stage states zero published</code></td><td>0 published concepts · 0 published connections
+
+The</td></tr><tr class="ok"><td>PASS</td><td><code>reduced motion: no web animations</code></td><td>0 animations</td></tr><tr class="ok"><td>PASS</td><td><code>reduced motion: no transitions</code></td><td></td></tr><tr class="ok"><td>PASS</td><td><code>LCP under 1200 ms</code></td><td>460 ms</td></tr><tr class="ok"><td>PASS</td><td><code>CLS is zero</code></td><td>0 across 1 shifts</td></tr></tbody>
+  </table>
+  
+
+  <h2>Publication separation</h2>
+  <ul>
+    <li>The public Atlas projection carries <strong>0 concepts and 0 connections</strong>; the payload states both counts and the Home prints them.</li>
+    <li>No candidate edge id appears in either export. The only concept ids present are the internal keys of the accepted public insights (<code>concept:fabric:shortcut</code>), rendered as a slug label, never as a claim.</li>
+    <li><code>/review/neighbourhood/</code> is a local-only route. The export step prunes it, so a static host answers <strong>404</strong>; the route source stays in the repository for review builds.</li>
+    <li>R1/R2 stay off. They render candidate records and remain publication-gated, not design-blocked.</li>
+    <li>The seed proposal cannot publish itself: its placeholder reviewer does not start with <code>Human:</code>, and <code>validateDataset</code> rejects it. The dry run asserts that rejection.</li>
+  </ul>
+
+  <h2>Atlas seed — proposal only</h2>
+  <pre class="meta"></pre>
+
+  <h2>Blockers and open decisions</h2>
+  <table>
+    <thead><tr><th>ID</th><th>Decision</th><th>Effect if deferred</th></tr></thead>
+    <tbody>
+      <tr><td>D1</td><td>Promote R3–R6 to the public default — <strong>technically verified, awaiting final owner sign-off</strong></td><td>Rollback: rebuild with <code>HANSA_*_REVIEW=0</code> for any slice; the M6 baseline is unchanged</td></tr>
+      <tr><td>D2</td><td>Approve the six-record Atlas seed</td><td>Ships with an honest 0/0 graph</td></tr>
+      <tr><td>D3</td><td>Run NVDA/VoiceOver, or waive it</td><td>Accessibility evidence stays automated-only, and the record says so</td></tr>
+      <tr><td>D4</td><td>Deploy to Cloudflare Pages/Workers</td><td>Nothing public changes; no Cloudflare call is made by this work</td></tr>
+      <tr><td>D5</td><td>Publish R1/R2</td><td>The neighbourhood stays a review surface</td></tr>
+    </tbody>
+  </table>
+
+  <h2>Reproduce</h2>
+  <pre class="meta">node scripts/build-rc.mjs            # out-rc/ with four flags, out/ rebuilt clean
+node scripts/build-rc.mjs --check    # re-verify an existing pair without rebuilding
+node scripts/serve-rc.mjs 4396       # serve the promoted export (mirror)
+node docs/release-readiness-20261106/rc-e2e.mjs
+node docs/release-readiness-20261106/capture-evidence.mjs
+node docs/release-readiness-20261106/make-rc-artifacts.mjs
+node scripts/verify-knowledge-atlas.mjs
+node scripts/verify-agent-reference.mjs</pre>
+
+  <h2>Limits of this evidence</h2>
+  <ul>
+    <li>A scripted browser run is not a manual assistive-technology audit.</li>
+    <li>One local machine is not field performance data.</li>
+    <li>The seed is a proposal; its JSON is not imported and its states are unchanged.</li>
+    <li>Nothing was deployed, and no publication policy changed.</li>
+  </ul>
+
+  <p class="meta">Generated 2026-11-06T18:16:26.318Z from
+  <code>evidence/rc-e2e.json</code>, <code>evidence/rc-perf.json</code> and
+  <code>build-rc.log</code>.</p>
+</div>
+</body>
+</html>

@@ -1,0 +1,84 @@
+{
+  "scope": "hansa-atlas-minimal-public-seed",
+  "status": "PROPOSAL - NOT APPLIED, NOT IMPORTED",
+  "date": "2026-11-06",
+  "target": "content/atlas/editorial.json",
+  "summary": {
+    "concepts": 3,
+    "edges": 3,
+    "sources": 3,
+    "reason": "Smallest set that makes the public graph show one honest, documented distinction: a reference is not a replica. Every record already exists in the editorial layer; the proposal changes publication state only."
+  },
+  "approval": {
+    "required": "D2 in docs/release-readiness-20261106/DECISIONS.md",
+    "reviewerField": "Each approved edge must carry reviewer \"Human: <name>\" naming the person who read the claim and its source.",
+    "placeholder": "PENDING - owner sign-off required",
+    "whyThePlaceholder": "It does not start with \"Human:\", so validateDataset rejects publication if this file is applied without a real human review."
+  },
+  "concepts": [
+    {
+      "id": "concept:fabric:shortcut",
+      "before": { "editorialState": "technical_review" },
+      "after": { "editorialState": "published" }
+    },
+    {
+      "id": "concept:fabric:database-mirroring",
+      "before": { "editorialState": "technical_review" },
+      "after": { "editorialState": "published" }
+    },
+    {
+      "id": "concept:fabric:sql-endpoint",
+      "before": { "editorialState": "technical_review" },
+      "after": { "editorialState": "published" }
+    }
+  ],
+  "edges": [
+    {
+      "id": "edge:fabric:reference-replica",
+      "claim": "A shortcut references a target; Database Mirroring maintains a replica.",
+      "sources": ["shortcuts", "mirroring"],
+      "supportKind": "inference",
+      "before": { "editorialState": "technical_review", "reviewer": "Codex documentation review; not human approval" },
+      "after": { "editorialState": "published", "reviewer": "PENDING - owner sign-off required" }
+    },
+    {
+      "id": "edge:fabric:mirror-sql",
+      "claim": "A mirrored database provides a SQL analytics endpoint.",
+      "sources": ["mirroring"],
+      "supportKind": "direct",
+      "before": { "editorialState": "technical_review", "reviewer": "Codex documentation review; not human approval" },
+      "after": { "editorialState": "published", "reviewer": "PENDING - owner sign-off required" }
+    },
+    {
+      "id": "edge:fabric:shortcut-sql",
+      "claim": "Eligible table shortcuts can be queried through a lakehouse SQL endpoint.",
+      "sources": ["shortcuts"],
+      "supportKind": "direct",
+      "before": { "editorialState": "technical_review", "reviewer": "Codex documentation review; not human approval" },
+      "after": { "editorialState": "published", "reviewer": "PENDING - owner sign-off required" }
+    }
+  ],
+  "sources": [
+    {
+      "id": "shortcuts",
+      "title": "OneLake shortcuts",
+      "url": "https://learn.microsoft.com/en-us/fabric/onelake/onelake-shortcuts",
+      "locator": "What are shortcuts?; Where can I access shortcuts?",
+      "checkedAt": "2026-10-25"
+    },
+    {
+      "id": "security",
+      "title": "OneLake shortcut security",
+      "url": "https://learn.microsoft.com/en-us/fabric/onelake/onelake-shortcut-security",
+      "locator": "Accessing shortcuts; Shortcut authentication models",
+      "checkedAt": "2026-10-25"
+    },
+    {
+      "id": "mirroring",
+      "title": "Mirroring in Fabric",
+      "url": "https://learn.microsoft.com/en-us/fabric/mirroring/overview",
+      "locator": "Types of mirroring; Mirroring objects; How does database mirroring work?",
+      "checkedAt": "2026-10-25"
+    }
+  ]
+}

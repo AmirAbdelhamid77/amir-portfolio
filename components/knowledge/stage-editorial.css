@@ -703,6 +703,389 @@
 
 /* ----------------------------------------------------------- the closing */
 
+/* R5 — the review close. One idea, one action, the kept cards and a coverage
+   ledger beside them. Scoped to `stage-close-*`, so the accepted public close
+   renders exactly as it did when the flag is off. */
+
+.stage-close-layout {
+  display: grid;
+  gap: 32px;
+  margin-top: 26px;
+}
+
+.stage-close-main {
+  min-width: 0;
+}
+
+.stage-close-idea {
+  margin: 26px 0 0;
+  padding-top: 20px;
+  border-top: 1px solid var(--border-strong);
+}
+
+.stage-close-quote {
+  margin: 0;
+  max-width: 44ch;
+}
+
+.stage-close-quote p {
+  font-size: clamp(19px, 2.1vw, 26px);
+  line-height: 1.45;
+  letter-spacing: -0.01em;
+  text-wrap: pretty;
+}
+
+.stage-close-credit {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 12px;
+  margin-top: 14px;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 10.5px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--muted-foreground);
+}
+
+/* A separator stays with the value it introduces, so a wrapped credit line
+   never starts with a dangling "·". Below 720 px the credit is more likely to
+   wrap than to fit, so it drops the dots and leans on the spacing instead. */
+.stage-close-credit-part {
+  white-space: nowrap;
+}
+
+.stage-close-credit-part > span[aria-hidden="true"] {
+  display: none;
+}
+
+@media (min-width: 720px) {
+  .stage-close-credit {
+    gap: 4px 9px;
+  }
+
+  .stage-close-credit-part > span[aria-hidden="true"] {
+    display: inline;
+    margin-inline-end: 5px;
+  }
+}
+
+.stage-close-source {
+  color: var(--foreground);
+}
+
+.stage-close-condition {
+  margin-top: 14px;
+  max-width: 68ch;
+  font-size: 13px;
+  line-height: 1.7;
+  color: var(--muted-foreground);
+}
+
+.stage-close-condition-label {
+  display: block;
+  margin-bottom: 3px;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--foreground);
+}
+
+.stage-close-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px 14px;
+  margin-top: 22px;
+}
+
+.stage-close-posture {
+  margin-top: 14px;
+  max-width: 70ch;
+  font-size: 12px;
+  line-height: 1.7;
+  color: var(--muted-foreground);
+}
+
+.stage-close-kept,
+.stage-close-claims {
+  margin-top: 30px;
+  padding-top: 18px;
+  border-top: 1px solid var(--border);
+}
+
+/* Inside the ledger card the claims are the note's second half, not a new
+   section of the page: a rule, no extra card. */
+.stage-close-ledger .stage-close-claims {
+  margin-top: 18px;
+  padding-top: 14px;
+}
+
+.stage-close-section-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 6px 14px;
+}
+
+.stage-close-kept h3,
+.stage-close-claims h3,
+.stage-close-destinations h3 {
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+}
+
+.stage-close-count {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted-foreground);
+}
+
+.stage-close-saved {
+  display: grid;
+  gap: 0;
+  margin: 10px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.stage-close-saved-button {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 2px 14px;
+  width: 100%;
+  min-height: 44px;
+  padding: 9px 0;
+  border: 0;
+  border-bottom: 1px solid var(--border);
+  background: transparent;
+  color: inherit;
+  text-align: start;
+  cursor: pointer;
+}
+
+.stage-close-saved-button:hover .stage-close-saved-title {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.stage-close-saved-title {
+  font-size: 14px;
+}
+
+.stage-close-saved-meta {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--muted-foreground);
+}
+
+.stage-close-empty {
+  margin-top: 10px;
+  max-width: 62ch;
+  font-size: 12.5px;
+  line-height: 1.7;
+  color: var(--muted-foreground);
+}
+
+.stage-close-claims ul,
+.stage-close-details-body ul {
+  display: grid;
+  gap: 6px;
+  margin: 10px 0 0;
+  padding: 0;
+  list-style: none;
+  font-size: 12.5px;
+  line-height: 1.7;
+  color: var(--muted-foreground);
+}
+
+/* The preflight removes list markers; these lists are arguments, so they keep a
+   quiet dash instead of a bullet. */
+.stage-close-claims li,
+.stage-close-details-body li {
+  position: relative;
+  padding-inline-start: 16px;
+}
+
+.stage-close-claims li::before,
+.stage-close-details-body li::before {
+  content: "—";
+  position: absolute;
+  inset-inline-start: 0;
+  color: var(--muted-foreground);
+}
+
+.stage-close-ledger {
+  align-self: start;
+  padding: 20px;
+  border: 1px solid var(--border-strong);
+  border-radius: 14px;
+  background: color-mix(in oklch, var(--card) 82%, transparent);
+}
+
+.stage-close-ledger-kicker {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 10px;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+  color: var(--muted-foreground);
+}
+
+.stage-close-ledger h3 {
+  margin-top: 6px;
+  max-width: 26ch;
+  font-size: 17px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  line-height: 1.3;
+}
+
+.stage-close-ledger-list {
+  display: grid;
+  margin: 18px 0 0;
+  padding: 0;
+}
+
+.stage-close-ledger-list > div {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 14px;
+  padding: 8px 0;
+  border-top: 1px solid var(--border);
+}
+
+.stage-close-ledger-list dt {
+  font-size: 12px;
+  color: var(--muted-foreground);
+}
+
+.stage-close-ledger-list dd {
+  margin: 0;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 12px;
+  font-variant-numeric: tabular-nums;
+  text-align: end;
+}
+
+.stage-close-ledger-list dd span {
+  color: var(--muted-foreground);
+}
+
+.stage-close-ledger-note {
+  margin-top: 14px;
+  font-size: 11.5px;
+  line-height: 1.7;
+  color: var(--muted-foreground);
+}
+
+.stage-close-details {
+  margin-top: 14px;
+  padding-top: 6px;
+  border-top: 1px solid var(--border);
+}
+
+.stage-close-details summary {
+  padding: 8px 0;
+  font-size: 12px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.stage-close-details-body {
+  padding-top: 4px;
+}
+
+.stage-close-details-body h4 {
+  margin-top: 16px;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted-foreground);
+}
+
+.stage-close-details-body dl {
+  display: grid;
+  gap: 4px;
+  margin: 8px 0 0;
+}
+
+.stage-close-details-body dl > div {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+  font-size: 11.5px;
+}
+
+.stage-close-details-body dt {
+  color: var(--muted-foreground);
+}
+
+.stage-close-details-body dd {
+  margin: 0;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-variant-numeric: tabular-nums;
+}
+
+.stage-close-details-body ul {
+  display: grid;
+  gap: 5px;
+  margin: 8px 0 0;
+  padding: 0;
+  list-style: none;
+  font-size: 11.5px;
+  line-height: 1.65;
+  color: var(--muted-foreground);
+}
+
+.stage-close-source-line {
+  margin-top: 12px;
+  font-size: 10.5px;
+  line-height: 1.65;
+  color: var(--muted-foreground);
+}
+
+.stage-close-source-line code {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  overflow-wrap: anywhere;
+}
+
+.stage-close-atlas {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  min-height: 44px;
+  margin-top: 14px;
+}
+
+.stage-close-destinations {
+  margin-top: 40px;
+  padding-top: 18px;
+  border-top: 1px solid var(--border-strong);
+}
+
+.stage-close-destinations .stage-destinations {
+  margin-top: 14px;
+}
+
+@media (min-width: 1024px) {
+  .stage-close-layout {
+    grid-template-columns: minmax(0, 1.45fr) minmax(0, 1fr);
+    gap: 52px;
+    align-items: start;
+  }
+}
+
 .stage-continue {
   margin-top: 22px;
   padding-top: 18px;
@@ -844,3 +1227,254 @@
     border-color: Highlight;
   }
 }
+
+/* ========================================================================
+   R6 - the polish layer (review only, HANSA_POLISH_REVIEW=1)
+   ========================================================================
+
+   Every selector below is scoped to `[data-stage-polish="true"]`, and that
+   attribute is written only when the build flag is on. With the flag off these
+   rules are dead bytes in the stage stylesheet and the accepted M6 typography
+   renders untouched - the same trade R5 made for the review close.
+
+   The scale replaces 25 computed sizes with nine named roles. Measured at
+   1280x900 on the flag-off export before this layer: 64, 41, 38.4, 30.7, 18,
+   17, 16, 15, 14, 13, 12.5, 12, 11.5, 11, 10.5, 10, 9.5, 9. After it: 64 /
+   41 / 32 / 19 / 16 / 14 / 13 / 11, plus the 11px clock tick, which is the
+   same step as the label. The review close adds one 26px quote voice.
+
+   Two rules govern the labels:
+     1. Uppercase and wide tracking belong to kickers and clock ticks - the
+        two places that tell you where you are. A meta row is read, not
+        scanned, so it keeps the mono face and loses the capitals.
+     2. No prose below 13px. The 10-11px rows in the reading card were
+        sentences; they are now 13px.
+   ------------------------------------------------------------------------ */
+
+[data-stage-polish="true"] {
+  --polish-display: clamp(32px, 5vw, 64px);
+  --polish-title: clamp(26px, 3.2vw, 41px);
+  --polish-heading: clamp(24px, 2.8vw, 32px);
+  --polish-quote: clamp(19px, 2.1vw, 26px);
+  --polish-subhead: 19px;
+  --polish-lead: 16px;
+  --polish-body: 14px;
+  --polish-meta: 13px;
+  --polish-label: 11px;
+  --polish-tick: 10px;
+}
+
+/* ------------------------------------------------------------- type roles */
+
+[data-stage-polish="true"] .stage-scene-title {
+  font-size: var(--polish-display);
+}
+
+[data-stage-polish="true"] .stage-scene-title-sm {
+  font-size: var(--polish-title);
+}
+
+[data-stage-polish="true"] .stage-peek-title,
+[data-stage-polish="true"] .insight-reading h2 {
+  font-size: var(--polish-heading);
+  line-height: 1.12;
+}
+
+[data-stage-polish="true"] .stage-graph h3,
+[data-stage-polish="true"] .stage-close-ledger h3 {
+  font-size: var(--polish-subhead);
+  line-height: 1.3;
+}
+
+/* The reading's lede. 15px was the only 15 in the build. */
+[data-stage-polish="true"] .insight-reading p.text-pretty {
+  font-size: var(--polish-lead);
+}
+
+[data-stage-polish="true"] .stage-section-note,
+[data-stage-polish="true"] .stage-peek-body,
+[data-stage-polish="true"] .stage-discovery-label,
+[data-stage-polish="true"] .stage-close-saved-title {
+  font-size: var(--polish-body);
+}
+
+/* 13px is the smallest reading size in the build: notices, captions, links
+   and the archive rows. Nothing prose-shaped drops below it. */
+[data-stage-polish="true"] .stage-notice,
+[data-stage-polish="true"] .stage-quiet-link,
+[data-stage-polish="true"] .stage-status,
+[data-stage-polish="true"] .stage-discovery-description,
+[data-stage-polish="true"] .stage-destination-description,
+[data-stage-polish="true"] .stage-closing-notice,
+[data-stage-polish="true"] .stage-close-condition,
+[data-stage-polish="true"] .stage-close-posture,
+[data-stage-polish="true"] .stage-close-empty,
+[data-stage-polish="true"] .stage-close-details-body ul,
+[data-stage-polish="true"] .stage-close-details-body dl,
+[data-stage-polish="true"] .stage-close-details summary,
+[data-stage-polish="true"] .stage-close-ledger-list dt,
+[data-stage-polish="true"] .stage-close-ledger-list dd,
+[data-stage-polish="true"] .stage-close-ledger-note,
+[data-stage-polish="true"] .stage-close-count {
+  font-size: var(--polish-meta);
+}
+
+[data-stage-polish="true"] .stage-kicker,
+[data-stage-polish="true"] .stage-day-date,
+[data-stage-polish="true"] .stage-day-status,
+[data-stage-polish="true"] .stage-peek-meta,
+[data-stage-polish="true"] .stage-deal-head,
+[data-stage-polish="true"] .instrument-coordinate,
+[data-stage-polish="true"] .stage-close-credit,
+[data-stage-polish="true"] .stage-close-condition-label,
+[data-stage-polish="true"] .stage-close-ledger-kicker,
+[data-stage-polish="true"] .stage-close-saved-meta,
+[data-stage-polish="true"] .stage-close-source-line,
+[data-stage-polish="true"] .stage-close-details-body h4 {
+  font-size: var(--polish-label);
+}
+
+/* Tailwind's `text-xs` is 12px, the last near-duplicate under the 13px floor.
+   Everything carrying it inside the stage is meta or a control label. */
+[data-stage-polish="true"].hansa-stage .text-xs {
+  font-size: var(--polish-meta);
+}
+
+[data-stage-polish="true"] .stage-day-date,
+[data-stage-polish="true"] .stage-day-status {
+  font-size: var(--polish-tick);
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+}
+
+/* The masthead is the one mono row outside a scene; it takes the label step so
+   the build has no 10px text at all. */
+[data-stage-polish="true"].hansa-stage > div:first-child .font-mono {
+  font-size: var(--polish-label);
+}
+
+[data-stage-polish="true"] .stage-close-quote p {
+  font-size: var(--polish-quote);
+  line-height: 1.25;
+}
+
+/* --------------------------------------------------------------- labels */
+
+/* Inside a scene the mono rows are meta, not signage: sentence case and tight
+   tracking. Kickers, the masthead and the clock ticks keep their capitals. */
+[data-stage-polish="true"] .stage-scene-inner .font-mono.uppercase,
+[data-stage-polish="true"] .stage-peek-meta,
+[data-stage-polish="true"] .stage-deal-head,
+[data-stage-polish="true"] .stage-status,
+[data-stage-polish="true"] .stage-close-credit,
+[data-stage-polish="true"] .stage-close-count,
+[data-stage-polish="true"] .stage-close-ledger-kicker,
+[data-stage-polish="true"] .stage-close-saved-meta,
+[data-stage-polish="true"] .stage-close-source-line,
+[data-stage-polish="true"] .stage-close-details-body h4 {
+  text-transform: none;
+  letter-spacing: 0.02em;
+}
+
+[data-stage-polish="true"] .stage-scene-inner .font-mono.uppercase {
+  font-size: var(--polish-label);
+}
+
+/* The decision-model rows were the worst case: content values set in
+   all-caps at 10px. They are described data, so they read as text. */
+[data-stage-polish="true"] .insight-reading dl {
+  font-size: var(--polish-meta);
+  letter-spacing: 0.01em;
+  text-transform: none;
+}
+
+[data-stage-polish="true"] .insight-reading dl dt {
+  color: var(--muted-foreground);
+}
+
+[data-stage-polish="true"] .insight-reading dl dd {
+  font-weight: 500;
+  color: var(--foreground);
+}
+
+/* Sentence case removed the shout, but a row of pairs still needs a seam. */
+[data-stage-polish="true"] .insight-reading dl dt::after {
+  content: ":";
+}
+
+/* Two prose paragraphs in the reading were still 11px (the reasoning caveat and
+   the source-check line). Diagram legends and node labels are not prose and keep
+   their 11px label step. */
+[data-stage-polish="true"] .insight-reading p.text-\[11px\] {
+  font-size: var(--polish-meta);
+}
+
+/* The instrument and the decision table carry their own size declarations in
+   observatory.css; they join the same roles so no 9-12px prose survives. */
+[data-stage-polish="true"].hansa-stage .observatory-caption,
+[data-stage-polish="true"].hansa-stage .model-table,
+[data-stage-polish="true"].hansa-stage .instrument-switch,
+[data-stage-polish="true"].hansa-stage .instrument-reset {
+  font-size: var(--polish-meta);
+}
+
+[data-stage-polish="true"] .instrument-state {
+  font-size: var(--polish-label);
+}
+
+/* -------------------------------------------------------------- targets */
+
+/* 24 targets, 3 under 44px: the permalink, the archive link and the
+   instrument reset. The row height is the affordance, not the font size. */
+[data-stage-polish="true"] a.stage-quiet-link,
+[data-stage-polish="true"] button.stage-quiet-link,
+[data-stage-polish="true"] .instrument-reset,
+[data-stage-polish="true"] .stage-close-saved-button {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+}
+
+/* A summary keeps its native marker, so it grows through padding rather than
+   a display change. */
+[data-stage-polish="true"] .stage-close-details summary {
+  min-height: 44px;
+  padding-block: 11px;
+}
+
+/* --------------------------------------------------------------- rhythm */
+
+/* One scene rhythm instead of a different amount of air per scene. The
+   measured fill was 71 / 89 / 68 per cent; this closes the gaps without
+   adding decoration or content. */
+[data-stage-polish="true"] .stage-scene-inner {
+  padding-block: clamp(48px, 5vw, 72px);
+}
+
+[data-stage-polish="true"] #closing .stage-scene-inner {
+  padding-block: clamp(44px, 4.4vw, 64px);
+}
+
+[data-stage-polish="true"] .stage-scene-title {
+  margin-top: 12px;
+}
+
+[data-stage-polish="true"] .stage-timeline {
+  margin-top: 26px;
+}
+
+[data-stage-polish="true"] .stage-closing-foot {
+  margin-top: 30px;
+}
+
+/* The review close only ever renders with both flags on; these two rules keep
+   its covering note readable at the same 13px floor. */
+[data-stage-polish="true"] .stage-close-details-body {
+  font-size: var(--polish-meta);
+  line-height: 1.7;
+}
+
+[data-stage-polish="true"] .stage-close-ledger-list > div {
+  border-color: var(--border);
+}
+

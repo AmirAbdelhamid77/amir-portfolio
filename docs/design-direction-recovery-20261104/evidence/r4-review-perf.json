@@ -1,0 +1,89 @@
+{
+  "generatedAt": "2026-11-05T12:47:52.404Z",
+  "url": "http://127.0.0.1:4395/?insight=hansa-insight-shortcut-reference-v1#today",
+  "viewport": "1280x900",
+  "theme": "dark",
+  "reducedMotion": true,
+  "beforeOpen": {
+    "htmlBytes": 204955,
+    "lcp": 844,
+    "cls": 0,
+    "longTasks": {
+      "count": 2,
+      "totalMs": 293,
+      "maxMs": 222
+    },
+    "resourceCount": 46,
+    "encodedBytes": 1424868,
+    "scriptBytes": 837841,
+    "styleBytes": 286704,
+    "dialogPresent": false,
+    "initialRequests": 18,
+    "mark": 2732
+  },
+  "afterOpen": {
+    "lcp": 844,
+    "cls": 0,
+    "longTasks": {
+      "count": 2,
+      "totalMs": 293,
+      "maxMs": 222
+    },
+    "firstInteraction": 40,
+    "resourceCount": 49,
+    "encodedBytes": 1448783,
+    "scriptBytes": 849060,
+    "styleBytes": 299104,
+    "lateResources": [
+      {
+        "name": "3zrp9zhn2kmvt.js",
+        "type": "script",
+        "bytes": 11219
+      },
+      {
+        "name": "09as2gk2_oixp.css",
+        "type": "link",
+        "bytes": 12400
+      },
+      {
+        "name": "icon.svg?icon.0f5rkbx_kx9p3.svg",
+        "type": "other",
+        "bytes": 296
+      }
+    ],
+    "dialog": {
+      "present": true,
+      "role": "dialog",
+      "ariaModal": "true",
+      "cards": 3,
+      "railDays": 15,
+      "width": 1180,
+      "height": 719,
+      "fontLoaded": "loaded",
+      "cardAnimation": "none",
+      "backgroundInert": 11
+    }
+  },
+  "emittedDealerChunks": {
+    "js": [
+      "3zrp9zhn2kmvt.js"
+    ],
+    "css": [
+      "09as2gk2_oixp.css"
+    ]
+  },
+  "dealerChunkBytes": {
+    "js": [
+      11219
+    ],
+    "css": [
+      12400
+    ]
+  },
+  "dealerRequests": [
+    "3zrp9zhn2kmvt.js",
+    "09as2gk2_oixp.css"
+  ],
+  "comparedWithPublic": null,
+  "note": "Single local run of the review export (all four flags) in Edge headless with reduced motion. The dealer is a dynamic chunk: the initial page does not request it, opening the edition does. Chunk bytes are on-disk sizes; lateResources is what the open actually fetched."
+}

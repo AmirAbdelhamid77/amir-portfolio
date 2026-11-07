@@ -82,7 +82,7 @@ export function parseView(search: string, atlas: Atlas): { view: View; warning: 
   const relation = params.get("relation"); if (relation && Object.hasOwn(RELATIONS, relation)) view.relation = relation;
   view.hops = params.get("hops") === "2" ? 2 : 1; view.incoming = params.get("incoming") === "1";
   for (const key of ["zoom", "x", "y"] as const) { const raw = params.get(key); const n = Number(raw); if (raw !== null && Number.isFinite(n)) view[key] = key === "zoom" ? Math.max(.6, Math.min(2.5, n)) : Math.max(-400, Math.min(400, n)); }
-  if ([...params.keys()].some(key => !["v", "concept", "edge", "source", "relation", "hops", "incoming", "zoom", "x", "y"].includes(key))) warning ||= "Unrecognized view fields were ignored.";
+  if ([...params.keys()].some(key => !["v", "concept", "edge", "source", "relation", "hops", "incoming", "zoom", "x", "y", "return"].includes(key))) warning ||= "Unrecognized view fields were ignored.";
   return { view, warning };
 }
 export function viewHref(view: View) {

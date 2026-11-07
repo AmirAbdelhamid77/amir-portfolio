@@ -1,0 +1,93 @@
+{
+  "generatedAt": "2026-11-05T12:49:37.801Z",
+  "base": "http://127.0.0.1:4395",
+  "viewport": "1280x900",
+  "theme": "dark",
+  "reducedMotion": true,
+  "home": {
+    "domNodes": 779,
+    "domContentLoaded": 666,
+    "loadEvent": 778,
+    "lcp": 860,
+    "cls": 0,
+    "longTasks": {
+      "count": 1,
+      "totalMs": 81,
+      "maxMs": 81
+    },
+    "resourceCount": 42,
+    "encodedBytes": 1205796,
+    "scriptBytes": 816380,
+    "styleBytes": 242150,
+    "scriptCount": 15,
+    "hasDealerOverlay": 0,
+    "hasDealerClass": false,
+    "hasStrip": true,
+    "stripDays": 15,
+    "editionTicks": 3,
+    "quietDays": 12,
+    "ariaCurrent": 1,
+    "trigger": {
+      "label": "Open the edition",
+      "expanded": "false",
+      "controls": null,
+      "haspopup": null
+    }
+  },
+  "inline": {
+    "open": {
+      "dealPresent": true,
+      "dialogPresent": false,
+      "dealt": "1 / 3 dealt",
+      "hasDealMore": true,
+      "closeLabel": "Close the card table"
+    },
+    "dealtAfterDealMore": "3 / 3 dealt",
+    "closed": {
+      "dealPresent": false,
+      "expanded": "false"
+    }
+  },
+  "emittedDealerChunks": {
+    "js": [
+      "3zrp9zhn2kmvt.js"
+    ],
+    "css": [
+      "09as2gk2_oixp.css"
+    ]
+  },
+  "requests": {
+    "total": 43,
+    "dealer": []
+  },
+  "baseline": {
+    "domNodes": 779,
+    "domContentLoaded": 86,
+    "loadEvent": 526,
+    "lcp": 660,
+    "cls": 0,
+    "longTasks": {
+      "count": 2,
+      "totalMs": 325,
+      "maxMs": 254
+    },
+    "resourceCount": 42,
+    "encodedBytes": 1193413,
+    "transferBytes": 1206013,
+    "scriptBytes": 804059,
+    "styleBytes": 242150,
+    "images": 0,
+    "views": {
+      "timelineDays": 15,
+      "editionDays": 3,
+      "graphText": "SEMANTIC LAYER · REVIEW STATUS\n\nWhere this idea leads\n\n0 PUBLISHED CONCEPTS · 0 PUBLISHED CONNECTIONS\n\nThe reviewed public graph is not yet published. Normal le"
+    }
+  },
+  "delta": {
+    "scriptBytes": 12321,
+    "styleBytes": 0,
+    "resourceCount": 0,
+    "domNodes": 0
+  },
+  "note": "Single local production-export run of the flag-off build. The dealer chunk exists on disk but the Home never requests it and renders no dc- markup; the accepted inline card table is opened, dealt and closed. DOM and stylesheet bytes stay at the pre-R4 values."
+}

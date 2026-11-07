@@ -1,0 +1,1204 @@
+{
+  "schemaVersion": 1,
+  "status": "editorial_staging_only",
+  "sourcePolicy": "Local content only; no external retrieval; no automatic publication.",
+  "items": [
+    {
+      "id": "hansa-bank-001",
+      "subject": "sql",
+      "topic": "overview",
+      "title": "ابدأ بمعنى الصف",
+      "scenario": "قبل كتابة الاستعلام، كيف تحدد شكل النتيجة؟",
+      "prediction": "فكّر في الفرق أو الافتراض الذي يغيّر الإجابة.",
+      "takeaway": "أكمل جملة: الصف الواحد في النتيجة يمثل ماذا؟ ثم راجع أثر الربط والتجميع على هذا المستوى.",
+      "caveat": "تحديد الأعمدة وحده لا يحدد مستوى تفصيل الصف.",
+      "language": "ar",
+      "scenarioBasis": "hypothetical teaching prompt",
+      "reviewStatus": "draft",
+      "sourceReviewed": true,
+      "scientificallyVerified": false,
+      "publicationApproved": false,
+      "reviewBlockers": [
+        "Independent domain/editorial review pending"
+      ],
+      "source": {
+        "key": "sql:0:canonical:3cd3906c5d6c810c9e01e8ca9ac89172",
+        "path": "content/sql/vault.json",
+        "pointer": "/pages/0",
+        "sha256": "ac2f7ecac73f0a48c3dc16deb5a10263a2838cfee828b16a2113a8c089a66ffb"
+      },
+      "lessonHref": "/learn/sql/00/"
+    },
+    {
+      "id": "hansa-bank-002",
+      "subject": "sql",
+      "topic": "joins",
+      "title": "الربط قد يضاعف الإجمالي",
+      "scenario": "زاد الإجمالي بعد إضافة JOIN؛ ما الذي تراجعه؟",
+      "prediction": "فكّر في الفرق أو الافتراض الذي يغيّر الإجابة.",
+      "takeaway": "قد يضاعف الربط الصفوف، فيرتفع مجموع القيم دون زيادة حقيقية في البيانات الأصلية.",
+      "caveat": "راجع تعدد المطابقات قبل اعتبار الزيادة نتيجة صحيحة.",
+      "language": "ar",
+      "scenarioBasis": "hypothetical teaching prompt",
+      "reviewStatus": "draft",
+      "sourceReviewed": true,
+      "scientificallyVerified": false,
+      "publicationApproved": false,
+      "reviewBlockers": [
+        "Independent domain/editorial review pending"
+      ],
+      "source": {
+        "key": "sql:0:canonical:3cd3906c5d6c810c9e01e8ca9ac89172",
+        "path": "content/sql/vault.json",
+        "pointer": "/pages/0",
+        "sha256": "ac2f7ecac73f0a48c3dc16deb5a10263a2838cfee828b16a2113a8c089a66ffb"
+      },
+      "lessonHref": "/learn/sql/00/"
+    },
+    {
+      "id": "hansa-bank-003",
+      "subject": "sql",
+      "topic": "aggregation",
+      "title": "COUNT لا يجيب دائمًا عن السؤال نفسه",
+      "scenario": "هل COUNT(*) وCOUNT(column) يعدان الشيء نفسه؟",
+      "prediction": "فكّر في الفرق أو الافتراض الذي يغيّر الإجابة.",
+      "takeaway": "COUNT(*) يعد الصفوف؛ COUNT(expression) يتجاهل التعبيرات التي نتيجتها NULL.",
+      "caveat": "اختلاف العدد قد يعكس قيمًا مفقودة، وليس صفوفًا مفقودة.",
+      "language": "ar",
+      "scenarioBasis": "hypothetical teaching prompt",
+      "reviewStatus": "draft",
+      "sourceReviewed": true,
+      "scientificallyVerified": false,
+      "publicationApproved": false,
+      "reviewBlockers": [
+        "Independent domain/editorial review pending"
+      ],
+      "source": {
+        "key": "sql:0:canonical:3cd3906c5d6c810c9e01e8ca9ac89172",
+        "path": "content/sql/vault.json",
+        "pointer": "/pages/0",
+        "sha256": "ac2f7ecac73f0a48c3dc16deb5a10263a2838cfee828b16a2113a8c089a66ffb"
+      },
+      "lessonHref": "/learn/sql/00/"
+    },
+    {
+      "id": "hansa-bank-004",
+      "subject": "sql",
+      "topic": "aggregation",
+      "title": "الصفر يغير المتوسط",
+      "scenario": "تستخدم CASE لحساب متوسط فئة محددة؛ ماذا يفعل ELSE 0؟",
+      "prediction": "فكّر في الفرق أو الافتراض الذي يغيّر الإجابة.",
+      "takeaway": "إدخال صفر لصفوف خارج الفئة قد يغير المتوسط والمقام بدل استبعاد تلك الصفوف.",
+      "caveat": "اختر الصفر أو الاستبعاد بحسب تعريف المؤشر، لا بحسب شكل الكود.",
+      "language": "ar",
+      "scenarioBasis": "hypothetical teaching prompt",
+      "reviewStatus": "draft",
+      "sourceReviewed": true,
+      "scientificallyVerified": false,
+      "publicationApproved": false,
+      "reviewBlockers": [
+        "Independent domain/editorial review pending"
+      ],
+      "source": {
+        "key": "sql:0:canonical:3cd3906c5d6c810c9e01e8ca9ac89172",
+        "path": "content/sql/vault.json",
+        "pointer": "/pages/0",
+        "sha256": "ac2f7ecac73f0a48c3dc16deb5a10263a2838cfee828b16a2113a8c089a66ffb"
+      },
+      "lessonHref": "/learn/sql/00/"
+    },
+    {
+      "id": "hansa-bank-005",
+      "subject": "sql",
+      "topic": "windows",
+      "title": "احتفظ بالتفاصيل عند الحاجة",
+      "scenario": "تريد إجمالي المجموعة بجوار كل صف تفصيلي؛ ما نوع النتيجة المطلوب؟",
+      "prediction": "فكّر في الفرق أو الافتراض الذي يغيّر الإجابة.",
+      "takeaway": "Window functions تسمح بإضافة قيمة تحليلية مع الاحتفاظ بصفوف التفاصيل.",
+      "caveat": "GROUP BY ينتج صفًا لكل مجموعة؛ حدّد شكل النتيجة أولًا.",
+      "language": "ar",
+      "scenarioBasis": "hypothetical teaching prompt",
+      "reviewStatus": "draft",
+      "sourceReviewed": true,
+      "scientificallyVerified": false,
+      "publicationApproved": false,
+      "reviewBlockers": [
+        "Independent domain/editorial review pending"
+      ],
+      "source": {
+        "key": "sql:0:canonical:3cd3906c5d6c810c9e01e8ca9ac89172",
+        "path": "content/sql/vault.json",
+        "pointer": "/pages/0",
+        "sha256": "ac2f7ecac73f0a48c3dc16deb5a10263a2838cfee828b16a2113a8c089a66ffb"
+      },
+      "lessonHref": "/learn/sql/00/"
+    },
+    {
+      "id": "hansa-bank-006",
+      "subject": "sql",
+      "topic": "subqueries",
+      "title": "وجود المطابقة سؤال مستقل",
+      "scenario": "تحتاج معرفة هل توجد صفوف مرتبطة، دون إضافة أعمدتها؛ بماذا تبدأ؟",
+      "prediction": "فكّر في الفرق أو الافتراض الذي يغيّر الإجابة.",
+      "takeaway": "EXISTS مرشح عندما يكون المطلوب التحقق من وجود صفوف مرتبطة.",
+      "caveat": "هذا اختيار بحسب معنى السؤال، وليس ضمانًا بأنه الأسرع في كل استعلام.",
+      "language": "ar",
+      "scenarioBasis": "hypothetical teaching prompt",
+      "reviewStatus": "draft",
+      "sourceReviewed": true,
+      "scientificallyVerified": false,
+      "publicationApproved": false,
+      "reviewBlockers": [
+        "Independent domain/editorial review pending"
+      ],
+      "source": {
+        "key": "sql:0:canonical:3cd3906c5d6c810c9e01e8ca9ac89172",
+        "path": "content/sql/vault.json",
+        "pointer": "/pages/0",
+        "sha256": "ac2f7ecac73f0a48c3dc16deb5a10263a2838cfee828b16a2113a8c089a66ffb"
+      },
+      "lessonHref": "/learn/sql/00/"
+    },
+    {
+      "id": "hansa-bank-007",
+      "subject": "sql",
+      "topic": "aggregation",
+      "title": "متوسط المتوسطات ليس المتوسط العام",
+      "scenario": "قارنت متوسط الصفوف بمتوسط نتائج مجموعات؛ هل يلزم أن يتساويا؟",
+      "prediction": "فكّر في الفرق أو الافتراض الذي يغيّر الإجابة.",
+      "takeaway": "متوسط البيانات الخام ليس بالضرورة متوسط المتوسطات المحسوبة للمجموعات.",
+      "caveat": "راجع وزن كل مجموعة والمقام المستخدم.",
+      "language": "ar",
+      "scenarioBasis": "hypothetical teaching prompt",
+      "reviewStatus": "draft",
+      "sourceReviewed": true,
+      "scientificallyVerified": false,
+      "publicationApproved": false,
+      "reviewBlockers": [
+        "Independent domain/editorial review pending"
+      ],
+      "source": {
+        "key": "sql:0:canonical:3cd3906c5d6c810c9e01e8ca9ac89172",
+        "path": "content/sql/vault.json",
+        "pointer": "/pages/0",
+        "sha256": "ac2f7ecac73f0a48c3dc16deb5a10263a2838cfee828b16a2113a8c089a66ffb"
+      },
+      "lessonHref": "/learn/sql/00/"
+    },
+    {
+      "id": "hansa-bank-008",
+      "subject": "sql",
+      "topic": "quality",
+      "title": "راجع المقام قبل النسبة",
+      "scenario": "نسبة تبدو صحيحة حسابيًا؛ ما السؤال الذي يسبق اعتمادها؟",
+      "prediction": "فكّر في الفرق أو الافتراض الذي يغيّر الإجابة.",
+      "takeaway": "حدّد الصفوف الداخلة في الحساب والمستبعدة ومعنى المقام والقيم التي تصبح NULL.",
+      "caveat": "صحة عملية القسمة لا تثبت صحة تعريف المجتمع المحسوب.",
+      "language": "ar",
+      "scenarioBasis": "hypothetical teaching prompt",
+      "reviewStatus": "draft",
+      "sourceReviewed": true,
+      "scientificallyVerified": false,
+      "publicationApproved": false,
+      "reviewBlockers": [
+        "Independent domain/editorial review pending"
+      ],
+      "source": {
+        "key": "sql:0:canonical:3cd3906c5d6c810c9e01e8ca9ac89172",
+        "path": "content/sql/vault.json",
+        "pointer": "/pages/0",
+        "sha256": "ac2f7ecac73f0a48c3dc16deb5a10263a2838cfee828b16a2113a8c089a66ffb"
+      },
+      "lessonHref": "/learn/sql/00/"
+    },
+    {
+      "id": "hansa-bank-009",
+      "subject": "statistics",
+      "topic": "foundations",
+      "title": "العينة ليست المجتمع",
+      "scenario": "هل الرقم الذي حسبته يصف العينة أم المجتمع كله؟",
+      "prediction": "فكّر في الفرق أو الافتراض الذي يغيّر الإجابة.",
+      "takeaway": "Statistic قيمة محسوبة من العينة؛ Parameter قيمة تصف المجتمع.",
+      "caveat": "الانتقال من وصف العينة إلى استنتاج عن المجتمع يحتاج استدلالًا.",
+      "language": "ar",
+      "scenarioBasis": "hypothetical teaching prompt",
+      "reviewStatus": "draft",
+      "sourceReviewed": true,
+      "scientificallyVerified": false,
+      "publicationApproved": false,
+      "reviewBlockers": [
+        "Independent domain/editorial review pending"
+      ],
+      "source": {
+        "key": "stats:s1",
+        "path": "content/statistics/source.json",
+        "pointer": "/sections/0",
+        "sha256": "33169b9de01b7d3a2d3f8d15f3eb307e771419ddc02ebc6f9eb2b0d71480ea54"
+      },
+      "lessonHref": null
+    },
+    {
+      "id": "hansa-bank-010",
+      "subject": "statistics",
+      "topic": "foundations",
+      "title": "نوع البيانات يسبق التحليل",
+      "scenario": "هل اختيار الرسم أو الاختبار يبدأ من شكله؟",
+      "prediction": "فكّر في الفرق أو الافتراض الذي يغيّر الإجابة.",
+      "takeaway": "نوع البيانات يؤثر في التحليلات والرسوم والاختبارات الملائمة لها.",
+      "caveat": "ميّز القيم العددية ذات المعنى الحسابي عن الفئات والتصنيفات.",
+      "language": "ar",
+      "scenarioBasis": "hypothetical teaching prompt",
+      "reviewStatus": "draft",
+      "sourceReviewed": true,
+      "scientificallyVerified": false,
+      "publicationApproved": false,
+      "reviewBlockers": [
+        "Independent domain/editorial review pending"
+      ],
+      "source": {
+        "key": "stats:s2",
+        "path": "content/statistics/source.json",
+        "pointer": "/sections/1",
+        "sha256": "648e58b27a3cb8db427fec09dfd1e87cc74c198e445f3e9cc0ec359f600ad970"
+      },
+      "lessonHref": null
+    },
+    {
+      "id": "hansa-bank-011",
+      "subject": "statistics",
+      "topic": "foundations",
+      "title": "الوصف والاستدلال سؤالان مختلفان",
+      "scenario": "تلخص بياناتك ثم تعمم على المجتمع؛ هل ما زلت تصف فقط؟",
+      "prediction": "فكّر في الفرق أو الافتراض الذي يغيّر الإجابة.",
+      "takeaway": "الإحصاء الوصفي يلخص البيانات الموجودة؛ الاستدلالي يستنتج عن المجتمع من عينة.",
+      "caveat": "لا تمنح الملخص الوصفي وحده قوة تعميم لم يختبرها.",
+      "language": "ar",
+      "scenarioBasis": "hypothetical teaching prompt",
+      "reviewStatus": "draft",
+      "sourceReviewed": true,
+      "scientificallyVerified": false,
+      "publicationApproved": false,
+      "reviewBlockers": [
+        "Independent domain/editorial review pending"
+      ],
+      "source": {
+        "key": "stats:s3",
+        "path": "content/statistics/source.json",
+        "pointer": "/sections/2",
+        "sha256": "9f38b94c8a85538475706c2a09f8bcdacccee0c26dd44599ff42ea8b33af236a"
+      },
+      "lessonHref": null
+    },
+    {
+      "id": "hansa-bank-012",
+      "subject": "statistics",
+      "topic": "describe",
+      "title": "القيمة المتطرفة تغيّر المتوسط",
+      "scenario": "توجد قيم متطرفة؛ هل يكفي المتوسط لتمثيل القيمة النموذجية؟",
+      "prediction": "فكّر في الفرق أو الافتراض الذي يغيّر الإجابة.",
+      "takeaway": "المتوسط يتأثر بالقيم المتطرفة؛ الوسيط أكثر مقاومة لها.",
+      "caveat": "هذا لا يجعل الوسيط أفضل تلقائيًا لكل سؤال.",
+      "language": "ar",
+      "scenarioBasis": "hypothetical teaching prompt",
+      "reviewStatus": "draft",
+      "sourceReviewed": true,
+      "scientificallyVerified": false,
+      "publicationApproved": false,
+      "reviewBlockers": [
+        "Independent domain/editorial review pending"
+      ],
+      "source": {
+        "key": "stats:s4",
+        "path": "content/statistics/source.json",
+        "pointer": "/sections/3",
+        "sha256": "d731d30c490d5b44c297fe91b1ac067a3f4acb64fae8309ba9f5bb0e2af682f5"
+      },
+      "lessonHref": null
+    },
+    {
+      "id": "hansa-bank-013",
+      "subject": "statistics",
+      "topic": "describe",
+      "title": "المركز لا يصف الانتشار",
+      "scenario": "مجموعتان لهما مركز متقارب؛ ما الذي تضيفه مقاييس التشتت؟",
+      "prediction": "فكّر في الفرق أو الافتراض الذي يغيّر الإجابة.",
+      "takeaway": "مقاييس التشتت تصف مدى انتشار القيم؛ IQR يصف انتشار النصف الأوسط من البيانات.",
+      "caveat": "اختيار مقياس المركز لا يغني عن فحص التشتت.",
+      "language": "ar",
+      "scenarioBasis": "hypothetical teaching prompt",
+      "reviewStatus": "draft",
+      "sourceReviewed": true,
+      "scientificallyVerified": false,
+      "publicationApproved": false,
+      "reviewBlockers": [
+        "Independent domain/editorial review pending"
+      ],
+      "source": {
+        "key": "stats:s5",
+        "path": "content/statistics/source.json",
+        "pointer": "/sections/4",
+        "sha256": "cbab935cf8a4c7fc4ea207babb4e3befbcbe50f43746aa6d39fc01ac95174bdf"
+      },
+      "lessonHref": null
+    },
+    {
+      "id": "hansa-bank-014",
+      "subject": "statistics",
+      "topic": "sampling",
+      "title": "SD وSE يصفان شيئين مختلفين",
+      "scenario": "هل تشتت القيم هو نفسه تشتت متوسط العينة عبر عينات متكررة؟",
+      "prediction": "فكّر في الفرق أو الافتراض الذي يغيّر الإجابة.",
+      "takeaway": "SD يصف تشتت البيانات، بينما SE يصف تشتت إحصائية العينة عبر العينات المتكررة.",
+      "caveat": "لا تستخدم أحدهما مكان الآخر لمجرد أن كليهما يقيس تشتتًا.",
+      "language": "ar",
+      "scenarioBasis": "hypothetical teaching prompt",
+      "reviewStatus": "draft",
+      "sourceReviewed": true,
+      "scientificallyVerified": false,
+      "publicationApproved": false,
+      "reviewBlockers": [
+        "Independent domain/editorial review pending"
+      ],
+      "source": {
+        "key": "stats:s5",
+        "path": "content/statistics/source.json",
+        "pointer": "/sections/4",
+        "sha256": "cbab935cf8a4c7fc4ea207babb4e3befbcbe50f43746aa6d39fc01ac95174bdf"
+      },
+      "lessonHref": null
+    },
+    {
+      "id": "hansa-bank-015",
+      "subject": "statistics",
+      "topic": "probability",
+      "title": "الاستقلال ليس التنافي",
+      "scenario": "حدثان لا يقعان معًا؛ هل هذا هو تعريف الاستقلال؟",
+      "prediction": "فكّر في الفرق أو الافتراض الذي يغيّر الإجابة.",
+      "takeaway": "التنافي يعني عدم إمكان وقوع الحدثين معًا؛ الاستقلال يعني أن معرفة أحدهما لا تغير احتمال الآخر.",
+      "caveat": "هما مفهومان مختلفان، فلا تستبدل أحد التعريفين بالآخر.",
+      "language": "ar",
+      "scenarioBasis": "hypothetical teaching prompt",
+      "reviewStatus": "draft",
+      "sourceReviewed": true,
+      "scientificallyVerified": false,
+      "publicationApproved": false,
+      "reviewBlockers": [
+        "Independent domain/editorial review pending"
+      ],
+      "source": {
+        "key": "stats:s6",
+        "path": "content/statistics/source.json",
+        "pointer": "/sections/5",
+        "sha256": "29e0ccace1b378daf292ce1da6a0fdaeb96e3425909911a07a43d3d5d90a9d8d"
+      },
+      "lessonHref": null
+    },
+    {
+      "id": "hansa-bank-016",
+      "subject": "statistics",
+      "topic": "distributions",
+      "title": "الاحتمال مساحة في التوزيع المستمر",
+      "scenario": "كيف تقرأ احتمال وقوع قيمة بين حدين؟",
+      "prediction": "فكّر في الفرق أو الافتراض الذي يغيّر الإجابة.",
+      "takeaway": "في التوزيع المستمر، احتمال الفترة هو المساحة تحت المنحنى بين حديها.",
+      "caveat": "احتمال نقطة واحدة بالضبط يساوي صفرًا في التوزيع المستمر.",
+      "language": "ar",
+      "scenarioBasis": "hypothetical teaching prompt",
+      "reviewStatus": "draft",
+      "sourceReviewed": true,
+      "scientificallyVerified": false,
+      "publicationApproved": false,
+      "reviewBlockers": [
+        "Independent domain/editorial review pending"
+      ],
+      "source": {
+        "key": "stats:s7",
+        "path": "content/statistics/source.json",
+        "pointer": "/sections/6",
+        "sha256": "280e231829568a92572400811130da54292dfdb9bdf86555c13e71a31e58d137"
+      },
+      "lessonHref": null
+    },
+    {
+      "id": "hansa-bank-017",
+      "subject": "statistics",
+      "topic": "distributions",
+      "title": "Binomial له شروط",
+      "scenario": "هل كل عدّ للنجاحات يناسب التوزيع الثنائي؟",
+      "prediction": "فكّر في الفرق أو الافتراض الذي يغيّر الإجابة.",
+      "takeaway": "يتطلب النموذج عددًا ثابتًا من التجارب المستقلة، نتيجتين لكل تجربة، واحتمال نجاح ثابتًا.",
+      "caveat": "تحقق من الشروط قبل اختيار النموذج.",
+      "language": "ar",
+      "scenarioBasis": "hypothetical teaching prompt",
+      "reviewStatus": "draft",
+      "sourceReviewed": true,
+      "scientificallyVerified": false,
+      "publicationApproved": false,
+      "reviewBlockers": [
+        "Independent domain/editorial review pending"
+      ],
+      "source": {
+        "key": "stats:s8",
+        "path": "content/statistics/source.json",
+        "pointer": "/sections/7",
+        "sha256": "efe4b254598cfd611b49a3996c4b802583bf20983645e3f6b7c55db90f2b6ce9"
+      },
+      "lessonHref": null
+    },
+    {
+      "id": "hansa-bank-018",
+      "subject": "statistics",
+      "topic": "experiments",
+      "title": "العشوائية تساعد المقارنة",
+      "scenario": "لماذا لا نوزع المشاركين على المجموعات حسب خصائصهم؟",
+      "prediction": "فكّر في الفرق أو الافتراض الذي يغيّر الإجابة.",
+      "takeaway": "التوزيع العشوائي يساعد على جعل المجموعات قابلة للمقارنة وتقليل التحيز والعوامل المربكة.",
+      "caveat": "المقصود توزيع المشاركين على المعالجة والضبط.",
+      "language": "ar",
+      "scenarioBasis": "hypothetical teaching prompt",
+      "reviewStatus": "draft",
+      "sourceReviewed": true,
+      "scientificallyVerified": false,
+      "publicationApproved": false,
+      "reviewBlockers": [
+        "Independent domain/editorial review pending"
+      ],
+      "source": {
+        "key": "stats:s26",
+        "path": "content/statistics/source.json",
+        "pointer": "/sections/25",
+        "sha256": "ed78ccf215894bfac936fca78b0227a267259c2c744788304f0dc9e0a961e88b"
+      },
+      "lessonHref": null
+    },
+    {
+      "id": "hansa-bank-019",
+      "subject": "statistics",
+      "topic": "relationships",
+      "title": "Pearson يقيس العلاقة الخطية",
+      "scenario": "قيمة r قريبة من صفر؛ هل انتهى فحص العلاقة؟",
+      "prediction": "فكّر في الفرق أو الافتراض الذي يغيّر الإجابة.",
+      "takeaway": "معامل Pearson يقيس قوة العلاقة الخطية واتجاهها.",
+      "caveat": "ضعف العلاقة الخطية لا يستبعد علاقة غير خطية.",
+      "language": "ar",
+      "scenarioBasis": "hypothetical teaching prompt",
+      "reviewStatus": "draft",
+      "sourceReviewed": true,
+      "scientificallyVerified": false,
+      "publicationApproved": false,
+      "reviewBlockers": [
+        "Independent domain/editorial review pending"
+      ],
+      "source": {
+        "key": "stats:s30",
+        "path": "content/statistics/source.json",
+        "pointer": "/sections/29",
+        "sha256": "312baa42d3085c71c52c40572f90a0e36ad05c64d255e46f01b76c3f2cf754b2"
+      },
+      "lessonHref": null
+    },
+    {
+      "id": "hansa-bank-020",
+      "subject": "statistics",
+      "topic": "hypothesis",
+      "title": "عدم الرفض ليس إثباتًا",
+      "scenario": "لم ترفض فرضية العدم؛ ما الذي لا يصح أن تقوله؟",
+      "prediction": "فكّر في الفرق أو الافتراض الذي يغيّر الإجابة.",
+      "takeaway": "Fail to Reject لا تعني إثبات صحة فرضية العدم.",
+      "caveat": "لا تفسر p-value على أنها احتمال صحة فرضية العدم.",
+      "language": "ar",
+      "scenarioBasis": "hypothetical teaching prompt",
+      "reviewStatus": "draft",
+      "sourceReviewed": true,
+      "scientificallyVerified": false,
+      "publicationApproved": false,
+      "reviewBlockers": [
+        "Independent domain/editorial review pending"
+      ],
+      "source": {
+        "key": "stats:s39",
+        "path": "content/statistics/source.json",
+        "pointer": "/sections/38",
+        "sha256": "f7496226d04d3b19bf2ce1b074c5211e7e69f2d582b1bc59853d1bba2d547cae"
+      },
+      "lessonHref": null
+    },
+    {
+      "id": "hansa-bank-021",
+      "subject": "statistics",
+      "topic": "hypothesis",
+      "title": "الدلالة ليست الأهمية العملية",
+      "scenario": "ظهرت نتيجة ذات دلالة إحصائية؛ هل هذا كاف لاتخاذ قرار؟",
+      "prediction": "فكّر في الفرق أو الافتراض الذي يغيّر الإجابة.",
+      "takeaway": "الدلالة الإحصائية تختلف عن الأهمية العملية.",
+      "caveat": "لا تجعل وصف النتيجة بالدلالة بديلًا عن تقييم فائدتها العملية.",
+      "language": "ar",
+      "scenarioBasis": "hypothetical teaching prompt",
+      "reviewStatus": "draft",
+      "sourceReviewed": true,
+      "scientificallyVerified": false,
+      "publicationApproved": false,
+      "reviewBlockers": [
+        "Independent domain/editorial review pending"
+      ],
+      "source": {
+        "key": "stats:s39",
+        "path": "content/statistics/source.json",
+        "pointer": "/sections/38",
+        "sha256": "f7496226d04d3b19bf2ce1b074c5211e7e69f2d582b1bc59853d1bba2d547cae"
+      },
+      "lessonHref": null
+    },
+    {
+      "id": "hansa-bank-022",
+      "subject": "visualization",
+      "topic": "accessibility",
+      "title": "لا تجعل اللون يحمل المعنى وحده",
+      "scenario": "لو اختفى اختلاف الأحمر والأخضر، هل تظل الحالة مفهومة؟",
+      "prediction": "فكّر في الفرق أو الافتراض الذي يغيّر الإجابة.",
+      "takeaway": "أضف تسمية أو شكلًا أو موضعًا مناسبًا حتى لا يعتمد المعنى على اللون وحده.",
+      "caveat": "اختبار التدرج الرمادي جزء من المراجعة، وليس تدقيق إتاحة كاملًا.",
+      "language": "ar",
+      "scenarioBasis": "hypothetical teaching prompt",
+      "reviewStatus": "draft",
+      "sourceReviewed": true,
+      "scientificallyVerified": false,
+      "publicationApproved": false,
+      "reviewBlockers": [
+        "Independent domain/editorial review pending"
+      ],
+      "source": {
+        "key": "viz:accessibility-color-qa",
+        "path": "content/data-viz/pages.json",
+        "pointer": "/0",
+        "sha256": "db53e6bae257f9bfbde02b1f17b09ad3d5023b391b8c21cffe12e548e963fe66"
+      },
+      "lessonHref": null
+    },
+    {
+      "id": "hansa-bank-023",
+      "subject": "visualization",
+      "topic": "accessibility",
+      "title": "منتصف لوحة الألوان له معنى",
+      "scenario": "تختار لوحة Diverging؛ ماذا يمثل المنتصف؟",
+      "prediction": "فكّر في الفرق أو الافتراض الذي يغيّر الإجابة.",
+      "takeaway": "اللوحة المتباعدة تناسب قيمًا حول منتصف ذي معنى تحليلي.",
+      "caveat": "وجود لونين جميلين لا يكفي لتبرير الاختيار.",
+      "language": "ar",
+      "scenarioBasis": "hypothetical teaching prompt",
+      "reviewStatus": "draft",
+      "sourceReviewed": true,
+      "scientificallyVerified": false,
+      "publicationApproved": false,
+      "reviewBlockers": [
+        "Independent domain/editorial review pending"
+      ],
+      "source": {
+        "key": "viz:accessibility-color-qa",
+        "path": "content/data-viz/pages.json",
+        "pointer": "/0",
+        "sha256": "db53e6bae257f9bfbde02b1f17b09ad3d5023b391b8c21cffe12e548e963fe66"
+      },
+      "lessonHref": null
+    },
+    {
+      "id": "hansa-bank-024",
+      "subject": "visualization",
+      "topic": "accessibility",
+      "title": "الفئات غير المرتبة ليست تدرجًا",
+      "scenario": "هل كل اختلاف بين الفئات يعني انتقالًا من منخفض إلى مرتفع؟",
+      "prediction": "فكّر في الفرق أو الافتراض الذي يغيّر الإجابة.",
+      "takeaway": "Qualitative للفئات غير المرتبة؛ Sequential للتدرج من منخفض إلى مرتفع.",
+      "caveat": "طابق دلالة اللون مع معنى البيانات.",
+      "language": "ar",
+      "scenarioBasis": "hypothetical teaching prompt",
+      "reviewStatus": "draft",
+      "sourceReviewed": true,
+      "scientificallyVerified": false,
+      "publicationApproved": false,
+      "reviewBlockers": [
+        "Independent domain/editorial review pending"
+      ],
+      "source": {
+        "key": "viz:accessibility-color-qa",
+        "path": "content/data-viz/pages.json",
+        "pointer": "/0",
+        "sha256": "db53e6bae257f9bfbde02b1f17b09ad3d5023b391b8c21cffe12e548e963fe66"
+      },
+      "lessonHref": null
+    },
+    {
+      "id": "hansa-bank-025",
+      "subject": "python",
+      "topic": "overview",
+      "title": "التجميع يغير شكل النتيجة",
+      "scenario": "ماذا يضيف sum بعد groupby للمنطقة؟",
+      "prediction": "فكّر في الفرق أو الافتراض الذي يغيّر الإجابة.",
+      "takeaway": "يجمع قيم المبيعات داخل كل منطقة، بدل إرجاع إجمالي واحد لكل الجدول.",
+      "caveat": "راجع مستوى التفصيل المطلوب بعد التجميع.",
+      "language": "ar",
+      "scenarioBasis": "hypothetical teaching prompt",
+      "reviewStatus": "draft",
+      "sourceReviewed": true,
+      "scientificallyVerified": false,
+      "publicationApproved": false,
+      "reviewBlockers": [
+        "Question explanation requires independent domain review"
+      ],
+      "source": {
+        "key": "question:py-01",
+        "path": "content/exams/python.json",
+        "pointer": "/questions/0",
+        "sha256": "210cd103dee93dd41b8e0df319d959ef406a60def9e49d7dae1dc06cff0114c4"
+      },
+      "lessonHref": "/lab/python/?question=py-01"
+    },
+    {
+      "id": "hansa-bank-026",
+      "subject": "python",
+      "topic": "overview",
+      "title": "التسمية ليست الموضع",
+      "scenario": "هل الرقم داخل loc يعني موضع الصف؟",
+      "prediction": "فكّر في الفرق أو الافتراض الذي يغيّر الإجابة.",
+      "takeaway": "loc يختار بالتسميات؛ iloc يختار بالمواضع الصحيحة التي تبدأ من صفر.",
+      "caveat": "لا تخلط تسمية رقمية للصف مع موضعه.",
+      "language": "ar",
+      "scenarioBasis": "hypothetical teaching prompt",
+      "reviewStatus": "draft",
+      "sourceReviewed": true,
+      "scientificallyVerified": false,
+      "publicationApproved": false,
+      "reviewBlockers": [
+        "Question explanation requires independent domain review"
+      ],
+      "source": {
+        "key": "question:py-04",
+        "path": "content/exams/python.json",
+        "pointer": "/questions/3",
+        "sha256": "59b99dfb12e2d6be927427dddc29f891544745b265ff685da505b18e90d8b2b1"
+      },
+      "lessonHref": "/lab/python/?question=py-04"
+    },
+    {
+      "id": "hansa-bank-027",
+      "subject": "python",
+      "topic": "overview",
+      "title": "تحويل النوع ليس تنظيفًا",
+      "scenario": "هل astype(float) يحذف النصوص غير الصالحة تلقائيًا؟",
+      "prediction": "فكّر في الفرق أو الافتراض الذي يغيّر الإجابة.",
+      "takeaway": "astype يحول نوع البيانات؛ النصوص غير القابلة للتحويل تحتاج معالجة.",
+      "caveat": "لا تفترض أن التحويل يزيل الصفوف غير الرقمية.",
+      "language": "ar",
+      "scenarioBasis": "hypothetical teaching prompt",
+      "reviewStatus": "draft",
+      "sourceReviewed": true,
+      "scientificallyVerified": false,
+      "publicationApproved": false,
+      "reviewBlockers": [
+        "Question explanation requires independent domain review"
+      ],
+      "source": {
+        "key": "question:py-08",
+        "path": "content/exams/python.json",
+        "pointer": "/questions/7",
+        "sha256": "2be1f0ea5dfb888633eb8a4303f22132d48e977a102f0b162d5ce263925b2773"
+      },
+      "lessonHref": "/lab/python/?question=py-08"
+    },
+    {
+      "id": "hansa-bank-028",
+      "subject": "excel",
+      "topic": "overview",
+      "title": "ثبّت المرجع المقصود",
+      "scenario": "تنسخ معادلة وتريد بقاء المرجع إلى A1؛ ماذا تعني علامات الدولار؟",
+      "prediction": "فكّر في الفرق أو الافتراض الذي يغيّر الإجابة.",
+      "takeaway": "$A$1 يثبت الصف والعمود عند نسخ المعادلة.",
+      "caveat": "هذا وصف للنسخ، لا ضمان لكل أنواع تعديل بنية الورقة.",
+      "language": "ar",
+      "scenarioBasis": "hypothetical teaching prompt",
+      "reviewStatus": "draft",
+      "sourceReviewed": true,
+      "scientificallyVerified": false,
+      "publicationApproved": false,
+      "reviewBlockers": [
+        "Question explanation requires independent domain review"
+      ],
+      "source": {
+        "key": "question:xl-02",
+        "path": "content/exams/excel.json",
+        "pointer": "/questions/1",
+        "sha256": "e9a91ac36c7a849f4c1d47648a984682ec00c009c9cfa2c68643725ea1c73703"
+      },
+      "lessonHref": "/lab/excel/?question=xl-02"
+    },
+    {
+      "id": "hansa-bank-029",
+      "subject": "excel",
+      "topic": "overview",
+      "title": "التلخيص لا ينظف الأصل",
+      "scenario": "هل PivotTable يحذف سجلات المصدر غير الصالحة؟",
+      "prediction": "فكّر في الفرق أو الافتراض الذي يغيّر الإجابة.",
+      "takeaway": "PivotTable يلخص البيانات ويرشحها ويحدث عرضه من المصدر؛ لا يحذف السجلات الأصلية لتنظيفها.",
+      "caveat": "تنظيف المصدر مهمة منفصلة.",
+      "language": "ar",
+      "scenarioBasis": "hypothetical teaching prompt",
+      "reviewStatus": "draft",
+      "sourceReviewed": true,
+      "scientificallyVerified": false,
+      "publicationApproved": false,
+      "reviewBlockers": [
+        "Question explanation requires independent domain review"
+      ],
+      "source": {
+        "key": "question:xl-03",
+        "path": "content/exams/excel.json",
+        "pointer": "/questions/2",
+        "sha256": "a9288089277cc4da5c7a1aca6764c9e2c1ae6312f8e3ea7c1b500331a7e4af7a"
+      },
+      "lessonHref": "/lab/excel/?question=xl-03"
+    },
+    {
+      "id": "hansa-bank-030",
+      "subject": "excel",
+      "topic": "overview",
+      "title": "شكل الجدول يؤثر في التحليل",
+      "scenario": "ما الذي يجعل نطاق البيانات أسهل للتحليل الموثوق؟",
+      "prediction": "فكّر في الفرق أو الافتراض الذي يغيّر الإجابة.",
+      "takeaway": "صف عناوين واحد بأسماء فريدة، وجدول منظم، وعدم دمج خلايا داخل البيانات.",
+      "caveat": "الصفوف الفارغة للفصل قد تقطع النطاقات والفرز.",
+      "language": "ar",
+      "scenarioBasis": "hypothetical teaching prompt",
+      "reviewStatus": "draft",
+      "sourceReviewed": true,
+      "scientificallyVerified": false,
+      "publicationApproved": false,
+      "reviewBlockers": [
+        "Question explanation requires independent domain review"
+      ],
+      "source": {
+        "key": "question:xl-09",
+        "path": "content/exams/excel.json",
+        "pointer": "/questions/8",
+        "sha256": "67caffbfce488b277f7ac9ea17e0e8f8c99ed5160f6263a69bbf6c7ab65104cf"
+      },
+      "lessonHref": "/lab/excel/?question=xl-09"
+    },
+    {
+      "id": "hansa-bank-031",
+      "subject": "analysis",
+      "topic": "overview",
+      "title": "المؤشر يحتاج قرارًا",
+      "scenario": "جمعت رقمًا بسهولة؛ هل يكفي ذلك ليصبح KPI؟",
+      "prediction": "فكّر في الفرق أو الافتراض الذي يغيّر الإجابة.",
+      "takeaway": "المؤشر الجيد يرتبط بهدف، ويمكن قياسه، ويقود إلى فعل.",
+      "caveat": "سهولة جمع الرقم وحدها ليست سببًا كافيًا لاختياره.",
+      "language": "ar",
+      "scenarioBasis": "hypothetical teaching prompt",
+      "reviewStatus": "draft",
+      "sourceReviewed": true,
+      "scientificallyVerified": false,
+      "publicationApproved": false,
+      "reviewBlockers": [
+        "Question explanation requires independent domain review"
+      ],
+      "source": {
+        "key": "question:fun-04",
+        "path": "content/exams/fundamentals.json",
+        "pointer": "/questions/3",
+        "sha256": "962df318d7276a9b8409bec7d8e1427fac12441668637b9fc516ffaddacc8271"
+      },
+      "lessonHref": "/lab/fundamentals/?question=fun-04"
+    },
+    {
+      "id": "hansa-bank-032",
+      "subject": "analysis",
+      "topic": "overview",
+      "title": "الدقة الظاهرية ليست صحة",
+      "scenario": "هل إضافة منازل عشرية تجعل المؤشر أكثر مصداقية؟",
+      "prediction": "فكّر في الفرق أو الافتراض الذي يغيّر الإجابة.",
+      "takeaway": "عدد المنازل العشرية لا يثبت صحة القياس؛ اختر دقة تخدم القرار.",
+      "caveat": "لا تستخدم التنسيق لإخفاء عدم اليقين في البيانات.",
+      "language": "ar",
+      "scenarioBasis": "hypothetical teaching prompt",
+      "reviewStatus": "draft",
+      "sourceReviewed": true,
+      "scientificallyVerified": false,
+      "publicationApproved": false,
+      "reviewBlockers": [
+        "Question explanation requires independent domain review"
+      ],
+      "source": {
+        "key": "question:fun-06",
+        "path": "content/exams/fundamentals.json",
+        "pointer": "/questions/5",
+        "sha256": "304dae46720ee31ea360c9c4e2803a03a2199e572cdb363ba38754e99e37ff54"
+      },
+      "lessonHref": "/lab/fundamentals/?question=fun-06"
+    },
+    {
+      "id": "hansa-bank-033",
+      "subject": "analysis",
+      "topic": "overview",
+      "title": "جودة البيانات أكثر من شكلها",
+      "scenario": "تبدو البيانات مرتبة؛ ماذا يجب فحصه؟",
+      "prediction": "فكّر في الفرق أو الافتراض الذي يغيّر الإجابة.",
+      "takeaway": "تشمل جودة البيانات الدقة والاكتمال والحداثة والاتساق والصلاحية والتفرد.",
+      "caveat": "جمال الألوان ليس بُعدًا لجودة البيانات.",
+      "language": "ar",
+      "scenarioBasis": "hypothetical teaching prompt",
+      "reviewStatus": "draft",
+      "sourceReviewed": true,
+      "scientificallyVerified": false,
+      "publicationApproved": false,
+      "reviewBlockers": [
+        "Question explanation requires independent domain review"
+      ],
+      "source": {
+        "key": "question:fun-02",
+        "path": "content/exams/fundamentals.json",
+        "pointer": "/questions/1",
+        "sha256": "3cb350b260d57753d999e017505e5b1aca79d0fff207661d22efcb70c8b36624"
+      },
+      "lessonHref": "/lab/fundamentals/?question=fun-02"
+    },
+    {
+      "id": "hansa-bank-034",
+      "subject": "power-bi",
+      "topic": "model",
+      "title": "المقياس يستجيب للسياق",
+      "scenario": "لماذا يتغير المقياس عند تغير سياق المرئي؟",
+      "prediction": "فكّر في الفرق أو الافتراض الذي يغيّر الإجابة.",
+      "takeaway": "المقياس يُقيّم وقت الاستعلام باستخدام سياق التصفية للمرئي.",
+      "caveat": "لا تتعامل معه كقيمة ثابتة مخزنة مثل عمود محسوب في نموذج استيراد.",
+      "language": "ar",
+      "scenarioBasis": "hypothetical teaching prompt",
+      "reviewStatus": "draft",
+      "sourceReviewed": true,
+      "scientificallyVerified": false,
+      "publicationApproved": false,
+      "reviewBlockers": [
+        "Question explanation requires independent domain review"
+      ],
+      "source": {
+        "key": "question:pbi-01",
+        "path": "content/exams/power-bi.json",
+        "pointer": "/questions/0",
+        "sha256": "679c204df14df48469750fc1dbdb6c1cee42d0c564d00f7602d51623947e8421"
+      },
+      "lessonHref": "/lab/power-bi/?question=pbi-01"
+    },
+    {
+      "id": "hansa-bank-035",
+      "subject": "power-bi",
+      "topic": "model",
+      "title": "CALCULATE يغير سياق التصفية",
+      "scenario": "ما الفكرة الأساسية وراء CALCULATE؟",
+      "prediction": "فكّر في الفرق أو الافتراض الذي يغيّر الإجابة.",
+      "takeaway": "يقيّم تعبيرًا في سياق تصفية معدل.",
+      "caveat": "تفاصيل التعديل تعتمد على التعبير والمرشحات؛ لا تعمم نتيجة دون فحصهما.",
+      "language": "ar",
+      "scenarioBasis": "hypothetical teaching prompt",
+      "reviewStatus": "draft",
+      "sourceReviewed": true,
+      "scientificallyVerified": false,
+      "publicationApproved": false,
+      "reviewBlockers": [
+        "Question explanation requires independent domain review"
+      ],
+      "source": {
+        "key": "question:pbi-02",
+        "path": "content/exams/power-bi.json",
+        "pointer": "/questions/1",
+        "sha256": "7eb64966a74e0fc51b29cc2b504858efc368091243dbeb58d341a62ce8da0ecd"
+      },
+      "lessonHref": "/lab/power-bi/?question=pbi-02"
+    },
+    {
+      "id": "hansa-bank-036",
+      "subject": "power-bi",
+      "topic": "model",
+      "title": "SUMX يقيّم ثم يجمع",
+      "scenario": "تحتاج جمع نتائج تعبير لكل صف؛ ما الفرق عن جمع عمود؟",
+      "prediction": "فكّر في الفرق أو الافتراض الذي يغيّر الإجابة.",
+      "takeaway": "SUMX يمر على جدول ويقيّم التعبير لكل صف ثم يجمع النتائج؛ SUM يجمع عمودًا موجودًا.",
+      "caveat": "تحقق من الجدول الذي يجري التكرار عليه ومن سياق الحساب.",
+      "language": "ar",
+      "scenarioBasis": "hypothetical teaching prompt",
+      "reviewStatus": "draft",
+      "sourceReviewed": true,
+      "scientificallyVerified": false,
+      "publicationApproved": false,
+      "reviewBlockers": [
+        "Question explanation requires independent domain review"
+      ],
+      "source": {
+        "key": "question:pbi-07",
+        "path": "content/exams/power-bi.json",
+        "pointer": "/questions/6",
+        "sha256": "d6c5372b585ddfcd3532a6c50a3c3eb9680e535cc58cc37033bdaa16d9e7ed68"
+      },
+      "lessonHref": "/lab/power-bi/?question=pbi-07"
+    },
+    {
+      "id": "hansa-bank-037",
+      "subject": "fabric",
+      "topic": "foundations",
+      "title": "رفع ملف لا ينشئ جدولًا تلقائيًا",
+      "scenario": "رفعت CSV إلى Files؛ هل أصبح جدول SQL؟",
+      "prediction": "فكّر في الفرق أو الافتراض الذي يغيّر الإجابة.",
+      "takeaway": "الملفات تحفظ البيانات الخام؛ Tables تمثل بيانات قابلة للاستهلاك كجداول Delta. رفع CSV وحده لا يجعله جدول SQL.",
+      "caveat": "راجع التحويل والتمثيل المطلوبين قبل توقع إمكان الاستعلام كجدول.",
+      "language": "ar",
+      "scenarioBasis": "hypothetical teaching prompt",
+      "reviewStatus": "draft",
+      "sourceReviewed": true,
+      "scientificallyVerified": false,
+      "publicationApproved": false,
+      "reviewBlockers": [
+        "Independent domain/editorial review pending"
+      ],
+      "source": {
+        "key": "note:delta:architecture",
+        "path": "content/fabric/notes.json",
+        "pointer": "/0/chapters/0",
+        "sha256": "2b6f2913a50805d57fd13f0561289486afa48b33c7b014fd55313e967e08aace"
+      },
+      "lessonHref": null
+    },
+    {
+      "id": "hansa-bank-038",
+      "subject": "fabric",
+      "topic": "foundations",
+      "title": "Bronze وSilver وGold مراحل",
+      "scenario": "هل أسماء الطبقات تعني منتجات تخزين مختلفة؟",
+      "prediction": "فكّر في الفرق أو الافتراض الذي يغيّر الإجابة.",
+      "takeaway": "Bronze وSilver وGold تصف مراحل المعالجة، وليست منتجات تخزين مستقلة.",
+      "caveat": "افصل مرحلة تجهيز البيانات عن المنتج الذي يخزنها.",
+      "language": "ar",
+      "scenarioBasis": "hypothetical teaching prompt",
+      "reviewStatus": "draft",
+      "sourceReviewed": true,
+      "scientificallyVerified": false,
+      "publicationApproved": false,
+      "reviewBlockers": [
+        "Independent domain/editorial review pending"
+      ],
+      "source": {
+        "key": "note:delta:architecture",
+        "path": "content/fabric/notes.json",
+        "pointer": "/0/chapters/0",
+        "sha256": "2b6f2913a50805d57fd13f0561289486afa48b33c7b014fd55313e967e08aace"
+      },
+      "lessonHref": null
+    },
+    {
+      "id": "hansa-bank-039",
+      "subject": "fabric",
+      "topic": "transform",
+      "title": "الملف الموجود ليس بالضرورة بيانات حالية",
+      "scenario": "رأيت ملفات كثيرة داخل جدول Delta؛ هل كلها جزء من حالته الحالية؟",
+      "prediction": "فكّر في الفرق أو الافتراض الذي يغيّر الإجابة.",
+      "takeaway": "سجل المعاملات المعتمد يحدد الملفات التي تكوّن لقطة الجدول، وليس مجرد وجود الملف على التخزين.",
+      "caveat": "قد تبقى ملفات تاريخية بعد التحديث أو الحذف.",
+      "language": "ar",
+      "scenarioBasis": "hypothetical teaching prompt",
+      "reviewStatus": "draft",
+      "sourceReviewed": true,
+      "scientificallyVerified": false,
+      "publicationApproved": false,
+      "reviewBlockers": [
+        "Independent domain/editorial review pending"
+      ],
+      "source": {
+        "key": "note:delta:delta",
+        "path": "content/fabric/notes.json",
+        "pointer": "/0/chapters/2",
+        "sha256": "d9b1b13fa73e5cc8a43ceb9752cdc321e844091034a8eda4bd1942cd365791a8"
+      },
+      "lessonHref": null
+    },
+    {
+      "id": "hansa-bank-040",
+      "subject": "fabric",
+      "topic": "transform",
+      "title": "التنظيف ليس دمج الملفات",
+      "scenario": "هل VACUUM وOPTIMIZE يؤديان المهمة نفسها؟",
+      "prediction": "فكّر في الفرق أو الافتراض الذي يغيّر الإجابة.",
+      "takeaway": "VACUUM ينظف ملفات البيانات القديمة المؤهلة للحذف؛ OPTIMIZE يدمج الملفات الصغيرة النشطة.",
+      "caveat": "الحذف يؤثر في إمكان الاسترجاع؛ لا تنفذ تنظيفًا اعتمادًا على هذه الخلاصة وحدها.",
+      "language": "ar",
+      "scenarioBasis": "hypothetical teaching prompt",
+      "reviewStatus": "draft",
+      "sourceReviewed": true,
+      "scientificallyVerified": false,
+      "publicationApproved": false,
+      "reviewBlockers": [
+        "Independent domain/editorial review pending"
+      ],
+      "source": {
+        "key": "note:delta:maintenance",
+        "path": "content/fabric/notes.json",
+        "pointer": "/0/chapters/3",
+        "sha256": "48f4397248f4c65ad7db98248bc0cbd1d6963897926e3255bb614c19378e31e6"
+      },
+      "lessonHref": null
+    },
+    {
+      "id": "hansa-bank-041",
+      "subject": "power-bi",
+      "topic": "report",
+      "title": "التفاصيل تحتاج مسار وصول",
+      "scenario": "كيف ينتقل القارئ من ملخص التقرير إلى تحليل تفصيلي؟",
+      "prediction": "فكّر في الفرق أو الافتراض الذي يغيّر الإجابة.",
+      "takeaway": "درس تحسين التقارير يستخدم صفحات drill-through للتحليل التفصيلي، وbookmarks وأزرارًا لتحسين التنقل.",
+      "caveat": "هذه خلاصة هدف الدرس؛ إعداد التفاعل يحتاج الرجوع إلى خطواته.",
+      "language": "ar",
+      "scenarioBasis": "hypothetical teaching prompt",
+      "reviewStatus": "draft",
+      "sourceReviewed": true,
+      "scientificallyVerified": false,
+      "publicationApproved": false,
+      "reviewBlockers": [
+        "Independent domain/editorial review pending"
+      ],
+      "source": {
+        "key": "academy:power-bi:labs-09-enhance-power-bi-reports",
+        "path": "content/academy/lessons.json",
+        "pointer": "/tracks/1/lessons/22",
+        "sha256": "9e86b5a97d15e99ccbe6a6f934f6c55fd6c4b9b51d1d17e226ccfdd4831ef3c1"
+      },
+      "lessonHref": null
+    },
+    {
+      "id": "hansa-bank-042",
+      "subject": "power-bi",
+      "topic": "govern",
+      "title": "اختبر الدور الأمني",
+      "scenario": "كيف تتحقق أن كل مندوب يرى المنطقة المخصصة له؟",
+      "prediction": "فكّر في الفرق أو الافتراض الذي يغيّر الإجابة.",
+      "takeaway": "الدرس يبني ويختبر أدوار RLS ديناميكية اعتمادًا على هوية المستخدم لتقييد البيانات بالمنطقة.",
+      "caveat": "مجرد وجود دور لا يثبت صحة نتيجة التصفية؛ الاختبار جزء من الدرس.",
+      "language": "ar",
+      "scenarioBasis": "hypothetical teaching prompt",
+      "reviewStatus": "draft",
+      "sourceReviewed": true,
+      "scientificallyVerified": false,
+      "publicationApproved": false,
+      "reviewBlockers": [
+        "Independent domain/editorial review pending"
+      ],
+      "source": {
+        "key": "academy:power-bi:labs-11-secure-data-access",
+        "path": "content/academy/lessons.json",
+        "pointer": "/tracks/1/lessons/24",
+        "sha256": "89d2439a202a93f4c083e0a62089023321198f806ce29437094b89b7809beb9f"
+      },
+      "lessonHref": null
+    },
+    {
+      "id": "hansa-insight-shortcut-reference-v1",
+      "date": "2026-10-26",
+      "topic": "ingestion",
+      "title": "A reference is a design decision.",
+      "scenario": "Two teams need to read the same existing Delta table in OneLake. They do not need a separately retained result. What would you investigate before building another copy pipeline?",
+      "prediction": "Think about the source of truth, access permissions and whether a second stored result is actually required.",
+      "takeaway": "Investigate an internal OneLake shortcut: it points to an existing location rather than requiring a separate copy pipeline.",
+      "caveat": "Confirm target access and table compatibility. A shortcut alone is not a retained, transformed snapshot; external shortcut caching is a separate consideration.",
+      "cardTitle": "Reference ≠ retained result",
+      "conceptId": "concept:fabric:shortcut",
+      "lessonHref": "/learn/dp-600/ingestion/",
+      "practiceHref": "/lab/dp-600/explore/",
+      "sourceId": "ms-onelake-shortcuts",
+      "sourceUrl": "https://learn.microsoft.com/en-us/fabric/onelake/onelake-shortcuts",
+      "sourceLocator": "What are shortcuts?; Internal OneLake shortcuts; Caching",
+      "checkedAt": "2026-10-26",
+      "reviewStatus": "technical_review",
+      "reviewer": "agent-source-check; human pending",
+      "questionIds": [],
+      "subject": "fabric",
+      "language": "en",
+      "sourceReviewed": false,
+      "scientificallyVerified": false,
+      "publicationApproved": false,
+      "reviewBlockers": [
+        "Inherited technical review; no renewed verification"
+      ],
+      "source": {
+        "key": "existing:hansa-insight-shortcut-reference-v1",
+        "path": "content/knowledge/insights.json",
+        "pointer": "/items/0",
+        "sha256": "3a2ccffd0a95ae0d76f787da34779220177388f394dcbf34eb6190dd5fca79cc"
+      }
+    },
+    {
+      "id": "hansa-insight-shortcut-delete-v1",
+      "date": "2026-10-25",
+      "topic": "ingestion",
+      "title": "Name the object you are deleting.",
+      "scenario": "You are removing a shortcut from a lakehouse. Is deleting the shortcut object the same operation as deleting a file through that shortcut?",
+      "prediction": "Separate the reference object from the data it exposes.",
+      "takeaway": "Deleting the shortcut object leaves its target intact.",
+      "caveat": "Deleting a file or folder inside a shortcut can delete the target data when the caller has the required write permissions.",
+      "cardTitle": "Object versus target",
+      "conceptId": "concept:fabric:shortcut",
+      "lessonHref": "/learn/dp-600/ingestion/",
+      "practiceHref": "/lab/dp-600/explore/",
+      "sourceId": "ms-onelake-shortcuts",
+      "sourceUrl": "https://learn.microsoft.com/en-us/fabric/onelake/onelake-shortcuts",
+      "sourceLocator": "How do shortcuts handle deletions?",
+      "checkedAt": "2026-10-26",
+      "reviewStatus": "technical_review",
+      "reviewer": "agent-source-check; human pending",
+      "questionIds": [],
+      "subject": "fabric",
+      "language": "en",
+      "sourceReviewed": false,
+      "scientificallyVerified": false,
+      "publicationApproved": false,
+      "reviewBlockers": [
+        "Inherited technical review; no renewed verification"
+      ],
+      "source": {
+        "key": "existing:hansa-insight-shortcut-delete-v1",
+        "path": "content/knowledge/insights.json",
+        "pointer": "/items/1",
+        "sha256": "ea67a8be9d59f74106d1615dba5b415f4b483951f2b6c007951114c0fd2ab875"
+      }
+    },
+    {
+      "id": "hansa-insight-shortcut-discovery-v1",
+      "date": "2026-10-24",
+      "topic": "ingestion",
+      "title": "Location changes discovery.",
+      "scenario": "A learner puts a shortcut to a data folder under Files and expects it to appear automatically as a lakehouse table. Which assumption needs checking?",
+      "prediction": "Compare the purpose of the Files and Tables locations.",
+      "takeaway": "Table discovery does not happen in Files.",
+      "caveat": "Tables shortcuts require supported table data and the documented placement rules. A folder of arbitrary files is not automatically a Delta table.",
+      "cardTitle": "Files versus Tables",
+      "conceptId": "concept:fabric:shortcut",
+      "lessonHref": "/learn/dp-600/ingestion/",
+      "practiceHref": "/lab/dp-600/explore/",
+      "sourceId": "ms-onelake-shortcuts",
+      "sourceUrl": "https://learn.microsoft.com/en-us/fabric/onelake/onelake-shortcuts",
+      "sourceLocator": "Where can I create shortcuts? → Lakehouse",
+      "checkedAt": "2026-10-26",
+      "reviewStatus": "technical_review",
+      "reviewer": "agent-source-check; human pending",
+      "questionIds": [],
+      "subject": "fabric",
+      "language": "en",
+      "sourceReviewed": false,
+      "scientificallyVerified": false,
+      "publicationApproved": false,
+      "reviewBlockers": [
+        "Inherited technical review; no renewed verification"
+      ],
+      "source": {
+        "key": "existing:hansa-insight-shortcut-discovery-v1",
+        "path": "content/knowledge/insights.json",
+        "pointer": "/items/2",
+        "sha256": "e864daffda5f9f0c3dcb9e44d89f3fe98931e264544a45ed8e381367629688fe"
+      }
+    }
+  ]
+}

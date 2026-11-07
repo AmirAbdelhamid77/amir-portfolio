@@ -1,0 +1,68 @@
+{
+  "generatedAt": "2026-11-05T13:41:06.166Z",
+  "base": "http://127.0.0.1:4395",
+  "entry": "/",
+  "viewport": "1280x900",
+  "theme": "dark",
+  "reducedMotion": true,
+  "flags": [
+    "HANSA_ATLAS_REVIEW_PREVIEW=1",
+    "HANSA_NEIGHBOURHOOD_REVIEW=1",
+    "HANSA_TIMELINE_REVIEW=1",
+    "HANSA_DEALER_REVIEW=1",
+    "HANSA_CLOSING_REVIEW=1"
+  ],
+  "home": {
+    "domNodes": 1339,
+    "domContentLoaded": 112,
+    "loadEvent": 733,
+    "lcp": 1264,
+    "cls": 0,
+    "longTasks": {
+      "count": 3,
+      "totalMs": 557,
+      "maxMs": 377
+    },
+    "resourceCount": 47,
+    "encodedBytes": 1441860,
+    "scriptBytes": 848797,
+    "styleBytes": 292573,
+    "scriptCount": 17,
+    "closingNodes": 167,
+    "closingHeight": 1354,
+    "reviewClose": {
+      "layout": 1,
+      "ledgerRows": 7,
+      "claims": 4,
+      "destinations": 4,
+      "keptList": true,
+      "details": true,
+      "reopen": "Reopen the 26 Oct edition",
+      "quote": "“Investigate an internal OneLake shortcut: it points to an e",
+      "minimum": 44,
+      "horizontalOverflow": 0
+    }
+  },
+  "publicRun": {
+    "domNodes": 780,
+    "resourceCount": 43,
+    "scriptBytes": 827336,
+    "styleBytes": 248019,
+    "lcp": 756
+  },
+  "r4ReviewBeforeOpen": {
+    "url": "http://127.0.0.1:4395/?insight=hansa-insight-shortcut-reference-v1#today",
+    "resourceCount": 46,
+    "scriptBytes": 837841,
+    "styleBytes": 286704,
+    "lcp": 844,
+    "cls": 0
+  },
+  "delta": {
+    "domNodes": 559,
+    "resourceCount": 4,
+    "scriptBytes": 21461,
+    "styleBytes": 44554
+  },
+  "note": "Single local production-export run of the five-flag review build, entered at `/`. The review close is server-rendered: no dynamic chunk is fetched, nothing animates on entry, and no interaction is needed to read it. The cost is the markup the scene adds (seven ledger rows, four kept-card slots, four claims, the destinations) and the CSS already counted in r5-perf.json."
+}
