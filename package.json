@@ -16,6 +16,7 @@
     "test:knowledge": "node --experimental-strip-types --test \"tests/knowledge/*.test.mjs\"",
     "test:atlas": "node --experimental-strip-types --test \"tests/atlas/*.test.mjs\"",
     "qa:prototype-c": "node scripts/qa-prototype-c-v2.mjs",
+    "qa:network": "node scripts/qa-network-tree.mjs",
     "test:all": "npm test && npm run test:statistics && npm run test:fabric && npm run test:content && npm run test:knowledge && npm run test:atlas",
     "inventory:routes": "node scripts/inventory-routes.mjs",
     "inventory:content": "node scripts/inventory-content.mjs",
@@ -44,11 +45,14 @@
     "deploy": "npm run build && wrangler deploy",
     "perf:fabric": "node scripts/measure-payload.mjs",
     "qa:drafts": "node scripts/qa-drafts.mjs",
-    "build:intake": "node scripts/build-intake-content.mjs"
+    "build:intake": "node scripts/build-intake-content.mjs",
+    "graph:build": "node scripts/graph/run.mjs",
+    "prebuild": "npm run graph:build"
   },
   "dependencies": {
     "@floating-ui/dom": "^1.8.0",
     "clsx": "^2.1.1",
+    "d3-force": "^3.0.1",
     "katex": "^0.16.47",
     "lucide-react": "^1.61.0",
     "motion": "^14.6.0",
@@ -61,6 +65,7 @@
   },
   "devDependencies": {
     "@tailwindcss/turbopack": "^4",
+    "@types/d3-force": "^3.0.10",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",

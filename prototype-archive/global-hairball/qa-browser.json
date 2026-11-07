@@ -1,0 +1,232 @@
+{
+  "generatedAt": "2026-11-06T21:20:49.870Z",
+  "base": "http://127.0.0.1:4400",
+  "url": "http://127.0.0.1:4400/prototype/network/",
+  "viewport": {
+    "desktop": "1440x1000",
+    "mobile": "390x844"
+  },
+  "dataset": {
+    "nodes": 1105,
+    "edges": 4746,
+    "layers": {
+      "declared": 1527,
+      "derived": 2157,
+      "structure": 875,
+      "candidate": 187
+    },
+    "islands": 57,
+    "modularity": 0.989,
+    "atlas": {
+      "publishedConcepts": 0,
+      "publishedEdges": 0,
+      "reviewConcepts": 42,
+      "reviewEdges": 49
+    }
+  },
+  "checks": [
+    {
+      "name": "dataset loads",
+      "pass": true,
+      "detail": "1105 nodes / 4746 edges"
+    },
+    {
+      "name": "no dangling edges",
+      "pass": true,
+      "detail": "0 dangling"
+    },
+    {
+      "name": "no Atlas relation in the payload",
+      "pass": true,
+      "detail": "layer=review count 0"
+    },
+    {
+      "name": "Atlas public gate is 0/0",
+      "pass": true,
+      "detail": "0/0"
+    },
+    {
+      "name": "review totals are reported, not drawn",
+      "pass": true,
+      "detail": "42/49"
+    },
+    {
+      "name": "unit total",
+      "pass": true,
+      "detail": "824"
+    },
+    {
+      "name": "default view draws units + documents",
+      "pass": true,
+      "detail": "1047 nodes"
+    },
+    {
+      "name": "default view draws declared edges only",
+      "pass": true,
+      "detail": "1527 edges, 0 candidate"
+    },
+    {
+      "name": "canvas is measured",
+      "pass": true,
+      "detail": "778x680"
+    },
+    {
+      "name": "status states the corpus size",
+      "pass": true,
+      "detail": "824 content units, 223 documents, 4746 edges."
+    },
+    {
+      "name": "declared on by default",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "candidate off by default",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "derived off by default",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "containers off by default",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "candidate layer draws 187 inferred pairs",
+      "pass": true,
+      "detail": "187 / 1714"
+    },
+    {
+      "name": "search reports matches",
+      "pass": true,
+      "detail": "21 matches"
+    },
+    {
+      "name": "selection opens the inspector",
+      "pass": true,
+      "detail": "lakehouse sharing"
+    },
+    {
+      "name": "relationships carry a layer tag",
+      "pass": true,
+      "detail": "Declared, Declared"
+    },
+    {
+      "name": "declared relations cite a pointer",
+      "pass": true,
+      "detail": "content/fabric/notes.json#video16.V16-SQL-033.refs"
+    },
+    {
+      "name": "provenance href is offered",
+      "pass": true,
+      "detail": "https://learn.microsoft.com/en-us/fabric/data-engineering/lakehouse-sharing"
+    },
+    {
+      "name": "inspector lists relations",
+      "pass": true,
+      "detail": "2 shown"
+    },
+    {
+      "name": "a content unit links back into Hansa",
+      "pass": true,
+      "detail": "/learn/dp-600/ingestion/"
+    },
+    {
+      "name": "unit relations include declared citations",
+      "pass": false,
+      "detail": "membership"
+    },
+    {
+      "name": "local graph (1 hop) is anchored",
+      "pass": true,
+      "detail": "1 nodes"
+    },
+    {
+      "name": "2 hops reveal more than 1 hop",
+      "pass": true,
+      "detail": "1 → 1"
+    },
+    {
+      "name": "containers appear from declared membership",
+      "pass": true,
+      "detail": "27 packs / 8 subjects / 9 journeys"
+    },
+    {
+      "name": "containment edges are drawn",
+      "pass": true,
+      "detail": "875 contains edges"
+    },
+    {
+      "name": "hiding documents leaves the units",
+      "pass": true,
+      "detail": "824 nodes"
+    },
+    {
+      "name": "list view groups the corpus",
+      "pass": true,
+      "detail": "8 groups"
+    },
+    {
+      "name": "list view states the Atlas gate",
+      "pass": true,
+      "detail": "0/0 present"
+    },
+    {
+      "name": "arrow keys move between nodes",
+      "pass": true,
+      "detail": "Shortcut, Mirroring or C → Microsoft Learn: Power Q"
+    },
+    {
+      "name": "Atlas gate prints published 0/0",
+      "pass": true,
+      "detail": "Atlas gatePublished: 0 concepts / 0 links.42 concepts and 49 links remain in technical rev"
+    },
+    {
+      "name": "axe WCAG 2 A/AA has no violations",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "390px viewport renders the graph",
+      "pass": true,
+      "detail": "1047 nodes at 358x473"
+    },
+    {
+      "name": "no horizontal overflow at 390px",
+      "pass": true,
+      "detail": "0px"
+    },
+    {
+      "name": "reduced motion removes node transitions",
+      "pass": true,
+      "detail": "1e-05s"
+    },
+    {
+      "name": "axe on mobile has no violations",
+      "pass": true,
+      "detail": ""
+    }
+  ],
+  "consoleErrors": [],
+  "screenshots": [
+    "01-global.png",
+    "02-selection.png",
+    "03-local-depth2.png",
+    "04-containers.png",
+    "05-list.png",
+    "06-mobile.png"
+  ],
+  "axe": {
+    "desktop": [],
+    "mobile": []
+  },
+  "summary": {
+    "total": 37,
+    "passed": 36,
+    "failed": 1
+  }
+}

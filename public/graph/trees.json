@@ -1,0 +1,73 @@
+{
+  "version": "knowledge-tree-2026-11-07.1",
+  "generatedAt": "2026-11-07T19:32:12.095Z",
+  "lenses": [
+    {
+      "id": "subject",
+      "mode": "subject",
+      "label": "By subject",
+      "shortLabel": "Subjects",
+      "file": "tree.json",
+      "description": "Eight disjoint subject roots. Containment only; programmes are separate lenses.",
+      "nodeCount": 1167,
+      "edgeCount": 1159,
+      "depth": 3,
+      "roots": [
+        "subject:analysis",
+        "subject:excel",
+        "subject:fabric",
+        "subject:power-bi",
+        "subject:python",
+        "subject:sql",
+        "subject:statistics",
+        "subject:visualization"
+      ],
+      "bytes": 521962
+    },
+    {
+      "id": "dp-600",
+      "mode": "programme",
+      "label": "By programme",
+      "shortLabel": "DP-600",
+      "file": "tree-dp600.json",
+      "description": "The declared Fabric subject projected under the DP-600 programme. RTI, Academy and the nine empty packs are excluded. Not an exam blueprint.",
+      "nodeCount": 1011,
+      "edgeCount": 1010,
+      "depth": 3,
+      "roots": [
+        "programme:dp-600"
+      ],
+      "bytes": 467437
+    },
+    {
+      "id": "fabric-rti",
+      "mode": "programme",
+      "label": "By programme",
+      "shortLabel": "Fabric RTI",
+      "file": "tree-rti.json",
+      "description": "The RTI course and its eight lessons, under the Fabric RTI programme.",
+      "nodeCount": 10,
+      "edgeCount": 9,
+      "depth": 2,
+      "roots": [
+        "programme:fabric-rti"
+      ],
+      "bytes": 3898
+    },
+    {
+      "id": "academy",
+      "mode": "programme",
+      "label": "By programme",
+      "shortLabel": "Corpus Academy",
+      "file": "tree-academy.json",
+      "description": "Two MIT-licensed academy tracks, grouped by declared module and lesson.",
+      "nodeCount": 143,
+      "edgeCount": 142,
+      "depth": 3,
+      "roots": [
+        "programme:academy"
+      ],
+      "bytes": 67155
+    }
+  ]
+}

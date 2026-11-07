@@ -1,0 +1,618 @@
+{
+  "generatedAt": "2026-11-07T19:35:27.007Z",
+  "base": "http://127.0.0.1:59878",
+  "url": "http://127.0.0.1:59878/prototype/network/",
+  "viewport": {
+    "desktop": "1440x1000",
+    "mobile": "390x844"
+  },
+  "tree": {
+    "version": "unknown",
+    "subject": {
+      "nodes": 1167,
+      "roots": 8,
+      "depth": 3
+    },
+    "dp600": {
+      "nodes": 1011,
+      "roots": 1
+    },
+    "rti": {
+      "nodes": 10,
+      "roots": 1
+    },
+    "academy": {
+      "nodes": 143,
+      "roots": 1
+    },
+    "labels": {
+      "default": 8,
+      "overlaps": 0
+    },
+    "crossRefs": {
+      "paths": 3,
+      "dash": "4px, 4px"
+    },
+    "deepTarget": {
+      "id": "note-video06-V6-SEC-031",
+      "label": "SQL grants after mode change",
+      "parent": "Security across Fabric engines — SQL OLS/CLS/RLS, OneLake security and modes"
+    },
+    "sourceGroup": {
+      "id": "group:source:learn-microsoft-com:fabric-data-factory",
+      "label": "Microsoft Learn · Fabric / Data Factory",
+      "count": 35
+    }
+  },
+  "checks": [
+    {
+      "name": "default view draws eight subject roots",
+      "pass": true,
+      "detail": "8 nodes"
+    },
+    {
+      "name": "every root is labelled",
+      "pass": true,
+      "detail": "8 labels"
+    },
+    {
+      "name": "default labels are the eight root titles, none truncated",
+      "pass": true,
+      "detail": "Analytical foundations · Excel · Microsoft Fabric · Power BI · Python · SQL · Statistics & reasoning · Data visualization"
+    },
+    {
+      "name": "default labels do not overlap",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "default count reports eight shown",
+      "pass": true,
+      "detail": "8 shown"
+    },
+    {
+      "name": "the default map exposes one tab stop",
+      "pass": true,
+      "detail": "1 of 8 nodes"
+    },
+    {
+      "name": "default URL carries no focus",
+      "pass": true,
+      "detail": "/prototype/network/"
+    },
+    {
+      "name": "By subject is the default lens",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "no side card before a selection",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "no declared cross-reference before a selection",
+      "pass": true,
+      "detail": "0 paths"
+    },
+    {
+      "name": "no dataset.json request",
+      "pass": true,
+      "detail": "dataset stays unloaded"
+    },
+    {
+      "name": "subject tree was fetched",
+      "pass": true,
+      "detail": "trees.json + tree.json"
+    },
+    {
+      "name": "opening Power BI adds its four leaves",
+      "pass": true,
+      "detail": "12 nodes"
+    },
+    {
+      "name": "the expanded map still exposes one tab stop",
+      "pass": true,
+      "detail": "1 of 12 nodes"
+    },
+    {
+      "name": "opening a branch focuses it and opens its card",
+      "pass": true,
+      "detail": "Power BI"
+    },
+    {
+      "name": "the opened branch reports aria-expanded",
+      "pass": true,
+      "detail": "true"
+    },
+    {
+      "name": "the twelve-node state still has no overlapping labels",
+      "pass": true,
+      "detail": "12 labels, 0 overlaps"
+    },
+    {
+      "name": "clicking a leaf opens its card",
+      "pass": true,
+      "detail": "Microsoft Learn: Power Query"
+    },
+    {
+      "name": "leaf selection does not navigate away from the map",
+      "pass": true,
+      "detail": "/prototype/network/ · 1 page"
+    },
+    {
+      "name": "leaf card offers an explicit Open action",
+      "pass": true,
+      "detail": "one link"
+    },
+    {
+      "name": "the Open action points at the source URL",
+      "pass": true,
+      "detail": "https://learn.microsoft.com/en-us/power-query/power-query-what-is-power-query"
+    },
+    {
+      "name": "the Open action opens externally in a new tab",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "leaf selection is announced on the node",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "the programme lens exposes three named programmes",
+      "pass": true,
+      "detail": "3 chips"
+    },
+    {
+      "name": "DP-600 opens at its single programme root",
+      "pass": true,
+      "detail": "1 node / “”"
+    },
+    {
+      "name": "DP-600 root is labelled",
+      "pass": true,
+      "detail": "DP-600"
+    },
+    {
+      "name": "switching lens writes lens=dp-600",
+      "pass": true,
+      "detail": "/prototype/network/?lens=dp-600"
+    },
+    {
+      "name": "DP-600 payload was fetched",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "Fabric RTI expands to its course and eight lessons",
+      "pass": true,
+      "detail": "10 / 10"
+    },
+    {
+      "name": "RTI lens payload was fetched",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "RTI keeps declared lesson labels on the card",
+      "pass": true,
+      "detail": "Fabric Real-Time Intelligence"
+    },
+    {
+      "name": "Academy opens its two tracks",
+      "pass": true,
+      "detail": "3 nodes"
+    },
+    {
+      "name": "Academy pages a track at twelve modules plus a more control",
+      "pass": true,
+      "detail": "16 nodes"
+    },
+    {
+      "name": "Academy lens payload was fetched",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "source search selects the URL-grouped collection",
+      "pass": true,
+      "detail": "Microsoft Learn · Fabric / Data Factory"
+    },
+    {
+      "name": "the source group reports its URL-derived count",
+      "pass": true,
+      "detail": "35 in card"
+    },
+    {
+      "name": "the source bucket is a declared containment branch",
+      "pass": true,
+      "detail": "Cited sources"
+    },
+    {
+      "name": "selecting a cited note draws its declared references",
+      "pass": true,
+      "detail": "3 dashed paths"
+    },
+    {
+      "name": "declared references are dashed",
+      "pass": true,
+      "detail": "4px, 4px"
+    },
+    {
+      "name": "the card lists declared cross-references",
+      "pass": true,
+      "detail": "heading present"
+    },
+    {
+      "name": "the selected note's card names its source",
+      "pass": true,
+      "detail": "OneLake APIs and ABFSS"
+    },
+    {
+      "name": "deep search reveals the target node",
+      "pass": true,
+      "detail": "66 visible"
+    },
+    {
+      "name": "deep search opens the target's ancestors",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "deep search opens the card on the target",
+      "pass": true,
+      "detail": "SQL grants after mode change"
+    },
+    {
+      "name": "deep search pages the target into view",
+      "pass": true,
+      "detail": "note-video06-V6-SEC-031"
+    },
+    {
+      "name": "deep search writes focus into the URL",
+      "pass": true,
+      "detail": "http://127.0.0.1:59878/prototype/network/?focus=note-video06-V6-SEC-031&open=subject%3Afabric%2Cpack%3Avideo06"
+    },
+    {
+      "name": "reload restores focus and open branches",
+      "pass": true,
+      "detail": "SQL grants after mode change"
+    },
+    {
+      "name": "reload keeps the same visible count",
+      "pass": true,
+      "detail": "65 shown → 65 shown"
+    },
+    {
+      "name": "reload keeps the shareable URL",
+      "pass": true,
+      "detail": "http://127.0.0.1:59878/prototype/network/?focus=note-video06-V6-SEC-031&open=subject%3Afabric%2Cpack%3Avideo06"
+    },
+    {
+      "name": "reload reproduces the same deterministic positions",
+      "pass": true,
+      "detail": "max drift 0.00px"
+    },
+    {
+      "name": "a map node accepts keyboard focus",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "Tab leaves the map instead of visiting the next node",
+      "pass": true,
+      "detail": "Zoom in"
+    },
+    {
+      "name": "ArrowRight expands a collapsed branch",
+      "pass": true,
+      "detail": "12 nodes"
+    },
+    {
+      "name": "ArrowRight again moves into the first child",
+      "pass": true,
+      "detail": "entry-power-bi"
+    },
+    {
+      "name": "Enter on a leaf moves focus to the card title",
+      "pass": true,
+      "detail": "H2.kt-card-title / “Microsoft Learn: Power Query”"
+    },
+    {
+      "name": "the card close button returns focus to the leaf",
+      "pass": true,
+      "detail": "card closed / focus entry-power-bi"
+    },
+    {
+      "name": "Escape closes the card and returns focus to the leaf",
+      "pass": true,
+      "detail": "card closed / focus entry-power-bi"
+    },
+    {
+      "name": "ArrowLeft moves back to the parent",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "ArrowDown moves to the next sibling root",
+      "pass": true,
+      "detail": "subject:python / expected subject:python"
+    },
+    {
+      "name": "ArrowUp returns to the previous sibling",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "Enter collapses the focused branch",
+      "pass": true,
+      "detail": "8 nodes"
+    },
+    {
+      "name": "Enter on a branch keeps focus on the branch",
+      "pass": true,
+      "detail": "subject:power-bi"
+    },
+    {
+      "name": "List is a tab view of the same tree",
+      "pass": true,
+      "detail": "List"
+    },
+    {
+      "name": "List shows the same eight roots",
+      "pass": true,
+      "detail": "8 rows"
+    },
+    {
+      "name": "List mirrors twelve children plus a more row",
+      "pass": true,
+      "detail": "21 rows / 1 more"
+    },
+    {
+      "name": "List reports the open branch",
+      "pass": true,
+      "detail": "1 expanded"
+    },
+    {
+      "name": "List has no cap notice below 150 nodes",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "the more row pages through the list",
+      "pass": true,
+      "detail": "29 rows"
+    },
+    {
+      "name": "Enter on a list leaf moves focus to the card title",
+      "pass": true,
+      "detail": "H2.kt-card-title / “Shortcut, Mirroring or Copy?”"
+    },
+    {
+      "name": "Escape returns focus to the list row",
+      "pass": true,
+      "detail": "card closed / focus dp600-ingestion-decisions"
+    },
+    {
+      "name": "Show everything is an explicit overview",
+      "pass": true,
+      "detail": "1167 nodes"
+    },
+    {
+      "name": "the overview draws no labels",
+      "pass": true,
+      "detail": "0 labels"
+    },
+    {
+      "name": "Show everything still exposes one tab stop",
+      "pass": true,
+      "detail": "1 of 1167 nodes"
+    },
+    {
+      "name": "the overview says labels are off",
+      "pass": true,
+      "detail": "Eight disjoint subject roots. Containment only; programmes are separate lenses.Overview: every node, labels off."
+    },
+    {
+      "name": "the overview records all=1 in the URL",
+      "pass": true,
+      "detail": "/prototype/network/?all=1"
+    },
+    {
+      "name": "the overview button offers a way back",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "leaving the overview restores eight labels",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "zooming without a focus keeps every root labelled",
+      "pass": true,
+      "detail": "8 labels"
+    },
+    {
+      "name": "zoomed root labels still do not overlap",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "axe WCAG 2 A/AA finds no violations in the tree",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "390px starts in the List view",
+      "pass": true,
+      "detail": "List"
+    },
+    {
+      "name": "390px lists the same eight roots",
+      "pass": true,
+      "detail": "8 rows"
+    },
+    {
+      "name": "390px has no horizontal overflow",
+      "pass": true,
+      "detail": "0px"
+    },
+    {
+      "name": "390px keeps the map one tap away",
+      "pass": true,
+      "detail": "map is not the initial panel"
+    },
+    {
+      "name": "390px map draws eight roots as a spatial overview",
+      "pass": true,
+      "detail": "8 nodes / labels off"
+    },
+    {
+      "name": "390px map explains where the names are",
+      "pass": true,
+      "detail": "Overview only. Tap a ring to open its card; the List tab has the full outline."
+    },
+    {
+      "name": "390px map has no horizontal overflow",
+      "pass": true,
+      "detail": "0px"
+    },
+    {
+      "name": "reduced motion removes the pan transition",
+      "pass": true,
+      "detail": "0s"
+    },
+    {
+      "name": "reduced motion removes node animations",
+      "pass": true,
+      "detail": "none"
+    },
+    {
+      "name": "axe WCAG 2 A/AA finds no violations on mobile",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "768px keeps the Map as the default view",
+      "pass": true,
+      "detail": "Map"
+    },
+    {
+      "name": "768px labels all eight roots",
+      "pass": true,
+      "detail": "8 labels"
+    },
+    {
+      "name": "768px counter-scales labels to a readable size",
+      "pass": true,
+      "detail": "12.18px on screen at 0.585x"
+    },
+    {
+      "name": "768px labels do not overlap",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "768px has no horizontal overflow",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "1024px with the side card keeps the map readable",
+      "pass": true,
+      "detail": "12 nodes / card “Power BI”"
+    },
+    {
+      "name": "1024px with the side card keeps every Power BI leaf labelled",
+      "pass": true,
+      "detail": "Microsoft Learn: Power Query · Microsoft Learn: workspace roles · Microsoft Learn: star schema guidance · Microsoft Learn: reports and dashboards"
+    },
+    {
+      "name": "1024px with the side card keeps labels above 10.5px",
+      "pass": true,
+      "detail": "10.92px"
+    },
+    {
+      "name": "1024px labels do not overlap",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "dark theme resolves to a dark page",
+      "pass": true,
+      "detail": "html.dark"
+    },
+    {
+      "name": "dark theme keeps all eight root labels",
+      "pass": true,
+      "detail": "8 labels"
+    },
+    {
+      "name": "dark theme labels stay above 12px",
+      "pass": true,
+      "detail": "17.75px"
+    },
+    {
+      "name": "dark theme labels do not overlap",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "axe WCAG 2 A/AA finds no violations in dark theme",
+      "pass": true,
+      "detail": ""
+    }
+  ],
+  "consoleErrors": [],
+  "failedRequests": [],
+  "axe": {
+    "desktop": [],
+    "mobile": [],
+    "dark": []
+  },
+  "requests": {
+    "trees": [
+      "/graph/trees.json",
+      "/graph/tree.json",
+      "/graph/tree-dp600.json",
+      "/graph/tree-rti.json",
+      "/graph/tree-academy.json",
+      "/graph/trees.json",
+      "/graph/tree.json",
+      "/graph/trees.json",
+      "/graph/tree.json",
+      "/graph/trees.json",
+      "/graph/tree.json",
+      "/graph/trees.json",
+      "/graph/tree.json",
+      "/graph/trees.json",
+      "/graph/tree.json"
+    ],
+    "datasetRequested": false
+  },
+  "screenshots": [
+    "docs/prototype-graph/screens/tree/01-default-map.png",
+    "docs/prototype-graph/screens/tree/01-default-map-crop.png",
+    "docs/prototype-graph/screens/tree/02-powerbi-expanded.png",
+    "docs/prototype-graph/screens/tree/03-leaf-card.png",
+    "docs/prototype-graph/screens/tree/04-academy-lens.png",
+    "docs/prototype-graph/screens/tree/05-source-group.png",
+    "docs/prototype-graph/screens/tree/06-declared-crossrefs.png",
+    "docs/prototype-graph/screens/tree/07-deep-search.png",
+    "docs/prototype-graph/screens/tree/08-list-mirror.png",
+    "docs/prototype-graph/screens/tree/09-show-everything.png",
+    "docs/prototype-graph/screens/tree/10-mobile-list.png",
+    "docs/prototype-graph/screens/tree/11-mobile-map.png",
+    "docs/prototype-graph/screens/tree/12-tablet-map.png",
+    "docs/prototype-graph/screens/tree/13-tablet-card.png",
+    "docs/prototype-graph/screens/tree/14-dark-map.png"
+  ],
+  "summary": {
+    "total": 104,
+    "passed": 104,
+    "failed": 0
+  }
+}
