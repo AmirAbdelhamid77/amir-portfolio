@@ -1,0 +1,60 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://hansa.local/schemas/fabric-compiler/family-manifest.schema.json",
+  "title": "Family manifest (FC03 compiler)",
+  "description": "Per-family manifest of compiled source files with output checksums. Deterministic: no clocks, no absolute paths.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema", "version", "compiler", "family", "corpusRevision", "files", "totals", "checksums"],
+  "properties": {
+    "schema": { "const": "hansa.fabric-compiler/family-manifest" },
+    "version": { "const": 1 },
+    "compiler": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["name", "version"],
+      "properties": {
+        "name": { "type": "string" },
+        "version": { "type": "string" }
+      }
+    },
+    "family": { "type": "string", "minLength": 1 },
+    "corpusRevision": { "type": ["string", "null"], "description": "Pinned corpus revision, only when supplied via --revision" },
+    "files": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["path", "sha256", "sizeBytes", "nodeFile", "nodeSha256", "nodeCount", "frontMatterKeys", "quarantined", "quarantineReasons"],
+        "properties": {
+          "path": { "type": "string", "description": "Corpus-relative posix path" },
+          "sha256": { "type": "string", "pattern": "^[0-9a-f]{64}$" },
+          "sizeBytes": { "type": "integer", "minimum": 0 },
+          "nodeFile": { "type": "string", "pattern": "^nodes/.+\\.json$", "description": "Output-relative path of the compiled node file" },
+          "nodeSha256": { "type": ["string", "null"], "pattern": "^[0-9a-f]{64}$" },
+          "nodeCount": { "type": "integer", "minimum": 0 },
+          "frontMatterKeys": { "type": "array", "items": { "type": "string" } },
+          "quarantined": { "type": "boolean" },
+          "quarantineReasons": { "type": "array", "items": { "type": "string" } }
+        }
+      }
+    },
+    "totals": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["files", "nodes", "quarantinedFiles", "dependencyEdges"],
+      "properties": {
+        "files": { "type": "integer", "minimum": 0 },
+        "nodes": { "type": "integer", "minimum": 0 },
+        "quarantinedFiles": { "type": "integer", "minimum": 0 },
+        "dependencyEdges": { "type": "integer", "minimum": 0 }
+      }
+    },
+    "checksums": {
+      "type": "object",
+      "description": "sha256 of every emitted nodes/*.json, keyed by output-relative path",
+      "propertyNames": { "pattern": "^nodes/.+\\.json$" },
+      "additionalProperties": { "type": "string", "pattern": "^[0-9a-f]{64}$" }
+    }
+  }
+}

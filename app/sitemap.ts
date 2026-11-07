@@ -20,7 +20,18 @@ import { ACADEMY_LESSONS } from '@/lib/academy/corpus';
 export const dynamic = "force-static";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const updated = new Date();
+  // Reproducible builds (Wave 4): the sitemap must not embed the wall clock —
+  // two clean builds of the same tree produced different lastmod stamps, which
+  // the release manifest's byte-equality gate correctly flagged. Honor the
+  // reproducible-builds SOURCE_DATE_EPOCH convention (seconds) when CI pins
+  // it to the release commit time; otherwise fall back to the corpus
+  // integration freeze date — the deterministic semantics are \"content as
+  // of the pinned Fabric corpus revision\".
+  const updated = new Date(
+    process.env.SOURCE_DATE_EPOCH
+      ? Number(process.env.SOURCE_DATE_EPOCH) * 1000
+      : Date.UTC(2026, 10, 5),
+  );
   const pages = [
     ...[
       { path: "learn", priority: 1 },

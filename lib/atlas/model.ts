@@ -91,7 +91,10 @@ export function viewHref(view: View) {
   return "/learn/dp-600/atlas/?" + p;
 }
 export function safeReturn(value: string | null, atlas: Atlas) {
-  if (!value || !value.startsWith("/learn/dp-600/atlas/?") || value.length > 2048 || value.includes("\\")) return "";
+  // >=2048 matches the documented rule and the client guard in
+  // components/atlas/return-link.tsx (length < 2048): the server-side gate
+  // must never be weaker than the client's for the same return-state param.
+  if (!value || !value.startsWith("/learn/dp-600/atlas/?") || value.length >= 2048 || value.includes("\\")) return "";
   return viewHref(parseView(value.split("?")[1], atlas).view);
 }
 export function neighborhood(atlas: Atlas, view: View) {

@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { SearchClient } from "@/components/search/search-client";
+import { SearchWithFabric } from "./search-with-fabric";
 import { Breadcrumbs } from "@/components/breadcrumbs";
 import { Container, Eyebrow } from "@/components/ui";
 import { SITE_METRICS } from "@/lib/site-metrics";
@@ -58,7 +58,10 @@ export default function SearchPage() {
 
       <section className="py-8 md:py-10">
         <Container>
-          <SearchClient total={payload.counts.total} featured={featured} />
+          {/* FC07: wraps the untouched metadata search client and renders the
+              Fabric documentation results band below it (see the merge
+              contract in search-with-fabric.tsx). */}
+          <SearchWithFabric total={payload.counts.total} featured={featured} />
         </Container>
       </section>
 
@@ -78,7 +81,9 @@ export default function SearchPage() {
           <p className="mt-4 text-[11px] leading-5 text-muted-foreground">
             The index is built from the same metadata the pages render, so a new lesson appears
             here when it appears on the site. Search runs in your browser; nothing is sent to a
-            server.
+            server. When this build ships the Fabric documentation corpus, a second band below the
+            results searches inside the published Fabric articles and opens them at the matching
+            section.
           </p>
         </Container>
       </section>

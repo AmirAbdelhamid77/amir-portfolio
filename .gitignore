@@ -49,3 +49,14 @@ next-env.d.ts
 # review logs and agent guides. Kept on disk for review, never committed and
 # never served — no file under this path is imported by any app code.
 intake-private/
+
+# fabric-corpus Wave 2 build outputs (FC05) — generated media, alias HTML and
+# compiled content stay out of Git history (RELEASE_AND_STORAGE.md "Never in
+# Git history: upstream checkouts, raw private evidence, generated
+# HTML/indexes/media"). Regenerate with tools/fabric-corpus/route-registry/.
+/public/fabric-docs-assets/
+/public/fabric-aliases/
+
+# fabric-corpus Wave 2 search shards (FC07) — generated full-text indexes;
+# rebuild with tools/fabric-corpus/search/build-shards.mjs + copy-shards.mjs.
+/public/fabric-search/

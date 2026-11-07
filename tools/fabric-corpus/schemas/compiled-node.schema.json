@@ -1,0 +1,438 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://hansa.local/schemas/fabric-compiler/compiled-node.schema.json",
+  "title": "Compiled node (one corpus source file, FC03 compiler)",
+  "description": "Typed AST for one compiled source file with source spans, resolved dependencies and quarantine accounting. Spans are 1-based; end.column is exclusive. No clocks and no absolute paths appear in emitted artifacts.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema", "version", "compiler", "source", "frontMatter", "nodes", "quarantine", "counts"],
+  "properties": {
+    "schema": { "const": "hansa.fabric-compiler/compiled-node" },
+    "version": { "const": 1 },
+    "compiler": { "$ref": "#/$defs/compiler" },
+    "source": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["path", "sha256", "sizeBytes"],
+      "properties": {
+        "path": { "type": "string", "description": "Corpus-relative posix path of the source file" },
+        "sha256": { "$ref": "#/$defs/hex64" },
+        "sizeBytes": { "type": "integer", "minimum": 0 }
+      }
+    },
+    "frontMatter": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["present", "data", "raw", "comments", "yamlError", "span"],
+      "properties": {
+        "present": { "type": "boolean" },
+        "data": { "description": "Parsed YAML object; unknown keys are preserved verbatim", "type": ["object", "null"] },
+        "raw": { "type": ["string", "null"], "description": "Raw YAML text between the --- fences" },
+        "comments": { "type": "array", "items": { "type": "string" }, "description": "Front-matter lines YAML treated as comments (e.g. docfx '#customer intent:'), preserved verbatim" },
+        "yamlError": { "type": "null" },
+        "span": { "oneOf": [{ "$ref": "#/$defs/span" }, { "type": "null" }] }
+      }
+    },
+    "nodes": { "type": "array", "items": { "$ref": "#/$defs/blockNode" } },
+    "quarantine": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["blocked", "reasons", "entries", "blockedIncludeNodes"],
+      "properties": {
+        "blocked": { "type": "boolean" },
+        "reasons": { "type": "array", "items": { "type": "string" } },
+        "entries": { "type": "array", "items": { "$ref": "#/$defs/quarantineEntry" } },
+        "blockedIncludeNodes": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["target", "reason", "span"],
+            "properties": {
+              "target": { "type": "string" },
+              "reason": { "type": "string" },
+              "span": { "$ref": "#/$defs/span" }
+            }
+          }
+        }
+      }
+    },
+    "counts": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["blocks", "byType", "dependencyEdges", "sanitizationActions", "unsupported", "commentedDirectives", "orphanConstructEnds"],
+      "properties": {
+        "blocks": { "type": "integer", "minimum": 0 },
+        "byType": { "type": "object", "additionalProperties": { "type": "integer", "minimum": 0 } },
+        "dependencyEdges": { "type": "integer", "minimum": 0 },
+        "sanitizationActions": { "type": "integer", "minimum": 0 },
+        "unsupported": { "type": "integer", "minimum": 0 },
+        "commentedDirectives": { "type": "integer", "minimum": 0 },
+        "orphanConstructEnds": { "type": "integer", "minimum": 0 }
+      }
+    }
+  },
+  "$defs": {
+    "hex64": { "type": "string", "pattern": "^[0-9a-f]{64}$" },
+    "compiler": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["name", "version"],
+      "properties": {
+        "name": { "type": "string" },
+        "version": { "type": "string" }
+      }
+    },
+    "position": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["line", "column"],
+      "properties": {
+        "line": { "type": "integer", "minimum": 1 },
+        "column": { "type": "integer", "minimum": 1 }
+      }
+    },
+    "span": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["start", "end"],
+      "properties": {
+        "start": { "$ref": "#/$defs/position" },
+        "end": { "$ref": "#/$defs/position" }
+      }
+    },
+    "quarantineEntry": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["nodeType", "reason", "detail", "span"],
+      "properties": {
+        "nodeType": { "type": "string" },
+        "reason": {
+          "type": "string",
+          "enum": [
+            "include-missing-target", "include-cycle", "include-path-traversal",
+            "include-tilde-path", "include-non-file-url", "include-chain",
+            "unknown-directive", "unterminated-construct", "orphan-construct-end",
+            "unterminated-code-fence"
+          ]
+        },
+        "detail": { "type": ["string", "null"] },
+        "span": { "$ref": "#/$defs/span" }
+      }
+    },
+    "sanitizedMarker": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["action", "reason"],
+      "properties": {
+        "action": { "const": "neutralized" },
+        "reason": { "type": "string" }
+      }
+    },
+    "inlineNode": {
+      "oneOf": [
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["type", "value", "span"],
+          "properties": { "type": { "const": "text" }, "value": { "type": "string" }, "span": { "$ref": "#/$defs/span" } }
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["type", "span"],
+          "properties": { "type": { "const": "softbreak" }, "span": { "$ref": "#/$defs/span" } }
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["type", "value", "span"],
+          "properties": { "type": { "const": "inlineCode" }, "value": { "type": "string" }, "span": { "$ref": "#/$defs/span" } }
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["type", "flavor", "children", "span"],
+          "properties": {
+            "type": { "const": "emphasis" },
+            "flavor": { "enum": ["em", "strong"] },
+            "children": { "type": "array", "items": { "$ref": "#/$defs/inlineNode" } },
+            "span": { "$ref": "#/$defs/span" }
+          }
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["type", "href", "title", "children", "span"],
+          "properties": {
+            "type": { "const": "link" },
+            "href": { "type": "string" },
+            "title": { "type": ["string", "null"] },
+            "children": { "type": "array", "items": { "$ref": "#/$defs/inlineNode" } },
+            "span": { "$ref": "#/$defs/span" },
+            "hrefOriginal": { "type": "string" },
+            "sanitized": { "$ref": "#/$defs/sanitizedMarker" },
+            "classification": { "$ref": "#/$defs/linkClassification" },
+            "resolved": { "type": ["string", "null"] },
+            "exists": { "type": ["boolean", "null"] },
+            "anchor": { "type": ["string", "null"] },
+            "anchorExists": { "type": ["boolean", "null"] }
+          }
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["type", "src", "alt", "title", "span"],
+          "properties": {
+            "type": { "const": "image" },
+            "src": { "type": "string" },
+            "alt": { "type": ["string", "null"] },
+            "title": { "type": ["string", "null"] },
+            "span": { "$ref": "#/$defs/span" },
+            "srcOriginal": { "type": "string" },
+            "srcResolved": { "type": ["string", "null"] },
+            "srcExists": { "type": ["boolean", "null"] },
+            "sanitized": { "$ref": "#/$defs/sanitizedMarker" }
+          }
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["type", "raw", "span"],
+          "properties": {
+            "type": { "const": "inlineHtml" },
+            "raw": { "type": "string" },
+            "span": { "$ref": "#/$defs/span" },
+            "sanitized": { "type": "boolean" }
+          }
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["type", "removedRaw", "span"],
+          "properties": { "type": { "const": "inlineHtmlRemoved" }, "removedRaw": { "type": "string" }, "span": { "$ref": "#/$defs/span" } }
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["type", "title", "target", "span"],
+          "properties": {
+            "type": { "const": "include" },
+            "title": { "type": "string" },
+            "target": { "type": "string" },
+            "span": { "$ref": "#/$defs/span" },
+            "resolved": { "type": ["string", "null"] },
+            "exists": { "type": ["boolean", "null"] },
+            "blocked": { "type": "boolean" },
+            "blockedReason": { "type": ["string", "null"] },
+            "fragmentSha256": { "type": ["string", "null"], "pattern": "^[0-9a-f]{64}$|^$" },
+            "fragmentNodeCount": { "type": ["integer", "null"], "minimum": 0 },
+            "chain": { "type": "array", "items": { "type": "string" } }
+          }
+        }
+      ]
+    },
+    "linkClassification": {
+      "enum": ["anchor-only", "external", "mail", "site-absolute", "locale-ref", "relative-md", "relative-asset", "relative-other"]
+    },
+    "tableCell": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["type", "header", "inline", "span"],
+      "properties": {
+        "type": { "const": "tableCell" },
+        "header": { "type": "boolean" },
+        "inline": { "type": "array", "items": { "$ref": "#/$defs/inlineNode" } },
+        "span": { "$ref": "#/$defs/span" }
+      }
+    },
+    "listItem": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["type", "inline", "children", "span"],
+      "properties": {
+        "type": { "const": "listItem" },
+        "inline": { "type": "array", "items": { "$ref": "#/$defs/inlineNode" } },
+        "children": { "type": "array", "items": { "$ref": "#/$defs/blockNode" } },
+        "span": { "$ref": "#/$defs/span" }
+      }
+    },
+    "blockNode": {
+      "oneOf": [
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["type", "level", "text", "slug", "inline", "span"],
+          "properties": {
+            "type": { "const": "heading" },
+            "level": { "type": "integer", "minimum": 1, "maximum": 6 },
+            "text": { "type": "string" },
+            "slug": { "type": "string" },
+            "inline": { "type": "array", "items": { "$ref": "#/$defs/inlineNode" } },
+            "span": { "$ref": "#/$defs/span" }
+          }
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["type", "inline", "span"],
+          "properties": {
+            "type": { "const": "paragraph" },
+            "inline": { "type": "array", "items": { "$ref": "#/$defs/inlineNode" } },
+            "span": { "$ref": "#/$defs/span" },
+            "orphanConstructEnd": {
+              "type": "string",
+              "description": "Present ONLY on paragraphs that ARE an orphan construct-end marker (`:::kind-end` with no matching open). The paragraph carries the exact marker text; docfx renders such markers as literal text. Accounted in the receipt (orphanConstructEnds), never quarantined."
+            }
+          }
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["type", "ordered", "start", "items", "span"],
+          "properties": {
+            "type": { "const": "list" },
+            "ordered": { "type": "boolean" },
+            "start": { "type": "integer", "minimum": 1 },
+            "items": { "type": "array", "items": { "$ref": "#/$defs/listItem" } },
+            "span": { "$ref": "#/$defs/span" }
+          }
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["type", "alignments", "header", "rows", "span"],
+          "properties": {
+            "type": { "const": "table" },
+            "alignments": { "type": "array", "items": { "enum": ["left", "center", "right", "none"] } },
+            "header": { "type": "array", "items": { "$ref": "#/$defs/tableCell" } },
+            "rows": { "type": "array", "items": { "type": "array", "items": { "$ref": "#/$defs/tableCell" } } },
+            "span": { "$ref": "#/$defs/span" }
+          }
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["type", "language", "value", "span"],
+          "properties": {
+            "type": { "const": "code" },
+            "language": { "type": ["string", "null"] },
+            "value": { "type": "string" },
+            "span": { "$ref": "#/$defs/span" },
+            "warnings": { "type": "array", "items": { "type": "string" } }
+          }
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["type", "children", "span"],
+          "properties": {
+            "type": { "const": "blockquote" },
+            "children": { "type": "array", "items": { "$ref": "#/$defs/blockNode" } },
+            "span": { "$ref": "#/$defs/span" }
+          }
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["type", "kind", "children", "span"],
+          "properties": {
+            "type": { "const": "admonition" },
+            "kind": { "enum": ["note", "tip", "important", "warning", "caution"] },
+            "children": { "type": "array", "items": { "$ref": "#/$defs/blockNode" } },
+            "span": { "$ref": "#/$defs/span" }
+          }
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["type", "title", "target", "span"],
+          "properties": {
+            "type": { "const": "include" },
+            "title": { "type": "string" },
+            "target": { "type": "string" },
+            "span": { "$ref": "#/$defs/span" },
+            "resolved": { "type": ["string", "null"] },
+            "exists": { "type": ["boolean", "null"] },
+            "blocked": { "type": "boolean" },
+            "blockedReason": { "type": ["string", "null"] },
+            "fragmentSha256": { "type": ["string", "null"], "pattern": "^[0-9a-f]{64}$|^$" },
+            "fragmentNodeCount": { "type": ["integer", "null"], "minimum": 0 },
+            "chain": { "type": "array", "items": { "type": "string" } }
+          }
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["type", "kind", "attributes", "rawAttributes", "endKind", "children", "span"],
+          "properties": {
+            "type": { "const": "learnConstruct" },
+            "kind": { "type": "string", "description": "zone, row, tab, column, moniker, image, div, video, table, section or other" },
+            "attributes": { "type": ["object", "null"], "additionalProperties": { "type": "string" } },
+            "rawAttributes": { "type": "string" },
+            "endKind": { "type": ["string", "null"] },
+            "selfClosing": { "type": "boolean", "description": "True for single-line :::kind ...::: forms with no end marker (e.g. the content form of :::image)" },
+            "children": { "type": ["array", "null"], "items": { "$ref": "#/$defs/blockNode" } },
+            "span": { "$ref": "#/$defs/span" },
+            "warnings": { "type": "array", "items": { "type": "string" } }
+          }
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["type", "directiveText", "span"],
+          "properties": {
+            "type": { "const": "commentedDirective" },
+            "directiveText": { "type": "string" },
+            "span": { "$ref": "#/$defs/span" }
+          }
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["type", "text", "span"],
+          "properties": {
+            "type": { "const": "htmlComment" },
+            "text": { "type": "string" },
+            "span": { "$ref": "#/$defs/span" }
+          }
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["type", "raw", "span"],
+          "properties": {
+            "type": { "const": "html" },
+            "raw": { "type": "string" },
+            "span": { "$ref": "#/$defs/span" },
+            "sanitized": { "type": "boolean" }
+          }
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["type", "removedRaw", "span"],
+          "properties": { "type": { "const": "htmlRemoved" }, "removedRaw": { "type": "string" }, "span": { "$ref": "#/$defs/span" } }
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["type", "span"],
+          "properties": { "type": { "const": "thematicBreak" }, "span": { "$ref": "#/$defs/span" } }
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["type", "reason", "detail", "snippet", "span"],
+          "properties": {
+            "type": { "const": "unsupported" },
+            "reason": { "type": "string" },
+            "detail": { "type": ["string", "null"] },
+            "snippet": { "type": "string" },
+            "span": { "$ref": "#/$defs/span" }
+          }
+        }
+      ]
+    }
+  }
+}

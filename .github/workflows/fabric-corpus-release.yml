@@ -1,0 +1,361 @@
+# FC12 — Fabric corpus release workflow (BUILD + VALIDATE + DRY-RUN PACKAGING).
+#
+# HARD GATE: this workflow NEVER deploys. Triggers ONLY on workflow_dispatch.
+# There is no push/pr/schedule trigger, no deploy job, no provider credential
+# use, and no `wrangler deploy` invocation anywhere in this file (the
+# Cloudflare step emits config + evidence only). Deployment activation is a
+# separate owner gate (RELEASE_AND_STORAGE.md; handover 05 §"Portable artifact
+# and provider feasibility gates": "Validate GitHub Pages and Vercel packaging
+# in GitHub Actions without provider credentials. Protect deploy jobs behind
+# explicit platform approval and environment permissions.").
+#
+# Where deploy jobs WOULD be added after owner approval: see the commented-out
+# stubs at the bottom of this file, each of which must run in a protected
+# GitHub Environment (github-pages / vercel / cloudflare) with required
+# reviewer approval, and only for the adapter the owner approves.
+#
+# Profiles: the same frozen content release is built twice — `root` (basePath
+# unset) and `subpath` (basePath from tools/fabric-corpus/profiles/subpath.json,
+# injected by tools/fabric-corpus/packaging/build-release.mjs; the placeholder
+# must be replaced with the real repository name at activation time, never
+# hard-coded). Logical coverage must be identical across profiles
+# (RELEASE_AND_STORAGE.md §"Delivery profiles").
+#
+# Runner feasibility notes (verified limits, 2026-11-05 handover):
+# - The export is ~29k files / ~2.96 GB. GitHub-hosted runners have ~14 GB of
+#   free disk; building one profile at a time (each job cleans out/ and .next
+#   first) fits comfortably. The two profiles are built SEQUENTIALLY in one
+#   job to bound disk usage.
+# - GitHub Pages deployment timeout is 10 minutes; the Pages feasibility
+#   verdict (published-site 1 GB limit vs measured bytes) lives in
+#   docs/fabric-corpus/reports/fc12-report.md and packaging/adapters.md.
+
+name: Fabric corpus release (dry run)
+
+on:
+  workflow_dispatch:
+    inputs:
+      corpus_revision:
+        description: "Frozen corpus revision the build dir cache must match (route-registry corpusRevision)."
+        required: false
+        default: "774592ea3f2d4558f763d6e5b74abf4785948fb5"
+      produce_pages_tar:
+        description: "Also produce the ~3 GB Pages artifact tar in the dry-run packaging job (slow)."
+        required: false
+        default: "true"
+
+permissions:
+  contents: read
+
+concurrency:
+  group: fabric-corpus-release-${{ github.ref }}
+  cancel-in-progress: false
+
+env:
+  # Build-dir contract (RELEASE_AND_STORAGE.md): everything generated lives
+  # OUTSIDE the repo checkout, in one directory the app build reads via fs.
+  FABRIC_CORPUS_BUILD_DIR: ${{ github.workspace }}/../fabric-corpus-build
+  # App SHA for the release manifest (no git command is run by the driver).
+  FABRIC_APP_SHA: ${{ github.sha }}
+
+defaults:
+  run:
+    shell: bash
+
+jobs:
+  # ---------------------------------------------------------------------------
+  # Job 1: build both profiles from the SAME lockfile and content release,
+  # verify coverage + base-path prefixes, and retain the release manifests.
+  # ---------------------------------------------------------------------------
+  build-and-validate:
+    name: Build + validate (root + subpath)
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    steps:
+      - name: Check out the integration worktree branch
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+
+      # w4a-report.md DEFECT-1: the sitemap clock and the build id must be
+      # pinned to the release commit, not the runner wall clock. The app reads
+      # SOURCE_DATE_EPOCH (app/sitemap.ts lastmod) and FABRIC_BUILD_ID
+      # (next.config.ts generateBuildId) with deterministic fallbacks; this
+      # step makes the documented pin real in CI. Nothing here touches
+      # credentials or content.
+      - name: Pin reproducibility clock + build id to the release commit
+        run: |
+          set -euo pipefail
+          EPOCH=$(git log -1 --format=%ct HEAD)
+          echo "SOURCE_DATE_EPOCH=$EPOCH" >> "$GITHUB_ENV"
+          echo "FABRIC_BUILD_ID=${GITHUB_SHA}" >> "$GITHUB_ENV"
+          echo "Pinned SOURCE_DATE_EPOCH=$EPOCH FABRIC_BUILD_ID=${GITHUB_SHA}"
+
+      - name: Set up Node 22
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install dependencies (same lockfile)
+        run: npm ci
+
+      - name: Restore provisioned corpus build dir (cache, keyed by corpus revision)
+        id: corpus
+        uses: actions/cache@v4
+        with:
+          # The build dir holds the compiled corpus (route registry, article
+          # data, search shards, asset manifest) produced by the authorized
+          # offline compiler pipeline (FC02/FC03/FC05/FC07/FC09). Provisioning
+          # it in CI requires the owner-approved pinned-blob fetch (handover 03
+          # §"Sync and release"; no upstream fetch happens in THIS workflow).
+          path: ${{ github.workspace }}/../fabric-corpus-build
+          key: fabric-corpus-build-${{ inputs.corpus_revision }}
+          restore-keys: |
+            fabric-corpus-build-${{ inputs.corpus_revision }}
+
+      - name: Fail fast when the corpus build dir is not provisioned
+        run: |
+          set -euo pipefail
+          REGISTRY="$FABRIC_CORPUS_BUILD_DIR/route-registry/route-registry.json"
+          if [ ! -f "$REGISTRY" ]; then
+            echo "::error::Corpus build dir not provisioned at $REGISTRY."
+            echo "The docs namespace fails closed (RELEASE_AND_STORAGE.md §\"Build-dir contract\")."
+            echo "Provision it by running the authorized offline compiler pipeline (FC02/FC03/FC05/FC07/FC09: pinned-blob sync, compile-all-families, build-registry, copy-assets, build-shards, copy-shards) and publish the result as the cache key fabric-corpus-build-<corpusRevision>, then dispatch this workflow again."
+            echo "NO upstream fetch, credential, or deployment is attempted by this workflow."
+            exit 1
+          fi
+          echo "Corpus build dir present."
+          node -e "const r=require(process.env.FABRIC_CORPUS_BUILD_DIR+'/route-registry/route-registry.json'); if(r.corpusRevision!==process.env.CORPUS_REVISION){console.error('::error::corpusRevision '+r.corpusRevision+' does not match requested '+process.env.CORPUS_REVISION);process.exit(1);} console.log('corpusRevision match:', r.corpusRevision, '| published:', r.counts.publishedArticles);"
+        env:
+          CORPUS_REVISION: ${{ inputs.corpus_revision }}
+
+      - name: Build + validate ROOT profile (coverage fail-closed)
+        run: node tools/fabric-corpus/packaging/build-release.mjs --profile root --label ci-root-${{ github.run_id }}
+
+      - name: Build + validate SUBPATH profile (coverage fail-closed + prefix checks)
+        run: node tools/fabric-corpus/packaging/build-release.mjs --profile subpath --label ci-subpath-${{ github.run_id }}
+
+      # REC-03 / Wave-4 (DEFECT-3): Atlas verify-only gate. Rebuilds the expected
+      # fabric-extension dataset in memory from the ledger + approvals sidecar
+      # and compares it byte-for-byte with the committed dataset; ANY drift
+      # fails the job (fail-closed). No output is written, no approval state
+      # changes. Still dispatch-only and deploy-free.
+      - name: Atlas verify-only gate (fail-closed drift detection)
+        run: node --experimental-strip-types tools/fabric-corpus/atlas/build-fabric-extension.mjs --verify-only
+
+      - name: Retain release manifests and run logs (evidence, not deployables)
+        uses: actions/upload-artifact@v4
+        with:
+          name: fabric-release-manifests
+          path: |
+            ../fabric-corpus-build/packaging/root/release-manifest.json
+            ../fabric-corpus-build/packaging/root/run-log.json
+            ../fabric-corpus-build/packaging/subpath/release-manifest.json
+            ../fabric-corpus-build/packaging/subpath/run-log.json
+          retention-days: 90
+          if-no-files-found: error
+
+  # ---------------------------------------------------------------------------
+  # Job 2: dry-run packaging — produce the per-adapter artifacts WITHOUT any
+  # deployment: (a) Pages artifact tar, (b) Vercel Build Output API mapping +
+  # prebuilt output listing, (c) Cloudflare Workers Static Assets config +
+  # capacity evidence. No provider credentials exist on this runner and none
+  # are used.
+  # ---------------------------------------------------------------------------
+  dry-run-packaging:
+    name: Dry-run packaging (adapters)
+    runs-on: ubuntu-latest
+    needs: build-and-validate
+    timeout-minutes: 60
+    steps:
+      - name: Check out the integration worktree branch
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+
+      # Same reproducibility pin as job 1 (w4a-report.md DEFECT-1): the
+      # rebuilt subpath profile must carry the release-commit clock and build
+      # id, not the runner wall clock.
+      - name: Pin reproducibility clock + build id to the release commit
+        run: |
+          set -euo pipefail
+          EPOCH=$(git log -1 --format=%ct HEAD)
+          echo "SOURCE_DATE_EPOCH=$EPOCH" >> "$GITHUB_ENV"
+          echo "FABRIC_BUILD_ID=${GITHUB_SHA}" >> "$GITHUB_ENV"
+          echo "Pinned SOURCE_DATE_EPOCH=$EPOCH FABRIC_BUILD_ID=${GITHUB_SHA}"
+
+      - name: Set up Node 22
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install dependencies (same lockfile)
+        run: npm ci
+
+      - name: Restore provisioned corpus build dir (cache, keyed by corpus revision)
+        uses: actions/cache@v4
+        with:
+          path: ${{ github.workspace }}/../fabric-corpus-build
+          key: fabric-corpus-build-${{ inputs.corpus_revision }}
+          restore-keys: |
+            fabric-corpus-build-${{ inputs.corpus_revision }}
+
+      - name: Rebuild SUBPATH profile (Pages project sites use the subpath profile)
+        run: node tools/fabric-corpus/packaging/build-release.mjs --profile subpath --label ci-package-${{ github.run_id }}
+
+      # (a) GitHub Pages artifact tar — the same packaging shape
+      # actions/upload-pages-artifact consumes (GNU tar of out/). FEASIBILITY
+      # EVIDENCE ONLY: this artifact is never deployed here.
+      - name: Produce Pages artifact tar (evidence only, no deploy)
+        if: ${{ inputs.produce_pages_tar == 'true' }}
+        run: |
+          set -euo pipefail
+          mkdir -p ../fabric-corpus-build/packaging/adapters/pages
+          START=$(date +%s)
+          tar -cf ../fabric-corpus-build/packaging/adapters/pages/pages-artifact.tar -C out .
+          END=$(date +%s)
+          ls -l ../fabric-corpus-build/packaging/adapters/pages/pages-artifact.tar
+          echo "tarSeconds=$((END-START))" >> "$GITHUB_ENV"
+
+      - name: Record Pages tar feasibility numbers
+        if: ${{ inputs.produce_pages_tar == 'true' }}
+        run: |
+          set -euo pipefail
+          node -e "
+          const fs=require('fs');
+          const m=JSON.parse(fs.readFileSync(process.env.FABRIC_CORPUS_BUILD_DIR+'/packaging/subpath/release-manifest.json','utf8'));
+          const tar=fs.statSync(process.env.FABRIC_CORPUS_BUILD_DIR+'/packaging/adapters/pages/pages-artifact.tar');
+          const evidence={profile:'subpath',outFiles:m.outputStats.files,outBytes:m.outputStats.bytes,tarBytes:tar.size,tarSeconds:process.env.tarSeconds,note:'Evidence only. Pages published-site limit is 1 GB; see fc12-report.md for the verdict.'};
+          fs.writeFileSync(process.env.FABRIC_CORPUS_BUILD_DIR+'/packaging/adapters/pages/feasibility.json',JSON.stringify(evidence,null,2)+'\n');
+          console.log(JSON.stringify(evidence,null,2));
+          "
+
+      # (b) Vercel Build Output API mapping — static output only. This maps
+      # out/ into .vercel/output/static plus a minimal config.json and a file
+      # listing (prebuilt upload feasibility evidence). `vercel deploy
+      # --prebuilt` and `vercel build` are NOT run here: the former needs
+      # credentials and would upload; the latter is unnecessary for an
+      # already-complete static export (out/ IS the Build Output static dir).
+      - name: Produce Vercel Build Output API static mapping + listing (evidence only, no upload)
+        run: |
+          set -euo pipefail
+          mkdir -p ../fabric-corpus-build/packaging/adapters/vercel/.vercel/output
+          cp -r out ../fabric-corpus-build/packaging/adapters/vercel/.vercel/output/static
+          cat > ../fabric-corpus-build/packaging/adapters/vercel/.vercel/output/config.json <<'JSON'
+          {
+            "version": 3,
+            "trailingSlash": true,
+            "routes": []
+          }
+          JSON
+          node -e "
+          const fs=require('fs'),path=require('path');
+          const root=process.env.FABRIC_CORPUS_BUILD_DIR+'/packaging/adapters/vercel/.vercel/output/static';
+          let files=0,bytes=0;const byExt={};
+          (function walk(dir){for(const e of fs.readdirSync(dir,{withFileTypes:true})){const f=path.join(dir,e.name);if(e.isDirectory())walk(f);else{files++;bytes+=fs.statSync(f).size;const ext=path.extname(e.name)||'(none)';byExt[ext]=(byExt[ext]||0)+1;}}})(root);
+          const evidence={profile:'subpath',staticOutputFiles:files,staticOutputBytes:bytes,byExt,vercelSourceFileCeiling:15000,vercelCliUploadCeilingBytes:{hobby:100*1024*1024,pro:1024*1024*1024},note:'Prebuilt upload uploads this static tree as deployment files; 15000-file and size ceilings apply (see fc12-report.md). No upload was performed.'};
+          fs.writeFileSync(process.env.FABRIC_CORPUS_BUILD_DIR+'/packaging/adapters/vercel/prebuilt-listing.json',JSON.stringify(evidence,null,2)+'\n');
+          console.log('vercel static output:',files,'files,',bytes,'bytes');
+          "
+
+      # (c) Cloudflare Workers Static Assets — emit the validated wrangler
+      # config + capacity evidence. NO `wrangler deploy` (not even --dry-run):
+      # deployment is an owner gate, and validation of the config happens
+      # post-approval with `npx wrangler deploy --dry-run` (never uploads).
+      - name: Emit Cloudflare wrangler assets config + capacity evidence (no deploy)
+        run: |
+          set -euo pipefail
+          mkdir -p ../fabric-corpus-build/packaging/adapters/cloudflare
+          cp wrangler.jsonc ../fabric-corpus-build/packaging/adapters/cloudflare/wrangler.dry-run.jsonc
+          node -e "
+          const fs=require('fs'),path=require('path');
+          const root=path.resolve('out');
+          let files=0,bytes=0,largest={bytes:0};
+          (function walk(dir){for(const e of fs.readdirSync(dir,{withFileTypes:true})){const f=path.join(dir,e.name);if(e.isDirectory())walk(f);else{const s=fs.statSync(f).size;files++;bytes+=s;if(s>largest.bytes)largest={bytes,file:path.relative(root,f)};}}})(root);
+          const evidence={profile:'root',outFiles:files,outBytes:bytes,largest,largestLimitMiB:25,workersFreeFilesPerVersion:20000,workersPaidFilesPerVersion:100000,note:'Config copied from wrangler.jsonc (assets.directory ./out, auto-trailing-slash, 404-page). See fc12-report.md for PASS/BLOCKED.'};
+          fs.writeFileSync(process.env.FABRIC_CORPUS_BUILD_DIR+'/packaging/adapters/cloudflare/capacity.json',JSON.stringify(evidence,null,2)+'\n');
+          console.log('cloudflare assets:',files,'files,',bytes,'bytes, largest',largest.file,largest.bytes);
+          "
+
+      - name: Retain adapter dry-run evidence (small files)
+        uses: actions/upload-artifact@v4
+        with:
+          name: fabric-adapter-dry-run-evidence
+          path: |
+            ../fabric-corpus-build/packaging/adapters/vercel/prebuilt-listing.json
+            ../fabric-corpus-build/packaging/adapters/vercel/.vercel/output/config.json
+            ../fabric-corpus-build/packaging/adapters/cloudflare/wrangler.dry-run.jsonc
+            ../fabric-corpus-build/packaging/adapters/cloudflare/capacity.json
+            ../fabric-corpus-build/packaging/subpath/release-manifest.json
+          retention-days: 90
+          if-no-files-found: warn
+
+      - name: Retain Pages artifact tar (large, short retention)
+        if: ${{ inputs.produce_pages_tar == 'true' }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: fabric-pages-artifact-tar
+          path: ../fabric-corpus-build/packaging/adapters/pages/
+          retention-days: 7
+          if-no-files-found: warn
+
+  # ===========================================================================
+  # DEPLOYMENT STUBS — INTENTIONALLY COMMENTED OUT (owner gate).
+  #
+  # Nothing below runs. After the owner approves (a) the canonical host,
+  # (b) the capacity decision for the chosen adapter, and (c) the deploy
+  # authorization (handover 05 checkpoints 3 and 5), a deploy job may be
+  # uncommented ONLY inside a protected GitHub Environment with required
+  # reviewers, deployment branch policy, and the smallest permission set.
+  # Adapters own packaging, static routing rules and credentials; they never
+  # compile different application logic or select different articles
+  # (handover 03 §"Hosting-agnostic release contract").
+  #
+  # deploy-github-pages:
+  #   # Pages published-site limit is 1 GB: BLOCKED at the measured ~2.96 GB
+  #   # full export; requires the owner-approved media-independence decision
+  #   # (independent immutable media delivery) before activation.
+  #   needs: dry-run-packaging
+  #   runs-on: ubuntu-latest
+  #   environment:
+  #     name: github-pages          # protect: required reviewers + branch policy
+  #     url: ${{ steps.deployment.outputs.page_url }}
+  #   permissions:
+  #     contents: read
+  #     pages: write
+  #     id-token: write
+  #   steps:
+  #     - uses: actions/download-artifact@v4 (the pages artifact tar)
+  #     - uses: actions/upload-pages-artifact@v3 (path: unpacked subpath out/)
+  #     - id: deployment
+  #       uses: actions/deploy-pages@v4   # 10-minute deployment timeout
+  #
+  # deploy-vercel:
+  #   # Prebuilt upload is BLOCKED at the measured file count (15,000-file
+  #   # ceiling) — requires the controlled Git-triggered hosted build from the
+  #   # same lock and command, with the corpus build dir provisioned in the
+  #   # Vercel build step, or owner-approved file-count reduction.
+  #   needs: dry-run-packaging
+  #   runs-on: ubuntu-latest
+  #   environment:
+  #     name: vercel-production     # protect: required reviewers
+  #   steps:
+  #     - uses: actions/checkout@v4
+  #     # vercel CLI with VERCEL_TOKEN stored as a protected environment secret
+  #     # (name only here; the value never appears in this repository).
+  #
+  # deploy-cloudflare:
+  #   # 20,000 files/version (Free) is EXCEEDED by the measured out/ file
+  #   # count — BLOCKED at current size; requires file-count reduction levers
+  #   # (RSC payload dedup, media independence) or a Paid plan with owner
+  #   # approval.
+  #   needs: dry-run-packaging
+  #   runs-on: ubuntu-latest
+  #   environment:
+  #     name: cloudflare-production # protect: required reviewers
+  #   steps:
+  #     - uses: actions/checkout@v4
+  #     # npx wrangler deploy with CLOUDFLARE_API_TOKEN + CLOUDFLARE_ACCOUNT_ID
+  #     # as protected environment secret NAMES only.

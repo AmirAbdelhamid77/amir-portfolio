@@ -4,7 +4,7 @@ import {createHash} from 'node:crypto';
 import {resolve,sep} from 'node:path';
 import ts from 'typescript';
 import {studyReceipt} from './study-receipt.mjs';
-import {knowledgeStageReceipt} from './knowledge-stage-receipt.mjs';
+import {knowledgeStageReceipt,KNOWLEDGE_STAGE_FC} from './knowledge-stage-receipt.mjs';
 export const FINAL_REVIEW='docs/final-review-20261028/INTEGRATION_MANIFEST.json';
 export const FINAL_HISTORY='docs/final-review-20261028/HISTORICAL_RECONCILIATION.json';
 const digest=b=>createHash('sha256').update(b).digest('hex');
@@ -17,12 +17,42 @@ export function finalReviewReceipt(root){
  const raw=p=>readFileSync(safe(p)),hash=p=>digest(raw(p)),json=p=>JSON.parse(raw(p));
  const m=json(FINAL_REVIEW);
  const successor=studyReceipt(root);
+ const stage=knowledgeStageReceipt(root);
+ // The FC layer records, for a path it re-pinned, the one addition it audited —
+ // a dependency field or a trailing ignore block — with its attribution and the
+ // code that requires it. Re-deriving the historical expectation with exactly
+ // that addition keeps the equality assertions below exact and binds the
+ // authorization to the pin's recorded bytes: any other edit still fails.
+ const audited=path=>{
+  if(!existsSync(resolve(root,KNOWLEDGE_STAGE_FC)))return null;
+  const fc=JSON.parse(readFileSync(resolve(root,KNOWLEDGE_STAGE_FC),'utf8'));
+  // The FC layer may advance a path more than once, hop by hop, exactly like
+  // the pin chain the successor receipts verify. Authorization belongs to the
+  // terminal hop whose recorded bytes match disk; an intermediate hop never
+  // authorizes a later state. Each audited addition stays authorized across
+  // the hops it survived, so the returned pin carries the union of the
+  // auditedDependencyAdditions recorded along the walked chain (order:
+  // earliest hop first). The hop bound turns a mistaken cycle into a
+  // rejection, not a hang.
+  const pins=(fc.files??[]).filter(e=>e.path===path);
+  if(pins.length===0)return null;
+  let terminal=pins[0];
+  const additions=[...(pins[0].auditedDependencyAdditions??[])];
+  for(let hop=0;hop<32;hop+=1){
+   const next=pins.find(e=>e.previousSha256===terminal.sha256);
+   if(!next)break;
+   additions.push(...(next.auditedDependencyAdditions??[]));
+   terminal=next;
+  }
+  if(hash(path)!==terminal.sha256)return null;
+  return {...terminal,auditedDependencyAdditions:additions};
+ };
  assert.equal(m.scope,'hansa-final-review-20261028');
  assert.equal(hash(m.previousManifest),m.previousManifestSha256,'Original Phase 2 manifest changed');
- assert.equal(hash(m.baselinePath),knowledgeStageReceipt(root).predecessor(m.baselinePath,m.baselineSha256),'Final-review starting baseline changed');
+ assert.equal(hash(m.baselinePath),stage.predecessor(m.baselinePath,m.baselineSha256),'Final-review starting baseline changed');
  const baseline=json(m.baselinePath).files;
  const h=json(FINAL_HISTORY);
- assert.equal(hash(FINAL_HISTORY),knowledgeStageReceipt(root).predecessor(FINAL_HISTORY,m.historySha256),'Historical reconciliation changed');
+ assert.equal(hash(FINAL_HISTORY),stage.predecessor(FINAL_HISTORY,m.historySha256),'Historical reconciliation changed');
  const transitions=h.transitions;
  assert.deepEqual(transitions.map(e=>e.path).sort(),['.gitignore','AGENTS.md','app/globals.css','eslint.config.mjs','lib/hooks/use-hover-capable.ts','lib/touch.ts','package.json'].sort());
  for(const e of transitions){
@@ -42,8 +72,12 @@ export function finalReviewReceipt(root){
    Object.assign(expected.scripts,{
     'test:knowledge':'node --experimental-strip-types --test "tests/knowledge/*.test.mjs"',
     'test:atlas':'node --experimental-strip-types --test "tests/atlas/*.test.mjs"',
+    // Added by the Wave-4.1 follow-up (7 Nov 2026): wires the 30 existing
+    // tests/fabric-corpus suites into npm scripts and test:all. No dependency,
+    // no engine change; the FC package.json transition records it.
+    'test:fabric-corpus':'node --experimental-strip-types --test "tests/fabric-corpus/**/*.test.mjs"',
     'qa:prototype-c':'node scripts/qa-prototype-c-v2.mjs',
-    'test:all':'npm test && npm run test:statistics && npm run test:fabric && npm run test:content && npm run test:knowledge && npm run test:atlas',
+    'test:all':'npm test && npm run test:statistics && npm run test:fabric && npm run test:content && npm run test:knowledge && npm run test:atlas && npm run test:fabric-corpus',
     'build:drafts':'node scripts/build-draft-banks.mjs','qa:drafts':'node scripts/qa-drafts.mjs','build:intake':'node scripts/build-intake-content.mjs',
     // Added by the authorized /learn curriculum wave (3 Nov 2026). Each is a
     // local read-only gate or inventory command; none adds a dependency.
@@ -51,6 +85,7 @@ export function finalReviewReceipt(root){
     'verify:curriculum':'node --experimental-strip-types scripts/verify-curriculum-routes.mjs',
     'qa:search-index':'node --experimental-strip-types scripts/qa-search-index.mjs',
    });
+   for(const d of audited('package.json')?.auditedDependencyAdditions??[]){assert.ok(expected[d.section]&&typeof expected[d.section]==='object','Audited dependency section is not an object: '+d.section);expected[d.section]={...expected[d.section],[d.name]:d.version};}
    assert.deepEqual(JSON.parse(current),expected,'Only audited script additions are allowed; dependency/other changes rejected');
   }else if(e.path==='AGENTS.md'){
    assert.equal(e.fromSha256,'806c749ff9cea0eeda69ef65bef5c5eee8809e3f59f8904779907ebff1039c4c');
@@ -81,7 +116,8 @@ export function finalReviewReceipt(root){
    assert.equal(e.fromSha256,'e6f49595e098e06bbce8d48ae707fd31eda8da46b394b540e697091e83246aef');
    const before=original.replaceAll('\r\n','\n').trimEnd(),now=current.replaceAll('\r\n','\n');
    const suffix='\n\n# Private intake mirror: package files that carry answer keys, historical keys,\n# review logs and agent guides. Kept on disk for review, never committed and\n# never served — no file under this path is imported by any app code.\nintake-private/\n';
-   assert.equal(now.trimEnd(),(before+suffix).trimEnd(),'Only the documented private intake ignore rule is allowed');
+   const auditedAppend=audited('.gitignore')?.auditedAppend??'';
+   assert.equal(now.trimEnd(),(before+suffix+auditedAppend).trimEnd(),'Only the documented private intake ignore rule is allowed');
   }
  }
  assert.equal(new Set(h.additions.map(e=>e.path)).size,h.additions.length);
