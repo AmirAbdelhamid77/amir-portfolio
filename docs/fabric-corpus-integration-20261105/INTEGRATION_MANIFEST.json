@@ -209,6 +209,15 @@
       "layer": "release-v1/2026-11-08",
       "attribution": "KG-prototype-integration",
       "note": "One change, required by the package.json transition above: the successor-audit expected-scripts allowlist gains qa:network and graph:build, keeping the deepEqual exact. No behavioral change for any pre-existing script or dependency rule; the auditedDependencyAdditions hop-union already covers the two new dependencies via the package.json transition in this layer."
+    },
+    {
+      "path": "components/learn/curriculum-home.tsx",
+      "previousSha256": "84c11b7a640774d9d5d48a642efcbdbe23f1493e9ba9399e13f1c25830bb585c",
+      "sha256": "fbdccafbd7adfaad7e714f5e95c70b2711f3157b4f6d852ef7b06f7be20c64e4",
+      "bytes": 10075,
+      "layer": "release-v1/2026-11-08",
+      "attribution": "learn-graph-entry",
+      "note": "Learn hub hero gains one ghost action, 'Knowledge map', opening /prototype/network/ — the owner-mandated Learn-to-Graph entry point (mission 2026-11-08, branch feat/learn-graph-map, commit 43a0d8c). The M0 addition record for this file is superseded by this pin; no other hero action, stat or section changed."
     }
   ],
   "additions": [],
