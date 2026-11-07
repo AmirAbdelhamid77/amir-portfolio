@@ -76,6 +76,12 @@ export function finalReviewReceipt(root){
     // tests/fabric-corpus suites into npm scripts and test:all. No dependency,
     // no engine change; the FC package.json transition records it.
     'test:fabric-corpus':'node --experimental-strip-types --test "tests/fabric-corpus/**/*.test.mjs"',
+    // Added by the Knowledge Graph integration (8 Nov 2026): the radial
+    // four-lens map keeps its independent noindex route; these are local
+    // tooling/QA commands, not build steps (the branch's prebuild hook was
+    // deliberately not carried — see the FC package.json transition).
+    'qa:network':'node scripts/qa-network-tree.mjs',
+    'graph:build':'node scripts/graph/run.mjs',
     'qa:prototype-c':'node scripts/qa-prototype-c-v2.mjs',
     'test:all':'npm test && npm run test:statistics && npm run test:fabric && npm run test:content && npm run test:knowledge && npm run test:atlas && npm run test:fabric-corpus',
     'build:drafts':'node scripts/build-draft-banks.mjs','qa:drafts':'node scripts/qa-drafts.mjs','build:intake':'node scripts/build-intake-content.mjs',

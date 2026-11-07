@@ -1,8 +1,8 @@
 {
   "scope": "hansa-fabric-corpus-integration-20261105",
-  "note": "First receipt layer of the Microsoft Fabric full-corpus integration branch (feat/fabric-corpus-20261105). It records only audited, reviewed transitions made on that branch; it never edits an older receipt and never rewrites a hash that still matches disk. The pinned baseline remains 3d94030; every entry states why it exists and names its work-package review evidence in docs/fabric-corpus/reports/.",
+  "note": "First receipt layer of the Microsoft Fabric full-corpus integration branch (feat/fabric-corpus-20261105). It records only audited, reviewed transitions made on that branch; it never edits an older receipt and never rewrites a hash that still matches disk. The pinned baseline remains 3d94030; every entry states why it exists and names its work-package review evidence in docs/fabric-corpus/reports/. Advancement recorded 2026-11-08 on release/v1: the predecessor M6 manifest was lawfully advanced by the owner's Active V3 R3-R6 promotion (the uncommitted working state frozen as release/v1 a775483; its note records the R2 review slice). Per this layer's own rule the predecessor hash no longer matched disk, so it is re-pinned here: 6507ab5b788fad0a876bd2c77072f099210edfadae088bc1510ee02257ccf8fc -> 41e94509d07b461b7cb8b161402a87138eb8da3002dc7830cb494134897b0842. No file pin, addition, removal or exclusion below was changed.",
   "previous": "docs/knowledge-stage-m6-20261104/INTEGRATION_MANIFEST.json",
-  "previousSha256": "6507ab5b788fad0a876bd2c77072f099210edfadae088bc1510ee02257ccf8fc",
+  "previousSha256": "41e94509d07b461b7cb8b161402a87138eb8da3002dc7830cb494134897b0842",
   "files": [
     {
       "path": "app/sitemap.ts",
@@ -148,6 +148,67 @@
       "layer": "fabric-corpus/2026-11-07",
       "attribution": "W4.1-test-suite-wiring",
       "note": "Two changes, both required by the package.json transition above: (1) audited() now follows the FC hop chain for a path and authorizes only the terminal pin whose recorded bytes match disk — previously it matched the FIRST pin, which would have silently revoked the auditedDependencyAdditions authorization (yaml@2.9.1) once package.json gained a second hop; single-pin behavior is byte-for-byte identical. (2) the successor-audit script allowlist gains test:fabric-corpus and the extended test:all string, keeping the deepEqual exact. Evidence: w41-follow-up-report.md."
+    },
+    {
+      "path": "lib/atlas/model.ts",
+      "previousSha256": "2e3888236aac696f97b8fb78f289a78e4cf0dfd8dc72d77b7155f9b8afa36155",
+      "sha256": "70d41f5c88e7ca23a9bb3a0cefea30f7ff445b98005241a7d56c8ed4956b4e44",
+      "bytes": 12010,
+      "layer": "release-v1/2026-11-08",
+      "attribution": "owner-V3-freeze-union",
+      "note": "Union of the owner's Active V3 parseView 'return' view-parameter acceptance (uncommitted working state, frozen as release/v1 a775483) with this layer's safeReturn >= 2048 boundary fix. Git merged the disjoint hunks automatically (release/v1 ae8153e); the hop records the merged union from this layer's chain terminal so both changes stay authorized. Evidence: release/v1 merge commit ae8153e."
+    },
+    {
+      "path": "package.json",
+      "previousSha256": "0d0f63e706cf8b4db5ba0d52064cc06b2e2e90205a09c4dc991b259ad98ca40d",
+      "sha256": "4437353de5fa9e2ea6c083e3c85a0fa527e002b1b2e639f4a8d102f26bbabed9",
+      "bytes": 3934,
+      "layer": "release-v1/2026-11-08",
+      "attribution": "KG-prototype-integration",
+      "note": "Knowledge Graph integration (prototype/network-tree @ 37f8c0a, merged as release/v1 2efa23c): adds the qa:network and graph:build scripts. The branch's prebuild hook was deliberately NOT carried — owner decision 2026-11-08 keeps builds byte-reproducible and uses the committed datasets, which regeneration proved content-identical against the unified source model (only generatedAt differs). The successor-audit allowlist gains the two scripts in the scripts/final-review-receipt.mjs transition in this layer.",
+      "auditedDependencyAdditions": [
+        {
+          "section": "dependencies",
+          "name": "d3-force",
+          "version": "^3.0.1",
+          "attribution": "KG-prototype-integration",
+          "requiredBy": "components/knowledge-graph/tree-explorer.tsx"
+        },
+        {
+          "section": "devDependencies",
+          "name": "@types/d3-force",
+          "version": "^3.0.10",
+          "attribution": "KG-prototype-integration",
+          "requiredBy": "components/knowledge-graph/tree-explorer.tsx"
+        }
+      ]
+    },
+    {
+      "path": "tsconfig.json",
+      "previousSha256": "4eb3f01bf1370e07d17ff9d7c79d0ba8e5560570c06d9fb5044f60236d2458d6",
+      "sha256": "4c7a99c8dccdbea1201c0c3099fe1d0fba6574c6afd279d1103542e0d8233b99",
+      "bytes": 1093,
+      "layer": "release-v1/2026-11-08",
+      "attribution": "KG-prototype-integration",
+      "note": "Knowledge Graph integration (release/v1 2efa23c): adds prototype-archive to the TypeScript exclude list so the archived circular-nodes and global-hairball prototype iterations stay out of type-checking. No other compiler option changed."
+    },
+    {
+      "path": "tests/knowledge/daily-bank.test.mjs",
+      "previousSha256": "a343f09f1868c71c8f87f53b6d1e0fb53ae62b0ad86129ff63199ca2c0d92b0a",
+      "sha256": "6ec6c96fa3a5efe319eee990f4004f370a14c6315df9261fd28e9414578b41c7",
+      "bytes": 7178,
+      "layer": "release-v1/2026-11-08",
+      "attribution": "owner-V3-freeze",
+      "note": "The owner's post-RC edit of this test (daily-insight-bank work, present in the Active V3 working state frozen as release/v1 a775483) postdates the M6 addition record, which still names the earlier bytes (a343f09f...). The same drift exists in the owner's own working tree. This pin records the successor state — the owner's current file, preserved byte-exact — so the chain terminates on disk."
+    },
+    {
+      "path": "scripts/final-review-receipt.mjs",
+      "previousSha256": "acf22a3bb9f068ed5a74bb1a04818582e52728c9ea93fb1b07b0d75606f3630b",
+      "sha256": "e53cfdd40c0490b38896c3d10f832791673c6fbbf1a4050ef4bfd3df7933f9ec",
+      "bytes": 12263,
+      "layer": "release-v1/2026-11-08",
+      "attribution": "KG-prototype-integration",
+      "note": "One change, required by the package.json transition above: the successor-audit expected-scripts allowlist gains qa:network and graph:build, keeping the deepEqual exact. No behavioral change for any pre-existing script or dependency rule; the auditedDependencyAdditions hop-union already covers the two new dependencies via the package.json transition in this layer."
     }
   ],
   "additions": [],
