@@ -21,6 +21,11 @@
     --muted-foreground: oklch(50% 0 0);
     --border: oklch(15% 0 0 / 0.06);
     --border-strong: oklch(15% 0 0 / 0.12);
+    /* Redesign motion tokens (redesign plan §7). Read from CSS, never duplicated in JS. */
+    --dur-fast: 200ms;
+    --dur-layer: 325ms;
+    --dur-intro: 750ms;
+    --ease-layer: ease-in-out;
     --accent-fg: oklch(15% 0 0);
     --neon: oklch(80% 0.22 145);
     --violet: oklch(68% 0.22 295);

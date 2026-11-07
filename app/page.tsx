@@ -1,6 +1,11 @@
 import type { Metadata } from "next";
 import { HansaKnowledgeLanding } from "@/components/knowledge/hansa-landing";
+import { TimelineHome } from "@/components/hansa/timeline-home";
 import { SITE } from "@/lib/site";
+
+// Redesign plan §4: the redesigned timeline Home ships dark behind HOME_V2.
+// Unset (or any value but "1") keeps the accepted R3–R6 Home as the default.
+const HOME_V2 = process.env.NEXT_PUBLIC_HOME_V2 === "1";
 
 // The root IS the Hansa learning landing. The previous root — a directory of
 // Atlas/Learn/Practice gateways with a portfolio framing — was retired with the
@@ -70,7 +75,11 @@ export default function HomePage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
-      <HansaKnowledgeLanding />
+      {HOME_V2 ? (
+        <TimelineHome stage={<p className="p-6 text-sm text-muted-foreground">Timeline stage — Stage C.</p>} />
+      ) : (
+        <HansaKnowledgeLanding />
+      )}
     </>
   );
 }
