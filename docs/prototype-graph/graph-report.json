@@ -1,0 +1,4329 @@
+{
+  "version": "knowledge-graph-2026-11-06.2",
+  "generatedAt": "2026-11-07T19:32:12.095Z",
+  "stats": {
+    "nodes": {
+      "chapter": 10,
+      "course": 1,
+      "unit": 824,
+      "journey": 9,
+      "pack": 27,
+      "page": 25,
+      "programme": 3,
+      "source": 198,
+      "subject": 8
+    },
+    "edges": {
+      "cites": 1424,
+      "co-citation": 2157,
+      "contains": 875,
+      "derived-from": 25,
+      "prerequisite": 78,
+      "lexical": 187
+    },
+    "edgeLayers": {
+      "declared": 1527,
+      "derived": 2157,
+      "structure": 875,
+      "candidate": 187
+    },
+    "islands": [
+      {
+        "id": 32,
+        "size": 634,
+        "label": "Microsoft Fabric · 634 units",
+        "subjects": {
+          "fabric": 634
+        }
+      },
+      {
+        "id": 35,
+        "size": 48,
+        "label": "Fabric Deployment Pipelines, Pairing, Rules, Permissions and Release Engineering — Advanced DP-600",
+        "subjects": {
+          "fabric": 48
+        }
+      },
+      {
+        "id": 46,
+        "size": 41,
+        "label": "Statistics & reasoning · 41 units",
+        "subjects": {
+          "statistics": 41
+        }
+      },
+      {
+        "id": 45,
+        "size": 18,
+        "label": "SQL · 18 units",
+        "subjects": {
+          "sql": 18
+        }
+      },
+      {
+        "id": 33,
+        "size": 14,
+        "label": "SCD & Data Modeling",
+        "subjects": {
+          "fabric": 14
+        }
+      },
+      {
+        "id": 41,
+        "size": 6,
+        "label": "What Are Delta Tables in Microsoft Fabric? - Full Guide!",
+        "subjects": {
+          "fabric": 6
+        }
+      },
+      {
+        "id": 40,
+        "size": 5,
+        "label": "What Are Delta Tables in Microsoft Fabric? - Full Guide!",
+        "subjects": {
+          "fabric": 5
+        }
+      },
+      {
+        "id": 36,
+        "size": 4,
+        "label": "Microsoft Fabric Monitoring — Advanced Architecture, Troubleshooting & Query Diagnostics",
+        "subjects": {
+          "fabric": 4
+        }
+      },
+      {
+        "id": 39,
+        "size": 4,
+        "label": "What Are Delta Tables in Microsoft Fabric? - Full Guide!",
+        "subjects": {
+          "fabric": 4
+        }
+      },
+      {
+        "id": 37,
+        "size": 2,
+        "label": "Microsoft Fabric SQL Analytics Endpoint Explained",
+        "subjects": {
+          "fabric": 2
+        }
+      },
+      {
+        "id": 38,
+        "size": 2,
+        "label": "Lakehouse: Files, Tables, Shortcuts and MLVs",
+        "subjects": {
+          "fabric": 2
+        }
+      },
+      {
+        "id": 0,
+        "size": 1,
+        "label": "Microsoft Fabric · 1 units",
+        "subjects": {
+          "fabric": 1
+        }
+      },
+      {
+        "id": 1,
+        "size": 1,
+        "label": "Analytical foundations · 1 units",
+        "subjects": {
+          "analysis": 1
+        }
+      },
+      {
+        "id": 2,
+        "size": 1,
+        "label": "Excel · 1 units",
+        "subjects": {
+          "excel": 1
+        }
+      },
+      {
+        "id": 3,
+        "size": 1,
+        "label": "Power BI · 1 units",
+        "subjects": {
+          "power-bi": 1
+        }
+      },
+      {
+        "id": 4,
+        "size": 1,
+        "label": "Python · 1 units",
+        "subjects": {
+          "python": 1
+        }
+      },
+      {
+        "id": 5,
+        "size": 1,
+        "label": "03 · Core Visual Grammar",
+        "subjects": {
+          "visualization": 1
+        }
+      },
+      {
+        "id": 6,
+        "size": 1,
+        "label": "03 · Core Visual Grammar",
+        "subjects": {
+          "visualization": 1
+        }
+      },
+      {
+        "id": 7,
+        "size": 1,
+        "label": "05 · Color & Perception",
+        "subjects": {
+          "visualization": 1
+        }
+      },
+      {
+        "id": 8,
+        "size": 1,
+        "label": "03 · Core Visual Grammar",
+        "subjects": {
+          "visualization": 1
+        }
+      },
+      {
+        "id": 9,
+        "size": 1,
+        "label": "03 · Core Visual Grammar",
+        "subjects": {
+          "visualization": 1
+        }
+      },
+      {
+        "id": 10,
+        "size": 1,
+        "label": "03 · Core Visual Grammar",
+        "subjects": {
+          "visualization": 1
+        }
+      },
+      {
+        "id": 11,
+        "size": 1,
+        "label": "03 · Core Visual Grammar",
+        "subjects": {
+          "visualization": 1
+        }
+      },
+      {
+        "id": 12,
+        "size": 1,
+        "label": "10 · Practice, Assessment & Shelf",
+        "subjects": {
+          "visualization": 1
+        }
+      },
+      {
+        "id": 13,
+        "size": 1,
+        "label": "10 · Practice, Assessment & Shelf",
+        "subjects": {
+          "visualization": 1
+        }
+      },
+      {
+        "id": 14,
+        "size": 1,
+        "label": "03 · Core Visual Grammar",
+        "subjects": {
+          "visualization": 1
+        }
+      },
+      {
+        "id": 15,
+        "size": 1,
+        "label": "10 · Practice, Assessment & Shelf",
+        "subjects": {
+          "visualization": 1
+        }
+      },
+      {
+        "id": 16,
+        "size": 1,
+        "label": "06 · Accessibility & Color QA",
+        "subjects": {
+          "visualization": 1
+        }
+      },
+      {
+        "id": 17,
+        "size": 1,
+        "label": "04 · Advanced & Multivariate",
+        "subjects": {
+          "visualization": 1
+        }
+      },
+      {
+        "id": 18,
+        "size": 1,
+        "label": "10 · Practice, Assessment & Shelf",
+        "subjects": {
+          "visualization": 1
+        }
+      },
+      {
+        "id": 19,
+        "size": 1,
+        "label": "02 · Audience & Story",
+        "subjects": {
+          "visualization": 1
+        }
+      },
+      {
+        "id": 20,
+        "size": 1,
+        "label": "08 · Decision Tools & Composition",
+        "subjects": {
+          "visualization": 1
+        }
+      },
+      {
+        "id": 21,
+        "size": 1,
+        "label": "05 · Color & Perception",
+        "subjects": {
+          "visualization": 1
+        }
+      },
+      {
+        "id": 22,
+        "size": 1,
+        "label": "03 · Core Visual Grammar",
+        "subjects": {
+          "visualization": 1
+        }
+      },
+      {
+        "id": 23,
+        "size": 1,
+        "label": "08 · Decision Tools & Composition",
+        "subjects": {
+          "visualization": 1
+        }
+      },
+      {
+        "id": 24,
+        "size": 1,
+        "label": "01 · Foundations",
+        "subjects": {
+          "visualization": 1
+        }
+      },
+      {
+        "id": 25,
+        "size": 1,
+        "label": "10 · Practice, Assessment & Shelf",
+        "subjects": {
+          "visualization": 1
+        }
+      },
+      {
+        "id": 26,
+        "size": 1,
+        "label": "Data visualization · 1 units",
+        "subjects": {
+          "visualization": 1
+        }
+      },
+      {
+        "id": 27,
+        "size": 1,
+        "label": "09 · Implementation",
+        "subjects": {
+          "visualization": 1
+        }
+      },
+      {
+        "id": 28,
+        "size": 1,
+        "label": "10 · Practice, Assessment & Shelf",
+        "subjects": {
+          "visualization": 1
+        }
+      },
+      {
+        "id": 29,
+        "size": 1,
+        "label": "07 · Integrity, Uncertainty & Traps",
+        "subjects": {
+          "visualization": 1
+        }
+      },
+      {
+        "id": 30,
+        "size": 1,
+        "label": "07 · Integrity, Uncertainty & Traps",
+        "subjects": {
+          "visualization": 1
+        }
+      },
+      {
+        "id": 31,
+        "size": 1,
+        "label": "07 · Integrity, Uncertainty & Traps",
+        "subjects": {
+          "visualization": 1
+        }
+      },
+      {
+        "id": 34,
+        "size": 1,
+        "label": "DP-600 Advanced Fabric Git & Version Control — Video 9",
+        "subjects": {
+          "fabric": 1
+        }
+      },
+      {
+        "id": 42,
+        "size": 1,
+        "label": "Power BI · 1 units",
+        "subjects": {
+          "power-bi": 1
+        }
+      },
+      {
+        "id": 43,
+        "size": 1,
+        "label": "Power BI · 1 units",
+        "subjects": {
+          "power-bi": 1
+        }
+      },
+      {
+        "id": 44,
+        "size": 1,
+        "label": "Power BI · 1 units",
+        "subjects": {
+          "power-bi": 1
+        }
+      },
+      {
+        "id": 47,
+        "size": 1,
+        "label": "Synthesis: choose, check, decide, explain",
+        "subjects": {
+          "statistics": 1
+        }
+      },
+      {
+        "id": 48,
+        "size": 1,
+        "label": "Synthesis: choose, check, decide, explain",
+        "subjects": {
+          "statistics": 1
+        }
+      },
+      {
+        "id": 49,
+        "size": 1,
+        "label": "Fabric Real-Time Intelligence",
+        "subjects": {
+          "fabric": 1
+        }
+      },
+      {
+        "id": 50,
+        "size": 1,
+        "label": "Fabric Real-Time Intelligence",
+        "subjects": {
+          "fabric": 1
+        }
+      },
+      {
+        "id": 51,
+        "size": 1,
+        "label": "Fabric Real-Time Intelligence",
+        "subjects": {
+          "fabric": 1
+        }
+      },
+      {
+        "id": 52,
+        "size": 1,
+        "label": "Fabric Real-Time Intelligence",
+        "subjects": {
+          "fabric": 1
+        }
+      },
+      {
+        "id": 53,
+        "size": 1,
+        "label": "Fabric Real-Time Intelligence",
+        "subjects": {
+          "fabric": 1
+        }
+      },
+      {
+        "id": 54,
+        "size": 1,
+        "label": "Fabric Real-Time Intelligence",
+        "subjects": {
+          "fabric": 1
+        }
+      },
+      {
+        "id": 55,
+        "size": 1,
+        "label": "Fabric Real-Time Intelligence",
+        "subjects": {
+          "fabric": 1
+        }
+      },
+      {
+        "id": 56,
+        "size": 1,
+        "label": "Fabric Real-Time Intelligence",
+        "subjects": {
+          "fabric": 1
+        }
+      }
+    ],
+    "modularity": 0.989,
+    "clusters": 57,
+    "components": 57,
+    "isolatedUnits": 20,
+    "topHubs": [
+      {
+        "id": "stats-section-s36",
+        "label": "How the topics connect",
+        "degree": 7,
+        "kind": "unit"
+      },
+      {
+        "id": "note-video11-V11-CHOOSE-001",
+        "label": "Tools / continuous ingestion",
+        "degree": 6,
+        "kind": "unit"
+      },
+      {
+        "id": "note-video11-V11-CHOOSE-002",
+        "label": "Tools / Python and streaming",
+        "degree": 6,
+        "kind": "unit"
+      },
+      {
+        "id": "note-video11-V11-CHOOSE-009",
+        "label": "Tools / historical and real-time",
+        "degree": 6,
+        "kind": "unit"
+      },
+      {
+        "id": "stats-section-s12",
+        "label": "Sampling distribution",
+        "degree": 6,
+        "kind": "unit"
+      },
+      {
+        "id": "stats-section-s15",
+        "label": "Hypothesis testing and the two hypotheses",
+        "degree": 6,
+        "kind": "unit"
+      },
+      {
+        "id": "stats-section-s2",
+        "label": "Data types and what they permit",
+        "degree": 6,
+        "kind": "unit"
+      },
+      {
+        "id": "stats-section-s7",
+        "label": "Probability distributions: mass vs density",
+        "degree": 6,
+        "kind": "unit"
+      },
+      {
+        "id": "note-delta-maintenance",
+        "label": "VACUUM, OPTIMIZE, and V-Order have different goals",
+        "degree": 5,
+        "kind": "unit"
+      },
+      {
+        "id": "note-video11-V11-CHOOSE-042",
+        "label": "Tools / multi-select engine classification",
+        "degree": 5,
+        "kind": "unit"
+      },
+      {
+        "id": "note-warehouse-ingest",
+        "label": "Pipelines, Dataflow Gen2, notebooks, and connectors",
+        "degree": 5,
+        "kind": "unit"
+      },
+      {
+        "id": "stats-section-s30",
+        "label": "Correlation and Pearson r",
+        "degree": 5,
+        "kind": "unit"
+      }
+    ],
+    "candidatePairs": 187,
+    "candidateSubjects": {
+      "fabric↔fabric": 160,
+      "visualization↔visualization": 5,
+      "fabric↔sql": 4,
+      "power-bi↔sql": 1,
+      "analysis↔visualization": 1,
+      "fabric↔visualization": 4,
+      "fabric↔statistics": 2,
+      "fabric↔power-bi": 2,
+      "excel↔python": 1,
+      "statistics↔visualization": 2,
+      "excel↔visualization": 1,
+      "sql↔statistics": 1,
+      "power-bi↔visualization": 1,
+      "statistics↔statistics": 1,
+      "python↔visualization": 1
+    },
+    "subjectUnits": {
+      "fabric": 729,
+      "statistics": 43,
+      "visualization": 27,
+      "excel": 1,
+      "analysis": 1,
+      "power-bi": 4,
+      "python": 1,
+      "sql": 18
+    },
+    "topSources": [
+      {
+        "id": "source:fabric:vref_d17fe02bcfcd59e7",
+        "label": "troubleshoot onelake security for sql analytics endpoints",
+        "citations": 38,
+        "packs": 5
+      },
+      {
+        "id": "source:fabric:vref_3444302757631152",
+        "label": "data access control model",
+        "citations": 37,
+        "packs": 2
+      },
+      {
+        "id": "source:fabric:pactivity",
+        "label": "Activities and inactive behavior",
+        "citations": 36,
+        "packs": 2
+      },
+      {
+        "id": "source:fabric:schemas",
+        "label": "Lakehouse schemas and schema shortcuts",
+        "citations": 35,
+        "packs": 3
+      },
+      {
+        "id": "source:fabric:vref_f513e79bbf83ae3f",
+        "label": "sql analytics endpoint onelake security",
+        "citations": 34,
+        "packs": 5
+      },
+      {
+        "id": "source:fabric:vref_cbc6a6694d3ed9cd",
+        "label": "data factory limitations",
+        "citations": 32,
+        "packs": 1
+      },
+      {
+        "id": "source:fabric:masking",
+        "label": "Dynamic data masking",
+        "citations": 30,
+        "packs": 2
+      },
+      {
+        "id": "source:fabric:endpoint",
+        "label": "SQL analytics endpoint",
+        "citations": 28,
+        "packs": 6
+      },
+      {
+        "id": "source:fabric:pexpr",
+        "label": "Expressions and functions",
+        "citations": 26,
+        "packs": 2
+      },
+      {
+        "id": "source:fabric:events",
+        "label": "Eventstreams",
+        "citations": 26,
+        "packs": 1
+      }
+    ],
+    "atlas": {
+      "publishedConcepts": 0,
+      "publishedEdges": 0,
+      "reviewConcepts": 42,
+      "reviewEdges": 49
+    }
+  },
+  "islands": {
+    "0": {
+      "label": "Microsoft Fabric · 1 units",
+      "size": 1,
+      "subjects": {
+        "fabric": 1
+      },
+      "color": "#28A5A5"
+    },
+    "1": {
+      "label": "Analytical foundations · 1 units",
+      "size": 1,
+      "subjects": {
+        "analysis": 1
+      },
+      "color": "#8B7BE8"
+    },
+    "2": {
+      "label": "Excel · 1 units",
+      "size": 1,
+      "subjects": {
+        "excel": 1
+      },
+      "color": "#C9882E"
+    },
+    "3": {
+      "label": "Power BI · 1 units",
+      "size": 1,
+      "subjects": {
+        "power-bi": 1
+      },
+      "color": "#4E9E6A"
+    },
+    "4": {
+      "label": "Python · 1 units",
+      "size": 1,
+      "subjects": {
+        "python": 1
+      },
+      "color": "#D45D5D"
+    },
+    "5": {
+      "label": "03 · Core Visual Grammar",
+      "size": 1,
+      "subjects": {
+        "visualization": 1
+      },
+      "color": "#5C8FE0"
+    },
+    "6": {
+      "label": "03 · Core Visual Grammar",
+      "size": 1,
+      "subjects": {
+        "visualization": 1
+      },
+      "color": "#A97FD6"
+    },
+    "7": {
+      "label": "05 · Color & Perception",
+      "size": 1,
+      "subjects": {
+        "visualization": 1
+      },
+      "color": "#6EA23C"
+    },
+    "8": {
+      "label": "03 · Core Visual Grammar",
+      "size": 1,
+      "subjects": {
+        "visualization": 1
+      },
+      "color": "#D07AA8"
+    },
+    "9": {
+      "label": "03 · Core Visual Grammar",
+      "size": 1,
+      "subjects": {
+        "visualization": 1
+      },
+      "color": "#4C7DF0"
+    },
+    "10": {
+      "label": "03 · Core Visual Grammar",
+      "size": 1,
+      "subjects": {
+        "visualization": 1
+      },
+      "color": "#E06C75"
+    },
+    "11": {
+      "label": "03 · Core Visual Grammar",
+      "size": 1,
+      "subjects": {
+        "visualization": 1
+      },
+      "color": "#2AA889"
+    },
+    "12": {
+      "label": "10 · Practice, Assessment & Shelf",
+      "size": 1,
+      "subjects": {
+        "visualization": 1
+      },
+      "color": "#C678DD"
+    },
+    "13": {
+      "label": "10 · Practice, Assessment & Shelf",
+      "size": 1,
+      "subjects": {
+        "visualization": 1
+      },
+      "color": "#D9A21B"
+    },
+    "14": {
+      "label": "03 · Core Visual Grammar",
+      "size": 1,
+      "subjects": {
+        "visualization": 1
+      },
+      "color": "#5BA85A"
+    },
+    "15": {
+      "label": "10 · Practice, Assessment & Shelf",
+      "size": 1,
+      "subjects": {
+        "visualization": 1
+      },
+      "color": "#D1785B"
+    },
+    "16": {
+      "label": "06 · Accessibility & Color QA",
+      "size": 1,
+      "subjects": {
+        "visualization": 1
+      },
+      "color": "#3FA7D6"
+    },
+    "17": {
+      "label": "04 · Advanced & Multivariate",
+      "size": 1,
+      "subjects": {
+        "visualization": 1
+      },
+      "color": "#B45BD1"
+    },
+    "18": {
+      "label": "10 · Practice, Assessment & Shelf",
+      "size": 1,
+      "subjects": {
+        "visualization": 1
+      },
+      "color": "#7C9A2C"
+    },
+    "19": {
+      "label": "02 · Audience & Story",
+      "size": 1,
+      "subjects": {
+        "visualization": 1
+      },
+      "color": "#E0559B"
+    },
+    "20": {
+      "label": "08 · Decision Tools & Composition",
+      "size": 1,
+      "subjects": {
+        "visualization": 1
+      },
+      "color": "#28A5A5"
+    },
+    "21": {
+      "label": "05 · Color & Perception",
+      "size": 1,
+      "subjects": {
+        "visualization": 1
+      },
+      "color": "#8B7BE8"
+    },
+    "22": {
+      "label": "03 · Core Visual Grammar",
+      "size": 1,
+      "subjects": {
+        "visualization": 1
+      },
+      "color": "#C9882E"
+    },
+    "23": {
+      "label": "08 · Decision Tools & Composition",
+      "size": 1,
+      "subjects": {
+        "visualization": 1
+      },
+      "color": "#4E9E6A"
+    },
+    "24": {
+      "label": "01 · Foundations",
+      "size": 1,
+      "subjects": {
+        "visualization": 1
+      },
+      "color": "#D45D5D"
+    },
+    "25": {
+      "label": "10 · Practice, Assessment & Shelf",
+      "size": 1,
+      "subjects": {
+        "visualization": 1
+      },
+      "color": "#5C8FE0"
+    },
+    "26": {
+      "label": "Data visualization · 1 units",
+      "size": 1,
+      "subjects": {
+        "visualization": 1
+      },
+      "color": "#A97FD6"
+    },
+    "27": {
+      "label": "09 · Implementation",
+      "size": 1,
+      "subjects": {
+        "visualization": 1
+      },
+      "color": "#6EA23C"
+    },
+    "28": {
+      "label": "10 · Practice, Assessment & Shelf",
+      "size": 1,
+      "subjects": {
+        "visualization": 1
+      },
+      "color": "#D07AA8"
+    },
+    "29": {
+      "label": "07 · Integrity, Uncertainty & Traps",
+      "size": 1,
+      "subjects": {
+        "visualization": 1
+      },
+      "color": "#4C7DF0"
+    },
+    "30": {
+      "label": "07 · Integrity, Uncertainty & Traps",
+      "size": 1,
+      "subjects": {
+        "visualization": 1
+      },
+      "color": "#E06C75"
+    },
+    "31": {
+      "label": "07 · Integrity, Uncertainty & Traps",
+      "size": 1,
+      "subjects": {
+        "visualization": 1
+      },
+      "color": "#2AA889"
+    },
+    "32": {
+      "label": "Microsoft Fabric · 634 units",
+      "size": 634,
+      "subjects": {
+        "fabric": 634
+      },
+      "color": "#4C7DF0"
+    },
+    "33": {
+      "label": "SCD & Data Modeling",
+      "size": 14,
+      "subjects": {
+        "fabric": 14
+      },
+      "color": "#D9A21B"
+    },
+    "34": {
+      "label": "DP-600 Advanced Fabric Git & Version Control — Video 9",
+      "size": 1,
+      "subjects": {
+        "fabric": 1
+      },
+      "color": "#C678DD"
+    },
+    "35": {
+      "label": "Fabric Deployment Pipelines, Pairing, Rules, Permissions and Release Engineering — Advanced DP-600",
+      "size": 48,
+      "subjects": {
+        "fabric": 48
+      },
+      "color": "#E06C75"
+    },
+    "36": {
+      "label": "Microsoft Fabric Monitoring — Advanced Architecture, Troubleshooting & Query Diagnostics",
+      "size": 4,
+      "subjects": {
+        "fabric": 4
+      },
+      "color": "#3FA7D6"
+    },
+    "37": {
+      "label": "Microsoft Fabric SQL Analytics Endpoint Explained",
+      "size": 2,
+      "subjects": {
+        "fabric": 2
+      },
+      "color": "#7C9A2C"
+    },
+    "38": {
+      "label": "Lakehouse: Files, Tables, Shortcuts and MLVs",
+      "size": 2,
+      "subjects": {
+        "fabric": 2
+      },
+      "color": "#E0559B"
+    },
+    "39": {
+      "label": "What Are Delta Tables in Microsoft Fabric? - Full Guide!",
+      "size": 4,
+      "subjects": {
+        "fabric": 4
+      },
+      "color": "#B45BD1"
+    },
+    "40": {
+      "label": "What Are Delta Tables in Microsoft Fabric? - Full Guide!",
+      "size": 5,
+      "subjects": {
+        "fabric": 5
+      },
+      "color": "#D1785B"
+    },
+    "41": {
+      "label": "What Are Delta Tables in Microsoft Fabric? - Full Guide!",
+      "size": 6,
+      "subjects": {
+        "fabric": 6
+      },
+      "color": "#5BA85A"
+    },
+    "42": {
+      "label": "Power BI · 1 units",
+      "size": 1,
+      "subjects": {
+        "power-bi": 1
+      },
+      "color": "#D9A21B"
+    },
+    "43": {
+      "label": "Power BI · 1 units",
+      "size": 1,
+      "subjects": {
+        "power-bi": 1
+      },
+      "color": "#5BA85A"
+    },
+    "44": {
+      "label": "Power BI · 1 units",
+      "size": 1,
+      "subjects": {
+        "power-bi": 1
+      },
+      "color": "#D1785B"
+    },
+    "45": {
+      "label": "SQL · 18 units",
+      "size": 18,
+      "subjects": {
+        "sql": 18
+      },
+      "color": "#C678DD"
+    },
+    "46": {
+      "label": "Statistics & reasoning · 41 units",
+      "size": 41,
+      "subjects": {
+        "statistics": 41
+      },
+      "color": "#2AA889"
+    },
+    "47": {
+      "label": "Synthesis: choose, check, decide, explain",
+      "size": 1,
+      "subjects": {
+        "statistics": 1
+      },
+      "color": "#3FA7D6"
+    },
+    "48": {
+      "label": "Synthesis: choose, check, decide, explain",
+      "size": 1,
+      "subjects": {
+        "statistics": 1
+      },
+      "color": "#B45BD1"
+    },
+    "49": {
+      "label": "Fabric Real-Time Intelligence",
+      "size": 1,
+      "subjects": {
+        "fabric": 1
+      },
+      "color": "#7C9A2C"
+    },
+    "50": {
+      "label": "Fabric Real-Time Intelligence",
+      "size": 1,
+      "subjects": {
+        "fabric": 1
+      },
+      "color": "#E0559B"
+    },
+    "51": {
+      "label": "Fabric Real-Time Intelligence",
+      "size": 1,
+      "subjects": {
+        "fabric": 1
+      },
+      "color": "#28A5A5"
+    },
+    "52": {
+      "label": "Fabric Real-Time Intelligence",
+      "size": 1,
+      "subjects": {
+        "fabric": 1
+      },
+      "color": "#8B7BE8"
+    },
+    "53": {
+      "label": "Fabric Real-Time Intelligence",
+      "size": 1,
+      "subjects": {
+        "fabric": 1
+      },
+      "color": "#C9882E"
+    },
+    "54": {
+      "label": "Fabric Real-Time Intelligence",
+      "size": 1,
+      "subjects": {
+        "fabric": 1
+      },
+      "color": "#4E9E6A"
+    },
+    "55": {
+      "label": "Fabric Real-Time Intelligence",
+      "size": 1,
+      "subjects": {
+        "fabric": 1
+      },
+      "color": "#D45D5D"
+    },
+    "56": {
+      "label": "Fabric Real-Time Intelligence",
+      "size": 1,
+      "subjects": {
+        "fabric": 1
+      },
+      "color": "#5C8FE0"
+    }
+  },
+  "diagnostics": [],
+  "errors": 0,
+  "warnings": 0,
+  "tree": {
+    "version": "knowledge-tree-2026-11-07.1",
+    "report": {
+      "roots": [
+        {
+          "id": "subject:analysis",
+          "label": "Analytical foundations",
+          "children": 1,
+          "descendants": 1
+        },
+        {
+          "id": "subject:excel",
+          "label": "Excel",
+          "children": 1,
+          "descendants": 1
+        },
+        {
+          "id": "subject:fabric",
+          "label": "Microsoft Fabric",
+          "children": 21,
+          "descendants": 1019
+        },
+        {
+          "id": "subject:power-bi",
+          "label": "Power BI",
+          "children": 4,
+          "descendants": 4
+        },
+        {
+          "id": "subject:python",
+          "label": "Python",
+          "children": 1,
+          "descendants": 1
+        },
+        {
+          "id": "subject:sql",
+          "label": "SQL",
+          "children": 18,
+          "descendants": 18
+        },
+        {
+          "id": "subject:statistics",
+          "label": "Statistics & reasoning",
+          "children": 9,
+          "descendants": 52
+        },
+        {
+          "id": "subject:visualization",
+          "label": "Data visualization",
+          "children": 12,
+          "descendants": 63
+        }
+      ],
+      "nodeCount": 1167,
+      "edgeCount": 1159,
+      "depth": 3,
+      "depthHistogram": {
+        "0": 8,
+        "1": 67,
+        "2": 605,
+        "3": 487
+      },
+      "branching": {
+        "max": 50,
+        "median": 7,
+        "nodesOver12": 21,
+        "buckets": {
+          "1": 19,
+          "2": 12,
+          "3": 7,
+          "4": 6,
+          "6": 11,
+          "7": 13,
+          "8": 21,
+          "9": 4,
+          "10": 2,
+          "12": 4,
+          "13–24": 8,
+          "25–48": 11,
+          "49+": 2
+        }
+      },
+      "orphans": {
+        "unitsWithoutParent": 0,
+        "unfiled": []
+      },
+      "multiParent": [],
+      "excludedProgrammes": [
+        {
+          "id": "programme:academy",
+          "label": "Corpus Academy",
+          "subjects": [
+            "fabric",
+            "power-bi"
+          ]
+        },
+        {
+          "id": "programme:dp-600",
+          "label": "DP-600 Learning Academy",
+          "subjects": [
+            "fabric"
+          ]
+        },
+        {
+          "id": "programme:fabric-rti",
+          "label": "Fabric Real-Time Intelligence",
+          "subjects": [
+            "fabric"
+          ]
+        }
+      ],
+      "reattached": [
+        {
+          "id": "course:rti",
+          "label": "Fabric Real-Time Intelligence",
+          "from": "programme:fabric-rti",
+          "to": "subject:fabric",
+          "reason": "The course's own lessons declare one subject; the programme that holds the course is a track, not a parent."
+        }
+      ],
+      "emptyContainers": [
+        {
+          "id": "pack:activator",
+          "label": "Activator & Alerts"
+        },
+        {
+          "id": "pack:dataflow-gen2",
+          "label": "Dataflow Gen2"
+        },
+        {
+          "id": "pack:eventstream-windowing",
+          "label": "Eventstream & Windowing"
+        },
+        {
+          "id": "pack:howard-dp600",
+          "label": "Howard Ginsburg DP-600 (MIT)"
+        },
+        {
+          "id": "pack:incremental-copy",
+          "label": "Incremental Copy & Watermarking"
+        },
+        {
+          "id": "pack:mirroring",
+          "label": "Mirroring"
+        },
+        {
+          "id": "pack:notebooks-pyspark",
+          "label": "Notebooks & PySpark"
+        },
+        {
+          "id": "pack:patrick-dp600",
+          "label": "Patrick Wiloak DP-600 (CC BY 4.0)"
+        },
+        {
+          "id": "pack:semantic-models-dax",
+          "label": "Semantic Models & DAX"
+        }
+      ],
+      "hiddenEmptyPacks": [
+        {
+          "id": "pack:activator",
+          "label": "Activator & Alerts",
+          "reason": "Declared by the corpus, but no chapter notes exist yet. Hidden from learners to avoid a dead end."
+        },
+        {
+          "id": "pack:dataflow-gen2",
+          "label": "Dataflow Gen2",
+          "reason": "Declared by the corpus, but no chapter notes exist yet. Hidden from learners to avoid a dead end."
+        },
+        {
+          "id": "pack:eventstream-windowing",
+          "label": "Eventstream & Windowing",
+          "reason": "Declared by the corpus, but no chapter notes exist yet. Hidden from learners to avoid a dead end."
+        },
+        {
+          "id": "pack:howard-dp600",
+          "label": "Howard Ginsburg DP-600 (MIT)",
+          "reason": "Declared by the corpus, but no chapter notes exist yet. Hidden from learners to avoid a dead end."
+        },
+        {
+          "id": "pack:incremental-copy",
+          "label": "Incremental Copy & Watermarking",
+          "reason": "Declared by the corpus, but no chapter notes exist yet. Hidden from learners to avoid a dead end."
+        },
+        {
+          "id": "pack:mirroring",
+          "label": "Mirroring",
+          "reason": "Declared by the corpus, but no chapter notes exist yet. Hidden from learners to avoid a dead end."
+        },
+        {
+          "id": "pack:notebooks-pyspark",
+          "label": "Notebooks & PySpark",
+          "reason": "Declared by the corpus, but no chapter notes exist yet. Hidden from learners to avoid a dead end."
+        },
+        {
+          "id": "pack:patrick-dp600",
+          "label": "Patrick Wiloak DP-600 (CC BY 4.0)",
+          "reason": "Declared by the corpus, but no chapter notes exist yet. Hidden from learners to avoid a dead end."
+        },
+        {
+          "id": "pack:semantic-models-dax",
+          "label": "Semantic Models & DAX",
+          "reason": "Declared by the corpus, but no chapter notes exist yet. Hidden from learners to avoid a dead end."
+        }
+      ],
+      "duplicateChapterIds": [
+        {
+          "id": "practice",
+          "count": 3
+        },
+        {
+          "id": "scope",
+          "count": 3
+        },
+        {
+          "id": "extensions",
+          "count": 2
+        },
+        {
+          "id": "objects",
+          "count": 2
+        },
+        {
+          "id": "shortcuts",
+          "count": 2
+        }
+      ],
+      "sourceGroups": [
+        {
+          "id": "group:source:learn-microsoft-com:fabric-data-factory",
+          "label": "Microsoft Learn · Fabric / Data Factory",
+          "count": 35,
+          "parent": "group:sources:fabric",
+          "host": "learn.microsoft.com",
+          "area": "fabric/data-factory"
+        },
+        {
+          "id": "group:source:learn-microsoft-com:fabric-data-warehouse",
+          "label": "Microsoft Learn · Fabric / Data Warehouse",
+          "count": 34,
+          "parent": "group:sources:fabric",
+          "host": "learn.microsoft.com",
+          "area": "fabric/data-warehouse"
+        },
+        {
+          "id": "group:source:learn-microsoft-com:fabric-data-engineering",
+          "label": "Microsoft Learn · Fabric / Data Engineering",
+          "count": 26,
+          "parent": "group:sources:fabric",
+          "host": "learn.microsoft.com",
+          "area": "fabric/data-engineering"
+        },
+        {
+          "id": "group:source:learn-microsoft-com:fabric-onelake",
+          "label": "Microsoft Learn · Fabric / OneLake",
+          "count": 18,
+          "parent": "group:sources:fabric",
+          "host": "learn.microsoft.com",
+          "area": "fabric/onelake"
+        },
+        {
+          "id": "group:source:learn-microsoft-com:fabric-cicd",
+          "label": "Microsoft Learn · Fabric / CI/CD",
+          "count": 12,
+          "parent": "group:sources:fabric",
+          "host": "learn.microsoft.com",
+          "area": "fabric/cicd"
+        },
+        {
+          "id": "group:source:learn-microsoft-com:fabric-fundamentals",
+          "label": "Microsoft Learn · Fabric / Fundamentals",
+          "count": 10,
+          "parent": "group:sources:fabric",
+          "host": "learn.microsoft.com",
+          "area": "fabric/fundamentals"
+        },
+        {
+          "id": "group:source:learn-microsoft-com:fabric-governance",
+          "label": "Microsoft Learn · Fabric / Governance",
+          "count": 10,
+          "parent": "group:sources:fabric",
+          "host": "learn.microsoft.com",
+          "area": "fabric/governance"
+        },
+        {
+          "id": "group:source:learn-microsoft-com:fabric-real-time-intelligence",
+          "label": "Microsoft Learn · Fabric / Real-Time Intelligence",
+          "count": 8,
+          "parent": "group:sources:fabric",
+          "host": "learn.microsoft.com",
+          "area": "fabric/real-time-intelligence"
+        },
+        {
+          "id": "group:source:learn-microsoft-com:fabric-admin",
+          "label": "Microsoft Learn · Fabric / Admin",
+          "count": 7,
+          "parent": "group:sources:fabric",
+          "host": "learn.microsoft.com",
+          "area": "fabric/admin"
+        },
+        {
+          "id": "group:source:learn-microsoft-com:sql-t-sql",
+          "label": "Microsoft Learn · SQL / T-SQL",
+          "count": 6,
+          "parent": "group:sources:fabric",
+          "host": "learn.microsoft.com",
+          "area": "sql/t-sql"
+        },
+        {
+          "id": "group:source:learn-microsoft-com:kusto-management",
+          "label": "Microsoft Learn · Kusto / Management",
+          "count": 4,
+          "parent": "group:sources:fabric",
+          "host": "learn.microsoft.com",
+          "area": "kusto/management"
+        },
+        {
+          "id": "group:source:learn-microsoft-com:kusto-query",
+          "label": "Microsoft Learn · Kusto / Query",
+          "count": 4,
+          "parent": "group:sources:fabric",
+          "host": "learn.microsoft.com",
+          "area": "kusto/query"
+        },
+        {
+          "id": "group:source:learn-microsoft-com:rest-api",
+          "label": "Microsoft Learn · REST / API",
+          "count": 3,
+          "parent": "group:sources:fabric",
+          "host": "learn.microsoft.com",
+          "area": "rest/api"
+        },
+        {
+          "id": "group:source:learn-microsoft-com:azure-data-factory",
+          "label": "Microsoft Learn · Azure / Data Factory",
+          "count": 2,
+          "parent": "group:sources:fabric",
+          "host": "learn.microsoft.com",
+          "area": "azure/data-factory"
+        },
+        {
+          "id": "group:source:learn-microsoft-com:credentials-certifications",
+          "label": "Microsoft Learn · Credentials / Certifications",
+          "count": 2,
+          "parent": "group:sources:fabric",
+          "host": "learn.microsoft.com",
+          "area": "credentials/certifications"
+        },
+        {
+          "id": "group:source:learn-microsoft-com:credentials-support",
+          "label": "Microsoft Learn · Credentials / Support",
+          "count": 2,
+          "parent": "group:sources:fabric",
+          "host": "learn.microsoft.com",
+          "area": "credentials/support"
+        },
+        {
+          "id": "group:source:learn-microsoft-com:fabric-enterprise",
+          "label": "Microsoft Learn · Fabric / Enterprise",
+          "count": 2,
+          "parent": "group:sources:fabric",
+          "host": "learn.microsoft.com",
+          "area": "fabric/enterprise"
+        },
+        {
+          "id": "group:source:learn-microsoft-com:fabric-get-started",
+          "label": "Microsoft Learn · Fabric / Get Started",
+          "count": 2,
+          "parent": "group:sources:fabric",
+          "host": "learn.microsoft.com",
+          "area": "fabric/get-started"
+        },
+        {
+          "id": "group:source:docs-delta-io:delta-batch",
+          "label": "Delta Lake docs · Batch",
+          "count": 1,
+          "parent": "group:sources:fabric",
+          "host": "docs.delta.io",
+          "area": "delta-batch"
+        },
+        {
+          "id": "group:source:docs-delta-io:best-practices",
+          "label": "Delta Lake docs · Best Practices",
+          "count": 1,
+          "parent": "group:sources:fabric",
+          "host": "docs.delta.io",
+          "area": "best-practices"
+        },
+        {
+          "id": "group:source:docs-delta-io:concurrency-control",
+          "label": "Delta Lake docs · Concurrency Control",
+          "count": 1,
+          "parent": "group:sources:fabric",
+          "host": "docs.delta.io",
+          "area": "concurrency-control"
+        },
+        {
+          "id": "group:source:docs-delta-io:delta-deletion-vectors",
+          "label": "Delta Lake docs · Deletion Vectors",
+          "count": 1,
+          "parent": "group:sources:fabric",
+          "host": "docs.delta.io",
+          "area": "delta-deletion-vectors"
+        },
+        {
+          "id": "group:source:docs-delta-io:overview",
+          "label": "Delta Lake docs · Overview",
+          "count": 1,
+          "parent": "group:sources:fabric",
+          "host": "docs.delta.io",
+          "area": "overview"
+        },
+        {
+          "id": "group:source:learn-microsoft-com:azure-architecture",
+          "label": "Microsoft Learn · Azure / Architecture",
+          "count": 1,
+          "parent": "group:sources:fabric",
+          "host": "learn.microsoft.com",
+          "area": "azure/architecture"
+        },
+        {
+          "id": "group:source:learn-microsoft-com:fabric-security",
+          "label": "Microsoft Learn · Fabric / Security",
+          "count": 1,
+          "parent": "group:sources:fabric",
+          "host": "learn.microsoft.com",
+          "area": "fabric/security"
+        },
+        {
+          "id": "group:source:learn-microsoft-com:power-bi-collaborate-share",
+          "label": "Microsoft Learn · Power BI / Collaborate & Share",
+          "count": 1,
+          "parent": "group:sources:fabric",
+          "host": "learn.microsoft.com",
+          "area": "power-bi/collaborate-share"
+        },
+        {
+          "id": "group:source:learn-microsoft-com:power-bi-connect-data",
+          "label": "Microsoft Learn · Power BI / Connect Data",
+          "count": 1,
+          "parent": "group:sources:fabric",
+          "host": "learn.microsoft.com",
+          "area": "power-bi/connect-data"
+        },
+        {
+          "id": "group:source:learn-microsoft-com:power-bi-guidance",
+          "label": "Microsoft Learn · Power BI / Guidance",
+          "count": 1,
+          "parent": "group:sources:fabric",
+          "host": "learn.microsoft.com",
+          "area": "power-bi/guidance"
+        },
+        {
+          "id": "group:source:youtube-com:videos",
+          "label": "YouTube",
+          "count": 1,
+          "parent": "group:sources:fabric",
+          "host": "youtube.com",
+          "area": "videos"
+        }
+      ],
+      "sourceBuckets": [
+        {
+          "id": "group:sources:fabric",
+          "label": "Cited sources",
+          "count": 198
+        },
+        {
+          "id": "group:sources:visualization",
+          "label": "Source pages",
+          "count": 25
+        }
+      ],
+      "ungroupedSources": [],
+      "chapterGroups": [
+        {
+          "id": "group:chapter:video12:capacity-cu-throttling-and-freshness",
+          "label": "Capacity CU, throttling and freshness",
+          "parent": "pack:video12",
+          "count": 7
+        },
+        {
+          "id": "group:chapter:video12:historical-warehouse-query-analysis",
+          "label": "Historical warehouse query analysis",
+          "parent": "pack:video12",
+          "count": 9
+        },
+        {
+          "id": "group:chapter:video12:monitor-hub-cross-workspace-job-observability",
+          "label": "Monitor hub / cross-workspace job observability",
+          "parent": "pack:video12",
+          "count": 8
+        },
+        {
+          "id": "group:chapter:video12:monitoring-items-and-cross-workload-telemetry",
+          "label": "Monitoring items and cross-workload telemetry",
+          "parent": "pack:video12",
+          "count": 8
+        },
+        {
+          "id": "group:chapter:video12:pipeline-activity-diagnostics-reruns",
+          "label": "Pipeline activity diagnostics / reruns",
+          "parent": "pack:video12",
+          "count": 7
+        },
+        {
+          "id": "group:chapter:video12:sql-dmv-lifecycle-and-privileges",
+          "label": "SQL DMV lifecycle and privileges",
+          "parent": "pack:video12",
+          "count": 7
+        },
+        {
+          "id": "group:chapter:video12:tenant-wide-usage-adoption-and-governance",
+          "label": "Tenant-wide usage, adoption and governance",
+          "parent": "pack:video12",
+          "count": 4
+        },
+        {
+          "id": "group:chapter:video14:connections-gateways-and-authentication",
+          "label": "Connections, gateways and authentication",
+          "parent": "pack:video14",
+          "count": 8
+        },
+        {
+          "id": "group:chapter:video14:copy-data-and-ingestion",
+          "label": "Copy Data and ingestion",
+          "parent": "pack:video14",
+          "count": 8
+        },
+        {
+          "id": "group:chapter:video14:expression-language-and-dynamic-content",
+          "label": "Expression language and dynamic content",
+          "parent": "pack:video14",
+          "count": 8
+        },
+        {
+          "id": "group:chapter:video14:foreach-and-parallel-iteration",
+          "label": "ForEach and parallel iteration",
+          "parent": "pack:video14",
+          "count": 8
+        },
+        {
+          "id": "group:chapter:video14:get-metadata-and-file-discovery",
+          "label": "Get Metadata and file discovery",
+          "parent": "pack:video14",
+          "count": 8
+        },
+        {
+          "id": "group:chapter:video14:if-condition-and-dependency-outcomes",
+          "label": "If Condition and dependency outcomes",
+          "parent": "pack:video14",
+          "count": 8
+        },
+        {
+          "id": "group:chapter:video14:lookup-and-configuration-row-shapes",
+          "label": "Lookup and configuration row shapes",
+          "parent": "pack:video14",
+          "count": 8
+        },
+        {
+          "id": "group:chapter:video14:metadata-driven-pipelines",
+          "label": "Metadata-driven pipelines",
+          "parent": "pack:video14",
+          "count": 8
+        },
+        {
+          "id": "group:chapter:video14:parameters-variables-and-nested-execution",
+          "label": "Parameters, variables and nested execution",
+          "parent": "pack:video14",
+          "count": 8
+        },
+        {
+          "id": "group:chapter:video14:pipeline-fundamentals-and-orchestration",
+          "label": "Pipeline fundamentals and orchestration",
+          "parent": "pack:video14",
+          "count": 8
+        },
+        {
+          "id": "group:chapter:video14:production-best-practices-and-reliability",
+          "label": "Production best practices and reliability",
+          "parent": "pack:video14",
+          "count": 8
+        },
+        {
+          "id": "group:chapter:video14:scheduling-and-monitoring",
+          "label": "Scheduling and monitoring",
+          "parent": "pack:video14",
+          "count": 8
+        },
+        {
+          "id": "group:chapter:video15:api-administration",
+          "label": "API administration",
+          "parent": "pack:video15",
+          "count": 7
+        },
+        {
+          "id": "group:chapter:video15:access-foundation",
+          "label": "Access foundation",
+          "parent": "pack:video15",
+          "count": 7
+        },
+        {
+          "id": "group:chapter:video15:column-and-object-security",
+          "label": "Column and object security",
+          "parent": "pack:video15",
+          "count": 7
+        },
+        {
+          "id": "group:chapter:video15:direct-lake-and-bi",
+          "label": "Direct Lake and BI",
+          "parent": "pack:video15",
+          "count": 7
+        },
+        {
+          "id": "group:chapter:video15:lifecycle-and-security-qa",
+          "label": "Lifecycle and security QA",
+          "parent": "pack:video15",
+          "count": 7
+        },
+        {
+          "id": "group:chapter:video15:rls-and-effective-roles",
+          "label": "RLS and effective roles",
+          "parent": "pack:video15",
+          "count": 7
+        },
+        {
+          "id": "group:chapter:video15:sql-endpoint-identity",
+          "label": "SQL endpoint identity",
+          "parent": "pack:video15",
+          "count": 7
+        },
+        {
+          "id": "group:chapter:video15:spark-secured-execution",
+          "label": "Spark secured execution",
+          "parent": "pack:video15",
+          "count": 7
+        },
+        {
+          "id": "group:chapter:video16:access-security-paths",
+          "label": "Access security paths",
+          "parent": "pack:video16",
+          "count": 6
+        },
+        {
+          "id": "group:chapter:video16:delta-discovery-and-shortcuts",
+          "label": "Delta discovery and shortcuts",
+          "parent": "pack:video16",
+          "count": 6
+        },
+        {
+          "id": "group:chapter:video16:historical-querying",
+          "label": "Historical querying",
+          "parent": "pack:video16",
+          "count": 4
+        },
+        {
+          "id": "group:chapter:video16:metadata-synchronization",
+          "label": "Metadata synchronization",
+          "parent": "pack:video16",
+          "count": 6
+        },
+        {
+          "id": "group:chapter:video16:new-metadata-sync",
+          "label": "New metadata sync",
+          "parent": "pack:video16",
+          "count": 6
+        },
+        {
+          "id": "group:chapter:video16:production-troubleshooting",
+          "label": "Production troubleshooting",
+          "parent": "pack:video16",
+          "count": 6
+        },
+        {
+          "id": "group:chapter:video16:reporting-and-semantic-models",
+          "label": "Reporting and semantic models",
+          "parent": "pack:video16",
+          "count": 2
+        },
+        {
+          "id": "group:chapter:video16:t-sql-virtual-objects",
+          "label": "T-SQL virtual objects",
+          "parent": "pack:video16",
+          "count": 6
+        },
+        {
+          "id": "group:chapter:video16:two-door-architecture",
+          "label": "Two-door architecture",
+          "parent": "pack:video16",
+          "count": 6
+        },
+        {
+          "id": "group:chapter:video19:ai-transformations",
+          "label": "AI transformations",
+          "parent": "pack:video19",
+          "count": 2
+        },
+        {
+          "id": "group:chapter:video19:capacity",
+          "label": "Capacity",
+          "parent": "pack:video19",
+          "count": 2
+        },
+        {
+          "id": "group:chapter:video19:mlvs",
+          "label": "MLVs",
+          "parent": "pack:video19",
+          "count": 18
+        },
+        {
+          "id": "group:chapter:video19:schemas",
+          "label": "Schemas",
+          "parent": "pack:video19",
+          "count": 3
+        },
+        {
+          "id": "group:chapter:video19:security",
+          "label": "Security",
+          "parent": "pack:video19",
+          "count": 3
+        },
+        {
+          "id": "group:chapter:video19:shortcuts",
+          "label": "Shortcuts",
+          "parent": "pack:video19",
+          "count": 3
+        },
+        {
+          "id": "group:chapter:video19:transformations",
+          "label": "Transformations",
+          "parent": "pack:video19",
+          "count": 8
+        }
+      ],
+      "directUnits": [
+        {
+          "id": "dp600-ingestion-decisions",
+          "label": "Shortcut, Mirroring or Copy?",
+          "subject": "fabric"
+        },
+        {
+          "id": "entry-analysis",
+          "label": "Microsoft Learn: analytics process",
+          "subject": "analysis"
+        },
+        {
+          "id": "entry-excel",
+          "label": "Microsoft Support: basic Excel tasks",
+          "subject": "excel"
+        },
+        {
+          "id": "entry-power-bi",
+          "label": "Microsoft Learn: Power Query",
+          "subject": "power-bi"
+        },
+        {
+          "id": "entry-python",
+          "label": "Python tutorial: intended audience",
+          "subject": "python"
+        },
+        {
+          "id": "lesson-en-overview",
+          "label": "Library map & operating system",
+          "subject": "visualization"
+        },
+        {
+          "id": "reading-power-bi-govern",
+          "label": "Microsoft Learn: workspace roles",
+          "subject": "power-bi"
+        },
+        {
+          "id": "reading-power-bi-model",
+          "label": "Microsoft Learn: star schema guidance",
+          "subject": "power-bi"
+        },
+        {
+          "id": "reading-power-bi-report",
+          "label": "Microsoft Learn: reports and dashboards",
+          "subject": "power-bi"
+        },
+        {
+          "id": "sql-module-00",
+          "label": "🧭 00 — Learning Map & Decision Framework",
+          "subject": "sql"
+        },
+        {
+          "id": "sql-module-01",
+          "label": "🧱 01 — SQL Foundations — Complete Reference",
+          "subject": "sql"
+        },
+        {
+          "id": "sql-module-02",
+          "label": "🧩 02 — Database, Schema & Data Modeling — Complete Reference",
+          "subject": "sql"
+        },
+        {
+          "id": "sql-module-03",
+          "label": "03 — Data Types, Casting & NULL Logic — Complete Reference",
+          "subject": "sql"
+        },
+        {
+          "id": "sql-module-04",
+          "label": "04 — Filtering & Conditional Logic — Complete Reference",
+          "subject": "sql"
+        },
+        {
+          "id": "sql-module-05",
+          "label": "🔗 05 — JOINs & Relationship Reasoning — Complete Reference",
+          "subject": "sql"
+        },
+        {
+          "id": "sql-module-06",
+          "label": "📊 06 — Aggregation & Grouping — Complete Reference",
+          "subject": "sql"
+        },
+        {
+          "id": "sql-module-07",
+          "label": "07 — Subqueries & CTEs — Complete Reference",
+          "subject": "sql"
+        },
+        {
+          "id": "sql-module-08",
+          "label": "08 — Set Operations — Complete Reference",
+          "subject": "sql"
+        },
+        {
+          "id": "sql-module-09",
+          "label": "📚 09 — Window Functions — Complete Reference",
+          "subject": "sql"
+        },
+        {
+          "id": "sql-module-10",
+          "label": "📅 10 — Date & Time Analytics — Complete Reference",
+          "subject": "sql"
+        },
+        {
+          "id": "sql-module-11",
+          "label": "🔤 11 — Text, String & Pattern Matching — Complete Reference",
+          "subject": "sql"
+        },
+        {
+          "id": "sql-module-12",
+          "label": "📊 12 — Analytical SQL Patterns — Comprehensive Reference",
+          "subject": "sql"
+        },
+        {
+          "id": "sql-module-13",
+          "label": "13 — Data Quality & Validation — Complete Reference",
+          "subject": "sql"
+        },
+        {
+          "id": "sql-module-14",
+          "label": "14 — DDL, DML & Transactions — Complete Reference",
+          "subject": "sql"
+        },
+        {
+          "id": "sql-module-15",
+          "label": "15 — Database Design — Complete Reference",
+          "subject": "sql"
+        },
+        {
+          "id": "sql-module-16",
+          "label": "16 — SQL Performance Engineering — Complete Reference",
+          "subject": "sql"
+        },
+        {
+          "id": "sql-module-17",
+          "label": "17 — SQL for DWH / BI — Complete Reference",
+          "subject": "sql"
+        }
+      ]
+    }
+  },
+  "lenses": [
+    {
+      "id": "subject",
+      "mode": "subject",
+      "label": "By subject",
+      "shortLabel": "Subjects",
+      "file": "tree.json",
+      "description": "Eight disjoint subject roots. Containment only; programmes are separate lenses.",
+      "roots": [
+        {
+          "id": "subject:analysis",
+          "label": "Analytical foundations",
+          "children": 1,
+          "descendants": 1
+        },
+        {
+          "id": "subject:excel",
+          "label": "Excel",
+          "children": 1,
+          "descendants": 1
+        },
+        {
+          "id": "subject:fabric",
+          "label": "Microsoft Fabric",
+          "children": 21,
+          "descendants": 1019
+        },
+        {
+          "id": "subject:power-bi",
+          "label": "Power BI",
+          "children": 4,
+          "descendants": 4
+        },
+        {
+          "id": "subject:python",
+          "label": "Python",
+          "children": 1,
+          "descendants": 1
+        },
+        {
+          "id": "subject:sql",
+          "label": "SQL",
+          "children": 18,
+          "descendants": 18
+        },
+        {
+          "id": "subject:statistics",
+          "label": "Statistics & reasoning",
+          "children": 9,
+          "descendants": 52
+        },
+        {
+          "id": "subject:visualization",
+          "label": "Data visualization",
+          "children": 12,
+          "descendants": 63
+        }
+      ],
+      "report": {
+        "roots": [
+          {
+            "id": "subject:analysis",
+            "label": "Analytical foundations",
+            "children": 1,
+            "descendants": 1
+          },
+          {
+            "id": "subject:excel",
+            "label": "Excel",
+            "children": 1,
+            "descendants": 1
+          },
+          {
+            "id": "subject:fabric",
+            "label": "Microsoft Fabric",
+            "children": 21,
+            "descendants": 1019
+          },
+          {
+            "id": "subject:power-bi",
+            "label": "Power BI",
+            "children": 4,
+            "descendants": 4
+          },
+          {
+            "id": "subject:python",
+            "label": "Python",
+            "children": 1,
+            "descendants": 1
+          },
+          {
+            "id": "subject:sql",
+            "label": "SQL",
+            "children": 18,
+            "descendants": 18
+          },
+          {
+            "id": "subject:statistics",
+            "label": "Statistics & reasoning",
+            "children": 9,
+            "descendants": 52
+          },
+          {
+            "id": "subject:visualization",
+            "label": "Data visualization",
+            "children": 12,
+            "descendants": 63
+          }
+        ],
+        "nodeCount": 1167,
+        "edgeCount": 1159,
+        "depth": 3,
+        "depthHistogram": {
+          "0": 8,
+          "1": 67,
+          "2": 605,
+          "3": 487
+        },
+        "branching": {
+          "max": 50,
+          "median": 7,
+          "nodesOver12": 21,
+          "buckets": {
+            "1": 19,
+            "2": 12,
+            "3": 7,
+            "4": 6,
+            "6": 11,
+            "7": 13,
+            "8": 21,
+            "9": 4,
+            "10": 2,
+            "12": 4,
+            "13–24": 8,
+            "25–48": 11,
+            "49+": 2
+          }
+        },
+        "orphans": {
+          "unitsWithoutParent": 0,
+          "unfiled": []
+        },
+        "multiParent": [],
+        "excludedProgrammes": [
+          {
+            "id": "programme:academy",
+            "label": "Corpus Academy",
+            "subjects": [
+              "fabric",
+              "power-bi"
+            ]
+          },
+          {
+            "id": "programme:dp-600",
+            "label": "DP-600 Learning Academy",
+            "subjects": [
+              "fabric"
+            ]
+          },
+          {
+            "id": "programme:fabric-rti",
+            "label": "Fabric Real-Time Intelligence",
+            "subjects": [
+              "fabric"
+            ]
+          }
+        ],
+        "reattached": [
+          {
+            "id": "course:rti",
+            "label": "Fabric Real-Time Intelligence",
+            "from": "programme:fabric-rti",
+            "to": "subject:fabric",
+            "reason": "The course's own lessons declare one subject; the programme that holds the course is a track, not a parent."
+          }
+        ],
+        "emptyContainers": [
+          {
+            "id": "pack:activator",
+            "label": "Activator & Alerts"
+          },
+          {
+            "id": "pack:dataflow-gen2",
+            "label": "Dataflow Gen2"
+          },
+          {
+            "id": "pack:eventstream-windowing",
+            "label": "Eventstream & Windowing"
+          },
+          {
+            "id": "pack:howard-dp600",
+            "label": "Howard Ginsburg DP-600 (MIT)"
+          },
+          {
+            "id": "pack:incremental-copy",
+            "label": "Incremental Copy & Watermarking"
+          },
+          {
+            "id": "pack:mirroring",
+            "label": "Mirroring"
+          },
+          {
+            "id": "pack:notebooks-pyspark",
+            "label": "Notebooks & PySpark"
+          },
+          {
+            "id": "pack:patrick-dp600",
+            "label": "Patrick Wiloak DP-600 (CC BY 4.0)"
+          },
+          {
+            "id": "pack:semantic-models-dax",
+            "label": "Semantic Models & DAX"
+          }
+        ],
+        "hiddenEmptyPacks": [
+          {
+            "id": "pack:activator",
+            "label": "Activator & Alerts",
+            "reason": "Declared by the corpus, but no chapter notes exist yet. Hidden from learners to avoid a dead end."
+          },
+          {
+            "id": "pack:dataflow-gen2",
+            "label": "Dataflow Gen2",
+            "reason": "Declared by the corpus, but no chapter notes exist yet. Hidden from learners to avoid a dead end."
+          },
+          {
+            "id": "pack:eventstream-windowing",
+            "label": "Eventstream & Windowing",
+            "reason": "Declared by the corpus, but no chapter notes exist yet. Hidden from learners to avoid a dead end."
+          },
+          {
+            "id": "pack:howard-dp600",
+            "label": "Howard Ginsburg DP-600 (MIT)",
+            "reason": "Declared by the corpus, but no chapter notes exist yet. Hidden from learners to avoid a dead end."
+          },
+          {
+            "id": "pack:incremental-copy",
+            "label": "Incremental Copy & Watermarking",
+            "reason": "Declared by the corpus, but no chapter notes exist yet. Hidden from learners to avoid a dead end."
+          },
+          {
+            "id": "pack:mirroring",
+            "label": "Mirroring",
+            "reason": "Declared by the corpus, but no chapter notes exist yet. Hidden from learners to avoid a dead end."
+          },
+          {
+            "id": "pack:notebooks-pyspark",
+            "label": "Notebooks & PySpark",
+            "reason": "Declared by the corpus, but no chapter notes exist yet. Hidden from learners to avoid a dead end."
+          },
+          {
+            "id": "pack:patrick-dp600",
+            "label": "Patrick Wiloak DP-600 (CC BY 4.0)",
+            "reason": "Declared by the corpus, but no chapter notes exist yet. Hidden from learners to avoid a dead end."
+          },
+          {
+            "id": "pack:semantic-models-dax",
+            "label": "Semantic Models & DAX",
+            "reason": "Declared by the corpus, but no chapter notes exist yet. Hidden from learners to avoid a dead end."
+          }
+        ],
+        "duplicateChapterIds": [
+          {
+            "id": "practice",
+            "count": 3
+          },
+          {
+            "id": "scope",
+            "count": 3
+          },
+          {
+            "id": "extensions",
+            "count": 2
+          },
+          {
+            "id": "objects",
+            "count": 2
+          },
+          {
+            "id": "shortcuts",
+            "count": 2
+          }
+        ],
+        "sourceGroups": [
+          {
+            "id": "group:source:learn-microsoft-com:fabric-data-factory",
+            "label": "Microsoft Learn · Fabric / Data Factory",
+            "count": 35,
+            "parent": "group:sources:fabric",
+            "host": "learn.microsoft.com",
+            "area": "fabric/data-factory"
+          },
+          {
+            "id": "group:source:learn-microsoft-com:fabric-data-warehouse",
+            "label": "Microsoft Learn · Fabric / Data Warehouse",
+            "count": 34,
+            "parent": "group:sources:fabric",
+            "host": "learn.microsoft.com",
+            "area": "fabric/data-warehouse"
+          },
+          {
+            "id": "group:source:learn-microsoft-com:fabric-data-engineering",
+            "label": "Microsoft Learn · Fabric / Data Engineering",
+            "count": 26,
+            "parent": "group:sources:fabric",
+            "host": "learn.microsoft.com",
+            "area": "fabric/data-engineering"
+          },
+          {
+            "id": "group:source:learn-microsoft-com:fabric-onelake",
+            "label": "Microsoft Learn · Fabric / OneLake",
+            "count": 18,
+            "parent": "group:sources:fabric",
+            "host": "learn.microsoft.com",
+            "area": "fabric/onelake"
+          },
+          {
+            "id": "group:source:learn-microsoft-com:fabric-cicd",
+            "label": "Microsoft Learn · Fabric / CI/CD",
+            "count": 12,
+            "parent": "group:sources:fabric",
+            "host": "learn.microsoft.com",
+            "area": "fabric/cicd"
+          },
+          {
+            "id": "group:source:learn-microsoft-com:fabric-fundamentals",
+            "label": "Microsoft Learn · Fabric / Fundamentals",
+            "count": 10,
+            "parent": "group:sources:fabric",
+            "host": "learn.microsoft.com",
+            "area": "fabric/fundamentals"
+          },
+          {
+            "id": "group:source:learn-microsoft-com:fabric-governance",
+            "label": "Microsoft Learn · Fabric / Governance",
+            "count": 10,
+            "parent": "group:sources:fabric",
+            "host": "learn.microsoft.com",
+            "area": "fabric/governance"
+          },
+          {
+            "id": "group:source:learn-microsoft-com:fabric-real-time-intelligence",
+            "label": "Microsoft Learn · Fabric / Real-Time Intelligence",
+            "count": 8,
+            "parent": "group:sources:fabric",
+            "host": "learn.microsoft.com",
+            "area": "fabric/real-time-intelligence"
+          },
+          {
+            "id": "group:source:learn-microsoft-com:fabric-admin",
+            "label": "Microsoft Learn · Fabric / Admin",
+            "count": 7,
+            "parent": "group:sources:fabric",
+            "host": "learn.microsoft.com",
+            "area": "fabric/admin"
+          },
+          {
+            "id": "group:source:learn-microsoft-com:sql-t-sql",
+            "label": "Microsoft Learn · SQL / T-SQL",
+            "count": 6,
+            "parent": "group:sources:fabric",
+            "host": "learn.microsoft.com",
+            "area": "sql/t-sql"
+          },
+          {
+            "id": "group:source:learn-microsoft-com:kusto-management",
+            "label": "Microsoft Learn · Kusto / Management",
+            "count": 4,
+            "parent": "group:sources:fabric",
+            "host": "learn.microsoft.com",
+            "area": "kusto/management"
+          },
+          {
+            "id": "group:source:learn-microsoft-com:kusto-query",
+            "label": "Microsoft Learn · Kusto / Query",
+            "count": 4,
+            "parent": "group:sources:fabric",
+            "host": "learn.microsoft.com",
+            "area": "kusto/query"
+          },
+          {
+            "id": "group:source:learn-microsoft-com:rest-api",
+            "label": "Microsoft Learn · REST / API",
+            "count": 3,
+            "parent": "group:sources:fabric",
+            "host": "learn.microsoft.com",
+            "area": "rest/api"
+          },
+          {
+            "id": "group:source:learn-microsoft-com:azure-data-factory",
+            "label": "Microsoft Learn · Azure / Data Factory",
+            "count": 2,
+            "parent": "group:sources:fabric",
+            "host": "learn.microsoft.com",
+            "area": "azure/data-factory"
+          },
+          {
+            "id": "group:source:learn-microsoft-com:credentials-certifications",
+            "label": "Microsoft Learn · Credentials / Certifications",
+            "count": 2,
+            "parent": "group:sources:fabric",
+            "host": "learn.microsoft.com",
+            "area": "credentials/certifications"
+          },
+          {
+            "id": "group:source:learn-microsoft-com:credentials-support",
+            "label": "Microsoft Learn · Credentials / Support",
+            "count": 2,
+            "parent": "group:sources:fabric",
+            "host": "learn.microsoft.com",
+            "area": "credentials/support"
+          },
+          {
+            "id": "group:source:learn-microsoft-com:fabric-enterprise",
+            "label": "Microsoft Learn · Fabric / Enterprise",
+            "count": 2,
+            "parent": "group:sources:fabric",
+            "host": "learn.microsoft.com",
+            "area": "fabric/enterprise"
+          },
+          {
+            "id": "group:source:learn-microsoft-com:fabric-get-started",
+            "label": "Microsoft Learn · Fabric / Get Started",
+            "count": 2,
+            "parent": "group:sources:fabric",
+            "host": "learn.microsoft.com",
+            "area": "fabric/get-started"
+          },
+          {
+            "id": "group:source:docs-delta-io:delta-batch",
+            "label": "Delta Lake docs · Batch",
+            "count": 1,
+            "parent": "group:sources:fabric",
+            "host": "docs.delta.io",
+            "area": "delta-batch"
+          },
+          {
+            "id": "group:source:docs-delta-io:best-practices",
+            "label": "Delta Lake docs · Best Practices",
+            "count": 1,
+            "parent": "group:sources:fabric",
+            "host": "docs.delta.io",
+            "area": "best-practices"
+          },
+          {
+            "id": "group:source:docs-delta-io:concurrency-control",
+            "label": "Delta Lake docs · Concurrency Control",
+            "count": 1,
+            "parent": "group:sources:fabric",
+            "host": "docs.delta.io",
+            "area": "concurrency-control"
+          },
+          {
+            "id": "group:source:docs-delta-io:delta-deletion-vectors",
+            "label": "Delta Lake docs · Deletion Vectors",
+            "count": 1,
+            "parent": "group:sources:fabric",
+            "host": "docs.delta.io",
+            "area": "delta-deletion-vectors"
+          },
+          {
+            "id": "group:source:docs-delta-io:overview",
+            "label": "Delta Lake docs · Overview",
+            "count": 1,
+            "parent": "group:sources:fabric",
+            "host": "docs.delta.io",
+            "area": "overview"
+          },
+          {
+            "id": "group:source:learn-microsoft-com:azure-architecture",
+            "label": "Microsoft Learn · Azure / Architecture",
+            "count": 1,
+            "parent": "group:sources:fabric",
+            "host": "learn.microsoft.com",
+            "area": "azure/architecture"
+          },
+          {
+            "id": "group:source:learn-microsoft-com:fabric-security",
+            "label": "Microsoft Learn · Fabric / Security",
+            "count": 1,
+            "parent": "group:sources:fabric",
+            "host": "learn.microsoft.com",
+            "area": "fabric/security"
+          },
+          {
+            "id": "group:source:learn-microsoft-com:power-bi-collaborate-share",
+            "label": "Microsoft Learn · Power BI / Collaborate & Share",
+            "count": 1,
+            "parent": "group:sources:fabric",
+            "host": "learn.microsoft.com",
+            "area": "power-bi/collaborate-share"
+          },
+          {
+            "id": "group:source:learn-microsoft-com:power-bi-connect-data",
+            "label": "Microsoft Learn · Power BI / Connect Data",
+            "count": 1,
+            "parent": "group:sources:fabric",
+            "host": "learn.microsoft.com",
+            "area": "power-bi/connect-data"
+          },
+          {
+            "id": "group:source:learn-microsoft-com:power-bi-guidance",
+            "label": "Microsoft Learn · Power BI / Guidance",
+            "count": 1,
+            "parent": "group:sources:fabric",
+            "host": "learn.microsoft.com",
+            "area": "power-bi/guidance"
+          },
+          {
+            "id": "group:source:youtube-com:videos",
+            "label": "YouTube",
+            "count": 1,
+            "parent": "group:sources:fabric",
+            "host": "youtube.com",
+            "area": "videos"
+          }
+        ],
+        "sourceBuckets": [
+          {
+            "id": "group:sources:fabric",
+            "label": "Cited sources",
+            "count": 198
+          },
+          {
+            "id": "group:sources:visualization",
+            "label": "Source pages",
+            "count": 25
+          }
+        ],
+        "ungroupedSources": [],
+        "chapterGroups": [
+          {
+            "id": "group:chapter:video12:capacity-cu-throttling-and-freshness",
+            "label": "Capacity CU, throttling and freshness",
+            "parent": "pack:video12",
+            "count": 7
+          },
+          {
+            "id": "group:chapter:video12:historical-warehouse-query-analysis",
+            "label": "Historical warehouse query analysis",
+            "parent": "pack:video12",
+            "count": 9
+          },
+          {
+            "id": "group:chapter:video12:monitor-hub-cross-workspace-job-observability",
+            "label": "Monitor hub / cross-workspace job observability",
+            "parent": "pack:video12",
+            "count": 8
+          },
+          {
+            "id": "group:chapter:video12:monitoring-items-and-cross-workload-telemetry",
+            "label": "Monitoring items and cross-workload telemetry",
+            "parent": "pack:video12",
+            "count": 8
+          },
+          {
+            "id": "group:chapter:video12:pipeline-activity-diagnostics-reruns",
+            "label": "Pipeline activity diagnostics / reruns",
+            "parent": "pack:video12",
+            "count": 7
+          },
+          {
+            "id": "group:chapter:video12:sql-dmv-lifecycle-and-privileges",
+            "label": "SQL DMV lifecycle and privileges",
+            "parent": "pack:video12",
+            "count": 7
+          },
+          {
+            "id": "group:chapter:video12:tenant-wide-usage-adoption-and-governance",
+            "label": "Tenant-wide usage, adoption and governance",
+            "parent": "pack:video12",
+            "count": 4
+          },
+          {
+            "id": "group:chapter:video14:connections-gateways-and-authentication",
+            "label": "Connections, gateways and authentication",
+            "parent": "pack:video14",
+            "count": 8
+          },
+          {
+            "id": "group:chapter:video14:copy-data-and-ingestion",
+            "label": "Copy Data and ingestion",
+            "parent": "pack:video14",
+            "count": 8
+          },
+          {
+            "id": "group:chapter:video14:expression-language-and-dynamic-content",
+            "label": "Expression language and dynamic content",
+            "parent": "pack:video14",
+            "count": 8
+          },
+          {
+            "id": "group:chapter:video14:foreach-and-parallel-iteration",
+            "label": "ForEach and parallel iteration",
+            "parent": "pack:video14",
+            "count": 8
+          },
+          {
+            "id": "group:chapter:video14:get-metadata-and-file-discovery",
+            "label": "Get Metadata and file discovery",
+            "parent": "pack:video14",
+            "count": 8
+          },
+          {
+            "id": "group:chapter:video14:if-condition-and-dependency-outcomes",
+            "label": "If Condition and dependency outcomes",
+            "parent": "pack:video14",
+            "count": 8
+          },
+          {
+            "id": "group:chapter:video14:lookup-and-configuration-row-shapes",
+            "label": "Lookup and configuration row shapes",
+            "parent": "pack:video14",
+            "count": 8
+          },
+          {
+            "id": "group:chapter:video14:metadata-driven-pipelines",
+            "label": "Metadata-driven pipelines",
+            "parent": "pack:video14",
+            "count": 8
+          },
+          {
+            "id": "group:chapter:video14:parameters-variables-and-nested-execution",
+            "label": "Parameters, variables and nested execution",
+            "parent": "pack:video14",
+            "count": 8
+          },
+          {
+            "id": "group:chapter:video14:pipeline-fundamentals-and-orchestration",
+            "label": "Pipeline fundamentals and orchestration",
+            "parent": "pack:video14",
+            "count": 8
+          },
+          {
+            "id": "group:chapter:video14:production-best-practices-and-reliability",
+            "label": "Production best practices and reliability",
+            "parent": "pack:video14",
+            "count": 8
+          },
+          {
+            "id": "group:chapter:video14:scheduling-and-monitoring",
+            "label": "Scheduling and monitoring",
+            "parent": "pack:video14",
+            "count": 8
+          },
+          {
+            "id": "group:chapter:video15:api-administration",
+            "label": "API administration",
+            "parent": "pack:video15",
+            "count": 7
+          },
+          {
+            "id": "group:chapter:video15:access-foundation",
+            "label": "Access foundation",
+            "parent": "pack:video15",
+            "count": 7
+          },
+          {
+            "id": "group:chapter:video15:column-and-object-security",
+            "label": "Column and object security",
+            "parent": "pack:video15",
+            "count": 7
+          },
+          {
+            "id": "group:chapter:video15:direct-lake-and-bi",
+            "label": "Direct Lake and BI",
+            "parent": "pack:video15",
+            "count": 7
+          },
+          {
+            "id": "group:chapter:video15:lifecycle-and-security-qa",
+            "label": "Lifecycle and security QA",
+            "parent": "pack:video15",
+            "count": 7
+          },
+          {
+            "id": "group:chapter:video15:rls-and-effective-roles",
+            "label": "RLS and effective roles",
+            "parent": "pack:video15",
+            "count": 7
+          },
+          {
+            "id": "group:chapter:video15:sql-endpoint-identity",
+            "label": "SQL endpoint identity",
+            "parent": "pack:video15",
+            "count": 7
+          },
+          {
+            "id": "group:chapter:video15:spark-secured-execution",
+            "label": "Spark secured execution",
+            "parent": "pack:video15",
+            "count": 7
+          },
+          {
+            "id": "group:chapter:video16:access-security-paths",
+            "label": "Access security paths",
+            "parent": "pack:video16",
+            "count": 6
+          },
+          {
+            "id": "group:chapter:video16:delta-discovery-and-shortcuts",
+            "label": "Delta discovery and shortcuts",
+            "parent": "pack:video16",
+            "count": 6
+          },
+          {
+            "id": "group:chapter:video16:historical-querying",
+            "label": "Historical querying",
+            "parent": "pack:video16",
+            "count": 4
+          },
+          {
+            "id": "group:chapter:video16:metadata-synchronization",
+            "label": "Metadata synchronization",
+            "parent": "pack:video16",
+            "count": 6
+          },
+          {
+            "id": "group:chapter:video16:new-metadata-sync",
+            "label": "New metadata sync",
+            "parent": "pack:video16",
+            "count": 6
+          },
+          {
+            "id": "group:chapter:video16:production-troubleshooting",
+            "label": "Production troubleshooting",
+            "parent": "pack:video16",
+            "count": 6
+          },
+          {
+            "id": "group:chapter:video16:reporting-and-semantic-models",
+            "label": "Reporting and semantic models",
+            "parent": "pack:video16",
+            "count": 2
+          },
+          {
+            "id": "group:chapter:video16:t-sql-virtual-objects",
+            "label": "T-SQL virtual objects",
+            "parent": "pack:video16",
+            "count": 6
+          },
+          {
+            "id": "group:chapter:video16:two-door-architecture",
+            "label": "Two-door architecture",
+            "parent": "pack:video16",
+            "count": 6
+          },
+          {
+            "id": "group:chapter:video19:ai-transformations",
+            "label": "AI transformations",
+            "parent": "pack:video19",
+            "count": 2
+          },
+          {
+            "id": "group:chapter:video19:capacity",
+            "label": "Capacity",
+            "parent": "pack:video19",
+            "count": 2
+          },
+          {
+            "id": "group:chapter:video19:mlvs",
+            "label": "MLVs",
+            "parent": "pack:video19",
+            "count": 18
+          },
+          {
+            "id": "group:chapter:video19:schemas",
+            "label": "Schemas",
+            "parent": "pack:video19",
+            "count": 3
+          },
+          {
+            "id": "group:chapter:video19:security",
+            "label": "Security",
+            "parent": "pack:video19",
+            "count": 3
+          },
+          {
+            "id": "group:chapter:video19:shortcuts",
+            "label": "Shortcuts",
+            "parent": "pack:video19",
+            "count": 3
+          },
+          {
+            "id": "group:chapter:video19:transformations",
+            "label": "Transformations",
+            "parent": "pack:video19",
+            "count": 8
+          }
+        ],
+        "directUnits": [
+          {
+            "id": "dp600-ingestion-decisions",
+            "label": "Shortcut, Mirroring or Copy?",
+            "subject": "fabric"
+          },
+          {
+            "id": "entry-analysis",
+            "label": "Microsoft Learn: analytics process",
+            "subject": "analysis"
+          },
+          {
+            "id": "entry-excel",
+            "label": "Microsoft Support: basic Excel tasks",
+            "subject": "excel"
+          },
+          {
+            "id": "entry-power-bi",
+            "label": "Microsoft Learn: Power Query",
+            "subject": "power-bi"
+          },
+          {
+            "id": "entry-python",
+            "label": "Python tutorial: intended audience",
+            "subject": "python"
+          },
+          {
+            "id": "lesson-en-overview",
+            "label": "Library map & operating system",
+            "subject": "visualization"
+          },
+          {
+            "id": "reading-power-bi-govern",
+            "label": "Microsoft Learn: workspace roles",
+            "subject": "power-bi"
+          },
+          {
+            "id": "reading-power-bi-model",
+            "label": "Microsoft Learn: star schema guidance",
+            "subject": "power-bi"
+          },
+          {
+            "id": "reading-power-bi-report",
+            "label": "Microsoft Learn: reports and dashboards",
+            "subject": "power-bi"
+          },
+          {
+            "id": "sql-module-00",
+            "label": "🧭 00 — Learning Map & Decision Framework",
+            "subject": "sql"
+          },
+          {
+            "id": "sql-module-01",
+            "label": "🧱 01 — SQL Foundations — Complete Reference",
+            "subject": "sql"
+          },
+          {
+            "id": "sql-module-02",
+            "label": "🧩 02 — Database, Schema & Data Modeling — Complete Reference",
+            "subject": "sql"
+          },
+          {
+            "id": "sql-module-03",
+            "label": "03 — Data Types, Casting & NULL Logic — Complete Reference",
+            "subject": "sql"
+          },
+          {
+            "id": "sql-module-04",
+            "label": "04 — Filtering & Conditional Logic — Complete Reference",
+            "subject": "sql"
+          },
+          {
+            "id": "sql-module-05",
+            "label": "🔗 05 — JOINs & Relationship Reasoning — Complete Reference",
+            "subject": "sql"
+          },
+          {
+            "id": "sql-module-06",
+            "label": "📊 06 — Aggregation & Grouping — Complete Reference",
+            "subject": "sql"
+          },
+          {
+            "id": "sql-module-07",
+            "label": "07 — Subqueries & CTEs — Complete Reference",
+            "subject": "sql"
+          },
+          {
+            "id": "sql-module-08",
+            "label": "08 — Set Operations — Complete Reference",
+            "subject": "sql"
+          },
+          {
+            "id": "sql-module-09",
+            "label": "📚 09 — Window Functions — Complete Reference",
+            "subject": "sql"
+          },
+          {
+            "id": "sql-module-10",
+            "label": "📅 10 — Date & Time Analytics — Complete Reference",
+            "subject": "sql"
+          },
+          {
+            "id": "sql-module-11",
+            "label": "🔤 11 — Text, String & Pattern Matching — Complete Reference",
+            "subject": "sql"
+          },
+          {
+            "id": "sql-module-12",
+            "label": "📊 12 — Analytical SQL Patterns — Comprehensive Reference",
+            "subject": "sql"
+          },
+          {
+            "id": "sql-module-13",
+            "label": "13 — Data Quality & Validation — Complete Reference",
+            "subject": "sql"
+          },
+          {
+            "id": "sql-module-14",
+            "label": "14 — DDL, DML & Transactions — Complete Reference",
+            "subject": "sql"
+          },
+          {
+            "id": "sql-module-15",
+            "label": "15 — Database Design — Complete Reference",
+            "subject": "sql"
+          },
+          {
+            "id": "sql-module-16",
+            "label": "16 — SQL Performance Engineering — Complete Reference",
+            "subject": "sql"
+          },
+          {
+            "id": "sql-module-17",
+            "label": "17 — SQL for DWH / BI — Complete Reference",
+            "subject": "sql"
+          }
+        ]
+      }
+    },
+    {
+      "id": "dp-600",
+      "mode": "programme",
+      "label": "By programme",
+      "shortLabel": "DP-600",
+      "file": "tree-dp600.json",
+      "description": "The declared Fabric subject projected under the DP-600 programme. RTI, Academy and the nine empty packs are excluded. Not an exam blueprint.",
+      "roots": [
+        {
+          "id": "programme:dp-600",
+          "label": "DP-600",
+          "children": 20,
+          "descendants": 1010
+        }
+      ],
+      "report": {
+        "roots": [
+          {
+            "id": "programme:dp-600",
+            "label": "DP-600",
+            "children": 20,
+            "descendants": 1010
+          }
+        ],
+        "nodeCount": 1011,
+        "edgeCount": 1010,
+        "depth": 3,
+        "depthHistogram": {
+          "0": 1,
+          "1": 20,
+          "2": 503,
+          "3": 487
+        },
+        "branching": {
+          "max": 50,
+          "median": 7,
+          "nodesOver12": 19,
+          "buckets": {
+            "1": 11,
+            "2": 8,
+            "3": 4,
+            "4": 4,
+            "6": 8,
+            "7": 13,
+            "8": 18,
+            "9": 2,
+            "10": 2,
+            "12": 3,
+            "13–24": 7,
+            "25–48": 10,
+            "49+": 2
+          }
+        },
+        "orphans": {
+          "unitsWithoutParent": 0,
+          "unfiled": []
+        },
+        "multiParent": [],
+        "excludedProgrammes": [],
+        "reattached": [],
+        "emptyContainers": [
+          {
+            "id": "pack:activator",
+            "label": "Activator & Alerts"
+          },
+          {
+            "id": "pack:dataflow-gen2",
+            "label": "Dataflow Gen2"
+          },
+          {
+            "id": "pack:eventstream-windowing",
+            "label": "Eventstream & Windowing"
+          },
+          {
+            "id": "pack:howard-dp600",
+            "label": "Howard Ginsburg DP-600 (MIT)"
+          },
+          {
+            "id": "pack:incremental-copy",
+            "label": "Incremental Copy & Watermarking"
+          },
+          {
+            "id": "pack:mirroring",
+            "label": "Mirroring"
+          },
+          {
+            "id": "pack:notebooks-pyspark",
+            "label": "Notebooks & PySpark"
+          },
+          {
+            "id": "pack:patrick-dp600",
+            "label": "Patrick Wiloak DP-600 (CC BY 4.0)"
+          },
+          {
+            "id": "pack:semantic-models-dax",
+            "label": "Semantic Models & DAX"
+          }
+        ],
+        "hiddenEmptyPacks": [
+          {
+            "id": "pack:activator",
+            "label": "Activator & Alerts",
+            "reason": "Declared by the corpus, but no chapter notes exist yet. Hidden from learners to avoid a dead end."
+          },
+          {
+            "id": "pack:dataflow-gen2",
+            "label": "Dataflow Gen2",
+            "reason": "Declared by the corpus, but no chapter notes exist yet. Hidden from learners to avoid a dead end."
+          },
+          {
+            "id": "pack:eventstream-windowing",
+            "label": "Eventstream & Windowing",
+            "reason": "Declared by the corpus, but no chapter notes exist yet. Hidden from learners to avoid a dead end."
+          },
+          {
+            "id": "pack:howard-dp600",
+            "label": "Howard Ginsburg DP-600 (MIT)",
+            "reason": "Declared by the corpus, but no chapter notes exist yet. Hidden from learners to avoid a dead end."
+          },
+          {
+            "id": "pack:incremental-copy",
+            "label": "Incremental Copy & Watermarking",
+            "reason": "Declared by the corpus, but no chapter notes exist yet. Hidden from learners to avoid a dead end."
+          },
+          {
+            "id": "pack:mirroring",
+            "label": "Mirroring",
+            "reason": "Declared by the corpus, but no chapter notes exist yet. Hidden from learners to avoid a dead end."
+          },
+          {
+            "id": "pack:notebooks-pyspark",
+            "label": "Notebooks & PySpark",
+            "reason": "Declared by the corpus, but no chapter notes exist yet. Hidden from learners to avoid a dead end."
+          },
+          {
+            "id": "pack:patrick-dp600",
+            "label": "Patrick Wiloak DP-600 (CC BY 4.0)",
+            "reason": "Declared by the corpus, but no chapter notes exist yet. Hidden from learners to avoid a dead end."
+          },
+          {
+            "id": "pack:semantic-models-dax",
+            "label": "Semantic Models & DAX",
+            "reason": "Declared by the corpus, but no chapter notes exist yet. Hidden from learners to avoid a dead end."
+          }
+        ],
+        "duplicateChapterIds": [
+          {
+            "id": "practice",
+            "count": 3
+          },
+          {
+            "id": "scope",
+            "count": 3
+          },
+          {
+            "id": "extensions",
+            "count": 2
+          },
+          {
+            "id": "objects",
+            "count": 2
+          },
+          {
+            "id": "shortcuts",
+            "count": 2
+          }
+        ],
+        "sourceGroups": [
+          {
+            "id": "group:source:learn-microsoft-com:fabric-data-factory",
+            "label": "Microsoft Learn · Fabric / Data Factory",
+            "count": 35,
+            "parent": "group:sources:fabric",
+            "host": "learn.microsoft.com",
+            "area": "fabric/data-factory"
+          },
+          {
+            "id": "group:source:learn-microsoft-com:fabric-data-warehouse",
+            "label": "Microsoft Learn · Fabric / Data Warehouse",
+            "count": 34,
+            "parent": "group:sources:fabric",
+            "host": "learn.microsoft.com",
+            "area": "fabric/data-warehouse"
+          },
+          {
+            "id": "group:source:learn-microsoft-com:fabric-data-engineering",
+            "label": "Microsoft Learn · Fabric / Data Engineering",
+            "count": 26,
+            "parent": "group:sources:fabric",
+            "host": "learn.microsoft.com",
+            "area": "fabric/data-engineering"
+          },
+          {
+            "id": "group:source:learn-microsoft-com:fabric-onelake",
+            "label": "Microsoft Learn · Fabric / OneLake",
+            "count": 18,
+            "parent": "group:sources:fabric",
+            "host": "learn.microsoft.com",
+            "area": "fabric/onelake"
+          },
+          {
+            "id": "group:source:learn-microsoft-com:fabric-cicd",
+            "label": "Microsoft Learn · Fabric / CI/CD",
+            "count": 12,
+            "parent": "group:sources:fabric",
+            "host": "learn.microsoft.com",
+            "area": "fabric/cicd"
+          },
+          {
+            "id": "group:source:learn-microsoft-com:fabric-fundamentals",
+            "label": "Microsoft Learn · Fabric / Fundamentals",
+            "count": 10,
+            "parent": "group:sources:fabric",
+            "host": "learn.microsoft.com",
+            "area": "fabric/fundamentals"
+          },
+          {
+            "id": "group:source:learn-microsoft-com:fabric-governance",
+            "label": "Microsoft Learn · Fabric / Governance",
+            "count": 10,
+            "parent": "group:sources:fabric",
+            "host": "learn.microsoft.com",
+            "area": "fabric/governance"
+          },
+          {
+            "id": "group:source:learn-microsoft-com:fabric-real-time-intelligence",
+            "label": "Microsoft Learn · Fabric / Real-Time Intelligence",
+            "count": 8,
+            "parent": "group:sources:fabric",
+            "host": "learn.microsoft.com",
+            "area": "fabric/real-time-intelligence"
+          },
+          {
+            "id": "group:source:learn-microsoft-com:fabric-admin",
+            "label": "Microsoft Learn · Fabric / Admin",
+            "count": 7,
+            "parent": "group:sources:fabric",
+            "host": "learn.microsoft.com",
+            "area": "fabric/admin"
+          },
+          {
+            "id": "group:source:learn-microsoft-com:sql-t-sql",
+            "label": "Microsoft Learn · SQL / T-SQL",
+            "count": 6,
+            "parent": "group:sources:fabric",
+            "host": "learn.microsoft.com",
+            "area": "sql/t-sql"
+          },
+          {
+            "id": "group:source:learn-microsoft-com:kusto-management",
+            "label": "Microsoft Learn · Kusto / Management",
+            "count": 4,
+            "parent": "group:sources:fabric",
+            "host": "learn.microsoft.com",
+            "area": "kusto/management"
+          },
+          {
+            "id": "group:source:learn-microsoft-com:kusto-query",
+            "label": "Microsoft Learn · Kusto / Query",
+            "count": 4,
+            "parent": "group:sources:fabric",
+            "host": "learn.microsoft.com",
+            "area": "kusto/query"
+          },
+          {
+            "id": "group:source:learn-microsoft-com:rest-api",
+            "label": "Microsoft Learn · REST / API",
+            "count": 3,
+            "parent": "group:sources:fabric",
+            "host": "learn.microsoft.com",
+            "area": "rest/api"
+          },
+          {
+            "id": "group:source:learn-microsoft-com:azure-data-factory",
+            "label": "Microsoft Learn · Azure / Data Factory",
+            "count": 2,
+            "parent": "group:sources:fabric",
+            "host": "learn.microsoft.com",
+            "area": "azure/data-factory"
+          },
+          {
+            "id": "group:source:learn-microsoft-com:credentials-certifications",
+            "label": "Microsoft Learn · Credentials / Certifications",
+            "count": 2,
+            "parent": "group:sources:fabric",
+            "host": "learn.microsoft.com",
+            "area": "credentials/certifications"
+          },
+          {
+            "id": "group:source:learn-microsoft-com:credentials-support",
+            "label": "Microsoft Learn · Credentials / Support",
+            "count": 2,
+            "parent": "group:sources:fabric",
+            "host": "learn.microsoft.com",
+            "area": "credentials/support"
+          },
+          {
+            "id": "group:source:learn-microsoft-com:fabric-enterprise",
+            "label": "Microsoft Learn · Fabric / Enterprise",
+            "count": 2,
+            "parent": "group:sources:fabric",
+            "host": "learn.microsoft.com",
+            "area": "fabric/enterprise"
+          },
+          {
+            "id": "group:source:learn-microsoft-com:fabric-get-started",
+            "label": "Microsoft Learn · Fabric / Get Started",
+            "count": 2,
+            "parent": "group:sources:fabric",
+            "host": "learn.microsoft.com",
+            "area": "fabric/get-started"
+          },
+          {
+            "id": "group:source:docs-delta-io:delta-batch",
+            "label": "Delta Lake docs · Batch",
+            "count": 1,
+            "parent": "group:sources:fabric",
+            "host": "docs.delta.io",
+            "area": "delta-batch"
+          },
+          {
+            "id": "group:source:docs-delta-io:best-practices",
+            "label": "Delta Lake docs · Best Practices",
+            "count": 1,
+            "parent": "group:sources:fabric",
+            "host": "docs.delta.io",
+            "area": "best-practices"
+          },
+          {
+            "id": "group:source:docs-delta-io:concurrency-control",
+            "label": "Delta Lake docs · Concurrency Control",
+            "count": 1,
+            "parent": "group:sources:fabric",
+            "host": "docs.delta.io",
+            "area": "concurrency-control"
+          },
+          {
+            "id": "group:source:docs-delta-io:delta-deletion-vectors",
+            "label": "Delta Lake docs · Deletion Vectors",
+            "count": 1,
+            "parent": "group:sources:fabric",
+            "host": "docs.delta.io",
+            "area": "delta-deletion-vectors"
+          },
+          {
+            "id": "group:source:docs-delta-io:overview",
+            "label": "Delta Lake docs · Overview",
+            "count": 1,
+            "parent": "group:sources:fabric",
+            "host": "docs.delta.io",
+            "area": "overview"
+          },
+          {
+            "id": "group:source:learn-microsoft-com:azure-architecture",
+            "label": "Microsoft Learn · Azure / Architecture",
+            "count": 1,
+            "parent": "group:sources:fabric",
+            "host": "learn.microsoft.com",
+            "area": "azure/architecture"
+          },
+          {
+            "id": "group:source:learn-microsoft-com:fabric-security",
+            "label": "Microsoft Learn · Fabric / Security",
+            "count": 1,
+            "parent": "group:sources:fabric",
+            "host": "learn.microsoft.com",
+            "area": "fabric/security"
+          },
+          {
+            "id": "group:source:learn-microsoft-com:power-bi-collaborate-share",
+            "label": "Microsoft Learn · Power BI / Collaborate & Share",
+            "count": 1,
+            "parent": "group:sources:fabric",
+            "host": "learn.microsoft.com",
+            "area": "power-bi/collaborate-share"
+          },
+          {
+            "id": "group:source:learn-microsoft-com:power-bi-connect-data",
+            "label": "Microsoft Learn · Power BI / Connect Data",
+            "count": 1,
+            "parent": "group:sources:fabric",
+            "host": "learn.microsoft.com",
+            "area": "power-bi/connect-data"
+          },
+          {
+            "id": "group:source:learn-microsoft-com:power-bi-guidance",
+            "label": "Microsoft Learn · Power BI / Guidance",
+            "count": 1,
+            "parent": "group:sources:fabric",
+            "host": "learn.microsoft.com",
+            "area": "power-bi/guidance"
+          },
+          {
+            "id": "group:source:youtube-com:videos",
+            "label": "YouTube",
+            "count": 1,
+            "parent": "group:sources:fabric",
+            "host": "youtube.com",
+            "area": "videos"
+          }
+        ],
+        "sourceBuckets": [
+          {
+            "id": "group:sources:fabric",
+            "label": "Cited sources",
+            "count": 198
+          }
+        ],
+        "ungroupedSources": [],
+        "chapterGroups": [
+          {
+            "id": "group:chapter:video12:capacity-cu-throttling-and-freshness",
+            "label": "Capacity CU, throttling and freshness",
+            "parent": "pack:video12",
+            "count": 7
+          },
+          {
+            "id": "group:chapter:video12:historical-warehouse-query-analysis",
+            "label": "Historical warehouse query analysis",
+            "parent": "pack:video12",
+            "count": 9
+          },
+          {
+            "id": "group:chapter:video12:monitor-hub-cross-workspace-job-observability",
+            "label": "Monitor hub / cross-workspace job observability",
+            "parent": "pack:video12",
+            "count": 8
+          },
+          {
+            "id": "group:chapter:video12:monitoring-items-and-cross-workload-telemetry",
+            "label": "Monitoring items and cross-workload telemetry",
+            "parent": "pack:video12",
+            "count": 8
+          },
+          {
+            "id": "group:chapter:video12:pipeline-activity-diagnostics-reruns",
+            "label": "Pipeline activity diagnostics / reruns",
+            "parent": "pack:video12",
+            "count": 7
+          },
+          {
+            "id": "group:chapter:video12:sql-dmv-lifecycle-and-privileges",
+            "label": "SQL DMV lifecycle and privileges",
+            "parent": "pack:video12",
+            "count": 7
+          },
+          {
+            "id": "group:chapter:video12:tenant-wide-usage-adoption-and-governance",
+            "label": "Tenant-wide usage, adoption and governance",
+            "parent": "pack:video12",
+            "count": 4
+          },
+          {
+            "id": "group:chapter:video14:connections-gateways-and-authentication",
+            "label": "Connections, gateways and authentication",
+            "parent": "pack:video14",
+            "count": 8
+          },
+          {
+            "id": "group:chapter:video14:copy-data-and-ingestion",
+            "label": "Copy Data and ingestion",
+            "parent": "pack:video14",
+            "count": 8
+          },
+          {
+            "id": "group:chapter:video14:expression-language-and-dynamic-content",
+            "label": "Expression language and dynamic content",
+            "parent": "pack:video14",
+            "count": 8
+          },
+          {
+            "id": "group:chapter:video14:foreach-and-parallel-iteration",
+            "label": "ForEach and parallel iteration",
+            "parent": "pack:video14",
+            "count": 8
+          },
+          {
+            "id": "group:chapter:video14:get-metadata-and-file-discovery",
+            "label": "Get Metadata and file discovery",
+            "parent": "pack:video14",
+            "count": 8
+          },
+          {
+            "id": "group:chapter:video14:if-condition-and-dependency-outcomes",
+            "label": "If Condition and dependency outcomes",
+            "parent": "pack:video14",
+            "count": 8
+          },
+          {
+            "id": "group:chapter:video14:lookup-and-configuration-row-shapes",
+            "label": "Lookup and configuration row shapes",
+            "parent": "pack:video14",
+            "count": 8
+          },
+          {
+            "id": "group:chapter:video14:metadata-driven-pipelines",
+            "label": "Metadata-driven pipelines",
+            "parent": "pack:video14",
+            "count": 8
+          },
+          {
+            "id": "group:chapter:video14:parameters-variables-and-nested-execution",
+            "label": "Parameters, variables and nested execution",
+            "parent": "pack:video14",
+            "count": 8
+          },
+          {
+            "id": "group:chapter:video14:pipeline-fundamentals-and-orchestration",
+            "label": "Pipeline fundamentals and orchestration",
+            "parent": "pack:video14",
+            "count": 8
+          },
+          {
+            "id": "group:chapter:video14:production-best-practices-and-reliability",
+            "label": "Production best practices and reliability",
+            "parent": "pack:video14",
+            "count": 8
+          },
+          {
+            "id": "group:chapter:video14:scheduling-and-monitoring",
+            "label": "Scheduling and monitoring",
+            "parent": "pack:video14",
+            "count": 8
+          },
+          {
+            "id": "group:chapter:video15:api-administration",
+            "label": "API administration",
+            "parent": "pack:video15",
+            "count": 7
+          },
+          {
+            "id": "group:chapter:video15:access-foundation",
+            "label": "Access foundation",
+            "parent": "pack:video15",
+            "count": 7
+          },
+          {
+            "id": "group:chapter:video15:column-and-object-security",
+            "label": "Column and object security",
+            "parent": "pack:video15",
+            "count": 7
+          },
+          {
+            "id": "group:chapter:video15:direct-lake-and-bi",
+            "label": "Direct Lake and BI",
+            "parent": "pack:video15",
+            "count": 7
+          },
+          {
+            "id": "group:chapter:video15:lifecycle-and-security-qa",
+            "label": "Lifecycle and security QA",
+            "parent": "pack:video15",
+            "count": 7
+          },
+          {
+            "id": "group:chapter:video15:rls-and-effective-roles",
+            "label": "RLS and effective roles",
+            "parent": "pack:video15",
+            "count": 7
+          },
+          {
+            "id": "group:chapter:video15:sql-endpoint-identity",
+            "label": "SQL endpoint identity",
+            "parent": "pack:video15",
+            "count": 7
+          },
+          {
+            "id": "group:chapter:video15:spark-secured-execution",
+            "label": "Spark secured execution",
+            "parent": "pack:video15",
+            "count": 7
+          },
+          {
+            "id": "group:chapter:video16:access-security-paths",
+            "label": "Access security paths",
+            "parent": "pack:video16",
+            "count": 6
+          },
+          {
+            "id": "group:chapter:video16:delta-discovery-and-shortcuts",
+            "label": "Delta discovery and shortcuts",
+            "parent": "pack:video16",
+            "count": 6
+          },
+          {
+            "id": "group:chapter:video16:historical-querying",
+            "label": "Historical querying",
+            "parent": "pack:video16",
+            "count": 4
+          },
+          {
+            "id": "group:chapter:video16:metadata-synchronization",
+            "label": "Metadata synchronization",
+            "parent": "pack:video16",
+            "count": 6
+          },
+          {
+            "id": "group:chapter:video16:new-metadata-sync",
+            "label": "New metadata sync",
+            "parent": "pack:video16",
+            "count": 6
+          },
+          {
+            "id": "group:chapter:video16:production-troubleshooting",
+            "label": "Production troubleshooting",
+            "parent": "pack:video16",
+            "count": 6
+          },
+          {
+            "id": "group:chapter:video16:reporting-and-semantic-models",
+            "label": "Reporting and semantic models",
+            "parent": "pack:video16",
+            "count": 2
+          },
+          {
+            "id": "group:chapter:video16:t-sql-virtual-objects",
+            "label": "T-SQL virtual objects",
+            "parent": "pack:video16",
+            "count": 6
+          },
+          {
+            "id": "group:chapter:video16:two-door-architecture",
+            "label": "Two-door architecture",
+            "parent": "pack:video16",
+            "count": 6
+          },
+          {
+            "id": "group:chapter:video19:ai-transformations",
+            "label": "AI transformations",
+            "parent": "pack:video19",
+            "count": 2
+          },
+          {
+            "id": "group:chapter:video19:capacity",
+            "label": "Capacity",
+            "parent": "pack:video19",
+            "count": 2
+          },
+          {
+            "id": "group:chapter:video19:mlvs",
+            "label": "MLVs",
+            "parent": "pack:video19",
+            "count": 18
+          },
+          {
+            "id": "group:chapter:video19:schemas",
+            "label": "Schemas",
+            "parent": "pack:video19",
+            "count": 3
+          },
+          {
+            "id": "group:chapter:video19:security",
+            "label": "Security",
+            "parent": "pack:video19",
+            "count": 3
+          },
+          {
+            "id": "group:chapter:video19:shortcuts",
+            "label": "Shortcuts",
+            "parent": "pack:video19",
+            "count": 3
+          },
+          {
+            "id": "group:chapter:video19:transformations",
+            "label": "Transformations",
+            "parent": "pack:video19",
+            "count": 8
+          }
+        ],
+        "directUnits": [
+          {
+            "id": "dp600-ingestion-decisions",
+            "label": "Shortcut, Mirroring or Copy?",
+            "subject": "fabric"
+          }
+        ]
+      }
+    },
+    {
+      "id": "fabric-rti",
+      "mode": "programme",
+      "label": "By programme",
+      "shortLabel": "Fabric RTI",
+      "file": "tree-rti.json",
+      "description": "The RTI course and its eight lessons, under the Fabric RTI programme.",
+      "roots": [
+        {
+          "id": "programme:fabric-rti",
+          "label": "Fabric RTI",
+          "children": 1,
+          "descendants": 9
+        }
+      ],
+      "report": {
+        "roots": [
+          {
+            "id": "programme:fabric-rti",
+            "label": "Fabric RTI",
+            "children": 1,
+            "descendants": 9
+          }
+        ],
+        "nodeCount": 10,
+        "edgeCount": 9,
+        "depth": 2,
+        "depthHistogram": {
+          "0": 1,
+          "1": 1,
+          "2": 8
+        },
+        "branching": {
+          "max": 8,
+          "median": 8,
+          "nodesOver12": 0,
+          "buckets": {
+            "1": 1,
+            "8": 1
+          }
+        },
+        "orphans": {
+          "unitsWithoutParent": 0,
+          "unfiled": []
+        },
+        "multiParent": [],
+        "excludedProgrammes": [],
+        "reattached": [
+          {
+            "id": "course:rti",
+            "label": "Fabric Real-Time Intelligence",
+            "from": "programme:fabric-rti",
+            "to": "subject:fabric",
+            "reason": "The course's own lessons declare one subject; the programme that holds the course is a track, not a parent."
+          }
+        ],
+        "emptyContainers": [],
+        "hiddenEmptyPacks": [],
+        "duplicateChapterIds": [
+          {
+            "id": "practice",
+            "count": 3
+          },
+          {
+            "id": "scope",
+            "count": 3
+          },
+          {
+            "id": "extensions",
+            "count": 2
+          },
+          {
+            "id": "objects",
+            "count": 2
+          },
+          {
+            "id": "shortcuts",
+            "count": 2
+          }
+        ],
+        "sourceGroups": [],
+        "sourceBuckets": [],
+        "ungroupedSources": [],
+        "chapterGroups": [],
+        "directUnits": []
+      }
+    },
+    {
+      "id": "academy",
+      "mode": "programme",
+      "label": "By programme",
+      "shortLabel": "Corpus Academy",
+      "file": "tree-academy.json",
+      "description": "Two MIT-licensed academy tracks, grouped by declared module and lesson.",
+      "roots": [
+        {
+          "id": "programme:academy",
+          "label": "Corpus Academy",
+          "children": 2,
+          "descendants": 142
+        }
+      ],
+      "report": {
+        "roots": [
+          {
+            "id": "programme:academy",
+            "label": "Corpus Academy",
+            "children": 2,
+            "descendants": 142
+          }
+        ],
+        "nodeCount": 143,
+        "edgeCount": 142,
+        "depth": 3,
+        "depthHistogram": {
+          "0": 1,
+          "1": 2,
+          "2": 66,
+          "3": 74
+        },
+        "branching": {
+          "max": 46,
+          "median": 1,
+          "nodesOver12": 2,
+          "buckets": {
+            "1": 59,
+            "2": 7,
+            "3": 1,
+            "13–24": 1,
+            "25–48": 1
+          }
+        },
+        "orphans": {
+          "unitsWithoutParent": 0,
+          "unfiled": []
+        },
+        "multiParent": [],
+        "excludedProgrammes": [],
+        "reattached": [],
+        "emptyContainers": [],
+        "hiddenEmptyPacks": [],
+        "duplicateChapterIds": [],
+        "sourceGroups": [],
+        "sourceBuckets": [],
+        "ungroupedSources": [],
+        "chapterGroups": [],
+        "directUnits": []
+      }
+    }
+  ],
+  "hiddenEmptyPacks": [
+    {
+      "id": "pack:activator",
+      "label": "Activator & Alerts",
+      "reason": "Declared by the corpus, but no chapter notes exist yet. Hidden from learners to avoid a dead end."
+    },
+    {
+      "id": "pack:dataflow-gen2",
+      "label": "Dataflow Gen2",
+      "reason": "Declared by the corpus, but no chapter notes exist yet. Hidden from learners to avoid a dead end."
+    },
+    {
+      "id": "pack:eventstream-windowing",
+      "label": "Eventstream & Windowing",
+      "reason": "Declared by the corpus, but no chapter notes exist yet. Hidden from learners to avoid a dead end."
+    },
+    {
+      "id": "pack:howard-dp600",
+      "label": "Howard Ginsburg DP-600 (MIT)",
+      "reason": "Declared by the corpus, but no chapter notes exist yet. Hidden from learners to avoid a dead end."
+    },
+    {
+      "id": "pack:incremental-copy",
+      "label": "Incremental Copy & Watermarking",
+      "reason": "Declared by the corpus, but no chapter notes exist yet. Hidden from learners to avoid a dead end."
+    },
+    {
+      "id": "pack:mirroring",
+      "label": "Mirroring",
+      "reason": "Declared by the corpus, but no chapter notes exist yet. Hidden from learners to avoid a dead end."
+    },
+    {
+      "id": "pack:notebooks-pyspark",
+      "label": "Notebooks & PySpark",
+      "reason": "Declared by the corpus, but no chapter notes exist yet. Hidden from learners to avoid a dead end."
+    },
+    {
+      "id": "pack:patrick-dp600",
+      "label": "Patrick Wiloak DP-600 (CC BY 4.0)",
+      "reason": "Declared by the corpus, but no chapter notes exist yet. Hidden from learners to avoid a dead end."
+    },
+    {
+      "id": "pack:semantic-models-dax",
+      "label": "Semantic Models & DAX",
+      "reason": "Declared by the corpus, but no chapter notes exist yet. Hidden from learners to avoid a dead end."
+    }
+  ],
+  "sourceGroups": [
+    {
+      "id": "group:source:learn-microsoft-com:fabric-data-factory",
+      "label": "Microsoft Learn · Fabric / Data Factory",
+      "count": 35,
+      "parent": "group:sources:fabric",
+      "host": "learn.microsoft.com",
+      "area": "fabric/data-factory"
+    },
+    {
+      "id": "group:source:learn-microsoft-com:fabric-data-warehouse",
+      "label": "Microsoft Learn · Fabric / Data Warehouse",
+      "count": 34,
+      "parent": "group:sources:fabric",
+      "host": "learn.microsoft.com",
+      "area": "fabric/data-warehouse"
+    },
+    {
+      "id": "group:source:learn-microsoft-com:fabric-data-engineering",
+      "label": "Microsoft Learn · Fabric / Data Engineering",
+      "count": 26,
+      "parent": "group:sources:fabric",
+      "host": "learn.microsoft.com",
+      "area": "fabric/data-engineering"
+    },
+    {
+      "id": "group:source:learn-microsoft-com:fabric-onelake",
+      "label": "Microsoft Learn · Fabric / OneLake",
+      "count": 18,
+      "parent": "group:sources:fabric",
+      "host": "learn.microsoft.com",
+      "area": "fabric/onelake"
+    },
+    {
+      "id": "group:source:learn-microsoft-com:fabric-cicd",
+      "label": "Microsoft Learn · Fabric / CI/CD",
+      "count": 12,
+      "parent": "group:sources:fabric",
+      "host": "learn.microsoft.com",
+      "area": "fabric/cicd"
+    },
+    {
+      "id": "group:source:learn-microsoft-com:fabric-fundamentals",
+      "label": "Microsoft Learn · Fabric / Fundamentals",
+      "count": 10,
+      "parent": "group:sources:fabric",
+      "host": "learn.microsoft.com",
+      "area": "fabric/fundamentals"
+    },
+    {
+      "id": "group:source:learn-microsoft-com:fabric-governance",
+      "label": "Microsoft Learn · Fabric / Governance",
+      "count": 10,
+      "parent": "group:sources:fabric",
+      "host": "learn.microsoft.com",
+      "area": "fabric/governance"
+    },
+    {
+      "id": "group:source:learn-microsoft-com:fabric-real-time-intelligence",
+      "label": "Microsoft Learn · Fabric / Real-Time Intelligence",
+      "count": 8,
+      "parent": "group:sources:fabric",
+      "host": "learn.microsoft.com",
+      "area": "fabric/real-time-intelligence"
+    },
+    {
+      "id": "group:source:learn-microsoft-com:fabric-admin",
+      "label": "Microsoft Learn · Fabric / Admin",
+      "count": 7,
+      "parent": "group:sources:fabric",
+      "host": "learn.microsoft.com",
+      "area": "fabric/admin"
+    },
+    {
+      "id": "group:source:learn-microsoft-com:sql-t-sql",
+      "label": "Microsoft Learn · SQL / T-SQL",
+      "count": 6,
+      "parent": "group:sources:fabric",
+      "host": "learn.microsoft.com",
+      "area": "sql/t-sql"
+    },
+    {
+      "id": "group:source:learn-microsoft-com:kusto-management",
+      "label": "Microsoft Learn · Kusto / Management",
+      "count": 4,
+      "parent": "group:sources:fabric",
+      "host": "learn.microsoft.com",
+      "area": "kusto/management"
+    },
+    {
+      "id": "group:source:learn-microsoft-com:kusto-query",
+      "label": "Microsoft Learn · Kusto / Query",
+      "count": 4,
+      "parent": "group:sources:fabric",
+      "host": "learn.microsoft.com",
+      "area": "kusto/query"
+    },
+    {
+      "id": "group:source:learn-microsoft-com:rest-api",
+      "label": "Microsoft Learn · REST / API",
+      "count": 3,
+      "parent": "group:sources:fabric",
+      "host": "learn.microsoft.com",
+      "area": "rest/api"
+    },
+    {
+      "id": "group:source:learn-microsoft-com:azure-data-factory",
+      "label": "Microsoft Learn · Azure / Data Factory",
+      "count": 2,
+      "parent": "group:sources:fabric",
+      "host": "learn.microsoft.com",
+      "area": "azure/data-factory"
+    },
+    {
+      "id": "group:source:learn-microsoft-com:credentials-certifications",
+      "label": "Microsoft Learn · Credentials / Certifications",
+      "count": 2,
+      "parent": "group:sources:fabric",
+      "host": "learn.microsoft.com",
+      "area": "credentials/certifications"
+    },
+    {
+      "id": "group:source:learn-microsoft-com:credentials-support",
+      "label": "Microsoft Learn · Credentials / Support",
+      "count": 2,
+      "parent": "group:sources:fabric",
+      "host": "learn.microsoft.com",
+      "area": "credentials/support"
+    },
+    {
+      "id": "group:source:learn-microsoft-com:fabric-enterprise",
+      "label": "Microsoft Learn · Fabric / Enterprise",
+      "count": 2,
+      "parent": "group:sources:fabric",
+      "host": "learn.microsoft.com",
+      "area": "fabric/enterprise"
+    },
+    {
+      "id": "group:source:learn-microsoft-com:fabric-get-started",
+      "label": "Microsoft Learn · Fabric / Get Started",
+      "count": 2,
+      "parent": "group:sources:fabric",
+      "host": "learn.microsoft.com",
+      "area": "fabric/get-started"
+    },
+    {
+      "id": "group:source:docs-delta-io:delta-batch",
+      "label": "Delta Lake docs · Batch",
+      "count": 1,
+      "parent": "group:sources:fabric",
+      "host": "docs.delta.io",
+      "area": "delta-batch"
+    },
+    {
+      "id": "group:source:docs-delta-io:best-practices",
+      "label": "Delta Lake docs · Best Practices",
+      "count": 1,
+      "parent": "group:sources:fabric",
+      "host": "docs.delta.io",
+      "area": "best-practices"
+    },
+    {
+      "id": "group:source:docs-delta-io:concurrency-control",
+      "label": "Delta Lake docs · Concurrency Control",
+      "count": 1,
+      "parent": "group:sources:fabric",
+      "host": "docs.delta.io",
+      "area": "concurrency-control"
+    },
+    {
+      "id": "group:source:docs-delta-io:delta-deletion-vectors",
+      "label": "Delta Lake docs · Deletion Vectors",
+      "count": 1,
+      "parent": "group:sources:fabric",
+      "host": "docs.delta.io",
+      "area": "delta-deletion-vectors"
+    },
+    {
+      "id": "group:source:docs-delta-io:overview",
+      "label": "Delta Lake docs · Overview",
+      "count": 1,
+      "parent": "group:sources:fabric",
+      "host": "docs.delta.io",
+      "area": "overview"
+    },
+    {
+      "id": "group:source:learn-microsoft-com:azure-architecture",
+      "label": "Microsoft Learn · Azure / Architecture",
+      "count": 1,
+      "parent": "group:sources:fabric",
+      "host": "learn.microsoft.com",
+      "area": "azure/architecture"
+    },
+    {
+      "id": "group:source:learn-microsoft-com:fabric-security",
+      "label": "Microsoft Learn · Fabric / Security",
+      "count": 1,
+      "parent": "group:sources:fabric",
+      "host": "learn.microsoft.com",
+      "area": "fabric/security"
+    },
+    {
+      "id": "group:source:learn-microsoft-com:power-bi-collaborate-share",
+      "label": "Microsoft Learn · Power BI / Collaborate & Share",
+      "count": 1,
+      "parent": "group:sources:fabric",
+      "host": "learn.microsoft.com",
+      "area": "power-bi/collaborate-share"
+    },
+    {
+      "id": "group:source:learn-microsoft-com:power-bi-connect-data",
+      "label": "Microsoft Learn · Power BI / Connect Data",
+      "count": 1,
+      "parent": "group:sources:fabric",
+      "host": "learn.microsoft.com",
+      "area": "power-bi/connect-data"
+    },
+    {
+      "id": "group:source:learn-microsoft-com:power-bi-guidance",
+      "label": "Microsoft Learn · Power BI / Guidance",
+      "count": 1,
+      "parent": "group:sources:fabric",
+      "host": "learn.microsoft.com",
+      "area": "power-bi/guidance"
+    },
+    {
+      "id": "group:source:youtube-com:videos",
+      "label": "YouTube",
+      "count": 1,
+      "parent": "group:sources:fabric",
+      "host": "youtube.com",
+      "area": "videos"
+    }
+  ],
+  "sourceBuckets": [
+    {
+      "id": "group:sources:fabric",
+      "label": "Cited sources",
+      "count": 198
+    },
+    {
+      "id": "group:sources:visualization",
+      "label": "Source pages",
+      "count": 25
+    }
+  ],
+  "chapterGroups": [
+    {
+      "id": "group:chapter:video12:capacity-cu-throttling-and-freshness",
+      "label": "Capacity CU, throttling and freshness",
+      "parent": "pack:video12",
+      "count": 7
+    },
+    {
+      "id": "group:chapter:video12:historical-warehouse-query-analysis",
+      "label": "Historical warehouse query analysis",
+      "parent": "pack:video12",
+      "count": 9
+    },
+    {
+      "id": "group:chapter:video12:monitor-hub-cross-workspace-job-observability",
+      "label": "Monitor hub / cross-workspace job observability",
+      "parent": "pack:video12",
+      "count": 8
+    },
+    {
+      "id": "group:chapter:video12:monitoring-items-and-cross-workload-telemetry",
+      "label": "Monitoring items and cross-workload telemetry",
+      "parent": "pack:video12",
+      "count": 8
+    },
+    {
+      "id": "group:chapter:video12:pipeline-activity-diagnostics-reruns",
+      "label": "Pipeline activity diagnostics / reruns",
+      "parent": "pack:video12",
+      "count": 7
+    },
+    {
+      "id": "group:chapter:video12:sql-dmv-lifecycle-and-privileges",
+      "label": "SQL DMV lifecycle and privileges",
+      "parent": "pack:video12",
+      "count": 7
+    },
+    {
+      "id": "group:chapter:video12:tenant-wide-usage-adoption-and-governance",
+      "label": "Tenant-wide usage, adoption and governance",
+      "parent": "pack:video12",
+      "count": 4
+    },
+    {
+      "id": "group:chapter:video14:connections-gateways-and-authentication",
+      "label": "Connections, gateways and authentication",
+      "parent": "pack:video14",
+      "count": 8
+    },
+    {
+      "id": "group:chapter:video14:copy-data-and-ingestion",
+      "label": "Copy Data and ingestion",
+      "parent": "pack:video14",
+      "count": 8
+    },
+    {
+      "id": "group:chapter:video14:expression-language-and-dynamic-content",
+      "label": "Expression language and dynamic content",
+      "parent": "pack:video14",
+      "count": 8
+    },
+    {
+      "id": "group:chapter:video14:foreach-and-parallel-iteration",
+      "label": "ForEach and parallel iteration",
+      "parent": "pack:video14",
+      "count": 8
+    },
+    {
+      "id": "group:chapter:video14:get-metadata-and-file-discovery",
+      "label": "Get Metadata and file discovery",
+      "parent": "pack:video14",
+      "count": 8
+    },
+    {
+      "id": "group:chapter:video14:if-condition-and-dependency-outcomes",
+      "label": "If Condition and dependency outcomes",
+      "parent": "pack:video14",
+      "count": 8
+    },
+    {
+      "id": "group:chapter:video14:lookup-and-configuration-row-shapes",
+      "label": "Lookup and configuration row shapes",
+      "parent": "pack:video14",
+      "count": 8
+    },
+    {
+      "id": "group:chapter:video14:metadata-driven-pipelines",
+      "label": "Metadata-driven pipelines",
+      "parent": "pack:video14",
+      "count": 8
+    },
+    {
+      "id": "group:chapter:video14:parameters-variables-and-nested-execution",
+      "label": "Parameters, variables and nested execution",
+      "parent": "pack:video14",
+      "count": 8
+    },
+    {
+      "id": "group:chapter:video14:pipeline-fundamentals-and-orchestration",
+      "label": "Pipeline fundamentals and orchestration",
+      "parent": "pack:video14",
+      "count": 8
+    },
+    {
+      "id": "group:chapter:video14:production-best-practices-and-reliability",
+      "label": "Production best practices and reliability",
+      "parent": "pack:video14",
+      "count": 8
+    },
+    {
+      "id": "group:chapter:video14:scheduling-and-monitoring",
+      "label": "Scheduling and monitoring",
+      "parent": "pack:video14",
+      "count": 8
+    },
+    {
+      "id": "group:chapter:video15:api-administration",
+      "label": "API administration",
+      "parent": "pack:video15",
+      "count": 7
+    },
+    {
+      "id": "group:chapter:video15:access-foundation",
+      "label": "Access foundation",
+      "parent": "pack:video15",
+      "count": 7
+    },
+    {
+      "id": "group:chapter:video15:column-and-object-security",
+      "label": "Column and object security",
+      "parent": "pack:video15",
+      "count": 7
+    },
+    {
+      "id": "group:chapter:video15:direct-lake-and-bi",
+      "label": "Direct Lake and BI",
+      "parent": "pack:video15",
+      "count": 7
+    },
+    {
+      "id": "group:chapter:video15:lifecycle-and-security-qa",
+      "label": "Lifecycle and security QA",
+      "parent": "pack:video15",
+      "count": 7
+    },
+    {
+      "id": "group:chapter:video15:rls-and-effective-roles",
+      "label": "RLS and effective roles",
+      "parent": "pack:video15",
+      "count": 7
+    },
+    {
+      "id": "group:chapter:video15:sql-endpoint-identity",
+      "label": "SQL endpoint identity",
+      "parent": "pack:video15",
+      "count": 7
+    },
+    {
+      "id": "group:chapter:video15:spark-secured-execution",
+      "label": "Spark secured execution",
+      "parent": "pack:video15",
+      "count": 7
+    },
+    {
+      "id": "group:chapter:video16:access-security-paths",
+      "label": "Access security paths",
+      "parent": "pack:video16",
+      "count": 6
+    },
+    {
+      "id": "group:chapter:video16:delta-discovery-and-shortcuts",
+      "label": "Delta discovery and shortcuts",
+      "parent": "pack:video16",
+      "count": 6
+    },
+    {
+      "id": "group:chapter:video16:historical-querying",
+      "label": "Historical querying",
+      "parent": "pack:video16",
+      "count": 4
+    },
+    {
+      "id": "group:chapter:video16:metadata-synchronization",
+      "label": "Metadata synchronization",
+      "parent": "pack:video16",
+      "count": 6
+    },
+    {
+      "id": "group:chapter:video16:new-metadata-sync",
+      "label": "New metadata sync",
+      "parent": "pack:video16",
+      "count": 6
+    },
+    {
+      "id": "group:chapter:video16:production-troubleshooting",
+      "label": "Production troubleshooting",
+      "parent": "pack:video16",
+      "count": 6
+    },
+    {
+      "id": "group:chapter:video16:reporting-and-semantic-models",
+      "label": "Reporting and semantic models",
+      "parent": "pack:video16",
+      "count": 2
+    },
+    {
+      "id": "group:chapter:video16:t-sql-virtual-objects",
+      "label": "T-SQL virtual objects",
+      "parent": "pack:video16",
+      "count": 6
+    },
+    {
+      "id": "group:chapter:video16:two-door-architecture",
+      "label": "Two-door architecture",
+      "parent": "pack:video16",
+      "count": 6
+    },
+    {
+      "id": "group:chapter:video19:ai-transformations",
+      "label": "AI transformations",
+      "parent": "pack:video19",
+      "count": 2
+    },
+    {
+      "id": "group:chapter:video19:capacity",
+      "label": "Capacity",
+      "parent": "pack:video19",
+      "count": 2
+    },
+    {
+      "id": "group:chapter:video19:mlvs",
+      "label": "MLVs",
+      "parent": "pack:video19",
+      "count": 18
+    },
+    {
+      "id": "group:chapter:video19:schemas",
+      "label": "Schemas",
+      "parent": "pack:video19",
+      "count": 3
+    },
+    {
+      "id": "group:chapter:video19:security",
+      "label": "Security",
+      "parent": "pack:video19",
+      "count": 3
+    },
+    {
+      "id": "group:chapter:video19:shortcuts",
+      "label": "Shortcuts",
+      "parent": "pack:video19",
+      "count": 3
+    },
+    {
+      "id": "group:chapter:video19:transformations",
+      "label": "Transformations",
+      "parent": "pack:video19",
+      "count": 8
+    }
+  ],
+  "duplicateChapterIds": [
+    {
+      "id": "practice",
+      "count": 3
+    },
+    {
+      "id": "scope",
+      "count": 3
+    },
+    {
+      "id": "extensions",
+      "count": 2
+    },
+    {
+      "id": "objects",
+      "count": 2
+    },
+    {
+      "id": "shortcuts",
+      "count": 2
+    }
+  ]
+}

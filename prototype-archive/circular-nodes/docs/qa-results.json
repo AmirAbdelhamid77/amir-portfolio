@@ -1,0 +1,217 @@
+{
+  "base": "http://127.0.0.1:4400",
+  "route": "/prototype/graph/",
+  "ranAt": "2026-11-06T19:47:46.660Z",
+  "browser": "Microsoft Edge (Playwright, headless)",
+  "total": 40,
+  "passed": 40,
+  "failed": 0,
+  "scriptBytes": 1428550,
+  "results": [
+    {
+      "name": "route returns 200",
+      "ok": true,
+      "detail": "status 200"
+    },
+    {
+      "name": "9 sequences rendered, 0 notes at rest",
+      "ok": true,
+      "detail": "9 sequences / 0 notes"
+    },
+    {
+      "name": "page is noindex",
+      "ok": true,
+      "detail": "noindex, nofollow"
+    },
+    {
+      "name": "h1 present",
+      "ok": true,
+      "detail": "Knowledge graph, local and expandable"
+    },
+    {
+      "name": "clicking a sequence reveals its notes",
+      "ok": true,
+      "detail": "3 note nodes"
+    },
+    {
+      "name": "expansion moves no other sequence",
+      "ok": true,
+      "detail": "all anchors unchanged"
+    },
+    {
+      "name": "chip reflects expanded state",
+      "ok": true,
+      "detail": "before=false"
+    },
+    {
+      "name": "sequence panel shows declared order",
+      "ok": true,
+      "detail": "panel text contains 'Declared order'"
+    },
+    {
+      "name": "visible notes equal declared membership",
+      "ok": true,
+      "detail": "3 ordered / 3 drawn"
+    },
+    {
+      "name": "note click selects the note",
+      "ok": true,
+      "detail": "stats-section-s1"
+    },
+    {
+      "name": "note preview has a title",
+      "ok": true,
+      "detail": "The big picture: what is statistics?"
+    },
+    {
+      "name": "note preview links to the real content",
+      "ok": true,
+      "detail": "/learn/statistics/journey/foundations/#s1"
+    },
+    {
+      "name": "preview carries objectives, misconception and dependencies",
+      "ok": true
+    },
+    {
+      "name": "status announces the selection",
+      "ok": true,
+      "detail": "Note selected: The big picture: what is statistics?. Position 1 of 3. 0 recorded dependenc"
+    },
+    {
+      "name": "selected note link resolves on the static host",
+      "ok": true,
+      "detail": "2 href verified"
+    },
+    {
+      "name": "back restores the previous graph state",
+      "ok": true,
+      "detail": "3 notes, Previous graph state restored."
+    },
+    {
+      "name": "focus mode dims unrelated nodes",
+      "ok": true,
+      "detail": "8 dimmed, button \"Exit focus\""
+    },
+    {
+      "name": "dragging a node repositions it",
+      "ok": true,
+      "detail": "translate(1.8369701987210297e-14 -195) -> translate(78.67469515124607 -150.0430313421451)"
+    },
+    {
+      "name": "reset collapses the graph and restores node positions",
+      "ok": true,
+      "detail": "0 notes, translate(1.8369701987210297e-14 -195)"
+    },
+    {
+      "name": "dragging the canvas pans the view",
+      "ok": true,
+      "detail": "translate(371 295.7316423005505) scale(0.8897397043030212) -> translate(451 345.7316423005505) scale(0.8897397043030212)"
+    },
+    {
+      "name": "wheel zooms and Fit restores the fitted scale",
+      "ok": true,
+      "detail": "wheel k=1.25, fit k=0.89"
+    },
+    {
+      "name": "graph nodes are focusable",
+      "ok": true,
+      "detail": "seq:statistics:foundations"
+    },
+    {
+      "name": "Enter toggles the focused sequence",
+      "ok": true,
+      "detail": "Sequence expanded: Foundations: from a question to data. 3 notes shown."
+    },
+    {
+      "name": "arrow keys move focus between nodes",
+      "ok": true,
+      "detail": "seq:statistics:foundations → stats-section-s1"
+    },
+    {
+      "name": "search returns matching sequences and notes",
+      "ok": true,
+      "detail": "3 results"
+    },
+    {
+      "name": "choosing a result updates the inspector",
+      "ok": true,
+      "detail": "12 notes visible"
+    },
+    {
+      "name": "list view renders every sequence",
+      "ok": true,
+      "detail": "9 groups"
+    },
+    {
+      "name": "list view links every note",
+      "ok": true,
+      "detail": "43 links"
+    },
+    {
+      "name": "list view names dependencies",
+      "ok": true
+    },
+    {
+      "name": "page states the Atlas publishes 0 concepts and 0 links",
+      "ok": true
+    },
+    {
+      "name": "page states the Atlas is not drawn",
+      "ok": true
+    },
+    {
+      "name": "axe: graph view has no serious/critical violations",
+      "ok": true,
+      "detail": "clean"
+    },
+    {
+      "name": "axe: list view has no serious/critical violations",
+      "ok": true,
+      "detail": "clean"
+    },
+    {
+      "name": "mobile 390px has no horizontal overflow",
+      "ok": true,
+      "detail": "0px overflow"
+    },
+    {
+      "name": "mobile shows sequence chips",
+      "ok": true,
+      "detail": "flex"
+    },
+    {
+      "name": "mobile can expand a sequence",
+      "ok": true,
+      "detail": "3 note nodes"
+    },
+    {
+      "name": "mobile console is clean",
+      "ok": true,
+      "detail": "no errors"
+    },
+    {
+      "name": "reduced motion removes node and link animation",
+      "ok": true,
+      "detail": "{\"nodeAnimation\":\"none\",\"nodeTransition\":\"1e-05s\",\"lineAnimation\":\"none\"}"
+    },
+    {
+      "name": "page loads without console errors",
+      "ok": true,
+      "detail": "none"
+    },
+    {
+      "name": "page loads without runtime errors",
+      "ok": true,
+      "detail": "none"
+    }
+  ],
+  "axe": {
+    "graph": [],
+    "list": []
+  },
+  "limitations": [
+    "Chromium accessibility tree is not a screen-reader test; NVDA/VoiceOver remain NOT RUN.",
+    "Only the statistics corpus is covered (9 sequences, 43 notes).",
+    "No persistence or deep links; state resets on reload."
+  ]
+}
