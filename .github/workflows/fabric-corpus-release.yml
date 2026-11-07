@@ -77,6 +77,20 @@ jobs:
         with:
           persist-credentials: false
 
+      # w4a-report.md DEFECT-1: the sitemap clock and the build id must be
+      # pinned to the release commit, not the runner wall clock. The app reads
+      # SOURCE_DATE_EPOCH (app/sitemap.ts lastmod) and FABRIC_BUILD_ID
+      # (next.config.ts generateBuildId) with deterministic fallbacks; this
+      # step makes the documented pin real in CI. Nothing here touches
+      # credentials or content.
+      - name: Pin reproducibility clock + build id to the release commit
+        run: |
+          set -euo pipefail
+          EPOCH=$(git log -1 --format=%ct HEAD)
+          echo "SOURCE_DATE_EPOCH=$EPOCH" >> "$GITHUB_ENV"
+          echo "FABRIC_BUILD_ID=${GITHUB_SHA}" >> "$GITHUB_ENV"
+          echo "Pinned SOURCE_DATE_EPOCH=$EPOCH FABRIC_BUILD_ID=${GITHUB_SHA}"
+
       - name: Set up Node 22
         uses: actions/setup-node@v4
         with:
@@ -159,6 +173,17 @@ jobs:
         uses: actions/checkout@v4
         with:
           persist-credentials: false
+
+      # Same reproducibility pin as job 1 (w4a-report.md DEFECT-1): the
+      # rebuilt subpath profile must carry the release-commit clock and build
+      # id, not the runner wall clock.
+      - name: Pin reproducibility clock + build id to the release commit
+        run: |
+          set -euo pipefail
+          EPOCH=$(git log -1 --format=%ct HEAD)
+          echo "SOURCE_DATE_EPOCH=$EPOCH" >> "$GITHUB_ENV"
+          echo "FABRIC_BUILD_ID=${GITHUB_SHA}" >> "$GITHUB_ENV"
+          echo "Pinned SOURCE_DATE_EPOCH=$EPOCH FABRIC_BUILD_ID=${GITHUB_SHA}"
 
       - name: Set up Node 22
         uses: actions/setup-node@v4

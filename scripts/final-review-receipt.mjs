@@ -26,8 +26,26 @@ export function finalReviewReceipt(root){
  const audited=path=>{
   if(!existsSync(resolve(root,KNOWLEDGE_STAGE_FC)))return null;
   const fc=JSON.parse(readFileSync(resolve(root,KNOWLEDGE_STAGE_FC),'utf8'));
-  const pin=(fc.files??[]).find(e=>e.path===path);
-  return pin&&hash(path)===pin.sha256?pin:null;
+  // The FC layer may advance a path more than once, hop by hop, exactly like
+  // the pin chain the successor receipts verify. Authorization belongs to the
+  // terminal hop whose recorded bytes match disk; an intermediate hop never
+  // authorizes a later state. Each audited addition stays authorized across
+  // the hops it survived, so the returned pin carries the union of the
+  // auditedDependencyAdditions recorded along the walked chain (order:
+  // earliest hop first). The hop bound turns a mistaken cycle into a
+  // rejection, not a hang.
+  const pins=(fc.files??[]).filter(e=>e.path===path);
+  if(pins.length===0)return null;
+  let terminal=pins[0];
+  const additions=[...(pins[0].auditedDependencyAdditions??[])];
+  for(let hop=0;hop<32;hop+=1){
+   const next=pins.find(e=>e.previousSha256===terminal.sha256);
+   if(!next)break;
+   additions.push(...(next.auditedDependencyAdditions??[]));
+   terminal=next;
+  }
+  if(hash(path)!==terminal.sha256)return null;
+  return {...terminal,auditedDependencyAdditions:additions};
  };
  assert.equal(m.scope,'hansa-final-review-20261028');
  assert.equal(hash(m.previousManifest),m.previousManifestSha256,'Original Phase 2 manifest changed');
@@ -54,8 +72,12 @@ export function finalReviewReceipt(root){
    Object.assign(expected.scripts,{
     'test:knowledge':'node --experimental-strip-types --test "tests/knowledge/*.test.mjs"',
     'test:atlas':'node --experimental-strip-types --test "tests/atlas/*.test.mjs"',
+    // Added by the Wave-4.1 follow-up (7 Nov 2026): wires the 30 existing
+    // tests/fabric-corpus suites into npm scripts and test:all. No dependency,
+    // no engine change; the FC package.json transition records it.
+    'test:fabric-corpus':'node --experimental-strip-types --test "tests/fabric-corpus/**/*.test.mjs"',
     'qa:prototype-c':'node scripts/qa-prototype-c-v2.mjs',
-    'test:all':'npm test && npm run test:statistics && npm run test:fabric && npm run test:content && npm run test:knowledge && npm run test:atlas',
+    'test:all':'npm test && npm run test:statistics && npm run test:fabric && npm run test:content && npm run test:knowledge && npm run test:atlas && npm run test:fabric-corpus',
     'build:drafts':'node scripts/build-draft-banks.mjs','qa:drafts':'node scripts/qa-drafts.mjs','build:intake':'node scripts/build-intake-content.mjs',
     // Added by the authorized /learn curriculum wave (3 Nov 2026). Each is a
     // local read-only gate or inventory command; none adds a dependency.

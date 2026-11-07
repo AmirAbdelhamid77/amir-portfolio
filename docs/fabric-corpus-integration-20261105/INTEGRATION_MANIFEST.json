@@ -130,6 +130,24 @@
       "layer": "fabric-corpus/2026-11-06",
       "attribution": "REC-03-r1-copy-guard",
       "note": "Approved owner decision D1 (6 Nov 2026), R1 defect class at the second site: the disposable-copy loop copies only paths that still have bytes here, and requires every absent pinned path to be explained by a receipt — retired by a newer layer, or excluded with a recorded reason (M0 excludes the circular-nodes before/tsconfig.tsbuildinfo build cache, next-env.d.ts and the root tsconfig.tsbuildinfo). Nothing is waived silently: an unexplained absence fails, and the six corruption/waiver rejection cases still run."
+    },
+    {
+      "path": "package.json",
+      "previousSha256": "c6443902e0e8fa2e2f114c4a2b6fd9a49c177dfb0fd4b30d70e1e14c36d01ccd",
+      "sha256": "0d0f63e706cf8b4db5ba0d52064cc06b2e2e90205a09c4dc991b259ad98ca40d",
+      "bytes": 3771,
+      "layer": "fabric-corpus/2026-11-07",
+      "attribution": "W4.1-test-suite-wiring",
+      "note": "Adds the test:fabric-corpus npm script for the existing 30 tests/fabric-corpus suites (previously runnable only by hand-typed command) and extends test:all to include it, so the fabric-corpus battery runs with the rest of the test:all gate. No dependency, no engine, no script removal. Evidence: Wave-4.1 follow-up recorded in docs/fabric-corpus/reports/w41-follow-up-report.md; authorized by the successor-audit allowlist update in the same wave (scripts/final-review-receipt.mjs transition in this layer)."
+    },
+    {
+      "path": "scripts/final-review-receipt.mjs",
+      "previousSha256": "45bb65bcf41f6884b6afb87cecc02c64317d7b2cd02bc0136e12f07675773eef",
+      "sha256": "acf22a3bb9f068ed5a74bb1a04818582e52728c9ea93fb1b07b0d75606f3630b",
+      "bytes": 11866,
+      "layer": "fabric-corpus/2026-11-07",
+      "attribution": "W4.1-test-suite-wiring",
+      "note": "Two changes, both required by the package.json transition above: (1) audited() now follows the FC hop chain for a path and authorizes only the terminal pin whose recorded bytes match disk — previously it matched the FIRST pin, which would have silently revoked the auditedDependencyAdditions authorization (yaml@2.9.1) once package.json gained a second hop; single-pin behavior is byte-for-byte identical. (2) the successor-audit script allowlist gains test:fabric-corpus and the extended test:all string, keeping the deepEqual exact. Evidence: w41-follow-up-report.md."
     }
   ],
   "additions": [],
