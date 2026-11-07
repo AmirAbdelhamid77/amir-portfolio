@@ -2,13 +2,13 @@ import type { Metadata } from "next";
 import { Container, Eyebrow } from "@/components/ui";
 import TreeExplorer from "@/components/knowledge-graph/tree-explorer";
 
-// Isolated prototype route. Not linked from navigation, the sitemap or search,
-// and not part of the release navigation. `noindex` keeps it out of any index
-// if the sandbox is ever served.
+// The corpus knowledge map. Reached from the Learn hub's "Knowledge map"
+// action; excluded from search indexes and the sitemap because it is a
+// navigation tool over the corpus, not a content page.
 export const metadata: Metadata = {
-  title: "Knowledge map prototype",
+  title: "Knowledge map — the corpus, one branch at a time",
   description:
-    "An expanding radial map of the corpus: eight subject roots, programme lenses, URL-grouped sources and declared containment only. Prototype only.",
+    "An expanding radial map of the corpus: eight subject roots, programme lenses, URL-grouped sources and declared containment only. Opened from the Learn hub.",
   robots: { index: false, follow: false },
   alternates: { canonical: "/prototype/network/" },
 };
@@ -18,7 +18,7 @@ export default function PrototypeNetworkPage() {
     <>
       <section className="border-b border-border">
         <Container className="py-10 md:py-12">
-          <Eyebrow>Prototype B — not in the release</Eyebrow>
+          <Eyebrow>Knowledge map · declared containment only</Eyebrow>
           <h1 className="mt-3 max-w-3xl text-3xl font-medium tracking-tight md:text-4xl">
             The corpus, as a map you open one branch at a time
           </h1>
@@ -66,8 +66,8 @@ export default function PrototypeNetworkPage() {
               </div>
             </div>
             <p className="mt-3 border-t border-border pt-3 text-[11px] leading-relaxed text-muted-foreground">
-              Prototype only. Generated from the corpus at build time; not linked from navigation or part of the published
-              learning path.
+              Generated from the corpus at build time and opened from the Learn hub&rsquo;s <em>Knowledge map</em> action.
+              Excluded from search indexes and the sitemap; leaf cards link back into the learning path.
             </p>
           </details>
         </Container>
