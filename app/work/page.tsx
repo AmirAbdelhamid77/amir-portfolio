@@ -35,6 +35,13 @@ export default function WorkPage() {
               </span>
             ))}
           </div>
+          <p className="mt-6 text-sm text-muted-foreground">
+            Also here: the recovered{" "}
+            <a href="/work/storytelling/" className="underline decoration-border underline-offset-4 hover:decoration-foreground">
+              Data Storytelling course and nine case studies
+            </a>{" "}
+            (24 documents, published unverified).
+          </p>
         </Container>
       </section>
 

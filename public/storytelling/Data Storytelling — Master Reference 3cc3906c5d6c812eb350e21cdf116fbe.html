@@ -1,0 +1,797 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Data Storytelling — Master Reference</title><meta name="data-notion-page-icon" content="📖"/><link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20100%20100%22%3E%3Ctext%20y%3D%22.9em%22%20font-size%3D%2290%22%3E%F0%9F%93%96%3C%2Ftext%3E%3C%2Fsvg%3E"/><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+/* Override strong tags inside headings to maintain consistent weight */
+h1 strong,
+h2 strong,
+h3 strong {
+	font-weight: 600;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 10px;
+	padding: 1rem;
+	/* Paint a complete callout box on every PDF page fragment. */
+	-webkit-box-decoration-break: clone;
+	box-decoration-break: clone;
+}
+
+/* For default-background callouts, render the border outline. */
+.callout.block-color-default_background {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+/*
+ * Toggles and callouts hold arbitrary content, so they can easily be taller
+ * than a page. They must stay breakable: avoiding breaks inside them makes
+ * Chromium push the whole block onto the next page, which leaves the previous
+ * page mostly empty before every long toggle.
+ */
+details,
+aside {
+	margin: 1.25em 0;
+}
+
+/* Keep a toggle's title on the same page as the start of its content. */
+summary {
+	page-break-after: avoid;
+	break-after: avoid;
+}
+
+/*
+ * Toggle headings render as <h1/h2/h3 style="display:inline-block"> inside
+ * <summary>. Without this reset, the heading's margin-top pushes it below the
+ * ::marker (▼), so the triangle and the title appear on separate lines.
+ */
+summary h1,
+summary h2,
+summary h3,
+summary h4 {
+	margin-top: 0;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+
+	table.collection-content {
+		width: 100%;
+		table-layout: fixed;
+	}
+
+	table.collection-content th,
+	table.collection-content td {
+		overflow-wrap: anywhere;
+	}
+
+	table.collection-content td > .user,
+	table.collection-content td > time {
+		white-space: pre-wrap;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content-wrapper {
+	overflow-x: auto;
+}
+
+@media only print {
+	.collection-content-wrapper {
+		overflow-x: visible;
+	}
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.collection-content td {
+	white-space: pre-wrap;
+	word-break: break-word;
+}
+
+.column-list {
+	display: flex;
+	gap: 46px;
+}
+
+.column {
+	min-width: 0;
+	overflow: hidden;
+}
+
+.column > *:first-child {
+	margin-top: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding-inline: 0.125rem;
+	padding-block: 0.375rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+table {
+	border-collapse: collapse;
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol.numbered-list.numbered-list-digits-2 {
+	padding-inline-start: 2em;
+}
+
+ol.numbered-list.numbered-list-digits-3plus {
+	padding-inline-start: 2.4em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+	margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+/*
+ * Render emoji icons using a ::before pseudo-element to keep the glyph
+ * out of the DOM textContent traversal. This avoids double-rendering icons
+ * in callouts and page titles.
+ * NOTE(slim/html-export-pseudo-icons): I can't tagref this because it will
+ * flag as a duplicate tag after codegen.
+ */
+.icon[data-emoji]::before {
+	content: attr(data-emoji);
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.callout img.notion-static-icon {
+	width: 1em;
+	height: 1em;
+}
+
+.callout p {
+	margin: 0;
+}
+
+.callout h1,
+.callout h2,
+.callout h3 {
+	margin: 0 0 0.6rem;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	margin-right: 0.4em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+blockquote.quote-large {
+	font-size: 1.25em;
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.tab {
+	margin: 1.25em 0;
+	padding-inline: 1rem;
+	border: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.highlight-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.highlight-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.highlight-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.highlight-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.highlight-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.highlight-default_background {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray_background {
+	background: rgba(42, 28, 0, 0.07);
+}
+.highlight-brown_background {
+	background: rgba(139, 46, 0, 0.086);
+}
+.highlight-orange_background {
+	background: rgba(224, 101, 1, 0.129);
+}
+.highlight-yellow_background {
+	background: rgba(211, 168, 0, 0.137);
+}
+.highlight-teal_background {
+	background: rgba(0, 100, 45, 0.09);
+}
+.highlight-blue_background {
+	background: rgba(0, 124, 215, 0.094);
+}
+.highlight-purple_background {
+	background: rgba(102, 0, 178, 0.078);
+}
+.highlight-pink_background {
+	background: rgba(197, 0, 93, 0.086);
+}
+.highlight-red_background {
+	background: rgba(223, 22, 0, 0.094);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.block-color-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.block-color-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.block-color-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.block-color-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.block-color-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.block-color-default_background {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray_background {
+	background: rgba(240, 239, 237, 1);
+}
+.block-color-brown_background {
+	background: rgba(245, 237, 233, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 235, 222, 1);
+}
+.block-color-yellow_background {
+	background: rgba(249, 243, 220, 1);
+}
+.block-color-teal_background {
+	background: rgba(232, 241, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(229, 242, 252, 1);
+}
+.block-color-purple_background {
+	background: rgba(243, 235, 249, 1);
+}
+.block-color-pink_background {
+	background: rgba(250, 233, 241, 1);
+}
+.block-color-red_background {
+	background: rgba(252, 233, 231, 1);
+}
+.select-value-color-default { background-color: rgba(42, 28, 0, 0.07); }
+.select-value-color-gray { background-color: rgba(28, 19, 1, 0.11); }
+.select-value-color-brown { background-color: rgba(127, 51, 0, 0.156); }
+.select-value-color-orange { background-color: rgba(196, 88, 0, 0.203); }
+.select-value-color-yellow { background-color: rgba(209, 156, 0, 0.282); }
+.select-value-color-green { background-color: rgba(0, 96, 38, 0.156); }
+.select-value-color-blue { background-color: rgba(0, 118, 217, 0.203); }
+.select-value-color-purple { background-color: rgba(92, 0, 163, 0.141); }
+.select-value-color-pink { background-color: rgba(183, 0, 78, 0.152); }
+.select-value-color-red { background-color: rgba(206, 24, 0, 0.164); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style><style>@import url('https://cdn.jsdelivr.net/npm/katex@0.16.25/dist/katex-swap.min.css')</style></head><body><article id="3cc3906c-5d6c-812e-b350-e21cdf116fbe" class="page sans" data-notion-page-icon="📖"><header><div class="page-header-icon undefined"><span class="icon" data-emoji="📖"></span></div><h1 class="page-title" dir="auto">Data Storytelling — Master Reference</h1><p class="page-description" dir="auto"></p></header><div class="page-body"><aside class="block-color-blue_background callout" data-notion-callout="" data-notion-callout-icon="🎯" data-notion-callout-background="blue_background" style="white-space:pre-wrap;display:flex" id="cbbd7261-025e-4edf-9487-4622881c9646" dir="ltr"><div style="font-size:1.5em"><span class="icon" data-emoji="🎯"></span></div><div style="width:100%"><p id="1b6597d9-95ad-4dd2-8a51-704f1ade5ce6" class="" dir="auto"><strong>This is the Storytelling Hub.</strong> Navigation only. Chapter text was not rewritten. Visualization is the evidence layer; this library is the communication layer around it.</p></div></aside><blockquote id="93337d68-3a1c-4cce-a71f-de6a68916e52" class="" dir="auto"><strong>Purpose:</strong> turn BI / Data Science results into a story that a specific audience can understand, trust, and act on.</blockquote><nav id="f61763c3-16a5-4661-963e-5ace4b1e6f4b" class="table_of_contents" data-notion-toc="" dir="ltr"><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#5a7f6cd8-d105-424a-9b10-3b74c4ede111">Operating System</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#351469b3-6dcf-4f65-afaf-39b91efd8927">How to Use</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#3e65fc13-f6a0-4deb-b6fe-2b41a0328ffc">Canonical Map</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#fb4eaf73-06f1-426f-b926-e651892ffdcf">Section 1 · Strategy</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#354894fd-ce38-4576-83a3-242f31c5bcf6">Section 2 · Craft</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#9b112d11-b965-4a79-88dc-b093a6414a3e">Section 3 · Delivery</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#54ad828b-dc1c-487d-bc47-ba3e119f3976">Story Atlas</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#e89be750-5f01-4af7-a5c4-73277cc38085">Framework Selector</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#b15f952e-53aa-41e1-aca1-dc58f70f28aa">Section 4 · Toolkit</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#807a6256-1f97-4c88-8458-918cdae7f5a4">Case Index · Framework Map</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#68e7569f-6cbe-41c1-8cf9-8faa126048f8">Related Libraries</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#4a8a6140-44af-4141-a13a-99d72ded1566">Pages owned by this hub</a></div></nav><h2 id="5a7f6cd8-d105-424a-9b10-3b74c4ede111" class="" dir="auto">Operating System</h2><p id="b85b319d-1a85-4ccd-9961-d32b822ff6ce" class="" dir="auto"><strong>Data + Narrative + Visuals → Understanding → Decision → Action</strong></p><p id="08426a53-52ee-46b9-85b1-bb50fa336b9d" class="" dir="auto"><strong>Question → Audience → Big Idea → Minimum Evidence → Metrics → Message-to-Visual → Format → Delivery → Rigor</strong></p><p id="0aff8687-1777-4950-a466-f72784a49ad1" class="" dir="auto">Do not start from a slide or a chart. Start from the decision and the person who owns it.</p><figure id="725fd61a-801c-4123-80d2-f7e5c7be9b33" class="image" data-notion-image="story_os.svg" dir="ltr"><a href="story_os.svg"><img src="story_os.svg"/></a><figcaption>The working pipeline for every story in this library.</figcaption></figure><aside class="block-color-purple_background callout" data-notion-callout="" data-notion-callout-icon="🎨" data-notion-callout-background="purple_background" style="white-space:pre-wrap;display:flex" id="f8fc665c-0129-4f1c-8826-6866cbf8f1ab" dir="ltr"><div style="font-size:1.5em"><span class="icon" data-emoji="🎨"></span></div><div style="width:100%"><p id="69e0c18b-f22c-4367-884b-f8a0b0c517b9" class="" dir="auto">Figure pack: <a href="Story%20Atlas%20%E2%80%94%20Teaching%20Figures%203e53906c5d6c8173b0aefba217c805d9.html" data-notion-page-id="3e53906c-5d6c-8173-b0ae-fba217c805d9" data-notion-space-id="b9b3906c-5d6c-81bc-b3c5-00037c38f1f8"><span class="icon" data-emoji="🎨"></span>Story Atlas — Teaching Figures</a> · <a href="Framework%20Selector%20%E2%80%94%20Knaflic,%20Dykes,%20Duarte,%20SCQA%203e53906c5d6c81ee8722c4edd5cb00a7.html" data-notion-page-id="3e53906c-5d6c-81ee-8722-c4edd5cb00a7" data-notion-space-id="b9b3906c-5d6c-81bc-b3c5-00037c38f1f8"><span class="icon" data-emoji="🧭"></span>Framework Selector — Knaflic, Dykes, Duarte, SCQA</a></p></div></aside><h2 id="351469b3-6dcf-4f65-afaf-39b91efd8927" class="" dir="auto">How to Use</h2><p id="6e813566-8bbc-4a87-916a-914e2a7a7d34" class="" dir="auto">Pick one job.</p><table id="4df8358f-7a90-4add-9e27-7a727818f564" class="simple-table" dir="ltr"><thead class="simple-table-header"><tr id="dc6a94d6-8b30-47df-9db1-bb4ab04abcc8" dir="ltr"><th id="b?@O" class="simple-table-header-color simple-table-header">Job</th><th id="fqND" class="simple-table-header-color simple-table-header">Path</th></tr></thead><tbody><tr id="ba1d7589-843e-4915-916c-482e0220fe46" dir="ltr"><td id="b?@O" class="">Learn the system</td><td id="fqND" class="">I Foundations → II Audience → III Narrative → IV Metrics → V Visuals → VI Format → VII Reports → VIII Rigor → IX Presentations → XII Quick Reference</td></tr><tr id="d0082522-9290-48c1-b89c-77d63fc83851" dir="ltr"><td id="b?@O" class="">Prepare an exec meeting</td><td id="fqND" class="">Framework Selector → SCQA / Stakes → I Big Idea → II Persona → XI Executive template → V McCandless → IX Slides</td></tr><tr id="007c9255-8972-4cd8-9535-2ddbd6f087ec" dir="ltr"><td id="b?@O" class="">Write the artifact</td><td id="fqND" class="">VI Format → VII Report type / 1–3–25 → VIII Reproducibility → XI Before-a-report checklist</td></tr><tr id="e8691aa0-e64d-47ab-a8b3-eaa41f3d7a08" dir="ltr"><td id="b?@O" class="">Turn a dashboard into a decision</td><td id="fqND" class="">III Minimum evidence → Case 6 → V Message-to-visual → viz hub Decision Tools</td></tr></tbody></table><h2 id="3e65fc13-f6a0-4deb-b6fe-2b41a0328ffc" class="" dir="auto">Canonical Map</h2><p id="0276ad2c-95eb-426f-a019-32db77780405" class="" dir="auto">Four sections. Twelve parts. No duplicate blurbs.</p><h3 id="fb4eaf73-06f1-426f-b926-e651892ffdcf" class="" dir="auto">Section 1 · Strategy</h3><p id="3c84c9fd-47c3-4f3f-99c4-ef88f98dee6f" class="" dir="auto">What the story is, who it is for, which evidence and metrics survive.</p><ul id="2631bac3-2a00-497b-b00d-9d930def26d7" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><a href="Part%20I%20%E2%80%94%20Foundations%203cc3906c5d6c81a6be90d8eb7091ab29.html" data-notion-page-id="3cc3906c-5d6c-81a6-be90-d8eb7091ab29" data-notion-space-id="b9b3906c-5d6c-81bc-b3c5-00037c38f1f8"><span class="icon" data-emoji="🎨"></span>Part I — Foundations</a> — Big Idea, three-minute story, storytelling ≠ spin</li></ul><ul id="a88f6b69-5739-460e-afc0-d646a72335ca" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><a href="Part%20II%20%E2%80%94%20Know%20Your%20Audience%203cc3906c5d6c81648b09d864b2e398fc.html" data-notion-page-id="3cc3906c-5d6c-8164-8b09-d864b2e398fc" data-notion-space-id="b9b3906c-5d6c-81bc-b3c5-00037c38f1f8"><span class="icon" data-emoji="🎯"></span>Part II — Know Your Audience</a> — personas, ADEPT, Self / Friend / Skeptic</li></ul><ul id="a8e97b40-603b-4f25-823b-b7e1ee69037a" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><a href="Part%20III%20%E2%80%94%20Building%20the%20Narrative%203cc3906c5d6c815d8554e720c7efa2eb.html" data-notion-page-id="3cc3906c-5d6c-815d-8554-e720c7efa2eb" data-notion-space-id="b9b3906c-5d6c-81bc-b3c5-00037c38f1f8"><span class="icon" data-emoji="📝"></span>Part III — Building the Narrative</a> — problem → driver → impact → action; no data dump</li></ul><ul id="da7c1ccd-a08d-4f07-b08b-60e3f50c30ea" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><a href="Part%20IV%20%E2%80%94%20Metrics%20&amp;%20Statistics%203cc3906c5d6c81818eded3f5cef2fb3f.html" data-notion-page-id="3cc3906c-5d6c-8181-8ede-d3f5cef2fb3f" data-notion-space-id="b9b3906c-5d6c-81bc-b3c5-00037c38f1f8"><span class="icon" data-emoji="📊"></span>Part IV — Metrics &amp; Statistics</a> — absolute vs relative, mean vs median, practical vs statistical significance</li></ul><h3 id="354894fd-ce38-4576-83a3-242f31c5bcf6" class="" dir="auto">Section 2 · Craft</h3><p id="971d71c8-b08d-4455-adb5-8b71a22af67c" class="" dir="auto">Turn surviving evidence into visuals and a channel.</p><ul id="1053727b-d47f-42aa-b1a8-2636935c034e" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><a href="Part%20V%20%E2%80%94%20Visualization%203cc3906c5d6c813bad84faae28c302f0.html" data-notion-page-id="3cc3906c-5d6c-813b-ad84-faae28c302f0" data-notion-space-id="b9b3906c-5d6c-81bc-b3c5-00037c38f1f8"><span class="icon" data-emoji="📈"></span>Part V — Visualization</a> — visualize the message; McCandless; Insight → Impact → Action</li></ul><ul id="40b1b887-9e21-499e-b712-ac72e45a9bc7" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><a href="Part%20VI%20%E2%80%94%20Choosing%20the%20Communication%20Format%203cc3906c5d6c810a8671e7775ce085c6.html" data-notion-page-id="3cc3906c-5d6c-810a-8671-e7775ce085c6" data-notion-space-id="b9b3906c-5d6c-81bc-b3c5-00037c38f1f8"><span class="icon" data-emoji="🗂️"></span>Part VI — Choosing the Communication Format</a> — oral vs written vs notebook; combine formats</li></ul><h3 id="9b112d11-b965-4a79-88dc-b093a6414a3e" class="" dir="auto">Section 3 · Delivery</h3><p id="b9d4c196-28e7-4fe2-a741-0d4fe4a5907d" class="" dir="auto">Write it, speak it, keep it rerunnable.</p><ul id="f93f6388-8622-485a-9535-026d53a0be9f" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><a href="Part%20VII%20%E2%80%94%20Written%20Reports%203cc3906c5d6c813dacedee18b6f4deaf.html" data-notion-page-id="3cc3906c-5d6c-813d-aced-ee18b6f4deaf" data-notion-space-id="b9b3906c-5d6c-81bc-b3c5-00037c38f1f8"><span class="icon" data-emoji="📄"></span>Part VII — Written Reports</a> — informational / analytical / final / summary; 1–3–25</li></ul><ul id="86513ada-f414-4730-96a8-f963a005a74b" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><a href="Part%20VIII%20%E2%80%94%20Reproducibility%20&amp;%20Rigor%203cc3906c5d6c816f8725c25300a54ca1.html" data-notion-page-id="3cc3906c-5d6c-816f-8725-c25300a54ca1" data-notion-space-id="b9b3906c-5d6c-81bc-b3c5-00037c38f1f8"><span class="icon" data-emoji="🔁"></span>Part VIII — Reproducibility &amp; Rigor</a> — never make the dataset the only record</li></ul><ul id="728bc32f-613d-4874-8a3d-dfc420ee497d" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><a href="Part%20IX%20%E2%80%94%20Oral%20Presentations%20in%20Practice%203cc3906c5d6c8122a573def0f7514611.html" data-notion-page-id="3cc3906c-5d6c-8122-a573-def0f7514611" data-notion-space-id="b9b3906c-5d6c-81bc-b3c5-00037c38f1f8"><span class="icon" data-emoji="🎤"></span>Part IX — Oral Presentations in Practice</a> — one message per slide; insight headlines</li></ul><h3 id="54ad828b-dc1c-487d-bc47-ba3e119f3976" class="" dir="auto">Story Atlas</h3><p id="cd3f2a41-93b4-4047-a9eb-5e9eaf2f4d36" class="" dir="auto">Teaching figures for message, audience, format, and rigor — not chart types.</p><ul id="b0ea7564-3609-48f7-a19e-ec599abe7234" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><a href="Story%20Atlas%20%E2%80%94%20Teaching%20Figures%203e53906c5d6c8173b0aefba217c805d9.html" data-notion-page-id="3e53906c-5d6c-8173-b0ae-fba217c805d9" data-notion-space-id="b9b3906c-5d6c-81bc-b3c5-00037c38f1f8"><span class="icon" data-emoji="🎨"></span>Story Atlas — Teaching Figures</a></li></ul><h3 id="e89be750-5f01-4af7-a5c4-73277cc38085" class="" dir="auto">Framework Selector</h3><p id="5b8e5845-b51a-4c64-b694-b5913fb7f750" class="" dir="auto">Which published shape to plug into the operating system — Knaflic, Dykes, Duarte, SCQA, Pixar, What/So what/Now what.</p><ul id="e79d9f79-301c-4b16-b021-2062d9f0ec3a" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><a href="Framework%20Selector%20%E2%80%94%20Knaflic,%20Dykes,%20Duarte,%20SCQA%203e53906c5d6c81ee8722c4edd5cb00a7.html" data-notion-page-id="3e53906c-5d6c-81ee-8722-c4edd5cb00a7" data-notion-space-id="b9b3906c-5d6c-81bc-b3c5-00037c38f1f8"><span class="icon" data-emoji="🧭"></span>Framework Selector — Knaflic, Dykes, Duarte, SCQA</a></li></ul><h3 id="b15f952e-53aa-41e1-aca1-dc58f70f28aa" class="" dir="auto">Section 4 · Toolkit</h3><ul id="20e69911-6ea3-4e8e-bb74-6e097f46b240" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><a href="Part%20X%20%E2%80%94%20Applied%20Case%20Studies%203cc3906c5d6c81c4988ac5e5ee490f3d.html" data-notion-page-id="3cc3906c-5d6c-81c4-988a-c5e5ee490f3d" data-notion-space-id="b9b3906c-5d6c-81bc-b3c5-00037c38f1f8"><span class="icon" data-emoji="💼"></span>Part X — Applied Case Studies</a></li></ul><ul id="e4bf0076-4043-4175-9e8e-1e6c4520894c" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><a href="Part%20XI%20%E2%80%94%20Checklists%20&amp;%20Templates%203cc3906c5d6c81d89750ddde26edda95.html" data-notion-page-id="3cc3906c-5d6c-81d8-9750-ddde26edda95" data-notion-space-id="b9b3906c-5d6c-81bc-b3c5-00037c38f1f8"><span class="icon" data-emoji="✅"></span>Part XI — Checklists &amp; Templates</a></li></ul><ul id="0e77fd29-acb2-4ee6-9fd6-a623f94e1ea5" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><a href="Part%20XII%20%E2%80%94%20Quick%20Reference%203cc3906c5d6c81bd8d7ec82b186708a5.html" data-notion-page-id="3cc3906c-5d6c-81bd-8d7e-c82b186708a5" data-notion-space-id="b9b3906c-5d6c-81bc-b3c5-00037c38f1f8"><span class="icon" data-emoji="⚡"></span>Part XII — Quick Reference</a></li></ul><h2 id="807a6256-1f97-4c88-8458-918cdae7f5a4" class="" dir="auto">Case Index · Framework Map</h2><p id="cf0ea82c-5c50-4ab2-ae35-331294d7bf53" class="" dir="auto">Use the case that matches the situation. Open the part it demonstrates, not every part.</p><table id="61464d08-37cc-4330-b65e-0e29ee6d2a82" class="simple-table" dir="ltr"><thead class="simple-table-header"><tr id="068e7923-41b6-48ae-af05-7427f4416344" dir="ltr"><th id="F_SY" class="simple-table-header-color simple-table-header">Case</th><th id="CpCI" class="simple-table-header-color simple-table-header">Situation</th><th id="E;NX" class="simple-table-header-color simple-table-header">Opens these parts</th></tr></thead><tbody><tr id="651fc04c-abdc-47da-958a-5506c6e54fef" dir="ltr"><td id="F_SY" class=""><a href="Case%201%20%E2%80%94%20Food%20Company%20Profit%20Decline%203cd3906c5d6c81059aabf5d845448a87.html" data-notion-page-id="3cd3906c-5d6c-8105-9aab-f5d845448a87" data-notion-space-id="b9b3906c-5d6c-81bc-b3c5-00037c38f1f8"><span class="icon" data-emoji="🍫"></span>Case 1 — Food Company: Profit Decline</a></td><td id="CpCI" class="">One product drives a company-level profit story</td><td id="E;NX" class="">I Big Idea · III Narrative · V McCandless</td></tr><tr id="62c4dbdf-3772-4ad8-991f-c09fedf05a75" dir="ltr"><td id="F_SY" class=""><a href="Case%202%20%E2%80%94%20Supply%20Chain%20Forecast%20Accuracy%20&amp;%20Data%20Qua%203cd3906c5d6c81ebb299d3c847888570.html" data-notion-page-id="3cd3906c-5d6c-81eb-b299-d3c847888570" data-notion-space-id="b9b3906c-5d6c-81bc-b3c5-00037c38f1f8"><span class="icon" data-emoji="🚚"></span>Case 2 — Supply Chain: Forecast Accuracy &amp; Data Quality</a></td><td id="CpCI" class="">Technical finding must be translated for operations</td><td id="E;NX" class="">II ADEPT · VI Format stack</td></tr><tr id="5f4e534c-8daf-4810-a73b-5e4699a1236f" dir="ltr"><td id="F_SY" class=""><a href="Case%203%20%E2%80%94%20Supply%20Chain%20Stockouts%20by%20SKU%20Supplier%203cd3906c5d6c8165a191ff0830ac4aad.html" data-notion-page-id="3cd3906c-5d6c-8165-a191-ff0830ac4aad" data-notion-space-id="b9b3906c-5d6c-81bc-b3c5-00037c38f1f8"><span class="icon" data-emoji="📦"></span>Case 3 — Supply Chain: Stockouts by SKU/Supplier</a></td><td id="CpCI" class="">Concentration + exec summary with appendix</td><td id="E;NX" class="">III Patterns · VII 1–3–25</td></tr><tr id="7377de56-7154-474e-9f33-5e6a7349f593" dir="ltr"><td id="F_SY" class=""><a href="Case%204%20%E2%80%94%20E-Commerce%20Mobile%20Conversion%20Drop%203cd3906c5d6c81eabba5d67252e87971.html" data-notion-page-id="3cd3906c-5d6c-81ea-bba5-d67252e87971" data-notion-space-id="b9b3906c-5d6c-81bc-b3c5-00037c38f1f8"><span class="icon" data-emoji="📱"></span>Case 4 — E-Commerce: Mobile Conversion Drop</a></td><td id="CpCI" class="">Overall metric hides a concentrated driver</td><td id="E;NX" class="">III No data dump · V Insight → Action</td></tr><tr id="1196be02-1e36-488a-82b5-24aea3618db8" dir="ltr"><td id="F_SY" class=""><a href="Case%205%20%E2%80%94%20HR%20People%20Analytics%20Attrition%203cd3906c5d6c816f96e0e46dada38f65.html" data-notion-page-id="3cd3906c-5d6c-816f-96e0-e46dada38f65" data-notion-space-id="b9b3906c-5d6c-81bc-b3c5-00037c38f1f8"><span class="icon" data-emoji="👥"></span>Case 5 — HR / People Analytics: Attrition</a></td><td id="CpCI" class="">People data; avoid correlation dump</td><td id="E;NX" class="">I Actionable insight · V Pareto / aggregation</td></tr><tr id="0ee73cbf-ca64-426e-9403-74718660914e" dir="ltr"><td id="F_SY" class=""><a href="Case%206%20%E2%80%94%20BI%20Dashboard%20%E2%86%92%20Executive%20Story%203cd3906c5d6c81499cf9d027156bb863.html" data-notion-page-id="3cd3906c-5d6c-8149-9cf9-d027156bb863" data-notion-space-id="b9b3906c-5d6c-81bc-b3c5-00037c38f1f8"><span class="icon" data-emoji="📊"></span>Case 6 — BI Dashboard → Executive Story</a></td><td id="CpCI" class="">30 metrics in BI, four sentences in the meeting</td><td id="E;NX" class="">III Minimum evidence · VI Presentation vs notebook</td></tr><tr id="76d49e2a-3724-4f96-ab9c-aa105140cec9" dir="ltr"><td id="F_SY" class=""><a href="Case%207%20%E2%80%94%20Credit%20Risk%20Loanme%203cd3906c5d6c81c6aa23e720b811c495.html" data-notion-page-id="3cd3906c-5d6c-81c6-aa23-e720b811c495" data-notion-space-id="b9b3906c-5d6c-81bc-b3c5-00037c38f1f8"><span class="icon" data-emoji="🏦"></span>Case 7 — Credit Risk: Loanme</a></td><td id="CpCI" class="">Accuracy is not deployment; summary vs final report</td><td id="E;NX" class="">IV Metrics · VII Report types</td></tr><tr id="4bc45d7a-7b57-481b-87bd-f8638ea2fe20" dir="ltr"><td id="F_SY" class=""><a href="Case%208%20%E2%80%94%20Customer%20Support%20Ticket%20Volume%203cd3906c5d6c81dfbc72cf4495ac1e3b.html" data-notion-page-id="3cd3906c-5d6c-81df-bc72-cf4495ac1e3b" data-notion-space-id="b9b3906c-5d6c-81bc-b3c5-00037c38f1f8"><span class="icon" data-emoji="🎧"></span>Case 8 — Customer Support: Ticket Volume</a></td><td id="CpCI" class="">Volume up; one category explains the increment</td><td id="E;NX" class="">V Message-to-visual · XI Exec template</td></tr><tr id="3c6d9627-0421-45d6-b350-74666f27edbd" dir="ltr"><td id="F_SY" class=""><a href="Case%209%20%E2%80%94%20Product%20Reviews%20Sentiment%20&amp;%20Shipping%20Dela%203cd3906c5d6c81a99112c9bdd87a75d9.html" data-notion-page-id="3cd3906c-5d6c-81a9-9112-c9bdd87a75d9" data-notion-space-id="b9b3906c-5d6c-81bc-b3c5-00037c38f1f8"><span class="icon" data-emoji="⭐"></span>Case 9 — Product Reviews: Sentiment &amp; Shipping Delays</a></td><td id="CpCI" class="">Insight headline for a presentation</td><td id="E;NX" class="">V McCandless · IX Slide headlines</td></tr></tbody></table><h2 id="68e7569f-6cbe-41c1-8cf9-8faa126048f8" class="" dir="auto">Related Libraries</h2><ul id="5b0c2882-6782-4279-9822-8dcc4589a9c8" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Evidence layer: <a href="https://app.notion.com/p/Data-Visualization-Comprehensive-Deep-Reference-3cd3906c5d6c817a8116e9e1b38d216f?pvs=21" data-notion-page-id="3cd3906c-5d6c-817a-8116-e9e1b38d216f" data-notion-space-id="b9b3906c-5d6c-81bc-b3c5-00037c38f1f8"><span class="icon" data-emoji="📊"></span>📊 Data Visualization — Comprehensive &amp; Deep Reference</a></li></ul><ul id="36b13580-06e5-4a37-9375-42834278bcdd" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Source monolith / archive: <a href="https://app.notion.com/p/Data-Storytelling-Comprehensive-Deep-Dive-Reference-3cc3906c5d6c8151af9ecc7a7a2c8560?pvs=21" data-notion-page-id="3cc3906c-5d6c-8151-af9e-cc7a7a2c8560" data-notion-space-id="b9b3906c-5d6c-81bc-b3c5-00037c38f1f8"><span class="icon" data-emoji="📊"></span>Data Storytelling — Comprehensive Deep-Dive Reference</a></li></ul><p id="0dae778e-5aa4-4a16-b676-238554db84d3" class="" dir="auto">Use Part V here for message-to-visual. Use the visualization hub for encodings, scales, integrity, and Power BI.</p><details open="" class="" dir="auto"><summary style="font-weight:600;font-size:1.5em;line-height:1.3;margin:0"><h2 id="4a8a6140-44af-4141-a13a-99d72ded1566" style="display:inline-block">Pages owned by this hub</h2></summary><div class="indented"><p id="4cbdb13e-1bba-4529-a23f-794e098aa1bc" class="" dir="auto">These child-page blocks keep ownership. Do not delete them.</p></div></details><figure id="3cc3906c-5d6c-81a6-be90-d8eb7091ab29" class="link-to-page"><a href="Part%20I%20%E2%80%94%20Foundations%203cc3906c5d6c81a6be90d8eb7091ab29.html" data-notion-page-id="3cc3906c-5d6c-81a6-be90-d8eb7091ab29" data-notion-space-id="b9b3906c-5d6c-81bc-b3c5-00037c38f1f8"><span class="icon" data-emoji="🎨"></span>Part I — Foundations</a></figure><figure id="3cc3906c-5d6c-8164-8b09-d864b2e398fc" class="link-to-page"><a href="Part%20II%20%E2%80%94%20Know%20Your%20Audience%203cc3906c5d6c81648b09d864b2e398fc.html" data-notion-page-id="3cc3906c-5d6c-8164-8b09-d864b2e398fc" data-notion-space-id="b9b3906c-5d6c-81bc-b3c5-00037c38f1f8"><span class="icon" data-emoji="🎯"></span>Part II — Know Your Audience</a></figure><figure id="3cc3906c-5d6c-815d-8554-e720c7efa2eb" class="link-to-page"><a href="Part%20III%20%E2%80%94%20Building%20the%20Narrative%203cc3906c5d6c815d8554e720c7efa2eb.html" data-notion-page-id="3cc3906c-5d6c-815d-8554-e720c7efa2eb" data-notion-space-id="b9b3906c-5d6c-81bc-b3c5-00037c38f1f8"><span class="icon" data-emoji="📝"></span>Part III — Building the Narrative</a></figure><figure id="3cc3906c-5d6c-8181-8ede-d3f5cef2fb3f" class="link-to-page"><a href="Part%20IV%20%E2%80%94%20Metrics%20&amp;%20Statistics%203cc3906c5d6c81818eded3f5cef2fb3f.html" data-notion-page-id="3cc3906c-5d6c-8181-8ede-d3f5cef2fb3f" data-notion-space-id="b9b3906c-5d6c-81bc-b3c5-00037c38f1f8"><span class="icon" data-emoji="📊"></span>Part IV — Metrics &amp; Statistics</a></figure><figure id="3cc3906c-5d6c-813b-ad84-faae28c302f0" class="link-to-page"><a href="Part%20V%20%E2%80%94%20Visualization%203cc3906c5d6c813bad84faae28c302f0.html" data-notion-page-id="3cc3906c-5d6c-813b-ad84-faae28c302f0" data-notion-space-id="b9b3906c-5d6c-81bc-b3c5-00037c38f1f8"><span class="icon" data-emoji="📈"></span>Part V — Visualization</a></figure><figure id="3cc3906c-5d6c-810a-8671-e7775ce085c6" class="link-to-page"><a href="Part%20VI%20%E2%80%94%20Choosing%20the%20Communication%20Format%203cc3906c5d6c810a8671e7775ce085c6.html" data-notion-page-id="3cc3906c-5d6c-810a-8671-e7775ce085c6" data-notion-space-id="b9b3906c-5d6c-81bc-b3c5-00037c38f1f8"><span class="icon" data-emoji="🗂️"></span>Part VI — Choosing the Communication Format</a></figure><figure id="3cc3906c-5d6c-813d-aced-ee18b6f4deaf" class="link-to-page"><a href="Part%20VII%20%E2%80%94%20Written%20Reports%203cc3906c5d6c813dacedee18b6f4deaf.html" data-notion-page-id="3cc3906c-5d6c-813d-aced-ee18b6f4deaf" data-notion-space-id="b9b3906c-5d6c-81bc-b3c5-00037c38f1f8"><span class="icon" data-emoji="📄"></span>Part VII — Written Reports</a></figure><figure id="3cc3906c-5d6c-816f-8725-c25300a54ca1" class="link-to-page"><a href="Part%20VIII%20%E2%80%94%20Reproducibility%20&amp;%20Rigor%203cc3906c5d6c816f8725c25300a54ca1.html" data-notion-page-id="3cc3906c-5d6c-816f-8725-c25300a54ca1" data-notion-space-id="b9b3906c-5d6c-81bc-b3c5-00037c38f1f8"><span class="icon" data-emoji="🔁"></span>Part VIII — Reproducibility &amp; Rigor</a></figure><figure id="3cc3906c-5d6c-8122-a573-def0f7514611" class="link-to-page"><a href="Part%20IX%20%E2%80%94%20Oral%20Presentations%20in%20Practice%203cc3906c5d6c8122a573def0f7514611.html" data-notion-page-id="3cc3906c-5d6c-8122-a573-def0f7514611" data-notion-space-id="b9b3906c-5d6c-81bc-b3c5-00037c38f1f8"><span class="icon" data-emoji="🎤"></span>Part IX — Oral Presentations in Practice</a></figure><figure id="3cc3906c-5d6c-81c4-988a-c5e5ee490f3d" class="link-to-page"><a href="Part%20X%20%E2%80%94%20Applied%20Case%20Studies%203cc3906c5d6c81c4988ac5e5ee490f3d.html" data-notion-page-id="3cc3906c-5d6c-81c4-988a-c5e5ee490f3d" data-notion-space-id="b9b3906c-5d6c-81bc-b3c5-00037c38f1f8"><span class="icon" data-emoji="💼"></span>Part X — Applied Case Studies</a></figure><figure id="3cc3906c-5d6c-81d8-9750-ddde26edda95" class="link-to-page"><a href="Part%20XI%20%E2%80%94%20Checklists%20&amp;%20Templates%203cc3906c5d6c81d89750ddde26edda95.html" data-notion-page-id="3cc3906c-5d6c-81d8-9750-ddde26edda95" data-notion-space-id="b9b3906c-5d6c-81bc-b3c5-00037c38f1f8"><span class="icon" data-emoji="✅"></span>Part XI — Checklists &amp; Templates</a></figure><figure id="3cc3906c-5d6c-81bd-8d7e-c82b186708a5" class="link-to-page"><a href="Part%20XII%20%E2%80%94%20Quick%20Reference%203cc3906c5d6c81bd8d7ec82b186708a5.html" data-notion-page-id="3cc3906c-5d6c-81bd-8d7e-c82b186708a5" data-notion-space-id="b9b3906c-5d6c-81bc-b3c5-00037c38f1f8"><span class="icon" data-emoji="⚡"></span>Part XII — Quick Reference</a></figure><figure id="3e53906c-5d6c-81ee-8722-c4edd5cb00a7" class="link-to-page"><a href="Framework%20Selector%20%E2%80%94%20Knaflic,%20Dykes,%20Duarte,%20SCQA%203e53906c5d6c81ee8722c4edd5cb00a7.html" data-notion-page-id="3e53906c-5d6c-81ee-8722-c4edd5cb00a7" data-notion-space-id="b9b3906c-5d6c-81bc-b3c5-00037c38f1f8"><span class="icon" data-emoji="🧭"></span>Framework Selector — Knaflic, Dykes, Duarte, SCQA</a></figure><figure id="3e53906c-5d6c-8173-b0ae-fba217c805d9" class="link-to-page"><a href="Story%20Atlas%20%E2%80%94%20Teaching%20Figures%203e53906c5d6c8173b0aefba217c805d9.html" data-notion-page-id="3e53906c-5d6c-8173-b0ae-fba217c805d9" data-notion-space-id="b9b3906c-5d6c-81bc-b3c5-00037c38f1f8"><span class="icon" data-emoji="🎨"></span>Story Atlas — Teaching Figures</a></figure></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>

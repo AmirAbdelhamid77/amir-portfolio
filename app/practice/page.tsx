@@ -74,6 +74,21 @@ export default function PracticePage() {
                 <ArrowRight className="h-3 w-3 transition-transform group-hover:translate-x-0.5" aria-hidden="true" />
               </span>
             </Link>
+            <Link
+              href="/practice/draft-banks/"
+              className="group flex flex-col rounded-3xl border border-border bg-card/40 p-5 transition-colors hover:border-border-strong"
+            >
+              <FlaskConical className="h-4 w-4 text-muted-foreground" aria-hidden="true" />
+              <h2 className="mt-3 text-sm font-medium">Draft banks</h2>
+              <p className="mt-1.5 text-xs leading-6 text-muted-foreground">
+                Recovered practice material at its honest status: the DP-600 R18 draft bank (222 ungraded questions) and
+                the PL-300 restricted index, plus the standalone Study Hub.
+              </p>
+              <span className="mt-4 inline-flex items-center gap-1.5 text-xs text-foreground">
+                Open the draft banks
+                <ArrowRight className="h-3 w-3 transition-transform group-hover:translate-x-0.5" aria-hidden="true" />
+              </span>
+            </Link>
           </div>
         </Container>
       </section>

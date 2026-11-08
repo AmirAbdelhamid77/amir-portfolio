@@ -1,0 +1,807 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Framework Selector — Knaflic, Dykes, Duarte, SCQA</title><meta name="data-notion-page-icon" content="🧭"/><link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20100%20100%22%3E%3Ctext%20y%3D%22.9em%22%20font-size%3D%2290%22%3E%F0%9F%A7%AD%3C%2Ftext%3E%3C%2Fsvg%3E"/><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+/* Override strong tags inside headings to maintain consistent weight */
+h1 strong,
+h2 strong,
+h3 strong {
+	font-weight: 600;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 10px;
+	padding: 1rem;
+	/* Paint a complete callout box on every PDF page fragment. */
+	-webkit-box-decoration-break: clone;
+	box-decoration-break: clone;
+}
+
+/* For default-background callouts, render the border outline. */
+.callout.block-color-default_background {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+/*
+ * Toggles and callouts hold arbitrary content, so they can easily be taller
+ * than a page. They must stay breakable: avoiding breaks inside them makes
+ * Chromium push the whole block onto the next page, which leaves the previous
+ * page mostly empty before every long toggle.
+ */
+details,
+aside {
+	margin: 1.25em 0;
+}
+
+/* Keep a toggle's title on the same page as the start of its content. */
+summary {
+	page-break-after: avoid;
+	break-after: avoid;
+}
+
+/*
+ * Toggle headings render as <h1/h2/h3 style="display:inline-block"> inside
+ * <summary>. Without this reset, the heading's margin-top pushes it below the
+ * ::marker (▼), so the triangle and the title appear on separate lines.
+ */
+summary h1,
+summary h2,
+summary h3,
+summary h4 {
+	margin-top: 0;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+
+	table.collection-content {
+		width: 100%;
+		table-layout: fixed;
+	}
+
+	table.collection-content th,
+	table.collection-content td {
+		overflow-wrap: anywhere;
+	}
+
+	table.collection-content td > .user,
+	table.collection-content td > time {
+		white-space: pre-wrap;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content-wrapper {
+	overflow-x: auto;
+}
+
+@media only print {
+	.collection-content-wrapper {
+		overflow-x: visible;
+	}
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.collection-content td {
+	white-space: pre-wrap;
+	word-break: break-word;
+}
+
+.column-list {
+	display: flex;
+	gap: 46px;
+}
+
+.column {
+	min-width: 0;
+	overflow: hidden;
+}
+
+.column > *:first-child {
+	margin-top: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding-inline: 0.125rem;
+	padding-block: 0.375rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+table {
+	border-collapse: collapse;
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol.numbered-list.numbered-list-digits-2 {
+	padding-inline-start: 2em;
+}
+
+ol.numbered-list.numbered-list-digits-3plus {
+	padding-inline-start: 2.4em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+	margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+/*
+ * Render emoji icons using a ::before pseudo-element to keep the glyph
+ * out of the DOM textContent traversal. This avoids double-rendering icons
+ * in callouts and page titles.
+ * NOTE(slim/html-export-pseudo-icons): I can't tagref this because it will
+ * flag as a duplicate tag after codegen.
+ */
+.icon[data-emoji]::before {
+	content: attr(data-emoji);
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.callout img.notion-static-icon {
+	width: 1em;
+	height: 1em;
+}
+
+.callout p {
+	margin: 0;
+}
+
+.callout h1,
+.callout h2,
+.callout h3 {
+	margin: 0 0 0.6rem;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	margin-right: 0.4em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+blockquote.quote-large {
+	font-size: 1.25em;
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.tab {
+	margin: 1.25em 0;
+	padding-inline: 1rem;
+	border: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.highlight-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.highlight-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.highlight-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.highlight-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.highlight-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.highlight-default_background {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray_background {
+	background: rgba(42, 28, 0, 0.07);
+}
+.highlight-brown_background {
+	background: rgba(139, 46, 0, 0.086);
+}
+.highlight-orange_background {
+	background: rgba(224, 101, 1, 0.129);
+}
+.highlight-yellow_background {
+	background: rgba(211, 168, 0, 0.137);
+}
+.highlight-teal_background {
+	background: rgba(0, 100, 45, 0.09);
+}
+.highlight-blue_background {
+	background: rgba(0, 124, 215, 0.094);
+}
+.highlight-purple_background {
+	background: rgba(102, 0, 178, 0.078);
+}
+.highlight-pink_background {
+	background: rgba(197, 0, 93, 0.086);
+}
+.highlight-red_background {
+	background: rgba(223, 22, 0, 0.094);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.block-color-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.block-color-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.block-color-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.block-color-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.block-color-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.block-color-default_background {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray_background {
+	background: rgba(240, 239, 237, 1);
+}
+.block-color-brown_background {
+	background: rgba(245, 237, 233, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 235, 222, 1);
+}
+.block-color-yellow_background {
+	background: rgba(249, 243, 220, 1);
+}
+.block-color-teal_background {
+	background: rgba(232, 241, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(229, 242, 252, 1);
+}
+.block-color-purple_background {
+	background: rgba(243, 235, 249, 1);
+}
+.block-color-pink_background {
+	background: rgba(250, 233, 241, 1);
+}
+.block-color-red_background {
+	background: rgba(252, 233, 231, 1);
+}
+.select-value-color-default { background-color: rgba(42, 28, 0, 0.07); }
+.select-value-color-gray { background-color: rgba(28, 19, 1, 0.11); }
+.select-value-color-brown { background-color: rgba(127, 51, 0, 0.156); }
+.select-value-color-orange { background-color: rgba(196, 88, 0, 0.203); }
+.select-value-color-yellow { background-color: rgba(209, 156, 0, 0.282); }
+.select-value-color-green { background-color: rgba(0, 96, 38, 0.156); }
+.select-value-color-blue { background-color: rgba(0, 118, 217, 0.203); }
+.select-value-color-purple { background-color: rgba(92, 0, 163, 0.141); }
+.select-value-color-pink { background-color: rgba(183, 0, 78, 0.152); }
+.select-value-color-red { background-color: rgba(206, 24, 0, 0.164); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style><style>@import url('https://cdn.jsdelivr.net/npm/katex@0.16.25/dist/katex-swap.min.css')</style></head><body><article id="3e53906c-5d6c-81ee-8722-c4edd5cb00a7" class="page sans" data-notion-page-icon="🧭"><header><div class="page-header-icon undefined"><span class="icon" data-emoji="🧭"></span></div><h1 class="page-title" dir="auto">Framework Selector — Knaflic, Dykes, Duarte, SCQA</h1><p class="page-description" dir="auto"></p></header><div class="page-body"><aside class="block-color-purple_background callout" data-notion-callout="" data-notion-callout-icon="💡" data-notion-callout-background="purple_background" style="white-space:pre-wrap;display:flex" id="99f7618b-88e9-45d5-be63-f20a78cd3225" dir="ltr"><div style="font-size:1.5em"><span class="icon" data-emoji="💡"></span></div><div style="width:100%"><p id="b39b18d6-1973-4c76-9405-cd2485e71d87" class="" dir="auto"><strong>Added 24 Sep 2026.</strong> Companion to Part I and Part XII. Visualization remains the evidence layer. This page chooses the <em>shape of the argument</em>.</p></div></aside><aside class="block-color-gray_background callout" data-notion-callout="" data-notion-callout-icon="⚖️" data-notion-callout-background="gray_background" style="white-space:pre-wrap;display:flex" id="6151e791-b9b5-4ebe-9038-5ffd045b0560" dir="ltr"><div style="font-size:1.5em"><span class="icon" data-emoji="⚖️"></span></div><div style="width:100%"><p id="2790a054-e716-4eb5-974a-b81e133738be" class="" dir="auto">A framework is not a personality. It is a tension-resolver. If there is no decision owner in the room, do not story — annotate the visual and stop.</p></div></aside><h2 id="bece8eca-c8c2-4c8b-a6e2-c3239ef1c32c" class="" dir="auto">Operating system</h2><p id="f13398ae-3ea4-4d1e-a965-3c6cb68331a1" class="" dir="auto">This library already has a production spine. Published books are modules you plug into it.</p><figure id="b3673ee3-65b8-4f6f-9a8d-7bedbc9f64ea" class="image" data-notion-image="story_os.svg" dir="ltr"><a href="story_os.svg"><img src="story_os.svg"/></a><figcaption>Question → Audience → Big Idea → Minimum evidence → Visual → Format → Delivery → Rigor → Action</figcaption></figure><blockquote id="58e54b84-dc90-40e2-9f27-e435ece28c04" class="" dir="auto">Data + Narrative + Visuals → Understanding → Decision → Action</blockquote><h2 id="edb7550b-376c-4fd9-9275-d406d6bfd530" class="" dir="auto">Selector</h2><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="261ef564-ba56-416f-ba9d-ff802b6ed381" class="code code-wrap" data-notion-code-syntax="mermaid"><code class="language-mermaid" style="white-space:pre-wrap;word-break:break-all">flowchart TD
+D{Is there a decision owner in the room?} --&gt;|No| Stop[Do not story. Annotate the visual. Stop.]
+D --&gt;|Yes| J{Diagnose, choose, or inspire?}
+J --&gt;|Diagnose| W[What / So what / Now what + Knaflic 3-minute + minimum evidence]
+J --&gt;|Choose| S[SCQA or Setup-Stakes-Shift. One visual per supporting point.]
+J --&gt;|Inspire| Du[Duarte Sparkline + Dykes climax + honest uncertainty]
+W --&gt; C{Is the finding a causal chain?}
+S --&gt; C
+Du --&gt; C
+C --&gt;|Yes| P[Overlay Pixar because-of-that. Then stress-test mix, Simpson, denominator.]
+C --&gt;|No| Done[Keep the Big Idea to one sentence.]</code></pre><h2 id="cdf4a443-be70-49f4-86fe-9c6c170dfe92" class="" dir="auto">The families</h2><h3 id="0dc7595e-7965-4c0d-a07a-7442e2ab757c" class="" dir="auto">1. Distill first — Knaflic</h3><p id="010422d6-2072-40f5-80a1-12720767db97" class="" dir="auto">Already in Part I: <strong>3-minute story</strong> and <strong>Big Idea</strong>.</p><p id="f30b8a5c-ca54-4534-9f4e-74780f4cc3d5" class="" dir="auto">Job: make a chart speak. Failure: a story that is only a cleaned graph.</p><p id="6b18ff03-5284-4ce1-8331-3b656eea4c45" class="" dir="auto">Keep: problem, finding, one piece of evidence, impact, next step. If you need twelve bullets, you do not have a Big Idea yet.</p><h3 id="e6b6bfcf-6427-4ac4-a5f1-aa559354d568" class="" dir="auto">2. Narrative arc — Dykes</h3><p id="45b84ffc-8cc8-4892-98cb-271f6b1e876f" class="" dir="auto">Freytag applied to analytics: exposition → rising action → <strong>climax = insight</strong> → falling action → resolution that demands a decision.</p><p id="defc86b1-41f7-43b0-9849-f35278ae76fa" class="" dir="auto">Job: persuade after a real turning point. Failure: theatre on a flat finding.</p><p id="d71de4f8-b4d9-4f8f-a83e-0345998ff154" class="" dir="auto">Context frames: comparison, history, scale, background, example, validation.</p><h3 id="1e4da316-5ae1-4eb7-af88-f1fdee6c0082" class="" dir="auto">3. Contrast engine — Duarte Sparkline</h3><p id="3181ace0-2dd5-4aff-891e-2f1702c97208" class="" dir="auto">Not a data method. A persuasion waveform.</p><figure id="6be95ef1-c191-467b-b934-7ae30ac057cc" class="image" data-notion-image="sparkline.svg" dir="ltr"><a href="sparkline.svg"><img src="sparkline.svg"/></a><figcaption>Oscillate what is ↔ what could be. End in a new bliss.</figcaption></figure><p id="41adaeca-069e-4393-80b8-d56c50600e4b" class="" dir="auto">Use for change requests, launches, funding. Wrong tool for a diagnostic memo or a monitoring dashboard.</p><p id="b2b18553-d59b-49c8-985c-2d9daaf399e0" class="" dir="auto">The audience is the hero. You are the mentor.</p><h3 id="18296819-f77a-46f8-b9c7-8864aa0936b6" class="" dir="auto">4. Answer first — SCQA / Pyramid</h3><p id="34d4c88c-7b1d-4321-956f-a1794e228db3" class="" dir="auto">The missing <em>executive</em> grammar in this hub. Big Idea is the sentence. SCQA is the first four beats of the meeting.</p><figure id="f0f1293c-c126-4e32-8b0a-505794b3f827" class="image" data-notion-image="scqa.svg" dir="ltr"><a href="scqa.svg"><img src="scqa.svg"/></a><figcaption>Situation everyone accepts → Complication that breaks it → Question you were hired to answer → Answer. Evidence after.</figcaption></figure><p id="827569ae-f7ae-4f21-a0c5-82e611f8b5ba" class="" dir="auto">SCR is the shorter cousin: Situation → Complication → Resolution.</p><p id="9b3b0f28-dcd3-4b35-95fa-ec36c5908b6b" class="" dir="auto">One idea per slide. Data advances the recommendation; it does not replay the notebook.</p><h3 id="673100d8-1056-4f21-b518-6dd39d84a0c1" class="" dir="auto">5. Decision stakes</h3><figure id="017f1781-4f29-4a62-aa47-0d4217f351cb" class="image" data-notion-image="stakes.svg" dir="ltr"><a href="stakes.svg"><img src="stakes.svg"/></a><figcaption>Setup, Stakes, Shift, Stake-out. The adult line is what we accept at no.</figcaption></figure><p id="c7581e70-47e4-43fc-874e-bab34eb4ee53" class="" dir="auto">Pairs with Case 6: thirty BI metrics become four sentences.</p><h3 id="ea7508da-a798-42df-aa27-320f50f0ae73" class="" dir="auto">6. Causal spine — Pixar</h3><p id="be7cab59-8027-441a-a45b-ea9ca62203e6" class="" dir="auto">Once upon a time → every day → until one day → because of that → until finally → ever since.</p><p id="f460de6c-2501-4f16-9b52-b830e8b4be47" class="" dir="auto">Use when you must explain a chain (data quality → forecast error → stockouts). Dangerous when you fake causality to complete the spine. Stress-test with the statistical-traps page.</p><h3 id="f6fb285a-c52b-42f2-904d-ae547baba157" class="" dir="auto">7. Analyst wrapper — What / So what / Now what</h3><p id="c8c7a2df-9cdb-4861-9b77-3eca1fed25b2" class="" dir="auto">Findings → conclusions → recommendations. How is optional and audience-dependent. Already encoded in Parts VI–VII as format choice.</p><h3 id="3618709d-39d5-4a60-a57b-22e020e2cd4b" class="" dir="auto">8. Explain-the-picture — McCandless + ADEPT</h3><p id="1e2134ce-dd32-4871-bd43-02583ee7e17e" class="" dir="auto">Not full story frameworks. Headline, anticipate the next question, explain the insight, make it relevant. ADEPT: Analogy, Diagram, Example, Plain language, Technical depth. Already in Parts II and V.</p><h2 id="aca564dc-553f-4a4e-81a6-86481e88a38a" class="" dir="auto">Comparison</h2><table id="c1c92a17-7209-41d8-88ef-80828f283553" class="simple-table" dir="ltr"><thead class="simple-table-header"><tr id="45dbfd45-413b-42b6-8eb9-bac8bc29b4e4" dir="ltr"><th id="FM_I" class="simple-table-header-color simple-table-header">Framework</th><th id="&lt;lyO" class="simple-table-header-color simple-table-header">Starts from</th><th id="TtA\" class="simple-table-header-color simple-table-header">Shape</th><th id="z`&lt;L" class="simple-table-header-color simple-table-header">Best job</th><th id="fv~l" class="simple-table-header-color simple-table-header">Failure mode</th></tr></thead><tbody><tr id="02132c2f-6ec6-44d8-b96e-acc5012f8e96" dir="ltr"><td id="FM_I" class="">Knaflic</td><td id="&lt;lyO" class="">Message + visual</td><td id="TtA\" class="">Compression then craft</td><td id="z`&lt;L" class="">Make a chart speak</td><td id="fv~l" class="">Story that is only a cleaned graph</td></tr><tr id="a2683c2d-3425-42bb-9a30-07cdbb83cbaf" dir="ltr"><td id="FM_I" class="">Dykes</td><td id="&lt;lyO" class="">Insight as climax</td><td id="TtA\" class="">Freytag arc</td><td id="z`&lt;L" class="">Persuade after a discovery</td><td id="fv~l" class="">Theatre on a flat finding</td></tr><tr id="3328c08b-c074-4109-8964-d1d187f077ef" dir="ltr"><td id="FM_I" class="">Duarte Sparkline</td><td id="&lt;lyO" class="">Gap now vs better</td><td id="TtA\" class="">Oscillation</td><td id="z`&lt;L" class="">Change / vision / launch</td><td id="fv~l" class="">Emotional contrast with thin evidence</td></tr><tr id="fa33b46d-871c-4761-bbc5-c52a59f639cb" dir="ltr"><td id="FM_I" class="">SCQA / Pyramid</td><td id="&lt;lyO" class="">Recommendation</td><td id="TtA\" class="">Answer → why</td><td id="z`&lt;L" class="">20-minute exec slot</td><td id="fv~l" class="">Buries uncertainty to look decisive</td></tr><tr id="13cf1d6a-14f5-474a-8c22-39457ead83a6" dir="ltr"><td id="FM_I" class="">Setup–Stakes–Shift</td><td id="&lt;lyO" class="">Decision rights</td><td id="TtA\" class="">Four sentences</td><td id="z`&lt;L" class="">Committee vote</td><td id="fv~l" class="">At-no gets catastrophized</td></tr><tr id="686971e8-bd49-41f9-919a-f210aee7e58d" dir="ltr"><td id="FM_I" class="">Pixar spine</td><td id="&lt;lyO" class="">Causal chain</td><td id="TtA\" class="">Because-of-that</td><td id="z`&lt;L" class="">Ops / incident / root cause</td><td id="fv~l" class="">Implied causality</td></tr><tr id="adcff36f-7e2e-4f47-b880-227d277f0d1a" dir="ltr"><td id="FM_I" class="">What / So what / Now what</td><td id="&lt;lyO" class="">Finding</td><td id="TtA\" class="">Three beats</td><td id="z`&lt;L" class="">Analyst → manager handoff</td><td id="fv~l" class="">Stops at interesting</td></tr><tr id="d3646501-8697-4dd5-876c-2e11b0b31512" dir="ltr"><td id="FM_I" class="">McCandless</td><td id="&lt;lyO" class="">One visual</td><td id="TtA\" class="">Caption logic</td><td id="z`&lt;L" class="">Slide or tile</td><td id="fv~l" class="">No decision attached</td></tr></tbody></table><h2 id="a0dbccf8-8991-4507-b7e1-52e0beaffc85" class="" dir="auto">Already in this library vs still thin</h2><table id="5d1df0c3-c701-4fe9-9e92-ce466a32e435" class="simple-table" dir="ltr"><thead class="simple-table-header"><tr id="7b897bb6-e260-49f4-bc67-743e8e800de0" dir="ltr"><th id="agIc" class="simple-table-header-color simple-table-header">Owned</th><th id="GejX" class="simple-table-header-color simple-table-header">Where</th><th id="Oo?t" class="simple-table-header-color simple-table-header">Still thin</th></tr></thead><tbody><tr id="a01b11ce-8138-4612-a856-8cf1e8ceb1fa" dir="ltr"><td id="agIc" class="">Big Idea, 3-minute story</td><td id="GejX" class="">Part I</td><td id="Oo?t" class="">SCQA as the meeting opening</td></tr><tr id="fac05a3d-5f63-4015-9912-07cf44a30d11" dir="ltr"><td id="agIc" class="">Data + Narrative + Visuals</td><td id="GejX" class="">Hub OS</td><td id="Oo?t" class="">Duarte contrast for change requests</td></tr><tr id="06cabeb5-e0c0-4236-afdd-4401c2f7f76e" dir="ltr"><td id="agIc" class="">ADEPT, personas</td><td id="GejX" class="">Part II</td><td id="Oo?t" class="">Explicit yes / no stakes</td></tr><tr id="009ea09d-2529-4d34-9e6c-8bbe6545a554" dir="ltr"><td id="agIc" class="">McCandless, Insight → Impact → Action</td><td id="GejX" class="">Part V</td><td id="Oo?t" class="">A written rule for when <em>not</em> to story</td></tr><tr id="3cd76e16-4af6-4b63-9718-141e02c46109" dir="ltr"><td id="agIc" class="">1–3–25, format stack</td><td id="GejX" class="">Parts VI–VII</td><td id="Oo?t" class=""></td></tr></tbody></table><h2 id="e56018b8-5620-49b4-ac99-1397329ae240" class="" dir="auto">Integrity constraint</h2><p id="9b3f1b9d-e2ed-4cf6-b0e6-900636b6db52" class="" dir="auto">Every narrative framework will try to complete the arc. Data often refuses.</p><ul id="c8837499-0b1c-413d-ae0a-321cbc8bdf37" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Keep the Big Idea to one sentence.</li></ul><ul id="2f0778d7-e4c0-42de-986f-3d8e687a6c93" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Show the minimum evidence that would <em>falsify</em> it.</li></ul><ul id="3f1d601a-ebc9-4e9e-a52a-4cbee6c81066" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Put uncertainty on the visual, not in an appendix nobody opens.</li></ul><ul id="183903fd-d7f7-410a-bbe1-26fbaffadd01" class="bulleted-list" dir="auto"><li style="list-style-type:disc">If the arc only works by hiding mix, seasonality, or the denominator, it is not a story. It is a chart crime with better copy.</li></ul><p id="421c899d-34f3-4b89-9d01-b71622ec1e1b" class="" dir="auto">Use the visualization hub for encodings, scales, and integrity. Use this page only after the evidence survives that test.</p><h2 id="46df875b-399b-4b75-95ed-aa7749fdbc77" class="" dir="auto">Related</h2><ul id="d960a44d-ac29-408e-ae1c-d2125b98fee7" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><a href="Part%20I%20%E2%80%94%20Foundations%203cc3906c5d6c81a6be90d8eb7091ab29.html" data-notion-page-id="3cc3906c-5d6c-81a6-be90-d8eb7091ab29" data-notion-space-id="b9b3906c-5d6c-81bc-b3c5-00037c38f1f8"><span class="icon" data-emoji="🎨"></span>Part I — Foundations</a></li></ul><ul id="8a419872-4a16-4aff-aa00-7f581e6a14eb" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><a href="Part%20III%20%E2%80%94%20Building%20the%20Narrative%203cc3906c5d6c815d8554e720c7efa2eb.html" data-notion-page-id="3cc3906c-5d6c-815d-8554-e720c7efa2eb" data-notion-space-id="b9b3906c-5d6c-81bc-b3c5-00037c38f1f8"><span class="icon" data-emoji="📝"></span>Part III — Building the Narrative</a></li></ul><ul id="3b294bd8-6a99-46da-9da8-5bc5860e95a6" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><a href="Part%20XII%20%E2%80%94%20Quick%20Reference%203cc3906c5d6c81bd8d7ec82b186708a5.html" data-notion-page-id="3cc3906c-5d6c-81bd-8d7e-c82b186708a5" data-notion-space-id="b9b3906c-5d6c-81bc-b3c5-00037c38f1f8"><span class="icon" data-emoji="⚡"></span>Part XII — Quick Reference</a></li></ul><ul id="fb419788-7ba9-466e-8cbc-80fda015e80c" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Evidence layer: <a href="https://app.notion.com/p/Data-Visualization-Comprehensive-Deep-Reference-3cd3906c5d6c817a8116e9e1b38d216f?pvs=21" data-notion-page-id="3cd3906c-5d6c-817a-8116-e9e1b38d216f" data-notion-space-id="b9b3906c-5d6c-81bc-b3c5-00037c38f1f8"><span class="icon" data-emoji="📊"></span>📊 Data Visualization — Comprehensive &amp; Deep Reference</a></li></ul><ul id="c2a4e423-919d-4eb1-bdda-cb66347b8a46" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><a href="https://app.notion.com/p/Statistical-Interpretation-Traps-for-Visualization-3cd3906c5d6c81febadef001c3adffc8?pvs=21" data-notion-page-id="3cd3906c-5d6c-81fe-bade-f001c3adffc8" data-notion-space-id="b9b3906c-5d6c-81bc-b3c5-00037c38f1f8"><span class="icon" data-emoji="⚠️"></span>Statistical Interpretation Traps for Visualization</a></li></ul></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>

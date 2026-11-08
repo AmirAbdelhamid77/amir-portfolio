@@ -1,0 +1,797 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Part II — Know Your Audience</title><meta name="data-notion-page-icon" content="🎯"/><link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20100%20100%22%3E%3Ctext%20y%3D%22.9em%22%20font-size%3D%2290%22%3E%F0%9F%8E%AF%3C%2Ftext%3E%3C%2Fsvg%3E"/><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+/* Override strong tags inside headings to maintain consistent weight */
+h1 strong,
+h2 strong,
+h3 strong {
+	font-weight: 600;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 10px;
+	padding: 1rem;
+	/* Paint a complete callout box on every PDF page fragment. */
+	-webkit-box-decoration-break: clone;
+	box-decoration-break: clone;
+}
+
+/* For default-background callouts, render the border outline. */
+.callout.block-color-default_background {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+/*
+ * Toggles and callouts hold arbitrary content, so they can easily be taller
+ * than a page. They must stay breakable: avoiding breaks inside them makes
+ * Chromium push the whole block onto the next page, which leaves the previous
+ * page mostly empty before every long toggle.
+ */
+details,
+aside {
+	margin: 1.25em 0;
+}
+
+/* Keep a toggle's title on the same page as the start of its content. */
+summary {
+	page-break-after: avoid;
+	break-after: avoid;
+}
+
+/*
+ * Toggle headings render as <h1/h2/h3 style="display:inline-block"> inside
+ * <summary>. Without this reset, the heading's margin-top pushes it below the
+ * ::marker (▼), so the triangle and the title appear on separate lines.
+ */
+summary h1,
+summary h2,
+summary h3,
+summary h4 {
+	margin-top: 0;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+
+	table.collection-content {
+		width: 100%;
+		table-layout: fixed;
+	}
+
+	table.collection-content th,
+	table.collection-content td {
+		overflow-wrap: anywhere;
+	}
+
+	table.collection-content td > .user,
+	table.collection-content td > time {
+		white-space: pre-wrap;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content-wrapper {
+	overflow-x: auto;
+}
+
+@media only print {
+	.collection-content-wrapper {
+		overflow-x: visible;
+	}
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.collection-content td {
+	white-space: pre-wrap;
+	word-break: break-word;
+}
+
+.column-list {
+	display: flex;
+	gap: 46px;
+}
+
+.column {
+	min-width: 0;
+	overflow: hidden;
+}
+
+.column > *:first-child {
+	margin-top: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding-inline: 0.125rem;
+	padding-block: 0.375rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+table {
+	border-collapse: collapse;
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol.numbered-list.numbered-list-digits-2 {
+	padding-inline-start: 2em;
+}
+
+ol.numbered-list.numbered-list-digits-3plus {
+	padding-inline-start: 2.4em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+	margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+/*
+ * Render emoji icons using a ::before pseudo-element to keep the glyph
+ * out of the DOM textContent traversal. This avoids double-rendering icons
+ * in callouts and page titles.
+ * NOTE(slim/html-export-pseudo-icons): I can't tagref this because it will
+ * flag as a duplicate tag after codegen.
+ */
+.icon[data-emoji]::before {
+	content: attr(data-emoji);
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.callout img.notion-static-icon {
+	width: 1em;
+	height: 1em;
+}
+
+.callout p {
+	margin: 0;
+}
+
+.callout h1,
+.callout h2,
+.callout h3 {
+	margin: 0 0 0.6rem;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	margin-right: 0.4em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+blockquote.quote-large {
+	font-size: 1.25em;
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.tab {
+	margin: 1.25em 0;
+	padding-inline: 1rem;
+	border: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.highlight-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.highlight-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.highlight-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.highlight-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.highlight-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.highlight-default_background {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray_background {
+	background: rgba(42, 28, 0, 0.07);
+}
+.highlight-brown_background {
+	background: rgba(139, 46, 0, 0.086);
+}
+.highlight-orange_background {
+	background: rgba(224, 101, 1, 0.129);
+}
+.highlight-yellow_background {
+	background: rgba(211, 168, 0, 0.137);
+}
+.highlight-teal_background {
+	background: rgba(0, 100, 45, 0.09);
+}
+.highlight-blue_background {
+	background: rgba(0, 124, 215, 0.094);
+}
+.highlight-purple_background {
+	background: rgba(102, 0, 178, 0.078);
+}
+.highlight-pink_background {
+	background: rgba(197, 0, 93, 0.086);
+}
+.highlight-red_background {
+	background: rgba(223, 22, 0, 0.094);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.block-color-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.block-color-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.block-color-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.block-color-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.block-color-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.block-color-default_background {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray_background {
+	background: rgba(240, 239, 237, 1);
+}
+.block-color-brown_background {
+	background: rgba(245, 237, 233, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 235, 222, 1);
+}
+.block-color-yellow_background {
+	background: rgba(249, 243, 220, 1);
+}
+.block-color-teal_background {
+	background: rgba(232, 241, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(229, 242, 252, 1);
+}
+.block-color-purple_background {
+	background: rgba(243, 235, 249, 1);
+}
+.block-color-pink_background {
+	background: rgba(250, 233, 241, 1);
+}
+.block-color-red_background {
+	background: rgba(252, 233, 231, 1);
+}
+.select-value-color-default { background-color: rgba(42, 28, 0, 0.07); }
+.select-value-color-gray { background-color: rgba(28, 19, 1, 0.11); }
+.select-value-color-brown { background-color: rgba(127, 51, 0, 0.156); }
+.select-value-color-orange { background-color: rgba(196, 88, 0, 0.203); }
+.select-value-color-yellow { background-color: rgba(209, 156, 0, 0.282); }
+.select-value-color-green { background-color: rgba(0, 96, 38, 0.156); }
+.select-value-color-blue { background-color: rgba(0, 118, 217, 0.203); }
+.select-value-color-purple { background-color: rgba(92, 0, 163, 0.141); }
+.select-value-color-pink { background-color: rgba(183, 0, 78, 0.152); }
+.select-value-color-red { background-color: rgba(206, 24, 0, 0.164); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style><style>@import url('https://cdn.jsdelivr.net/npm/katex@0.16.25/dist/katex-swap.min.css')</style></head><body><article id="3cc3906c-5d6c-8164-8b09-d864b2e398fc" class="page sans" data-notion-page-icon="🎯"><header><div class="page-header-icon undefined"><span class="icon" data-emoji="🎯"></span></div><h1 class="page-title" dir="auto">Part II — Know Your Audience</h1><p class="page-description" dir="auto"></p></header><div class="page-body"><h2 id="3acc9f7c-61ba-4e1f-907c-664542b7a5b0" class="" dir="auto">2.1 Technical vs Non-Technical Audiences</h2><p id="71f9f783-9fe9-490b-a25f-8c2ff7b9f71c" class="" dir="auto">المعرفة التقنية ليست binary؛ هي continuum. يجب تقييم الجمهور فعليًا بدل افتراض أن كل مدير غير تقني أو كل Analyst تقني بنفس الدرجة.</p><h3 id="448dc100-fafd-4be2-8802-193d56fb27c1" class="" dir="auto">Technical Audience</h3><p id="3280589e-1d7b-43a4-a3dc-7313a1ba9acc" class="" dir="auto">يهتم غالبًا بـ: methodology, assumptions, model performance, reproducibility, diagnostics, technical limitations, implementation details.</p><h3 id="4c6295d6-0cc3-43e2-ab97-e7f2a0602505" class="" dir="auto">Non-Technical Audience</h3><p id="8e8ce828-5452-4ad7-abb9-b1564dc93bbb" class="" dir="auto">يهتم غالبًا بـ: result, implication, business impact, risk, recommendation, what changes for them.</p><aside class="block-color-yellow_background callout" data-notion-callout="" data-notion-callout-icon="⭐" data-notion-callout-background="yellow_background" style="white-space:pre-wrap;display:flex" id="2d658cde-cc69-4a07-a7e5-590c811ef096" dir="ltr"><div style="font-size:1.5em"><span class="icon" data-emoji="⭐"></span></div><div style="width:100%"><p id="e310cb00-c6ef-40bf-a097-4b5a7050c8b6" class="" dir="auto"><strong>Golden Rule:</strong> Explain the result and implication at the audience&#x27;s level; reveal technical depth only when it serves their need.</p></div></aside><h2 id="cba32b37-909b-4554-a6ff-fcf2879b2954" class="" dir="auto">2.2 Translating Technical Results</h2><h3 id="f16adb2a-6d30-457d-9e5a-f1714a340905" class="" dir="auto">Audience Awareness</h3><p id="c5c8aa54-32a9-4ae9-a10d-e0c4f51880d0" class="" dir="auto">قبل الشرح اسأل: من هو الجمهور؟ ماذا يعرف بالفعل؟ ما القرار الذي سيتخذه؟ ما الحد الأدنى الذي يحتاج إلى فهمه؟ ما المخاوف أو الأسئلة المتوقعة؟ لا تشرح كل ما تعرفه. اشرح ما يحتاجه الجمهور لتحقيق الهدف.</p><h3 id="c7d3df1f-ee29-4454-a464-abecf9607e52" class="" dir="auto">ADEPT Technique</h3><p id="014dd70b-64d2-48ea-ac93-4392c2c56f41" class="" dir="auto">طريقة عملية لتبسيط المفاهيم:</p><ul id="30dcadbb-39ac-4a22-9ecd-a664b795b312" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>Analogy:</strong> اربط المفهوم بشيء مألوف.</li></ul><ul id="f6c8b254-ed92-4e30-9482-426f8eb67b8c" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>Diagram:</strong> استخدم رسمًا يوضح العلاقات أو التدفق.</li></ul><ul id="ce23f684-3de0-4d03-bd44-70517e3d6d24" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>Example:</strong> أعطِ مثالًا ملموسًا.</li></ul><ul id="e5a08410-79d4-49bb-ba64-eaf62c86ae55" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>Plain language:</strong> استخدم لغة بسيطة بدل المصطلحات غير الضرورية.</li></ul><ul id="2fd0ae73-42a2-455c-8129-4010bc778639" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>Technical detail:</strong> أضف التفاصيل عند الحاجة، لا تلقائيًا.</li></ul><figure id="337881a5-e767-4bfe-ad29-fb893655a255" class="image" data-notion-image="adept.svg" dir="ltr"><a href="adept.svg"><img src="adept.svg"/></a><figcaption>ADEPT is a sequence, not a pile of tricks.</figcaption></figure><h4 id="19df1bbe-a9a9-4f4d-a62b-328b71c0e70b" class="" dir="auto">Example: Neural Network</h4><p id="b1644ba2-0389-4ae9-9627-641f1c4739a4" class="" dir="auto">بدل شرح forward propagation وbackpropagation لجمهور أعمال:</p><blockquote id="2953a078-61af-404c-a58a-836464a8a3fb" class="" dir="auto">&quot;The model learns like a child: it makes a prediction, receives feedback about how wrong it was, and adjusts itself to perform better next time.&quot;</blockquote><p id="61611edd-8990-4473-a2e3-994a21eec9db" class="" dir="auto">الهدف ليس إثبات أنك تعرف المصطلح؛ الهدف أن يفهم الجمهور الفكرة.</p><h3 id="f3d7adda-0bd4-4402-94c8-456eeeff23f9" class="" dir="auto">Jargon &amp; Acronyms</h3><ul id="4230caf2-9559-4c75-8659-629d62e105d6" class="bulleted-list" dir="auto"><li style="list-style-type:disc">عرّف acronym عند أول استخدام.</li></ul><ul id="1ddefb15-42d8-4a9d-975b-0e8b9ad98cec" class="bulleted-list" dir="auto"><li style="list-style-type:disc">قلل jargon غير الضروري.</li></ul><ul id="42b29946-e948-4504-9d85-2cd157c96f4e" class="bulleted-list" dir="auto"><li style="list-style-type:disc">استخدم familiar language.</li></ul><ul id="e63273a0-21e8-463d-ab33-14b11cb5e208" class="bulleted-list" dir="auto"><li style="list-style-type:disc">ضع glossary/reference عند الحاجة.</li></ul><p id="6385e0f9-0bde-43d0-af6f-6d2928dbeb90" class="" dir="auto">مثال — بدل: &quot;Our EDA indicates multicollinearity across selected predictors.&quot; لجمهور HR: &quot;Our initial analysis shows that several inputs are carrying very similar information, so treating them as independent signals could distort the model.&quot;</p><h3 id="55d9dca0-7ca2-4395-a339-5a9114d06d52" class="" dir="auto">Focus on Impact, Not Process</h3><p id="a29e7663-46eb-4da4-9065-ec4879edcb26" class="" dir="auto">للجمهور التنفيذي:</p><p id="56839067-f204-4dab-8c11-70b9d2445eb5" class="" dir="auto">❌ &quot;We tuned 42 hyperparameter combinations.&quot;</p><p id="b369e2e1-f437-4759-a2c4-6e1c8de48a17" class="" dir="auto">✅ &quot;Improving the model reduced forecast error enough to make inventory planning materially more reliable.&quot;</p><p id="405cead9-4f3d-47ab-9987-95d00c24a72c" class="" dir="auto">لكن التفاصيل الفنية لا تُحذف دائمًا؛ يمكن نقلها إلى appendix أو technical report.</p><h3 id="7521d130-637b-4c9a-836b-2bea3a689a32" class="" dir="auto">Humility &amp; Receptiveness</h3><p id="160615be-be8a-419d-9d5d-b7ed9d8dc6dd" class="" dir="auto">إذا كانت التفاصيل ضرورية: اسأل هل الشرح واضح، شجع الأسئلة، استخدم analogy أو example بديلًا عند عدم الفهم، ولا تجعل عدم المعرفة التقنية لدى الجمهور شيئًا محرجًا.</p><h2 id="0f913b19-47d0-4892-8dd4-9c934ab286e1" class="" dir="auto">2.3 Stakeholders &amp; Personas</h2><p id="c463666d-3e0d-409f-b864-86fa12d23afb" class="" dir="auto">الـ stakeholder هو شخص أو مجموعة لها مصلحة في outcome أو decision أو activity المرتبط بالمشروع.</p><h3 id="22a43870-2321-4115-a8c5-af43f5c5d602" class="" dir="auto">Persona Definition</h3><p id="68f68749-3e0d-44e1-8fab-26896acaa8df" class="" dir="auto">لكل persona حدد: role, technical proficiency, business interest, decision authority, questions/concerns, required depth, desired action.</p><h3 id="14489289-89ad-4428-9aea-55e432e8535b" class="" dir="auto">Example Personas</h3><p id="45ffec34-f461-4556-ae48-652ca82913e0" class="" dir="auto"><strong>Executive Team</strong> — عادةً تريد: overall impact, cost, opportunity, risk, recommendation, decision implication.</p><p id="2883c683-ab58-4ad3-8cf0-fe4a46fb68f5" class="" dir="auto"><strong>Project Manager</strong> — قد يهتم بـ: total implementation cost, expected customer growth, project risk, timeline.</p><p id="782711fc-cb6b-4efc-813b-9582d2e45cee" class="" dir="auto"><strong>Technical Team</strong> — يهتم بـ: methodology, model performance, assumptions, data quality, replication/continuation.</p><p id="a5c4a970-3776-4183-b099-8542caaf8c8c" class="" dir="auto"><strong>General Audience / External Customer</strong> — يهتم بـ: what happened, why it matters, practical impact.</p><h2 id="3f01e949-0734-42f5-8545-a5fddcbe2241" class="" dir="auto">2.4 Audience Skepticism</h2><p id="dff070b9-e5fa-4d5c-b39e-e268aee33dea" class="" dir="auto">الجمهور ليس بنفس درجة تقبّل النتائج. من المفيد الاستعداد بثلاث درجات:</p><ol type="1" id="45132e72-7c90-4993-9f24-0875296f1d6a" class="numbered-list" start="1" dir="auto"><li><strong>Self:</strong> هل أنا مقتنع بأن النتيجة مدعومة فعلًا؟</li></ol><ol type="1" id="a5218d52-2c52-4521-a364-dea4d07b9db5" class="numbered-list" start="2" dir="auto"><li><strong>Friend:</strong> هل أستطيع شرحها لشخص ذكي لكنه غير متخصص؟</li></ol><ol type="1" id="30aa9c95-cd46-4eb3-9c20-21edfd172c4f" class="numbered-list" start="3" dir="auto"><li><strong>Skeptic:</strong> هل أستطيع الدفاع عنها أمام شخص سيبحث عن نقاط الضعف؟</li></ol><figure id="fdc81625-6974-4054-a0bc-b9a4b4b5eb7f" class="image" data-notion-image="skepticism.svg" dir="ltr"><a href="skepticism.svg"><img src="skepticism.svg"/></a><figcaption>Rehearse the skeptical version before the friendly one.</figcaption></figure><h3 id="eb76750e-6718-4931-a0e1-469c76749904" class="" dir="auto">For Skeptical Stakeholders</h3><p id="a60b30aa-c72a-4c13-82d7-4acc9dd5391e" class="" dir="auto">كن مستعدًا لإظهار: data source, sample size, assumptions, uncertainty, limitations, alternative explanations, sensitivity/scenario analysis, validation evidence.</p><aside class="block-color-gray_background callout" data-notion-callout="" data-notion-callout-icon="💡" data-notion-callout-background="gray_background" style="white-space:pre-wrap;display:flex" id="78000459-ea52-47ed-91fa-edef82dc9941" dir="ltr"><div style="font-size:1.5em"><span class="icon" data-emoji="💡"></span></div><div style="width:100%"><p id="878fae46-2ea8-446d-a22b-9b6fc38a565f" class="" dir="auto">الثقة لا تأتي من إخفاء uncertainty؛ بل من إدارته بوضوح.</p></div></aside></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>

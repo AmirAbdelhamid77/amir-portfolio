@@ -288,13 +288,24 @@ export function buildGraphSource(): BuildResult {
   }
 
   // --------------------------------------------------------- visualization units
+  // Content-recovery fix (2026-11-09): the chapter nodes pointed at
+  // /explore/charts/<chapter>/ routes that never existed (the earlier
+  // /explore/charts/ pages are chart-type sandboxes, not lessons). A chapter
+  // is opened through its first declared lesson's real route; a chapter with
+  // no lesson route gets no href and its card says so honestly.
+  const vizChapterHref = new Map<number, string>();
+  for (const lesson of VIZ_LESSONS) {
+    if (!lesson.chapter || vizChapterHref.has(lesson.chapter)) continue;
+    const unit = requireUnit(`lesson-${lesson.section}-${lesson.slug}`);
+    if (unit?.href) vizChapterHref.set(lesson.chapter, unit.href);
+  }
   for (const chapter of VIZ_CHAPTERS) {
     addNode({
       id: NODE_PREFIX.chapter + chapter.number,
       kind: "chapter",
       label: `${chapter.number} · ${chapter.title}`,
       subject: "visualization",
-      href: `/explore/charts/${chapter.slug}/`,
+      href: vizChapterHref.get(chapter.number),
     });
     addEdge(
       NODE_PREFIX.subject + "visualization",
