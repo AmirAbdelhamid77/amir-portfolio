@@ -2,6 +2,7 @@ import {existsSync,readFileSync} from 'node:fs';
 import {resolve,sep} from 'node:path';
 import {createHash} from 'node:crypto';
 import assert from 'node:assert/strict';
+import {deploymentPauseReceipt} from './deployment-pause-receipt.mjs';
 export const KNOWLEDGE_STAGE='docs/knowledge-stage-m0-20261103/INTEGRATION_MANIFEST.json';
 // The M6 layer sits above M0 and is read by the same function, so every receipt
 // that already depends on `knowledgeStageReceipt` sees the successor without
@@ -29,6 +30,7 @@ export const KNOWLEDGE_STAGE_FC='docs/fabric-corpus-integration-20261105/INTEGRA
 // rewrite replaced the object literal it asserted. It is an addition, not a
 // rewrite of M0, and it cannot widen publication: it pins files only.
 export function knowledgeStageReceipt(root){
+ const deploymentPause=deploymentPauseReceipt(root);
  const path=KNOWLEDGE_STAGE;
  if(!existsSync(resolve(root,path)))return {expected:(_p,h)=>h,paths:()=>[],bytes:(_p,n)=>n,skip:()=>false,retired:()=>false,predecessor:(_p,h)=>h};
  const safe=p=>{const absolute=resolve(root,p);assert.ok(absolute.startsWith(root+sep),'Knowledge-stage receipt path escapes checkout');return absolute;};
@@ -190,9 +192,10 @@ export function knowledgeStageReceipt(root){
     if(excluded.has(p)&&existsSync(resolve(root,p)))return hash(p);
     return h;
    })();
-   return fcAfter(p,m6After(p,m0Expected));
+   return deploymentPause.expected(p,fcAfter(p,m6After(p,m0Expected)));
   },
   paths:()=>[
+    ...deploymentPause.paths(),
    ...m.files.map(e=>e.path),
    ...m.removed.map(e=>e.path),
    ...(m6?[m6Path,...m6.files.map(e=>e.path),...m6.additions.map(e=>e.path)]:[]),

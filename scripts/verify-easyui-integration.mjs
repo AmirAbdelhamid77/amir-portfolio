@@ -7,6 +7,7 @@ import { createHash } from "node:crypto";
 import { loadPreservationHistory, loadRepairReceipt } from "./preservation-history.mjs";
 import { implementationReceipt } from "./atlas-implementation-receipt.mjs";
 import { knowledgeStageReceipt } from "./knowledge-stage-receipt.mjs";
+import { loadRuntimeTransitions } from "./runtime-transition-receipt.mjs";
 const root = resolve(dirname(fileURLToPath(import.meta.url)), "..");
 const implementation = implementationReceipt(root);
 // Retired artifacts have no current bytes; the newest layer records why.
@@ -18,6 +19,10 @@ const hash = path => createHash("sha256").update(read(path)).digest("hex");
 const manifest = json(local + "INTEGRATION_MANIFEST.json");
 loadPreservationHistory(root);
 const repair = loadRepairReceipt(root);
+// Committed successors of the frozen baseline. The receipt is proof-bound: every
+// entry reverses to its preserved predecessor, except the generated lockfile
+// which is pinned by exact bytes.
+const transitions = loadRuntimeTransitions(root);
 assert.equal(manifest.scope, "easyui-v2-native-ingestion-comparison");
 assert.equal(new Set(manifest.files.map(file => file.path)).size, manifest.files.length);
 for (const file of manifest.files) {
@@ -37,11 +42,12 @@ for (const [path, sha256] of Object.entries(before.files)) {
   // Generated, gitignored files (the TypeScript build cache) are excluded by the
   // newest layer: they exist only on a checkout where a build produced them.
   if (stage.skip(path)) continue;
-  if (manifest.modifiedExisting.includes(path) || repair.covers(path, sha256)) continue;
+  if (manifest.modifiedExisting.includes(path) || repair.covers(path, sha256) || transitions.covers(path, sha256)) continue;
   assert.equal(hash(path), implementation.expected(path, sha256), "Unrelated pre-existing drift: " + path);
 }
 for (const path of ["package.json", "package-lock.json", "next.config.ts", "wrangler.jsonc", "lib/academy/ingestion.ts", "components/academy/ingestion-lab.tsx"]) {
-  assert.equal(hash(path), implementation.expected(path,before.files[path]), "Protected contract: " + path);
+  const transition = transitions.entry(path);
+  assert.equal(hash(path), transition ? transition.sha256 : implementation.expected(path,before.files[path]), "Protected contract: " + path);
 }
 const registry = json(local + "CONTEXTUAL_COMPONENT_REGISTRY.json");
 assert.equal(registry.items.length, 22);

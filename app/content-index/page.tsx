@@ -1,6 +1,9 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { getInsightRecords, getHeldArticles, getAtlasResourceRecords, getPl300Index, getPatternLessons, getR18Bank, getRtiBlueprints } from "@/lib/recovery/collections";
+import referenceCatalogue from "@/content/study/references.json";
+import experimentCatalogue from "@/content/study/experiments.json";
+import { createFabricBindingsReader } from "@/lib/fabric/bindings";
 
 // The unified content index (content-recovery mission, Phase 4): every
 // recovered, integrated, restricted or unavailable collection in one place,
@@ -23,6 +26,10 @@ export default function ContentIndexPage() {
   const patterns = getPatternLessons();
   const r18 = getR18Bank();
   const rti = getRtiBlueprints();
+  const references = referenceCatalogue.meta;
+  const experiments = experimentCatalogue.meta;
+  const publishedArticles = createFabricBindingsReader().getFabricTopicReadingOverview()
+    .reduce((sum, row) => sum + row.primary, 0);
 
   const groups: {
     title: string;
@@ -40,28 +47,28 @@ export default function ContentIndexPage() {
     },
     {
       title: "Insight records (recovered authoring bank)",
-      status: "397 drafts · 3 technical review (397 Arabic, 3 English)",
+      status: `${insights.filter(record => record.reviewStatus === "draft").length} drafts · ${insights.filter(record => record.reviewStatus === "technical_review").length} technical review`,
       count: `${insights.length} records`,
       route: "/insight-records/",
       note: "Undated authoring records with their verbatim statuses. Unverified.",
     },
     {
       title: "Fabric documentation corpus",
-      status: "2,716 published",
-      count: "2,716 articles",
+      status: "Published documentation",
+      count: `${publishedArticles.toLocaleString("en-US")} articles`,
       route: "/learn/fabric/docs/",
-      note: "Full corpus with zero-JS reading, collections and search. 81 more are held (below).",
+      note: "Published articles with zero-JS reading, collections and search. Source holds are recorded separately below.",
     },
     {
       title: "Held Fabric articles",
       status: "Source dependency missing",
-      count: `${held.length} dependency-held + 3 rights/external`,
+      count: `${held.length} dependency-held records`,
       route: "/held-articles/",
-      note: "Metadata and exact hold reasons published; bytes preserved in the pinned corpus, not redistributable until upstream repos are pinned.",
+      note: "Metadata and dependency hold reasons only; article bodies stay in the pinned corpus. Resolving dependencies does not automatically clear separate rights holds.",
     },
     {
       title: "Atlas resource records",
-      status: "Awaiting review (1,057)",
+      status: "Concept mappings awaiting review",
       count: `${atlas.length} records`,
       route: "/atlas-records/",
       note: "Concept mapping unreviewed; target articles published. No semantic edges drawn.",
@@ -110,9 +117,17 @@ export default function ContentIndexPage() {
     },
     {
       title: "Reference library records",
-      status: "Integrated (renderer gap tracked)",
-      count: "3,131 records",
-      note: "All 3,131 prepared records are committed (content/intake/hansa-integration/reference_records.jsonl); the site currently renders the reviewed subset. Full rendering is a tracked backlog item.",
+      status: "Curated reference layer",
+      count: `${references.curated.toLocaleString("en-US")} curated / ${references.input.toLocaleString("en-US")} prepared`,
+      route: "/learn/#topics",
+      note: `${references.duplicates} duplicate URLs and ${references.input - references.curated - references.duplicates} other curation exclusions remain preserved in intake. Unmatched placement rules need review; not every excluded record should be published. Open a subject topic to find its reference material.`,
+    },
+    {
+      title: "Hands-on source labs",
+      status: "Source-based outlines · execution not certified",
+      count: `${experiments.curated} curated / ${experiments.input} prepared`,
+      route: "/learn/#topics",
+      note: "Topic desks link the curated lab pages. The remaining records have explicit non-lab or subject-scope exclusions; an outline is not proof of a working environment.",
     },
     {
       title: "Hansa Spatial Experience v2",
@@ -134,9 +149,9 @@ export default function ContentIndexPage() {
       <p className="font-mono text-[10px] uppercase tracking-[0.16em] text-muted-foreground">Recovery &amp; integration</p>
       <h1 className="mt-2 text-balance text-4xl font-medium tracking-tight">Content index</h1>
       <p className="mt-4 max-w-3xl text-sm leading-6 text-muted-foreground">
-        Every recovered collection in one place — integrated, restricted or intentionally held — each carrying its real
-        status. Nothing listed here is silently missing: restricted items state why their bytes stay in authorized
-        storage, and every entry links to where its content lives.
+        Collections identified during recovery — integrated, restricted or intentionally held — with their recorded
+        status and available destinations. Imported data, discoverable pages and independently verified content are
+        different stages; this index is not a claim that every source has completed all three.
       </p>
       <div className="mt-8 space-y-3">
         {groups.map((group) => (
@@ -154,10 +169,25 @@ export default function ContentIndexPage() {
               </span>
               <span className="ml-auto text-[11px] text-muted-foreground">{group.count}</span>
             </div>
-            <p className="mt-1.5 text-sm leading-6 text-muted-foreground">{group.note}</p>
+            <p className="mt-1.5 text-sm leading-6 text-muted-foreground [overflow-wrap:anywhere]">{group.note}</p>
           </div>
         ))}
       </div>
+      <section id="backlog" aria-labelledby="backlog-title" className="mt-12 scroll-mt-24 border-t border-border pt-8">
+        <h2 id="backlog-title" className="text-2xl font-medium tracking-tight">Review and integration still to do</h2>
+        <p className="mt-3 text-sm leading-7 text-muted-foreground">
+          Existing draft and restricted labels remain in force. These tasks describe unfinished work, not automatic publication approvals.
+        </p>
+        <ul className="mt-4 list-disc space-y-3 pl-5 text-sm leading-7 text-muted-foreground">
+          <li>Factual and Arabic-language review of insight drafts; independent review of patterns, storytelling and R18 learner candidates.</li>
+          <li>PL-300 transcript and question rights review; restricted question bytes and private QA remain private.</li>
+          <li>Human review of Atlas concept mappings; resource records do not automatically become semantic edges.</li>
+          <li>Pin missing documentation dependencies and resolve each separate rights hold before recompilation.</li>
+          <li>Build and validate RTI environments; a blueprint or source outline is not an executed lab.</li>
+          <li>Review unmatched references and eligible experiments against the subject taxonomy, preserving duplicate and scope exclusions.</li>
+          <li>Author and independently validate deferred assessment packs and Code Lab work from their preserved source specifications.</li>
+        </ul>
+      </section>
     </main>
   );
 }

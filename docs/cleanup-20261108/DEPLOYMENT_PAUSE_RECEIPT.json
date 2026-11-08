@@ -1,0 +1,17 @@
+{
+  "scope": "committed-manual-deployment-pause-only",
+  "evidenceCommit": "901eb2db9e4b93a2bc426649d72c9786acaae96b",
+  "note": "Reconcile the already-committed removal of push triggers, not a new deployment authorization. Original preservation baselines remain unchanged. The verifier independently reverses only the exact pause comment and push-trigger removal and must recover the original baseline hashes.",
+  "files": [
+    {
+      "path": ".github/workflows/deploy-cloudflare.yml",
+      "beforeSha256": "b245ad50b7fc60db69ed739e446634cdee97cfc00eac56478865e1765eb7a2ed",
+      "sha256": "88607c933155c42b1e11c76b226d8692579a8fe32f52ea2ce800c82e0a1201ca"
+    },
+    {
+      "path": ".github/workflows/deploy.yml",
+      "beforeSha256": "7d14ee2e5941dee33f575543d26ef94d521bd516f0a651609bc8610c58e1dd8a",
+      "sha256": "5984bdb24fd20a5776df5242d9ddb394d39e84510c172334ce1806145690e35a"
+    }
+  ]
+}

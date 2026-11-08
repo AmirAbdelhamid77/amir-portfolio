@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { SubjectHome } from "@/components/learn/subject-home";
 import { requireSubject } from "@/lib/curriculum/model";
 import { createFabricBindingsReader } from "@/lib/fabric/bindings";
+import { CollectionShelf } from "@/components/learn/collection-shelf";
 
 export const metadata: Metadata = {
   title: "Microsoft Fabric — learning path",
@@ -46,6 +47,7 @@ export default function Page() {
               </li>
             ))}
         </ul>
+        <CollectionShelf context="fabric" />
       </section>
     </>
   );

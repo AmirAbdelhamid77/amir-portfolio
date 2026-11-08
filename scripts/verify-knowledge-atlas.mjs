@@ -8,6 +8,7 @@ import assert from "node:assert/strict";
 import {loadPreservationHistory,loadRepairReceipt} from "./preservation-history.mjs";
 import {implementationReceipt} from "./atlas-implementation-receipt.mjs";
 import {knowledgeStageReceipt} from "./knowledge-stage-receipt.mjs";
+import {loadRuntimeTransitions} from "./runtime-transition-receipt.mjs";
 const root=resolve(dirname(fileURLToPath(import.meta.url)),"..");
 const implementation=implementationReceipt(root);
 // The newest receipt layer records artifacts a later authorized wave deleted;
@@ -81,6 +82,11 @@ for(const f of manifest.files)assert.equal(hash(f.path),implementation.expected(
 const baseline=json(local+"/PRESERVATION_BASELINE.json");
 const history=loadPreservationHistory(root);
 loadRepairReceipt(root);
+// Four committed runtime transitions (content recovery, reproducible build id
+// and the dependency lock) are successors of the frozen baseline. The receipt
+// proves each one reverses to the exact preserved predecessor, or pins a
+// generated lock; it cannot cover any other path.
+const transitions=loadRuntimeTransitions(root);
 // A later owner-authorized feature may succeed this documentation-only freeze.
 // Accept only its explicitly hashed runtime changes, preserving the old baseline.
 const successorPath="docs/design-system/easyui-v2/INTEGRATION_MANIFEST.json";
@@ -96,7 +102,7 @@ for(const [p,h] of Object.entries(baseline.files)){
  // is written by every build and its byte form differs between toolchains, so the
  // newest layer excludes it instead of recording one machine's copy.
  if(stage.skip(p))continue;
- if(manifest.modifiedExisting.includes(p)||successorCovers(p,h))continue;
+ if(manifest.modifiedExisting.includes(p)||successorCovers(p,h)||transitions.covers(p,h))continue;
  const relocation=!existsSync(resolve(root,p))&&history.relocatedPath(p,h);
  if(relocation)assert.equal(hash(relocation),h,"Relocated original drift "+p);
  else assert.equal(hash(p),implementation.expected(p,history.expectedCurrentHash(p,h)),"Unrelated pre-existing change "+p);
@@ -116,4 +122,4 @@ for(const name of readdirSync(resolve(root,local)).filter(n=>n.endsWith(".md")))
 }
 for(const f of ["AGENTS.md","docs/agent-reference/START_HERE.md","README.md"])assert.ok(read(f).includes("docs/knowledge-atlas/START_HERE.md"),"Missing Atlas entry "+f);
 console.log("PASS: "+upstream.files.length+" upstream payload hashes; "+manifest.files.length+" integration hashes; "+links+" documentation links; historical sources verified with 90 exact relocations and proof-bound source-path evolution; original baseline retained.");
-console.log("Atlas payload remains preparation-only. Hashed successor runtime changes: "+(successor?.runtimeChanges?.length??0)+". Atlas renderer/domain/manual a11y QA NOT RUN; no deploy.");
+console.log("Atlas payload remains preparation-only. Hashed successor runtime changes: "+(successor?.runtimeChanges?.length??0)+"; reversible runtime transitions: "+transitions.files.length+". Atlas renderer/domain/manual a11y QA NOT RUN; no deploy.");

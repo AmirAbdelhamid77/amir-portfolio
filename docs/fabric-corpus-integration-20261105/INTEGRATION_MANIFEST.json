@@ -254,6 +254,60 @@
       "layer": "hansa-redesign/2026-11-08",
       "attribution": "release-default-flip",
       "note": "Final consolidation (owner authorization 2026-11-08, release/v1 15ec9a0): the beUI Timeline Home becomes the release default — the flag now reads NEXT_PUBLIC_HOME_V2 !== \"0\", so an ordinary build serves the timeline and the explicit HOME_V2=0 build restores the accepted R3-R6 Home (also at /archive/). Comment updated to match; no logic beyond the comparison changed."
+    },
+    {
+      "path": "app/learn/dp-600/atlas/page.tsx",
+      "previousSha256": "bd367d9d491cfdb809d8e1ebf79bdff4c39014fa1d97f42c6d0d7fec20dad767",
+      "sha256": "871b26c844574a226fef0f3632383278c289e8a34682cf4794f59cc463bddf49",
+      "bytes": 1199,
+      "layer": "navigation-integration/2026-11-08",
+      "attribution": "owner-source-discovery-pilot",
+      "note": "Contextual resource-mapping and hold links below the existing Atlas surface; no semantic publication, source body or IDs changed. Evidence: docs/cleanup-20261108/NAVIGATION_SOURCE_AUDIT.md and tests/content/recovery-navigation.test.mjs. Before bytes are main 28e1f8f."
+    },
+    {
+      "path": "app/learn/fabric/page.tsx",
+      "previousSha256": "c9fb440b4d24f04a6180c4c0a64d8072f13af735cb05881b5eca3ea2472d6d20",
+      "sha256": "bd666e33afe8870e67be8b6a4f2116d22aa1fc6e9f0b206308fc055d8cf810eb",
+      "bytes": 2327,
+      "layer": "navigation-integration/2026-11-08",
+      "attribution": "owner-source-discovery-pilot",
+      "note": "Add contextual links to RTI lessons, mapping records and hold metadata beside existing documentation collections. Statuses are inherited, not approved. Evidence: docs/cleanup-20261108/NAVIGATION_SOURCE_AUDIT.md and tests/content/recovery-navigation.test.mjs."
+    },
+    {
+      "path": "components/learn/curriculum-home.tsx",
+      "previousSha256": "30612107b15f402eaf87630296131b05609886cdcfea8d70b04c50c04e45c57a",
+      "sha256": "7723a734a005185741078dfbc26f61abdf447380daa047e19a8a5ce0bf28bf31",
+      "bytes": 10379,
+      "layer": "navigation-integration/2026-11-08",
+      "attribution": "owner-source-discovery-pilot",
+      "note": "Add existing collections in Learn context, a stable topics anchor, and correct visualization-labs routing from assessment /lab to /explore. No curriculum IDs, units or progress changed. Evidence: docs/cleanup-20261108/NAVIGATION_SOURCE_AUDIT.md and tests/content/recovery-navigation.test.mjs."
+    },
+    {
+      "path": "components/study/directory.tsx",
+      "previousSha256": "dfe1f62e1499e277633760cdd59beb5d58a0518abe202552d40a297196013e01",
+      "sha256": "275cc9125ea0eb78562898be2a4a4fd5ea8f53912d5596a3d863e2e9f4b04a26",
+      "bytes": 5534,
+      "layer": "navigation-integration/2026-11-08",
+      "attribution": "owner-source-discovery-pilot",
+      "note": "Attach ungraded/restricted study collections to the actual primary Practice catalogue; correct the original visualization-course link. No question data, subjects or progress modified. Evidence: docs/cleanup-20261108/NAVIGATION_SOURCE_AUDIT.md and tests/content/recovery-navigation.test.mjs."
+    },
+    {
+      "path": "scripts/verify-knowledge-atlas.mjs",
+      "previousSha256": "6a07d081a6fee39dffa40a36f0587cf5bb4bf76182b6a8591baeaa92d6c47e10",
+      "layer": "cleanup-2026-11-08/runtime-transitions",
+      "attribution": "runtime-transition-receipt",
+      "note": "Wire the reversible RUNTIME_TRANSITIONS receipt into the Atlas baseline loop, so four committed runtime transitions are accepted only with a preserved-predecessor proof. Neither preservation baseline was rewritten and no other path is covered. Evidence: docs/preservation-history/2026-11-08/RUNTIME_TRANSITIONS.json and tests/content/runtime-transitions.test.mjs.",
+      "sha256": "1535d143098fea694d4a9e2a00d583824787cac5beea9c8bafd1f28a4ca09e67",
+      "bytes": 11828
+    },
+    {
+      "path": "scripts/verify-easyui-integration.mjs",
+      "previousSha256": "87ca6eef5ae6acf7b131af92a43867e7968088ede31401b6209c9a0c5844738c",
+      "layer": "cleanup-2026-11-08/runtime-transitions",
+      "attribution": "runtime-transition-receipt",
+      "note": "Accept the same reversible runtime transitions in the EasyUI baseline loop and protected-contract check, so next.config.ts and package-lock.json advance only through their exact receipt pins. No protected control was removed. Evidence: docs/preservation-history/2026-11-08/RUNTIME_TRANSITIONS.json and tests/content/runtime-transitions.test.mjs.",
+      "sha256": "6006c5a13f82ec12c416d3b517fd8e6c102a8964561c89bb0b5b489e94fec2fb",
+      "bytes": 5402
     }
   ],
   "additions": [],

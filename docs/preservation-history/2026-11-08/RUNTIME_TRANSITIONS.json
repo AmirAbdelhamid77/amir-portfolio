@@ -1,0 +1,63 @@
+{
+  "scope": "committed-runtime-transitions-after-preservation-baselines",
+  "date": "2026-11-08",
+  "reason": "Narrow successor for four committed runtime transitions whose predecessor bytes remain in the Atlas and EasyUI preservation baselines. It does not rewrite either baseline and cannot cover any other path.",
+  "baselines": [
+    "docs/knowledge-atlas/PRESERVATION_BASELINE.json",
+    "docs/design-system/easyui-v2/PRESERVATION_BASELINE.json"
+  ],
+  "files": [
+    {
+      "path": "app/practice/page.tsx",
+      "beforeSha256": "51a9de3824680487323e255f2cda387b06c584bffc370276f674e75bd5ab468d",
+      "sha256": "e57c5c4f620d09344a473b9fa1f633cc9351615986e94ad80ad8452cfa3f6a15",
+      "bytes": 4897,
+      "layer": "content-recovery/2026-11-09",
+      "commit": "a8e1d9b243f5a76c340a5779d7873ad24cd7a041",
+      "note": "Content-recovery adds the draft-banks card to the Practice landing page. The inserted block reverses exactly to the preserved predecessor.",
+      "proof": {
+        "kind": "insert-block",
+        "block": "            <Link\n              href=\"/practice/draft-banks/\"\n              className=\"group flex flex-col rounded-3xl border border-border bg-card/40 p-5 transition-colors hover:border-border-strong\"\n            >\n              <FlaskConical className=\"h-4 w-4 text-muted-foreground\" aria-hidden=\"true\" />\n              <h2 className=\"mt-3 text-sm font-medium\">Draft banks</h2>\n              <p className=\"mt-1.5 text-xs leading-6 text-muted-foreground\">\n                Recovered practice material at its honest status: the DP-600 R18 draft bank (222 ungraded questions) and\n                the PL-300 restricted index, plus the standalone Study Hub.\n              </p>\n              <span className=\"mt-4 inline-flex items-center gap-1.5 text-xs text-foreground\">\n                Open the draft banks\n                <ArrowRight className=\"h-3 w-3 transition-transform group-hover:translate-x-0.5\" aria-hidden=\"true\" />\n              </span>\n            </Link>\n"
+      }
+    },
+    {
+      "path": "app/work/page.tsx",
+      "beforeSha256": "fe32e6c3cec01810041705515bfc2cb490bb0b276c77aa91f2aa47d48767f95b",
+      "sha256": "c2aaf0dac80458ec8df7d31182da4d94a8995f86379637f2fc0bdac830ab84bd",
+      "bytes": 3738,
+      "layer": "content-recovery/2026-11-09",
+      "commit": "a8e1d9b243f5a76c340a5779d7873ad24cd7a041",
+      "note": "Content-recovery adds the Data Storytelling course link to the Work landing page. The inserted block reverses exactly to the preserved predecessor.",
+      "proof": {
+        "kind": "insert-block",
+        "block": "          <p className=\"mt-6 text-sm text-muted-foreground\">\n            Also here: the recovered{\" \"}\n            <a href=\"/work/storytelling/\" className=\"underline decoration-border underline-offset-4 hover:decoration-foreground\">\n              Data Storytelling course and nine case studies\n            </a>{\" \"}\n            (24 documents, published unverified).\n          </p>\n"
+      }
+    },
+    {
+      "path": "next.config.ts",
+      "beforeSha256": "41b1839253f03e60ae77dbca7b82929d3715bc4c41f5a136a7963b315065ba99",
+      "sha256": "26b063404473cbaa3a5674eb7474e1c5717aa391c62b5dbc7c370b8db4e9dca1",
+      "bytes": 1276,
+      "layer": "release-engineering/2026-11-07",
+      "commit": "1ea038862558e1038fc9fb6002188a3c4d91e419",
+      "note": "Wave 4 pins generateBuildId for byte-reproducible static exports. The inserted block reverses exactly to the preserved predecessor.",
+      "proof": {
+        "kind": "insert-block",
+        "block": "  // Reproducible builds (Wave 4): Next embeds a per-build random buildId into\n  // every page's asset and prefetch URLs, so two clean builds of the same tree\n  // were byte-different and the release manifest gate flagged it. For a static\n  // export this carries no stale-cache risk (chunk filenames are content-hashed\n  // and there is no server-side incremental cache); CI pins FABRIC_BUILD_ID per\n  // release and the fallback constant keeps local builds byte-reproducible.\n  generateBuildId: async () => process.env.FABRIC_BUILD_ID ?? \"hansa-static-export\",\n"
+      }
+    },
+    {
+      "path": "package-lock.json",
+      "beforeSha256": "abf3b07600dabd4255c1d6e7d3afb72ab54c91396122a8dd6903546aedbdaf62",
+      "sha256": "5232133f9f0fc85deb154522525a22abda74163106901011a1d75cf4cb7a54a2",
+      "bytes": 276518,
+      "layer": "release-engineering/2026-11-08",
+      "commit": "2efa23cfbe81e98b8b913f6f2a9f781b92c5633f",
+      "note": "Dependency lock advances through the knowledge-graph merge, FC receipt tooling and deployment closure. A generated lock cannot be reversed line-by-line; the exact predecessor and current bytes are pinned and any later change fails.",
+      "proof": {
+        "kind": "hash-pin",
+        "reason": "Generated dependency lock. Exact predecessor and current bytes are pinned; the transition is not line-reversible."
+      }
+    }
+  ]
+}

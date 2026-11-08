@@ -2,6 +2,7 @@ import Link from "next/link";
 import { StudyIntentLink } from "./intent-link";
 import { SUBJECTS, topicHref } from "@/lib/study/taxonomy";
 import { studyRecords } from "@/lib/study/server";
+import { CollectionShelf } from "@/components/learn/collection-shelf";
 import "./study.css";
 
 const STEPS = [
@@ -113,11 +114,13 @@ export function StudyDirectory({ practice = false, subject }: { practice?: boole
         })}
       </div>
 
+      {practice && !subject ? <CollectionShelf context="practice" /> : null}
+
       <details className="study-source-shelf">
         <summary>Original collections and practice sets</summary>
         <p>The same material in its original course order.</p>
         <div>
-          <Link href="/learn/">Data visualization course</Link>
+          <Link href="/learn/visualization/">Data visualization course</Link>
           <Link href="/learn/statistics/">Statistics reference</Link>
           <Link href="/learn/sql/">SQL reference</Link>
           <Link href="/learn/dp-600/">Microsoft Fabric lessons</Link>

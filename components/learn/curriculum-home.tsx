@@ -3,6 +3,7 @@ import { ArrowRight, BookOpenCheck, Compass, Search } from "lucide-react";
 import { ButtonLink, Container, Eyebrow, SectionHeading, Stat } from "@/components/ui";
 import { curriculum } from "@/lib/curriculum/model";
 import { StageBar } from "./stage-bar";
+import { CollectionShelf } from "./collection-shelf";
 
 /**
  * Display order, not a claim about the taxonomy: the three subjects with a
@@ -31,9 +32,9 @@ const NEXT_STEPS = [
   {
     icon: Compass,
     title: "Work through a lab",
-    body: "Change the constraint, not the numbers. Every lab states what it does and does not model.",
-    href: "/lab",
-    label: "Open the labs",
+    body: "Explore chart choice, visual integrity and parameterized examples in the visualization lab gallery.",
+    href: "/explore/",
+    label: "Open visualization labs",
   },
   {
     icon: Search,
@@ -154,7 +155,7 @@ export function CurriculumHome() {
         </Container>
       </section>
 
-      <section className="border-t border-border py-14 md:py-20">
+      <section id="topics" className="scroll-mt-24 border-t border-border py-14 md:py-20">
         <Container>
           <SectionHeading
             eyebrow="Topics"
@@ -186,6 +187,10 @@ export function CurriculumHome() {
           </div>
         </Container>
       </section>
+
+      <Container>
+        <CollectionShelf context="learn" />
+      </Container>
 
       <section className="border-t border-border py-14 md:py-20">
         <Container>

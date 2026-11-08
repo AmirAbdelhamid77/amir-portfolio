@@ -351,12 +351,27 @@ function YearMark({
       // air above it.
       style={{ x, top: fontSize * YEAR_INSET }}
     >
-      <span
-        className="block -translate-x-1/2 font-medium text-foreground/[0.06] leading-none tracking-tighter tabular-nums"
-        style={{ fontSize }}
+      <svg
+        aria-hidden="true"
+        focusable="false"
+        className="block -translate-x-1/2 overflow-visible text-foreground/[0.06]"
+        width={fontSize * 1.5}
+        height={fontSize}
+        viewBox={`0 0 ${fontSize * 1.5} ${fontSize}`}
       >
-        {label}
-      </span>
+        <text
+          x="50%"
+          y={fontSize * 0.82}
+          textAnchor="middle"
+          fill="currentColor"
+          fontSize={fontSize}
+          fontWeight={500}
+          letterSpacing="-0.05em"
+          style={{ fontVariantNumeric: "tabular-nums" }}
+        >
+          {label}
+        </text>
+      </svg>
     </motion.div>
   );
 }
