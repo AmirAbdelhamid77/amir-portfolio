@@ -92,3 +92,15 @@ Baseline: `main` @ `b59c008` (`release-1.0.0`). Branch: `feat/content-recovery`.
 Every discovered relevant collection has an explicit disposition above. No
 source was left unresolved; nothing was fabricated; no review status was
 upgraded; restricted bytes were not exposed.
+
+## 6. ROADMAP — outstanding product tasks (recorded 2026-11-09, explicitly NOT implemented)
+
+Recorded at the owner's request during the pre-cleanup backup gate. None of these are started; each is scoped elsewhere in this report.
+
+| # | Outstanding task | Prepared source | Precise gap |
+|---|---|---|---|
+| R1 | Reference records renderer | content/intake/hansa-integration/reference_records.jsonl (3,131 records, committed) | content/study/references.json renders 1,859; 1,272 prepared records have no rendered surface |
+| R2 | Experiment records renderer | content/intake/hansa-integration/experiment_records.jsonl (46 records) | content/study/experiments.json exposes 29 labs; 17 records unrendered |
+| R3 | Hansa integration Phases C–F | hansa-integration/INTEGRATION_PLAN.md + data/ | DP-700 question pack and later phases unbuilt; 38 candidate questions prepared in hansa-integration/data/questions/candidate_pool.jsonl |
+| R4 | Fabric RTI lab environments | content/recovery/rti-lab-blueprints.json (18 blueprints; 8 draft pages live) | The hands-on environments are unbuilt; every page publishes the blueprint's verbatim validation_status |
+| R5 | Post-publication verification backlog | RECOVERY_REPORT §4 (10 items) | Arabic drafts QA, PL-300 rights, Atlas mappings, held-article upstream pins, patterns/storytelling/R18 review, sitemap enumeration |
