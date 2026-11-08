@@ -600,3 +600,12 @@
         opacity: 0.22;
     }
 }
+
+/* Redesign shell (HOME_V2): while the timeline Home is mounted it owns the
+   viewport; the shared site header and footer are suppressed for that route
+   only, so the island is the single navigation surface (plan §8 — no second
+   competing navigation). The header/footer are direct children of <body>. */
+body[data-home-v2="true"] > header,
+body[data-home-v2="true"] > footer {
+  display: none;
+}

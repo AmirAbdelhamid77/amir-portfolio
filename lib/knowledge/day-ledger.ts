@@ -43,9 +43,11 @@ export function buildDays(items: Insight[]): DayLedgerDay[] {
   return days;
 }
 
-/** The build-time day ledger: eligible insights only, grouped per day. */
-export function getDays(allItems: Insight[]): DayLedgerDay[] {
-  return buildDays(eligibleInsights(allItems));
+/** The build-time day ledger: eligible insights only, grouped per day. The
+ * preview flag passes through to eligibleInsights unchanged — the redesigned
+ * Home shows exactly the set the accepted Home shows (plan §3: honesty). */
+export function getDays(allItems: Insight[], preview = false): DayLedgerDay[] {
+  return buildDays(eligibleInsights(allItems, preview));
 }
 
 /** The newest day on or before today (UTC), for the timeline's initial focus. */
