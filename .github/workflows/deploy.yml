@@ -1,8 +1,10 @@
 name: Deploy to GitHub Pages
 
+# DEPLOYMENT PAUSED (2026-11-09): automatic deployment is intentionally
+# disabled for the Release 1.1.0 GitHub publication. This workflow only runs
+# on a manual dispatch; restore the `push: branches: [main]` trigger (see the
+# repository history of this file) when live hosting is decided.
 on:
-  push:
-    branches: [main]
   workflow_dispatch:
 
 permissions:
