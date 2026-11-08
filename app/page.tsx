@@ -6,9 +6,11 @@ import insightsContent from "@/content/knowledge/insights.json";
 import type { Insight } from "@/lib/knowledge/insights";
 import { SITE } from "@/lib/site";
 
-// Redesign plan §4: the redesigned timeline Home ships dark behind HOME_V2.
-// Unset (or any value but "1") keeps the accepted R3–R6 Home as the default.
-const HOME_V2 = process.env.NEXT_PUBLIC_HOME_V2 === "1";
+// Redesign plan §4/§15: the beUI Timeline Home is the release default as of
+// the final consolidation (owner authorization, 2026-11-08). The escape hatch
+// is explicit and build-time: HOME_V2=0 restores the accepted R3–R6 Home for
+// one release; it also stays reachable at /archive/.
+const HOME_V2 = process.env.NEXT_PUBLIC_HOME_V2 !== "0";
 
 // The build-time day ledger for the timeline Home. The feed is fail-closed;
 // getDays throws on duplicates, >3 insights per day, or a missing source.
