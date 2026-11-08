@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { getPatternLessons, getPatternModules } from "@/lib/recovery/collections";
 
 // The Creative Patterns learning package (20 lessons / 6 modules), recovered

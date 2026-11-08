@@ -20,9 +20,10 @@ export default function DraftBanksPage() {
   const pl300 = getPl300Index();
   const byCase = new Map<string, typeof r18.questions>();
   for (const question of r18.questions) {
-    const list = byCase.get(question.caseStudy) ?? [];
+    const caseStudy = question.caseStudy ?? "standalone";
+    const list = byCase.get(caseStudy) ?? [];
     list.push(question);
-    byCase.set(question.caseStudy, list);
+    byCase.set(caseStudy, list);
   }
   const byVideo = new Map<string, typeof pl300.records>();
   for (const record of pl300.records) {

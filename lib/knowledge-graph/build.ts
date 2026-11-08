@@ -293,11 +293,11 @@ export function buildGraphSource(): BuildResult {
   // /explore/charts/ pages are chart-type sandboxes, not lessons). A chapter
   // is opened through its first declared lesson's real route; a chapter with
   // no lesson route gets no href and its card says so honestly.
-  const vizChapterHref = new Map<number, string>();
+  const vizChapterHref = new Map<string, string>();
   for (const lesson of VIZ_LESSONS) {
-    if (!lesson.chapter || vizChapterHref.has(lesson.chapter)) continue;
+    if (!lesson.chapter || vizChapterHref.has(String(lesson.chapter))) continue;
     const unit = requireUnit(`lesson-${lesson.section}-${lesson.slug}`);
-    if (unit?.href) vizChapterHref.set(lesson.chapter, unit.href);
+    if (unit?.href) vizChapterHref.set(String(lesson.chapter), unit.href);
   }
   for (const chapter of VIZ_CHAPTERS) {
     addNode({
@@ -305,7 +305,7 @@ export function buildGraphSource(): BuildResult {
       kind: "chapter",
       label: `${chapter.number} · ${chapter.title}`,
       subject: "visualization",
-      href: vizChapterHref.get(chapter.number),
+      href: vizChapterHref.get(String(chapter.number)),
     });
     addEdge(
       NODE_PREFIX.subject + "visualization",

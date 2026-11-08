@@ -100,8 +100,7 @@ export function getPatternLessons(): PatternLesson[] {
 }
 
 export function getPatternModules(): { slug?: string; title?: string; [k: string]: unknown }[] {
-  const m = patternsModules as { modules?: unknown[] } & unknown[];
-  return Array.isArray(m) ? m : ((m.modules ?? []) as never);
+  return patternsModules as unknown as { slug?: string; title?: string; [k: string]: unknown }[];
 }
 
 export type R18Question = {
