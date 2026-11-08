@@ -209,6 +209,33 @@
       "layer": "release-v1/2026-11-08",
       "attribution": "KG-prototype-integration",
       "note": "One change, required by the package.json transition above: the successor-audit expected-scripts allowlist gains qa:network and graph:build, keeping the deepEqual exact. No behavioral change for any pre-existing script or dependency rule; the auditedDependencyAdditions hop-union already covers the two new dependencies via the package.json transition in this layer."
+    },
+    {
+      "path": "components/learn/curriculum-home.tsx",
+      "previousSha256": "84c11b7a640774d9d5d48a642efcbdbe23f1493e9ba9399e13f1c25830bb585c",
+      "sha256": "fbdccafbd7adfaad7e714f5e95c70b2711f3157b4f6d852ef7b06f7be20c64e4",
+      "bytes": 10075,
+      "layer": "release-v1/2026-11-08",
+      "attribution": "learn-graph-entry",
+      "note": "Learn hub hero gains one ghost action, 'Knowledge map', opening /prototype/network/ — the owner-mandated Learn-to-Graph entry point (mission 2026-11-08, branch feat/learn-graph-map, commit 43a0d8c). The M0 addition record for this file is superseded by this pin; no other hero action, stat or section changed."
+    },
+    {
+      "path": "app/globals.css",
+      "previousSha256": "0ce9b77e04656e57c4c4492b5d88a1419e39efe12da3572f13c0aaddce018d7f",
+      "sha256": "37dad88ae7c35885f208ba525b55012cecdd78d618b7cadaed43c976a702b299",
+      "bytes": 19339,
+      "layer": "hansa-redesign/2026-11-08",
+      "attribution": "redesign-stage-B",
+      "note": "Hansa redesign (branch feat/hansa-redesign, plan §7/§8): adds the four motion duration tokens (--dur-fast/--dur-layer/--dur-intro/--ease-layer) and the body[data-home-v2] rule that suppresses the shared site header/footer while the flagged timeline shell is mounted. No existing token, palette or theme value changed; the rule is inert unless the redesign flag mounts the shell."
+    },
+    {
+      "path": "app/page.tsx",
+      "previousSha256": "330e27379731956b3d3175c58422b0a5fcf5df209818607439e1fc4cc76e9dc5",
+      "sha256": "bbc7a7ed1ea41e2e35080aaabd933cd210c0ece7431d3f15b29464bfb3b1fdcf",
+      "bytes": 3400,
+      "layer": "hansa-redesign/2026-11-08",
+      "attribution": "redesign-stage-B-C",
+      "note": "Hansa redesign (plan §4/§12): the root page branches on the HOME_V2 build flag — unset renders the accepted R3-R6 landing unchanged, set renders the timeline Home with the fail-closed day ledger. The sr-only day list moved into the client shell so the root route file stays free of its own markup (canonical-home guard); that intermediate state (5295064e...) never shipped. JSON-LD, metadata and the default-off behavior are unchanged."
     }
   ],
   "additions": [],

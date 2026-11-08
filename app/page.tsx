@@ -1,6 +1,20 @@
 import type { Metadata } from "next";
 import { HansaKnowledgeLanding } from "@/components/knowledge/hansa-landing";
+import { TimelineHome } from "@/components/hansa/timeline-home";
+import { getDays, newestDayOnOrBeforeToday } from "@/lib/knowledge/day-ledger";
+import insightsContent from "@/content/knowledge/insights.json";
+import type { Insight } from "@/lib/knowledge/insights";
 import { SITE } from "@/lib/site";
+
+// Redesign plan §4: the redesigned timeline Home ships dark behind HOME_V2.
+// Unset (or any value but "1") keeps the accepted R3–R6 Home as the default.
+const HOME_V2 = process.env.NEXT_PUBLIC_HOME_V2 === "1";
+
+// The build-time day ledger for the timeline Home. The feed is fail-closed;
+// getDays throws on duplicates, >3 insights per day, or a missing source.
+// `true` matches the accepted Home's eligibility exactly (technical-review
+// editions included, each carrying its status marker).
+const DAYS = getDays(insightsContent.items as Insight[], true);
 
 // The root IS the Hansa learning landing. The previous root — a directory of
 // Atlas/Learn/Practice gateways with a portfolio framing — was retired with the
@@ -70,7 +84,11 @@ export default function HomePage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
-      <HansaKnowledgeLanding />
+      {HOME_V2 ? (
+        <TimelineHome days={DAYS} defaultDay={newestDayOnOrBeforeToday(DAYS) ?? DAYS[DAYS.length - 1]?.date} />
+      ) : (
+        <HansaKnowledgeLanding />
+      )}
     </>
   );
 }

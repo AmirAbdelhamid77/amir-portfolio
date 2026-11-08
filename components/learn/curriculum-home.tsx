@@ -76,6 +76,9 @@ export function CurriculumHome() {
             <ButtonLink href="/learn/sql/" variant="ghost">
               SQL path
             </ButtonLink>
+            <ButtonLink href="/prototype/network/" variant="ghost">
+              Knowledge map
+            </ButtonLink>
           </div>
 
           <div className="mt-10 grid grid-cols-2 gap-3 sm:grid-cols-4">
