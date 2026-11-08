@@ -31,7 +31,11 @@ const REPO_ROOT = path.resolve(here, "..", "..", "..");
 const DEFAULT_BUILD_DIR = process.env.FABRIC_CORPUS_BUILD_DIR
   ? path.resolve(process.env.FABRIC_CORPUS_BUILD_DIR)
   : path.resolve(REPO_ROOT, "..", "fabric-corpus-build");
-const PUBLIC_SEARCH_DIR = path.join(REPO_ROOT, "public", "fabric-search");
+// FABRIC_PUBLIC_ROOT lets a clean-room run publish the shards into a disposable
+// tree for byte comparison instead of the live public/ directory.
+const PUBLIC_SEARCH_DIR = process.env.FABRIC_PUBLIC_ROOT
+  ? path.join(path.resolve(process.env.FABRIC_PUBLIC_ROOT), "fabric-search")
+  : path.join(REPO_ROOT, "public", "fabric-search");
 
 function parseArgs(argv) {
   const args = { versions: null, buildDir: DEFAULT_BUILD_DIR };

@@ -9,8 +9,13 @@ import {loadPreservationHistory,loadRepairReceipt} from "./preservation-history.
 import {implementationReceipt} from "./atlas-implementation-receipt.mjs";
 import {knowledgeStageReceipt} from "./knowledge-stage-receipt.mjs";
 import {loadRuntimeTransitions} from "./runtime-transition-receipt.mjs";
+import {loadRuntimeAdditions} from "./runtime-additions-receipt.mjs";
 const root=resolve(dirname(fileURLToPath(import.meta.url)),"..");
 const implementation=implementationReceipt(root);
+// Committed runtime files introduced after both frozen baselines. The receipt
+// pins each to its exact bytes and introducing commit; it cannot cover a
+// baseline path, a generated corpus root or an untracked file.
+const additions=loadRuntimeAdditions(root);
 // The newest receipt layer records artifacts a later authorized wave deleted;
 // a retired file has no current bytes to compare, so the baseline loop skips it.
 const stage=knowledgeStageReceipt(root);
@@ -114,7 +119,7 @@ const walk=d=>readdirSync(resolve(root,d),{withFileTypes:true}).flatMap(e=>e.isD
 // gate honest about code without treating an explanatory `EGM.md` beside the code
 // it explains as an unpinned runtime addition.
 const isDocumentation=p=>p.endsWith(".md");
-for(const dir of ["app","lib","components","content","public","tests"]){for(const p of walk(dir)){if(isDocumentation(p))continue;assert.ok(Object.hasOwn(baseline.files,p)||successorCovers(p,null)||implementation.covers(p,null),"Unexpected runtime addition "+p);}}
+for(const dir of ["app","lib","components","content","public","tests"]){for(const p of walk(dir)){if(isDocumentation(p))continue;if(additions.isGenerated(p))continue;assert.ok(Object.hasOwn(baseline.files,p)||successorCovers(p,null)||implementation.covers(p,null)||additions.covers(p),"Unexpected runtime addition "+p);}}
 let links=0;
 for(const name of readdirSync(resolve(root,local)).filter(n=>n.endsWith(".md"))){
  const file=local+"/"+name,body=read(file).replace(/[\x60][^\x60]*[\x60]/g,"");
@@ -122,4 +127,4 @@ for(const name of readdirSync(resolve(root,local)).filter(n=>n.endsWith(".md")))
 }
 for(const f of ["AGENTS.md","docs/agent-reference/START_HERE.md","README.md"])assert.ok(read(f).includes("docs/knowledge-atlas/START_HERE.md"),"Missing Atlas entry "+f);
 console.log("PASS: "+upstream.files.length+" upstream payload hashes; "+manifest.files.length+" integration hashes; "+links+" documentation links; historical sources verified with 90 exact relocations and proof-bound source-path evolution; original baseline retained.");
-console.log("Atlas payload remains preparation-only. Hashed successor runtime changes: "+(successor?.runtimeChanges?.length??0)+"; reversible runtime transitions: "+transitions.files.length+". Atlas renderer/domain/manual a11y QA NOT RUN; no deploy.");
+console.log("Atlas payload remains preparation-only. Hashed successor runtime changes: "+(successor?.runtimeChanges?.length??0)+"; reversible runtime transitions: "+transitions.files.length+"; reviewed runtime additions: "+additions.files.length+" in "+additions.waves.length+" waves. Atlas renderer/domain/manual a11y QA NOT RUN; no deploy.");

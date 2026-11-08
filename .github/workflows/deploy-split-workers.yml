@@ -1,0 +1,141 @@
+name: Deploy split Workers
+
+# Builds the reviewed static export and deploys the split Worker pair:
+#   hansa-docs  the /learn/fabric/** documentation tree (16,370 files)
+#   hansa       the public hostname; everything else plus the docs gateway
+#
+# Why two Workers: Workers Free allows 20,000 static files per version. The
+# full export is 29,061 files, so the docs subtree ships separately and the
+# gateway reaches it through the DOCS service binding. Every public URL is
+# unchanged. See docs/cleanup-20261108/REPORT.md.
+#
+# MANUAL ONLY. There is no push or schedule trigger. The dispatch requires the
+# operator to type DEPLOY; no provider credential is read before that gate.
+#
+# Relationship to the other workflows:
+#   deploy-cloudflare.yml  historical single-Worker deploy, left byte-identical
+#                          because docs/cleanup-20261108/DEPLOYMENT_PAUSE_RECEIPT.json
+#                          pins its paused bytes. Do not dispatch it after this
+#                          split release is live: it would publish ./out (29,061
+#                          files) over `hansa` and exceed the Free limit.
+#   fabric-corpus-release.yml  deploy-free dry-run packaging; unchanged.
+#
+# Required repository configuration (Settings -> Secrets and variables -> Actions):
+#   secrets.CLOUDFLARE_API_TOKEN     scoped token: "Workers Scripts: Edit" for both Workers
+#   secrets.CLOUDFLARE_ACCOUNT_ID    b84c4bfbf06e399ceb5f5267f87cb37e
+#   vars.NEXT_PUBLIC_SITE_URL        optional custom domain (falls back to workers.dev)
+#   vars.NEXT_PUBLIC_CONTACT_ENDPOINT optional form endpoint (falls back to mailto)
+#
+# The Fabric corpus is generated from the pinned upstream revision and is never
+# committed, so a clean checkout provisions it in the step below.
+on:
+  workflow_dispatch:
+    inputs:
+      confirm:
+        description: "Type DEPLOY to publish the reviewed release"
+        required: true
+        type: string
+
+permissions:
+  contents: read
+
+concurrency:
+  group: cloudflare-workers
+  cancel-in-progress: false
+
+env:
+  FABRIC_REVISION: 774592ea3f2d4558f763d6e5b74abf4785948fb5
+  FABRIC_UPSTREAM: https://github.com/MicrosoftDocs/fabric-docs.git
+  NODE_OPTIONS: --max-old-space-size=4096
+
+jobs:
+  deploy:
+    name: Build, verify and deploy both Workers
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    steps:
+      - name: Require explicit deploy confirmation
+        if: inputs.confirm != 'DEPLOY'
+        run: |
+          echo "::error::Dispatch again and type DEPLOY in the confirm input."
+          exit 1
+
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Check out the pinned Fabric corpus
+        shell: bash
+        run: |
+          set -euo pipefail
+          git init "$RUNNER_TEMP/fabric-upstream"
+          git -C "$RUNNER_TEMP/fabric-upstream" remote add origin "$FABRIC_UPSTREAM"
+          git -C "$RUNNER_TEMP/fabric-upstream" fetch --depth=1 origin "$FABRIC_REVISION"
+          git -C "$RUNNER_TEMP/fabric-upstream" checkout --detach FETCH_HEAD
+          test "$(git -C "$RUNNER_TEMP/fabric-upstream" rev-parse HEAD)" = "$FABRIC_REVISION"
+
+      - name: Provision the generated Fabric corpus
+        run: |
+          node scripts/provision-fabric-corpus.mjs \
+            --source="$RUNNER_TEMP/fabric-upstream/docs" \
+            --build-dir="$RUNNER_TEMP/fabric-build" \
+            --public-root="$GITHUB_WORKSPACE/public"
+
+      # The reviewed release gate: the frozen baselines, the reversible runtime
+      # transitions, the reviewed additions ledger and the content tests all
+      # must pass before any credential is read or any upload happens.
+      - name: Verify preservation receipts
+        run: |
+          node scripts/verify-preservation-history.mjs
+          node scripts/verify-knowledge-atlas.mjs
+          node scripts/verify-easyui-integration.mjs
+          node scripts/build-runtime-additions-receipt.mjs --check
+
+      - name: Content tests
+        run: npm run test:content
+
+      - name: Lint
+        run: npm run lint
+
+      - name: Build static export
+        run: npm run build
+        env:
+          FABRIC_CORPUS_BUILD_DIR: ${{ runner.temp }}/fabric-build
+          NEXT_PUBLIC_SITE_URL: ${{ vars.NEXT_PUBLIC_SITE_URL }}
+          NEXT_PUBLIC_CONTACT_ENDPOINT: ${{ vars.NEXT_PUBLIC_CONTACT_ENDPOINT }}
+
+      - name: Split the export into Workers Free asset trees
+        run: node scripts/prepare-split-workers.mjs --report=.wrangler-split-report.json
+
+      - name: Upload split report
+        uses: actions/upload-artifact@v4
+        with:
+          name: split-worker-report
+          path: .wrangler-split-report.json
+          retention-days: 30
+
+      # Docs first: the gateway would otherwise forward to a missing version.
+      - name: Deploy hansa-docs
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          # Keep in step with the `wrangler` devDependency in package.json.
+          wranglerVersion: "4.152.0"
+          command: deploy --config wrangler.docs.jsonc
+
+      - name: Deploy hansa gateway
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          wranglerVersion: "4.152.0"
+          command: deploy --config wrangler.gateway.jsonc

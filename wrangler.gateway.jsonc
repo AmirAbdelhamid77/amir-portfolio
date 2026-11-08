@@ -1,0 +1,34 @@
+{
+  "$schema": "./node_modules/wrangler/config-schema.json",
+  "name": "hansa",
+  // Public hostname for the split release. Static export only: Next writes the
+  // whole site to ./out, and scripts/prepare-split-workers.mjs assembles the
+  // docs subtree into ./out-docs and everything else into ./out-main.
+  //
+  // This file is separate from wrangler.jsonc on purpose. That file is frozen
+  // byte-for-byte in both preservation baselines, and the preservation contract
+  // does not permit rewriting it or turning it into a hash waiver. It remains
+  // the historical single-Worker config and is no longer used for deployment;
+  // `npm run deploy:main` and the split deploy workflow point here.
+  "main": "./workers/gateway.mjs",
+  "compatibility_date": "2026-10-23",
+  "assets": {
+    "directory": "./out-main",
+    // Next uses trailingSlash: true, so every route is a directory holding an
+    // index.html. "auto-trailing-slash" serves those at /path/ and redirects
+    // /path to /path/ without any custom routing.
+    "html_handling": "auto-trailing-slash",
+    // Serve the real app/not-found.tsx export (out/404.html) for unknown paths.
+    "not_found_handling": "404-page",
+    // Only docs requests invoke the gateway script; all other assets are
+    // served by Cloudflare without running Worker code.
+    "run_worker_first": ["/learn/fabric", "/learn/fabric/*"],
+    "binding": "ASSETS"
+  },
+  "services": [
+    {
+      "binding": "DOCS",
+      "service": "hansa-docs"
+    }
+  ]
+}

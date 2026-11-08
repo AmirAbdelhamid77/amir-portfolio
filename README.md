@@ -219,51 +219,92 @@ spam protection — add that at the endpoint if the form gets abused.
 
 ## Deployment
 
-Hosted on **Cloudflare Workers Static Assets** (Free plan). There is no Worker
-script: `wrangler.jsonc` points Wrangler at `out/`, and Cloudflare serves the files
-from its edge network.
+Hosted on **Cloudflare Workers Static Assets** (Free plan), split across two
+Workers so each version stays under the 20,000-file Free limit:
+
+| Worker | Serves | Files |
+| --- | --- | --- |
+| `hansa-docs` | `/learn/fabric/**` documentation tree | 16,370 |
+| `hansa` | public hostname; every other route plus the docs gateway | 12,693 |
+
+`workers/gateway.mjs` forwards `/learn/fabric` and `/learn/fabric/*` to the
+`hansa-docs` service binding. Every other request is served directly from the
+`hansa` assets without running Worker code. The public hostname and every URL,
+alias and anchor are unchanged.
 
 | Setting | Value |
 | --- | --- |
-| Worker name | `hansa` |
 | Live URL | <https://hansa.amir-portfolio.workers.dev/> |
 | Account ID | `b84c4bfbf06e399ceb5f5267f87cb37e` |
-| Asset directory | `./out` |
+| Main asset directory | `./out-main` |
+| Docs asset directory | `./out-docs` |
 | HTML handling | `auto-trailing-slash` |
-| Unknown paths | `404-page` → real `out/404.html` |
-| Response headers | `public/_headers` (copied to `out/_headers`) |
+| Unknown paths | `404-page` -> the real `404.html` |
+| Response headers | `_headers` copied into both trees |
+
+### Corpus prerequisites
+
+The Fabric documentation tree is generated, not committed. A clean checkout must
+provision it from the pinned upstream before `npm run build`:
+
+```bash
+git clone --filter=blob:none https://github.com/MicrosoftDocs/fabric-docs.git ../fabric-docs-light
+git -C ../fabric-docs-light checkout 774592ea3f2d4558f763d6e5b74abf4785948fb5
+npm run corpus:provision -- --source=../fabric-docs-light/docs --build-dir=../fabric-corpus-build
+npm run build
+```
+
+The script compiles all 22 families, builds the route registry, copies 9,572
+docs assets, builds the 106-file search index, and fails on any count or revision
+drift. `FABRIC_PUBLIC_ROOT` and `--compare` let you provision into a disposable
+tree and compare it byte-for-byte with a verified export.
 
 ### Deploying
 
 ```bash
-npx wrangler login   # once; OAuth, no token stored in the repo
-npm run deploy       # build + wrangler deploy
+npx wrangler login
+npm run build
+npm run build:workers
+npm run deploy:docs
+npm run deploy:main
 ```
 
-`npm run deploy` regenerates `out/` and uploads only changed assets. Wrangler
-prints the live URL and version ID. Roll back from the dashboard (Workers → hansa
-→ Deployments) or with `npx wrangler rollback`.
+`build:workers` hardlinks `out/` into `out-docs/` and `out-main/` and enforces
+the 20,000-file limit on each. Deploy docs first; the gateway forwards to it.
+`npm run deploy` runs the whole sequence.
+
+Roll back either Worker independently:
+
+```bash
+npx wrangler rollback --config wrangler.docs.jsonc
+npx wrangler rollback
+```
 
 ### Custom domain
 
-Workers Free supports custom domains on a Cloudflare-hosted zone. Add one under
-Workers → hansa → Settings → Domains & Routes, then rebuild with the canonical
-origin:
+Workers Free supports custom domains on a Cloudflare-hosted zone. Add one to the
+`hansa` Worker (Workers -> hansa -> Settings -> Domains & Routes), then rebuild
+with the canonical origin:
 
 ```bash
 NEXT_PUBLIC_SITE_URL=https://your-domain.com npm run deploy
 ```
 
 That keeps canonical links, Open Graph URLs, `sitemap.xml`, and `robots.txt` in
-step. No `basePath` change is needed at the root of a domain.
+step. No `basePath` change is needed at the root of a domain. The docs Worker
+needs no separate domain: the gateway reaches it through the service binding.
 
 ### CI
 
-`.github/workflows/deploy-cloudflare.yml` runs lint → build → `wrangler deploy` on
-every push to `main`. Add these repository secrets:
+`.github/workflows/deploy-cloudflare.yml` is manual-only (`workflow_dispatch`)
+and requires the operator to type `DEPLOY`. It checks out the pinned corpus
+revision, provisions the generated tree, lints, builds, splits, and deploys
+`hansa-docs` then `hansa`. No push or schedule trigger exists.
 
-- `CLOUDFLARE_API_TOKEN` — least privilege: **Workers Scripts: Edit**
-- `CLOUDFLARE_ACCOUNT_ID` — `b84c4bfbf06e399ceb5f5267f87cb37e`
+Add these repository secrets:
+
+- `CLOUDFLARE_API_TOKEN` - least privilege: **Workers Scripts: Edit** for both Workers
+- `CLOUDFLARE_ACCOUNT_ID` - `b84c4bfbf06e399ceb5f5267f87cb37e`
 
 Optional repository variables: `NEXT_PUBLIC_SITE_URL` and
 `NEXT_PUBLIC_CONTACT_ENDPOINT`. The older GitHub Pages workflow
@@ -272,12 +313,14 @@ Optional repository variables: `NEXT_PUBLIC_SITE_URL` and
 ### Caching and headers
 
 `public/_headers` sets security headers on every route and immutable, one-year
-caching for fingerprinted `/_next/static/*` files. HTML keeps Cloudflare's default
+caching for fingerprinted `/_next/static/*` files. HTML keeps Cloudflare default
 `Cache-Control: public, max-age=0, must-revalidate` plus an ETag, so a deploy is
 visible immediately without forcing a full re-download.
 
 Everything used here is on the Cloudflare Free plan: no paid add-ons, no KV/D1/R2
-bindings, and no server-side runtime.
+bindings, and no server-side runtime. The only Worker code is the small docs
+gateway. Static-asset requests are unlimited and there is no total-size cap; the
+20,000-file and 25 MiB-per-file limits are enforced by the build split.
 
 ### Static export note
 
@@ -325,7 +368,9 @@ scripts/prepare-images.mjs   Sharp resize/WebP + social card
 scripts/serve-out.mjs        Static preview server (trailing slash + 404)
 scripts/export-segment-aliases.mjs  Post-build RSC payload aliases for prefetching
 public/_headers              Cloudflare response headers (security + caching)
-wrangler.jsonc               Workers Static Assets config (worker `hansa`, ./out)
+wrangler.jsonc               Frozen single-Worker config (preserved, no longer used)
+wrangler.gateway.jsonc       Public hostname Worker: ./out-main plus docs gateway
+wrangler.docs.jsonc          Docs Worker: ./out-docs
 ```
 
 ## Accessibility & behaviour notes

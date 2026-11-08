@@ -60,3 +60,10 @@ intake-private/
 # fabric-corpus Wave 2 search shards (FC07) — generated full-text indexes;
 # rebuild with tools/fabric-corpus/search/build-shards.mjs + copy-shards.mjs.
 /public/fabric-search/
+
+# Split-Worker asset trees (generated from out/ by
+# scripts/prepare-split-workers.mjs). Both are hardlink copies of the verified
+# export and must never be committed.
+/out-main/
+/out-docs/
+/.wrangler-split-report.json

@@ -83,6 +83,16 @@ export function finalReviewReceipt(root){
     'qa:network':'node scripts/qa-network-tree.mjs',
     'graph:build':'node scripts/graph/run.mjs',
     'qa:prototype-c':'node scripts/qa-prototype-c-v2.mjs',
+    // Added by the split-Worker release (9 Nov 2026): the static export is
+    // assembled into two Workers Free asset trees. Each new script is a local
+    // build/deploy command; no dependency or engine change (the FC package
+    // transition records them).
+    'preview:worker':'wrangler dev -c wrangler.gateway.jsonc -c wrangler.docs.jsonc',
+    'build:workers':'node scripts/prepare-split-workers.mjs --report=.wrangler-split-report.json',
+    'deploy:docs':'wrangler deploy --config wrangler.docs.jsonc',
+    'deploy:main':'wrangler deploy --config wrangler.gateway.jsonc',
+    'deploy':'npm run build && npm run build:workers && npm run deploy:docs && npm run deploy:main',
+    'corpus:provision':'node scripts/provision-fabric-corpus.mjs',
     'test:all':'npm test && npm run test:statistics && npm run test:fabric && npm run test:content && npm run test:knowledge && npm run test:atlas && npm run test:fabric-corpus',
     'build:drafts':'node scripts/build-draft-banks.mjs','qa:drafts':'node scripts/qa-drafts.mjs','build:intake':'node scripts/build-intake-content.mjs',
     // Added by the authorized /learn curriculum wave (3 Nov 2026). Each is a

@@ -1,0 +1,21 @@
+{
+  "$schema": "./node_modules/wrangler/config-schema.json",
+  "name": "hansa-docs",
+  // Documentation subtree of the static export, deployed as its own Worker so
+  // each version stays under the Workers Free limit of 20,000 static files.
+  // The public hostname stays on `hansa`; this Worker is reached only through
+  // the gateway's DOCS service binding.
+  "main": "./workers/docs.mjs",
+  "compatibility_date": "2026-10-23",
+  "assets": {
+    "directory": "./out-docs",
+    // The docs tree keeps the full `/learn/fabric/...` path so the service
+    // binding needs no path rewriting.
+    "binding": "ASSETS",
+    "html_handling": "auto-trailing-slash",
+    "not_found_handling": "404-page",
+    // The script is the service-binding entrypoint; assets are read through
+    // the ASSETS binding after it runs.
+    "run_worker_first": true
+  }
+}

@@ -101,7 +101,7 @@ function main() {
   const batch = {
     script: 'tools/fabric-corpus/route-registry/compile-all-families.mjs',
     corpusRevision: args.revision,
-    corpusRoot: 'D:/BeUI/fabric-docs-light/docs (pinned, read-only)',
+    corpusRoot,
     outDir,
     families: [],
   };

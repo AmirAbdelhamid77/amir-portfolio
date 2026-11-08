@@ -150,7 +150,11 @@ function main() {
   const registry = JSON.parse(readFileSync(registryPath, 'utf8'));
   const corpusRoot = resolve(process.env.FABRIC_CORPUS_ROOT ?? CORPUS_ROOT_DEFAULT);
   const compilerOutput = join(buildDir, 'compiler-output');
-  const publicRoot = join(REPO_ROOT, 'public', 'fabric-docs-assets');
+  // FABRIC_PUBLIC_ROOT lets a clean-room run copy the generated assets into a
+  // disposable tree for byte comparison instead of the live public/ directory.
+  const publicRoot = process.env.FABRIC_PUBLIC_ROOT
+    ? join(resolve(process.env.FABRIC_PUBLIC_ROOT), 'fabric-docs-assets')
+    : join(REPO_ROOT, 'public', 'fabric-docs-assets');
 
   const families = registry.families.map((f) => f.family).sort();
   const manifest = {
