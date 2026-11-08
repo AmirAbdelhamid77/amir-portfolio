@@ -236,6 +236,15 @@
       "layer": "hansa-redesign/2026-11-08",
       "attribution": "redesign-stage-B-C",
       "note": "Hansa redesign (plan §4/§12): the root page branches on the HOME_V2 build flag — unset renders the accepted R3-R6 landing unchanged, set renders the timeline Home with the fail-closed day ledger. The sr-only day list moved into the client shell so the root route file stays free of its own markup (canonical-home guard); that intermediate state (5295064e...) never shipped. JSON-LD, metadata and the default-off behavior are unchanged."
+    },
+    {
+      "path": "app/page.tsx",
+      "previousSha256": "bbc7a7ed1ea41e2e35080aaabd933cd210c0ece7431d3f15b29464bfb3b1fdcf",
+      "sha256": "22b560c5089b1a5388f9b74c5dddca699fc0ce6f98939f257a5976b58010bf4c",
+      "bytes": 3534,
+      "layer": "hansa-redesign/2026-11-08",
+      "attribution": "release-default-flip",
+      "note": "Final consolidation (owner authorization 2026-11-08, release/v1 15ec9a0): the beUI Timeline Home becomes the release default — the flag now reads NEXT_PUBLIC_HOME_V2 !== \"0\", so an ordinary build serves the timeline and the explicit HOME_V2=0 build restores the accepted R3-R6 Home (also at /archive/). Comment updated to match; no logic beyond the comparison changed."
     }
   ],
   "additions": [],
