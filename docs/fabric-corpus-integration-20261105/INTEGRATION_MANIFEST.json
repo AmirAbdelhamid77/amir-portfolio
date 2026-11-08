@@ -231,11 +231,11 @@
     {
       "path": "app/page.tsx",
       "previousSha256": "330e27379731956b3d3175c58422b0a5fcf5df209818607439e1fc4cc76e9dc5",
-      "sha256": "5295064ec0b02e755bc9ceb32b547042415360ecf9441ad902a1d6bf7edca3e9",
-      "bytes": 4025,
+      "sha256": "bbc7a7ed1ea41e2e35080aaabd933cd210c0ece7431d3f15b29464bfb3b1fdcf",
+      "bytes": 3400,
       "layer": "hansa-redesign/2026-11-08",
       "attribution": "redesign-stage-B-C",
-      "note": "Hansa redesign (plan §4/§12): the root page branches on the HOME_V2 build flag — unset renders the accepted R3-R6 landing unchanged, set renders the timeline Home with the fail-closed day ledger and the server-rendered sr-only day list. JSON-LD, metadata and the default-off behavior are unchanged."
+      "note": "Hansa redesign (plan §4/§12): the root page branches on the HOME_V2 build flag — unset renders the accepted R3-R6 landing unchanged, set renders the timeline Home with the fail-closed day ledger. The sr-only day list moved into the client shell so the root route file stays free of its own markup (canonical-home guard); that intermediate state (5295064e...) never shipped. JSON-LD, metadata and the default-off behavior are unchanged."
     }
   ],
   "additions": [],

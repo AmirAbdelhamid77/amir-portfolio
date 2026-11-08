@@ -6,6 +6,7 @@
 // (/day/[date], Stage D). Dates, titles, topics and review statuses come from
 // the existing fail-closed insight feed — nothing is invented.
 
+import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useCallback, useEffect } from "react";
 import { Timeline } from "@/components/hansa/day-timeline";
@@ -87,6 +88,20 @@ export function TimelineHome({ days, defaultDay }: { days: DayLedgerDay[]; defau
           announce={announce}
           aria-label="Daily insight timeline"
         />
+        {/* Day list (plan §12): every day reachable as a link in the
+            prerendered HTML, independent of the timeline's JavaScript. */}
+        <nav aria-label="All days" className="sr-only">
+          <ul>
+            {days.map((day) => (
+              <li key={day.date}>
+                <Link href={`/day/${day.date}/`}>
+                  {day.date} — {day.insights.length}{" "}
+                  {day.insights.length === 1 ? "insight" : "insights"}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </nav>
       </div>
     </div>
   );

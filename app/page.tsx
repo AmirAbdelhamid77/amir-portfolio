@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import { HansaKnowledgeLanding } from "@/components/knowledge/hansa-landing";
 import { TimelineHome } from "@/components/hansa/timeline-home";
 import { getDays, newestDayOnOrBeforeToday } from "@/lib/knowledge/day-ledger";
@@ -90,22 +89,6 @@ export default function HomePage() {
       ) : (
         <HansaKnowledgeLanding />
       )}
-      {/* Server-rendered day list (plan §12): every day is reachable as a link
-          in the HTML, independent of the timeline's JavaScript. */}
-      {HOME_V2 ? (
-        <nav aria-label="All days" className="sr-only">
-          <ul>
-            {DAYS.map((day) => (
-              <li key={day.date}>
-                <Link href={`/day/${day.date}/`}>
-                  {day.date} — {day.insights.length}{" "}
-                  {day.insights.length === 1 ? "insight" : "insights"}
-                </Link>
-              </li>
-            ))}
-          </ul>
-        </nav>
-      ) : null}
     </>
   );
 }
