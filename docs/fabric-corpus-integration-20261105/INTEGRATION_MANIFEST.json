@@ -218,6 +218,24 @@
       "layer": "release-v1/2026-11-08",
       "attribution": "learn-graph-entry",
       "note": "Learn hub hero gains one ghost action, 'Knowledge map', opening /prototype/network/ — the owner-mandated Learn-to-Graph entry point (mission 2026-11-08, branch feat/learn-graph-map, commit 43a0d8c). The M0 addition record for this file is superseded by this pin; no other hero action, stat or section changed."
+    },
+    {
+      "path": "app/globals.css",
+      "previousSha256": "0ce9b77e04656e57c4c4492b5d88a1419e39efe12da3572f13c0aaddce018d7f",
+      "sha256": "37dad88ae7c35885f208ba525b55012cecdd78d618b7cadaed43c976a702b299",
+      "bytes": 19339,
+      "layer": "hansa-redesign/2026-11-08",
+      "attribution": "redesign-stage-B",
+      "note": "Hansa redesign (branch feat/hansa-redesign, plan §7/§8): adds the four motion duration tokens (--dur-fast/--dur-layer/--dur-intro/--ease-layer) and the body[data-home-v2] rule that suppresses the shared site header/footer while the flagged timeline shell is mounted. No existing token, palette or theme value changed; the rule is inert unless the redesign flag mounts the shell."
+    },
+    {
+      "path": "app/page.tsx",
+      "previousSha256": "330e27379731956b3d3175c58422b0a5fcf5df209818607439e1fc4cc76e9dc5",
+      "sha256": "5295064ec0b02e755bc9ceb32b547042415360ecf9441ad902a1d6bf7edca3e9",
+      "bytes": 4025,
+      "layer": "hansa-redesign/2026-11-08",
+      "attribution": "redesign-stage-B-C",
+      "note": "Hansa redesign (plan §4/§12): the root page branches on the HOME_V2 build flag — unset renders the accepted R3-R6 landing unchanged, set renders the timeline Home with the fail-closed day ledger and the server-rendered sr-only day list. JSON-LD, metadata and the default-off behavior are unchanged."
     }
   ],
   "additions": [],
