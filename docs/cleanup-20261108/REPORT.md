@@ -11,6 +11,7 @@ The [integration checklist](NEXT_INTEGRATION.md) separates genuinely unfinished 
 ## Evidence
 
 - Baseline main: `28e1f8fcf0a7a3f117d28a1a1549eb248fb7845f`; working tree clean before this follow-up.
+- Local implementation commit: `7c6b1d1` on `main` (32 files, +2,676/−30). Working tree clean. No push or deployment was performed.
 - Commit `901eb2db9e4b93a2bc426649d72c9786acaae96b` changed only the two deployment workflows: removed the push/main trigger and inserted the explanatory pause comment; manual dispatch stayed enabled.
 - `DEPLOYMENT_PAUSE_RECEIPT.json` names both exact historical before/after SHA-256 pairs. `scripts/deployment-pause-receipt.mjs` binds the predecessor hashes to both original preservation baselines and independently reverses only that exact textual change. It must recover the original hash; merely editing and rehashing another workflow change cannot pass.
 - The existing `knowledgeStageReceipt` delegates its final hash lookup to this narrowly scoped receipt and exposes its evidence paths to disposable negative-test views. Unknown paths/hashes are not advanced. Historical manifests/baselines are unchanged.
@@ -51,7 +52,7 @@ The [integration checklist](NEXT_INTEGRATION.md) separates genuinely unfinished 
 | `docs/cleanup-20261108/NEXT_INTEGRATION.md` | Protected-source ledger, curation corrections, atomic work and release gates |
 | `docs/cleanup-20261108/REPORT.md` | This handoff |
 
-Question data, answer keys, media bytes, persistence contracts, hosting configuration and workflows are unchanged by the navigation pass. `next.config.ts` and `package-lock.json` remain covered by the exact runtime-transition receipt, not re-edited here. No specialist library was added; no new dependency, service, cost or third-party transfer. The two UI fixes are markup and CSS only. The existing `F:` bundle covers the committed baseline, **not these new uncommitted maintenance files**, and `F:` was not mounted at the end of this pass.
+Question data, answer keys, media bytes, persistence contracts, hosting configuration and workflows are unchanged by the navigation pass. `next.config.ts` and `package-lock.json` remain covered by the exact runtime-transition receipt, not re-edited here. No specialist library was added; no new dependency, service, cost or third-party transfer. The two UI fixes are markup and CSS only. The existing `F:` bundle covers `28e1f8f`, **not implementation commit `7c6b1d1`**, and `F:` was not mounted at the end of this pass. The backup refresh is therefore BLOCKED until the drive is reconnected or an alternative backup location is approved.
 
 ## Verification
 
@@ -79,4 +80,4 @@ Next atomic task: decide how the historical Atlas/EasyUI gates should treat the 
 
 Deployment capacity is a separate owner decision. Cloudflare Workers Free allows 20,000 static files per version; this export is 29,061. Workers Paid (currently $5/month) raises the limit to 100,000 and preserves every prefetch payload. The measured free prune leaves 19,555 files but makes `_full`/`__PAGE__` prefetch requests return 404 and leaves only 445 files of headroom. Moving the 9,572 corpus media files to R2, or splitting the 16,302-file docs section across a second Worker, are free alternatives but change the current assets-only architecture and need a custom-domain/routing review. Separately, the Fabric corpus contract requires `FABRIC_CORPUS_BUILD_DIR` and the gitignored `public/fabric-*` outputs; a clean GitHub checkout cannot reproduce this export without provisioning them. None of these options is chosen here.
 
-Rollback: remove `components/learn/collection-shelf.tsx` and `lib/recovery/navigation.ts`, revert their four integration points, and revert the two UI fixes. The receipt, audit, ledger, tests and cleanup evidence can be removed independently. No historical baseline, question bank, media file or workflow was modified. These changes remain local and uncommitted; no push or deployment was performed.
+Rollback: remove `components/learn/collection-shelf.tsx` and `lib/recovery/navigation.ts`, revert their four integration points, and revert the two UI fixes. The receipt, audit, ledger, tests and cleanup evidence can be removed independently. No historical baseline, question bank, media file or workflow was modified. These changes are committed locally as `7c6b1d1`; no push or deployment was performed.

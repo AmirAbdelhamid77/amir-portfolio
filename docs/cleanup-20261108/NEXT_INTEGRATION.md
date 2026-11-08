@@ -34,7 +34,7 @@ Counts above are structural evidence from inspected data/curation ledgers and th
 
 ## Push/deploy gates — later, not executed here
 
-- Review the complete diff and confirm the chosen branch/commit; refresh the verified backup after new source changes are accepted. The existing F: bundle covers `28e1f8f`, not subsequent uncommitted maintenance.
+- Review the complete diff and confirm the chosen branch/commit; refresh the verified backup after new source changes are accepted. The existing F: bundle covers `28e1f8f`, not implementation commit `7c6b1d1`; the backup drive was not mounted at the end of this pass.
 - Run reference/preservation gates, relevant tests and a fresh static export. The current full-suite baseline is 652 passed, 0 failed (no skipped tests); the build produced 3,182 pages and the export measured 29,061 files. This is **not** a deployment certification, and the historical Atlas/EasyUI verifiers still stop at the 171-file baseline gap.
 - Verify the external corpus build-directory contract, media availability/rights, alias generation, search shards, canonical/base-path settings and actual target hosting capacity. Do not assume ignored media exists in CI/GitHub.
 - Confirm intended hosting target, secrets configured privately, costs and rollback artifact; no automatic workflow trigger activation as part of cleanup.
