@@ -12,7 +12,7 @@ The Fabric corpus is no longer served stale. The previous search corpus predated
 
 ## Evidence
 
-- Baseline `main`: `28e1f8fcf0a7a3f117d28a1a1549eb248fb7845f`. Split-Worker implementation commit: `ba329c4` (C1, 21 files). Follow-up release commit: recorded in [NEXT_INTEGRATION.md](NEXT_INTEGRATION.md). Working tree contains the follow-up changes; no push, no deploy.
+- Baseline `main`: `28e1f8fcf0a7a3f117d28a1a1549eb248fb7845f`. Split-Worker implementation commit: `ba329c4` (C1, 21 files). Release follow-up commit: `6cb21b2c79bb914aa58ecd81b2985873a03b9183` (C2, 18 files); this handoff is committed on top. No push, no deploy.
 - `wrangler.jsonc` remains byte-identical to `2fe33f6` (`ee60e9418b9bc043c284dc79dadbcc01ae2103865e9950ec58fdf8e3b6f3d380`). The split config lives in `wrangler.gateway.jsonc` and `wrangler.docs.jsonc`.
 - `.github/workflows/deploy-cloudflare.yml` is byte-identical to its paused historical state and stays covered by `DEPLOYMENT_PAUSE_RECEIPT.json`. The new `.github/workflows/deploy-split-workers.yml` is `workflow_dispatch` only, requires the operator to type `DEPLOY`, and has no push or schedule trigger.
 - **Full export:** 29,235 files / 3,124,948,414 bytes (2,980.18 MiB). Docs section: 16,302 files / 745,979,238 bytes. No file exceeds 25 MiB; the largest is `fabric-docs-assets/data-science/media/data-agent-ontology-as-context/export-ontology-context.gif` at 25,470,479 bytes. Segment aliases: 19,056 files (3,177 `index.html`, 3,176 `index.txt`/`_full`/`_tree`, 3,175 nested `__PAGE__.txt`, 3,176 flat aliases).
@@ -37,6 +37,7 @@ The Fabric corpus is no longer served stale. The previous search corpus predated
 | `scripts/provision-fabric-corpus.mjs` | Writes and asserts the 174 alias pages; `--clean` clears the alias root; `--compare` checks assets, aliases and search |
 | `tools/fabric-corpus/route-registry/write-alias-routes.mjs` | Honors `FABRIC_PUBLIC_ROOT` so provisioning is root-relative instead of worktree-relative |
 | `scripts/build-runtime-additions-receipt.mjs` | Seventh reviewed wave for the split-Worker tests and receipt loader |
+| `scripts/knowledge-stage-receipt.mjs` | Resolve the terminal hop's bytes for a path pinned more than once, so the audited README chain passes the size check without touching historical pins |
 | `tests/content/runtime-additions.test.mjs` | Sandbox mutators edit the receipt in place without returning a new object |
 | `docs/preservation-history/2026-11-08/RUNTIME_ADDITIONS.json` | 173 reviewed post-baseline runtime files in 7 waves, exact bytes and introducing commits |
 | `docs/fabric-corpus-integration-20261105/INTEGRATION_MANIFEST.json` | Append-only README pin advance `60029eac…` → `6655303c…`; no historical layer edited |
@@ -58,6 +59,7 @@ Generated outputs (`out/`, `out-main/`, `out-docs/`, `public/fabric-*`, `.wrangl
 | `node scripts/verify-knowledge-atlas.mjs` | PASS: 16 upstream payload hashes, 33 integration hashes, 23 links, 90 relocations; 5 successor changes, 4 transitions, 173 additions |
 | `node scripts/verify-easyui-integration.mjs` | PASS: 41 owned hashes, 1,169 prior-file contracts, 173 reviewed additions, protected contracts |
 | `node scripts/verify-preservation-history.mjs` | PASS: 90 exact relocations, 23 registry captures, 6 corruption/waiver rejection cases |
+| `node scripts/verify-agent-reference.mjs` | PASS: 13 active hashes, entry paths, router v1.1, rubric weights, 6 available intake hashes. Terminal-hop size resolution accepts the audited README chain without editing the historical package pin |
 | `node --test scripts/deployment-pause-negative.mjs` | PASS 7/7 |
 | `node scripts/build-runtime-additions-receipt.mjs --check` | PASS: receipt matches disk and Git provenance |
 | `npm run test:fabric-corpus` | PASS 237/237 |
@@ -77,7 +79,7 @@ Generated outputs (`out/`, `out-main/`, `out-docs/`, `public/fabric-*`, `.wrangl
 ## Capacity, backup and rollback
 
 - Workers Free allows 20,000 static files per version. The split leaves 3,630 files of headroom on docs and 7,133 on main. No paid plan, R2 bucket, custom domain or new backend is required.
-- The `F:` drive is mounted (25,180,360,704 bytes used, 5,847,998,464 free). Its current bundle covers `28e1f8f`; a refreshed bundle of the local release commits is required before push.
+- The `F:` drive is mounted (25,180,360,704 bytes used, 5,847,998,464 free). Its pre-release bundle covers `28e1f8f`; the release commits `ba329c4` + `6cb21b2` are bundled separately before push, with the path recorded in the backup receipt on that drive.
 - Roll back either Worker independently: `npx wrangler rollback --config wrangler.docs.jsonc` or `npx wrangler rollback --config wrangler.gateway.jsonc`. The historical single-Worker workflow must not be dispatched for this release.
 - To rebuild from source: provision the corpus from the pinned revision (`npm run corpus:provision`), run `npm run build`, then `npm run build:workers`. Delete `out-main/` and `out-docs/` before a rebuild because Next typechecks the generated worker chunks.
 
