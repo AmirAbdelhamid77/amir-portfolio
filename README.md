@@ -224,8 +224,8 @@ Workers so each version stays under the 20,000-file Free limit:
 
 | Worker | Serves | Files |
 | --- | --- | --- |
-| `hansa-docs` | `/learn/fabric/**` documentation tree | 16,370 |
-| `hansa` | public hostname; every other route plus the docs gateway | 12,867 |
+| `hansa-docs` | `/learn/fabric/**` documentation tree | 13,642 |
+| `hansa` | public hostname; every other route plus the docs gateway | 12,420 |
 
 `workers/gateway.mjs` forwards `/learn/fabric` and `/learn/fabric/*` to the
 `hansa-docs` service binding. Every other request is served directly from the
@@ -235,7 +235,10 @@ alias and anchor are unchanged.
 | Setting | Value |
 | --- | --- |
 | Live URL | <https://hansa.amir-portfolio.workers.dev/> |
+| Docs Worker URL | <https://hansa-docs.amir-portfolio.workers.dev/> |
 | Account ID | `b84c4bfbf06e399ceb5f5267f87cb37e` |
+| Deployed docs version | `24cc0da9-7a9b-47b1-a1cf-61687c4a0a55` |
+| Deployed gateway version | `2b96e415-141b-4bc8-b52e-00f6391acd02` |
 | Main asset directory | `./out-main` |
 | Docs asset directory | `./out-docs` |
 | HTML handling | `auto-trailing-slash` |
@@ -274,6 +277,12 @@ npm run deploy:main
 the 20,000-file limit on each. Deploy docs first; the gateway forwards to it.
 `npm run deploy` runs the whole sequence.
 
+The `postbuild` step writes the flat RSC payload names the client router asks
+for (3,175 files) and removes the 3,175 nested `__next.*` originals those
+aliases duplicate. That leaves a 26,060-file `out/`; the raw Next export before
+the step is 29,235 files. Keep the step: deploying both copies stalled the
+Workers asset manifest and wasted upload bandwidth.
+
 Because Next typechecks the repository, a rebuild must start from a checkout
 without the generated split trees: run `npm run build` before `build:workers`,
 or delete `out-main/` and `out-docs/` before rebuilding. The split trees are
@@ -308,10 +317,17 @@ the pinned corpus revision, provisions the asset, alias and search trees, runs
 the preservation receipts and content tests, lints, builds, splits, and deploys
 `hansa-docs` then the `hansa` gateway. No push or schedule trigger exists.
 
+The first dispatched run (`42658023133`) failed during corpus provisioning before
+any credential was read: Linux checked out LF while the FC02 ledger pins CRLF
+worktree hashes. The workflow now sets `core.autocrlf true` before checkout.
+The current release was deployed locally with the existing Wrangler OAuth
+session because the repository has no Actions secrets; a fresh CI run is still
+unvalidated.
+
 `.github/workflows/deploy-cloudflare.yml` is the historical single-Worker
 workflow, preserved byte-for-byte by
 `docs/cleanup-20261108/DEPLOYMENT_PAUSE_RECEIPT.json`. Do not dispatch it after
-the split release: its 29,235-file `out/` exceeds the Free limit.
+the split release: its 26,060-file `out/` still exceeds the Free limit.
 `fabric-corpus-release.yml` remains a deploy-free dry-run package.
 
 Add these repository secrets:
@@ -319,9 +335,10 @@ Add these repository secrets:
 - `CLOUDFLARE_API_TOKEN` - least privilege: **Workers Scripts: Edit** for both Workers
 - `CLOUDFLARE_ACCOUNT_ID` - `b84c4bfbf06e399ceb5f5267f87cb37e`
 
-Optional repository variables: `NEXT_PUBLIC_SITE_URL` and
-`NEXT_PUBLIC_CONTACT_ENDPOINT`. The older GitHub Pages workflow
-(`.github/workflows/deploy.yml`) is not used by this host.
+Both were absent at release time (`total_count=0`), so the workflow cannot deploy
+until the owner adds them. Optional repository variables:
+`NEXT_PUBLIC_SITE_URL` and `NEXT_PUBLIC_CONTACT_ENDPOINT`. The older GitHub Pages
+workflow (`.github/workflows/deploy.yml`) is not used by this host.
 
 ### Caching and headers
 

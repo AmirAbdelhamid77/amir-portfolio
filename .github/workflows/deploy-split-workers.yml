@@ -1,11 +1,11 @@
 name: Deploy split Workers
 
 # Builds the reviewed static export and deploys the split Worker pair:
-#   hansa-docs  the /learn/fabric/** documentation tree (16,370 files)
+#   hansa-docs  the /learn/fabric/** documentation tree (13,642 files)
 #   hansa       the public hostname; everything else plus the docs gateway
 #
 # Why two Workers: Workers Free allows 20,000 static files per version. The
-# full export is 29,235 files, so the docs subtree ships separately and the
+# postbuild export is 26,060 files, so the docs subtree ships separately and the
 # gateway reaches it through the DOCS service binding. Every public URL is
 # unchanged. See docs/cleanup-20261108/REPORT.md.
 #
@@ -16,7 +16,7 @@ name: Deploy split Workers
 #   deploy-cloudflare.yml  historical single-Worker deploy, left byte-identical
 #                          because docs/cleanup-20261108/DEPLOYMENT_PAUSE_RECEIPT.json
 #                          pins its paused bytes. Do not dispatch it after this
-#                          split release is live: it would publish ./out (29,235
+#                          split release is live: it would publish ./out (26,060
 #                          files) over `hansa` and exceed the Free limit.
 #   fabric-corpus-release.yml  deploy-free dry-run packaging; unchanged.
 #

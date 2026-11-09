@@ -1,12 +1,13 @@
 {
-  "measuredAt": "2026-11-09T15:09:01.772Z",
+  "measuredAt": "2026-11-09T20:15:16.899Z",
   "root": "out",
+  "stage": "postbuild: flat RSC aliases written, nested __next.* originals pruned",
   "buildId": "hansa-static-export",
-  "totalFiles": 29235,
-  "totalBytes": 3124948414,
-  "totalMiB": 2980.183,
+  "totalFiles": 26060,
+  "totalBytes": 2982830901,
+  "totalMiB": 2844.649,
   "countByExt": {
-    ".txt": 15880,
+    ".txt": 12705,
     ".png": 9129,
     ".html": 3377,
     ".jpg": 312,
@@ -20,14 +21,15 @@
     ".css": 12,
     ".webp": 10,
     ".jpeg": 7,
-    "(none)": 2,
+    "(none)": 1,
     ".xml": 1,
     ".map": 1,
-    ".ts": 1
+    ".ts": 1,
+    ".nojekyll": 1
   },
   "bytesByExt": {
     ".png": 1776814086,
-    ".txt": 584301089,
+    ".txt": 442183576,
     ".html": 344389406,
     ".gif": 275465725,
     ".jpg": 87621853,
@@ -43,22 +45,41 @@
     ".xml": 72325,
     ".ts": 3344,
     "(none)": 995,
-    ".map": 53
+    ".map": 53,
+    ".nojekyll": 0
   },
   "segment": {
-    "files": 19056,
+    "files": 15880,
     "indexHtml": 3177,
     "indexTxt": 3176,
     "full": 3176,
     "tree": 3176,
-    "nestedPage": 3175,
-    "flatPage": 3176
+    "flatPage": 3175,
+    "nestedPage": 0
   },
   "docs": {
-    "files": 16302,
+    "files": 13640,
     "articles": 2717,
-    "bytes": 745979238,
-    "MiB": 711.421
+    "bytes": 662854976,
+    "MiB": 632.148
+  },
+  "split": {
+    "docs": 13642,
+    "main": 12420,
+    "shared": 2,
+    "source": 26060,
+    "workersFreeLimit": 20000
+  },
+  "prunedNested": {
+    "directories": 3175,
+    "files": 3175,
+    "bytes": 142117513,
+    "MiB": 135.534
+  },
+  "rawExport": {
+    "files": 29235,
+    "bytes": 3124948414,
+    "totalMiB": 2980.183
   },
   "oversized": [],
   "largestFile": {
