@@ -1,0 +1,1135 @@
+{
+  "scope": "reviewed-runtime-additions-after-preservation-baselines",
+  "date": "2026-11-08",
+  "reason": "Every entry is a committed runtime file introduced after both frozen preservation baselines. Each is pinned to its exact bytes and introducing commit; no baseline path, generated corpus root or restricted source is covered.",
+  "baselines": [
+    "docs/design-system/easyui-v2/PRESERVATION_BASELINE.json",
+    "docs/knowledge-atlas/PRESERVATION_BASELINE.json"
+  ],
+  "generatedRoots": [
+    "public/fabric-aliases/",
+    "public/fabric-docs-assets/",
+    "public/fabric-search/"
+  ],
+  "waves": [
+    {
+      "id": "home-day-and-archive",
+      "title": "Timeline home, fail-closed day ledger and archive fallback",
+      "review": "Reviewed in the cleanup-20261108 audit: the timeline Home shell, fail-closed day ledger, day routes and the archive fallback are the owner-authorized release-default Home. No recovered source body, question bank or media was rewritten.",
+      "commits": [
+        "026f4a750ca3587586810f90943bef2ff338c868",
+        "8c72012635564cf5c28c854e76c2c9bc36175eb3",
+        "c2949624324da38fd90c75b13fcfe8cff70eaba6"
+      ],
+      "files": [
+        {
+          "path": "app/archive/page.tsx",
+          "bytes": 703,
+          "sha256": "d4c4c7c48b6bf61e875b7aa006d3df3265c65380c80ac7f42b0fd61edd074287",
+          "commit": "026f4a750ca3587586810f90943bef2ff338c868"
+        },
+        {
+          "path": "app/day/[date]/[insightId]/page.tsx",
+          "bytes": 3749,
+          "sha256": "a050b4191c7e0c3640604fd5c58868dda0f55a9e511525d47ba74c99490b3912",
+          "commit": "c2949624324da38fd90c75b13fcfe8cff70eaba6"
+        },
+        {
+          "path": "app/day/[date]/page.tsx",
+          "bytes": 3576,
+          "sha256": "58771513d0d774a07a46215a06c977337e36296718264c1422c991a8fe4d670d",
+          "commit": "c2949624324da38fd90c75b13fcfe8cff70eaba6"
+        },
+        {
+          "path": "components/hansa/day-dealer.tsx",
+          "bytes": 2923,
+          "sha256": "970ee8546e48630ef485a9880b617c819e6f81f307a0d4ebcea75393b375b343",
+          "commit": "c2949624324da38fd90c75b13fcfe8cff70eaba6"
+        },
+        {
+          "path": "components/hansa/day-media.tsx",
+          "bytes": 1698,
+          "sha256": "405d595a49af70e84ff25b08e619a1620ad4eec5fde567a57ab195ce7e8b8de8",
+          "commit": "8c72012635564cf5c28c854e76c2c9bc36175eb3"
+        },
+        {
+          "path": "components/hansa/day-timeline.tsx",
+          "bytes": 29212,
+          "sha256": "2282c03ff249c65e09ff6a0ddeca0483e927d254b85f475ffc471d89e80b7531",
+          "commit": "8c72012635564cf5c28c854e76c2c9bc36175eb3"
+        },
+        {
+          "path": "components/hansa/insight-detail-scene.tsx",
+          "bytes": 1394,
+          "sha256": "429134f20debec714516c1a1fb86d0bd698b18d55404c2e77087a3992df68939",
+          "commit": "c2949624324da38fd90c75b13fcfe8cff70eaba6"
+        },
+        {
+          "path": "components/hansa/island-nav.tsx",
+          "bytes": 6088,
+          "sha256": "e88f89026cfa0fdf79bb23d8b1104100fa5d83015ecdc8bb05682e822e0637c8",
+          "commit": "026f4a750ca3587586810f90943bef2ff338c868"
+        },
+        {
+          "path": "components/hansa/layer-shell.tsx",
+          "bytes": 1700,
+          "sha256": "6d8542c1f768e1f45efa30c38090a24a03c400a871ac1411ab19dc06561f0b99",
+          "commit": "c2949624324da38fd90c75b13fcfe8cff70eaba6"
+        },
+        {
+          "path": "components/hansa/timeline-home.tsx",
+          "bytes": 3834,
+          "sha256": "aab912e393395ee58554a446e0c5792ec8223b497b73c37912150b1835f80bdf",
+          "commit": "026f4a750ca3587586810f90943bef2ff338c868"
+        },
+        {
+          "path": "components/motion/card-dealer.tsx",
+          "bytes": 11428,
+          "sha256": "3ddd12c4bad3600b38d9f7261a86db9d5f29fb3c8bdd31d05209cac2530e8373",
+          "commit": "c2949624324da38fd90c75b13fcfe8cff70eaba6"
+        },
+        {
+          "path": "lib/knowledge/day-ledger.ts",
+          "bytes": 2368,
+          "sha256": "ee24edef3e93b486d901cff28e4a0ad811b2c5d9cded9cb6002af886aee9f928",
+          "commit": "026f4a750ca3587586810f90943bef2ff338c868"
+        }
+      ]
+    },
+    {
+      "id": "fabric-corpus-compiler-and-search",
+      "title": "Fabric corpus compiler, route registry, search and bindings",
+      "review": "Reviewed against the docs/fabric-corpus contracts: the compiler, route registry, search shards, bindings and their tests are reproducible tooling. Generated corpus outputs stay outside Git and are not pinned here.",
+      "commits": [
+        "1ded03b57e5566d51c3bc3e8c588bb18a6c7effe",
+        "a138f7f3874c5ea5dcec916ef99609204642d0b1",
+        "a9d0d2b64b450a6b91b59ea40f0f0944c519189b",
+        "ae34717deac8d4b3b45458f82d030ec6b047a8ec",
+        "b46048aeb107b7ce41825c34f27f0a87919c038d",
+        "e35724cd31a6713d8a8088b3580c5c4d496aaf71",
+        "65a92aaf2a45bd2ddc6905458896867966f07230",
+        "fa802ab67c7a2195a72c1509e9c3b7f586bbe23b"
+      ],
+      "files": [
+        {
+          "path": "app/learn/fabric/docs/[family]/[...article]/page.tsx",
+          "bytes": 3699,
+          "sha256": "37136f60acf871f1b7997b3bd22a2b108e1ffcc87417ad84a88544e06d88733a",
+          "commit": "e35724cd31a6713d8a8088b3580c5c4d496aaf71"
+        },
+        {
+          "path": "app/learn/fabric/docs/page.tsx",
+          "bytes": 5126,
+          "sha256": "4facff8da6368d68dec88eac1a6828234de4720f45b1bb68ff9893e9311fadf5",
+          "commit": "e35724cd31a6713d8a8088b3580c5c4d496aaf71"
+        },
+        {
+          "path": "app/search/search-with-fabric.tsx",
+          "bytes": 11895,
+          "sha256": "151ba8deb756d19817fe0a78fe9d1ba46b428b726d4b31a40ebb58ecc27adfef",
+          "commit": "fa802ab67c7a2195a72c1509e9c3b7f586bbe23b"
+        },
+        {
+          "path": "components/fabric/article/ArticleBody.tsx",
+          "bytes": 21870,
+          "sha256": "e34cd15c9b142df45bc74b556c95075ec6baae065359ff57d7c89d7ce8e17d13",
+          "commit": "e35724cd31a6713d8a8088b3580c5c4d496aaf71"
+        },
+        {
+          "path": "components/fabric/article/DocsHeader.tsx",
+          "bytes": 1707,
+          "sha256": "e559e2a04dc52a55292f6a6b6ebfa3eed12f5deb02ea1f71541a1b684d0cc1e2",
+          "commit": "e35724cd31a6713d8a8088b3580c5c4d496aaf71"
+        },
+        {
+          "path": "components/fabric/article/ProvenanceFooter.tsx",
+          "bytes": 2836,
+          "sha256": "0a9b6d861ce879484b5a3dc9f48277752c00e2f153ac97a6f16d34d49b0a203c",
+          "commit": "e35724cd31a6713d8a8088b3580c5c4d496aaf71"
+        },
+        {
+          "path": "components/fabric/article/decisions.ts",
+          "bytes": 12579,
+          "sha256": "76bc3a884044e02825fa07600e6efec9cec41bb66bdbc0ad5528a940adb9f4b3",
+          "commit": "e35724cd31a6713d8a8088b3580c5c4d496aaf71"
+        },
+        {
+          "path": "components/fabric/reading/ReadingCollections.tsx",
+          "bytes": 5611,
+          "sha256": "7412f8ad79fd74e56b5c10478b167a31f1583f8506c8aea431da39d6c39fec7e",
+          "commit": "65a92aaf2a45bd2ddc6905458896867966f07230"
+        },
+        {
+          "path": "content/fabric/bindings/build-bindings.mjs",
+          "bytes": 29712,
+          "sha256": "446a4c6ccf9750121ba1e3fa59c56f57895ab169814151e9a5d1ed82043cd7a8",
+          "commit": "65a92aaf2a45bd2ddc6905458896867966f07230"
+        },
+        {
+          "path": "content/fabric/bindings/primary.json",
+          "bytes": 2154904,
+          "sha256": "bf54cd6b52d005d991731b4b00b845c950d759619a46f36aeea1152f9a520797",
+          "commit": "65a92aaf2a45bd2ddc6905458896867966f07230"
+        },
+        {
+          "path": "content/fabric/bindings/secondary.json",
+          "bytes": 83300,
+          "sha256": "942bc6fd5cd501552ca183fe6ac769392757b97726759d370a7ed14f55a7da04",
+          "commit": "65a92aaf2a45bd2ddc6905458896867966f07230"
+        },
+        {
+          "path": "content/fabric/collections/collections.json",
+          "bytes": 274247,
+          "sha256": "e33e9362a035a68ef9e01a65d6cb559525daea38af827ad37b8eb45e15e6d7d4",
+          "commit": "65a92aaf2a45bd2ddc6905458896867966f07230"
+        },
+        {
+          "path": "lib/fabric/articles/article-data.ts",
+          "bytes": 7843,
+          "sha256": "8302a9c0c7ef636b145561df24f48fba1b8e81176c0adb778805a62a5030fc9f",
+          "commit": "e35724cd31a6713d8a8088b3580c5c4d496aaf71"
+        },
+        {
+          "path": "lib/fabric/articles/registry.ts",
+          "bytes": 8220,
+          "sha256": "5e0260e19d65156655cb4230ef0b7618263d9166dca9d4481235f96744ec5c70",
+          "commit": "e35724cd31a6713d8a8088b3580c5c4d496aaf71"
+        },
+        {
+          "path": "lib/fabric/bindings.ts",
+          "bytes": 22176,
+          "sha256": "aa8a3b414d82efa74bce51170b76a76c0a4c6b5289149de80270d99c549ad88c",
+          "commit": "65a92aaf2a45bd2ddc6905458896867966f07230"
+        },
+        {
+          "path": "lib/fabric/paths.ts",
+          "bytes": 20403,
+          "sha256": "3293b05bfe9cac586decfccc89b27a3aec3852178518a89e89a3085381f889bc",
+          "commit": "b46048aeb107b7ce41825c34f27f0a87919c038d"
+        },
+        {
+          "path": "lib/search/fabric-scorer.ts",
+          "bytes": 10753,
+          "sha256": "a585e2b2076484bc956ca862f22c4e88b95e0480ce5b61398b0b267731ec66a6",
+          "commit": "fa802ab67c7a2195a72c1509e9c3b7f586bbe23b"
+        },
+        {
+          "path": "lib/search/fabric-shards.ts",
+          "bytes": 15807,
+          "sha256": "f9001c46356c51e350805a3aa67019d3d2ed5b7d7a2cf46b3b09209093ce81a3",
+          "commit": "fa802ab67c7a2195a72c1509e9c3b7f586bbe23b"
+        },
+        {
+          "path": "lib/search/fabric-worker-client.ts",
+          "bytes": 3982,
+          "sha256": "c0e2801846ef6945f11face4d090ac4f5ae1bdb66afc5ddc5cd766dcf59478a1",
+          "commit": "fa802ab67c7a2195a72c1509e9c3b7f586bbe23b"
+        },
+        {
+          "path": "lib/search/fabric-worker.ts",
+          "bytes": 3344,
+          "sha256": "82a52dbc0837dac999f9b29aca77ce3cd99804037192e37c1479b2f84ebffb80",
+          "commit": "fa802ab67c7a2195a72c1509e9c3b7f586bbe23b"
+        },
+        {
+          "path": "tests/fabric-corpus/bindings/collections.test.mjs",
+          "bytes": 5374,
+          "sha256": "e11bf1998b51e1311cd674aa82f170f9a27262863fbbf37485474d41ac879ff3",
+          "commit": "65a92aaf2a45bd2ddc6905458896867966f07230"
+        },
+        {
+          "path": "tests/fabric-corpus/bindings/determinism.test.mjs",
+          "bytes": 2005,
+          "sha256": "64b6a2ae51b863872d9b2c3a3fc8570b51db31461c3a07446482b373e179b4fa",
+          "commit": "65a92aaf2a45bd2ddc6905458896867966f07230"
+        },
+        {
+          "path": "tests/fabric-corpus/bindings/helpers.mjs",
+          "bytes": 2475,
+          "sha256": "6be7fba4986f24750eca4d51612ffae1b71744e5c410991ebf7f2b00a989a57f",
+          "commit": "65a92aaf2a45bd2ddc6905458896867966f07230"
+        },
+        {
+          "path": "tests/fabric-corpus/bindings/loaders.test.mjs",
+          "bytes": 9025,
+          "sha256": "8f19a07dfa7b5cd13c5a7a6c7f325b696cab091fde2d4e77319b2b43b6e4383c",
+          "commit": "65a92aaf2a45bd2ddc6905458896867966f07230"
+        },
+        {
+          "path": "tests/fabric-corpus/bindings/primary.test.mjs",
+          "bytes": 5354,
+          "sha256": "eff73fb39f03ae4a0f4b0b38e9f7c200aae07b22be4508ed21e49b4030dd0df6",
+          "commit": "65a92aaf2a45bd2ddc6905458896867966f07230"
+        },
+        {
+          "path": "tests/fabric-corpus/bindings/secondary.test.mjs",
+          "bytes": 5047,
+          "sha256": "78c3b62e403a778229e2972b0da9e84d0494178730f4580b2b705d0ebeab86d7",
+          "commit": "65a92aaf2a45bd2ddc6905458896867966f07230"
+        },
+        {
+          "path": "tests/fabric-corpus/comparator/determinism.test.mjs",
+          "bytes": 4841,
+          "sha256": "e20c794c702c6c763198c7b2374c6f2a861177998807d3e0200f3f6fe993140d",
+          "commit": "a9d0d2b64b450a6b91b59ea40f0f0944c519189b"
+        },
+        {
+          "path": "tests/fabric-corpus/comparator/gates.test.mjs",
+          "bytes": 5063,
+          "sha256": "19ae743b9dd3804b40abb7b4536f5ab5ab6001b78f3042e2048957381ccbb6e8",
+          "commit": "a9d0d2b64b450a6b91b59ea40f0f0944c519189b"
+        },
+        {
+          "path": "tests/fabric-corpus/comparator/link-rules.test.mjs",
+          "bytes": 7866,
+          "sha256": "793b1a5b4991889c6e1a5aa99216c80070c38dc718d20963c2a28512521510a6",
+          "commit": "a9d0d2b64b450a6b91b59ea40f0f0944c519189b"
+        },
+        {
+          "path": "tests/fabric-corpus/compiler/dependency-manifest.test.mjs",
+          "bytes": 5126,
+          "sha256": "f2bcdcdc2eabfeb933658675bc1a33bf4a7e4695ce4fc2d1d2c7f39e519c005b",
+          "commit": "ae34717deac8d4b3b45458f82d030ec6b047a8ec"
+        },
+        {
+          "path": "tests/fabric-corpus/compiler/deps.test.mjs",
+          "bytes": 12463,
+          "sha256": "539e7c441927f299cc5a822e936b56d8401648d4efda2376e1db1377dd85e2d3",
+          "commit": "1ded03b57e5566d51c3bc3e8c588bb18a6c7effe"
+        },
+        {
+          "path": "tests/fabric-corpus/compiler/determinism.test.mjs",
+          "bytes": 1818,
+          "sha256": "f7ffb07315bac3e5b3697fbad0009e7a2bef6e2c4f8ee876960d3c6d83d54306",
+          "commit": "1ded03b57e5566d51c3bc3e8c588bb18a6c7effe"
+        },
+        {
+          "path": "tests/fabric-corpus/compiler/fixtures.test.mjs",
+          "bytes": 15407,
+          "sha256": "822601bc242af9820285023ea6a2d1f54d93e18dec8fcadaec67d395e95a123d",
+          "commit": "1ded03b57e5566d51c3bc3e8c588bb18a6c7effe"
+        },
+        {
+          "path": "tests/fabric-corpus/compiler/helpers.mjs",
+          "bytes": 7861,
+          "sha256": "3d7646dc05f9282dd09bddf0e9c9f7f2a26eb051571aef80280a9d67ba1cc1bf",
+          "commit": "1ded03b57e5566d51c3bc3e8c588bb18a6c7effe"
+        },
+        {
+          "path": "tests/fabric-corpus/compiler/parse.test.mjs",
+          "bytes": 13635,
+          "sha256": "92483f676475c75805a8edb4618133f10a3fb07e12995e8014990e2cfe4affd4",
+          "commit": "1ded03b57e5566d51c3bc3e8c588bb18a6c7effe"
+        },
+        {
+          "path": "tests/fabric-corpus/compiler/sanitize.test.mjs",
+          "bytes": 5168,
+          "sha256": "9f325d1f8b5af2c8649cbdcd3a2d63e4254cfbe7dd52a3c131131f1cc91f75c9",
+          "commit": "1ded03b57e5566d51c3bc3e8c588bb18a6c7effe"
+        },
+        {
+          "path": "tests/fabric-corpus/paths/paths.test.mjs",
+          "bytes": 19380,
+          "sha256": "be3e3937ed5ade087cd60a884589d19b3bb09e0864b7f36733818171ecbcc742",
+          "commit": "b46048aeb107b7ce41825c34f27f0a87919c038d"
+        },
+        {
+          "path": "tests/fabric-corpus/routes/collisions.test.mjs",
+          "bytes": 4820,
+          "sha256": "828b3d2dc4eeed2b4d041fd9bd129440bbb9a9c57a870a63da393f78ef4415d6",
+          "commit": "e35724cd31a6713d8a8088b3580c5c4d496aaf71"
+        },
+        {
+          "path": "tests/fabric-corpus/routes/decisions.test.mjs",
+          "bytes": 9821,
+          "sha256": "78f3ba185d3b2f08fc1465fc75518d8e28599bcce555c249f207716c04a1fe0b",
+          "commit": "e35724cd31a6713d8a8088b3580c5c4d496aaf71"
+        },
+        {
+          "path": "tests/fabric-corpus/routes/loaders.test.mjs",
+          "bytes": 5200,
+          "sha256": "ada1e3dc5b10b05b633c2997e88dca93d51969f890905c1bcdd9cb37cfae8d68",
+          "commit": "e35724cd31a6713d8a8088b3580c5c4d496aaf71"
+        },
+        {
+          "path": "tests/fabric-corpus/routes/registry.test.mjs",
+          "bytes": 7699,
+          "sha256": "7b835fde024b36c47c1a466a947b618bb4d9538f7b12959f6d5437c83a58a3b4",
+          "commit": "e35724cd31a6713d8a8088b3580c5c4d496aaf71"
+        },
+        {
+          "path": "tests/fabric-corpus/search/browser-worker.mjs",
+          "bytes": 2986,
+          "sha256": "fafa043283aa21a38fd82a813bfd4075f1829c3966ef9906156b9a6d6e90e691",
+          "commit": "ae34717deac8d4b3b45458f82d030ec6b047a8ec"
+        },
+        {
+          "path": "tests/fabric-corpus/search/determinism.test.mjs",
+          "bytes": 6285,
+          "sha256": "fe7bce2dc6c65d2fd5dcc8ef207a02b734ff5caca1ece082a0e3affa9c3582e8",
+          "commit": "fa802ab67c7a2195a72c1509e9c3b7f586bbe23b"
+        },
+        {
+          "path": "tests/fabric-corpus/search/exclusions.test.mjs",
+          "bytes": 5006,
+          "sha256": "66a8e69c04456d2e9e02c985a81878cb3687a96c42ac242bb70175dc93618958",
+          "commit": "fa802ab67c7a2195a72c1509e9c3b7f586bbe23b"
+        },
+        {
+          "path": "tests/fabric-corpus/search/fixtures/metadata-top10-fixture.json",
+          "bytes": 272372,
+          "sha256": "572f6268c489a11ef24dd13e2e717ff45dcb03f34e11017e09eb49eb61d52aca",
+          "commit": "fa802ab67c7a2195a72c1509e9c3b7f586bbe23b"
+        },
+        {
+          "path": "tests/fabric-corpus/search/helpers.mjs",
+          "bytes": 5417,
+          "sha256": "e34bd424ec6c4a4af82d88141dea3377766c3e43d30a4365fa22b3d8753511cb",
+          "commit": "fa802ab67c7a2195a72c1509e9c3b7f586bbe23b"
+        },
+        {
+          "path": "tests/fabric-corpus/search/merge.test.mjs",
+          "bytes": 5610,
+          "sha256": "461ac20021dfffb39fde0da94af005fdb5550a2230321216a32209670e541232",
+          "commit": "fa802ab67c7a2195a72c1509e9c3b7f586bbe23b"
+        },
+        {
+          "path": "tests/fabric-corpus/search/no-review-data.test.mjs",
+          "bytes": 4161,
+          "sha256": "4067efdac7ad984f75803c82808737dc1727bc281a73f62906373b9a594a3ec6",
+          "commit": "fa802ab67c7a2195a72c1509e9c3b7f586bbe23b"
+        },
+        {
+          "path": "tests/fabric-corpus/search/parity.test.mjs",
+          "bytes": 10343,
+          "sha256": "ccd2c2f4bb5d556afac2063714837c032522c6c917cb4b1c13e73009fad9beb8",
+          "commit": "fa802ab67c7a2195a72c1509e9c3b7f586bbe23b"
+        },
+        {
+          "path": "tests/fabric-corpus/search/partial.test.mjs",
+          "bytes": 11942,
+          "sha256": "df1bc2987b0e432aef1bffea2d78cba8bce06cebc4ecfeea654fbdcf868d30db",
+          "commit": "fa802ab67c7a2195a72c1509e9c3b7f586bbe23b"
+        },
+        {
+          "path": "tests/fabric-corpus/search/scorer.test.mjs",
+          "bytes": 6005,
+          "sha256": "2d2f489dbcbdebacd1a92c2715f06946279ceb26dac643554a6ff016671fa3a7",
+          "commit": "fa802ab67c7a2195a72c1509e9c3b7f586bbe23b"
+        },
+        {
+          "path": "tests/fabric-corpus/sync/closure.test.mjs",
+          "bytes": 8369,
+          "sha256": "63d1c7c84a58d7cf3eaad5e4d41353ed1bc3afd045aa64e06b62f8caa8504b21",
+          "commit": "a138f7f3874c5ea5dcec916ef99609204642d0b1"
+        },
+        {
+          "path": "tests/fabric-corpus/sync/helpers.mjs",
+          "bytes": 9149,
+          "sha256": "500889c99470f637cd3a576c831b69adc409b6b4d64dcf1991fd89ff74a0f107",
+          "commit": "a138f7f3874c5ea5dcec916ef99609204642d0b1"
+        },
+        {
+          "path": "tests/fabric-corpus/sync/mutation-manifest.test.mjs",
+          "bytes": 7460,
+          "sha256": "17e4792ef13d166540ba9820d94fe5e6566205867ec228ef9e194209e71f2892",
+          "commit": "a138f7f3874c5ea5dcec916ef99609204642d0b1"
+        },
+        {
+          "path": "tests/fabric-corpus/sync/release-candidate.test.mjs",
+          "bytes": 13747,
+          "sha256": "09deb0dcf7a96eb89da37b6f98cc2567c0ec8401657703cd3100d139363ac10c",
+          "commit": "a138f7f3874c5ea5dcec916ef99609204642d0b1"
+        },
+        {
+          "path": "tests/fabric-corpus/sync/sync-diff.test.mjs",
+          "bytes": 15404,
+          "sha256": "36aad7f1a7a26febed72626fdb826fb05420f8ff345c3c7e6eed097803d7e0a7",
+          "commit": "a138f7f3874c5ea5dcec916ef99609204642d0b1"
+        }
+      ]
+    },
+    {
+      "id": "atlas-records",
+      "title": "Fabric Atlas records, targets and isolation coverage",
+      "review": "Reviewed by the Atlas isolation and target tests: published-record projections, approvals and isolation coverage. No candidate or held record becomes public and no semantic edge, TOC hierarchy or progress state changed.",
+      "commits": [
+        "34a6240083beeff9b118aa0f6a301921771d0ae1",
+        "528ac20aededccdfd853da24eb71e0d08397e195",
+        "bbb001bab5e2ba8edbca2178153b002feca18f5b"
+      ],
+      "files": [
+        {
+          "path": "content/atlas/fabric-approvals.json",
+          "bytes": 88,
+          "sha256": "27ebda5941f8de365ad1c9d7ee13fa808f44fe34c285b6a8004abeb234a98e48",
+          "commit": "34a6240083beeff9b118aa0f6a301921771d0ae1"
+        },
+        {
+          "path": "content/atlas/fabric-extension.json",
+          "bytes": 1776398,
+          "sha256": "44357b6b1b8b88a5dd3d9df3ad7a9a18d924e36bd6da1557f4fc04db0e8172c5",
+          "commit": "528ac20aededccdfd853da24eb71e0d08397e195"
+        },
+        {
+          "path": "lib/atlas/fabric-approvals.ts",
+          "bytes": 34301,
+          "sha256": "d83cc6c75bc8c6a02f42a624b0ff1c5a826999223f45997d5dffb393cd3e37fd",
+          "commit": "34a6240083beeff9b118aa0f6a301921771d0ae1"
+        },
+        {
+          "path": "lib/atlas/fabric-targets.ts",
+          "bytes": 34978,
+          "sha256": "82de3baa23120198aa01a832241e6172506c7a63f9e8e89720155952f6fd99b7",
+          "commit": "528ac20aededccdfd853da24eb71e0d08397e195"
+        },
+        {
+          "path": "tests/atlas/fabric-approvals.test.mjs",
+          "bytes": 46196,
+          "sha256": "fa5b83a6968226620c4d9ac84434d8ac6b26fe1448c14b910926a05e0971b2f4",
+          "commit": "34a6240083beeff9b118aa0f6a301921771d0ae1"
+        },
+        {
+          "path": "tests/atlas/fabric-targets.test.mjs",
+          "bytes": 36384,
+          "sha256": "d82c3e771615c34bd36c3481be5a5cb7edef3dfca50fd3de02c3bae762441076",
+          "commit": "528ac20aededccdfd853da24eb71e0d08397e195"
+        },
+        {
+          "path": "tests/atlas/isolation.test.mjs",
+          "bytes": 20597,
+          "sha256": "1b25b022607cfe7fb7908bc511194501d2b51c752dca3430984973ff27b2f4df",
+          "commit": "bbb001bab5e2ba8edbca2178153b002feca18f5b"
+        }
+      ]
+    },
+    {
+      "id": "recovery-collections",
+      "title": "Recovered collection pages and all 48 storytelling files",
+      "review": "Reviewed against RECOVERY_SOURCE_PARITY.json: the record pages and all 48 storytelling HTML files are preserved with their routes, anchors and IDs. Restricted question bytes and private QA remain outside the public export.",
+      "commits": [
+        "a8e1d9b243f5a76c340a5779d7873ad24cd7a041"
+      ],
+      "files": [
+        {
+          "path": "app/atlas-records/page.tsx",
+          "bytes": 3326,
+          "sha256": "819c90df65a5a2351365b5d4a0261dc7d91025528b976e4250c26ad09e24a0fb",
+          "commit": "a8e1d9b243f5a76c340a5779d7873ad24cd7a041"
+        },
+        {
+          "path": "app/content-index/page.tsx",
+          "bytes": 10026,
+          "sha256": "963697abda800c9902e6a9941906ed1f6d681dd8983f5e29dae3a5122577529c",
+          "commit": "a8e1d9b243f5a76c340a5779d7873ad24cd7a041"
+        },
+        {
+          "path": "app/held-articles/page.tsx",
+          "bytes": 3950,
+          "sha256": "425e6f42079a6e530e22c198f46c879d84920d61f215889c237befeeefd88a9e",
+          "commit": "a8e1d9b243f5a76c340a5779d7873ad24cd7a041"
+        },
+        {
+          "path": "app/insight-records/page.tsx",
+          "bytes": 5007,
+          "sha256": "dea52705e1a8456a7f21b238612f82271cd7a4b8415a8c25178613d969e757cf",
+          "commit": "a8e1d9b243f5a76c340a5779d7873ad24cd7a041"
+        },
+        {
+          "path": "app/lab/rti/[lab]/page.tsx",
+          "bytes": 5391,
+          "sha256": "fbf9b2b85471eabd2ee4eec66f72c9db83adbafb380f3d5eb4d34ef01d632091",
+          "commit": "a8e1d9b243f5a76c340a5779d7873ad24cd7a041"
+        },
+        {
+          "path": "app/patterns/page.tsx",
+          "bytes": 5243,
+          "sha256": "0b45f26b05dfcb1f25bf42a47dd538c4165a6a4c06f8296fdc75c5f28f133169",
+          "commit": "a8e1d9b243f5a76c340a5779d7873ad24cd7a041"
+        },
+        {
+          "path": "app/practice/draft-banks/page.tsx",
+          "bytes": 6869,
+          "sha256": "43a06804bcbd0f852e08841f1d1aa922ef42898627d078e80a08a586a9a453ed",
+          "commit": "a8e1d9b243f5a76c340a5779d7873ad24cd7a041"
+        },
+        {
+          "path": "app/work/storytelling/page.tsx",
+          "bytes": 6427,
+          "sha256": "532b546f5ca29053f147fc12ebbfef4db8b26fd89ca86ebf4c63133c29cb15c8",
+          "commit": "a8e1d9b243f5a76c340a5779d7873ad24cd7a041"
+        },
+        {
+          "path": "content/recovery/dependency-manifest.json",
+          "bytes": 276761,
+          "sha256": "9aa0da990ab2808a77a25a244ee55ac5f72ce8c8cfcf8d6e46099374a29d33f3",
+          "commit": "a8e1d9b243f5a76c340a5779d7873ad24cd7a041"
+        },
+        {
+          "path": "content/recovery/patterns-lessons.json",
+          "bytes": 133842,
+          "sha256": "a7c10c9bf446cfc5ffd3fd626ea3e1020b4d796793f8fccc07363d2ccd66861b",
+          "commit": "a8e1d9b243f5a76c340a5779d7873ad24cd7a041"
+        },
+        {
+          "path": "content/recovery/patterns-modules.json",
+          "bytes": 1725,
+          "sha256": "b570c733391157635526969f73adb17f33229fb720410c62a77f08c8608395d3",
+          "commit": "a8e1d9b243f5a76c340a5779d7873ad24cd7a041"
+        },
+        {
+          "path": "content/recovery/patterns-paths.json",
+          "bytes": 1568,
+          "sha256": "107ed98827ea87fd05776f02a7406e45c18137b9d86e7e5d65a67619edcaf303",
+          "commit": "a8e1d9b243f5a76c340a5779d7873ad24cd7a041"
+        },
+        {
+          "path": "content/recovery/pl300-v88-index.json",
+          "bytes": 331729,
+          "sha256": "1bbe2d159fdb54e19e7a5eb9c52426e2a3d4ae9994454cfe06b6521a38fa0e64",
+          "commit": "a8e1d9b243f5a76c340a5779d7873ad24cd7a041"
+        },
+        {
+          "path": "content/recovery/r18-learner-bank.json",
+          "bytes": 425897,
+          "sha256": "1d91e3e5131957a03dda75efd04581e188072173c7ee007a1ecac26ac1f24cb5",
+          "commit": "a8e1d9b243f5a76c340a5779d7873ad24cd7a041"
+        },
+        {
+          "path": "content/recovery/rti-lab-blueprints.json",
+          "bytes": 29949,
+          "sha256": "be1e6e9ccfd079ec89d9e66aa04b5f0cac2d1c65be26daf7f0dccccd020c2373",
+          "commit": "a8e1d9b243f5a76c340a5779d7873ad24cd7a041"
+        },
+        {
+          "path": "lib/recovery/collections.ts",
+          "bytes": 4471,
+          "sha256": "a38134ef6a0b1190338a5d390618af83ab0f17637ee620c92020204a06f1301b",
+          "commit": "a8e1d9b243f5a76c340a5779d7873ad24cd7a041"
+        },
+        {
+          "path": "public/storytelling/Case 1 — Food Company Profit Decline 3cd3906c5d6c81059aabf5d845448a87.html",
+          "bytes": 20036,
+          "sha256": "e3ed3de9c574250674c95f0c406bb59fd97bbca52e85ff3b4c80823a3e6ba2d4",
+          "commit": "a8e1d9b243f5a76c340a5779d7873ad24cd7a041"
+        },
+        {
+          "path": "public/storytelling/Case 2 — Supply Chain Forecast Accuracy & Data Qua 3cd3906c5d6c81ebb299d3c847888570.html",
+          "bytes": 19951,
+          "sha256": "8bb0c399ad487cafad533a74392fc9afe6c6df7d994546ee08f10ce5fd5e01cb",
+          "commit": "a8e1d9b243f5a76c340a5779d7873ad24cd7a041"
+        },
+        {
+          "path": "public/storytelling/Case 3 — Supply Chain Stockouts by SKU Supplier 3cd3906c5d6c8165a191ff0830ac4aad.html",
+          "bytes": 19644,
+          "sha256": "ef8eb720f94b195aeb0d62f722fa1d468e9ae2fc586dafb17af8e5c01dc35f9b",
+          "commit": "a8e1d9b243f5a76c340a5779d7873ad24cd7a041"
+        },
+        {
+          "path": "public/storytelling/Case 4 — E-Commerce Mobile Conversion Drop 3cd3906c5d6c81eabba5d67252e87971.html",
+          "bytes": 20970,
+          "sha256": "f32f363f299fcc112b20315734a324f1222cbf608c913257a9fa7250b405b0fc",
+          "commit": "a8e1d9b243f5a76c340a5779d7873ad24cd7a041"
+        },
+        {
+          "path": "public/storytelling/Case 5 — HR People Analytics Attrition 3cd3906c5d6c816f96e0e46dada38f65.html",
+          "bytes": 19925,
+          "sha256": "91e0ded0ad2961faafda00fa97e79da277ba5161d90216a6db7d16c23797a385",
+          "commit": "a8e1d9b243f5a76c340a5779d7873ad24cd7a041"
+        },
+        {
+          "path": "public/storytelling/Case 6 — BI Dashboard → Executive Story 3cd3906c5d6c81499cf9d027156bb863.html",
+          "bytes": 20309,
+          "sha256": "f1ad70ad834ee82a54de580b06730a2d0be910e8d8960b121c142c227d74874a",
+          "commit": "a8e1d9b243f5a76c340a5779d7873ad24cd7a041"
+        },
+        {
+          "path": "public/storytelling/Case 7 — Credit Risk Loanme 3cd3906c5d6c81c6aa23e720b811c495.html",
+          "bytes": 22555,
+          "sha256": "09b2b735a174d19fe129882bfac3397ba3110340bbe2f233387a6ccea3857c62",
+          "commit": "a8e1d9b243f5a76c340a5779d7873ad24cd7a041"
+        },
+        {
+          "path": "public/storytelling/Case 8 — Customer Support Ticket Volume 3cd3906c5d6c81dfbc72cf4495ac1e3b.html",
+          "bytes": 19650,
+          "sha256": "8878009e8145bd5a34977203837e8c85d38b3cb0046c8b433707d20bacf421d2",
+          "commit": "a8e1d9b243f5a76c340a5779d7873ad24cd7a041"
+        },
+        {
+          "path": "public/storytelling/Case 9 — Product Reviews Sentiment & Shipping Dela 3cd3906c5d6c81a99112c9bdd87a75d9.html",
+          "bytes": 19698,
+          "sha256": "72be549f8dac70f08b59b4122349410793927eda6176e5a827689121864e3889",
+          "commit": "a8e1d9b243f5a76c340a5779d7873ad24cd7a041"
+        },
+        {
+          "path": "public/storytelling/Data Storytelling — Master Reference 3cc3906c5d6c812eb350e21cdf116fbe.html",
+          "bytes": 45230,
+          "sha256": "5fbd2e9a78026e2bd220866906a2c66ff1e20b24d9dd6be7e49e4cd0a8372a27",
+          "commit": "a8e1d9b243f5a76c340a5779d7873ad24cd7a041"
+        },
+        {
+          "path": "public/storytelling/Framework Selector — Knaflic, Dykes, Duarte, SCQA 3e53906c5d6c81ee8722c4edd5cb00a7.html",
+          "bytes": 34232,
+          "sha256": "2cfaf7e63fb59e09191f2e2069b734c4a93860a1e1c4a745227c828d887340e1",
+          "commit": "a8e1d9b243f5a76c340a5779d7873ad24cd7a041"
+        },
+        {
+          "path": "public/storytelling/Part I — Foundations 3cc3906c5d6c81a6be90d8eb7091ab29.html",
+          "bytes": 26937,
+          "sha256": "78e8e8c5ceaa7d61ed74ba96b1c6f7e49df0665b0b112cfe5aa870d0ea33e987",
+          "commit": "a8e1d9b243f5a76c340a5779d7873ad24cd7a041"
+        },
+        {
+          "path": "public/storytelling/Part II — Know Your Audience 3cc3906c5d6c81648b09d864b2e398fc.html",
+          "bytes": 28265,
+          "sha256": "160448966cc95136efe0a1bb769e115ec78a0d0b40bdae12eab103ff8ba64365",
+          "commit": "a8e1d9b243f5a76c340a5779d7873ad24cd7a041"
+        },
+        {
+          "path": "public/storytelling/Part III — Building the Narrative 3cc3906c5d6c815d8554e720c7efa2eb.html",
+          "bytes": 24246,
+          "sha256": "f17c75466961378da204d0e689c55f12fc113e099f4385a57145d7d2154f8d11",
+          "commit": "a8e1d9b243f5a76c340a5779d7873ad24cd7a041"
+        },
+        {
+          "path": "public/storytelling/Part IV — Metrics & Statistics 3cc3906c5d6c81818eded3f5cef2fb3f.html",
+          "bytes": 32446,
+          "sha256": "2d9dcd480c3c39188238169e177b9840795cff8ccfb788d35dbaddf8a592d5c1",
+          "commit": "a8e1d9b243f5a76c340a5779d7873ad24cd7a041"
+        },
+        {
+          "path": "public/storytelling/Part IX — Oral Presentations in Practice 3cc3906c5d6c8122a573def0f7514611.html",
+          "bytes": 25491,
+          "sha256": "1a67c051efac87ad992d3ad1ee7d1f68e3cd233c60c23992ab37c2da1e0b076a",
+          "commit": "a8e1d9b243f5a76c340a5779d7873ad24cd7a041"
+        },
+        {
+          "path": "public/storytelling/Part V — Visualization 3cc3906c5d6c813bad84faae28c302f0.html",
+          "bytes": 30140,
+          "sha256": "987edbb4a4a411ac13eecaf770f4c17eb39e669d59cae6e4c52a9bd54181b43f",
+          "commit": "a8e1d9b243f5a76c340a5779d7873ad24cd7a041"
+        },
+        {
+          "path": "public/storytelling/Part VI — Choosing the Communication Format 3cc3906c5d6c810a8671e7775ce085c6.html",
+          "bytes": 26149,
+          "sha256": "23d1a8eba2ebb82aabeea4c86e4099d8302ca69908790bd7388cde02098976b7",
+          "commit": "a8e1d9b243f5a76c340a5779d7873ad24cd7a041"
+        },
+        {
+          "path": "public/storytelling/Part VII — Written Reports 3cc3906c5d6c813dacedee18b6f4deaf.html",
+          "bytes": 27990,
+          "sha256": "c8c170ae9bf7bbcb717c736f8509a7837c8d604d181613e982583ec2bd7ffac7",
+          "commit": "a8e1d9b243f5a76c340a5779d7873ad24cd7a041"
+        },
+        {
+          "path": "public/storytelling/Part VIII — Reproducibility & Rigor 3cc3906c5d6c816f8725c25300a54ca1.html",
+          "bytes": 23016,
+          "sha256": "2d7ebc2329c98b6e9af7abb2bda5c2fcf5d80983155f2b8a4cb289f90bc70e87",
+          "commit": "a8e1d9b243f5a76c340a5779d7873ad24cd7a041"
+        },
+        {
+          "path": "public/storytelling/Part X — Applied Case Studies 3cc3906c5d6c81c4988ac5e5ee490f3d.html",
+          "bytes": 23735,
+          "sha256": "2a3f4b506dc555fc5f47758cfadf0ff15e9bfd6c4f5e8009e1150c2376d852e9",
+          "commit": "a8e1d9b243f5a76c340a5779d7873ad24cd7a041"
+        },
+        {
+          "path": "public/storytelling/Part XI — Checklists & Templates 3cc3906c5d6c81d89750ddde26edda95.html",
+          "bytes": 38353,
+          "sha256": "af7cfdf3a0efe7aa2db0e4b54e802cb16d2701e233da2a946e371aefef5bda68",
+          "commit": "a8e1d9b243f5a76c340a5779d7873ad24cd7a041"
+        },
+        {
+          "path": "public/storytelling/Part XII — Quick Reference 3cc3906c5d6c81bd8d7ec82b186708a5.html",
+          "bytes": 27212,
+          "sha256": "8d1ce2d164ba811f8946e40e4fe099e95a5654815b278188a738a8fb64d128bf",
+          "commit": "a8e1d9b243f5a76c340a5779d7873ad24cd7a041"
+        },
+        {
+          "path": "public/storytelling/Story Atlas — Teaching Figures 3e53906c5d6c8173b0aefba217c805d9.html",
+          "bytes": 25579,
+          "sha256": "a8a25ff387a57c1594f8f05517cdfdfaadd0af1a4d6bb6eee0a123ea2f80e816",
+          "commit": "a8e1d9b243f5a76c340a5779d7873ad24cd7a041"
+        },
+        {
+          "path": "public/storytelling/adept.svg",
+          "bytes": 1598,
+          "sha256": "425c15a36f58619df122234519a300f4ed18d4bf8dc02299e78bd7877860fa36",
+          "commit": "a8e1d9b243f5a76c340a5779d7873ad24cd7a041"
+        },
+        {
+          "path": "public/storytelling/case1_chocolate.svg",
+          "bytes": 1087,
+          "sha256": "4ad136654e75d12da60edb7045962b59472b7ced24f40b09294e0f559c932058",
+          "commit": "a8e1d9b243f5a76c340a5779d7873ad24cd7a041"
+        },
+        {
+          "path": "public/storytelling/case2_layers.svg",
+          "bytes": 1237,
+          "sha256": "7b4d343bca190509dab2f7a608ee3a340160c99c0e6a68ab63008f10c4c4b8a3",
+          "commit": "a8e1d9b243f5a76c340a5779d7873ad24cd7a041"
+        },
+        {
+          "path": "public/storytelling/case3_pareto.svg",
+          "bytes": 993,
+          "sha256": "d8d25cd7a74266d3204c734937d07c50fa406efb5059e31d7e70cf8875c6d3a2",
+          "commit": "a8e1d9b243f5a76c340a5779d7873ad24cd7a041"
+        },
+        {
+          "path": "public/storytelling/case4_mobile.svg",
+          "bytes": 906,
+          "sha256": "9808136a49d2949d6a5951bb5a8070deb4313dfc4db35deed57378d7b9b8ffca",
+          "commit": "a8e1d9b243f5a76c340a5779d7873ad24cd7a041"
+        },
+        {
+          "path": "public/storytelling/case5_attrition.svg",
+          "bytes": 1007,
+          "sha256": "0b4de24ee220d658bc18006a4c783ddc47c1b682a277b8ce645d348ce55d7b79",
+          "commit": "a8e1d9b243f5a76c340a5779d7873ad24cd7a041"
+        },
+        {
+          "path": "public/storytelling/case6_four.svg",
+          "bytes": 1232,
+          "sha256": "cbcdfdd6bdabc8a1deeaf4f025ebdf938e106c68088877568dbf06810ee28bb9",
+          "commit": "a8e1d9b243f5a76c340a5779d7873ad24cd7a041"
+        },
+        {
+          "path": "public/storytelling/case7_accuracy.svg",
+          "bytes": 1126,
+          "sha256": "7f95093a0751f1de35140ca2cb3ffd4fa8d0a3d7c59ca3424c67063cafeaf8d6",
+          "commit": "a8e1d9b243f5a76c340a5779d7873ad24cd7a041"
+        },
+        {
+          "path": "public/storytelling/case8_tickets.svg",
+          "bytes": 837,
+          "sha256": "5776bdd16e3f1ca461eaf97e0dd9c3debd94b02f5fd9be144c4f27d2a4b39b33",
+          "commit": "a8e1d9b243f5a76c340a5779d7873ad24cd7a041"
+        },
+        {
+          "path": "public/storytelling/case9_shipping.svg",
+          "bytes": 1126,
+          "sha256": "09f1ee50076bed4a1505f4c75302fcede4d39d6a998116b643e126ab740dc0eb",
+          "commit": "a8e1d9b243f5a76c340a5779d7873ad24cd7a041"
+        },
+        {
+          "path": "public/storytelling/data_dump.svg",
+          "bytes": 1539,
+          "sha256": "c161ac62a3d5d06eebc3403f742cc211971cde931836634191cb7da7383235fb",
+          "commit": "a8e1d9b243f5a76c340a5779d7873ad24cd7a041"
+        },
+        {
+          "path": "public/storytelling/finding_insight_action.svg",
+          "bytes": 1429,
+          "sha256": "791694b896f16c6796d8bbedfb24bcb5ec37159396b8ddaa2c86f9aa9b99ce8f",
+          "commit": "a8e1d9b243f5a76c340a5779d7873ad24cd7a041"
+        },
+        {
+          "path": "public/storytelling/format_stack.svg",
+          "bytes": 1616,
+          "sha256": "ee88ea9f368370675cfd8daec5e89b3c8517d75dc9bfc252608ea1835a5ad783",
+          "commit": "a8e1d9b243f5a76c340a5779d7873ad24cd7a041"
+        },
+        {
+          "path": "public/storytelling/gigo_repro.svg",
+          "bytes": 1343,
+          "sha256": "179b71831cacc61bb388a199d2b6286101f773d62d4cb31f2d6feac1459303b1",
+          "commit": "a8e1d9b243f5a76c340a5779d7873ad24cd7a041"
+        },
+        {
+          "path": "public/storytelling/mccandless.svg",
+          "bytes": 1391,
+          "sha256": "bd0e4d291de498f322755e1bd470d5ed7e20d9727ad14658fb2271f8f3e2c11d",
+          "commit": "a8e1d9b243f5a76c340a5779d7873ad24cd7a041"
+        },
+        {
+          "path": "public/storytelling/mean_hides_dist.svg",
+          "bytes": 1998,
+          "sha256": "5b000a0850f073eefbc86e359282e38c570c01da103e34dc5ec28abca575354c",
+          "commit": "a8e1d9b243f5a76c340a5779d7873ad24cd7a041"
+        },
+        {
+          "path": "public/storytelling/one_message_slide.svg",
+          "bytes": 1202,
+          "sha256": "44a7a1c4db3a12bdf8a37b3995d39bdfd02972297c0b1446da142003295339ee",
+          "commit": "a8e1d9b243f5a76c340a5779d7873ad24cd7a041"
+        },
+        {
+          "path": "public/storytelling/one_three_25.svg",
+          "bytes": 1218,
+          "sha256": "e61e62816d3d536fac4aa09ea3f1332739dfb8d44ac27ff391df908b302ec2fa",
+          "commit": "a8e1d9b243f5a76c340a5779d7873ad24cd7a041"
+        },
+        {
+          "path": "public/storytelling/pct_vs_abs.svg",
+          "bytes": 1243,
+          "sha256": "001c0ab20c0cbd83861e9953f77547f51d882e7232e4762dd0c8198c1690324f",
+          "commit": "a8e1d9b243f5a76c340a5779d7873ad24cd7a041"
+        },
+        {
+          "path": "public/storytelling/scqa.svg",
+          "bytes": 2250,
+          "sha256": "ce21bd8f9bb4bf807184d825795c22699ab48a7e2f7030fe716bd9687f98ca90",
+          "commit": "a8e1d9b243f5a76c340a5779d7873ad24cd7a041"
+        },
+        {
+          "path": "public/storytelling/skepticism.svg",
+          "bytes": 1340,
+          "sha256": "59aa5f09832e340e2da0ed395faa5810f8bc571535fcdf7c0ed5e95a6be22b67",
+          "commit": "a8e1d9b243f5a76c340a5779d7873ad24cd7a041"
+        },
+        {
+          "path": "public/storytelling/sparkline.svg",
+          "bytes": 1217,
+          "sha256": "ef1908617aa33cff984479e6eff6c37a0cae1b187a9177fc0665ea9361dbd08c",
+          "commit": "a8e1d9b243f5a76c340a5779d7873ad24cd7a041"
+        },
+        {
+          "path": "public/storytelling/stakes.svg",
+          "bytes": 1836,
+          "sha256": "21646af246cb9566cb68e1a330b45bc38a11fa9a117f43a0fde9f6c1ef2c55e2",
+          "commit": "a8e1d9b243f5a76c340a5779d7873ad24cd7a041"
+        },
+        {
+          "path": "public/storytelling/story_os.svg",
+          "bytes": 2093,
+          "sha256": "5a86b9b244dd897b547f8b7f740b1fcdb24fc729fdc0749e7ecaae5c6142a703",
+          "commit": "a8e1d9b243f5a76c340a5779d7873ad24cd7a041"
+        },
+        {
+          "path": "public/study-hub/dp600-pl300-study-hub.html",
+          "bytes": 672334,
+          "sha256": "69191c156b89b7627e9e8f053cff50cff87e5a87f67bb8cc926ffa47eaaca7c9",
+          "commit": "a8e1d9b243f5a76c340a5779d7873ad24cd7a041"
+        },
+        {
+          "path": "tests/content/recovery.test.mjs",
+          "bytes": 3781,
+          "sha256": "d00ca72a8b90a43796f883d91bc2b2b4ce391dfda19bcaa4285f5571a9f56d3e",
+          "commit": "a8e1d9b243f5a76c340a5779d7873ad24cd7a041"
+        }
+      ]
+    },
+    {
+      "id": "knowledge-graph-prototype",
+      "title": "Knowledge graph prototype and deterministic data builders",
+      "review": "Reviewed as the noindex prototype/network tree and its deterministic local data builders. It does not alter published Atlas semantics, curriculum progress or any public route contract.",
+      "commits": [
+        "37f8c0abc313baab2f377e76515dcaf79a1c6d8e"
+      ],
+      "files": [
+        {
+          "path": "app/prototype/network/page.tsx",
+          "bytes": 4502,
+          "sha256": "6a3929f86537307be2b72bd8dab3832aff21855027046259ba57d49a2361b8ad",
+          "commit": "37f8c0abc313baab2f377e76515dcaf79a1c6d8e"
+        },
+        {
+          "path": "components/knowledge-graph/graph.css",
+          "bytes": 11390,
+          "sha256": "5160eba157c538c8decdc52af77e8ea0615b410dd163350d180866b1aa77db84",
+          "commit": "37f8c0abc313baab2f377e76515dcaf79a1c6d8e"
+        },
+        {
+          "path": "components/knowledge-graph/graph.tsx",
+          "bytes": 50537,
+          "sha256": "437d9ff6535b81e51732eae3f5c83bec8f96588b81aef03a03d211017bfdc467",
+          "commit": "37f8c0abc313baab2f377e76515dcaf79a1c6d8e"
+        },
+        {
+          "path": "components/knowledge-graph/tree-explorer.tsx",
+          "bytes": 50440,
+          "sha256": "eaf6d0efe547bd2007f35a007678c5a2d9a35a05c82471567b87600aa30955b7",
+          "commit": "37f8c0abc313baab2f377e76515dcaf79a1c6d8e"
+        },
+        {
+          "path": "components/knowledge-graph/tree.css",
+          "bytes": 21164,
+          "sha256": "00a4dfd845ba20df647dd3dee111a304ec3f03c39a6f2b540846d9faea2abb8f",
+          "commit": "37f8c0abc313baab2f377e76515dcaf79a1c6d8e"
+        },
+        {
+          "path": "lib/knowledge-graph/academy-tree.ts",
+          "bytes": 4066,
+          "sha256": "92f2278a242b38e90da406da80c1651a163f1ed0f497a3efbeee7ddc84f7ef7c",
+          "commit": "37f8c0abc313baab2f377e76515dcaf79a1c6d8e"
+        },
+        {
+          "path": "lib/knowledge-graph/analyse.ts",
+          "bytes": 14280,
+          "sha256": "33acf0c51e1812a404260799645352036ef456c061830567cb82f9698f46950d",
+          "commit": "37f8c0abc313baab2f377e76515dcaf79a1c6d8e"
+        },
+        {
+          "path": "lib/knowledge-graph/build.ts",
+          "bytes": 19861,
+          "sha256": "f7b74e50169a5c77589956aae639c6bce997eb55583608b20b095eb7f9a49df3",
+          "commit": "37f8c0abc313baab2f377e76515dcaf79a1c6d8e"
+        },
+        {
+          "path": "lib/knowledge-graph/dataset.ts",
+          "bytes": 10300,
+          "sha256": "cb12d0db7a22884403a6873add2299c9fc9ed44ac591ee1718457979eb6d5eb1",
+          "commit": "37f8c0abc313baab2f377e76515dcaf79a1c6d8e"
+        },
+        {
+          "path": "lib/knowledge-graph/hierarchy.ts",
+          "bytes": 21412,
+          "sha256": "d8e87811f341aa4e24ff5a903104ab539262301159309d0ea6028b639a485fb6",
+          "commit": "37f8c0abc313baab2f377e76515dcaf79a1c6d8e"
+        },
+        {
+          "path": "lib/knowledge-graph/layout.ts",
+          "bytes": 6976,
+          "sha256": "59b6ade3b08a0e10832f814459f9086c34e4c3fc0ce129d6654790c39c744d65",
+          "commit": "37f8c0abc313baab2f377e76515dcaf79a1c6d8e"
+        },
+        {
+          "path": "lib/knowledge-graph/lenses.ts",
+          "bytes": 6421,
+          "sha256": "cc95f885ed3bb9f94ac5b4481ef9fec1ea31831382bb1309ea84477b10d75cb8",
+          "commit": "37f8c0abc313baab2f377e76515dcaf79a1c6d8e"
+        },
+        {
+          "path": "lib/knowledge-graph/source-groups.ts",
+          "bytes": 3773,
+          "sha256": "285a1a56c47b6d26d9181e6a1b847f8035d8cc60cfe509d0cf39e6bd95baafce",
+          "commit": "37f8c0abc313baab2f377e76515dcaf79a1c6d8e"
+        },
+        {
+          "path": "lib/knowledge-graph/tree-finalize.ts",
+          "bytes": 3986,
+          "sha256": "987fd12136f9ad54b1db20fe0ad444a4cb9f81ba224c69f7ca172cfca5bdfbee",
+          "commit": "37f8c0abc313baab2f377e76515dcaf79a1c6d8e"
+        },
+        {
+          "path": "lib/knowledge-graph/tree-labels.ts",
+          "bytes": 7483,
+          "sha256": "bdf3d21a84833d57528f3a27b2f18ebd6e653564e6dd2db7da29d2a3dbcaaf3c",
+          "commit": "37f8c0abc313baab2f377e76515dcaf79a1c6d8e"
+        },
+        {
+          "path": "lib/knowledge-graph/tree-layout.ts",
+          "bytes": 9399,
+          "sha256": "22a59e4343748ef0b59237c53f43bb36d712d7a4454a23afc8ce9447029a2636",
+          "commit": "37f8c0abc313baab2f377e76515dcaf79a1c6d8e"
+        },
+        {
+          "path": "lib/knowledge-graph/tree-model.ts",
+          "bytes": 13769,
+          "sha256": "44c47cc872b3bf1c112656f1ba62e273b4ab23be6eded441951d389650f383e9",
+          "commit": "37f8c0abc313baab2f377e76515dcaf79a1c6d8e"
+        },
+        {
+          "path": "lib/knowledge-graph/types.ts",
+          "bytes": 3794,
+          "sha256": "40efe06660ab56fa2d05d6f3c499b0de5455af03313c0ba9c5c7341676fd300b",
+          "commit": "37f8c0abc313baab2f377e76515dcaf79a1c6d8e"
+        },
+        {
+          "path": "public/graph/dataset.json",
+          "bytes": 1152150,
+          "sha256": "89a663f106884fe88e55186d82ac00fc47e0336ee22b8da3b5dcd418474c73c4",
+          "commit": "37f8c0abc313baab2f377e76515dcaf79a1c6d8e"
+        },
+        {
+          "path": "public/graph/search.json",
+          "bytes": 282436,
+          "sha256": "f59beb6245e15c6ad1c5b17459bc3214fedae5241fdaba37888249bb51c67018",
+          "commit": "37f8c0abc313baab2f377e76515dcaf79a1c6d8e"
+        },
+        {
+          "path": "public/graph/tree-academy.json",
+          "bytes": 67155,
+          "sha256": "a60e14721268731195cf229dfb2e849897c6e353d01e3fdf53d38f7afa116eb2",
+          "commit": "37f8c0abc313baab2f377e76515dcaf79a1c6d8e"
+        },
+        {
+          "path": "public/graph/tree-dp600.json",
+          "bytes": 467437,
+          "sha256": "099907a5e03e5fef1b75040d31a00cd882f77b449aa73955d82bb233c4f5deba",
+          "commit": "37f8c0abc313baab2f377e76515dcaf79a1c6d8e"
+        },
+        {
+          "path": "public/graph/tree-rti.json",
+          "bytes": 3898,
+          "sha256": "9f635fd3a609c987eae9950739c580ad0be634154aea67b81b49d47de155f784",
+          "commit": "37f8c0abc313baab2f377e76515dcaf79a1c6d8e"
+        },
+        {
+          "path": "public/graph/tree.json",
+          "bytes": 521875,
+          "sha256": "a35677e3054e4edf310581336fbcba20d4aba3d845342fcc3c5521fd46993837",
+          "commit": "37f8c0abc313baab2f377e76515dcaf79a1c6d8e"
+        },
+        {
+          "path": "public/graph/trees.json",
+          "bytes": 1960,
+          "sha256": "edbaab12ca106ebcb44f9246985c5a218085c855f8213aaa78045667b2543ed4",
+          "commit": "37f8c0abc313baab2f377e76515dcaf79a1c6d8e"
+        },
+        {
+          "path": "tests/knowledge/tree-map.test.mjs",
+          "bytes": 15849,
+          "sha256": "247b5dc073e96f0c41fd28be4af5e59fd62dcb6782db2d299799ca0476749cc6",
+          "commit": "37f8c0abc313baab2f377e76515dcaf79a1c6d8e"
+        }
+      ]
+    },
+    {
+      "id": "recovery-navigation",
+      "title": "Recovery navigation, collection shelves and anchor fixes",
+      "review": "Reviewed in the cleanup-20261108 navigation audit: contextual shelves link existing collections without duplicating or republishing restricted material. Routes, anchors, IDs and saved progress are preserved.",
+      "commits": [
+        "7c6b1d15fc35bd100fc936d4c7b5a4ccb7edc68d"
+      ],
+      "files": [
+        {
+          "path": "components/learn/collection-shelf.tsx",
+          "bytes": 2072,
+          "sha256": "54ae4f770fb1d41cf2e4980ba7d0b89d07868b59d80df43268595936d4b9add3",
+          "commit": "7c6b1d15fc35bd100fc936d4c7b5a4ccb7edc68d"
+        },
+        {
+          "path": "lib/recovery/navigation.ts",
+          "bytes": 3516,
+          "sha256": "88e31eca2dcc067845993228c019ed0df8e076fd76f425739acaac7f52ed9652",
+          "commit": "7c6b1d15fc35bd100fc936d4c7b5a4ccb7edc68d"
+        },
+        {
+          "path": "tests/content/recovery-navigation.test.mjs",
+          "bytes": 4172,
+          "sha256": "76b788858589d5c7768985b7baac8efc35a51eba6e047da619cb288ae29de164",
+          "commit": "7c6b1d15fc35bd100fc936d4c7b5a4ccb7edc68d"
+        },
+        {
+          "path": "tests/content/runtime-transitions.test.mjs",
+          "bytes": 4530,
+          "sha256": "310f74856cbb427a7f747d378b2d1411b11cf065b8d4d241afeee371f123cfc4",
+          "commit": "7c6b1d15fc35bd100fc936d4c7b5a4ccb7edc68d"
+        }
+      ]
+    },
+    {
+      "id": "split-worker-release",
+      "title": "Split-Worker release tests and reviewed-addition coverage",
+      "review": "Reviewed with the split-Worker release: the routing, configuration, split-gate and additions-loader tests are the acceptance evidence for this wave. No recovered content, question bank, media or saved progress changed.",
+      "commits": [
+        "ba329c407764b1fb7d843509723b3ac13872af54"
+      ],
+      "files": [
+        {
+          "path": "tests/content/runtime-additions.test.mjs",
+          "bytes": 5753,
+          "sha256": "0d123b9af25e49c839cd57529f22baaaa32bd70d03fa5b68eb751457dfd7a884",
+          "commit": "ba329c407764b1fb7d843509723b3ac13872af54"
+        },
+        {
+          "path": "tests/content/split-workers.test.mjs",
+          "bytes": 8064,
+          "sha256": "741c012621ec294b05055a9b418dd75bcf8c1a58d99d86e88a0b25982c9f0b66",
+          "commit": "ba329c407764b1fb7d843509723b3ac13872af54"
+        }
+      ]
+    }
+  ]
+}

@@ -390,6 +390,15 @@
       "layer": "split-workers/2026-11-09",
       "attribution": "workers-free-split",
       "note": "Project-layout list now names the frozen wrangler.jsonc and the two split configs. Documentation only; no route, feature, cost or preservation claim changed."
+    },
+    {
+      "path": "README.md",
+      "previousSha256": "60029eac08f9f7413ebac8c25d9cbd823e26ebc2f4c55e99cab63c5ceaa16aac",
+      "sha256": "6655303c61ea345e99d5f704d53ded6e16b24bfa04fae0a14d984ed53b7dfcfc",
+      "bytes": 20070,
+      "layer": "split-workers/2026-11-09",
+      "attribution": "workers-free-split",
+      "note": "Release handoff now records the alias-page provisioning step, the final split counts (16,370 docs / 12,867 main), the build-before-split requirement, and the manual split deploy workflow while keeping the historical single-Worker workflow byte-identical and not dispatchable."
     }
   ],
   "additions": [],

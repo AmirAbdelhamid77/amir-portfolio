@@ -33,6 +33,7 @@ export const EXPECTED = Object.freeze({
   excludedArticles: 81,
   aliasesWired: 947,
   aliasesSuppressed: 67,
+  aliasPages: 174,
   // The asset manifest lists one row per family that references an asset, so a
   // shared asset appears once per family. The public tree writes each key once.
   docsAssetRows: 9586,
@@ -43,6 +44,7 @@ export const EXPECTED = Object.freeze({
 const SCRIPTS = {
   compile: "tools/fabric-corpus/route-registry/compile-all-families.mjs",
   registry: "tools/fabric-corpus/route-registry/build-registry.mjs",
+  aliases: "tools/fabric-corpus/route-registry/write-alias-routes.mjs",
   assets: "tools/fabric-corpus/route-registry/copy-assets.mjs",
   shards: "tools/fabric-corpus/search/build-shards.mjs",
   copyShards: "tools/fabric-corpus/search/copy-shards.mjs",
@@ -67,9 +69,9 @@ function usage() {
 
   --source=<path>            Upstream checkout's docs/ directory (pinned revision)
   --build-dir=<path>         External compiler workspace (default FABRIC_CORPUS_BUILD_DIR)
-  --public-root=<path>       Public tree that receives fabric-docs-assets/ and fabric-search/
-  --clean                    Remove compiler-output, route-registry and search-shards first
-  --compare=<path>           Compare generated asset/search trees with a verified public root
+  --public-root=<path>       Public tree that receives fabric-docs-assets/, fabric-aliases/ and fabric-search/
+  --clean                    Remove compiler-output, route-registry, search-shards and fabric-aliases first
+  --compare=<path>           Compare generated asset/alias/search trees with a verified public root
   --compare-registry=<path>  Compare the generated registry JSON with a verified copy
   --allow-unpinned-source    Permit a source without a matching Git HEAD (not for CI)
 
@@ -157,11 +159,13 @@ function main() {
     for (const name of ["compiler-output", "route-registry", "search-shards"]) {
       rmSync(join(buildDir, name), { recursive: true, force: true });
     }
-    console.log(`Cleared generated build subdirectories under ${buildDir}`);
+    rmSync(join(publicRoot, "fabric-aliases"), { recursive: true, force: true });
+    console.log(`Cleared generated build subdirectories under ${buildDir} and ${join(publicRoot, "fabric-aliases")}`);
   }
 
   run("compile all route-plan families", SCRIPTS.compile, ["--revision", PINNED_REVISION], env);
   run("build route registry", SCRIPTS.registry, [], env);
+  run("write alias pages", SCRIPTS.aliases, [], env);
   run("copy docs assets", SCRIPTS.assets, ["--copy=all"], env);
   run("build search shards", SCRIPTS.shards, ["--families=all"], env);
   run("copy search shards", SCRIPTS.copyShards, [], env);
@@ -194,8 +198,17 @@ function main() {
   const searchFiles = walk(searchRoot);
   assert.equal(searchFiles.length, EXPECTED.searchFiles, "Search-shard file count changed");
 
+  const aliasRoot = join(publicRoot, "fabric-aliases");
+  const aliasFiles = walk(aliasRoot);
+  assert.equal(aliasFiles.length, EXPECTED.aliasPages, "Alias-page file count changed");
+  const aliasReceipt = JSON.parse(readFileSync(join(buildDir, "route-registry", "alias-pages.json"), "utf8"));
+  assert.equal(aliasReceipt.counts.pages, EXPECTED.aliasPages, "Alias-page receipt count changed");
+  assert.equal(aliasReceipt.counts.unsafeTargets, 0, "Alias-page receipt contains unsafe redirect targets");
+  assert.equal(aliasReceipt.corpusRevision, PINNED_REVISION, "Alias-page receipt revision does not match the pin");
+
   if (args.compare) {
     compareTrees("docs assets", join(args.compare, "fabric-docs-assets"), assetRoot);
+    compareTrees("alias pages", join(args.compare, "fabric-aliases"), aliasRoot);
     compareTrees("search shards", join(args.compare, "fabric-search"), searchRoot);
   }
   if (args.compareRegistry) {

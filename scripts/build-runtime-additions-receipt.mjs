@@ -105,6 +105,13 @@ export const REVIEWED_WAVES = [
       "Reviewed in the cleanup-20261108 navigation audit: contextual shelves link existing collections without duplicating or republishing restricted material. Routes, anchors, IDs and saved progress are preserved.",
     commits: ["7c6b1d15fc35bd100fc936d4c7b5a4ccb7edc68d"],
   },
+  {
+    id: "split-worker-release",
+    title: "Split-Worker release tests and reviewed-addition coverage",
+    review:
+      "Reviewed with the split-Worker release: the routing, configuration, split-gate and additions-loader tests are the acceptance evidence for this wave. No recovered content, question bank, media or saved progress changed.",
+    commits: ["ba329c407764b1fb7d843509723b3ac13872af54"],
+  },
 ];
 
 function parseArgs(argv) {

@@ -201,7 +201,23 @@ export function knowledgeStageReceipt(root){
    ...(m6?[m6Path,...m6.files.map(e=>e.path),...m6.additions.map(e=>e.path)]:[]),
    ...(fc?[fcPath,...fc.files.map(e=>e.path),...fc.additions.map(e=>e.path)]:[]),
   ],
-  bytes:(p,n)=>fc?.files.find(e=>e.path===p)?.bytes??m6?.files.find(e=>e.path===p)?.bytes??m.files.find(e=>e.path===p)?.bytes??n,
+  // A layer can pin the same path hop by hop. The size that belongs to the
+  // current state is the terminal hop's; returning the first pin's bytes makes
+  // a multi-hop advance look like a size drift even though the hash chain is
+  // authorized.
+  bytes:(p,n)=>{
+   const terminalBytes=pins=>{
+    if(!pins?.length)return undefined;
+    let pin=pins[0];
+    for(let hop=0;hop<32;hop+=1){
+     const next=pins.find(e=>e.previousSha256===pin.sha256);
+     if(!next)break;
+     pin=next;
+    }
+    return pin.bytes;
+   };
+   return terminalBytes(fc?.files.filter(e=>e.path===p))??terminalBytes(m6?.files.filter(e=>e.path===p))??m.files.find(e=>e.path===p)?.bytes??n;
+  },
   skip:p=>m.removed.some(e=>e.path===p)||excluded.has(p),
   retired:p=>m.removed.some(e=>e.path===p),
   // A layer that recorded "the manifest below me had hash X" can accept the

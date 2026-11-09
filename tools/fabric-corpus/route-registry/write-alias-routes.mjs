@@ -98,7 +98,10 @@ function main() {
   }
   const registry = JSON.parse(readFileSync(registryPath, 'utf8'));
 
-  const outRoot = join(REPO_ROOT, 'public', 'fabric-aliases');
+  // Honour the provisioning public root so a clean-room build writes alias
+  // pages into its own tree instead of the working checkout.
+  const publicRoot = resolve(process.env.FABRIC_PUBLIC_ROOT ?? join(REPO_ROOT, 'public'));
+  const outRoot = join(publicRoot, 'fabric-aliases');
   const pages = [];
   let unsafeTargets = 0;
   const byFamily = {};

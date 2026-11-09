@@ -33,7 +33,7 @@ function sandbox(mutate = receipt => receipt) {
   }
   mkdirSync(join(dir, "app"), { recursive: true });
   writeFileSync(join(dir, "app/new.ts"), "new!");
-  const receipt = mutate({
+  const base = {
     scope: RUNTIME_ADDITION_SCOPE,
     date: "2026-11-08",
     reason: "Reviewed additions used only by the loader contract test.",
@@ -47,7 +47,9 @@ function sandbox(mutate = receipt => receipt) {
         files: [{ path: "app/new.ts", bytes: 4, sha256: hash("new!"), commit: COMMIT }],
       },
     ],
-  });
+  };
+  // Mutators edit the receipt in place; a returned object is accepted too.
+  const receipt = mutate(base) ?? base;
   const receiptPath = join(dir, RUNTIME_ADDITIONS);
   mkdirSync(dirname(receiptPath), { recursive: true });
   writeFileSync(receiptPath, JSON.stringify(receipt));

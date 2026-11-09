@@ -28,7 +28,7 @@ project tokens, not from a template.
 | Styling | Tailwind CSS 4 + BeUI design tokens in `app/globals.css` |
 | Icons | `lucide-react` + two hand-written brand SVGs in `components/icons.tsx` |
 | Content | Typed TS modules + JSON exam banks validated with Zod |
-| Hosting | Cloudflare Workers Static Assets (Free plan, `out/` uploaded by Wrangler) |
+| Hosting | Cloudflare Workers Static Assets (Free plan, split `out-docs/` + `out-main/` uploaded by Wrangler) |
 | Images | Pre-optimised WebP via `sharp` — no server-side optimiser |
 
 There is no database, no auth, and no backend. Exam results live in `localStorage`;
@@ -225,7 +225,7 @@ Workers so each version stays under the 20,000-file Free limit:
 | Worker | Serves | Files |
 | --- | --- | --- |
 | `hansa-docs` | `/learn/fabric/**` documentation tree | 16,370 |
-| `hansa` | public hostname; every other route plus the docs gateway | 12,693 |
+| `hansa` | public hostname; every other route plus the docs gateway | 12,867 |
 
 `workers/gateway.mjs` forwards `/learn/fabric` and `/learn/fabric/*` to the
 `hansa-docs` service binding. Every other request is served directly from the
@@ -254,10 +254,11 @@ npm run corpus:provision -- --source=../fabric-docs-light/docs --build-dir=../fa
 npm run build
 ```
 
-The script compiles all 22 families, builds the route registry, copies 9,572
-docs assets, builds the 106-file search index, and fails on any count or revision
-drift. `FABRIC_PUBLIC_ROOT` and `--compare` let you provision into a disposable
-tree and compare it byte-for-byte with a verified export.
+The script compiles all 22 families, builds the route registry, writes 174
+alias pages, copies 9,572 docs assets, builds the 106-file search index, and
+fails on any count or revision drift. `FABRIC_PUBLIC_ROOT` and `--compare` let
+you provision into a disposable tree and compare the asset, alias and search
+trees byte-for-byte with a verified export.
 
 ### Deploying
 
@@ -273,11 +274,16 @@ npm run deploy:main
 the 20,000-file limit on each. Deploy docs first; the gateway forwards to it.
 `npm run deploy` runs the whole sequence.
 
+Because Next typechecks the repository, a rebuild must start from a checkout
+without the generated split trees: run `npm run build` before `build:workers`,
+or delete `out-main/` and `out-docs/` before rebuilding. The split trees are
+generated and gitignored.
+
 Roll back either Worker independently:
 
 ```bash
 npx wrangler rollback --config wrangler.docs.jsonc
-npx wrangler rollback
+npx wrangler rollback --config wrangler.gateway.jsonc
 ```
 
 ### Custom domain
@@ -296,10 +302,17 @@ needs no separate domain: the gateway reaches it through the service binding.
 
 ### CI
 
-`.github/workflows/deploy-cloudflare.yml` is manual-only (`workflow_dispatch`)
-and requires the operator to type `DEPLOY`. It checks out the pinned corpus
-revision, provisions the generated tree, lints, builds, splits, and deploys
-`hansa-docs` then `hansa`. No push or schedule trigger exists.
+`.github/workflows/deploy-split-workers.yml` is manual-only
+(`workflow_dispatch`) and requires the operator to type `DEPLOY`. It checks out
+the pinned corpus revision, provisions the asset, alias and search trees, runs
+the preservation receipts and content tests, lints, builds, splits, and deploys
+`hansa-docs` then the `hansa` gateway. No push or schedule trigger exists.
+
+`.github/workflows/deploy-cloudflare.yml` is the historical single-Worker
+workflow, preserved byte-for-byte by
+`docs/cleanup-20261108/DEPLOYMENT_PAUSE_RECEIPT.json`. Do not dispatch it after
+the split release: its 29,235-file `out/` exceeds the Free limit.
+`fabric-corpus-release.yml` remains a deploy-free dry-run package.
 
 Add these repository secrets:
 

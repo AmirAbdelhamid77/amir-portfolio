@@ -1,83 +1,88 @@
-# Cleanup follow-up: preservation reconciliation and integration preparation
+# Release preparation: split Workers, deterministic corpus and preservation closure
 
 ## Outcome and limits
 
-The committed deployment pause is now represented by an exact, content-checked successor receipt. Neither workflow was edited or activated. The four committed runtime transitions that previously blocked the historical verifiers are now represented by a second narrow successor receipt; each UI/config change reverses exactly to its preserved predecessor and the generated lockfile is pinned by exact bytes. **The two full preservation verifiers still do not pass**: after accepting those four transitions, their next assertion is the first unowned post-baseline runtime addition (`app/archive/page.tsx`), part of a wider pre-existing gap described below. This task does not certify the release or authorize publication/deployment.
+The release candidate is now internally consistent and fits the Cloudflare Workers **Free** plan without a paid backend: the static export is split into two assets-only Workers and every public URL stays the same. `hansa` keeps the public hostname and serves everything outside the docs subtree; `hansa-docs` serves `/learn/fabric/**` and is reached through a `DOCS` service binding. Both versions are under the 20,000-file Free limit (16,370 and 12,867 files). Deployment configuration is prepared but not executed: no push, no deploy and no DNS change happened, and GO/NO-GO remains an owner decision.
 
-Content recovery is now reachable through contextual collection shelves on Learn, Practice, Fabric and the DP-600 Atlas. Every destination is a real route with its review status and limitation beside it, and the shelf renders as ordinary links without client JavaScript. The source-parity audit checks 56/56 declared copies against their origins; the production export was rebuilt and browser-tested. This is integration and release preparation, not a publication approval: draft, restricted and held material keeps its status.
+Both historical preservation verifiers now pass. The 173 post-baseline runtime files are pinned in `RUNTIME_ADDITIONS.json` as seven reviewed waves with exact bytes and introducing commits, and the four earlier runtime transitions keep their exact reverse proofs. No historical baseline, question bank, media file or workflow was rewritten.
 
-The [integration checklist](NEXT_INTEGRATION.md) separates genuinely unfinished work from deliberate curation, rights restrictions and duplicates. Workspace cleanup removed only the three `.next` caches (~3.40 GiB) and a stale 156 MiB `out-rc` export; original sources, draft banks, private QA, runtime media, snapshots and the served release export remain intact. See workspace `docs/CLEANUP_EXECUTION_2026-11-08.md` for exact execution/rollback evidence.
+The Fabric corpus is no longer served stale. The previous search corpus predated the compiler's upstream `[!INCLUDE]` resolution; a deterministic regeneration from pinned upstream changed only section text in 115 of 2,716 articles and restored the 174 alias pages that the earlier export was missing. The search page's first-keystroke loss is fixed and verified on the final export.
+
+**Not claimed:** manual visual/domain review, Atlas renderer domain/a11y review, live production smoke test. `npm run qa:search` still fails by design of the frozen script (it expects the pre-FC07 label and a pre-query live region); it was replaced with a targeted interaction check, not edited. See [Verification](#verification).
 
 ## Evidence
 
-- Baseline main: `28e1f8fcf0a7a3f117d28a1a1549eb248fb7845f`; working tree clean before this follow-up.
-- Local implementation commit: `7c6b1d1` on `main` (32 files, +2,676/−30). Working tree clean. No push or deployment was performed.
-- Commit `901eb2db9e4b93a2bc426649d72c9786acaae96b` changed only the two deployment workflows: removed the push/main trigger and inserted the explanatory pause comment; manual dispatch stayed enabled.
-- `DEPLOYMENT_PAUSE_RECEIPT.json` names both exact historical before/after SHA-256 pairs. `scripts/deployment-pause-receipt.mjs` binds the predecessor hashes to both original preservation baselines and independently reverses only that exact textual change. It must recover the original hash; merely editing and rehashing another workflow change cannot pass.
-- The existing `knowledgeStageReceipt` delegates its final hash lookup to this narrowly scoped receipt and exposes its evidence paths to disposable negative-test views. Unknown paths/hashes are not advanced. Historical manifests/baselines are unchanged.
-- The next full-verifier failure after the deployment pause was the `/practice/` draft-bank card: expected `51a9de3824680487323e255f2cda387b06c584bffc370276f674e75bd5ab468d`, actual `e57c5c4f620d09344a473b9fa1f633cc9351615986e94ad80ad8452cfa3f6a15`. `git show a8e1d9b -- app/practice/page.tsx app/work/page.tsx` attributes that card and the Work storytelling link to committed content recovery. `RUNTIME_TRANSITIONS.json` now binds all four remaining transitions (`app/practice/page.tsx`, `app/work/page.tsx`, `next.config.ts`, `package-lock.json`) to their preserved predecessors, the commit that produced each successor, and an exact reverse proof; the lockfile is the only hash pin and it is restricted to generated lockfiles.
-- After those four transitions are accepted, both verifiers reach a separate pre-existing gap: 171 non-generated runtime files (167 tracked, four from this task) are absent from both preservation baselines, including `app/archive/page.tsx`, the knowledge-graph implementation, content recovery and the Fabric corpus surfaces. A further 9,678 files under `public/fabric-docs-assets`, `public/fabric-aliases` and `public/fabric-search` are gitignored generated outputs, so they cannot be pinned in a committed receipt. This is not rehashed or waived here; it needs per-wave evidence or an explicit owner decision. The verifiers now fail at `app/archive/page.tsx`, not at a practice-page hash.
-- Source parity: 56/56 comparisons pass in this workspace. The audit covers the R18 bank, RTI blueprints, pattern files, catalogue inputs, the Study Hub and all 48 storytelling files against their preserved sibling sources (`RECOVERY_SOURCE_PARITY.json`). A clean checkout without those siblings reports `BLOCKED_SOURCE_NOT_AVAILABLE`, not a pass; the report preserves that limit.
-- Production build: 3,182 static pages and 3,175 segment aliases, build id `hansa-static-export`. No build errors.
-- Export inventory: 29,061 files / 3,124,901,827 bytes after the fixes; no file exceeds 25 MiB. The docs section is 16,302 files for 2,717 articles. The measured free-tier prune removes 9,506 segment payloads and leaves 19,555 files / 2,693,970,374 bytes.
-- Browser QA: 54 route/theme/width cases on the first post-build export found two UI defects. `/content-index/` overflowed 320px by 18px because of an unbreakable source path; the decorative `Oct` year mark on the home hero failed axe color-contrast at 320/390px. Both were fixed in code and retested, rather than excluded from QA. Interaction checks confirm Practice → Draft banks keeps client state, back/forward works, the skip link reaches `#main`, and the mobile primary navigation opens with real links.
-- Removed stale `out-rc` (2,867 files / 156.3 MiB) after confirming it was superseded by the fresh export. Disk free is now about 10.0 GB on `D:`.
+- Baseline `main`: `28e1f8fcf0a7a3f117d28a1a1549eb248fb7845f`. Split-Worker implementation commit: `ba329c4` (C1, 21 files). Follow-up release commit: recorded in [NEXT_INTEGRATION.md](NEXT_INTEGRATION.md). Working tree contains the follow-up changes; no push, no deploy.
+- `wrangler.jsonc` remains byte-identical to `2fe33f6` (`ee60e9418b9bc043c284dc79dadbcc01ae2103865e9950ec58fdf8e3b6f3d380`). The split config lives in `wrangler.gateway.jsonc` and `wrangler.docs.jsonc`.
+- `.github/workflows/deploy-cloudflare.yml` is byte-identical to its paused historical state and stays covered by `DEPLOYMENT_PAUSE_RECEIPT.json`. The new `.github/workflows/deploy-split-workers.yml` is `workflow_dispatch` only, requires the operator to type `DEPLOY`, and has no push or schedule trigger.
+- **Full export:** 29,235 files / 3,124,948,414 bytes (2,980.18 MiB). Docs section: 16,302 files / 745,979,238 bytes. No file exceeds 25 MiB; the largest is `fabric-docs-assets/data-science/media/data-agent-ontology-as-context/export-ontology-context.gif` at 25,470,479 bytes. Segment aliases: 19,056 files (3,177 `index.html`, 3,176 `index.txt`/`_full`/`_tree`, 3,175 nested `__PAGE__.txt`, 3,176 flat aliases).
+- **Split:** docs 16,370 files / 782,318,189 bytes; main 12,867 files / 2,342,677,600 bytes; shared `404.html` + `_headers`; source 29,235. `prepare-split-workers` enforces the 20,000 limit and fails closed.
+- **Corpus pins:** 22 families, 2,797 ledger rows, 2,716 published articles, 81 excluded articles, 947 wired aliases, 67 suppressed, 9,586 asset rows / 9,572 asset files (a shared asset appears once per family in the manifest), 106 search files, 174 alias pages. Upstream `774592ea3f2d4558f763d6e5b74abf4785948fb5`.
+- **Determinism:** two clean provisioning runs produced byte-identical `fabric-docs-assets` and `fabric-search` trees; the live search tree is `ve75f9ad7202e54d4` and the 9,572 assets total 2,151,889,080 bytes byte-identical to the verified run. The 174 alias pages (admin 12, data-factory 82, fundamentals 12, onelake 26, real-time-intelligence 42) are byte-identical to the old verified worktree copy.
+- **Stale-corpus why:** the previous runtime built the corpus before the compiler resolved upstream includes inside prose and link labels. Regeneration changed only `sections` in 115 of 2,716 articles; article routing, registry and counts are unchanged. Delta histogram `{10:8,13:60,17:19,20:6,27:2,33:2,34:3,40:1,50:1,51:8,66:3,80:1,217:1}`; changed families: database 59, data-warehouse 22, data-factory 16, real-time-intelligence 13, fundamentals 3, workload-development-kit 1, data-science 1. Evidence: `CORPUS_REGEN_DIFF.json`.
+- **Include resolution:** `/learn/fabric/docs/data-factory/create-first-pipeline-with-sample-data/` renders the link text “How to monitor pipeline runs in Microsoft Fabric” at 320px and 1280px with no `[!INCLUDE` residue, one `main`, no overflow and no console errors.
+- **Alias redirect:** `/fabric-aliases/admin/admin-center.html` resolves to `/learn/fabric/docs/admin/admin-overview/` with HTTP 200 and the expected title.
+- **Search fix:** two independent defects in the FC07 merge band. (1) `SearchWithFabric` returned `<SearchClient>` alone when the band was hidden and as the first fragment child when visible, so the first keystroke replaced the subtree and reset the controlled field; it now always returns the same fragment shape. (2) The band's query seam listened to `input` in the **capture** phase; its synchronous re-render reset the controlled input before React's `onChange`, so the first character was lost; the listener now runs in the bubble phase. Final export: value survives the band switch, URL becomes `?q=p-value`, 9 metadata results and the Fabric band render, the Lab filter leaves two lab links, Clear restores `/search/` and “Start here”, zero console errors.
+- **Browser QA:** light PASS 72/72 and dark PASS 72/72 (24 routes × 3 viewports), with 0 non-200, 0 horizontal overflow, 0 axe violations, 0 console errors and 0 failed requests in both themes.
+- **Search index QA:** 52/52 checks, 448 destinations, index revision `24d2faff`, 223 KB.
+- **Test suite:** `npm run test:all` PASS 667/667 — data-viz 62, statistics 18, fabric 35, content 102, knowledge 139, atlas 74, fabric-corpus 237; 0 failed.
+- **Preservation:** `verify-knowledge-atlas` and `verify-easyui-integration` PASS (5 hashed successor changes, 4 reversible transitions, 173 reviewed additions in 7 waves). `verify-preservation-history` PASS (90 exact relocations, 23 original registry captures, 3 source-path-only transitions). Deployment-pause negative suite PASS 7/7.
+- **Live Cloudflare validation:** `wrangler whoami` now succeeds (OAuth, account `b84c4bfbf06e399ceb5f5267f87cb37e`, matching the workflow comment). Config dry-runs are recorded below.
 
 ## Changes
 
 | Path | Purpose |
 | --- | --- |
-| `lib/recovery/navigation.ts` | Eight reviewed collection destinations across four contexts; status and limitation travel with each link |
-| `components/learn/collection-shelf.tsx` | Static, server-rendered shelf; no client JavaScript and no private QA or source bytes |
-| `components/learn/curriculum-home.tsx` | Learn shelf, `#topics` anchor, corrected `/explore/` visualization-lab destination |
-| `components/study/directory.tsx` | Practice shelf; corrected `/learn/visualization/` course destination |
-| `app/learn/fabric/page.tsx` | Fabric shelf linking RTI lessons, documentation records and holds |
-| `app/learn/dp-600/atlas/page.tsx` | Atlas shelf linking resource records and source holds without implying semantic edges |
-| `app/content-index/page.tsx` | Backlog anchor, live curation counts, accurate hold wording and 320px overflow fix |
-| `components/hansa/day-timeline.tsx` | Decorative year label rendered as an aria-hidden SVG so it is not read as low-contrast text |
-| `scripts/audit-recovery-sources.mjs` | Read-only 56-comparison source-parity audit |
-| `tests/content/recovery-navigation.test.mjs` | Shelf destinations, real routes, no-script rendering, anchors and curation arithmetic |
-| `docs/cleanup-20261108/RECOVERY_SOURCE_PARITY.json` | 56/56 parity results and source locations |
-| `docs/cleanup-20261108/EXPORT_INVENTORY.json` | Export measurement, per-type counts and free-prune arithmetic |
-| `docs/cleanup-20261108/FRESH_EXPORT_QA.json` | Post-fix browser, interaction, keyboard and accessibility evidence |
-| `docs/cleanup-20261108/TARGETED_QA_AFTER_FIX.json` | Targeted diagnostic for the two UI fixes |
-| `scripts/knowledge-stage-receipt.mjs` | Connect exact deployment-pause evidence to existing chain |
-| `scripts/deployment-pause-receipt.mjs` | Verify only the two committed pause transitions |
-| `scripts/deployment-pause-negative.mjs` | Disposable-copy positive/negative tests; no live source mutation |
-| `scripts/runtime-transition-receipt.mjs` | Strict loader for the four committed runtime transitions; proves baseline-bound predecessors and rejects duplicates, drifts, weak proofs and non-lockfile hash pins |
-| `tests/content/runtime-transitions.test.mjs` | Positive receipt test plus eight negative families in disposable copies |
-| `docs/preservation-history/2026-11-08/RUNTIME_TRANSITIONS.json` | Exact transition evidence and commit provenance |
-| `docs/fabric-corpus-integration-20261105/INTEGRATION_MANIFEST.json` | Append-only pins advancing the two verifier scripts; no historical layer was edited |
-| `docs/cleanup-20261108/DEPLOYMENT_PAUSE_RECEIPT.json` | Exact transition evidence and commit provenance |
-| `docs/cleanup-20261108/NEXT_INTEGRATION.md` | Protected-source ledger, curation corrections, atomic work and release gates |
+| `app/search/search-with-fabric.tsx` | Stable fragment shape for the Fabric band; bubble-phase query seam so the controlled input keeps the first keystroke |
+| `scripts/provision-fabric-corpus.mjs` | Writes and asserts the 174 alias pages; `--clean` clears the alias root; `--compare` checks assets, aliases and search |
+| `tools/fabric-corpus/route-registry/write-alias-routes.mjs` | Honors `FABRIC_PUBLIC_ROOT` so provisioning is root-relative instead of worktree-relative |
+| `scripts/build-runtime-additions-receipt.mjs` | Seventh reviewed wave for the split-Worker tests and receipt loader |
+| `tests/content/runtime-additions.test.mjs` | Sandbox mutators edit the receipt in place without returning a new object |
+| `docs/preservation-history/2026-11-08/RUNTIME_ADDITIONS.json` | 173 reviewed post-baseline runtime files in 7 waves, exact bytes and introducing commits |
+| `docs/fabric-corpus-integration-20261105/INTEGRATION_MANIFEST.json` | Append-only README pin advance `60029eac…` → `6655303c…`; no historical layer edited |
+| `README.md` | Alias provisioning, final split counts, build-before-split rule, rollback configs and the manual split workflow |
+| `.github/workflows/deploy-split-workers.yml` | Header counts corrected to 29,235; still manual-only with the `DEPLOY` gate |
+| `docs/cleanup-20261108/RELEASE_INVENTORY.json` | Final export measurement and per-type counts |
+| `docs/cleanup-20261108/CORPUS_REGEN_DIFF.json` | Old → new corpus diff (115 articles, sections only) |
+| `docs/cleanup-20261108/qa/` | Light/dark browser reports and targeted search/article/alias evidence |
 | `docs/cleanup-20261108/REPORT.md` | This handoff |
+| `docs/cleanup-20261108/NEXT_INTEGRATION.md` | Preservation closure, release preparation and deploy gates |
 
-Question data, answer keys, media bytes, persistence contracts, hosting configuration and workflows are unchanged by the navigation pass. `next.config.ts` and `package-lock.json` remain covered by the exact runtime-transition receipt, not re-edited here. No specialist library was added; no new dependency, service, cost or third-party transfer. The two UI fixes are markup and CSS only. The existing `F:` bundle covers `28e1f8f`, **not implementation commit `7c6b1d1`**, and `F:` was not mounted at the end of this pass. The backup refresh is therefore BLOCKED until the drive is reconnected or an alternative backup location is approved.
+Generated outputs (`out/`, `out-main/`, `out-docs/`, `public/fabric-*`, `.wrangler-split-report.json`) stay gitignored and uncommitted. No dependency, question bank, media byte, localStorage key or historical baseline changed.
 
 ## Verification
 
 | Check | Result |
 | --- | --- |
-| `node --test scripts/deployment-pause-negative.mjs` | PASS 7/7: exact transitions, unrelated drift, rehashed permissions, restored automatic triggers, forged predecessors, unknown paths and omitted-receipt no-waiver |
-| `node scripts/verify-agent-reference.mjs` | PASS: 13 active hashes; paths/router/rubric; 6 available intake hashes |
-| `node --test tests/content/runtime-transitions.test.mjs` | PASS 8/8: exact four-path coverage, outside-repository rejection, scope/baseline rejection, unrecorded predecessor, post-receipt drift, ambiguous/irreversible insert proof, lockfile-only hash pin, duplicate/no-op/commit rejection |
-| `node scripts/verify-knowledge-atlas.mjs` | FAIL after the four transitions are accepted: next assertion is the first unowned post-baseline runtime addition (`app/archive/page.tsx`). Structural/publication fixture checks pass |
-| `node scripts/verify-easyui-integration.mjs` | FAIL at the same pre-existing unowned runtime addition after the four transitions are accepted |
-| `node scripts/verify-preservation-history.mjs` | PASS: 90 exact source relocations, 23 original registry captures, three source-path-only transitions, preserved original Atlas baseline, one precise Academy config expectation update; 6 corruption/waiver rejection cases |
-| `node scripts/audit-recovery-sources.mjs` | PASS 56/56 source-parity comparisons; results in `RECOVERY_SOURCE_PARITY.json` |
-| `npm run test:content` | PASS 87/87, including six navigation tests and eight runtime-transition tests |
-| `npm run test:all` | PASS 652/652: data-viz 62, statistics 18, fabric 35, content 87, knowledge 139, atlas 74, fabric-corpus 237; 0 failed |
-| `npm run build` | PASS: 3,182 static pages, 3,175 segment aliases, build id `hansa-static-export` |
-| Export inventory | PASS: 29,061 files / 3,124,901,827 bytes; 0 files over 25 MiB; free prune leaves 19,555 files / 2,693,970,374 bytes |
-| Working-tree diff | PASS: changed paths are the navigation shelf, its four integration points, two UI fixes, receipt/ledger/audit tests and cleanup evidence. No question bank, media, package/lockfile, hosting config or workflow is dirty |
-| Browser QA (final export) | PASS 54/54: 9 routes × 3 widths × 2 themes, HTTP 200, correct theme class, one `h1`, `main` present, zero horizontal overflow and no page/console errors. 24 axe runs returned zero violations; 8 runs left color-contrast items `incomplete` (home and the docs article) because of composited backgrounds/animation. Manual visual and domain audit NOT RUN. Practice → Draft banks kept client state; back/forward returned to the expected routes; skip link focused and reached `#main`; mobile navigation expanded with real links |
+| `npm run test:all` | PASS 667/667 (7 suites, 0 failed) |
+| `node scripts/verify-knowledge-atlas.mjs` | PASS: 16 upstream payload hashes, 33 integration hashes, 23 links, 90 relocations; 5 successor changes, 4 transitions, 173 additions |
+| `node scripts/verify-easyui-integration.mjs` | PASS: 41 owned hashes, 1,169 prior-file contracts, 173 reviewed additions, protected contracts |
+| `node scripts/verify-preservation-history.mjs` | PASS: 90 exact relocations, 23 registry captures, 6 corruption/waiver rejection cases |
+| `node --test scripts/deployment-pause-negative.mjs` | PASS 7/7 |
+| `node scripts/build-runtime-additions-receipt.mjs --check` | PASS: receipt matches disk and Git provenance |
+| `npm run test:fabric-corpus` | PASS 237/237 |
+| `npm run qa:search-index` | PASS 52/52; 448 destinations, `24d2faff`, 223 KB |
+| `node scripts/qa-browser.mjs` | PASS 72/72 light: 0 failures in every category |
+| `node scripts/qa-browser.mjs --dark` | PASS 72/72 dark: 0 failures in every category |
+| Targeted search interaction | PASS: value persists, `?q=p-value`, 9 results, Fabric band, Lab filter, Clear restores start state, 0 console errors |
+| Targeted article + alias QA | PASS: include resolved at 320/1280, no overflow, alias 200 → `/learn/fabric/docs/admin/admin-overview/` |
+| `npm run build` | PASS: 3,182 static pages, 3,175 segment aliases |
+| `node scripts/prepare-split-workers.mjs` | PASS: docs 16,370 / main 12,867 / shared 2 / source 29,235, limit 20,000 |
+| `npm run qa:search` | FAIL (expected): frozen script asks for “Search courses, lessons” and a pre-query live region. Current label is “Search the curriculum” and the live region appears with the query. Not edited without a transition; targeted check used instead |
+| `node scripts/audit-recovery-sources.mjs` | PASS 56/56 (previous pass; sources unchanged) |
+| Manual visual/domain audit | NOT RUN |
+| Atlas renderer/domain/manual a11y | NOT RUN (preparation-only payload) |
+| Cloudflare live validation | `wrangler whoami` PASS (account `b84c4bfb…`); 1,000-file subset `deploy --dry-run` PASS with the docs worker and bindings. The full 16,370-file dry-run read 32,797 entries, wrote the bundle, then made no progress for 4 minutes with no network sockets and no CPU use; it is a wrangler Free/asset-manifest scale limit in this environment, not a config error. The first dispatched deploy must be watched |
 
-## Coverage, next step and rollback
+## Capacity, backup and rollback
 
-Coverage is limited to the two exact workflow deltas, the four exact runtime transitions, existing curation ledgers and referenced recovery documents. No fresh corpus-wide semantic/source audit or complete current-release receipt coverage is claimed. The two catalogue intake copies matched their workspace originals in the earlier cleanup review; preserving source copies is intentional.
+- Workers Free allows 20,000 static files per version. The split leaves 3,630 files of headroom on docs and 7,133 on main. No paid plan, R2 bucket, custom domain or new backend is required.
+- The `F:` drive is mounted (25,180,360,704 bytes used, 5,847,998,464 free). Its current bundle covers `28e1f8f`; a refreshed bundle of the local release commits is required before push.
+- Roll back either Worker independently: `npx wrangler rollback --config wrangler.docs.jsonc` or `npx wrangler rollback --config wrangler.gateway.jsonc`. The historical single-Worker workflow must not be dispatched for this release.
+- To rebuild from source: provision the corpus from the pinned revision (`npm run corpus:provision`), run `npm run build`, then `npm run build:workers`. Delete `out-main/` and `out-docs/` before a rebuild because Next typechecks the generated worker chunks.
 
-Next atomic task: decide how the historical Atlas/EasyUI gates should treat the 171 post-baseline runtime files and the 9,678 gitignored generated outputs. The defensible options are (a) a per-wave addition ledger with commit provenance, built and reviewed wave by wave, or (b) re-scoping the historical gates to the payloads they were created to freeze while the newer preservation chain covers later work. Do not bulk-pin all 171 files in one generated receipt, do not add gitignored build outputs to Git, and do not deploy until the chosen option is reviewed.
+## Coverage and next step
 
-Deployment capacity is a separate owner decision. Cloudflare Workers Free allows 20,000 static files per version; this export is 29,061. Workers Paid (currently $5/month) raises the limit to 100,000 and preserves every prefetch payload. The measured free prune leaves 19,555 files but makes `_full`/`__PAGE__` prefetch requests return 404 and leaves only 445 files of headroom. Moving the 9,572 corpus media files to R2, or splitting the 16,302-file docs section across a second Worker, are free alternatives but change the current assets-only architecture and need a custom-domain/routing review. Separately, the Fabric corpus contract requires `FABRIC_CORPUS_BUILD_DIR` and the gitignored `public/fabric-*` outputs; a clean GitHub checkout cannot reproduce this export without provisioning them. None of these options is chosen here.
+Coverage is limited to the files, routes, corpus trees and receipts listed above. The corpus diff is a structural/text comparison of the generated search sections, not a fresh semantic audit of every article. The 174 alias pages are redirects, not republished content. The source-parity audit remains the earlier 56/56 check.
 
-Rollback: remove `components/learn/collection-shelf.tsx` and `lib/recovery/navigation.ts`, revert their four integration points, and revert the two UI fixes. The receipt, audit, ledger, tests and cleanup evidence can be removed independently. No historical baseline, question bank, media file or workflow was modified. These changes are committed locally as `7c6b1d1`; no push or deployment was performed.
+Next atomic task: owner review of this release candidate and a GO/NO-GO for the split deployment, including confirmation of the Cloudflare account, the two Worker names, the `DOCS` binding and the `CLOUDFLARE_API_TOKEN`/`CLOUDFLARE_ACCOUNT_ID` secrets. After approval: refresh the `F:` bundle, push the reviewed commits, dispatch `deploy-split-workers.yml` with `DEPLOY`, then smoke-test the public hostname and both rollback paths. No push or deployment is authorized by this document.

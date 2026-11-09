@@ -155,6 +155,12 @@ export function SearchWithFabric({
   // Query seam: SearchClient mirrors q= to the URL on every keystroke; native
   // `input` events bubble out of its React-controlled field, so both paths
   // converge here. See QUERY SEAM in the header comment.
+  //
+  // Listen in the bubble phase, not capture. A capture listener runs before
+  // SearchClient's React onChange; its synchronous setState re-renders the
+  // controlled field with the old value and React's handler then reads the
+  // cleared DOM, so the first keystroke is lost. Bubbling lets the child own
+  // the event first and both updates batch into one render.
   useEffect(() => {
     const readUrl = () => {
       const params = new URLSearchParams(window.location.search);
@@ -168,10 +174,10 @@ export function SearchWithFabric({
       }
     };
     const onPop = () => readUrl();
-    document.addEventListener("input", onInput, true);
+    document.addEventListener("input", onInput);
     window.addEventListener("popstate", onPop);
     return () => {
-      document.removeEventListener("input", onInput, true);
+      document.removeEventListener("input", onInput);
       window.removeEventListener("popstate", onPop);
     };
   }, []);
@@ -229,33 +235,37 @@ export function SearchWithFabric({
     view.status === "missing" ||
     (view.status === "ok" && view.hits.length === 0 && !view.partial);
 
-  if (hidden) return <SearchClient total={total} featured={featured} />;
-
+  // Keep SearchClient at the same tree position whether or not the Fabric
+  // band is visible. Returning it alone in one branch and as the first child
+  // of a fragment in the other remounts the controlled input and clears the
+  // query on the first keystroke.
   return (
     <>
       <SearchClient total={total} featured={featured} />
-      <section className="mt-8" aria-label="Fabric documentation results">
-        <h2 className="text-sm font-medium">Fabric documentation</h2>
-        <p className="mt-1 text-xs text-muted-foreground" role="status" aria-live="polite">
-          {statusText(view)}
-        </p>
-        {view.status === "ok" && view.hits.length > 0 ? (
-          <ul className="mt-3 space-y-2">
-            {view.hits.map((hit) => (
-              <FabricRow key={hit.articleId} hit={hit} tokens={view.tokens} />
-            ))}
-          </ul>
-        ) : null}
-        {view.status === "ok" && !view.partial && view.hits.length === 0 ? (
-          <p className="mt-2 text-xs text-muted-foreground">
-            Nothing matched in the Fabric documentation corpus for this query.
+      {hidden ? null : (
+        <section className="mt-8" aria-label="Fabric documentation results">
+          <h2 className="text-sm font-medium">Fabric documentation</h2>
+          <p className="mt-1 text-xs text-muted-foreground" role="status" aria-live="polite">
+            {statusText(view)}
           </p>
-        ) : null}
-        <p className="mt-3 text-[11px] leading-5 text-muted-foreground">
-          Full-text matches inside published Fabric articles (Microsoft Learn, CC BY 4.0), opened at the
-          matching section. Ranked after the lesson results above.
-        </p>
-      </section>
+          {view.status === "ok" && view.hits.length > 0 ? (
+            <ul className="mt-3 space-y-2">
+              {view.hits.map((hit) => (
+                <FabricRow key={hit.articleId} hit={hit} tokens={view.tokens} />
+              ))}
+            </ul>
+          ) : null}
+          {view.status === "ok" && !view.partial && view.hits.length === 0 ? (
+            <p className="mt-2 text-xs text-muted-foreground">
+              Nothing matched in the Fabric documentation corpus for this query.
+            </p>
+          ) : null}
+          <p className="mt-3 text-[11px] leading-5 text-muted-foreground">
+            Full-text matches inside published Fabric articles (Microsoft Learn, CC BY 4.0), opened at the
+            matching section. Ranked after the lesson results above.
+          </p>
+        </section>
+      )}
     </>
   );
 }

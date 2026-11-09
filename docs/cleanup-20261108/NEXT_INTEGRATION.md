@@ -1,6 +1,6 @@
 # Deferred integration — preparation checklist
 
-Scope: preserve, prepare and integrate the first reviewed batch; **not a publication, push or deployment**. Application baseline: `28e1f8f`. This pass implemented only the contextual collection shelves, the corrected lab/course destinations and two UI fixes; every work package below remains deferred. This is a cleanup handoff/correction to dated inventories, not a replacement product roadmap. Read the [recovery report](../content-recovery-20261109/RECOVERY_REPORT.md), [publication manifest](../content-recovery-20261109/PUBLICATION_MANIFEST.md), and workspace `../hansa-integration/INTEGRATION_PLAN.md` (relative to the repository root) for the existing workstreams.
+Scope: preserve, prepare and integrate the reviewed batch; **not a publication, push or deployment**. Application baseline: `28e1f8f`. This pass closes the preservation gap with a reviewed-addition ledger, prepares a Workers Free split deployment, regenerates the pinned Fabric corpus, restores its 174 alias pages, and fixes the search input. Every deferred work package below remains deferred. This is a cleanup handoff/correction to dated inventories, not a replacement product roadmap. Read the [recovery report](../content-recovery-20261109/RECOVERY_REPORT.md), [publication manifest](../content-recovery-20261109/PUBLICATION_MANIFEST.md), and workspace `../hansa-integration/INTEGRATION_PLAN.md` (relative to the repository root) for the existing workstreams.
 
 ## Protected inputs and precise dispositions
 
@@ -17,10 +17,26 @@ Scope: preserve, prepare and integrate the first reviewed batch; **not a publica
 
 Counts above are structural evidence from inspected data/curation ledgers and the recovery report, not a new full semantic audit. Original source exports, formulas, assets, private QA, question keys and saved-progress contracts remain protected. No corpus-wide duplicate deletion is authorized by this checklist.
 
+## Preservation closure (2026-11-09)
+
+1. The two historical verifiers no longer stop at an unowned runtime file. `docs/preservation-history/2026-11-08/RUNTIME_ADDITIONS.json` pins exactly 173 post-baseline runtime files in seven reviewed waves, each with its exact bytes and introducing commit. Generated corpus roots (`public/fabric-docs-assets/`, `public/fabric-aliases/`, `public/fabric-search/`) stay outside Git and outside the ledger.
+2. The ledger is a snapshot, not a waiver: it refuses baseline overwrites, unknown commits, generated roots, duplicates and an unassigned file. It was regenerated after the final search edit so no reviewed bytes drift. `node scripts/build-runtime-additions-receipt.mjs --check` must pass before release.
+3. The four committed runtime transitions keep their exact reverse proofs in `RUNTIME_TRANSITIONS.json`; the deployment-pause receipt still reproduces the original workflow bytes. No historical baseline or manifest was edited.
+4. Run both verifiers plus `verify-preservation-history` and the deployment-pause negative suite before any push. The expected output is PASS, not an assumed all-green status.
+
+## Release preparation (2026-11-09)
+
+- **Split Workers (Free plan).** `scripts/prepare-split-workers.mjs` hardlinks `out/` into `out-docs/` (the `learn/fabric/` subtree) and `out-main/` (everything else), shares `404.html` and `_headers`, and fails above 20,000 files per Worker. Current split: docs 16,370 files, main 12,867, shared 2. `workers/docs.mjs` serves the docs assets; `workers/gateway.mjs` serves the public hostname and forwards `/learn/fabric/*` through a `DOCS` service binding. `wrangler.gateway.jsonc` and `wrangler.docs.jsonc` are new; `wrangler.jsonc` remains frozen and byte-identical.
+- **Manual-only deploy.** `.github/workflows/deploy-split-workers.yml` is `workflow_dispatch` only and requires the operator to type `DEPLOY`. It checks out the pinned corpus revision, provisions assets, aliases and search, runs the preservation receipts and tests, lints, builds, splits, and deploys docs before the gateway. The historical `deploy-cloudflare.yml` is untouched and must not be dispatched for this release.
+- **Corpus.** `npm run corpus:provision` regenerates all 22 families from upstream `774592ea3f2d4558f763d6e5b74abf4785948fb5`, writes 174 alias pages, copies 9,572 assets and builds the 106-file search index. `FABRIC_PUBLIC_ROOT`, `--clean`, `--compare` and `--compare-registry` support disposable deterministic runs. Two clean runs produced byte-identical asset and search trees; the alias tree is byte-identical to the previously verified worktree copy.
+- **Stale corpus corrected.** The previously served search corpus was built before the compiler resolved upstream `[!INCLUDE]` fragments. Regeneration changed only `sections` in 115 of 2,716 articles; routing, article count and registry are unchanged. Details: `CORPUS_REGEN_DIFF.json`.
+- **Search.** `app/search/search-with-fabric.tsx` no longer swaps the client subtree when the Fabric band appears (which remounted the controlled input) and its query seam listens in the bubble phase, so the first keystroke is not lost to a capture-phase re-render. The static export now keeps `q=` and the typed value while the band appears.
+- **Evidence.** `RELEASE_INVENTORY.json` measures the final export; `qa/` holds the light and dark browser reports and the targeted search/article/alias checks.
+
 ## Verification maintenance before implementation
 
 1. Reconcile only independently proven historical changes. The deployment-pause receipt in this directory covers exactly two workflow files and reconstructs the original baseline bytes; it cannot authorize arbitrary runtime drift.
-2. Run both historical preservation verifiers after that narrow repair. The four committed runtime transitions are now accepted through `RUNTIME_TRANSITIONS.json` and its strict loader; record the **next actual assertion**, not an assumed all-green status. That assertion is the first of 171 post-baseline runtime files absent from the frozen baselines. Additional missing transitions require their own source/commit evidence, not bulk rehashing.
+2. Accept the four committed runtime transitions only through `RUNTIME_TRANSITIONS.json` and its strict loader, and the 173 additions only through `RUNTIME_ADDITIONS.json` and its strict loader. Both now pass. Additional changes need their own source/commit evidence, not bulk rehashing.
 3. Keep original baselines and historical manifests immutable. Avoid creating repeated full-tree baseline copies; use exact transitions and existing evidence. Do not add the gitignored `public/fabric-docs-assets`, `public/fabric-aliases` or `public/fabric-search` outputs to Git to satisfy a file-count or inventory check.
 4. Preserve the manual-dispatch-only deployment settings. Publication approval, implementation approval and deployment approval are separate.
 
@@ -34,11 +50,11 @@ Counts above are structural evidence from inspected data/curation ledgers and th
 
 ## Push/deploy gates — later, not executed here
 
-- Review the complete diff and confirm the chosen branch/commit; refresh the verified backup after new source changes are accepted. The existing F: bundle covers `28e1f8f`, not implementation commit `7c6b1d1`; the backup drive was not mounted at the end of this pass.
-- Run reference/preservation gates, relevant tests and a fresh static export. The current full-suite baseline is 652 passed, 0 failed (no skipped tests); the build produced 3,182 pages and the export measured 29,061 files. This is **not** a deployment certification, and the historical Atlas/EasyUI verifiers still stop at the 171-file baseline gap.
+- Review the complete diff and confirm the chosen branch/commit; refresh the verified backup after new source changes are accepted. The current `F:` bundle covers `28e1f8f`; a refreshed bundle for the local release commits is required before push.
+- Run reference/preservation gates, relevant tests and a fresh static export. Current evidence: `npm run test:all` 667/667, both preservation verifiers PASS, `test:fabric-corpus` 237/237, browser QA 72/72 light and 72/72 dark, `qa:search-index` 52/52, export 29,235 files / 3,124,948,414 bytes. `npm run qa:search` still fails because the frozen script expects the pre-FC07 label and a pre-query live region; use the targeted search evidence instead and do not edit the pinned script without a transition.
 - Verify the external corpus build-directory contract, media availability/rights, alias generation, search shards, canonical/base-path settings and actual target hosting capacity. Do not assume ignored media exists in CI/GitHub.
-- Confirm intended hosting target, secrets configured privately, costs and rollback artifact; no automatic workflow trigger activation as part of cleanup.
-- Only then perform the separately authorized push/deployment, preserving the last verified export until replacement validation succeeds.
+- Confirm intended hosting target, secrets and rollback artifact. `wrangler whoami` now PASSes on the owner account (`b84c4bfbf06e399ceb5f5267f87cb37e`). A 1,000-file subset `deploy --dry-run` validated the docs worker, asset handling and bindings; the full 16,370-file dry-run wrote the bundle but did not finish its asset manifest step in this environment (no network, no CPU progress after 4 minutes). Watch the first dispatched deploy rather than treating the dry-run as complete.
+- Only then perform the separately authorized push/deployment, preserving the last verified export until replacement validation succeeds. GO/NO-GO is an owner decision; no push or deploy is authorized by this document.
 
 ## Cleanup remainder
 
