@@ -399,6 +399,24 @@
       "layer": "split-workers/2026-11-09",
       "attribution": "workers-free-split",
       "note": "Release handoff now records the alias-page provisioning step, the final split counts (16,370 docs / 12,867 main), the build-before-split requirement, and the manual split deploy workflow while keeping the historical single-Worker workflow byte-identical and not dispatchable."
+    },
+    {
+      "path": "README.md",
+      "previousSha256": "6655303c61ea345e99d5f704d53ded6e16b24bfa04fae0a14d984ed53b7dfcfc",
+      "sha256": "b6cccf65a590965b58dffb5d7984747948c541841af26162c7bc34d996993584",
+      "bytes": 21157,
+      "layer": "deployment/2026-11-09",
+      "attribution": "live-split-deployment-record",
+      "note": "Deployment record: live Worker version IDs, the postbuild alias prune (13,642 docs / 12,420 main / 26,060 source), the local OAuth deployment path, the absent Actions secrets and the unvalidated CI CRLF fix. No route, feature, content or preservation claim changed."
+    },
+    {
+      "path": "docs/design-system/easyui-v2/INTEGRATION_MANIFEST.json",
+      "previousSha256": "20b536a363086b065938c4c1960ec7886281d3adb54db052139a97e053dea6e2",
+      "sha256": "53fc66b6c9da33d1f620bf3711deea83865a933ca87a633125be673d9835c974",
+      "bytes": 32032,
+      "layer": "deployment/2026-11-09",
+      "attribution": "live-split-deployment-record",
+      "note": "The EasyUI successor now records the alias-prune rewrite of scripts/export-segment-aliases.mjs as an explicit before/after runtime change. The frozen transition ledger stays at four entries and neither baseline is edited."
     }
   ],
   "additions": [],

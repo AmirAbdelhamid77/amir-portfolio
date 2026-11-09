@@ -7,7 +7,8 @@
     "scripts/verify-knowledge-atlas.mjs",
     "AGENTS.md",
     "docs/agent-reference/PACKAGE_MANIFEST.json",
-    "docs/knowledge-atlas/INTEGRATION_MANIFEST.json"
+    "docs/knowledge-atlas/INTEGRATION_MANIFEST.json",
+    "scripts/export-segment-aliases.mjs"
   ],
   "createdFiles": [
     "HANSA_EASYUI_V2_START_HERE.md",
@@ -280,6 +281,11 @@
       "path": "tests/academy/pattern-comparison.test.mjs",
       "beforeSha256": null,
       "sha256": "2a36d3bf3fb245b07699107a87772ee23511f81b0abf0ca39c7ba2d8a62a1379"
+    },
+    {
+      "path": "scripts/export-segment-aliases.mjs",
+      "beforeSha256": "17845d079fce389c33a73aa03b32eff58b8515a4342e67ab8de3dd79cbac8a47",
+      "sha256": "ef9507af406a1ea64e767db1c1e7af3a1d511ae337c06414bafa4a9fe7f47458"
     }
   ],
   "legacyAtlasPathAliases": [

@@ -11,7 +11,7 @@ The split release is **live** on Cloudflare Workers **Free**, with no paid backe
 
 The deployment was performed locally with the owner's existing Wrangler OAuth session (account `b84c4bfbf06e399ceb5f5267f87cb37e`, Wrangler 4.152.0) because the repository has **zero Actions secrets**. The manual-only workflow remains the intended CI path and still needs `CLOUDFLARE_API_TOKEN` and `CLOUDFLARE_ACCOUNT_ID`.
 
-Both historical preservation verifiers pass. The 173 post-baseline runtime files are pinned in `RUNTIME_ADDITIONS.json` as seven reviewed waves with exact bytes and introducing commits; this record adds one regression test as an eighth reviewed wave. No historical baseline, question bank, media file or workflow was rewritten.
+Both historical preservation verifiers pass. The 174 post-baseline runtime files are pinned in `RUNTIME_ADDITIONS.json` as eight reviewed waves with exact bytes and introducing commits; the eighth wave is the alias-prune regression test added with this release. The alias-prune rewrite of `scripts/export-segment-aliases.mjs` is recorded as a hash-bound successor change in the EasyUI manifest, not by rewriting a frozen baseline or extending the four-entry transition ledger. No historical baseline, question bank, media file or workflow was rewritten.
 
 The Fabric corpus is deterministic and current. The previous search corpus predated the compiler's upstream `[!INCLUDE]` resolution; regeneration from the pinned upstream changed only section text in 115 of 2,716 articles and restored the 174 alias pages the earlier export was missing. The search page's first-keystroke loss is fixed and verified locally and live.
 
@@ -19,7 +19,7 @@ The Fabric corpus is deterministic and current. The previous search corpus preda
 
 ## Evidence
 
-- Baseline `main`: `28e1f8fcf0a7a3f117d28a1a1549eb248fb7845f`. Split-Worker implementation: `ba329c407764b1fb7d843509723b3ac13872af54` (C1). Release follow-up: `6cb21b2c79bb914aa58ecd81b2985873a03b9183` (C2). Handoff: `3b1eb76cea89fb726f17a6d377f30d0a31c88a9e` (C3). CI checkout fix: `ac4a23b1f391cc14dc061ad521e79d6cb197f43c` (C4). This deployment record is C5.
+- Baseline `main`: `28e1f8fcf0a7a3f117d28a1a1549eb248fb7845f`. Split-Worker implementation: `ba329c407764b1fb7d843509723b3ac13872af54` (C1). Release follow-up: `6cb21b2c79bb914aa58ecd81b2985873a03b9183` (C2). Handoff: `3b1eb76cea89fb726f17a6d377f30d0a31c88a9e` (C3). CI checkout fix: `ac4a23b1f391cc14dc061ad521e79d6cb197f43c` (C4). Deployment record: `894c2663f10548c4061963be64b554ad0aa216ac` (C5). C6 is the receipt-check fix and final record update; its hash is reported after commit because a commit cannot contain its own id.
 - `wrangler.jsonc` remains byte-identical to `2fe33f6` (`ee60e9418b9bc043c284dc79dadbcc01ae2103865e9950ec58fdf8e3b6f3d380`). The split config lives in `wrangler.gateway.jsonc` and `wrangler.docs.jsonc`.
 - `.github/workflows/deploy-cloudflare.yml` is byte-identical to its paused historical state and stays covered by `DEPLOYMENT_PAUSE_RECEIPT.json`. The new `.github/workflows/deploy-split-workers.yml` is `workflow_dispatch` only, requires the operator to type `DEPLOY`, and has no push or schedule trigger.
 - **Raw Next export:** 29,235 files / 3,124,948,414 bytes (2,980.18 MiB). **Postbuild export:** 26,060 files / 2,982,830,901 bytes (2,844.65 MiB). The postbuild step wrote 3,175 flat RSC payload aliases and pruned 3,175 nested `__next.*` originals (142,117,513 bytes / 135.53 MiB) that nothing requests. Keeping both trees stalled the Workers asset manifest and doubled the docs payload paths; the pruned build is now the reproducible source for the split.
@@ -50,11 +50,12 @@ The Fabric corpus is deterministic and current. The previous search corpus preda
 | `scripts/qa-live-split.mjs` | Live QA harness for the split release, including cross-Worker client navigation and search |
 | `scripts/provision-fabric-corpus.mjs` | Writes and asserts the 174 alias pages; `--clean` clears the alias root; `--compare` checks assets, aliases and search |
 | `tools/fabric-corpus/route-registry/write-alias-routes.mjs` | Honors `FABRIC_PUBLIC_ROOT` so provisioning is root-relative instead of worktree-relative |
-| `scripts/build-runtime-additions-receipt.mjs` | Eighth reviewed wave for the alias-prune regression test |
+| `scripts/build-runtime-additions-receipt.mjs` | Eighth reviewed wave for the alias-prune regression test; `--check` now validates the `review`/`previousReceiptSha256` metadata separately and deep-compares the deterministic receipt core |
 | `scripts/knowledge-stage-receipt.mjs` | Resolve the terminal hop's bytes for a path pinned more than once, so the audited README chain passes the size check without touching historical pins |
 | `tests/content/runtime-additions.test.mjs` | Sandbox mutators edit the receipt in place without returning a new object |
 | `docs/preservation-history/2026-11-08/RUNTIME_ADDITIONS.json` | 174 reviewed post-baseline runtime files in 8 waves, exact bytes and introducing commits |
-| `docs/fabric-corpus-integration-20261105/INTEGRATION_MANIFEST.json` | Append-only README pin advance `60029eac…` → `6655303c…`; no historical layer edited |
+| `docs/design-system/easyui-v2/INTEGRATION_MANIFEST.json` | Records the alias-prune rewrite as a hash-bound successor: `17845d07…` → `ef9507af…` in `runtimeChanges`, with the path added to `modifiedExisting` |
+| `docs/fabric-corpus-integration-20261105/INTEGRATION_MANIFEST.json` | Append-only README pin chain (`60029eac…` → `6655303c…` → `b6cccf65…`) plus the EasyUI manifest hop (`20b536a3…` → `53fc66b6…`); no historical layer edited |
 | `README.md` | Alias provisioning, final split counts, build-before-split rule, live version IDs, CI secret gap and rollback configs |
 | `.github/workflows/deploy-split-workers.yml` | Header counts updated to 13,642 / 26,060; still manual-only with the `DEPLOY` gate |
 | `docs/cleanup-20261108/RELEASE_INVENTORY.json` | Postbuild export, split and pruned-nested measurements |
@@ -70,8 +71,8 @@ Generated outputs (`out/`, `out-main/`, `out-docs/`, `public/fabric-*`, `.wrangl
 | Check | Result |
 | --- | --- |
 | `npm run test:all` | PASS 668/668 (7 suites, 0 failed) |
-| `node scripts/verify-knowledge-atlas.mjs` | PASS: 16 upstream payload hashes, 33 integration hashes, 23 links, 90 relocations; 5 successor changes, 4 transitions, 174 additions in 8 waves |
-| `node scripts/verify-easyui-integration.mjs` | PASS: 41 owned hashes, 1,169 prior-file contracts, 174 reviewed additions, protected contracts |
+| `node scripts/verify-knowledge-atlas.mjs` | PASS: 16 upstream payload hashes, 33 integration hashes, 23 links, 90 relocations; 6 successor changes, 4 transitions, 174 additions in 8 waves |
+| `node scripts/verify-easyui-integration.mjs` | PASS: 41 owned hashes, 1,168 prior-file contracts, 174 reviewed additions, protected contracts |
 | `node scripts/verify-preservation-history.mjs` | PASS: 90 exact relocations, 23 registry captures, 6 corruption/waiver rejection cases |
 | `node scripts/verify-agent-reference.mjs` | PASS: 13 active hashes, entry paths, router v1.1, rubric weights, 6 available intake hashes. Terminal-hop size resolution accepts the audited README chain without editing the historical package pin |
 | `node --test scripts/deployment-pause-negative.mjs` | PASS 7/7 |
@@ -102,4 +103,4 @@ Generated outputs (`out/`, `out-main/`, `out-docs/`, `public/fabric-*`, `.wrangl
 
 Coverage is limited to the files, routes, corpus trees and receipts listed above. The corpus diff is a structural/text comparison of the generated search sections, not a fresh semantic audit of every article. The 174 alias pages are redirects, not republished content. The source-parity audit remains the earlier 56/56 check.
 
-Next atomic tasks: (1) add the two Cloudflare Actions secrets and run `deploy-split-workers.yml` once with `DEPLOY` to validate C4's CRLF fix and the full CI path; (2) decide whether to disable `workers_dev` on `hansa-docs` now that the binding works; (3) refresh and verify the bundle after C5/C6; (4) continue the deferred content work in `NEXT_INTEGRATION.md`. No further push or deployment is authorized by this document.
+Next atomic tasks: (1) add the two Cloudflare Actions secrets and run `deploy-split-workers.yml` once with `DEPLOY` to validate C4's CRLF fix and the full CI path; (2) decide whether to disable `workers_dev` on `hansa-docs` now that the binding works; (3) keep the refreshed C4–C6 bundle verified in Downloads until `F:` is available, then copy it there and re-verify; (4) continue the deferred content work in `NEXT_INTEGRATION.md`. No further push or deployment is authorized by this document.

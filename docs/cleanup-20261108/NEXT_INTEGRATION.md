@@ -21,7 +21,7 @@ Counts above are structural evidence from inspected data/curation ledgers and th
 
 1. The two historical verifiers no longer stop at an unowned runtime file. `docs/preservation-history/2026-11-08/RUNTIME_ADDITIONS.json` pins exactly 174 post-baseline runtime files in eight reviewed waves, each with its exact bytes and introducing commit. Generated corpus roots (`public/fabric-docs-assets/`, `public/fabric-aliases/`, `public/fabric-search/`) stay outside Git and outside the ledger. The eighth wave is the alias-prune regression test added with this release.
 2. The ledger is a snapshot, not a waiver: it refuses baseline overwrites, unknown commits, generated roots, duplicates and an unassigned file. It was regenerated after the final search edit and again after the alias-prune test so no reviewed bytes drift. `node scripts/build-runtime-additions-receipt.mjs --check` must pass before release.
-3. The four committed runtime transitions keep their exact reverse proofs in `RUNTIME_TRANSITIONS.json`; the deployment-pause receipt still reproduces the original workflow bytes. No historical baseline or manifest was edited.
+3. The four committed runtime transitions keep their exact reverse proofs in `RUNTIME_TRANSITIONS.json`; the deployment-pause receipt still reproduces the original workflow bytes. Later changes to a baseline-pinned file do not extend that frozen ledger: they advance the EasyUI successor through an explicit `beforeSha256`/`sha256` `runtimeChanges` entry, and the manifest's own pin advances only through the append-only FC hop. No historical baseline was edited.
 4. Run both verifiers plus `verify-preservation-history` and the deployment-pause negative suite before any push. The expected output is PASS, not an assumed all-green status.
 
 ## Release preparation (2026-11-09)
@@ -45,7 +45,7 @@ Counts above are structural evidence from inspected data/curation ledgers and th
 ## Verification maintenance before implementation
 
 1. Reconcile only independently proven historical changes. The deployment-pause receipt in this directory covers exactly two workflow files and reconstructs the original baseline bytes; it cannot authorize arbitrary runtime drift.
-2. Accept the four committed runtime transitions only through `RUNTIME_TRANSITIONS.json` and its strict loader, and the 174 additions only through `RUNTIME_ADDITIONS.json` and its strict loader. Both now pass. Additional changes need their own source/commit evidence, not bulk rehashing.
+2. Accept the four committed runtime transitions only through `RUNTIME_TRANSITIONS.json` and its strict loader, and the 174 additions only through `RUNTIME_ADDITIONS.json` and its strict loader. Both now pass. A later change to a baseline-pinned file is accepted only through the EasyUI successor's hash-bound `runtimeChanges` entry plus the append-only FC pin hop; the transition ledger stays at four entries. Additional changes need their own source/commit evidence, not bulk rehashing.
 3. Keep original baselines and historical manifests immutable. Avoid creating repeated full-tree baseline copies; use exact transitions and existing evidence. Do not add the gitignored `public/fabric-docs-assets`, `public/fabric-aliases` or `public/fabric-search` outputs to Git to satisfy a file-count or inventory check.
 4. Preserve the manual-dispatch-only deployment settings. Publication approval, implementation approval and deployment approval are separate.
 
@@ -59,9 +59,9 @@ Counts above are structural evidence from inspected data/curation ledgers and th
 
 ## Push/deploy status and remaining gates
 
-- **Push:** `394302e..3b1eb76` reached `origin/main` (C1–C3 plus the earlier navigation/baseline commits); C4 `ac4a23b` was pushed afterwards. C5 (this deployment record) and C6 (receipt update) are the final local commits to push.
+- **Push:** `394302e..3b1eb76` reached `origin/main` (C1–C3 plus the earlier navigation/baseline commits); C4 `ac4a23b` was pushed afterwards. C5 `894c2663f10548c4061963be64b554ad0aa216ac` is committed; C6 carries the receipt-check fix and this final record update. Both are the final local commits to push.
 - **Deploy:** performed locally with Wrangler OAuth; both Worker versions are live. The historical single-Worker workflow was not dispatched. The split workflow was dispatched once (`42658023133`) and failed in provisioning before credentials; it has not completed a green run.
-- **Backup:** the C3 bundle at `C:\Users\amira\Downloads\hansa-main-3b1eb76.bundle` is verified but does not cover C4–C6. `F:` is unavailable; the owner approved the Downloads fallback. Produce and verify the refreshed bundle after C6 and update `hansa-backup-receipt.txt`.
+- **Backup:** the C3 bundle at `C:\Users\amira\Downloads\hansa-main-3b1eb76.bundle` is verified but does not cover C4–C6. `F:` is unavailable; the owner approved the Downloads fallback. A refreshed bundle covering C4–C6 is produced and `git bundle verify`-checked immediately after C6, then recorded in `hansa-backup-receipt.txt`.
 - **Remaining gates:** (1) add `CLOUDFLARE_API_TOKEN` and `CLOUDFLARE_ACCOUNT_ID`, then dispatch `deploy-split-workers.yml` with `DEPLOY` to validate C4's CRLF fix end-to-end; (2) decide whether to disable `workers_dev` on `hansa-docs`; (3) keep the last verified export until the refreshed bundle is verified; (4) re-run the preservation receipts and `npm run test:all` before any further runtime change. No further push or deploy is authorized by this document.
 
 ## Cleanup remainder

@@ -112,6 +112,13 @@ export const REVIEWED_WAVES = [
       "Reviewed with the split-Worker release: the routing, configuration, split-gate and additions-loader tests are the acceptance evidence for this wave. No recovered content, question bank, media or saved progress changed.",
     commits: ["ba329c407764b1fb7d843509723b3ac13872af54"],
   },
+  {
+    id: "segment-alias-prune",
+    title: "Segment alias prune regression coverage",
+    review:
+      "Reviewed with the live split release: the test proves flat RSC alias creation, nested __next.* pruning and an idempotent rerun. It protects the deterministic 26,060-file postbuild export; no recovered content, question bank, media or saved progress changed.",
+    commits: ["894c2663f10548c4061963be64b554ad0aa216ac"],
+  },
 ];
 
 function parseArgs(argv) {
@@ -293,7 +300,21 @@ function main() {
 
   if (args.check) {
     const current = JSON.parse(readFileSync(receiptPath, "utf8"));
-    assert.deepEqual(receipt, current, "Runtime additions receipt is stale; run --update after review");
+    const { review, previousReceiptSha256, ...core } = current;
+    assert.deepEqual(receipt, core, "Runtime additions receipt is stale; run --update after review");
+    // Review metadata is written by --update, so it is validated rather than
+    // regenerated: the deterministic core above still has to match byte-for-byte.
+    if (review !== undefined) {
+      assert.equal(typeof review, "string", "Receipt review note must be a string");
+      assert.ok(review.trim().length >= 40, "Receipt review note is too short");
+    }
+    if (previousReceiptSha256 !== undefined) {
+      assert.match(
+        previousReceiptSha256,
+        HASH,
+        "Receipt predecessor hash must be a SHA-256 hex digest",
+      );
+    }
     console.log("PASS: runtime additions receipt matches disk and Git provenance");
     return;
   }

@@ -1130,6 +1130,24 @@
           "commit": "ba329c407764b1fb7d843509723b3ac13872af54"
         }
       ]
+    },
+    {
+      "id": "segment-alias-prune",
+      "title": "Segment alias prune regression coverage",
+      "review": "Reviewed with the live split release: the test proves flat RSC alias creation, nested __next.* pruning and an idempotent rerun. It protects the deterministic 26,060-file postbuild export; no recovered content, question bank, media or saved progress changed.",
+      "commits": [
+        "894c2663f10548c4061963be64b554ad0aa216ac"
+      ],
+      "files": [
+        {
+          "path": "tests/content/export-segment-aliases.test.mjs",
+          "bytes": 1875,
+          "sha256": "a1bfa7e0021c283f35c62d1c134a1b707788fb94d46f94b69c26df5212bbeead",
+          "commit": "894c2663f10548c4061963be64b554ad0aa216ac"
+        }
+      ]
     }
-  ]
+  ],
+  "review": "Reviewed with the live split deployment: one new content test pins the flat-alias copy, nested __next.* prune and idempotent rerun. The README successor hop records the deployed version IDs and postbuild counts; no historical baseline, recovered content or protected bytes changed.",
+  "previousReceiptSha256": "7739c3382680a24359e5619d3a439a623d3f275a726deac7ea853710674d9e3e"
 }
