@@ -77,6 +77,12 @@ jobs:
         run: |
           set -euo pipefail
           git init "$RUNNER_TEMP/fabric-upstream"
+          # The FC02 identity ledger pins SHA-256 of the CRLF worktree that the
+          # corpus was audited on. A Linux checkout defaults to LF and makes
+          # nearly every article look like blob drift, so materialize the same
+          # bytes before compiling. This changes line endings only; no source
+          # content, pin or registry hash is rewritten.
+          git -C "$RUNNER_TEMP/fabric-upstream" config core.autocrlf true
           git -C "$RUNNER_TEMP/fabric-upstream" remote add origin "$FABRIC_UPSTREAM"
           git -C "$RUNNER_TEMP/fabric-upstream" fetch --depth=1 origin "$FABRIC_REVISION"
           git -C "$RUNNER_TEMP/fabric-upstream" checkout --detach FETCH_HEAD
