@@ -453,6 +453,33 @@
       "layer": "timeline-editorial/2026-11-11",
       "attribution": "owner-requested-editorial-timeline",
       "note": "Excludes the two generated split-Worker export trees from source typechecking."
+    },
+    {
+      "path": "app/page.tsx",
+      "previousSha256": "7e24ce9199564e4c7eab33a3ff1aa4963102acbf92698155e26015900ca2bd98",
+      "sha256": "8719fdc38f9cd14dc45bc74219abf7d9aafbec6ccb50c871f52def17c5dbee56",
+      "bytes": 3026,
+      "layer": "live-daily-timeline/2026-11-11",
+      "attribution": "owner-requested-live-daily-timeline",
+      "note": "Supplies the source-reviewed bank deck to the live timeline and retains the archive editions."
+    },
+    {
+      "path": "lib/knowledge/daily-bank.ts",
+      "previousSha256": "0e2fc1f122d6841da5bcf8a8b7edd2056e50d993e943a1f5c2140d2d6190da6d",
+      "sha256": "d0f9ae7be1b3db907c15ff7da0f71640ca41af4d1163402ba39d939df23b0cdf",
+      "bytes": 3437,
+      "layer": "live-daily-timeline/2026-11-11",
+      "attribution": "owner-requested-live-daily-timeline",
+      "note": "Reuses the Cairo civil calendar and deterministic shuffle to deal three bank records per day without adjacent repeats. The strict published-only selector retains its previous gate."
+    },
+    {
+      "path": "tests/knowledge/daily-bank.test.mjs",
+      "previousSha256": "6ec6c96fa3a5efe319eee990f4004f370a14c6315df9261fd28e9414578b41c7",
+      "sha256": "ec878f60d210ed74d363a441ff44c443bcf2131855c8837b405df247c806b731",
+      "bytes": 8072,
+      "layer": "live-daily-timeline/2026-11-11",
+      "attribution": "owner-requested-live-daily-timeline",
+      "note": "Covers the 11-to-12 November Cairo rollover, stable ordering, distinct adjacent selections and invalid dates."
     }
   ],
   "additions": [],

@@ -1,8 +1,7 @@
 import type { Metadata } from "next";
 import { HansaKnowledgeLanding } from "@/components/knowledge/hansa-landing";
 import { TimelineHome } from "@/components/hansa/timeline-home";
-import { newestDayOnOrBeforeToday } from "@/lib/knowledge/day-ledger";
-import { EDITORIAL_DAYS } from "@/lib/knowledge/editorial-feed";
+import { EDITORIAL_DAYS, LIVE_DAILY_DECK } from "@/lib/knowledge/editorial-feed";
 import { SITE } from "@/lib/site";
 
 // Redesign plan §4/§15: the beUI Timeline Home is the release default as of
@@ -10,14 +9,6 @@ import { SITE } from "@/lib/site";
 // is explicit and build-time: HOME_V2=0 restores the accepted R3–R6 Home for
 // one release; it also stays reachable at /archive/.
 const HOME_V2 = process.env.NEXT_PUBLIC_HOME_V2 !== "0";
-
-// The build-time editorial ledger for the timeline Home. The dated feed is
-// still fail-closed through getDays (duplicates, >3 per day, missing source);
-// `true` keeps the accepted Home's eligibility (technical-review editions
-// included). The owner's 2026-11-10 request adds two bank records to each of
-// those real dates, so every day carries three insights and no date is
-// invented. Bank statuses are shown verbatim and the UI names drafts.
-const DAYS = EDITORIAL_DAYS;
 
 // The root IS the Hansa learning landing. The previous root — a directory of
 // Atlas/Learn/Practice gateways with a portfolio framing — was retired with the
@@ -88,7 +79,7 @@ export default function HomePage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
       {HOME_V2 ? (
-        <TimelineHome days={DAYS} defaultDay={newestDayOnOrBeforeToday(DAYS) ?? DAYS[DAYS.length - 1]?.date} />
+        <TimelineHome archive={EDITORIAL_DAYS} deck={LIVE_DAILY_DECK} />
       ) : (
         <HansaKnowledgeLanding />
       )}

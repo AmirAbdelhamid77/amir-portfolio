@@ -8,11 +8,14 @@
 
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { useCallback, useEffect } from "react";
+import { useCallback, useEffect, useMemo } from "react";
 import { Timeline } from "@/components/hansa/day-timeline";
 import { DayMedia } from "@/components/hansa/day-media";
 import { IslandNav } from "@/components/hansa/island-nav";
 import type { DayLedgerDay } from "@/lib/knowledge/day-ledger";
+import type { Insight } from "@/lib/knowledge/insights";
+import { LIVE_DAILY_START, liveDailyGroup } from "@/lib/knowledge/daily-bank";
+import { useLiveDay } from "./use-live-day";
 
 // A full, unambiguous civil date on every card: day, month name and four-digit
 // year, read in UTC so a build or a visitor's timezone cannot move it.
@@ -31,8 +34,26 @@ const UTC_FULL = new Intl.DateTimeFormat("en-GB", {
   timeZone: "UTC",
 });
 
-export function TimelineHome({ days, defaultDay }: { days: DayLedgerDay[]; defaultDay?: string }) {
+function dayHref(date: string) {
+  return date >= LIVE_DAILY_START ? `/day/live/?date=${date}` : `/day/${date}/`;
+}
+
+export function TimelineHome({ archive, deck }: { archive: DayLedgerDay[]; deck: Insight[] }) {
   const router = useRouter();
+  const today = useLiveDay();
+  const days = useMemo(() => {
+    if (!today) return archive;
+    const date = new Date(today + "T00:00:00Z");
+    const recent: DayLedgerDay[] = [];
+    for (let offset = 0; offset < 7; offset += 1) {
+      const stamp = date.toISOString().slice(0, 10);
+      const group = liveDailyGroup(deck, stamp);
+      if (!group.length) break;
+      recent.unshift({ date: stamp, insights: group.map(insight => ({ ...insight, date: stamp })) });
+      date.setUTCDate(date.getUTCDate() - 1);
+    }
+    return [...archive, ...recent];
+  }, [archive, deck, today]);
 
   const events = days.map((day) => {
     const drafts = day.insights.filter((insight) => insight.reviewStatus === "draft").length;
@@ -52,7 +73,7 @@ export function TimelineHome({ days, defaultDay }: { days: DayLedgerDay[]; defau
 
   const onOpen = useCallback(
     (id: string) => {
-      router.push(`/day/${id}/`);
+      router.push(dayHref(id));
     },
     [router],
   );
@@ -86,9 +107,10 @@ export function TimelineHome({ days, defaultDay }: { days: DayLedgerDay[]; defau
           it; the 72px offset matches the plan and the fork's height math. The
           layout's own <main id="main"> remains the page's main landmark. */}
       <div className="pt-[72px]">
-        <Timeline
+        {today ? <Timeline
+          key={today}
           events={events}
-          defaultValue={defaultDay ?? events[events.length - 1]?.id}
+          defaultValue={events[events.length - 1]?.id}
           onOpen={onOpen}
           itemWidth={340}
           years
@@ -98,7 +120,7 @@ export function TimelineHome({ days, defaultDay }: { days: DayLedgerDay[]; defau
           formatYear={(date) => UTC_MONTH.format(date)}
           announce={announce}
           aria-label="Daily insight timeline"
-        />
+        /> : <p role="status" className="mx-auto max-w-md px-4 py-16 text-center">Loading today’s insights…</p>}
         {/* Day list (plan §12): every day reachable as a link in the
             prerendered HTML, independent of the timeline's JavaScript. */}
         <nav aria-label="All days" className="sr-only">
@@ -109,7 +131,7 @@ export function TimelineHome({ days, defaultDay }: { days: DayLedgerDay[]; defau
               ).length;
               return (
                 <li key={day.date}>
-                  <Link href={`/day/${day.date}/`}>
+                  <Link href={dayHref(day.date)}>
                     <time dateTime={day.date}>{UTC_FULL.format(new Date(day.date))}</time> —{" "}
                     {day.insights.length}{" "}
                     {day.insights.length === 1 ? "insight" : "insights"}

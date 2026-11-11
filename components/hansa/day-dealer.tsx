@@ -20,7 +20,7 @@ type DealerInsight = CardDealerCard & {
   language?: string;
 };
 
-export function DayDealer({ day }: { day: DayLedgerDay }) {
+export function DayDealer({ day, live = false }: { day: DayLedgerDay; live?: boolean }) {
   const router = useRouter();
   // Deal on mount: the cards start in the deck and cross to the hand, which
   // is the dealer's signature animation. No randomness: the dealt order is
@@ -57,7 +57,9 @@ export function DayDealer({ day }: { day: DayLedgerDay }) {
       spread={54}
       angle={6}
       aria-label={`Insights for ${day.date}`}
-      onCardSelect={(id) => router.push(`/day/${day.date}/${id}/`)}
+      onCardSelect={(id) => router.push(live
+        ? `/day/live/?date=${day.date}&insight=${encodeURIComponent(id)}`
+        : `/day/${day.date}/${id}/`)}
       renderFace={(card) => {
         const c = card as DealerInsight;
         const rtl = c.language === "ar";

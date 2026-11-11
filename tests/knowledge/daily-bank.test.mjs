@@ -2,7 +2,7 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import crypto from 'node:crypto';
-import { dailyBankEntry, cairoDay } from '../../lib/knowledge/daily-bank.ts';
+import { dailyBankEntry, cairoDay, liveDailyGroup, shuffleDailyBank } from '../../lib/knowledge/daily-bank.ts';
 import { normalizedText } from '../../scripts/insight-source-evidence.mjs';
 const items=Array.from({length:7},(_,i)=>({id:`fixture-${i}`,reviewStatus:'published',sourceReviewed:true,scientificallyVerified:true,publicationApproved:true}));
 const release={version:'fixture-v1',startsOn:'2026-11-01',items};
@@ -29,6 +29,22 @@ test('Cairo civil day changes at local midnight, including summer offset',()=>{
  assert.equal(cairoDay(new Date('2026-11-06T21:59:59Z')),'2026-11-06');
  assert.equal(cairoDay(new Date('2026-11-06T22:00:00Z')),'2026-11-07');
  assert.equal(cairoDay(new Date('2026-07-01T21:00:00Z')),'2026-07-02');
+});
+test('live editions deal three stable records and replace all three at Cairo midnight', () => {
+ const deck = shuffleDailyBank('live-fixture', items);
+ const before = cairoDay(new Date('2026-11-11T21:59:59Z'));
+ const after = cairoDay(new Date('2026-11-11T22:00:00Z'));
+ assert.equal(before, '2026-11-11');
+ assert.equal(after, '2026-11-12');
+ assert.deepEqual(liveDailyGroup(deck, before), liveDailyGroup(shuffleDailyBank('live-fixture', [...items].reverse()), before));
+ for (let index = 10; index < 30; index += 1) {
+  const day = liveDailyGroup(deck, date(index));
+  const tomorrow = liveDailyGroup(deck, date(index + 1));
+  assert.equal(day.length, 3);
+  assert.equal(new Set([...day, ...tomorrow].map(item => item.id)).size, 6);
+ }
+ assert.deepEqual(liveDailyGroup(deck, '2026-11-10'), []);
+ assert.deepEqual(liveDailyGroup(deck, '2026-11-31'), []);
 });
 test('staging bank sources resolve with unchanged fingerprints and all entries are excluded',()=>{
  const bank=JSON.parse(fs.readFileSync('docs/daily-insight-bank-20261106/INSIGHT_BANK.json','utf8'));
