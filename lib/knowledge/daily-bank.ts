@@ -56,13 +56,15 @@ export function dailyBankEntry<T extends BankEntry>(release: BankRelease<T>, day
 }
 
 export const LIVE_DAILY_START = '2026-11-11';
+export const DAILY_HISTORY_START = '2026-10-27';
 
 export function liveDailyGroup<T>(deck: readonly T[], date: string): T[] {
-  if (!/^\d{4}-\d{2}-\d{2}$/.test(date)) return [];
+  if (!/^\d{4}-\d{2}-\d{2}$/.test(date) || date < DAILY_HISTORY_START || deck.length < 6) return [];
   const time = new Date(date + 'T00:00:00Z');
   if (!Number.isFinite(time.valueOf()) || time.toISOString().slice(0, 10) !== date) return [];
   const offset = dayNumber(date) - dayNumber(LIVE_DAILY_START);
-  if (offset < 0 || deck.length < 6) return [];
-  const first = (offset * 3) % deck.length;
+  // Deal backward from the live launch for backfilled days. Keeping the
+  // original anchor preserves the three records on every existing live date.
+  const first = ((offset * 3) % deck.length + deck.length) % deck.length;
   return [deck[first], deck[(first + 1) % deck.length], deck[(first + 2) % deck.length]];
 }

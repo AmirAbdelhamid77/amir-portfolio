@@ -14,7 +14,7 @@ import { DayMedia } from "@/components/hansa/day-media";
 import { IslandNav } from "@/components/hansa/island-nav";
 import type { DayLedgerDay } from "@/lib/knowledge/day-ledger";
 import type { Insight } from "@/lib/knowledge/insights";
-import { LIVE_DAILY_START, liveDailyGroup } from "@/lib/knowledge/daily-bank";
+import { DAILY_HISTORY_START, liveDailyGroup } from "@/lib/knowledge/daily-bank";
 import { useLiveDay } from "./use-live-day";
 
 // A full, unambiguous civil date on every card: day, month name and four-digit
@@ -35,7 +35,7 @@ const UTC_FULL = new Intl.DateTimeFormat("en-GB", {
 });
 
 function dayHref(date: string) {
-  return date >= LIVE_DAILY_START ? `/day/live/?date=${date}` : `/day/${date}/`;
+  return date >= DAILY_HISTORY_START ? `/day/live/?date=${date}` : `/day/${date}/`;
 }
 
 export function TimelineHome({ archive, deck }: { archive: DayLedgerDay[]; deck: Insight[] }) {
@@ -43,16 +43,15 @@ export function TimelineHome({ archive, deck }: { archive: DayLedgerDay[]; deck:
   const today = useLiveDay();
   const days = useMemo(() => {
     if (!today) return archive;
-    const date = new Date(today + "T00:00:00Z");
-    const recent: DayLedgerDay[] = [];
-    for (let offset = 0; offset < 7; offset += 1) {
-      const stamp = date.toISOString().slice(0, 10);
+    const date = new Date(DAILY_HISTORY_START + "T00:00:00Z");
+    const editions: DayLedgerDay[] = [];
+    for (let stamp = DAILY_HISTORY_START; stamp <= today; stamp = date.toISOString().slice(0, 10)) {
       const group = liveDailyGroup(deck, stamp);
       if (!group.length) break;
-      recent.unshift({ date: stamp, insights: group.map(insight => ({ ...insight, date: stamp })) });
-      date.setUTCDate(date.getUTCDate() - 1);
+      editions.push({ date: stamp, insights: group.map(insight => ({ ...insight, date: stamp })) });
+      date.setUTCDate(date.getUTCDate() + 1);
     }
-    return [...archive, ...recent];
+    return [...archive, ...editions];
   }, [archive, deck, today]);
 
   const events = days.map((day) => {

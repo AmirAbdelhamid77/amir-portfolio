@@ -43,8 +43,23 @@ test('live editions deal three stable records and replace all three at Cairo mid
   assert.equal(day.length, 3);
   assert.equal(new Set([...day, ...tomorrow].map(item => item.id)).size, 6);
  }
- assert.deepEqual(liveDailyGroup(deck, '2026-11-10'), []);
+ assert.deepEqual(liveDailyGroup(deck, '2026-10-26'), []);
  assert.deepEqual(liveDailyGroup(deck, '2026-11-31'), []);
+});
+test('retroactive editions fill every date from 27 October without changing the live launch schedule', () => {
+ const deck = shuffleDailyBank('backfill-fixture', items);
+ const dates = Array.from({length:17}, (_, index) =>
+   new Date(Date.UTC(2026, 9, 27 + index)).toISOString().slice(0, 10));
+ assert.equal(dates[14], '2026-11-10');
+ assert.deepEqual(liveDailyGroup(deck, '2026-11-11'), deck.slice(0, 3));
+ assert.deepEqual(liveDailyGroup(deck, '2026-11-12'), deck.slice(3, 6));
+ for (let index = 1; index < dates.length; index += 1) {
+  const previous = liveDailyGroup(deck, dates[index - 1]);
+  const current = liveDailyGroup(deck, dates[index]);
+  assert.equal(previous.length, 3);
+  assert.equal(current.length, 3);
+  assert.equal(new Set([...previous, ...current].map(item => item.id)).size, 6);
+ }
 });
 test('staging bank sources resolve with unchanged fingerprints and all entries are excluded',()=>{
  const bank=JSON.parse(fs.readFileSync('docs/daily-insight-bank-20261106/INSIGHT_BANK.json','utf8'));

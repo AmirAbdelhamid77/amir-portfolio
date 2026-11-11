@@ -480,6 +480,24 @@
       "layer": "live-daily-timeline/2026-11-11",
       "attribution": "owner-requested-live-daily-timeline",
       "note": "Covers the 11-to-12 November Cairo rollover, stable ordering, distinct adjacent selections and invalid dates."
+    },
+    {
+      "path": "lib/knowledge/daily-bank.ts",
+      "previousSha256": "d0f9ae7be1b3db907c15ff7da0f71640ca41af4d1163402ba39d939df23b0cdf",
+      "sha256": "0fc5a41e997b7ab4db7d33ebd97dea494ca517c6ff4d405ec472b2882eba01ae",
+      "bytes": 3668,
+      "layer": "backfill-daily-timeline/2026-11-11",
+      "attribution": "owner-requested-consecutive-timeline",
+      "note": "Adds retroactive editions from 27 October while preserving the existing 11 November shuffle anchor and all selections from that date onward."
+    },
+    {
+      "path": "tests/knowledge/daily-bank.test.mjs",
+      "previousSha256": "ec878f60d210ed74d363a441ff44c443bcf2131855c8837b405df247c806b731",
+      "sha256": "0d516023891f2badfc7d2ef60e641f018e6e157e8811ff4a9ab8d65dd2913380",
+      "bytes": 8882,
+      "layer": "backfill-daily-timeline/2026-11-11",
+      "attribution": "owner-requested-consecutive-timeline",
+      "note": "Checks consecutive editions across the month and launch boundaries, exact counts and unchanged launch-day selections."
     }
   ],
   "additions": [],
