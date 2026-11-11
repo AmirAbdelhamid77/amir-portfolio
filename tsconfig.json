@@ -39,12 +39,15 @@
   ],
   // Generated output and scratch copies are not part of the source project.
   // `/build` is gitignored and holds full preview copies of `app/` from earlier
-  // release rehearsals; typechecking those copies against the live source only
-  // reports drift in throwaway files.
+  // release rehearsals; `/out-main` and `/out-docs` are the gitignored
+  // split-Worker asset trees. Typechecking those copies against the live
+  // source only reports drift in throwaway files.
   "exclude": [
     "node_modules",
     ".next",
     "out",
+    "out-main",
+    "out-docs",
     "build",
     "prototype-archive"
   ]

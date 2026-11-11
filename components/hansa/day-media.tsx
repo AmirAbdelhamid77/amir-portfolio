@@ -2,19 +2,17 @@
 // a large day-of-month numeral, one chip per insight topic (at most 3) and a
 // quiet status marker. Pure HTML and CSS, non-interactive: the card itself is
 // the button.
+//
+// Since 2026-11-10 a day can carry a technical-review edition plus labelled
+// bank drafts, so the marker shows every distinct status instead of hiding
+// the drafts behind the first one.
 
 import type { DayLedgerDay } from "@/lib/knowledge/day-ledger";
-
-const STATUS_LABEL: Record<string, string> = {
-  preview: "Preview",
-  technical_review: "Technical review",
-};
+import { reviewStatusLabel } from "@/lib/knowledge/review-status";
 
 export function DayMedia({ day }: { day: DayLedgerDay }) {
   const dayOfMonth = Number(day.date.slice(8, 10));
-  const status = [...new Set(day.insights.map((i) => i.reviewStatus))]
-    .map((s) => STATUS_LABEL[s] ?? null)
-    .filter(Boolean)[0];
+  const statuses = [...new Set(day.insights.map((i) => reviewStatusLabel(i.reviewStatus)))];
   return (
     <div
       aria-hidden="true"
@@ -35,11 +33,23 @@ export function DayMedia({ day }: { day: DayLedgerDay }) {
           </span>
         ))}
       </div>
-      {status ? (
-        <span className="mt-1.5 inline-flex w-fit items-center gap-1 text-[11px] text-muted-foreground">
-          <span aria-hidden="true" className="size-1.5 rounded-full bg-warning" />
-          {status}
-        </span>
+      {statuses.length ? (
+        <div className="mt-1.5 flex flex-col gap-0.5">
+          {statuses.map((status) => (
+            <span
+              key={status}
+              className="inline-flex w-fit items-center gap-1 text-[11px] text-muted-foreground"
+            >
+              <span
+                aria-hidden="true"
+                className={`size-1.5 rounded-full ${
+                  status.startsWith("Draft") ? "bg-warning" : "bg-primary/60"
+                }`}
+              />
+              {status}
+            </span>
+          ))}
+        </div>
       ) : null}
     </div>
   );

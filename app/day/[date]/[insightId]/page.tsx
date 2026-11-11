@@ -5,9 +5,9 @@ import { X } from "lucide-react";
 import { IslandNav } from "@/components/hansa/island-nav";
 import { LayerShell } from "@/components/hansa/layer-shell";
 import { InsightDetailScene } from "@/components/hansa/insight-detail-scene";
-import { getDays, type DayLedgerDay } from "@/lib/knowledge/day-ledger";
+import { EDITORIAL_DAYS } from "@/lib/knowledge/editorial-feed";
+import type { DayLedgerDay } from "@/lib/knowledge/day-ledger";
 import { experimentFor } from "@/lib/knowledge/models";
-import insightsContent from "@/content/knowledge/insights.json";
 import type { Insight } from "@/lib/knowledge/insights";
 
 // Level 3 — the Insight detail (redesign plan §2, §10). The existing decision
@@ -15,8 +15,12 @@ import type { Insight } from "@/lib/knowledge/insights";
 // optional experiment, reveal-the-reasoning, caveat, evidence with checked
 // date, lesson and practice links. No score, no saved answer; question-bank
 // data and progress storage are untouched.
+//
+// Bank records use the same instrument with two honest additions: their
+// stored `draft` status is shown, and the source link points back to the
+// local lesson instead of claiming a Microsoft Learn URL.
 
-const DAYS: DayLedgerDay[] = getDays(insightsContent.items as Insight[], true);
+const DAYS: DayLedgerDay[] = EDITORIAL_DAYS;
 
 type DetailParams = { date: string; insightId: string };
 
@@ -44,6 +48,8 @@ export async function generateMetadata({ params }: { params: Promise<DetailParam
     title: `${insight.cardTitle} — Hansa`,
     description: `${insight.topic}: ${insight.title} ${insight.takeaway.slice(0, 110)}`,
     alternates: { canonical: `/day/${date}/${insightId}/` },
+    robots:
+      insight.reviewStatus === "draft" ? { index: false, follow: true } : undefined,
     openGraph: {
       title: insight.cardTitle,
       description: insight.takeaway.slice(0, 140),
@@ -58,6 +64,7 @@ export default async function InsightDetailPage({ params }: { params: Promise<De
   const insight: Insight | undefined = day?.insights.find((entry) => entry.id === insightId);
   if (!day || !insight) notFound();
   const experimentId = experimentFor(insight);
+  const rtl = insight.language === "ar";
 
   return (
     <>
@@ -77,7 +84,14 @@ export default async function InsightDetailPage({ params }: { params: Promise<De
             </Link>{" "}
             · insight
           </p>
-          <h1 id="insight-heading" className="mt-2 text-balance text-3xl font-medium tracking-tight">
+          <h1
+            id="insight-heading"
+            dir={rtl ? "rtl" : undefined}
+            lang={insight.language}
+            // RTL titles begin at the right edge, where the close control sits;
+            // reserve its width so the first line never runs under it.
+            className={`mt-2 text-balance text-3xl font-medium tracking-tight${rtl ? " pr-14" : ""}`}
+          >
             {insight.cardTitle}
           </h1>
           <InsightDetailScene insight={insight} experimentId={experimentId} />

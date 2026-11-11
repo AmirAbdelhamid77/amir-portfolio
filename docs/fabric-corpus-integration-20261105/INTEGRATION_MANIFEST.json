@@ -417,6 +417,42 @@
       "layer": "deployment/2026-11-09",
       "attribution": "live-split-deployment-record",
       "note": "The EasyUI successor now records the alias-prune rewrite of scripts/export-segment-aliases.mjs as an explicit before/after runtime change. The frozen transition ledger stays at four entries and neither baseline is edited."
+    },
+    {
+      "path": "app/page.tsx",
+      "previousSha256": "22b560c5089b1a5388f9b74c5dddca699fc0ce6f98939f257a5976b58010bf4c",
+      "sha256": "7e24ce9199564e4c7eab33a3ff1aa4963102acbf92698155e26015900ca2bd98",
+      "bytes": 3600,
+      "layer": "timeline-editorial/2026-11-11",
+      "attribution": "owner-requested-editorial-timeline",
+      "note": "Uses the shared editorial day ledger for the existing real dates and their three insights."
+    },
+    {
+      "path": "components/knowledge/insight-scene.tsx",
+      "previousSha256": "a4a787ab6de5f98c9e17583db02ec2701c288234a7b3fab96321826f6ef5d51c",
+      "sha256": "59c0a608c7eb343befd6472e9093a7ccf86859c79af23fb6621957c19acd615d",
+      "bytes": 13698,
+      "layer": "timeline-editorial/2026-11-11",
+      "attribution": "owner-requested-editorial-timeline",
+      "note": "Shows bank provenance, Arabic copy and the original review status on day details."
+    },
+    {
+      "path": "lib/knowledge/insights.ts",
+      "previousSha256": "117e6d3d57c3ad713708e2268e17231a95b170c0ca2adcb5d92ee2617e913ed4",
+      "sha256": "409d019cf8d937358a5923041f2742e861d4ece58cce870a68bc9473286d983c",
+      "bytes": 1869,
+      "layer": "timeline-editorial/2026-11-11",
+      "attribution": "owner-requested-editorial-timeline",
+      "note": "Adds optional presentation metadata for bank records while preserving the feed eligibility rules."
+    },
+    {
+      "path": "tsconfig.json",
+      "previousSha256": "4c7a99c8dccdbea1201c0c3099fe1d0fba6574c6afd279d1103542e0d8233b99",
+      "sha256": "eeb4f6ae4f2a4f66a70b2a239324c9bc5aef212e9a0c9f473aad2a68d30d2844",
+      "bytes": 1203,
+      "layer": "timeline-editorial/2026-11-11",
+      "attribution": "owner-requested-editorial-timeline",
+      "note": "Excludes the two generated split-Worker export trees from source typechecking."
     }
   ],
   "additions": [],

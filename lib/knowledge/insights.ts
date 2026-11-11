@@ -4,6 +4,12 @@ export type Insight = {
   conceptId: string; lessonHref: string; practiceHref: string;
   sourceId: string; sourceUrl: string; sourceLocator: string; checkedAt: string;
   reviewStatus: string; reviewer: string; questionIds: string[];
+  // Editorial-bank records carry these; the three dated editions omit them.
+  // `sourceKind` tells the detail scene whether the source link leaves the
+  // site; `statusLabel` is a presentation of `reviewStatus`, never a promotion.
+  language?: string;
+  sourceKind?: "external" | "local";
+  statusLabel?: string;
 };
 // Public feed is fail-closed. Preview is an explicit caller decision, never a
 // URL parameter or a mutation of Atlas/question-bank review status.

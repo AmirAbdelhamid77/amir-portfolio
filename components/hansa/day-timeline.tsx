@@ -140,6 +140,11 @@ function toDate(date: string | Date) {
   return typeof date === "string" ? new Date(date) : date;
 }
 
+/** The machine-readable date for the card's <time> element. */
+function isoDate(date: string | Date) {
+  return typeof date === "string" ? date : date.toISOString().slice(0, 10);
+}
+
 function defaultFormatYear(date: Date) {
   return `’${String(date.getUTCFullYear()).slice(-2)}`;
 }
@@ -229,14 +234,16 @@ function TimelineCard({
       <div className="relative -translate-y-1/2">
         <div className="relative overflow-hidden rounded-3xl border border-border bg-card">
           <div className="px-3.5 pt-3 pb-2">
-            <p
+            <time
               id={`${id}-date`}
-              className="text-muted-foreground text-xs tabular-nums"
+              dateTime={isoDate(event.date)}
+              className="block text-muted-foreground text-xs tabular-nums"
             >
               {dateLabel}
-            </p>
+            </time>
             <h3
               id={`${id}-title`}
+              dir="auto"
               className="truncate font-medium text-base text-foreground tracking-tight"
             >
               {event.title}

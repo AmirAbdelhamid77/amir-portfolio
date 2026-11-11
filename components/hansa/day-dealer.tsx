@@ -10,17 +10,14 @@ import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import { CardDealer, type CardDealerCard } from "@/components/motion/card-dealer";
 import type { DayLedgerDay } from "@/lib/knowledge/day-ledger";
+import { reviewStatusLabel } from "@/lib/knowledge/review-status";
 
 type DealerInsight = CardDealerCard & {
   topic: string;
   title: string;
   hook: string;
   status: string | null;
-};
-
-const STATUS_LABEL: Record<string, string> = {
-  preview: "Preview",
-  technical_review: "Technical review",
+  language?: string;
 };
 
 export function DayDealer({ day }: { day: DayLedgerDay }) {
@@ -34,17 +31,23 @@ export function DayDealer({ day }: { day: DayLedgerDay }) {
     return () => window.clearTimeout(id);
   }, []);
 
-  const cards: DealerInsight[] = day.insights.map((insight) => ({
-    id: insight.id,
-    zone: dealt ? "hand" : "deck",
-    label: `${insight.topic}: ${insight.cardTitle}`,
-    topic: insight.topic,
-    title: insight.cardTitle,
+  const cards: DealerInsight[] = day.insights.map((insight) => {
     // The hook is derived from the existing takeaway's first sentence — never
-    // written fresh (plan §6).
-    hook: `${insight.takeaway.split(". ")[0]}.`,
-    status: STATUS_LABEL[insight.reviewStatus] ?? null,
-  }));
+    // written fresh (plan §6). Keep terminal punctuation that is already there
+    // instead of producing "pipeline.." on the card.
+    const firstSentence = insight.takeaway.split(". ")[0].trim();
+    const hook = /[.!?؟]$/.test(firstSentence) ? firstSentence : `${firstSentence}.`;
+    return {
+      id: insight.id,
+      zone: dealt ? "hand" : "deck",
+      label: `${insight.topic}: ${insight.cardTitle}`,
+      topic: insight.topic,
+      title: insight.cardTitle,
+      hook,
+      status: reviewStatusLabel(insight.reviewStatus),
+      language: insight.language,
+    };
+  });
 
   return (
     <CardDealer
@@ -57,8 +60,13 @@ export function DayDealer({ day }: { day: DayLedgerDay }) {
       onCardSelect={(id) => router.push(`/day/${day.date}/${id}/`)}
       renderFace={(card) => {
         const c = card as DealerInsight;
+        const rtl = c.language === "ar";
         return (
-          <div className="flex h-full w-full flex-col gap-2 rounded-2xl border border-border bg-card p-3.5 text-left">
+          <div
+            dir={rtl ? "rtl" : "ltr"}
+            lang={c.language}
+            className="flex h-full w-full flex-col gap-2 rounded-2xl border border-border bg-card p-3.5 text-start"
+          >
             <span className="font-mono text-[10px] uppercase tracking-[0.14em] text-muted-foreground">
               {c.topic}
             </span>
@@ -68,7 +76,12 @@ export function DayDealer({ day }: { day: DayLedgerDay }) {
             <span className="mt-auto text-[12px] leading-5 text-muted-foreground">{c.hook}</span>
             {c.status ? (
               <span className="inline-flex w-fit items-center gap-1 text-[10px] text-muted-foreground">
-                <span aria-hidden="true" className="size-1.5 rounded-full bg-warning" />
+                <span
+                  aria-hidden="true"
+                  className={`size-1.5 rounded-full ${
+                    c.status.startsWith("Draft") ? "bg-warning" : "bg-primary/60"
+                  }`}
+                />
                 {c.status}
               </span>
             ) : null}

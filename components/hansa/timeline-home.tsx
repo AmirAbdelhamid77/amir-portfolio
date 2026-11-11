@@ -14,16 +14,19 @@ import { DayMedia } from "@/components/hansa/day-media";
 import { IslandNav } from "@/components/hansa/island-nav";
 import type { DayLedgerDay } from "@/lib/knowledge/day-ledger";
 
+// A full, unambiguous civil date on every card: day, month name and four-digit
+// year, read in UTC so a build or a visitor's timezone cannot move it.
 const UTC_DAY = new Intl.DateTimeFormat("en-GB", {
   day: "2-digit",
-  month: "short",
-  year: "2-digit",
+  month: "long",
+  year: "numeric",
   timeZone: "UTC",
 });
 const UTC_MONTH = new Intl.DateTimeFormat("en-US", { month: "short", timeZone: "UTC" });
 const UTC_FULL = new Intl.DateTimeFormat("en-GB", {
-  day: "2-digit",
-  month: "short",
+  weekday: "long",
+  day: "numeric",
+  month: "long",
   year: "numeric",
   timeZone: "UTC",
 });
@@ -31,17 +34,21 @@ const UTC_FULL = new Intl.DateTimeFormat("en-GB", {
 export function TimelineHome({ days, defaultDay }: { days: DayLedgerDay[]; defaultDay?: string }) {
   const router = useRouter();
 
-  const events = days.map((day) => ({
-    id: day.date,
-    date: day.date,
-    title: day.insights[0]?.title ?? day.date,
-    media: <DayMedia day={day} />,
-    meta: (
-      <span>
-        {day.insights.length} {day.insights.length === 1 ? "insight" : "insights"}
-      </span>
-    ),
-  }));
+  const events = days.map((day) => {
+    const drafts = day.insights.filter((insight) => insight.reviewStatus === "draft").length;
+    return {
+      id: day.date,
+      date: day.date,
+      title: day.insights[0]?.title ?? day.date,
+      media: <DayMedia day={day} />,
+      meta: (
+        <span>
+          {day.insights.length} {day.insights.length === 1 ? "insight" : "insights"}
+          {drafts ? ` · ${drafts} draft${drafts === 1 ? "" : "s"}` : ""}
+        </span>
+      ),
+    };
+  });
 
   const onOpen = useCallback(
     (id: string) => {
@@ -51,8 +58,12 @@ export function TimelineHome({ days, defaultDay }: { days: DayLedgerDay[]; defau
   );
 
   const announce = useCallback(
-    (event: { date: string | Date }, index: number) =>
-      `${UTC_FULL.format(new Date(event.date))}, ${days[index]?.insights.length ?? 0} ${days[index]?.insights.length === 1 ? "insight" : "insights"}, ${index + 1} of ${days.length}`,
+    (event: { date: string | Date }, index: number) => {
+      const day = days[index];
+      const count = day?.insights.length ?? 0;
+      const drafts = day?.insights.filter((insight) => insight.reviewStatus === "draft").length ?? 0;
+      return `${UTC_FULL.format(new Date(event.date))}, ${count} ${count === 1 ? "insight" : "insights"}${drafts ? `, ${drafts} unverified draft${drafts === 1 ? "" : "s"}` : ""}, ${index + 1} of ${days.length}`;
+    },
     [days],
   );
 
@@ -92,14 +103,23 @@ export function TimelineHome({ days, defaultDay }: { days: DayLedgerDay[]; defau
             prerendered HTML, independent of the timeline's JavaScript. */}
         <nav aria-label="All days" className="sr-only">
           <ul>
-            {days.map((day) => (
-              <li key={day.date}>
-                <Link href={`/day/${day.date}/`}>
-                  {day.date} — {day.insights.length}{" "}
-                  {day.insights.length === 1 ? "insight" : "insights"}
-                </Link>
-              </li>
-            ))}
+            {days.map((day) => {
+              const drafts = day.insights.filter(
+                (insight) => insight.reviewStatus === "draft",
+              ).length;
+              return (
+                <li key={day.date}>
+                  <Link href={`/day/${day.date}/`}>
+                    <time dateTime={day.date}>{UTC_FULL.format(new Date(day.date))}</time> —{" "}
+                    {day.insights.length}{" "}
+                    {day.insights.length === 1 ? "insight" : "insights"}
+                    {drafts
+                      ? ` (${drafts} unverified draft${drafts === 1 ? "" : "s"})`
+                      : ""}
+                  </Link>
+                </li>
+              );
+            })}
           </ul>
         </nav>
       </div>

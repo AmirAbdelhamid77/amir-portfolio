@@ -7,6 +7,7 @@ import { ArrowUpRight, RotateCcw } from "lucide-react";
 import type { Insight } from "@/lib/knowledge/insights";
 import type { ExperimentId, ExperimentState } from "@/lib/knowledge/models";
 import { STAGE_REVEAL } from "@/lib/knowledge/motion";
+import { reviewStatusLabel } from "@/lib/knowledge/review-status";
 import { InsightExperiment } from "@/components/knowledge/insight-experiment";
 import { cn } from "@/lib/utils";
 
@@ -36,6 +37,16 @@ export function InsightScene({
   const reduce = useReducedMotion() ?? false;
   const answerId = `${insight.id}-reasoning`;
   const sourceId = `${insight.id}-source`;
+  // The dated editions keep their accepted "Preview edition" badge; bank
+  // records carry their stored status label ("Draft — unverified").
+  const statusBadge =
+    insight.statusLabel ??
+    (insight.reviewStatus === "technical_review"
+      ? "Preview edition"
+      : reviewStatusLabel(insight.reviewStatus));
+  const rtl = insight.language === "ar";
+  const textDir = rtl ? "rtl" : undefined;
+  const isLocal = insight.sourceKind === "local";
 
   return (
     <div className="relative">
@@ -66,7 +77,7 @@ export function InsightScene({
             <span>{insight.topic}</span>
             <span aria-hidden="true">·</span>
             <span className="rounded-full border border-border-strong px-2 py-0.5">
-              Preview edition
+              {statusBadge}
             </span>
           </span>
         </div>
@@ -85,7 +96,16 @@ export function InsightScene({
           >
             <h2
               id={`${insight.id}-title`}
-              className="mt-4 text-balance text-[clamp(1.6rem,2.6vw,2.15rem)] font-medium leading-[1.1] tracking-[-0.02em]"
+              dir={textDir}
+              lang={insight.language}
+              // Bank records use one title for both the page heading and the
+              // reading. Repeating it in large type looks like a defect, so the
+              // reading heading stays in the accessibility tree but not on the
+              // page; dated editions keep both distinct titles visible.
+              className={cn(
+                "mt-4 text-balance text-[clamp(1.6rem,2.6vw,2.15rem)] font-medium leading-[1.1] tracking-[-0.02em]",
+                insight.cardTitle === insight.title && "sr-only",
+              )}
             >
               {/* The same title is the peek in scene 1. Naming the full reading
                   keeps the two headings distinct in a screen-reader outline
@@ -93,10 +113,18 @@ export function InsightScene({
               <span className="sr-only">The reading: </span>
               {insight.title}
             </h2>
-            <p className="mt-3 max-w-[52ch] text-pretty text-[15px] leading-7 text-foreground/85">
+            <p
+              dir={textDir}
+              lang={insight.language}
+              className="mt-3 max-w-[52ch] text-pretty text-[15px] leading-7 text-foreground/85"
+            >
               {insight.scenario}
             </p>
-            <p className="mt-3 flex gap-2.5 text-[13px] leading-6 text-muted-foreground">
+            <p
+              dir={textDir}
+              lang={insight.language}
+              className="mt-3 flex gap-2.5 text-[13px] leading-6 text-muted-foreground"
+            >
               <span
                 aria-hidden="true"
                 className="mt-1.5 block h-[calc(100%-0.75rem)] w-0.5 shrink-0 rounded-full bg-primary/50"
@@ -163,6 +191,8 @@ export function InsightScene({
                     initial={reduce ? { opacity: 1 } : { opacity: 0, y: 6 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={reduce ? { duration: 0.1 } : STAGE_REVEAL}
+                    dir={textDir}
+                    lang={insight.language}
                     className="mt-2 max-w-[54ch] text-pretty text-[16px] leading-7 font-medium"
                   >
                     {insight.takeaway}
@@ -173,6 +203,8 @@ export function InsightScene({
                     transition={
                       reduce ? { duration: 0.1 } : { ...STAGE_REVEAL, delay: 0.06 }
                     }
+                    dir={textDir}
+                    lang={insight.language}
                     className="mt-3 max-w-[56ch] text-[13px] leading-6 text-muted-foreground"
                   >
                     {insight.caveat}
@@ -193,7 +225,7 @@ export function InsightScene({
                       {scene.evidenceOpen ? "Hide evidence" : "Evidence"}
                     </button>
                     <span className="text-[11px] text-muted-foreground">
-                      {insight.reviewStatus.replace("_", " ")} · human review
+                      {reviewStatusLabel(insight.reviewStatus)} · human review
                       pending
                     </span>
                   </div>
@@ -219,19 +251,30 @@ export function InsightScene({
                             {insight.sourceLocator}
                           </p>
                           <p className="mt-1.5 text-[11px] leading-5 text-muted-foreground">
-                            Checked {insight.checkedAt} · {insight.reviewer}. The
-                            historical question banks and their answer keys were
-                            not modified.
+                            Checked {insight.checkedAt} · {insight.reviewer}.{" "}
+                            {isLocal
+                              ? "This record comes from the local authoring bank; its stored review status is shown above."
+                              : "The historical question banks and their answer keys were not modified."}
                           </p>
-                          <a
-                            href={insight.sourceUrl}
-                            target="_blank"
-                            rel="noreferrer noopener"
-                            className="mt-2 inline-flex min-h-11 items-center gap-1.5 text-[13px] underline underline-offset-4"
-                          >
-                            Read the Microsoft Learn source
-                            <ArrowUpRight className="size-3.5" aria-hidden="true" />
-                          </a>
+                          {isLocal ? (
+                            <a
+                              href={insight.sourceUrl}
+                              className="mt-2 inline-flex min-h-11 items-center gap-1.5 text-[13px] underline underline-offset-4"
+                            >
+                              Open the related lesson
+                              <ArrowUpRight className="size-3.5" aria-hidden="true" />
+                            </a>
+                          ) : (
+                            <a
+                              href={insight.sourceUrl}
+                              target="_blank"
+                              rel="noreferrer noopener"
+                              className="mt-2 inline-flex min-h-11 items-center gap-1.5 text-[13px] underline underline-offset-4"
+                            >
+                              Read the Microsoft Learn source
+                              <ArrowUpRight className="size-3.5" aria-hidden="true" />
+                            </a>
+                          )}
                         </div>
                       </motion.div>
                     ) : null}
@@ -249,12 +292,14 @@ export function InsightScene({
               Read the lesson
               <ArrowUpRight className="size-3.5" aria-hidden="true" />
             </a>
-            <a
-              href={insight.practiceHref}
-              className="inline-flex min-h-11 items-center gap-1.5 text-muted-foreground underline underline-offset-4 hover:text-foreground"
-            >
-              Practise this area
-            </a>
+            {insight.practiceHref && insight.practiceHref !== insight.lessonHref ? (
+              <a
+                href={insight.practiceHref}
+                className="inline-flex min-h-11 items-center gap-1.5 text-muted-foreground underline underline-offset-4 hover:text-foreground"
+              >
+                Practise this area
+              </a>
+            ) : null}
           </div>
         </motion.div>
       </article>
