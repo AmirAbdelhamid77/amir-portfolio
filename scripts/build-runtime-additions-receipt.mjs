@@ -14,9 +14,8 @@
 //   node scripts/build-runtime-additions-receipt.mjs --write
 //     Create the receipt. Fails if it already exists.
 //   node scripts/build-runtime-additions-receipt.mjs --update --review="..."
-//     Rewrite it after review. Every previously pinned path must still be
-//     present and unchanged; paths may not be dropped. The review note is
-//     stored in the receipt.
+//     Rewrite it after review. Existing paths keep their introducing commit
+//     and may change only through an exact reviewed Git transition.
 //   node scripts/build-runtime-additions-receipt.mjs --check
 //     Compare disk and Git provenance with the committed receipt. Exit 1 on any
 //     drift; write nothing.
@@ -41,7 +40,7 @@ const RUNTIME_DIRS = ["app", "lib", "components", "content", "public", "tests"];
 const HASH = /^[a-f0-9]{64}$/;
 const COMMIT = /^[a-f0-9]{40}$/;
 
-// Six reviewed waves, grouped by the commits that introduced them. The wave
+// Reviewed waves, grouped by the commits that introduced the files. The wave
 // titles and review notes are the audit record: a new commit that introduces a
 // runtime file must be added here deliberately, with its own note, before the
 // receipt can be written.
@@ -119,7 +118,34 @@ export const REVIEWED_WAVES = [
       "Reviewed with the live split release: the test proves flat RSC alias creation, nested __next.* pruning and an idempotent rerun. It protects the deterministic 26,060-file postbuild export; no recovered content, question bank, media or saved progress changed.",
     commits: ["894c2663f10548c4061963be64b554ad0aa216ac"],
   },
+  {
+    id: "editorial-timeline",
+    title: "Three editorial insights per dated timeline edition",
+    review:
+      "Reviewed against the dated feed, the six source-reviewed bank records and the editorial day tests. The adapter preserves dates and review statuses, and the guards reject duplicate records and invalid placements.",
+    commits: ["48db1be77821523484593055f495c921f0f39418"],
+  },
 ];
+
+const REVIEWED_REVISIONS = new Map([
+  ["48db1be77821523484593055f495c921f0f39418", [
+    "app/day/[date]/[insightId]/page.tsx",
+    "app/day/[date]/page.tsx",
+    "components/hansa/day-dealer.tsx",
+    "components/hansa/day-media.tsx",
+    "components/hansa/day-timeline.tsx",
+    "components/hansa/timeline-home.tsx",
+  ]],
+]);
+
+function matchesReviewedRevision(root, path, before, after) {
+  const gitHash = ref => createHash("sha256")
+    .update(execFileSync("git", ["show", `${ref}:${path}`], { cwd: root }))
+    .digest("hex");
+  return [...REVIEWED_REVISIONS].some(([commit, paths]) =>
+    paths.includes(path) && gitHash(`${commit}^`) === before && gitHash(commit) === after,
+  );
+}
 
 function parseArgs(argv) {
   const args = { write: false, update: false, check: false, review: null, root: REPO_ROOT };
@@ -330,7 +356,10 @@ function main() {
     for (const [path, entry] of previous) {
       const next = receipt.waves.flatMap((wave) => wave.files).find((file) => file.path === path);
       assert.ok(next, `--update cannot drop a reviewed addition: ${path}`);
-      assert.equal(next.sha256, entry.sha256, `--update cannot rewrite a reviewed addition: ${path}`);
+      assert.ok(
+        next.sha256 === entry.sha256 || matchesReviewedRevision(args.root, path, entry.sha256, next.sha256),
+        `--update needs a reviewed Git transition to revise an addition: ${path}`,
+      );
       assert.equal(next.commit, entry.commit, `--update cannot change provenance: ${path}`);
     }
     receipt.review = args.review.trim();

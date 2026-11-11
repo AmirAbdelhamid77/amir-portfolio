@@ -30,32 +30,32 @@
         },
         {
           "path": "app/day/[date]/[insightId]/page.tsx",
-          "bytes": 3749,
-          "sha256": "a050b4191c7e0c3640604fd5c58868dda0f55a9e511525d47ba74c99490b3912",
+          "bytes": 4342,
+          "sha256": "91daf13e9a1d552ff775db5ccda1eb2c04c164821e710b40f5c87fe182458863",
           "commit": "c2949624324da38fd90c75b13fcfe8cff70eaba6"
         },
         {
           "path": "app/day/[date]/page.tsx",
-          "bytes": 3576,
-          "sha256": "58771513d0d774a07a46215a06c977337e36296718264c1422c991a8fe4d670d",
+          "bytes": 4499,
+          "sha256": "2164548c74ee04bd30f3d463ae867d018d6a3c71491d0b4c73aaf3df21d75e3a",
           "commit": "c2949624324da38fd90c75b13fcfe8cff70eaba6"
         },
         {
           "path": "components/hansa/day-dealer.tsx",
-          "bytes": 2923,
-          "sha256": "970ee8546e48630ef485a9880b617c819e6f81f307a0d4ebcea75393b375b343",
+          "bytes": 3458,
+          "sha256": "718396e26f813f0551731ff4272a35686e8eac3bcb5aa3977a703dca6be4e900",
           "commit": "c2949624324da38fd90c75b13fcfe8cff70eaba6"
         },
         {
           "path": "components/hansa/day-media.tsx",
-          "bytes": 1698,
-          "sha256": "405d595a49af70e84ff25b08e619a1620ad4eec5fde567a57ab195ce7e8b8de8",
+          "bytes": 2130,
+          "sha256": "c949dc4168f16656b0c91898f2d71ad7a96bc4c34e622f31eff45e4e6bd77af5",
           "commit": "8c72012635564cf5c28c854e76c2c9bc36175eb3"
         },
         {
           "path": "components/hansa/day-timeline.tsx",
-          "bytes": 29212,
-          "sha256": "2282c03ff249c65e09ff6a0ddeca0483e927d254b85f475ffc471d89e80b7531",
+          "bytes": 29477,
+          "sha256": "c1f23b6a6be07679f30ae30e72bc3080418a297fe9af08cbb11cb14dba916059",
           "commit": "8c72012635564cf5c28c854e76c2c9bc36175eb3"
         },
         {
@@ -78,8 +78,8 @@
         },
         {
           "path": "components/hansa/timeline-home.tsx",
-          "bytes": 3834,
-          "sha256": "aab912e393395ee58554a446e0c5792ec8223b497b73c37912150b1835f80bdf",
+          "bytes": 4837,
+          "sha256": "8d2de3e23b1cf7802fe2897905708e2a1645c74b9c65626b54312ae5ab228045",
           "commit": "026f4a750ca3587586810f90943bef2ff338c868"
         },
         {
@@ -1146,8 +1146,42 @@
           "commit": "894c2663f10548c4061963be64b554ad0aa216ac"
         }
       ]
+    },
+    {
+      "id": "editorial-timeline",
+      "title": "Three editorial insights per dated timeline edition",
+      "review": "Reviewed against the dated feed, the six source-reviewed bank records and the editorial day tests. The adapter preserves dates and review statuses, and the guards reject duplicate records and invalid placements.",
+      "commits": [
+        "48db1be77821523484593055f495c921f0f39418"
+      ],
+      "files": [
+        {
+          "path": "lib/knowledge/editorial-days.ts",
+          "bytes": 8859,
+          "sha256": "f321175bf731997f417aedc067688a86678da83ec4159b99fe872d87f5ed9c59",
+          "commit": "48db1be77821523484593055f495c921f0f39418"
+        },
+        {
+          "path": "lib/knowledge/editorial-feed.ts",
+          "bytes": 772,
+          "sha256": "ef92e60ab1e9a46dfaa15de4c0c4f8edede1d72aded0a54f299caf7f2763cbc4",
+          "commit": "48db1be77821523484593055f495c921f0f39418"
+        },
+        {
+          "path": "lib/knowledge/review-status.ts",
+          "bytes": 542,
+          "sha256": "706a1fbcfa72f4a8dd9f83dac679266b25afa6437f38ca3a18012a2e5b2faf8f",
+          "commit": "48db1be77821523484593055f495c921f0f39418"
+        },
+        {
+          "path": "tests/knowledge/editorial-days.test.mjs",
+          "bytes": 6012,
+          "sha256": "caac78f75c635b72f90fb27f676e7d4aefe3b1ce48d61bd52e41356bb1a7c72a",
+          "commit": "48db1be77821523484593055f495c921f0f39418"
+        }
+      ]
     }
   ],
-  "review": "Reviewed with the live split deployment: one new content test pins the flat-alias copy, nested __next.* prune and idempotent rerun. The README successor hop records the deployed version IDs and postbuild counts; no historical baseline, recovered content or protected bytes changed.",
-  "previousReceiptSha256": "7739c3382680a24359e5619d3a439a623d3f275a726deac7ea853710674d9e3e"
+  "review": "Verified the three dated editions and six draft records. Revised timeline files match the reviewed Git transition and keep their introducing commits.",
+  "previousReceiptSha256": "2ff482511c2bb166410ccdb21b6176929df9cf9a5835b4863342f5458d6816ef"
 }
