@@ -42,8 +42,8 @@
         },
         {
           "path": "components/hansa/day-dealer.tsx",
-          "bytes": 3458,
-          "sha256": "718396e26f813f0551731ff4272a35686e8eac3bcb5aa3977a703dca6be4e900",
+          "bytes": 3577,
+          "sha256": "1f8398f4f41446ce27b6d9217fd95cdab8f281c56a4c81209d160079c342f535",
           "commit": "c2949624324da38fd90c75b13fcfe8cff70eaba6"
         },
         {
@@ -78,8 +78,8 @@
         },
         {
           "path": "components/hansa/timeline-home.tsx",
-          "bytes": 4837,
-          "sha256": "8d2de3e23b1cf7802fe2897905708e2a1645c74b9c65626b54312ae5ab228045",
+          "bytes": 5846,
+          "sha256": "ea761aa0d472da839fff689fe1f5fa18bab6fd8ad5fc48d6194d2ff9c5043ef6",
           "commit": "026f4a750ca3587586810f90943bef2ff338c868"
         },
         {
@@ -1163,8 +1163,8 @@
         },
         {
           "path": "lib/knowledge/editorial-feed.ts",
-          "bytes": 772,
-          "sha256": "ef92e60ab1e9a46dfaa15de4c0c4f8edede1d72aded0a54f299caf7f2763cbc4",
+          "bytes": 1658,
+          "sha256": "ca76afbdf29c0df5cda73c26f3234c0ce14fdbfb46aca6ae8e0ee62a30392a47",
           "commit": "48db1be77821523484593055f495c921f0f39418"
         },
         {
@@ -1180,8 +1180,36 @@
           "commit": "48db1be77821523484593055f495c921f0f39418"
         }
       ]
+    },
+    {
+      "id": "live-daily-timeline",
+      "title": "Live Cairo daily editions and bank detail routes",
+      "review": "The live date clock and statically exported day layer serve three source-reviewed bank records per Cairo date. Dated links and review labels are preserved and the schedule changes without a rebuild.",
+      "commits": [
+        "9096212e8d213c8f2e8ddf4d7e98b67bf667de43"
+      ],
+      "files": [
+        {
+          "path": "app/day/live/page.tsx",
+          "bytes": 517,
+          "sha256": "b5aeff9ecfb6b9af147afbe7322168547815ed7b40ba64c6c5086d819cc80f02",
+          "commit": "9096212e8d213c8f2e8ddf4d7e98b67bf667de43"
+        },
+        {
+          "path": "components/hansa/live-day.tsx",
+          "bytes": 3574,
+          "sha256": "d6e06d1f2fda4c0a97c7c57c4182622d05af9392fc6d60f04b98bfa6039288f2",
+          "commit": "9096212e8d213c8f2e8ddf4d7e98b67bf667de43"
+        },
+        {
+          "path": "components/hansa/use-live-day.ts",
+          "bytes": 684,
+          "sha256": "2c81ee01182dd9f11f0d0275b47e11b560ab1d2196a5828fa47ebafc62f7a997",
+          "commit": "9096212e8d213c8f2e8ddf4d7e98b67bf667de43"
+        }
+      ]
     }
   ],
-  "review": "Verified the three dated editions and six draft records. Revised timeline files match the reviewed Git transition and keep their introducing commits.",
-  "previousReceiptSha256": "2ff482511c2bb166410ccdb21b6176929df9cf9a5835b4863342f5458d6816ef"
+  "review": "Verified the live Cairo date schedule, exact three distinct entries per day, original review labels, and Git-proven revisions to the timeline and day dealer.",
+  "previousReceiptSha256": "1e93ea4916efbca3af5130560e7b850bd59a6d6962466d9244aa7607b7b8c1a2"
 }

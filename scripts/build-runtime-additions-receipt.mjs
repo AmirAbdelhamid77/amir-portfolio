@@ -125,6 +125,13 @@ export const REVIEWED_WAVES = [
       "Reviewed against the dated feed, the six source-reviewed bank records and the editorial day tests. The adapter preserves dates and review statuses, and the guards reject duplicate records and invalid placements.",
     commits: ["48db1be77821523484593055f495c921f0f39418"],
   },
+  {
+    id: "live-daily-timeline",
+    title: "Live Cairo daily editions and bank detail routes",
+    review:
+      "The live date clock and statically exported day layer serve three source-reviewed bank records per Cairo date. Dated links and review labels are preserved and the schedule changes without a rebuild.",
+    commits: ["9096212e8d213c8f2e8ddf4d7e98b67bf667de43"],
+  },
 ];
 
 const REVIEWED_REVISIONS = new Map([
@@ -135,6 +142,11 @@ const REVIEWED_REVISIONS = new Map([
     "components/hansa/day-media.tsx",
     "components/hansa/day-timeline.tsx",
     "components/hansa/timeline-home.tsx",
+  ]],
+  ["9096212e8d213c8f2e8ddf4d7e98b67bf667de43", [
+    "components/hansa/day-dealer.tsx",
+    "components/hansa/timeline-home.tsx",
+    "lib/knowledge/editorial-feed.ts",
   ]],
 ]);
 
