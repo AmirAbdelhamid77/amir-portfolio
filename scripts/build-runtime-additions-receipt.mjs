@@ -148,6 +148,9 @@ const REVIEWED_REVISIONS = new Map([
     "components/hansa/timeline-home.tsx",
     "lib/knowledge/editorial-feed.ts",
   ]],
+  ["6d3bb68eede579fb2d592ce6b5d1e543f1d8b589", [
+    "components/hansa/timeline-home.tsx",
+  ]],
 ]);
 
 function matchesReviewedRevision(root, path, before, after) {
