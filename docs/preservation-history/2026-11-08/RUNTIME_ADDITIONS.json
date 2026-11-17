@@ -537,14 +537,14 @@
         },
         {
           "path": "app/lab/rti/[lab]/page.tsx",
-          "bytes": 5391,
-          "sha256": "fbf9b2b85471eabd2ee4eec66f72c9db83adbafb380f3d5eb4d34ef01d632091",
+          "bytes": 5396,
+          "sha256": "c741591873600a50cccc5e1a73786129f0287ff0cf7a00f1e22110124fd4d39f",
           "commit": "a8e1d9b243f5a76c340a5779d7873ad24cd7a041"
         },
         {
           "path": "app/patterns/page.tsx",
-          "bytes": 5243,
-          "sha256": "0b45f26b05dfcb1f25bf42a47dd538c4165a6a4c06f8296fdc75c5f28f133169",
+          "bytes": 5248,
+          "sha256": "e24bab6a2aa43b9970a807f894cc5554d12c23ffd65764c2c9517ac4e0b52518",
           "commit": "a8e1d9b243f5a76c340a5779d7873ad24cd7a041"
         },
         {
@@ -555,8 +555,8 @@
         },
         {
           "path": "app/work/storytelling/page.tsx",
-          "bytes": 6427,
-          "sha256": "532b546f5ca29053f147fc12ebbfef4db8b26fd89ca86ebf4c63133c29cb15c8",
+          "bytes": 6432,
+          "sha256": "d5d28c650f431a0bf605810b85d1b7cefad2d33a382a715052c14a47e466935c",
           "commit": "a8e1d9b243f5a76c340a5779d7873ad24cd7a041"
         },
         {
@@ -1103,8 +1103,8 @@
         },
         {
           "path": "tests/content/runtime-transitions.test.mjs",
-          "bytes": 4530,
-          "sha256": "310f74856cbb427a7f747d378b2d1411b11cf065b8d4d241afeee371f123cfc4",
+          "bytes": 6053,
+          "sha256": "8e3213e4ea0a464ddd9f707de5994f229bef998205b64fec4966543f22f4a415",
           "commit": "7c6b1d15fc35bd100fc936d4c7b5a4ccb7edc68d"
         }
       ]
@@ -1260,6 +1260,6 @@
       ]
     }
   ],
-  "review": "Added a test that re-derives all 30 patrick-dp600 answer keys from the pack's own source, so a rerun of the pinned importer cannot silently return the 22 wrong keys.",
-  "previousReceiptSha256": "b62bbe8787d8f709ae9a82fbdffc281f35a3f1b5291bf6eddc54c704067cb318"
+  "review": "Mechanical ESLint fixes: apostrophes escaped as entities, internal links moved to next/link, and none of the lesson content, routes or interaction behaviour changed. The runtime-transition loader gained a reviewed multi-block reversal proof used by the Work page link.",
+  "previousReceiptSha256": "72cd5552ac60613d373e673d4eced181800c2b4c5a9b0e63d4f25cec380cec23"
 }

@@ -23,14 +23,17 @@
     {
       "path": "app/work/page.tsx",
       "beforeSha256": "fe32e6c3cec01810041705515bfc2cb490bb0b276c77aa91f2aa47d48767f95b",
-      "sha256": "c2aaf0dac80458ec8df7d31182da4d94a8995f86379637f2fc0bdac830ab84bd",
-      "bytes": 3738,
-      "layer": "content-recovery/2026-11-09",
-      "commit": "a8e1d9b243f5a76c340a5779d7873ad24cd7a041",
-      "note": "Content-recovery adds the Data Storytelling course link to the Work landing page. The inserted block reverses exactly to the preserved predecessor.",
+      "sha256": "80190123629016785df4b84a45593d4965da44f0d6c47f45f3e7462fe5940b1d",
+      "bytes": 3774,
+      "layer": "eslint-cleanup/2026-11-17",
+      "commit": "188389246293ad878869e81c80cb55df4fd7c586",
+      "note": "ESLint cleanup replaces the raw anchor with next/link and adds its import. Both changes are pure insertions over the preserved predecessor, so the receipt records two blocks that reverse exactly.",
       "proof": {
-        "kind": "insert-block",
-        "block": "          <p className=\"mt-6 text-sm text-muted-foreground\">\n            Also here: the recovered{\" \"}\n            <a href=\"/work/storytelling/\" className=\"underline decoration-border underline-offset-4 hover:decoration-foreground\">\n              Data Storytelling course and nine case studies\n            </a>{\" \"}\n            (24 documents, published unverified).\n          </p>\n"
+        "kind": "insert-blocks",
+        "blocks": [
+          "import Link from \"next/link\";\n",
+          "          <p className=\"mt-6 text-sm text-muted-foreground\">\n            Also here: the recovered{\" \"}\n            <Link href=\"/work/storytelling/\" className=\"underline decoration-border underline-offset-4 hover:decoration-foreground\">\n              Data Storytelling course and nine case studies\n            </Link>{\" \"}\n            (24 documents, published unverified).\n          </p>\n"
+        ]
       }
     },
     {

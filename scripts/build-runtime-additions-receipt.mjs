@@ -173,6 +173,12 @@ const REVIEWED_REVISIONS = new Map([
     "content/knowledge/question-insights.report.json",
     "tests/knowledge/question-insights.test.mjs",
   ]],
+  ["188389246293ad878869e81c80cb55df4fd7c586", [
+    "app/lab/rti/[lab]/page.tsx",
+    "app/patterns/page.tsx",
+    "app/work/storytelling/page.tsx",
+    "tests/content/runtime-transitions.test.mjs",
+  ]],
 ]);
 
 function matchesReviewedRevision(root, path, before, after) {
