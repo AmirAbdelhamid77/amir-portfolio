@@ -113,14 +113,14 @@
       "files": [
         {
           "path": "app/learn/fabric/docs/[family]/[...article]/page.tsx",
-          "bytes": 3699,
-          "sha256": "37136f60acf871f1b7997b3bd22a2b108e1ffcc87417ad84a88544e06d88733a",
+          "bytes": 3967,
+          "sha256": "b4c2b77d5c1cb3cddeb30ab75ace0e4ba60c9ca9faf2cfadec67b2679f947984",
           "commit": "e35724cd31a6713d8a8088b3580c5c4d496aaf71"
         },
         {
           "path": "app/learn/fabric/docs/page.tsx",
-          "bytes": 5126,
-          "sha256": "4facff8da6368d68dec88eac1a6828234de4720f45b1bb68ff9893e9311fadf5",
+          "bytes": 5484,
+          "sha256": "da99ca4a2daa6d45105879fcbbfb38c5567bd97b937f02e6cfa80cfcf49c6837",
           "commit": "e35724cd31a6713d8a8088b3580c5c4d496aaf71"
         },
         {
@@ -1290,8 +1290,24 @@
           "commit": "db4fbaddc72aa2b3bbe8f055219b0be41113a68a"
         }
       ]
+    },
+    {
+      "id": "docs-noindex",
+      "title": "Built-output guard for the noindexed Fabric docs mirror",
+      "review": "Reviewed against the built export: all 2,717 docs pages declare robots noindex, follow, keep their own canonical and the provenance/license footer, the sitemap lists none of them, and the pinned corpus stays in the in-site Fabric search (2,716 articles, 104 shards, 22 families). The curated Fabric lessons stay indexed. No content, route, question ID, answer key or saved progress changed.",
+      "commits": [
+        "75bbfd295a7057414c8b886df91ee04c097e48ab"
+      ],
+      "files": [
+        {
+          "path": "tests/fabric-corpus/routes/docs-noindex.test.mjs",
+          "bytes": 3556,
+          "sha256": "2585470ef23004805444ba1b0db6e21df3a9239b84b66f5efa54d1faf12075a8",
+          "commit": "75bbfd295a7057414c8b886df91ee04c097e48ab"
+        }
+      ]
     }
   ],
-  "review": "Brand lockup: the shared header and footer render Hansa with the fixed byline, every route title uses the layout template, and the new built-output test guards both. No content, route, question ID, answer key or saved progress changed.",
-  "previousReceiptSha256": "604d2f2dd4c10f10088035a289b788e057febb3a6bfc4cdd9750208dc800a449"
+  "review": "Fabric docs mirror: every docs page now declares robots noindex, follow while keeping its own canonical and provenance, the sitemap excludes the mirror, the in-site Fabric search still carries all 2,716 articles, and the new built-output test guards all three. No content, route, question ID, answer key or saved progress changed.",
+  "previousReceiptSha256": "1f5a2a8a167fbeee9113b09637fe8b2d5ad44453d6c285e840376e020abd5cda"
 }

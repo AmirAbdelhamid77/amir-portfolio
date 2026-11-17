@@ -159,6 +159,13 @@ export const REVIEWED_WAVES = [
       "Reviewed against the built export: the shared header and footer render Hansa with the fixed byline 'by Amir Abdelhamid', every Next route title ends with '- Hansa' exactly once, and the author remains in authors/creator/JSON-LD and the footer credit. Recovered static documents keep their original titles. No content, route, question ID, answer key or saved progress changed.",
     commits: ["db4fbaddc72aa2b3bbe8f055219b0be41113a68a"],
   },
+  {
+    id: "docs-noindex",
+    title: "Built-output guard for the noindexed Fabric docs mirror",
+    review:
+      "Reviewed against the built export: all 2,717 docs pages declare robots noindex, follow, keep their own canonical and the provenance/license footer, the sitemap lists none of them, and the pinned corpus stays in the in-site Fabric search (2,716 articles, 104 shards, 22 families). The curated Fabric lessons stay indexed. No content, route, question ID, answer key or saved progress changed.",
+    commits: ["75bbfd295a7057414c8b886df91ee04c097e48ab"],
+  },
 ];
 
 const REVIEWED_REVISIONS = new Map([
@@ -198,6 +205,10 @@ const REVIEWED_REVISIONS = new Map([
     "app/day/[date]/[insightId]/page.tsx",
     "app/day/[date]/page.tsx",
     "app/day/live/page.tsx",
+  ]],
+  ["75bbfd295a7057414c8b886df91ee04c097e48ab", [
+    "app/learn/fabric/docs/[family]/[...article]/page.tsx",
+    "app/learn/fabric/docs/page.tsx",
   ]],
 ]);
 
