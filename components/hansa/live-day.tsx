@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
 import { X } from "lucide-react";
-import { liveDailyGroup } from "@/lib/knowledge/daily-bank";
+import { liveEdition, type LiveDecks } from "@/lib/knowledge/daily-bank";
 import type { Insight } from "@/lib/knowledge/insights";
 import { DayDealer } from "./day-dealer";
 import { InsightDetailScene } from "./insight-detail-scene";
@@ -13,15 +13,16 @@ import { useLiveDay } from "./use-live-day";
 
 const fullDate = new Intl.DateTimeFormat("en-GB", { dateStyle: "full", timeZone: "UTC" });
 
-export function LiveDay({ deck }: { deck: Insight[] }) {
+export function LiveDay({ decks }: { decks: LiveDecks<Insight> }) {
   const params = useSearchParams();
   const today = useLiveDay();
   if (!today) return <p role="status" className="p-8">Loading daily insights…</p>;
 
   const date = params.get("date") ?? today;
   const insights = date <= today
-    ? liveDailyGroup(deck, date).map(insight => ({ ...insight, date }))
+    ? liveEdition(decks, date).map(insight => ({ ...insight, date }))
     : [];
+  const fromQuestions = date >= decks.startsOn;
   const id = params.get("insight");
   const insight = insights.find(record => record.id === id);
   if (!insights.length || (id !== null && !insight)) {
@@ -67,7 +68,9 @@ export function LiveDay({ deck }: { deck: Insight[] }) {
                 <time dateTime={date}>{label}</time>
               </h1>
               <p className="mt-3 max-w-xl text-sm leading-6 text-muted-foreground">
-                Three insights from the authoring bank. Each card shows its review status.
+                {fromQuestions
+                  ? "Three insights drawn from the practice questions, each with its answer key, reasoning and source. Each card shows its review status."
+                  : "Three insights from the authoring bank. Each card shows its review status."}
               </p>
               <div className="mt-10 flex flex-1 items-center justify-center">
                 <DayDealer key={date} day={{ date, insights }} live />

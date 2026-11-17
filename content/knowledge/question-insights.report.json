@@ -1,0 +1,4050 @@
+{
+ "version": "hansa-question-insights-2026-11-18",
+ "inputs": {
+  "fabricQuestions": 1264,
+  "analystQuestions": 60
+ },
+ "eligible": {
+  "fabric": 557,
+  "fabricByTopic": {
+   "delivery": 79,
+   "foundations": 10,
+   "ingestion": 83,
+   "model": 64,
+   "overview": 57,
+   "query": 35,
+   "security": 124,
+   "streaming": 46,
+   "transform": 59
+  },
+  "analyst": 43,
+  "analystBySubject": {
+   "analysis": 7,
+   "excel": 7,
+   "power-bi": 8,
+   "python": 7,
+   "sql": 7,
+   "statistics": 7
+  }
+ },
+ "released": {
+  "fabric": 90,
+  "fabricByTopic": {
+   "delivery": 10,
+   "foundations": 7,
+   "ingestion": 12,
+   "model": 14,
+   "overview": 6,
+   "query": 12,
+   "security": 15,
+   "streaming": 9,
+   "transform": 5
+  },
+  "analyst": 43,
+  "analystBySubject": {
+   "analysis": 7,
+   "excel": 7,
+   "power-bi": 8,
+   "python": 7,
+   "sql": 7,
+   "statistics": 7
+  }
+ },
+ "rejectedByReason": {
+  "analyst: multi question": 10,
+  "analyst: numeric question": 6,
+  "analyst: options too long to list on a card": 1,
+  "fabric: adjacent exam scope (DP-700 primary)": 40,
+  "fabric: community pack: answer keys not validated by Hansa": 150,
+  "fabric: depends on a case study": 273,
+  "fabric: depends on a code block": 21,
+  "fabric: explanation argues for a non-keyed option": 14,
+  "fabric: no Microsoft Learn reference": 1,
+  "fabric: not a single-answer question": 190,
+  "fabric: refers to the source video or lecture": 18
+ },
+ "answerKeyContradictions": [
+  {
+   "id": "fb-patrick-016",
+   "pack": "patrick-dp600",
+   "certainty": "certain",
+   "keyed": [
+    "A: Add the auditor to the workspace with the Viewer role"
+   ],
+   "explanation": "Item-level sharing grants access to a single item without a workspace role, so the auditor sees only that report. A is wrong because any workspace role, even Viewer, lets the user see every item in the workspace. C is wrong because Contributor can edit and delete content, and hiding items is not a security boundary. D is wrong because publish to web makes the report public to anyone with the link, which is unacceptable for finance data.",
+   "communityPack": true
+  },
+  {
+   "id": "fb-patrick-017",
+   "pack": "patrick-dp600",
+   "certainty": "certain",
+   "keyed": [
+    "A: Mark the semantic model as Certified so users know it is sensitive"
+   ],
+   "explanation": "Sensitivity labels flow downstream to reports built on the model and travel with supported exports, so the exported Excel or PDF file keeps its label and protection. A is wrong because endorsement signals quality and trust, not confidentiality, and adds no protection. B is wrong because a warning is not a control. C is wrong because a tenant-wide block stops legitimate export for every other workload, which is far broader than the requirement.",
+   "communityPack": true
+  },
+  {
+   "id": "fb-patrick-018",
+   "pack": "patrick-dp600",
+   "certainty": "certain",
+   "keyed": [
+    "A: Promote the model, which any contributor can do from the item settings"
+   ],
+   "explanation": "Certification is the endorsement level a Fabric admin limits to named users or groups, so only the review team can grant it, and certified items rank higher in the OneLake catalog. A is wrong because anyone with write permission can promote, so promotion does not prove review. B is wrong because a naming convention is not enforced and anyone can copy it. D is wrong because a separate workspace and capacity change isolation and cost, not discoverability or trust.",
+   "communityPack": true
+  },
+  {
+   "id": "fb-patrick-020",
+   "pack": "patrick-dp600",
+   "certainty": "certain",
+   "keyed": [
+    "A: `SELECT DISTINCT *` from the staging table into the silver table"
+   ],
+   "explanation": "Numbering rows within each customer by newest date and keeping row 1 returns exactly one complete, latest record per key. A is wrong because the rows differ in `ModifiedDate`, so they are not true duplicates and `DISTINCT` keeps them all. C is wrong because taking `MAX()` per column can mix values from different rows into a record that never existed. D is wrong because `UNION` only removes rows that are identical in every column, which these are not.",
+   "communityPack": true
+  },
+  {
+   "id": "fb-patrick-021",
+   "pack": "patrick-dp600",
+   "certainty": "certain",
+   "keyed": [
+    "A: `DeviceTelemetry | where Timestamp > ago(1h) | top 5 by Temperature`"
+   ],
+   "explanation": "Filtering first with `where` and `ago(1h)`, then grouping with `summarize` by device and `bin(Timestamp, 5m)`, gives one average per device per 5-minute bucket. A is wrong because `top` returns the five hottest rows, not averages per bucket. B is wrong because after `summarize` the `Timestamp` column no longer exists, so the late filter fails. D is wrong because it sets a constant, so every row lands in the same bucket and devices are not separated.",
+   "communityPack": true
+  },
+  {
+   "id": "fb-patrick-023",
+   "pack": "patrick-dp600",
+   "certainty": "certain",
+   "keyed": [
+    "A: Ingest the product data again from the ERP system into a new lakehouse"
+   ],
+   "explanation": "The OneLake catalog lists the Fabric items the analyst can access, with filters for item type and endorsement, so a certified product lakehouse can be found and reused. A is wrong because re-ingesting creates a second copy that drifts from the curated one. B is wrong because it is slow and misses items whose owners do not reply. C is wrong because the Real-Time hub is for discovering streaming data such as eventstreams, not batch lakehouse tables.",
+   "communityPack": true
+  },
+  {
+   "id": "fb-patrick-024",
+   "pack": "patrick-dp600",
+   "certainty": "certain",
+   "keyed": [
+    "A: Keep the three tables and add bidirectional relationships between them in the model"
+   ],
+   "explanation": "Flattening the snowflake into a single Product dimension, for example with a view or a Spark join, gives one table per business entity, which is what a star schema needs. A is wrong because it keeps the snowflake and adds ambiguous filter paths. B is wrong because putting descriptive text on every fact row bloats the fact table and breaks the fact and dimension split. C is wrong because category is a descriptive attribute, not a measurable event, so it does not belong in a fact table.",
+   "communityPack": true
+  },
+  {
+   "id": "fb-patrick-026",
+   "pack": "patrick-dp600",
+   "certainty": "certain",
+   "keyed": [
+    "A: A Spark notebook that writes a new aggregated Delta table to a lakehouse"
+   ],
+   "explanation": "The Visual query editor gives a Power Query style, no-code canvas for selecting, filtering and grouping warehouse data, and the result can be saved as a view that others query. A is wrong because notebooks need code, which the analyst does not write. B is wrong because KQL querysets target KQL databases, and the analyst would still need to write KQL. D is wrong because a report presents data but does not create a queryable object for others to reuse.",
+   "communityPack": true
+  },
+  {
+   "id": "fb-patrick-027",
+   "pack": "patrick-dp600",
+   "certainty": "certain",
+   "keyed": [
+    "A: Merge Customer and Account into one wide table with a row for each owner pair"
+   ],
+   "explanation": "A bridge table holds one row per customer and account pair. Customer filters the bridge, the bridge filters Account through a relationship that filters in both directions, and Account filters the fact, so balances are not double-counted in the account rows. A is wrong because one wide table repeats data and makes totals hard to get right. B is wrong because matching on name is unreliable, and a direct many-to-many link skips the ownership mapping. C is wrong because duplicating balances inflates every total across customers.",
+   "communityPack": true
+  },
+  {
+   "id": "fb-patrick-029",
+   "pack": "patrick-dp600",
+   "certainty": "certain",
+   "keyed": [
+    "A: Switch the fact table to DirectQuery so it never needs to be refreshed again"
+   ],
+   "explanation": "Incremental refresh partitions the table by date through the `RangeStart` and `RangeEnd` parameters, keeps the five-year archive, and refreshes only the recent window, so each run handles days instead of years. A is wrong because DirectQuery gives up import performance and pushes every visual query to the source. C is wrong because every scheduled refresh is still a full refresh of all five years. D is wrong because large model format lifts the size limit and enables XMLA partition work, but it does not by itself shrink what a refresh processes.",
+   "communityPack": true
+  },
+  {
+   "id": "fb-patrick-030",
+   "pack": "patrick-dp600",
+   "certainty": "certain",
+   "keyed": [
+    "A: Direct Lake on OneLake, which reads the Delta files directly"
+   ],
+   "explanation": "Direct Lake on the SQL analytics endpoint goes through the SQL endpoint, so views and SQL-defined security are supported by falling back to DirectQuery for those queries. A is wrong because Direct Lake on OneLake reads Delta tables directly and bypasses the SQL engine, so views and T-SQL row-level security do not apply. B is wrong because import mode does not carry warehouse security, so you would maintain a second copy of the rules. D is wrong because Direct Lake on OneLake has no DirectQuery fallback, so the fallback setting cannot add views.",
+   "communityPack": true
+  },
+  {
+   "id": "fb-e12",
+   "pack": "eventhouse",
+   "certainty": "suspected",
+   "keyed": [
+    "C: End the stored definition at summarize; apply top 20 by VisitCount desc when querying the view."
+   ],
+   "explanation": "Keep the materialized definition as a supported aggregation. Sorting and selecting the displayed results belong in the consuming query.",
+   "communityPack": false
+  },
+  {
+   "id": "fb-e13",
+   "pack": "eventhouse",
+   "certainty": "suspected",
+   "keyed": [
+    "B: Store sum(ErrorCount) and sum(RequestCount) by Service, then divide their selected totals at query time."
+   ],
+   "explanation": "Retain numerators and denominators separately. Define zero-denominator behavior in the consumer rather than using an unweighted mean of stored rates.",
+   "communityPack": false
+  },
+  {
+   "id": "fb-howard-q1-026",
+   "pack": "howard-dp600",
+   "certainty": "suspected",
+   "keyed": [
+    "c: The deployment fails because the rule can no longer be resolved"
+   ],
+   "explanation": "If the data source a rule depends on is removed or changed to a different type in the source stage, the rule becomes invalid. Fabric validates rules before deploying and blocks the deployment with an error.",
+   "communityPack": true
+  },
+  {
+   "id": "fb-nb-025",
+   "pack": "notebooks-pyspark",
+   "certainty": "suspected",
+   "keyed": [
+    "A: Spark Job Definitions have documented source-control and deployment-pipeline support, like notebooks."
+   ],
+   "explanation": "Job definitions follow the notebook's CI/CD story: source control plus deployment pipelines.",
+   "communityPack": false
+  },
+  {
+   "id": "fb-patrick-012",
+   "pack": "patrick-dp600",
+   "certainty": "suspected",
+   "keyed": [
+    "A: `SUM(Sales[Amount])`"
+   ],
+   "explanation": "Time intelligence functions require a proper date table marked as a date table, with a contiguous set of dates covering the full range. Without that, functions such as `TOTALYTD` and `SAMEPERIODLASTYEAR` return wrong or blank results, which is the most common time-intelligence bug.",
+   "communityPack": true
+  },
+  {
+   "id": "fb-patrick-013",
+   "pack": "patrick-dp600",
+   "certainty": "suspected",
+   "keyed": [
+    "A: Nothing can be done"
+   ],
+   "explanation": "Fallback is a signal, not a setting. Common causes are querying a SQL view rather than a Delta table, row counts beyond the SKU guardrail, or unsupported model constructs. You can also set the fallback behavior to error so the problem is visible instead of silently slow.",
+   "communityPack": true
+  },
+  {
+   "id": "fb-patrick-025",
+   "pack": "patrick-dp600",
+   "certainty": "suspected",
+   "keyed": [
+    "A: `TRY_CAST(OrderDateText AS date)` in the insert query"
+   ],
+   "explanation": "`TRY_CAST` returns NULL for any value it cannot convert instead of raising an error, so the load completes and bad dates become NULL. B is wrong because the first bad row still makes the whole statement fail, and the CATCH block only handles the error after the insert stops. C is wrong because converting to a string does not produce a `date` value at all. D is wrong because \"N/A\" is not NULL, so `ISNULL` leaves it in place, and a fake 1900 date hides missing data.",
+   "communityPack": true
+  },
+  {
+   "id": "fb-p05",
+   "pack": "pipelines",
+   "certainty": "suspected",
+   "keyed": [
+    "D: Check delimiter, quote/escape, and header settings against the file; repeat preview before loading."
+   ],
+   "explanation": "A destination schema cannot compensate for fields split incorrectly at the source. Diagnose the parsed preview before tuning transport or execution order.",
+   "communityPack": false
+  },
+  {
+   "id": "fb-s16",
+   "pack": "scd",
+   "certainty": "suspected",
+   "keyed": [
+    "C: 240, because the single sale matches three dimension rows."
+   ],
+   "explanation": "Reason about join cardinality before aggregation. Unique version keys do not protect a query that joins on a different repeated column.",
+   "communityPack": false
+  },
+  {
+   "id": "fb-smd-022",
+   "pack": "semantic-models-dax",
+   "certainty": "suspected",
+   "keyed": [
+    "A: The new rows are visible without any action, but the model's schema must be updated before the new column appears."
+   ],
+   "explanation": "Direct Lake distinguishes data changes (picked up directly from OneLake) from schema changes (which require the model to take an update before new columns or tables exist in it).",
+   "communityPack": false
+  },
+  {
+   "id": "fb-v6-sec-018",
+   "pack": "video06",
+   "certainty": "suspected",
+   "keyed": [
+    "C: SQL RLS applies at the engine to authorized client queries and reduces dependence on individual report implementations."
+   ],
+   "explanation": "Secure the data tier for SQL consumers rather than rely solely on visual filters.",
+   "communityPack": false
+  },
+  {
+   "id": "fb-v7-ddm-019",
+   "pack": "video07",
+   "certainty": "suspected",
+   "keyed": [
+    "A: A DirectQuery fallback may occur for the masked table, potentially increasing query latency."
+   ],
+   "explanation": "Model storage mode and security enforcement are coupled: SQL DDM can prevent pure Direct Lake execution.",
+   "communityPack": false
+  },
+  {
+   "id": "fb-v8-gov-007",
+   "pack": "video08",
+   "certainty": "suspected",
+   "keyed": [
+    "B: The analyst can find the endorsed model and request permission; data access remains gated."
+   ],
+   "explanation": "Marking a semantic model discoverable changes catalog visibility to eligible users without granting Read or Build.",
+   "communityPack": false
+  },
+  {
+   "id": "fb-v9-git-002",
+   "pack": "video09",
+   "certainty": "suspected",
+   "keyed": [
+    "B: Nora only, assuming her ADO account has the needed Git rights."
+   ],
+   "explanation": "Tenant eligibility and provider authorization are separate checks; the allowed Fabric user can use another properly authorized Git identity.",
+   "communityPack": false
+  },
+  {
+   "id": "fb-v9-git-005",
+   "pack": "video09",
+   "certainty": "suspected",
+   "keyed": [
+    "C: Capacity X workspaces can be blocked while Y remains allowed, subject to any further delegated workspace overrides."
+   ],
+   "explanation": "Current tenant administration supports scoped delegation to capacity/workspace admins, so the effective gate is not always a single immutable tenant toggle.",
+   "communityPack": false
+  },
+  {
+   "id": "fb-v9-git-021",
+   "pack": "video09",
+   "certainty": "suspected",
+   "keyed": [
+    "B: The unsupported item may be absent in the feature workspace even though the source retains it."
+   ],
+   "explanation": "Source support drives branch materialization; never assume unsupported live items are cloned. Check current support list because capabilities evolve.",
+   "communityPack": false
+  },
+  {
+   "id": "fb-v10-dep-038",
+   "pack": "video10",
+   "certainty": "suspected",
+   "keyed": [
+    "A: Verify target role memberships and labels independently; assess label-copy conditions and any user consent requirement."
+   ],
+   "explanation": "Permissions are not copied automatically; sensitivity labels have conditional propagation. Validate access and labeling as distinct checks.",
+   "communityPack": false
+  },
+  {
+   "id": "fb-v12-mon-046",
+   "pack": "video12",
+   "certainty": "suspected",
+   "keyed": [
+    "B: In the connected execution-context Warehouse (WH_FINANCE)."
+   ],
+   "explanation": "Completed query history is recorded for the Warehouse/endpoint context where the SQL was executed, not automatically for every referenced object.",
+   "communityPack": false
+  },
+  {
+   "id": "fb-v16-sql-047",
+   "pack": "video16",
+   "certainty": "suspected",
+   "keyed": [
+    "D: Design and validate the actual cross-engine data-level security model and remove unnecessary broad workspace roles"
+   ],
+   "explanation": "least privilege must be enforced at the appropriate storage and engine access paths.",
+   "communityPack": false
+  },
+  {
+   "id": "fb-v19-lh-003",
+   "pack": "video19",
+   "certainty": "suspected",
+   "keyed": [
+    "A: Measure the entire path and size the SLA from observed processing and downstream delays."
+   ],
+   "explanation": "The documented polling cadence tells you when detection may occur. A defensible SLA also includes transformation, capacity contention, publication, and consumption. This is an engineering inference, not a Microsoft latency guarantee.",
+   "communityPack": false
+  },
+  {
+   "id": "fb-v19-lh-009",
+   "pack": "video19",
+   "certainty": "suspected",
+   "keyed": [
+    "C: Test representative samples and false negatives, restrict raw access, and review regional availability."
+   ],
+   "explanation": "Keep the transformation as one control in a larger design. This recommendation is an inference from the feature purpose and preview limitations, not legal assurance or a claim of measured detection accuracy.",
+   "communityPack": false
+  },
+  {
+   "id": "fb-v21-cat-030",
+   "pack": "video21",
+   "certainty": "suspected",
+   "keyed": [
+    "C: Validate supported behavior and dependencies at representative scale rather than extrapolating script time alone"
+   ],
+   "explanation": "Fast metadata operations do not prove complete dependency compatibility.",
+   "communityPack": false
+  },
+  {
+   "id": "fb-w01",
+   "pack": "warehouse",
+   "certainty": "suspected",
+   "keyed": [
+    "B: Keep PDFs in Lakehouse Files, process with Spark, and load curated relational data into Warehouse; both use OneLake."
+   ],
+   "explanation": "Choose engines from the required operations. A shared storage foundation does not make every item a file store or every endpoint writable.",
+   "communityPack": false
+  },
+  {
+   "id": "fb-w15",
+   "pack": "warehouse",
+   "certainty": "suspected",
+   "keyed": [
+    "A: Grant Storage Blob Data Reader to the executing identity at the required source scope."
+   ],
+   "explanation": "The target SQL permissions have already been supplied. Diagnose the independent source data authorization instead of adding unrelated Warehouse grants.",
+   "communityPack": false
+  },
+  {
+   "id": "fb-w31",
+   "pack": "warehouse",
+   "certainty": "suspected",
+   "keyed": [
+    "B: Create the table clone within the source Warehouse, optionally in a different schema, using the AT timestamp syntax."
+   ],
+   "explanation": "A supported same-workspace cross-database SELECT does not imply cross-Warehouse clone support. Check both placement and retention before cloning.",
+   "communityPack": false
+  }
+ ],
+ "rejected": [
+  {
+   "id": "fb-act-002",
+   "pool": "fabric",
+   "reason": "not a single-answer question"
+  },
+  {
+   "id": "fb-act-005",
+   "pool": "fabric",
+   "reason": "not a single-answer question"
+  },
+  {
+   "id": "fb-act-034",
+   "pool": "fabric",
+   "reason": "not a single-answer question"
+  },
+  {
+   "id": "fb-dfg2-003",
+   "pool": "fabric",
+   "reason": "not a single-answer question"
+  },
+  {
+   "id": "fb-dfg2-013",
+   "pool": "fabric",
+   "reason": "not a single-answer question"
+  },
+  {
+   "id": "fb-v02",
+   "pool": "fabric",
+   "reason": "not a single-answer question"
+  },
+  {
+   "id": "fb-v04",
+   "pool": "fabric",
+   "reason": "no Microsoft Learn reference"
+  },
+  {
+   "id": "fb-v05",
+   "pool": "fabric",
+   "reason": "refers to the source video or lecture"
+  },
+  {
+   "id": "fb-v06",
+   "pool": "fabric",
+   "reason": "not a single-answer question"
+  },
+  {
+   "id": "fb-v09",
+   "pool": "fabric",
+   "reason": "not a single-answer question"
+  },
+  {
+   "id": "fb-v12",
+   "pool": "fabric",
+   "reason": "not a single-answer question"
+  },
+  {
+   "id": "fb-v13",
+   "pool": "fabric",
+   "reason": "refers to the source video or lecture"
+  },
+  {
+   "id": "fb-v14",
+   "pool": "fabric",
+   "reason": "not a single-answer question"
+  },
+  {
+   "id": "fb-v19",
+   "pool": "fabric",
+   "reason": "not a single-answer question"
+  },
+  {
+   "id": "fb-v26",
+   "pool": "fabric",
+   "reason": "not a single-answer question"
+  },
+  {
+   "id": "fb-v27",
+   "pool": "fabric",
+   "reason": "not a single-answer question"
+  },
+  {
+   "id": "fb-v28",
+   "pool": "fabric",
+   "reason": "not a single-answer question"
+  },
+  {
+   "id": "fb-v31",
+   "pool": "fabric",
+   "reason": "not a single-answer question"
+  },
+  {
+   "id": "fb-v32",
+   "pool": "fabric",
+   "reason": "refers to the source video or lecture"
+  },
+  {
+   "id": "fb-f01",
+   "pool": "fabric",
+   "reason": "not a single-answer question"
+  },
+  {
+   "id": "fb-f02",
+   "pool": "fabric",
+   "reason": "refers to the source video or lecture"
+  },
+  {
+   "id": "fb-f03",
+   "pool": "fabric",
+   "reason": "not a single-answer question"
+  },
+  {
+   "id": "fb-f07",
+   "pool": "fabric",
+   "reason": "not a single-answer question"
+  },
+  {
+   "id": "fb-e07",
+   "pool": "fabric",
+   "reason": "not a single-answer question"
+  },
+  {
+   "id": "fb-e12",
+   "pool": "fabric",
+   "reason": "depends on a code block"
+  },
+  {
+   "id": "fb-e13",
+   "pool": "fabric",
+   "reason": "explanation argues for a non-keyed option"
+  },
+  {
+   "id": "fb-e17",
+   "pool": "fabric",
+   "reason": "not a single-answer question"
+  },
+  {
+   "id": "fb-e22",
+   "pool": "fabric",
+   "reason": "depends on a code block"
+  },
+  {
+   "id": "fb-e24",
+   "pool": "fabric",
+   "reason": "depends on a code block"
+  },
+  {
+   "id": "fb-e25",
+   "pool": "fabric",
+   "reason": "not a single-answer question"
+  },
+  {
+   "id": "fb-e30",
+   "pool": "fabric",
+   "reason": "not a single-answer question"
+  },
+  {
+   "id": "fb-e31",
+   "pool": "fabric",
+   "reason": "depends on a case study"
+  },
+  {
+   "id": "fb-e32",
+   "pool": "fabric",
+   "reason": "depends on a case study"
+  },
+  {
+   "id": "fb-e33",
+   "pool": "fabric",
+   "reason": "not a single-answer question"
+  },
+  {
+   "id": "fb-e34",
+   "pool": "fabric",
+   "reason": "depends on a case study"
+  },
+  {
+   "id": "fb-e35",
+   "pool": "fabric",
+   "reason": "not a single-answer question"
+  },
+  {
+   "id": "fb-e36",
+   "pool": "fabric",
+   "reason": "depends on a case study"
+  },
+  {
+   "id": "fb-e37",
+   "pool": "fabric",
+   "reason": "depends on a case study"
+  },
+  {
+   "id": "fb-e38",
+   "pool": "fabric",
+   "reason": "depends on a case study"
+  },
+  {
+   "id": "fb-e39",
+   "pool": "fabric",
+   "reason": "depends on a case study"
+  },
+  {
+   "id": "fb-e40",
+   "pool": "fabric",
+   "reason": "depends on a case study"
+  },
+  {
+   "id": "fb-esw-001",
+   "pool": "fabric",
+   "reason": "depends on a case study"
+  },
+  {
+   "id": "fb-esw-017",
+   "pool": "fabric",
+   "reason": "depends on a code block"
+  },
+  {
+   "id": "fb-esw-018",
+   "pool": "fabric",
+   "reason": "depends on a code block"
+  },
+  {
+   "id": "fb-esw-021",
+   "pool": "fabric",
+   "reason": "not a single-answer question"
+  },
+  {
+   "id": "fb-esw-035",
+   "pool": "fabric",
+   "reason": "depends on a code block"
+  },
+  {
+   "id": "fb-esw-039",
+   "pool": "fabric",
+   "reason": "not a single-answer question"
+  },
+  {
+   "id": "fb-esw-040",
+   "pool": "fabric",
+   "reason": "depends on a case study"
+  },
+  {
+   "id": "fb-howard-q1-001",
+   "pool": "fabric",
+   "reason": "community pack: answer keys not validated by Hansa"
+  },
+  {
+   "id": "fb-howard-q1-002",
+   "pool": "fabric",
+   "reason": "community pack: answer keys not validated by Hansa"
+  },
+  {
+   "id": "fb-howard-q1-003",
+   "pool": "fabric",
+   "reason": "community pack: answer keys not validated by Hansa"
+  },
+  {
+   "id": "fb-howard-q1-004",
+   "pool": "fabric",
+   "reason": "community pack: answer keys not validated by Hansa"
+  },
+  {
+   "id": "fb-howard-q1-005",
+   "pool": "fabric",
+   "reason": "community pack: answer keys not validated by Hansa"
+  },
+  {
+   "id": "fb-howard-q1-006",
+   "pool": "fabric",
+   "reason": "community pack: answer keys not validated by Hansa"
+  },
+  {
+   "id": "fb-howard-q1-007",
+   "pool": "fabric",
+   "reason": "community pack: answer keys not validated by Hansa"
+  },
+  {
+   "id": "fb-howard-q1-008",
+   "pool": "fabric",
+   "reason": "community pack: answer keys not validated by Hansa"
+  },
+  {
+   "id": "fb-howard-q1-009",
+   "pool": "fabric",
+   "reason": "community pack: answer keys not validated by Hansa"
+  },
+  {
+   "id": "fb-howard-q1-010",
+   "pool": "fabric",
+   "reason": "community pack: answer keys not validated by Hansa"
+  },
+  {
+   "id": "fb-howard-q1-011",
+   "pool": "fabric",
+   "reason": "community pack: answer keys not validated by Hansa"
+  },
+  {
+   "id": "fb-howard-q1-012",
+   "pool": "fabric",
+   "reason": "community pack: answer keys not validated by Hansa"
+  },
+  {
+   "id": "fb-howard-q1-013",
+   "pool": "fabric",
+   "reason": "community pack: answer keys not validated by Hansa"
+  },
+  {
+   "id": "fb-howard-q1-014",
+   "pool": "fabric",
+   "reason": "community pack: answer keys not validated by Hansa"
+  },
+  {
+   "id": "fb-howard-q1-015",
+   "pool": "fabric",
+   "reason": "community pack: answer keys not validated by Hansa"
+  },
+  {
+   "id": "fb-howard-q1-016",
+   "pool": "fabric",
+   "reason": "community pack: answer keys not validated by Hansa"
+  },
+  {
+   "id": "fb-howard-q1-017",
+   "pool": "fabric",
+   "reason": "community pack: answer keys not validated by Hansa"
+  },
+  {
+   "id": "fb-howard-q1-018",
+   "pool": "fabric",
+   "reason": "community pack: answer keys not validated by Hansa"
+  },
+  {
+   "id": "fb-howard-q1-019",
+   "pool": "fabric",
+   "reason": "community pack: answer keys not validated by Hansa"
+  },
+  {
+   "id": "fb-howard-q1-020",
+   "pool": "fabric",
+   "reason": "community pack: answer keys not validated by Hansa"
+  },
+  {
+   "id": "fb-howard-q1-021",
+   "pool": "fabric",
+   "reason": "community pack: answer keys not validated by Hansa"
+  },
+  {
+   "id": "fb-howard-q1-022",
+   "pool": "fabric",
+   "reason": "community pack: answer keys not validated by Hansa"
+  },
+  {
+   "id": "fb-howard-q1-023",
+   "pool": "fabric",
+   "reason": "community pack: answer keys not validated by Hansa"
+  },
+  {
+   "id": "fb-howard-q1-024",
+   "pool": "fabric",
+   "reason": "community pack: answer keys not validated by Hansa"
+  },
+  {
+   "id": "fb-howard-q1-025",
+   "pool": "fabric",
+   "reason": "community pack: answer keys not validated by Hansa"
+  },
+  {
+   "id": "fb-howard-q1-026",
+   "pool": "fabric",
+   "reason": "community pack: answer keys not validated by Hansa"
+  },
+  {
+   "id": "fb-howard-q1-027",
+   "pool": "fabric",
+   "reason": "community pack: answer keys not validated by Hansa"
+  },
+  {
+   "id": "fb-howard-q1-028",
+   "pool": "fabric",
+   "reason": "community pack: answer keys not validated by Hansa"
+  },
+  {
+   "id": "fb-howard-q1-029",
+   "pool": "fabric",
+   "reason": "community pack: answer keys not validated by Hansa"
+  },
+  {
+   "id": "fb-howard-q1-030",
+   "pool": "fabric",
+   "reason": "community pack: answer keys not validated by Hansa"
+  },
+  {
+   "id": "fb-howard-q1-031",
+   "pool": "fabric",
+   "reason": "community pack: answer keys not validated by Hansa"
+  },
+  {
+   "id": "fb-howard-q1-032",
+   "pool": "fabric",
+   "reason": "community pack: answer keys not validated by Hansa"
+  },
+  {
+   "id": "fb-howard-q2-001",
+   "pool": "fabric",
+   "reason": "community pack: answer keys not validated by Hansa"
+  },
+  {
+   "id": "fb-howard-q2-002",
+   "pool": "fabric",
+   "reason": "community pack: answer keys not validated by Hansa"
+  },
+  {
+   "id": "fb-howard-q2-003",
+   "pool": "fabric",
+   "reason": "community pack: answer keys not validated by Hansa"
+  },
+  {
+   "id": "fb-howard-q2-004",
+   "pool": "fabric",
+   "reason": "community pack: answer keys not validated by Hansa"
+  },
+  {
+   "id": "fb-howard-q2-005",
+   "pool": "fabric",
+   "reason": "community pack: answer keys not validated by Hansa"
+  },
+  {
+   "id": "fb-howard-q2-006",
+   "pool": "fabric",
+   "reason": "community pack: answer keys not validated by Hansa"
+  },
+  {
+   "id": "fb-howard-q2-007",
+   "pool": "fabric",
+   "reason": "community pack: answer keys not validated by Hansa"
+  },
+  {
+   "id": "fb-howard-q2-008",
+   "pool": "fabric",
+   "reason": "community pack: answer keys not validated by Hansa"
+  },
+  {
+   "id": "fb-howard-q2-009",
+   "pool": "fabric",
+   "reason": "community pack: answer keys not validated by Hansa"
+  },
+  {
+   "id": "fb-howard-q2-010",
+   "pool": "fabric",
+   "reason": "community pack: answer keys not validated by Hansa"
+  },
+  {
+   "id": "fb-howard-q2-011",
+   "pool": "fabric",
+   "reason": "community pack: answer keys not validated by Hansa"
+  },
+  {
+   "id": "fb-howard-q2-012",
+   "pool": "fabric",
+   "reason": "community pack: answer keys not validated by Hansa"
+  },
+  {
+   "id": "fb-howard-q2-013",
+   "pool": "fabric",
+   "reason": "community pack: answer keys not validated by Hansa"
+  },
+  {
+   "id": "fb-howard-q2-014",
+   "pool": "fabric",
+   "reason": "community pack: answer keys not validated by Hansa"
+  },
+  {
+   "id": "fb-howard-q2-015",
+   "pool": "fabric",
+   "reason": "community pack: answer keys not validated by Hansa"
+  },
+  {
+   "id": "fb-howard-q2-016",
+   "pool": "fabric",
+   "reason": "community pack: answer keys not validated by Hansa"
+  },
+  {
+   "id": "fb-howard-q2-017",
+   "pool": "fabric",
+   "reason": "community pack: answer keys not validated by Hansa"
+  },
+  {
+   "id": "fb-howard-q2-018",
+   "pool": "fabric",
+   "reason": "community pack: answer keys not validated by Hansa"
+  },
+  {
+   "id": "fb-howard-q2-019",
+   "pool": "fabric",
+   "reason": "community pack: answer keys not validated by Hansa"
+  },
+  {
+   "id": "fb-howard-q2-020",
+   "pool": "fabric",
+   "reason": "community pack: answer keys not validated by Hansa"
+  },
+  {
+   "id": "fb-howard-q2-021",
+   "pool": "fabric",
+   "reason": "community pack: answer keys not validated by Hansa"
+  },
+  {
+   "id": "fb-howard-q2-022",
+   "pool": "fabric",
+   "reason": "community pack: answer keys not validated by Hansa"
+  },
+  {
+   "id": "fb-howard-q2-023",
+   "pool": "fabric",
+   "reason": "community pack: answer keys not validated by Hansa"
+  },
+  {
+   "id": "fb-howard-q2-024",
+   "pool": "fabric",
+   "reason": "community pack: answer keys not validated by Hansa"
+  },
+  {
+   "id": "fb-howard-q2-025",
+   "pool": "fabric",
+   "reason": "community pack: answer keys not validated by Hansa"
+  },
+  {
+   "id": "fb-howard-q2-026",
+   "pool": "fabric",
+   "reason": "community pack: answer keys not validated by Hansa"
+  },
+  {
+   "id": "fb-howard-q2-027",
+   "pool": "fabric",
+   "reason": "community pack: answer keys not validated by Hansa"
+  },
+  {
+   "id": "fb-howard-q2-028",
+   "pool": "fabric",
+   "reason": "community pack: answer keys not validated by Hansa"
+  },
+  {
+   "id": "fb-howard-q2-029",
+   "pool": "fabric",
+   "reason": "community pack: answer keys not validated by Hansa"
+  },
+  {
+   "id": "fb-howard-q2-030",
+   "pool": "fabric",
+   "reason": "community pack: answer keys not validated by Hansa"
+  },
+  {
+   "id": "fb-howard-q2-031",
+   "pool": "fabric",
+   "reason": "community pack: answer keys not validated by Hansa"
+  },
+  {
+   "id": "fb-howard-q2-032",
+   "pool": "fabric",
+   "reason": "community pack: answer keys not validated by Hansa"
+  },
+  {
+   "id": "fb-howard-q2-033",
+   "pool": "fabric",
+   "reason": "community pack: answer keys not validated by Hansa"
+  },
+  {
+   "id": "fb-howard-q2-034",
+   "pool": "fabric",
+   "reason": "community pack: answer keys not validated by Hansa"
+  },
+  {
+   "id": "fb-howard-q2-035",
+   "pool": "fabric",
+   "reason": "community pack: answer keys not validated by Hansa"
+  },
+  {
+   "id": "fb-howard-q2-036",
+   "pool": "fabric",
+   "reason": "community pack: answer keys not validated by Hansa"
+  },
+  {
+   "id": "fb-howard-q2-037",
+   "pool": "fabric",
+   "reason": "community pack: answer keys not validated by Hansa"
+  },
+  {
+   "id": "fb-howard-q2-038",
+   "pool": "fabric",
+   "reason": "community pack: answer keys not validated by Hansa"
+  },
+  {
+   "id": "fb-howard-q2-039",
+   "pool": "fabric",
+   "reason": "community pack: answer keys not validated by Hansa"
+  },
+  {
+   "id": "fb-howard-q2-040",
+   "pool": "fabric",
+   "reason": "community pack: answer keys not validated by Hansa"
+  },
+  {
+   "id": "fb-howard-q2-041",
+   "pool": "fabric",
+   "reason": "community pack: answer keys not validated by Hansa"
+  },
+  {
+   "id": "fb-howard-q2-042",
+   "pool": "fabric",
+   "reason": "community pack: answer keys not validated by Hansa"
+  },
+  {
+   "id": "fb-howard-q2-043",
+   "pool": "fabric",
+   "reason": "community pack: answer keys not validated by Hansa"
+  },
+  {
+   "id": "fb-howard-q2-044",
+   "pool": "fabric",
+   "reason": "community pack: answer keys not validated by Hansa"
+  },
+  {
+   "id": "fb-howard-q2-045",
+   "pool": "fabric",
+   "reason": "community pack: answer keys not validated by Hansa"
+  },
+  {
+   "id": "fb-howard-q2-046",
+   "pool": "fabric",
+   "reason": "community pack: answer keys not validated by Hansa"
+  },
+  {
+   "id": "fb-howard-q2-047",
+   "pool": "fabric",
+   "reason": "community pack: answer keys not validated by Hansa"
+  },
+  {
+   "id": "fb-howard-q2-048",
+   "pool": "fabric",
+   "reason": "community pack: answer keys not validated by Hansa"
+  },
+  {
+   "id": "fb-howard-q2-049",
+   "pool": "fabric",
+   "reason": "community pack: answer keys not validated by Hansa"
+  },
+  {
+   "id": "fb-howard-q2-050",
+   "pool": "fabric",
+   "reason": "community pack: answer keys not validated by Hansa"
+  },
+  {
+   "id": "fb-howard-q2-051",
+   "pool": "fabric",
+   "reason": "community pack: answer keys not validated by Hansa"
+  },
+  {
+   "id": "fb-howard-q2-052",
+   "pool": "fabric",
+   "reason": "community pack: answer keys not validated by Hansa"
+  },
+  {
+   "id": "fb-howard-q2-053",
+   "pool": "fabric",
+   "reason": "community pack: answer keys not validated by Hansa"
+  },
+  {
+   "id": "fb-howard-q2-054",
+   "pool": "fabric",
+   "reason": "community pack: answer keys not validated by Hansa"
+  },
+  {
+   "id": "fb-howard-q2-055",
+   "pool": "fabric",
+   "reason": "community pack: answer keys not validated by Hansa"
+  },
+  {
+   "id": "fb-howard-q2-056",
+   "pool": "fabric",
+   "reason": "community pack: answer keys not validated by Hansa"
+  },
+  {
+   "id": "fb-howard-q3-001",
+   "pool": "fabric",
+   "reason": "community pack: answer keys not validated by Hansa"
+  },
+  {
+   "id": "fb-howard-q3-002",
+   "pool": "fabric",
+   "reason": "community pack: answer keys not validated by Hansa"
+  },
+  {
+   "id": "fb-howard-q3-003",
+   "pool": "fabric",
+   "reason": "community pack: answer keys not validated by Hansa"
+  },
+  {
+   "id": "fb-howard-q3-004",
+   "pool": "fabric",
+   "reason": "community pack: answer keys not validated by Hansa"
+  },
+  {
+   "id": "fb-howard-q3-005",
+   "pool": "fabric",
+   "reason": "community pack: answer keys not validated by Hansa"
+  },
+  {
+   "id": "fb-howard-q3-006",
+   "pool": "fabric",
+   "reason": "community pack: answer keys not validated by Hansa"
+  },
+  {
+   "id": "fb-howard-q3-007",
+   "pool": "fabric",
+   "reason": "community pack: answer keys not validated by Hansa"
+  },
+  {
+   "id": "fb-howard-q3-008",
+   "pool": "fabric",
+   "reason": "community pack: answer keys not validated by Hansa"
+  },
+  {
+   "id": "fb-howard-q3-009",
+   "pool": "fabric",
+   "reason": "community pack: answer keys not validated by Hansa"
+  },
+  {
+   "id": "fb-howard-q3-010",
+   "pool": "fabric",
+   "reason": "community pack: answer keys not validated by Hansa"
+  },
+  {
+   "id": "fb-howard-q3-011",
+   "pool": "fabric",
+   "reason": "community pack: answer keys not validated by Hansa"
+  },
+  {
+   "id": "fb-howard-q3-012",
+   "pool": "fabric",
+   "reason": "community pack: answer keys not validated by Hansa"
+  },
+  {
+   "id": "fb-howard-q3-013",
+   "pool": "fabric",
+   "reason": "community pack: answer keys not validated by Hansa"
+  },
+  {
+   "id": "fb-howard-q3-014",
+   "pool": "fabric",
+   "reason": "community pack: answer keys not validated by Hansa"
+  },
+  {
+   "id": "fb-howard-q3-015",
+   "pool": "fabric",
+   "reason": "community pack: answer keys not validated by Hansa"
+  },
+  {
+   "id": "fb-howard-q3-016",
+   "pool": "fabric",
+   "reason": "community pack: answer keys not validated by Hansa"
+  },
+  {
+   "id": "fb-howard-q3-017",
+   "pool": "fabric",
+   "reason": "community pack: answer keys not validated by Hansa"
+  },
+  {
+   "id": "fb-howard-q3-018",
+   "pool": "fabric",
+   "reason": "community pack: answer keys not validated by Hansa"
+  },
+  {
+   "id": "fb-howard-q3-019",
+   "pool": "fabric",
+   "reason": "community pack: answer keys not validated by Hansa"
+  },
+  {
+   "id": "fb-howard-q3-020",
+   "pool": "fabric",
+   "reason": "community pack: answer keys not validated by Hansa"
+  },
+  {
+   "id": "fb-howard-q3-021",
+   "pool": "fabric",
+   "reason": "community pack: answer keys not validated by Hansa"
+  },
+  {
+   "id": "fb-howard-q3-022",
+   "pool": "fabric",
+   "reason": "community pack: answer keys not validated by Hansa"
+  },
+  {
+   "id": "fb-howard-q3-023",
+   "pool": "fabric",
+   "reason": "community pack: answer keys not validated by Hansa"
+  },
+  {
+   "id": "fb-howard-q3-024",
+   "pool": "fabric",
+   "reason": "community pack: answer keys not validated by Hansa"
+  },
+  {
+   "id": "fb-howard-q3-025",
+   "pool": "fabric",
+   "reason": "community pack: answer keys not validated by Hansa"
+  },
+  {
+   "id": "fb-howard-q3-026",
+   "pool": "fabric",
+   "reason": "community pack: answer keys not validated by Hansa"
+  },
+  {
+   "id": "fb-howard-q3-027",
+   "pool": "fabric",
+   "reason": "community pack: answer keys not validated by Hansa"
+  },
+  {
+   "id": "fb-howard-q3-028",
+   "pool": "fabric",
+   "reason": "community pack: answer keys not validated by Hansa"
+  },
+  {
+   "id": "fb-howard-q3-029",
+   "pool": "fabric",
+   "reason": "community pack: answer keys not validated by Hansa"
+  },
+  {
+   "id": "fb-howard-q3-030",
+   "pool": "fabric",
+   "reason": "community pack: answer keys not validated by Hansa"
+  },
+  {
+   "id": "fb-howard-q3-031",
+   "pool": "fabric",
+   "reason": "community pack: answer keys not validated by Hansa"
+  },
+  {
+   "id": "fb-howard-q3-032",
+   "pool": "fabric",
+   "reason": "community pack: answer keys not validated by Hansa"
+  },
+  {
+   "id": "fb-inc-006",
+   "pool": "fabric",
+   "reason": "not a single-answer question"
+  },
+  {
+   "id": "fb-inc-014",
+   "pool": "fabric",
+   "reason": "not a single-answer question"
+  },
+  {
+   "id": "fb-inc-016",
+   "pool": "fabric",
+   "reason": "not a single-answer question"
+  },
+  {
+   "id": "fb-inc-028",
+   "pool": "fabric",
+   "reason": "not a single-answer question"
+  },
+  {
+   "id": "fb-inc-037",
+   "pool": "fabric",
+   "reason": "not a single-answer question"
+  },
+  {
+   "id": "fb-mir-002",
+   "pool": "fabric",
+   "reason": "not a single-answer question"
+  },
+  {
+   "id": "fb-mir-009",
+   "pool": "fabric",
+   "reason": "not a single-answer question"
+  },
+  {
+   "id": "fb-nb-013",
+   "pool": "fabric",
+   "reason": "depends on a code block"
+  },
+  {
+   "id": "fb-nb-014",
+   "pool": "fabric",
+   "reason": "depends on a code block"
+  },
+  {
+   "id": "fb-nb-025",
+   "pool": "fabric",
+   "reason": "explanation argues for a non-keyed option"
+  },
+  {
+   "id": "fb-nb-033",
+   "pool": "fabric",
+   "reason": "depends on a code block"
+  },
+  {
+   "id": "fb-patrick-001",
+   "pool": "fabric",
+   "reason": "community pack: answer keys not validated by Hansa"
+  },
+  {
+   "id": "fb-patrick-002",
+   "pool": "fabric",
+   "reason": "community pack: answer keys not validated by Hansa"
+  },
+  {
+   "id": "fb-patrick-003",
+   "pool": "fabric",
+   "reason": "community pack: answer keys not validated by Hansa"
+  },
+  {
+   "id": "fb-patrick-004",
+   "pool": "fabric",
+   "reason": "community pack: answer keys not validated by Hansa"
+  },
+  {
+   "id": "fb-patrick-005",
+   "pool": "fabric",
+   "reason": "community pack: answer keys not validated by Hansa"
+  },
+  {
+   "id": "fb-patrick-006",
+   "pool": "fabric",
+   "reason": "community pack: answer keys not validated by Hansa"
+  },
+  {
+   "id": "fb-patrick-007",
+   "pool": "fabric",
+   "reason": "community pack: answer keys not validated by Hansa"
+  },
+  {
+   "id": "fb-patrick-008",
+   "pool": "fabric",
+   "reason": "community pack: answer keys not validated by Hansa"
+  },
+  {
+   "id": "fb-patrick-009",
+   "pool": "fabric",
+   "reason": "community pack: answer keys not validated by Hansa"
+  },
+  {
+   "id": "fb-patrick-010",
+   "pool": "fabric",
+   "reason": "community pack: answer keys not validated by Hansa"
+  },
+  {
+   "id": "fb-patrick-011",
+   "pool": "fabric",
+   "reason": "community pack: answer keys not validated by Hansa"
+  },
+  {
+   "id": "fb-patrick-012",
+   "pool": "fabric",
+   "reason": "community pack: answer keys not validated by Hansa"
+  },
+  {
+   "id": "fb-patrick-013",
+   "pool": "fabric",
+   "reason": "community pack: answer keys not validated by Hansa"
+  },
+  {
+   "id": "fb-patrick-014",
+   "pool": "fabric",
+   "reason": "community pack: answer keys not validated by Hansa"
+  },
+  {
+   "id": "fb-patrick-015",
+   "pool": "fabric",
+   "reason": "community pack: answer keys not validated by Hansa"
+  },
+  {
+   "id": "fb-patrick-016",
+   "pool": "fabric",
+   "reason": "community pack: answer keys not validated by Hansa"
+  },
+  {
+   "id": "fb-patrick-017",
+   "pool": "fabric",
+   "reason": "community pack: answer keys not validated by Hansa"
+  },
+  {
+   "id": "fb-patrick-018",
+   "pool": "fabric",
+   "reason": "community pack: answer keys not validated by Hansa"
+  },
+  {
+   "id": "fb-patrick-019",
+   "pool": "fabric",
+   "reason": "community pack: answer keys not validated by Hansa"
+  },
+  {
+   "id": "fb-patrick-020",
+   "pool": "fabric",
+   "reason": "community pack: answer keys not validated by Hansa"
+  },
+  {
+   "id": "fb-patrick-021",
+   "pool": "fabric",
+   "reason": "community pack: answer keys not validated by Hansa"
+  },
+  {
+   "id": "fb-patrick-022",
+   "pool": "fabric",
+   "reason": "community pack: answer keys not validated by Hansa"
+  },
+  {
+   "id": "fb-patrick-023",
+   "pool": "fabric",
+   "reason": "community pack: answer keys not validated by Hansa"
+  },
+  {
+   "id": "fb-patrick-024",
+   "pool": "fabric",
+   "reason": "community pack: answer keys not validated by Hansa"
+  },
+  {
+   "id": "fb-patrick-025",
+   "pool": "fabric",
+   "reason": "community pack: answer keys not validated by Hansa"
+  },
+  {
+   "id": "fb-patrick-026",
+   "pool": "fabric",
+   "reason": "community pack: answer keys not validated by Hansa"
+  },
+  {
+   "id": "fb-patrick-027",
+   "pool": "fabric",
+   "reason": "community pack: answer keys not validated by Hansa"
+  },
+  {
+   "id": "fb-patrick-028",
+   "pool": "fabric",
+   "reason": "community pack: answer keys not validated by Hansa"
+  },
+  {
+   "id": "fb-patrick-029",
+   "pool": "fabric",
+   "reason": "community pack: answer keys not validated by Hansa"
+  },
+  {
+   "id": "fb-patrick-030",
+   "pool": "fabric",
+   "reason": "community pack: answer keys not validated by Hansa"
+  },
+  {
+   "id": "fb-p02",
+   "pool": "fabric",
+   "reason": "not a single-answer question"
+  },
+  {
+   "id": "fb-p03",
+   "pool": "fabric",
+   "reason": "not a single-answer question"
+  },
+  {
+   "id": "fb-p04",
+   "pool": "fabric",
+   "reason": "not a single-answer question"
+  },
+  {
+   "id": "fb-p05",
+   "pool": "fabric",
+   "reason": "explanation argues for a non-keyed option"
+  },
+  {
+   "id": "fb-p07",
+   "pool": "fabric",
+   "reason": "refers to the source video or lecture"
+  },
+  {
+   "id": "fb-p17",
+   "pool": "fabric",
+   "reason": "not a single-answer question"
+  },
+  {
+   "id": "fb-p19",
+   "pool": "fabric",
+   "reason": "depends on a code block"
+  },
+  {
+   "id": "fb-p20",
+   "pool": "fabric",
+   "reason": "depends on a code block"
+  },
+  {
+   "id": "fb-p29",
+   "pool": "fabric",
+   "reason": "not a single-answer question"
+  },
+  {
+   "id": "fb-p31",
+   "pool": "fabric",
+   "reason": "depends on a case study"
+  },
+  {
+   "id": "fb-p32",
+   "pool": "fabric",
+   "reason": "depends on a case study"
+  },
+  {
+   "id": "fb-p33",
+   "pool": "fabric",
+   "reason": "not a single-answer question"
+  },
+  {
+   "id": "fb-p34",
+   "pool": "fabric",
+   "reason": "depends on a case study"
+  },
+  {
+   "id": "fb-p35",
+   "pool": "fabric",
+   "reason": "depends on a code block"
+  },
+  {
+   "id": "fb-p36",
+   "pool": "fabric",
+   "reason": "not a single-answer question"
+  },
+  {
+   "id": "fb-p37",
+   "pool": "fabric",
+   "reason": "depends on a case study"
+  },
+  {
+   "id": "fb-p38",
+   "pool": "fabric",
+   "reason": "depends on a case study"
+  },
+  {
+   "id": "fb-p39",
+   "pool": "fabric",
+   "reason": "not a single-answer question"
+  },
+  {
+   "id": "fb-p40",
+   "pool": "fabric",
+   "reason": "depends on a case study"
+  },
+  {
+   "id": "fb-s04",
+   "pool": "fabric",
+   "reason": "not a single-answer question"
+  },
+  {
+   "id": "fb-s05",
+   "pool": "fabric",
+   "reason": "not a single-answer question"
+  },
+  {
+   "id": "fb-s12",
+   "pool": "fabric",
+   "reason": "depends on a code block"
+  },
+  {
+   "id": "fb-s13",
+   "pool": "fabric",
+   "reason": "depends on a code block"
+  },
+  {
+   "id": "fb-s16",
+   "pool": "fabric",
+   "reason": "explanation argues for a non-keyed option"
+  },
+  {
+   "id": "fb-s18",
+   "pool": "fabric",
+   "reason": "not a single-answer question"
+  },
+  {
+   "id": "fb-s19",
+   "pool": "fabric",
+   "reason": "depends on a code block"
+  },
+  {
+   "id": "fb-s24",
+   "pool": "fabric",
+   "reason": "refers to the source video or lecture"
+  },
+  {
+   "id": "fb-s31",
+   "pool": "fabric",
+   "reason": "depends on a case study"
+  },
+  {
+   "id": "fb-s32",
+   "pool": "fabric",
+   "reason": "depends on a case study"
+  },
+  {
+   "id": "fb-s33",
+   "pool": "fabric",
+   "reason": "not a single-answer question"
+  },
+  {
+   "id": "fb-s34",
+   "pool": "fabric",
+   "reason": "depends on a case study"
+  },
+  {
+   "id": "fb-s35",
+   "pool": "fabric",
+   "reason": "depends on a case study"
+  },
+  {
+   "id": "fb-s36",
+   "pool": "fabric",
+   "reason": "depends on a case study"
+  },
+  {
+   "id": "fb-s37",
+   "pool": "fabric",
+   "reason": "depends on a case study"
+  },
+  {
+   "id": "fb-s38",
+   "pool": "fabric",
+   "reason": "not a single-answer question"
+  },
+  {
+   "id": "fb-s39",
+   "pool": "fabric",
+   "reason": "depends on a case study"
+  },
+  {
+   "id": "fb-s40",
+   "pool": "fabric",
+   "reason": "not a single-answer question"
+  },
+  {
+   "id": "fb-smd-001",
+   "pool": "fabric",
+   "reason": "depends on a case study"
+  },
+  {
+   "id": "fb-smd-015",
+   "pool": "fabric",
+   "reason": "depends on a code block"
+  },
+  {
+   "id": "fb-smd-016",
+   "pool": "fabric",
+   "reason": "depends on a code block"
+  },
+  {
+   "id": "fb-smd-017",
+   "pool": "fabric",
+   "reason": "depends on a case study"
+  },
+  {
+   "id": "fb-smd-021",
+   "pool": "fabric",
+   "reason": "depends on a case study"
+  },
+  {
+   "id": "fb-smd-022",
+   "pool": "fabric",
+   "reason": "depends on a case study"
+  },
+  {
+   "id": "fb-smd-024",
+   "pool": "fabric",
+   "reason": "depends on a case study"
+  },
+  {
+   "id": "fb-smd-027",
+   "pool": "fabric",
+   "reason": "depends on a code block"
+  },
+  {
+   "id": "fb-smd-036",
+   "pool": "fabric",
+   "reason": "depends on a code block"
+  },
+  {
+   "id": "fb-smd-038",
+   "pool": "fabric",
+   "reason": "depends on a case study"
+  },
+  {
+   "id": "fb-smd-040",
+   "pool": "fabric",
+   "reason": "depends on a case study"
+  },
+  {
+   "id": "fb-v6-sec-002",
+   "pool": "fabric",
+   "reason": "depends on a case study"
+  },
+  {
+   "id": "fb-v6-sec-007",
+   "pool": "fabric",
+   "reason": "not a single-answer question"
+  },
+  {
+   "id": "fb-v6-sec-015",
+   "pool": "fabric",
+   "reason": "not a single-answer question"
+  },
+  {
+   "id": "fb-v6-sec-016",
+   "pool": "fabric",
+   "reason": "refers to the source video or lecture"
+  },
+  {
+   "id": "fb-v6-sec-018",
+   "pool": "fabric",
+   "reason": "explanation argues for a non-keyed option"
+  },
+  {
+   "id": "fb-v6-sec-027",
+   "pool": "fabric",
+   "reason": "not a single-answer question"
+  },
+  {
+   "id": "fb-v6-sec-034",
+   "pool": "fabric",
+   "reason": "not a single-answer question"
+  },
+  {
+   "id": "fb-v6-sec-043",
+   "pool": "fabric",
+   "reason": "not a single-answer question"
+  },
+  {
+   "id": "fb-v6-sec-044",
+   "pool": "fabric",
+   "reason": "not a single-answer question"
+  },
+  {
+   "id": "fb-v6-sec-047",
+   "pool": "fabric",
+   "reason": "not a single-answer question"
+  },
+  {
+   "id": "fb-v6-sec-050",
+   "pool": "fabric",
+   "reason": "not a single-answer question"
+  },
+  {
+   "id": "fb-v7-ddm-002",
+   "pool": "fabric",
+   "reason": "not a single-answer question"
+  },
+  {
+   "id": "fb-v7-ddm-003",
+   "pool": "fabric",
+   "reason": "refers to the source video or lecture"
+  },
+  {
+   "id": "fb-v7-ddm-006",
+   "pool": "fabric",
+   "reason": "not a single-answer question"
+  },
+  {
+   "id": "fb-v7-ddm-012",
+   "pool": "fabric",
+   "reason": "not a single-answer question"
+  },
+  {
+   "id": "fb-v7-ddm-015",
+   "pool": "fabric",
+   "reason": "not a single-answer question"
+  },
+  {
+   "id": "fb-v7-ddm-017",
+   "pool": "fabric",
+   "reason": "not a single-answer question"
+  },
+  {
+   "id": "fb-v7-ddm-019",
+   "pool": "fabric",
+   "reason": "explanation argues for a non-keyed option"
+  },
+  {
+   "id": "fb-v7-ddm-021",
+   "pool": "fabric",
+   "reason": "not a single-answer question"
+  },
+  {
+   "id": "fb-v7-ddm-024",
+   "pool": "fabric",
+   "reason": "not a single-answer question"
+  },
+  {
+   "id": "fb-v7-ddm-025",
+   "pool": "fabric",
+   "reason": "refers to the source video or lecture"
+  },
+  {
+   "id": "fb-v7-ddm-030",
+   "pool": "fabric",
+   "reason": "not a single-answer question"
+  },
+  {
+   "id": "fb-v7-ddm-032",
+   "pool": "fabric",
+   "reason": "not a single-answer question"
+  },
+  {
+   "id": "fb-v7-ddm-034",
+   "pool": "fabric",
+   "reason": "not a single-answer question"
+  },
+  {
+   "id": "fb-v7-ddm-036",
+   "pool": "fabric",
+   "reason": "not a single-answer question"
+  },
+  {
+   "id": "fb-v8-gov-003",
+   "pool": "fabric",
+   "reason": "not a single-answer question"
+  },
+  {
+   "id": "fb-v8-gov-005",
+   "pool": "fabric",
+   "reason": "not a single-answer question"
+  },
+  {
+   "id": "fb-v8-gov-007",
+   "pool": "fabric",
+   "reason": "explanation argues for a non-keyed option"
+  },
+  {
+   "id": "fb-v8-gov-008",
+   "pool": "fabric",
+   "reason": "not a single-answer question"
+  },
+  {
+   "id": "fb-v8-gov-012",
+   "pool": "fabric",
+   "reason": "not a single-answer question"
+  },
+  {
+   "id": "fb-v8-gov-018",
+   "pool": "fabric",
+   "reason": "not a single-answer question"
+  },
+  {
+   "id": "fb-v8-gov-020",
+   "pool": "fabric",
+   "reason": "not a single-answer question"
+  },
+  {
+   "id": "fb-v8-gov-027",
+   "pool": "fabric",
+   "reason": "not a single-answer question"
+  },
+  {
+   "id": "fb-v8-gov-030",
+   "pool": "fabric",
+   "reason": "not a single-answer question"
+  },
+  {
+   "id": "fb-v8-gov-034",
+   "pool": "fabric",
+   "reason": "not a single-answer question"
+  },
+  {
+   "id": "fb-v8-gov-040",
+   "pool": "fabric",
+   "reason": "not a single-answer question"
+  },
+  {
+   "id": "fb-v8-gov-042",
+   "pool": "fabric",
+   "reason": "not a single-answer question"
+  },
+  {
+   "id": "fb-v8-gov-045",
+   "pool": "fabric",
+   "reason": "not a single-answer question"
+  },
+  {
+   "id": "fb-v8-gov-047",
+   "pool": "fabric",
+   "reason": "not a single-answer question"
+  },
+  {
+   "id": "fb-v9-git-002",
+   "pool": "fabric",
+   "reason": "explanation argues for a non-keyed option"
+  },
+  {
+   "id": "fb-v9-git-004",
+   "pool": "fabric",
+   "reason": "not a single-answer question"
+  },
+  {
+   "id": "fb-v9-git-005",
+   "pool": "fabric",
+   "reason": "explanation argues for a non-keyed option"
+  },
+  {
+   "id": "fb-v9-git-007",
+   "pool": "fabric",
+   "reason": "refers to the source video or lecture"
+  },
+  {
+   "id": "fb-v9-git-011",
+   "pool": "fabric",
+   "reason": "not a single-answer question"
+  },
+  {
+   "id": "fb-v9-git-012",
+   "pool": "fabric",
+   "reason": "not a single-answer question"
+  },
+  {
+   "id": "fb-v9-git-018",
+   "pool": "fabric",
+   "reason": "not a single-answer question"
+  },
+  {
+   "id": "fb-v9-git-021",
+   "pool": "fabric",
+   "reason": "explanation argues for a non-keyed option"
+  },
+  {
+   "id": "fb-v9-git-026",
+   "pool": "fabric",
+   "reason": "not a single-answer question"
+  },
+  {
+   "id": "fb-v9-git-030",
+   "pool": "fabric",
+   "reason": "not a single-answer question"
+  },
+  {
+   "id": "fb-v9-git-038",
+   "pool": "fabric",
+   "reason": "not a single-answer question"
+  },
+  {
+   "id": "fb-v9-git-045",
+   "pool": "fabric",
+   "reason": "not a single-answer question"
+  },
+  {
+   "id": "fb-v10-dep-010",
+   "pool": "fabric",
+   "reason": "refers to the source video or lecture"
+  },
+  {
+   "id": "fb-v10-dep-026",
+   "pool": "fabric",
+   "reason": "not a single-answer question"
+  },
+  {
+   "id": "fb-v10-dep-027",
+   "pool": "fabric",
+   "reason": "refers to the source video or lecture"
+  },
+  {
+   "id": "fb-v10-dep-033",
+   "pool": "fabric",
+   "reason": "refers to the source video or lecture"
+  },
+  {
+   "id": "fb-v10-dep-038",
+   "pool": "fabric",
+   "reason": "explanation argues for a non-keyed option"
+  },
+  {
+   "id": "fb-v10-dep-039",
+   "pool": "fabric",
+   "reason": "refers to the source video or lecture"
+  },
+  {
+   "id": "fb-v10-dep-040",
+   "pool": "fabric",
+   "reason": "not a single-answer question"
+  },
+  {
+   "id": "fb-v10-dep-041",
+   "pool": "fabric",
+   "reason": "not a single-answer question"
+  },
+  {
+   "id": "fb-v10-dep-042",
+   "pool": "fabric",
+   "reason": "not a single-answer question"
+  },
+  {
+   "id": "fb-v10-dep-046",
+   "pool": "fabric",
+   "reason": "not a single-answer question"
+  },
+  {
+   "id": "fb-v10-dep-047",
+   "pool": "fabric",
+   "reason": "not a single-answer question"
+  },
+  {
+   "id": "fb-v10-dep-048",
+   "pool": "fabric",
+   "reason": "not a single-answer question"
+  },
+  {
+   "id": "fb-v11-choose-022",
+   "pool": "fabric",
+   "reason": "refers to the source video or lecture"
+  },
+  {
+   "id": "fb-v11-choose-042",
+   "pool": "fabric",
+   "reason": "not a single-answer question"
+  },
+  {
+   "id": "fb-v11-choose-043",
+   "pool": "fabric",
+   "reason": "not a single-answer question"
+  },
+  {
+   "id": "fb-v11-choose-044",
+   "pool": "fabric",
+   "reason": "not a single-answer question"
+  },
+  {
+   "id": "fb-v11-choose-045",
+   "pool": "fabric",
+   "reason": "not a single-answer question"
+  },
+  {
+   "id": "fb-v11-choose-046",
+   "pool": "fabric",
+   "reason": "not a single-answer question"
+  },
+  {
+   "id": "fb-v11-choose-047",
+   "pool": "fabric",
+   "reason": "not a single-answer question"
+  },
+  {
+   "id": "fb-v11-choose-048",
+   "pool": "fabric",
+   "reason": "not a single-answer question"
+  },
+  {
+   "id": "fb-v11-choose-049",
+   "pool": "fabric",
+   "reason": "not a single-answer question"
+  },
+  {
+   "id": "fb-v11-choose-050",
+   "pool": "fabric",
+   "reason": "not a single-answer question"
+  },
+  {
+   "id": "fb-v12-mon-001",
+   "pool": "fabric",
+   "reason": "adjacent exam scope (DP-700 primary)"
+  },
+  {
+   "id": "fb-v12-mon-002",
+   "pool": "fabric",
+   "reason": "adjacent exam scope (DP-700 primary)"
+  },
+  {
+   "id": "fb-v12-mon-003",
+   "pool": "fabric",
+   "reason": "adjacent exam scope (DP-700 primary)"
+  },
+  {
+   "id": "fb-v12-mon-004",
+   "pool": "fabric",
+   "reason": "not a single-answer question"
+  },
+  {
+   "id": "fb-v12-mon-005",
+   "pool": "fabric",
+   "reason": "adjacent exam scope (DP-700 primary)"
+  },
+  {
+   "id": "fb-v12-mon-006",
+   "pool": "fabric",
+   "reason": "adjacent exam scope (DP-700 primary)"
+  },
+  {
+   "id": "fb-v12-mon-007",
+   "pool": "fabric",
+   "reason": "not a single-answer question"
+  },
+  {
+   "id": "fb-v12-mon-008",
+   "pool": "fabric",
+   "reason": "adjacent exam scope (DP-700 primary)"
+  },
+  {
+   "id": "fb-v12-mon-009",
+   "pool": "fabric",
+   "reason": "adjacent exam scope (DP-700 primary)"
+  },
+  {
+   "id": "fb-v12-mon-010",
+   "pool": "fabric",
+   "reason": "adjacent exam scope (DP-700 primary)"
+  },
+  {
+   "id": "fb-v12-mon-011",
+   "pool": "fabric",
+   "reason": "adjacent exam scope (DP-700 primary)"
+  },
+  {
+   "id": "fb-v12-mon-012",
+   "pool": "fabric",
+   "reason": "not a single-answer question"
+  },
+  {
+   "id": "fb-v12-mon-013",
+   "pool": "fabric",
+   "reason": "adjacent exam scope (DP-700 primary)"
+  },
+  {
+   "id": "fb-v12-mon-014",
+   "pool": "fabric",
+   "reason": "adjacent exam scope (DP-700 primary)"
+  },
+  {
+   "id": "fb-v12-mon-015",
+   "pool": "fabric",
+   "reason": "not a single-answer question"
+  },
+  {
+   "id": "fb-v12-mon-016",
+   "pool": "fabric",
+   "reason": "adjacent exam scope (DP-700 primary)"
+  },
+  {
+   "id": "fb-v12-mon-017",
+   "pool": "fabric",
+   "reason": "adjacent exam scope (DP-700 primary)"
+  },
+  {
+   "id": "fb-v12-mon-018",
+   "pool": "fabric",
+   "reason": "not a single-answer question"
+  },
+  {
+   "id": "fb-v12-mon-019",
+   "pool": "fabric",
+   "reason": "adjacent exam scope (DP-700 primary)"
+  },
+  {
+   "id": "fb-v12-mon-020",
+   "pool": "fabric",
+   "reason": "adjacent exam scope (DP-700 primary)"
+  },
+  {
+   "id": "fb-v12-mon-021",
+   "pool": "fabric",
+   "reason": "adjacent exam scope (DP-700 primary)"
+  },
+  {
+   "id": "fb-v12-mon-022",
+   "pool": "fabric",
+   "reason": "adjacent exam scope (DP-700 primary)"
+  },
+  {
+   "id": "fb-v12-mon-023",
+   "pool": "fabric",
+   "reason": "adjacent exam scope (DP-700 primary)"
+  },
+  {
+   "id": "fb-v12-mon-024",
+   "pool": "fabric",
+   "reason": "adjacent exam scope (DP-700 primary)"
+  },
+  {
+   "id": "fb-v12-mon-025",
+   "pool": "fabric",
+   "reason": "adjacent exam scope (DP-700 primary)"
+  },
+  {
+   "id": "fb-v12-mon-026",
+   "pool": "fabric",
+   "reason": "not a single-answer question"
+  },
+  {
+   "id": "fb-v12-mon-027",
+   "pool": "fabric",
+   "reason": "adjacent exam scope (DP-700 primary)"
+  },
+  {
+   "id": "fb-v12-mon-028",
+   "pool": "fabric",
+   "reason": "adjacent exam scope (DP-700 primary)"
+  },
+  {
+   "id": "fb-v12-mon-029",
+   "pool": "fabric",
+   "reason": "adjacent exam scope (DP-700 primary)"
+  },
+  {
+   "id": "fb-v12-mon-030",
+   "pool": "fabric",
+   "reason": "adjacent exam scope (DP-700 primary)"
+  },
+  {
+   "id": "fb-v12-mon-031",
+   "pool": "fabric",
+   "reason": "adjacent exam scope (DP-700 primary)"
+  },
+  {
+   "id": "fb-v12-mon-032",
+   "pool": "fabric",
+   "reason": "adjacent exam scope (DP-700 primary)"
+  },
+  {
+   "id": "fb-v12-mon-033",
+   "pool": "fabric",
+   "reason": "adjacent exam scope (DP-700 primary)"
+  },
+  {
+   "id": "fb-v12-mon-034",
+   "pool": "fabric",
+   "reason": "not a single-answer question"
+  },
+  {
+   "id": "fb-v12-mon-035",
+   "pool": "fabric",
+   "reason": "adjacent exam scope (DP-700 primary)"
+  },
+  {
+   "id": "fb-v12-mon-036",
+   "pool": "fabric",
+   "reason": "adjacent exam scope (DP-700 primary)"
+  },
+  {
+   "id": "fb-v12-mon-037",
+   "pool": "fabric",
+   "reason": "adjacent exam scope (DP-700 primary)"
+  },
+  {
+   "id": "fb-v12-mon-038",
+   "pool": "fabric",
+   "reason": "adjacent exam scope (DP-700 primary)"
+  },
+  {
+   "id": "fb-v12-mon-039",
+   "pool": "fabric",
+   "reason": "adjacent exam scope (DP-700 primary)"
+  },
+  {
+   "id": "fb-v12-mon-040",
+   "pool": "fabric",
+   "reason": "not a single-answer question"
+  },
+  {
+   "id": "fb-v12-mon-041",
+   "pool": "fabric",
+   "reason": "adjacent exam scope (DP-700 primary)"
+  },
+  {
+   "id": "fb-v12-mon-042",
+   "pool": "fabric",
+   "reason": "adjacent exam scope (DP-700 primary)"
+  },
+  {
+   "id": "fb-v12-mon-043",
+   "pool": "fabric",
+   "reason": "adjacent exam scope (DP-700 primary)"
+  },
+  {
+   "id": "fb-v12-mon-044",
+   "pool": "fabric",
+   "reason": "adjacent exam scope (DP-700 primary)"
+  },
+  {
+   "id": "fb-v12-mon-045",
+   "pool": "fabric",
+   "reason": "adjacent exam scope (DP-700 primary)"
+  },
+  {
+   "id": "fb-v12-mon-046",
+   "pool": "fabric",
+   "reason": "adjacent exam scope (DP-700 primary)"
+  },
+  {
+   "id": "fb-v12-mon-047",
+   "pool": "fabric",
+   "reason": "adjacent exam scope (DP-700 primary)"
+  },
+  {
+   "id": "fb-v12-mon-048",
+   "pool": "fabric",
+   "reason": "adjacent exam scope (DP-700 primary)"
+  },
+  {
+   "id": "fb-v12-mon-049",
+   "pool": "fabric",
+   "reason": "not a single-answer question"
+  },
+  {
+   "id": "fb-v12-mon-050",
+   "pool": "fabric",
+   "reason": "not a single-answer question"
+  },
+  {
+   "id": "fb-v14-pipe-001",
+   "pool": "fabric",
+   "reason": "depends on a case study"
+  },
+  {
+   "id": "fb-v14-pipe-002",
+   "pool": "fabric",
+   "reason": "depends on a case study"
+  },
+  {
+   "id": "fb-v14-pipe-003",
+   "pool": "fabric",
+   "reason": "depends on a case study"
+  },
+  {
+   "id": "fb-v14-pipe-004",
+   "pool": "fabric",
+   "reason": "depends on a case study"
+  },
+  {
+   "id": "fb-v14-pipe-005",
+   "pool": "fabric",
+   "reason": "depends on a case study"
+  },
+  {
+   "id": "fb-v14-pipe-006",
+   "pool": "fabric",
+   "reason": "depends on a case study"
+  },
+  {
+   "id": "fb-v14-pipe-007",
+   "pool": "fabric",
+   "reason": "not a single-answer question"
+  },
+  {
+   "id": "fb-v14-pipe-008",
+   "pool": "fabric",
+   "reason": "not a single-answer question"
+  },
+  {
+   "id": "fb-v14-pipe-009",
+   "pool": "fabric",
+   "reason": "depends on a case study"
+  },
+  {
+   "id": "fb-v14-pipe-010",
+   "pool": "fabric",
+   "reason": "depends on a case study"
+  },
+  {
+   "id": "fb-v14-pipe-011",
+   "pool": "fabric",
+   "reason": "depends on a case study"
+  },
+  {
+   "id": "fb-v14-pipe-012",
+   "pool": "fabric",
+   "reason": "depends on a case study"
+  },
+  {
+   "id": "fb-v14-pipe-013",
+   "pool": "fabric",
+   "reason": "depends on a case study"
+  },
+  {
+   "id": "fb-v14-pipe-014",
+   "pool": "fabric",
+   "reason": "depends on a case study"
+  },
+  {
+   "id": "fb-v14-pipe-015",
+   "pool": "fabric",
+   "reason": "not a single-answer question"
+  },
+  {
+   "id": "fb-v14-pipe-016",
+   "pool": "fabric",
+   "reason": "not a single-answer question"
+  },
+  {
+   "id": "fb-v14-pipe-017",
+   "pool": "fabric",
+   "reason": "depends on a case study"
+  },
+  {
+   "id": "fb-v14-pipe-018",
+   "pool": "fabric",
+   "reason": "depends on a case study"
+  },
+  {
+   "id": "fb-v14-pipe-019",
+   "pool": "fabric",
+   "reason": "depends on a case study"
+  },
+  {
+   "id": "fb-v14-pipe-020",
+   "pool": "fabric",
+   "reason": "depends on a case study"
+  },
+  {
+   "id": "fb-v14-pipe-021",
+   "pool": "fabric",
+   "reason": "depends on a case study"
+  },
+  {
+   "id": "fb-v14-pipe-022",
+   "pool": "fabric",
+   "reason": "depends on a case study"
+  },
+  {
+   "id": "fb-v14-pipe-023",
+   "pool": "fabric",
+   "reason": "not a single-answer question"
+  },
+  {
+   "id": "fb-v14-pipe-024",
+   "pool": "fabric",
+   "reason": "not a single-answer question"
+  },
+  {
+   "id": "fb-v14-pipe-025",
+   "pool": "fabric",
+   "reason": "depends on a case study"
+  },
+  {
+   "id": "fb-v14-pipe-026",
+   "pool": "fabric",
+   "reason": "depends on a case study"
+  },
+  {
+   "id": "fb-v14-pipe-027",
+   "pool": "fabric",
+   "reason": "depends on a case study"
+  },
+  {
+   "id": "fb-v14-pipe-028",
+   "pool": "fabric",
+   "reason": "depends on a case study"
+  },
+  {
+   "id": "fb-v14-pipe-029",
+   "pool": "fabric",
+   "reason": "depends on a case study"
+  },
+  {
+   "id": "fb-v14-pipe-030",
+   "pool": "fabric",
+   "reason": "depends on a case study"
+  },
+  {
+   "id": "fb-v14-pipe-031",
+   "pool": "fabric",
+   "reason": "not a single-answer question"
+  },
+  {
+   "id": "fb-v14-pipe-032",
+   "pool": "fabric",
+   "reason": "not a single-answer question"
+  },
+  {
+   "id": "fb-v14-pipe-033",
+   "pool": "fabric",
+   "reason": "depends on a case study"
+  },
+  {
+   "id": "fb-v14-pipe-034",
+   "pool": "fabric",
+   "reason": "depends on a case study"
+  },
+  {
+   "id": "fb-v14-pipe-035",
+   "pool": "fabric",
+   "reason": "depends on a case study"
+  },
+  {
+   "id": "fb-v14-pipe-036",
+   "pool": "fabric",
+   "reason": "depends on a case study"
+  },
+  {
+   "id": "fb-v14-pipe-037",
+   "pool": "fabric",
+   "reason": "depends on a case study"
+  },
+  {
+   "id": "fb-v14-pipe-038",
+   "pool": "fabric",
+   "reason": "depends on a case study"
+  },
+  {
+   "id": "fb-v14-pipe-039",
+   "pool": "fabric",
+   "reason": "not a single-answer question"
+  },
+  {
+   "id": "fb-v14-pipe-040",
+   "pool": "fabric",
+   "reason": "not a single-answer question"
+  },
+  {
+   "id": "fb-v14-pipe-041",
+   "pool": "fabric",
+   "reason": "depends on a case study"
+  },
+  {
+   "id": "fb-v14-pipe-042",
+   "pool": "fabric",
+   "reason": "depends on a case study"
+  },
+  {
+   "id": "fb-v14-pipe-043",
+   "pool": "fabric",
+   "reason": "depends on a case study"
+  },
+  {
+   "id": "fb-v14-pipe-044",
+   "pool": "fabric",
+   "reason": "depends on a case study"
+  },
+  {
+   "id": "fb-v14-pipe-045",
+   "pool": "fabric",
+   "reason": "depends on a case study"
+  },
+  {
+   "id": "fb-v14-pipe-046",
+   "pool": "fabric",
+   "reason": "depends on a case study"
+  },
+  {
+   "id": "fb-v14-pipe-047",
+   "pool": "fabric",
+   "reason": "not a single-answer question"
+  },
+  {
+   "id": "fb-v14-pipe-048",
+   "pool": "fabric",
+   "reason": "not a single-answer question"
+  },
+  {
+   "id": "fb-v14-pipe-049",
+   "pool": "fabric",
+   "reason": "depends on a case study"
+  },
+  {
+   "id": "fb-v14-pipe-050",
+   "pool": "fabric",
+   "reason": "depends on a case study"
+  },
+  {
+   "id": "fb-v14-pipe-051",
+   "pool": "fabric",
+   "reason": "depends on a case study"
+  },
+  {
+   "id": "fb-v14-pipe-052",
+   "pool": "fabric",
+   "reason": "depends on a case study"
+  },
+  {
+   "id": "fb-v14-pipe-053",
+   "pool": "fabric",
+   "reason": "depends on a case study"
+  },
+  {
+   "id": "fb-v14-pipe-054",
+   "pool": "fabric",
+   "reason": "depends on a case study"
+  },
+  {
+   "id": "fb-v14-pipe-055",
+   "pool": "fabric",
+   "reason": "not a single-answer question"
+  },
+  {
+   "id": "fb-v14-pipe-056",
+   "pool": "fabric",
+   "reason": "not a single-answer question"
+  },
+  {
+   "id": "fb-v14-pipe-057",
+   "pool": "fabric",
+   "reason": "depends on a case study"
+  },
+  {
+   "id": "fb-v14-pipe-058",
+   "pool": "fabric",
+   "reason": "depends on a case study"
+  },
+  {
+   "id": "fb-v14-pipe-059",
+   "pool": "fabric",
+   "reason": "depends on a case study"
+  },
+  {
+   "id": "fb-v14-pipe-060",
+   "pool": "fabric",
+   "reason": "depends on a case study"
+  },
+  {
+   "id": "fb-v14-pipe-061",
+   "pool": "fabric",
+   "reason": "depends on a case study"
+  },
+  {
+   "id": "fb-v14-pipe-062",
+   "pool": "fabric",
+   "reason": "depends on a case study"
+  },
+  {
+   "id": "fb-v14-pipe-063",
+   "pool": "fabric",
+   "reason": "not a single-answer question"
+  },
+  {
+   "id": "fb-v14-pipe-064",
+   "pool": "fabric",
+   "reason": "not a single-answer question"
+  },
+  {
+   "id": "fb-v14-pipe-065",
+   "pool": "fabric",
+   "reason": "depends on a case study"
+  },
+  {
+   "id": "fb-v14-pipe-066",
+   "pool": "fabric",
+   "reason": "depends on a case study"
+  },
+  {
+   "id": "fb-v14-pipe-067",
+   "pool": "fabric",
+   "reason": "depends on a case study"
+  },
+  {
+   "id": "fb-v14-pipe-068",
+   "pool": "fabric",
+   "reason": "depends on a case study"
+  },
+  {
+   "id": "fb-v14-pipe-069",
+   "pool": "fabric",
+   "reason": "depends on a case study"
+  },
+  {
+   "id": "fb-v14-pipe-070",
+   "pool": "fabric",
+   "reason": "depends on a case study"
+  },
+  {
+   "id": "fb-v14-pipe-071",
+   "pool": "fabric",
+   "reason": "not a single-answer question"
+  },
+  {
+   "id": "fb-v14-pipe-072",
+   "pool": "fabric",
+   "reason": "not a single-answer question"
+  },
+  {
+   "id": "fb-v14-pipe-073",
+   "pool": "fabric",
+   "reason": "depends on a case study"
+  },
+  {
+   "id": "fb-v14-pipe-074",
+   "pool": "fabric",
+   "reason": "depends on a case study"
+  },
+  {
+   "id": "fb-v14-pipe-075",
+   "pool": "fabric",
+   "reason": "depends on a case study"
+  },
+  {
+   "id": "fb-v14-pipe-076",
+   "pool": "fabric",
+   "reason": "depends on a case study"
+  },
+  {
+   "id": "fb-v14-pipe-077",
+   "pool": "fabric",
+   "reason": "depends on a case study"
+  },
+  {
+   "id": "fb-v14-pipe-078",
+   "pool": "fabric",
+   "reason": "depends on a case study"
+  },
+  {
+   "id": "fb-v14-pipe-079",
+   "pool": "fabric",
+   "reason": "not a single-answer question"
+  },
+  {
+   "id": "fb-v14-pipe-080",
+   "pool": "fabric",
+   "reason": "not a single-answer question"
+  },
+  {
+   "id": "fb-v14-pipe-081",
+   "pool": "fabric",
+   "reason": "depends on a case study"
+  },
+  {
+   "id": "fb-v14-pipe-082",
+   "pool": "fabric",
+   "reason": "depends on a case study"
+  },
+  {
+   "id": "fb-v14-pipe-083",
+   "pool": "fabric",
+   "reason": "depends on a case study"
+  },
+  {
+   "id": "fb-v14-pipe-084",
+   "pool": "fabric",
+   "reason": "depends on a case study"
+  },
+  {
+   "id": "fb-v14-pipe-085",
+   "pool": "fabric",
+   "reason": "depends on a case study"
+  },
+  {
+   "id": "fb-v14-pipe-086",
+   "pool": "fabric",
+   "reason": "depends on a case study"
+  },
+  {
+   "id": "fb-v14-pipe-087",
+   "pool": "fabric",
+   "reason": "not a single-answer question"
+  },
+  {
+   "id": "fb-v14-pipe-088",
+   "pool": "fabric",
+   "reason": "not a single-answer question"
+  },
+  {
+   "id": "fb-v14-pipe-089",
+   "pool": "fabric",
+   "reason": "depends on a case study"
+  },
+  {
+   "id": "fb-v14-pipe-090",
+   "pool": "fabric",
+   "reason": "depends on a case study"
+  },
+  {
+   "id": "fb-v14-pipe-091",
+   "pool": "fabric",
+   "reason": "depends on a case study"
+  },
+  {
+   "id": "fb-v14-pipe-092",
+   "pool": "fabric",
+   "reason": "depends on a case study"
+  },
+  {
+   "id": "fb-v14-pipe-093",
+   "pool": "fabric",
+   "reason": "depends on a case study"
+  },
+  {
+   "id": "fb-v14-pipe-094",
+   "pool": "fabric",
+   "reason": "depends on a case study"
+  },
+  {
+   "id": "fb-v14-pipe-095",
+   "pool": "fabric",
+   "reason": "not a single-answer question"
+  },
+  {
+   "id": "fb-v14-pipe-096",
+   "pool": "fabric",
+   "reason": "not a single-answer question"
+  },
+  {
+   "id": "fb-v15-ols-001",
+   "pool": "fabric",
+   "reason": "depends on a case study"
+  },
+  {
+   "id": "fb-v15-ols-002",
+   "pool": "fabric",
+   "reason": "depends on a case study"
+  },
+  {
+   "id": "fb-v15-ols-003",
+   "pool": "fabric",
+   "reason": "depends on a case study"
+  },
+  {
+   "id": "fb-v15-ols-004",
+   "pool": "fabric",
+   "reason": "depends on a case study"
+  },
+  {
+   "id": "fb-v15-ols-005",
+   "pool": "fabric",
+   "reason": "not a single-answer question"
+  },
+  {
+   "id": "fb-v15-ols-006",
+   "pool": "fabric",
+   "reason": "depends on a case study"
+  },
+  {
+   "id": "fb-v15-ols-007",
+   "pool": "fabric",
+   "reason": "depends on a case study"
+  },
+  {
+   "id": "fb-v15-ols-008",
+   "pool": "fabric",
+   "reason": "depends on a case study"
+  },
+  {
+   "id": "fb-v15-ols-009",
+   "pool": "fabric",
+   "reason": "depends on a case study"
+  },
+  {
+   "id": "fb-v15-ols-010",
+   "pool": "fabric",
+   "reason": "depends on a case study"
+  },
+  {
+   "id": "fb-v15-ols-011",
+   "pool": "fabric",
+   "reason": "depends on a case study"
+  },
+  {
+   "id": "fb-v15-ols-012",
+   "pool": "fabric",
+   "reason": "not a single-answer question"
+  },
+  {
+   "id": "fb-v15-ols-013",
+   "pool": "fabric",
+   "reason": "depends on a case study"
+  },
+  {
+   "id": "fb-v15-ols-014",
+   "pool": "fabric",
+   "reason": "depends on a case study"
+  },
+  {
+   "id": "fb-v15-ols-015",
+   "pool": "fabric",
+   "reason": "depends on a case study"
+  },
+  {
+   "id": "fb-v15-ols-016",
+   "pool": "fabric",
+   "reason": "depends on a case study"
+  },
+  {
+   "id": "fb-v15-ols-017",
+   "pool": "fabric",
+   "reason": "depends on a case study"
+  },
+  {
+   "id": "fb-v15-ols-018",
+   "pool": "fabric",
+   "reason": "depends on a case study"
+  },
+  {
+   "id": "fb-v15-ols-019",
+   "pool": "fabric",
+   "reason": "depends on a case study"
+  },
+  {
+   "id": "fb-v15-ols-020",
+   "pool": "fabric",
+   "reason": "not a single-answer question"
+  },
+  {
+   "id": "fb-v15-ols-021",
+   "pool": "fabric",
+   "reason": "depends on a case study"
+  },
+  {
+   "id": "fb-v15-ols-022",
+   "pool": "fabric",
+   "reason": "depends on a case study"
+  },
+  {
+   "id": "fb-v15-ols-023",
+   "pool": "fabric",
+   "reason": "depends on a case study"
+  },
+  {
+   "id": "fb-v15-ols-024",
+   "pool": "fabric",
+   "reason": "not a single-answer question"
+  },
+  {
+   "id": "fb-v15-ols-025",
+   "pool": "fabric",
+   "reason": "depends on a case study"
+  },
+  {
+   "id": "fb-v15-ols-026",
+   "pool": "fabric",
+   "reason": "depends on a case study"
+  },
+  {
+   "id": "fb-v15-ols-027",
+   "pool": "fabric",
+   "reason": "depends on a case study"
+  },
+  {
+   "id": "fb-v15-ols-028",
+   "pool": "fabric",
+   "reason": "depends on a case study"
+  },
+  {
+   "id": "fb-v15-ols-029",
+   "pool": "fabric",
+   "reason": "depends on a case study"
+  },
+  {
+   "id": "fb-v15-ols-030",
+   "pool": "fabric",
+   "reason": "depends on a case study"
+  },
+  {
+   "id": "fb-v15-ols-031",
+   "pool": "fabric",
+   "reason": "depends on a case study"
+  },
+  {
+   "id": "fb-v15-ols-032",
+   "pool": "fabric",
+   "reason": "depends on a case study"
+  },
+  {
+   "id": "fb-v15-ols-033",
+   "pool": "fabric",
+   "reason": "depends on a case study"
+  },
+  {
+   "id": "fb-v15-ols-034",
+   "pool": "fabric",
+   "reason": "not a single-answer question"
+  },
+  {
+   "id": "fb-v15-ols-035",
+   "pool": "fabric",
+   "reason": "depends on a case study"
+  },
+  {
+   "id": "fb-v15-ols-036",
+   "pool": "fabric",
+   "reason": "depends on a case study"
+  },
+  {
+   "id": "fb-v15-ols-037",
+   "pool": "fabric",
+   "reason": "depends on a case study"
+  },
+  {
+   "id": "fb-v15-ols-038",
+   "pool": "fabric",
+   "reason": "depends on a case study"
+  },
+  {
+   "id": "fb-v15-ols-039",
+   "pool": "fabric",
+   "reason": "not a single-answer question"
+  },
+  {
+   "id": "fb-v15-ols-040",
+   "pool": "fabric",
+   "reason": "depends on a case study"
+  },
+  {
+   "id": "fb-v15-ols-041",
+   "pool": "fabric",
+   "reason": "depends on a case study"
+  },
+  {
+   "id": "fb-v15-ols-042",
+   "pool": "fabric",
+   "reason": "depends on a case study"
+  },
+  {
+   "id": "fb-v15-ols-043",
+   "pool": "fabric",
+   "reason": "depends on a case study"
+  },
+  {
+   "id": "fb-v15-ols-044",
+   "pool": "fabric",
+   "reason": "depends on a case study"
+  },
+  {
+   "id": "fb-v15-ols-045",
+   "pool": "fabric",
+   "reason": "depends on a case study"
+  },
+  {
+   "id": "fb-v15-ols-046",
+   "pool": "fabric",
+   "reason": "not a single-answer question"
+  },
+  {
+   "id": "fb-v15-ols-047",
+   "pool": "fabric",
+   "reason": "depends on a case study"
+  },
+  {
+   "id": "fb-v15-ols-048",
+   "pool": "fabric",
+   "reason": "depends on a case study"
+  },
+  {
+   "id": "fb-v15-ols-049",
+   "pool": "fabric",
+   "reason": "depends on a case study"
+  },
+  {
+   "id": "fb-v15-ols-050",
+   "pool": "fabric",
+   "reason": "depends on a case study"
+  },
+  {
+   "id": "fb-v15-ols-051",
+   "pool": "fabric",
+   "reason": "depends on a case study"
+  },
+  {
+   "id": "fb-v15-ols-052",
+   "pool": "fabric",
+   "reason": "depends on a case study"
+  },
+  {
+   "id": "fb-v15-ols-053",
+   "pool": "fabric",
+   "reason": "not a single-answer question"
+  },
+  {
+   "id": "fb-v15-ols-054",
+   "pool": "fabric",
+   "reason": "depends on a case study"
+  },
+  {
+   "id": "fb-v15-ols-055",
+   "pool": "fabric",
+   "reason": "depends on a case study"
+  },
+  {
+   "id": "fb-v15-ols-056",
+   "pool": "fabric",
+   "reason": "depends on a case study"
+  },
+  {
+   "id": "fb-v16-sql-001",
+   "pool": "fabric",
+   "reason": "depends on a case study"
+  },
+  {
+   "id": "fb-v16-sql-002",
+   "pool": "fabric",
+   "reason": "depends on a case study"
+  },
+  {
+   "id": "fb-v16-sql-003",
+   "pool": "fabric",
+   "reason": "not a single-answer question"
+  },
+  {
+   "id": "fb-v16-sql-004",
+   "pool": "fabric",
+   "reason": "depends on a case study"
+  },
+  {
+   "id": "fb-v16-sql-005",
+   "pool": "fabric",
+   "reason": "not a single-answer question"
+  },
+  {
+   "id": "fb-v16-sql-006",
+   "pool": "fabric",
+   "reason": "depends on a case study"
+  },
+  {
+   "id": "fb-v16-sql-007",
+   "pool": "fabric",
+   "reason": "depends on a case study"
+  },
+  {
+   "id": "fb-v16-sql-008",
+   "pool": "fabric",
+   "reason": "depends on a case study"
+  },
+  {
+   "id": "fb-v16-sql-009",
+   "pool": "fabric",
+   "reason": "not a single-answer question"
+  },
+  {
+   "id": "fb-v16-sql-010",
+   "pool": "fabric",
+   "reason": "depends on a case study"
+  },
+  {
+   "id": "fb-v16-sql-011",
+   "pool": "fabric",
+   "reason": "not a single-answer question"
+  },
+  {
+   "id": "fb-v16-sql-012",
+   "pool": "fabric",
+   "reason": "depends on a case study"
+  },
+  {
+   "id": "fb-v16-sql-013",
+   "pool": "fabric",
+   "reason": "depends on a case study"
+  },
+  {
+   "id": "fb-v16-sql-014",
+   "pool": "fabric",
+   "reason": "depends on a case study"
+  },
+  {
+   "id": "fb-v16-sql-015",
+   "pool": "fabric",
+   "reason": "not a single-answer question"
+  },
+  {
+   "id": "fb-v16-sql-016",
+   "pool": "fabric",
+   "reason": "depends on a case study"
+  },
+  {
+   "id": "fb-v16-sql-017",
+   "pool": "fabric",
+   "reason": "depends on a case study"
+  },
+  {
+   "id": "fb-v16-sql-018",
+   "pool": "fabric",
+   "reason": "not a single-answer question"
+  },
+  {
+   "id": "fb-v16-sql-019",
+   "pool": "fabric",
+   "reason": "depends on a case study"
+  },
+  {
+   "id": "fb-v16-sql-020",
+   "pool": "fabric",
+   "reason": "depends on a case study"
+  },
+  {
+   "id": "fb-v16-sql-021",
+   "pool": "fabric",
+   "reason": "not a single-answer question"
+  },
+  {
+   "id": "fb-v16-sql-022",
+   "pool": "fabric",
+   "reason": "depends on a case study"
+  },
+  {
+   "id": "fb-v16-sql-023",
+   "pool": "fabric",
+   "reason": "depends on a case study"
+  },
+  {
+   "id": "fb-v16-sql-024",
+   "pool": "fabric",
+   "reason": "not a single-answer question"
+  },
+  {
+   "id": "fb-v16-sql-025",
+   "pool": "fabric",
+   "reason": "depends on a case study"
+  },
+  {
+   "id": "fb-v16-sql-026",
+   "pool": "fabric",
+   "reason": "depends on a case study"
+  },
+  {
+   "id": "fb-v16-sql-027",
+   "pool": "fabric",
+   "reason": "depends on a case study"
+  },
+  {
+   "id": "fb-v16-sql-028",
+   "pool": "fabric",
+   "reason": "depends on a case study"
+  },
+  {
+   "id": "fb-v16-sql-029",
+   "pool": "fabric",
+   "reason": "not a single-answer question"
+  },
+  {
+   "id": "fb-v16-sql-030",
+   "pool": "fabric",
+   "reason": "depends on a case study"
+  },
+  {
+   "id": "fb-v16-sql-031",
+   "pool": "fabric",
+   "reason": "depends on a case study"
+  },
+  {
+   "id": "fb-v16-sql-032",
+   "pool": "fabric",
+   "reason": "not a single-answer question"
+  },
+  {
+   "id": "fb-v16-sql-033",
+   "pool": "fabric",
+   "reason": "depends on a case study"
+  },
+  {
+   "id": "fb-v16-sql-034",
+   "pool": "fabric",
+   "reason": "depends on a case study"
+  },
+  {
+   "id": "fb-v16-sql-035",
+   "pool": "fabric",
+   "reason": "depends on a case study"
+  },
+  {
+   "id": "fb-v16-sql-036",
+   "pool": "fabric",
+   "reason": "not a single-answer question"
+  },
+  {
+   "id": "fb-v16-sql-037",
+   "pool": "fabric",
+   "reason": "depends on a case study"
+  },
+  {
+   "id": "fb-v16-sql-038",
+   "pool": "fabric",
+   "reason": "depends on a case study"
+  },
+  {
+   "id": "fb-v16-sql-039",
+   "pool": "fabric",
+   "reason": "depends on a case study"
+  },
+  {
+   "id": "fb-v16-sql-040",
+   "pool": "fabric",
+   "reason": "not a single-answer question"
+  },
+  {
+   "id": "fb-v16-sql-041",
+   "pool": "fabric",
+   "reason": "depends on a case study"
+  },
+  {
+   "id": "fb-v16-sql-042",
+   "pool": "fabric",
+   "reason": "not a single-answer question"
+  },
+  {
+   "id": "fb-v16-sql-043",
+   "pool": "fabric",
+   "reason": "depends on a case study"
+  },
+  {
+   "id": "fb-v16-sql-044",
+   "pool": "fabric",
+   "reason": "depends on a case study"
+  },
+  {
+   "id": "fb-v16-sql-045",
+   "pool": "fabric",
+   "reason": "depends on a case study"
+  },
+  {
+   "id": "fb-v16-sql-046",
+   "pool": "fabric",
+   "reason": "not a single-answer question"
+  },
+  {
+   "id": "fb-v16-sql-047",
+   "pool": "fabric",
+   "reason": "depends on a case study"
+  },
+  {
+   "id": "fb-v16-sql-048",
+   "pool": "fabric",
+   "reason": "not a single-answer question"
+  },
+  {
+   "id": "fb-v19-lh-001",
+   "pool": "fabric",
+   "reason": "depends on a case study"
+  },
+  {
+   "id": "fb-v19-lh-002",
+   "pool": "fabric",
+   "reason": "not a single-answer question"
+  },
+  {
+   "id": "fb-v19-lh-003",
+   "pool": "fabric",
+   "reason": "depends on a case study"
+  },
+  {
+   "id": "fb-v19-lh-004",
+   "pool": "fabric",
+   "reason": "depends on a case study"
+  },
+  {
+   "id": "fb-v19-lh-005",
+   "pool": "fabric",
+   "reason": "not a single-answer question"
+  },
+  {
+   "id": "fb-v19-lh-006",
+   "pool": "fabric",
+   "reason": "depends on a case study"
+  },
+  {
+   "id": "fb-v19-lh-007",
+   "pool": "fabric",
+   "reason": "depends on a case study"
+  },
+  {
+   "id": "fb-v19-lh-008",
+   "pool": "fabric",
+   "reason": "not a single-answer question"
+  },
+  {
+   "id": "fb-v19-lh-009",
+   "pool": "fabric",
+   "reason": "depends on a case study"
+  },
+  {
+   "id": "fb-v19-lh-010",
+   "pool": "fabric",
+   "reason": "depends on a case study"
+  },
+  {
+   "id": "fb-v19-lh-011",
+   "pool": "fabric",
+   "reason": "depends on a case study"
+  },
+  {
+   "id": "fb-v19-lh-012",
+   "pool": "fabric",
+   "reason": "depends on a case study"
+  },
+  {
+   "id": "fb-v19-lh-013",
+   "pool": "fabric",
+   "reason": "not a single-answer question"
+  },
+  {
+   "id": "fb-v19-lh-014",
+   "pool": "fabric",
+   "reason": "depends on a case study"
+  },
+  {
+   "id": "fb-v19-lh-015",
+   "pool": "fabric",
+   "reason": "depends on a case study"
+  },
+  {
+   "id": "fb-v19-lh-016",
+   "pool": "fabric",
+   "reason": "depends on a case study"
+  },
+  {
+   "id": "fb-v19-lh-017",
+   "pool": "fabric",
+   "reason": "depends on a case study"
+  },
+  {
+   "id": "fb-v19-lh-018",
+   "pool": "fabric",
+   "reason": "depends on a case study"
+  },
+  {
+   "id": "fb-v19-lh-019",
+   "pool": "fabric",
+   "reason": "depends on a case study"
+  },
+  {
+   "id": "fb-v19-lh-020",
+   "pool": "fabric",
+   "reason": "not a single-answer question"
+  },
+  {
+   "id": "fb-v19-lh-021",
+   "pool": "fabric",
+   "reason": "depends on a case study"
+  },
+  {
+   "id": "fb-v19-lh-022",
+   "pool": "fabric",
+   "reason": "depends on a case study"
+  },
+  {
+   "id": "fb-v19-lh-023",
+   "pool": "fabric",
+   "reason": "not a single-answer question"
+  },
+  {
+   "id": "fb-v19-lh-024",
+   "pool": "fabric",
+   "reason": "depends on a case study"
+  },
+  {
+   "id": "fb-v19-lh-025",
+   "pool": "fabric",
+   "reason": "depends on a case study"
+  },
+  {
+   "id": "fb-v19-lh-026",
+   "pool": "fabric",
+   "reason": "depends on a case study"
+  },
+  {
+   "id": "fb-v19-lh-027",
+   "pool": "fabric",
+   "reason": "not a single-answer question"
+  },
+  {
+   "id": "fb-v19-lh-028",
+   "pool": "fabric",
+   "reason": "depends on a case study"
+  },
+  {
+   "id": "fb-v19-lh-029",
+   "pool": "fabric",
+   "reason": "depends on a case study"
+  },
+  {
+   "id": "fb-v19-lh-030",
+   "pool": "fabric",
+   "reason": "depends on a case study"
+  },
+  {
+   "id": "fb-v19-lh-031",
+   "pool": "fabric",
+   "reason": "depends on a case study"
+  },
+  {
+   "id": "fb-v19-lh-032",
+   "pool": "fabric",
+   "reason": "not a single-answer question"
+  },
+  {
+   "id": "fb-v19-lh-033",
+   "pool": "fabric",
+   "reason": "depends on a case study"
+  },
+  {
+   "id": "fb-v19-lh-034",
+   "pool": "fabric",
+   "reason": "not a single-answer question"
+  },
+  {
+   "id": "fb-v19-lh-035",
+   "pool": "fabric",
+   "reason": "depends on a case study"
+  },
+  {
+   "id": "fb-v19-lh-036",
+   "pool": "fabric",
+   "reason": "depends on a case study"
+  },
+  {
+   "id": "fb-v19-lh-037",
+   "pool": "fabric",
+   "reason": "depends on a case study"
+  },
+  {
+   "id": "fb-v19-lh-038",
+   "pool": "fabric",
+   "reason": "depends on a case study"
+  },
+  {
+   "id": "fb-v19-lh-039",
+   "pool": "fabric",
+   "reason": "depends on a case study"
+  },
+  {
+   "id": "fb-v19-lh-040",
+   "pool": "fabric",
+   "reason": "not a single-answer question"
+  },
+  {
+   "id": "fb-v20-delta-001",
+   "pool": "fabric",
+   "reason": "depends on a case study"
+  },
+  {
+   "id": "fb-v20-delta-002",
+   "pool": "fabric",
+   "reason": "depends on a case study"
+  },
+  {
+   "id": "fb-v20-delta-003",
+   "pool": "fabric",
+   "reason": "not a single-answer question"
+  },
+  {
+   "id": "fb-v20-delta-004",
+   "pool": "fabric",
+   "reason": "depends on a case study"
+  },
+  {
+   "id": "fb-v20-delta-005",
+   "pool": "fabric",
+   "reason": "depends on a case study"
+  },
+  {
+   "id": "fb-v20-delta-006",
+   "pool": "fabric",
+   "reason": "depends on a case study"
+  },
+  {
+   "id": "fb-v20-delta-007",
+   "pool": "fabric",
+   "reason": "not a single-answer question"
+  },
+  {
+   "id": "fb-v20-delta-008",
+   "pool": "fabric",
+   "reason": "depends on a case study"
+  },
+  {
+   "id": "fb-v20-delta-009",
+   "pool": "fabric",
+   "reason": "depends on a case study"
+  },
+  {
+   "id": "fb-v20-delta-010",
+   "pool": "fabric",
+   "reason": "depends on a case study"
+  },
+  {
+   "id": "fb-v20-delta-011",
+   "pool": "fabric",
+   "reason": "depends on a case study"
+  },
+  {
+   "id": "fb-v20-delta-012",
+   "pool": "fabric",
+   "reason": "depends on a case study"
+  },
+  {
+   "id": "fb-v20-delta-013",
+   "pool": "fabric",
+   "reason": "depends on a case study"
+  },
+  {
+   "id": "fb-v20-delta-014",
+   "pool": "fabric",
+   "reason": "depends on a case study"
+  },
+  {
+   "id": "fb-v20-delta-015",
+   "pool": "fabric",
+   "reason": "not a single-answer question"
+  },
+  {
+   "id": "fb-v20-delta-016",
+   "pool": "fabric",
+   "reason": "depends on a case study"
+  },
+  {
+   "id": "fb-v20-delta-017",
+   "pool": "fabric",
+   "reason": "depends on a case study"
+  },
+  {
+   "id": "fb-v20-delta-018",
+   "pool": "fabric",
+   "reason": "depends on a case study"
+  },
+  {
+   "id": "fb-v20-delta-019",
+   "pool": "fabric",
+   "reason": "depends on a case study"
+  },
+  {
+   "id": "fb-v20-delta-020",
+   "pool": "fabric",
+   "reason": "depends on a case study"
+  },
+  {
+   "id": "fb-v20-delta-021",
+   "pool": "fabric",
+   "reason": "depends on a case study"
+  },
+  {
+   "id": "fb-v20-delta-022",
+   "pool": "fabric",
+   "reason": "depends on a case study"
+  },
+  {
+   "id": "fb-v20-delta-023",
+   "pool": "fabric",
+   "reason": "depends on a case study"
+  },
+  {
+   "id": "fb-v20-delta-024",
+   "pool": "fabric",
+   "reason": "depends on a case study"
+  },
+  {
+   "id": "fb-v20-delta-025",
+   "pool": "fabric",
+   "reason": "not a single-answer question"
+  },
+  {
+   "id": "fb-v20-delta-026",
+   "pool": "fabric",
+   "reason": "depends on a case study"
+  },
+  {
+   "id": "fb-v20-delta-027",
+   "pool": "fabric",
+   "reason": "depends on a case study"
+  },
+  {
+   "id": "fb-v20-delta-028",
+   "pool": "fabric",
+   "reason": "depends on a case study"
+  },
+  {
+   "id": "fb-v20-delta-029",
+   "pool": "fabric",
+   "reason": "depends on a case study"
+  },
+  {
+   "id": "fb-v20-delta-030",
+   "pool": "fabric",
+   "reason": "depends on a case study"
+  },
+  {
+   "id": "fb-v20-delta-031",
+   "pool": "fabric",
+   "reason": "depends on a case study"
+  },
+  {
+   "id": "fb-v20-delta-032",
+   "pool": "fabric",
+   "reason": "depends on a case study"
+  },
+  {
+   "id": "fb-v20-delta-033",
+   "pool": "fabric",
+   "reason": "depends on a case study"
+  },
+  {
+   "id": "fb-v20-delta-034",
+   "pool": "fabric",
+   "reason": "not a single-answer question"
+  },
+  {
+   "id": "fb-v20-delta-035",
+   "pool": "fabric",
+   "reason": "depends on a case study"
+  },
+  {
+   "id": "fb-v20-delta-036",
+   "pool": "fabric",
+   "reason": "not a single-answer question"
+  },
+  {
+   "id": "fb-v20-delta-037",
+   "pool": "fabric",
+   "reason": "depends on a case study"
+  },
+  {
+   "id": "fb-v20-delta-038",
+   "pool": "fabric",
+   "reason": "depends on a case study"
+  },
+  {
+   "id": "fb-v20-delta-039",
+   "pool": "fabric",
+   "reason": "depends on a case study"
+  },
+  {
+   "id": "fb-v20-delta-040",
+   "pool": "fabric",
+   "reason": "not a single-answer question"
+  },
+  {
+   "id": "fb-v21-cat-001",
+   "pool": "fabric",
+   "reason": "depends on a case study"
+  },
+  {
+   "id": "fb-v21-cat-002",
+   "pool": "fabric",
+   "reason": "depends on a case study"
+  },
+  {
+   "id": "fb-v21-cat-003",
+   "pool": "fabric",
+   "reason": "depends on a case study"
+  },
+  {
+   "id": "fb-v21-cat-004",
+   "pool": "fabric",
+   "reason": "not a single-answer question"
+  },
+  {
+   "id": "fb-v21-cat-005",
+   "pool": "fabric",
+   "reason": "depends on a case study"
+  },
+  {
+   "id": "fb-v21-cat-006",
+   "pool": "fabric",
+   "reason": "not a single-answer question"
+  },
+  {
+   "id": "fb-v21-cat-007",
+   "pool": "fabric",
+   "reason": "depends on a case study"
+  },
+  {
+   "id": "fb-v21-cat-008",
+   "pool": "fabric",
+   "reason": "depends on a case study"
+  },
+  {
+   "id": "fb-v21-cat-009",
+   "pool": "fabric",
+   "reason": "depends on a case study"
+  },
+  {
+   "id": "fb-v21-cat-010",
+   "pool": "fabric",
+   "reason": "depends on a case study"
+  },
+  {
+   "id": "fb-v21-cat-011",
+   "pool": "fabric",
+   "reason": "depends on a case study"
+  },
+  {
+   "id": "fb-v21-cat-012",
+   "pool": "fabric",
+   "reason": "depends on a case study"
+  },
+  {
+   "id": "fb-v21-cat-013",
+   "pool": "fabric",
+   "reason": "not a single-answer question"
+  },
+  {
+   "id": "fb-v21-cat-014",
+   "pool": "fabric",
+   "reason": "depends on a case study"
+  },
+  {
+   "id": "fb-v21-cat-015",
+   "pool": "fabric",
+   "reason": "depends on a case study"
+  },
+  {
+   "id": "fb-v21-cat-016",
+   "pool": "fabric",
+   "reason": "not a single-answer question"
+  },
+  {
+   "id": "fb-v21-cat-017",
+   "pool": "fabric",
+   "reason": "depends on a case study"
+  },
+  {
+   "id": "fb-v21-cat-018",
+   "pool": "fabric",
+   "reason": "depends on a case study"
+  },
+  {
+   "id": "fb-v21-cat-019",
+   "pool": "fabric",
+   "reason": "depends on a case study"
+  },
+  {
+   "id": "fb-v21-cat-020",
+   "pool": "fabric",
+   "reason": "depends on a case study"
+  },
+  {
+   "id": "fb-v21-cat-021",
+   "pool": "fabric",
+   "reason": "depends on a case study"
+  },
+  {
+   "id": "fb-v21-cat-022",
+   "pool": "fabric",
+   "reason": "depends on a case study"
+  },
+  {
+   "id": "fb-v21-cat-023",
+   "pool": "fabric",
+   "reason": "depends on a case study"
+  },
+  {
+   "id": "fb-v21-cat-024",
+   "pool": "fabric",
+   "reason": "depends on a case study"
+  },
+  {
+   "id": "fb-v21-cat-025",
+   "pool": "fabric",
+   "reason": "not a single-answer question"
+  },
+  {
+   "id": "fb-v21-cat-026",
+   "pool": "fabric",
+   "reason": "depends on a case study"
+  },
+  {
+   "id": "fb-v21-cat-027",
+   "pool": "fabric",
+   "reason": "depends on a case study"
+  },
+  {
+   "id": "fb-v21-cat-028",
+   "pool": "fabric",
+   "reason": "depends on a case study"
+  },
+  {
+   "id": "fb-v21-cat-029",
+   "pool": "fabric",
+   "reason": "depends on a case study"
+  },
+  {
+   "id": "fb-v21-cat-030",
+   "pool": "fabric",
+   "reason": "depends on a case study"
+  },
+  {
+   "id": "fb-v21-cat-031",
+   "pool": "fabric",
+   "reason": "not a single-answer question"
+  },
+  {
+   "id": "fb-v21-cat-032",
+   "pool": "fabric",
+   "reason": "depends on a case study"
+  },
+  {
+   "id": "fb-w01",
+   "pool": "fabric",
+   "reason": "explanation argues for a non-keyed option"
+  },
+  {
+   "id": "fb-w02",
+   "pool": "fabric",
+   "reason": "not a single-answer question"
+  },
+  {
+   "id": "fb-w05",
+   "pool": "fabric",
+   "reason": "not a single-answer question"
+  },
+  {
+   "id": "fb-w06",
+   "pool": "fabric",
+   "reason": "not a single-answer question"
+  },
+  {
+   "id": "fb-w12",
+   "pool": "fabric",
+   "reason": "depends on a code block"
+  },
+  {
+   "id": "fb-w14",
+   "pool": "fabric",
+   "reason": "not a single-answer question"
+  },
+  {
+   "id": "fb-w15",
+   "pool": "fabric",
+   "reason": "explanation argues for a non-keyed option"
+  },
+  {
+   "id": "fb-w16",
+   "pool": "fabric",
+   "reason": "refers to the source video or lecture"
+  },
+  {
+   "id": "fb-w20",
+   "pool": "fabric",
+   "reason": "not a single-answer question"
+  },
+  {
+   "id": "fb-w21",
+   "pool": "fabric",
+   "reason": "refers to the source video or lecture"
+  },
+  {
+   "id": "fb-w26",
+   "pool": "fabric",
+   "reason": "depends on a code block"
+  },
+  {
+   "id": "fb-w27",
+   "pool": "fabric",
+   "reason": "refers to the source video or lecture"
+  },
+  {
+   "id": "fb-w30",
+   "pool": "fabric",
+   "reason": "not a single-answer question"
+  },
+  {
+   "id": "fb-w31",
+   "pool": "fabric",
+   "reason": "explanation argues for a non-keyed option"
+  },
+  {
+   "id": "fb-w32",
+   "pool": "fabric",
+   "reason": "not a single-answer question"
+  },
+  {
+   "id": "excel/xl-03",
+   "pool": "analyst",
+   "reason": "multi question"
+  },
+  {
+   "id": "excel/xl-07",
+   "pool": "analyst",
+   "reason": "numeric question"
+  },
+  {
+   "id": "excel/xl-09",
+   "pool": "analyst",
+   "reason": "multi question"
+  },
+  {
+   "id": "fundamentals/fun-02",
+   "pool": "analyst",
+   "reason": "multi question"
+  },
+  {
+   "id": "fundamentals/fun-08",
+   "pool": "analyst",
+   "reason": "multi question"
+  },
+  {
+   "id": "fundamentals/fun-09",
+   "pool": "analyst",
+   "reason": "numeric question"
+  },
+  {
+   "id": "power-bi/pbi-05",
+   "pool": "analyst",
+   "reason": "multi question"
+  },
+  {
+   "id": "power-bi/pbi-09",
+   "pool": "analyst",
+   "reason": "numeric question"
+  },
+  {
+   "id": "python/py-03",
+   "pool": "analyst",
+   "reason": "multi question"
+  },
+  {
+   "id": "python/py-05",
+   "pool": "analyst",
+   "reason": "numeric question"
+  },
+  {
+   "id": "python/py-09",
+   "pool": "analyst",
+   "reason": "multi question"
+  },
+  {
+   "id": "sql/sql-03",
+   "pool": "analyst",
+   "reason": "multi question"
+  },
+  {
+   "id": "sql/sql-05",
+   "pool": "analyst",
+   "reason": "numeric question"
+  },
+  {
+   "id": "sql/sql-09",
+   "pool": "analyst",
+   "reason": "multi question"
+  },
+  {
+   "id": "statistics/stat-04",
+   "pool": "analyst",
+   "reason": "options too long to list on a card"
+  },
+  {
+   "id": "statistics/stat-05",
+   "pool": "analyst",
+   "reason": "numeric question"
+  },
+  {
+   "id": "statistics/stat-06",
+   "pool": "analyst",
+   "reason": "multi question"
+  }
+ ]
+}

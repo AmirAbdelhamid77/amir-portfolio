@@ -14,7 +14,7 @@ import { DayMedia } from "@/components/hansa/day-media";
 import { IslandNav } from "@/components/hansa/island-nav";
 import type { DayLedgerDay } from "@/lib/knowledge/day-ledger";
 import type { Insight } from "@/lib/knowledge/insights";
-import { DAILY_HISTORY_START, liveDailyGroup } from "@/lib/knowledge/daily-bank";
+import { DAILY_HISTORY_START, liveEdition, type LiveDecks } from "@/lib/knowledge/daily-bank";
 import { useLiveDay } from "./use-live-day";
 
 // A full, unambiguous civil date on every card: day, month name and four-digit
@@ -38,7 +38,7 @@ function dayHref(date: string) {
   return date >= DAILY_HISTORY_START ? `/day/live/?date=${date}` : `/day/${date}/`;
 }
 
-export function TimelineHome({ archive, deck }: { archive: DayLedgerDay[]; deck: Insight[] }) {
+export function TimelineHome({ archive, decks }: { archive: DayLedgerDay[]; decks: LiveDecks<Insight> }) {
   const router = useRouter();
   const today = useLiveDay();
   const days = useMemo(() => {
@@ -46,13 +46,13 @@ export function TimelineHome({ archive, deck }: { archive: DayLedgerDay[]; deck:
     const date = new Date(DAILY_HISTORY_START + "T00:00:00Z");
     const editions: DayLedgerDay[] = [];
     for (let stamp = DAILY_HISTORY_START; stamp <= today; stamp = date.toISOString().slice(0, 10)) {
-      const group = liveDailyGroup(deck, stamp);
+      const group = liveEdition(decks, stamp);
       if (!group.length) break;
       editions.push({ date: stamp, insights: group.map(insight => ({ ...insight, date: stamp })) });
       date.setUTCDate(date.getUTCDate() + 1);
     }
     return [...archive, ...editions];
-  }, [archive, deck, today]);
+  }, [archive, decks, today]);
 
   const events = days.map((day) => {
     const drafts = day.insights.filter((insight) => insight.reviewStatus === "draft").length;

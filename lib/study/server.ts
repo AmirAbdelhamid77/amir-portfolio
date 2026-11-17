@@ -7,12 +7,12 @@ import revisions from '@/content/fabric/r11/questions.json';
 import {LESSON,TRANSFER} from '@/lib/academy/ingestion';
 import feed from '@/content/knowledge/insights.json';
 import {eligibleInsights} from '@/lib/knowledge/insights';
-import {SUBJECTS,classify,type StudyRecord,type SubjectId} from './taxonomy';
+import {SUBJECTS,classify,FABRIC_PACK_TOPIC,type StudyRecord,type SubjectId} from './taxonomy';
 import {CLASSIFICATION_REVIEW,reviewedNotePlacement} from './classification-review';
 import {REFERENCE_RECORDS,HANDS_ON_RECORDS} from './curated';
 import {ACADEMY_LESSONS,academyLessonHref} from '@/lib/academy/corpus';
 function clean(s:string){return s.replace(/<[^>]*>/g,' ').replace(/\\n/g,' ').replace(/\s+/g,' ').trim();}
-const PACK_CONTEXT:Record<string,string>={delta:'transform',warehouse:'query',pipelines:'ingestion',scd:'model',eventhouse:'streaming',video06:'security',video07:'security',video08:'security',video09:'delivery',video10:'delivery',video11:'streaming',video12:'delivery',video14:'ingestion',video15:'security',video16:'query',video19:'ingestion',video20:'transform',video21:'delivery'};
+const PACK_CONTEXT=FABRIC_PACK_TOPIC;
 function fabricPlacement(text:string,pack:string){const m=classify('fabric',text);return m.topic==='overview'&&PACK_CONTEXT[pack]?{topic:PACK_CONTEXT[pack],basis:'Existing source pack context; no prerequisite or answer-validation claim'}:m;}
 export function studyRecords():StudyRecord[]{
  const records:StudyRecord[]=[];

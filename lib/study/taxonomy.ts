@@ -13,6 +13,8 @@ export type SubjectId=typeof SUBJECTS[number]['id'];
 export type StudyRecord={id:string;title:string;href:string;subject:SubjectId;topic:string;kind:'read'|'experiment'|'question'|'reference';context:string;language:string;source:string;basis:string;status:string};
 export const subjectById=(id:string)=>SUBJECTS.find(s=>s.id===id);
 export const topicHref=(subject:string,topic:string)=>`/learn/${subject}/${topic}/`;
+/** The Fabric topic a question pack belongs to when its own text is too broad to place. Shared by the study index and the question-insight generator. */
+export const FABRIC_PACK_TOPIC:Record<string,string>={delta:'transform',warehouse:'query',pipelines:'ingestion',scd:'model',eventhouse:'streaming',video06:'security',video07:'security',video08:'security',video09:'delivery',video10:'delivery',video11:'streaming',video12:'delivery',video14:'ingestion',video15:'security',video16:'query',video19:'ingestion',video20:'transform',video21:'delivery'};
 export function classify(subject:SubjectId,text:string,existingTopic?:string):{topic:string;basis:string}{
  const s=subjectById(subject)!;
  if(existingTopic&&s.topics.some(t=>t[0]===existingTopic))return {topic:existingTopic,basis:'Existing editorial journey metadata'};

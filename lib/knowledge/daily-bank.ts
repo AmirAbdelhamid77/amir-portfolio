@@ -58,6 +58,43 @@ export function dailyBankEntry<T extends BankEntry>(release: BankRelease<T>, day
 export const LIVE_DAILY_START = '2026-11-11';
 export const DAILY_HISTORY_START = '2026-10-27';
 
+/**
+ * The question-derived release (PRODUCT.md §6a): two insights from the
+ * primary (Fabric / DP-600) deck and one from the secondary (analyst subjects)
+ * deck per day, counted from the release's own start date. The decks cycle;
+ * with an even primary deck no pair ever straddles the wrap.
+ */
+export function questionDailyGroup<T>(
+  primary: readonly T[],
+  secondary: readonly T[],
+  startsOn: string,
+  date: string,
+): T[] {
+  if (!/^\d{4}-\d{2}-\d{2}$/.test(date) || date < startsOn || primary.length < 2 || !secondary.length) return [];
+  const time = new Date(date + 'T00:00:00Z');
+  if (!Number.isFinite(time.valueOf()) || time.toISOString().slice(0, 10) !== date) return [];
+  const offset = dayNumber(date) - dayNumber(startsOn);
+  const first = (offset * 2) % primary.length;
+  return [primary[first], primary[(first + 1) % primary.length], secondary[offset % secondary.length]];
+}
+
+/**
+ * Everything the live timeline needs, in a shape that is cheap to ship to the
+ * client: dates before the question release keep their frozen legacy editions
+ * (precomputed at build time), later dates are dealt from the release decks.
+ */
+export type LiveDecks<T> = {
+  legacy: Readonly<Record<string, readonly T[]>>;
+  primary: readonly T[];
+  secondary: readonly T[];
+  startsOn: string;
+};
+
+export function liveEdition<T>(decks: LiveDecks<T>, date: string): T[] {
+  if (date >= decks.startsOn) return questionDailyGroup(decks.primary, decks.secondary, decks.startsOn, date);
+  return [...(decks.legacy[date] ?? [])];
+}
+
 export function liveDailyGroup<T>(deck: readonly T[], date: string): T[] {
   if (!/^\d{4}-\d{2}-\d{2}$/.test(date) || date < DAILY_HISTORY_START || deck.length < 6) return [];
   const time = new Date(date + 'T00:00:00Z');

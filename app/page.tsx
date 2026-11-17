@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { HansaKnowledgeLanding } from "@/components/knowledge/hansa-landing";
 import { TimelineHome } from "@/components/hansa/timeline-home";
-import { EDITORIAL_DAYS, LIVE_DAILY_DECK } from "@/lib/knowledge/editorial-feed";
+import { EDITORIAL_DAYS, LIVE_DECKS } from "@/lib/knowledge/editorial-feed";
 import { SITE } from "@/lib/site";
 
 // Redesign plan §4/§15: the beUI Timeline Home is the release default as of
@@ -79,7 +79,7 @@ export default function HomePage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
       {HOME_V2 ? (
-        <TimelineHome archive={EDITORIAL_DAYS} deck={LIVE_DAILY_DECK} />
+        <TimelineHome archive={EDITORIAL_DAYS} decks={LIVE_DECKS} />
       ) : (
         <HansaKnowledgeLanding />
       )}

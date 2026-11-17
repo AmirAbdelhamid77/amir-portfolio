@@ -253,7 +253,7 @@ export function InsightScene({
                           <p className="mt-1.5 text-[11px] leading-5 text-muted-foreground">
                             Checked {insight.checkedAt} · {insight.reviewer}.{" "}
                             {isLocal
-                              ? "This record comes from the local authoring bank; its stored review status is shown above."
+                              ? "This record comes from a local Hansa source; its stored review status is shown above."
                               : "The historical question banks and their answer keys were not modified."}
                           </p>
                           {isLocal ? (
