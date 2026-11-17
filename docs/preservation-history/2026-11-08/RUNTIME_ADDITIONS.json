@@ -1225,8 +1225,8 @@
         },
         {
           "path": "content/knowledge/question-insights.report.json",
-          "bytes": 94759,
-          "sha256": "87aeac90b10c613a7644e5b2a79ed86d9d639901af8c2501935eeaabd5d43f32",
+          "bytes": 87100,
+          "sha256": "5183bdf5e546286ae53d7be3da5cf54329779a1fad460e41e16471c54669a1ac",
           "commit": "589e9ebae5c7764974d3034c5306491ae44aac9d"
         },
         {
@@ -1237,13 +1237,13 @@
         },
         {
           "path": "tests/knowledge/question-insights.test.mjs",
-          "bytes": 5993,
-          "sha256": "a5f4bedfa9882e11d935308ee3318036022010e5f26e545be7421c7a38cddd4e",
+          "bytes": 6355,
+          "sha256": "23efde6ce1701901fc4d192c0b73cb291d711d8e48a4efc2810f8e7e9a7e1c75",
           "commit": "589e9ebae5c7764974d3034c5306491ae44aac9d"
         }
       ]
     }
   ],
-  "review": "Question-insight release (589e9eb): four new runtime files derive daily insights from the practice banks; the live day, timeline home and editorial feed switch to the question-derived deck from 2026-11-18. Verified by tests/knowledge/question-insights.test.mjs and the content suite.",
-  "previousReceiptSha256": "6a76f423effed0cc512e4bbe9bab8ec3dfdc957120f6870dab29c86b85a5a79a"
+  "review": "Answer-key errata (cf0de26): patrick-dp600 keys restored from the source; the rebuilt insight report drops the 11 certain defects and the released insights are unchanged.",
+  "previousReceiptSha256": "5e84fbc60cc37c2ab586629a742ae364de140c7b87471ed9f10b111872ee2b51"
 }

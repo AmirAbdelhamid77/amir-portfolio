@@ -162,6 +162,10 @@ const REVIEWED_REVISIONS = new Map([
     "components/hansa/timeline-home.tsx",
     "lib/knowledge/editorial-feed.ts",
   ]],
+  ["cf0de26a7c2ae6de2be3f1aecb384b2cbdffb7a4", [
+    "content/knowledge/question-insights.report.json",
+    "tests/knowledge/question-insights.test.mjs",
+  ]],
 ]);
 
 function matchesReviewedRevision(root, path, before, after) {
