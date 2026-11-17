@@ -10,7 +10,8 @@
     "docs/knowledge-atlas/INTEGRATION_MANIFEST.json",
     "scripts/export-segment-aliases.mjs",
     "app/layout.tsx",
-    "app/not-found.tsx"
+    "app/not-found.tsx",
+    "app/experience/page.tsx"
   ],
   "createdFiles": [
     "HANSA_EASYUI_V2_START_HERE.md",
@@ -304,6 +305,13 @@
       "layer": "head-metadata/2026-11-17",
       "attribution": "owner-approved-t0.3-head-metadata",
       "note": "T0.3 head-metadata fix: Removed the page robots block; Next writes the single noindex tag for the 404."
+    },
+    {
+      "path": "app/experience/page.tsx",
+      "beforeSha256": "5c0aa11a2b5b14e166aa7c49a389d3e2184ddba988ba620011d24726b05b5780",
+      "sha256": "101f709ae18d690a49f453e8cb2ad432a524e030cfc6af21304d002bff73fa8d",
+      "layer": "cv-promise/2026-11-18",
+      "note": "T1.3 honesty fix: removes the promise that certificate images and a downloadable CV would be added later, since neither exists. The certificate card, its case-study link and the hiring call to action are unchanged."
     }
   ],
   "legacyAtlasPathAliases": [
