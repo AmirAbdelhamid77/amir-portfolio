@@ -223,9 +223,10 @@ manager judge Amir in under a minute?*
 ◇ **Analytics:** a free, cookieless tool (e.g. Cloudflare Web Analytics). Not approved yet. It needs an
 owner privacy check first, because AGENTS.md forbids silent third-party transfer of learner data.
 
-✔ **Quality outranks features.** The `patrick-dp600` pack has 12 known answer-key defects. It stays
-excluded from insights and must not be promoted until the owner rules on those defects
-(see `content/knowledge/question-insights.report.json`).
+✔ **Quality outranks features.** The `patrick-dp600` pack's answer keys were corrected on 2026-11-17:
+an importer bug had keyed all 30 questions A, so 22 were wrong. Every key now matches the source's
+`**Correct: X**` line; IDs, prompts, options and explanations are unchanged (`docs/answer-key-errata-20261117.md`).
+The pack stays excluded from insights until the owner decides to promote it.
 
 ## 12. How this document changes
 
@@ -247,12 +248,13 @@ excluded from insights and must not be promoted until the owner rules on those d
 | 2026-11-17 | Accepted: navigation (§4), home order (§6), insight placement (§6a), status policy (§7), numbers (§8) | Owner |
 | 2026-11-17 | Deferred until the first slice ships: URL shape (§5), Arabic mode (§9), visual identity (§10) | Owner |
 | 2026-11-17 | First release slice, success measures and evidence rules adopted (§11a) | Owner |
+| 2026-11-17 | `patrick-dp600` answer keys corrected (22 of 30); pack stays excluded from insights pending a promotion decision | Owner ruling, implemented by Claude |
 
 ### Open questions for the owner
 
 1. The one-sentence positioning (§1).
 2. The remaining non-goals (§11): delete `/archive`, `/prototype`, `/prototype-c` and the old home, and on what date.
 3. Analytics tool and its privacy check (§11a).
-4. The `patrick-dp600` answer keys: fix them yourself, have them fixed with review, or keep the pack excluded.
+4. The corrected `patrick-dp600` pack: promote it into insights, or keep it excluded?
 5. Owner content: the Power BI outline, the CV PDF, a portrait, and whether to publish a "Building Hansa" case study.
 6. After the first slice ships and is tested: decide §5, §9 and §10.
