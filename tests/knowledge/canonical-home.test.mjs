@@ -332,24 +332,14 @@ test("the route registry names one landing source and one canonical URL", () => 
   assert.ok(exists("components/knowledge/hansa-landing.tsx"));
 });
 
-test("Today is reachable from every page and the landing adds Atlas", () => {
+test("the primary navigation is Learn, Practice, Work and About on every page", () => {
   const site = read("lib/site.ts");
-  assert.match(site, /export const NAV = \[\s*\{\s*href: "\/",\s*label: "Today"/);
-  assert.match(site, /export const LANDING_NAV = \[/);
-  for (const href of [
-    '"/"',
-    '"/learn/catalogue"',
-    '"/practice/catalogue"',
-    '"/learn/dp-600/atlas/"',
-    '"/about"',
-  ]) {
-    assert.ok(
-      site.slice(site.indexOf("export const LANDING_NAV")).includes(href),
-      `the landing navigation must include ${href}`,
-    );
-  }
+  const block = site.match(/export const NAV = \[([\s\S]*?)\] as const;/)?.[1] ?? "";
+  const labels = [...block.matchAll(/label: "([^"]+)"/g)].map((match) => match[1]);
+  assert.deepEqual(labels, ["Learn", "Practice", "Work", "About"]);
+  assert.ok(!site.includes("LANDING_NAV"), "the landing-only navigation variant is retired");
   const header = read("components/site-header.tsx");
-  assert.match(header, /isLanding \? LANDING_NAV : NAV/);
+  assert.match(header, /const navigation = NAV;/);
   assert.match(header, /activeHrefFor/);
 });
 
