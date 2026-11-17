@@ -166,6 +166,13 @@ export const REVIEWED_WAVES = [
       "Reviewed against the built export: all 2,717 docs pages declare robots noindex, follow, keep their own canonical and the provenance/license footer, the sitemap lists none of them, and the pinned corpus stays in the in-site Fabric search (2,716 articles, 104 shards, 22 families). The curated Fabric lessons stay indexed. No content, route, question ID, answer key or saved progress changed.",
     commits: ["75bbfd295a7057414c8b886df91ee04c097e48ab"],
   },
+  {
+    id: "power-bi-notice",
+    title: "Power BI taught-unit honesty note",
+    review:
+      "Reviewed against the built export: the Power BI subject page states the same taught-unit count its statistic renders (4 today), says a full course is planned, and links the DP-600 Learning Academy. The notice is opt-in, so other subject pages do not inherit it. No lesson, question, route, anchor or saved progress changed.",
+    commits: ["1c8c6eed699492114fbca7c2259f163315fd7d5a"],
+  },
 ];
 
 const REVIEWED_REVISIONS = new Map([

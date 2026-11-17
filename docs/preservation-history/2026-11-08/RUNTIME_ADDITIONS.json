@@ -1306,8 +1306,24 @@
           "commit": "75bbfd295a7057414c8b886df91ee04c097e48ab"
         }
       ]
+    },
+    {
+      "id": "power-bi-notice",
+      "title": "Power BI taught-unit honesty note",
+      "review": "Reviewed against the built export: the Power BI subject page states the same taught-unit count its statistic renders (4 today), says a full course is planned, and links the DP-600 Learning Academy. The notice is opt-in, so other subject pages do not inherit it. No lesson, question, route, anchor or saved progress changed.",
+      "commits": [
+        "1c8c6eed699492114fbca7c2259f163315fd7d5a"
+      ],
+      "files": [
+        {
+          "path": "tests/content/power-bi-notice.test.mjs",
+          "bytes": 2075,
+          "sha256": "b1e98f512d345fe7a5c36122b6208871a61bafcfe45d3cc4f452935bcd6c3e36",
+          "commit": "1c8c6eed699492114fbca7c2259f163315fd7d5a"
+        }
+      ]
     }
   ],
-  "review": "Fabric docs mirror: every docs page now declares robots noindex, follow while keeping its own canonical and provenance, the sitemap excludes the mirror, the in-site Fabric search still carries all 2,716 articles, and the new built-output test guards all three. No content, route, question ID, answer key or saved progress changed.",
-  "previousReceiptSha256": "1f5a2a8a167fbeee9113b09637fe8b2d5ad44453d6c285e840376e020abd5cda"
+  "review": "Power BI honesty note: the subject page states its derived taught-unit count, says a full course is planned, and links DP-600; SubjectHome's new notice slot is opt-in and the built-output test guards both. No content, route, question ID, answer key or saved progress changed.",
+  "previousReceiptSha256": "756a42a5bed7a6f52d706fa04b98e0dc7c9cdab6e657c3d7a7e0f50d39fe768f"
 }
