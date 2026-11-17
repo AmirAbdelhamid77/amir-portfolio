@@ -9,6 +9,12 @@ const siteUrl = (
 
 export const SITE = {
   url: siteUrl,
+  // PRODUCT.md §3: the lockup is the same on every route. `brand` is the
+  // product the visitor came for; `name` stays the author in metadata, JSON-LD
+  // and the footer credit, so neither has to pretend to be the other.
+  brand: "Hansa",
+  brandTitle: "Hansa — interactive data learning and knowledge",
+  byline: "by Amir Abdelhamid",
   name: "Amir Abdelhamid",
   role: "Data Analyst",
   title: "Amir Abdelhamid — Data Analyst & BI Developer",

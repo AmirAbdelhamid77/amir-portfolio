@@ -41,7 +41,7 @@ export async function generateMetadata({ params }: { params: Promise<{ date: str
   const lead = day.insights[0];
   const hasDrafts = day.insights.some((i) => i.reviewStatus === "draft");
   return {
-    title: `${UTC_FULL.format(new Date(day.date))} — Hansa`,
+    title: `${UTC_FULL.format(new Date(day.date))}`,
     description: `${day.insights.length} ${day.insights.length === 1 ? "insight" : "insights"}: ${day.insights.map((i) => i.cardTitle).join(", ")}.`,
     alternates: { canonical: `/day/${day.date}/` },
     // A day that contains unverified drafts must not be indexed as reviewed

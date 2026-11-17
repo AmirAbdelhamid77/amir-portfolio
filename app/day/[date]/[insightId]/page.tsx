@@ -45,7 +45,7 @@ export async function generateMetadata({ params }: { params: Promise<DetailParam
   const insight = DAYS.find((d) => d.date === date)?.insights.find((i) => i.id === insightId);
   if (!insight) return {};
   return {
-    title: `${insight.cardTitle} — Hansa`,
+    title: insight.cardTitle,
     description: `${insight.topic}: ${insight.title} ${insight.takeaway.slice(0, 110)}`,
     alternates: { canonical: `/day/${date}/${insightId}/` },
     robots:

@@ -25,12 +25,14 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE.url),
+  // PRODUCT.md §3: `<Page> - Hansa`. The author stays in `authors`, `creator`
+  // and JSON-LD rather than in every browser tab.
   title: {
-    default: SITE.title,
-    template: `%s — ${SITE.name}`,
+    default: SITE.brandTitle,
+    template: `%s - ${SITE.brand}`,
   },
   description: SITE.description,
-  applicationName: SITE.name,
+  applicationName: SITE.brand,
   authors: [{ name: SITE.name, url: SITE.url }],
   creator: SITE.name,
   keywords: [
@@ -52,7 +54,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     url: SITE.url,
-    siteName: SITE.name,
+    siteName: SITE.brand,
     title: SITE.title,
     description: SITE.description,
     images: [

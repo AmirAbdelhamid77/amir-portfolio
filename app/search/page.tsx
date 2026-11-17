@@ -7,7 +7,7 @@ import { buildSearchIndexPayload } from "@/lib/search/build-index";
 import type { SearchDocument } from "@/lib/search/query";
 
 export const metadata: Metadata = {
-  title: "Search — lessons, labs, topics and reference",
+  title: "Search",
   description:
     "Search the data curriculum by concept, tool or exam objective. Results open the canonical lesson, lab or reference page.",
   alternates: { canonical: "/search" },

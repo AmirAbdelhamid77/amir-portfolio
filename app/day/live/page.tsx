@@ -4,7 +4,7 @@ import { LiveDay } from "@/components/hansa/live-day";
 import { LIVE_DECKS } from "@/lib/knowledge/editorial-feed";
 
 export const metadata: Metadata = {
-  title: "Daily insights — Hansa",
+  title: "Daily insights",
   robots: { index: false, follow: true },
 };
 

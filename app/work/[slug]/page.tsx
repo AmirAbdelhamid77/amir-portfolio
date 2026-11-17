@@ -33,7 +33,7 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
     openGraph: {
       // PNG rather than the WebP screenshots: some social crawlers still refuse
       // WebP for link previews.
-      title: `${study.title} — ${SITE.name}`,
+      title: `${study.title} — ${SITE.brand}`,
       description: study.subtitle,
       type: "article",
       url: `${SITE.url}/work/${study.slug}/`,

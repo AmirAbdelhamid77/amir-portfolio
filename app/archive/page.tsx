@@ -5,7 +5,7 @@ import { HansaKnowledgeLanding } from "@/components/knowledge/hansa-landing";
 // evaluated behind HOME_V2 (redesign plan §15). Not indexed: it is a fallback
 // surface, not a second canonical home.
 export const metadata: Metadata = {
-  title: "Hansa — the accepted Home (archive)",
+  title: "The accepted Home (archive)",
   description:
     "The three-scene Home as accepted in release-candidate-1, kept reachable while the timeline Home is under review.",
   robots: { index: false, follow: true },

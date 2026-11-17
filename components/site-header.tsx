@@ -4,7 +4,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 import { ArrowUpRight, Menu, Search, X } from "lucide-react";
-import { LANDING_NAV, NAV, NAV_SECTIONS, SECONDARY_NAV } from "@/lib/site";
+import { LANDING_NAV, NAV, NAV_SECTIONS, SECONDARY_NAV, SITE } from "@/lib/site";
 import { cn } from "@/lib/utils";
 import { ThemeControls } from "@/components/theme-controls";
 
@@ -66,20 +66,11 @@ export function SiteHeader() {
         <div className="flex items-center gap-5">
           <Link
             href="/"
-            className="group flex items-center gap-2.5 rounded-lg text-sm font-semibold tracking-tight"
+            className="group flex flex-col justify-center rounded-lg leading-none tracking-tight"
           >
-            <span className="relative flex h-7 w-7 items-center justify-center overflow-hidden rounded-[9px] bg-[color-mix(in_oklch,var(--primary)_78%,black)] text-[11px] font-bold tracking-tight text-primary-foreground shadow-sm">
-              {isLanding || isLearning ? "H" : "AA"}
-              <span
-                aria-hidden="true"
-                className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-black/15 to-transparent"
-              />
-            </span>
-            <span className={isLanding || isLearning ? "inline" : "hidden sm:inline"}>
-              {isLanding || isLearning ? "Hansa" : "Amir Abdelhamid"}
-              <span className="ml-2 hidden rounded-full border border-border px-1.5 py-0.5 font-mono text-[9px] font-normal uppercase tracking-wider text-muted-foreground md:inline">
-                {isLanding ? "Observatory" : isLearning ? "Learning library" : "Data"}
-              </span>
+            <span className="text-sm font-semibold">{SITE.brand}</span>
+            <span className="mt-1 text-[10px] font-normal text-muted-foreground">
+              {SITE.byline}
             </span>
             <span className="sr-only"> — home</span>
           </Link>

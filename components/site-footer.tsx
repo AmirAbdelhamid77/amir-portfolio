@@ -14,11 +14,9 @@ export function SiteFooter() {
     <footer className="border-t border-border bg-card/40">
       <div className="mx-auto grid max-w-6xl gap-10 px-4 py-14 md:px-6 lg:grid-cols-[1.2fr_1fr_1fr_1fr]">
         <div>
-          <Link href="/" className="inline-flex items-center gap-2.5 text-sm font-semibold">
-            <span className="flex h-7 w-7 items-center justify-center rounded-[9px] bg-[color-mix(in_oklch,var(--primary)_78%,black)] text-[11px] font-bold text-primary-foreground">
-              AA
-            </span>
-            {SITE.name}
+          <Link href="/" className="inline-flex flex-col justify-center gap-1 text-sm font-semibold leading-none">
+            <span>{SITE.brand}</span>
+            <span className="text-[10px] font-normal text-muted-foreground">{SITE.byline}</span>
           </Link>
           <p className="mt-4 max-w-sm text-sm leading-6 text-muted-foreground">
             {isLanding ? "Source-backed learning, documented connections and independent practice. Progress stays in your browser." : `${SITE.shortDescription} Based in ${SITE.location}.`}

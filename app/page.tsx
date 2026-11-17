@@ -16,11 +16,11 @@ const HOME_V2 = process.env.NEXT_PUBLIC_HOME_V2 !== "0";
 // the landing's own continuation row and the footer. See
 // `docs/canonical-home/FILE_OWNERSHIP.md` for the link-by-link ledger.
 //
-// `title.absolute` deliberately bypasses the layout's `%s — <author>` template:
-// the homepage introduces the product (Hansa) while the author stays credited in
-// `authors`/`creator` on the layout and on About/Work.
+// `title.absolute` deliberately bypasses the layout's `%s - <brand>` template:
+// the homepage names the product itself. The author stays credited in
+// `authors`/`creator` on the layout, in JSON-LD and on About/Work.
 
-const TITLE = "Hansa — interactive data learning and knowledge";
+const TITLE = SITE.brandTitle;
 const DESCRIPTION =
   "One data decision to think through, dated editions on a timeline, knowledge cards that change the lens, and an Atlas that states its own review status. The visualization course, the statistics reference and the question banks sit one step away.";
 
