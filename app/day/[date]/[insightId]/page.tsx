@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { X } from "lucide-react";
-import { IslandNav } from "@/components/hansa/island-nav";
 import { LayerShell } from "@/components/hansa/layer-shell";
 import { InsightDetailScene } from "@/components/hansa/insight-detail-scene";
 import { EDITORIAL_DAYS } from "@/lib/knowledge/editorial-feed";
@@ -68,7 +67,6 @@ export default async function InsightDetailPage({ params }: { params: Promise<De
 
   return (
     <>
-      <IslandNav current={UTC_FULL.format(new Date(day.date))} />
       <LayerShell labelledBy="insight-heading">
         <div className="relative mx-auto flex min-h-dvh w-full max-w-3xl flex-col px-4 py-20">
           <Link

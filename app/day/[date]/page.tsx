@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { X } from "lucide-react";
-import { IslandNav } from "@/components/hansa/island-nav";
 import { LayerShell } from "@/components/hansa/layer-shell";
 import { DayDealer } from "@/components/hansa/day-dealer";
 import { EDITORIAL_DAYS } from "@/lib/knowledge/editorial-feed";
@@ -62,7 +61,6 @@ export default async function DayPage({ params }: { params: Promise<{ date: stri
   const drafts = day.insights.filter((i) => i.reviewStatus === "draft").length;
   return (
     <>
-      <IslandNav current={UTC_FULL.format(new Date(day.date))} />
       <LayerShell labelledBy="day-heading">
         <div className="relative mx-auto flex min-h-dvh w-full max-w-5xl flex-col px-4 py-20">
           <Link

@@ -1,4 +1,7 @@
 "use client";
+// Retired from every route in T2.1 (PRODUCT.md §4: one primary navigation).
+// Kept in the tree as preserved source; the shared site header is the only
+// primary navigation surface now. Do not mount a second Primary nav.
 // Island navigation: a compact floating capsule that morphs open into a menu
 // panel and folds back down. One surface, one layout animation. Own code.
 // Needs: motion, react. Uses shadcn-style tokens: card, border, foreground,

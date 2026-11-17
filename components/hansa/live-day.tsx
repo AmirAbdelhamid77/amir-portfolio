@@ -7,7 +7,6 @@ import { liveEdition, type LiveDecks } from "@/lib/knowledge/daily-bank";
 import type { Insight } from "@/lib/knowledge/insights";
 import { DayDealer } from "./day-dealer";
 import { InsightDetailScene } from "./insight-detail-scene";
-import { IslandNav } from "./island-nav";
 import { LayerShell } from "./layer-shell";
 import { useLiveDay } from "./use-live-day";
 
@@ -41,7 +40,6 @@ export function LiveDay({ decks }: { decks: LiveDecks<Insight> }) {
 
   return (
     <>
-      <IslandNav current={label} />
       <LayerShell labelledBy={headingId}>
         <div className={`relative mx-auto flex min-h-dvh w-full flex-col px-4 py-20 ${insight ? "max-w-3xl" : "max-w-5xl"}`}>
           <Link

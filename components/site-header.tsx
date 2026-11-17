@@ -4,19 +4,16 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 import { ArrowUpRight, Menu, Search, X } from "lucide-react";
-import { LANDING_NAV, NAV, NAV_SECTIONS, SECONDARY_NAV, SITE } from "@/lib/site";
+import { NAV, NAV_SECTIONS, SECONDARY_NAV, SITE } from "@/lib/site";
 import { cn } from "@/lib/utils";
 import { ThemeControls } from "@/components/theme-controls";
 
 export function SiteHeader() {
   const pathname = usePathname();
-  // `/prototype-c/` is a compatibility alias for the landing, not a separate
-  // product, so it is treated as the landing everywhere below.
-  const isLanding =
-    pathname === "/" || pathname === "/prototype-c" || pathname === "/prototype-c/";
-  const isLearning = /^\/(study|learn|practice|lab|explore)(\/|$)/.test(pathname);
-  const navigation = isLanding ? LANDING_NAV : NAV;
-  const activeHref = isLanding ? "/" : activeHrefFor(pathname, navigation);
+  // PRODUCT.md §4: one primary navigation on every route, including home. The
+  // wordmark is the way home; there is no separate landing or "Today" variant.
+  const navigation = NAV;
+  const activeHref = activeHrefFor(pathname, navigation);
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
   const headerRef = useRef<HTMLElement>(null);
@@ -98,18 +95,19 @@ export function SiteHeader() {
           <Link
             href="/search/"
             aria-label="Search the site"
-            className="press flex h-9 w-9 items-center justify-center rounded-full border border-border text-muted-foreground hover:text-foreground"
+            className="press flex h-9 items-center justify-center gap-1.5 rounded-full border border-border px-2.5 text-xs text-muted-foreground hover:text-foreground sm:px-3"
           >
             <Search className="h-4 w-4" aria-hidden="true" />
+            <span className="hidden sm:inline">Search</span>
           </Link>
           <ThemeControls />
-          {!isLanding && !isLearning && <Link
+          <Link
             href="/contact"
             className="press hidden h-9 items-center gap-1.5 rounded-full bg-foreground px-4 text-xs font-medium text-background hover:bg-foreground/90 sm:inline-flex"
           >
-            Discuss a project
+            Contact
             <ArrowUpRight className="h-3.5 w-3.5" aria-hidden="true" />
-          </Link>}
+          </Link>
           <button
             ref={menuButtonRef}
             type="button"
@@ -176,16 +174,6 @@ export function SiteHeader() {
                 </Link>
               </li>
             ))}
-            <li className="pt-1">
-              <Link
-                href="/contact"
-                onClick={() => setOpen(false)}
-                className="flex items-center justify-center gap-1.5 rounded-full bg-foreground px-3 py-2.5 text-sm font-medium text-background"
-              >
-                Discuss a project
-                <ArrowUpRight className="h-3.5 w-3.5" aria-hidden="true" />
-              </Link>
-            </li>
           </ul>
         </nav>
       </div>
