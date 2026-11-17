@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { ArrowRight, ArrowUpRight } from "lucide-react";
+import type { ReactNode } from "react";
 import { Container, Eyebrow, Stat } from "@/components/ui";
 import {
   curriculum,
@@ -78,8 +79,18 @@ function UnitRow({ unit }: { unit: CurriculumUnit }) {
 /**
  * One subject home. It reads the shared curriculum model, so the order, stage
  * and destination of every unit come from the same place as the learning home.
+ *
+ * `notice` is an optional honesty note for a subject whose path is not yet a
+ * full course. It takes the subject's own derived counts as an element so the
+ * page can state what exists without the shell hard-coding a second number.
  */
-export function SubjectHome({ subject }: { subject: CurriculumSubject }) {
+export function SubjectHome({
+  subject,
+  notice,
+}: {
+  subject: CurriculumSubject;
+  notice?: ReactNode;
+}) {
   const taught = subject.units.filter((unit) => unit.kind !== "study-note");
   const notes = subject.units.filter((unit) => unit.kind === "study-note");
   const groups = unitsByStage({ ...subject, units: taught });
@@ -151,6 +162,12 @@ export function SubjectHome({ subject }: { subject: CurriculumSubject }) {
               note="Foundation first"
             />
           </div>
+
+          {notice ? (
+            <p className="mt-6 max-w-2xl rounded-2xl border border-border bg-card/40 p-4 text-xs leading-6 text-muted-foreground">
+              {notice}
+            </p>
+          ) : null}
 
           <StageBar counts={subject.stageCounts} className="mt-6 max-w-md" />
         </Container>
