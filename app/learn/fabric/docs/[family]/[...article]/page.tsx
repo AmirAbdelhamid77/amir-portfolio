@@ -61,6 +61,10 @@ export async function generateMetadata({
     title: row.title,
     description: row.description ?? undefined,
     alternates: { canonical: canonicalFor(row) },
+    // T1.2 / PRODUCT.md §5: every mirrored article keeps its own canonical but
+    // stays out of the index. The corpus is Microsoft's documentation; the
+    // curated Fabric lessons are the site's own teaching surface.
+    robots: { index: false, follow: true },
   };
 }
 

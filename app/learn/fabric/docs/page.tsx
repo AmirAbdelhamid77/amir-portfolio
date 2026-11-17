@@ -18,6 +18,11 @@ export const metadata: Metadata = {
   description:
     "The eligible articles of the pinned Microsoft Fabric documentation corpus, compiled for local reading with source provenance.",
   alternates: { canonical: "/learn/fabric/docs/" },
+  // T1.2 / PRODUCT.md §5: the mirrored corpus stays readable and searchable,
+  // but it is a mirror of Microsoft's documentation — not this site's original
+  // material — so it must not compete in search results. `follow` keeps the
+  // links to the curated learning pages working for anyone who lands here.
+  robots: { index: false, follow: true },
 };
 
 const REASON_LABELS: Record<string, string> = {
