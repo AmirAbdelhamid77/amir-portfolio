@@ -30,14 +30,14 @@
         },
         {
           "path": "app/day/[date]/[insightId]/page.tsx",
-          "bytes": 4327,
-          "sha256": "ea5e11eec978d3ad2942d7dda39e28580a2ff5249b1b5ae186bd353171e8f2b1",
+          "bytes": 4202,
+          "sha256": "ee0c89ba077c4acf907ae8267e362e515c7190df83e30e3f0f516c105cef6aa2",
           "commit": "c2949624324da38fd90c75b13fcfe8cff70eaba6"
         },
         {
           "path": "app/day/[date]/page.tsx",
-          "bytes": 4489,
-          "sha256": "3be3506b349c403cc24755e4a9a97848fbfe08e4b729376d18ce541d15860907",
+          "bytes": 4364,
+          "sha256": "36e3bd994cffa28052d24239138a52cba87400577b783b65760d2d4a5dc50e98",
           "commit": "c2949624324da38fd90c75b13fcfe8cff70eaba6"
         },
         {
@@ -66,8 +66,8 @@
         },
         {
           "path": "components/hansa/island-nav.tsx",
-          "bytes": 6088,
-          "sha256": "e88f89026cfa0fdf79bb23d8b1104100fa5d83015ecdc8bb05682e822e0637c8",
+          "bytes": 6312,
+          "sha256": "ac8a9ecbbbc9b9def765db20dc7b5e37e6551e7a7b276beea668056e991a700f",
           "commit": "026f4a750ca3587586810f90943bef2ff338c868"
         },
         {
@@ -78,8 +78,8 @@
         },
         {
           "path": "components/hansa/timeline-home.tsx",
-          "bytes": 5888,
-          "sha256": "396700b190b9f72ae570b4b3a05ed8f481abfa18069213487d8a5bf732b4c288",
+          "bytes": 5408,
+          "sha256": "11d39d604f726b3180f2b54edb6508af2b55475ff05f7af45750b553e82c367a",
           "commit": "026f4a750ca3587586810f90943bef2ff338c868"
         },
         {
@@ -1197,8 +1197,8 @@
         },
         {
           "path": "components/hansa/live-day.tsx",
-          "bytes": 3837,
-          "sha256": "5526da3b9fd5a45049b77b4e6ba2c3369b1fdae52b8801e2c2ce44134a46e6a5",
+          "bytes": 3759,
+          "sha256": "0484badb4bece130ca72ca01dc7e58b8094c69d793c7dd8eaaf568caf7aad3ca",
           "commit": "9096212e8d213c8f2e8ddf4d7e98b67bf667de43"
         },
         {
@@ -1322,8 +1322,24 @@
           "commit": "1c8c6eed699492114fbca7c2259f163315fd7d5a"
         }
       ]
+    },
+    {
+      "id": "one-primary-nav",
+      "title": "One primary navigation and retired island capsule",
+      "review": "Reviewed against the built export: every sampled route (home, day layer, Learn) renders the shared header and footer with exactly one Primary nav, Learn then Practice then Work then About; Contact stays in the header and the mobile menu; no route mounts the island capsule. The landing nav variant and the CSS that hid the home chrome are removed. Routes, URLs, question IDs, answer keys and saved progress are unchanged.",
+      "commits": [
+        "58e4c8ab54ee885c256d524669ffd7765ecf3797"
+      ],
+      "files": [
+        {
+          "path": "tests/content/one-primary-nav.test.mjs",
+          "bytes": 3839,
+          "sha256": "79dc1bbcebb56a394f054236c1c1cd1f722af9504de46fa7c1e0aeed1553af16",
+          "commit": "58e4c8ab54ee885c256d524669ffd7765ecf3797"
+        }
+      ]
     }
   ],
-  "review": "Power BI honesty note: the subject page states its derived taught-unit count, says a full course is planned, and links DP-600; SubjectHome's new notice slot is opt-in and the built-output test guards both. No content, route, question ID, answer key or saved progress changed.",
-  "previousReceiptSha256": "756a42a5bed7a6f52d706fa04b98e0dc7c9cdab6e657c3d7a7e0f50d39fe768f"
+  "review": "T2.1 navigation slice: the reviewed code commit retires the island capsule from the timeline, day, insight and live-day routes, removes the landing-only nav variant, and adds the built-output one-primary-nav guard. Routes, question IDs, answer keys, anchors and saved progress are unchanged.",
+  "previousReceiptSha256": "ca85540a1087cca32ff9b409425e2fecdc89d26813ba4eebe2587c890ca528af"
 }

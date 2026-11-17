@@ -11,7 +11,10 @@
     "scripts/export-segment-aliases.mjs",
     "app/layout.tsx",
     "app/not-found.tsx",
-    "app/experience/page.tsx"
+    "app/experience/page.tsx",
+    "lib/site.ts",
+    "components/site-header.tsx",
+    "app/globals.css"
   ],
   "createdFiles": [
     "HANSA_EASYUI_V2_START_HERE.md",
@@ -312,6 +315,30 @@
       "sha256": "101f709ae18d690a49f453e8cb2ad432a524e030cfc6af21304d002bff73fa8d",
       "layer": "cv-promise/2026-11-18",
       "note": "T1.3 honesty fix: removes the promise that certificate images and a downloadable CV would be added later, since neither exists. The certificate card, its case-study link and the hiring call to action are unchanged."
+    },
+    {
+      "path": "lib/site.ts",
+      "beforeSha256": "c9227bd4c68e949071e8737b8c11997a1641c83df6deca7e0cfd5edf88917d1a",
+      "sha256": "2199d2a0442c25be3aefe20b06e97308eab903760be1838998980dcf46bb9137",
+      "layer": "primary-navigation/2026-11-18",
+      "attribution": "owner-approved-t2.1-nav",
+      "note": "T2.1 navigation: NAV becomes Learn, Practice, Work, About; Today and Atlas leave the primary list and LANDING_NAV is retired. SITE and every author/JSON-LD field are unchanged."
+    },
+    {
+      "path": "components/site-header.tsx",
+      "beforeSha256": "a400d76830f94ea19af474dacb53ba2c1b7d230a1192653901b12440d202e181",
+      "sha256": "c3d51259424592719b51d48d13b2ef1b6e6f781fea827eeb08eaf02bdd83d31b",
+      "layer": "primary-navigation/2026-11-18",
+      "attribution": "owner-approved-t2.1-nav",
+      "note": "T2.1 navigation: one NAV on every route including home; the Contact action keeps its position and label and Search gains a visible label at desktop widths. The landing/learning branches are removed."
+    },
+    {
+      "path": "app/globals.css",
+      "beforeSha256": "37dad88ae7c35885f208ba525b55012cecdd78d618b7cadaed43c976a702b299",
+      "sha256": "19e7b88fb79aae1f8fe2876aeebf5d47ea83493f01040f1c923db3c6bbfad913",
+      "layer": "primary-navigation/2026-11-18",
+      "attribution": "owner-approved-t2.1-nav",
+      "note": "T2.1 navigation: removes the body[data-home-v2] header/footer suppression rule now that home shares the site header and footer. Tokens, palettes and theme values are unchanged."
     }
   ],
   "legacyAtlasPathAliases": [

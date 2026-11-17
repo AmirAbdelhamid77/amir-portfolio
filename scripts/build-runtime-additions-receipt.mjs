@@ -173,6 +173,13 @@ export const REVIEWED_WAVES = [
       "Reviewed against the built export: the Power BI subject page states the same taught-unit count its statistic renders (4 today), says a full course is planned, and links the DP-600 Learning Academy. The notice is opt-in, so other subject pages do not inherit it. No lesson, question, route, anchor or saved progress changed.",
     commits: ["1c8c6eed699492114fbca7c2259f163315fd7d5a"],
   },
+  {
+    id: "one-primary-nav",
+    title: "One primary navigation and retired island capsule",
+    review:
+      "Reviewed against the built export: every sampled route (home, day layer, Learn) renders the shared header and footer with exactly one Primary nav, Learn then Practice then Work then About; Contact stays in the header and the mobile menu; no route mounts the island capsule. The landing nav variant and the CSS that hid the home chrome are removed. Routes, URLs, question IDs, answer keys and saved progress are unchanged.",
+    commits: ["58e4c8ab54ee885c256d524669ffd7765ecf3797"],
+  },
 ];
 
 const REVIEWED_REVISIONS = new Map([
@@ -216,6 +223,13 @@ const REVIEWED_REVISIONS = new Map([
   ["75bbfd295a7057414c8b886df91ee04c097e48ab", [
     "app/learn/fabric/docs/[family]/[...article]/page.tsx",
     "app/learn/fabric/docs/page.tsx",
+  ]],
+  ["58e4c8ab54ee885c256d524669ffd7765ecf3797", [
+    "app/day/[date]/[insightId]/page.tsx",
+    "app/day/[date]/page.tsx",
+    "components/hansa/island-nav.tsx",
+    "components/hansa/live-day.tsx",
+    "components/hansa/timeline-home.tsx",
   ]],
 ]);
 
