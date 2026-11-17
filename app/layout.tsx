@@ -45,7 +45,10 @@ export const metadata: Metadata = {
     "data portfolio",
     "practice exams",
   ],
-  alternates: { canonical: "/" },
+  // No root canonical. Next merges `alternates` down the tree, so a canonical
+  // here is inherited by every page that does not declare one — including the
+  // noindexed RTI labs, drafts and `/day/live/`, which would all claim the home
+  // page. Each page owns its canonical; `/` declares its own.
   openGraph: {
     type: "website",
     url: SITE.url,
@@ -67,10 +70,9 @@ export const metadata: Metadata = {
     description: SITE.description,
     images: ["/og.png"],
   },
-  robots: {
-    index: true,
-    follow: true,
-  },
+  // No root `robots` block. `notFound()` writes its own `noindex`, and a root
+  // `index, follow` is inherited by the 404 and `_not-found` pages, leaving them
+  // both indexable and noindexed. No tag at all is the indexable default.
   category: "technology",
 };
 

@@ -14,16 +14,21 @@ import { getAtlas } from "@/lib/atlas/server";
 //
 // Rollback is deleting this folder and `components/knowledge/neighbourhood/`.
 
+const REVIEW_PREVIEW = process.env.HANSA_ATLAS_REVIEW_PREVIEW === "1";
+
 export const metadata: Metadata = {
   title: "Knowledge neighbourhood - local review surface",
   description:
     "A local design-review surface for the candidate knowledge neighbourhood. Not an approved or published knowledge graph.",
-  robots: { index: false, follow: false },
+  // `notFound()` already writes its own `noindex` tag. Declaring ours in the
+  // fail-closed build would emit two; the flag-on review build has no automatic
+  // tag, so it needs the explicit pair.
+  robots: REVIEW_PREVIEW ? { index: false, follow: false } : undefined,
 };
 
 export default function NeighbourhoodReviewPage() {
   const atlas = getAtlas();
-  if (process.env.HANSA_ATLAS_REVIEW_PREVIEW !== "1" || atlas.concepts.length === 0) {
+  if (!REVIEW_PREVIEW || atlas.concepts.length === 0) {
     notFound();
   }
   const preferred = "concept:fabric:direct-lake";

@@ -4,7 +4,9 @@ import { ButtonLink, Container, Eyebrow } from "@/components/ui";
 
 export const metadata: Metadata = {
   title: "Page not found",
-  robots: { index: false, follow: false },
+  // `notFound()` already writes `<meta name="robots" content="noindex">`, so a
+  // `robots` block here would emit a second tag on the 404 and `_not-found`
+  // pages. The built-in one is the single source.
 };
 
 export default function NotFound() {
