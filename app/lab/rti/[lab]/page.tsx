@@ -70,7 +70,7 @@ export default async function RtiLabPage({ params }: { params: Promise<{ lab: st
       <div className="mt-4 rounded-2xl border border-amber-500/30 bg-amber-500/[0.06] p-4 text-sm leading-6">
         <p>
           <strong className="text-foreground">Draft lab blueprint.</strong> This page publishes the recovered blueprint
-          for the lab — the hands-on environment has not been built, and the blueprint's own validation status is
+          for the lab — the hands-on environment has not been built, and the blueprint&apos;s own validation status is
           published verbatim below. Nothing here has been validated end to end.
         </p>
       </div>

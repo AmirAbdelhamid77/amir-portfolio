@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { CASE_STUDIES } from "@/lib/case-studies";
 import { CaseStudyCard } from "@/components/case-study-card";
 import { Container, Eyebrow } from "@/components/ui";
@@ -37,9 +38,9 @@ export default function WorkPage() {
           </div>
           <p className="mt-6 text-sm text-muted-foreground">
             Also here: the recovered{" "}
-            <a href="/work/storytelling/" className="underline decoration-border underline-offset-4 hover:decoration-foreground">
+            <Link href="/work/storytelling/" className="underline decoration-border underline-offset-4 hover:decoration-foreground">
               Data Storytelling course and nine case studies
-            </a>{" "}
+            </Link>{" "}
             (24 documents, published unverified).
           </p>
         </Container>

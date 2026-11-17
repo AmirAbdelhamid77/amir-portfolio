@@ -50,7 +50,7 @@ export default function PatternsPage() {
         <p>
           <strong className="text-foreground">{lessons.length} lessons in {modules.length} modules</strong>, recovered from
           the independent review package and published <strong className="text-foreground">unverified</strong>: the
-          explanations and walkthroughs are the author's derived educational material; cited sources, tools and datasets
+          explanations and walkthroughs are the author&apos;s derived educational material; cited sources, tools and datasets
           remain attributed to their authors and the package grants no public rights over them. Factual and editorial
           review is pending (see the{" "}
           <Link href="/content-index/" className="underline underline-offset-4">content index</Link> backlog).

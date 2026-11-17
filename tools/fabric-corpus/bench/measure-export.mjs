@@ -5,7 +5,8 @@
 // metrics are already authoritative.
 import { spawnSync } from "node:child_process";
 import { createHash } from "node:crypto";
-import { mkdirSync, readdirSync, readFileSync, statSync, writeFileSync, existsSync } from "node:fs";
+import { mkdirSync, readdirSync, statSync, writeFileSync, existsSync } from "node:fs";
+import { cpus } from "node:os";
 import path from "node:path";
 import process from "node:process";
 
@@ -41,7 +42,7 @@ function scan(dir, base = dir, acc = { files: [], bytes: 0 }) {
   return acc;
 }
 
-const report = { label, timestamp: new Date().toISOString(), appSha: gitSha(), node: process.version, platform: process.platform, cpus: (() => { try { return require("node:os").cpus().length; } catch { return null; } })() };
+const report = { label, timestamp: new Date().toISOString(), appSha: gitSha(), node: process.version, platform: process.platform, cpus: cpus().length };
 
 if (!noBuild) {
   const build = timed(() => spawnSync("npm", ["run", "build"], { cwd: REPO, stdio: "inherit", shell: process.platform === "win32" }));

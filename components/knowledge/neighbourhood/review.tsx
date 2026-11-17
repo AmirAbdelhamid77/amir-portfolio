@@ -7,6 +7,7 @@
 // never writes learner progress and can be deleted without touching the stage.
 
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import Link from "next/link";
 import type { Atlas } from "@/lib/atlas/model";
 import {
   buildEntrances,
@@ -66,9 +67,10 @@ export function NeighbourhoodReview({
   // The URL is read only on mount; it is written only when the reader chooses.
   useEffect(() => {
     const requested = new URLSearchParams(window.location.search).get("concept");
-    if (requested && atlas.concepts.some((concept) => concept.id === requested)) {
-      setCentreId(requested);
-    }
+    if (!requested || !atlas.concepts.some((concept) => concept.id === requested)) return;
+    let active = true;
+    queueMicrotask(() => { if (active) setCentreId(requested); });
+    return () => { active = false; };
   }, [atlas]);
 
   // `/` focuses search from anywhere that is not already a text field.
@@ -134,7 +136,7 @@ export function NeighbourhoodReview({
       <p className="nb-review-bar">
         Candidate relations · technical review · local review surface. Nothing here is approved
         for publication, and the public export stays closed.{" "}
-        <a href="/learn/dp-600/atlas/">Open the Atlas desk</a> for the exploratory view.
+        <Link href="/learn/dp-600/atlas/">Open the Atlas desk</Link> for the exploratory view.
       </p>
 
       {mode === "entrances" ? (

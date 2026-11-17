@@ -13,7 +13,7 @@ import fabricNotes from "@/content/fabric/notes.json";
 const units = learningUnits();
 const model = curriculum();
 
-const count = (items: readonly any[], key: (item: any) => string) => {
+const count = <T>(items: readonly T[], key: (item: T) => string) => {
   const map: Record<string, number> = {};
   for (const item of items) map[key(item)] = (map[key(item)] ?? 0) + 1;
   return map;
@@ -41,8 +41,8 @@ const atlas = {
   catalog: [...editorial.catalog, ...extension.catalog, ...continuation.catalog],
 };
 
-const fabricChapters = fabricNotes.flatMap((pack: any) =>
-  pack.chapters.map((chapter: any) => ({ pack: pack.pack, ...chapter })),
+const fabricChapters = fabricNotes.flatMap((pack) =>
+  pack.chapters.map((chapter) => ({ pack: pack.pack, ...chapter })),
 );
 const chapterIdCount = count(fabricChapters, (chapter) => chapter.id);
 const duplicateChapterIds = Object.entries(chapterIdCount).filter(([, n]) => n > 1);
@@ -50,7 +50,7 @@ const refUses = fabricChapters.flatMap((chapter) =>
   (chapter.refs ?? []).map((ref: string) => ({ from: `${chapter.pack}/${chapter.id}`, ref })),
 );
 const unknownRefs = refUses.filter(
-  (use) => !FABRIC_SOURCES.some((source: any) => source.id === use.ref),
+  (use) => !FABRIC_SOURCES.some((source) => source.id === use.ref),
 );
 
 const report = {
@@ -86,9 +86,9 @@ const report = {
   },
   curriculum: {
     subjects: model.subjects.length,
-    subjectIds: model.subjects.map((subject: any) => `${subject.id}(${subject.units.length})`),
+    subjectIds: model.subjects.map((subject) => `${subject.id}(${subject.units.length})`),
     units: model.units.length,
-    programmes: model.programmes.map((programme: any) => ({
+    programmes: model.programmes.map((programme) => ({
       id: programme.id,
       subjects: programme.subjects,
     })),
@@ -96,11 +96,11 @@ const report = {
   },
   fabric: {
     packs: PACKS.length,
-    packKeys: PACKS.map((pack: any) => pack.key),
+    packKeys: PACKS.map((pack) => pack.key),
     chapters: fabricChapters.length,
     duplicateChapterIds,
     sources: FABRIC_SOURCES.length,
-    sourceIds: FABRIC_SOURCES.slice(0, 6).map((source: any) => source.id),
+    sourceIds: FABRIC_SOURCES.slice(0, 6).map((source) => source.id),
     refUses: refUses.length,
     distinctRefs: new Set(refUses.map((use) => use.ref)).size,
     unknownRefs,
@@ -114,7 +114,7 @@ const report = {
   },
   sql: {
     canonicalPages: SQL_CANONICAL.length,
-    modules: new Set(SQL_CANONICAL.map((page: any) => page.module)).size,
+    modules: new Set(SQL_CANONICAL.map((page) => page.module)).size,
     topics: SQL_TOPICS.length,
     units: sqlUnits().length,
     unitSample: sqlUnits().slice(0, 3).map((unit) => ({ id: unit.id, href: unit.href })),
@@ -128,7 +128,7 @@ const report = {
   },
   rti: {
     lessons: RTI_LESSONS.length,
-    sample: RTI_LESSONS.slice(0, 3).map((lesson: any) => Object.keys(lesson)),
+    sample: RTI_LESSONS.slice(0, 3).map((lesson) => Object.keys(lesson)),
   },
   insights: {
     items: insights.items.length,

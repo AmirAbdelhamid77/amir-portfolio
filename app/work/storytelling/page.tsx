@@ -50,7 +50,7 @@ export default function StorytellingPage() {
           <strong className="text-foreground">{DOCS.length} documents</strong> — the 12-part master course, the framework
           selector, the story atlas and nine applied case studies — recovered verbatim from the Notion export and served
           as authored, with the teaching figures alongside. Published unverified: the factual claims inside are the
-          author's own and have not been through editorial review.
+          author&apos;s own and have not been through editorial review.
         </p>
       </div>
       {groups.map((group) => (

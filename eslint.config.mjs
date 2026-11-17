@@ -10,6 +10,11 @@ const eslintConfig = defineConfig([
     // Default ignores of eslint-config-next:
     ".next/**",
     "out/**",
+    // Stale local export folders left by earlier release builds. They are
+    // generated Next.js output, never tracked, and not part of the tree that
+    // ships; linting them reported thousands of warnings about minified code.
+    "out-main/**",
+    "out-docs/**",
     "build/**",
     "next-env.d.ts",
     // Vendored BeUI registry source, installed verbatim by

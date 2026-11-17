@@ -127,10 +127,27 @@ export function TimelineFan({ model, selectedId, onSelect, onOpenDealer }: Timel
     [],
   );
 
+  function focusEdition(id: string) {
+    requestAnimationFrame(() => cards.current.get(id)?.focus());
+  }
+
+  function settle(target: number) {
+    setFree(null);
+    const index = nearestEditionIndex(editionIndexes, target);
+    const day = index === null ? null : days[index];
+    if (!day?.editionId) return;
+    if (day.editionId !== selectedId) onSelect(day.editionId);
+    // A drag or wheel that started after keyboard use must not leave the focus
+    // ring on the card the reader just moved away from.
+    if (stage.current?.contains(document.activeElement)) focusEdition(day.editionId);
+  }
+
   // Horizontal wheel and trackpad swipes move the deck; vertical wheel is left to
   // the page. React's wheel listener is passive, so this binds natively.
   const wheelState = useRef({ free, selectedIndex, step: geometry.step, count: days.length });
-  wheelState.current = { free, selectedIndex, step: geometry.step, count: days.length };
+  useEffect(() => {
+    wheelState.current = { free, selectedIndex, step: geometry.step, count: days.length };
+  }, [free, selectedIndex, geometry.step, days.length]);
   useEffect(() => {
     const node = stage.current;
     if (!node) return;
@@ -149,21 +166,6 @@ export function TimelineFan({ model, selectedId, onSelect, onOpenDealer }: Timel
     // `settle` is a stable closure over the current render's props.
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [days, selectedId]);
-
-  function settle(target: number) {
-    setFree(null);
-    const index = nearestEditionIndex(editionIndexes, target);
-    const day = index === null ? null : days[index];
-    if (!day?.editionId) return;
-    if (day.editionId !== selectedId) onSelect(day.editionId);
-    // A drag or wheel that started after keyboard use must not leave the focus
-    // ring on the card the reader just moved away from.
-    if (stage.current?.contains(document.activeElement)) focusEdition(day.editionId);
-  }
-
-  function focusEdition(id: string) {
-    requestAnimationFrame(() => cards.current.get(id)?.focus());
-  }
 
   function move(delta: number) {
     const current = editionIndexes.findIndex((index) => days[index]?.editionId === selectedId);

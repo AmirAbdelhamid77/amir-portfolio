@@ -79,6 +79,19 @@ export function loadRuntimeTransitions(root, receiptPath = RUNTIME_TRANSITIONS) 
       assert.equal(text.indexOf(block, first + 1), -1, "Inserted block is ambiguous: " + path);
       // Removing the block must reproduce the preserved predecessor exactly.
       assert.equal(digest(Buffer.from(text.slice(0, first) + text.slice(first + block.length), "utf8")), entry.beforeSha256, "Inserted block does not reverse to the preserved predecessor: " + path);
+    } else if (entry.proof?.kind === "insert-blocks") {
+      const blocks = entry.proof.blocks;
+      assert.ok(Array.isArray(blocks) && blocks.length > 1, "Insert-blocks proof needs at least two inserted blocks: " + path);
+      let text = current.toString("utf8");
+      for (const block of blocks) {
+        assert.ok(typeof block === "string" && block.length > 0, "Insert-blocks proof needs non-empty blocks: " + path);
+        const first = text.indexOf(block);
+        assert.ok(first >= 0, "Inserted block is absent from current bytes: " + path);
+        assert.equal(text.indexOf(block, first + 1), -1, "Inserted block is ambiguous: " + path);
+        text = text.slice(0, first) + text.slice(first + block.length);
+      }
+      // Removing every block, in receipt order, must reproduce the predecessor.
+      assert.equal(digest(Buffer.from(text, "utf8")), entry.beforeSha256, "Inserted blocks do not reverse to the preserved predecessor: " + path);
     } else if (entry.proof?.kind === "hash-pin") {
       assert.ok(LOCKFILE_PATHS.has(path), "Hash pins are only allowed for generated lockfiles: " + path);
       assert.ok(typeof entry.proof.reason === "string" && entry.proof.reason.length >= 40, "Hash pin needs its reason: " + path);

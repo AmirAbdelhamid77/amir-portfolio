@@ -42,6 +42,15 @@ function rejects(mutate, pattern) {
   }
 }
 
+function accepts(mutate) {
+  const dir = sandbox(mutate);
+  try {
+    loadRuntimeTransitions(dir);
+  } finally {
+    rmSync(dir, { recursive: true, force: true });
+  }
+}
+
 test("the receipt covers exactly the four committed transitions with matching bytes", () => {
   assert.deepEqual(current.files.map(entry => entry.path).sort(), [
     "app/practice/page.tsx",
@@ -86,6 +95,38 @@ test("insert proofs must occur once and reverse to the preserved predecessor", (
     receipt.files[0].proof.block = text.slice(0, 200);
   }, /does not reverse to the preserved predecessor/);
   rejects(receipt => { delete receipt.files[0].proof; }, /Unknown runtime transition proof/);
+});
+
+test("insert-blocks proofs reverse every unique insertion and reject partial or ambiguous sets", () => {
+  const twoBlocks = receipt => {
+    const block = receipt.files[0].proof.block;
+    const mid = block.indexOf("\n", Math.floor(block.length / 2)) + 1;
+    receipt.files[0].proof = {
+      kind: "insert-blocks",
+      blocks: [block.slice(0, mid), block.slice(mid)],
+    };
+  };
+  accepts(twoBlocks);
+  rejects(receipt => {
+    const block = receipt.files[0].proof.block;
+    const first = block.indexOf("\n", Math.floor(block.length / 3)) + 1;
+    const second = block.indexOf("\n", Math.floor((2 * block.length) / 3)) + 1;
+    receipt.files[0].proof = {
+      kind: "insert-blocks",
+      blocks: [block.slice(0, first), block.slice(first, second), block.slice(second)],
+    };
+    receipt.files[0].proof.blocks.pop();
+  }, /do(?:es)? not reverse to the preserved predecessor/);
+  rejects(receipt => {
+    twoBlocks(receipt);
+    receipt.files[0].proof.blocks = [receipt.files[0].proof.blocks[0], "not in the file"];
+  }, /Inserted block is absent/);
+  rejects(receipt => {
+    receipt.files[0].proof = { kind: "insert-blocks", blocks: ["className", "className"] };
+  }, /Inserted block is ambiguous/);
+  rejects(receipt => {
+    receipt.files[0].proof = { kind: "insert-blocks", blocks: ["single"] };
+  }, /at least two inserted blocks/);
 });
 
 test("hash pins are limited to generated lockfiles and need a reason", () => {

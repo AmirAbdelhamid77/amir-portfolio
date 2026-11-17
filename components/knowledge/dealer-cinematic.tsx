@@ -112,11 +112,16 @@ export function DealerCinematic({
   // Local bookmarks are read once on mount and written on every toggle. A
   // failure (private mode, disabled storage) leaves the dealer readable.
   useEffect(() => {
-    try {
-      setSaved(parseSavedCards(window.localStorage.getItem(SAVED_CARDS_KEY)));
-    } catch {
-      setSaved([]);
-    }
+    let active = true;
+    queueMicrotask(() => {
+      if (!active) return;
+      try {
+        setSaved(parseSavedCards(window.localStorage.getItem(SAVED_CARDS_KEY)));
+      } catch {
+        setSaved([]);
+      }
+    });
+    return () => { active = false; };
   }, []);
 
   // Capture what opened the dialog and move focus into it. The focus is given
@@ -173,11 +178,14 @@ export function DealerCinematic({
     if (!startCardId) return;
     const card = hand.find((entry) => entry.id === startCardId);
     if (!card) return;
-    setActiveId(card.id);
     const index = hand.findIndex((entry) => entry.id === card.id);
-    setAnnouncement(
-      `Card ${index + 1} of ${hand.length}: ${card.title}. ${card.kindLabel} card.`,
-    );
+    let active = true;
+    queueMicrotask(() => {
+      if (!active) return;
+      setActiveId(card.id);
+      setAnnouncement(`Card ${index + 1} of ${hand.length}: ${card.title}. ${card.kindLabel} card.`);
+    });
+    return () => { active = false; };
   }, [hand, startCardId]);
 
   // Keep the current day visible in the rail without moving the page.
