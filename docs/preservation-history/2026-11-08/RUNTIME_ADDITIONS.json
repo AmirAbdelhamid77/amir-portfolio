@@ -24,20 +24,20 @@
       "files": [
         {
           "path": "app/archive/page.tsx",
-          "bytes": 703,
-          "sha256": "d4c4c7c48b6bf61e875b7aa006d3df3265c65380c80ac7f42b0fd61edd074287",
+          "bytes": 693,
+          "sha256": "a03f7d554843ebc13525cea57a7b09902fcccc8e09566ae049f17d9349f9b81a",
           "commit": "026f4a750ca3587586810f90943bef2ff338c868"
         },
         {
           "path": "app/day/[date]/[insightId]/page.tsx",
-          "bytes": 4342,
-          "sha256": "91daf13e9a1d552ff775db5ccda1eb2c04c164821e710b40f5c87fe182458863",
+          "bytes": 4327,
+          "sha256": "ea5e11eec978d3ad2942d7dda39e28580a2ff5249b1b5ae186bd353171e8f2b1",
           "commit": "c2949624324da38fd90c75b13fcfe8cff70eaba6"
         },
         {
           "path": "app/day/[date]/page.tsx",
-          "bytes": 4499,
-          "sha256": "2164548c74ee04bd30f3d463ae867d018d6a3c71491d0b4c73aaf3df21d75e3a",
+          "bytes": 4489,
+          "sha256": "3be3506b349c403cc24755e4a9a97848fbfe08e4b729376d18ce541d15860907",
           "commit": "c2949624324da38fd90c75b13fcfe8cff70eaba6"
         },
         {
@@ -1191,8 +1191,8 @@
       "files": [
         {
           "path": "app/day/live/page.tsx",
-          "bytes": 508,
-          "sha256": "be3fd7e8bc2796aa3c0a87bf7b15ac1c3475c125c9aae65373711b8547c3a86c",
+          "bytes": 498,
+          "sha256": "397189ec2152ef15546af24eacbe6558e64dfa4e3f281c3d4e4191901a81c476",
           "commit": "9096212e8d213c8f2e8ddf4d7e98b67bf667de43"
         },
         {
@@ -1274,8 +1274,24 @@
           "commit": "439de4186c929da77e8e87bdb7bddfb6f174f103"
         }
       ]
+    },
+    {
+      "id": "brand-lockup",
+      "title": "Fixed Hansa lockup and page-title template guard",
+      "review": "Reviewed against the built export: the shared header and footer render Hansa with the fixed byline 'by Amir Abdelhamid', every Next route title ends with '- Hansa' exactly once, and the author remains in authors/creator/JSON-LD and the footer credit. Recovered static documents keep their original titles. No content, route, question ID, answer key or saved progress changed.",
+      "commits": [
+        "db4fbaddc72aa2b3bbe8f055219b0be41113a68a"
+      ],
+      "files": [
+        {
+          "path": "tests/content/brand-lockup.test.mjs",
+          "bytes": 3615,
+          "sha256": "04f6ce6ba5610f19e65c565ce21f917e6c03f533bd20286fd51f38dc92b9988a",
+          "commit": "db4fbaddc72aa2b3bbe8f055219b0be41113a68a"
+        }
+      ]
     }
   ],
-  "review": "Head-metadata fix: the root layout drops inherited canonical and robots metadata, the 404 keeps Next's single noindex, the review page scopes its robots pair to the preview build, and a built-output test guards the whole export. No lesson content, routes or answer keys changed.",
-  "previousReceiptSha256": "6793a1488be3325aff29058656206b08b1d86466316a2d26e0b8cefe31452491"
+  "review": "Brand lockup: the shared header and footer render Hansa with the fixed byline, every route title uses the layout template, and the new built-output test guards both. No content, route, question ID, answer key or saved progress changed.",
+  "previousReceiptSha256": "604d2f2dd4c10f10088035a289b788e057febb3a6bfc4cdd9750208dc800a449"
 }

@@ -152,6 +152,13 @@ export const REVIEWED_WAVES = [
       "Reviewed against the built export: one robots meta per page, Next's single noindex on the 404 routes, and no page inheriting the home canonical. The docs mirror is deliberately excluded because T1.2 owns its noindex treatment. No content, route, question ID, answer key or saved progress changed.",
     commits: ["439de4186c929da77e8e87bdb7bddfb6f174f103"],
   },
+  {
+    id: "brand-lockup",
+    title: "Fixed Hansa lockup and page-title template guard",
+    review:
+      "Reviewed against the built export: the shared header and footer render Hansa with the fixed byline 'by Amir Abdelhamid', every Next route title ends with '- Hansa' exactly once, and the author remains in authors/creator/JSON-LD and the footer credit. Recovered static documents keep their original titles. No content, route, question ID, answer key or saved progress changed.",
+    commits: ["db4fbaddc72aa2b3bbe8f055219b0be41113a68a"],
+  },
 ];
 
 const REVIEWED_REVISIONS = new Map([
@@ -185,6 +192,12 @@ const REVIEWED_REVISIONS = new Map([
     "app/patterns/page.tsx",
     "app/work/storytelling/page.tsx",
     "tests/content/runtime-transitions.test.mjs",
+  ]],
+  ["db4fbaddc72aa2b3bbe8f055219b0be41113a68a", [
+    "app/archive/page.tsx",
+    "app/day/[date]/[insightId]/page.tsx",
+    "app/day/[date]/page.tsx",
+    "app/day/live/page.tsx",
   ]],
 ]);
 

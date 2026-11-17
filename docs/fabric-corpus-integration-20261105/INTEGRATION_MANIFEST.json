@@ -633,6 +633,69 @@
       "layer": "head-metadata/2026-11-17",
       "attribution": "owner-approved-t0.3-head-metadata",
       "note": "T0.3 head-metadata fix: the review page declares its robots policy only when the preview flag is on, because `notFound()` already writes `noindex` in the fail-closed build. No review content, atlas record or route changed."
+    },
+    {
+      "path": "app/layout.tsx",
+      "previousSha256": "d19a8d54ce4f973dbea1abd494f266ccc1e0c44a5a907b4579be41b2ad8f6f42",
+      "sha256": "c845a382b16f1d4b6a5c8c015d7cea0d46c74754d6b1fe5c34002b6356a4cfe6",
+      "bytes": 4015,
+      "layer": "brand-lockup/2026-11-17",
+      "attribution": "owner-approved-t1.1-lockup",
+      "note": "T1.1 lockup and titles: the title template becomes `%s - Hansa`, the brand title is the default, and applicationName/siteName name the product. authors and creator still credit Amir Abdelhamid."
+    },
+    {
+      "path": "app/page.tsx",
+      "previousSha256": "c36b497c8f68a0366804b614846339fdcd46089a02b0ba2891647b6f0774a221",
+      "sha256": "5a266346292fc3a72a71097fc2f7ecc6bf83bc9496fa35f2cceb4b775f5485aa",
+      "bytes": 2979,
+      "layer": "brand-lockup/2026-11-17",
+      "attribution": "owner-approved-t1.1-lockup",
+      "note": "T1.1 lockup and titles: the home's absolute title now reads SITE.brandTitle, so the layout default and the homepage cannot drift. The string is unchanged."
+    },
+    {
+      "path": "app/search/page.tsx",
+      "previousSha256": "66b5a2a6d0be43ecd6d20529f69ee4521a0007781b41fb70032191d091b14067",
+      "sha256": "8a2b4065112f0db350e2a3feb881249fcb4c5bf1e6e8b0db3302284b407e9dc2",
+      "bytes": 4130,
+      "layer": "brand-lockup/2026-11-17",
+      "attribution": "owner-approved-t1.1-lockup",
+      "note": "T1.1 lockup and titles: the page title is now 'Search'; the layout template supplies '- Hansa'. The description and openGraph record are unchanged."
+    },
+    {
+      "path": "app/work/[slug]/page.tsx",
+      "previousSha256": "c312fd725c9a0210843dec29c12f0bf6eed89343259a88d55764cb1efb0668fe",
+      "sha256": "410f48d59dd10ef1ea62c5389a7cfebe93e85e291a5ee190977aa65f26094dcc",
+      "bytes": 16091,
+      "layer": "brand-lockup/2026-11-17",
+      "attribution": "owner-approved-t1.1-lockup",
+      "note": "T1.1 lockup and titles: the Open Graph title names SITE.brand instead of the author. The page title was already templated and is unchanged."
+    },
+    {
+      "path": "components/site-header.tsx",
+      "previousSha256": "f9c18a0d58fa4b3faedb5be02c3cf5c39bbfe0eb6f7f9bcf30a55d714ea467bc",
+      "sha256": "a400d76830f94ea19af474dacb53ba2c1b7d230a1192653901b12440d202e181",
+      "bytes": 8962,
+      "layer": "brand-lockup/2026-11-17",
+      "attribution": "owner-approved-t1.1-lockup",
+      "note": "T1.1 lockup: the fixed 'Hansa' + 'by Amir Abdelhamid' block replaces the route-dependent H/AA initials, author name and Observatory/Learning/Data label. isLanding ? LANDING_NAV : NAV and the active-link logic are unchanged."
+    },
+    {
+      "path": "components/site-footer.tsx",
+      "previousSha256": "66ab35fbacb611e8c1560b81ba7d33af487758d00495c82f17eac2a9d2476fa3",
+      "sha256": "2626bd78f1cd3a4a88bcd3a48f8c718bf21a4e8f16c346e081dcd674158e3a97",
+      "bytes": 4894,
+      "layer": "brand-lockup/2026-11-17",
+      "attribution": "owner-approved-t1.1-lockup",
+      "note": "T1.1 lockup: the fixed 'Hansa' + 'by Amir Abdelhamid' block replaces the AA initials and author name in the brand column. The (c) credit still names Amir Abdelhamid."
+    },
+    {
+      "path": "lib/site.ts",
+      "previousSha256": "dd9bddbb5502a09a48c7d0fe60d67e4d3916f8dd70488f7639c5aec4af2cb104",
+      "sha256": "c9227bd4c68e949071e8737b8c11997a1641c83df6deca7e0cfd5edf88917d1a",
+      "bytes": 6307,
+      "layer": "brand-lockup/2026-11-17",
+      "attribution": "owner-approved-t1.1-lockup",
+      "note": "T1.1 lockup: adds brand, brandTitle and byline to SITE. name, title, description and every author/JSON-LD field are unchanged."
     }
   ],
   "additions": [],
