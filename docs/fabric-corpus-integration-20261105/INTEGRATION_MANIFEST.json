@@ -606,6 +606,33 @@
       "layer": "eslint-cleanup/2026-11-17",
       "attribution": "t0.2-eslint",
       "note": "Reads the optional ?concept= mount parameter in a cleanup-guarded microtask and uses next/link for the Atlas desk link. Selection, the write-on-choice URL rule and the review-only surface are unchanged."
+    },
+    {
+      "path": "app/layout.tsx",
+      "previousSha256": "bd004c4e972fe6ffbdebf08d8be295cc0afc9f284e9358f1c46e1ccc71b68406",
+      "sha256": "d19a8d54ce4f973dbea1abd494f266ccc1e0c44a5a907b4579be41b2ad8f6f42",
+      "bytes": 3878,
+      "layer": "head-metadata/2026-11-17",
+      "attribution": "owner-approved-t0.3-head-metadata",
+      "note": "T0.3 head-metadata fix: the root layout no longer sets a canonical or a robots block. Both were inherited by every page that declared neither, so noindexed pages claimed the home canonical and the 404 was both indexable and noindexed. Each page now owns its head metadata."
+    },
+    {
+      "path": "docs/design-system/easyui-v2/INTEGRATION_MANIFEST.json",
+      "previousSha256": "53fc66b6c9da33d1f620bf3711deea83865a933ca87a633125be673d9835c974",
+      "sha256": "703b0eeb9044a2856e317f823a2564ce2df3e6366f1f6c57b68d28c570f406aa",
+      "bytes": 32984,
+      "layer": "head-metadata/2026-11-17",
+      "attribution": "owner-approved-t0.3-head-metadata",
+      "note": "The EasyUI successor records the T0.3 head-metadata changes to app/layout.tsx and app/not-found.tsx as explicit before/after runtime changes. Neither baseline is edited and no earlier pin is rewritten."
+    },
+    {
+      "path": "app/review/neighbourhood/page.tsx",
+      "previousSha256": "a0ebe75adc1cf43f201c4c112524332c027d632bb4ba8b1976a36ed94aa9bfc7",
+      "sha256": "9af1eebfd13ab3b8fd989e930d9c5047b33fef943a33ef7b68db7be25b48a4df",
+      "bytes": 1812,
+      "layer": "head-metadata/2026-11-17",
+      "attribution": "owner-approved-t0.3-head-metadata",
+      "note": "T0.3 head-metadata fix: the review page declares its robots policy only when the preview flag is on, because `notFound()` already writes `noindex` in the fail-closed build. No review content, atlas record or route changed."
     }
   ],
   "additions": [],

@@ -145,6 +145,13 @@ export const REVIEWED_WAVES = [
       "Reviewed against the pack's own source: all 30 committed keys equal the source's \"**Correct: X**\" lines, which is what the 2026-11-17 errata restored. The test fails if the old importer is rerun and its output committed, so the 22 wrong keys cannot return silently. No bank data, question wording, option text or saved progress changed.",
     commits: ["01fe2351b11de380cd329da437247c1a7a6b2282"],
   },
+  {
+    id: "head-metadata",
+    title: "Built-output head-metadata guard for the static export",
+    review:
+      "Reviewed against the built export: one robots meta per page, Next's single noindex on the 404 routes, and no page inheriting the home canonical. The docs mirror is deliberately excluded because T1.2 owns its noindex treatment. No content, route, question ID, answer key or saved progress changed.",
+    commits: ["439de4186c929da77e8e87bdb7bddfb6f174f103"],
+  },
 ];
 
 const REVIEWED_REVISIONS = new Map([
