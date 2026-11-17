@@ -131,6 +131,12 @@ export const REVIEWED_WAVES = [
     review:
       "The live date clock and statically exported day layer serve three source-reviewed bank records per Cairo date. Dated links and review labels are preserved and the schedule changes without a rebuild.",
     commits: ["9096212e8d213c8f2e8ddf4d7e98b67bf667de43"],
+  },  {
+    id: "question-insights",
+    title: "Daily insights derived from the practice question banks",
+    review:
+      "Reviewed with the question-insight tests: every released insight re-derives byte-for-byte from its source question, states that question's own answer key and wording, excludes unvalidated packs and keys their explanation rejects, and links to a real topic desk. Dates before 2026-11-18 keep their frozen editions. No question ID, answer key, wording or saved progress changed.",
+    commits: ["589e9ebae5c7764974d3034c5306491ae44aac9d"],
   },
 ];
 
@@ -150,6 +156,11 @@ const REVIEWED_REVISIONS = new Map([
   ]],
   ["6d3bb68eede579fb2d592ce6b5d1e543f1d8b589", [
     "components/hansa/timeline-home.tsx",
+  ]],  ["589e9ebae5c7764974d3034c5306491ae44aac9d", [
+    "app/day/live/page.tsx",
+    "components/hansa/live-day.tsx",
+    "components/hansa/timeline-home.tsx",
+    "lib/knowledge/editorial-feed.ts",
   ]],
 ]);
 

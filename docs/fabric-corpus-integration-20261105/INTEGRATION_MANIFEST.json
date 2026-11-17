@@ -498,6 +498,51 @@
       "layer": "backfill-daily-timeline/2026-11-11",
       "attribution": "owner-requested-consecutive-timeline",
       "note": "Checks consecutive editions across the month and launch boundaries, exact counts and unchanged launch-day selections."
+    },
+    {
+      "path": "app/page.tsx",
+      "previousSha256": "8719fdc38f9cd14dc45bc74219abf7d9aafbec6ccb50c871f52def17c5dbee56",
+      "sha256": "c36b497c8f68a0366804b614846339fdcd46089a02b0ba2891647b6f0774a221",
+      "bytes": 3017,
+      "layer": "question-insights/2026-11-17",
+      "attribution": "owner-requested-question-insights",
+      "note": "Passes the release-switching LIVE_DECKS (frozen legacy editions plus the question-derived release) to the timeline Home instead of the full authoring-bank deck."
+    },
+    {
+      "path": "components/knowledge/insight-scene.tsx",
+      "previousSha256": "59c0a608c7eb343befd6472e9093a7ccf86859c79af23fb6621957c19acd615d",
+      "sha256": "d6e2c2fb9f30098f3c47792f6093b2344b13a369db6248944736b937dc8d61d2",
+      "bytes": 13694,
+      "layer": "question-insights/2026-11-17",
+      "attribution": "owner-requested-question-insights",
+      "note": "Local-source evidence sentence now says \"a local Hansa source\" so it is accurate for both authoring-bank and question-derived records. No other change."
+    },
+    {
+      "path": "lib/knowledge/daily-bank.ts",
+      "previousSha256": "0fc5a41e997b7ab4db7d33ebd97dea494ca517c6ff4d405ec472b2882eba01ae",
+      "sha256": "46eeb9179b0a518d02fc50de331bbf35f1e27e96736259a64912d2af74231a7f",
+      "bytes": 5197,
+      "layer": "question-insights/2026-11-17",
+      "attribution": "owner-requested-question-insights",
+      "note": "Adds questionDailyGroup and liveEdition: two primary and one secondary question-derived insight per day from the release start date; earlier dates return their frozen legacy editions. Existing selectors are unchanged."
+    },
+    {
+      "path": "lib/study/server.ts",
+      "previousSha256": "529f886bde2c096b4db51e8358c0d7f544ec3d236ec08bfda0501ed058edba45",
+      "sha256": "913ad3fae976e24fe083d0d7a30a4864d6b6da867c7fc64d43692ec389818d9c",
+      "bytes": 7476,
+      "layer": "question-insights/2026-11-17",
+      "attribution": "owner-requested-question-insights",
+      "note": "Reads the Fabric pack-to-topic map from taxonomy.ts instead of a private copy. Same values, no placement change."
+    },
+    {
+      "path": "lib/study/taxonomy.ts",
+      "previousSha256": "934a99fea8816461f5a0b7382777797b8f4fa50c475e87c1da9c2d7f1d76a9e5",
+      "sha256": "9e89601682b90f5612a8548fa35871632203f8ee1835d3bcb5587a6ba52c6829",
+      "bytes": 7663,
+      "layer": "question-insights/2026-11-17",
+      "attribution": "owner-requested-question-insights",
+      "note": "Exports FABRIC_PACK_TOPIC (moved verbatim from lib/study/server.ts) so the study index and the question-insight generator share one map."
     }
   ],
   "additions": [],

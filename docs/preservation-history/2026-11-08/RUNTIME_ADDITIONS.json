@@ -78,8 +78,8 @@
         },
         {
           "path": "components/hansa/timeline-home.tsx",
-          "bytes": 5865,
-          "sha256": "89941a1717bdd10a93395ae54496079ef29c6b0fd674a4edc83173a4fc2cd0a9",
+          "bytes": 5888,
+          "sha256": "396700b190b9f72ae570b4b3a05ed8f481abfa18069213487d8a5bf732b4c288",
           "commit": "026f4a750ca3587586810f90943bef2ff338c868"
         },
         {
@@ -1163,8 +1163,8 @@
         },
         {
           "path": "lib/knowledge/editorial-feed.ts",
-          "bytes": 1658,
-          "sha256": "ca76afbdf29c0df5cda73c26f3234c0ce14fdbfb46aca6ae8e0ee62a30392a47",
+          "bytes": 4232,
+          "sha256": "38313388fc2410c69ff7a00a317a9af1230a7fe5a87d45746286f002e0202134",
           "commit": "48db1be77821523484593055f495c921f0f39418"
         },
         {
@@ -1191,14 +1191,14 @@
       "files": [
         {
           "path": "app/day/live/page.tsx",
-          "bytes": 517,
-          "sha256": "b5aeff9ecfb6b9af147afbe7322168547815ed7b40ba64c6c5086d819cc80f02",
+          "bytes": 508,
+          "sha256": "be3fd7e8bc2796aa3c0a87bf7b15ac1c3475c125c9aae65373711b8547c3a86c",
           "commit": "9096212e8d213c8f2e8ddf4d7e98b67bf667de43"
         },
         {
           "path": "components/hansa/live-day.tsx",
-          "bytes": 3574,
-          "sha256": "d6e06d1f2fda4c0a97c7c57c4182622d05af9392fc6d60f04b98bfa6039288f2",
+          "bytes": 3837,
+          "sha256": "5526da3b9fd5a45049b77b4e6ba2c3369b1fdae52b8801e2c2ce44134a46e6a5",
           "commit": "9096212e8d213c8f2e8ddf4d7e98b67bf667de43"
         },
         {
@@ -1208,8 +1208,42 @@
           "commit": "9096212e8d213c8f2e8ddf4d7e98b67bf667de43"
         }
       ]
+    },
+    {
+      "id": "question-insights",
+      "title": "Daily insights derived from the practice question banks",
+      "review": "Reviewed with the question-insight tests: every released insight re-derives byte-for-byte from its source question, states that question's own answer key and wording, excludes unvalidated packs and keys their explanation rejects, and links to a real topic desk. Dates before 2026-11-18 keep their frozen editions. No question ID, answer key, wording or saved progress changed.",
+      "commits": [
+        "589e9ebae5c7764974d3034c5306491ae44aac9d"
+      ],
+      "files": [
+        {
+          "path": "content/knowledge/question-insights.json",
+          "bytes": 200030,
+          "sha256": "4231e5e46f9ea68ccb45994b42238ba18c3b8f8a05d046684408eeeb04f3add4",
+          "commit": "589e9ebae5c7764974d3034c5306491ae44aac9d"
+        },
+        {
+          "path": "content/knowledge/question-insights.report.json",
+          "bytes": 94759,
+          "sha256": "87aeac90b10c613a7644e5b2a79ed86d9d639901af8c2501935eeaabd5d43f32",
+          "commit": "589e9ebae5c7764974d3034c5306491ae44aac9d"
+        },
+        {
+          "path": "lib/knowledge/question-insights.ts",
+          "bytes": 13701,
+          "sha256": "0d9698d86efdc5b65e05c0a32ec236433d3fc7ee122cef4d10c18fdfc51dfed6",
+          "commit": "589e9ebae5c7764974d3034c5306491ae44aac9d"
+        },
+        {
+          "path": "tests/knowledge/question-insights.test.mjs",
+          "bytes": 5993,
+          "sha256": "a5f4bedfa9882e11d935308ee3318036022010e5f26e545be7421c7a38cddd4e",
+          "commit": "589e9ebae5c7764974d3034c5306491ae44aac9d"
+        }
+      ]
     }
   ],
-  "review": "Verified consecutive retroactive editions from 27 October, preserved the 11 November launch selections, and bound the timeline change to its reviewed Git transition.",
-  "previousReceiptSha256": "9d53bd68df96afc50b5dddb23856bdbe990332792ad0c52efa71309e100b1e5e"
+  "review": "Question-insight release (589e9eb): four new runtime files derive daily insights from the practice banks; the live day, timeline home and editorial feed switch to the question-derived deck from 2026-11-18. Verified by tests/knowledge/question-insights.test.mjs and the content suite.",
+  "previousReceiptSha256": "6a76f423effed0cc512e4bbe9bab8ec3dfdc957120f6870dab29c86b85a5a79a"
 }
