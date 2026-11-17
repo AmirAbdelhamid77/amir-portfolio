@@ -1,6 +1,7 @@
 # PRODUCT.md — what this site is, for whom, and how it is organised
 
 Status: **DRAFT, 2026-11-17.** ✔ = accepted by the owner (2026-11-17). ◇ = still a proposal waiting for the owner to accept, change or reject.
+⏸ = deliberately deferred until the first release slice (§11a) has shipped and been tested. Do not implement ⏸ items yet.
 Once accepted, this file sets product direction: audience, naming, structure and what visitors see.
 The agent references in `docs/agent-reference/` still govern *how* work is done (preservation, accessibility,
 visual validation, no paid services). If they conflict with this file on *what* the product is, this file wins.
@@ -50,7 +51,7 @@ No route-dependent logo, label or initials.
 
 ## 4. Navigation
 
-◇ **One primary navigation on every route, including home:**
+✔ **One primary navigation on every route, including home:**
 
 ```
 Hansa · by Amir Abdelhamid    Learn   Practice   Work   About        [Search]  [Contact]
@@ -81,7 +82,7 @@ says plainly how much is taught. Power BI material that is DP-600 exam content s
 ✔ **Fabric documentation mirror:** kept for in-site reading and search, and marked `noindex` so it does not
 compete with the learn.microsoft.com originals. It stays out of the sitemap and keeps its CC BY 4.0 attribution.
 
-◇ **Target URL shape**, moved later in tested batches with aliases. IDs, anchors, query parameters and
+⏸ **Target URL shape** (a one-way door: decided only after the first slice ships), moved later in tested batches with aliases. IDs, anchors, query parameters and
 storage keys (`amir-lab-v1`, `amir-fabric-v1`, …) are preserved.
 
 ```
@@ -104,7 +105,7 @@ Not public or linked (noindex, removed from navigation, retired after one releas
 
 ## 6. Home page
 
-◇ The home page orients; it does not exhibit. In order:
+✔ The home page orients; it does not exhibit. Items 1–3 are part of the first slice (§11a); 4–5 follow. In order:
 
 1. **Who and what** in one line, plus two buttons: *Start learning* and *See my work*. *Practice* is a smaller link.
 2. **Continue** card: shown only when browser storage holds progress.
@@ -142,12 +143,12 @@ LLM is involved: insights are authored or derived at build time and reviewed bef
 - 557 Fabric questions are eligible, so later releases can rotate in new material without new authoring.
 - Dates before 2026-11-18 keep their earlier records.
 
-◇ **Placement:** one card on home plus the full set on `/insights/`. The owner has not confirmed this yet.
+✔ **Placement:** one card on home plus the full set on `/insights/`.
 Old insight URLs (`/day/...`) keep resolving.
 
 ## 7. What visitors see about provenance and review
 
-◇ There is **one** learner-facing status, shown only when it changes a decision:
+✔ There is **one** learner-facing status, shown only when it changes a decision:
 `Draft — not yet reviewed` (amber dot). Everything else goes in a per-page **"Sources & review"** disclosure
 and on `/about/sources`.
 
@@ -164,19 +165,19 @@ The honesty principle stays. Its delivery changes: visitors get one plain senten
 
 ## 8. Numbers
 
-◇ Every count shown anywhere comes from `lib/site-metrics.ts` and uses a fixed noun:
+✔ Every count shown anywhere comes from `lib/site-metrics.ts` and uses a fixed noun:
 *lessons* (taught units), *questions* (scored, published), *articles* (documentation mirror).
 Source notes and pages are not shown as headline counts. Hubs lead with what the learner can *do*, not with inventory.
 
 ## 9. Language
 
-◇ English is the default. Arabic is a **reading mode** per course (`EN | عربي` toggle) with its own lesson list
+⏸ (direction agreed, build deferred) English is the default. Arabic is a **reading mode** per course (`EN | عربي` toggle) with its own lesson list
 and an RTL shell. English chapters list English lessons, with a single link to the Arabic companion. Mixed-language
 titles are only allowed where a term has no translation (e.g. `JOIN`), and never on the home page.
 
 ## 10. Visual principles
 
-◇ The site's distinctive idea comes from its subject: **honest charts**.
+⏸ (direction agreed, build deferred) The site's distinctive idea comes from its subject: **honest charts**.
 - One accent colour. Remove the seven user-selectable accent presets (light/dark stays).
 - A signature motif built from annotated mini-charts for section markers and empty states, not decorative glass or gradients.
 - Typography: Geist for UI, plus one reading face for long lessons (to be chosen).
@@ -190,6 +191,41 @@ titles are only allowed where a term has no translation (e.g. `JOIN`), and never
 - No new subjects until existing tiers are complete.
 - The Knowledge Atlas does not appear in navigation until its graph is published.
 - No new homepage concepts until §6 has shipped and been reviewed.
+- Not now (until the first slice ships): Arabic reading mode (§9), the visual identity pass (§10), URL moves (§5).
+- At most two open work branches at a time. Retired code gets a deletion date, not "kept just in case".
+
+## 11a. Delivery: first slice, success measures, evidence
+
+✔ **How decisions are made.** Reversible choices (navigation, home order, wording, counts, placement) are
+decided quickly and adjusted after release. Costly-to-reverse choices (URL moves, deleting routes, changing
+answer keys) wait for evidence. Every choice is tested against audience #1: *does this help a hiring
+manager judge Amir in under a minute?*
+
+✔ **First release slice**, shipped and tested before Phase 3 work starts:
+1. One primary navigation on every route, including home (§4).
+2. The top of the home page: who and what, plus the three doors (§6 items 1–3).
+3. Internal review vocabulary removed from visitor-facing copy (§7).
+4. No CV promise and no CV button until the PDF exists (§2).
+
+✔ **Success measures**:
+
+| Area | Success looks like |
+|---|---|
+| Navigation and home | In a five-second test, visitors can say whose site it is and what they can do there; visitors reach Work or Contact |
+| Insights | Visitors click from an insight card through to its practice question |
+| Practice | Learners return with saved progress |
+| Portfolio | Contact emails and interview mentions. This is the measure that matters most for audience #1 |
+
+✔ **Evidence before Phase 3:**
+- five-second tests with 3–5 people, at least one of whom hires;
+- a task test with 2–3 DP-600 learners, e.g. "find a practice question on lakehouses".
+
+◇ **Analytics:** a free, cookieless tool (e.g. Cloudflare Web Analytics). Not approved yet. It needs an
+owner privacy check first, because AGENTS.md forbids silent third-party transfer of learner data.
+
+✔ **Quality outranks features.** The `patrick-dp600` pack has 12 known answer-key defects. It stays
+excluded from insights and must not be promoted until the owner rules on those defects
+(see `content/knowledge/question-insights.report.json`).
 
 ## 12. How this document changes
 
@@ -207,10 +243,16 @@ titles are only allowed where a term has no translation (e.g. `JOIN`), and never
 | 2026-11-17 | Current insight bank replaced; insights derived from question banks (DP-600 first) and course material (§6a) | Owner |
 | 2026-11-17 | Fabric docs mirror kept, `noindex` (§5) | Owner |
 | 2026-11-17 | CV not ready; no CV button until the PDF exists (§2) | Owner |
-| 2026-11-17 | First question-derived insight release built (§6a); not yet committed or deployed | Claude (owner request) |
+| 2026-11-17 | First question-derived insight release built (§6a); committed to `main` (589e9eb, 6a7e41c), not deployed | Claude (owner request) |
+| 2026-11-17 | Accepted: navigation (§4), home order (§6), insight placement (§6a), status policy (§7), numbers (§8) | Owner |
+| 2026-11-17 | Deferred until the first slice ships: URL shape (§5), Arabic mode (§9), visual identity (§10) | Owner |
+| 2026-11-17 | First release slice, success measures and evidence rules adopted (§11a) | Owner |
 
 ### Open questions for the owner
 
-1. Insight placement: one card on home plus `/insights/` (§6a)?
-2. All remaining ◇ items: navigation (§4), URL shape (§5), home order (§6), status policy (§7), numbers (§8),
-   language (§9), visual principles (§10), non-goals (§11).
+1. The one-sentence positioning (§1).
+2. The remaining non-goals (§11): delete `/archive`, `/prototype`, `/prototype-c` and the old home, and on what date.
+3. Analytics tool and its privacy check (§11a).
+4. The `patrick-dp600` answer keys: fix them yourself, have them fixed with review, or keep the pack excluded.
+5. Owner content: the Power BI outline, the CV PDF, a portrait, and whether to publish a "Building Hansa" case study.
+6. After the first slice ships and is tested: decide §5, §9 and §10.

@@ -33,13 +33,17 @@ Those govern *how* work is done (preservation, accessibility, no paid services).
 
 ## 2. Owner gate — what you may start now
 
-Only items marked ✔ in `PRODUCT.md` are decided. Items marked ◇ are proposals. **Never implement a ◇ item as
-if it were approved.** If a task is blocked, stop at that task and report which section of `PRODUCT.md`
-needs a decision.
+Only items marked ✔ in `PRODUCT.md` are decided. ◇ items are proposals; ⏸ items are deliberately deferred.
+**Implement neither as if approved.** If a task is blocked, stop at that task and report which section of
+`PRODUCT.md` needs a decision. The owner's delivery rules are in `PRODUCT.md` §11a: ship the first slice,
+test it with people, then start Phase 3.
 
-| Unblocked now (✔ or pure hygiene) | Blocked until the owner accepts |
+| Status | Work |
 |---|---|
-| Branch reconciliation, lint baseline, SEO bugs, lockup and titles, docs-mirror noindex, Power BI honesty note, no CV button | Navigation §4 · URL shape §5 · Home §6 · Insight placement §6a · Status policy §7 · Numbers §8 · Language §9 · Visual §10 · Non-goals §11 |
+| **Unblocked now** | Phase 0, Phase 1, and Phase 2: navigation §4, status policy §7, numbers §8 |
+| **After the first slice has shipped and been tested** (§11a) | Phase 3: home items 4–5 and `/insights/` (§6, §6a), Fabric hub, subject tiers, case study |
+| **Deferred (⏸)** | URL shape §5 (Phase 5) · Arabic mode §9 (T3.5) · visual identity §10 (T4.1) |
+| **Still open (◇)** | Retiring dormant routes (§11, T4.2) · analytics (§11a) |
 
 **Owner-only items. These are not agent tasks; list them in every report until they are resolved:**
 1. **Wrong answer keys in the `patrick-dp600` pack.** 11 questions have keys their own explanations
@@ -170,7 +174,15 @@ change; never edit an existing pin and never weaken a test.
 - DP-600 Power BI material stays cross-linked from the Fabric track.
 - Do not invent lessons.
 
-### Phase 2 — navigation, copy and numbers (BLOCKED: needs §4, §7 and §8 accepted)
+### Phase 2 — navigation, copy and numbers (UNBLOCKED: §4, §7 and §8 accepted 2026-11-17)
+
+The first release slice (`PRODUCT.md` §11a) is **T1.3 + T2.1 + T2.3 + T2.5**. Finish those before T2.2 and T2.4.
+
+**T2.5 Top of the home page** (§6 items 1–3 ✔).
+- Above the existing timeline, add: who and what in one line, *Start learning* and *See my work* buttons,
+  a smaller *Practice* link, and the three doors (Learn, Practice, Work), each with one sentence and one action.
+- Do not move or remove the timeline yet; that is T3.1.
+- Preserve every `/day/...` URL and the insight data.
 
 **T2.1 One primary nav everywhere** (§4; audit P0-3, P0-4).
 - Use `Learn · Practice · Work · About` plus Search and Contact on every route, including home.
@@ -204,7 +216,7 @@ change; never edit an existing pin and never weaken a test.
 - Extend `npm run verify:metrics` so a hard-coded count fails it.
 - Make "Practice" the UI spelling everywhere.
 
-### Phase 3 — rebuild key surfaces (BLOCKED: needs §5, §6, §6a and §9)
+### Phase 3 — rebuild key surfaces (starts after the first slice has shipped and been tested; T3.5 deferred ⏸)
 
 **T3.1 New home** (§6).
 - Order: who and what, Continue (from localStorage), three doors, today's insight, flagship case study.
@@ -225,7 +237,7 @@ as a case study on `/work`. Write the copy from repo facts and have the owner re
 - Give each course a toggle and separate lesson lists. English chapters list English lessons only.
 - Visualization chapter 03 currently mixes 1 English and 7 Arabic lessons.
 
-### Phase 4 — identity and retirement (BLOCKED: needs §10 and §11)
+### Phase 4 — identity and retirement (T4.1 deferred ⏸ §10; T4.2 needs §11 decided)
 
 **T4.1 Visual identity.** One accent: remove the 7 presets. Annotated mini-charts as section markers.
 One radius scale. No stat-tile heroes (audit P2-5).
@@ -237,7 +249,7 @@ One radius scale. No stat-tile heroes (audit P2-5).
 
 Check receipts and tests that reference them before deleting (audit P2-2).
 
-### Phase 5 — URL canonicalisation (HIGH RISK; last; needs §5 URL shape accepted)
+### Phase 5 — URL canonicalisation (HIGH RISK; last; §5 URL shape deferred ⏸)
 
 **T5.1** Move to the target shape (`/learn/<subject>/<unit>/`, `/practice/<subject>/`, `/labs/…`,
 `/reference/…`) in small tested batches. Every old URL gets an alias. IDs, anchors, query parameters and
@@ -251,5 +263,7 @@ storage keys stay unchanged.
 
 ## 6. Suggested first assignment for a fresh agent
 
-Do **T0.1 → T0.2 → T0.3 → T1.1 → T1.2 → T1.3 → T1.4**, one branch each, then stop and report. Phase 2
-starts only after the owner has answered the open questions in `PRODUCT.md` §12.
+Do **T0.1 → T0.2 → T0.3 → T1.1 → T1.2 → T1.3 → T1.4**, one branch each, then stop and report.
+Next, with the owner's go-ahead, build the first slice: **T2.1 → T2.3 → T2.5**. T1.3 is already done in
+the first assignment. After that, the owner tests the slice with people (`PRODUCT.md` §11a). Only then do
+T2.2, T2.4 and Phase 3 begin.
