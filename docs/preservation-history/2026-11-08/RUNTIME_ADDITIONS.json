@@ -1242,8 +1242,24 @@
           "commit": "589e9ebae5c7764974d3034c5306491ae44aac9d"
         }
       ]
+    },
+    {
+      "id": "answer-key-guard",
+      "title": "Answer-key source tripwire for the patrick-dp600 pack",
+      "review": "Reviewed against the pack's own source: all 30 committed keys equal the source's \"**Correct: X**\" lines, which is what the 2026-11-17 errata restored. The test fails if the old importer is rerun and its output committed, so the 22 wrong keys cannot return silently. No bank data, question wording, option text or saved progress changed.",
+      "commits": [
+        "01fe2351b11de380cd329da437247c1a7a6b2282"
+      ],
+      "files": [
+        {
+          "path": "tests/knowledge/answer-key-source.test.mjs",
+          "bytes": 2499,
+          "sha256": "7db01832639c174d972ba1539e3e5228b8f7a174b09ee8775380f819afd77f66",
+          "commit": "01fe2351b11de380cd329da437247c1a7a6b2282"
+        }
+      ]
     }
   ],
-  "review": "Answer-key errata (cf0de26): patrick-dp600 keys restored from the source; the rebuilt insight report drops the 11 certain defects and the released insights are unchanged.",
-  "previousReceiptSha256": "5e84fbc60cc37c2ab586629a742ae364de140c7b87471ed9f10b111872ee2b51"
+  "review": "Added a test that re-derives all 30 patrick-dp600 answer keys from the pack's own source, so a rerun of the pinned importer cannot silently return the 22 wrong keys.",
+  "previousReceiptSha256": "b62bbe8787d8f709ae9a82fbdffc281f35a3f1b5291bf6eddc54c704067cb318"
 }

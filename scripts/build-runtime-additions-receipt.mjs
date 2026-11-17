@@ -138,6 +138,13 @@ export const REVIEWED_WAVES = [
       "Reviewed with the question-insight tests: every released insight re-derives byte-for-byte from its source question, states that question's own answer key and wording, excludes unvalidated packs and keys their explanation rejects, and links to a real topic desk. Dates before 2026-11-18 keep their frozen editions. No question ID, answer key, wording or saved progress changed.",
     commits: ["589e9ebae5c7764974d3034c5306491ae44aac9d"],
   },
+  {
+    id: "answer-key-guard",
+    title: "Answer-key source tripwire for the patrick-dp600 pack",
+    review:
+      "Reviewed against the pack's own source: all 30 committed keys equal the source's \"**Correct: X**\" lines, which is what the 2026-11-17 errata restored. The test fails if the old importer is rerun and its output committed, so the 22 wrong keys cannot return silently. No bank data, question wording, option text or saved progress changed.",
+    commits: ["01fe2351b11de380cd329da437247c1a7a6b2282"],
+  },
 ];
 
 const REVIEWED_REVISIONS = new Map([
