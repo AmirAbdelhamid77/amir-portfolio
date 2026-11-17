@@ -208,12 +208,6 @@ export default function ExperiencePage() {
                 <ArrowUpRight className="h-3 w-3" aria-hidden="true" />
               </Link>
             </div>
-            <div className="mt-5 border-t border-border pt-4">
-              <p className="text-xs leading-6 text-muted-foreground">
-                Certificate images and a downloadable CV will be added when the
-                source files are available. Ask for either by email.
-              </p>
-            </div>
           </div>
         </Container>
       </section>
