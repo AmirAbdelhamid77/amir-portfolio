@@ -155,7 +155,14 @@ async function convertPatrick() {
       const summary = details[1].trim();
       const body = details[2].trim();
       // Summary typically has the correct letter(s)
-      const answerMatch = summary.match(/([A-D](?:\s*(?:,|and)\s*[A-D])*)/);
+      // The key is stated in the body as "**Correct: X**". The summary is only a
+      // label ("Answer"); matching a letter there read the "A" of "Answer" as
+      // the key for every question (fixed 2026-11-17, see
+      // docs/answer-key-errata-20261117.md). Fall back to the summary only
+      // when it carries an explicit "Correct:" statement.
+      const answerMatch =
+        body.match(/\*\*Correct:\s*([A-D](?:\s*(?:,|and)\s*[A-D])*)\s*\*\*/) ??
+        summary.match(/Correct:\s*([A-D](?:\s*(?:,|and)\s*[A-D])*)/);
       if (answerMatch) correctAnswer = answerMatch[1];
       // Body has the Why explanation
       const whyMatch = body.match(/\*\*Why:?\*\*\s*([\s\S]*)/i) ?? body.match(/Why:?\s*([\s\S]*)/i);

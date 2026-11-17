@@ -72,7 +72,13 @@ test('release excludes unvalidated packs and keys their own explanation rejects'
     assert.ok(!UNVALIDATED_PACKS.includes(q.pack), insight.id);
     assert.ok(!explanationRejectsKey(q), insight.id);
   }
-  const broken = fabric.get('fb-patrick-024');
+  // fb-patrick-024 as it shipped before the 2026-11-17 errata: the importer had
+  // keyed it "A", which its own explanation calls wrong. The corrected source
+  // key (D) must pass; the historical defect must still be rejected.
+  const fixed = fabric.get('fb-patrick-024');
+  assert.deepEqual(fixed.correct, ['D']);
+  assert.ok(!explanationRejectsKey(fixed));
+  const broken = { ...fixed, correct: ['A'] };
   assert.ok(explanationRejectsKey(broken));
   const d = deriveFabricInsight({ ...broken, pack: 'fixture' }, sources, '2026-11-17');
   assert.equal(d.ok, false);
