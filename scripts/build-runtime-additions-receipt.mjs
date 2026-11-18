@@ -187,6 +187,13 @@ export const REVIEWED_WAVES = [
       "Reviewed against the built export: one learner-facing status, no review-round codes, no export-tool names and no external source links in visitor copy. Source detail moved into the shared Sources & review disclosure and /about/sources explains each label. The new title, status and disclosure helpers are covered by their tests. Question IDs, answer keys, routes, anchors, URLs and saved progress are unchanged.",
     commits: ["9de4821051ab2736c3f51452e2ab4b684653a4ab"],
   },
+  {
+    id: "home-intro",
+    title: "Home opening with who, what and three ways in",
+    review:
+      "Reviewed against the built export: the home opens with one visible heading naming the author and the work, two primary actions, a smaller Practice link and three doors above the unchanged timeline. The Continue card renders nothing until this browser holds real progress and links to the existing lab routes; every day URL, date and insight record is untouched. No content, route, question ID, answer key or saved progress changed.",
+    commits: ["b69e98c6385ebd61528db1854216b2c3a9a61188"],
+  },
 ];
 
 const REVIEWED_REVISIONS = new Map([
@@ -254,6 +261,10 @@ const REVIEWED_REVISIONS = new Map([
     "tests/content/recovery-navigation.test.mjs",
     "tests/content/visitor-copy.test.mjs",
     "tests/knowledge/editorial-days.test.mjs",
+  ]],
+  ["b69e98c6385ebd61528db1854216b2c3a9a61188", [
+    "app/page.tsx",
+    "components/hansa/timeline-home.tsx",
   ]],
 ]);
 

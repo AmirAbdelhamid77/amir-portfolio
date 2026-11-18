@@ -78,8 +78,8 @@
         },
         {
           "path": "components/hansa/timeline-home.tsx",
-          "bytes": 5408,
-          "sha256": "11d39d604f726b3180f2b54edb6508af2b55475ff05f7af45750b553e82c367a",
+          "bytes": 5337,
+          "sha256": "448ef299b5ae87557660be0137e9feaf56c10a122de90277877ccb44d42fde3c",
           "commit": "026f4a750ca3587586810f90943bef2ff338c868"
         },
         {
@@ -1378,8 +1378,30 @@
           "commit": "9de4821051ab2736c3f51452e2ab4b684653a4ab"
         }
       ]
+    },
+    {
+      "id": "home-intro",
+      "title": "Home opening with who, what and three ways in",
+      "review": "Reviewed against the built export: the home opens with one visible heading naming the author and the work, two primary actions, a smaller Practice link and three doors above the unchanged timeline. The Continue card renders nothing until this browser holds real progress and links to the existing lab routes; every day URL, date and insight record is untouched. No content, route, question ID, answer key or saved progress changed.",
+      "commits": [
+        "b69e98c6385ebd61528db1854216b2c3a9a61188"
+      ],
+      "files": [
+        {
+          "path": "components/hansa/home-intro.tsx",
+          "bytes": 7739,
+          "sha256": "5c15076a4da2885611c7b69cfe19cc97a0e8f9d9bdaa98899abf1039c3cc40eb",
+          "commit": "b69e98c6385ebd61528db1854216b2c3a9a61188"
+        },
+        {
+          "path": "tests/content/home-intro.test.mjs",
+          "bytes": 2923,
+          "sha256": "a6318ae4e6bfa1450078e8b10d31e8ee11026d3a220f8bf2162e70f801004f43",
+          "commit": "b69e98c6385ebd61528db1854216b2c3a9a61188"
+        }
+      ]
     }
   ],
-  "review": "Reviewed against the built export for T2.3: the visitor copy cleanup replaces internal review vocabulary with plain language, adds the shared Sources & review disclosure and the /about/sources label guide, and keeps every question ID, answer key, route, anchor, URL and saved-progress shape unchanged.",
+  "review": "Reviewed the home opening: one visible heading names the author and the work, two primary actions and a smaller Practice link lead in, and three doors sit above the unchanged timeline. The Continue card stays hidden until this browser holds real progress and links only to existing lab routes; every day URL, date and insight record is untouched. No content, route, question ID, answer key or saved progress changed.",
   "previousReceiptSha256": "69aa33f5bfbe620fc7d57783d0655e796f574cecb538e2ff23e767f5332e1a2b"
 }
