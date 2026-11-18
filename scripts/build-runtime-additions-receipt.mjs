@@ -208,6 +208,13 @@ export const REVIEWED_WAVES = [
       "Reviewed in Chromium: Clear empties the field, the URL and both bands; Back restores the OneLake query and its eight Fabric matches plus the metadata results; Forward clears them again. The Fabric band still opens its first article at the matching section. No indexed document, ranking rule or saved progress changed.",
     commits: ["c01f5127da818517529b8a353a838919c3622e4a"],
   },
+  {
+    id: "subject-context",
+    title: "One declared route context for subjects, breadcrumbs and tabs",
+    review:
+      "Reviewed in Chromium at 1280 and 375 in both themes: RTI pages show Learn / Microsoft Fabric / Fabric RTI; SQL 05 shows one Learn / SQL / Canonical path trail clear of the fixed header; Practice SQL with ?mode=question offers the self-check/exam choice and carries the intent into its return links; the DP-600 section strip is visible without opening details; statistics keeps its own navigation. 52 page loads, 408 checks, no console errors. Question IDs, answer keys, wording, routes and saved progress unchanged.",
+    commits: ["e4aaf8663e457f42596783282eab00087370a4b9"],
+  },
 ];
 
 const REVIEWED_REVISIONS = new Map([
@@ -286,6 +293,20 @@ const REVIEWED_REVISIONS = new Map([
   ["c01f5127da818517529b8a353a838919c3622e4a", [
     "app/search/search-with-fabric.tsx",
     "components/search/search-client.tsx",
+  ]],
+  ["e4aaf8663e457f42596783282eab00087370a4b9", [
+    "app/lab/dp-600/page.tsx",
+    "app/learn/fabric-rti/[slug]/page.tsx",
+    "app/learn/fabric-rti/page.tsx",
+    "app/learn/sql/page.tsx",
+    "app/practice/sql/page.tsx",
+    "components/learn/subject-home.tsx",
+    "components/learn/visualization-home.tsx",
+    "components/sql/lesson.tsx",
+    "components/sql/sql.css",
+    "components/study/learning-path-page.tsx",
+    "components/study/orientation.tsx",
+    "components/study/topic-desk.tsx",
   ]],
 ]);
 

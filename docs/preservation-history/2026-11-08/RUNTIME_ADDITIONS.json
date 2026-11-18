@@ -1438,8 +1438,48 @@
           "commit": "c01f5127da818517529b8a353a838919c3622e4a"
         }
       ]
+    },
+    {
+      "id": "subject-context",
+      "title": "One declared route context for subjects, breadcrumbs and tabs",
+      "review": "Reviewed in Chromium at 1280 and 375 in both themes: RTI pages show Learn / Microsoft Fabric / Fabric RTI; SQL 05 shows one Learn / SQL / Canonical path trail clear of the fixed header; Practice SQL with ?mode=question offers the self-check/exam choice and carries the intent into its return links; the DP-600 section strip is visible without opening details; statistics keeps its own navigation. 52 page loads, 408 checks, no console errors. Question IDs, answer keys, wording, routes and saved progress unchanged.",
+      "commits": [
+        "e4aaf8663e457f42596783282eab00087370a4b9"
+      ],
+      "files": [
+        {
+          "path": "components/navigation/route-breadcrumbs.tsx",
+          "bytes": 763,
+          "sha256": "519f0d48e22d16c7c3edb8864755ef27c45962a06d1c5f5e11b324cc8d3d6b26",
+          "commit": "e4aaf8663e457f42596783282eab00087370a4b9"
+        },
+        {
+          "path": "components/navigation/subject-tabs.tsx",
+          "bytes": 1423,
+          "sha256": "760f38614c1bfab98fe22efa87d947b6bb717a46edca53d2eaab57e1970bdd35",
+          "commit": "e4aaf8663e457f42596783282eab00087370a4b9"
+        },
+        {
+          "path": "components/sql/practice-intent.tsx",
+          "bytes": 1658,
+          "sha256": "b639908e5ef5a9c868167830a2111ede0db73bd78608007a935725590f5a67a8",
+          "commit": "e4aaf8663e457f42596783282eab00087370a4b9"
+        },
+        {
+          "path": "lib/navigation/route-context.ts",
+          "bytes": 16422,
+          "sha256": "41439c61cbcda938b63876fd88c294c2e8271650f17a96d8fd3331ab387fc160",
+          "commit": "e4aaf8663e457f42596783282eab00087370a4b9"
+        },
+        {
+          "path": "tests/content/route-context.test.mjs",
+          "bytes": 7267,
+          "sha256": "cfcd5354efd36559978cda934436a79c3525e92007b5152a7e4d360515d55a81",
+          "commit": "e4aaf8663e457f42596783282eab00087370a4b9"
+        }
+      ]
     }
   ],
-  "review": "Reviewed the single search query state: Clear empties the field, URL and both result bands, and Back/Forward restore the matching state. No indexed document, ranking rule or saved progress changed.",
-  "previousReceiptSha256": "69aa33f5bfbe620fc7d57783d0655e796f574cecb538e2ff23e767f5332e1a2b"
+  "review": "Owner-approved R3: one declared route context for subject navigation and breadcrumbs. Browser review covered 52 page loads and 408 checks at 1280 and 375 in both themes; the review pinned the new runtime files and the reviewed revisions of existing files.",
+  "previousReceiptSha256": "5888667236ae391d7be3c536b6f08177d90cfd95d7f8b1d65f8527e2c8571955"
 }

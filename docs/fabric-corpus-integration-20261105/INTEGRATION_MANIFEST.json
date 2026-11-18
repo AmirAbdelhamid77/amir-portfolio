@@ -975,6 +975,114 @@
       "layer": "search-query/2026-11-18",
       "attribution": "owner-approved-r2-search",
       "note": "The search field becomes controlled by the page so the metadata results and the Fabric documentation band read one query. Clear writes a history entry, so Back restores the query and Forward clears it. No result, ranking or indexed document changed."
+    },
+    {
+      "path": "app/lab/dp-600/page.tsx",
+      "previousSha256": "d502f7b871e2b04cc9efc3abb62b86931971dc35197797f01023dd55e75d7905",
+      "sha256": "d1144edc401ef5252a087e15889049d06a2510a6a3b102b2b5366cf251681485",
+      "bytes": 25043,
+      "layer": "subject-context/2026-11-18",
+      "attribution": "owner-approved-r3-navigation",
+      "note": "Moves the DP-600 section strip out of the collapsed details so the hub's sections stay visible without opening a disclosure. No question, answer key, saved session or route changed."
+    },
+    {
+      "path": "app/learn/fabric-rti/page.tsx",
+      "previousSha256": "643bc2200c788a463c2cfa7031acdbd0040bdfe5fe309b149126b6edd99760a3",
+      "sha256": "ff198706b45ba42216b1e88cbba7759170f895bd615d3ed02045eb6e977e8f7b",
+      "bytes": 12017,
+      "layer": "subject-context/2026-11-18",
+      "attribution": "owner-approved-r3-navigation",
+      "note": "The RTI course home renders the declared route breadcrumb, which names Microsoft Fabric as the parent instead of stopping at a subject-level trail."
+    },
+    {
+      "path": "app/learn/fabric-rti/[slug]/page.tsx",
+      "previousSha256": "7595a0f1f3fd9c77a0fd4304a4f5799acac1d4ea6adbfdd3cb5c3539cfa10776",
+      "sha256": "b52b6a8472e0c973d44e464accf57ce13473a072d243fcf11986bff3285705e7",
+      "bytes": 16436,
+      "layer": "subject-context/2026-11-18",
+      "attribution": "owner-approved-r3-navigation",
+      "note": "The RTI lesson renders the declared route breadcrumb, keeping Microsoft Fabric and the RTI programme in the same trail as the lesson."
+    },
+    {
+      "path": "app/learn/sql/page.tsx",
+      "previousSha256": "00eb0b4f8ca8ec30863576e78ee005361d75d8285e0b71ea13d48d00adb64cc2",
+      "sha256": "0ce23057dc5e400991f85d331417b0992447516251105e4e0227d30f1a21aea9",
+      "bytes": 2484,
+      "layer": "subject-context/2026-11-18",
+      "attribution": "owner-approved-r3-navigation",
+      "note": "The SQL index renders its declared breadcrumb and the shared SQL tab bar; the duplicate self-check and exam links move into that tab bar. Module order, links and wording are unchanged."
+    },
+    {
+      "path": "app/practice/sql/page.tsx",
+      "previousSha256": "38a331cb47661c596d2cca2373b9b06392a180fd0aff1c58c10358c96726747f",
+      "sha256": "192803477885a271e17a940557602ef2c221367664f883b1f1be26931942ddd0",
+      "bytes": 2491,
+      "layer": "subject-context/2026-11-18",
+      "attribution": "owner-approved-r3-navigation",
+      "note": "Practice SQL renders its declared breadcrumb and subject tabs and carries ?mode=question into the per-drill return and source links. The drills, answers and grading behaviour are unchanged."
+    },
+    {
+      "path": "components/learn/subject-home.tsx",
+      "previousSha256": "0e7e50599bca505a102b65682120d027d9649dccc2855e66c2f9f492b41100da",
+      "sha256": "3ab471f5045111ee23b244c4c6dff131a443448996961b58af403f3074f8697c",
+      "bytes": 12167,
+      "layer": "subject-context/2026-11-18",
+      "attribution": "owner-approved-r3-navigation",
+      "note": "Subject homes render the declared breadcrumb and the shared subject tab bar in place of the local trail. The subject content and links are unchanged."
+    },
+    {
+      "path": "components/learn/visualization-home.tsx",
+      "previousSha256": "439a1ec7230960967e786f1a4eac2249ba1cfbd1187b9d385deb1c6520518c07",
+      "sha256": "aaec3dcab578a773d6dc84ff2ae05d4bebf9e581a31e8eb27fc506d842c12300",
+      "bytes": 15011,
+      "layer": "subject-context/2026-11-18",
+      "attribution": "owner-approved-r3-navigation",
+      "note": "The visualization home renders the declared breadcrumb and the shared subject tab bar. The chapters and links are unchanged."
+    },
+    {
+      "path": "components/sql/lesson.tsx",
+      "previousSha256": "2e67e086f3d4b8fae7e6251fb78dbda28e6c8862c4d3d692c50233a8caf4c06a",
+      "sha256": "d5ac21524349c9b0c0029d177897845acc94d0908aea4ed3f7ea27b2af2bbd09",
+      "bytes": 3398,
+      "layer": "subject-context/2026-11-18",
+      "attribution": "owner-approved-r3-navigation",
+      "note": "SQL lessons use the declared breadcrumb and tab bar, and remove the self-check and exam links the subject navigation now carries. Lesson order, source links and reading sequence are unchanged."
+    },
+    {
+      "path": "components/sql/sql.css",
+      "previousSha256": "6119cede2c749381f9baae55a070c4dee1a7d7bb3d366b722d58dea7cc1c2a3a",
+      "sha256": "09690f477b14d32a89d23b9b6c45b829b3678df5d73bb15dc4dc8897524c2313",
+      "bytes": 5912,
+      "layer": "subject-context/2026-11-18",
+      "attribution": "owner-approved-r3-navigation",
+      "note": "The SQL shell reserves the fixed header's height at the top so the declared breadcrumb is not covered, and styles the practice-intent panel. No reading or print rule changed."
+    },
+    {
+      "path": "components/study/learning-path-page.tsx",
+      "previousSha256": "90ed40a2852cc75ddfc066e1f0e16b07c6c0e5383fd8e14e84b0437bcb99c34f",
+      "sha256": "610fbb81326e1ddf3ff09b46199d1b90f5b7f657ed2eb87f26bca2d03bc7ace5",
+      "bytes": 1169,
+      "layer": "subject-context/2026-11-18",
+      "attribution": "owner-approved-r3-navigation",
+      "note": "The learning path renders the declared breadcrumb instead of a local trail. The units and their order are unchanged."
+    },
+    {
+      "path": "components/study/orientation.tsx",
+      "previousSha256": "27cec0ad95ee3946ada9ad139890f98e408fdab8d90011ecefe597c94980b6b5",
+      "sha256": "1d51540f92421109ad3790c2f248b804bbe59e0bd512cd83fe138d8f553d4b3f",
+      "bytes": 3242,
+      "layer": "subject-context/2026-11-18",
+      "attribution": "owner-approved-r3-navigation",
+      "note": "The orientation strip reads the declared route context (subject, activity, parent) instead of guessing a subject from URL text, and stays out of pages that own a breadcrumb. Learning-context query handling is preserved."
+    },
+    {
+      "path": "components/study/topic-desk.tsx",
+      "previousSha256": "46fd02a9d62b010b28326818fd7bb24ed1b6d16bdbf04a10f48b8abd3189d9d8",
+      "sha256": "53ca136174bb4b23f5197d5e243a455129c6ba43be7f036a2fef303dfe1e3834",
+      "bytes": 1630,
+      "layer": "subject-context/2026-11-18",
+      "attribution": "owner-approved-r3-navigation",
+      "note": "The topic desk renders the declared breadcrumb. Topic content and evidence links are unchanged."
     }
   ],
   "additions": [],
