@@ -30,13 +30,11 @@
 //   its own result type; hiding it behind metadata kind chips would strand it
 //   behind a filter set that does not describe it.
 //
-// QUERY SEAM (integration point for the lead): SearchClient owns the query
-// state and mirrors it to the URL (`q=`). It cannot be modified (components/**
-// is outside FC07's write area), so this band tracks the query through the
-// URL (mount + popstate) and through the native `input` events of the page's
-// search input (React controlled inputs emit real DOM events that bubble).
-// If the lead later approves a small SearchClient refactor (e.g. an optional
-// `onQueryChange` prop), this listener should be replaced by that prop.
+// QUERY STATE: the page owns one query string and hands it to SearchClient, so
+// the metadata band and this Fabric band always answer the same value. Clear
+// empties both bands together, and Back/Forward restore both from the URL.
+// (Before R2 this band rebuilt the query from DOM `input` events and popstate,
+// so Clear emptied only the metadata band.)
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 
@@ -152,36 +150,6 @@ export function SearchWithFabric({
     };
   }, []);
 
-  // Query seam: SearchClient mirrors q= to the URL on every keystroke; native
-  // `input` events bubble out of its React-controlled field, so both paths
-  // converge here. See QUERY SEAM in the header comment.
-  //
-  // Listen in the bubble phase, not capture. A capture listener runs before
-  // SearchClient's React onChange; its synchronous setState re-renders the
-  // controlled field with the old value and React's handler then reads the
-  // cleared DOM, so the first keystroke is lost. Bubbling lets the child own
-  // the event first and both updates batch into one render.
-  useEffect(() => {
-    const readUrl = () => {
-      const params = new URLSearchParams(window.location.search);
-      setQuery(params.get("q") ?? "");
-    };
-    readUrl();
-    const onInput = (event: Event) => {
-      const target = event.target;
-      if (target instanceof HTMLInputElement && target.type === "search") {
-        setQuery(target.value);
-      }
-    };
-    const onPop = () => readUrl();
-    document.addEventListener("input", onInput);
-    window.addEventListener("popstate", onPop);
-    return () => {
-      document.removeEventListener("input", onInput);
-      window.removeEventListener("popstate", onPop);
-    };
-  }, []);
-
   const deferredQuery = query.trim();
 
   // Pipeline: collect (manifest → routing → candidate shards) on the main
@@ -241,7 +209,12 @@ export function SearchWithFabric({
   // query on the first keystroke.
   return (
     <>
-      <SearchClient total={total} featured={featured} />
+      <SearchClient
+        total={total}
+        featured={featured}
+        query={query}
+        onQueryChange={setQuery}
+      />
       {hidden ? null : (
         <section className="mt-8" aria-label="Fabric documentation results">
           <h2 className="text-sm font-medium">Fabric documentation</h2>

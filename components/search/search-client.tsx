@@ -95,12 +95,20 @@ function ResultRow({
 export function SearchClient({
   total,
   featured,
+  query,
+  onQueryChange,
 }: {
   total: number;
   featured: SearchDocument[];
+  /**
+   * The one query state, owned by the page. Both the metadata results and the
+   * Fabric documentation band read it, so Clear, typing and Back/Forward move
+   * them together; the field can no longer diverge from the second band.
+   */
+  query: string;
+  onQueryChange: (query: string) => void;
 }) {
   const uid = useId();
-  const [query, setQuery] = useState("");
   const [kinds, setKinds] = useState<SearchKind[]>([]);
   const [language, setLanguage] = useState<SearchLanguage | "all">("all");
   const [documents, setDocuments] = useState<SearchDocument[]>([]);
@@ -143,11 +151,13 @@ export function SearchClient({
   }, []);
 
   // The URL is the external system this page synchronises with: read it on
-  // load and on Back/Forward, then mirror changes without a navigation.
+  // load and on Back/Forward, then mirror changes without a navigation. The
+  // query itself lives above this component so every result band sees one
+  // value; only the filters stay local.
   useEffect(() => {
     const apply = () => {
       const params = new URLSearchParams(window.location.search);
-      setQuery(params.get("q") ?? "");
+      onQueryChange(params.get("q") ?? "");
       const kindParam = params.get("kind");
       const requested = kindParam
         ? kindParam
@@ -164,19 +174,19 @@ export function SearchClient({
     const onPop = () => apply();
     window.addEventListener("popstate", onPop);
     return () => window.removeEventListener("popstate", onPop);
-  }, []);
+  }, [onQueryChange]);
 
   useEffect(() => {
     if (!urlReady) return;
     const url = new URL(window.location.href);
-    if (deferredQuery) url.searchParams.set("q", deferredQuery);
+    if (query) url.searchParams.set("q", query);
     else url.searchParams.delete("q");
     if (kinds.length) url.searchParams.set("kind", kinds.join(","));
     else url.searchParams.delete("kind");
     if (language !== "all") url.searchParams.set("lang", language);
     else url.searchParams.delete("lang");
     window.history.replaceState(null, "", url);
-  }, [deferredQuery, kinds, language, urlReady]);
+  }, [query, kinds, language, urlReady]);
 
   const outcome = useMemo<SearchOutcome | null>(() => {
     if (!deferredQuery.trim() || documents.length === 0) return null;
@@ -188,7 +198,15 @@ export function SearchClient({
       current.includes(kind) ? current.filter((value) => value !== kind) : [...current, kind],
     );
   const reset = () => {
-    setQuery("");
+    // Clear writes its own history entry, so Back restores the query it
+    // cleared and Forward clears it again. Typing keeps replaceState: one
+    // entry per keystroke would make Back unusable.
+    const cleared = new URL(window.location.href);
+    cleared.searchParams.delete("q");
+    cleared.searchParams.delete("kind");
+    cleared.searchParams.delete("lang");
+    window.history.pushState(null, "", cleared);
+    onQueryChange("");
     setKinds([]);
     setLanguage("all");
   };
@@ -211,7 +229,7 @@ export function SearchClient({
             id={`${uid}-input`}
             type="search"
             value={query}
-            onChange={(event) => setQuery(event.target.value)}
+            onChange={(event) => onQueryChange(event.target.value)}
             placeholder="Direct Lake, star schema, p-value, box plot…"
             autoComplete="off"
             className="h-11 w-full rounded-full border border-border bg-background pl-9 pr-3 text-sm outline-none focus:border-primary"
