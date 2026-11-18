@@ -14,7 +14,15 @@
     "app/experience/page.tsx",
     "lib/site.ts",
     "components/site-header.tsx",
-    "app/globals.css"
+    "app/globals.css",
+    "app/about/page.tsx",
+    "app/learn/statistics/cheatsheet/page.tsx",
+    "app/learn/statistics/journey/[slug]/page.tsx",
+    "app/learn/statistics/page.tsx",
+    "components/data-viz/lesson-view.tsx",
+    "lib/catalogue.ts",
+    "lib/data-viz/content.ts",
+    "lib/exams.ts"
   ],
   "createdFiles": [
     "HANSA_EASYUI_V2_START_HERE.md",
@@ -339,6 +347,46 @@
       "layer": "primary-navigation/2026-11-18",
       "attribution": "owner-approved-t2.1-nav",
       "note": "T2.1 navigation: removes the body[data-home-v2] header/footer suppression rule now that home shares the site header and footer. Tokens, palettes and theme values are unchanged."
+    },
+    {
+      "path": "app/about/page.tsx",
+      "beforeSha256": "05500df4943759a1ae0e4a2351f5c4c885be3b96aa54b08c0bd313e1ef714da7",
+      "sha256": "15539ad73cde865c74b5d7e3e55ddb48b2b462142fa0c7d31a7a7d2d7719fd32"
+    },
+    {
+      "path": "app/learn/statistics/cheatsheet/page.tsx",
+      "beforeSha256": "15e2e10e5dfa8423df7b8cb1d301f67f1465882771e65ef0efbdbdac979622b9",
+      "sha256": "4f48b8a15cf345a2567b0cc0ac4f5836f12ff6bfe2c1531d8a5e9a3ef25b9a1b"
+    },
+    {
+      "path": "app/learn/statistics/journey/[slug]/page.tsx",
+      "beforeSha256": "fde84d0bfc684a7600efdea8f66520cdea9044d34e7bb5afe6c1e79e42a636be",
+      "sha256": "60605f42994fc60bcd749053b1b3f1eedaf1726985983d0588b18cef2a4793b4"
+    },
+    {
+      "path": "app/learn/statistics/page.tsx",
+      "beforeSha256": "c694233c8b0151581ac99b52ca7c10dc349cc2445461a3c6ede3e7bc49b5e8d6",
+      "sha256": "f961dc3ce5cf041598b08787f217455546355c02ac0a5bc0f894f4b9c868a189"
+    },
+    {
+      "path": "components/data-viz/lesson-view.tsx",
+      "beforeSha256": "b7cdbbc89ff0c0af4f4914eda24d1ca601eaade88bdf23305019e290f3f78a51",
+      "sha256": "c5e08579d01125fc50f3d18910f13c3b8f3e904f071fab3b57f396b004cf1d9a"
+    },
+    {
+      "path": "lib/catalogue.ts",
+      "beforeSha256": "2e72068953ac004b35f705285fa7eed91d7e1f00a38aeeba91b9923bc95afbba",
+      "sha256": "a390ffac4e06b01bc739affee115921402364fae2c63a95ea87262835caef790"
+    },
+    {
+      "path": "lib/data-viz/content.ts",
+      "beforeSha256": "f369b11ed7e7da56c2a9f8a775d6cdb420f8e57937c4d355dbc5ed4f39b61108",
+      "sha256": "1f0c1f6469beb893e50462249d57f4bd9a3d64023e3ce051bae21a08ca0003bf"
+    },
+    {
+      "path": "lib/exams.ts",
+      "beforeSha256": "5837769bc5a42e16ceea806ff4940ba854965c35c247e27e850d1bf67106d3e0",
+      "sha256": "ca3cf57ebe2c9b2f78b87c1380108aeec32d71dd653ce0cc9cdb894cbbcf11b1"
     }
   ],
   "legacyAtlasPathAliases": [

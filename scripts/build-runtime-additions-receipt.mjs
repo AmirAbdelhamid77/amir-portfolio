@@ -180,6 +180,13 @@ export const REVIEWED_WAVES = [
       "Reviewed against the built export: every sampled route (home, day layer, Learn) renders the shared header and footer with exactly one Primary nav, Learn then Practice then Work then About; Contact stays in the header and the mobile menu; no route mounts the island capsule. The landing nav variant and the CSS that hid the home chrome are removed. Routes, URLs, question IDs, answer keys and saved progress are unchanged.",
     commits: ["58e4c8ab54ee885c256d524669ffd7765ecf3797"],
   },
+  {
+    id: "visitor-copy-cleanup",
+    title: "Plain visitor copy, shared Sources & review disclosure",
+    review:
+      "Reviewed against the built export: one learner-facing status, no review-round codes, no export-tool names and no external source links in visitor copy. Source detail moved into the shared Sources & review disclosure and /about/sources explains each label. The new title, status and disclosure helpers are covered by their tests. Question IDs, answer keys, routes, anchors, URLs and saved progress are unchanged.",
+    commits: ["9de4821051ab2736c3f51452e2ab4b684653a4ab"],
+  },
 ];
 
 const REVIEWED_REVISIONS = new Map([
@@ -230,6 +237,23 @@ const REVIEWED_REVISIONS = new Map([
     "components/hansa/island-nav.tsx",
     "components/hansa/live-day.tsx",
     "components/hansa/timeline-home.tsx",
+  ]],
+  ["9de4821051ab2736c3f51452e2ab4b684653a4ab", [
+    "app/content-index/page.tsx",
+    "app/lab/rti/[lab]/page.tsx",
+    "app/practice/draft-banks/page.tsx",
+    "app/work/storytelling/page.tsx",
+    "components/knowledge/insight-scene.tsx",
+    "components/sources-review.tsx",
+    "lib/copy/status.ts",
+    "lib/copy/title.ts",
+    "lib/knowledge/review-status.ts",
+    "lib/recovery/collections.ts",
+    "lib/recovery/navigation.ts",
+    "tests/content/notion-titles.test.mjs",
+    "tests/content/recovery-navigation.test.mjs",
+    "tests/content/visitor-copy.test.mjs",
+    "tests/knowledge/editorial-days.test.mjs",
   ]],
 ]);
 

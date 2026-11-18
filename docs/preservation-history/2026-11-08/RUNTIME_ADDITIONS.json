@@ -519,8 +519,8 @@
         },
         {
           "path": "app/content-index/page.tsx",
-          "bytes": 10026,
-          "sha256": "963697abda800c9902e6a9941906ed1f6d681dd8983f5e29dae3a5122577529c",
+          "bytes": 10051,
+          "sha256": "48b14d84ca63344717787dc1701c5ec3f2a724f7eb202a7010c27a3bd4c64cc5",
           "commit": "a8e1d9b243f5a76c340a5779d7873ad24cd7a041"
         },
         {
@@ -537,8 +537,8 @@
         },
         {
           "path": "app/lab/rti/[lab]/page.tsx",
-          "bytes": 5396,
-          "sha256": "c741591873600a50cccc5e1a73786129f0287ff0cf7a00f1e22110124fd4d39f",
+          "bytes": 5504,
+          "sha256": "4e9bac892f87fb388a191292f696a55860e9c8e130cb9466952f0f6930f10322",
           "commit": "a8e1d9b243f5a76c340a5779d7873ad24cd7a041"
         },
         {
@@ -549,14 +549,14 @@
         },
         {
           "path": "app/practice/draft-banks/page.tsx",
-          "bytes": 6869,
-          "sha256": "43a06804bcbd0f852e08841f1d1aa922ef42898627d078e80a08a586a9a453ed",
+          "bytes": 6838,
+          "sha256": "eabe552dd64dca7d11256d30505974271a04f9a2ba8c190fa81e0936640061d4",
           "commit": "a8e1d9b243f5a76c340a5779d7873ad24cd7a041"
         },
         {
           "path": "app/work/storytelling/page.tsx",
-          "bytes": 6432,
-          "sha256": "d5d28c650f431a0bf605810b85d1b7cefad2d33a382a715052c14a47e466935c",
+          "bytes": 6424,
+          "sha256": "672fa89c3485d334e6e5fc55808d9dd24524a23d8ed57826531195f18b8a6847",
           "commit": "a8e1d9b243f5a76c340a5779d7873ad24cd7a041"
         },
         {
@@ -603,8 +603,8 @@
         },
         {
           "path": "lib/recovery/collections.ts",
-          "bytes": 4471,
-          "sha256": "a38134ef6a0b1190338a5d390618af83ab0f17637ee620c92020204a06f1301b",
+          "bytes": 4477,
+          "sha256": "56cb276f8b5302d403e5746873fb218203e55e315aa4f73c633fcb0fb73e3116",
           "commit": "a8e1d9b243f5a76c340a5779d7873ad24cd7a041"
         },
         {
@@ -1091,14 +1091,14 @@
         },
         {
           "path": "lib/recovery/navigation.ts",
-          "bytes": 3516,
-          "sha256": "88e31eca2dcc067845993228c019ed0df8e076fd76f425739acaac7f52ed9652",
+          "bytes": 3509,
+          "sha256": "afae253c7afd4199c75dbc12a70b7a003513acc5574ec9b699e7938636f6b026",
           "commit": "7c6b1d15fc35bd100fc936d4c7b5a4ccb7edc68d"
         },
         {
           "path": "tests/content/recovery-navigation.test.mjs",
-          "bytes": 4172,
-          "sha256": "76b788858589d5c7768985b7baac8efc35a51eba6e047da619cb288ae29de164",
+          "bytes": 4192,
+          "sha256": "9e80290c1c3c8cad0399a5b9502f118d019a90e43b8b7ad6ef02ce1a3d7c9707",
           "commit": "7c6b1d15fc35bd100fc936d4c7b5a4ccb7edc68d"
         },
         {
@@ -1169,14 +1169,14 @@
         },
         {
           "path": "lib/knowledge/review-status.ts",
-          "bytes": 542,
-          "sha256": "706a1fbcfa72f4a8dd9f83dac679266b25afa6437f38ca3a18012a2e5b2faf8f",
+          "bytes": 548,
+          "sha256": "37a8c2ecc981cf501bc77f4788ab7fe320ed783a4052585b0aa4d6fe2f280c94",
           "commit": "48db1be77821523484593055f495c921f0f39418"
         },
         {
           "path": "tests/knowledge/editorial-days.test.mjs",
-          "bytes": 6012,
-          "sha256": "caac78f75c635b72f90fb27f676e7d4aefe3b1ce48d61bd52e41356bb1a7c72a",
+          "bytes": 6018,
+          "sha256": "499b43373c1b5b2de6f0ceacda74ddc7b43418831c0fc7c9a885176dbc986cae",
           "commit": "48db1be77821523484593055f495c921f0f39418"
         }
       ]
@@ -1338,8 +1338,48 @@
           "commit": "58e4c8ab54ee885c256d524669ffd7765ecf3797"
         }
       ]
+    },
+    {
+      "id": "visitor-copy-cleanup",
+      "title": "Plain visitor copy, shared Sources & review disclosure",
+      "review": "Reviewed against the built export: one learner-facing status, no review-round codes, no export-tool names and no external source links in visitor copy. Source detail moved into the shared Sources & review disclosure and /about/sources explains each label. The new title, status and disclosure helpers are covered by their tests. Question IDs, answer keys, routes, anchors, URLs and saved progress are unchanged.",
+      "commits": [
+        "9de4821051ab2736c3f51452e2ab4b684653a4ab"
+      ],
+      "files": [
+        {
+          "path": "components/sources-review.tsx",
+          "bytes": 1021,
+          "sha256": "8dd9e02688f624d70a8152e2f4089edef7d050de56b655657471f6582e1a2ce4",
+          "commit": "9de4821051ab2736c3f51452e2ab4b684653a4ab"
+        },
+        {
+          "path": "lib/copy/status.ts",
+          "bytes": 1451,
+          "sha256": "1a0ce1120420a37b695175cf4bd48c1cf1b228ca444e6afbe40ffd5929374395",
+          "commit": "9de4821051ab2736c3f51452e2ab4b684653a4ab"
+        },
+        {
+          "path": "lib/copy/title.ts",
+          "bytes": 699,
+          "sha256": "72f72da6ecefa9b230e35f9d079119a548f5818b70ee5bc23fb564af228d51c4",
+          "commit": "9de4821051ab2736c3f51452e2ab4b684653a4ab"
+        },
+        {
+          "path": "tests/content/notion-titles.test.mjs",
+          "bytes": 1800,
+          "sha256": "3c09a6cf017b4eea0d4b3de1c1520aa66388cd6f55aeeefc008262bc23977f90",
+          "commit": "9de4821051ab2736c3f51452e2ab4b684653a4ab"
+        },
+        {
+          "path": "tests/content/visitor-copy.test.mjs",
+          "bytes": 3078,
+          "sha256": "8137bbd530c64c950e719111bd9969821c5a8a900f2657a7700e498ef20234ea",
+          "commit": "9de4821051ab2736c3f51452e2ab4b684653a4ab"
+        }
+      ]
     }
   ],
-  "review": "T2.1 navigation slice: the reviewed code commit retires the island capsule from the timeline, day, insight and live-day routes, removes the landing-only nav variant, and adds the built-output one-primary-nav guard. Routes, question IDs, answer keys, anchors and saved progress are unchanged.",
-  "previousReceiptSha256": "ca85540a1087cca32ff9b409425e2fecdc89d26813ba4eebe2587c890ca528af"
+  "review": "Reviewed against the built export for T2.3: the visitor copy cleanup replaces internal review vocabulary with plain language, adds the shared Sources & review disclosure and the /about/sources label guide, and keeps every question ID, answer key, route, anchor, URL and saved-progress shape unchanged.",
+  "previousReceiptSha256": "69aa33f5bfbe620fc7d57783d0655e796f574cecb538e2ff23e767f5332e1a2b"
 }

@@ -759,6 +759,204 @@
       "layer": "primary-navigation/2026-11-18",
       "attribution": "owner-approved-t2.1-nav",
       "note": "Records the reviewed EasyUI successor runtime changes for the site configuration, shared header and stylesheet: one primary navigation on every route, the landing nav variant retired and the home header/footer suppression removed. No baseline or earlier pin changed."
+    },
+    {
+      "path": "docs/design-system/easyui-v2/INTEGRATION_MANIFEST.json",
+      "previousSha256": "a62944b94dee5328543f1cc3f1595803b4258433e061208118a1807c6c9356d6",
+      "sha256": "720ae2d1d53efe16a057f3201202d02ece974f6bb9cc65e9ac6eb478c961ce38",
+      "bytes": 37276,
+      "layer": "visitor-copy/2026-11-18",
+      "attribution": "owner-approved-t2.3-copy",
+      "note": "Records the reviewed EasyUI successor runtime changes for the nine baseline pages and modules touched by the visitor copy cleanup. No baseline entry, alias or earlier pin changed."
+    },
+    {
+      "path": "app/about/sources/page.tsx",
+      "previousSha256": "25b372d2da85462ba041a1745ae0441fe4c7a4c2f35f9213c05f979dedad6798",
+      "sha256": "ebf271f9e45b2396af2dc1e9a8ab362d7f2c43d787313e184a2f3ed804f03a4b",
+      "bytes": 8417,
+      "layer": "visitor-copy/2026-11-18",
+      "attribution": "owner-approved-t2.3-copy",
+      "note": "The Sources page gains the section that explains the four visitor labels; the maintainer index and every link on it are unchanged."
+    },
+    {
+      "path": "app/learn/fabric-rti/[slug]/page.tsx",
+      "previousSha256": "a3c5b754348e0a3620929d6f05a68b7a03e21d436857487d99bf139da9a76271",
+      "sha256": "7595a0f1f3fd9c77a0fd4304a4f5799acac1d4ea6adbfdd3cb5c3539cfa10776",
+      "bytes": 16788,
+      "layer": "visitor-copy/2026-11-18",
+      "attribution": "owner-approved-t2.3-copy",
+      "note": "The lesson page translates recorded validation codes into plain sentences for the visible line and keeps the full recorded note inside the shared Sources & review disclosure."
+    },
+    {
+      "path": "app/learn/fabric-rti/page.tsx",
+      "previousSha256": "13d7c8fa21e32a87c78ed2048c184b83a71ffab6ff0d4a1680aab618b73d7ed1",
+      "sha256": "643bc2200c788a463c2cfa7031acdbd0040bdfe5fe309b149126b6edd99760a3",
+      "bytes": 12267,
+      "layer": "visitor-copy/2026-11-18",
+      "attribution": "owner-approved-t2.3-copy",
+      "note": "The course page replaces the package status codes in the reading path with plain language, adds the zero-labs-run statistic and moves the recorded codes into the shared disclosure."
+    },
+    {
+      "path": "app/learn/sql/[module]/page.tsx",
+      "previousSha256": "91314abe51c9c8ca13e02e56e9f4a69d60d847842e6781e03aa1b85af27d49fa",
+      "sha256": "778527dde5b708bca3dcb7bf4a2a471525606385381cd089a41db46fe7d55f64",
+      "bytes": 846,
+      "layer": "visitor-copy/2026-11-18",
+      "attribution": "owner-approved-t2.3-copy",
+      "note": "Lesson titles pass through displayTitle so the exported page icon and ordering prefix no longer reach the heading."
+    },
+    {
+      "path": "app/learn/sql/page.tsx",
+      "previousSha256": "952faa9793dbe1c67d80ac53e8fedcd493a33a16f5fd4c57f736cc8227e5b8e9",
+      "sha256": "00eb0b4f8ca8ec30863576e78ee005361d75d8285e0b71ea13d48d00adb64cc2",
+      "bytes": 2442,
+      "layer": "visitor-copy/2026-11-18",
+      "attribution": "owner-approved-t2.3-copy",
+      "note": "The SQL index uses displayTitle for module and reference titles."
+    },
+    {
+      "path": "app/learn/sql/reference/[id]/page.tsx",
+      "previousSha256": "743cdbf0648029f898e5a357dea6d4227fd4fc647c0842eb161ed567a755c03c",
+      "sha256": "e3fcbc9eb316c39eea9aefcf4fb6f6e68604c53a57d88ae0269a610b430deda1",
+      "bytes": 772,
+      "layer": "visitor-copy/2026-11-18",
+      "attribution": "owner-approved-t2.3-copy",
+      "note": "Reference pages use displayTitle for their headings and keep the same IDs, anchors and body."
+    },
+    {
+      "path": "app/learn/statistics/journey/[slug]/page.tsx",
+      "previousSha256": "4cb04f20fd1f5fed21b63132f99b95694b242b89b211054642623b336002452b",
+      "sha256": "60605f42994fc60bcd749053b1b3f1eedaf1726985983d0588b18cef2a4793b4",
+      "bytes": 10021,
+      "layer": "visitor-copy/2026-11-18",
+      "attribution": "owner-approved-t2.3-copy",
+      "note": "The journey footer names the author's own reference page instead of the export tool, and journey titles use displayTitle."
+    },
+    {
+      "path": "app/learn/statistics/page.tsx",
+      "previousSha256": "51d484c9da0533fdae1da7bdcbb6e11dec1b5a826b58b5fb5d0a88f9a2faec52",
+      "sha256": "f961dc3ce5cf041598b08787f217455546355c02ac0a5bc0f894f4b9c868a189",
+      "bytes": 22149,
+      "layer": "visitor-copy/2026-11-18",
+      "attribution": "owner-approved-t2.3-copy",
+      "note": "The statistics hub drops the file-hash row from the visible metadata block, adds the shared Sources & review disclosure and describes the source without the export tool's name."
+    },
+    {
+      "path": "components/data-viz/lesson-view.tsx",
+      "previousSha256": "0dd2311ffb4bdff1e336e936f2f5b5432d6ce2c65fbc16f2a269488ce6c2e5d1",
+      "sha256": "c5e08579d01125fc50f3d18910f13c3b8f3e904f071fab3b57f396b004cf1d9a",
+      "bytes": 15509,
+      "layer": "visitor-copy/2026-11-18",
+      "attribution": "owner-approved-t2.3-copy",
+      "note": "The lesson meta line says the wording comes from the author's own course source; no lesson text, figure or route changed."
+    },
+    {
+      "path": "components/fabric/r11-question.tsx",
+      "previousSha256": "44fca27ece04cb422169754fad422f32a83017f7cef1f0b20b6868d3b8b6ce79",
+      "sha256": "08eb602a613590ff902a62911653793d2ab6892ab461ce46e12da44a662ddb15",
+      "bytes": 11329,
+      "layer": "visitor-copy/2026-11-18",
+      "attribution": "owner-approved-t2.3-copy",
+      "note": "The paused-grading note describes the earlier check without the internal review-round code."
+    },
+    {
+      "path": "components/learn/visualization-home.tsx",
+      "previousSha256": "970d1ed696a5393ae6d453a59a9365cbc63e9951cef22aa6bd375f2afe4f47c4",
+      "sha256": "439a1ec7230960967e786f1a4eac2249ba1cfbd1187b9d385deb1c6520518c07",
+      "bytes": 15028,
+      "layer": "visitor-copy/2026-11-18",
+      "attribution": "owner-approved-t2.3-copy",
+      "note": "The data-visualization home names the author's course reference instead of the export tool."
+    },
+    {
+      "path": "components/sql/lesson.tsx",
+      "previousSha256": "ea260bdb3d9f10bb05d13d06d6aadee1523983905f7a9e07945fa544c2252dc7",
+      "sha256": "2e67e086f3d4b8fae7e6251fb78dbda28e6c8862c4d3d692c50233a8caf4c06a",
+      "bytes": 3338,
+      "layer": "visitor-copy/2026-11-18",
+      "attribution": "owner-approved-t2.3-copy",
+      "note": "The source disclosure drops the external source-page link and the review-round wording while keeping the snapshot date and source ID."
+    },
+    {
+      "path": "components/sql/source.tsx",
+      "previousSha256": "e6dc5f62d3ec5a74bd6ee07d5ea8c19e114fa6a47a16e48b558248513df0899f",
+      "sha256": "fcfb4de9a730451ea417c83f76cef888aebe69be8847aea496b7fb893e345306",
+      "bytes": 5955,
+      "layer": "visitor-copy/2026-11-18",
+      "attribution": "owner-approved-t2.3-copy",
+      "note": "Notion page and mention artifacts in imported SQL bodies render as local titles or plain text; no Notion URL reaches the visitor and no body text is rewritten."
+    },
+    {
+      "path": "lib/catalogue.ts",
+      "previousSha256": "2f01a732e12c7345b4db57a641288d0e51e9e7c868f646c26a7b9827601e7e52",
+      "sha256": "a390ffac4e06b01bc739affee115921402364fae2c63a95ea87262835caef790",
+      "bytes": 14111,
+      "layer": "visitor-copy/2026-11-18",
+      "attribution": "owner-approved-t2.3-copy",
+      "note": "Two catalogue descriptions state the holds and the profiled-source limit in plain language instead of quoting status codes."
+    },
+    {
+      "path": "lib/curriculum/model.ts",
+      "previousSha256": "9b1d6a181db972742aabdd6d3f94ad2e8763aa1334130f4d6c9343f0f218e238",
+      "sha256": "d67ac5f9828f25442e9a7a886b096ae7e30668cd618f5dba8531b76c07602cc4",
+      "bytes": 7847,
+      "layer": "visitor-copy/2026-11-18",
+      "attribution": "owner-approved-t2.3-copy",
+      "note": "The Fabric RTI summary states that no lab was run here instead of quoting the runtime status code."
+    },
+    {
+      "path": "lib/exams.ts",
+      "previousSha256": "349d794587b753a72f8533bbb978838436c08422c379161f14adf8df9a264f90",
+      "sha256": "ca3cf57ebe2c9b2f78b87c1380108aeec32d71dd653ce0cc9cdb894cbbcf11b1",
+      "bytes": 4653,
+      "layer": "visitor-copy/2026-11-18",
+      "attribution": "owner-approved-t2.3-copy",
+      "note": "Exam banks pass through plainStatusDeep at load time, so recorded status codes reach the interface as sentences while the stored JSON stays unchanged."
+    },
+    {
+      "path": "lib/sql/registry.ts",
+      "previousSha256": "4efa0f7c975b5647889e9dae2aebc82fa1432298ef78552a5854ed2869588a3f",
+      "sha256": "8b05bc2f3903abd4d800dafdb10a6c057bcfb805e62808f02839a74183024509",
+      "bytes": 3535,
+      "layer": "visitor-copy/2026-11-18",
+      "attribution": "owner-approved-t2.3-copy",
+      "note": "Registry titles pass through displayTitle for display; registry IDs, anchors and question links are unchanged."
+    },
+    {
+      "path": "lib/study/server.ts",
+      "previousSha256": "913ad3fae976e24fe083d0d7a30a4864d6b6da867c7fc64d43692ec389818d9c",
+      "sha256": "489937afd75e5128c111a269da86b99127b846260e1621642e1fc1a97cc2256f",
+      "bytes": 7426,
+      "layer": "visitor-copy/2026-11-18",
+      "attribution": "owner-approved-t2.3-copy",
+      "note": "Study records show one plain status per question and no review-round code; question IDs, answer keys and progress are untouched."
+    },
+    {
+      "path": "components/knowledge/stage-closing.tsx",
+      "previousSha256": "e1bdda7a60236908776d9180433367ea29766dfe496b8b9529f122042a4302d8",
+      "sha256": "7395ef97a189906eb4fa669ed5f3fcca95cd9f7cb605e9b8053ecc0906e2d06c",
+      "bytes": 13721,
+      "layer": "visitor-copy/2026-11-18",
+      "attribution": "owner-approved-t2.3-copy",
+      "note": "The closing scene renders the display-time visitor limits list, leaving COVERAGE_LIMITS byte-identical to the pinned semantic ledger. No claim, row or link changed."
+    },
+    {
+      "path": "lib/knowledge/closing.ts",
+      "previousSha256": "8f1332a9e53f6e81d35503477c7530a00e909dc88cb56d207dc693466ac12363",
+      "sha256": "3e78c1eed75884b27a01b3c6c9f87a5606b8f35de074a2e2b3c8d63ca01ab4e9",
+      "bytes": 8850,
+      "layer": "visitor-copy/2026-11-18",
+      "attribution": "owner-approved-t2.3-copy",
+      "note": "Adds a display-time visitor list beside the four ledger limits; COVERAGE_LIMITS itself is unchanged, and the pages render the translated first line. No claim is added or removed."
+    },
+    {
+      "path": "components/knowledge/insight-scene.tsx",
+      "previousSha256": "d6e2c2fb9f30098f3c47792f6093b2344b13a369db6248944736b937dc8d61d2",
+      "sha256": "72762b0124db89a8e8e0fc444edaccb5c06f2480fb19954f39d3cfe79cc3bf01",
+      "bytes": 13698,
+      "layer": "visitor-copy/2026-11-18",
+      "attribution": "owner-approved-t2.3-copy",
+      "note": "The scene comment names the shared draft label; no badge, claim or route changed."
     }
   ],
   "additions": [],
