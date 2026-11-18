@@ -16,6 +16,8 @@ import {
   chapterHref,
 } from "@/lib/data-viz/content";
 import { ChapterCard, LabLink } from "@/components/data-viz/chapter-card";
+import { RouteBreadcrumbs } from "@/components/navigation/route-breadcrumbs";
+import { SubjectTabs } from "@/components/navigation/subject-tabs";
 import { ButtonLink, Container, Eyebrow, SectionHeading, Stat } from "@/components/ui";
 import { SITE } from "@/lib/site";
 
@@ -108,13 +110,8 @@ export function VisualizationHome() {
 
       <section className="border-b border-border">
         <Container className="pb-12 pt-20 md:pb-16 md:pt-24">
-          <nav aria-label="Breadcrumb" className="mb-6 flex items-center gap-1.5 text-xs text-muted-foreground">
-            <Link href="/learn" className="hover:text-foreground">
-              Learn
-            </Link>
-            <span aria-hidden="true">/</span>
-            <span className="text-foreground/70">Data visualization</span>
-          </nav>
+          <RouteBreadcrumbs pathname="/learn/visualization" current="Data visualization" className="mb-6" />
+          <SubjectTabs subject="visualization" current="overview" className="mb-6" />
           <Eyebrow dot>Data Visualization · learning path</Eyebrow>
           <h1 className="mt-5 max-w-3xl text-balance text-4xl font-medium tracking-tight md:text-5xl">
             Read the chart. Then defend the decision.

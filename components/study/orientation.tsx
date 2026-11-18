@@ -3,15 +3,22 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
+import {
+  normalizeRoutePath,
+  orientationTrail,
+  resolveRouteContext,
+} from "@/lib/navigation/route-context";
 import { SUBJECTS, topicHref } from "@/lib/study/taxonomy";
 
 /**
- * A small orientation strip for the learning, lab and practice families. It
- * reads the current route to decide which subject the reader is inside, and
- * keeps any learning context passed in the query string.
+ * The learning-context strip for the learn, lab, practice and explore families.
+ * It reads the declared route context (subject, activity, parent) and never
+ * guesses a subject from URL text: a route without a declaration gets no strip
+ * rather than a wrong subject.
  *
- * The learning home itself has no subject context, so the strip stays out of the
- * way there.
+ * Pages that own their structural breadcrumb (the SQL shell) are skipped here
+ * so "Learn / SQL" is not printed twice. Subject homes render their tab bar in
+ * the page itself, where it can sit beside the subject heading.
  */
 export function StudyOrientation() {
   const path = usePathname();
@@ -31,78 +38,48 @@ export function StudyOrientation() {
     return () => removeEventListener("popstate", restore);
   }, [path]);
 
-  if (!/^\/(learn|lab|practice|explore)(\/|$)/.test(path) || path.includes("/catalogue")) {
-    return null;
-  }
+  const resolved = resolveRouteContext(path);
+  if (!resolved || resolved.breadcrumb === "page") return null;
 
-  const normalized = path.replace(/\/+$/, "");
-  if (normalized === "/learn" || normalized === "/study") return null;
-
+  const normalized = normalizeRoutePath(path);
+  const { links, marker } = orientationTrail(resolved, path);
   const [contextSubject, contextTopic] = context.split(".");
-  const selected = SUBJECTS.find((s) => s.id === contextSubject);
-  const topic = selected?.topics.find((t) => t[0] === contextTopic);
-
-  const subjectFromPath = normalized.match(/^\/(?:learn|study)\/([^/]+)(?:\/|$)/)?.[1];
-  const subject = SUBJECTS.some((s) => s.id === subjectFromPath)
-    ? (subjectFromPath as (typeof SUBJECTS)[number]["id"])
-    : normalized.includes("dp-600")
-      ? "fabric"
-      : normalized.includes("statistics")
-        ? "statistics"
-        : normalized.includes("/lab/power-bi")
-          ? "power-bi"
-          : /^\/(learn|practice|lab)\/sql(?:\/|$)/.test(normalized)
-            ? "sql"
-            : normalized.includes("/lab/python")
-              ? "python"
-              : normalized.includes("/lab/excel")
-                ? "excel"
-                : normalized === "/lab" || normalized === "/lab/"
-                  ? "analysis"
-                  : "visualization";
-
-  const label = SUBJECTS.find((s) => s.id === subject)!.title;
+  const selected = SUBJECTS.find((subject) => subject.id === contextSubject);
+  const topic = selected?.topics.find((entry) => entry[0] === contextTopic);
+  // A context link must belong to the subject this page declares; otherwise it
+  // would offer a return to a different subject's topic.
+  const contextOwner = selected && selected.id === resolved.subject ? selected : null;
   const validUnit = /^[\w:.-]{1,150}$/.test(unit);
-  const className = "min-h-11 py-2 underline underline-offset-4";
-
-  // Subject homes carry their own breadcrumb; the strip is for the pages below
-  // them.
-  if (normalized === `/learn/${subject}`) return null;
+  const linkClass = "min-h-11 py-2 underline underline-offset-4";
+  if (links.length <= 1 && !marker) return null;
 
   return (
     <nav
       aria-label="Learning context"
       className="relative z-10 mx-auto mt-20 mb-[-48px] flex w-full max-w-6xl flex-wrap gap-x-5 gap-y-2 px-5 text-xs leading-6 text-muted-foreground"
     >
-      <Link className={className} href="/learn">
-        Learn
-      </Link>
-      {!path.includes("drafts") && (
-        <Link className={className} href={`/learn/${subject}/`}>
-          {label}
+      {links.map((link) => (
+        <Link key={link.href} className={linkClass} href={link.href}>
+          {link.label}
         </Link>
-      )}
-      {selected && topic && (
+      ))}
+      {contextOwner && topic ? (
         <Link
-          className={className}
-          href={path.includes("drafts") ? "/study/review/" : topicHref(selected.id, topic[0])}
+          className={linkClass}
+          href={normalized.includes("drafts") ? "/study/review/" : topicHref(contextOwner.id, topic[0])}
         >
           Return to {topic[1]}
         </Link>
-      )}
-      {selected && validUnit && (
+      ) : null}
+      {contextOwner && validUnit ? (
         <Link
-          className={className}
-          href={`${review && path.includes("drafts") ? "/study/review/path/" : `/learn/${selected.id}/path/`}#${unit}`}
+          className={linkClass}
+          href={`${review && normalized.includes("drafts") ? "/study/review/path/" : `/learn/${contextOwner.id}/path/`}#${unit}`}
         >
           Back to this lesson step
         </Link>
-      )}
-      {path.includes("drafts") ? (
-        <span className="min-h-11 py-2">Lesson notes</span>
-      ) : path.startsWith("/lab") || path.startsWith("/practice") ? (
-        <span className="min-h-11 py-2">Practice</span>
       ) : null}
+      {marker ? <span className="min-h-11 py-2">{marker}</span> : null}
     </nav>
   );
 }

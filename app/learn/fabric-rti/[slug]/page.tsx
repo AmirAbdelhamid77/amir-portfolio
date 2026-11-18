@@ -10,6 +10,7 @@ import {
   ListChecks,
   ShieldAlert,
 } from "lucide-react";
+import { RouteBreadcrumbs } from "@/components/navigation/route-breadcrumbs";
 import { Container, Eyebrow } from "@/components/ui";
 import { Panel } from "@/components/fabric/ui";
 import { SourcesReview } from "@/components/sources-review";
@@ -83,20 +84,10 @@ export default async function RtiLessonPage({ params }: Params) {
 
       <section className="border-b border-border">
         <Container className="pb-8 pt-20 md:pb-10 md:pt-24">
-          <nav
-            aria-label="Breadcrumb"
-            className="flex flex-wrap items-center gap-1.5 text-xs text-muted-foreground"
-          >
-            <Link href="/learn" className="hover:text-foreground">
-              Learn
-            </Link>
-            <span aria-hidden="true">/</span>
-            <Link href={RTI_COURSE.href} className="hover:text-foreground">
-              {RTI_COURSE.title}
-            </Link>
-            <span aria-hidden="true">/</span>
-            <span className="text-foreground/70">Lesson {lesson.order}</span>
-          </nav>
+          <RouteBreadcrumbs
+            pathname={`/learn/fabric-rti/${lesson.slug}`}
+            current={`Lesson ${lesson.order}`}
+          />
 
           <Eyebrow className="mt-6">
             Lesson {lesson.order} · {lesson.frame} · {lesson.domain}

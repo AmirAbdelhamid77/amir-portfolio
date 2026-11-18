@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { RouteBreadcrumbs } from "@/components/navigation/route-breadcrumbs";
 import { TOPIC_GOALS } from "@/lib/study/briefs";
 import { studyRecords } from "@/lib/study/server";
 import { subjectById } from "@/lib/study/taxonomy";
@@ -22,11 +23,7 @@ export function TopicDesk({ subject, topic }: { subject: string; topic: string }
   return (
     <div className="study-shell">
       <header className="study-heading">
-        <nav aria-label="Breadcrumb">
-          <Link href="/learn/">Learn</Link>
-          <Link href={`/learn/${subject}/`}>{entry.title}</Link>
-          <span aria-current="page">{title}</span>
-        </nav>
+        <RouteBreadcrumbs pathname={`/learn/${subject}/${topic}`} current={title} />
         <p className="study-eyebrow">{entry.title} / Topic</p>
         <h1>{title}</h1>
         <p>{TOPIC_GOALS[`${subject}.${topic}`] ?? entry.goal}</p>

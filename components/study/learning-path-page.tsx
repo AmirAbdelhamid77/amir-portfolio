@@ -1,4 +1,4 @@
-import Link from "next/link";
+import { RouteBreadcrumbs } from "@/components/navigation/route-breadcrumbs";
 import { learningUnits } from "@/lib/study/learning-path";
 import { SUBJECTS } from "@/lib/study/taxonomy";
 import { PathUnits } from "./path-units";
@@ -16,10 +16,7 @@ export function LearningPathPage({ subject }: { subject: string }) {
   return (
     <div className="study-shell path-page">
       <header className="study-heading">
-        <nav aria-label="Breadcrumb">
-          <Link href="/learn/">Learn</Link>
-          <Link href={`/learn/${subject}/`}>{entry.title} topics</Link>
-        </nav>
+        <RouteBreadcrumbs pathname={`/learn/${subject}/path`} current="Learning path" />
         <p className="study-eyebrow">UNDERSTAND → PRACTISE → APPLY → EXPLAIN</p>
         <h1>{entry.title}: learning path</h1>
         <p>

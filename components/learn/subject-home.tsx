@@ -1,6 +1,8 @@
 import Link from "next/link";
 import { ArrowRight, ArrowUpRight } from "lucide-react";
 import type { ReactNode } from "react";
+import { RouteBreadcrumbs } from "@/components/navigation/route-breadcrumbs";
+import { SubjectTabs } from "@/components/navigation/subject-tabs";
 import { Container, Eyebrow, Stat } from "@/components/ui";
 import {
   curriculum,
@@ -105,16 +107,8 @@ export function SubjectHome({
     <>
       <section className="border-b border-border">
         <Container className="pb-10 pt-20 md:pb-12 md:pt-24">
-          <nav
-            aria-label="Breadcrumb"
-            className="flex items-center gap-1.5 text-xs text-muted-foreground"
-          >
-            <Link href="/learn" className="hover:text-foreground">
-              Learn
-            </Link>
-            <span aria-hidden="true">/</span>
-            <span className="text-foreground/70">{subject.title}</span>
-          </nav>
+          <RouteBreadcrumbs pathname={`/learn/${subject.id}`} current={subject.title} />
+          <SubjectTabs subject={subject.id} current="overview" className="mt-4" />
 
           <Eyebrow className="mt-6">Subject</Eyebrow>
           <h1 className="mt-4 max-w-3xl text-balance text-4xl font-medium tracking-tight md:text-5xl">

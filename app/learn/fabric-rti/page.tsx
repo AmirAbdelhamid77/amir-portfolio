@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { ArrowRight, BookOpen, ExternalLink, ShieldAlert } from "lucide-react";
+import { RouteBreadcrumbs } from "@/components/navigation/route-breadcrumbs";
 import { Container, Eyebrow } from "@/components/ui";
 import { Panel } from "@/components/fabric/ui";
 import { SourcesReview } from "@/components/sources-review";
@@ -53,16 +54,7 @@ export default function FabricRtiCoursePage() {
     <>
       <section className="border-b border-border">
         <Container className="pb-8 pt-20 md:pb-10 md:pt-24">
-          <nav
-            aria-label="Breadcrumb"
-            className="flex flex-wrap items-center gap-1.5 text-xs text-muted-foreground"
-          >
-            <Link href="/learn" className="hover:text-foreground">
-              Learn
-            </Link>
-            <span aria-hidden="true">/</span>
-            <span className="text-foreground/70">Fabric Real-Time Intelligence</span>
-          </nav>
+          <RouteBreadcrumbs pathname="/learn/fabric-rti" current="Fabric RTI" />
 
           <Eyebrow className="mt-6">Course · Microsoft Fabric · source-pinned</Eyebrow>
           <h1 className="mt-4 max-w-3xl text-balance text-3xl font-medium tracking-tight md:text-4xl">
