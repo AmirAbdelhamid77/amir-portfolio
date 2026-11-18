@@ -1083,6 +1083,33 @@
       "layer": "subject-context/2026-11-18",
       "attribution": "owner-approved-r3-navigation",
       "note": "The topic desk renders the declared breadcrumb. Topic content and evidence links are unchanged."
+    },
+    {
+      "path": "package.json",
+      "previousSha256": "a130ed1795edca632a2666b7ed53574f56aa12a8aaff25478923625f772a2d2f",
+      "sha256": "9e3a7a21a6a10c8d9285520b9d21554b4854c0cc11498a007d02ac3d375f9c7f",
+      "bytes": 4455,
+      "layer": "academy-test-all/2026-11-19",
+      "attribution": "owner-approved-r6-academy",
+      "note": "Adds test:academy for tests/academy/*.test.mjs and includes it in test:all. The e2e, smoke and host programs stay separate; no dependency, route or content script changed."
+    },
+    {
+      "path": "tests/academy/ingestion.test.mjs",
+      "previousSha256": "9b4e901edff645efb058176aa2fb62f877ea917103ccd8ed44229de0c22740e2",
+      "sha256": "1509618fbd519445b7bc565f46c0ff4085b33dabb1d8e77931017832db15fe08",
+      "bytes": 5664,
+      "layer": "academy-test-all/2026-11-19",
+      "attribution": "owner-approved-r6-academy",
+      "note": "The byte-preservation test follows exact reviewed transitions recorded in docs/dp600-academy/REVIEWED_TRANSITIONS.json, including the app/learn/[slug] -> [subject] rename. The baseline hashes are not rewritten and an unrecorded change still fails."
+    },
+    {
+      "path": "scripts/final-review-receipt.mjs",
+      "previousSha256": "a1443219ee92a45fd459189d9c2f51225ef46ce46a9fd140c16cedc8aa087be3",
+      "sha256": "c62c14b0a6f6997a9872503317279a70a8737bfd5f469ed7673b1cec65753c5f",
+      "bytes": 13482,
+      "layer": "academy-test-all/2026-11-19",
+      "attribution": "owner-approved-r6-academy",
+      "note": "The audited package.json expectation learns the R6 test:academy script and the updated test:all order. The audit still rejects any script change it does not name; no dependency, route or content rule changed."
     }
   ],
   "additions": [],

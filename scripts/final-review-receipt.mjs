@@ -93,7 +93,13 @@ export function finalReviewReceipt(root){
     'deploy:main':'wrangler deploy --config wrangler.gateway.jsonc',
     'deploy':'npm run build && npm run build:workers && npm run deploy:docs && npm run deploy:main',
     'corpus:provision':'node scripts/provision-fabric-corpus.mjs',
-    'test:all':'npm test && npm run test:statistics && npm run test:fabric && npm run test:content && npm run test:knowledge && npm run test:atlas && npm run test:fabric-corpus',
+    // Added by Phase 2b R6 (19 Nov 2026): the Academy unit suite existed but no
+    // suite script or aggregate command ran it. test:academy selects only the
+    // `.test.mjs` unit tests; e2e, smoke and host programs need a server or a
+    // browser and stay separate. No dependency or engine change; the FC
+    // package.json transition records it.
+    'test:academy':'node --experimental-strip-types --test "tests/academy/*.test.mjs"',
+    'test:all':'npm test && npm run test:statistics && npm run test:fabric && npm run test:academy && npm run test:content && npm run test:knowledge && npm run test:atlas && npm run test:fabric-corpus',
     'build:drafts':'node scripts/build-draft-banks.mjs','qa:drafts':'node scripts/qa-drafts.mjs','build:intake':'node scripts/build-intake-content.mjs',
     // Added by the authorized /learn curriculum wave (3 Nov 2026). Each is a
     // local read-only gate or inventory command; none adds a dependency.

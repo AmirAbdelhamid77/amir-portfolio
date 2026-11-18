@@ -209,6 +209,13 @@ export const REVIEWED_WAVES = [
     commits: ["c01f5127da818517529b8a353a838919c3622e4a"],
   },
   {
+    id: "academy-test-all",
+    title: "The Academy unit suite runs in test:all",
+    review:
+      "Reviewed by running the Academy unit suite, the full content suite and the aggregate order by hand. The suite records exact reviewed transitions for ten outdated baseline files, including the app/learn/[slug] -> [subject] rename; an unrecorded change still fails. test:all now runs test:academy between the Fabric and content suites. No Academy page, question, answer key, route or saved progress changed.",
+    commits: ["0baa2f0b6084df8044a3e6f2b52e591c9ac1c368"],
+  },
+  {
     id: "subject-context",
     title: "One declared route context for subjects, breadcrumbs and tabs",
     review:
@@ -293,6 +300,10 @@ const REVIEWED_REVISIONS = new Map([
   ["c01f5127da818517529b8a353a838919c3622e4a", [
     "app/search/search-with-fabric.tsx",
     "components/search/search-client.tsx",
+  ]],
+  ["0baa2f0b6084df8044a3e6f2b52e591c9ac1c368", [
+    "package.json",
+    "tests/academy/ingestion.test.mjs",
   ]],
   ["e4aaf8663e457f42596783282eab00087370a4b9", [
     "app/lab/dp-600/page.tsx",

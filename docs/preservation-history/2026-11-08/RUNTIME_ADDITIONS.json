@@ -1440,6 +1440,22 @@
       ]
     },
     {
+      "id": "academy-test-all",
+      "title": "The Academy unit suite runs in test:all",
+      "review": "Reviewed by running the Academy unit suite, the full content suite and the aggregate order by hand. The suite records exact reviewed transitions for ten outdated baseline files, including the app/learn/[slug] -> [subject] rename; an unrecorded change still fails. test:all now runs test:academy between the Fabric and content suites. No Academy page, question, answer key, route or saved progress changed.",
+      "commits": [
+        "0baa2f0b6084df8044a3e6f2b52e591c9ac1c368"
+      ],
+      "files": [
+        {
+          "path": "tests/content/test-all-coverage.test.mjs",
+          "bytes": 1720,
+          "sha256": "5df7e01e322dfc4974cceaf7227a9ce589e9b4cd40221c3de502f00d83c217ca",
+          "commit": "0baa2f0b6084df8044a3e6f2b52e591c9ac1c368"
+        }
+      ]
+    },
+    {
       "id": "subject-context",
       "title": "One declared route context for subjects, breadcrumbs and tabs",
       "review": "Reviewed in Chromium at 1280 and 375 in both themes: RTI pages show Learn / Microsoft Fabric / Fabric RTI; SQL 05 shows one Learn / SQL / Canonical path trail clear of the fixed header; Practice SQL with ?mode=question offers the self-check/exam choice and carries the intent into its return links; the DP-600 section strip is visible without opening details; statistics keeps its own navigation. 52 page loads, 408 checks, no console errors. Question IDs, answer keys, wording, routes and saved progress unchanged.",
@@ -1480,6 +1496,6 @@
       ]
     }
   ],
-  "review": "Owner-approved R3: one declared route context for subject navigation and breadcrumbs. Browser review covered 52 page loads and 408 checks at 1280 and 375 in both themes; the review pinned the new runtime files and the reviewed revisions of existing files.",
-  "previousReceiptSha256": "5888667236ae391d7be3c536b6f08177d90cfd95d7f8b1d65f8527e2c8571955"
+  "review": "Owner-approved R6: the Academy unit suite now runs in test:all and its byte-preservation test follows exact reviewed transitions, including the learn segment rename. The suite passed after the receipt update; no Academy content changed.",
+  "previousReceiptSha256": "310584cc5f53b977cfb9591827e5cc1f0fc26f98fcbe21ca85b7591177eb08ce"
 }
