@@ -17,7 +17,7 @@ import { ArrowRight, ArrowUpRight } from "lucide-react";
 import type { Insight } from "@/lib/knowledge/insights";
 import type { StageModel } from "@/lib/knowledge/stage-model";
 import {
-  COVERAGE_LIMITS,
+  VISITOR_COVERAGE_LIMITS,
   closingAction,
   closingClaims,
   closingIdea,
@@ -244,7 +244,7 @@ export function StageClosing({
                 </dl>
                 <h4>Limits</h4>
                 <ul>
-                  {COVERAGE_LIMITS.map((limit) => (
+                  {VISITOR_COVERAGE_LIMITS.map((limit) => (
                     <li key={limit}>{limit}</li>
                   ))}
                 </ul>

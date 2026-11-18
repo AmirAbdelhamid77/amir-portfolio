@@ -36,14 +36,14 @@ test("primary Practice catalogue renders the ungraded/restricted collections", (
   assert.match(read("app/practice/catalogue/page.tsx"), /StudyDirectory practice/);
   assert.match(read("components/study/directory.tsx"), /practice && !subject \? <CollectionShelf context="practice"/);
   const rows = collectionDestinations("practice");
-  assert.ok(rows.some(row => row.href === "/practice/draft-banks/" && /ungraded.*metadata only/.test(row.status)));
+  assert.ok(rows.some(row => row.href === "/practice/draft-banks/" && /not yet reviewed.*metadata only/.test(row.status)));
   assert.ok(rows.every(row => !/PRIVATE_QA|intake-private/.test(row.href)));
 });
 test("Learn, Fabric and Atlas carry contextual discovery without changing semantic publication", () => {
   assert.match(read("components/learn/curriculum-home.tsx"), /CollectionShelf context="learn"/);
   assert.match(read("app/learn/fabric/page.tsx"), /CollectionShelf context="fabric"/);
   assert.match(read("app/learn/dp-600/atlas/page.tsx"), /CollectionShelf context="atlas"/);
-  assert.ok(collectionDestinations("atlas").every(row => /review|hold/i.test(row.status)));
+  assert.ok(collectionDestinations("atlas").every(row => /review|hold|not checked/i.test(row.status)));
 });
 test("labs and original visualization navigation use their actual destinations", () => {
   const home = read("components/learn/curriculum-home.tsx");

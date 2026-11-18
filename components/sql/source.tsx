@@ -6,14 +6,32 @@ export type SqlBlock={type:string;text?:string;level?:number;anchor?:string;lang
 export function sourceHref(url:string){
  if(!/^(?:https?:\/\/|\/[^/]|#)/i.test(url))return null;
  const id=url.match(/(?:notion\.com\/p\/|notion\.so\/)([a-f0-9-]{32,36})/i)?.[1]?.replace(/-/g,'');
+ // A Notion page outside the imported set has no local destination. Returning
+ // the external URL would put a notion.com link in visitor copy, so drop it.
+ if(id)return index.pages.find(p=>p.id===id)?.href??null;
  // A Notion block fragment has no exported local anchor mapping. Keep the
  // original deep link instead of silently dropping the requested block.
  if(url.includes('#'))return url;
- return index.pages.find(p=>p.id===id)?.href??url;
+ return url;
+}
+const NOTION_PAGE_TAG=/\\?<page\b[\s\S]*?\\?<\/page>/gi;
+function localPageTitle(url:string){
+ const id=url.match(/(?:notion\.com\/p\/|notion\.so\/)([a-f0-9-]{32,36})/i)?.[1]?.replace(/-/g,'');
+ return id?index.pages.find(p=>p.id===id)?.title:undefined;
+}
+function mentionText(match:string){
+ const url=match.match(/url="([^"]+)"/i)?.[1]??'';
+ return localPageTitle(url)??'the related page';
+}
+function pageTagText(match:string){
+ const inner=match.replace(/^[\s\S]*?>/,'').replace(/\\?<\/page>$/i,'').trim();
+ const tail=inner.includes(')')?inner.slice(inner.lastIndexOf(')')+1).trim():inner;
+ return tail&&!/^https?:/i.test(tail)?tail:'the related module';
 }
 export function SqlInline({text}:{text:string}){
- const tokens=text.split(/(<code>[\s\S]*?<\/code>|<b>[\s\S]*?<\/b>|<i>[\s\S]*?<\/i>|\*\*[^*]+\*\*|`[^`]+`|\[[^\]]+\]\(https?:\/\/[^\s)]+\))/g);
- return <>{tokens.map((t,i)=>{let node:ReactNode=t.replace(/\\([_*])/g,'$1');if(t.startsWith('<code>'))node=<code dir="ltr">{t.slice(6,-7)}</code>;else if(t.startsWith('<b>'))node=<strong><SqlInline text={t.slice(3,-4)}/></strong>;else if(t.startsWith('<i>'))node=<em><SqlInline text={t.slice(3,-4)}/></em>;else if(t.startsWith('**'))node=<strong>{t.slice(2,-2)}</strong>;else if(t.startsWith('`'))node=<code dir="ltr">{t.slice(1,-1)}</code>;else {const m=t.match(/^\[([^\]]+)\]\((https?:\/\/[^\s)]+)\)$/);if(m){const href=sourceHref(m[2]);node=href?<a href={href}>{m[1]}</a>:m[1];}}return <Fragment key={i}>{node}</Fragment>;})}</>;
+ const cleaned=text.replace(/\\?<mention\b[^>]*\/?>/gi,mentionText).replace(/\\?<\/mention>/gi,'').replace(NOTION_PAGE_TAG,pageTagText).replace(/\\?<\/?page\b[^>]*>/gi,'').replace(/\s+/g,' ').trim();
+ const tokens=cleaned.split(/(<code>[\s\S]*?<\/code>|<b>[\s\S]*?<\/b>|<i>[\s\S]*?<\/i>|\*\*[^*]+\*\*|`[^`]+`|\[[^\]]+\]\(https?:\/\/[^\s)]+\))/g);
+ return <>{tokens.map((t,i)=>{let node:ReactNode=t.replace(/\\([_*])/g,'$1');if(t.startsWith('<code>'))node=<code dir="ltr">{t.slice(6,-7)}</code>;else if(t.startsWith('<b>'))node=<strong><SqlInline text={t.slice(3,-4)}/></strong>;else if(t.startsWith('<i>'))node=<em><SqlInline text={t.slice(3,-4)}/></em>;else if(t.startsWith('**'))node=<strong>{t.slice(2,-2)}</strong>;else if(t.startsWith('`'))node=<code dir="ltr">{t.slice(1,-1)}</code>;else {const m=t.match(/^\[([^\]]+)\]\((https?:\/\/[^\s)]+)\)$/);if(m){const href=sourceHref(m[2]);const local=href?index.pages.find(p=>p.href===href)?.title:undefined;const label=/^https?:\/\//i.test(m[1])?(local??'the related module'):m[1];node=href?<a href={href}>{label}</a>:label;}}return <Fragment key={i}>{node}</Fragment>;})}</>;
 }
 const language=(text:string)=>/[\u0600-\u06ff]/.test(text)?'ar':undefined;
 export function SqlSource({blocks}:{blocks:SqlBlock[]}){return <div className="sql-source">{blocks.map((b,i)=>{

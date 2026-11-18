@@ -12,6 +12,8 @@ import {
 } from "lucide-react";
 import { Container, Eyebrow } from "@/components/ui";
 import { Panel } from "@/components/fabric/ui";
+import { SourcesReview } from "@/components/sources-review";
+import { plainStatus, plainStatusLead } from "@/lib/copy/status";
 import {
   RTI_COURSE,
   RTI_LESSONS,
@@ -116,7 +118,7 @@ export default async function RtiLessonPage({ params }: Params) {
               </span>
             ))}
             <span className="rounded-full bg-warning/15 px-2.5 py-1 font-mono text-[10px] uppercase tracking-[0.14em] text-foreground">
-              {lesson.verification.split(";")[0]}
+              {plainStatusLead(lesson.verification)}
             </span>
           </div>
         </Container>
@@ -158,7 +160,7 @@ export default async function RtiLessonPage({ params }: Params) {
             <Panel tone="muted" title="What this lesson cannot show" description="Limits, stated before you start.">
               <p className="text-sm leading-7 text-muted-foreground">{lesson.limitation}</p>
               <p className="mt-3 font-mono text-xs leading-6 text-foreground">
-                Verification: {lesson.verification}
+                What was run: {plainStatusLead(lesson.verification)}
               </p>
             </Panel>
           </div>
@@ -211,7 +213,7 @@ export default async function RtiLessonPage({ params }: Params) {
                     </div>
                   </dl>
                   <p className="mt-3 font-mono text-xs leading-6 text-foreground">
-                    {lab.validation_status}
+                    {plainStatusLead(lab.validation_status)}
                   </p>
                   <ul className="mt-3 space-y-1.5">
                     {lab.source_evidence.map((evidence: {canonical_url:string;sha256:string;line?:number;source_path?:string;locator_term?:string;artifact_id?:string}) => (
@@ -359,6 +361,14 @@ export default async function RtiLessonPage({ params }: Params) {
               </Link>
             )}
           </nav>
+
+          <SourcesReview>
+            <p>Full recorded validation note: {plainStatus(lesson.verification)}</p>
+            <p>
+              Evidence links above point at the pinned source records. The hashes identify those
+              records; they are not a claim that the step was run on this site.
+            </p>
+          </SourcesReview>
         </Container>
       </section>
     </>

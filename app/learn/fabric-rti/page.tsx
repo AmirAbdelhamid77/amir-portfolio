@@ -3,6 +3,8 @@ import Link from "next/link";
 import { ArrowRight, BookOpen, ExternalLink, ShieldAlert } from "lucide-react";
 import { Container, Eyebrow } from "@/components/ui";
 import { Panel } from "@/components/fabric/ui";
+import { SourcesReview } from "@/components/sources-review";
+import { plainStatus } from "@/lib/copy/status";
 import {
   RTI_COURSE,
   RTI_LESSONS,
@@ -18,7 +20,7 @@ import {
 export const metadata: Metadata = {
   title: "Fabric Real-Time Intelligence — authentic-source lessons",
   description:
-    "Eight lessons built over 17 pinned Microsoft Fabric real-time lab blueprints and eight measured datasets: typed ingestion, Activator rules, digital twins, KQL anomalies, industrial data grain and streaming internals — with every hold and NOT_RUN status kept visible.",
+    "Eight lessons built over 17 pinned Microsoft Fabric real-time lab blueprints and eight measured datasets: typed ingestion, Activator rules, digital twins, KQL anomalies, industrial data grain and streaming internals — with every hold stated and no lab run here.",
   alternates: { canonical: RTI_COURSE.href },
   openGraph: {
     title: "Fabric Real-Time Intelligence — authentic-source lessons",
@@ -75,7 +77,7 @@ export default function FabricRtiCoursePage() {
               { value: String(RTI_LESSONS.length), label: "lessons" },
               { value: String(RTI_COURSE.counts.blueprintsShipped), label: "lab blueprints" },
               { value: String(RTI_COURSE.counts.repositoriesCleared), label: "source repos" },
-              { value: "NOT_RUN", label: "runtime status" },
+              { value: "0", label: "labs run here" },
             ].map((stat) => (
               <div key={stat.label} className="bg-card/70 p-4">
                 <p className="font-mono text-2xl font-medium tracking-tight">{stat.value}</p>
@@ -95,10 +97,9 @@ export default function FabricRtiCoursePage() {
           >
             <p className="text-sm leading-7 text-muted-foreground">
               Every lesson wraps one or more of the package&apos;s lab blueprints and keeps that
-              blueprint&apos;s id and status. The package arrived as{" "}
-              <strong className="font-medium text-foreground">{RTI_COURSE.status}</strong> with
-              runtime <strong className="font-medium text-foreground">{RTI_COURSE.runtimeStatus}</strong>,
-              and both travel with the content.
+              blueprint&apos;s id and its recorded limits. The package arrived complete, with its
+              holds stated openly, and <strong className="font-medium text-foreground">no lab in it
+              has been run from this site</strong>; both facts travel with the content.
             </p>
             <p className="mt-3 text-sm leading-7 text-muted-foreground">{RTI_COURSE.lens}</p>
             <div className="mt-4 flex flex-wrap gap-4">
@@ -229,6 +230,19 @@ export default function FabricRtiCoursePage() {
               </a>
             </div>
           </Panel>
+
+          <SourcesReview>
+            <p>
+              The lessons are written over a pinned package of lab blueprints and measured datasets.
+              Its recorded package status: {plainStatus(RTI_COURSE.status)}. Recorded runtime:{" "}
+              {plainStatus(RTI_COURSE.runtimeStatus)}.
+            </p>
+            <p>
+              Data origin classes come from the source registry unchanged. Each blueprint&apos;s
+              validation note is reproduced from the record; the raw status codes stay in the
+              repository rather than in the lesson.
+            </p>
+          </SourcesReview>
         </Container>
       </section>
     </>

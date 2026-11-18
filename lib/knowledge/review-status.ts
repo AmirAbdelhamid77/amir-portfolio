@@ -2,7 +2,7 @@
 // The value is a presentation of the stored status, never a promotion: the
 // record keeps `reviewStatus` verbatim and this module only expands it.
 export const REVIEW_STATUS_LABEL: Record<string, string> = {
-  draft: "Draft — unverified",
+  draft: "Draft — not yet reviewed",
   technical_review: "Technical review",
   reviewed: "Reviewed",
   published: "Published",

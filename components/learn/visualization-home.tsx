@@ -122,7 +122,7 @@ export function VisualizationHome() {
           <p className="mt-5 max-w-2xl text-sm leading-7 text-muted-foreground sm:text-base sm:leading-8">
             A ten-chapter path from the analytical question to the encoding, the
             scale, the dashboard, and the sentence you would say out loud in a
-            review. Every source page from the owner&apos;s Notion export is
+            review. Every source page from the original course reference is
             published here, with the gaps labelled rather than hidden.
           </p>
 

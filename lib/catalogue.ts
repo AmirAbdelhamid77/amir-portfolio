@@ -109,7 +109,7 @@ export const LEARNING_ENTRIES: CatalogueEntry[] = [
     practice: `Fabric RTI question set in the Data Lab`,
     languages: ["English"],
     linkLabel: "Start the Fabric RTI course",
-    caveat: "Source-pinned and never executed by Hansa — runtime status NOT_RUN; one lab is withheld under a licence hold.",
+    caveat: "Source-pinned and never executed by Hansa — no lab has been run here; one lab is withheld under a licence hold.",
   },
   {
     id: "chart-labs",
@@ -259,7 +259,7 @@ export const PRACTICE_ENTRIES: CatalogueEntry[] = [
     title: "Fabric RTI & data provenance",
     href: "/lab/fabric-rti/",
     purpose:
-      "Origin classes, measurement grain, virtual channels, licensing holds and what PASS_DATA_PROFILE and NOT_RUN actually certify.",
+      "Origin classes, measurement grain, virtual channels, licensing holds and what a profile of the source data does and does not certify.",
     inside: "10 questions · 10 minutes · 70% pass mark",
     level: "Intermediate",
     prerequisites: "The Fabric RTI lessons, or hands-on experience reading a dataset's licence and profile.",

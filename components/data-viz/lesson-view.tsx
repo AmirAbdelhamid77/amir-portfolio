@@ -376,7 +376,7 @@ export function LessonView({ lesson }: { lesson: Lesson }) {
             <Quote className="h-3 w-3 shrink-0" aria-hidden="true" />
             {editorial
               ? "Editorial lesson — new writing, clearly separated from the imported corpus."
-              : "Transcribed from the owner's local Notion export. Formatting is rebuilt; wording is preserved."}
+              : "Transcribed from the author's own course source. Formatting is rebuilt; wording is preserved."}
           </p>
         </div>
       </Container>

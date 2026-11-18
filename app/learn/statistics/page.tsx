@@ -27,6 +27,7 @@ import { SOURCE_STATS } from "@/lib/statistics/source";
 import { FLAGSHIP } from "@/lib/statistics/flagship";
 import { formatNumber, formatPValue } from "@/lib/statistics/math";
 import { ConceptSearch } from "@/components/statistics/concept-search";
+import { SourcesReview } from "@/components/sources-review";
 import { EvidenceJourney } from "@/components/statistics/exhibits/interactive";
 import { FormulaSpotlight } from "@/components/statistics/exhibits/static";
 import { StatisticsPageHeader } from "@/components/statistics/page-header";
@@ -81,7 +82,7 @@ export default function StatisticsHubPage() {
     "@type": "Course",
     name: "Comprehensive Statistics Reference",
     description:
-      "A visual-first statistics reference reconstructed from the owner's Notion export, with interactive labs and verified computations.",
+      "A visual-first statistics reference rebuilt from the author's own source page, with interactive labs and verified computations.",
     provider: { "@type": "Person", name: SITE.name, url: SITE.url },
     isAccessibleForFree: true,
     inLanguage: ["en", "ar"],
@@ -130,14 +131,10 @@ export default function StatisticsHubPage() {
                 <dt>Source formulas</dt>
                 <dd className="font-mono text-foreground">{SOURCE_STATS.formulas}</dd>
               </div>
-              <div className="flex justify-between gap-2">
-                <dt>Export SHA-256</dt>
-                <dd className="font-mono text-[9px] text-foreground">{SOURCE_STATS.sha256.slice(0, 12)}…</dd>
-              </div>
             </dl>
             <p className="mt-2 border-t border-border pt-2 text-[10px] leading-4 text-muted-foreground">
               Subpages and figures were not present as separate files; the 43 sections live inside this one export.
-              Nothing from a sibling Notion hub was merged in.
+              Nothing from a companion source hub was merged in.
             </p>
           </div>
         }
@@ -153,6 +150,17 @@ export default function StatisticsHubPage() {
             <Stat value={String(JOURNEYS.length)} label="Journeys" />
           </div>
         </div>
+        <SourcesReview>
+          <p>
+            Rebuilt from one exported reference page. Its file fingerprint is{" "}
+            <span className="break-all font-mono">{SOURCE_STATS.sha256}</span>.
+          </p>
+          <p>
+            Section wording, headings and formulas keep the original. Corrections are shown beside
+            the original value rather than replacing it, and the interactive labs compute in your
+            browser from the stated model.
+          </p>
+        </SourcesReview>
       </Container>
 
       <section className="py-10 md:py-14">

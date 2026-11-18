@@ -61,9 +61,6 @@ export default function AboutPage() {
                 <span className="flex h-24 w-24 items-center justify-center rounded-[28px] border border-white/50 bg-background/70 font-mono text-3xl font-medium tracking-tight shadow-sm backdrop-blur">
                   AA
                 </span>
-                <p className="max-w-[200px] text-center font-mono text-[10px] uppercase leading-5 tracking-[0.18em] text-foreground/60">
-                  Portrait pending — the gradient is honest, the face would be better
-                </p>
               </div>
             </div>
             <dl className="mt-4 grid grid-cols-2 gap-px overflow-hidden rounded-2xl border border-border bg-border text-xs">

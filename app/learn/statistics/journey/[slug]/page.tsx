@@ -204,7 +204,7 @@ export default async function JourneyPage({ params }: Params) {
           </nav>
 
           <p className="mt-6 text-[10px] leading-5 text-muted-foreground">
-            Source wording is transcribed from the owner&apos;s local Notion export. New objectives, misconceptions,
+            Source wording is transcribed from the author&apos;s own reference page. New objectives, misconceptions,
             visual explanations and corrections are this site&apos;s work and are labelled as such.
           </p>
         </div>

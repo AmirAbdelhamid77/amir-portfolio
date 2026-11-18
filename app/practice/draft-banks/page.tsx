@@ -10,7 +10,7 @@ import { getR18Bank, getPl300Index } from "@/lib/recovery/collections";
 export const metadata: Metadata = {
   title: "Draft banks — recovered practice content",
   description:
-    "The DP-600 R18 draft bank (222 ungraded questions) and the PL-300 V88 restricted index (1,285 records, rights review pending).",
+    "The DP-600 draft bank (222 ungraded questions) and the PL-300 restricted index (1,285 records, not available yet).",
   robots: { index: false, follow: true },
   alternates: { canonical: "/practice/draft-banks/" },
 };
@@ -46,12 +46,12 @@ export default function DraftBanksPage() {
 
       <section className="mt-10">
         <h2 className="text-lg font-medium tracking-tight">
-          DP-600 R18 draft bank{" "}
+          DP-600 draft bank{" "}
           <span className="text-sm font-normal text-muted-foreground">({r18.questions.length} questions, draft)</span>
         </h2>
         <p className="mt-1 text-sm text-muted-foreground">
-          {r18.meta?.title ?? "DP-600"} — image-free, ungraded learner candidates. The scientific review recorded in the
-          source package has not been re-run here.
+          {r18.meta?.title ?? "DP-600"} — image-free, ungraded learner candidates. The checks recorded
+          in the source package have not been repeated here.
         </p>
         {[...byCase.entries()].map(([caseStudy, questions]) => (
           <details key={caseStudy} className="mt-4 rounded-2xl border border-border bg-card/40 px-5 py-4">
@@ -85,14 +85,14 @@ export default function DraftBanksPage() {
 
       <section className="mt-12">
         <h2 className="text-lg font-medium tracking-tight">
-          PL-300 V88 — restricted index{" "}
+          PL-300 — restricted index{" "}
           <span className="text-sm font-normal text-muted-foreground">({pl300.records.length} records)</span>
         </h2>
         <div className="mt-2 rounded-2xl border border-amber-500/30 bg-amber-500/[0.06] p-4 text-sm leading-6">
           <p>
-            <strong className="text-foreground">Restricted — rights review pending.</strong> These{" "}
+            <strong className="text-foreground">Restricted — not available yet.</strong> These{" "}
             {pl300.records.length} questions are anchored to and quote third-party YouTube video transcripts. Their
-            redistribution rights are unresolved, so <strong className="text-foreground">only this metadata index is
+            redistribution rights are not settled, so <strong className="text-foreground">only this metadata index is
             published</strong>; the question bytes remain in authorized local storage
             (`content/recovery/` is intentionally not populated with them — the bank stays at its source package).
           </p>

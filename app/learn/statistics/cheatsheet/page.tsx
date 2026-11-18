@@ -161,7 +161,7 @@ export default function CheatSheetPage() {
               ))}
             </div>
             <p className="mt-2 text-[9px] leading-4 text-muted-foreground">
-              Source: the owner&apos;s local Notion export (43 sections, one HTML file, no figures). This field guide is
+              Source: the author&apos;s own reference page (43 sections, one file, no figures). This field guide is
               this site&apos;s teaching layer; formulas marked Extension are supplemental. The Poisson λ=20 tail is
               corrected to 15.68% in §10.
             </p>

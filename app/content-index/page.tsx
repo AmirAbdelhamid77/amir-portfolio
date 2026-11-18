@@ -78,10 +78,10 @@ export default function ContentIndexPage() {
       status: "Draft — unverified",
       count: `${patterns.length} lessons`,
       route: "/patterns/",
-      note: "Independent review package; owner-derived explanations published, cited sources attributed, public-rights review pending.",
+      note: "Independent review package; explanations written for this site, with cited sources attributed; independent review is not complete.",
     },
     {
-      title: "DP-600 R18 draft bank",
+      title: "DP-600 draft bank",
       status: "Draft — ungraded",
       count: `${r18.questions.length} questions`,
       route: "/practice/draft-banks/",
@@ -89,7 +89,7 @@ export default function ContentIndexPage() {
     },
     {
       title: "PL-300 V88 bank",
-      status: "Restricted — rights review pending",
+      status: "Restricted — not available yet",
       count: `${pl300.records.length} records indexed`,
       route: "/practice/draft-banks/",
       note: "Third-party-transcript-anchored; metadata indexed only, bytes in authorized local storage.",
@@ -106,11 +106,11 @@ export default function ContentIndexPage() {
       status: "Published unverified",
       count: "24 documents",
       route: "/work/storytelling/",
-      note: "12-part course, framework selector, story atlas, nine case studies + 24 teaching figures, served verbatim.",
+      note: "12-part course, framework selector, story atlas, nine case studies + 24 teaching figures, shown exactly as recovered.",
     },
     {
       title: "DP-600 / PL-300 Study Hub",
-      status: "Published verbatim",
+      status: "Recovered, unchanged",
       count: "1 standalone app",
       route: "/study-hub/dp600-pl300-study-hub.html",
       note: "The self-contained study application, recovered byte-for-byte.",
@@ -179,8 +179,8 @@ export default function ContentIndexPage() {
           Existing draft and restricted labels remain in force. These tasks describe unfinished work, not automatic publication approvals.
         </p>
         <ul className="mt-4 list-disc space-y-3 pl-5 text-sm leading-7 text-muted-foreground">
-          <li>Factual and Arabic-language review of insight drafts; independent review of patterns, storytelling and R18 learner candidates.</li>
-          <li>PL-300 transcript and question rights review; restricted question bytes and private QA remain private.</li>
+          <li>Factual and Arabic-language checking of insight drafts; independent review of patterns, storytelling and the draft-bank learner candidates.</li>
+          <li>PL-300 transcript and question permissions; restricted question bytes and private QA remain private.</li>
           <li>Human review of Atlas concept mappings; resource records do not automatically become semantic edges.</li>
           <li>Pin missing documentation dependencies and resolve each separate rights hold before recompilation.</li>
           <li>Build and validate RTI environments; a blueprint or source outline is not an executed lab.</li>

@@ -54,6 +54,20 @@ export const COVERAGE_LIMITS = [
   "Extraction defects found during review are recorded as unresolved gaps, not repaired by inference.",
 ] as const;
 
+/**
+ * The same four limits in visitor words. `COVERAGE_LIMITS` stays byte-identical
+ * to the pinned semantic ledger so the parity test keeps holding; the closing
+ * pages render this display-time translation, which swaps the internal
+ * "rights review" phrase for a plain one and changes no claim.
+ */
+export const VISITOR_COVERAGE_LIMITS: readonly string[] = COVERAGE_LIMITS.map(
+  (limit) =>
+    limit ===
+    "Agent technical review is not human publication, scientific or rights review."
+      ? "An agent's technical check is not human publication, scientific validation or a permissions clearance."
+      : limit,
+);
+
 export type ClosingIdea = {
   /** The edition's reviewed takeaway, verbatim. */
   quote: string;

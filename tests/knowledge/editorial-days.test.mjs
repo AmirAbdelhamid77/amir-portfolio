@@ -70,7 +70,7 @@ test("the six additions are the reviewed local drafts named by the placement led
       assert.equal(record.language, "ar");
       assert.equal(insight.date, placement.date);
       assert.equal(insight.reviewStatus, "draft");
-      assert.equal(insight.statusLabel, "Draft — unverified");
+      assert.equal(insight.statusLabel, "Draft — not yet reviewed");
       assert.equal(insight.language, "ar");
       assert.equal(insight.sourceKind, "local");
       assert.equal(insight.sourceUrl, record.lessonHref);

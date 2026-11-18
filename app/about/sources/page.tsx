@@ -98,6 +98,51 @@ export default function SourcesPage() {
 
       <section className="py-14 md:py-20">
         <Container>
+          <h2 className="text-2xl font-medium tracking-tight">What the labels mean</h2>
+          <p className="mt-3 max-w-2xl text-sm leading-7 text-muted-foreground">
+            A label appears only when it changes what you should do with the material. Everything
+            else about a source lives in the page&apos;s own <strong className="font-medium text-foreground">Sources
+            &amp; review</strong> disclosure.
+          </p>
+          <dl className="mt-8 grid gap-6 md:grid-cols-2">
+            <div>
+              <dt className="font-mono text-xs uppercase tracking-[0.12em] text-foreground">
+                Draft — not yet reviewed
+              </dt>
+              <dd className="mt-2 text-sm leading-7 text-muted-foreground">
+                Readable material that no independent check has covered. Use it to explore, not as a
+                reference you would cite.
+              </dd>
+            </div>
+            <div>
+              <dt className="font-mono text-xs uppercase tracking-[0.12em] text-foreground">Not run</dt>
+              <dd className="mt-2 text-sm leading-7 text-muted-foreground">
+                A walkthrough reproduces the steps a source recorded. No environment was built or
+                executed here, so any result it describes belongs to the source, not to this site.
+              </dd>
+            </div>
+            <div>
+              <dt className="font-mono text-xs uppercase tracking-[0.12em] text-foreground">Restricted</dt>
+              <dd className="mt-2 text-sm leading-7 text-muted-foreground">
+                The material exists, but its redistribution is not settled. You see a metadata index
+                only, never the question text.
+              </dd>
+            </div>
+            <div>
+              <dt className="font-mono text-xs uppercase tracking-[0.12em] text-foreground">
+                Recovered, unchanged
+              </dt>
+              <dd className="mt-2 text-sm leading-7 text-muted-foreground">
+                Republished as it was recovered, including its mistakes. Treat it as a historical
+                record, not as a corrected edition.
+              </dd>
+            </div>
+          </dl>
+        </Container>
+      </section>
+
+      <section className="py-14 md:py-20">
+        <Container>
           <h2 className="text-lg font-medium tracking-tight">Maintainer index</h2>
           <p className="mt-2 max-w-2xl text-sm leading-7 text-muted-foreground">
             The working records behind the published pages. They are not part of the learning path.

@@ -38,6 +38,17 @@ const BANNED = [
   "publication state",
   "REVIEW_REQUIRED",
   "NO_GO",
+  "NOT_RUN",
+  "rights review",
+  "rights-review",
+  "Export SHA-256",
+  "owner's Notion export",
+  "owner’s Notion export",
+  "Notion export",
+  "app.notion.com",
+  "PORTRAIT PENDING",
+  "Portrait pending",
+  "published verbatim",
   "no automatic mastery",
   "prerequisite lock",
   "pedagogical inference",
@@ -51,6 +62,20 @@ const BANNED = [
 ];
 
 const EXTENSIONS = new Set([".ts", ".tsx"]);
+
+/**
+ * Review-round codes ("R10", "R18") are matched case-sensitively: lowercase
+ * identifiers such as `r18` are code, not copy. R2 (the statistic) is excluded.
+ */
+const BANNED_PATTERNS = [/\bR1[0-9]\b/g];
+
+/**
+ * The Practice landing page is frozen byte-for-byte by the immutable
+ * content-recovery transition receipt, so its draft-bank card still names the
+ * bank revision. One label is exempt from the review-code pattern; every other
+ * check on that page stays active.
+ */
+const FROZEN_CODE_LABELS = ["DP-600 R18 draft bank"];
 
 function* files(directory) {
   for (const entry of readdirSync(directory, { withFileTypes: true })) {
@@ -79,6 +104,20 @@ for (const root of ROOTS) {
             file: relative,
             line: index + 1,
             phrase,
+            text: trimmed.slice(0, 160),
+          });
+        }
+      }
+      for (const pattern of BANNED_PATTERNS) {
+        const scannable = FROZEN_CODE_LABELS.reduce(
+          (value, label) => value.replaceAll(label, ""),
+          line,
+        );
+        for (const match of scannable.matchAll(pattern)) {
+          findings.push({
+            file: relative,
+            line: index + 1,
+            phrase: match[0],
             text: trimmed.slice(0, 160),
           });
         }

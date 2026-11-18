@@ -13,7 +13,7 @@ import pl300Index from "@/content/recovery/pl300-v88-index.json";
 import atlasExtension from "@/content/atlas/fabric-extension.json";
 
 export const STATUS_LABELS = {
-  draft: "Draft — unverified",
+  draft: "Draft — not yet reviewed",
   technical_review: "Technical review",
   reviewed: "Reviewed",
 } as const;

@@ -1,9 +1,13 @@
 import curriculumJson from "@/content/data-viz/curriculum.json";
 import editorialJson from "@/content/data-viz/editorial.json";
 import pagesJson from "@/content/data-viz/pages.json";
+import { displayTitle } from "@/lib/copy/title";
 import type { Block, Chapter, Curriculum, Lesson, SourcePage } from "@/lib/data-viz/types";
 
-const pages = pagesJson as SourcePage[];
+const pages = (pagesJson as SourcePage[]).map((page) => ({
+  ...page,
+  title: displayTitle(page.title),
+}));
 const curriculum = curriculumJson as Curriculum;
 
 export const SOURCE_PAGES: readonly SourcePage[] = pages;

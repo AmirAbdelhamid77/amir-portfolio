@@ -48,9 +48,9 @@ export default function StorytellingPage() {
       <div className="mt-4 rounded-2xl border border-border bg-card/60 p-4 text-sm leading-6 text-muted-foreground">
         <p>
           <strong className="text-foreground">{DOCS.length} documents</strong> — the 12-part master course, the framework
-          selector, the story atlas and nine applied case studies — recovered verbatim from the Notion export and served
-          as authored, with the teaching figures alongside. Published unverified: the factual claims inside are the
-          author&apos;s own and have not been through editorial review.
+          selector, the story atlas and nine applied case studies — recovered unchanged from the author&apos;s own source
+          and served as written, with the teaching figures alongside. These are the author&apos;s own claims: they have
+          not been through independent editorial checking.
         </p>
       </div>
       {groups.map((group) => (

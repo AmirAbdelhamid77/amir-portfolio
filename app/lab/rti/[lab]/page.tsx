@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { getRtiBlueprints } from "@/lib/recovery/collections";
+import { plainStatusDeep } from "@/lib/copy/status";
 
 // Draft RTI lab pages, built from the recovered LAB_BLUEPRINTS.json (the
 // authentic source milestone). Each of the eight Knowledge Graph units below
@@ -31,7 +32,8 @@ export const dynamicParams = false;
 
 function blueprintFor(slug: string) {
   const wanted = SLUG_TO_LAB[slug];
-  return getRtiBlueprints().find((blueprint) => blueprint.title === wanted) ?? null;
+  const found = getRtiBlueprints().find((blueprint) => blueprint.title === wanted) ?? null;
+  return found ? plainStatusDeep(found) : null;
 }
 
 export async function generateMetadata({ params }: { params: Promise<{ lab: string }> }): Promise<Metadata> {
@@ -70,8 +72,8 @@ export default async function RtiLabPage({ params }: { params: Promise<{ lab: st
       <div className="mt-4 rounded-2xl border border-amber-500/30 bg-amber-500/[0.06] p-4 text-sm leading-6">
         <p>
           <strong className="text-foreground">Draft lab blueprint.</strong> This page publishes the recovered blueprint
-          for the lab — the hands-on environment has not been built, and the blueprint&apos;s own validation status is
-          published verbatim below. Nothing here has been validated end to end.
+          for the lab — the hands-on environment has not been built, and the blueprint&apos;s own validation note is
+          reproduced unchanged below. Nothing here has been validated end to end.
         </p>
       </div>
 

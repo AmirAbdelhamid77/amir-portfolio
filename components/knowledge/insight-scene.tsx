@@ -38,7 +38,7 @@ export function InsightScene({
   const answerId = `${insight.id}-reasoning`;
   const sourceId = `${insight.id}-source`;
   // The dated editions keep their accepted "Preview edition" badge; bank
-  // records carry their stored status label ("Draft — unverified").
+  // records carry the shared status label ("Draft — not yet reviewed").
   const statusBadge =
     insight.statusLabel ??
     (insight.reviewStatus === "technical_review"

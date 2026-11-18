@@ -1,4 +1,5 @@
 import { z } from "zod";
+import { plainStatusDeep } from "@/lib/copy/status";
 import sqlBank from "@/content/exams/sql.json";
 import powerBiBank from "@/content/exams/power-bi.json";
 import excelBank from "@/content/exams/excel.json";
@@ -106,7 +107,7 @@ const RAW_BANKS = [
   fabricRtiBank,
 ];
 
-export const EXAMS: Exam[] = RAW_BANKS.map((bank) => examSchema.parse(bank));
+export const EXAMS: Exam[] = RAW_BANKS.map((bank) => plainStatusDeep(examSchema.parse(bank)));
 
 export const EXAM_SUMMARIES = EXAMS.map((exam) => ({
   slug: exam.slug,

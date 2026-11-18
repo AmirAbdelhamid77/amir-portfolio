@@ -143,7 +143,7 @@ const PROGRAMMES: readonly CurriculumProgramme[] = [
     id: "fabric-rti",
     title: RTI_COURSE.title,
     summary:
-      "Streaming lessons built over pinned lab blueprints, with every hold and NOT_RUN status kept visible.",
+      "Streaming lessons built over pinned lab blueprints, with every hold stated and no lab run here.",
     href: RTI_COURSE.href,
     subjects: ["fabric"],
   },
