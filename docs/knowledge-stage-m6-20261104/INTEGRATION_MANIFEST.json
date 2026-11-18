@@ -372,6 +372,15 @@
       "layer": "release-readiness/2026-11-06",
       "attribution": "release-readiness-integration",
       "note": "Release-readiness integration: the file changed as part of the accepted R1-R6 integration and the release-candidate tooling. The hop records the new bytes for the slice named in the phase report; no publication state moved."
+    },
+    {
+      "path": "tests/knowledge/canonical-home.test.mjs",
+      "previousSha256": "bd20f1175c0d6fbc88aa74fb1684cc510dc489d2676024b55e54ff8eb2a97531",
+      "sha256": "f286fa8176005309997f5664ddeb7093e5b26689fdd4670b005eff7dabf55b3b",
+      "bytes": 15856,
+      "layer": "primary-navigation/2026-11-18",
+      "attribution": "owner-approved-t2.1-nav",
+      "note": "The canonical-home guard now asserts the accepted one primary navigation: Learn, Practice, Work and About in NAV on every route, with LANDING_NAV retired. No other assertion changed."
     }
   ],
   "additions": [

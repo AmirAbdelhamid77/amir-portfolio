@@ -2,7 +2,7 @@
   "scope": "hansa-fabric-corpus-integration-20261105",
   "note": "First receipt layer of the Microsoft Fabric full-corpus integration branch (feat/fabric-corpus-20261105). It records only audited, reviewed transitions made on that branch; it never edits an older receipt and never rewrites a hash that still matches disk. The pinned baseline remains 3d94030; every entry states why it exists and names its work-package review evidence in docs/fabric-corpus/reports/. Advancement recorded 2026-11-08 on release/v1: the predecessor M6 manifest was lawfully advanced by the owner's Active V3 R3-R6 promotion (the uncommitted working state frozen as release/v1 a775483; its note records the R2 review slice). Per this layer's own rule the predecessor hash no longer matched disk, so it is re-pinned here: 6507ab5b788fad0a876bd2c77072f099210edfadae088bc1510ee02257ccf8fc -> 41e94509d07b461b7cb8b161402a87138eb8da3002dc7830cb494134897b0842. No file pin, addition, removal or exclusion below was changed.",
   "previous": "docs/knowledge-stage-m6-20261104/INTEGRATION_MANIFEST.json",
-  "previousSha256": "41e94509d07b461b7cb8b161402a87138eb8da3002dc7830cb494134897b0842",
+  "previousSha256": "2b7acd365a5586414e871e52bdddfcec5c3d151083dacdce0df567bc4416f650",
   "files": [
     {
       "path": "app/sitemap.ts",
