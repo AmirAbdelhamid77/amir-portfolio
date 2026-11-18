@@ -204,7 +204,11 @@ export class FabricSearch {
   private refetchedAfterDrift = false;
 
   constructor(options: FabricSearchOptions = {}) {
-    this.fetchImpl = options.fetchImpl ?? fetch;
+    // Call the global fetch through a wrapper: storing `fetch` and invoking it
+    // as `this.fetchImpl(...)` changes the receiver, and Chromium rejects that
+    // with "Illegal invocation" before any request is made. The wrapper keeps
+    // the global receiver and leaves the injectable test seam unchanged.
+    this.fetchImpl = options.fetchImpl ?? ((input, init) => fetch(input, init));
     this.manifestUrl = options.manifestUrl ?? fabricAssetUrl("manifest.json");
     this.cache = new ShardLru(options.maxCacheBytes ?? 8 * 1024 * 1024, options.maxCacheEntries ?? 48);
   }
