@@ -177,6 +177,13 @@ titles are only allowed where a term has no translation (e.g. `JOIN`), and never
 
 ## 10. Visual principles
 
+✔ **Design language: decisions are explained the same way everywhere** (accepted 2026-11-18, from the
+second review). An explanation follows four steps: **predict → change one thing → see the evidence →
+explain**. SQL 05's "Aggregate each child first" grain toggle and the HSE case's rate-basis explainer
+already work this way. Lessons, exercises and cases share this way of explaining a decision, not one card
+shape; a dashboard, a lesson and a reference article may still look different. The first pilot is SQL 05
+(IMPLEMENTATION_PLAN T3.0), tested with a first-time learner before the pattern spreads.
+
 ⏸ (direction agreed, build deferred) The site's distinctive idea comes from its subject: **honest charts**.
 - One accent colour. Remove the seven user-selectable accent presets (light/dark stays).
 - A signature motif built from annotated mini-charts for section markers and empty states, not decorative glass or gradients.
@@ -249,6 +256,7 @@ The pack stays excluded from insights until the owner decides to promote it.
 | 2026-11-17 | Deferred until the first slice ships: URL shape (§5), Arabic mode (§9), visual identity (§10) | Owner |
 | 2026-11-17 | First release slice, success measures and evidence rules adopted (§11a) | Owner |
 | 2026-11-17 | `patrick-dp600` answer keys corrected (22 of 30); pack stays excluded from insights pending a promotion decision | Owner ruling, implemented by Claude |
+| 2026-11-18 | Second independent review accepted as input. Its defects become IMPLEMENTATION_PLAN Phase 2b (R1–R6); design language "predict → change → evidence → explain" adopted (§10); SQL 05 is the first Phase 3 pilot | Owner |
 
 ### Open questions for the owner
 
@@ -258,3 +266,9 @@ The pack stays excluded from insights until the owner decides to promote it.
 4. The corrected `patrick-dp600` pack: promote it into insights, or keep it excluded?
 5. Owner content: the Power BI outline, the CV PDF, a portrait, and whether to publish a "Building Hansa" case study.
 6. After the first slice ships and is tested: decide §5, §9 and §10.
+7. **Home below the intro** (raised by the 2026-11-18 review). §6/§6a say one insight card on home, with
+   the timeline moved to `/insights/`. The review suggests keeping the timeline below the intro and
+   replacing the repeated three-door row with one real decision from Amir's work. Choose one; they can
+   combine (the decision fills the card's slot, and the timeline moves).
+8. **Shareable professional summary before the CV exists.** The review suggests a print-friendly
+   Experience page, which needs no PDF. Accept, or wait for the CV?
