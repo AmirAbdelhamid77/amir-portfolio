@@ -215,8 +215,8 @@
         },
         {
           "path": "lib/search/fabric-shards.ts",
-          "bytes": 15807,
-          "sha256": "f9001c46356c51e350805a3aa67019d3d2ed5b7d7a2cf46b3b09209093ce81a3",
+          "bytes": 16152,
+          "sha256": "1cf7a99a3a3fd0738f96f49970c8d247457e275c3dce2d26f8fe02643ecc5754",
           "commit": "fa802ab67c7a2195a72c1509e9c3b7f586bbe23b"
         },
         {
@@ -1400,8 +1400,30 @@
           "commit": "b69e98c6385ebd61528db1854216b2c3a9a61188"
         }
       ]
+    },
+    {
+      "id": "fabric-search-fetch-receiver",
+      "title": "Browser-valid Fabric search fetch receiver and acceptance script",
+      "review": "Reviewed in a fresh Chromium profile: /search?q=OneLake requests the Fabric manifest, shows eight documentation matches and opens the first article at its matching section. A regression test fails on the old receiver and passes on the wrapper. No content, question, answer key or saved progress changed.",
+      "commits": [
+        "f2648f27a186dc4cb5494053bae110e929bacb1d"
+      ],
+      "files": [
+        {
+          "path": "tests/fabric-corpus/search/fetch-receiver.test.mjs",
+          "bytes": 1523,
+          "sha256": "de3f38cf41ed11953b0778ed7ab4ca1eac75dd05b6089bea989d5375633cde82",
+          "commit": "f2648f27a186dc4cb5494053bae110e929bacb1d"
+        },
+        {
+          "path": "tests/fabric-corpus/search/search-band-browser.mjs",
+          "bytes": 3382,
+          "sha256": "db1a018a4cbe9519a6ad216aef081741d079ca2f5107cd98d5d3891c73aa6c6d",
+          "commit": "f2648f27a186dc4cb5494053bae110e929bacb1d"
+        }
+      ]
     }
   ],
-  "review": "Reviewed the home opening: one visible heading names the author and the work, two primary actions and a smaller Practice link lead in, and three doors sit above the unchanged timeline. The Continue card stays hidden until this browser holds real progress and links only to existing lab routes; every day URL, date and insight record is untouched. No content, route, question ID, answer key or saved progress changed.",
+  "review": "Reviewed the Fabric search fetch receiver: the browser now requests the manifest, returns documentation matches and opens the matching article section. A regression test pins the global receiver, and no content, question, answer key or saved progress changed.",
   "previousReceiptSha256": "69aa33f5bfbe620fc7d57783d0655e796f574cecb538e2ff23e767f5332e1a2b"
 }

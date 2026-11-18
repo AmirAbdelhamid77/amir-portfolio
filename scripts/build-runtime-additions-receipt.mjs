@@ -194,6 +194,13 @@ export const REVIEWED_WAVES = [
       "Reviewed against the built export: the home opens with one visible heading naming the author and the work, two primary actions, a smaller Practice link and three doors above the unchanged timeline. The Continue card renders nothing until this browser holds real progress and links to the existing lab routes; every day URL, date and insight record is untouched. No content, route, question ID, answer key or saved progress changed.",
     commits: ["b69e98c6385ebd61528db1854216b2c3a9a61188"],
   },
+  {
+    id: "fabric-search-fetch-receiver",
+    title: "Browser-valid Fabric search fetch receiver and acceptance script",
+    review:
+      "Reviewed in a fresh Chromium profile: /search?q=OneLake requests the Fabric manifest, shows eight documentation matches and opens the first article at its matching section. A regression test fails on the old receiver and passes on the wrapper. No content, question, answer key or saved progress changed.",
+    commits: ["f2648f27a186dc4cb5494053bae110e929bacb1d"],
+  },
 ];
 
 const REVIEWED_REVISIONS = new Map([
@@ -265,6 +272,9 @@ const REVIEWED_REVISIONS = new Map([
   ["b69e98c6385ebd61528db1854216b2c3a9a61188", [
     "app/page.tsx",
     "components/hansa/timeline-home.tsx",
+  ]],
+  ["f2648f27a186dc4cb5494053bae110e929bacb1d", [
+    "lib/search/fabric-shards.ts",
   ]],
 ]);
 
