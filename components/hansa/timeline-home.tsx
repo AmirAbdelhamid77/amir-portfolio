@@ -11,6 +11,7 @@ import { useRouter } from "next/navigation";
 import { useCallback, useMemo } from "react";
 import { Timeline } from "@/components/hansa/day-timeline";
 import { DayMedia } from "@/components/hansa/day-media";
+import { HomeIntro, type HomeExam } from "@/components/hansa/home-intro";
 import type { DayLedgerDay } from "@/lib/knowledge/day-ledger";
 import type { Insight } from "@/lib/knowledge/insights";
 import { DAILY_HISTORY_START, liveEdition, type LiveDecks } from "@/lib/knowledge/daily-bank";
@@ -37,7 +38,15 @@ function dayHref(date: string) {
   return date >= DAILY_HISTORY_START ? `/day/live/?date=${date}` : `/day/${date}/`;
 }
 
-export function TimelineHome({ archive, decks }: { archive: DayLedgerDay[]; decks: LiveDecks<Insight> }) {
+export function TimelineHome({
+  archive,
+  decks,
+  exams,
+}: {
+  archive: DayLedgerDay[];
+  decks: LiveDecks<Insight>;
+  exams: HomeExam[];
+}) {
   const router = useRouter();
   const today = useLiveDay();
   const days = useMemo(() => {
@@ -81,19 +90,17 @@ export function TimelineHome({ archive, decks }: { archive: DayLedgerDay[]; deck
       const day = days[index];
       const count = day?.insights.length ?? 0;
       const drafts = day?.insights.filter((insight) => insight.reviewStatus === "draft").length ?? 0;
-      return `${UTC_FULL.format(new Date(event.date))}, ${count} ${count === 1 ? "insight" : "insights"}${drafts ? `, ${drafts} unverified draft${drafts === 1 ? "" : "s"}` : ""}, ${index + 1} of ${days.length}`;
+      return `${UTC_FULL.format(new Date(event.date))}, ${count} ${count === 1 ? "insight" : "insights"}${drafts ? `, ${drafts} draft${drafts === 1 ? "" : "s"} not yet reviewed` : ""}, ${index + 1} of ${days.length}`;
     },
     [days],
   );
 
   return (
     <div className="relative min-h-dvh bg-background text-foreground">
-      {/* sr-only product heading: the visual surface is the timeline itself. */}
-      <h1 className="sr-only">Hansa: a daily data insight</h1>
-      {/* The stage starts below the fixed site header (56px) with breathing
-          room; the 72px offset matches the fork's height math. The layout's
-          own <main id="main"> remains the page's main landmark. */}
-      <div className="pt-[72px]">
+      <HomeIntro exams={exams} />
+      {/* The timeline follows the opening. The layout's own <main id="main">
+          remains the page's main landmark; the intro owns the page heading. */}
+      <div>
         {today ? <Timeline
           key={today}
           events={events}
@@ -123,7 +130,7 @@ export function TimelineHome({ archive, decks }: { archive: DayLedgerDay[]; deck
                     {day.insights.length}{" "}
                     {day.insights.length === 1 ? "insight" : "insights"}
                     {drafts
-                      ? ` (${drafts} unverified draft${drafts === 1 ? "" : "s"})`
+                      ? ` (${drafts} draft${drafts === 1 ? "" : "s"} not yet reviewed)`
                       : ""}
                   </Link>
                 </li>
