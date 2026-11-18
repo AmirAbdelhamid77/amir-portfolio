@@ -125,8 +125,8 @@
         },
         {
           "path": "app/search/search-with-fabric.tsx",
-          "bytes": 11895,
-          "sha256": "151ba8deb756d19817fe0a78fe9d1ba46b428b726d4b31a40ebb58ecc27adfef",
+          "bytes": 10559,
+          "sha256": "60d1408f274769d70bbcea21acd24ac39445e73152aa4c1c5573248d4af4b9a9",
           "commit": "fa802ab67c7a2195a72c1509e9c3b7f586bbe23b"
         },
         {
@@ -1422,8 +1422,24 @@
           "commit": "f2648f27a186dc4cb5494053bae110e929bacb1d"
         }
       ]
+    },
+    {
+      "id": "search-query-state",
+      "title": "One query state for both search result bands",
+      "review": "Reviewed in Chromium: Clear empties the field, the URL and both bands; Back restores the OneLake query and its eight Fabric matches plus the metadata results; Forward clears them again. The Fabric band still opens its first article at the matching section. No indexed document, ranking rule or saved progress changed.",
+      "commits": [
+        "c01f5127da818517529b8a353a838919c3622e4a"
+      ],
+      "files": [
+        {
+          "path": "tests/fabric-corpus/search/search-state-browser.mjs",
+          "bytes": 4692,
+          "sha256": "978dc1839d92130b43e65a1997e02e5c5214052f8a95c106f782484d57aab6ac",
+          "commit": "c01f5127da818517529b8a353a838919c3622e4a"
+        }
+      ]
     }
   ],
-  "review": "Reviewed the Fabric search fetch receiver: the browser now requests the manifest, returns documentation matches and opens the matching article section. A regression test pins the global receiver, and no content, question, answer key or saved progress changed.",
+  "review": "Reviewed the single search query state: Clear empties the field, URL and both result bands, and Back/Forward restore the matching state. No indexed document, ranking rule or saved progress changed.",
   "previousReceiptSha256": "69aa33f5bfbe620fc7d57783d0655e796f574cecb538e2ff23e767f5332e1a2b"
 }

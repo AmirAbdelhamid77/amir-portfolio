@@ -201,6 +201,13 @@ export const REVIEWED_WAVES = [
       "Reviewed in a fresh Chromium profile: /search?q=OneLake requests the Fabric manifest, shows eight documentation matches and opens the first article at its matching section. A regression test fails on the old receiver and passes on the wrapper. No content, question, answer key or saved progress changed.",
     commits: ["f2648f27a186dc4cb5494053bae110e929bacb1d"],
   },
+  {
+    id: "search-query-state",
+    title: "One query state for both search result bands",
+    review:
+      "Reviewed in Chromium: Clear empties the field, the URL and both bands; Back restores the OneLake query and its eight Fabric matches plus the metadata results; Forward clears them again. The Fabric band still opens its first article at the matching section. No indexed document, ranking rule or saved progress changed.",
+    commits: ["c01f5127da818517529b8a353a838919c3622e4a"],
+  },
 ];
 
 const REVIEWED_REVISIONS = new Map([
@@ -275,6 +282,10 @@ const REVIEWED_REVISIONS = new Map([
   ]],
   ["f2648f27a186dc4cb5494053bae110e929bacb1d", [
     "lib/search/fabric-shards.ts",
+  ]],
+  ["c01f5127da818517529b8a353a838919c3622e4a", [
+    "app/search/search-with-fabric.tsx",
+    "components/search/search-client.tsx",
   ]],
 ]);
 

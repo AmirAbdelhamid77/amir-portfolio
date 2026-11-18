@@ -966,6 +966,15 @@
       "layer": "home-intro/2026-11-18",
       "attribution": "owner-approved-t2.5-home",
       "note": "Passes the exam summaries the Continue card needs into the timeline home. The page still composes the same landing, keeps its metadata and JSON-LD, and adds no route or content."
+    },
+    {
+      "path": "components/search/search-client.tsx",
+      "previousSha256": "001a1649c62b282a2689a6e848fd4ed1720abac9c0b60ca6fc28ddac18fac99d",
+      "sha256": "72b27839156fffe17a574f2a7b72b73c9ae16e502dad54b4bffa97a7e3bab2e0",
+      "bytes": 15801,
+      "layer": "search-query/2026-11-18",
+      "attribution": "owner-approved-r2-search",
+      "note": "The search field becomes controlled by the page so the metadata results and the Fabric documentation band read one query. Clear writes a history entry, so Back restores the query and Forward clears it. No result, ranking or indexed document changed."
     }
   ],
   "additions": [],
