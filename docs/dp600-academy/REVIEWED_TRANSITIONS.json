@@ -1,0 +1,78 @@
+{
+  "scope": "dp600-academy-reviewed-transitions",
+  "date": "2026-11-19",
+  "reason": "The Phase 0 Academy preservation baseline predates owner-approved changes to these files. This successor records each exact before/after transition so the Academy unit suite keeps checking bytes instead of being loosened. It does not rewrite the baseline and changes no Academy page, question, answer key or saved progress.",
+  "transitions": [
+    {
+      "path": "app/about/page.tsx",
+      "beforeSha256": "05500df4943759a1ae0e4a2351f5c4c885be3b96aa54b08c0bd313e1ef714da7",
+      "sha256": "15539ad73cde865c74b5d7e3e55ddb48b2b462142fa0c7d31a7a7d2d7719fd32",
+      "authority": "docs/design-system/easyui-v2/INTEGRATION_MANIFEST.json (T2.1 navigation)",
+      "note": "The About page changed in the owner-approved navigation slice; the EasyUI integration receipt records this exact byte transition. No Academy page was rewritten for this test."
+    },
+    {
+      "path": "app/experience/page.tsx",
+      "beforeSha256": "5c0aa11a2b5b14e166aa7c49a389d3e2184ddba988ba620011d24726b05b5780",
+      "sha256": "101f709ae18d690a49f453e8cb2ad432a524e030cfc6af21304d002bff73fa8d",
+      "authority": "docs/design-system/easyui-v2/INTEGRATION_MANIFEST.json (T1.3 honesty fix)",
+      "note": "Removes the promise of certificate images and a downloadable CV that do not exist; the certificate card, case-study link and hiring call to action are unchanged."
+    },
+    {
+      "path": "app/learn/statistics/cheatsheet/page.tsx",
+      "beforeSha256": "15e2e10e5dfa8423df7b8cb1d301f67f1465882771e65ef0efbdbdac979622b9",
+      "sha256": "4f48b8a15cf345a2567b0cc0ac4f5836f12ff6bfe2c1531d8a5e9a3ef25b9a1b",
+      "authority": "docs/design-system/easyui-v2/INTEGRATION_MANIFEST.json (statistics surface review)",
+      "note": "The statistics field guide changed in the owner-approved statistics review. The EasyUI integration receipt records this exact byte transition."
+    },
+    {
+      "path": "app/not-found.tsx",
+      "beforeSha256": "1096a78d73f9f89333df23f6b0b16d05f975c6892f19d378eeeeb7a5fd604096",
+      "sha256": "f882a40b8ab3e8e62b63ab09686bd06bc254ef270b4b944073b95801282b7b72",
+      "authority": "docs/design-system/easyui-v2/INTEGRATION_MANIFEST.json (T0.3 head metadata)",
+      "note": "Removes the page robots block; Next writes the single noindex tag for the 404."
+    },
+    {
+      "path": "app/practice/page.tsx",
+      "beforeSha256": "51a9de3824680487323e255f2cda387b06c584bffc370276f674e75bd5ab468d",
+      "sha256": "e57c5c4f620d09344a473b9fa1f633cc9351615986e94ad80ad8452cfa3f6a15",
+      "authority": "a8e1d9b feat(content-recovery): recover, integrate and surface all holdback collections",
+      "note": "The practice scenarios page changed while the recovered holdback collections were integrated. Question ids, answers and saved progress remain untouched."
+    },
+    {
+      "path": "app/work/page.tsx",
+      "beforeSha256": "fe32e6c3cec01810041705515bfc2cb490bb0b276c77aa91f2aa47d48767f95b",
+      "sha256": "80190123629016785df4b84a45593d4965da44f0d6c47f45f3e7462fe5940b1d",
+      "authority": "a8e1d9b content recovery; 1883892 ESLint cleanup",
+      "note": "The work index changed during content recovery and the later ESLint cleanup. Case-study ids, routes and copy sources are unchanged by this record."
+    },
+    {
+      "path": "lib/data-viz/content.ts",
+      "beforeSha256": "f369b11ed7e7da56c2a9f8a775d6cdb420f8e57937c4d355dbc5ed4f39b61108",
+      "sha256": "1f0c1f6469beb893e50462249d57f4bd9a3d64023e3ce051bae21a08ca0003bf",
+      "authority": "docs/design-system/easyui-v2/INTEGRATION_MANIFEST.json (visualization content review)",
+      "note": "The visualization content registry changed in the owner-approved visualization review. The EasyUI integration receipt records this exact byte transition."
+    },
+    {
+      "path": "package-lock.json",
+      "beforeSha256": "abf3b07600dabd4255c1d6e7d3afb72ab54c91396122a8dd6903546aedbdaf62",
+      "sha256": "5232133f9f0fc85deb154522525a22abda74163106901011a1d75cf4cb7a54a2",
+      "authority": "2efa23c merge: knowledge graph radial tree (dependency lock)",
+      "note": "The lockfile follows package.json additions for the knowledge-tree prototype; no Academy dependency or script changed in this record."
+    },
+    {
+      "path": "next.config.ts",
+      "beforeSha256": "41b1839253f03e60ae77dbca7b82929d3715bc4c41f5a136a7963b315065ba99",
+      "sha256": "26b063404473cbaa3a5674eb7474e1c5717aa391c62b5dbc7c370b8db4e9dca1",
+      "authority": "1ea0388 wave4: engineering closure",
+      "note": "The static-export configuration changed during wave4 closure; routes, aliases and output shape were verified by that wave and its build."
+    },
+    {
+      "path": "app/learn/[slug]/page.tsx",
+      "beforeSha256": "ed884199a7507c670930366b77a29d558ce78b9e0f0475cfffd992d5f63a82a3",
+      "replacement": "app/learn/[subject]/page.tsx",
+      "sha256": "48078951f9851c38a959c6ce51ef66c80c4a2ac58285292649df531e645f9cdc",
+      "authority": "807c6fc learn: canonical topic desks and subject paths under /learn",
+      "note": "The segment was renamed so topic desks can share the level. Data-visualization lesson slugs, static subject homes and /learn/sql/00 still resolve; the lesson page content was reviewed in the same migration."
+    }
+  ]
+}

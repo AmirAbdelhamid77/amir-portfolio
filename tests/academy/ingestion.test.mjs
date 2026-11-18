@@ -49,9 +49,22 @@ test('guide references resolve, no raw source asset is imported by academy UI',(
  for(const r of REFERENCES)assert.equal(new URL(r.url).hostname,'learn.microsoft.com');
  for(const f of ['components/academy/ingestion-lab.tsx','app/learn/dp-600/page.tsx','app/learn/dp-600/ingestion/page.tsx'])assert.doesNotMatch(readFileSync(f,'utf8'),/import.*agent-handoffs|import.*source_content|\.pdf#page/);
 });
-test('pre-existing working files are byte-preserved except three additive integration points',()=>{
+test('pre-existing working files are byte-preserved except recorded reviews',()=>{
  const baseline=JSON.parse(readFileSync('docs/dp600-academy/PHASE_0_PRESERVATION_BASELINE.json'));
+ // The owner-approved successors record exact byte transitions, including the
+ // app/learn/[slug] -> app/learn/[subject] rename. The baseline is never
+ // rewritten: an unrecorded change still fails this test.
+ const successor=JSON.parse(readFileSync('docs/dp600-academy/REVIEWED_TRANSITIONS.json'));
+ assert.equal(successor.scope,'dp600-academy-reviewed-transitions');
+ assert.equal(new Set(successor.transitions.map(e=>e.path+'::'+e.beforeSha256)).size,successor.transitions.length,'duplicate transition');
+ const transition=(path,before)=>successor.transitions.find(entry=>entry.path===path&&entry.beforeSha256===before);
  const allowed=new Set(['lib/fabric/nav.ts','lib/catalogue.ts','app/sitemap.ts']);
  const implementation=implementationReceipt(resolve('.'));
- for(const f of [...baseline.files,...baseline.config]){assert.ok(existsSync(f.path),`missing ${f.path}`);if(allowed.has(f.path))continue;assert.equal(createHash('sha256').update(readFileSync(f.path)).digest('hex'),implementation.expected(f.path,f.sha256),`unexpected change ${f.path}`);}
+ for(const f of [...baseline.files,...baseline.config]){
+  const reviewed=transition(f.path,f.sha256);
+  const target=reviewed?.replacement??f.path;
+  assert.ok(existsSync(target),`missing ${target}`);
+  if(allowed.has(f.path))continue;
+  assert.equal(createHash('sha256').update(readFileSync(target)).digest('hex'),implementation.expected(target,reviewed?.sha256??f.sha256),`unexpected change ${target}`);
+ }
 });
