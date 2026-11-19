@@ -145,7 +145,7 @@ export default function ContentIndexPage() {
   ];
 
   return (
-    <main id="main" className="mx-auto w-full max-w-5xl px-4 py-14">
+    <div className="mx-auto w-full max-w-5xl px-4 py-14">
       <p className="font-mono text-[10px] uppercase tracking-[0.16em] text-muted-foreground">Recovery &amp; integration</p>
       <h1 className="mt-2 text-balance text-4xl font-medium tracking-tight">Content index</h1>
       <p className="mt-4 max-w-3xl text-sm leading-6 text-muted-foreground">
@@ -188,6 +188,6 @@ export default function ContentIndexPage() {
           <li>Author and independently validate deferred assessment packs and Code Lab work from their preserved source specifications.</li>
         </ul>
       </section>
-    </main>
+    </div>
   );
 }

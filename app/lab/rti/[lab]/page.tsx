@@ -64,7 +64,7 @@ export default async function RtiLabPage({ params }: { params: Promise<{ lab: st
   if (!blueprint) notFound();
 
   return (
-    <main id="main" className="mx-auto w-full max-w-3xl px-4 py-14">
+    <div className="mx-auto w-full max-w-3xl px-4 py-14">
       <p className="font-mono text-[10px] uppercase tracking-[0.16em] text-muted-foreground">
         RTI lab · draft — not built or validated
       </p>
@@ -122,6 +122,6 @@ export default async function RtiLabPage({ params }: { params: Promise<{ lab: st
           Back to the Fabric RTI programme
         </Link>
       </p>
-    </main>
+    </div>
   );
 }

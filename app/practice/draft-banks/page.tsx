@@ -33,7 +33,7 @@ export default function DraftBanksPage() {
   }
 
   return (
-    <main id="main" className="mx-auto w-full max-w-4xl px-4 py-14">
+    <div className="mx-auto w-full max-w-4xl px-4 py-14">
       <p className="font-mono text-[10px] uppercase tracking-[0.16em] text-muted-foreground">Recovered collections</p>
       <h1 className="mt-2 text-balance text-4xl font-medium tracking-tight">Draft banks</h1>
       <div className="mt-4 rounded-2xl border border-border bg-card/60 p-4 text-sm leading-6 text-muted-foreground">
@@ -128,6 +128,6 @@ export default function DraftBanksPage() {
           Open the Study Hub
         </a>
       </section>
-    </main>
+    </div>
   );
 }

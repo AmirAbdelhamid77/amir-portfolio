@@ -31,7 +31,7 @@ export default function InsightRecordsPage() {
   const drafts = records.filter((r) => r.reviewStatus === "draft").length;
 
   return (
-    <main id="main" className="mx-auto w-full max-w-5xl px-4 py-14">
+    <div className="mx-auto w-full max-w-5xl px-4 py-14">
       <p className="font-mono text-[10px] uppercase tracking-[0.16em] text-muted-foreground">Recovered collection</p>
       <h1 className="mt-2 text-balance text-4xl font-medium tracking-tight">Insight records</h1>
       <div className="mt-4 rounded-2xl border border-border bg-card/60 p-4 text-sm leading-6 text-muted-foreground">
@@ -83,6 +83,6 @@ export default function InsightRecordsPage() {
           </div>
         </section>
       ))}
-    </main>
+    </div>
   );
 }
