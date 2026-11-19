@@ -1440,6 +1440,22 @@
       ]
     },
     {
+      "id": "academy-figures",
+      "title": "Academy figures link to their upstream files",
+      "review": "Reviewed in Chromium at 1280 and 375 in both themes on the Academy home and the Power BI, lakehouse and pipeline lesson families: every figure link points at the MIT-licensed courseware repository, carries an Image: or Figure N: label, the DAX link reaches learn.microsoft.com, and pages keep one main, no overflow and no console error. 16 page loads, 104 checks, no failures. The regression test checks the source resolver and the built pages; no lesson text, route, ID or answer key changed.",
+      "commits": [
+        "232a6829d6ca36f9d0bd616ca4507b14ce041413"
+      ],
+      "files": [
+        {
+          "path": "tests/content/academy-links.test.mjs",
+          "bytes": 5307,
+          "sha256": "89e239a89149f6202ce0595a9cd5a6e625946149b9b39f844a4b6e27abd9f447",
+          "commit": "232a6829d6ca36f9d0bd616ca4507b14ce041413"
+        }
+      ]
+    },
+    {
       "id": "single-main-landmark",
       "title": "One main landmark per page",
       "review": "Reviewed in Chromium at 1280 and 375 in both themes: the Storytelling listing, Content index, Atlas records, held articles, insight records, patterns, draft banks and every RTI lab render exactly one main and one id=main, keep their content and links, and have no overflow or console error. 40 page loads, 320 checks, no failures. The regression test scans the source and the built export; no route, question, answer key or saved progress changed.",
@@ -1512,6 +1528,6 @@
       ]
     }
   ],
-  "review": "Owner-approved R5: one main landmark per page. Browser review covered the Storytelling listing, Content index, Atlas records, held articles, insight records, patterns, draft banks and RTI labs at 1280 and 375 in both themes (40 page loads, 320 checks, no failures). The reviewed revision changes those eight page wrappers from main to div; no route or content changed.",
-  "previousReceiptSha256": "15879c93c227c17421c41737839d0d1c8623c98586e8fbbdfe89c8b1ed8ab314"
+  "review": "Owner-approved R4: Academy figures resolve upstream. The resolver in lib/academy/corpus.ts joins every source-relative Images/ and Linked_image_Files/ path to the lesson's MIT repository, maps the one host-less DAX link to learn.microsoft.com, and the renderer turns an inline markdown image into an Image: alt link. Browser review covered the Academy home and three lesson families at 1280 and 375 in both themes (16 page loads, 104 checks, no failures). No route, question, answer key or saved progress changed.",
+  "previousReceiptSha256": "63cbb649aa123528e905672ad931ece29a4d90d858797a8a753703bf0bc44ed1"
 }

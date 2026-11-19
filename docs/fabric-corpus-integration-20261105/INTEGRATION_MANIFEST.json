@@ -1110,6 +1110,24 @@
       "layer": "academy-test-all/2026-11-19",
       "attribution": "owner-approved-r6-academy",
       "note": "The audited package.json expectation learns the R6 test:academy script and the updated test:all order. The audit still rejects any script change it does not name; no dependency, route or content rule changed."
+    },
+    {
+      "path": "lib/academy/corpus.ts",
+      "previousSha256": "cf8912fb3b1bc2540890ba4339e131d625d3d65cb3f9e1aff0b35f2ad91c7789",
+      "note": "R4 Academy figures: import-time resolution of source-relative `./Images/` and `Linked_image_Files/` paths against the lesson's MIT-licensed courseware repository, plus the one host-less `/dax/` documentation link mapped to learn.microsoft.com. No lesson text, route, ID or answer key changed; the typed accessors keep their shapes. Evidence: tests/content/academy-links.test.mjs, browser QA of the three affected lesson families at 1280/375 in both themes.",
+      "attribution": "owner-approved-r4-academy",
+      "sha256": "148fc376ce839d0e2bf5c353eff87c6aaa157c35b34838b771e585905078be41",
+      "bytes": 4674,
+      "layer": "academy-figures/2026-11-19"
+    },
+    {
+      "path": "components/academy/lesson-blocks.tsx",
+      "previousSha256": "29736c468a48fbe81def1d45a56d29421bc00404175786bde2253c9f2be7f995",
+      "note": "R4 Academy figures: a markdown image in courseware text becomes an explicit `Image: alt` link to the upstream figure instead of a local `<img>` that 404s. Block images keep their existing `Figure N:` link. Escaping and the rest of the inline vocabulary are unchanged. Evidence: tests/content/academy-links.test.mjs, browser QA at 1280/375 in both themes.",
+      "attribution": "owner-approved-r4-academy",
+      "sha256": "092c2bc7d05a66fab13ecdc72e56fe27b5b5a45a772cee85df41ff580a516abd",
+      "bytes": 4724,
+      "layer": "academy-figures/2026-11-19"
     }
   ],
   "additions": [],

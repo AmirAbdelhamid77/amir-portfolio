@@ -209,6 +209,13 @@ export const REVIEWED_WAVES = [
     commits: ["c01f5127da818517529b8a353a838919c3622e4a"],
   },
   {
+    id: "academy-figures",
+    title: "Academy figures link to their upstream files",
+    review:
+      "Reviewed in Chromium at 1280 and 375 in both themes on the Academy home and the Power BI, lakehouse and pipeline lesson families: every figure link points at the MIT-licensed courseware repository, carries an Image: or Figure N: label, the DAX link reaches learn.microsoft.com, and pages keep one main, no overflow and no console error. 16 page loads, 104 checks, no failures. The regression test checks the source resolver and the built pages; no lesson text, route, ID or answer key changed.",
+    commits: ["232a6829d6ca36f9d0bd616ca4507b14ce041413"],
+  },
+  {
     id: "single-main-landmark",
     title: "One main landmark per page",
     review:
