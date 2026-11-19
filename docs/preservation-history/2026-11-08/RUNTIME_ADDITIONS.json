@@ -513,50 +513,50 @@
       "files": [
         {
           "path": "app/atlas-records/page.tsx",
-          "bytes": 3326,
-          "sha256": "819c90df65a5a2351365b5d4a0261dc7d91025528b976e4250c26ad09e24a0fb",
+          "bytes": 3314,
+          "sha256": "8b2709bd8a3a75b78c5be06049a0d0743ad0052a2dd48ad760398efaefcb3a7d",
           "commit": "a8e1d9b243f5a76c340a5779d7873ad24cd7a041"
         },
         {
           "path": "app/content-index/page.tsx",
-          "bytes": 10051,
-          "sha256": "48b14d84ca63344717787dc1701c5ec3f2a724f7eb202a7010c27a3bd4c64cc5",
+          "bytes": 10039,
+          "sha256": "f5e52186415038803149b6b76461bfe70f3bb7a8be8530095248bce0fbd04806",
           "commit": "a8e1d9b243f5a76c340a5779d7873ad24cd7a041"
         },
         {
           "path": "app/held-articles/page.tsx",
-          "bytes": 3950,
-          "sha256": "425e6f42079a6e530e22c198f46c879d84920d61f215889c237befeeefd88a9e",
+          "bytes": 3938,
+          "sha256": "ad0b1b0eb66275fcd5d8f6ae4c17e81d373ef88dcf5a71f1eca0d4e43dcb612c",
           "commit": "a8e1d9b243f5a76c340a5779d7873ad24cd7a041"
         },
         {
           "path": "app/insight-records/page.tsx",
-          "bytes": 5007,
-          "sha256": "dea52705e1a8456a7f21b238612f82271cd7a4b8415a8c25178613d969e757cf",
+          "bytes": 4995,
+          "sha256": "5908125125db1c6a00d693a6ccaa80c2e00180ea9ad4735143478a0a07f88b98",
           "commit": "a8e1d9b243f5a76c340a5779d7873ad24cd7a041"
         },
         {
           "path": "app/lab/rti/[lab]/page.tsx",
-          "bytes": 5504,
-          "sha256": "4e9bac892f87fb388a191292f696a55860e9c8e130cb9466952f0f6930f10322",
+          "bytes": 5492,
+          "sha256": "e1b42a537b2ae87f9af4f8ec616e7d6edb6f8dd67f25e91537fa4aeea08a13a6",
           "commit": "a8e1d9b243f5a76c340a5779d7873ad24cd7a041"
         },
         {
           "path": "app/patterns/page.tsx",
-          "bytes": 5248,
-          "sha256": "e24bab6a2aa43b9970a807f894cc5554d12c23ffd65764c2c9517ac4e0b52518",
+          "bytes": 5236,
+          "sha256": "4eb52717fb6e659fbc68c31ab6b2a3228f2b3631827e7039c39efb45da668148",
           "commit": "a8e1d9b243f5a76c340a5779d7873ad24cd7a041"
         },
         {
           "path": "app/practice/draft-banks/page.tsx",
-          "bytes": 6838,
-          "sha256": "eabe552dd64dca7d11256d30505974271a04f9a2ba8c190fa81e0936640061d4",
+          "bytes": 6826,
+          "sha256": "a781117ef4498d181435f28ccf19a6650a19820980df4abce7d683bc265dafed",
           "commit": "a8e1d9b243f5a76c340a5779d7873ad24cd7a041"
         },
         {
           "path": "app/work/storytelling/page.tsx",
-          "bytes": 6424,
-          "sha256": "672fa89c3485d334e6e5fc55808d9dd24524a23d8ed57826531195f18b8a6847",
+          "bytes": 6412,
+          "sha256": "5267f5f0579742779c93c1a49b0ae0d94dd4253455b07f8e2dd1ab3078820e8e",
           "commit": "a8e1d9b243f5a76c340a5779d7873ad24cd7a041"
         },
         {
@@ -1440,6 +1440,22 @@
       ]
     },
     {
+      "id": "single-main-landmark",
+      "title": "One main landmark per page",
+      "review": "Reviewed in Chromium at 1280 and 375 in both themes: the Storytelling listing, Content index, Atlas records, held articles, insight records, patterns, draft banks and every RTI lab render exactly one main and one id=main, keep their content and links, and have no overflow or console error. 40 page loads, 320 checks, no failures. The regression test scans the source and the built export; no route, question, answer key or saved progress changed.",
+      "commits": [
+        "8ecef277b2e93ae5a45ffd631fcc690c1e7e316e"
+      ],
+      "files": [
+        {
+          "path": "tests/content/single-main.test.mjs",
+          "bytes": 5603,
+          "sha256": "630b71cf6bb2fc71f327a2bd748a5ad2c55db8ca896b1f259a816a34dbe2a927",
+          "commit": "8ecef277b2e93ae5a45ffd631fcc690c1e7e316e"
+        }
+      ]
+    },
+    {
       "id": "academy-test-all",
       "title": "The Academy unit suite runs in test:all",
       "review": "Reviewed by running the Academy unit suite, the full content suite and the aggregate order by hand. The suite records exact reviewed transitions for ten outdated baseline files, including the app/learn/[slug] -> [subject] rename; an unrecorded change still fails. test:all now runs test:academy between the Fabric and content suites. No Academy page, question, answer key, route or saved progress changed.",
@@ -1496,6 +1512,6 @@
       ]
     }
   ],
-  "review": "Owner-approved R6: the Academy unit suite now runs in test:all and its byte-preservation test follows exact reviewed transitions, including the learn segment rename. The suite passed after the receipt update; no Academy content changed.",
-  "previousReceiptSha256": "310584cc5f53b977cfb9591827e5cc1f0fc26f98fcbe21ca85b7591177eb08ce"
+  "review": "Owner-approved R5: one main landmark per page. Browser review covered the Storytelling listing, Content index, Atlas records, held articles, insight records, patterns, draft banks and RTI labs at 1280 and 375 in both themes (40 page loads, 320 checks, no failures). The reviewed revision changes those eight page wrappers from main to div; no route or content changed.",
+  "previousReceiptSha256": "15879c93c227c17421c41737839d0d1c8623c98586e8fbbdfe89c8b1ed8ab314"
 }

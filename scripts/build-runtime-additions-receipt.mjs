@@ -209,6 +209,13 @@ export const REVIEWED_WAVES = [
     commits: ["c01f5127da818517529b8a353a838919c3622e4a"],
   },
   {
+    id: "single-main-landmark",
+    title: "One main landmark per page",
+    review:
+      "Reviewed in Chromium at 1280 and 375 in both themes: the Storytelling listing, Content index, Atlas records, held articles, insight records, patterns, draft banks and every RTI lab render exactly one main and one id=main, keep their content and links, and have no overflow or console error. 40 page loads, 320 checks, no failures. The regression test scans the source and the built export; no route, question, answer key or saved progress changed.",
+    commits: ["8ecef277b2e93ae5a45ffd631fcc690c1e7e316e"],
+  },
+  {
     id: "academy-test-all",
     title: "The Academy unit suite runs in test:all",
     review:
@@ -304,6 +311,16 @@ const REVIEWED_REVISIONS = new Map([
   ["0baa2f0b6084df8044a3e6f2b52e591c9ac1c368", [
     "package.json",
     "tests/academy/ingestion.test.mjs",
+  ]],
+  ["8ecef277b2e93ae5a45ffd631fcc690c1e7e316e", [
+    "app/atlas-records/page.tsx",
+    "app/content-index/page.tsx",
+    "app/held-articles/page.tsx",
+    "app/insight-records/page.tsx",
+    "app/lab/rti/[lab]/page.tsx",
+    "app/patterns/page.tsx",
+    "app/practice/draft-banks/page.tsx",
+    "app/work/storytelling/page.tsx",
   ]],
   ["e4aaf8663e457f42596783282eab00087370a4b9", [
     "app/lab/dp-600/page.tsx",
