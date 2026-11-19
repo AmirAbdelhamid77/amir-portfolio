@@ -12,6 +12,13 @@ function inline(text: string): string {
     .replace(/`([^`]+)`/g, '<code class="rounded bg-muted px-1 py-0.5 text-[0.9em]">$1</code>')
     .replace(/\*\*([^*]+)\*\*/g, '<strong class="font-medium text-foreground">$1</strong>')
     .replace(/\*([^*]+)\*/g, "<em>$1</em>")
+    // R4: a markdown image in the courseware becomes an explicit link to the
+    // upstream figure instead of a broken local <img>. The alt text stays the
+    // link text so the sentence still reads correctly without the image.
+    .replace(
+      /!\[([^\]]*)\]\(([^)]+)\)/g,
+      '<a class="underline underline-offset-4" href="$2" target="_blank" rel="noopener noreferrer">Image: $1</a>',
+    )
     .replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a class="underline underline-offset-4" href="$2" target="_blank" rel="noopener noreferrer">$1</a>');
 }
 
